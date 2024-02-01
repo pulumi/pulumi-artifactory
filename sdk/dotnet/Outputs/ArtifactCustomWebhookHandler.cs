@@ -17,6 +17,9 @@ namespace Pulumi.Artifactory.Outputs
         /// HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? HttpHeaders;
+        /// <summary>
+        /// This attribute is used to build the request body. Used in custom webhooks
+        /// </summary>
         public readonly string? Payload;
         /// <summary>
         /// Proxy key from Artifactory UI (Administration &gt; Proxies &gt; Configuration).

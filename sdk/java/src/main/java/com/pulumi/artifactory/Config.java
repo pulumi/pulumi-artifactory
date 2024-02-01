@@ -12,7 +12,7 @@ public final class Config {
 
     private static final com.pulumi.Config config = com.pulumi.Config.of("artifactory");
 /**
- * This is a access token that can be given to you by your admin under `User Management -&gt; Access Tokens`. If not set, the
+ * This is a access token that can be given to you by your admin under `User Management &gt; Access Tokens`. If not set, the
  * &#39;api_key&#39; attribute value will be used.
  * 
  */

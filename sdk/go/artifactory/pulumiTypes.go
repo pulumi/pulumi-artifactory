@@ -362,7 +362,8 @@ func (o ArtifactCustomWebhookCriteriaPtrOutput) RepoKeys() pulumi.StringArrayOut
 type ArtifactCustomWebhookHandler struct {
 	// HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
 	HttpHeaders map[string]string `pulumi:"httpHeaders"`
-	Payload     *string           `pulumi:"payload"`
+	// This attribute is used to build the request body. Used in custom webhooks
+	Payload *string `pulumi:"payload"`
 	// Proxy key from Artifactory UI (Administration > Proxies > Configuration).
 	Proxy *string `pulumi:"proxy"`
 	// Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
@@ -399,7 +400,8 @@ type ArtifactCustomWebhookHandlerInput interface {
 type ArtifactCustomWebhookHandlerArgs struct {
 	// HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
 	HttpHeaders pulumi.StringMapInput `pulumi:"httpHeaders"`
-	Payload     pulumi.StringPtrInput `pulumi:"payload"`
+	// This attribute is used to build the request body. Used in custom webhooks
+	Payload pulumi.StringPtrInput `pulumi:"payload"`
 	// Proxy key from Artifactory UI (Administration > Proxies > Configuration).
 	Proxy pulumi.StringPtrInput `pulumi:"proxy"`
 	// Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
@@ -478,6 +480,7 @@ func (o ArtifactCustomWebhookHandlerOutput) HttpHeaders() pulumi.StringMapOutput
 	return o.ApplyT(func(v ArtifactCustomWebhookHandler) map[string]string { return v.HttpHeaders }).(pulumi.StringMapOutput)
 }
 
+// This attribute is used to build the request body. Used in custom webhooks
 func (o ArtifactCustomWebhookHandlerOutput) Payload() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ArtifactCustomWebhookHandler) *string { return v.Payload }).(pulumi.StringPtrOutput)
 }
@@ -750,7 +753,8 @@ func (o ArtifactPropertyCustomWebhookCriteriaPtrOutput) RepoKeys() pulumi.String
 type ArtifactPropertyCustomWebhookHandler struct {
 	// HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
 	HttpHeaders map[string]string `pulumi:"httpHeaders"`
-	Payload     *string           `pulumi:"payload"`
+	// This attribute is used to build the request body. Used in custom webhooks
+	Payload *string `pulumi:"payload"`
 	// Proxy key from Artifactory UI (Administration > Proxies > Configuration).
 	Proxy *string `pulumi:"proxy"`
 	// Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
@@ -787,7 +791,8 @@ type ArtifactPropertyCustomWebhookHandlerInput interface {
 type ArtifactPropertyCustomWebhookHandlerArgs struct {
 	// HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
 	HttpHeaders pulumi.StringMapInput `pulumi:"httpHeaders"`
-	Payload     pulumi.StringPtrInput `pulumi:"payload"`
+	// This attribute is used to build the request body. Used in custom webhooks
+	Payload pulumi.StringPtrInput `pulumi:"payload"`
 	// Proxy key from Artifactory UI (Administration > Proxies > Configuration).
 	Proxy pulumi.StringPtrInput `pulumi:"proxy"`
 	// Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
@@ -866,6 +871,7 @@ func (o ArtifactPropertyCustomWebhookHandlerOutput) HttpHeaders() pulumi.StringM
 	return o.ApplyT(func(v ArtifactPropertyCustomWebhookHandler) map[string]string { return v.HttpHeaders }).(pulumi.StringMapOutput)
 }
 
+// This attribute is used to build the request body. Used in custom webhooks
 func (o ArtifactPropertyCustomWebhookHandlerOutput) Payload() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ArtifactPropertyCustomWebhookHandler) *string { return v.Payload }).(pulumi.StringPtrOutput)
 }
@@ -1793,7 +1799,8 @@ func (o ArtifactoryReleaseBundleCustomWebhookCriteriaPtrOutput) RegisteredReleas
 type ArtifactoryReleaseBundleCustomWebhookHandler struct {
 	// HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
 	HttpHeaders map[string]string `pulumi:"httpHeaders"`
-	Payload     *string           `pulumi:"payload"`
+	// This attribute is used to build the request body. Used in custom webhooks
+	Payload *string `pulumi:"payload"`
 	// Proxy key from Artifactory UI (Administration > Proxies > Configuration).
 	Proxy *string `pulumi:"proxy"`
 	// Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
@@ -1830,7 +1837,8 @@ type ArtifactoryReleaseBundleCustomWebhookHandlerInput interface {
 type ArtifactoryReleaseBundleCustomWebhookHandlerArgs struct {
 	// HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
 	HttpHeaders pulumi.StringMapInput `pulumi:"httpHeaders"`
-	Payload     pulumi.StringPtrInput `pulumi:"payload"`
+	// This attribute is used to build the request body. Used in custom webhooks
+	Payload pulumi.StringPtrInput `pulumi:"payload"`
 	// Proxy key from Artifactory UI (Administration > Proxies > Configuration).
 	Proxy pulumi.StringPtrInput `pulumi:"proxy"`
 	// Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
@@ -1909,6 +1917,7 @@ func (o ArtifactoryReleaseBundleCustomWebhookHandlerOutput) HttpHeaders() pulumi
 	return o.ApplyT(func(v ArtifactoryReleaseBundleCustomWebhookHandler) map[string]string { return v.HttpHeaders }).(pulumi.StringMapOutput)
 }
 
+// This attribute is used to build the request body. Used in custom webhooks
 func (o ArtifactoryReleaseBundleCustomWebhookHandlerOutput) Payload() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ArtifactoryReleaseBundleCustomWebhookHandler) *string { return v.Payload }).(pulumi.StringPtrOutput)
 }
@@ -2480,7 +2489,8 @@ func (o BuildCustomWebhookCriteriaPtrOutput) SelectedBuilds() pulumi.StringArray
 type BuildCustomWebhookHandler struct {
 	// HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
 	HttpHeaders map[string]string `pulumi:"httpHeaders"`
-	Payload     *string           `pulumi:"payload"`
+	// This attribute is used to build the request body. Used in custom webhooks
+	Payload *string `pulumi:"payload"`
 	// Proxy key from Artifactory UI (Administration > Proxies > Configuration).
 	Proxy *string `pulumi:"proxy"`
 	// Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
@@ -2517,7 +2527,8 @@ type BuildCustomWebhookHandlerInput interface {
 type BuildCustomWebhookHandlerArgs struct {
 	// HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
 	HttpHeaders pulumi.StringMapInput `pulumi:"httpHeaders"`
-	Payload     pulumi.StringPtrInput `pulumi:"payload"`
+	// This attribute is used to build the request body. Used in custom webhooks
+	Payload pulumi.StringPtrInput `pulumi:"payload"`
 	// Proxy key from Artifactory UI (Administration > Proxies > Configuration).
 	Proxy pulumi.StringPtrInput `pulumi:"proxy"`
 	// Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
@@ -2596,6 +2607,7 @@ func (o BuildCustomWebhookHandlerOutput) HttpHeaders() pulumi.StringMapOutput {
 	return o.ApplyT(func(v BuildCustomWebhookHandler) map[string]string { return v.HttpHeaders }).(pulumi.StringMapOutput)
 }
 
+// This attribute is used to build the request body. Used in custom webhooks
 func (o BuildCustomWebhookHandlerOutput) Payload() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BuildCustomWebhookHandler) *string { return v.Payload }).(pulumi.StringPtrOutput)
 }
@@ -3167,7 +3179,8 @@ func (o DistributionCustomWebhookCriteriaPtrOutput) RegisteredReleaseBundleNames
 type DistributionCustomWebhookHandler struct {
 	// HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
 	HttpHeaders map[string]string `pulumi:"httpHeaders"`
-	Payload     *string           `pulumi:"payload"`
+	// This attribute is used to build the request body. Used in custom webhooks
+	Payload *string `pulumi:"payload"`
 	// Proxy key from Artifactory UI (Administration > Proxies > Configuration).
 	Proxy *string `pulumi:"proxy"`
 	// Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
@@ -3204,7 +3217,8 @@ type DistributionCustomWebhookHandlerInput interface {
 type DistributionCustomWebhookHandlerArgs struct {
 	// HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
 	HttpHeaders pulumi.StringMapInput `pulumi:"httpHeaders"`
-	Payload     pulumi.StringPtrInput `pulumi:"payload"`
+	// This attribute is used to build the request body. Used in custom webhooks
+	Payload pulumi.StringPtrInput `pulumi:"payload"`
 	// Proxy key from Artifactory UI (Administration > Proxies > Configuration).
 	Proxy pulumi.StringPtrInput `pulumi:"proxy"`
 	// Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
@@ -3283,6 +3297,7 @@ func (o DistributionCustomWebhookHandlerOutput) HttpHeaders() pulumi.StringMapOu
 	return o.ApplyT(func(v DistributionCustomWebhookHandler) map[string]string { return v.HttpHeaders }).(pulumi.StringMapOutput)
 }
 
+// This attribute is used to build the request body. Used in custom webhooks
 func (o DistributionCustomWebhookHandlerOutput) Payload() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionCustomWebhookHandler) *string { return v.Payload }).(pulumi.StringPtrOutput)
 }
@@ -3873,7 +3888,8 @@ func (o DockerCustomWebhookCriteriaPtrOutput) RepoKeys() pulumi.StringArrayOutpu
 type DockerCustomWebhookHandler struct {
 	// HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
 	HttpHeaders map[string]string `pulumi:"httpHeaders"`
-	Payload     *string           `pulumi:"payload"`
+	// This attribute is used to build the request body. Used in custom webhooks
+	Payload *string `pulumi:"payload"`
 	// Proxy key from Artifactory UI (Administration > Proxies > Configuration).
 	Proxy *string `pulumi:"proxy"`
 	// Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
@@ -3910,7 +3926,8 @@ type DockerCustomWebhookHandlerInput interface {
 type DockerCustomWebhookHandlerArgs struct {
 	// HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
 	HttpHeaders pulumi.StringMapInput `pulumi:"httpHeaders"`
-	Payload     pulumi.StringPtrInput `pulumi:"payload"`
+	// This attribute is used to build the request body. Used in custom webhooks
+	Payload pulumi.StringPtrInput `pulumi:"payload"`
 	// Proxy key from Artifactory UI (Administration > Proxies > Configuration).
 	Proxy pulumi.StringPtrInput `pulumi:"proxy"`
 	// Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
@@ -3989,6 +4006,7 @@ func (o DockerCustomWebhookHandlerOutput) HttpHeaders() pulumi.StringMapOutput {
 	return o.ApplyT(func(v DockerCustomWebhookHandler) map[string]string { return v.HttpHeaders }).(pulumi.StringMapOutput)
 }
 
+// This attribute is used to build the request body. Used in custom webhooks
 func (o DockerCustomWebhookHandlerOutput) Payload() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DockerCustomWebhookHandler) *string { return v.Payload }).(pulumi.StringPtrOutput)
 }
@@ -10515,7 +10533,8 @@ func (o ReleaseBundleCustomWebhookCriteriaPtrOutput) RegisteredReleaseBundleName
 type ReleaseBundleCustomWebhookHandler struct {
 	// HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
 	HttpHeaders map[string]string `pulumi:"httpHeaders"`
-	Payload     *string           `pulumi:"payload"`
+	// This attribute is used to build the request body. Used in custom webhooks
+	Payload *string `pulumi:"payload"`
 	// Proxy key from Artifactory UI (Administration > Proxies > Configuration).
 	Proxy *string `pulumi:"proxy"`
 	// Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
@@ -10552,7 +10571,8 @@ type ReleaseBundleCustomWebhookHandlerInput interface {
 type ReleaseBundleCustomWebhookHandlerArgs struct {
 	// HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
 	HttpHeaders pulumi.StringMapInput `pulumi:"httpHeaders"`
-	Payload     pulumi.StringPtrInput `pulumi:"payload"`
+	// This attribute is used to build the request body. Used in custom webhooks
+	Payload pulumi.StringPtrInput `pulumi:"payload"`
 	// Proxy key from Artifactory UI (Administration > Proxies > Configuration).
 	Proxy pulumi.StringPtrInput `pulumi:"proxy"`
 	// Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
@@ -10631,6 +10651,7 @@ func (o ReleaseBundleCustomWebhookHandlerOutput) HttpHeaders() pulumi.StringMapO
 	return o.ApplyT(func(v ReleaseBundleCustomWebhookHandler) map[string]string { return v.HttpHeaders }).(pulumi.StringMapOutput)
 }
 
+// This attribute is used to build the request body. Used in custom webhooks
 func (o ReleaseBundleCustomWebhookHandlerOutput) Payload() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReleaseBundleCustomWebhookHandler) *string { return v.Payload }).(pulumi.StringPtrOutput)
 }
@@ -11006,10 +11027,14 @@ func (o ReleaseBundleWebhookHandlerArrayOutput) Index(i pulumi.IntInput) Release
 }
 
 type RemoteAlpineRepositoryContentSynchronisation struct {
-	Enabled                      *bool `pulumi:"enabled"`
-	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled *bool `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
 }
 
 // RemoteAlpineRepositoryContentSynchronisationInput is an input type that accepts RemoteAlpineRepositoryContentSynchronisationArgs and RemoteAlpineRepositoryContentSynchronisationOutput values.
@@ -11024,10 +11049,14 @@ type RemoteAlpineRepositoryContentSynchronisationInput interface {
 }
 
 type RemoteAlpineRepositoryContentSynchronisationArgs struct {
-	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
-	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
 }
 
 func (RemoteAlpineRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
@@ -11107,18 +11136,22 @@ func (o RemoteAlpineRepositoryContentSynchronisationOutput) ToRemoteAlpineReposi
 	}).(RemoteAlpineRepositoryContentSynchronisationPtrOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o RemoteAlpineRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteAlpineRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o RemoteAlpineRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteAlpineRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o RemoteAlpineRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteAlpineRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemoteAlpineRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteAlpineRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -11147,6 +11180,7 @@ func (o RemoteAlpineRepositoryContentSynchronisationPtrOutput) Elem() RemoteAlpi
 	}).(RemoteAlpineRepositoryContentSynchronisationOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o RemoteAlpineRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteAlpineRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -11156,6 +11190,7 @@ func (o RemoteAlpineRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o RemoteAlpineRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteAlpineRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -11165,6 +11200,7 @@ func (o RemoteAlpineRepositoryContentSynchronisationPtrOutput) PropertiesEnabled
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o RemoteAlpineRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteAlpineRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -11174,6 +11210,7 @@ func (o RemoteAlpineRepositoryContentSynchronisationPtrOutput) SourceOriginAbsen
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemoteAlpineRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteAlpineRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -11184,10 +11221,14 @@ func (o RemoteAlpineRepositoryContentSynchronisationPtrOutput) StatisticsEnabled
 }
 
 type RemoteBowerRepositoryContentSynchronisation struct {
-	Enabled                      *bool `pulumi:"enabled"`
-	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled *bool `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
 }
 
 // RemoteBowerRepositoryContentSynchronisationInput is an input type that accepts RemoteBowerRepositoryContentSynchronisationArgs and RemoteBowerRepositoryContentSynchronisationOutput values.
@@ -11202,10 +11243,14 @@ type RemoteBowerRepositoryContentSynchronisationInput interface {
 }
 
 type RemoteBowerRepositoryContentSynchronisationArgs struct {
-	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
-	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
 }
 
 func (RemoteBowerRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
@@ -11285,18 +11330,22 @@ func (o RemoteBowerRepositoryContentSynchronisationOutput) ToRemoteBowerReposito
 	}).(RemoteBowerRepositoryContentSynchronisationPtrOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o RemoteBowerRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteBowerRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o RemoteBowerRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteBowerRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o RemoteBowerRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteBowerRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemoteBowerRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteBowerRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -11325,6 +11374,7 @@ func (o RemoteBowerRepositoryContentSynchronisationPtrOutput) Elem() RemoteBower
 	}).(RemoteBowerRepositoryContentSynchronisationOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o RemoteBowerRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteBowerRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -11334,6 +11384,7 @@ func (o RemoteBowerRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.B
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o RemoteBowerRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteBowerRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -11343,6 +11394,7 @@ func (o RemoteBowerRepositoryContentSynchronisationPtrOutput) PropertiesEnabled(
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o RemoteBowerRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteBowerRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -11352,6 +11404,7 @@ func (o RemoteBowerRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenc
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemoteBowerRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteBowerRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -11362,10 +11415,14 @@ func (o RemoteBowerRepositoryContentSynchronisationPtrOutput) StatisticsEnabled(
 }
 
 type RemoteCargoRepositoryContentSynchronisation struct {
-	Enabled                      *bool `pulumi:"enabled"`
-	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled *bool `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
 }
 
 // RemoteCargoRepositoryContentSynchronisationInput is an input type that accepts RemoteCargoRepositoryContentSynchronisationArgs and RemoteCargoRepositoryContentSynchronisationOutput values.
@@ -11380,10 +11437,14 @@ type RemoteCargoRepositoryContentSynchronisationInput interface {
 }
 
 type RemoteCargoRepositoryContentSynchronisationArgs struct {
-	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
-	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
 }
 
 func (RemoteCargoRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
@@ -11463,18 +11524,22 @@ func (o RemoteCargoRepositoryContentSynchronisationOutput) ToRemoteCargoReposito
 	}).(RemoteCargoRepositoryContentSynchronisationPtrOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o RemoteCargoRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteCargoRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o RemoteCargoRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteCargoRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o RemoteCargoRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteCargoRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemoteCargoRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteCargoRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -11503,6 +11568,7 @@ func (o RemoteCargoRepositoryContentSynchronisationPtrOutput) Elem() RemoteCargo
 	}).(RemoteCargoRepositoryContentSynchronisationOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o RemoteCargoRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteCargoRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -11512,6 +11578,7 @@ func (o RemoteCargoRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.B
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o RemoteCargoRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteCargoRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -11521,6 +11588,7 @@ func (o RemoteCargoRepositoryContentSynchronisationPtrOutput) PropertiesEnabled(
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o RemoteCargoRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteCargoRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -11530,6 +11598,7 @@ func (o RemoteCargoRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenc
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemoteCargoRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteCargoRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -11540,10 +11609,14 @@ func (o RemoteCargoRepositoryContentSynchronisationPtrOutput) StatisticsEnabled(
 }
 
 type RemoteChefRepositoryContentSynchronisation struct {
-	Enabled                      *bool `pulumi:"enabled"`
-	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled *bool `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
 }
 
 // RemoteChefRepositoryContentSynchronisationInput is an input type that accepts RemoteChefRepositoryContentSynchronisationArgs and RemoteChefRepositoryContentSynchronisationOutput values.
@@ -11558,10 +11631,14 @@ type RemoteChefRepositoryContentSynchronisationInput interface {
 }
 
 type RemoteChefRepositoryContentSynchronisationArgs struct {
-	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
-	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
 }
 
 func (RemoteChefRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
@@ -11641,18 +11718,22 @@ func (o RemoteChefRepositoryContentSynchronisationOutput) ToRemoteChefRepository
 	}).(RemoteChefRepositoryContentSynchronisationPtrOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o RemoteChefRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteChefRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o RemoteChefRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteChefRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o RemoteChefRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteChefRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemoteChefRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteChefRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -11681,6 +11762,7 @@ func (o RemoteChefRepositoryContentSynchronisationPtrOutput) Elem() RemoteChefRe
 	}).(RemoteChefRepositoryContentSynchronisationOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o RemoteChefRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteChefRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -11690,6 +11772,7 @@ func (o RemoteChefRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.Bo
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o RemoteChefRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteChefRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -11699,6 +11782,7 @@ func (o RemoteChefRepositoryContentSynchronisationPtrOutput) PropertiesEnabled()
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o RemoteChefRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteChefRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -11708,6 +11792,7 @@ func (o RemoteChefRepositoryContentSynchronisationPtrOutput) SourceOriginAbsence
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemoteChefRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteChefRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -11718,10 +11803,14 @@ func (o RemoteChefRepositoryContentSynchronisationPtrOutput) StatisticsEnabled()
 }
 
 type RemoteCocoapodsRepositoryContentSynchronisation struct {
-	Enabled                      *bool `pulumi:"enabled"`
-	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled *bool `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
 }
 
 // RemoteCocoapodsRepositoryContentSynchronisationInput is an input type that accepts RemoteCocoapodsRepositoryContentSynchronisationArgs and RemoteCocoapodsRepositoryContentSynchronisationOutput values.
@@ -11736,10 +11825,14 @@ type RemoteCocoapodsRepositoryContentSynchronisationInput interface {
 }
 
 type RemoteCocoapodsRepositoryContentSynchronisationArgs struct {
-	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
-	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
 }
 
 func (RemoteCocoapodsRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
@@ -11819,18 +11912,22 @@ func (o RemoteCocoapodsRepositoryContentSynchronisationOutput) ToRemoteCocoapods
 	}).(RemoteCocoapodsRepositoryContentSynchronisationPtrOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o RemoteCocoapodsRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteCocoapodsRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o RemoteCocoapodsRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteCocoapodsRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o RemoteCocoapodsRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteCocoapodsRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemoteCocoapodsRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteCocoapodsRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -11859,6 +11956,7 @@ func (o RemoteCocoapodsRepositoryContentSynchronisationPtrOutput) Elem() RemoteC
 	}).(RemoteCocoapodsRepositoryContentSynchronisationOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o RemoteCocoapodsRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteCocoapodsRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -11868,6 +11966,7 @@ func (o RemoteCocoapodsRepositoryContentSynchronisationPtrOutput) Enabled() pulu
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o RemoteCocoapodsRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteCocoapodsRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -11877,6 +11976,7 @@ func (o RemoteCocoapodsRepositoryContentSynchronisationPtrOutput) PropertiesEnab
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o RemoteCocoapodsRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteCocoapodsRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -11886,6 +11986,7 @@ func (o RemoteCocoapodsRepositoryContentSynchronisationPtrOutput) SourceOriginAb
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemoteCocoapodsRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteCocoapodsRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -11896,10 +11997,14 @@ func (o RemoteCocoapodsRepositoryContentSynchronisationPtrOutput) StatisticsEnab
 }
 
 type RemoteComposerRepositoryContentSynchronisation struct {
-	Enabled                      *bool `pulumi:"enabled"`
-	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled *bool `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
 }
 
 // RemoteComposerRepositoryContentSynchronisationInput is an input type that accepts RemoteComposerRepositoryContentSynchronisationArgs and RemoteComposerRepositoryContentSynchronisationOutput values.
@@ -11914,10 +12019,14 @@ type RemoteComposerRepositoryContentSynchronisationInput interface {
 }
 
 type RemoteComposerRepositoryContentSynchronisationArgs struct {
-	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
-	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
 }
 
 func (RemoteComposerRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
@@ -11997,18 +12106,22 @@ func (o RemoteComposerRepositoryContentSynchronisationOutput) ToRemoteComposerRe
 	}).(RemoteComposerRepositoryContentSynchronisationPtrOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o RemoteComposerRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteComposerRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o RemoteComposerRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteComposerRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o RemoteComposerRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteComposerRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemoteComposerRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteComposerRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -12037,6 +12150,7 @@ func (o RemoteComposerRepositoryContentSynchronisationPtrOutput) Elem() RemoteCo
 	}).(RemoteComposerRepositoryContentSynchronisationOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o RemoteComposerRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteComposerRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -12046,6 +12160,7 @@ func (o RemoteComposerRepositoryContentSynchronisationPtrOutput) Enabled() pulum
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o RemoteComposerRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteComposerRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -12055,6 +12170,7 @@ func (o RemoteComposerRepositoryContentSynchronisationPtrOutput) PropertiesEnabl
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o RemoteComposerRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteComposerRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -12064,6 +12180,7 @@ func (o RemoteComposerRepositoryContentSynchronisationPtrOutput) SourceOriginAbs
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemoteComposerRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteComposerRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -12074,10 +12191,14 @@ func (o RemoteComposerRepositoryContentSynchronisationPtrOutput) StatisticsEnabl
 }
 
 type RemoteConanRepositoryContentSynchronisation struct {
-	Enabled                      *bool `pulumi:"enabled"`
-	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled *bool `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
 }
 
 // RemoteConanRepositoryContentSynchronisationInput is an input type that accepts RemoteConanRepositoryContentSynchronisationArgs and RemoteConanRepositoryContentSynchronisationOutput values.
@@ -12092,10 +12213,14 @@ type RemoteConanRepositoryContentSynchronisationInput interface {
 }
 
 type RemoteConanRepositoryContentSynchronisationArgs struct {
-	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
-	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
 }
 
 func (RemoteConanRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
@@ -12175,18 +12300,22 @@ func (o RemoteConanRepositoryContentSynchronisationOutput) ToRemoteConanReposito
 	}).(RemoteConanRepositoryContentSynchronisationPtrOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o RemoteConanRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteConanRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o RemoteConanRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteConanRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o RemoteConanRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteConanRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemoteConanRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteConanRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -12215,6 +12344,7 @@ func (o RemoteConanRepositoryContentSynchronisationPtrOutput) Elem() RemoteConan
 	}).(RemoteConanRepositoryContentSynchronisationOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o RemoteConanRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteConanRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -12224,6 +12354,7 @@ func (o RemoteConanRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.B
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o RemoteConanRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteConanRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -12233,6 +12364,7 @@ func (o RemoteConanRepositoryContentSynchronisationPtrOutput) PropertiesEnabled(
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o RemoteConanRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteConanRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -12242,6 +12374,7 @@ func (o RemoteConanRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenc
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemoteConanRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteConanRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -12252,10 +12385,14 @@ func (o RemoteConanRepositoryContentSynchronisationPtrOutput) StatisticsEnabled(
 }
 
 type RemoteCondaRepositoryContentSynchronisation struct {
-	Enabled                      *bool `pulumi:"enabled"`
-	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled *bool `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
 }
 
 // RemoteCondaRepositoryContentSynchronisationInput is an input type that accepts RemoteCondaRepositoryContentSynchronisationArgs and RemoteCondaRepositoryContentSynchronisationOutput values.
@@ -12270,10 +12407,14 @@ type RemoteCondaRepositoryContentSynchronisationInput interface {
 }
 
 type RemoteCondaRepositoryContentSynchronisationArgs struct {
-	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
-	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
 }
 
 func (RemoteCondaRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
@@ -12353,18 +12494,22 @@ func (o RemoteCondaRepositoryContentSynchronisationOutput) ToRemoteCondaReposito
 	}).(RemoteCondaRepositoryContentSynchronisationPtrOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o RemoteCondaRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteCondaRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o RemoteCondaRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteCondaRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o RemoteCondaRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteCondaRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemoteCondaRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteCondaRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -12393,6 +12538,7 @@ func (o RemoteCondaRepositoryContentSynchronisationPtrOutput) Elem() RemoteConda
 	}).(RemoteCondaRepositoryContentSynchronisationOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o RemoteCondaRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteCondaRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -12402,6 +12548,7 @@ func (o RemoteCondaRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.B
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o RemoteCondaRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteCondaRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -12411,6 +12558,7 @@ func (o RemoteCondaRepositoryContentSynchronisationPtrOutput) PropertiesEnabled(
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o RemoteCondaRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteCondaRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -12420,6 +12568,7 @@ func (o RemoteCondaRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenc
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemoteCondaRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteCondaRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -12430,10 +12579,14 @@ func (o RemoteCondaRepositoryContentSynchronisationPtrOutput) StatisticsEnabled(
 }
 
 type RemoteCranRepositoryContentSynchronisation struct {
-	Enabled                      *bool `pulumi:"enabled"`
-	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled *bool `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
 }
 
 // RemoteCranRepositoryContentSynchronisationInput is an input type that accepts RemoteCranRepositoryContentSynchronisationArgs and RemoteCranRepositoryContentSynchronisationOutput values.
@@ -12448,10 +12601,14 @@ type RemoteCranRepositoryContentSynchronisationInput interface {
 }
 
 type RemoteCranRepositoryContentSynchronisationArgs struct {
-	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
-	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
 }
 
 func (RemoteCranRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
@@ -12531,18 +12688,22 @@ func (o RemoteCranRepositoryContentSynchronisationOutput) ToRemoteCranRepository
 	}).(RemoteCranRepositoryContentSynchronisationPtrOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o RemoteCranRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteCranRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o RemoteCranRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteCranRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o RemoteCranRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteCranRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemoteCranRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteCranRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -12571,6 +12732,7 @@ func (o RemoteCranRepositoryContentSynchronisationPtrOutput) Elem() RemoteCranRe
 	}).(RemoteCranRepositoryContentSynchronisationOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o RemoteCranRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteCranRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -12580,6 +12742,7 @@ func (o RemoteCranRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.Bo
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o RemoteCranRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteCranRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -12589,6 +12752,7 @@ func (o RemoteCranRepositoryContentSynchronisationPtrOutput) PropertiesEnabled()
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o RemoteCranRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteCranRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -12598,6 +12762,7 @@ func (o RemoteCranRepositoryContentSynchronisationPtrOutput) SourceOriginAbsence
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemoteCranRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteCranRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -12608,10 +12773,14 @@ func (o RemoteCranRepositoryContentSynchronisationPtrOutput) StatisticsEnabled()
 }
 
 type RemoteDebianRepositoryContentSynchronisation struct {
-	Enabled                      *bool `pulumi:"enabled"`
-	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled *bool `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
 }
 
 // RemoteDebianRepositoryContentSynchronisationInput is an input type that accepts RemoteDebianRepositoryContentSynchronisationArgs and RemoteDebianRepositoryContentSynchronisationOutput values.
@@ -12626,10 +12795,14 @@ type RemoteDebianRepositoryContentSynchronisationInput interface {
 }
 
 type RemoteDebianRepositoryContentSynchronisationArgs struct {
-	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
-	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
 }
 
 func (RemoteDebianRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
@@ -12709,18 +12882,22 @@ func (o RemoteDebianRepositoryContentSynchronisationOutput) ToRemoteDebianReposi
 	}).(RemoteDebianRepositoryContentSynchronisationPtrOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o RemoteDebianRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteDebianRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o RemoteDebianRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteDebianRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o RemoteDebianRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteDebianRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemoteDebianRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteDebianRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -12749,6 +12926,7 @@ func (o RemoteDebianRepositoryContentSynchronisationPtrOutput) Elem() RemoteDebi
 	}).(RemoteDebianRepositoryContentSynchronisationOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o RemoteDebianRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteDebianRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -12758,6 +12936,7 @@ func (o RemoteDebianRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o RemoteDebianRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteDebianRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -12767,6 +12946,7 @@ func (o RemoteDebianRepositoryContentSynchronisationPtrOutput) PropertiesEnabled
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o RemoteDebianRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteDebianRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -12776,6 +12956,7 @@ func (o RemoteDebianRepositoryContentSynchronisationPtrOutput) SourceOriginAbsen
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemoteDebianRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteDebianRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -12786,10 +12967,14 @@ func (o RemoteDebianRepositoryContentSynchronisationPtrOutput) StatisticsEnabled
 }
 
 type RemoteDockerRepositoryContentSynchronisation struct {
-	Enabled                      *bool `pulumi:"enabled"`
-	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled *bool `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
 }
 
 // RemoteDockerRepositoryContentSynchronisationInput is an input type that accepts RemoteDockerRepositoryContentSynchronisationArgs and RemoteDockerRepositoryContentSynchronisationOutput values.
@@ -12804,10 +12989,14 @@ type RemoteDockerRepositoryContentSynchronisationInput interface {
 }
 
 type RemoteDockerRepositoryContentSynchronisationArgs struct {
-	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
-	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
 }
 
 func (RemoteDockerRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
@@ -12887,18 +13076,22 @@ func (o RemoteDockerRepositoryContentSynchronisationOutput) ToRemoteDockerReposi
 	}).(RemoteDockerRepositoryContentSynchronisationPtrOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o RemoteDockerRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteDockerRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o RemoteDockerRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteDockerRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o RemoteDockerRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteDockerRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemoteDockerRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteDockerRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -12927,6 +13120,7 @@ func (o RemoteDockerRepositoryContentSynchronisationPtrOutput) Elem() RemoteDock
 	}).(RemoteDockerRepositoryContentSynchronisationOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o RemoteDockerRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteDockerRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -12936,6 +13130,7 @@ func (o RemoteDockerRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o RemoteDockerRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteDockerRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -12945,6 +13140,7 @@ func (o RemoteDockerRepositoryContentSynchronisationPtrOutput) PropertiesEnabled
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o RemoteDockerRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteDockerRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -12954,6 +13150,7 @@ func (o RemoteDockerRepositoryContentSynchronisationPtrOutput) SourceOriginAbsen
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemoteDockerRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteDockerRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -12964,10 +13161,14 @@ func (o RemoteDockerRepositoryContentSynchronisationPtrOutput) StatisticsEnabled
 }
 
 type RemoteGemsRepositoryContentSynchronisation struct {
-	Enabled                      *bool `pulumi:"enabled"`
-	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled *bool `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
 }
 
 // RemoteGemsRepositoryContentSynchronisationInput is an input type that accepts RemoteGemsRepositoryContentSynchronisationArgs and RemoteGemsRepositoryContentSynchronisationOutput values.
@@ -12982,10 +13183,14 @@ type RemoteGemsRepositoryContentSynchronisationInput interface {
 }
 
 type RemoteGemsRepositoryContentSynchronisationArgs struct {
-	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
-	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
 }
 
 func (RemoteGemsRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
@@ -13065,18 +13270,22 @@ func (o RemoteGemsRepositoryContentSynchronisationOutput) ToRemoteGemsRepository
 	}).(RemoteGemsRepositoryContentSynchronisationPtrOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o RemoteGemsRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteGemsRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o RemoteGemsRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteGemsRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o RemoteGemsRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteGemsRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemoteGemsRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteGemsRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -13105,6 +13314,7 @@ func (o RemoteGemsRepositoryContentSynchronisationPtrOutput) Elem() RemoteGemsRe
 	}).(RemoteGemsRepositoryContentSynchronisationOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o RemoteGemsRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteGemsRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -13114,6 +13324,7 @@ func (o RemoteGemsRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.Bo
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o RemoteGemsRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteGemsRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -13123,6 +13334,7 @@ func (o RemoteGemsRepositoryContentSynchronisationPtrOutput) PropertiesEnabled()
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o RemoteGemsRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteGemsRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -13132,6 +13344,7 @@ func (o RemoteGemsRepositoryContentSynchronisationPtrOutput) SourceOriginAbsence
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemoteGemsRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteGemsRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -13142,10 +13355,14 @@ func (o RemoteGemsRepositoryContentSynchronisationPtrOutput) StatisticsEnabled()
 }
 
 type RemoteGenericRepositoryContentSynchronisation struct {
-	Enabled                      *bool `pulumi:"enabled"`
-	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled *bool `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
 }
 
 // RemoteGenericRepositoryContentSynchronisationInput is an input type that accepts RemoteGenericRepositoryContentSynchronisationArgs and RemoteGenericRepositoryContentSynchronisationOutput values.
@@ -13160,10 +13377,14 @@ type RemoteGenericRepositoryContentSynchronisationInput interface {
 }
 
 type RemoteGenericRepositoryContentSynchronisationArgs struct {
-	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
-	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
 }
 
 func (RemoteGenericRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
@@ -13243,18 +13464,22 @@ func (o RemoteGenericRepositoryContentSynchronisationOutput) ToRemoteGenericRepo
 	}).(RemoteGenericRepositoryContentSynchronisationPtrOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o RemoteGenericRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteGenericRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o RemoteGenericRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteGenericRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o RemoteGenericRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteGenericRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemoteGenericRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteGenericRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -13283,6 +13508,7 @@ func (o RemoteGenericRepositoryContentSynchronisationPtrOutput) Elem() RemoteGen
 	}).(RemoteGenericRepositoryContentSynchronisationOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o RemoteGenericRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteGenericRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -13292,6 +13518,7 @@ func (o RemoteGenericRepositoryContentSynchronisationPtrOutput) Enabled() pulumi
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o RemoteGenericRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteGenericRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -13301,6 +13528,7 @@ func (o RemoteGenericRepositoryContentSynchronisationPtrOutput) PropertiesEnable
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o RemoteGenericRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteGenericRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -13310,6 +13538,7 @@ func (o RemoteGenericRepositoryContentSynchronisationPtrOutput) SourceOriginAbse
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemoteGenericRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteGenericRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -13320,10 +13549,14 @@ func (o RemoteGenericRepositoryContentSynchronisationPtrOutput) StatisticsEnable
 }
 
 type RemoteGitlfsRepositoryContentSynchronisation struct {
-	Enabled                      *bool `pulumi:"enabled"`
-	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled *bool `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
 }
 
 // RemoteGitlfsRepositoryContentSynchronisationInput is an input type that accepts RemoteGitlfsRepositoryContentSynchronisationArgs and RemoteGitlfsRepositoryContentSynchronisationOutput values.
@@ -13338,10 +13571,14 @@ type RemoteGitlfsRepositoryContentSynchronisationInput interface {
 }
 
 type RemoteGitlfsRepositoryContentSynchronisationArgs struct {
-	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
-	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
 }
 
 func (RemoteGitlfsRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
@@ -13421,18 +13658,22 @@ func (o RemoteGitlfsRepositoryContentSynchronisationOutput) ToRemoteGitlfsReposi
 	}).(RemoteGitlfsRepositoryContentSynchronisationPtrOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o RemoteGitlfsRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteGitlfsRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o RemoteGitlfsRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteGitlfsRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o RemoteGitlfsRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteGitlfsRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemoteGitlfsRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteGitlfsRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -13461,6 +13702,7 @@ func (o RemoteGitlfsRepositoryContentSynchronisationPtrOutput) Elem() RemoteGitl
 	}).(RemoteGitlfsRepositoryContentSynchronisationOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o RemoteGitlfsRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteGitlfsRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -13470,6 +13712,7 @@ func (o RemoteGitlfsRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o RemoteGitlfsRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteGitlfsRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -13479,6 +13722,7 @@ func (o RemoteGitlfsRepositoryContentSynchronisationPtrOutput) PropertiesEnabled
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o RemoteGitlfsRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteGitlfsRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -13488,6 +13732,7 @@ func (o RemoteGitlfsRepositoryContentSynchronisationPtrOutput) SourceOriginAbsen
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemoteGitlfsRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteGitlfsRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -13498,10 +13743,14 @@ func (o RemoteGitlfsRepositoryContentSynchronisationPtrOutput) StatisticsEnabled
 }
 
 type RemoteGoRepositoryContentSynchronisation struct {
-	Enabled                      *bool `pulumi:"enabled"`
-	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled *bool `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
 }
 
 // RemoteGoRepositoryContentSynchronisationInput is an input type that accepts RemoteGoRepositoryContentSynchronisationArgs and RemoteGoRepositoryContentSynchronisationOutput values.
@@ -13516,10 +13765,14 @@ type RemoteGoRepositoryContentSynchronisationInput interface {
 }
 
 type RemoteGoRepositoryContentSynchronisationArgs struct {
-	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
-	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
 }
 
 func (RemoteGoRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
@@ -13599,18 +13852,22 @@ func (o RemoteGoRepositoryContentSynchronisationOutput) ToRemoteGoRepositoryCont
 	}).(RemoteGoRepositoryContentSynchronisationPtrOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o RemoteGoRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteGoRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o RemoteGoRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteGoRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o RemoteGoRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteGoRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemoteGoRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteGoRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -13639,6 +13896,7 @@ func (o RemoteGoRepositoryContentSynchronisationPtrOutput) Elem() RemoteGoReposi
 	}).(RemoteGoRepositoryContentSynchronisationOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o RemoteGoRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteGoRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -13648,6 +13906,7 @@ func (o RemoteGoRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.Bool
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o RemoteGoRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteGoRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -13657,6 +13916,7 @@ func (o RemoteGoRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() p
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o RemoteGoRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteGoRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -13666,6 +13926,7 @@ func (o RemoteGoRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDe
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemoteGoRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteGoRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -13676,10 +13937,14 @@ func (o RemoteGoRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() p
 }
 
 type RemoteGradleRepositoryContentSynchronisation struct {
-	Enabled                      *bool `pulumi:"enabled"`
-	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled *bool `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
 }
 
 // RemoteGradleRepositoryContentSynchronisationInput is an input type that accepts RemoteGradleRepositoryContentSynchronisationArgs and RemoteGradleRepositoryContentSynchronisationOutput values.
@@ -13694,10 +13959,14 @@ type RemoteGradleRepositoryContentSynchronisationInput interface {
 }
 
 type RemoteGradleRepositoryContentSynchronisationArgs struct {
-	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
-	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
 }
 
 func (RemoteGradleRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
@@ -13777,18 +14046,22 @@ func (o RemoteGradleRepositoryContentSynchronisationOutput) ToRemoteGradleReposi
 	}).(RemoteGradleRepositoryContentSynchronisationPtrOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o RemoteGradleRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteGradleRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o RemoteGradleRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteGradleRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o RemoteGradleRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteGradleRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemoteGradleRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteGradleRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -13817,6 +14090,7 @@ func (o RemoteGradleRepositoryContentSynchronisationPtrOutput) Elem() RemoteGrad
 	}).(RemoteGradleRepositoryContentSynchronisationOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o RemoteGradleRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteGradleRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -13826,6 +14100,7 @@ func (o RemoteGradleRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o RemoteGradleRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteGradleRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -13835,6 +14110,7 @@ func (o RemoteGradleRepositoryContentSynchronisationPtrOutput) PropertiesEnabled
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o RemoteGradleRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteGradleRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -13844,6 +14120,7 @@ func (o RemoteGradleRepositoryContentSynchronisationPtrOutput) SourceOriginAbsen
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemoteGradleRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteGradleRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -13854,10 +14131,14 @@ func (o RemoteGradleRepositoryContentSynchronisationPtrOutput) StatisticsEnabled
 }
 
 type RemoteHelmRepositoryContentSynchronisation struct {
-	Enabled                      *bool `pulumi:"enabled"`
-	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled *bool `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
 }
 
 // RemoteHelmRepositoryContentSynchronisationInput is an input type that accepts RemoteHelmRepositoryContentSynchronisationArgs and RemoteHelmRepositoryContentSynchronisationOutput values.
@@ -13872,10 +14153,14 @@ type RemoteHelmRepositoryContentSynchronisationInput interface {
 }
 
 type RemoteHelmRepositoryContentSynchronisationArgs struct {
-	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
-	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
 }
 
 func (RemoteHelmRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
@@ -13955,18 +14240,22 @@ func (o RemoteHelmRepositoryContentSynchronisationOutput) ToRemoteHelmRepository
 	}).(RemoteHelmRepositoryContentSynchronisationPtrOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o RemoteHelmRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteHelmRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o RemoteHelmRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteHelmRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o RemoteHelmRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteHelmRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemoteHelmRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteHelmRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -13995,6 +14284,7 @@ func (o RemoteHelmRepositoryContentSynchronisationPtrOutput) Elem() RemoteHelmRe
 	}).(RemoteHelmRepositoryContentSynchronisationOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o RemoteHelmRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteHelmRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -14004,6 +14294,7 @@ func (o RemoteHelmRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.Bo
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o RemoteHelmRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteHelmRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -14013,6 +14304,7 @@ func (o RemoteHelmRepositoryContentSynchronisationPtrOutput) PropertiesEnabled()
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o RemoteHelmRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteHelmRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -14022,6 +14314,7 @@ func (o RemoteHelmRepositoryContentSynchronisationPtrOutput) SourceOriginAbsence
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemoteHelmRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteHelmRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -14032,10 +14325,14 @@ func (o RemoteHelmRepositoryContentSynchronisationPtrOutput) StatisticsEnabled()
 }
 
 type RemoteHuggingfacemlRepositoryContentSynchronisation struct {
-	Enabled                      *bool `pulumi:"enabled"`
-	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled *bool `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
 }
 
 // RemoteHuggingfacemlRepositoryContentSynchronisationInput is an input type that accepts RemoteHuggingfacemlRepositoryContentSynchronisationArgs and RemoteHuggingfacemlRepositoryContentSynchronisationOutput values.
@@ -14050,10 +14347,14 @@ type RemoteHuggingfacemlRepositoryContentSynchronisationInput interface {
 }
 
 type RemoteHuggingfacemlRepositoryContentSynchronisationArgs struct {
-	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
-	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
 }
 
 func (RemoteHuggingfacemlRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
@@ -14133,20 +14434,24 @@ func (o RemoteHuggingfacemlRepositoryContentSynchronisationOutput) ToRemoteHuggi
 	}).(RemoteHuggingfacemlRepositoryContentSynchronisationPtrOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o RemoteHuggingfacemlRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteHuggingfacemlRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o RemoteHuggingfacemlRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteHuggingfacemlRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o RemoteHuggingfacemlRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteHuggingfacemlRepositoryContentSynchronisation) *bool {
 		return v.SourceOriginAbsenceDetection
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemoteHuggingfacemlRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteHuggingfacemlRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -14175,6 +14480,7 @@ func (o RemoteHuggingfacemlRepositoryContentSynchronisationPtrOutput) Elem() Rem
 	}).(RemoteHuggingfacemlRepositoryContentSynchronisationOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o RemoteHuggingfacemlRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteHuggingfacemlRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -14184,6 +14490,7 @@ func (o RemoteHuggingfacemlRepositoryContentSynchronisationPtrOutput) Enabled() 
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o RemoteHuggingfacemlRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteHuggingfacemlRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -14193,6 +14500,7 @@ func (o RemoteHuggingfacemlRepositoryContentSynchronisationPtrOutput) Properties
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o RemoteHuggingfacemlRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteHuggingfacemlRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -14202,6 +14510,7 @@ func (o RemoteHuggingfacemlRepositoryContentSynchronisationPtrOutput) SourceOrig
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemoteHuggingfacemlRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteHuggingfacemlRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -14212,10 +14521,14 @@ func (o RemoteHuggingfacemlRepositoryContentSynchronisationPtrOutput) Statistics
 }
 
 type RemoteIvyRepositoryContentSynchronisation struct {
-	Enabled                      *bool `pulumi:"enabled"`
-	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled *bool `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
 }
 
 // RemoteIvyRepositoryContentSynchronisationInput is an input type that accepts RemoteIvyRepositoryContentSynchronisationArgs and RemoteIvyRepositoryContentSynchronisationOutput values.
@@ -14230,10 +14543,14 @@ type RemoteIvyRepositoryContentSynchronisationInput interface {
 }
 
 type RemoteIvyRepositoryContentSynchronisationArgs struct {
-	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
-	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
 }
 
 func (RemoteIvyRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
@@ -14313,18 +14630,22 @@ func (o RemoteIvyRepositoryContentSynchronisationOutput) ToRemoteIvyRepositoryCo
 	}).(RemoteIvyRepositoryContentSynchronisationPtrOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o RemoteIvyRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteIvyRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o RemoteIvyRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteIvyRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o RemoteIvyRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteIvyRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemoteIvyRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteIvyRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -14353,6 +14674,7 @@ func (o RemoteIvyRepositoryContentSynchronisationPtrOutput) Elem() RemoteIvyRepo
 	}).(RemoteIvyRepositoryContentSynchronisationOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o RemoteIvyRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteIvyRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -14362,6 +14684,7 @@ func (o RemoteIvyRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.Boo
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o RemoteIvyRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteIvyRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -14371,6 +14694,7 @@ func (o RemoteIvyRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() 
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o RemoteIvyRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteIvyRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -14380,6 +14704,7 @@ func (o RemoteIvyRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceD
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemoteIvyRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteIvyRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -14390,10 +14715,14 @@ func (o RemoteIvyRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() 
 }
 
 type RemoteMavenRepositoryContentSynchronisation struct {
-	Enabled                      *bool `pulumi:"enabled"`
-	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled *bool `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
 }
 
 // RemoteMavenRepositoryContentSynchronisationInput is an input type that accepts RemoteMavenRepositoryContentSynchronisationArgs and RemoteMavenRepositoryContentSynchronisationOutput values.
@@ -14408,10 +14737,14 @@ type RemoteMavenRepositoryContentSynchronisationInput interface {
 }
 
 type RemoteMavenRepositoryContentSynchronisationArgs struct {
-	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
-	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
 }
 
 func (RemoteMavenRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
@@ -14491,18 +14824,22 @@ func (o RemoteMavenRepositoryContentSynchronisationOutput) ToRemoteMavenReposito
 	}).(RemoteMavenRepositoryContentSynchronisationPtrOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o RemoteMavenRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteMavenRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o RemoteMavenRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteMavenRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o RemoteMavenRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteMavenRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemoteMavenRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteMavenRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -14531,6 +14868,7 @@ func (o RemoteMavenRepositoryContentSynchronisationPtrOutput) Elem() RemoteMaven
 	}).(RemoteMavenRepositoryContentSynchronisationOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o RemoteMavenRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteMavenRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -14540,6 +14878,7 @@ func (o RemoteMavenRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.B
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o RemoteMavenRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteMavenRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -14549,6 +14888,7 @@ func (o RemoteMavenRepositoryContentSynchronisationPtrOutput) PropertiesEnabled(
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o RemoteMavenRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteMavenRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -14558,6 +14898,7 @@ func (o RemoteMavenRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenc
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemoteMavenRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteMavenRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -14568,10 +14909,14 @@ func (o RemoteMavenRepositoryContentSynchronisationPtrOutput) StatisticsEnabled(
 }
 
 type RemoteNpmRepositoryContentSynchronisation struct {
-	Enabled                      *bool `pulumi:"enabled"`
-	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled *bool `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
 }
 
 // RemoteNpmRepositoryContentSynchronisationInput is an input type that accepts RemoteNpmRepositoryContentSynchronisationArgs and RemoteNpmRepositoryContentSynchronisationOutput values.
@@ -14586,10 +14931,14 @@ type RemoteNpmRepositoryContentSynchronisationInput interface {
 }
 
 type RemoteNpmRepositoryContentSynchronisationArgs struct {
-	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
-	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
 }
 
 func (RemoteNpmRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
@@ -14669,18 +15018,22 @@ func (o RemoteNpmRepositoryContentSynchronisationOutput) ToRemoteNpmRepositoryCo
 	}).(RemoteNpmRepositoryContentSynchronisationPtrOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o RemoteNpmRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteNpmRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o RemoteNpmRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteNpmRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o RemoteNpmRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteNpmRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemoteNpmRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteNpmRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -14709,6 +15062,7 @@ func (o RemoteNpmRepositoryContentSynchronisationPtrOutput) Elem() RemoteNpmRepo
 	}).(RemoteNpmRepositoryContentSynchronisationOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o RemoteNpmRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteNpmRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -14718,6 +15072,7 @@ func (o RemoteNpmRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.Boo
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o RemoteNpmRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteNpmRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -14727,6 +15082,7 @@ func (o RemoteNpmRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() 
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o RemoteNpmRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteNpmRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -14736,6 +15092,7 @@ func (o RemoteNpmRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceD
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemoteNpmRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteNpmRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -14746,10 +15103,14 @@ func (o RemoteNpmRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() 
 }
 
 type RemoteNugetRepositoryContentSynchronisation struct {
-	Enabled                      *bool `pulumi:"enabled"`
-	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled *bool `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
 }
 
 // RemoteNugetRepositoryContentSynchronisationInput is an input type that accepts RemoteNugetRepositoryContentSynchronisationArgs and RemoteNugetRepositoryContentSynchronisationOutput values.
@@ -14764,10 +15125,14 @@ type RemoteNugetRepositoryContentSynchronisationInput interface {
 }
 
 type RemoteNugetRepositoryContentSynchronisationArgs struct {
-	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
-	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
 }
 
 func (RemoteNugetRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
@@ -14847,18 +15212,22 @@ func (o RemoteNugetRepositoryContentSynchronisationOutput) ToRemoteNugetReposito
 	}).(RemoteNugetRepositoryContentSynchronisationPtrOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o RemoteNugetRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteNugetRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o RemoteNugetRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteNugetRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o RemoteNugetRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteNugetRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemoteNugetRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteNugetRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -14887,6 +15256,7 @@ func (o RemoteNugetRepositoryContentSynchronisationPtrOutput) Elem() RemoteNuget
 	}).(RemoteNugetRepositoryContentSynchronisationOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o RemoteNugetRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteNugetRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -14896,6 +15266,7 @@ func (o RemoteNugetRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.B
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o RemoteNugetRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteNugetRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -14905,6 +15276,7 @@ func (o RemoteNugetRepositoryContentSynchronisationPtrOutput) PropertiesEnabled(
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o RemoteNugetRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteNugetRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -14914,6 +15286,7 @@ func (o RemoteNugetRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenc
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemoteNugetRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteNugetRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -14924,10 +15297,14 @@ func (o RemoteNugetRepositoryContentSynchronisationPtrOutput) StatisticsEnabled(
 }
 
 type RemoteOpkgRepositoryContentSynchronisation struct {
-	Enabled                      *bool `pulumi:"enabled"`
-	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled *bool `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
 }
 
 // RemoteOpkgRepositoryContentSynchronisationInput is an input type that accepts RemoteOpkgRepositoryContentSynchronisationArgs and RemoteOpkgRepositoryContentSynchronisationOutput values.
@@ -14942,10 +15319,14 @@ type RemoteOpkgRepositoryContentSynchronisationInput interface {
 }
 
 type RemoteOpkgRepositoryContentSynchronisationArgs struct {
-	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
-	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
 }
 
 func (RemoteOpkgRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
@@ -15025,18 +15406,22 @@ func (o RemoteOpkgRepositoryContentSynchronisationOutput) ToRemoteOpkgRepository
 	}).(RemoteOpkgRepositoryContentSynchronisationPtrOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o RemoteOpkgRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteOpkgRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o RemoteOpkgRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteOpkgRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o RemoteOpkgRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteOpkgRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemoteOpkgRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteOpkgRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -15065,6 +15450,7 @@ func (o RemoteOpkgRepositoryContentSynchronisationPtrOutput) Elem() RemoteOpkgRe
 	}).(RemoteOpkgRepositoryContentSynchronisationOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o RemoteOpkgRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteOpkgRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -15074,6 +15460,7 @@ func (o RemoteOpkgRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.Bo
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o RemoteOpkgRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteOpkgRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -15083,6 +15470,7 @@ func (o RemoteOpkgRepositoryContentSynchronisationPtrOutput) PropertiesEnabled()
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o RemoteOpkgRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteOpkgRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -15092,6 +15480,7 @@ func (o RemoteOpkgRepositoryContentSynchronisationPtrOutput) SourceOriginAbsence
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemoteOpkgRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteOpkgRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -15102,10 +15491,14 @@ func (o RemoteOpkgRepositoryContentSynchronisationPtrOutput) StatisticsEnabled()
 }
 
 type RemoteP2RepositoryContentSynchronisation struct {
-	Enabled                      *bool `pulumi:"enabled"`
-	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled *bool `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
 }
 
 // RemoteP2RepositoryContentSynchronisationInput is an input type that accepts RemoteP2RepositoryContentSynchronisationArgs and RemoteP2RepositoryContentSynchronisationOutput values.
@@ -15120,10 +15513,14 @@ type RemoteP2RepositoryContentSynchronisationInput interface {
 }
 
 type RemoteP2RepositoryContentSynchronisationArgs struct {
-	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
-	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
 }
 
 func (RemoteP2RepositoryContentSynchronisationArgs) ElementType() reflect.Type {
@@ -15203,18 +15600,22 @@ func (o RemoteP2RepositoryContentSynchronisationOutput) ToRemoteP2RepositoryCont
 	}).(RemoteP2RepositoryContentSynchronisationPtrOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o RemoteP2RepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteP2RepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o RemoteP2RepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteP2RepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o RemoteP2RepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteP2RepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemoteP2RepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteP2RepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -15243,6 +15644,7 @@ func (o RemoteP2RepositoryContentSynchronisationPtrOutput) Elem() RemoteP2Reposi
 	}).(RemoteP2RepositoryContentSynchronisationOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o RemoteP2RepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteP2RepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -15252,6 +15654,7 @@ func (o RemoteP2RepositoryContentSynchronisationPtrOutput) Enabled() pulumi.Bool
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o RemoteP2RepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteP2RepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -15261,6 +15664,7 @@ func (o RemoteP2RepositoryContentSynchronisationPtrOutput) PropertiesEnabled() p
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o RemoteP2RepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteP2RepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -15270,6 +15674,7 @@ func (o RemoteP2RepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDe
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemoteP2RepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteP2RepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -15280,10 +15685,14 @@ func (o RemoteP2RepositoryContentSynchronisationPtrOutput) StatisticsEnabled() p
 }
 
 type RemotePubRepositoryContentSynchronisation struct {
-	Enabled                      *bool `pulumi:"enabled"`
-	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled *bool `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
 }
 
 // RemotePubRepositoryContentSynchronisationInput is an input type that accepts RemotePubRepositoryContentSynchronisationArgs and RemotePubRepositoryContentSynchronisationOutput values.
@@ -15298,10 +15707,14 @@ type RemotePubRepositoryContentSynchronisationInput interface {
 }
 
 type RemotePubRepositoryContentSynchronisationArgs struct {
-	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
-	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
 }
 
 func (RemotePubRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
@@ -15381,18 +15794,22 @@ func (o RemotePubRepositoryContentSynchronisationOutput) ToRemotePubRepositoryCo
 	}).(RemotePubRepositoryContentSynchronisationPtrOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o RemotePubRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemotePubRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o RemotePubRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemotePubRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o RemotePubRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemotePubRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemotePubRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemotePubRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -15421,6 +15838,7 @@ func (o RemotePubRepositoryContentSynchronisationPtrOutput) Elem() RemotePubRepo
 	}).(RemotePubRepositoryContentSynchronisationOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o RemotePubRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemotePubRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -15430,6 +15848,7 @@ func (o RemotePubRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.Boo
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o RemotePubRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemotePubRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -15439,6 +15858,7 @@ func (o RemotePubRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() 
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o RemotePubRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemotePubRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -15448,6 +15868,7 @@ func (o RemotePubRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceD
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemotePubRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemotePubRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -15458,10 +15879,14 @@ func (o RemotePubRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() 
 }
 
 type RemotePuppetRepositoryContentSynchronisation struct {
-	Enabled                      *bool `pulumi:"enabled"`
-	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled *bool `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
 }
 
 // RemotePuppetRepositoryContentSynchronisationInput is an input type that accepts RemotePuppetRepositoryContentSynchronisationArgs and RemotePuppetRepositoryContentSynchronisationOutput values.
@@ -15476,10 +15901,14 @@ type RemotePuppetRepositoryContentSynchronisationInput interface {
 }
 
 type RemotePuppetRepositoryContentSynchronisationArgs struct {
-	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
-	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
 }
 
 func (RemotePuppetRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
@@ -15559,18 +15988,22 @@ func (o RemotePuppetRepositoryContentSynchronisationOutput) ToRemotePuppetReposi
 	}).(RemotePuppetRepositoryContentSynchronisationPtrOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o RemotePuppetRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemotePuppetRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o RemotePuppetRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemotePuppetRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o RemotePuppetRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemotePuppetRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemotePuppetRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemotePuppetRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -15599,6 +16032,7 @@ func (o RemotePuppetRepositoryContentSynchronisationPtrOutput) Elem() RemotePupp
 	}).(RemotePuppetRepositoryContentSynchronisationOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o RemotePuppetRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemotePuppetRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -15608,6 +16042,7 @@ func (o RemotePuppetRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o RemotePuppetRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemotePuppetRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -15617,6 +16052,7 @@ func (o RemotePuppetRepositoryContentSynchronisationPtrOutput) PropertiesEnabled
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o RemotePuppetRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemotePuppetRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -15626,6 +16062,7 @@ func (o RemotePuppetRepositoryContentSynchronisationPtrOutput) SourceOriginAbsen
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemotePuppetRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemotePuppetRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -15636,10 +16073,14 @@ func (o RemotePuppetRepositoryContentSynchronisationPtrOutput) StatisticsEnabled
 }
 
 type RemotePypiRepositoryContentSynchronisation struct {
-	Enabled                      *bool `pulumi:"enabled"`
-	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled *bool `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
 }
 
 // RemotePypiRepositoryContentSynchronisationInput is an input type that accepts RemotePypiRepositoryContentSynchronisationArgs and RemotePypiRepositoryContentSynchronisationOutput values.
@@ -15654,10 +16095,14 @@ type RemotePypiRepositoryContentSynchronisationInput interface {
 }
 
 type RemotePypiRepositoryContentSynchronisationArgs struct {
-	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
-	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
 }
 
 func (RemotePypiRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
@@ -15737,18 +16182,22 @@ func (o RemotePypiRepositoryContentSynchronisationOutput) ToRemotePypiRepository
 	}).(RemotePypiRepositoryContentSynchronisationPtrOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o RemotePypiRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemotePypiRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o RemotePypiRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemotePypiRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o RemotePypiRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemotePypiRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemotePypiRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemotePypiRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -15777,6 +16226,7 @@ func (o RemotePypiRepositoryContentSynchronisationPtrOutput) Elem() RemotePypiRe
 	}).(RemotePypiRepositoryContentSynchronisationOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o RemotePypiRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemotePypiRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -15786,6 +16236,7 @@ func (o RemotePypiRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.Bo
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o RemotePypiRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemotePypiRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -15795,6 +16246,7 @@ func (o RemotePypiRepositoryContentSynchronisationPtrOutput) PropertiesEnabled()
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o RemotePypiRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemotePypiRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -15804,6 +16256,7 @@ func (o RemotePypiRepositoryContentSynchronisationPtrOutput) SourceOriginAbsence
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemotePypiRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemotePypiRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -15814,10 +16267,14 @@ func (o RemotePypiRepositoryContentSynchronisationPtrOutput) StatisticsEnabled()
 }
 
 type RemoteRpmRepositoryContentSynchronisation struct {
-	Enabled                      *bool `pulumi:"enabled"`
-	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled *bool `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
 }
 
 // RemoteRpmRepositoryContentSynchronisationInput is an input type that accepts RemoteRpmRepositoryContentSynchronisationArgs and RemoteRpmRepositoryContentSynchronisationOutput values.
@@ -15832,10 +16289,14 @@ type RemoteRpmRepositoryContentSynchronisationInput interface {
 }
 
 type RemoteRpmRepositoryContentSynchronisationArgs struct {
-	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
-	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
 }
 
 func (RemoteRpmRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
@@ -15915,18 +16376,22 @@ func (o RemoteRpmRepositoryContentSynchronisationOutput) ToRemoteRpmRepositoryCo
 	}).(RemoteRpmRepositoryContentSynchronisationPtrOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o RemoteRpmRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteRpmRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o RemoteRpmRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteRpmRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o RemoteRpmRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteRpmRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemoteRpmRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteRpmRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -15955,6 +16420,7 @@ func (o RemoteRpmRepositoryContentSynchronisationPtrOutput) Elem() RemoteRpmRepo
 	}).(RemoteRpmRepositoryContentSynchronisationOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o RemoteRpmRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteRpmRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -15964,6 +16430,7 @@ func (o RemoteRpmRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.Boo
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o RemoteRpmRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteRpmRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -15973,6 +16440,7 @@ func (o RemoteRpmRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() 
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o RemoteRpmRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteRpmRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -15982,6 +16450,7 @@ func (o RemoteRpmRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceD
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemoteRpmRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteRpmRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -15992,10 +16461,14 @@ func (o RemoteRpmRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() 
 }
 
 type RemoteSbtRepositoryContentSynchronisation struct {
-	Enabled                      *bool `pulumi:"enabled"`
-	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled *bool `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
 }
 
 // RemoteSbtRepositoryContentSynchronisationInput is an input type that accepts RemoteSbtRepositoryContentSynchronisationArgs and RemoteSbtRepositoryContentSynchronisationOutput values.
@@ -16010,10 +16483,14 @@ type RemoteSbtRepositoryContentSynchronisationInput interface {
 }
 
 type RemoteSbtRepositoryContentSynchronisationArgs struct {
-	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
-	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
 }
 
 func (RemoteSbtRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
@@ -16093,18 +16570,22 @@ func (o RemoteSbtRepositoryContentSynchronisationOutput) ToRemoteSbtRepositoryCo
 	}).(RemoteSbtRepositoryContentSynchronisationPtrOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o RemoteSbtRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteSbtRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o RemoteSbtRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteSbtRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o RemoteSbtRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteSbtRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemoteSbtRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteSbtRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -16133,6 +16614,7 @@ func (o RemoteSbtRepositoryContentSynchronisationPtrOutput) Elem() RemoteSbtRepo
 	}).(RemoteSbtRepositoryContentSynchronisationOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o RemoteSbtRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteSbtRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -16142,6 +16624,7 @@ func (o RemoteSbtRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.Boo
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o RemoteSbtRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteSbtRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -16151,6 +16634,7 @@ func (o RemoteSbtRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() 
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o RemoteSbtRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteSbtRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -16160,6 +16644,7 @@ func (o RemoteSbtRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceD
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemoteSbtRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteSbtRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -16170,10 +16655,14 @@ func (o RemoteSbtRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() 
 }
 
 type RemoteSwiftRepositoryContentSynchronisation struct {
-	Enabled                      *bool `pulumi:"enabled"`
-	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled *bool `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
 }
 
 // RemoteSwiftRepositoryContentSynchronisationInput is an input type that accepts RemoteSwiftRepositoryContentSynchronisationArgs and RemoteSwiftRepositoryContentSynchronisationOutput values.
@@ -16188,10 +16677,14 @@ type RemoteSwiftRepositoryContentSynchronisationInput interface {
 }
 
 type RemoteSwiftRepositoryContentSynchronisationArgs struct {
-	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
-	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
 }
 
 func (RemoteSwiftRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
@@ -16271,18 +16764,22 @@ func (o RemoteSwiftRepositoryContentSynchronisationOutput) ToRemoteSwiftReposito
 	}).(RemoteSwiftRepositoryContentSynchronisationPtrOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o RemoteSwiftRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteSwiftRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o RemoteSwiftRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteSwiftRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o RemoteSwiftRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteSwiftRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemoteSwiftRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteSwiftRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -16311,6 +16808,7 @@ func (o RemoteSwiftRepositoryContentSynchronisationPtrOutput) Elem() RemoteSwift
 	}).(RemoteSwiftRepositoryContentSynchronisationOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o RemoteSwiftRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteSwiftRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -16320,6 +16818,7 @@ func (o RemoteSwiftRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.B
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o RemoteSwiftRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteSwiftRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -16329,6 +16828,7 @@ func (o RemoteSwiftRepositoryContentSynchronisationPtrOutput) PropertiesEnabled(
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o RemoteSwiftRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteSwiftRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -16338,6 +16838,7 @@ func (o RemoteSwiftRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenc
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemoteSwiftRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteSwiftRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -16348,10 +16849,14 @@ func (o RemoteSwiftRepositoryContentSynchronisationPtrOutput) StatisticsEnabled(
 }
 
 type RemoteTerraformRepositoryContentSynchronisation struct {
-	Enabled                      *bool `pulumi:"enabled"`
-	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled *bool `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
 }
 
 // RemoteTerraformRepositoryContentSynchronisationInput is an input type that accepts RemoteTerraformRepositoryContentSynchronisationArgs and RemoteTerraformRepositoryContentSynchronisationOutput values.
@@ -16366,10 +16871,14 @@ type RemoteTerraformRepositoryContentSynchronisationInput interface {
 }
 
 type RemoteTerraformRepositoryContentSynchronisationArgs struct {
-	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
-	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
 }
 
 func (RemoteTerraformRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
@@ -16449,18 +16958,22 @@ func (o RemoteTerraformRepositoryContentSynchronisationOutput) ToRemoteTerraform
 	}).(RemoteTerraformRepositoryContentSynchronisationPtrOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o RemoteTerraformRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteTerraformRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o RemoteTerraformRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteTerraformRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o RemoteTerraformRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteTerraformRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemoteTerraformRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteTerraformRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -16489,6 +17002,7 @@ func (o RemoteTerraformRepositoryContentSynchronisationPtrOutput) Elem() RemoteT
 	}).(RemoteTerraformRepositoryContentSynchronisationOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o RemoteTerraformRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteTerraformRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -16498,6 +17012,7 @@ func (o RemoteTerraformRepositoryContentSynchronisationPtrOutput) Enabled() pulu
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o RemoteTerraformRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteTerraformRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -16507,6 +17022,7 @@ func (o RemoteTerraformRepositoryContentSynchronisationPtrOutput) PropertiesEnab
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o RemoteTerraformRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteTerraformRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -16516,6 +17032,7 @@ func (o RemoteTerraformRepositoryContentSynchronisationPtrOutput) SourceOriginAb
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemoteTerraformRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteTerraformRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -16526,10 +17043,14 @@ func (o RemoteTerraformRepositoryContentSynchronisationPtrOutput) StatisticsEnab
 }
 
 type RemoteVcsRepositoryContentSynchronisation struct {
-	Enabled                      *bool `pulumi:"enabled"`
-	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled *bool `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
 }
 
 // RemoteVcsRepositoryContentSynchronisationInput is an input type that accepts RemoteVcsRepositoryContentSynchronisationArgs and RemoteVcsRepositoryContentSynchronisationOutput values.
@@ -16544,10 +17065,14 @@ type RemoteVcsRepositoryContentSynchronisationInput interface {
 }
 
 type RemoteVcsRepositoryContentSynchronisationArgs struct {
-	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
-	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
 }
 
 func (RemoteVcsRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
@@ -16627,18 +17152,22 @@ func (o RemoteVcsRepositoryContentSynchronisationOutput) ToRemoteVcsRepositoryCo
 	}).(RemoteVcsRepositoryContentSynchronisationPtrOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o RemoteVcsRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteVcsRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o RemoteVcsRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteVcsRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o RemoteVcsRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteVcsRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemoteVcsRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteVcsRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -16667,6 +17196,7 @@ func (o RemoteVcsRepositoryContentSynchronisationPtrOutput) Elem() RemoteVcsRepo
 	}).(RemoteVcsRepositoryContentSynchronisationOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o RemoteVcsRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteVcsRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -16676,6 +17206,7 @@ func (o RemoteVcsRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.Boo
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o RemoteVcsRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteVcsRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -16685,6 +17216,7 @@ func (o RemoteVcsRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() 
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o RemoteVcsRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteVcsRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -16694,6 +17226,7 @@ func (o RemoteVcsRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceD
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemoteVcsRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteVcsRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -17948,8 +18481,10 @@ func (o GetFederatedDebianRepositoryMemberArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type GetFederatedDockerRepositoryMember struct {
-	Enabled bool   `pulumi:"enabled"`
-	Url     string `pulumi:"url"`
+	// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
+	Enabled bool `pulumi:"enabled"`
+	// Full URL to ending with the repositoryName
+	Url string `pulumi:"url"`
 }
 
 // GetFederatedDockerRepositoryMemberInput is an input type that accepts GetFederatedDockerRepositoryMemberArgs and GetFederatedDockerRepositoryMemberOutput values.
@@ -17964,8 +18499,10 @@ type GetFederatedDockerRepositoryMemberInput interface {
 }
 
 type GetFederatedDockerRepositoryMemberArgs struct {
-	Enabled pulumi.BoolInput   `pulumi:"enabled"`
-	Url     pulumi.StringInput `pulumi:"url"`
+	// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Full URL to ending with the repositoryName
+	Url pulumi.StringInput `pulumi:"url"`
 }
 
 func (GetFederatedDockerRepositoryMemberArgs) ElementType() reflect.Type {
@@ -18019,10 +18556,12 @@ func (o GetFederatedDockerRepositoryMemberOutput) ToGetFederatedDockerRepository
 	return o
 }
 
+// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
 func (o GetFederatedDockerRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetFederatedDockerRepositoryMember) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
+// Full URL to ending with the repositoryName
 func (o GetFederatedDockerRepositoryMemberOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFederatedDockerRepositoryMember) string { return v.Url }).(pulumi.StringOutput)
 }
@@ -22224,10 +22763,14 @@ func (o GetPermissionTargetRepoActionsUserArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type GetRemoteAlpineRepositoryContentSynchronisation struct {
-	Enabled                      *bool `pulumi:"enabled"`
-	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled *bool `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
 }
 
 // GetRemoteAlpineRepositoryContentSynchronisationInput is an input type that accepts GetRemoteAlpineRepositoryContentSynchronisationArgs and GetRemoteAlpineRepositoryContentSynchronisationOutput values.
@@ -22242,10 +22785,14 @@ type GetRemoteAlpineRepositoryContentSynchronisationInput interface {
 }
 
 type GetRemoteAlpineRepositoryContentSynchronisationArgs struct {
-	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
-	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
 }
 
 func (GetRemoteAlpineRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
@@ -22325,18 +22872,22 @@ func (o GetRemoteAlpineRepositoryContentSynchronisationOutput) ToGetRemoteAlpine
 	}).(GetRemoteAlpineRepositoryContentSynchronisationPtrOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o GetRemoteAlpineRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteAlpineRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o GetRemoteAlpineRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteAlpineRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o GetRemoteAlpineRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteAlpineRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o GetRemoteAlpineRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteAlpineRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -22365,6 +22916,7 @@ func (o GetRemoteAlpineRepositoryContentSynchronisationPtrOutput) Elem() GetRemo
 	}).(GetRemoteAlpineRepositoryContentSynchronisationOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o GetRemoteAlpineRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteAlpineRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -22374,6 +22926,7 @@ func (o GetRemoteAlpineRepositoryContentSynchronisationPtrOutput) Enabled() pulu
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o GetRemoteAlpineRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteAlpineRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -22383,6 +22936,7 @@ func (o GetRemoteAlpineRepositoryContentSynchronisationPtrOutput) PropertiesEnab
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o GetRemoteAlpineRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteAlpineRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -22392,6 +22946,7 @@ func (o GetRemoteAlpineRepositoryContentSynchronisationPtrOutput) SourceOriginAb
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o GetRemoteAlpineRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteAlpineRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -22402,10 +22957,14 @@ func (o GetRemoteAlpineRepositoryContentSynchronisationPtrOutput) StatisticsEnab
 }
 
 type GetRemoteBowerRepositoryContentSynchronisation struct {
-	Enabled                      *bool `pulumi:"enabled"`
-	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled *bool `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
 }
 
 // GetRemoteBowerRepositoryContentSynchronisationInput is an input type that accepts GetRemoteBowerRepositoryContentSynchronisationArgs and GetRemoteBowerRepositoryContentSynchronisationOutput values.
@@ -22420,10 +22979,14 @@ type GetRemoteBowerRepositoryContentSynchronisationInput interface {
 }
 
 type GetRemoteBowerRepositoryContentSynchronisationArgs struct {
-	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
-	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
 }
 
 func (GetRemoteBowerRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
@@ -22503,18 +23066,22 @@ func (o GetRemoteBowerRepositoryContentSynchronisationOutput) ToGetRemoteBowerRe
 	}).(GetRemoteBowerRepositoryContentSynchronisationPtrOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o GetRemoteBowerRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteBowerRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o GetRemoteBowerRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteBowerRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o GetRemoteBowerRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteBowerRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o GetRemoteBowerRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteBowerRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -22543,6 +23110,7 @@ func (o GetRemoteBowerRepositoryContentSynchronisationPtrOutput) Elem() GetRemot
 	}).(GetRemoteBowerRepositoryContentSynchronisationOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o GetRemoteBowerRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteBowerRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -22552,6 +23120,7 @@ func (o GetRemoteBowerRepositoryContentSynchronisationPtrOutput) Enabled() pulum
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o GetRemoteBowerRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteBowerRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -22561,6 +23130,7 @@ func (o GetRemoteBowerRepositoryContentSynchronisationPtrOutput) PropertiesEnabl
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o GetRemoteBowerRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteBowerRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -22570,6 +23140,7 @@ func (o GetRemoteBowerRepositoryContentSynchronisationPtrOutput) SourceOriginAbs
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o GetRemoteBowerRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteBowerRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -22580,10 +23151,14 @@ func (o GetRemoteBowerRepositoryContentSynchronisationPtrOutput) StatisticsEnabl
 }
 
 type GetRemoteCargoRepositoryContentSynchronisation struct {
-	Enabled                      *bool `pulumi:"enabled"`
-	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled *bool `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
 }
 
 // GetRemoteCargoRepositoryContentSynchronisationInput is an input type that accepts GetRemoteCargoRepositoryContentSynchronisationArgs and GetRemoteCargoRepositoryContentSynchronisationOutput values.
@@ -22598,10 +23173,14 @@ type GetRemoteCargoRepositoryContentSynchronisationInput interface {
 }
 
 type GetRemoteCargoRepositoryContentSynchronisationArgs struct {
-	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
-	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
 }
 
 func (GetRemoteCargoRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
@@ -22681,18 +23260,22 @@ func (o GetRemoteCargoRepositoryContentSynchronisationOutput) ToGetRemoteCargoRe
 	}).(GetRemoteCargoRepositoryContentSynchronisationPtrOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o GetRemoteCargoRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteCargoRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o GetRemoteCargoRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteCargoRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o GetRemoteCargoRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteCargoRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o GetRemoteCargoRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteCargoRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -22721,6 +23304,7 @@ func (o GetRemoteCargoRepositoryContentSynchronisationPtrOutput) Elem() GetRemot
 	}).(GetRemoteCargoRepositoryContentSynchronisationOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o GetRemoteCargoRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteCargoRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -22730,6 +23314,7 @@ func (o GetRemoteCargoRepositoryContentSynchronisationPtrOutput) Enabled() pulum
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o GetRemoteCargoRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteCargoRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -22739,6 +23324,7 @@ func (o GetRemoteCargoRepositoryContentSynchronisationPtrOutput) PropertiesEnabl
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o GetRemoteCargoRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteCargoRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -22748,6 +23334,7 @@ func (o GetRemoteCargoRepositoryContentSynchronisationPtrOutput) SourceOriginAbs
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o GetRemoteCargoRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteCargoRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -22758,10 +23345,14 @@ func (o GetRemoteCargoRepositoryContentSynchronisationPtrOutput) StatisticsEnabl
 }
 
 type GetRemoteChefRepositoryContentSynchronisation struct {
-	Enabled                      *bool `pulumi:"enabled"`
-	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled *bool `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
 }
 
 // GetRemoteChefRepositoryContentSynchronisationInput is an input type that accepts GetRemoteChefRepositoryContentSynchronisationArgs and GetRemoteChefRepositoryContentSynchronisationOutput values.
@@ -22776,10 +23367,14 @@ type GetRemoteChefRepositoryContentSynchronisationInput interface {
 }
 
 type GetRemoteChefRepositoryContentSynchronisationArgs struct {
-	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
-	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
 }
 
 func (GetRemoteChefRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
@@ -22859,18 +23454,22 @@ func (o GetRemoteChefRepositoryContentSynchronisationOutput) ToGetRemoteChefRepo
 	}).(GetRemoteChefRepositoryContentSynchronisationPtrOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o GetRemoteChefRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteChefRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o GetRemoteChefRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteChefRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o GetRemoteChefRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteChefRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o GetRemoteChefRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteChefRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -22899,6 +23498,7 @@ func (o GetRemoteChefRepositoryContentSynchronisationPtrOutput) Elem() GetRemote
 	}).(GetRemoteChefRepositoryContentSynchronisationOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o GetRemoteChefRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteChefRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -22908,6 +23508,7 @@ func (o GetRemoteChefRepositoryContentSynchronisationPtrOutput) Enabled() pulumi
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o GetRemoteChefRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteChefRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -22917,6 +23518,7 @@ func (o GetRemoteChefRepositoryContentSynchronisationPtrOutput) PropertiesEnable
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o GetRemoteChefRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteChefRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -22926,6 +23528,7 @@ func (o GetRemoteChefRepositoryContentSynchronisationPtrOutput) SourceOriginAbse
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o GetRemoteChefRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteChefRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -22936,10 +23539,14 @@ func (o GetRemoteChefRepositoryContentSynchronisationPtrOutput) StatisticsEnable
 }
 
 type GetRemoteCocoapodsRepositoryContentSynchronisation struct {
-	Enabled                      *bool `pulumi:"enabled"`
-	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled *bool `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
 }
 
 // GetRemoteCocoapodsRepositoryContentSynchronisationInput is an input type that accepts GetRemoteCocoapodsRepositoryContentSynchronisationArgs and GetRemoteCocoapodsRepositoryContentSynchronisationOutput values.
@@ -22954,10 +23561,14 @@ type GetRemoteCocoapodsRepositoryContentSynchronisationInput interface {
 }
 
 type GetRemoteCocoapodsRepositoryContentSynchronisationArgs struct {
-	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
-	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
 }
 
 func (GetRemoteCocoapodsRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
@@ -23037,20 +23648,24 @@ func (o GetRemoteCocoapodsRepositoryContentSynchronisationOutput) ToGetRemoteCoc
 	}).(GetRemoteCocoapodsRepositoryContentSynchronisationPtrOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o GetRemoteCocoapodsRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteCocoapodsRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o GetRemoteCocoapodsRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteCocoapodsRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o GetRemoteCocoapodsRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteCocoapodsRepositoryContentSynchronisation) *bool {
 		return v.SourceOriginAbsenceDetection
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o GetRemoteCocoapodsRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteCocoapodsRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -23079,6 +23694,7 @@ func (o GetRemoteCocoapodsRepositoryContentSynchronisationPtrOutput) Elem() GetR
 	}).(GetRemoteCocoapodsRepositoryContentSynchronisationOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o GetRemoteCocoapodsRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteCocoapodsRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -23088,6 +23704,7 @@ func (o GetRemoteCocoapodsRepositoryContentSynchronisationPtrOutput) Enabled() p
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o GetRemoteCocoapodsRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteCocoapodsRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -23097,6 +23714,7 @@ func (o GetRemoteCocoapodsRepositoryContentSynchronisationPtrOutput) PropertiesE
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o GetRemoteCocoapodsRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteCocoapodsRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -23106,6 +23724,7 @@ func (o GetRemoteCocoapodsRepositoryContentSynchronisationPtrOutput) SourceOrigi
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o GetRemoteCocoapodsRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteCocoapodsRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -23116,10 +23735,14 @@ func (o GetRemoteCocoapodsRepositoryContentSynchronisationPtrOutput) StatisticsE
 }
 
 type GetRemoteComposerRepositoryContentSynchronisation struct {
-	Enabled                      *bool `pulumi:"enabled"`
-	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled *bool `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
 }
 
 // GetRemoteComposerRepositoryContentSynchronisationInput is an input type that accepts GetRemoteComposerRepositoryContentSynchronisationArgs and GetRemoteComposerRepositoryContentSynchronisationOutput values.
@@ -23134,10 +23757,14 @@ type GetRemoteComposerRepositoryContentSynchronisationInput interface {
 }
 
 type GetRemoteComposerRepositoryContentSynchronisationArgs struct {
-	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
-	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
 }
 
 func (GetRemoteComposerRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
@@ -23217,18 +23844,22 @@ func (o GetRemoteComposerRepositoryContentSynchronisationOutput) ToGetRemoteComp
 	}).(GetRemoteComposerRepositoryContentSynchronisationPtrOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o GetRemoteComposerRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteComposerRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o GetRemoteComposerRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteComposerRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o GetRemoteComposerRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteComposerRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o GetRemoteComposerRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteComposerRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -23257,6 +23888,7 @@ func (o GetRemoteComposerRepositoryContentSynchronisationPtrOutput) Elem() GetRe
 	}).(GetRemoteComposerRepositoryContentSynchronisationOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o GetRemoteComposerRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteComposerRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -23266,6 +23898,7 @@ func (o GetRemoteComposerRepositoryContentSynchronisationPtrOutput) Enabled() pu
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o GetRemoteComposerRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteComposerRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -23275,6 +23908,7 @@ func (o GetRemoteComposerRepositoryContentSynchronisationPtrOutput) PropertiesEn
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o GetRemoteComposerRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteComposerRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -23284,6 +23918,7 @@ func (o GetRemoteComposerRepositoryContentSynchronisationPtrOutput) SourceOrigin
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o GetRemoteComposerRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteComposerRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -23294,10 +23929,14 @@ func (o GetRemoteComposerRepositoryContentSynchronisationPtrOutput) StatisticsEn
 }
 
 type GetRemoteConanRepositoryContentSynchronisation struct {
-	Enabled                      *bool `pulumi:"enabled"`
-	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled *bool `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
 }
 
 // GetRemoteConanRepositoryContentSynchronisationInput is an input type that accepts GetRemoteConanRepositoryContentSynchronisationArgs and GetRemoteConanRepositoryContentSynchronisationOutput values.
@@ -23312,10 +23951,14 @@ type GetRemoteConanRepositoryContentSynchronisationInput interface {
 }
 
 type GetRemoteConanRepositoryContentSynchronisationArgs struct {
-	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
-	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
 }
 
 func (GetRemoteConanRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
@@ -23395,18 +24038,22 @@ func (o GetRemoteConanRepositoryContentSynchronisationOutput) ToGetRemoteConanRe
 	}).(GetRemoteConanRepositoryContentSynchronisationPtrOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o GetRemoteConanRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteConanRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o GetRemoteConanRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteConanRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o GetRemoteConanRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteConanRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o GetRemoteConanRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteConanRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -23435,6 +24082,7 @@ func (o GetRemoteConanRepositoryContentSynchronisationPtrOutput) Elem() GetRemot
 	}).(GetRemoteConanRepositoryContentSynchronisationOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o GetRemoteConanRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteConanRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -23444,6 +24092,7 @@ func (o GetRemoteConanRepositoryContentSynchronisationPtrOutput) Enabled() pulum
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o GetRemoteConanRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteConanRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -23453,6 +24102,7 @@ func (o GetRemoteConanRepositoryContentSynchronisationPtrOutput) PropertiesEnabl
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o GetRemoteConanRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteConanRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -23462,6 +24112,7 @@ func (o GetRemoteConanRepositoryContentSynchronisationPtrOutput) SourceOriginAbs
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o GetRemoteConanRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteConanRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -23472,10 +24123,14 @@ func (o GetRemoteConanRepositoryContentSynchronisationPtrOutput) StatisticsEnabl
 }
 
 type GetRemoteCondaRepositoryContentSynchronisation struct {
-	Enabled                      *bool `pulumi:"enabled"`
-	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled *bool `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
 }
 
 // GetRemoteCondaRepositoryContentSynchronisationInput is an input type that accepts GetRemoteCondaRepositoryContentSynchronisationArgs and GetRemoteCondaRepositoryContentSynchronisationOutput values.
@@ -23490,10 +24145,14 @@ type GetRemoteCondaRepositoryContentSynchronisationInput interface {
 }
 
 type GetRemoteCondaRepositoryContentSynchronisationArgs struct {
-	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
-	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
 }
 
 func (GetRemoteCondaRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
@@ -23573,18 +24232,22 @@ func (o GetRemoteCondaRepositoryContentSynchronisationOutput) ToGetRemoteCondaRe
 	}).(GetRemoteCondaRepositoryContentSynchronisationPtrOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o GetRemoteCondaRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteCondaRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o GetRemoteCondaRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteCondaRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o GetRemoteCondaRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteCondaRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o GetRemoteCondaRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteCondaRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -23613,6 +24276,7 @@ func (o GetRemoteCondaRepositoryContentSynchronisationPtrOutput) Elem() GetRemot
 	}).(GetRemoteCondaRepositoryContentSynchronisationOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o GetRemoteCondaRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteCondaRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -23622,6 +24286,7 @@ func (o GetRemoteCondaRepositoryContentSynchronisationPtrOutput) Enabled() pulum
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o GetRemoteCondaRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteCondaRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -23631,6 +24296,7 @@ func (o GetRemoteCondaRepositoryContentSynchronisationPtrOutput) PropertiesEnabl
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o GetRemoteCondaRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteCondaRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -23640,6 +24306,7 @@ func (o GetRemoteCondaRepositoryContentSynchronisationPtrOutput) SourceOriginAbs
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o GetRemoteCondaRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteCondaRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -23650,10 +24317,14 @@ func (o GetRemoteCondaRepositoryContentSynchronisationPtrOutput) StatisticsEnabl
 }
 
 type GetRemoteCranRepositoryContentSynchronisation struct {
-	Enabled                      *bool `pulumi:"enabled"`
-	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled *bool `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
 }
 
 // GetRemoteCranRepositoryContentSynchronisationInput is an input type that accepts GetRemoteCranRepositoryContentSynchronisationArgs and GetRemoteCranRepositoryContentSynchronisationOutput values.
@@ -23668,10 +24339,14 @@ type GetRemoteCranRepositoryContentSynchronisationInput interface {
 }
 
 type GetRemoteCranRepositoryContentSynchronisationArgs struct {
-	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
-	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
 }
 
 func (GetRemoteCranRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
@@ -23751,18 +24426,22 @@ func (o GetRemoteCranRepositoryContentSynchronisationOutput) ToGetRemoteCranRepo
 	}).(GetRemoteCranRepositoryContentSynchronisationPtrOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o GetRemoteCranRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteCranRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o GetRemoteCranRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteCranRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o GetRemoteCranRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteCranRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o GetRemoteCranRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteCranRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -23791,6 +24470,7 @@ func (o GetRemoteCranRepositoryContentSynchronisationPtrOutput) Elem() GetRemote
 	}).(GetRemoteCranRepositoryContentSynchronisationOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o GetRemoteCranRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteCranRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -23800,6 +24480,7 @@ func (o GetRemoteCranRepositoryContentSynchronisationPtrOutput) Enabled() pulumi
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o GetRemoteCranRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteCranRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -23809,6 +24490,7 @@ func (o GetRemoteCranRepositoryContentSynchronisationPtrOutput) PropertiesEnable
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o GetRemoteCranRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteCranRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -23818,6 +24500,7 @@ func (o GetRemoteCranRepositoryContentSynchronisationPtrOutput) SourceOriginAbse
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o GetRemoteCranRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteCranRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -23828,10 +24511,14 @@ func (o GetRemoteCranRepositoryContentSynchronisationPtrOutput) StatisticsEnable
 }
 
 type GetRemoteDebianRepositoryContentSynchronisation struct {
-	Enabled                      *bool `pulumi:"enabled"`
-	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled *bool `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
 }
 
 // GetRemoteDebianRepositoryContentSynchronisationInput is an input type that accepts GetRemoteDebianRepositoryContentSynchronisationArgs and GetRemoteDebianRepositoryContentSynchronisationOutput values.
@@ -23846,10 +24533,14 @@ type GetRemoteDebianRepositoryContentSynchronisationInput interface {
 }
 
 type GetRemoteDebianRepositoryContentSynchronisationArgs struct {
-	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
-	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
 }
 
 func (GetRemoteDebianRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
@@ -23929,18 +24620,22 @@ func (o GetRemoteDebianRepositoryContentSynchronisationOutput) ToGetRemoteDebian
 	}).(GetRemoteDebianRepositoryContentSynchronisationPtrOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o GetRemoteDebianRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteDebianRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o GetRemoteDebianRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteDebianRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o GetRemoteDebianRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteDebianRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o GetRemoteDebianRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteDebianRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -23969,6 +24664,7 @@ func (o GetRemoteDebianRepositoryContentSynchronisationPtrOutput) Elem() GetRemo
 	}).(GetRemoteDebianRepositoryContentSynchronisationOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o GetRemoteDebianRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteDebianRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -23978,6 +24674,7 @@ func (o GetRemoteDebianRepositoryContentSynchronisationPtrOutput) Enabled() pulu
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o GetRemoteDebianRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteDebianRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -23987,6 +24684,7 @@ func (o GetRemoteDebianRepositoryContentSynchronisationPtrOutput) PropertiesEnab
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o GetRemoteDebianRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteDebianRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -23996,6 +24694,7 @@ func (o GetRemoteDebianRepositoryContentSynchronisationPtrOutput) SourceOriginAb
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o GetRemoteDebianRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteDebianRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -24006,10 +24705,14 @@ func (o GetRemoteDebianRepositoryContentSynchronisationPtrOutput) StatisticsEnab
 }
 
 type GetRemoteDockerRepositoryContentSynchronisation struct {
-	Enabled                      *bool `pulumi:"enabled"`
-	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled *bool `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
 }
 
 // GetRemoteDockerRepositoryContentSynchronisationInput is an input type that accepts GetRemoteDockerRepositoryContentSynchronisationArgs and GetRemoteDockerRepositoryContentSynchronisationOutput values.
@@ -24024,10 +24727,14 @@ type GetRemoteDockerRepositoryContentSynchronisationInput interface {
 }
 
 type GetRemoteDockerRepositoryContentSynchronisationArgs struct {
-	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
-	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
 }
 
 func (GetRemoteDockerRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
@@ -24107,18 +24814,22 @@ func (o GetRemoteDockerRepositoryContentSynchronisationOutput) ToGetRemoteDocker
 	}).(GetRemoteDockerRepositoryContentSynchronisationPtrOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o GetRemoteDockerRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteDockerRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o GetRemoteDockerRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteDockerRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o GetRemoteDockerRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteDockerRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o GetRemoteDockerRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteDockerRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -24147,6 +24858,7 @@ func (o GetRemoteDockerRepositoryContentSynchronisationPtrOutput) Elem() GetRemo
 	}).(GetRemoteDockerRepositoryContentSynchronisationOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o GetRemoteDockerRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteDockerRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -24156,6 +24868,7 @@ func (o GetRemoteDockerRepositoryContentSynchronisationPtrOutput) Enabled() pulu
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o GetRemoteDockerRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteDockerRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -24165,6 +24878,7 @@ func (o GetRemoteDockerRepositoryContentSynchronisationPtrOutput) PropertiesEnab
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o GetRemoteDockerRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteDockerRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -24174,6 +24888,7 @@ func (o GetRemoteDockerRepositoryContentSynchronisationPtrOutput) SourceOriginAb
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o GetRemoteDockerRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteDockerRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -24184,10 +24899,14 @@ func (o GetRemoteDockerRepositoryContentSynchronisationPtrOutput) StatisticsEnab
 }
 
 type GetRemoteGemsRepositoryContentSynchronisation struct {
-	Enabled                      *bool `pulumi:"enabled"`
-	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled *bool `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
 }
 
 // GetRemoteGemsRepositoryContentSynchronisationInput is an input type that accepts GetRemoteGemsRepositoryContentSynchronisationArgs and GetRemoteGemsRepositoryContentSynchronisationOutput values.
@@ -24202,10 +24921,14 @@ type GetRemoteGemsRepositoryContentSynchronisationInput interface {
 }
 
 type GetRemoteGemsRepositoryContentSynchronisationArgs struct {
-	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
-	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
 }
 
 func (GetRemoteGemsRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
@@ -24285,18 +25008,22 @@ func (o GetRemoteGemsRepositoryContentSynchronisationOutput) ToGetRemoteGemsRepo
 	}).(GetRemoteGemsRepositoryContentSynchronisationPtrOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o GetRemoteGemsRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteGemsRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o GetRemoteGemsRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteGemsRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o GetRemoteGemsRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteGemsRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o GetRemoteGemsRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteGemsRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -24325,6 +25052,7 @@ func (o GetRemoteGemsRepositoryContentSynchronisationPtrOutput) Elem() GetRemote
 	}).(GetRemoteGemsRepositoryContentSynchronisationOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o GetRemoteGemsRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteGemsRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -24334,6 +25062,7 @@ func (o GetRemoteGemsRepositoryContentSynchronisationPtrOutput) Enabled() pulumi
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o GetRemoteGemsRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteGemsRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -24343,6 +25072,7 @@ func (o GetRemoteGemsRepositoryContentSynchronisationPtrOutput) PropertiesEnable
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o GetRemoteGemsRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteGemsRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -24352,6 +25082,7 @@ func (o GetRemoteGemsRepositoryContentSynchronisationPtrOutput) SourceOriginAbse
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o GetRemoteGemsRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteGemsRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -24362,10 +25093,14 @@ func (o GetRemoteGemsRepositoryContentSynchronisationPtrOutput) StatisticsEnable
 }
 
 type GetRemoteGenericRepositoryContentSynchronisation struct {
-	Enabled                      *bool `pulumi:"enabled"`
-	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled *bool `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
 }
 
 // GetRemoteGenericRepositoryContentSynchronisationInput is an input type that accepts GetRemoteGenericRepositoryContentSynchronisationArgs and GetRemoteGenericRepositoryContentSynchronisationOutput values.
@@ -24380,10 +25115,14 @@ type GetRemoteGenericRepositoryContentSynchronisationInput interface {
 }
 
 type GetRemoteGenericRepositoryContentSynchronisationArgs struct {
-	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
-	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
 }
 
 func (GetRemoteGenericRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
@@ -24463,18 +25202,22 @@ func (o GetRemoteGenericRepositoryContentSynchronisationOutput) ToGetRemoteGener
 	}).(GetRemoteGenericRepositoryContentSynchronisationPtrOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o GetRemoteGenericRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteGenericRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o GetRemoteGenericRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteGenericRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o GetRemoteGenericRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteGenericRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o GetRemoteGenericRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteGenericRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -24503,6 +25246,7 @@ func (o GetRemoteGenericRepositoryContentSynchronisationPtrOutput) Elem() GetRem
 	}).(GetRemoteGenericRepositoryContentSynchronisationOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o GetRemoteGenericRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteGenericRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -24512,6 +25256,7 @@ func (o GetRemoteGenericRepositoryContentSynchronisationPtrOutput) Enabled() pul
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o GetRemoteGenericRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteGenericRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -24521,6 +25266,7 @@ func (o GetRemoteGenericRepositoryContentSynchronisationPtrOutput) PropertiesEna
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o GetRemoteGenericRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteGenericRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -24530,6 +25276,7 @@ func (o GetRemoteGenericRepositoryContentSynchronisationPtrOutput) SourceOriginA
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o GetRemoteGenericRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteGenericRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -24540,10 +25287,14 @@ func (o GetRemoteGenericRepositoryContentSynchronisationPtrOutput) StatisticsEna
 }
 
 type GetRemoteGitlfsRepositoryContentSynchronisation struct {
-	Enabled                      *bool `pulumi:"enabled"`
-	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled *bool `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
 }
 
 // GetRemoteGitlfsRepositoryContentSynchronisationInput is an input type that accepts GetRemoteGitlfsRepositoryContentSynchronisationArgs and GetRemoteGitlfsRepositoryContentSynchronisationOutput values.
@@ -24558,10 +25309,14 @@ type GetRemoteGitlfsRepositoryContentSynchronisationInput interface {
 }
 
 type GetRemoteGitlfsRepositoryContentSynchronisationArgs struct {
-	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
-	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
 }
 
 func (GetRemoteGitlfsRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
@@ -24641,18 +25396,22 @@ func (o GetRemoteGitlfsRepositoryContentSynchronisationOutput) ToGetRemoteGitlfs
 	}).(GetRemoteGitlfsRepositoryContentSynchronisationPtrOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o GetRemoteGitlfsRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteGitlfsRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o GetRemoteGitlfsRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteGitlfsRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o GetRemoteGitlfsRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteGitlfsRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o GetRemoteGitlfsRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteGitlfsRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -24681,6 +25440,7 @@ func (o GetRemoteGitlfsRepositoryContentSynchronisationPtrOutput) Elem() GetRemo
 	}).(GetRemoteGitlfsRepositoryContentSynchronisationOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o GetRemoteGitlfsRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteGitlfsRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -24690,6 +25450,7 @@ func (o GetRemoteGitlfsRepositoryContentSynchronisationPtrOutput) Enabled() pulu
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o GetRemoteGitlfsRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteGitlfsRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -24699,6 +25460,7 @@ func (o GetRemoteGitlfsRepositoryContentSynchronisationPtrOutput) PropertiesEnab
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o GetRemoteGitlfsRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteGitlfsRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -24708,6 +25470,7 @@ func (o GetRemoteGitlfsRepositoryContentSynchronisationPtrOutput) SourceOriginAb
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o GetRemoteGitlfsRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteGitlfsRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -24718,10 +25481,14 @@ func (o GetRemoteGitlfsRepositoryContentSynchronisationPtrOutput) StatisticsEnab
 }
 
 type GetRemoteGoRepositoryContentSynchronisation struct {
-	Enabled                      *bool `pulumi:"enabled"`
-	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled *bool `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
 }
 
 // GetRemoteGoRepositoryContentSynchronisationInput is an input type that accepts GetRemoteGoRepositoryContentSynchronisationArgs and GetRemoteGoRepositoryContentSynchronisationOutput values.
@@ -24736,10 +25503,14 @@ type GetRemoteGoRepositoryContentSynchronisationInput interface {
 }
 
 type GetRemoteGoRepositoryContentSynchronisationArgs struct {
-	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
-	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
 }
 
 func (GetRemoteGoRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
@@ -24819,18 +25590,22 @@ func (o GetRemoteGoRepositoryContentSynchronisationOutput) ToGetRemoteGoReposito
 	}).(GetRemoteGoRepositoryContentSynchronisationPtrOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o GetRemoteGoRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteGoRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o GetRemoteGoRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteGoRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o GetRemoteGoRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteGoRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o GetRemoteGoRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteGoRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -24859,6 +25634,7 @@ func (o GetRemoteGoRepositoryContentSynchronisationPtrOutput) Elem() GetRemoteGo
 	}).(GetRemoteGoRepositoryContentSynchronisationOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o GetRemoteGoRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteGoRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -24868,6 +25644,7 @@ func (o GetRemoteGoRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.B
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o GetRemoteGoRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteGoRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -24877,6 +25654,7 @@ func (o GetRemoteGoRepositoryContentSynchronisationPtrOutput) PropertiesEnabled(
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o GetRemoteGoRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteGoRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -24886,6 +25664,7 @@ func (o GetRemoteGoRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenc
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o GetRemoteGoRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteGoRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -24896,10 +25675,14 @@ func (o GetRemoteGoRepositoryContentSynchronisationPtrOutput) StatisticsEnabled(
 }
 
 type GetRemoteGradleRepositoryContentSynchronisation struct {
-	Enabled                      *bool `pulumi:"enabled"`
-	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled *bool `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
 }
 
 // GetRemoteGradleRepositoryContentSynchronisationInput is an input type that accepts GetRemoteGradleRepositoryContentSynchronisationArgs and GetRemoteGradleRepositoryContentSynchronisationOutput values.
@@ -24914,10 +25697,14 @@ type GetRemoteGradleRepositoryContentSynchronisationInput interface {
 }
 
 type GetRemoteGradleRepositoryContentSynchronisationArgs struct {
-	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
-	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
 }
 
 func (GetRemoteGradleRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
@@ -24997,18 +25784,22 @@ func (o GetRemoteGradleRepositoryContentSynchronisationOutput) ToGetRemoteGradle
 	}).(GetRemoteGradleRepositoryContentSynchronisationPtrOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o GetRemoteGradleRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteGradleRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o GetRemoteGradleRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteGradleRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o GetRemoteGradleRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteGradleRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o GetRemoteGradleRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteGradleRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -25037,6 +25828,7 @@ func (o GetRemoteGradleRepositoryContentSynchronisationPtrOutput) Elem() GetRemo
 	}).(GetRemoteGradleRepositoryContentSynchronisationOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o GetRemoteGradleRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteGradleRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -25046,6 +25838,7 @@ func (o GetRemoteGradleRepositoryContentSynchronisationPtrOutput) Enabled() pulu
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o GetRemoteGradleRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteGradleRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -25055,6 +25848,7 @@ func (o GetRemoteGradleRepositoryContentSynchronisationPtrOutput) PropertiesEnab
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o GetRemoteGradleRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteGradleRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -25064,6 +25858,7 @@ func (o GetRemoteGradleRepositoryContentSynchronisationPtrOutput) SourceOriginAb
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o GetRemoteGradleRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteGradleRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -25074,10 +25869,14 @@ func (o GetRemoteGradleRepositoryContentSynchronisationPtrOutput) StatisticsEnab
 }
 
 type GetRemoteHelmRepositoryContentSynchronisation struct {
-	Enabled                      *bool `pulumi:"enabled"`
-	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled *bool `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
 }
 
 // GetRemoteHelmRepositoryContentSynchronisationInput is an input type that accepts GetRemoteHelmRepositoryContentSynchronisationArgs and GetRemoteHelmRepositoryContentSynchronisationOutput values.
@@ -25092,10 +25891,14 @@ type GetRemoteHelmRepositoryContentSynchronisationInput interface {
 }
 
 type GetRemoteHelmRepositoryContentSynchronisationArgs struct {
-	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
-	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
 }
 
 func (GetRemoteHelmRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
@@ -25175,18 +25978,22 @@ func (o GetRemoteHelmRepositoryContentSynchronisationOutput) ToGetRemoteHelmRepo
 	}).(GetRemoteHelmRepositoryContentSynchronisationPtrOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o GetRemoteHelmRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteHelmRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o GetRemoteHelmRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteHelmRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o GetRemoteHelmRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteHelmRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o GetRemoteHelmRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteHelmRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -25215,6 +26022,7 @@ func (o GetRemoteHelmRepositoryContentSynchronisationPtrOutput) Elem() GetRemote
 	}).(GetRemoteHelmRepositoryContentSynchronisationOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o GetRemoteHelmRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteHelmRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -25224,6 +26032,7 @@ func (o GetRemoteHelmRepositoryContentSynchronisationPtrOutput) Enabled() pulumi
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o GetRemoteHelmRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteHelmRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -25233,6 +26042,7 @@ func (o GetRemoteHelmRepositoryContentSynchronisationPtrOutput) PropertiesEnable
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o GetRemoteHelmRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteHelmRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -25242,6 +26052,7 @@ func (o GetRemoteHelmRepositoryContentSynchronisationPtrOutput) SourceOriginAbse
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o GetRemoteHelmRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteHelmRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -25252,10 +26063,14 @@ func (o GetRemoteHelmRepositoryContentSynchronisationPtrOutput) StatisticsEnable
 }
 
 type GetRemoteIvyRepositoryContentSynchronisation struct {
-	Enabled                      *bool `pulumi:"enabled"`
-	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled *bool `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
 }
 
 // GetRemoteIvyRepositoryContentSynchronisationInput is an input type that accepts GetRemoteIvyRepositoryContentSynchronisationArgs and GetRemoteIvyRepositoryContentSynchronisationOutput values.
@@ -25270,10 +26085,14 @@ type GetRemoteIvyRepositoryContentSynchronisationInput interface {
 }
 
 type GetRemoteIvyRepositoryContentSynchronisationArgs struct {
-	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
-	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
 }
 
 func (GetRemoteIvyRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
@@ -25353,18 +26172,22 @@ func (o GetRemoteIvyRepositoryContentSynchronisationOutput) ToGetRemoteIvyReposi
 	}).(GetRemoteIvyRepositoryContentSynchronisationPtrOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o GetRemoteIvyRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteIvyRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o GetRemoteIvyRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteIvyRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o GetRemoteIvyRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteIvyRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o GetRemoteIvyRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteIvyRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -25393,6 +26216,7 @@ func (o GetRemoteIvyRepositoryContentSynchronisationPtrOutput) Elem() GetRemoteI
 	}).(GetRemoteIvyRepositoryContentSynchronisationOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o GetRemoteIvyRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteIvyRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -25402,6 +26226,7 @@ func (o GetRemoteIvyRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o GetRemoteIvyRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteIvyRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -25411,6 +26236,7 @@ func (o GetRemoteIvyRepositoryContentSynchronisationPtrOutput) PropertiesEnabled
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o GetRemoteIvyRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteIvyRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -25420,6 +26246,7 @@ func (o GetRemoteIvyRepositoryContentSynchronisationPtrOutput) SourceOriginAbsen
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o GetRemoteIvyRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteIvyRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -25430,10 +26257,14 @@ func (o GetRemoteIvyRepositoryContentSynchronisationPtrOutput) StatisticsEnabled
 }
 
 type GetRemoteMavenRepositoryContentSynchronisation struct {
-	Enabled                      *bool `pulumi:"enabled"`
-	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled *bool `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
 }
 
 // GetRemoteMavenRepositoryContentSynchronisationInput is an input type that accepts GetRemoteMavenRepositoryContentSynchronisationArgs and GetRemoteMavenRepositoryContentSynchronisationOutput values.
@@ -25448,10 +26279,14 @@ type GetRemoteMavenRepositoryContentSynchronisationInput interface {
 }
 
 type GetRemoteMavenRepositoryContentSynchronisationArgs struct {
-	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
-	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
 }
 
 func (GetRemoteMavenRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
@@ -25531,18 +26366,22 @@ func (o GetRemoteMavenRepositoryContentSynchronisationOutput) ToGetRemoteMavenRe
 	}).(GetRemoteMavenRepositoryContentSynchronisationPtrOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o GetRemoteMavenRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteMavenRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o GetRemoteMavenRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteMavenRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o GetRemoteMavenRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteMavenRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o GetRemoteMavenRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteMavenRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -25571,6 +26410,7 @@ func (o GetRemoteMavenRepositoryContentSynchronisationPtrOutput) Elem() GetRemot
 	}).(GetRemoteMavenRepositoryContentSynchronisationOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o GetRemoteMavenRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteMavenRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -25580,6 +26420,7 @@ func (o GetRemoteMavenRepositoryContentSynchronisationPtrOutput) Enabled() pulum
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o GetRemoteMavenRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteMavenRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -25589,6 +26430,7 @@ func (o GetRemoteMavenRepositoryContentSynchronisationPtrOutput) PropertiesEnabl
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o GetRemoteMavenRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteMavenRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -25598,6 +26440,7 @@ func (o GetRemoteMavenRepositoryContentSynchronisationPtrOutput) SourceOriginAbs
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o GetRemoteMavenRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteMavenRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -25608,10 +26451,14 @@ func (o GetRemoteMavenRepositoryContentSynchronisationPtrOutput) StatisticsEnabl
 }
 
 type GetRemoteNpmRepositoryContentSynchronisation struct {
-	Enabled                      *bool `pulumi:"enabled"`
-	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled *bool `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
 }
 
 // GetRemoteNpmRepositoryContentSynchronisationInput is an input type that accepts GetRemoteNpmRepositoryContentSynchronisationArgs and GetRemoteNpmRepositoryContentSynchronisationOutput values.
@@ -25626,10 +26473,14 @@ type GetRemoteNpmRepositoryContentSynchronisationInput interface {
 }
 
 type GetRemoteNpmRepositoryContentSynchronisationArgs struct {
-	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
-	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
 }
 
 func (GetRemoteNpmRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
@@ -25709,18 +26560,22 @@ func (o GetRemoteNpmRepositoryContentSynchronisationOutput) ToGetRemoteNpmReposi
 	}).(GetRemoteNpmRepositoryContentSynchronisationPtrOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o GetRemoteNpmRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteNpmRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o GetRemoteNpmRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteNpmRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o GetRemoteNpmRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteNpmRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o GetRemoteNpmRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteNpmRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -25749,6 +26604,7 @@ func (o GetRemoteNpmRepositoryContentSynchronisationPtrOutput) Elem() GetRemoteN
 	}).(GetRemoteNpmRepositoryContentSynchronisationOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o GetRemoteNpmRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteNpmRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -25758,6 +26614,7 @@ func (o GetRemoteNpmRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o GetRemoteNpmRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteNpmRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -25767,6 +26624,7 @@ func (o GetRemoteNpmRepositoryContentSynchronisationPtrOutput) PropertiesEnabled
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o GetRemoteNpmRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteNpmRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -25776,6 +26634,7 @@ func (o GetRemoteNpmRepositoryContentSynchronisationPtrOutput) SourceOriginAbsen
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o GetRemoteNpmRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteNpmRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -25786,10 +26645,14 @@ func (o GetRemoteNpmRepositoryContentSynchronisationPtrOutput) StatisticsEnabled
 }
 
 type GetRemoteNugetRepositoryContentSynchronisation struct {
-	Enabled                      *bool `pulumi:"enabled"`
-	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled *bool `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
 }
 
 // GetRemoteNugetRepositoryContentSynchronisationInput is an input type that accepts GetRemoteNugetRepositoryContentSynchronisationArgs and GetRemoteNugetRepositoryContentSynchronisationOutput values.
@@ -25804,10 +26667,14 @@ type GetRemoteNugetRepositoryContentSynchronisationInput interface {
 }
 
 type GetRemoteNugetRepositoryContentSynchronisationArgs struct {
-	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
-	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
 }
 
 func (GetRemoteNugetRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
@@ -25887,18 +26754,22 @@ func (o GetRemoteNugetRepositoryContentSynchronisationOutput) ToGetRemoteNugetRe
 	}).(GetRemoteNugetRepositoryContentSynchronisationPtrOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o GetRemoteNugetRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteNugetRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o GetRemoteNugetRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteNugetRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o GetRemoteNugetRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteNugetRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o GetRemoteNugetRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteNugetRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -25927,6 +26798,7 @@ func (o GetRemoteNugetRepositoryContentSynchronisationPtrOutput) Elem() GetRemot
 	}).(GetRemoteNugetRepositoryContentSynchronisationOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o GetRemoteNugetRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteNugetRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -25936,6 +26808,7 @@ func (o GetRemoteNugetRepositoryContentSynchronisationPtrOutput) Enabled() pulum
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o GetRemoteNugetRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteNugetRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -25945,6 +26818,7 @@ func (o GetRemoteNugetRepositoryContentSynchronisationPtrOutput) PropertiesEnabl
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o GetRemoteNugetRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteNugetRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -25954,6 +26828,7 @@ func (o GetRemoteNugetRepositoryContentSynchronisationPtrOutput) SourceOriginAbs
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o GetRemoteNugetRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteNugetRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -25964,10 +26839,14 @@ func (o GetRemoteNugetRepositoryContentSynchronisationPtrOutput) StatisticsEnabl
 }
 
 type GetRemoteOpkgRepositoryContentSynchronisation struct {
-	Enabled                      *bool `pulumi:"enabled"`
-	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled *bool `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
 }
 
 // GetRemoteOpkgRepositoryContentSynchronisationInput is an input type that accepts GetRemoteOpkgRepositoryContentSynchronisationArgs and GetRemoteOpkgRepositoryContentSynchronisationOutput values.
@@ -25982,10 +26861,14 @@ type GetRemoteOpkgRepositoryContentSynchronisationInput interface {
 }
 
 type GetRemoteOpkgRepositoryContentSynchronisationArgs struct {
-	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
-	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
 }
 
 func (GetRemoteOpkgRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
@@ -26065,18 +26948,22 @@ func (o GetRemoteOpkgRepositoryContentSynchronisationOutput) ToGetRemoteOpkgRepo
 	}).(GetRemoteOpkgRepositoryContentSynchronisationPtrOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o GetRemoteOpkgRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteOpkgRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o GetRemoteOpkgRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteOpkgRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o GetRemoteOpkgRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteOpkgRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o GetRemoteOpkgRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteOpkgRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -26105,6 +26992,7 @@ func (o GetRemoteOpkgRepositoryContentSynchronisationPtrOutput) Elem() GetRemote
 	}).(GetRemoteOpkgRepositoryContentSynchronisationOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o GetRemoteOpkgRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteOpkgRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -26114,6 +27002,7 @@ func (o GetRemoteOpkgRepositoryContentSynchronisationPtrOutput) Enabled() pulumi
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o GetRemoteOpkgRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteOpkgRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -26123,6 +27012,7 @@ func (o GetRemoteOpkgRepositoryContentSynchronisationPtrOutput) PropertiesEnable
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o GetRemoteOpkgRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteOpkgRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -26132,6 +27022,7 @@ func (o GetRemoteOpkgRepositoryContentSynchronisationPtrOutput) SourceOriginAbse
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o GetRemoteOpkgRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteOpkgRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -26142,10 +27033,14 @@ func (o GetRemoteOpkgRepositoryContentSynchronisationPtrOutput) StatisticsEnable
 }
 
 type GetRemoteP2RepositoryContentSynchronisation struct {
-	Enabled                      *bool `pulumi:"enabled"`
-	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled *bool `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
 }
 
 // GetRemoteP2RepositoryContentSynchronisationInput is an input type that accepts GetRemoteP2RepositoryContentSynchronisationArgs and GetRemoteP2RepositoryContentSynchronisationOutput values.
@@ -26160,10 +27055,14 @@ type GetRemoteP2RepositoryContentSynchronisationInput interface {
 }
 
 type GetRemoteP2RepositoryContentSynchronisationArgs struct {
-	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
-	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
 }
 
 func (GetRemoteP2RepositoryContentSynchronisationArgs) ElementType() reflect.Type {
@@ -26243,18 +27142,22 @@ func (o GetRemoteP2RepositoryContentSynchronisationOutput) ToGetRemoteP2Reposito
 	}).(GetRemoteP2RepositoryContentSynchronisationPtrOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o GetRemoteP2RepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteP2RepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o GetRemoteP2RepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteP2RepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o GetRemoteP2RepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteP2RepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o GetRemoteP2RepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteP2RepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -26283,6 +27186,7 @@ func (o GetRemoteP2RepositoryContentSynchronisationPtrOutput) Elem() GetRemoteP2
 	}).(GetRemoteP2RepositoryContentSynchronisationOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o GetRemoteP2RepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteP2RepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -26292,6 +27196,7 @@ func (o GetRemoteP2RepositoryContentSynchronisationPtrOutput) Enabled() pulumi.B
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o GetRemoteP2RepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteP2RepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -26301,6 +27206,7 @@ func (o GetRemoteP2RepositoryContentSynchronisationPtrOutput) PropertiesEnabled(
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o GetRemoteP2RepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteP2RepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -26310,6 +27216,7 @@ func (o GetRemoteP2RepositoryContentSynchronisationPtrOutput) SourceOriginAbsenc
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o GetRemoteP2RepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteP2RepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -26320,10 +27227,14 @@ func (o GetRemoteP2RepositoryContentSynchronisationPtrOutput) StatisticsEnabled(
 }
 
 type GetRemotePubRepositoryContentSynchronisation struct {
-	Enabled                      *bool `pulumi:"enabled"`
-	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled *bool `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
 }
 
 // GetRemotePubRepositoryContentSynchronisationInput is an input type that accepts GetRemotePubRepositoryContentSynchronisationArgs and GetRemotePubRepositoryContentSynchronisationOutput values.
@@ -26338,10 +27249,14 @@ type GetRemotePubRepositoryContentSynchronisationInput interface {
 }
 
 type GetRemotePubRepositoryContentSynchronisationArgs struct {
-	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
-	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
 }
 
 func (GetRemotePubRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
@@ -26421,18 +27336,22 @@ func (o GetRemotePubRepositoryContentSynchronisationOutput) ToGetRemotePubReposi
 	}).(GetRemotePubRepositoryContentSynchronisationPtrOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o GetRemotePubRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemotePubRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o GetRemotePubRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemotePubRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o GetRemotePubRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemotePubRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o GetRemotePubRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemotePubRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -26461,6 +27380,7 @@ func (o GetRemotePubRepositoryContentSynchronisationPtrOutput) Elem() GetRemoteP
 	}).(GetRemotePubRepositoryContentSynchronisationOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o GetRemotePubRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemotePubRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -26470,6 +27390,7 @@ func (o GetRemotePubRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o GetRemotePubRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemotePubRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -26479,6 +27400,7 @@ func (o GetRemotePubRepositoryContentSynchronisationPtrOutput) PropertiesEnabled
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o GetRemotePubRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemotePubRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -26488,6 +27410,7 @@ func (o GetRemotePubRepositoryContentSynchronisationPtrOutput) SourceOriginAbsen
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o GetRemotePubRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemotePubRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -26498,10 +27421,14 @@ func (o GetRemotePubRepositoryContentSynchronisationPtrOutput) StatisticsEnabled
 }
 
 type GetRemotePuppetRepositoryContentSynchronisation struct {
-	Enabled                      *bool `pulumi:"enabled"`
-	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled *bool `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
 }
 
 // GetRemotePuppetRepositoryContentSynchronisationInput is an input type that accepts GetRemotePuppetRepositoryContentSynchronisationArgs and GetRemotePuppetRepositoryContentSynchronisationOutput values.
@@ -26516,10 +27443,14 @@ type GetRemotePuppetRepositoryContentSynchronisationInput interface {
 }
 
 type GetRemotePuppetRepositoryContentSynchronisationArgs struct {
-	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
-	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
 }
 
 func (GetRemotePuppetRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
@@ -26599,18 +27530,22 @@ func (o GetRemotePuppetRepositoryContentSynchronisationOutput) ToGetRemotePuppet
 	}).(GetRemotePuppetRepositoryContentSynchronisationPtrOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o GetRemotePuppetRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemotePuppetRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o GetRemotePuppetRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemotePuppetRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o GetRemotePuppetRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemotePuppetRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o GetRemotePuppetRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemotePuppetRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -26639,6 +27574,7 @@ func (o GetRemotePuppetRepositoryContentSynchronisationPtrOutput) Elem() GetRemo
 	}).(GetRemotePuppetRepositoryContentSynchronisationOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o GetRemotePuppetRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemotePuppetRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -26648,6 +27584,7 @@ func (o GetRemotePuppetRepositoryContentSynchronisationPtrOutput) Enabled() pulu
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o GetRemotePuppetRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemotePuppetRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -26657,6 +27594,7 @@ func (o GetRemotePuppetRepositoryContentSynchronisationPtrOutput) PropertiesEnab
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o GetRemotePuppetRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemotePuppetRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -26666,6 +27604,7 @@ func (o GetRemotePuppetRepositoryContentSynchronisationPtrOutput) SourceOriginAb
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o GetRemotePuppetRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemotePuppetRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -26676,10 +27615,14 @@ func (o GetRemotePuppetRepositoryContentSynchronisationPtrOutput) StatisticsEnab
 }
 
 type GetRemotePypiRepositoryContentSynchronisation struct {
-	Enabled                      *bool `pulumi:"enabled"`
-	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled *bool `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
 }
 
 // GetRemotePypiRepositoryContentSynchronisationInput is an input type that accepts GetRemotePypiRepositoryContentSynchronisationArgs and GetRemotePypiRepositoryContentSynchronisationOutput values.
@@ -26694,10 +27637,14 @@ type GetRemotePypiRepositoryContentSynchronisationInput interface {
 }
 
 type GetRemotePypiRepositoryContentSynchronisationArgs struct {
-	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
-	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
 }
 
 func (GetRemotePypiRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
@@ -26777,18 +27724,22 @@ func (o GetRemotePypiRepositoryContentSynchronisationOutput) ToGetRemotePypiRepo
 	}).(GetRemotePypiRepositoryContentSynchronisationPtrOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o GetRemotePypiRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemotePypiRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o GetRemotePypiRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemotePypiRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o GetRemotePypiRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemotePypiRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o GetRemotePypiRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemotePypiRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -26817,6 +27768,7 @@ func (o GetRemotePypiRepositoryContentSynchronisationPtrOutput) Elem() GetRemote
 	}).(GetRemotePypiRepositoryContentSynchronisationOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o GetRemotePypiRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemotePypiRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -26826,6 +27778,7 @@ func (o GetRemotePypiRepositoryContentSynchronisationPtrOutput) Enabled() pulumi
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o GetRemotePypiRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemotePypiRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -26835,6 +27788,7 @@ func (o GetRemotePypiRepositoryContentSynchronisationPtrOutput) PropertiesEnable
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o GetRemotePypiRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemotePypiRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -26844,6 +27798,7 @@ func (o GetRemotePypiRepositoryContentSynchronisationPtrOutput) SourceOriginAbse
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o GetRemotePypiRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemotePypiRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -26854,10 +27809,14 @@ func (o GetRemotePypiRepositoryContentSynchronisationPtrOutput) StatisticsEnable
 }
 
 type GetRemoteRpmRepositoryContentSynchronisation struct {
-	Enabled                      *bool `pulumi:"enabled"`
-	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled *bool `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
 }
 
 // GetRemoteRpmRepositoryContentSynchronisationInput is an input type that accepts GetRemoteRpmRepositoryContentSynchronisationArgs and GetRemoteRpmRepositoryContentSynchronisationOutput values.
@@ -26872,10 +27831,14 @@ type GetRemoteRpmRepositoryContentSynchronisationInput interface {
 }
 
 type GetRemoteRpmRepositoryContentSynchronisationArgs struct {
-	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
-	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
 }
 
 func (GetRemoteRpmRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
@@ -26955,18 +27918,22 @@ func (o GetRemoteRpmRepositoryContentSynchronisationOutput) ToGetRemoteRpmReposi
 	}).(GetRemoteRpmRepositoryContentSynchronisationPtrOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o GetRemoteRpmRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteRpmRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o GetRemoteRpmRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteRpmRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o GetRemoteRpmRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteRpmRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o GetRemoteRpmRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteRpmRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -26995,6 +27962,7 @@ func (o GetRemoteRpmRepositoryContentSynchronisationPtrOutput) Elem() GetRemoteR
 	}).(GetRemoteRpmRepositoryContentSynchronisationOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o GetRemoteRpmRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteRpmRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -27004,6 +27972,7 @@ func (o GetRemoteRpmRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o GetRemoteRpmRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteRpmRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -27013,6 +27982,7 @@ func (o GetRemoteRpmRepositoryContentSynchronisationPtrOutput) PropertiesEnabled
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o GetRemoteRpmRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteRpmRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -27022,6 +27992,7 @@ func (o GetRemoteRpmRepositoryContentSynchronisationPtrOutput) SourceOriginAbsen
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o GetRemoteRpmRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteRpmRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -27032,10 +28003,14 @@ func (o GetRemoteRpmRepositoryContentSynchronisationPtrOutput) StatisticsEnabled
 }
 
 type GetRemoteSbtRepositoryContentSynchronisation struct {
-	Enabled                      *bool `pulumi:"enabled"`
-	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled *bool `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
 }
 
 // GetRemoteSbtRepositoryContentSynchronisationInput is an input type that accepts GetRemoteSbtRepositoryContentSynchronisationArgs and GetRemoteSbtRepositoryContentSynchronisationOutput values.
@@ -27050,10 +28025,14 @@ type GetRemoteSbtRepositoryContentSynchronisationInput interface {
 }
 
 type GetRemoteSbtRepositoryContentSynchronisationArgs struct {
-	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
-	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
 }
 
 func (GetRemoteSbtRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
@@ -27133,18 +28112,22 @@ func (o GetRemoteSbtRepositoryContentSynchronisationOutput) ToGetRemoteSbtReposi
 	}).(GetRemoteSbtRepositoryContentSynchronisationPtrOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o GetRemoteSbtRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteSbtRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o GetRemoteSbtRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteSbtRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o GetRemoteSbtRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteSbtRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o GetRemoteSbtRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteSbtRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -27173,6 +28156,7 @@ func (o GetRemoteSbtRepositoryContentSynchronisationPtrOutput) Elem() GetRemoteS
 	}).(GetRemoteSbtRepositoryContentSynchronisationOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o GetRemoteSbtRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteSbtRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -27182,6 +28166,7 @@ func (o GetRemoteSbtRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o GetRemoteSbtRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteSbtRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -27191,6 +28176,7 @@ func (o GetRemoteSbtRepositoryContentSynchronisationPtrOutput) PropertiesEnabled
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o GetRemoteSbtRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteSbtRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -27200,6 +28186,7 @@ func (o GetRemoteSbtRepositoryContentSynchronisationPtrOutput) SourceOriginAbsen
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o GetRemoteSbtRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteSbtRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -27210,10 +28197,14 @@ func (o GetRemoteSbtRepositoryContentSynchronisationPtrOutput) StatisticsEnabled
 }
 
 type GetRemoteSwiftRepositoryContentSynchronisation struct {
-	Enabled                      *bool `pulumi:"enabled"`
-	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled *bool `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
 }
 
 // GetRemoteSwiftRepositoryContentSynchronisationInput is an input type that accepts GetRemoteSwiftRepositoryContentSynchronisationArgs and GetRemoteSwiftRepositoryContentSynchronisationOutput values.
@@ -27228,10 +28219,14 @@ type GetRemoteSwiftRepositoryContentSynchronisationInput interface {
 }
 
 type GetRemoteSwiftRepositoryContentSynchronisationArgs struct {
-	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
-	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
 }
 
 func (GetRemoteSwiftRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
@@ -27311,18 +28306,22 @@ func (o GetRemoteSwiftRepositoryContentSynchronisationOutput) ToGetRemoteSwiftRe
 	}).(GetRemoteSwiftRepositoryContentSynchronisationPtrOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o GetRemoteSwiftRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteSwiftRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o GetRemoteSwiftRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteSwiftRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o GetRemoteSwiftRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteSwiftRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o GetRemoteSwiftRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteSwiftRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -27351,6 +28350,7 @@ func (o GetRemoteSwiftRepositoryContentSynchronisationPtrOutput) Elem() GetRemot
 	}).(GetRemoteSwiftRepositoryContentSynchronisationOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o GetRemoteSwiftRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteSwiftRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -27360,6 +28360,7 @@ func (o GetRemoteSwiftRepositoryContentSynchronisationPtrOutput) Enabled() pulum
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o GetRemoteSwiftRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteSwiftRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -27369,6 +28370,7 @@ func (o GetRemoteSwiftRepositoryContentSynchronisationPtrOutput) PropertiesEnabl
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o GetRemoteSwiftRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteSwiftRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -27378,6 +28380,7 @@ func (o GetRemoteSwiftRepositoryContentSynchronisationPtrOutput) SourceOriginAbs
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o GetRemoteSwiftRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteSwiftRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -27388,10 +28391,14 @@ func (o GetRemoteSwiftRepositoryContentSynchronisationPtrOutput) StatisticsEnabl
 }
 
 type GetRemoteTerraformRepositoryContentSynchronisation struct {
-	Enabled                      *bool `pulumi:"enabled"`
-	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled *bool `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
 }
 
 // GetRemoteTerraformRepositoryContentSynchronisationInput is an input type that accepts GetRemoteTerraformRepositoryContentSynchronisationArgs and GetRemoteTerraformRepositoryContentSynchronisationOutput values.
@@ -27406,10 +28413,14 @@ type GetRemoteTerraformRepositoryContentSynchronisationInput interface {
 }
 
 type GetRemoteTerraformRepositoryContentSynchronisationArgs struct {
-	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
-	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
 }
 
 func (GetRemoteTerraformRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
@@ -27489,20 +28500,24 @@ func (o GetRemoteTerraformRepositoryContentSynchronisationOutput) ToGetRemoteTer
 	}).(GetRemoteTerraformRepositoryContentSynchronisationPtrOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o GetRemoteTerraformRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteTerraformRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o GetRemoteTerraformRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteTerraformRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o GetRemoteTerraformRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteTerraformRepositoryContentSynchronisation) *bool {
 		return v.SourceOriginAbsenceDetection
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o GetRemoteTerraformRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteTerraformRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -27531,6 +28546,7 @@ func (o GetRemoteTerraformRepositoryContentSynchronisationPtrOutput) Elem() GetR
 	}).(GetRemoteTerraformRepositoryContentSynchronisationOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o GetRemoteTerraformRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteTerraformRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -27540,6 +28556,7 @@ func (o GetRemoteTerraformRepositoryContentSynchronisationPtrOutput) Enabled() p
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o GetRemoteTerraformRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteTerraformRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -27549,6 +28566,7 @@ func (o GetRemoteTerraformRepositoryContentSynchronisationPtrOutput) PropertiesE
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o GetRemoteTerraformRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteTerraformRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -27558,6 +28576,7 @@ func (o GetRemoteTerraformRepositoryContentSynchronisationPtrOutput) SourceOrigi
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o GetRemoteTerraformRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteTerraformRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -27568,10 +28587,14 @@ func (o GetRemoteTerraformRepositoryContentSynchronisationPtrOutput) StatisticsE
 }
 
 type GetRemoteVcsRepositoryContentSynchronisation struct {
-	Enabled                      *bool `pulumi:"enabled"`
-	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled *bool `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
 }
 
 // GetRemoteVcsRepositoryContentSynchronisationInput is an input type that accepts GetRemoteVcsRepositoryContentSynchronisationArgs and GetRemoteVcsRepositoryContentSynchronisationOutput values.
@@ -27586,10 +28609,14 @@ type GetRemoteVcsRepositoryContentSynchronisationInput interface {
 }
 
 type GetRemoteVcsRepositoryContentSynchronisationArgs struct {
-	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
-	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
-	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
 }
 
 func (GetRemoteVcsRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
@@ -27669,18 +28696,22 @@ func (o GetRemoteVcsRepositoryContentSynchronisationOutput) ToGetRemoteVcsReposi
 	}).(GetRemoteVcsRepositoryContentSynchronisationPtrOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o GetRemoteVcsRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteVcsRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o GetRemoteVcsRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteVcsRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o GetRemoteVcsRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteVcsRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o GetRemoteVcsRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRemoteVcsRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -27709,6 +28740,7 @@ func (o GetRemoteVcsRepositoryContentSynchronisationPtrOutput) Elem() GetRemoteV
 	}).(GetRemoteVcsRepositoryContentSynchronisationOutput)
 }
 
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o GetRemoteVcsRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteVcsRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -27718,6 +28750,7 @@ func (o GetRemoteVcsRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o GetRemoteVcsRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteVcsRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -27727,6 +28760,7 @@ func (o GetRemoteVcsRepositoryContentSynchronisationPtrOutput) PropertiesEnabled
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o GetRemoteVcsRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteVcsRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -27736,6 +28770,7 @@ func (o GetRemoteVcsRepositoryContentSynchronisationPtrOutput) SourceOriginAbsen
 	}).(pulumi.BoolPtrOutput)
 }
 
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o GetRemoteVcsRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteVcsRepositoryContentSynchronisation) *bool {
 		if v == nil {

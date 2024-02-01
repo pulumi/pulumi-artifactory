@@ -32,9 +32,17 @@ public final class DistributionCustomWebhookHandlerArgs extends com.pulumi.resou
         return Optional.ofNullable(this.httpHeaders);
     }
 
+    /**
+     * This attribute is used to build the request body. Used in custom webhooks
+     * 
+     */
     @Import(name="payload")
     private @Nullable Output<String> payload;
 
+    /**
+     * @return This attribute is used to build the request body. Used in custom webhooks
+     * 
+     */
     public Optional<Output<String>> payload() {
         return Optional.ofNullable(this.payload);
     }
@@ -177,11 +185,23 @@ public final class DistributionCustomWebhookHandlerArgs extends com.pulumi.resou
             return httpHeaders(Output.of(httpHeaders));
         }
 
+        /**
+         * @param payload This attribute is used to build the request body. Used in custom webhooks
+         * 
+         * @return builder
+         * 
+         */
         public Builder payload(@Nullable Output<String> payload) {
             $.payload = payload;
             return this;
         }
 
+        /**
+         * @param payload This attribute is used to build the request body. Used in custom webhooks
+         * 
+         * @return builder
+         * 
+         */
         public Builder payload(String payload) {
             return payload(Output.of(payload));
         }

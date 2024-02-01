@@ -18,7 +18,7 @@ class _ExportableConfig(types.ModuleType):
     @property
     def access_token(self) -> Optional[str]:
         """
-        This is a access token that can be given to you by your admin under `User Management -> Access Tokens`. If not set, the
+        This is a access token that can be given to you by your admin under `User Management > Access Tokens`. If not set, the
         'api_key' attribute value will be used.
         """
         return __config__.get('accessToken')

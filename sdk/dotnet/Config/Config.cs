@@ -34,7 +34,7 @@ namespace Pulumi.Artifactory
 
         private static readonly __Value<string?> _accessToken = new __Value<string?>(() => __config.Get("accessToken"));
         /// <summary>
-        /// This is a access token that can be given to you by your admin under `User Management -&gt; Access Tokens`. If not set, the
+        /// This is a access token that can be given to you by your admin under `User Management &gt; Access Tokens`. If not set, the
         /// 'api_key' attribute value will be used.
         /// </summary>
         public static string? AccessToken
