@@ -15,9 +15,17 @@ public final class GeneralSecurityArgs extends com.pulumi.resources.ResourceArgs
 
     public static final GeneralSecurityArgs Empty = new GeneralSecurityArgs();
 
+    /**
+     * Enable anonymous access.  Default value is `false`.
+     * 
+     */
     @Import(name="enableAnonymousAccess")
     private @Nullable Output<Boolean> enableAnonymousAccess;
 
+    /**
+     * @return Enable anonymous access.  Default value is `false`.
+     * 
+     */
     public Optional<Output<Boolean>> enableAnonymousAccess() {
         return Optional.ofNullable(this.enableAnonymousAccess);
     }
@@ -46,11 +54,23 @@ public final class GeneralSecurityArgs extends com.pulumi.resources.ResourceArgs
             $ = new GeneralSecurityArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param enableAnonymousAccess Enable anonymous access.  Default value is `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enableAnonymousAccess(@Nullable Output<Boolean> enableAnonymousAccess) {
             $.enableAnonymousAccess = enableAnonymousAccess;
             return this;
         }
 
+        /**
+         * @param enableAnonymousAccess Enable anonymous access.  Default value is `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enableAnonymousAccess(Boolean enableAnonymousAccess) {
             return enableAnonymousAccess(Output.of(enableAnonymousAccess));
         }

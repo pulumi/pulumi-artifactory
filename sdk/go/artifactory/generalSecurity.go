@@ -57,6 +57,7 @@ import (
 type GeneralSecurity struct {
 	pulumi.CustomResourceState
 
+	// Enable anonymous access.  Default value is `false`.
 	EnableAnonymousAccess pulumi.BoolPtrOutput `pulumi:"enableAnonymousAccess"`
 }
 
@@ -90,10 +91,12 @@ func GetGeneralSecurity(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering GeneralSecurity resources.
 type generalSecurityState struct {
+	// Enable anonymous access.  Default value is `false`.
 	EnableAnonymousAccess *bool `pulumi:"enableAnonymousAccess"`
 }
 
 type GeneralSecurityState struct {
+	// Enable anonymous access.  Default value is `false`.
 	EnableAnonymousAccess pulumi.BoolPtrInput
 }
 
@@ -102,11 +105,13 @@ func (GeneralSecurityState) ElementType() reflect.Type {
 }
 
 type generalSecurityArgs struct {
+	// Enable anonymous access.  Default value is `false`.
 	EnableAnonymousAccess *bool `pulumi:"enableAnonymousAccess"`
 }
 
 // The set of arguments for constructing a GeneralSecurity resource.
 type GeneralSecurityArgs struct {
+	// Enable anonymous access.  Default value is `false`.
 	EnableAnonymousAccess pulumi.BoolPtrInput
 }
 
@@ -197,6 +202,7 @@ func (o GeneralSecurityOutput) ToGeneralSecurityOutputWithContext(ctx context.Co
 	return o
 }
 
+// Enable anonymous access.  Default value is `false`.
 func (o GeneralSecurityOutput) EnableAnonymousAccess() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GeneralSecurity) pulumi.BoolPtrOutput { return v.EnableAnonymousAccess }).(pulumi.BoolPtrOutput)
 }

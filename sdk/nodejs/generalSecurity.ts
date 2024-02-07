@@ -58,6 +58,9 @@ export class GeneralSecurity extends pulumi.CustomResource {
         return obj['__pulumiType'] === GeneralSecurity.__pulumiType;
     }
 
+    /**
+     * Enable anonymous access.  Default value is `false`.
+     */
     public readonly enableAnonymousAccess!: pulumi.Output<boolean | undefined>;
 
     /**
@@ -87,6 +90,9 @@ export class GeneralSecurity extends pulumi.CustomResource {
  * Input properties used for looking up and filtering GeneralSecurity resources.
  */
 export interface GeneralSecurityState {
+    /**
+     * Enable anonymous access.  Default value is `false`.
+     */
     enableAnonymousAccess?: pulumi.Input<boolean>;
 }
 
@@ -94,5 +100,8 @@ export interface GeneralSecurityState {
  * The set of arguments for constructing a GeneralSecurity resource.
  */
 export interface GeneralSecurityArgs {
+    /**
+     * Enable anonymous access.  Default value is `false`.
+     */
     enableAnonymousAccess?: pulumi.Input<boolean>;
 }
