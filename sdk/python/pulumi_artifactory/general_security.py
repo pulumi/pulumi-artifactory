@@ -17,6 +17,7 @@ class GeneralSecurityArgs:
                  enable_anonymous_access: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a GeneralSecurity resource.
+        :param pulumi.Input[bool] enable_anonymous_access: Enable anonymous access.  Default value is `false`.
         """
         if enable_anonymous_access is not None:
             pulumi.set(__self__, "enable_anonymous_access", enable_anonymous_access)
@@ -24,6 +25,9 @@ class GeneralSecurityArgs:
     @property
     @pulumi.getter(name="enableAnonymousAccess")
     def enable_anonymous_access(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable anonymous access.  Default value is `false`.
+        """
         return pulumi.get(self, "enable_anonymous_access")
 
     @enable_anonymous_access.setter
@@ -37,6 +41,7 @@ class _GeneralSecurityState:
                  enable_anonymous_access: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering GeneralSecurity resources.
+        :param pulumi.Input[bool] enable_anonymous_access: Enable anonymous access.  Default value is `false`.
         """
         if enable_anonymous_access is not None:
             pulumi.set(__self__, "enable_anonymous_access", enable_anonymous_access)
@@ -44,6 +49,9 @@ class _GeneralSecurityState:
     @property
     @pulumi.getter(name="enableAnonymousAccess")
     def enable_anonymous_access(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable anonymous access.  Default value is `false`.
+        """
         return pulumi.get(self, "enable_anonymous_access")
 
     @enable_anonymous_access.setter
@@ -86,6 +94,7 @@ class GeneralSecurity(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] enable_anonymous_access: Enable anonymous access.  Default value is `false`.
         """
         ...
     @overload
@@ -163,6 +172,7 @@ class GeneralSecurity(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] enable_anonymous_access: Enable anonymous access.  Default value is `false`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -174,5 +184,8 @@ class GeneralSecurity(pulumi.CustomResource):
     @property
     @pulumi.getter(name="enableAnonymousAccess")
     def enable_anonymous_access(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Enable anonymous access.  Default value is `false`.
+        """
         return pulumi.get(self, "enable_anonymous_access")
 

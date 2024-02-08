@@ -63,9 +63,17 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="artifactory:index/generalSecurity:GeneralSecurity")
 public class GeneralSecurity extends com.pulumi.resources.CustomResource {
+    /**
+     * Enable anonymous access.  Default value is `false`.
+     * 
+     */
     @Export(name="enableAnonymousAccess", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableAnonymousAccess;
 
+    /**
+     * @return Enable anonymous access.  Default value is `false`.
+     * 
+     */
     public Output<Optional<Boolean>> enableAnonymousAccess() {
         return Codegen.optional(this.enableAnonymousAccess);
     }

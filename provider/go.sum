@@ -1789,8 +1789,8 @@ github.com/jbenet/go-context v0.0.0-20150711004518-d14ea06fba99 h1:BQSFePA1RWJOl
 github.com/jbenet/go-context v0.0.0-20150711004518-d14ea06fba99/go.mod h1:1lJo3i6rXxKeerYnT8Nvf0QmHCRC1n8sfWVwXF2Frvo=
 github.com/jessevdk/go-flags v1.4.0/go.mod h1:4FA24M0QyGHXBuZZK/XkWh8h0e1EYbRYJSGM75WSRxI=
 github.com/jessevdk/go-flags v1.5.0/go.mod h1:Fw0T6WPc1dYxT4mKEZRfG5kJhaTDP9pj1c2EWnYs/m4=
-github.com/jfrog/terraform-provider-artifactory/v10 v10.1.2 h1:FC0mSeHbG8cunGeVA6TI1sGrE3uz1wdyXtSnAvkDSVw=
-github.com/jfrog/terraform-provider-artifactory/v10 v10.1.2/go.mod h1:n5chjogcqvapAFBhNwoM6XZzxN/iE6plgB44gzh9bd8=
+github.com/jfrog/terraform-provider-artifactory/v10 v10.1.3 h1:e8KJff/uSFdJ1Ca5AwPZOhcI+vjWzHBmYrdL0MdOnXA=
+github.com/jfrog/terraform-provider-artifactory/v10 v10.1.3/go.mod h1:n5chjogcqvapAFBhNwoM6XZzxN/iE6plgB44gzh9bd8=
 github.com/jfrog/terraform-provider-shared v1.21.1 h1:hBlk7087fjMVk7fdx2BkpZM3RnLIzS6fGNZEJc5HLYc=
 github.com/jfrog/terraform-provider-shared v1.21.1/go.mod h1:Ioq1OBLb2h9uj4t4KzBEfA1piHbUg+Lgvn84Vbzk5uI=
 github.com/jhump/gopoet v0.0.0-20190322174617-17282ff210b3/go.mod h1:me9yfT6IJSlOL3FCfrg+L6yzUEZ+5jW6WHt4Sk+UPUI=
@@ -2233,8 +2233,8 @@ github.com/pulumi/schema-tools v0.1.2 h1:Fd9xvUjgck4NA+7/jSk7InqCUT4Kj940+EcnbQK
 github.com/pulumi/schema-tools v0.1.2/go.mod h1:62lgj52Tzq11eqWTIaKd+EVyYAu5dEcDJxMhTjvMO/k=
 github.com/pulumi/terraform-diff-reader v0.0.2 h1:kTE4nEXU3/SYXESvAIem+wyHMI3abqkI3OhJ0G04LLI=
 github.com/pulumi/terraform-diff-reader v0.0.2/go.mod h1:sZ9FUzGO+yM41hsQHs/yIcj/Y993qMdBxBU5mpDmAfQ=
-github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20240129205329-74776a5cd5f9 h1:p8vtMw4abpcmwE0v8b6x2GKZQKisrmdjojkoP3oelak=
-github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20240129205329-74776a5cd5f9/go.mod h1:qH/34G25Ugdj5FcM95cSoXzUgIbgfhVLXCcEcYaMwq8=
+github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20240202163305-e2a20ae13ef9 h1:k3SdGlmaJ49yaRV79Ktb5KGdPvuNfeiv4+oHXN+wyhs=
+github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20240202163305-e2a20ae13ef9/go.mod h1:qH/34G25Ugdj5FcM95cSoXzUgIbgfhVLXCcEcYaMwq8=
 github.com/rakyll/embedmd v0.0.0-20171029212350-c8060a0752a2/go.mod h1:7jOTMgqac46PZcF54q6l2hkLEG8op93fZu61KmxWDV4=
 github.com/rcrowley/go-metrics v0.0.0-20181016184325-3113b8401b8a/go.mod h1:bCqnVzQkZxMG4s8nGwiZ5l3QUCyqpo9Y+/ZMZ9VjZe4=
 github.com/remyoudompheng/bigfft v0.0.0-20200410134404-eec4a21b6bb0/go.mod h1:qqbHyh8v60DhA7CoWK5oRCqLrMHRGoxYCSS9EjAz6Eo=

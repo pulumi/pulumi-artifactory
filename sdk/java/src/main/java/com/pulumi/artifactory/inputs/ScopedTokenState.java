@@ -241,18 +241,18 @@ public final class ScopedTokenState extends com.pulumi.resources.ResourceArgs {
      * supported scopes include: * `applied-permissions/user` - provides user access. If left at the default setting, the token
      * will be created with the user-identity scope, which allows users to identify themselves in the Platform but does not
      * grant any specific access permissions.* `applied-permissions/admin` - the scope assigned to admin users.*
-     * `applied-permissions/groups` - the group to which permissions are assigned by group name (use username to inicate the
+     * `applied-permissions/groups` - the group to which permissions are assigned by group name (use username to indicate the
      * group name)* `system:metrics:r` - for getting the service metrics* `system:livelogs:r` - for getting the service
-     * livelogsrThe scope to assign to the token should be provided as a list of scope tokens, limited to 500 characters in
+     * livelogsr. The scope to assign to the token should be provided as a list of scope tokens, limited to 500 characters in
      * total. Resource Permissions From Artifactory 7.38.x, resource permissions scoped tokens are also supported in the REST
      * API. A permission can be represented as a scope token string in the following format:
      * `&lt;resource-type&gt;:&lt;target&gt;[/&lt;sub-resource&gt;]:&lt;actions&gt;` Where: `&lt;resource-type&gt;` - one of the permission resource types,
      * from a predefined closed list. Currently, the only resource type that is supported is the artifact resource type.
      * `&lt;target&gt;` - the target resource, can be exact name or a pattern `&lt;sub-resource&gt;` - optional, the target sub-resource,
-     * can be exact name or a pattern `&lt;actions&gt;` - comma-separated list of action acronyms.The actions allowed are &lt;r, w, d,
-     * a, m, x, s&gt; or any combination of these actions. To allow all actions - use `*` Examples: `[&#34;applied-permissions/user&#34;,
-     * &#34;artifact:generic-local:r&#34;]` `[&#34;applied-permissions/group&#34;, &#34;artifact:generic-local/path:*&#34;]`
-     * `[&#34;applied-permissions/admin&#34;, &#34;system:metrics:r&#34;, &#34;artifact:generic-local:*&#34;]`
+     * can be exact name or a pattern `&lt;actions&gt;` - comma-separated list of action acronyms.The actions allowed are `r`, `w`,
+     * `d`, `a`, `m`, `x`, `s`, or any combination of these actions. To allow all actions - use `*` Examples:
+     * `[&#34;applied-permissions/user&#34;, &#34;artifact:generic-local:r&#34;]` `[&#34;applied-permissions/group&#34;,
+     * &#34;artifact:generic-local/path:*&#34;]` `[&#34;applied-permissions/admin&#34;, &#34;system:metrics:r&#34;, &#34;artifact:generic-local:*&#34;]`
      * 
      */
     @Import(name="scopes")
@@ -264,18 +264,18 @@ public final class ScopedTokenState extends com.pulumi.resources.ResourceArgs {
      * supported scopes include: * `applied-permissions/user` - provides user access. If left at the default setting, the token
      * will be created with the user-identity scope, which allows users to identify themselves in the Platform but does not
      * grant any specific access permissions.* `applied-permissions/admin` - the scope assigned to admin users.*
-     * `applied-permissions/groups` - the group to which permissions are assigned by group name (use username to inicate the
+     * `applied-permissions/groups` - the group to which permissions are assigned by group name (use username to indicate the
      * group name)* `system:metrics:r` - for getting the service metrics* `system:livelogs:r` - for getting the service
-     * livelogsrThe scope to assign to the token should be provided as a list of scope tokens, limited to 500 characters in
+     * livelogsr. The scope to assign to the token should be provided as a list of scope tokens, limited to 500 characters in
      * total. Resource Permissions From Artifactory 7.38.x, resource permissions scoped tokens are also supported in the REST
      * API. A permission can be represented as a scope token string in the following format:
      * `&lt;resource-type&gt;:&lt;target&gt;[/&lt;sub-resource&gt;]:&lt;actions&gt;` Where: `&lt;resource-type&gt;` - one of the permission resource types,
      * from a predefined closed list. Currently, the only resource type that is supported is the artifact resource type.
      * `&lt;target&gt;` - the target resource, can be exact name or a pattern `&lt;sub-resource&gt;` - optional, the target sub-resource,
-     * can be exact name or a pattern `&lt;actions&gt;` - comma-separated list of action acronyms.The actions allowed are &lt;r, w, d,
-     * a, m, x, s&gt; or any combination of these actions. To allow all actions - use `*` Examples: `[&#34;applied-permissions/user&#34;,
-     * &#34;artifact:generic-local:r&#34;]` `[&#34;applied-permissions/group&#34;, &#34;artifact:generic-local/path:*&#34;]`
-     * `[&#34;applied-permissions/admin&#34;, &#34;system:metrics:r&#34;, &#34;artifact:generic-local:*&#34;]`
+     * can be exact name or a pattern `&lt;actions&gt;` - comma-separated list of action acronyms.The actions allowed are `r`, `w`,
+     * `d`, `a`, `m`, `x`, `s`, or any combination of these actions. To allow all actions - use `*` Examples:
+     * `[&#34;applied-permissions/user&#34;, &#34;artifact:generic-local:r&#34;]` `[&#34;applied-permissions/group&#34;,
+     * &#34;artifact:generic-local/path:*&#34;]` `[&#34;applied-permissions/admin&#34;, &#34;system:metrics:r&#34;, &#34;artifact:generic-local:*&#34;]`
      * 
      */
     public Optional<Output<List<String>>> scopes() {
@@ -685,18 +685,18 @@ public final class ScopedTokenState extends com.pulumi.resources.ResourceArgs {
          * supported scopes include: * `applied-permissions/user` - provides user access. If left at the default setting, the token
          * will be created with the user-identity scope, which allows users to identify themselves in the Platform but does not
          * grant any specific access permissions.* `applied-permissions/admin` - the scope assigned to admin users.*
-         * `applied-permissions/groups` - the group to which permissions are assigned by group name (use username to inicate the
+         * `applied-permissions/groups` - the group to which permissions are assigned by group name (use username to indicate the
          * group name)* `system:metrics:r` - for getting the service metrics* `system:livelogs:r` - for getting the service
-         * livelogsrThe scope to assign to the token should be provided as a list of scope tokens, limited to 500 characters in
+         * livelogsr. The scope to assign to the token should be provided as a list of scope tokens, limited to 500 characters in
          * total. Resource Permissions From Artifactory 7.38.x, resource permissions scoped tokens are also supported in the REST
          * API. A permission can be represented as a scope token string in the following format:
          * `&lt;resource-type&gt;:&lt;target&gt;[/&lt;sub-resource&gt;]:&lt;actions&gt;` Where: `&lt;resource-type&gt;` - one of the permission resource types,
          * from a predefined closed list. Currently, the only resource type that is supported is the artifact resource type.
          * `&lt;target&gt;` - the target resource, can be exact name or a pattern `&lt;sub-resource&gt;` - optional, the target sub-resource,
-         * can be exact name or a pattern `&lt;actions&gt;` - comma-separated list of action acronyms.The actions allowed are &lt;r, w, d,
-         * a, m, x, s&gt; or any combination of these actions. To allow all actions - use `*` Examples: `[&#34;applied-permissions/user&#34;,
-         * &#34;artifact:generic-local:r&#34;]` `[&#34;applied-permissions/group&#34;, &#34;artifact:generic-local/path:*&#34;]`
-         * `[&#34;applied-permissions/admin&#34;, &#34;system:metrics:r&#34;, &#34;artifact:generic-local:*&#34;]`
+         * can be exact name or a pattern `&lt;actions&gt;` - comma-separated list of action acronyms.The actions allowed are `r`, `w`,
+         * `d`, `a`, `m`, `x`, `s`, or any combination of these actions. To allow all actions - use `*` Examples:
+         * `[&#34;applied-permissions/user&#34;, &#34;artifact:generic-local:r&#34;]` `[&#34;applied-permissions/group&#34;,
+         * &#34;artifact:generic-local/path:*&#34;]` `[&#34;applied-permissions/admin&#34;, &#34;system:metrics:r&#34;, &#34;artifact:generic-local:*&#34;]`
          * 
          * @return builder
          * 
@@ -712,18 +712,18 @@ public final class ScopedTokenState extends com.pulumi.resources.ResourceArgs {
          * supported scopes include: * `applied-permissions/user` - provides user access. If left at the default setting, the token
          * will be created with the user-identity scope, which allows users to identify themselves in the Platform but does not
          * grant any specific access permissions.* `applied-permissions/admin` - the scope assigned to admin users.*
-         * `applied-permissions/groups` - the group to which permissions are assigned by group name (use username to inicate the
+         * `applied-permissions/groups` - the group to which permissions are assigned by group name (use username to indicate the
          * group name)* `system:metrics:r` - for getting the service metrics* `system:livelogs:r` - for getting the service
-         * livelogsrThe scope to assign to the token should be provided as a list of scope tokens, limited to 500 characters in
+         * livelogsr. The scope to assign to the token should be provided as a list of scope tokens, limited to 500 characters in
          * total. Resource Permissions From Artifactory 7.38.x, resource permissions scoped tokens are also supported in the REST
          * API. A permission can be represented as a scope token string in the following format:
          * `&lt;resource-type&gt;:&lt;target&gt;[/&lt;sub-resource&gt;]:&lt;actions&gt;` Where: `&lt;resource-type&gt;` - one of the permission resource types,
          * from a predefined closed list. Currently, the only resource type that is supported is the artifact resource type.
          * `&lt;target&gt;` - the target resource, can be exact name or a pattern `&lt;sub-resource&gt;` - optional, the target sub-resource,
-         * can be exact name or a pattern `&lt;actions&gt;` - comma-separated list of action acronyms.The actions allowed are &lt;r, w, d,
-         * a, m, x, s&gt; or any combination of these actions. To allow all actions - use `*` Examples: `[&#34;applied-permissions/user&#34;,
-         * &#34;artifact:generic-local:r&#34;]` `[&#34;applied-permissions/group&#34;, &#34;artifact:generic-local/path:*&#34;]`
-         * `[&#34;applied-permissions/admin&#34;, &#34;system:metrics:r&#34;, &#34;artifact:generic-local:*&#34;]`
+         * can be exact name or a pattern `&lt;actions&gt;` - comma-separated list of action acronyms.The actions allowed are `r`, `w`,
+         * `d`, `a`, `m`, `x`, `s`, or any combination of these actions. To allow all actions - use `*` Examples:
+         * `[&#34;applied-permissions/user&#34;, &#34;artifact:generic-local:r&#34;]` `[&#34;applied-permissions/group&#34;,
+         * &#34;artifact:generic-local/path:*&#34;]` `[&#34;applied-permissions/admin&#34;, &#34;system:metrics:r&#34;, &#34;artifact:generic-local:*&#34;]`
          * 
          * @return builder
          * 
@@ -738,18 +738,18 @@ public final class ScopedTokenState extends com.pulumi.resources.ResourceArgs {
          * supported scopes include: * `applied-permissions/user` - provides user access. If left at the default setting, the token
          * will be created with the user-identity scope, which allows users to identify themselves in the Platform but does not
          * grant any specific access permissions.* `applied-permissions/admin` - the scope assigned to admin users.*
-         * `applied-permissions/groups` - the group to which permissions are assigned by group name (use username to inicate the
+         * `applied-permissions/groups` - the group to which permissions are assigned by group name (use username to indicate the
          * group name)* `system:metrics:r` - for getting the service metrics* `system:livelogs:r` - for getting the service
-         * livelogsrThe scope to assign to the token should be provided as a list of scope tokens, limited to 500 characters in
+         * livelogsr. The scope to assign to the token should be provided as a list of scope tokens, limited to 500 characters in
          * total. Resource Permissions From Artifactory 7.38.x, resource permissions scoped tokens are also supported in the REST
          * API. A permission can be represented as a scope token string in the following format:
          * `&lt;resource-type&gt;:&lt;target&gt;[/&lt;sub-resource&gt;]:&lt;actions&gt;` Where: `&lt;resource-type&gt;` - one of the permission resource types,
          * from a predefined closed list. Currently, the only resource type that is supported is the artifact resource type.
          * `&lt;target&gt;` - the target resource, can be exact name or a pattern `&lt;sub-resource&gt;` - optional, the target sub-resource,
-         * can be exact name or a pattern `&lt;actions&gt;` - comma-separated list of action acronyms.The actions allowed are &lt;r, w, d,
-         * a, m, x, s&gt; or any combination of these actions. To allow all actions - use `*` Examples: `[&#34;applied-permissions/user&#34;,
-         * &#34;artifact:generic-local:r&#34;]` `[&#34;applied-permissions/group&#34;, &#34;artifact:generic-local/path:*&#34;]`
-         * `[&#34;applied-permissions/admin&#34;, &#34;system:metrics:r&#34;, &#34;artifact:generic-local:*&#34;]`
+         * can be exact name or a pattern `&lt;actions&gt;` - comma-separated list of action acronyms.The actions allowed are `r`, `w`,
+         * `d`, `a`, `m`, `x`, `s`, or any combination of these actions. To allow all actions - use `*` Examples:
+         * `[&#34;applied-permissions/user&#34;, &#34;artifact:generic-local:r&#34;]` `[&#34;applied-permissions/group&#34;,
+         * &#34;artifact:generic-local/path:*&#34;]` `[&#34;applied-permissions/admin&#34;, &#34;system:metrics:r&#34;, &#34;artifact:generic-local:*&#34;]`
          * 
          * @return builder
          * 
