@@ -4220,6 +4220,18 @@
                     }
                 }
             },
+            "artifactory_virtual_maven_repository": {
+                "current": "artifactory:index/getVirtualMavenRepository:getVirtualMavenRepository",
+                "majorVersion": 6,
+                "fields": {
+                    "project_environments": {
+                        "maxItemsOne": false
+                    },
+                    "repositories": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "artifactory_virtual_npm_repository": {
                 "current": "artifactory:index/getVirtualNpmRepository:getVirtualNpmRepository",
                 "majorVersion": 6,
@@ -4641,6 +4653,7 @@
             "artifactory:index/getVirtualGradleRepository:getVirtualGradleRepository": 0,
             "artifactory:index/getVirtualHelmRepository:getVirtualHelmRepository": 0,
             "artifactory:index/getVirtualIvyRepository:getVirtualIvyRepository": 0,
+            "artifactory:index/getVirtualMavenRepository:getVirtualMavenRepository": 0,
             "artifactory:index/getVirtualNpmRepository:getVirtualNpmRepository": 0,
             "artifactory:index/getVirtualNugetRepository:getVirtualNugetRepository": 0,
             "artifactory:index/getVirtualP2Repository:getVirtualP2Repository": 0,
@@ -4948,6 +4961,7 @@
             "artifactory:index/getVirtualGradleRepository:getVirtualGradleRepository": "artifactory_virtual_gradle_repository",
             "artifactory:index/getVirtualHelmRepository:getVirtualHelmRepository": "artifactory_virtual_helm_repository",
             "artifactory:index/getVirtualIvyRepository:getVirtualIvyRepository": "artifactory_virtual_ivy_repository",
+            "artifactory:index/getVirtualMavenRepository:getVirtualMavenRepository": "artifactory_virtual_maven_repository",
             "artifactory:index/getVirtualNpmRepository:getVirtualNpmRepository": "artifactory_virtual_npm_repository",
             "artifactory:index/getVirtualNugetRepository:getVirtualNugetRepository": "artifactory_virtual_nuget_repository",
             "artifactory:index/getVirtualP2Repository:getVirtualP2Repository": "artifactory_virtual_p2_repository",
@@ -8892,6 +8906,19 @@
                 "useNamespaces": "use_namespaces"
             },
             "artifactory:index/getVirtualIvyRepository:getVirtualIvyRepository": {
+                "artifactoryRequestsCanRetrieveRemoteArtifacts": "artifactory_requests_can_retrieve_remote_artifacts",
+                "defaultDeploymentRepo": "default_deployment_repo",
+                "excludesPattern": "excludes_pattern",
+                "forceMavenAuthentication": "force_maven_authentication",
+                "includesPattern": "includes_pattern",
+                "keyPair": "key_pair",
+                "packageType": "package_type",
+                "pomRepositoryReferencesCleanupPolicy": "pom_repository_references_cleanup_policy",
+                "projectEnvironments": "project_environments",
+                "projectKey": "project_key",
+                "repoLayoutRef": "repo_layout_ref"
+            },
+            "artifactory:index/getVirtualMavenRepository:getVirtualMavenRepository": {
                 "artifactoryRequestsCanRetrieveRemoteArtifacts": "artifactory_requests_can_retrieve_remote_artifacts",
                 "defaultDeploymentRepo": "default_deployment_repo",
                 "excludesPattern": "excludes_pattern",
