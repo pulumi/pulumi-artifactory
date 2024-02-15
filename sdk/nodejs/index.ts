@@ -880,6 +880,11 @@ export const getVirtualIvyRepository: typeof import("./getVirtualIvyRepository")
 export const getVirtualIvyRepositoryOutput: typeof import("./getVirtualIvyRepository").getVirtualIvyRepositoryOutput = null as any;
 utilities.lazyLoad(exports, ["getVirtualIvyRepository","getVirtualIvyRepositoryOutput"], () => require("./getVirtualIvyRepository"));
 
+export { GetVirtualMavenRepositoryArgs, GetVirtualMavenRepositoryResult, GetVirtualMavenRepositoryOutputArgs } from "./getVirtualMavenRepository";
+export const getVirtualMavenRepository: typeof import("./getVirtualMavenRepository").getVirtualMavenRepository = null as any;
+export const getVirtualMavenRepositoryOutput: typeof import("./getVirtualMavenRepository").getVirtualMavenRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getVirtualMavenRepository","getVirtualMavenRepositoryOutput"], () => require("./getVirtualMavenRepository"));
+
 export { GetVirtualNpmRepositoryArgs, GetVirtualNpmRepositoryResult, GetVirtualNpmRepositoryOutputArgs } from "./getVirtualNpmRepository";
 export const getVirtualNpmRepository: typeof import("./getVirtualNpmRepository").getVirtualNpmRepository = null as any;
 export const getVirtualNpmRepositoryOutput: typeof import("./getVirtualNpmRepository").getVirtualNpmRepositoryOutput = null as any;

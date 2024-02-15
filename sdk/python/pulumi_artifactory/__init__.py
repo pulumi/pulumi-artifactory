@@ -180,6 +180,7 @@ from .get_virtual_go_repository import *
 from .get_virtual_gradle_repository import *
 from .get_virtual_helm_repository import *
 from .get_virtual_ivy_repository import *
+from .get_virtual_maven_repository import *
 from .get_virtual_npm_repository import *
 from .get_virtual_nuget_repository import *
 from .get_virtual_p2_repository import *

@@ -190,6 +190,7 @@
         "getVirtualGradleRepository.ts",
         "getVirtualHelmRepository.ts",
         "getVirtualIvyRepository.ts",
+        "getVirtualMavenRepository.ts",
         "getVirtualNpmRepository.ts",
         "getVirtualNugetRepository.ts",
         "getVirtualP2Repository.ts",

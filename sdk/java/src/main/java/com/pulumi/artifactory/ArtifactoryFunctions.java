@@ -244,6 +244,8 @@ import com.pulumi.artifactory.inputs.GetVirtualHelmRepositoryArgs;
 import com.pulumi.artifactory.inputs.GetVirtualHelmRepositoryPlainArgs;
 import com.pulumi.artifactory.inputs.GetVirtualIvyRepositoryArgs;
 import com.pulumi.artifactory.inputs.GetVirtualIvyRepositoryPlainArgs;
+import com.pulumi.artifactory.inputs.GetVirtualMavenRepositoryArgs;
+import com.pulumi.artifactory.inputs.GetVirtualMavenRepositoryPlainArgs;
 import com.pulumi.artifactory.inputs.GetVirtualNpmRepositoryArgs;
 import com.pulumi.artifactory.inputs.GetVirtualNpmRepositoryPlainArgs;
 import com.pulumi.artifactory.inputs.GetVirtualNugetRepositoryArgs;
@@ -384,6 +386,7 @@ import com.pulumi.artifactory.outputs.GetVirtualGoRepositoryResult;
 import com.pulumi.artifactory.outputs.GetVirtualGradleRepositoryResult;
 import com.pulumi.artifactory.outputs.GetVirtualHelmRepositoryResult;
 import com.pulumi.artifactory.outputs.GetVirtualIvyRepositoryResult;
+import com.pulumi.artifactory.outputs.GetVirtualMavenRepositoryResult;
 import com.pulumi.artifactory.outputs.GetVirtualNpmRepositoryResult;
 import com.pulumi.artifactory.outputs.GetVirtualNugetRepositoryResult;
 import com.pulumi.artifactory.outputs.GetVirtualP2RepositoryResult;
@@ -17876,6 +17879,154 @@ public final class ArtifactoryFunctions {
      */
     public static CompletableFuture<GetVirtualIvyRepositoryResult> getVirtualIvyRepositoryPlain(GetVirtualIvyRepositoryPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("artifactory:index/getVirtualIvyRepository:getVirtualIvyRepository", TypeShape.of(GetVirtualIvyRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves a virtual Maven repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetVirtualMavenRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var virtual-maven = ArtifactoryFunctions.getVirtualMavenRepository(GetVirtualMavenRepositoryArgs.builder()
+     *             .key(&#34;virtual-maven&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetVirtualMavenRepositoryResult> getVirtualMavenRepository(GetVirtualMavenRepositoryArgs args) {
+        return getVirtualMavenRepository(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves a virtual Maven repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetVirtualMavenRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var virtual-maven = ArtifactoryFunctions.getVirtualMavenRepository(GetVirtualMavenRepositoryArgs.builder()
+     *             .key(&#34;virtual-maven&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetVirtualMavenRepositoryResult> getVirtualMavenRepositoryPlain(GetVirtualMavenRepositoryPlainArgs args) {
+        return getVirtualMavenRepositoryPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves a virtual Maven repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetVirtualMavenRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var virtual-maven = ArtifactoryFunctions.getVirtualMavenRepository(GetVirtualMavenRepositoryArgs.builder()
+     *             .key(&#34;virtual-maven&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetVirtualMavenRepositoryResult> getVirtualMavenRepository(GetVirtualMavenRepositoryArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("artifactory:index/getVirtualMavenRepository:getVirtualMavenRepository", TypeShape.of(GetVirtualMavenRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves a virtual Maven repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetVirtualMavenRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var virtual-maven = ArtifactoryFunctions.getVirtualMavenRepository(GetVirtualMavenRepositoryArgs.builder()
+     *             .key(&#34;virtual-maven&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetVirtualMavenRepositoryResult> getVirtualMavenRepositoryPlain(GetVirtualMavenRepositoryPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("artifactory:index/getVirtualMavenRepository:getVirtualMavenRepository", TypeShape.of(GetVirtualMavenRepositoryResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Retrieves a virtual NPM repository.
