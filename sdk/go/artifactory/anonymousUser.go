@@ -25,6 +25,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Define a new Artifactory 'anonymous' user for import
 //			_, err := artifactory.NewAnonymousUser(ctx, "anonymous", nil)
 //			if err != nil {
 //				return err

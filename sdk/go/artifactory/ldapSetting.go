@@ -33,6 +33,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Configure Artifactory LDAP setting
 //			_, err := artifactory.NewLdapSetting(ctx, "ldapName", &artifactory.LdapSettingArgs{
 //				AllowUserToAccessProfile: pulumi.Bool(false),
 //				AutoCreateUser:           pulumi.Bool(true),

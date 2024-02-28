@@ -38,6 +38,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Create a new Artifactory certificate called my-cert
 //			_, err := artifactory.NewCertificate(ctx, "my-cert", &artifactory.CertificateArgs{
 //				Alias:   pulumi.String("my-cert"),
 //				Content: readFileOrPanic("/path/to/bundle.pem"),
@@ -45,6 +46,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// This can then be used by a remote repository
 //			_, err = artifactory.NewRemoteMavenRepository(ctx, "my-remote", &artifactory.RemoteMavenRepositoryArgs{
 //				ClientTlsCertificate: my_cert.Alias,
 //			})

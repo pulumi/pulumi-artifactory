@@ -32,6 +32,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Configure Artifactory OAuth SSO settings
 //			_, err := artifactory.NewOauthSettings(ctx, "oauth", &artifactory.OauthSettingsArgs{
 //				AllowUserToAccessProfile: pulumi.Bool(true),
 //				Enable:                   pulumi.Bool(true),

@@ -31,6 +31,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Configure Artifactory general security settings
 //			_, err := artifactory.NewGeneralSecurity(ctx, "security", &artifactory.GeneralSecurityArgs{
 //				EnableAnonymousAccess: pulumi.Bool(true),
 //			})
