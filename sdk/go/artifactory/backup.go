@@ -33,6 +33,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Configure Artifactory Backup system config
 //			_, err := artifactory.NewBackup(ctx, "backupConfigName", &artifactory.BackupArgs{
 //				CreateArchive:          pulumi.Bool(false),
 //				CronExp:                pulumi.String("0 0 12 * * ? *"),

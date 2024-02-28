@@ -32,6 +32,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Configure Artifactory SAML SSO settings
 //			_, err := artifactory.NewSamlSettings(ctx, "saml", &artifactory.SamlSettingsArgs{
 //				AllowUserToAccessProfile:  pulumi.Bool(true),
 //				AutoRedirect:              pulumi.Bool(true),

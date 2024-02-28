@@ -33,6 +33,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Configure Artifactory LDAP setting
 //			_, err := artifactory.NewLdapGroupSetting(ctx, "ldapGroupName", &artifactory.LdapGroupSettingArgs{
 //				DescriptionAttribute: pulumi.String("description"),
 //				Filter:               pulumi.String("(objectClass=groupOfNames)"),

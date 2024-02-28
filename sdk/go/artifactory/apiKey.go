@@ -29,6 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Create a new Artifactory API key for the configured user
 //			_, err := artifactory.NewApiKey(ctx, "ci", nil)
 //			if err != nil {
 //				return err

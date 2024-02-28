@@ -27,6 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Create a new Artifactory permission target called testpermission
 //			_, err := artifactory.NewPermissionTarget(ctx, "test-perm", &artifactory.PermissionTargetArgs{
 //				Build: &artifactory.PermissionTargetBuildArgs{
 //					Actions: &artifactory.PermissionTargetBuildActionsArgs{

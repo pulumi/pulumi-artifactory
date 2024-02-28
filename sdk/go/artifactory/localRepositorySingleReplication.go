@@ -38,6 +38,7 @@ import (
 //			artifactoryUrl := cfg.Require("artifactoryUrl")
 //			artifactoryUsername := cfg.Require("artifactoryUsername")
 //			artifactoryPassword := cfg.Require("artifactoryPassword")
+//			// Create a replication between two artifactory local repositories
 //			providerTestSource, err := artifactory.NewLocalMavenRepository(ctx, "providerTestSource", &artifactory.LocalMavenRepositoryArgs{
 //				Key: pulumi.String("provider_test_source"),
 //			})
