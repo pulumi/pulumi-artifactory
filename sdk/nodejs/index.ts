@@ -210,6 +210,11 @@ export type FederatedHelmRepository = import("./federatedHelmRepository").Federa
 export const FederatedHelmRepository: typeof import("./federatedHelmRepository").FederatedHelmRepository = null as any;
 utilities.lazyLoad(exports, ["FederatedHelmRepository"], () => require("./federatedHelmRepository"));
 
+export { FederatedHelmociRepositoryArgs, FederatedHelmociRepositoryState } from "./federatedHelmociRepository";
+export type FederatedHelmociRepository = import("./federatedHelmociRepository").FederatedHelmociRepository;
+export const FederatedHelmociRepository: typeof import("./federatedHelmociRepository").FederatedHelmociRepository = null as any;
+utilities.lazyLoad(exports, ["FederatedHelmociRepository"], () => require("./federatedHelmociRepository"));
+
 export { FederatedIvyRepositoryArgs, FederatedIvyRepositoryState } from "./federatedIvyRepository";
 export type FederatedIvyRepository = import("./federatedIvyRepository").FederatedIvyRepository;
 export const FederatedIvyRepository: typeof import("./federatedIvyRepository").FederatedIvyRepository = null as any;
@@ -229,6 +234,11 @@ export { FederatedNugetRepositoryArgs, FederatedNugetRepositoryState } from "./f
 export type FederatedNugetRepository = import("./federatedNugetRepository").FederatedNugetRepository;
 export const FederatedNugetRepository: typeof import("./federatedNugetRepository").FederatedNugetRepository = null as any;
 utilities.lazyLoad(exports, ["FederatedNugetRepository"], () => require("./federatedNugetRepository"));
+
+export { FederatedOciRepositoryArgs, FederatedOciRepositoryState } from "./federatedOciRepository";
+export type FederatedOciRepository = import("./federatedOciRepository").FederatedOciRepository;
+export const FederatedOciRepository: typeof import("./federatedOciRepository").FederatedOciRepository = null as any;
+utilities.lazyLoad(exports, ["FederatedOciRepository"], () => require("./federatedOciRepository"));
 
 export { FederatedOpkgRepositoryArgs, FederatedOpkgRepositoryState } from "./federatedOpkgRepository";
 export type FederatedOpkgRepository = import("./federatedOpkgRepository").FederatedOpkgRepository;
@@ -375,6 +385,11 @@ export const getFederatedHelmRepository: typeof import("./getFederatedHelmReposi
 export const getFederatedHelmRepositoryOutput: typeof import("./getFederatedHelmRepository").getFederatedHelmRepositoryOutput = null as any;
 utilities.lazyLoad(exports, ["getFederatedHelmRepository","getFederatedHelmRepositoryOutput"], () => require("./getFederatedHelmRepository"));
 
+export { GetFederatedHelmociRepositoryArgs, GetFederatedHelmociRepositoryResult, GetFederatedHelmociRepositoryOutputArgs } from "./getFederatedHelmociRepository";
+export const getFederatedHelmociRepository: typeof import("./getFederatedHelmociRepository").getFederatedHelmociRepository = null as any;
+export const getFederatedHelmociRepositoryOutput: typeof import("./getFederatedHelmociRepository").getFederatedHelmociRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getFederatedHelmociRepository","getFederatedHelmociRepositoryOutput"], () => require("./getFederatedHelmociRepository"));
+
 export { GetFederatedIvyRepositoryArgs, GetFederatedIvyRepositoryResult, GetFederatedIvyRepositoryOutputArgs } from "./getFederatedIvyRepository";
 export const getFederatedIvyRepository: typeof import("./getFederatedIvyRepository").getFederatedIvyRepository = null as any;
 export const getFederatedIvyRepositoryOutput: typeof import("./getFederatedIvyRepository").getFederatedIvyRepositoryOutput = null as any;
@@ -394,6 +409,11 @@ export { GetFederatedNugetRepositoryArgs, GetFederatedNugetRepositoryResult, Get
 export const getFederatedNugetRepository: typeof import("./getFederatedNugetRepository").getFederatedNugetRepository = null as any;
 export const getFederatedNugetRepositoryOutput: typeof import("./getFederatedNugetRepository").getFederatedNugetRepositoryOutput = null as any;
 utilities.lazyLoad(exports, ["getFederatedNugetRepository","getFederatedNugetRepositoryOutput"], () => require("./getFederatedNugetRepository"));
+
+export { GetFederatedOciRepositoryArgs, GetFederatedOciRepositoryResult, GetFederatedOciRepositoryOutputArgs } from "./getFederatedOciRepository";
+export const getFederatedOciRepository: typeof import("./getFederatedOciRepository").getFederatedOciRepository = null as any;
+export const getFederatedOciRepositoryOutput: typeof import("./getFederatedOciRepository").getFederatedOciRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getFederatedOciRepository","getFederatedOciRepositoryOutput"], () => require("./getFederatedOciRepository"));
 
 export { GetFederatedOpkgRepositoryArgs, GetFederatedOpkgRepositoryResult, GetFederatedOpkgRepositoryOutputArgs } from "./getFederatedOpkgRepository";
 export const getFederatedOpkgRepository: typeof import("./getFederatedOpkgRepository").getFederatedOpkgRepository = null as any;
@@ -550,6 +570,11 @@ export const getLocalHelmRepository: typeof import("./getLocalHelmRepository").g
 export const getLocalHelmRepositoryOutput: typeof import("./getLocalHelmRepository").getLocalHelmRepositoryOutput = null as any;
 utilities.lazyLoad(exports, ["getLocalHelmRepository","getLocalHelmRepositoryOutput"], () => require("./getLocalHelmRepository"));
 
+export { GetLocalHelmociRepositoryArgs, GetLocalHelmociRepositoryResult, GetLocalHelmociRepositoryOutputArgs } from "./getLocalHelmociRepository";
+export const getLocalHelmociRepository: typeof import("./getLocalHelmociRepository").getLocalHelmociRepository = null as any;
+export const getLocalHelmociRepositoryOutput: typeof import("./getLocalHelmociRepository").getLocalHelmociRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getLocalHelmociRepository","getLocalHelmociRepositoryOutput"], () => require("./getLocalHelmociRepository"));
+
 export { GetLocalHuggingfacemlRepositoryArgs, GetLocalHuggingfacemlRepositoryResult, GetLocalHuggingfacemlRepositoryOutputArgs } from "./getLocalHuggingfacemlRepository";
 export const getLocalHuggingfacemlRepository: typeof import("./getLocalHuggingfacemlRepository").getLocalHuggingfacemlRepository = null as any;
 export const getLocalHuggingfacemlRepositoryOutput: typeof import("./getLocalHuggingfacemlRepository").getLocalHuggingfacemlRepositoryOutput = null as any;
@@ -574,6 +599,11 @@ export { GetLocalNugetRepositoryArgs, GetLocalNugetRepositoryResult, GetLocalNug
 export const getLocalNugetRepository: typeof import("./getLocalNugetRepository").getLocalNugetRepository = null as any;
 export const getLocalNugetRepositoryOutput: typeof import("./getLocalNugetRepository").getLocalNugetRepositoryOutput = null as any;
 utilities.lazyLoad(exports, ["getLocalNugetRepository","getLocalNugetRepositoryOutput"], () => require("./getLocalNugetRepository"));
+
+export { GetLocalOciRepositoryArgs, GetLocalOciRepositoryResult, GetLocalOciRepositoryOutputArgs } from "./getLocalOciRepository";
+export const getLocalOciRepository: typeof import("./getLocalOciRepository").getLocalOciRepository = null as any;
+export const getLocalOciRepositoryOutput: typeof import("./getLocalOciRepository").getLocalOciRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getLocalOciRepository","getLocalOciRepositoryOutput"], () => require("./getLocalOciRepository"));
 
 export { GetLocalOpkgRepositoryArgs, GetLocalOpkgRepositoryResult, GetLocalOpkgRepositoryOutputArgs } from "./getLocalOpkgRepository";
 export const getLocalOpkgRepository: typeof import("./getLocalOpkgRepository").getLocalOpkgRepository = null as any;
@@ -720,6 +750,11 @@ export const getRemoteHelmRepository: typeof import("./getRemoteHelmRepository")
 export const getRemoteHelmRepositoryOutput: typeof import("./getRemoteHelmRepository").getRemoteHelmRepositoryOutput = null as any;
 utilities.lazyLoad(exports, ["getRemoteHelmRepository","getRemoteHelmRepositoryOutput"], () => require("./getRemoteHelmRepository"));
 
+export { GetRemoteHelmociRepositoryArgs, GetRemoteHelmociRepositoryResult, GetRemoteHelmociRepositoryOutputArgs } from "./getRemoteHelmociRepository";
+export const getRemoteHelmociRepository: typeof import("./getRemoteHelmociRepository").getRemoteHelmociRepository = null as any;
+export const getRemoteHelmociRepositoryOutput: typeof import("./getRemoteHelmociRepository").getRemoteHelmociRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getRemoteHelmociRepository","getRemoteHelmociRepositoryOutput"], () => require("./getRemoteHelmociRepository"));
+
 export { GetRemoteIvyRepositoryArgs, GetRemoteIvyRepositoryResult, GetRemoteIvyRepositoryOutputArgs } from "./getRemoteIvyRepository";
 export const getRemoteIvyRepository: typeof import("./getRemoteIvyRepository").getRemoteIvyRepository = null as any;
 export const getRemoteIvyRepositoryOutput: typeof import("./getRemoteIvyRepository").getRemoteIvyRepositoryOutput = null as any;
@@ -739,6 +774,11 @@ export { GetRemoteNugetRepositoryArgs, GetRemoteNugetRepositoryResult, GetRemote
 export const getRemoteNugetRepository: typeof import("./getRemoteNugetRepository").getRemoteNugetRepository = null as any;
 export const getRemoteNugetRepositoryOutput: typeof import("./getRemoteNugetRepository").getRemoteNugetRepositoryOutput = null as any;
 utilities.lazyLoad(exports, ["getRemoteNugetRepository","getRemoteNugetRepositoryOutput"], () => require("./getRemoteNugetRepository"));
+
+export { GetRemoteOciRepositoryArgs, GetRemoteOciRepositoryResult, GetRemoteOciRepositoryOutputArgs } from "./getRemoteOciRepository";
+export const getRemoteOciRepository: typeof import("./getRemoteOciRepository").getRemoteOciRepository = null as any;
+export const getRemoteOciRepositoryOutput: typeof import("./getRemoteOciRepository").getRemoteOciRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getRemoteOciRepository","getRemoteOciRepositoryOutput"], () => require("./getRemoteOciRepository"));
 
 export { GetRemoteOpkgRepositoryArgs, GetRemoteOpkgRepositoryResult, GetRemoteOpkgRepositoryOutputArgs } from "./getRemoteOpkgRepository";
 export const getRemoteOpkgRepository: typeof import("./getRemoteOpkgRepository").getRemoteOpkgRepository = null as any;
@@ -875,6 +915,11 @@ export const getVirtualHelmRepository: typeof import("./getVirtualHelmRepository
 export const getVirtualHelmRepositoryOutput: typeof import("./getVirtualHelmRepository").getVirtualHelmRepositoryOutput = null as any;
 utilities.lazyLoad(exports, ["getVirtualHelmRepository","getVirtualHelmRepositoryOutput"], () => require("./getVirtualHelmRepository"));
 
+export { GetVirtualHelmociRepositoryArgs, GetVirtualHelmociRepositoryResult, GetVirtualHelmociRepositoryOutputArgs } from "./getVirtualHelmociRepository";
+export const getVirtualHelmociRepository: typeof import("./getVirtualHelmociRepository").getVirtualHelmociRepository = null as any;
+export const getVirtualHelmociRepositoryOutput: typeof import("./getVirtualHelmociRepository").getVirtualHelmociRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getVirtualHelmociRepository","getVirtualHelmociRepositoryOutput"], () => require("./getVirtualHelmociRepository"));
+
 export { GetVirtualIvyRepositoryArgs, GetVirtualIvyRepositoryResult, GetVirtualIvyRepositoryOutputArgs } from "./getVirtualIvyRepository";
 export const getVirtualIvyRepository: typeof import("./getVirtualIvyRepository").getVirtualIvyRepository = null as any;
 export const getVirtualIvyRepositoryOutput: typeof import("./getVirtualIvyRepository").getVirtualIvyRepositoryOutput = null as any;
@@ -894,6 +939,11 @@ export { GetVirtualNugetRepositoryArgs, GetVirtualNugetRepositoryResult, GetVirt
 export const getVirtualNugetRepository: typeof import("./getVirtualNugetRepository").getVirtualNugetRepository = null as any;
 export const getVirtualNugetRepositoryOutput: typeof import("./getVirtualNugetRepository").getVirtualNugetRepositoryOutput = null as any;
 utilities.lazyLoad(exports, ["getVirtualNugetRepository","getVirtualNugetRepositoryOutput"], () => require("./getVirtualNugetRepository"));
+
+export { GetVirtualOciRepositoryArgs, GetVirtualOciRepositoryResult, GetVirtualOciRepositoryOutputArgs } from "./getVirtualOciRepository";
+export const getVirtualOciRepository: typeof import("./getVirtualOciRepository").getVirtualOciRepository = null as any;
+export const getVirtualOciRepositoryOutput: typeof import("./getVirtualOciRepository").getVirtualOciRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getVirtualOciRepository","getVirtualOciRepositoryOutput"], () => require("./getVirtualOciRepository"));
 
 export { GetVirtualP2RepositoryArgs, GetVirtualP2RepositoryResult, GetVirtualP2RepositoryOutputArgs } from "./getVirtualP2Repository";
 export const getVirtualP2Repository: typeof import("./getVirtualP2Repository").getVirtualP2Repository = null as any;
@@ -1045,6 +1095,11 @@ export type LocalHelmRepository = import("./localHelmRepository").LocalHelmRepos
 export const LocalHelmRepository: typeof import("./localHelmRepository").LocalHelmRepository = null as any;
 utilities.lazyLoad(exports, ["LocalHelmRepository"], () => require("./localHelmRepository"));
 
+export { LocalHelmociRepositoryArgs, LocalHelmociRepositoryState } from "./localHelmociRepository";
+export type LocalHelmociRepository = import("./localHelmociRepository").LocalHelmociRepository;
+export const LocalHelmociRepository: typeof import("./localHelmociRepository").LocalHelmociRepository = null as any;
+utilities.lazyLoad(exports, ["LocalHelmociRepository"], () => require("./localHelmociRepository"));
+
 export { LocalHuggingfacemlRepositoryArgs, LocalHuggingfacemlRepositoryState } from "./localHuggingfacemlRepository";
 export type LocalHuggingfacemlRepository = import("./localHuggingfacemlRepository").LocalHuggingfacemlRepository;
 export const LocalHuggingfacemlRepository: typeof import("./localHuggingfacemlRepository").LocalHuggingfacemlRepository = null as any;
@@ -1069,6 +1124,11 @@ export { LocalNugetRepositoryArgs, LocalNugetRepositoryState } from "./localNuge
 export type LocalNugetRepository = import("./localNugetRepository").LocalNugetRepository;
 export const LocalNugetRepository: typeof import("./localNugetRepository").LocalNugetRepository = null as any;
 utilities.lazyLoad(exports, ["LocalNugetRepository"], () => require("./localNugetRepository"));
+
+export { LocalOciRepositoryArgs, LocalOciRepositoryState } from "./localOciRepository";
+export type LocalOciRepository = import("./localOciRepository").LocalOciRepository;
+export const LocalOciRepository: typeof import("./localOciRepository").LocalOciRepository = null as any;
+utilities.lazyLoad(exports, ["LocalOciRepository"], () => require("./localOciRepository"));
 
 export { LocalOpkgRepositoryArgs, LocalOpkgRepositoryState } from "./localOpkgRepository";
 export type LocalOpkgRepository = import("./localOpkgRepository").LocalOpkgRepository;
@@ -1280,6 +1340,11 @@ export type RemoteHelmRepository = import("./remoteHelmRepository").RemoteHelmRe
 export const RemoteHelmRepository: typeof import("./remoteHelmRepository").RemoteHelmRepository = null as any;
 utilities.lazyLoad(exports, ["RemoteHelmRepository"], () => require("./remoteHelmRepository"));
 
+export { RemoteHelmociRepositoryArgs, RemoteHelmociRepositoryState } from "./remoteHelmociRepository";
+export type RemoteHelmociRepository = import("./remoteHelmociRepository").RemoteHelmociRepository;
+export const RemoteHelmociRepository: typeof import("./remoteHelmociRepository").RemoteHelmociRepository = null as any;
+utilities.lazyLoad(exports, ["RemoteHelmociRepository"], () => require("./remoteHelmociRepository"));
+
 export { RemoteHuggingfacemlRepositoryArgs, RemoteHuggingfacemlRepositoryState } from "./remoteHuggingfacemlRepository";
 export type RemoteHuggingfacemlRepository = import("./remoteHuggingfacemlRepository").RemoteHuggingfacemlRepository;
 export const RemoteHuggingfacemlRepository: typeof import("./remoteHuggingfacemlRepository").RemoteHuggingfacemlRepository = null as any;
@@ -1304,6 +1369,11 @@ export { RemoteNugetRepositoryArgs, RemoteNugetRepositoryState } from "./remoteN
 export type RemoteNugetRepository = import("./remoteNugetRepository").RemoteNugetRepository;
 export const RemoteNugetRepository: typeof import("./remoteNugetRepository").RemoteNugetRepository = null as any;
 utilities.lazyLoad(exports, ["RemoteNugetRepository"], () => require("./remoteNugetRepository"));
+
+export { RemoteOciRepositoryArgs, RemoteOciRepositoryState } from "./remoteOciRepository";
+export type RemoteOciRepository = import("./remoteOciRepository").RemoteOciRepository;
+export const RemoteOciRepository: typeof import("./remoteOciRepository").RemoteOciRepository = null as any;
+utilities.lazyLoad(exports, ["RemoteOciRepository"], () => require("./remoteOciRepository"));
 
 export { RemoteOpkgRepositoryArgs, RemoteOpkgRepositoryState } from "./remoteOpkgRepository";
 export type RemoteOpkgRepository = import("./remoteOpkgRepository").RemoteOpkgRepository;
@@ -1465,6 +1535,11 @@ export type VirtualHelmRepository = import("./virtualHelmRepository").VirtualHel
 export const VirtualHelmRepository: typeof import("./virtualHelmRepository").VirtualHelmRepository = null as any;
 utilities.lazyLoad(exports, ["VirtualHelmRepository"], () => require("./virtualHelmRepository"));
 
+export { VirtualHelmociRepositoryArgs, VirtualHelmociRepositoryState } from "./virtualHelmociRepository";
+export type VirtualHelmociRepository = import("./virtualHelmociRepository").VirtualHelmociRepository;
+export const VirtualHelmociRepository: typeof import("./virtualHelmociRepository").VirtualHelmociRepository = null as any;
+utilities.lazyLoad(exports, ["VirtualHelmociRepository"], () => require("./virtualHelmociRepository"));
+
 export { VirtualIvyRepositoryArgs, VirtualIvyRepositoryState } from "./virtualIvyRepository";
 export type VirtualIvyRepository = import("./virtualIvyRepository").VirtualIvyRepository;
 export const VirtualIvyRepository: typeof import("./virtualIvyRepository").VirtualIvyRepository = null as any;
@@ -1479,6 +1554,11 @@ export { VirtualNugetRepositoryArgs, VirtualNugetRepositoryState } from "./virtu
 export type VirtualNugetRepository = import("./virtualNugetRepository").VirtualNugetRepository;
 export const VirtualNugetRepository: typeof import("./virtualNugetRepository").VirtualNugetRepository = null as any;
 utilities.lazyLoad(exports, ["VirtualNugetRepository"], () => require("./virtualNugetRepository"));
+
+export { VirtualOciRepositoryArgs, VirtualOciRepositoryState } from "./virtualOciRepository";
+export type VirtualOciRepository = import("./virtualOciRepository").VirtualOciRepository;
+export const VirtualOciRepository: typeof import("./virtualOciRepository").VirtualOciRepository = null as any;
+utilities.lazyLoad(exports, ["VirtualOciRepository"], () => require("./virtualOciRepository"));
 
 export { VirtualP2RepositoryArgs, VirtualP2RepositoryState } from "./virtualP2Repository";
 export type VirtualP2Repository = import("./virtualP2Repository").VirtualP2Repository;
@@ -1616,6 +1696,8 @@ const _module = {
                 return new FederatedGradleRepository(name, <any>undefined, { urn })
             case "artifactory:index/federatedHelmRepository:FederatedHelmRepository":
                 return new FederatedHelmRepository(name, <any>undefined, { urn })
+            case "artifactory:index/federatedHelmociRepository:FederatedHelmociRepository":
+                return new FederatedHelmociRepository(name, <any>undefined, { urn })
             case "artifactory:index/federatedIvyRepository:FederatedIvyRepository":
                 return new FederatedIvyRepository(name, <any>undefined, { urn })
             case "artifactory:index/federatedMavenRepository:FederatedMavenRepository":
@@ -1624,6 +1706,8 @@ const _module = {
                 return new FederatedNpmRepository(name, <any>undefined, { urn })
             case "artifactory:index/federatedNugetRepository:FederatedNugetRepository":
                 return new FederatedNugetRepository(name, <any>undefined, { urn })
+            case "artifactory:index/federatedOciRepository:FederatedOciRepository":
+                return new FederatedOciRepository(name, <any>undefined, { urn })
             case "artifactory:index/federatedOpkgRepository:FederatedOpkgRepository":
                 return new FederatedOpkgRepository(name, <any>undefined, { urn })
             case "artifactory:index/federatedPuppetRepository:FederatedPuppetRepository":
@@ -1688,6 +1772,8 @@ const _module = {
                 return new LocalGradleRepository(name, <any>undefined, { urn })
             case "artifactory:index/localHelmRepository:LocalHelmRepository":
                 return new LocalHelmRepository(name, <any>undefined, { urn })
+            case "artifactory:index/localHelmociRepository:LocalHelmociRepository":
+                return new LocalHelmociRepository(name, <any>undefined, { urn })
             case "artifactory:index/localHuggingfacemlRepository:LocalHuggingfacemlRepository":
                 return new LocalHuggingfacemlRepository(name, <any>undefined, { urn })
             case "artifactory:index/localIvyRepository:LocalIvyRepository":
@@ -1698,6 +1784,8 @@ const _module = {
                 return new LocalNpmRepository(name, <any>undefined, { urn })
             case "artifactory:index/localNugetRepository:LocalNugetRepository":
                 return new LocalNugetRepository(name, <any>undefined, { urn })
+            case "artifactory:index/localOciRepository:LocalOciRepository":
+                return new LocalOciRepository(name, <any>undefined, { urn })
             case "artifactory:index/localOpkgRepository:LocalOpkgRepository":
                 return new LocalOpkgRepository(name, <any>undefined, { urn })
             case "artifactory:index/localPubRepository:LocalPubRepository":
@@ -1780,6 +1868,8 @@ const _module = {
                 return new RemoteGradleRepository(name, <any>undefined, { urn })
             case "artifactory:index/remoteHelmRepository:RemoteHelmRepository":
                 return new RemoteHelmRepository(name, <any>undefined, { urn })
+            case "artifactory:index/remoteHelmociRepository:RemoteHelmociRepository":
+                return new RemoteHelmociRepository(name, <any>undefined, { urn })
             case "artifactory:index/remoteHuggingfacemlRepository:RemoteHuggingfacemlRepository":
                 return new RemoteHuggingfacemlRepository(name, <any>undefined, { urn })
             case "artifactory:index/remoteIvyRepository:RemoteIvyRepository":
@@ -1790,6 +1880,8 @@ const _module = {
                 return new RemoteNpmRepository(name, <any>undefined, { urn })
             case "artifactory:index/remoteNugetRepository:RemoteNugetRepository":
                 return new RemoteNugetRepository(name, <any>undefined, { urn })
+            case "artifactory:index/remoteOciRepository:RemoteOciRepository":
+                return new RemoteOciRepository(name, <any>undefined, { urn })
             case "artifactory:index/remoteOpkgRepository:RemoteOpkgRepository":
                 return new RemoteOpkgRepository(name, <any>undefined, { urn })
             case "artifactory:index/remoteP2Repository:RemoteP2Repository":
@@ -1854,12 +1946,16 @@ const _module = {
                 return new VirtualGradleRepository(name, <any>undefined, { urn })
             case "artifactory:index/virtualHelmRepository:VirtualHelmRepository":
                 return new VirtualHelmRepository(name, <any>undefined, { urn })
+            case "artifactory:index/virtualHelmociRepository:VirtualHelmociRepository":
+                return new VirtualHelmociRepository(name, <any>undefined, { urn })
             case "artifactory:index/virtualIvyRepository:VirtualIvyRepository":
                 return new VirtualIvyRepository(name, <any>undefined, { urn })
             case "artifactory:index/virtualNpmRepository:VirtualNpmRepository":
                 return new VirtualNpmRepository(name, <any>undefined, { urn })
             case "artifactory:index/virtualNugetRepository:VirtualNugetRepository":
                 return new VirtualNugetRepository(name, <any>undefined, { urn })
+            case "artifactory:index/virtualOciRepository:VirtualOciRepository":
+                return new VirtualOciRepository(name, <any>undefined, { urn })
             case "artifactory:index/virtualP2Repository:VirtualP2Repository":
                 return new VirtualP2Repository(name, <any>undefined, { urn })
             case "artifactory:index/virtualPubRepository:VirtualPubRepository":
@@ -1922,10 +2018,12 @@ pulumi.runtime.registerResourceModule("artifactory", "index/federatedGitltfsRepo
 pulumi.runtime.registerResourceModule("artifactory", "index/federatedGoRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/federatedGradleRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/federatedHelmRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/federatedHelmociRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/federatedIvyRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/federatedMavenRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/federatedNpmRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/federatedNugetRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/federatedOciRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/federatedOpkgRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/federatedPuppetRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/federatedPypiRepository", _module)
@@ -1958,11 +2056,13 @@ pulumi.runtime.registerResourceModule("artifactory", "index/localGitltfsReposito
 pulumi.runtime.registerResourceModule("artifactory", "index/localGoRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/localGradleRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/localHelmRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/localHelmociRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/localHuggingfacemlRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/localIvyRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/localMavenRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/localNpmRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/localNugetRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/localOciRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/localOpkgRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/localPubRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/localPuppetRepository", _module)
@@ -2004,11 +2104,13 @@ pulumi.runtime.registerResourceModule("artifactory", "index/remoteGitlfsReposito
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteGoRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteGradleRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteHelmRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/remoteHelmociRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteHuggingfacemlRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteIvyRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteMavenRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteNpmRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteNugetRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/remoteOciRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteOpkgRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteP2Repository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remotePubRepository", _module)
@@ -2041,9 +2143,11 @@ pulumi.runtime.registerResourceModule("artifactory", "index/virtualGenericReposi
 pulumi.runtime.registerResourceModule("artifactory", "index/virtualGitlfsRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/virtualGradleRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/virtualHelmRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/virtualHelmociRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/virtualIvyRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/virtualNpmRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/virtualNugetRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/virtualOciRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/virtualP2Repository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/virtualPubRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/virtualPuppetRepository", _module)

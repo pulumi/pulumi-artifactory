@@ -42,6 +42,8 @@ import com.pulumi.artifactory.inputs.GetFederatedGradleRepositoryArgs;
 import com.pulumi.artifactory.inputs.GetFederatedGradleRepositoryPlainArgs;
 import com.pulumi.artifactory.inputs.GetFederatedHelmRepositoryArgs;
 import com.pulumi.artifactory.inputs.GetFederatedHelmRepositoryPlainArgs;
+import com.pulumi.artifactory.inputs.GetFederatedHelmociRepositoryArgs;
+import com.pulumi.artifactory.inputs.GetFederatedHelmociRepositoryPlainArgs;
 import com.pulumi.artifactory.inputs.GetFederatedIvyRepositoryArgs;
 import com.pulumi.artifactory.inputs.GetFederatedIvyRepositoryPlainArgs;
 import com.pulumi.artifactory.inputs.GetFederatedMavenRepositoryArgs;
@@ -50,6 +52,8 @@ import com.pulumi.artifactory.inputs.GetFederatedNpmRepositoryArgs;
 import com.pulumi.artifactory.inputs.GetFederatedNpmRepositoryPlainArgs;
 import com.pulumi.artifactory.inputs.GetFederatedNugetRepositoryArgs;
 import com.pulumi.artifactory.inputs.GetFederatedNugetRepositoryPlainArgs;
+import com.pulumi.artifactory.inputs.GetFederatedOciRepositoryArgs;
+import com.pulumi.artifactory.inputs.GetFederatedOciRepositoryPlainArgs;
 import com.pulumi.artifactory.inputs.GetFederatedOpkgRepositoryArgs;
 import com.pulumi.artifactory.inputs.GetFederatedOpkgRepositoryPlainArgs;
 import com.pulumi.artifactory.inputs.GetFederatedPuppetRepositoryArgs;
@@ -112,6 +116,8 @@ import com.pulumi.artifactory.inputs.GetLocalGradleRepositoryArgs;
 import com.pulumi.artifactory.inputs.GetLocalGradleRepositoryPlainArgs;
 import com.pulumi.artifactory.inputs.GetLocalHelmRepositoryArgs;
 import com.pulumi.artifactory.inputs.GetLocalHelmRepositoryPlainArgs;
+import com.pulumi.artifactory.inputs.GetLocalHelmociRepositoryArgs;
+import com.pulumi.artifactory.inputs.GetLocalHelmociRepositoryPlainArgs;
 import com.pulumi.artifactory.inputs.GetLocalHuggingfacemlRepositoryArgs;
 import com.pulumi.artifactory.inputs.GetLocalHuggingfacemlRepositoryPlainArgs;
 import com.pulumi.artifactory.inputs.GetLocalIvyRepositoryArgs;
@@ -122,6 +128,8 @@ import com.pulumi.artifactory.inputs.GetLocalNpmRepositoryArgs;
 import com.pulumi.artifactory.inputs.GetLocalNpmRepositoryPlainArgs;
 import com.pulumi.artifactory.inputs.GetLocalNugetRepositoryArgs;
 import com.pulumi.artifactory.inputs.GetLocalNugetRepositoryPlainArgs;
+import com.pulumi.artifactory.inputs.GetLocalOciRepositoryArgs;
+import com.pulumi.artifactory.inputs.GetLocalOciRepositoryPlainArgs;
 import com.pulumi.artifactory.inputs.GetLocalOpkgRepositoryArgs;
 import com.pulumi.artifactory.inputs.GetLocalOpkgRepositoryPlainArgs;
 import com.pulumi.artifactory.inputs.GetLocalPubRepositoryArgs;
@@ -180,6 +188,8 @@ import com.pulumi.artifactory.inputs.GetRemoteGradleRepositoryArgs;
 import com.pulumi.artifactory.inputs.GetRemoteGradleRepositoryPlainArgs;
 import com.pulumi.artifactory.inputs.GetRemoteHelmRepositoryArgs;
 import com.pulumi.artifactory.inputs.GetRemoteHelmRepositoryPlainArgs;
+import com.pulumi.artifactory.inputs.GetRemoteHelmociRepositoryArgs;
+import com.pulumi.artifactory.inputs.GetRemoteHelmociRepositoryPlainArgs;
 import com.pulumi.artifactory.inputs.GetRemoteIvyRepositoryArgs;
 import com.pulumi.artifactory.inputs.GetRemoteIvyRepositoryPlainArgs;
 import com.pulumi.artifactory.inputs.GetRemoteMavenRepositoryArgs;
@@ -188,6 +198,8 @@ import com.pulumi.artifactory.inputs.GetRemoteNpmRepositoryArgs;
 import com.pulumi.artifactory.inputs.GetRemoteNpmRepositoryPlainArgs;
 import com.pulumi.artifactory.inputs.GetRemoteNugetRepositoryArgs;
 import com.pulumi.artifactory.inputs.GetRemoteNugetRepositoryPlainArgs;
+import com.pulumi.artifactory.inputs.GetRemoteOciRepositoryArgs;
+import com.pulumi.artifactory.inputs.GetRemoteOciRepositoryPlainArgs;
 import com.pulumi.artifactory.inputs.GetRemoteOpkgRepositoryArgs;
 import com.pulumi.artifactory.inputs.GetRemoteOpkgRepositoryPlainArgs;
 import com.pulumi.artifactory.inputs.GetRemoteP2RepositoryArgs;
@@ -242,6 +254,8 @@ import com.pulumi.artifactory.inputs.GetVirtualGradleRepositoryArgs;
 import com.pulumi.artifactory.inputs.GetVirtualGradleRepositoryPlainArgs;
 import com.pulumi.artifactory.inputs.GetVirtualHelmRepositoryArgs;
 import com.pulumi.artifactory.inputs.GetVirtualHelmRepositoryPlainArgs;
+import com.pulumi.artifactory.inputs.GetVirtualHelmociRepositoryArgs;
+import com.pulumi.artifactory.inputs.GetVirtualHelmociRepositoryPlainArgs;
 import com.pulumi.artifactory.inputs.GetVirtualIvyRepositoryArgs;
 import com.pulumi.artifactory.inputs.GetVirtualIvyRepositoryPlainArgs;
 import com.pulumi.artifactory.inputs.GetVirtualMavenRepositoryArgs;
@@ -250,6 +264,8 @@ import com.pulumi.artifactory.inputs.GetVirtualNpmRepositoryArgs;
 import com.pulumi.artifactory.inputs.GetVirtualNpmRepositoryPlainArgs;
 import com.pulumi.artifactory.inputs.GetVirtualNugetRepositoryArgs;
 import com.pulumi.artifactory.inputs.GetVirtualNugetRepositoryPlainArgs;
+import com.pulumi.artifactory.inputs.GetVirtualOciRepositoryArgs;
+import com.pulumi.artifactory.inputs.GetVirtualOciRepositoryPlainArgs;
 import com.pulumi.artifactory.inputs.GetVirtualP2RepositoryArgs;
 import com.pulumi.artifactory.inputs.GetVirtualP2RepositoryPlainArgs;
 import com.pulumi.artifactory.inputs.GetVirtualPubRepositoryArgs;
@@ -285,10 +301,12 @@ import com.pulumi.artifactory.outputs.GetFederatedGitlfsRepositoryResult;
 import com.pulumi.artifactory.outputs.GetFederatedGoRepositoryResult;
 import com.pulumi.artifactory.outputs.GetFederatedGradleRepositoryResult;
 import com.pulumi.artifactory.outputs.GetFederatedHelmRepositoryResult;
+import com.pulumi.artifactory.outputs.GetFederatedHelmociRepositoryResult;
 import com.pulumi.artifactory.outputs.GetFederatedIvyRepositoryResult;
 import com.pulumi.artifactory.outputs.GetFederatedMavenRepositoryResult;
 import com.pulumi.artifactory.outputs.GetFederatedNpmRepositoryResult;
 import com.pulumi.artifactory.outputs.GetFederatedNugetRepositoryResult;
+import com.pulumi.artifactory.outputs.GetFederatedOciRepositoryResult;
 import com.pulumi.artifactory.outputs.GetFederatedOpkgRepositoryResult;
 import com.pulumi.artifactory.outputs.GetFederatedPuppetRepositoryResult;
 import com.pulumi.artifactory.outputs.GetFederatedPypiRepositoryResult;
@@ -320,11 +338,13 @@ import com.pulumi.artifactory.outputs.GetLocalGitlfsRepositoryResult;
 import com.pulumi.artifactory.outputs.GetLocalGoRepositoryResult;
 import com.pulumi.artifactory.outputs.GetLocalGradleRepositoryResult;
 import com.pulumi.artifactory.outputs.GetLocalHelmRepositoryResult;
+import com.pulumi.artifactory.outputs.GetLocalHelmociRepositoryResult;
 import com.pulumi.artifactory.outputs.GetLocalHuggingfacemlRepositoryResult;
 import com.pulumi.artifactory.outputs.GetLocalIvyRepositoryResult;
 import com.pulumi.artifactory.outputs.GetLocalMavenRepositoryResult;
 import com.pulumi.artifactory.outputs.GetLocalNpmRepositoryResult;
 import com.pulumi.artifactory.outputs.GetLocalNugetRepositoryResult;
+import com.pulumi.artifactory.outputs.GetLocalOciRepositoryResult;
 import com.pulumi.artifactory.outputs.GetLocalOpkgRepositoryResult;
 import com.pulumi.artifactory.outputs.GetLocalPubRepositoryResult;
 import com.pulumi.artifactory.outputs.GetLocalPuppetRepositoryResult;
@@ -354,10 +374,12 @@ import com.pulumi.artifactory.outputs.GetRemoteGitlfsRepositoryResult;
 import com.pulumi.artifactory.outputs.GetRemoteGoRepositoryResult;
 import com.pulumi.artifactory.outputs.GetRemoteGradleRepositoryResult;
 import com.pulumi.artifactory.outputs.GetRemoteHelmRepositoryResult;
+import com.pulumi.artifactory.outputs.GetRemoteHelmociRepositoryResult;
 import com.pulumi.artifactory.outputs.GetRemoteIvyRepositoryResult;
 import com.pulumi.artifactory.outputs.GetRemoteMavenRepositoryResult;
 import com.pulumi.artifactory.outputs.GetRemoteNpmRepositoryResult;
 import com.pulumi.artifactory.outputs.GetRemoteNugetRepositoryResult;
+import com.pulumi.artifactory.outputs.GetRemoteOciRepositoryResult;
 import com.pulumi.artifactory.outputs.GetRemoteOpkgRepositoryResult;
 import com.pulumi.artifactory.outputs.GetRemoteP2RepositoryResult;
 import com.pulumi.artifactory.outputs.GetRemotePubRepositoryResult;
@@ -385,10 +407,12 @@ import com.pulumi.artifactory.outputs.GetVirtualGitlfsRepositoryResult;
 import com.pulumi.artifactory.outputs.GetVirtualGoRepositoryResult;
 import com.pulumi.artifactory.outputs.GetVirtualGradleRepositoryResult;
 import com.pulumi.artifactory.outputs.GetVirtualHelmRepositoryResult;
+import com.pulumi.artifactory.outputs.GetVirtualHelmociRepositoryResult;
 import com.pulumi.artifactory.outputs.GetVirtualIvyRepositoryResult;
 import com.pulumi.artifactory.outputs.GetVirtualMavenRepositoryResult;
 import com.pulumi.artifactory.outputs.GetVirtualNpmRepositoryResult;
 import com.pulumi.artifactory.outputs.GetVirtualNugetRepositoryResult;
+import com.pulumi.artifactory.outputs.GetVirtualOciRepositoryResult;
 import com.pulumi.artifactory.outputs.GetVirtualP2RepositoryResult;
 import com.pulumi.artifactory.outputs.GetVirtualPubRepositoryResult;
 import com.pulumi.artifactory.outputs.GetVirtualPuppetRepositoryResult;
@@ -3081,6 +3105,154 @@ public final class ArtifactoryFunctions {
         return Deployment.getInstance().invokeAsync("artifactory:index/getFederatedHelmRepository:getFederatedHelmRepository", TypeShape.of(GetFederatedHelmRepositoryResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Retrieves a federated Helm OCI repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetFederatedHelmociRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var my-helmoci-federated = ArtifactoryFunctions.getFederatedHelmociRepository(GetFederatedHelmociRepositoryArgs.builder()
+     *             .key(&#34;my-helmoci-federated&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetFederatedHelmociRepositoryResult> getFederatedHelmociRepository(GetFederatedHelmociRepositoryArgs args) {
+        return getFederatedHelmociRepository(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves a federated Helm OCI repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetFederatedHelmociRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var my-helmoci-federated = ArtifactoryFunctions.getFederatedHelmociRepository(GetFederatedHelmociRepositoryArgs.builder()
+     *             .key(&#34;my-helmoci-federated&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetFederatedHelmociRepositoryResult> getFederatedHelmociRepositoryPlain(GetFederatedHelmociRepositoryPlainArgs args) {
+        return getFederatedHelmociRepositoryPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves a federated Helm OCI repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetFederatedHelmociRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var my-helmoci-federated = ArtifactoryFunctions.getFederatedHelmociRepository(GetFederatedHelmociRepositoryArgs.builder()
+     *             .key(&#34;my-helmoci-federated&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetFederatedHelmociRepositoryResult> getFederatedHelmociRepository(GetFederatedHelmociRepositoryArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("artifactory:index/getFederatedHelmociRepository:getFederatedHelmociRepository", TypeShape.of(GetFederatedHelmociRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves a federated Helm OCI repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetFederatedHelmociRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var my-helmoci-federated = ArtifactoryFunctions.getFederatedHelmociRepository(GetFederatedHelmociRepositoryArgs.builder()
+     *             .key(&#34;my-helmoci-federated&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetFederatedHelmociRepositoryResult> getFederatedHelmociRepositoryPlain(GetFederatedHelmociRepositoryPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("artifactory:index/getFederatedHelmociRepository:getFederatedHelmociRepository", TypeShape.of(GetFederatedHelmociRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    /**
      * Retrieves a federated Ivy repository.
      * 
      * ## Example Usage
@@ -3671,6 +3843,154 @@ public final class ArtifactoryFunctions {
      */
     public static CompletableFuture<GetFederatedNugetRepositoryResult> getFederatedNugetRepositoryPlain(GetFederatedNugetRepositoryPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("artifactory:index/getFederatedNugetRepository:getFederatedNugetRepository", TypeShape.of(GetFederatedNugetRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves a federated OCI repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetFederatedOciRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var my-oci-federated = ArtifactoryFunctions.getFederatedOciRepository(GetFederatedOciRepositoryArgs.builder()
+     *             .key(&#34;my-oci-federated&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetFederatedOciRepositoryResult> getFederatedOciRepository(GetFederatedOciRepositoryArgs args) {
+        return getFederatedOciRepository(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves a federated OCI repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetFederatedOciRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var my-oci-federated = ArtifactoryFunctions.getFederatedOciRepository(GetFederatedOciRepositoryArgs.builder()
+     *             .key(&#34;my-oci-federated&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetFederatedOciRepositoryResult> getFederatedOciRepositoryPlain(GetFederatedOciRepositoryPlainArgs args) {
+        return getFederatedOciRepositoryPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves a federated OCI repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetFederatedOciRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var my-oci-federated = ArtifactoryFunctions.getFederatedOciRepository(GetFederatedOciRepositoryArgs.builder()
+     *             .key(&#34;my-oci-federated&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetFederatedOciRepositoryResult> getFederatedOciRepository(GetFederatedOciRepositoryArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("artifactory:index/getFederatedOciRepository:getFederatedOciRepository", TypeShape.of(GetFederatedOciRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves a federated OCI repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetFederatedOciRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var my-oci-federated = ArtifactoryFunctions.getFederatedOciRepository(GetFederatedOciRepositoryArgs.builder()
+     *             .key(&#34;my-oci-federated&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetFederatedOciRepositoryResult> getFederatedOciRepositoryPlain(GetFederatedOciRepositoryPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("artifactory:index/getFederatedOciRepository:getFederatedOciRepository", TypeShape.of(GetFederatedOciRepositoryResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Retrieves a federated Opkg repository.
@@ -8289,6 +8609,154 @@ public final class ArtifactoryFunctions {
         return Deployment.getInstance().invokeAsync("artifactory:index/getLocalHelmRepository:getLocalHelmRepository", TypeShape.of(GetLocalHelmRepositoryResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Retrieves a local Helm OCI repository resource
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.LocalHelmociRepository;
+     * import com.pulumi.artifactory.LocalHelmociRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var my_helmoci_local = new LocalHelmociRepository(&#34;my-helmoci-local&#34;, LocalHelmociRepositoryArgs.builder()        
+     *             .key(&#34;my-helmoci-local&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetLocalHelmociRepositoryResult> getLocalHelmociRepository(GetLocalHelmociRepositoryArgs args) {
+        return getLocalHelmociRepository(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves a local Helm OCI repository resource
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.LocalHelmociRepository;
+     * import com.pulumi.artifactory.LocalHelmociRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var my_helmoci_local = new LocalHelmociRepository(&#34;my-helmoci-local&#34;, LocalHelmociRepositoryArgs.builder()        
+     *             .key(&#34;my-helmoci-local&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetLocalHelmociRepositoryResult> getLocalHelmociRepositoryPlain(GetLocalHelmociRepositoryPlainArgs args) {
+        return getLocalHelmociRepositoryPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves a local Helm OCI repository resource
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.LocalHelmociRepository;
+     * import com.pulumi.artifactory.LocalHelmociRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var my_helmoci_local = new LocalHelmociRepository(&#34;my-helmoci-local&#34;, LocalHelmociRepositoryArgs.builder()        
+     *             .key(&#34;my-helmoci-local&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetLocalHelmociRepositoryResult> getLocalHelmociRepository(GetLocalHelmociRepositoryArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("artifactory:index/getLocalHelmociRepository:getLocalHelmociRepository", TypeShape.of(GetLocalHelmociRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves a local Helm OCI repository resource
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.LocalHelmociRepository;
+     * import com.pulumi.artifactory.LocalHelmociRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var my_helmoci_local = new LocalHelmociRepository(&#34;my-helmoci-local&#34;, LocalHelmociRepositoryArgs.builder()        
+     *             .key(&#34;my-helmoci-local&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetLocalHelmociRepositoryResult> getLocalHelmociRepositoryPlain(GetLocalHelmociRepositoryPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("artifactory:index/getLocalHelmociRepository:getLocalHelmociRepository", TypeShape.of(GetLocalHelmociRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    /**
      * Provides a data source for a local huggingfaceml repository
      * 
      */
@@ -8907,6 +9375,154 @@ public final class ArtifactoryFunctions {
      */
     public static CompletableFuture<GetLocalNugetRepositoryResult> getLocalNugetRepositoryPlain(GetLocalNugetRepositoryPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("artifactory:index/getLocalNugetRepository:getLocalNugetRepository", TypeShape.of(GetLocalNugetRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves a local OCI repository resource
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.LocalOciRepository;
+     * import com.pulumi.artifactory.LocalOciRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var my_oci_local = new LocalOciRepository(&#34;my-oci-local&#34;, LocalOciRepositoryArgs.builder()        
+     *             .key(&#34;my-oci-local&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetLocalOciRepositoryResult> getLocalOciRepository(GetLocalOciRepositoryArgs args) {
+        return getLocalOciRepository(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves a local OCI repository resource
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.LocalOciRepository;
+     * import com.pulumi.artifactory.LocalOciRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var my_oci_local = new LocalOciRepository(&#34;my-oci-local&#34;, LocalOciRepositoryArgs.builder()        
+     *             .key(&#34;my-oci-local&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetLocalOciRepositoryResult> getLocalOciRepositoryPlain(GetLocalOciRepositoryPlainArgs args) {
+        return getLocalOciRepositoryPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves a local OCI repository resource
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.LocalOciRepository;
+     * import com.pulumi.artifactory.LocalOciRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var my_oci_local = new LocalOciRepository(&#34;my-oci-local&#34;, LocalOciRepositoryArgs.builder()        
+     *             .key(&#34;my-oci-local&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetLocalOciRepositoryResult> getLocalOciRepository(GetLocalOciRepositoryArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("artifactory:index/getLocalOciRepository:getLocalOciRepository", TypeShape.of(GetLocalOciRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves a local OCI repository resource
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.LocalOciRepository;
+     * import com.pulumi.artifactory.LocalOciRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var my_oci_local = new LocalOciRepository(&#34;my-oci-local&#34;, LocalOciRepositoryArgs.builder()        
+     *             .key(&#34;my-oci-local&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetLocalOciRepositoryResult> getLocalOciRepositoryPlain(GetLocalOciRepositoryPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("artifactory:index/getLocalOciRepository:getLocalOciRepository", TypeShape.of(GetLocalOciRepositoryResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Retrieves a local opkg repository.
@@ -13185,6 +13801,154 @@ public final class ArtifactoryFunctions {
         return Deployment.getInstance().invokeAsync("artifactory:index/getRemoteHelmRepository:getRemoteHelmRepository", TypeShape.of(GetRemoteHelmRepositoryResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Retrieves a remote Helm OCI repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetRemoteHelmociRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var my-helmoci-remote = ArtifactoryFunctions.getRemoteHelmociRepository(GetRemoteHelmociRepositoryArgs.builder()
+     *             .key(&#34;my-helmoci-remote&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetRemoteHelmociRepositoryResult> getRemoteHelmociRepository(GetRemoteHelmociRepositoryArgs args) {
+        return getRemoteHelmociRepository(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves a remote Helm OCI repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetRemoteHelmociRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var my-helmoci-remote = ArtifactoryFunctions.getRemoteHelmociRepository(GetRemoteHelmociRepositoryArgs.builder()
+     *             .key(&#34;my-helmoci-remote&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetRemoteHelmociRepositoryResult> getRemoteHelmociRepositoryPlain(GetRemoteHelmociRepositoryPlainArgs args) {
+        return getRemoteHelmociRepositoryPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves a remote Helm OCI repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetRemoteHelmociRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var my-helmoci-remote = ArtifactoryFunctions.getRemoteHelmociRepository(GetRemoteHelmociRepositoryArgs.builder()
+     *             .key(&#34;my-helmoci-remote&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetRemoteHelmociRepositoryResult> getRemoteHelmociRepository(GetRemoteHelmociRepositoryArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("artifactory:index/getRemoteHelmociRepository:getRemoteHelmociRepository", TypeShape.of(GetRemoteHelmociRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves a remote Helm OCI repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetRemoteHelmociRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var my-helmoci-remote = ArtifactoryFunctions.getRemoteHelmociRepository(GetRemoteHelmociRepositoryArgs.builder()
+     *             .key(&#34;my-helmoci-remote&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetRemoteHelmociRepositoryResult> getRemoteHelmociRepositoryPlain(GetRemoteHelmociRepositoryPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("artifactory:index/getRemoteHelmociRepository:getRemoteHelmociRepository", TypeShape.of(GetRemoteHelmociRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    /**
      * Retrieves a remote Ivy repository.
      * 
      * ## Example Usage
@@ -13775,6 +14539,154 @@ public final class ArtifactoryFunctions {
      */
     public static CompletableFuture<GetRemoteNugetRepositoryResult> getRemoteNugetRepositoryPlain(GetRemoteNugetRepositoryPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("artifactory:index/getRemoteNugetRepository:getRemoteNugetRepository", TypeShape.of(GetRemoteNugetRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves a remote OCI repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetRemoteOciRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var my-oci-remote = ArtifactoryFunctions.getRemoteOciRepository(GetRemoteOciRepositoryArgs.builder()
+     *             .key(&#34;my-oci-remote&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetRemoteOciRepositoryResult> getRemoteOciRepository(GetRemoteOciRepositoryArgs args) {
+        return getRemoteOciRepository(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves a remote OCI repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetRemoteOciRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var my-oci-remote = ArtifactoryFunctions.getRemoteOciRepository(GetRemoteOciRepositoryArgs.builder()
+     *             .key(&#34;my-oci-remote&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetRemoteOciRepositoryResult> getRemoteOciRepositoryPlain(GetRemoteOciRepositoryPlainArgs args) {
+        return getRemoteOciRepositoryPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves a remote OCI repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetRemoteOciRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var my-oci-remote = ArtifactoryFunctions.getRemoteOciRepository(GetRemoteOciRepositoryArgs.builder()
+     *             .key(&#34;my-oci-remote&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetRemoteOciRepositoryResult> getRemoteOciRepository(GetRemoteOciRepositoryArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("artifactory:index/getRemoteOciRepository:getRemoteOciRepository", TypeShape.of(GetRemoteOciRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves a remote OCI repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetRemoteOciRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var my-oci-remote = ArtifactoryFunctions.getRemoteOciRepository(GetRemoteOciRepositoryArgs.builder()
+     *             .key(&#34;my-oci-remote&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetRemoteOciRepositoryResult> getRemoteOciRepositoryPlain(GetRemoteOciRepositoryPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("artifactory:index/getRemoteOciRepository:getRemoteOciRepository", TypeShape.of(GetRemoteOciRepositoryResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Retrieves a remote Opkg repository.
@@ -17733,6 +18645,154 @@ public final class ArtifactoryFunctions {
         return Deployment.getInstance().invokeAsync("artifactory:index/getVirtualHelmRepository:getVirtualHelmRepository", TypeShape.of(GetVirtualHelmRepositoryResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Retrieves a virtual Helm OCI repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetVirtualHelmociRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var my-helmoci-virtual = ArtifactoryFunctions.getVirtualHelmociRepository(GetVirtualHelmociRepositoryArgs.builder()
+     *             .key(&#34;my-helmoci-virtual&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetVirtualHelmociRepositoryResult> getVirtualHelmociRepository(GetVirtualHelmociRepositoryArgs args) {
+        return getVirtualHelmociRepository(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves a virtual Helm OCI repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetVirtualHelmociRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var my-helmoci-virtual = ArtifactoryFunctions.getVirtualHelmociRepository(GetVirtualHelmociRepositoryArgs.builder()
+     *             .key(&#34;my-helmoci-virtual&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetVirtualHelmociRepositoryResult> getVirtualHelmociRepositoryPlain(GetVirtualHelmociRepositoryPlainArgs args) {
+        return getVirtualHelmociRepositoryPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves a virtual Helm OCI repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetVirtualHelmociRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var my-helmoci-virtual = ArtifactoryFunctions.getVirtualHelmociRepository(GetVirtualHelmociRepositoryArgs.builder()
+     *             .key(&#34;my-helmoci-virtual&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetVirtualHelmociRepositoryResult> getVirtualHelmociRepository(GetVirtualHelmociRepositoryArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("artifactory:index/getVirtualHelmociRepository:getVirtualHelmociRepository", TypeShape.of(GetVirtualHelmociRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves a virtual Helm OCI repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetVirtualHelmociRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var my-helmoci-virtual = ArtifactoryFunctions.getVirtualHelmociRepository(GetVirtualHelmociRepositoryArgs.builder()
+     *             .key(&#34;my-helmoci-virtual&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetVirtualHelmociRepositoryResult> getVirtualHelmociRepositoryPlain(GetVirtualHelmociRepositoryPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("artifactory:index/getVirtualHelmociRepository:getVirtualHelmociRepository", TypeShape.of(GetVirtualHelmociRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    /**
      * Retrieves a virtual Ivy repository.
      * 
      * ## Example Usage
@@ -18323,6 +19383,154 @@ public final class ArtifactoryFunctions {
      */
     public static CompletableFuture<GetVirtualNugetRepositoryResult> getVirtualNugetRepositoryPlain(GetVirtualNugetRepositoryPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("artifactory:index/getVirtualNugetRepository:getVirtualNugetRepository", TypeShape.of(GetVirtualNugetRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves a virtual OCI repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetVirtualOciRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var my-oci-virtual = ArtifactoryFunctions.getVirtualOciRepository(GetVirtualOciRepositoryArgs.builder()
+     *             .key(&#34;my-oci-virtual&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetVirtualOciRepositoryResult> getVirtualOciRepository(GetVirtualOciRepositoryArgs args) {
+        return getVirtualOciRepository(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves a virtual OCI repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetVirtualOciRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var my-oci-virtual = ArtifactoryFunctions.getVirtualOciRepository(GetVirtualOciRepositoryArgs.builder()
+     *             .key(&#34;my-oci-virtual&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetVirtualOciRepositoryResult> getVirtualOciRepositoryPlain(GetVirtualOciRepositoryPlainArgs args) {
+        return getVirtualOciRepositoryPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves a virtual OCI repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetVirtualOciRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var my-oci-virtual = ArtifactoryFunctions.getVirtualOciRepository(GetVirtualOciRepositoryArgs.builder()
+     *             .key(&#34;my-oci-virtual&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetVirtualOciRepositoryResult> getVirtualOciRepository(GetVirtualOciRepositoryArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("artifactory:index/getVirtualOciRepository:getVirtualOciRepository", TypeShape.of(GetVirtualOciRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves a virtual OCI repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetVirtualOciRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var my-oci-virtual = ArtifactoryFunctions.getVirtualOciRepository(GetVirtualOciRepositoryArgs.builder()
+     *             .key(&#34;my-oci-virtual&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetVirtualOciRepositoryResult> getVirtualOciRepositoryPlain(GetVirtualOciRepositoryPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("artifactory:index/getVirtualOciRepository:getVirtualOciRepository", TypeShape.of(GetVirtualOciRepositoryResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Retrieves a virtual P2 repository.

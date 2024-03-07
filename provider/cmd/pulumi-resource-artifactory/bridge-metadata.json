@@ -668,6 +668,21 @@
                     }
                 }
             },
+            "artifactory_federated_helmoci_repository": {
+                "current": "artifactory:index/federatedHelmociRepository:FederatedHelmociRepository",
+                "majorVersion": 6,
+                "fields": {
+                    "member": {
+                        "maxItemsOne": false
+                    },
+                    "project_environments": {
+                        "maxItemsOne": false
+                    },
+                    "property_sets": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "artifactory_federated_ivy_repository": {
                 "current": "artifactory:index/federatedIvyRepository:FederatedIvyRepository",
                 "majorVersion": 6,
@@ -715,6 +730,21 @@
             },
             "artifactory_federated_nuget_repository": {
                 "current": "artifactory:index/federatedNugetRepository:FederatedNugetRepository",
+                "majorVersion": 6,
+                "fields": {
+                    "member": {
+                        "maxItemsOne": false
+                    },
+                    "project_environments": {
+                        "maxItemsOne": false
+                    },
+                    "property_sets": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "artifactory_federated_oci_repository": {
+                "current": "artifactory:index/federatedOciRepository:FederatedOciRepository",
                 "majorVersion": 6,
                 "fields": {
                     "member": {
@@ -1125,6 +1155,18 @@
                     }
                 }
             },
+            "artifactory_local_helmoci_repository": {
+                "current": "artifactory:index/localHelmociRepository:LocalHelmociRepository",
+                "majorVersion": 6,
+                "fields": {
+                    "project_environments": {
+                        "maxItemsOne": false
+                    },
+                    "property_sets": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "artifactory_local_huggingfaceml_repository": {
                 "current": "artifactory:index/localHuggingfacemlRepository:LocalHuggingfacemlRepository",
                 "majorVersion": 6,
@@ -1175,6 +1217,18 @@
             },
             "artifactory_local_nuget_repository": {
                 "current": "artifactory:index/localNugetRepository:LocalNugetRepository",
+                "majorVersion": 6,
+                "fields": {
+                    "project_environments": {
+                        "maxItemsOne": false
+                    },
+                    "property_sets": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "artifactory_local_oci_repository": {
+                "current": "artifactory:index/localOciRepository:LocalOciRepository",
                 "majorVersion": 6,
                 "fields": {
                     "project_environments": {
@@ -1845,6 +1899,24 @@
                     }
                 }
             },
+            "artifactory_remote_helmoci_repository": {
+                "current": "artifactory:index/remoteHelmociRepository:RemoteHelmociRepository",
+                "majorVersion": 6,
+                "fields": {
+                    "content_synchronisation": {
+                        "maxItemsOne": true
+                    },
+                    "external_dependencies_patterns": {
+                        "maxItemsOne": false
+                    },
+                    "project_environments": {
+                        "maxItemsOne": false
+                    },
+                    "property_sets": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "artifactory_remote_huggingfaceml_repository": {
                 "current": "artifactory:index/remoteHuggingfacemlRepository:RemoteHuggingfacemlRepository",
                 "majorVersion": 6,
@@ -1911,6 +1983,24 @@
                 "fields": {
                     "content_synchronisation": {
                         "maxItemsOne": true
+                    },
+                    "project_environments": {
+                        "maxItemsOne": false
+                    },
+                    "property_sets": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "artifactory_remote_oci_repository": {
+                "current": "artifactory:index/remoteOciRepository:RemoteOciRepository",
+                "majorVersion": 6,
+                "fields": {
+                    "content_synchronisation": {
+                        "maxItemsOne": true
+                    },
+                    "external_dependencies_patterns": {
+                        "maxItemsOne": false
                     },
                     "project_environments": {
                         "maxItemsOne": false
@@ -2314,6 +2404,18 @@
                     }
                 }
             },
+            "artifactory_virtual_helmoci_repository": {
+                "current": "artifactory:index/virtualHelmociRepository:VirtualHelmociRepository",
+                "majorVersion": 6,
+                "fields": {
+                    "project_environments": {
+                        "maxItemsOne": false
+                    },
+                    "repositories": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "artifactory_virtual_ivy_repository": {
                 "current": "artifactory:index/virtualIvyRepository:VirtualIvyRepository",
                 "majorVersion": 6,
@@ -2355,6 +2457,18 @@
             },
             "artifactory_virtual_nuget_repository": {
                 "current": "artifactory:index/virtualNugetRepository:VirtualNugetRepository",
+                "majorVersion": 6,
+                "fields": {
+                    "project_environments": {
+                        "maxItemsOne": false
+                    },
+                    "repositories": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "artifactory_virtual_oci_repository": {
+                "current": "artifactory:index/virtualOciRepository:VirtualOciRepository",
                 "majorVersion": 6,
                 "fields": {
                     "project_environments": {
@@ -2757,6 +2871,21 @@
                     }
                 }
             },
+            "artifactory_federated_helmoci_repository": {
+                "current": "artifactory:index/getFederatedHelmociRepository:getFederatedHelmociRepository",
+                "majorVersion": 6,
+                "fields": {
+                    "member": {
+                        "maxItemsOne": false
+                    },
+                    "project_environments": {
+                        "maxItemsOne": false
+                    },
+                    "property_sets": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "artifactory_federated_ivy_repository": {
                 "current": "artifactory:index/getFederatedIvyRepository:getFederatedIvyRepository",
                 "majorVersion": 6,
@@ -2804,6 +2933,21 @@
             },
             "artifactory_federated_nuget_repository": {
                 "current": "artifactory:index/getFederatedNugetRepository:getFederatedNugetRepository",
+                "majorVersion": 6,
+                "fields": {
+                    "member": {
+                        "maxItemsOne": false
+                    },
+                    "project_environments": {
+                        "maxItemsOne": false
+                    },
+                    "property_sets": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "artifactory_federated_oci_repository": {
+                "current": "artifactory:index/getFederatedOciRepository:getFederatedOciRepository",
                 "majorVersion": 6,
                 "fields": {
                     "member": {
@@ -3203,6 +3347,18 @@
                     }
                 }
             },
+            "artifactory_local_helmoci_repository": {
+                "current": "artifactory:index/getLocalHelmociRepository:getLocalHelmociRepository",
+                "majorVersion": 6,
+                "fields": {
+                    "project_environments": {
+                        "maxItemsOne": false
+                    },
+                    "property_sets": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "artifactory_local_huggingfaceml_repository": {
                 "current": "artifactory:index/getLocalHuggingfacemlRepository:getLocalHuggingfacemlRepository",
                 "majorVersion": 6,
@@ -3253,6 +3409,18 @@
             },
             "artifactory_local_nuget_repository": {
                 "current": "artifactory:index/getLocalNugetRepository:getLocalNugetRepository",
+                "majorVersion": 6,
+                "fields": {
+                    "project_environments": {
+                        "maxItemsOne": false
+                    },
+                    "property_sets": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "artifactory_local_oci_repository": {
+                "current": "artifactory:index/getLocalOciRepository:getLocalOciRepository",
                 "majorVersion": 6,
                 "fields": {
                     "project_environments": {
@@ -3791,6 +3959,24 @@
                     }
                 }
             },
+            "artifactory_remote_helmoci_repository": {
+                "current": "artifactory:index/getRemoteHelmociRepository:getRemoteHelmociRepository",
+                "majorVersion": 6,
+                "fields": {
+                    "content_synchronisation": {
+                        "maxItemsOne": true
+                    },
+                    "external_dependencies_patterns": {
+                        "maxItemsOne": false
+                    },
+                    "project_environments": {
+                        "maxItemsOne": false
+                    },
+                    "property_sets": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "artifactory_remote_ivy_repository": {
                 "current": "artifactory:index/getRemoteIvyRepository:getRemoteIvyRepository",
                 "majorVersion": 6,
@@ -3842,6 +4028,24 @@
                 "fields": {
                     "content_synchronisation": {
                         "maxItemsOne": true
+                    },
+                    "project_environments": {
+                        "maxItemsOne": false
+                    },
+                    "property_sets": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "artifactory_remote_oci_repository": {
+                "current": "artifactory:index/getRemoteOciRepository:getRemoteOciRepository",
+                "majorVersion": 6,
+                "fields": {
+                    "content_synchronisation": {
+                        "maxItemsOne": true
+                    },
+                    "external_dependencies_patterns": {
+                        "maxItemsOne": false
                     },
                     "project_environments": {
                         "maxItemsOne": false
@@ -4208,6 +4412,18 @@
                     }
                 }
             },
+            "artifactory_virtual_helmoci_repository": {
+                "current": "artifactory:index/getVirtualHelmociRepository:getVirtualHelmociRepository",
+                "majorVersion": 6,
+                "fields": {
+                    "project_environments": {
+                        "maxItemsOne": false
+                    },
+                    "repositories": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "artifactory_virtual_ivy_repository": {
                 "current": "artifactory:index/getVirtualIvyRepository:getVirtualIvyRepository",
                 "majorVersion": 6,
@@ -4249,6 +4465,18 @@
             },
             "artifactory_virtual_nuget_repository": {
                 "current": "artifactory:index/getVirtualNugetRepository:getVirtualNugetRepository",
+                "majorVersion": 6,
+                "fields": {
+                    "project_environments": {
+                        "maxItemsOne": false
+                    },
+                    "repositories": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "artifactory_virtual_oci_repository": {
+                "current": "artifactory:index/getVirtualOciRepository:getVirtualOciRepository",
                 "majorVersion": 6,
                 "fields": {
                     "project_environments": {
@@ -4401,10 +4629,12 @@
             "artifactory:index/federatedGoRepository:FederatedGoRepository": 0,
             "artifactory:index/federatedGradleRepository:FederatedGradleRepository": 0,
             "artifactory:index/federatedHelmRepository:FederatedHelmRepository": 0,
+            "artifactory:index/federatedHelmociRepository:FederatedHelmociRepository": 0,
             "artifactory:index/federatedIvyRepository:FederatedIvyRepository": 0,
             "artifactory:index/federatedMavenRepository:FederatedMavenRepository": 0,
             "artifactory:index/federatedNpmRepository:FederatedNpmRepository": 0,
             "artifactory:index/federatedNugetRepository:FederatedNugetRepository": 0,
+            "artifactory:index/federatedOciRepository:FederatedOciRepository": 0,
             "artifactory:index/federatedOpkgRepository:FederatedOpkgRepository": 0,
             "artifactory:index/federatedPuppetRepository:FederatedPuppetRepository": 0,
             "artifactory:index/federatedPypiRepository:FederatedPypiRepository": 0,
@@ -4437,11 +4667,13 @@
             "artifactory:index/localGoRepository:LocalGoRepository": 0,
             "artifactory:index/localGradleRepository:LocalGradleRepository": 0,
             "artifactory:index/localHelmRepository:LocalHelmRepository": 0,
+            "artifactory:index/localHelmociRepository:LocalHelmociRepository": 0,
             "artifactory:index/localHuggingfacemlRepository:LocalHuggingfacemlRepository": 0,
             "artifactory:index/localIvyRepository:LocalIvyRepository": 0,
             "artifactory:index/localMavenRepository:LocalMavenRepository": 0,
             "artifactory:index/localNpmRepository:LocalNpmRepository": 0,
             "artifactory:index/localNugetRepository:LocalNugetRepository": 0,
+            "artifactory:index/localOciRepository:LocalOciRepository": 0,
             "artifactory:index/localOpkgRepository:LocalOpkgRepository": 0,
             "artifactory:index/localPubRepository:LocalPubRepository": 0,
             "artifactory:index/localPuppetRepository:LocalPuppetRepository": 0,
@@ -4483,11 +4715,13 @@
             "artifactory:index/remoteGoRepository:RemoteGoRepository": 0,
             "artifactory:index/remoteGradleRepository:RemoteGradleRepository": 0,
             "artifactory:index/remoteHelmRepository:RemoteHelmRepository": 0,
+            "artifactory:index/remoteHelmociRepository:RemoteHelmociRepository": 0,
             "artifactory:index/remoteHuggingfacemlRepository:RemoteHuggingfacemlRepository": 0,
             "artifactory:index/remoteIvyRepository:RemoteIvyRepository": 0,
             "artifactory:index/remoteMavenRepository:RemoteMavenRepository": 0,
             "artifactory:index/remoteNpmRepository:RemoteNpmRepository": 0,
             "artifactory:index/remoteNugetRepository:RemoteNugetRepository": 0,
+            "artifactory:index/remoteOciRepository:RemoteOciRepository": 0,
             "artifactory:index/remoteOpkgRepository:RemoteOpkgRepository": 0,
             "artifactory:index/remoteP2Repository:RemoteP2Repository": 0,
             "artifactory:index/remotePubRepository:RemotePubRepository": 0,
@@ -4520,9 +4754,11 @@
             "artifactory:index/virtualGitlfsRepository:VirtualGitlfsRepository": 0,
             "artifactory:index/virtualGradleRepository:VirtualGradleRepository": 0,
             "artifactory:index/virtualHelmRepository:VirtualHelmRepository": 0,
+            "artifactory:index/virtualHelmociRepository:VirtualHelmociRepository": 0,
             "artifactory:index/virtualIvyRepository:VirtualIvyRepository": 0,
             "artifactory:index/virtualNpmRepository:VirtualNpmRepository": 0,
             "artifactory:index/virtualNugetRepository:VirtualNugetRepository": 0,
+            "artifactory:index/virtualOciRepository:VirtualOciRepository": 0,
             "artifactory:index/virtualP2Repository:VirtualP2Repository": 0,
             "artifactory:index/virtualPubRepository:VirtualPubRepository": 0,
             "artifactory:index/virtualPuppetRepository:VirtualPuppetRepository": 0,
@@ -4552,10 +4788,12 @@
             "artifactory:index/getFederatedGoRepository:getFederatedGoRepository": 0,
             "artifactory:index/getFederatedGradleRepository:getFederatedGradleRepository": 0,
             "artifactory:index/getFederatedHelmRepository:getFederatedHelmRepository": 0,
+            "artifactory:index/getFederatedHelmociRepository:getFederatedHelmociRepository": 0,
             "artifactory:index/getFederatedIvyRepository:getFederatedIvyRepository": 0,
             "artifactory:index/getFederatedMavenRepository:getFederatedMavenRepository": 0,
             "artifactory:index/getFederatedNpmRepository:getFederatedNpmRepository": 0,
             "artifactory:index/getFederatedNugetRepository:getFederatedNugetRepository": 0,
+            "artifactory:index/getFederatedOciRepository:getFederatedOciRepository": 0,
             "artifactory:index/getFederatedOpkgRepository:getFederatedOpkgRepository": 0,
             "artifactory:index/getFederatedPuppetRepository:getFederatedPuppetRepository": 0,
             "artifactory:index/getFederatedPypiRepository:getFederatedPypiRepository": 0,
@@ -4587,11 +4825,13 @@
             "artifactory:index/getLocalGoRepository:getLocalGoRepository": 0,
             "artifactory:index/getLocalGradleRepository:getLocalGradleRepository": 0,
             "artifactory:index/getLocalHelmRepository:getLocalHelmRepository": 0,
+            "artifactory:index/getLocalHelmociRepository:getLocalHelmociRepository": 0,
             "artifactory:index/getLocalHuggingfacemlRepository:getLocalHuggingfacemlRepository": 0,
             "artifactory:index/getLocalIvyRepository:getLocalIvyRepository": 0,
             "artifactory:index/getLocalMavenRepository:getLocalMavenRepository": 0,
             "artifactory:index/getLocalNpmRepository:getLocalNpmRepository": 0,
             "artifactory:index/getLocalNugetRepository:getLocalNugetRepository": 0,
+            "artifactory:index/getLocalOciRepository:getLocalOciRepository": 0,
             "artifactory:index/getLocalOpkgRepository:getLocalOpkgRepository": 0,
             "artifactory:index/getLocalPubRepository:getLocalPubRepository": 0,
             "artifactory:index/getLocalPuppetRepository:getLocalPuppetRepository": 0,
@@ -4621,10 +4861,12 @@
             "artifactory:index/getRemoteGoRepository:getRemoteGoRepository": 0,
             "artifactory:index/getRemoteGradleRepository:getRemoteGradleRepository": 0,
             "artifactory:index/getRemoteHelmRepository:getRemoteHelmRepository": 0,
+            "artifactory:index/getRemoteHelmociRepository:getRemoteHelmociRepository": 0,
             "artifactory:index/getRemoteIvyRepository:getRemoteIvyRepository": 0,
             "artifactory:index/getRemoteMavenRepository:getRemoteMavenRepository": 0,
             "artifactory:index/getRemoteNpmRepository:getRemoteNpmRepository": 0,
             "artifactory:index/getRemoteNugetRepository:getRemoteNugetRepository": 0,
+            "artifactory:index/getRemoteOciRepository:getRemoteOciRepository": 0,
             "artifactory:index/getRemoteOpkgRepository:getRemoteOpkgRepository": 0,
             "artifactory:index/getRemoteP2Repository:getRemoteP2Repository": 0,
             "artifactory:index/getRemotePubRepository:getRemotePubRepository": 0,
@@ -4652,10 +4894,12 @@
             "artifactory:index/getVirtualGoRepository:getVirtualGoRepository": 0,
             "artifactory:index/getVirtualGradleRepository:getVirtualGradleRepository": 0,
             "artifactory:index/getVirtualHelmRepository:getVirtualHelmRepository": 0,
+            "artifactory:index/getVirtualHelmociRepository:getVirtualHelmociRepository": 0,
             "artifactory:index/getVirtualIvyRepository:getVirtualIvyRepository": 0,
             "artifactory:index/getVirtualMavenRepository:getVirtualMavenRepository": 0,
             "artifactory:index/getVirtualNpmRepository:getVirtualNpmRepository": 0,
             "artifactory:index/getVirtualNugetRepository:getVirtualNugetRepository": 0,
+            "artifactory:index/getVirtualOciRepository:getVirtualOciRepository": 0,
             "artifactory:index/getVirtualP2Repository:getVirtualP2Repository": 0,
             "artifactory:index/getVirtualPubRepository:getVirtualPubRepository": 0,
             "artifactory:index/getVirtualPuppetRepository:getVirtualPuppetRepository": 0,

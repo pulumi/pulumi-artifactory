@@ -103,6 +103,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &FederatedGradleRepository{}
 	case "artifactory:index/federatedHelmRepository:FederatedHelmRepository":
 		r = &FederatedHelmRepository{}
+	case "artifactory:index/federatedHelmociRepository:FederatedHelmociRepository":
+		r = &FederatedHelmociRepository{}
 	case "artifactory:index/federatedIvyRepository:FederatedIvyRepository":
 		r = &FederatedIvyRepository{}
 	case "artifactory:index/federatedMavenRepository:FederatedMavenRepository":
@@ -111,6 +113,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &FederatedNpmRepository{}
 	case "artifactory:index/federatedNugetRepository:FederatedNugetRepository":
 		r = &FederatedNugetRepository{}
+	case "artifactory:index/federatedOciRepository:FederatedOciRepository":
+		r = &FederatedOciRepository{}
 	case "artifactory:index/federatedOpkgRepository:FederatedOpkgRepository":
 		r = &FederatedOpkgRepository{}
 	case "artifactory:index/federatedPuppetRepository:FederatedPuppetRepository":
@@ -175,6 +179,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &LocalGradleRepository{}
 	case "artifactory:index/localHelmRepository:LocalHelmRepository":
 		r = &LocalHelmRepository{}
+	case "artifactory:index/localHelmociRepository:LocalHelmociRepository":
+		r = &LocalHelmociRepository{}
 	case "artifactory:index/localHuggingfacemlRepository:LocalHuggingfacemlRepository":
 		r = &LocalHuggingfacemlRepository{}
 	case "artifactory:index/localIvyRepository:LocalIvyRepository":
@@ -185,6 +191,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &LocalNpmRepository{}
 	case "artifactory:index/localNugetRepository:LocalNugetRepository":
 		r = &LocalNugetRepository{}
+	case "artifactory:index/localOciRepository:LocalOciRepository":
+		r = &LocalOciRepository{}
 	case "artifactory:index/localOpkgRepository:LocalOpkgRepository":
 		r = &LocalOpkgRepository{}
 	case "artifactory:index/localPubRepository:LocalPubRepository":
@@ -267,6 +275,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &RemoteGradleRepository{}
 	case "artifactory:index/remoteHelmRepository:RemoteHelmRepository":
 		r = &RemoteHelmRepository{}
+	case "artifactory:index/remoteHelmociRepository:RemoteHelmociRepository":
+		r = &RemoteHelmociRepository{}
 	case "artifactory:index/remoteHuggingfacemlRepository:RemoteHuggingfacemlRepository":
 		r = &RemoteHuggingfacemlRepository{}
 	case "artifactory:index/remoteIvyRepository:RemoteIvyRepository":
@@ -277,6 +287,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &RemoteNpmRepository{}
 	case "artifactory:index/remoteNugetRepository:RemoteNugetRepository":
 		r = &RemoteNugetRepository{}
+	case "artifactory:index/remoteOciRepository:RemoteOciRepository":
+		r = &RemoteOciRepository{}
 	case "artifactory:index/remoteOpkgRepository:RemoteOpkgRepository":
 		r = &RemoteOpkgRepository{}
 	case "artifactory:index/remoteP2Repository:RemoteP2Repository":
@@ -341,12 +353,16 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &VirtualGradleRepository{}
 	case "artifactory:index/virtualHelmRepository:VirtualHelmRepository":
 		r = &VirtualHelmRepository{}
+	case "artifactory:index/virtualHelmociRepository:VirtualHelmociRepository":
+		r = &VirtualHelmociRepository{}
 	case "artifactory:index/virtualIvyRepository:VirtualIvyRepository":
 		r = &VirtualIvyRepository{}
 	case "artifactory:index/virtualNpmRepository:VirtualNpmRepository":
 		r = &VirtualNpmRepository{}
 	case "artifactory:index/virtualNugetRepository:VirtualNugetRepository":
 		r = &VirtualNugetRepository{}
+	case "artifactory:index/virtualOciRepository:VirtualOciRepository":
+		r = &VirtualOciRepository{}
 	case "artifactory:index/virtualP2Repository:VirtualP2Repository":
 		r = &VirtualP2Repository{}
 	case "artifactory:index/virtualPubRepository:VirtualPubRepository":
@@ -601,6 +617,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"artifactory",
+		"index/federatedHelmociRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
 		"index/federatedIvyRepository",
 		&module{version},
 	)
@@ -617,6 +638,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"artifactory",
 		"index/federatedNugetRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/federatedOciRepository",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -781,6 +807,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"artifactory",
+		"index/localHelmociRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
 		"index/localHuggingfacemlRepository",
 		&module{version},
 	)
@@ -802,6 +833,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"artifactory",
 		"index/localNugetRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/localOciRepository",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -1011,6 +1047,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"artifactory",
+		"index/remoteHelmociRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
 		"index/remoteHuggingfacemlRepository",
 		&module{version},
 	)
@@ -1032,6 +1073,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"artifactory",
 		"index/remoteNugetRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/remoteOciRepository",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -1196,6 +1242,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"artifactory",
+		"index/virtualHelmociRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
 		"index/virtualIvyRepository",
 		&module{version},
 	)
@@ -1207,6 +1258,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"artifactory",
 		"index/virtualNugetRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/virtualOciRepository",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
