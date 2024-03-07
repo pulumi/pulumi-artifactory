@@ -46,10 +46,12 @@ from .federated_gitltfs_repository import *
 from .federated_go_repository import *
 from .federated_gradle_repository import *
 from .federated_helm_repository import *
+from .federated_helmoci_repository import *
 from .federated_ivy_repository import *
 from .federated_maven_repository import *
 from .federated_npm_repository import *
 from .federated_nuget_repository import *
+from .federated_oci_repository import *
 from .federated_opkg_repository import *
 from .federated_puppet_repository import *
 from .federated_pypi_repository import *
@@ -79,10 +81,12 @@ from .get_federated_gitlfs_repository import *
 from .get_federated_go_repository import *
 from .get_federated_gradle_repository import *
 from .get_federated_helm_repository import *
+from .get_federated_helmoci_repository import *
 from .get_federated_ivy_repository import *
 from .get_federated_maven_repository import *
 from .get_federated_npm_repository import *
 from .get_federated_nuget_repository import *
+from .get_federated_oci_repository import *
 from .get_federated_opkg_repository import *
 from .get_federated_puppet_repository import *
 from .get_federated_pypi_repository import *
@@ -114,11 +118,13 @@ from .get_local_gitlfs_repository import *
 from .get_local_go_repository import *
 from .get_local_gradle_repository import *
 from .get_local_helm_repository import *
+from .get_local_helmoci_repository import *
 from .get_local_huggingfaceml_repository import *
 from .get_local_ivy_repository import *
 from .get_local_maven_repository import *
 from .get_local_npm_repository import *
 from .get_local_nuget_repository import *
+from .get_local_oci_repository import *
 from .get_local_opkg_repository import *
 from .get_local_pub_repository import *
 from .get_local_puppet_repository import *
@@ -148,10 +154,12 @@ from .get_remote_gitlfs_repository import *
 from .get_remote_go_repository import *
 from .get_remote_gradle_repository import *
 from .get_remote_helm_repository import *
+from .get_remote_helmoci_repository import *
 from .get_remote_ivy_repository import *
 from .get_remote_maven_repository import *
 from .get_remote_npm_repository import *
 from .get_remote_nuget_repository import *
+from .get_remote_oci_repository import *
 from .get_remote_opkg_repository import *
 from .get_remote_p2_repository import *
 from .get_remote_pub_repository import *
@@ -179,10 +187,12 @@ from .get_virtual_gitlfs_repository import *
 from .get_virtual_go_repository import *
 from .get_virtual_gradle_repository import *
 from .get_virtual_helm_repository import *
+from .get_virtual_helmoci_repository import *
 from .get_virtual_ivy_repository import *
 from .get_virtual_maven_repository import *
 from .get_virtual_npm_repository import *
 from .get_virtual_nuget_repository import *
+from .get_virtual_oci_repository import *
 from .get_virtual_p2_repository import *
 from .get_virtual_pub_repository import *
 from .get_virtual_puppet_repository import *
@@ -213,11 +223,13 @@ from .local_gitltfs_repository import *
 from .local_go_repository import *
 from .local_gradle_repository import *
 from .local_helm_repository import *
+from .local_helmoci_repository import *
 from .local_huggingfaceml_repository import *
 from .local_ivy_repository import *
 from .local_maven_repository import *
 from .local_npm_repository import *
 from .local_nuget_repository import *
+from .local_oci_repository import *
 from .local_opkg_repository import *
 from .local_pub_repository import *
 from .local_puppet_repository import *
@@ -260,11 +272,13 @@ from .remote_gitlfs_repository import *
 from .remote_go_repository import *
 from .remote_gradle_repository import *
 from .remote_helm_repository import *
+from .remote_helmoci_repository import *
 from .remote_huggingfaceml_repository import *
 from .remote_ivy_repository import *
 from .remote_maven_repository import *
 from .remote_npm_repository import *
 from .remote_nuget_repository import *
+from .remote_oci_repository import *
 from .remote_opkg_repository import *
 from .remote_p2_repository import *
 from .remote_pub_repository import *
@@ -297,9 +311,11 @@ from .virtual_generic_repository import *
 from .virtual_gitlfs_repository import *
 from .virtual_gradle_repository import *
 from .virtual_helm_repository import *
+from .virtual_helmoci_repository import *
 from .virtual_ivy_repository import *
 from .virtual_npm_repository import *
 from .virtual_nuget_repository import *
+from .virtual_oci_repository import *
 from .virtual_p2_repository import *
 from .virtual_pub_repository import *
 from .virtual_puppet_repository import *
@@ -651,6 +667,14 @@ _utilities.register(
  },
  {
   "pkg": "artifactory",
+  "mod": "index/federatedHelmociRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/federatedHelmociRepository:FederatedHelmociRepository": "FederatedHelmociRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
   "mod": "index/federatedIvyRepository",
   "fqn": "pulumi_artifactory",
   "classes": {
@@ -679,6 +703,14 @@ _utilities.register(
   "fqn": "pulumi_artifactory",
   "classes": {
    "artifactory:index/federatedNugetRepository:FederatedNugetRepository": "FederatedNugetRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/federatedOciRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/federatedOciRepository:FederatedOciRepository": "FederatedOciRepository"
   }
  },
  {
@@ -939,6 +971,14 @@ _utilities.register(
  },
  {
   "pkg": "artifactory",
+  "mod": "index/localHelmociRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/localHelmociRepository:LocalHelmociRepository": "LocalHelmociRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
   "mod": "index/localHuggingfacemlRepository",
   "fqn": "pulumi_artifactory",
   "classes": {
@@ -975,6 +1015,14 @@ _utilities.register(
   "fqn": "pulumi_artifactory",
   "classes": {
    "artifactory:index/localNugetRepository:LocalNugetRepository": "LocalNugetRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/localOciRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/localOciRepository:LocalOciRepository": "LocalOciRepository"
   }
  },
  {
@@ -1307,6 +1355,14 @@ _utilities.register(
  },
  {
   "pkg": "artifactory",
+  "mod": "index/remoteHelmociRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/remoteHelmociRepository:RemoteHelmociRepository": "RemoteHelmociRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
   "mod": "index/remoteHuggingfacemlRepository",
   "fqn": "pulumi_artifactory",
   "classes": {
@@ -1343,6 +1399,14 @@ _utilities.register(
   "fqn": "pulumi_artifactory",
   "classes": {
    "artifactory:index/remoteNugetRepository:RemoteNugetRepository": "RemoteNugetRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/remoteOciRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/remoteOciRepository:RemoteOciRepository": "RemoteOciRepository"
   }
  },
  {
@@ -1603,6 +1667,14 @@ _utilities.register(
  },
  {
   "pkg": "artifactory",
+  "mod": "index/virtualHelmociRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/virtualHelmociRepository:VirtualHelmociRepository": "VirtualHelmociRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
   "mod": "index/virtualIvyRepository",
   "fqn": "pulumi_artifactory",
   "classes": {
@@ -1623,6 +1695,14 @@ _utilities.register(
   "fqn": "pulumi_artifactory",
   "classes": {
    "artifactory:index/virtualNugetRepository:VirtualNugetRepository": "VirtualNugetRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/virtualOciRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/virtualOciRepository:VirtualOciRepository": "VirtualOciRepository"
   }
  },
  {

@@ -6471,6 +6471,112 @@ func (o FederatedHelmRepositoryMemberArrayOutput) Index(i pulumi.IntInput) Feder
 	}).(FederatedHelmRepositoryMemberOutput)
 }
 
+type FederatedHelmociRepositoryMember struct {
+	// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
+	Enabled bool `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url string `pulumi:"url"`
+}
+
+// FederatedHelmociRepositoryMemberInput is an input type that accepts FederatedHelmociRepositoryMemberArgs and FederatedHelmociRepositoryMemberOutput values.
+// You can construct a concrete instance of `FederatedHelmociRepositoryMemberInput` via:
+//
+//	FederatedHelmociRepositoryMemberArgs{...}
+type FederatedHelmociRepositoryMemberInput interface {
+	pulumi.Input
+
+	ToFederatedHelmociRepositoryMemberOutput() FederatedHelmociRepositoryMemberOutput
+	ToFederatedHelmociRepositoryMemberOutputWithContext(context.Context) FederatedHelmociRepositoryMemberOutput
+}
+
+type FederatedHelmociRepositoryMemberArgs struct {
+	// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (FederatedHelmociRepositoryMemberArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FederatedHelmociRepositoryMember)(nil)).Elem()
+}
+
+func (i FederatedHelmociRepositoryMemberArgs) ToFederatedHelmociRepositoryMemberOutput() FederatedHelmociRepositoryMemberOutput {
+	return i.ToFederatedHelmociRepositoryMemberOutputWithContext(context.Background())
+}
+
+func (i FederatedHelmociRepositoryMemberArgs) ToFederatedHelmociRepositoryMemberOutputWithContext(ctx context.Context) FederatedHelmociRepositoryMemberOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FederatedHelmociRepositoryMemberOutput)
+}
+
+// FederatedHelmociRepositoryMemberArrayInput is an input type that accepts FederatedHelmociRepositoryMemberArray and FederatedHelmociRepositoryMemberArrayOutput values.
+// You can construct a concrete instance of `FederatedHelmociRepositoryMemberArrayInput` via:
+//
+//	FederatedHelmociRepositoryMemberArray{ FederatedHelmociRepositoryMemberArgs{...} }
+type FederatedHelmociRepositoryMemberArrayInput interface {
+	pulumi.Input
+
+	ToFederatedHelmociRepositoryMemberArrayOutput() FederatedHelmociRepositoryMemberArrayOutput
+	ToFederatedHelmociRepositoryMemberArrayOutputWithContext(context.Context) FederatedHelmociRepositoryMemberArrayOutput
+}
+
+type FederatedHelmociRepositoryMemberArray []FederatedHelmociRepositoryMemberInput
+
+func (FederatedHelmociRepositoryMemberArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FederatedHelmociRepositoryMember)(nil)).Elem()
+}
+
+func (i FederatedHelmociRepositoryMemberArray) ToFederatedHelmociRepositoryMemberArrayOutput() FederatedHelmociRepositoryMemberArrayOutput {
+	return i.ToFederatedHelmociRepositoryMemberArrayOutputWithContext(context.Background())
+}
+
+func (i FederatedHelmociRepositoryMemberArray) ToFederatedHelmociRepositoryMemberArrayOutputWithContext(ctx context.Context) FederatedHelmociRepositoryMemberArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FederatedHelmociRepositoryMemberArrayOutput)
+}
+
+type FederatedHelmociRepositoryMemberOutput struct{ *pulumi.OutputState }
+
+func (FederatedHelmociRepositoryMemberOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FederatedHelmociRepositoryMember)(nil)).Elem()
+}
+
+func (o FederatedHelmociRepositoryMemberOutput) ToFederatedHelmociRepositoryMemberOutput() FederatedHelmociRepositoryMemberOutput {
+	return o
+}
+
+func (o FederatedHelmociRepositoryMemberOutput) ToFederatedHelmociRepositoryMemberOutputWithContext(ctx context.Context) FederatedHelmociRepositoryMemberOutput {
+	return o
+}
+
+// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
+func (o FederatedHelmociRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v FederatedHelmociRepositoryMember) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Full URL to ending with the repository name.
+func (o FederatedHelmociRepositoryMemberOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v FederatedHelmociRepositoryMember) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type FederatedHelmociRepositoryMemberArrayOutput struct{ *pulumi.OutputState }
+
+func (FederatedHelmociRepositoryMemberArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FederatedHelmociRepositoryMember)(nil)).Elem()
+}
+
+func (o FederatedHelmociRepositoryMemberArrayOutput) ToFederatedHelmociRepositoryMemberArrayOutput() FederatedHelmociRepositoryMemberArrayOutput {
+	return o
+}
+
+func (o FederatedHelmociRepositoryMemberArrayOutput) ToFederatedHelmociRepositoryMemberArrayOutputWithContext(ctx context.Context) FederatedHelmociRepositoryMemberArrayOutput {
+	return o
+}
+
+func (o FederatedHelmociRepositoryMemberArrayOutput) Index(i pulumi.IntInput) FederatedHelmociRepositoryMemberOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FederatedHelmociRepositoryMember {
+		return vs[0].([]FederatedHelmociRepositoryMember)[vs[1].(int)]
+	}).(FederatedHelmociRepositoryMemberOutput)
+}
+
 type FederatedIvyRepositoryMember struct {
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
@@ -6905,6 +7011,115 @@ func (o FederatedNugetRepositoryMemberArrayOutput) Index(i pulumi.IntInput) Fede
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FederatedNugetRepositoryMember {
 		return vs[0].([]FederatedNugetRepositoryMember)[vs[1].(int)]
 	}).(FederatedNugetRepositoryMemberOutput)
+}
+
+type FederatedOciRepositoryMember struct {
+	// Represents the active state of the federated member. It is supported to change the enabled
+	// status of my own member. The config will be updated on the other federated members automatically.
+	Enabled bool `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url string `pulumi:"url"`
+}
+
+// FederatedOciRepositoryMemberInput is an input type that accepts FederatedOciRepositoryMemberArgs and FederatedOciRepositoryMemberOutput values.
+// You can construct a concrete instance of `FederatedOciRepositoryMemberInput` via:
+//
+//	FederatedOciRepositoryMemberArgs{...}
+type FederatedOciRepositoryMemberInput interface {
+	pulumi.Input
+
+	ToFederatedOciRepositoryMemberOutput() FederatedOciRepositoryMemberOutput
+	ToFederatedOciRepositoryMemberOutputWithContext(context.Context) FederatedOciRepositoryMemberOutput
+}
+
+type FederatedOciRepositoryMemberArgs struct {
+	// Represents the active state of the federated member. It is supported to change the enabled
+	// status of my own member. The config will be updated on the other federated members automatically.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (FederatedOciRepositoryMemberArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FederatedOciRepositoryMember)(nil)).Elem()
+}
+
+func (i FederatedOciRepositoryMemberArgs) ToFederatedOciRepositoryMemberOutput() FederatedOciRepositoryMemberOutput {
+	return i.ToFederatedOciRepositoryMemberOutputWithContext(context.Background())
+}
+
+func (i FederatedOciRepositoryMemberArgs) ToFederatedOciRepositoryMemberOutputWithContext(ctx context.Context) FederatedOciRepositoryMemberOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FederatedOciRepositoryMemberOutput)
+}
+
+// FederatedOciRepositoryMemberArrayInput is an input type that accepts FederatedOciRepositoryMemberArray and FederatedOciRepositoryMemberArrayOutput values.
+// You can construct a concrete instance of `FederatedOciRepositoryMemberArrayInput` via:
+//
+//	FederatedOciRepositoryMemberArray{ FederatedOciRepositoryMemberArgs{...} }
+type FederatedOciRepositoryMemberArrayInput interface {
+	pulumi.Input
+
+	ToFederatedOciRepositoryMemberArrayOutput() FederatedOciRepositoryMemberArrayOutput
+	ToFederatedOciRepositoryMemberArrayOutputWithContext(context.Context) FederatedOciRepositoryMemberArrayOutput
+}
+
+type FederatedOciRepositoryMemberArray []FederatedOciRepositoryMemberInput
+
+func (FederatedOciRepositoryMemberArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FederatedOciRepositoryMember)(nil)).Elem()
+}
+
+func (i FederatedOciRepositoryMemberArray) ToFederatedOciRepositoryMemberArrayOutput() FederatedOciRepositoryMemberArrayOutput {
+	return i.ToFederatedOciRepositoryMemberArrayOutputWithContext(context.Background())
+}
+
+func (i FederatedOciRepositoryMemberArray) ToFederatedOciRepositoryMemberArrayOutputWithContext(ctx context.Context) FederatedOciRepositoryMemberArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FederatedOciRepositoryMemberArrayOutput)
+}
+
+type FederatedOciRepositoryMemberOutput struct{ *pulumi.OutputState }
+
+func (FederatedOciRepositoryMemberOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FederatedOciRepositoryMember)(nil)).Elem()
+}
+
+func (o FederatedOciRepositoryMemberOutput) ToFederatedOciRepositoryMemberOutput() FederatedOciRepositoryMemberOutput {
+	return o
+}
+
+func (o FederatedOciRepositoryMemberOutput) ToFederatedOciRepositoryMemberOutputWithContext(ctx context.Context) FederatedOciRepositoryMemberOutput {
+	return o
+}
+
+// Represents the active state of the federated member. It is supported to change the enabled
+// status of my own member. The config will be updated on the other federated members automatically.
+func (o FederatedOciRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v FederatedOciRepositoryMember) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Full URL to ending with the repository name.
+func (o FederatedOciRepositoryMemberOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v FederatedOciRepositoryMember) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type FederatedOciRepositoryMemberArrayOutput struct{ *pulumi.OutputState }
+
+func (FederatedOciRepositoryMemberArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FederatedOciRepositoryMember)(nil)).Elem()
+}
+
+func (o FederatedOciRepositoryMemberArrayOutput) ToFederatedOciRepositoryMemberArrayOutput() FederatedOciRepositoryMemberArrayOutput {
+	return o
+}
+
+func (o FederatedOciRepositoryMemberArrayOutput) ToFederatedOciRepositoryMemberArrayOutputWithContext(ctx context.Context) FederatedOciRepositoryMemberArrayOutput {
+	return o
+}
+
+func (o FederatedOciRepositoryMemberArrayOutput) Index(i pulumi.IntInput) FederatedOciRepositoryMemberOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FederatedOciRepositoryMember {
+		return vs[0].([]FederatedOciRepositoryMember)[vs[1].(int)]
+	}).(FederatedOciRepositoryMemberOutput)
 }
 
 type FederatedOpkgRepositoryMember struct {
@@ -14324,6 +14539,200 @@ func (o RemoteHelmRepositoryContentSynchronisationPtrOutput) StatisticsEnabled()
 	}).(pulumi.BoolPtrOutput)
 }
 
+type RemoteHelmociRepositoryContentSynchronisation struct {
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled *bool `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
+}
+
+// RemoteHelmociRepositoryContentSynchronisationInput is an input type that accepts RemoteHelmociRepositoryContentSynchronisationArgs and RemoteHelmociRepositoryContentSynchronisationOutput values.
+// You can construct a concrete instance of `RemoteHelmociRepositoryContentSynchronisationInput` via:
+//
+//	RemoteHelmociRepositoryContentSynchronisationArgs{...}
+type RemoteHelmociRepositoryContentSynchronisationInput interface {
+	pulumi.Input
+
+	ToRemoteHelmociRepositoryContentSynchronisationOutput() RemoteHelmociRepositoryContentSynchronisationOutput
+	ToRemoteHelmociRepositoryContentSynchronisationOutputWithContext(context.Context) RemoteHelmociRepositoryContentSynchronisationOutput
+}
+
+type RemoteHelmociRepositoryContentSynchronisationArgs struct {
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+}
+
+func (RemoteHelmociRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemoteHelmociRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i RemoteHelmociRepositoryContentSynchronisationArgs) ToRemoteHelmociRepositoryContentSynchronisationOutput() RemoteHelmociRepositoryContentSynchronisationOutput {
+	return i.ToRemoteHelmociRepositoryContentSynchronisationOutputWithContext(context.Background())
+}
+
+func (i RemoteHelmociRepositoryContentSynchronisationArgs) ToRemoteHelmociRepositoryContentSynchronisationOutputWithContext(ctx context.Context) RemoteHelmociRepositoryContentSynchronisationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemoteHelmociRepositoryContentSynchronisationOutput)
+}
+
+func (i RemoteHelmociRepositoryContentSynchronisationArgs) ToRemoteHelmociRepositoryContentSynchronisationPtrOutput() RemoteHelmociRepositoryContentSynchronisationPtrOutput {
+	return i.ToRemoteHelmociRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i RemoteHelmociRepositoryContentSynchronisationArgs) ToRemoteHelmociRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) RemoteHelmociRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemoteHelmociRepositoryContentSynchronisationOutput).ToRemoteHelmociRepositoryContentSynchronisationPtrOutputWithContext(ctx)
+}
+
+// RemoteHelmociRepositoryContentSynchronisationPtrInput is an input type that accepts RemoteHelmociRepositoryContentSynchronisationArgs, RemoteHelmociRepositoryContentSynchronisationPtr and RemoteHelmociRepositoryContentSynchronisationPtrOutput values.
+// You can construct a concrete instance of `RemoteHelmociRepositoryContentSynchronisationPtrInput` via:
+//
+//	        RemoteHelmociRepositoryContentSynchronisationArgs{...}
+//
+//	or:
+//
+//	        nil
+type RemoteHelmociRepositoryContentSynchronisationPtrInput interface {
+	pulumi.Input
+
+	ToRemoteHelmociRepositoryContentSynchronisationPtrOutput() RemoteHelmociRepositoryContentSynchronisationPtrOutput
+	ToRemoteHelmociRepositoryContentSynchronisationPtrOutputWithContext(context.Context) RemoteHelmociRepositoryContentSynchronisationPtrOutput
+}
+
+type remoteHelmociRepositoryContentSynchronisationPtrType RemoteHelmociRepositoryContentSynchronisationArgs
+
+func RemoteHelmociRepositoryContentSynchronisationPtr(v *RemoteHelmociRepositoryContentSynchronisationArgs) RemoteHelmociRepositoryContentSynchronisationPtrInput {
+	return (*remoteHelmociRepositoryContentSynchronisationPtrType)(v)
+}
+
+func (*remoteHelmociRepositoryContentSynchronisationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RemoteHelmociRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i *remoteHelmociRepositoryContentSynchronisationPtrType) ToRemoteHelmociRepositoryContentSynchronisationPtrOutput() RemoteHelmociRepositoryContentSynchronisationPtrOutput {
+	return i.ToRemoteHelmociRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i *remoteHelmociRepositoryContentSynchronisationPtrType) ToRemoteHelmociRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) RemoteHelmociRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemoteHelmociRepositoryContentSynchronisationPtrOutput)
+}
+
+type RemoteHelmociRepositoryContentSynchronisationOutput struct{ *pulumi.OutputState }
+
+func (RemoteHelmociRepositoryContentSynchronisationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemoteHelmociRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o RemoteHelmociRepositoryContentSynchronisationOutput) ToRemoteHelmociRepositoryContentSynchronisationOutput() RemoteHelmociRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o RemoteHelmociRepositoryContentSynchronisationOutput) ToRemoteHelmociRepositoryContentSynchronisationOutputWithContext(ctx context.Context) RemoteHelmociRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o RemoteHelmociRepositoryContentSynchronisationOutput) ToRemoteHelmociRepositoryContentSynchronisationPtrOutput() RemoteHelmociRepositoryContentSynchronisationPtrOutput {
+	return o.ToRemoteHelmociRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (o RemoteHelmociRepositoryContentSynchronisationOutput) ToRemoteHelmociRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) RemoteHelmociRepositoryContentSynchronisationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RemoteHelmociRepositoryContentSynchronisation) *RemoteHelmociRepositoryContentSynchronisation {
+		return &v
+	}).(RemoteHelmociRepositoryContentSynchronisationPtrOutput)
+}
+
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+func (o RemoteHelmociRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RemoteHelmociRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+func (o RemoteHelmociRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RemoteHelmociRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+func (o RemoteHelmociRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RemoteHelmociRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
+}
+
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+func (o RemoteHelmociRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RemoteHelmociRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type RemoteHelmociRepositoryContentSynchronisationPtrOutput struct{ *pulumi.OutputState }
+
+func (RemoteHelmociRepositoryContentSynchronisationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RemoteHelmociRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o RemoteHelmociRepositoryContentSynchronisationPtrOutput) ToRemoteHelmociRepositoryContentSynchronisationPtrOutput() RemoteHelmociRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o RemoteHelmociRepositoryContentSynchronisationPtrOutput) ToRemoteHelmociRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) RemoteHelmociRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o RemoteHelmociRepositoryContentSynchronisationPtrOutput) Elem() RemoteHelmociRepositoryContentSynchronisationOutput {
+	return o.ApplyT(func(v *RemoteHelmociRepositoryContentSynchronisation) RemoteHelmociRepositoryContentSynchronisation {
+		if v != nil {
+			return *v
+		}
+		var ret RemoteHelmociRepositoryContentSynchronisation
+		return ret
+	}).(RemoteHelmociRepositoryContentSynchronisationOutput)
+}
+
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+func (o RemoteHelmociRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RemoteHelmociRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+func (o RemoteHelmociRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RemoteHelmociRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PropertiesEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+func (o RemoteHelmociRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RemoteHelmociRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SourceOriginAbsenceDetection
+	}).(pulumi.BoolPtrOutput)
+}
+
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+func (o RemoteHelmociRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RemoteHelmociRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.StatisticsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 type RemoteHuggingfacemlRepositoryContentSynchronisation struct {
 	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 	Enabled *bool `pulumi:"enabled"`
@@ -15289,6 +15698,200 @@ func (o RemoteNugetRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenc
 // If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemoteNugetRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteNugetRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.StatisticsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type RemoteOciRepositoryContentSynchronisation struct {
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled *bool `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
+}
+
+// RemoteOciRepositoryContentSynchronisationInput is an input type that accepts RemoteOciRepositoryContentSynchronisationArgs and RemoteOciRepositoryContentSynchronisationOutput values.
+// You can construct a concrete instance of `RemoteOciRepositoryContentSynchronisationInput` via:
+//
+//	RemoteOciRepositoryContentSynchronisationArgs{...}
+type RemoteOciRepositoryContentSynchronisationInput interface {
+	pulumi.Input
+
+	ToRemoteOciRepositoryContentSynchronisationOutput() RemoteOciRepositoryContentSynchronisationOutput
+	ToRemoteOciRepositoryContentSynchronisationOutputWithContext(context.Context) RemoteOciRepositoryContentSynchronisationOutput
+}
+
+type RemoteOciRepositoryContentSynchronisationArgs struct {
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+}
+
+func (RemoteOciRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemoteOciRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i RemoteOciRepositoryContentSynchronisationArgs) ToRemoteOciRepositoryContentSynchronisationOutput() RemoteOciRepositoryContentSynchronisationOutput {
+	return i.ToRemoteOciRepositoryContentSynchronisationOutputWithContext(context.Background())
+}
+
+func (i RemoteOciRepositoryContentSynchronisationArgs) ToRemoteOciRepositoryContentSynchronisationOutputWithContext(ctx context.Context) RemoteOciRepositoryContentSynchronisationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemoteOciRepositoryContentSynchronisationOutput)
+}
+
+func (i RemoteOciRepositoryContentSynchronisationArgs) ToRemoteOciRepositoryContentSynchronisationPtrOutput() RemoteOciRepositoryContentSynchronisationPtrOutput {
+	return i.ToRemoteOciRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i RemoteOciRepositoryContentSynchronisationArgs) ToRemoteOciRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) RemoteOciRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemoteOciRepositoryContentSynchronisationOutput).ToRemoteOciRepositoryContentSynchronisationPtrOutputWithContext(ctx)
+}
+
+// RemoteOciRepositoryContentSynchronisationPtrInput is an input type that accepts RemoteOciRepositoryContentSynchronisationArgs, RemoteOciRepositoryContentSynchronisationPtr and RemoteOciRepositoryContentSynchronisationPtrOutput values.
+// You can construct a concrete instance of `RemoteOciRepositoryContentSynchronisationPtrInput` via:
+//
+//	        RemoteOciRepositoryContentSynchronisationArgs{...}
+//
+//	or:
+//
+//	        nil
+type RemoteOciRepositoryContentSynchronisationPtrInput interface {
+	pulumi.Input
+
+	ToRemoteOciRepositoryContentSynchronisationPtrOutput() RemoteOciRepositoryContentSynchronisationPtrOutput
+	ToRemoteOciRepositoryContentSynchronisationPtrOutputWithContext(context.Context) RemoteOciRepositoryContentSynchronisationPtrOutput
+}
+
+type remoteOciRepositoryContentSynchronisationPtrType RemoteOciRepositoryContentSynchronisationArgs
+
+func RemoteOciRepositoryContentSynchronisationPtr(v *RemoteOciRepositoryContentSynchronisationArgs) RemoteOciRepositoryContentSynchronisationPtrInput {
+	return (*remoteOciRepositoryContentSynchronisationPtrType)(v)
+}
+
+func (*remoteOciRepositoryContentSynchronisationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RemoteOciRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i *remoteOciRepositoryContentSynchronisationPtrType) ToRemoteOciRepositoryContentSynchronisationPtrOutput() RemoteOciRepositoryContentSynchronisationPtrOutput {
+	return i.ToRemoteOciRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i *remoteOciRepositoryContentSynchronisationPtrType) ToRemoteOciRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) RemoteOciRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemoteOciRepositoryContentSynchronisationPtrOutput)
+}
+
+type RemoteOciRepositoryContentSynchronisationOutput struct{ *pulumi.OutputState }
+
+func (RemoteOciRepositoryContentSynchronisationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemoteOciRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o RemoteOciRepositoryContentSynchronisationOutput) ToRemoteOciRepositoryContentSynchronisationOutput() RemoteOciRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o RemoteOciRepositoryContentSynchronisationOutput) ToRemoteOciRepositoryContentSynchronisationOutputWithContext(ctx context.Context) RemoteOciRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o RemoteOciRepositoryContentSynchronisationOutput) ToRemoteOciRepositoryContentSynchronisationPtrOutput() RemoteOciRepositoryContentSynchronisationPtrOutput {
+	return o.ToRemoteOciRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (o RemoteOciRepositoryContentSynchronisationOutput) ToRemoteOciRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) RemoteOciRepositoryContentSynchronisationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RemoteOciRepositoryContentSynchronisation) *RemoteOciRepositoryContentSynchronisation {
+		return &v
+	}).(RemoteOciRepositoryContentSynchronisationPtrOutput)
+}
+
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+func (o RemoteOciRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RemoteOciRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+func (o RemoteOciRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RemoteOciRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+func (o RemoteOciRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RemoteOciRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
+}
+
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+func (o RemoteOciRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RemoteOciRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type RemoteOciRepositoryContentSynchronisationPtrOutput struct{ *pulumi.OutputState }
+
+func (RemoteOciRepositoryContentSynchronisationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RemoteOciRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o RemoteOciRepositoryContentSynchronisationPtrOutput) ToRemoteOciRepositoryContentSynchronisationPtrOutput() RemoteOciRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o RemoteOciRepositoryContentSynchronisationPtrOutput) ToRemoteOciRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) RemoteOciRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o RemoteOciRepositoryContentSynchronisationPtrOutput) Elem() RemoteOciRepositoryContentSynchronisationOutput {
+	return o.ApplyT(func(v *RemoteOciRepositoryContentSynchronisation) RemoteOciRepositoryContentSynchronisation {
+		if v != nil {
+			return *v
+		}
+		var ret RemoteOciRepositoryContentSynchronisation
+		return ret
+	}).(RemoteOciRepositoryContentSynchronisationOutput)
+}
+
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+func (o RemoteOciRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RemoteOciRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+func (o RemoteOciRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RemoteOciRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PropertiesEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+func (o RemoteOciRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RemoteOciRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SourceOriginAbsenceDetection
+	}).(pulumi.BoolPtrOutput)
+}
+
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+func (o RemoteOciRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RemoteOciRepositoryContentSynchronisation) *bool {
 		if v == nil {
 			return nil
 		}
@@ -19458,6 +20061,115 @@ func (o GetFederatedHelmRepositoryMemberArrayOutput) Index(i pulumi.IntInput) Ge
 	}).(GetFederatedHelmRepositoryMemberOutput)
 }
 
+type GetFederatedHelmociRepositoryMember struct {
+	// Represents the active state of the federated member. It is supported to change the enabled
+	// status of my own member. The config will be updated on the other federated members automatically.
+	Enabled bool `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url string `pulumi:"url"`
+}
+
+// GetFederatedHelmociRepositoryMemberInput is an input type that accepts GetFederatedHelmociRepositoryMemberArgs and GetFederatedHelmociRepositoryMemberOutput values.
+// You can construct a concrete instance of `GetFederatedHelmociRepositoryMemberInput` via:
+//
+//	GetFederatedHelmociRepositoryMemberArgs{...}
+type GetFederatedHelmociRepositoryMemberInput interface {
+	pulumi.Input
+
+	ToGetFederatedHelmociRepositoryMemberOutput() GetFederatedHelmociRepositoryMemberOutput
+	ToGetFederatedHelmociRepositoryMemberOutputWithContext(context.Context) GetFederatedHelmociRepositoryMemberOutput
+}
+
+type GetFederatedHelmociRepositoryMemberArgs struct {
+	// Represents the active state of the federated member. It is supported to change the enabled
+	// status of my own member. The config will be updated on the other federated members automatically.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (GetFederatedHelmociRepositoryMemberArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFederatedHelmociRepositoryMember)(nil)).Elem()
+}
+
+func (i GetFederatedHelmociRepositoryMemberArgs) ToGetFederatedHelmociRepositoryMemberOutput() GetFederatedHelmociRepositoryMemberOutput {
+	return i.ToGetFederatedHelmociRepositoryMemberOutputWithContext(context.Background())
+}
+
+func (i GetFederatedHelmociRepositoryMemberArgs) ToGetFederatedHelmociRepositoryMemberOutputWithContext(ctx context.Context) GetFederatedHelmociRepositoryMemberOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFederatedHelmociRepositoryMemberOutput)
+}
+
+// GetFederatedHelmociRepositoryMemberArrayInput is an input type that accepts GetFederatedHelmociRepositoryMemberArray and GetFederatedHelmociRepositoryMemberArrayOutput values.
+// You can construct a concrete instance of `GetFederatedHelmociRepositoryMemberArrayInput` via:
+//
+//	GetFederatedHelmociRepositoryMemberArray{ GetFederatedHelmociRepositoryMemberArgs{...} }
+type GetFederatedHelmociRepositoryMemberArrayInput interface {
+	pulumi.Input
+
+	ToGetFederatedHelmociRepositoryMemberArrayOutput() GetFederatedHelmociRepositoryMemberArrayOutput
+	ToGetFederatedHelmociRepositoryMemberArrayOutputWithContext(context.Context) GetFederatedHelmociRepositoryMemberArrayOutput
+}
+
+type GetFederatedHelmociRepositoryMemberArray []GetFederatedHelmociRepositoryMemberInput
+
+func (GetFederatedHelmociRepositoryMemberArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFederatedHelmociRepositoryMember)(nil)).Elem()
+}
+
+func (i GetFederatedHelmociRepositoryMemberArray) ToGetFederatedHelmociRepositoryMemberArrayOutput() GetFederatedHelmociRepositoryMemberArrayOutput {
+	return i.ToGetFederatedHelmociRepositoryMemberArrayOutputWithContext(context.Background())
+}
+
+func (i GetFederatedHelmociRepositoryMemberArray) ToGetFederatedHelmociRepositoryMemberArrayOutputWithContext(ctx context.Context) GetFederatedHelmociRepositoryMemberArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFederatedHelmociRepositoryMemberArrayOutput)
+}
+
+type GetFederatedHelmociRepositoryMemberOutput struct{ *pulumi.OutputState }
+
+func (GetFederatedHelmociRepositoryMemberOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFederatedHelmociRepositoryMember)(nil)).Elem()
+}
+
+func (o GetFederatedHelmociRepositoryMemberOutput) ToGetFederatedHelmociRepositoryMemberOutput() GetFederatedHelmociRepositoryMemberOutput {
+	return o
+}
+
+func (o GetFederatedHelmociRepositoryMemberOutput) ToGetFederatedHelmociRepositoryMemberOutputWithContext(ctx context.Context) GetFederatedHelmociRepositoryMemberOutput {
+	return o
+}
+
+// Represents the active state of the federated member. It is supported to change the enabled
+// status of my own member. The config will be updated on the other federated members automatically.
+func (o GetFederatedHelmociRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetFederatedHelmociRepositoryMember) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Full URL to ending with the repository name.
+func (o GetFederatedHelmociRepositoryMemberOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFederatedHelmociRepositoryMember) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type GetFederatedHelmociRepositoryMemberArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFederatedHelmociRepositoryMemberArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFederatedHelmociRepositoryMember)(nil)).Elem()
+}
+
+func (o GetFederatedHelmociRepositoryMemberArrayOutput) ToGetFederatedHelmociRepositoryMemberArrayOutput() GetFederatedHelmociRepositoryMemberArrayOutput {
+	return o
+}
+
+func (o GetFederatedHelmociRepositoryMemberArrayOutput) ToGetFederatedHelmociRepositoryMemberArrayOutputWithContext(ctx context.Context) GetFederatedHelmociRepositoryMemberArrayOutput {
+	return o
+}
+
+func (o GetFederatedHelmociRepositoryMemberArrayOutput) Index(i pulumi.IntInput) GetFederatedHelmociRepositoryMemberOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFederatedHelmociRepositoryMember {
+		return vs[0].([]GetFederatedHelmociRepositoryMember)[vs[1].(int)]
+	}).(GetFederatedHelmociRepositoryMemberOutput)
+}
+
 type GetFederatedIvyRepositoryMember struct {
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
@@ -19892,6 +20604,115 @@ func (o GetFederatedNugetRepositoryMemberArrayOutput) Index(i pulumi.IntInput) G
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFederatedNugetRepositoryMember {
 		return vs[0].([]GetFederatedNugetRepositoryMember)[vs[1].(int)]
 	}).(GetFederatedNugetRepositoryMemberOutput)
+}
+
+type GetFederatedOciRepositoryMember struct {
+	// Represents the active state of the federated member. It is supported to change the enabled
+	// status of my own member. The config will be updated on the other federated members automatically.
+	Enabled bool `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url string `pulumi:"url"`
+}
+
+// GetFederatedOciRepositoryMemberInput is an input type that accepts GetFederatedOciRepositoryMemberArgs and GetFederatedOciRepositoryMemberOutput values.
+// You can construct a concrete instance of `GetFederatedOciRepositoryMemberInput` via:
+//
+//	GetFederatedOciRepositoryMemberArgs{...}
+type GetFederatedOciRepositoryMemberInput interface {
+	pulumi.Input
+
+	ToGetFederatedOciRepositoryMemberOutput() GetFederatedOciRepositoryMemberOutput
+	ToGetFederatedOciRepositoryMemberOutputWithContext(context.Context) GetFederatedOciRepositoryMemberOutput
+}
+
+type GetFederatedOciRepositoryMemberArgs struct {
+	// Represents the active state of the federated member. It is supported to change the enabled
+	// status of my own member. The config will be updated on the other federated members automatically.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (GetFederatedOciRepositoryMemberArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFederatedOciRepositoryMember)(nil)).Elem()
+}
+
+func (i GetFederatedOciRepositoryMemberArgs) ToGetFederatedOciRepositoryMemberOutput() GetFederatedOciRepositoryMemberOutput {
+	return i.ToGetFederatedOciRepositoryMemberOutputWithContext(context.Background())
+}
+
+func (i GetFederatedOciRepositoryMemberArgs) ToGetFederatedOciRepositoryMemberOutputWithContext(ctx context.Context) GetFederatedOciRepositoryMemberOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFederatedOciRepositoryMemberOutput)
+}
+
+// GetFederatedOciRepositoryMemberArrayInput is an input type that accepts GetFederatedOciRepositoryMemberArray and GetFederatedOciRepositoryMemberArrayOutput values.
+// You can construct a concrete instance of `GetFederatedOciRepositoryMemberArrayInput` via:
+//
+//	GetFederatedOciRepositoryMemberArray{ GetFederatedOciRepositoryMemberArgs{...} }
+type GetFederatedOciRepositoryMemberArrayInput interface {
+	pulumi.Input
+
+	ToGetFederatedOciRepositoryMemberArrayOutput() GetFederatedOciRepositoryMemberArrayOutput
+	ToGetFederatedOciRepositoryMemberArrayOutputWithContext(context.Context) GetFederatedOciRepositoryMemberArrayOutput
+}
+
+type GetFederatedOciRepositoryMemberArray []GetFederatedOciRepositoryMemberInput
+
+func (GetFederatedOciRepositoryMemberArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFederatedOciRepositoryMember)(nil)).Elem()
+}
+
+func (i GetFederatedOciRepositoryMemberArray) ToGetFederatedOciRepositoryMemberArrayOutput() GetFederatedOciRepositoryMemberArrayOutput {
+	return i.ToGetFederatedOciRepositoryMemberArrayOutputWithContext(context.Background())
+}
+
+func (i GetFederatedOciRepositoryMemberArray) ToGetFederatedOciRepositoryMemberArrayOutputWithContext(ctx context.Context) GetFederatedOciRepositoryMemberArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFederatedOciRepositoryMemberArrayOutput)
+}
+
+type GetFederatedOciRepositoryMemberOutput struct{ *pulumi.OutputState }
+
+func (GetFederatedOciRepositoryMemberOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFederatedOciRepositoryMember)(nil)).Elem()
+}
+
+func (o GetFederatedOciRepositoryMemberOutput) ToGetFederatedOciRepositoryMemberOutput() GetFederatedOciRepositoryMemberOutput {
+	return o
+}
+
+func (o GetFederatedOciRepositoryMemberOutput) ToGetFederatedOciRepositoryMemberOutputWithContext(ctx context.Context) GetFederatedOciRepositoryMemberOutput {
+	return o
+}
+
+// Represents the active state of the federated member. It is supported to change the enabled
+// status of my own member. The config will be updated on the other federated members automatically.
+func (o GetFederatedOciRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetFederatedOciRepositoryMember) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Full URL to ending with the repository name.
+func (o GetFederatedOciRepositoryMemberOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFederatedOciRepositoryMember) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type GetFederatedOciRepositoryMemberArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFederatedOciRepositoryMemberArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFederatedOciRepositoryMember)(nil)).Elem()
+}
+
+func (o GetFederatedOciRepositoryMemberArrayOutput) ToGetFederatedOciRepositoryMemberArrayOutput() GetFederatedOciRepositoryMemberArrayOutput {
+	return o
+}
+
+func (o GetFederatedOciRepositoryMemberArrayOutput) ToGetFederatedOciRepositoryMemberArrayOutputWithContext(ctx context.Context) GetFederatedOciRepositoryMemberArrayOutput {
+	return o
+}
+
+func (o GetFederatedOciRepositoryMemberArrayOutput) Index(i pulumi.IntInput) GetFederatedOciRepositoryMemberOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFederatedOciRepositoryMember {
+		return vs[0].([]GetFederatedOciRepositoryMember)[vs[1].(int)]
+	}).(GetFederatedOciRepositoryMemberOutput)
 }
 
 type GetFederatedOpkgRepositoryMember struct {
@@ -26062,6 +26883,200 @@ func (o GetRemoteHelmRepositoryContentSynchronisationPtrOutput) StatisticsEnable
 	}).(pulumi.BoolPtrOutput)
 }
 
+type GetRemoteHelmociRepositoryContentSynchronisation struct {
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled *bool `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
+}
+
+// GetRemoteHelmociRepositoryContentSynchronisationInput is an input type that accepts GetRemoteHelmociRepositoryContentSynchronisationArgs and GetRemoteHelmociRepositoryContentSynchronisationOutput values.
+// You can construct a concrete instance of `GetRemoteHelmociRepositoryContentSynchronisationInput` via:
+//
+//	GetRemoteHelmociRepositoryContentSynchronisationArgs{...}
+type GetRemoteHelmociRepositoryContentSynchronisationInput interface {
+	pulumi.Input
+
+	ToGetRemoteHelmociRepositoryContentSynchronisationOutput() GetRemoteHelmociRepositoryContentSynchronisationOutput
+	ToGetRemoteHelmociRepositoryContentSynchronisationOutputWithContext(context.Context) GetRemoteHelmociRepositoryContentSynchronisationOutput
+}
+
+type GetRemoteHelmociRepositoryContentSynchronisationArgs struct {
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+}
+
+func (GetRemoteHelmociRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRemoteHelmociRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i GetRemoteHelmociRepositoryContentSynchronisationArgs) ToGetRemoteHelmociRepositoryContentSynchronisationOutput() GetRemoteHelmociRepositoryContentSynchronisationOutput {
+	return i.ToGetRemoteHelmociRepositoryContentSynchronisationOutputWithContext(context.Background())
+}
+
+func (i GetRemoteHelmociRepositoryContentSynchronisationArgs) ToGetRemoteHelmociRepositoryContentSynchronisationOutputWithContext(ctx context.Context) GetRemoteHelmociRepositoryContentSynchronisationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteHelmociRepositoryContentSynchronisationOutput)
+}
+
+func (i GetRemoteHelmociRepositoryContentSynchronisationArgs) ToGetRemoteHelmociRepositoryContentSynchronisationPtrOutput() GetRemoteHelmociRepositoryContentSynchronisationPtrOutput {
+	return i.ToGetRemoteHelmociRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i GetRemoteHelmociRepositoryContentSynchronisationArgs) ToGetRemoteHelmociRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteHelmociRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteHelmociRepositoryContentSynchronisationOutput).ToGetRemoteHelmociRepositoryContentSynchronisationPtrOutputWithContext(ctx)
+}
+
+// GetRemoteHelmociRepositoryContentSynchronisationPtrInput is an input type that accepts GetRemoteHelmociRepositoryContentSynchronisationArgs, GetRemoteHelmociRepositoryContentSynchronisationPtr and GetRemoteHelmociRepositoryContentSynchronisationPtrOutput values.
+// You can construct a concrete instance of `GetRemoteHelmociRepositoryContentSynchronisationPtrInput` via:
+//
+//	        GetRemoteHelmociRepositoryContentSynchronisationArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetRemoteHelmociRepositoryContentSynchronisationPtrInput interface {
+	pulumi.Input
+
+	ToGetRemoteHelmociRepositoryContentSynchronisationPtrOutput() GetRemoteHelmociRepositoryContentSynchronisationPtrOutput
+	ToGetRemoteHelmociRepositoryContentSynchronisationPtrOutputWithContext(context.Context) GetRemoteHelmociRepositoryContentSynchronisationPtrOutput
+}
+
+type getRemoteHelmociRepositoryContentSynchronisationPtrType GetRemoteHelmociRepositoryContentSynchronisationArgs
+
+func GetRemoteHelmociRepositoryContentSynchronisationPtr(v *GetRemoteHelmociRepositoryContentSynchronisationArgs) GetRemoteHelmociRepositoryContentSynchronisationPtrInput {
+	return (*getRemoteHelmociRepositoryContentSynchronisationPtrType)(v)
+}
+
+func (*getRemoteHelmociRepositoryContentSynchronisationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRemoteHelmociRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i *getRemoteHelmociRepositoryContentSynchronisationPtrType) ToGetRemoteHelmociRepositoryContentSynchronisationPtrOutput() GetRemoteHelmociRepositoryContentSynchronisationPtrOutput {
+	return i.ToGetRemoteHelmociRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i *getRemoteHelmociRepositoryContentSynchronisationPtrType) ToGetRemoteHelmociRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteHelmociRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteHelmociRepositoryContentSynchronisationPtrOutput)
+}
+
+type GetRemoteHelmociRepositoryContentSynchronisationOutput struct{ *pulumi.OutputState }
+
+func (GetRemoteHelmociRepositoryContentSynchronisationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRemoteHelmociRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o GetRemoteHelmociRepositoryContentSynchronisationOutput) ToGetRemoteHelmociRepositoryContentSynchronisationOutput() GetRemoteHelmociRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o GetRemoteHelmociRepositoryContentSynchronisationOutput) ToGetRemoteHelmociRepositoryContentSynchronisationOutputWithContext(ctx context.Context) GetRemoteHelmociRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o GetRemoteHelmociRepositoryContentSynchronisationOutput) ToGetRemoteHelmociRepositoryContentSynchronisationPtrOutput() GetRemoteHelmociRepositoryContentSynchronisationPtrOutput {
+	return o.ToGetRemoteHelmociRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (o GetRemoteHelmociRepositoryContentSynchronisationOutput) ToGetRemoteHelmociRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteHelmociRepositoryContentSynchronisationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetRemoteHelmociRepositoryContentSynchronisation) *GetRemoteHelmociRepositoryContentSynchronisation {
+		return &v
+	}).(GetRemoteHelmociRepositoryContentSynchronisationPtrOutput)
+}
+
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+func (o GetRemoteHelmociRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteHelmociRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+func (o GetRemoteHelmociRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteHelmociRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+func (o GetRemoteHelmociRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteHelmociRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
+}
+
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+func (o GetRemoteHelmociRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteHelmociRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type GetRemoteHelmociRepositoryContentSynchronisationPtrOutput struct{ *pulumi.OutputState }
+
+func (GetRemoteHelmociRepositoryContentSynchronisationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRemoteHelmociRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o GetRemoteHelmociRepositoryContentSynchronisationPtrOutput) ToGetRemoteHelmociRepositoryContentSynchronisationPtrOutput() GetRemoteHelmociRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o GetRemoteHelmociRepositoryContentSynchronisationPtrOutput) ToGetRemoteHelmociRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteHelmociRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o GetRemoteHelmociRepositoryContentSynchronisationPtrOutput) Elem() GetRemoteHelmociRepositoryContentSynchronisationOutput {
+	return o.ApplyT(func(v *GetRemoteHelmociRepositoryContentSynchronisation) GetRemoteHelmociRepositoryContentSynchronisation {
+		if v != nil {
+			return *v
+		}
+		var ret GetRemoteHelmociRepositoryContentSynchronisation
+		return ret
+	}).(GetRemoteHelmociRepositoryContentSynchronisationOutput)
+}
+
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+func (o GetRemoteHelmociRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteHelmociRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+func (o GetRemoteHelmociRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteHelmociRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PropertiesEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+func (o GetRemoteHelmociRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteHelmociRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SourceOriginAbsenceDetection
+	}).(pulumi.BoolPtrOutput)
+}
+
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+func (o GetRemoteHelmociRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteHelmociRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.StatisticsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 type GetRemoteIvyRepositoryContentSynchronisation struct {
 	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 	Enabled *bool `pulumi:"enabled"`
@@ -26831,6 +27846,200 @@ func (o GetRemoteNugetRepositoryContentSynchronisationPtrOutput) SourceOriginAbs
 // If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o GetRemoteNugetRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteNugetRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.StatisticsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type GetRemoteOciRepositoryContentSynchronisation struct {
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled *bool `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
+}
+
+// GetRemoteOciRepositoryContentSynchronisationInput is an input type that accepts GetRemoteOciRepositoryContentSynchronisationArgs and GetRemoteOciRepositoryContentSynchronisationOutput values.
+// You can construct a concrete instance of `GetRemoteOciRepositoryContentSynchronisationInput` via:
+//
+//	GetRemoteOciRepositoryContentSynchronisationArgs{...}
+type GetRemoteOciRepositoryContentSynchronisationInput interface {
+	pulumi.Input
+
+	ToGetRemoteOciRepositoryContentSynchronisationOutput() GetRemoteOciRepositoryContentSynchronisationOutput
+	ToGetRemoteOciRepositoryContentSynchronisationOutputWithContext(context.Context) GetRemoteOciRepositoryContentSynchronisationOutput
+}
+
+type GetRemoteOciRepositoryContentSynchronisationArgs struct {
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+}
+
+func (GetRemoteOciRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRemoteOciRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i GetRemoteOciRepositoryContentSynchronisationArgs) ToGetRemoteOciRepositoryContentSynchronisationOutput() GetRemoteOciRepositoryContentSynchronisationOutput {
+	return i.ToGetRemoteOciRepositoryContentSynchronisationOutputWithContext(context.Background())
+}
+
+func (i GetRemoteOciRepositoryContentSynchronisationArgs) ToGetRemoteOciRepositoryContentSynchronisationOutputWithContext(ctx context.Context) GetRemoteOciRepositoryContentSynchronisationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteOciRepositoryContentSynchronisationOutput)
+}
+
+func (i GetRemoteOciRepositoryContentSynchronisationArgs) ToGetRemoteOciRepositoryContentSynchronisationPtrOutput() GetRemoteOciRepositoryContentSynchronisationPtrOutput {
+	return i.ToGetRemoteOciRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i GetRemoteOciRepositoryContentSynchronisationArgs) ToGetRemoteOciRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteOciRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteOciRepositoryContentSynchronisationOutput).ToGetRemoteOciRepositoryContentSynchronisationPtrOutputWithContext(ctx)
+}
+
+// GetRemoteOciRepositoryContentSynchronisationPtrInput is an input type that accepts GetRemoteOciRepositoryContentSynchronisationArgs, GetRemoteOciRepositoryContentSynchronisationPtr and GetRemoteOciRepositoryContentSynchronisationPtrOutput values.
+// You can construct a concrete instance of `GetRemoteOciRepositoryContentSynchronisationPtrInput` via:
+//
+//	        GetRemoteOciRepositoryContentSynchronisationArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetRemoteOciRepositoryContentSynchronisationPtrInput interface {
+	pulumi.Input
+
+	ToGetRemoteOciRepositoryContentSynchronisationPtrOutput() GetRemoteOciRepositoryContentSynchronisationPtrOutput
+	ToGetRemoteOciRepositoryContentSynchronisationPtrOutputWithContext(context.Context) GetRemoteOciRepositoryContentSynchronisationPtrOutput
+}
+
+type getRemoteOciRepositoryContentSynchronisationPtrType GetRemoteOciRepositoryContentSynchronisationArgs
+
+func GetRemoteOciRepositoryContentSynchronisationPtr(v *GetRemoteOciRepositoryContentSynchronisationArgs) GetRemoteOciRepositoryContentSynchronisationPtrInput {
+	return (*getRemoteOciRepositoryContentSynchronisationPtrType)(v)
+}
+
+func (*getRemoteOciRepositoryContentSynchronisationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRemoteOciRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i *getRemoteOciRepositoryContentSynchronisationPtrType) ToGetRemoteOciRepositoryContentSynchronisationPtrOutput() GetRemoteOciRepositoryContentSynchronisationPtrOutput {
+	return i.ToGetRemoteOciRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i *getRemoteOciRepositoryContentSynchronisationPtrType) ToGetRemoteOciRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteOciRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteOciRepositoryContentSynchronisationPtrOutput)
+}
+
+type GetRemoteOciRepositoryContentSynchronisationOutput struct{ *pulumi.OutputState }
+
+func (GetRemoteOciRepositoryContentSynchronisationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRemoteOciRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o GetRemoteOciRepositoryContentSynchronisationOutput) ToGetRemoteOciRepositoryContentSynchronisationOutput() GetRemoteOciRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o GetRemoteOciRepositoryContentSynchronisationOutput) ToGetRemoteOciRepositoryContentSynchronisationOutputWithContext(ctx context.Context) GetRemoteOciRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o GetRemoteOciRepositoryContentSynchronisationOutput) ToGetRemoteOciRepositoryContentSynchronisationPtrOutput() GetRemoteOciRepositoryContentSynchronisationPtrOutput {
+	return o.ToGetRemoteOciRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (o GetRemoteOciRepositoryContentSynchronisationOutput) ToGetRemoteOciRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteOciRepositoryContentSynchronisationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetRemoteOciRepositoryContentSynchronisation) *GetRemoteOciRepositoryContentSynchronisation {
+		return &v
+	}).(GetRemoteOciRepositoryContentSynchronisationPtrOutput)
+}
+
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+func (o GetRemoteOciRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteOciRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+func (o GetRemoteOciRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteOciRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+func (o GetRemoteOciRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteOciRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
+}
+
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+func (o GetRemoteOciRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteOciRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type GetRemoteOciRepositoryContentSynchronisationPtrOutput struct{ *pulumi.OutputState }
+
+func (GetRemoteOciRepositoryContentSynchronisationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRemoteOciRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o GetRemoteOciRepositoryContentSynchronisationPtrOutput) ToGetRemoteOciRepositoryContentSynchronisationPtrOutput() GetRemoteOciRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o GetRemoteOciRepositoryContentSynchronisationPtrOutput) ToGetRemoteOciRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteOciRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o GetRemoteOciRepositoryContentSynchronisationPtrOutput) Elem() GetRemoteOciRepositoryContentSynchronisationOutput {
+	return o.ApplyT(func(v *GetRemoteOciRepositoryContentSynchronisation) GetRemoteOciRepositoryContentSynchronisation {
+		if v != nil {
+			return *v
+		}
+		var ret GetRemoteOciRepositoryContentSynchronisation
+		return ret
+	}).(GetRemoteOciRepositoryContentSynchronisationOutput)
+}
+
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+func (o GetRemoteOciRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteOciRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+func (o GetRemoteOciRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteOciRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PropertiesEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+func (o GetRemoteOciRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteOciRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SourceOriginAbsenceDetection
+	}).(pulumi.BoolPtrOutput)
+}
+
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+func (o GetRemoteOciRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteOciRepositoryContentSynchronisation) *bool {
 		if v == nil {
 			return nil
 		}
@@ -28987,6 +30196,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedGradleRepositoryMemberArrayInput)(nil)).Elem(), FederatedGradleRepositoryMemberArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedHelmRepositoryMemberInput)(nil)).Elem(), FederatedHelmRepositoryMemberArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedHelmRepositoryMemberArrayInput)(nil)).Elem(), FederatedHelmRepositoryMemberArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FederatedHelmociRepositoryMemberInput)(nil)).Elem(), FederatedHelmociRepositoryMemberArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FederatedHelmociRepositoryMemberArrayInput)(nil)).Elem(), FederatedHelmociRepositoryMemberArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedIvyRepositoryMemberInput)(nil)).Elem(), FederatedIvyRepositoryMemberArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedIvyRepositoryMemberArrayInput)(nil)).Elem(), FederatedIvyRepositoryMemberArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedMavenRepositoryMemberInput)(nil)).Elem(), FederatedMavenRepositoryMemberArgs{})
@@ -28995,6 +30206,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedNpmRepositoryMemberArrayInput)(nil)).Elem(), FederatedNpmRepositoryMemberArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedNugetRepositoryMemberInput)(nil)).Elem(), FederatedNugetRepositoryMemberArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedNugetRepositoryMemberArrayInput)(nil)).Elem(), FederatedNugetRepositoryMemberArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FederatedOciRepositoryMemberInput)(nil)).Elem(), FederatedOciRepositoryMemberArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FederatedOciRepositoryMemberArrayInput)(nil)).Elem(), FederatedOciRepositoryMemberArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedOpkgRepositoryMemberInput)(nil)).Elem(), FederatedOpkgRepositoryMemberArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedOpkgRepositoryMemberArrayInput)(nil)).Elem(), FederatedOpkgRepositoryMemberArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedPuppetRepositoryMemberInput)(nil)).Elem(), FederatedPuppetRepositoryMemberArgs{})
@@ -29089,6 +30302,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteGradleRepositoryContentSynchronisationPtrInput)(nil)).Elem(), RemoteGradleRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteHelmRepositoryContentSynchronisationInput)(nil)).Elem(), RemoteHelmRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteHelmRepositoryContentSynchronisationPtrInput)(nil)).Elem(), RemoteHelmRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RemoteHelmociRepositoryContentSynchronisationInput)(nil)).Elem(), RemoteHelmociRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RemoteHelmociRepositoryContentSynchronisationPtrInput)(nil)).Elem(), RemoteHelmociRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteHuggingfacemlRepositoryContentSynchronisationInput)(nil)).Elem(), RemoteHuggingfacemlRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteHuggingfacemlRepositoryContentSynchronisationPtrInput)(nil)).Elem(), RemoteHuggingfacemlRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteIvyRepositoryContentSynchronisationInput)(nil)).Elem(), RemoteIvyRepositoryContentSynchronisationArgs{})
@@ -29099,6 +30314,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteNpmRepositoryContentSynchronisationPtrInput)(nil)).Elem(), RemoteNpmRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteNugetRepositoryContentSynchronisationInput)(nil)).Elem(), RemoteNugetRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteNugetRepositoryContentSynchronisationPtrInput)(nil)).Elem(), RemoteNugetRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RemoteOciRepositoryContentSynchronisationInput)(nil)).Elem(), RemoteOciRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RemoteOciRepositoryContentSynchronisationPtrInput)(nil)).Elem(), RemoteOciRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteOpkgRepositoryContentSynchronisationInput)(nil)).Elem(), RemoteOpkgRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteOpkgRepositoryContentSynchronisationPtrInput)(nil)).Elem(), RemoteOpkgRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteP2RepositoryContentSynchronisationInput)(nil)).Elem(), RemoteP2RepositoryContentSynchronisationArgs{})
@@ -29159,6 +30376,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedGradleRepositoryMemberArrayInput)(nil)).Elem(), GetFederatedGradleRepositoryMemberArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedHelmRepositoryMemberInput)(nil)).Elem(), GetFederatedHelmRepositoryMemberArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedHelmRepositoryMemberArrayInput)(nil)).Elem(), GetFederatedHelmRepositoryMemberArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedHelmociRepositoryMemberInput)(nil)).Elem(), GetFederatedHelmociRepositoryMemberArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedHelmociRepositoryMemberArrayInput)(nil)).Elem(), GetFederatedHelmociRepositoryMemberArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedIvyRepositoryMemberInput)(nil)).Elem(), GetFederatedIvyRepositoryMemberArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedIvyRepositoryMemberArrayInput)(nil)).Elem(), GetFederatedIvyRepositoryMemberArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedMavenRepositoryMemberInput)(nil)).Elem(), GetFederatedMavenRepositoryMemberArgs{})
@@ -29167,6 +30386,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedNpmRepositoryMemberArrayInput)(nil)).Elem(), GetFederatedNpmRepositoryMemberArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedNugetRepositoryMemberInput)(nil)).Elem(), GetFederatedNugetRepositoryMemberArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedNugetRepositoryMemberArrayInput)(nil)).Elem(), GetFederatedNugetRepositoryMemberArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedOciRepositoryMemberInput)(nil)).Elem(), GetFederatedOciRepositoryMemberArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedOciRepositoryMemberArrayInput)(nil)).Elem(), GetFederatedOciRepositoryMemberArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedOpkgRepositoryMemberInput)(nil)).Elem(), GetFederatedOpkgRepositoryMemberArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedOpkgRepositoryMemberArrayInput)(nil)).Elem(), GetFederatedOpkgRepositoryMemberArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedPuppetRepositoryMemberInput)(nil)).Elem(), GetFederatedPuppetRepositoryMemberArgs{})
@@ -29246,6 +30467,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteGradleRepositoryContentSynchronisationPtrInput)(nil)).Elem(), GetRemoteGradleRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteHelmRepositoryContentSynchronisationInput)(nil)).Elem(), GetRemoteHelmRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteHelmRepositoryContentSynchronisationPtrInput)(nil)).Elem(), GetRemoteHelmRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteHelmociRepositoryContentSynchronisationInput)(nil)).Elem(), GetRemoteHelmociRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteHelmociRepositoryContentSynchronisationPtrInput)(nil)).Elem(), GetRemoteHelmociRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteIvyRepositoryContentSynchronisationInput)(nil)).Elem(), GetRemoteIvyRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteIvyRepositoryContentSynchronisationPtrInput)(nil)).Elem(), GetRemoteIvyRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteMavenRepositoryContentSynchronisationInput)(nil)).Elem(), GetRemoteMavenRepositoryContentSynchronisationArgs{})
@@ -29254,6 +30477,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteNpmRepositoryContentSynchronisationPtrInput)(nil)).Elem(), GetRemoteNpmRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteNugetRepositoryContentSynchronisationInput)(nil)).Elem(), GetRemoteNugetRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteNugetRepositoryContentSynchronisationPtrInput)(nil)).Elem(), GetRemoteNugetRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteOciRepositoryContentSynchronisationInput)(nil)).Elem(), GetRemoteOciRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteOciRepositoryContentSynchronisationPtrInput)(nil)).Elem(), GetRemoteOciRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteOpkgRepositoryContentSynchronisationInput)(nil)).Elem(), GetRemoteOpkgRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteOpkgRepositoryContentSynchronisationPtrInput)(nil)).Elem(), GetRemoteOpkgRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteP2RepositoryContentSynchronisationInput)(nil)).Elem(), GetRemoteP2RepositoryContentSynchronisationArgs{})
@@ -29364,6 +30589,8 @@ func init() {
 	pulumi.RegisterOutputType(FederatedGradleRepositoryMemberArrayOutput{})
 	pulumi.RegisterOutputType(FederatedHelmRepositoryMemberOutput{})
 	pulumi.RegisterOutputType(FederatedHelmRepositoryMemberArrayOutput{})
+	pulumi.RegisterOutputType(FederatedHelmociRepositoryMemberOutput{})
+	pulumi.RegisterOutputType(FederatedHelmociRepositoryMemberArrayOutput{})
 	pulumi.RegisterOutputType(FederatedIvyRepositoryMemberOutput{})
 	pulumi.RegisterOutputType(FederatedIvyRepositoryMemberArrayOutput{})
 	pulumi.RegisterOutputType(FederatedMavenRepositoryMemberOutput{})
@@ -29372,6 +30599,8 @@ func init() {
 	pulumi.RegisterOutputType(FederatedNpmRepositoryMemberArrayOutput{})
 	pulumi.RegisterOutputType(FederatedNugetRepositoryMemberOutput{})
 	pulumi.RegisterOutputType(FederatedNugetRepositoryMemberArrayOutput{})
+	pulumi.RegisterOutputType(FederatedOciRepositoryMemberOutput{})
+	pulumi.RegisterOutputType(FederatedOciRepositoryMemberArrayOutput{})
 	pulumi.RegisterOutputType(FederatedOpkgRepositoryMemberOutput{})
 	pulumi.RegisterOutputType(FederatedOpkgRepositoryMemberArrayOutput{})
 	pulumi.RegisterOutputType(FederatedPuppetRepositoryMemberOutput{})
@@ -29466,6 +30695,8 @@ func init() {
 	pulumi.RegisterOutputType(RemoteGradleRepositoryContentSynchronisationPtrOutput{})
 	pulumi.RegisterOutputType(RemoteHelmRepositoryContentSynchronisationOutput{})
 	pulumi.RegisterOutputType(RemoteHelmRepositoryContentSynchronisationPtrOutput{})
+	pulumi.RegisterOutputType(RemoteHelmociRepositoryContentSynchronisationOutput{})
+	pulumi.RegisterOutputType(RemoteHelmociRepositoryContentSynchronisationPtrOutput{})
 	pulumi.RegisterOutputType(RemoteHuggingfacemlRepositoryContentSynchronisationOutput{})
 	pulumi.RegisterOutputType(RemoteHuggingfacemlRepositoryContentSynchronisationPtrOutput{})
 	pulumi.RegisterOutputType(RemoteIvyRepositoryContentSynchronisationOutput{})
@@ -29476,6 +30707,8 @@ func init() {
 	pulumi.RegisterOutputType(RemoteNpmRepositoryContentSynchronisationPtrOutput{})
 	pulumi.RegisterOutputType(RemoteNugetRepositoryContentSynchronisationOutput{})
 	pulumi.RegisterOutputType(RemoteNugetRepositoryContentSynchronisationPtrOutput{})
+	pulumi.RegisterOutputType(RemoteOciRepositoryContentSynchronisationOutput{})
+	pulumi.RegisterOutputType(RemoteOciRepositoryContentSynchronisationPtrOutput{})
 	pulumi.RegisterOutputType(RemoteOpkgRepositoryContentSynchronisationOutput{})
 	pulumi.RegisterOutputType(RemoteOpkgRepositoryContentSynchronisationPtrOutput{})
 	pulumi.RegisterOutputType(RemoteP2RepositoryContentSynchronisationOutput{})
@@ -29536,6 +30769,8 @@ func init() {
 	pulumi.RegisterOutputType(GetFederatedGradleRepositoryMemberArrayOutput{})
 	pulumi.RegisterOutputType(GetFederatedHelmRepositoryMemberOutput{})
 	pulumi.RegisterOutputType(GetFederatedHelmRepositoryMemberArrayOutput{})
+	pulumi.RegisterOutputType(GetFederatedHelmociRepositoryMemberOutput{})
+	pulumi.RegisterOutputType(GetFederatedHelmociRepositoryMemberArrayOutput{})
 	pulumi.RegisterOutputType(GetFederatedIvyRepositoryMemberOutput{})
 	pulumi.RegisterOutputType(GetFederatedIvyRepositoryMemberArrayOutput{})
 	pulumi.RegisterOutputType(GetFederatedMavenRepositoryMemberOutput{})
@@ -29544,6 +30779,8 @@ func init() {
 	pulumi.RegisterOutputType(GetFederatedNpmRepositoryMemberArrayOutput{})
 	pulumi.RegisterOutputType(GetFederatedNugetRepositoryMemberOutput{})
 	pulumi.RegisterOutputType(GetFederatedNugetRepositoryMemberArrayOutput{})
+	pulumi.RegisterOutputType(GetFederatedOciRepositoryMemberOutput{})
+	pulumi.RegisterOutputType(GetFederatedOciRepositoryMemberArrayOutput{})
 	pulumi.RegisterOutputType(GetFederatedOpkgRepositoryMemberOutput{})
 	pulumi.RegisterOutputType(GetFederatedOpkgRepositoryMemberArrayOutput{})
 	pulumi.RegisterOutputType(GetFederatedPuppetRepositoryMemberOutput{})
@@ -29623,6 +30860,8 @@ func init() {
 	pulumi.RegisterOutputType(GetRemoteGradleRepositoryContentSynchronisationPtrOutput{})
 	pulumi.RegisterOutputType(GetRemoteHelmRepositoryContentSynchronisationOutput{})
 	pulumi.RegisterOutputType(GetRemoteHelmRepositoryContentSynchronisationPtrOutput{})
+	pulumi.RegisterOutputType(GetRemoteHelmociRepositoryContentSynchronisationOutput{})
+	pulumi.RegisterOutputType(GetRemoteHelmociRepositoryContentSynchronisationPtrOutput{})
 	pulumi.RegisterOutputType(GetRemoteIvyRepositoryContentSynchronisationOutput{})
 	pulumi.RegisterOutputType(GetRemoteIvyRepositoryContentSynchronisationPtrOutput{})
 	pulumi.RegisterOutputType(GetRemoteMavenRepositoryContentSynchronisationOutput{})
@@ -29631,6 +30870,8 @@ func init() {
 	pulumi.RegisterOutputType(GetRemoteNpmRepositoryContentSynchronisationPtrOutput{})
 	pulumi.RegisterOutputType(GetRemoteNugetRepositoryContentSynchronisationOutput{})
 	pulumi.RegisterOutputType(GetRemoteNugetRepositoryContentSynchronisationPtrOutput{})
+	pulumi.RegisterOutputType(GetRemoteOciRepositoryContentSynchronisationOutput{})
+	pulumi.RegisterOutputType(GetRemoteOciRepositoryContentSynchronisationPtrOutput{})
 	pulumi.RegisterOutputType(GetRemoteOpkgRepositoryContentSynchronisationOutput{})
 	pulumi.RegisterOutputType(GetRemoteOpkgRepositoryContentSynchronisationPtrOutput{})
 	pulumi.RegisterOutputType(GetRemoteP2RepositoryContentSynchronisationOutput{})

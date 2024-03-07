@@ -1775,6 +1775,7 @@ class RemoteDockerRepository(pulumi.CustomResource):
                  __props__=None):
         """
         Creates remote Docker repository resource.
+
         Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Docker+Registry)
 
         ## Example Usage
@@ -1899,6 +1900,7 @@ class RemoteDockerRepository(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Creates remote Docker repository resource.
+
         Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Docker+Registry)
 
         ## Example Usage
