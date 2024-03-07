@@ -20,6 +20,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -52,6 +53,8 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ## Managing groups relationship
 //
 // See our recommendation on how to manage user-group relationship.
@@ -59,9 +62,7 @@ import (
 // ## Import
 //
 // ```sh
-//
-//	$ pulumi import artifactory:index/user:User test-user myusername
-//
+// $ pulumi import artifactory:index/user:User test-user myusername
 // ```
 type User struct {
 	pulumi.CustomResourceState

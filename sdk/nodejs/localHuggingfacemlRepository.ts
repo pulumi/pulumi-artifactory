@@ -11,19 +11,21 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * const local_huggingfaceml_repo = new artifactory.LocalHuggingfacemlRepository("local-huggingfaceml-repo", {key: "local-huggingfaceml-repo"});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Local repositories can be imported using their name, e.g.
  *
  * ```sh
- *  $ pulumi import artifactory:index/localHuggingfacemlRepository:LocalHuggingfacemlRepository local-huggingfaceml-repo local-huggingfaceml-repo
+ * $ pulumi import artifactory:index/localHuggingfacemlRepository:LocalHuggingfacemlRepository local-huggingfaceml-repo local-huggingfaceml-repo
  * ```
  */
 export class LocalHuggingfacemlRepository extends pulumi.CustomResource {

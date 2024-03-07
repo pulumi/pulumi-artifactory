@@ -16,6 +16,7 @@ import (
 // Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Bower+Repositories#BowerRepositories-VirtualRepositories).
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -45,15 +46,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Virtual repositories can be imported using their name, e.g.
 //
 // ```sh
-//
-//	$ pulumi import artifactory:index/virtualBowerRepository:VirtualBowerRepository foo-bower foo-bower
-//
+// $ pulumi import artifactory:index/virtualBowerRepository:VirtualBowerRepository foo-bower foo-bower
 // ```
 type VirtualBowerRepository struct {
 	pulumi.CustomResourceState

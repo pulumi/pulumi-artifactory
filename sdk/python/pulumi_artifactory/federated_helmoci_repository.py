@@ -815,6 +815,7 @@ class FederatedHelmociRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -832,13 +833,14 @@ class FederatedHelmociRepository(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Federated repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/federatedHelmociRepository:FederatedHelmociRepository my-helmoci-federated my-helmoci-federated
+        $ pulumi import artifactory:index/federatedHelmociRepository:FederatedHelmociRepository my-helmoci-federated my-helmoci-federated
         ```
 
         :param str resource_name: The name of the resource.
@@ -894,6 +896,7 @@ class FederatedHelmociRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -911,13 +914,14 @@ class FederatedHelmociRepository(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Federated repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/federatedHelmociRepository:FederatedHelmociRepository my-helmoci-federated my-helmoci-federated
+        $ pulumi import artifactory:index/federatedHelmociRepository:FederatedHelmociRepository my-helmoci-federated my-helmoci-federated
         ```
 
         :param str resource_name: The name of the resource.

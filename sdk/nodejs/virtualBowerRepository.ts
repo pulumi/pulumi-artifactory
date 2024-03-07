@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
  * Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Bower+Repositories#BowerRepositories-VirtualRepositories).
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -23,13 +24,14 @@ import * as utilities from "./utilities";
  *     repositories: [],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Virtual repositories can be imported using their name, e.g.
  *
  * ```sh
- *  $ pulumi import artifactory:index/virtualBowerRepository:VirtualBowerRepository foo-bower foo-bower
+ * $ pulumi import artifactory:index/virtualBowerRepository:VirtualBowerRepository foo-bower foo-bower
  * ```
  */
 export class VirtualBowerRepository extends pulumi.CustomResource {

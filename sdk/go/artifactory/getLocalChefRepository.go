@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,6 +39,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupLocalChefRepository(ctx *pulumi.Context, args *LookupLocalChefRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupLocalChefRepositoryResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupLocalChefRepositoryResult

@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,15 +41,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Remote repositories can be imported using their name, e.g.
 //
 // ```sh
-//
-//	$ pulumi import artifactory:index/remoteGenericRepository:RemoteGenericRepository my-remote-generic my-remote-generic
-//
+// $ pulumi import artifactory:index/remoteGenericRepository:RemoteGenericRepository my-remote-generic my-remote-generic
 // ```
 type RemoteGenericRepository struct {
 	pulumi.CustomResourceState

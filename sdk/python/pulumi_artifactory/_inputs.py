@@ -321,9 +321,11 @@ class ArtifactCustomWebhookHandlerArgs:
         :param pulumi.Input[str] proxy: Proxy key from Artifactory UI (Administration > Proxies > Configuration).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] secrets: Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example: 
                
+               <!--Start PulumiCodeChooser -->
                ```python
                import pulumi
                ```
+               <!--End PulumiCodeChooser -->
         """
         pulumi.set(__self__, "url", url)
         if http_headers is not None:
@@ -389,9 +391,11 @@ class ArtifactCustomWebhookHandlerArgs:
         """
         Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example: 
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         ```
+        <!--End PulumiCodeChooser -->
         """
         return pulumi.get(self, "secrets")
 
@@ -499,9 +503,11 @@ class ArtifactPropertyCustomWebhookHandlerArgs:
         :param pulumi.Input[str] proxy: Proxy key from Artifactory UI (Administration > Proxies > Configuration).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] secrets: Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
                
+               <!--Start PulumiCodeChooser -->
                ```python
                import pulumi
                ```
+               <!--End PulumiCodeChooser -->
         """
         pulumi.set(__self__, "url", url)
         if http_headers is not None:
@@ -567,9 +573,11 @@ class ArtifactPropertyCustomWebhookHandlerArgs:
         """
         Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         ```
+        <!--End PulumiCodeChooser -->
         """
         return pulumi.get(self, "secrets")
 
@@ -970,9 +978,11 @@ class ArtifactoryReleaseBundleCustomWebhookHandlerArgs:
         :param pulumi.Input[str] proxy: Proxy key from Artifactory UI (Administration > Proxies > Configuration).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] secrets: Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
                
+               <!--Start PulumiCodeChooser -->
                ```python
                import pulumi
                ```
+               <!--End PulumiCodeChooser -->
         """
         pulumi.set(__self__, "url", url)
         if http_headers is not None:
@@ -1038,9 +1048,11 @@ class ArtifactoryReleaseBundleCustomWebhookHandlerArgs:
         """
         Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         ```
+        <!--End PulumiCodeChooser -->
         """
         return pulumi.get(self, "secrets")
 
@@ -1272,9 +1284,11 @@ class BuildCustomWebhookHandlerArgs:
         :param pulumi.Input[str] proxy: Proxy key from Artifactory UI (Administration > Proxies > Configuration).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] secrets: Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
                
+               <!--Start PulumiCodeChooser -->
                ```python
                import pulumi
                ```
+               <!--End PulumiCodeChooser -->
         """
         pulumi.set(__self__, "url", url)
         if http_headers is not None:
@@ -1340,9 +1354,11 @@ class BuildCustomWebhookHandlerArgs:
         """
         Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         ```
+        <!--End PulumiCodeChooser -->
         """
         return pulumi.get(self, "secrets")
 
@@ -1574,9 +1590,11 @@ class DistributionCustomWebhookHandlerArgs:
         :param pulumi.Input[str] proxy: Proxy key from Artifactory UI (Administration > Proxies > Configuration).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] secrets: Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
                
+               <!--Start PulumiCodeChooser -->
                ```python
                import pulumi
                ```
+               <!--End PulumiCodeChooser -->
         """
         pulumi.set(__self__, "url", url)
         if http_headers is not None:
@@ -1642,9 +1660,11 @@ class DistributionCustomWebhookHandlerArgs:
         """
         Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         ```
+        <!--End PulumiCodeChooser -->
         """
         return pulumi.get(self, "secrets")
 
@@ -1891,9 +1911,11 @@ class DockerCustomWebhookHandlerArgs:
         :param pulumi.Input[str] proxy: Proxy key from Artifactory UI (Administration > Proxies > Configuration).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] secrets: Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
                
+               <!--Start PulumiCodeChooser -->
                ```python
                import pulumi
                ```
+               <!--End PulumiCodeChooser -->
         """
         pulumi.set(__self__, "url", url)
         if http_headers is not None:
@@ -1959,9 +1981,11 @@ class DockerCustomWebhookHandlerArgs:
         """
         Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         ```
+        <!--End PulumiCodeChooser -->
         """
         return pulumi.get(self, "secrets")
 
@@ -4676,9 +4700,11 @@ class ReleaseBundleCustomWebhookHandlerArgs:
         :param pulumi.Input[str] proxy: Proxy key from Artifactory UI (Administration > Proxies > Configuration).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] secrets: Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
                
+               <!--Start PulumiCodeChooser -->
                ```python
                import pulumi
                ```
+               <!--End PulumiCodeChooser -->
         """
         pulumi.set(__self__, "url", url)
         if http_headers is not None:
@@ -4744,9 +4770,11 @@ class ReleaseBundleCustomWebhookHandlerArgs:
         """
         Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         ```
+        <!--End PulumiCodeChooser -->
         """
         return pulumi.get(self, "secrets")
 

@@ -588,19 +588,21 @@ class LocalNpmRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
 
         terraform_local_test_npm_repo = artifactory.LocalNpmRepository("terraform-local-test-npm-repo", key="terraform-local-test-npm-repo")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Local repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/localNpmRepository:LocalNpmRepository terraform-local-test-npm-repo terraform-local-test-npm-repo
+        $ pulumi import artifactory:index/localNpmRepository:LocalNpmRepository terraform-local-test-npm-repo terraform-local-test-npm-repo
         ```
 
         :param str resource_name: The name of the resource.
@@ -643,19 +645,21 @@ class LocalNpmRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
 
         terraform_local_test_npm_repo = artifactory.LocalNpmRepository("terraform-local-test-npm-repo", key="terraform-local-test-npm-repo")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Local repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/localNpmRepository:LocalNpmRepository terraform-local-test-npm-repo terraform-local-test-npm-repo
+        $ pulumi import artifactory:index/localNpmRepository:LocalNpmRepository terraform-local-test-npm-repo terraform-local-test-npm-repo
         ```
 
         :param str resource_name: The name of the resource.

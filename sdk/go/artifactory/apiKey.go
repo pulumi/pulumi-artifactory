@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,15 +40,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // A user's API key can be imported using any identifier, e.g.
 //
 // ```sh
-//
-//	$ pulumi import artifactory:index/apiKey:ApiKey test import
-//
+// $ pulumi import artifactory:index/apiKey:ApiKey test import
 // ```
 type ApiKey struct {
 	pulumi.CustomResourceState

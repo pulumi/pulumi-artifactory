@@ -13,6 +13,7 @@ import (
 
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -35,13 +36,12 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // ```sh
-//
-//	$ pulumi import artifactory:index/anonymousUser:AnonymousUser anonymous-user anonymous
-//
+// $ pulumi import artifactory:index/anonymousUser:AnonymousUser anonymous-user anonymous
 // ```
 type AnonymousUser struct {
 	pulumi.CustomResourceState

@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,6 +39,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupVirtualDebianRepository(ctx *pulumi.Context, args *LookupVirtualDebianRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupVirtualDebianRepositoryResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVirtualDebianRepositoryResult

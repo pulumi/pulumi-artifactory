@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,6 +39,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetVirtualGoRepository(ctx *pulumi.Context, args *GetVirtualGoRepositoryArgs, opts ...pulumi.InvokeOption) (*GetVirtualGoRepositoryResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetVirtualGoRepositoryResult

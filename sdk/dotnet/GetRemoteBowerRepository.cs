@@ -14,10 +14,9 @@ namespace Pulumi.Artifactory
         /// <summary>
         /// Retrieves a remote Bower repository.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -33,8 +32,7 @@ namespace Pulumi.Artifactory
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetRemoteBowerRepositoryResult> InvokeAsync(GetRemoteBowerRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRemoteBowerRepositoryResult>("artifactory:index/getRemoteBowerRepository:getRemoteBowerRepository", args ?? new GetRemoteBowerRepositoryArgs(), options.WithDefaults());
@@ -42,10 +40,9 @@ namespace Pulumi.Artifactory
         /// <summary>
         /// Retrieves a remote Bower repository.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -61,8 +58,7 @@ namespace Pulumi.Artifactory
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetRemoteBowerRepositoryResult> Invoke(GetRemoteBowerRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRemoteBowerRepositoryResult>("artifactory:index/getRemoteBowerRepository:getRemoteBowerRepository", args ?? new GetRemoteBowerRepositoryInvokeArgs(), options.WithDefaults());

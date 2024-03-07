@@ -15,8 +15,10 @@ import (
 // Provides an Artifactory Mail Server resource. This can be used to create and manage Artifactory mail server configuration.
 //
 // ## Example Usage
+//
 // ### S
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -49,16 +51,15 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // ```sh
-//
-//	$ pulumi import artifactory:index/mailServer:MailServer my-mail-server mymailserver
-//
+// $ pulumi import artifactory:index/mailServer:MailServer my-mail-server mymailserver
 // ```
 //
-//	~>The `password` attribute is not retrievable from Artifactory thus there will be state drift after importing this resource.
+// ~>The `password` attribute is not retrievable from Artifactory thus there will be state drift after importing this resource.
 type MailServer struct {
 	pulumi.CustomResourceState
 

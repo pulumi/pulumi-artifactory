@@ -1549,6 +1549,7 @@ class RemoteRpmRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -1557,13 +1558,14 @@ class RemoteRpmRepository(pulumi.CustomResource):
             key="my-remote-rpm",
             url="http://mirror.centos.org/centos/")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Remote repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/remoteRpmRepository:RemoteRpmRepository my-remote-rpm my-remote-rpm
+        $ pulumi import artifactory:index/remoteRpmRepository:RemoteRpmRepository my-remote-rpm my-remote-rpm
         ```
 
         :param str resource_name: The name of the resource.
@@ -1655,6 +1657,7 @@ class RemoteRpmRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -1663,13 +1666,14 @@ class RemoteRpmRepository(pulumi.CustomResource):
             key="my-remote-rpm",
             url="http://mirror.centos.org/centos/")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Remote repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/remoteRpmRepository:RemoteRpmRepository my-remote-rpm my-remote-rpm
+        $ pulumi import artifactory:index/remoteRpmRepository:RemoteRpmRepository my-remote-rpm my-remote-rpm
         ```
 
         :param str resource_name: The name of the resource.

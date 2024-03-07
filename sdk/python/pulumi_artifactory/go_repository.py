@@ -515,6 +515,7 @@ class GoRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -533,13 +534,14 @@ class GoRepository(pulumi.CustomResource):
             repo_layout_ref="go-default",
             repositories=[])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Virtual repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/goRepository:GoRepository baz-go baz-go
+        $ pulumi import artifactory:index/goRepository:GoRepository baz-go baz-go
         ```
 
         :param str resource_name: The name of the resource.
@@ -579,6 +581,7 @@ class GoRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -597,13 +600,14 @@ class GoRepository(pulumi.CustomResource):
             repo_layout_ref="go-default",
             repositories=[])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Virtual repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/goRepository:GoRepository baz-go baz-go
+        $ pulumi import artifactory:index/goRepository:GoRepository baz-go baz-go
         ```
 
         :param str resource_name: The name of the resource.

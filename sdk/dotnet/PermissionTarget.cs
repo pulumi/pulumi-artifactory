@@ -14,6 +14,7 @@ namespace Pulumi.Artifactory
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -147,6 +148,8 @@ namespace Pulumi.Artifactory
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Permissions
     /// 
     /// The provider supports the following `permission` enums:
@@ -174,7 +177,7 @@ namespace Pulumi.Artifactory
     /// Permission targets can be imported using their name, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import artifactory:index/permissionTarget:PermissionTarget terraform-test-permission mypermission
+    /// $ pulumi import artifactory:index/permissionTarget:PermissionTarget terraform-test-permission mypermission
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/permissionTarget:PermissionTarget")]

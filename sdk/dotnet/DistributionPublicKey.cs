@@ -16,6 +16,7 @@ namespace Pulumi.Artifactory
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.IO;
@@ -33,13 +34,14 @@ namespace Pulumi.Artifactory
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Distribution Public Key can be imported using the key id, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import artifactory:index/distributionPublicKey:DistributionPublicKey my-key keyid
+    /// $ pulumi import artifactory:index/distributionPublicKey:DistributionPublicKey my-key keyid
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/distributionPublicKey:DistributionPublicKey")]

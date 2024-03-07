@@ -14,10 +14,9 @@ namespace Pulumi.Artifactory
         /// <summary>
         /// Retrieves a remote CRAN repository.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -33,8 +32,7 @@ namespace Pulumi.Artifactory
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetRemoteCranRepositoryResult> InvokeAsync(GetRemoteCranRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRemoteCranRepositoryResult>("artifactory:index/getRemoteCranRepository:getRemoteCranRepository", args ?? new GetRemoteCranRepositoryArgs(), options.WithDefaults());
@@ -42,10 +40,9 @@ namespace Pulumi.Artifactory
         /// <summary>
         /// Retrieves a remote CRAN repository.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -61,8 +58,7 @@ namespace Pulumi.Artifactory
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetRemoteCranRepositoryResult> Invoke(GetRemoteCranRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRemoteCranRepositoryResult>("artifactory:index/getRemoteCranRepository:getRemoteCranRepository", args ?? new GetRemoteCranRepositoryInvokeArgs(), options.WithDefaults());

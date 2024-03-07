@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
  * Provides a global environment resource. This can be used to create and manage global environment.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -42,11 +44,12 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * ```sh
- *  $ pulumi import artifactory:index/globalEnvironment:GlobalEnvironment dev-env myenv
+ * $ pulumi import artifactory:index/globalEnvironment:GlobalEnvironment dev-env myenv
  * ```
  * 
  */

@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,6 +39,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupLocalCondaRepository(ctx *pulumi.Context, args *LookupLocalCondaRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupLocalCondaRepositoryResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupLocalCondaRepositoryResult

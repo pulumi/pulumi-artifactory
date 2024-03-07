@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
  * ~&gt;The `artifactory.GeneralSecurity` resource utilizes endpoints which are blocked/removed in SaaS environments (i.e. in Artifactory online), rendering this resource incompatible with Artifactory SaaS environments.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -50,15 +52,17 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Current general security settings can be imported using `security` as the `ID`, e.g.
  * 
  * ```sh
- *  $ pulumi import artifactory:index/generalSecurity:GeneralSecurity security security
+ * $ pulumi import artifactory:index/generalSecurity:GeneralSecurity security security
  * ```
- *  ~&gt;The `artifactory_general_security` resource uses endpoints that are undocumented and may not work with SaaS environments, or may change without notice.
+ * ~&gt;The `artifactory_general_security` resource uses endpoints that are undocumented and may not work with SaaS
+ * environments, or may change without notice.
  * 
  */
 @ResourceType(type="artifactory:index/generalSecurity:GeneralSecurity")

@@ -192,6 +192,7 @@ class DistributionPublicKey(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -200,13 +201,14 @@ class DistributionPublicKey(pulumi.CustomResource):
             alias="my-key",
             public_key=(lambda path: open(path).read())("samples/rsa.pub"))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Distribution Public Key can be imported using the key id, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/distributionPublicKey:DistributionPublicKey my-key keyid
+        $ pulumi import artifactory:index/distributionPublicKey:DistributionPublicKey my-key keyid
         ```
 
         :param str resource_name: The name of the resource.
@@ -229,6 +231,7 @@ class DistributionPublicKey(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -237,13 +240,14 @@ class DistributionPublicKey(pulumi.CustomResource):
             alias="my-key",
             public_key=(lambda path: open(path).read())("samples/rsa.pub"))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Distribution Public Key can be imported using the key id, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/distributionPublicKey:DistributionPublicKey my-key keyid
+        $ pulumi import artifactory:index/distributionPublicKey:DistributionPublicKey my-key keyid
         ```
 
         :param str resource_name: The name of the resource.

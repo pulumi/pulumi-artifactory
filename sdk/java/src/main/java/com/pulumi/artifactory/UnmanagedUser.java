@@ -26,6 +26,8 @@ import javax.annotation.Nullable;
  * &gt; This resource is an alias for `artifactory.User` resource, it is identical and was added for clarity and compatibility purposes. We don&#39;t recommend to use this resource unless there is a specific use case for it. Recommended resource is `artifactory.ManagedUser`.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -58,6 +60,8 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Managing groups relationship
  * 
  * See our recommendation on how to manage user-group relationship.
@@ -67,7 +71,7 @@ import javax.annotation.Nullable;
  * Users can be imported using their name, e.g.
  * 
  * ```sh
- *  $ pulumi import artifactory:index/unmanagedUser:UnmanagedUser test-user myusername
+ * $ pulumi import artifactory:index/unmanagedUser:UnmanagedUser test-user myusername
  * ```
  * 
  */

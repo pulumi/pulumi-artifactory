@@ -65,6 +65,7 @@ class ApiKey(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -72,13 +73,14 @@ class ApiKey(pulumi.CustomResource):
         # Create a new Artifactory API key for the configured user
         ci = artifactory.ApiKey("ci")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         A user's API key can be imported using any identifier, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/apiKey:ApiKey test import
+        $ pulumi import artifactory:index/apiKey:ApiKey test import
         ```
 
         :param str resource_name: The name of the resource.
@@ -97,6 +99,7 @@ class ApiKey(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -104,13 +107,14 @@ class ApiKey(pulumi.CustomResource):
         # Create a new Artifactory API key for the configured user
         ci = artifactory.ApiKey("ci")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         A user's API key can be imported using any identifier, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/apiKey:ApiKey test import
+        $ pulumi import artifactory:index/apiKey:ApiKey test import
         ```
 
         :param str resource_name: The name of the resource.

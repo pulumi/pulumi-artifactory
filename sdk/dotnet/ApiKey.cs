@@ -16,6 +16,7 @@ namespace Pulumi.Artifactory
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -29,13 +30,14 @@ namespace Pulumi.Artifactory
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// A user's API key can be imported using any identifier, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import artifactory:index/apiKey:ApiKey test import
+    /// $ pulumi import artifactory:index/apiKey:ApiKey test import
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/apiKey:ApiKey")]

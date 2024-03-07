@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -17,6 +18,7 @@ import * as utilities from "./utilities";
  *     key: "virtual-swift",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getVirtualSwiftRepository(args: GetVirtualSwiftRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualSwiftRepositoryResult> {
 
@@ -82,6 +84,7 @@ export interface GetVirtualSwiftRepositoryResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -90,6 +93,7 @@ export interface GetVirtualSwiftRepositoryResult {
  *     key: "virtual-swift",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getVirtualSwiftRepositoryOutput(args: GetVirtualSwiftRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualSwiftRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getVirtualSwiftRepository(a, opts))

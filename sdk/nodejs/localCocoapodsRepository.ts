@@ -9,19 +9,21 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * const terraform_local_test_cocoapods_repo = new artifactory.LocalCocoapodsRepository("terraform-local-test-cocoapods-repo", {key: "terraform-local-test-cocoapods-repo"});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Local repositories can be imported using their name, e.g.
  *
  * ```sh
- *  $ pulumi import artifactory:index/localCocoapodsRepository:LocalCocoapodsRepository terraform-local-test-cocoapods-repo terraform-local-test-cocoapods-repo
+ * $ pulumi import artifactory:index/localCocoapodsRepository:LocalCocoapodsRepository terraform-local-test-cocoapods-repo terraform-local-test-cocoapods-repo
  * ```
  */
 export class LocalCocoapodsRepository extends pulumi.CustomResource {

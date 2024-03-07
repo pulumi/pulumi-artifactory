@@ -666,6 +666,7 @@ class LocalNugetRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -675,13 +676,14 @@ class LocalNugetRepository(pulumi.CustomResource):
             key="terraform-local-test-nuget-repo-basic",
             max_unique_snapshots=5)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Local repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/localNugetRepository:LocalNugetRepository terraform-local-test-nuget-repo-basic terraform-local-test-nuget-repo-basic
+        $ pulumi import artifactory:index/localNugetRepository:LocalNugetRepository terraform-local-test-nuget-repo-basic terraform-local-test-nuget-repo-basic
         ```
 
         :param str resource_name: The name of the resource.
@@ -729,6 +731,7 @@ class LocalNugetRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -738,13 +741,14 @@ class LocalNugetRepository(pulumi.CustomResource):
             key="terraform-local-test-nuget-repo-basic",
             max_unique_snapshots=5)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Local repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/localNugetRepository:LocalNugetRepository terraform-local-test-nuget-repo-basic terraform-local-test-nuget-repo-basic
+        $ pulumi import artifactory:index/localNugetRepository:LocalNugetRepository terraform-local-test-nuget-repo-basic terraform-local-test-nuget-repo-basic
         ```
 
         :param str resource_name: The name of the resource.

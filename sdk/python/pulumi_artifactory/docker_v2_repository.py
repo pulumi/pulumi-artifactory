@@ -719,6 +719,7 @@ class DockerV2Repository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -728,13 +729,14 @@ class DockerV2Repository(pulumi.CustomResource):
             max_unique_tags=5,
             tag_retention=3)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Local repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/dockerV2Repository:DockerV2Repository foo foo
+        $ pulumi import artifactory:index/dockerV2Repository:DockerV2Repository foo foo
         ```
 
         :param str resource_name: The name of the resource.
@@ -784,6 +786,7 @@ class DockerV2Repository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -793,13 +796,14 @@ class DockerV2Repository(pulumi.CustomResource):
             max_unique_tags=5,
             tag_retention=3)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Local repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/dockerV2Repository:DockerV2Repository foo foo
+        $ pulumi import artifactory:index/dockerV2Repository:DockerV2Repository foo foo
         ```
 
         :param str resource_name: The name of the resource.

@@ -1549,6 +1549,7 @@ class RemoteCranRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -1557,13 +1558,14 @@ class RemoteCranRepository(pulumi.CustomResource):
             key="my-remote-cran",
             url="https://cran.r-project.org/")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Remote repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/remoteCranRepository:RemoteCranRepository my-remote-cran my-remote-cran
+        $ pulumi import artifactory:index/remoteCranRepository:RemoteCranRepository my-remote-cran my-remote-cran
         ```
 
         :param str resource_name: The name of the resource.
@@ -1655,6 +1657,7 @@ class RemoteCranRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -1663,13 +1666,14 @@ class RemoteCranRepository(pulumi.CustomResource):
             key="my-remote-cran",
             url="https://cran.r-project.org/")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Remote repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/remoteCranRepository:RemoteCranRepository my-remote-cran my-remote-cran
+        $ pulumi import artifactory:index/remoteCranRepository:RemoteCranRepository my-remote-cran my-remote-cran
         ```
 
         :param str resource_name: The name of the resource.

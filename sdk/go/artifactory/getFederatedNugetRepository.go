@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,6 +39,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupFederatedNugetRepository(ctx *pulumi.Context, args *LookupFederatedNugetRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupFederatedNugetRepositoryResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupFederatedNugetRepositoryResult

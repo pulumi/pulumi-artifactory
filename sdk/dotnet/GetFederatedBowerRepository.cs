@@ -14,10 +14,9 @@ namespace Pulumi.Artifactory
         /// <summary>
         /// Retrieves a federated Bower repository.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -33,8 +32,7 @@ namespace Pulumi.Artifactory
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetFederatedBowerRepositoryResult> InvokeAsync(GetFederatedBowerRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFederatedBowerRepositoryResult>("artifactory:index/getFederatedBowerRepository:getFederatedBowerRepository", args ?? new GetFederatedBowerRepositoryArgs(), options.WithDefaults());
@@ -42,10 +40,9 @@ namespace Pulumi.Artifactory
         /// <summary>
         /// Retrieves a federated Bower repository.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -61,8 +58,7 @@ namespace Pulumi.Artifactory
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetFederatedBowerRepositoryResult> Invoke(GetFederatedBowerRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFederatedBowerRepositoryResult>("artifactory:index/getFederatedBowerRepository:getFederatedBowerRepository", args ?? new GetFederatedBowerRepositoryInvokeArgs(), options.WithDefaults());

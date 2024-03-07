@@ -586,19 +586,21 @@ class LocalTerraformProviderRepository(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
 
         terraform_local_test_terraform_provider_repo = artifactory.LocalTerraformProviderRepository("terraform-local-test-terraform-provider-repo", key="terraform-local-test-terraform-provider-repo")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Local repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/localTerraformProviderRepository:LocalTerraformProviderRepository terraform-local-test-terraform-provider-repo terraform-local-test-terraform-provider-repo
+        $ pulumi import artifactory:index/localTerraformProviderRepository:LocalTerraformProviderRepository terraform-local-test-terraform-provider-repo terraform-local-test-terraform-provider-repo
         ```
 
         :param str resource_name: The name of the resource.
@@ -639,19 +641,21 @@ class LocalTerraformProviderRepository(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
 
         terraform_local_test_terraform_provider_repo = artifactory.LocalTerraformProviderRepository("terraform-local-test-terraform-provider-repo", key="terraform-local-test-terraform-provider-repo")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Local repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/localTerraformProviderRepository:LocalTerraformProviderRepository terraform-local-test-terraform-provider-repo terraform-local-test-terraform-provider-repo
+        $ pulumi import artifactory:index/localTerraformProviderRepository:LocalTerraformProviderRepository terraform-local-test-terraform-provider-repo terraform-local-test-terraform-provider-repo
         ```
 
         :param str resource_name: The name of the resource.

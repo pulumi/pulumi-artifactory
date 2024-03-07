@@ -1582,6 +1582,7 @@ class RemoteNpmRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -1592,13 +1593,14 @@ class RemoteNpmRepository(pulumi.CustomResource):
             mismatching_mime_types_override_list="application/json,application/xml",
             url="https://registry.npmjs.org")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Remote repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/remoteNpmRepository:RemoteNpmRepository npm-remote npm-remote
+        $ pulumi import artifactory:index/remoteNpmRepository:RemoteNpmRepository npm-remote npm-remote
         ```
 
         :param str resource_name: The name of the resource.
@@ -1691,6 +1693,7 @@ class RemoteNpmRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -1701,13 +1704,14 @@ class RemoteNpmRepository(pulumi.CustomResource):
             mismatching_mime_types_override_list="application/json,application/xml",
             url="https://registry.npmjs.org")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Remote repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/remoteNpmRepository:RemoteNpmRepository npm-remote npm-remote
+        $ pulumi import artifactory:index/remoteNpmRepository:RemoteNpmRepository npm-remote npm-remote
         ```
 
         :param str resource_name: The name of the resource.

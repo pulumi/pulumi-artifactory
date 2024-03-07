@@ -8,10 +8,10 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * ```sh
- *  $ pulumi import artifactory:index/group:Group terraform-group mygroup
+ * $ pulumi import artifactory:index/group:Group terraform-group mygroup
  * ```
  *
- *  ~> `users_names` can't be imported due to API limitations.
+ * ~> `users_names` can't be imported due to API limitations.
  */
 export class Group extends pulumi.CustomResource {
     /**

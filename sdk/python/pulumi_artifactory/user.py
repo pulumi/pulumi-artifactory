@@ -305,6 +305,7 @@ class User(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -321,6 +322,8 @@ class User(pulumi.CustomResource):
             password="my super secret password",
             profile_updatable=True)
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Managing groups relationship
 
         See our recommendation on how to manage user-group relationship.
@@ -328,7 +331,7 @@ class User(pulumi.CustomResource):
         ## Import
 
         ```sh
-         $ pulumi import artifactory:index/user:User test-user myusername
+        $ pulumi import artifactory:index/user:User test-user myusername
         ```
 
         :param str resource_name: The name of the resource.
@@ -357,6 +360,7 @@ class User(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -373,6 +377,8 @@ class User(pulumi.CustomResource):
             password="my super secret password",
             profile_updatable=True)
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Managing groups relationship
 
         See our recommendation on how to manage user-group relationship.
@@ -380,7 +386,7 @@ class User(pulumi.CustomResource):
         ## Import
 
         ```sh
-         $ pulumi import artifactory:index/user:User test-user myusername
+        $ pulumi import artifactory:index/user:User test-user myusername
         ```
 
         :param str resource_name: The name of the resource.

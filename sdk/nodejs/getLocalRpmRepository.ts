@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -17,6 +18,7 @@ import * as utilities from "./utilities";
  *     key: "local-test-rpm-repo-basic",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getLocalRpmRepository(args: GetLocalRpmRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalRpmRepositoryResult> {
 
@@ -160,6 +162,7 @@ export interface GetLocalRpmRepositoryResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -168,6 +171,7 @@ export interface GetLocalRpmRepositoryResult {
  *     key: "local-test-rpm-repo-basic",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getLocalRpmRepositoryOutput(args: GetLocalRpmRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalRpmRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getLocalRpmRepository(a, opts))

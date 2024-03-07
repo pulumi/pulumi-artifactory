@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -52,15 +53,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Distribution Public Key can be imported using the key id, e.g.
 //
 // ```sh
-//
-//	$ pulumi import artifactory:index/distributionPublicKey:DistributionPublicKey my-key keyid
-//
+// $ pulumi import artifactory:index/distributionPublicKey:DistributionPublicKey my-key keyid
 // ```
 type DistributionPublicKey struct {
 	pulumi.CustomResourceState

@@ -822,19 +822,21 @@ class LocalIvyRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
 
         terraform_local_test_ivy_repo = artifactory.LocalIvyRepository("terraform-local-test-ivy-repo", key="terraform-local-test-ivy-repo")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Local repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/localIvyRepository:LocalIvyRepository terraform-local-test-ivy-repo terraform-local-test-ivy-repo
+        $ pulumi import artifactory:index/localIvyRepository:LocalIvyRepository terraform-local-test-ivy-repo terraform-local-test-ivy-repo
         ```
 
         :param str resource_name: The name of the resource.
@@ -892,19 +894,21 @@ class LocalIvyRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
 
         terraform_local_test_ivy_repo = artifactory.LocalIvyRepository("terraform-local-test-ivy-repo", key="terraform-local-test-ivy-repo")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Local repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/localIvyRepository:LocalIvyRepository terraform-local-test-ivy-repo terraform-local-test-ivy-repo
+        $ pulumi import artifactory:index/localIvyRepository:LocalIvyRepository terraform-local-test-ivy-repo terraform-local-test-ivy-repo
         ```
 
         :param str resource_name: The name of the resource.

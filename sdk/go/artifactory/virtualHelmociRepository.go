@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -47,15 +48,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Virtual Helm OCI repositories can be imported using their name, e.g.
 //
 // ```sh
-//
-//	$ pulumi import artifactory:index/virtualHelmociRepository:VirtualHelmociRepository my-helmoci-virtual my-helmoci-virtual
-//
+// $ pulumi import artifactory:index/virtualHelmociRepository:VirtualHelmociRepository my-helmoci-virtual my-helmoci-virtual
 // ```
 type VirtualHelmociRepository struct {
 	pulumi.CustomResourceState

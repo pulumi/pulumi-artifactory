@@ -798,6 +798,7 @@ class FederatedDockerV1Repository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -815,13 +816,14 @@ class FederatedDockerV1Repository(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Federated repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/federatedDockerV1Repository:FederatedDockerV1Repository terraform-federated-test-docker-repo terraform-federated-test-docker-repo
+        $ pulumi import artifactory:index/federatedDockerV1Repository:FederatedDockerV1Repository terraform-federated-test-docker-repo terraform-federated-test-docker-repo
         ```
 
         :param str resource_name: The name of the resource.
@@ -872,6 +874,7 @@ class FederatedDockerV1Repository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -889,13 +892,14 @@ class FederatedDockerV1Repository(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Federated repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/federatedDockerV1Repository:FederatedDockerV1Repository terraform-federated-test-docker-repo terraform-federated-test-docker-repo
+        $ pulumi import artifactory:index/federatedDockerV1Repository:FederatedDockerV1Repository terraform-federated-test-docker-repo terraform-federated-test-docker-repo
         ```
 
         :param str resource_name: The name of the resource.

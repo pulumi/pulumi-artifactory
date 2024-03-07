@@ -364,8 +364,10 @@ class MailServer(pulumi.CustomResource):
         Provides an Artifactory Mail Server resource. This can be used to create and manage Artifactory mail server configuration.
 
         ## Example Usage
+
         ### S
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -382,14 +384,15 @@ class MailServer(pulumi.CustomResource):
             use_tls=True,
             username="test-user")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import artifactory:index/mailServer:MailServer my-mail-server mymailserver
+        $ pulumi import artifactory:index/mailServer:MailServer my-mail-server mymailserver
         ```
 
-         ~>The `password` attribute is not retrievable from Artifactory thus there will be state drift after importing this resource.
+        ~>The `password` attribute is not retrievable from Artifactory thus there will be state drift after importing this resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -414,8 +417,10 @@ class MailServer(pulumi.CustomResource):
         Provides an Artifactory Mail Server resource. This can be used to create and manage Artifactory mail server configuration.
 
         ## Example Usage
+
         ### S
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -432,14 +437,15 @@ class MailServer(pulumi.CustomResource):
             use_tls=True,
             username="test-user")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import artifactory:index/mailServer:MailServer my-mail-server mymailserver
+        $ pulumi import artifactory:index/mailServer:MailServer my-mail-server mymailserver
         ```
 
-         ~>The `password` attribute is not retrievable from Artifactory thus there will be state drift after importing this resource.
+        ~>The `password` attribute is not retrievable from Artifactory thus there will be state drift after importing this resource.
 
         :param str resource_name: The name of the resource.
         :param MailServerArgs args: The arguments to use to populate this resource's properties.

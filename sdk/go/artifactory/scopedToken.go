@@ -20,52 +20,98 @@ import (
 //
 // ## Example Usage
 //
-// ### Create a new Artifactory scoped token for an existing user
+// ### S
 //
-//	resource "artifactory_scoped_token" "scoped_token" {
-//	  username = "existing-user"
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v6/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// ## Create a new Artifactory scoped token for an existing user
+//			_, err := artifactory.NewScopedToken(ctx, "scopedToken", &artifactory.ScopedTokenArgs{
+//				Username: pulumi.String("existing-user"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// ## Create a new Artifactory user and scoped token
+//			newUser, err := artifactory.NewUser(ctx, "newUser", &artifactory.UserArgs{
+//				Email: pulumi.String("new_user@somewhere.com"),
+//				Groups: pulumi.StringArray{
+//					pulumi.String("readers"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = artifactory.NewScopedToken(ctx, "scopedTokenUser", &artifactory.ScopedTokenArgs{
+//				Username: newUser.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// ## Creates a new token for groups
+//			_, err = artifactory.NewScopedToken(ctx, "scopedTokenGroup", &artifactory.ScopedTokenArgs{
+//				Scopes: pulumi.StringArray{
+//					pulumi.String("applied-permissions/groups:readers"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// ## Create token with expiry
+//			_, err = artifactory.NewScopedToken(ctx, "scopedTokenNoExpiry", &artifactory.ScopedTokenArgs{
+//				Username:  pulumi.String("existing-user"),
+//				ExpiresIn: pulumi.Int(7200),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// ## Creates a refreshable token
+//			_, err = artifactory.NewScopedToken(ctx, "scopedTokenRefreshable", &artifactory.ScopedTokenArgs{
+//				Username:    pulumi.String("existing-user"),
+//				Refreshable: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// ## Creates an administrator token
+//			_, err = artifactory.NewScopedToken(ctx, "admin", &artifactory.ScopedTokenArgs{
+//				Username: pulumi.String("admin-user"),
+//				Scopes: pulumi.StringArray{
+//					pulumi.String("applied-permissions/admin"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// ## Creates a token with an audience
+//			_, err = artifactory.NewScopedToken(ctx, "audience", &artifactory.ScopedTokenArgs{
+//				Username: pulumi.String("admin-user"),
+//				Scopes: pulumi.StringArray{
+//					pulumi.String("applied-permissions/admin"),
+//				},
+//				Audiences: pulumi.StringArray{
+//					pulumi.String("jfrt@*"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
 //	}
 //
-// ### **Note:** This assumes that the user `existing-user` has already been created in Artifactory by different means, i.e. manually or in a separate pulumi up.
-//
-// ### Create a new Artifactory user and scoped token
-//
-//	resource "artifactory_user" "new_user" {
-//	  name   = "new_user"
-//	  email  = "new_user@somewhere.com"
-//	  groups = ["readers"]
-//	}
-//
-//	resource "artifactory_scoped_token" "scoped_token_user" {
-//	  username = artifactory_user.new_user.name
-//	}
-//
-// ### Creates a new token for groups
-//
-//	resource "artifactory_scoped_token" "scoped_token_group" {
-//	  scopes = ["applied-permissions/groups:readers"]
-//	}
-//
-// ### Create token with expiry
-//
-//	resource "artifactory_scoped_token" "scoped_token_no_expiry" {
-//	  username   = "existing-user"
-//	  expires_in = 7200 // in seconds
-//	}
-//
-// ### Creates a refreshable token
-//
-//	resource "artifactory_scoped_token" "scoped_token_refreshable" {
-//	  username    = "existing-user"
-//	  refreshable = true
-//	}
-//
-// ### Creates an administrator token
-//
-//	resource "artifactory_scoped_token" "admin" {
-//	  username = "admin-user"
-//	  scopes   = ["applied-permissions/admin"]
-//	}
+// ```
+// <!--End PulumiCodeChooser -->
 //
 // ## References
 //

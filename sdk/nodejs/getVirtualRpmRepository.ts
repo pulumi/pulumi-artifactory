@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -17,6 +18,7 @@ import * as utilities from "./utilities";
  *     key: "virtual-rpm",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getVirtualRpmRepository(args: GetVirtualRpmRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualRpmRepositoryResult> {
 
@@ -100,6 +102,7 @@ export interface GetVirtualRpmRepositoryResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -108,6 +111,7 @@ export interface GetVirtualRpmRepositoryResult {
  *     key: "virtual-rpm",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getVirtualRpmRepositoryOutput(args: GetVirtualRpmRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualRpmRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getVirtualRpmRepository(a, opts))

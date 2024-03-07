@@ -11,6 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -19,6 +20,7 @@ import * as utilities from "./utilities";
  *     key: "remote-maven",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getRemoteMavenRepository(args: GetRemoteMavenRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRemoteMavenRepositoryResult> {
 
@@ -249,6 +251,7 @@ export interface GetRemoteMavenRepositoryResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -257,6 +260,7 @@ export interface GetRemoteMavenRepositoryResult {
  *     key: "remote-maven",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getRemoteMavenRepositoryOutput(args: GetRemoteMavenRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteMavenRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getRemoteMavenRepository(a, opts))

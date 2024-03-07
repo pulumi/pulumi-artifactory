@@ -737,6 +737,7 @@ class FederatedTerraformModuleRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -754,13 +755,14 @@ class FederatedTerraformModuleRepository(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Federated repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/federatedTerraformModuleRepository:FederatedTerraformModuleRepository terraform-federated-test-terraform_module-repo terraform-federated-test-terraform-module-repo
+        $ pulumi import artifactory:index/federatedTerraformModuleRepository:FederatedTerraformModuleRepository terraform-federated-test-terraform_module-repo terraform-federated-test-terraform-module-repo
         ```
 
         :param str resource_name: The name of the resource.
@@ -811,6 +813,7 @@ class FederatedTerraformModuleRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -828,13 +831,14 @@ class FederatedTerraformModuleRepository(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Federated repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/federatedTerraformModuleRepository:FederatedTerraformModuleRepository terraform-federated-test-terraform_module-repo terraform-federated-test-terraform-module-repo
+        $ pulumi import artifactory:index/federatedTerraformModuleRepository:FederatedTerraformModuleRepository terraform-federated-test-terraform_module-repo terraform-federated-test-terraform-module-repo
         ```
 
         :param str resource_name: The name of the resource.

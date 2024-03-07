@@ -1678,6 +1678,7 @@ class RemoteHelmociRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -1689,13 +1690,14 @@ class RemoteHelmociRepository(pulumi.CustomResource):
             key="my-helmoci-remote",
             url="https://registry-1.docker.io/")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Remote repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/remoteHelmociRepository:RemoteHelmociRepository my-helmoci-remote my-helmoci-remote
+        $ pulumi import artifactory:index/remoteHelmociRepository:RemoteHelmociRepository my-helmoci-remote my-helmoci-remote
         ```
 
         :param str resource_name: The name of the resource.
@@ -1791,6 +1793,7 @@ class RemoteHelmociRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -1802,13 +1805,14 @@ class RemoteHelmociRepository(pulumi.CustomResource):
             key="my-helmoci-remote",
             url="https://registry-1.docker.io/")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Remote repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/remoteHelmociRepository:RemoteHelmociRepository my-helmoci-remote my-helmoci-remote
+        $ pulumi import artifactory:index/remoteHelmociRepository:RemoteHelmociRepository my-helmoci-remote my-helmoci-remote
         ```
 
         :param str resource_name: The name of the resource.

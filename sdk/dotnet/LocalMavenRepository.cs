@@ -14,6 +14,7 @@ namespace Pulumi.Artifactory
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -35,13 +36,14 @@ namespace Pulumi.Artifactory
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Local repositories can be imported using their name, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import artifactory:index/localMavenRepository:LocalMavenRepository terraform-local-test-maven-repo-basic terraform-local-test-maven-repo-basic
+    /// $ pulumi import artifactory:index/localMavenRepository:LocalMavenRepository terraform-local-test-maven-repo-basic terraform-local-test-maven-repo-basic
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/localMavenRepository:LocalMavenRepository")]

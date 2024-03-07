@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -49,15 +50,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Federated repositories can be imported using their name, e.g.
 //
 // ```sh
-//
-//	$ pulumi import artifactory:index/federatedPypiRepository:FederatedPypiRepository terraform-federated-test-pypi-repo terraform-federated-test-pypi-repo
-//
+// $ pulumi import artifactory:index/federatedPypiRepository:FederatedPypiRepository terraform-federated-test-pypi-repo terraform-federated-test-pypi-repo
 // ```
 type FederatedPypiRepository struct {
 	pulumi.CustomResourceState

@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,15 +42,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Remote repositories can be imported using their name, e.g.
 //
 // ```sh
-//
-//	$ pulumi import artifactory:index/remoteDebianRepository:RemoteDebianRepository my-remote-debian my-remote-debian
-//
+// $ pulumi import artifactory:index/remoteDebianRepository:RemoteDebianRepository my-remote-debian my-remote-debian
 // ```
 type RemoteDebianRepository struct {
 	pulumi.CustomResourceState

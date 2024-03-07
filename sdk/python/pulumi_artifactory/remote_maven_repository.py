@@ -1809,6 +1809,7 @@ class RemoteMavenRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -1822,13 +1823,14 @@ class RemoteMavenRepository(pulumi.CustomResource):
             suppress_pom_consistency_checks=False,
             url="https://repo1.maven.org/maven2/")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Remote repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/remoteMavenRepository:RemoteMavenRepository maven-remote maven-remote
+        $ pulumi import artifactory:index/remoteMavenRepository:RemoteMavenRepository maven-remote maven-remote
         ```
 
         :param str resource_name: The name of the resource.
@@ -1927,6 +1929,7 @@ class RemoteMavenRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -1940,13 +1943,14 @@ class RemoteMavenRepository(pulumi.CustomResource):
             suppress_pom_consistency_checks=False,
             url="https://repo1.maven.org/maven2/")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Remote repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/remoteMavenRepository:RemoteMavenRepository maven-remote maven-remote
+        $ pulumi import artifactory:index/remoteMavenRepository:RemoteMavenRepository maven-remote maven-remote
         ```
 
         :param str resource_name: The name of the resource.

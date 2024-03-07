@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -23,13 +24,14 @@ import * as utilities from "./utilities";
  *     suppressPomConsistencyChecks: false,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Local repositories can be imported using their name, e.g.
  *
  * ```sh
- *  $ pulumi import artifactory:index/localMavenRepository:LocalMavenRepository terraform-local-test-maven-repo-basic terraform-local-test-maven-repo-basic
+ * $ pulumi import artifactory:index/localMavenRepository:LocalMavenRepository terraform-local-test-maven-repo-basic terraform-local-test-maven-repo-basic
  * ```
  */
 export class LocalMavenRepository extends pulumi.CustomResource {

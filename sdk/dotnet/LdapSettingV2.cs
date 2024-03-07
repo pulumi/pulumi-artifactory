@@ -21,6 +21,7 @@ namespace Pulumi.Artifactory
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -49,11 +50,12 @@ namespace Pulumi.Artifactory
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// ```sh
-    ///  $ pulumi import artifactory:index/ldapSettingV2:LdapSettingV2 ldap ldap1
+    /// $ pulumi import artifactory:index/ldapSettingV2:LdapSettingV2 ldap ldap1
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/ldapSettingV2:LdapSettingV2")]

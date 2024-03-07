@@ -14,10 +14,9 @@ namespace Pulumi.Artifactory
         /// <summary>
         /// Retrieves a virtual Ivy repository.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -33,8 +32,7 @@ namespace Pulumi.Artifactory
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetVirtualIvyRepositoryResult> InvokeAsync(GetVirtualIvyRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualIvyRepositoryResult>("artifactory:index/getVirtualIvyRepository:getVirtualIvyRepository", args ?? new GetVirtualIvyRepositoryArgs(), options.WithDefaults());
@@ -42,10 +40,9 @@ namespace Pulumi.Artifactory
         /// <summary>
         /// Retrieves a virtual Ivy repository.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -61,8 +58,7 @@ namespace Pulumi.Artifactory
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetVirtualIvyRepositoryResult> Invoke(GetVirtualIvyRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualIvyRepositoryResult>("artifactory:index/getVirtualIvyRepository:getVirtualIvyRepository", args ?? new GetVirtualIvyRepositoryInvokeArgs(), options.WithDefaults());

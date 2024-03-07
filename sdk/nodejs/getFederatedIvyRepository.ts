@@ -11,6 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -19,6 +20,7 @@ import * as utilities from "./utilities";
  *     key: "federated-test-ivy-repo",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getFederatedIvyRepository(args: GetFederatedIvyRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetFederatedIvyRepositoryResult> {
 
@@ -150,6 +152,7 @@ export interface GetFederatedIvyRepositoryResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -158,6 +161,7 @@ export interface GetFederatedIvyRepositoryResult {
  *     key: "federated-test-ivy-repo",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getFederatedIvyRepositoryOutput(args: GetFederatedIvyRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedIvyRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getFederatedIvyRepository(a, opts))

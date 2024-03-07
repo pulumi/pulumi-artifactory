@@ -530,12 +530,14 @@ def get_remote_helmoci_repository(allow_any_host_auth: Optional[bool] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     my_helmoci_remote = artifactory.get_remote_helmoci_repository(key="my-helmoci-remote")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param bool enable_token_authentication: (Optional) Enable token (Bearer) based authentication.
@@ -697,12 +699,14 @@ def get_remote_helmoci_repository_output(allow_any_host_auth: Optional[pulumi.In
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     my_helmoci_remote = artifactory.get_remote_helmoci_repository(key="my-helmoci-remote")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param bool enable_token_authentication: (Optional) Enable token (Bearer) based authentication.

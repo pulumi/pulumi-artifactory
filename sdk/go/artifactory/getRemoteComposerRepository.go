@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,6 +39,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupRemoteComposerRepository(ctx *pulumi.Context, args *LookupRemoteComposerRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupRemoteComposerRepositoryResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRemoteComposerRepositoryResult

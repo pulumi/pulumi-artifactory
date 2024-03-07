@@ -11,6 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -19,6 +20,7 @@ import * as utilities from "./utilities";
  *     key: "my-oci-federated",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getFederatedOciRepository(args: GetFederatedOciRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetFederatedOciRepositoryResult> {
 
@@ -138,6 +140,7 @@ export interface GetFederatedOciRepositoryResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -146,6 +149,7 @@ export interface GetFederatedOciRepositoryResult {
  *     key: "my-oci-federated",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getFederatedOciRepositoryOutput(args: GetFederatedOciRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedOciRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getFederatedOciRepository(a, opts))

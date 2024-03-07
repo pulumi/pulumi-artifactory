@@ -25,6 +25,8 @@ import javax.annotation.Nullable;
  * See the [Official Documentation](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-PullReplication).
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -70,13 +72,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Pull replication config can be imported using its repo key, e.g.
  * 
  * ```sh
- *  $ pulumi import artifactory:index/pullReplication:PullReplication foo-rep repository-key
+ * $ pulumi import artifactory:index/pullReplication:PullReplication foo-rep repository-key
  * ```
  * 
  */

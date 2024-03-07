@@ -21,6 +21,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -58,15 +59,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Current Proxy can be imported using `proxy-key` from Artifactory as the `ID`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import artifactory:index/proxy:Proxy my-proxy proxy-key
-//
+// $ pulumi import artifactory:index/proxy:Proxy my-proxy proxy-key
 // ```
 type Proxy struct {
 	pulumi.CustomResourceState

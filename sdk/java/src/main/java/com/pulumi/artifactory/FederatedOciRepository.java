@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
  * Creates a federated OCI repository.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -60,13 +62,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Federated OCI repositories can be imported using their name, e.g.
  * 
  * ```sh
- *  $ pulumi import artifactory:index/federatedOciRepository:FederatedOciRepository my-oci-federated my-oci-federated
+ * $ pulumi import artifactory:index/federatedOciRepository:FederatedOciRepository my-oci-federated my-oci-federated
  * ```
  * 
  */

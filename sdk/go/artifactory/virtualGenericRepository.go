@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -46,15 +47,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Virtual repositories can be imported using their name, e.g.
 //
 // ```sh
-//
-//	$ pulumi import artifactory:index/virtualGenericRepository:VirtualGenericRepository foo-generic foo-generic
-//
+// $ pulumi import artifactory:index/virtualGenericRepository:VirtualGenericRepository foo-generic foo-generic
 // ```
 type VirtualGenericRepository struct {
 	pulumi.CustomResourceState

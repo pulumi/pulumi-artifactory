@@ -14,10 +14,9 @@ namespace Pulumi.Artifactory
         /// <summary>
         /// Retrieves a virtual Gradle repository.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -33,8 +32,7 @@ namespace Pulumi.Artifactory
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetVirtualGradleRepositoryResult> InvokeAsync(GetVirtualGradleRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualGradleRepositoryResult>("artifactory:index/getVirtualGradleRepository:getVirtualGradleRepository", args ?? new GetVirtualGradleRepositoryArgs(), options.WithDefaults());
@@ -42,10 +40,9 @@ namespace Pulumi.Artifactory
         /// <summary>
         /// Retrieves a virtual Gradle repository.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -61,8 +58,7 @@ namespace Pulumi.Artifactory
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetVirtualGradleRepositoryResult> Invoke(GetVirtualGradleRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualGradleRepositoryResult>("artifactory:index/getVirtualGradleRepository:getVirtualGradleRepository", args ?? new GetVirtualGradleRepositoryInvokeArgs(), options.WithDefaults());

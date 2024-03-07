@@ -208,12 +208,14 @@ def get_virtual_bower_repository(artifactory_requests_can_retrieve_remote_artifa
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     virtual_alpine = artifactory.get_virtual_bower_repository(key="virtual-alpine")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param bool external_dependencies_enabled: (Optional) When set, external dependencies are rewritten. Default value is false.
@@ -279,12 +281,14 @@ def get_virtual_bower_repository_output(artifactory_requests_can_retrieve_remote
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     virtual_alpine = artifactory.get_virtual_bower_repository(key="virtual-alpine")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param bool external_dependencies_enabled: (Optional) When set, external dependencies are rewritten. Default value is false.

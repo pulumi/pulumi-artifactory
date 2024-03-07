@@ -19,47 +19,91 @@ namespace Pulumi.Artifactory
     /// 
     /// ## Example Usage
     /// 
-    /// ### Create a new Artifactory scoped token for an existing user
+    /// ### S
     /// 
-    /// resource "artifactory_scoped_token" "scoped_token" {
-    ///   username = "existing-user"
-    /// }
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// ### **Note:** This assumes that the user `existing-user` has already been created in Artifactory by different means, i.e. manually or in a separate pulumi up.
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     //## Create a new Artifactory scoped token for an existing user
+    ///     var scopedToken = new Artifactory.ScopedToken("scopedToken", new()
+    ///     {
+    ///         Username = "existing-user",
+    ///     });
     /// 
-    /// ### Create a new Artifactory user and scoped token
-    /// resource "artifactory_user" "new_user" {
-    ///   name   = "new_user"
-    ///   email  = "new_user@somewhere.com"
-    ///   groups = ["readers"]
-    /// }
+    ///     //## **Note:** This assumes that the user `existing-user` has already been created in Artifactory by different means, i.e. manually or in a separate pulumi up.
+    ///     //## Create a new Artifactory user and scoped token
+    ///     var newUser = new Artifactory.User("newUser", new()
+    ///     {
+    ///         Email = "new_user@somewhere.com",
+    ///         Groups = new[]
+    ///         {
+    ///             "readers",
+    ///         },
+    ///     });
     /// 
-    /// resource "artifactory_scoped_token" "scoped_token_user" {
-    ///   username = artifactory_user.new_user.name
-    /// }
+    ///     var scopedTokenUser = new Artifactory.ScopedToken("scopedTokenUser", new()
+    ///     {
+    ///         Username = newUser.Name,
+    ///     });
     /// 
-    /// ### Creates a new token for groups
-    /// resource "artifactory_scoped_token" "scoped_token_group" {
-    ///   scopes = ["applied-permissions/groups:readers"]
-    /// }
+    ///     //## Creates a new token for groups
+    ///     var scopedTokenGroup = new Artifactory.ScopedToken("scopedTokenGroup", new()
+    ///     {
+    ///         Scopes = new[]
+    ///         {
+    ///             "applied-permissions/groups:readers",
+    ///         },
+    ///     });
     /// 
-    /// ### Create token with expiry
-    /// resource "artifactory_scoped_token" "scoped_token_no_expiry" {
-    ///   username   = "existing-user"
-    ///   expires_in = 7200 // in seconds
-    /// }
+    ///     //## Create token with expiry
+    ///     var scopedTokenNoExpiry = new Artifactory.ScopedToken("scopedTokenNoExpiry", new()
+    ///     {
+    ///         Username = "existing-user",
+    ///         ExpiresIn = 7200,
+    ///     });
     /// 
-    /// ### Creates a refreshable token
-    /// resource "artifactory_scoped_token" "scoped_token_refreshable" {
-    ///   username    = "existing-user"
-    ///   refreshable = true
-    /// }
+    ///     // in seconds
+    ///     //## Creates a refreshable token
+    ///     var scopedTokenRefreshable = new Artifactory.ScopedToken("scopedTokenRefreshable", new()
+    ///     {
+    ///         Username = "existing-user",
+    ///         Refreshable = true,
+    ///     });
     /// 
-    /// ### Creates an administrator token
-    /// resource "artifactory_scoped_token" "admin" {
-    ///   username = "admin-user"
-    ///   scopes   = ["applied-permissions/admin"]
-    /// }
+    ///     //## Creates an administrator token
+    ///     var admin = new Artifactory.ScopedToken("admin", new()
+    ///     {
+    ///         Username = "admin-user",
+    ///         Scopes = new[]
+    ///         {
+    ///             "applied-permissions/admin",
+    ///         },
+    ///     });
+    /// 
+    ///     //## Creates a token with an audience
+    ///     var audience = new Artifactory.ScopedToken("audience", new()
+    ///     {
+    ///         Username = "admin-user",
+    ///         Scopes = new[]
+    ///         {
+    ///             "applied-permissions/admin",
+    ///         },
+    ///         Audiences = new[]
+    ///         {
+    ///             "jfrt@*",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## References
     /// 
     /// - https://jfrog.com/help/r/jfrog-platform-administration-documentation/access-tokens

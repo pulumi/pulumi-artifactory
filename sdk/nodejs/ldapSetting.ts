@@ -14,6 +14,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -36,6 +37,7 @@ import * as utilities from "./utilities";
  *     userDnPattern: "uid={0},ou=People",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  * Note: `Key` argument has to match to the resource name.\
  * Reference Link: [JFrog LDAP](https://www.jfrog.com/confluence/display/JFROG/LDAP)
  *
@@ -44,7 +46,7 @@ import * as utilities from "./utilities";
  * LDAP setting can be imported using the key, e.g.
  *
  * ```sh
- *  $ pulumi import artifactory:index/ldapSetting:LdapSetting ldap_name ldap_name
+ * $ pulumi import artifactory:index/ldapSetting:LdapSetting ldap_name ldap_name
  * ```
  */
 export class LdapSetting extends pulumi.CustomResource {

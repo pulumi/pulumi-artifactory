@@ -371,6 +371,7 @@ class Backup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -388,6 +389,7 @@ class Backup(pulumi.CustomResource):
             send_mail_on_error=True,
             verify_disk_space=True)
         ```
+        <!--End PulumiCodeChooser -->
         Note: `Key` argument has to match to the resource name.
         Reference Link: [JFrog Artifactory Backup](https://www.jfrog.com/confluence/display/JFROG/Backups)
 
@@ -396,7 +398,7 @@ class Backup(pulumi.CustomResource):
         Backup config can be imported using the key, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/backup:Backup backup_name backup_name
+        $ pulumi import artifactory:index/backup:Backup backup_name backup_name
         ```
 
         :param str resource_name: The name of the resource.
@@ -428,6 +430,7 @@ class Backup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -445,6 +448,7 @@ class Backup(pulumi.CustomResource):
             send_mail_on_error=True,
             verify_disk_space=True)
         ```
+        <!--End PulumiCodeChooser -->
         Note: `Key` argument has to match to the resource name.
         Reference Link: [JFrog Artifactory Backup](https://www.jfrog.com/confluence/display/JFROG/Backups)
 
@@ -453,7 +457,7 @@ class Backup(pulumi.CustomResource):
         Backup config can be imported using the key, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/backup:Backup backup_name backup_name
+        $ pulumi import artifactory:index/backup:Backup backup_name backup_name
         ```
 
         :param str resource_name: The name of the resource.

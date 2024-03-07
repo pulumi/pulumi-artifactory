@@ -71,17 +71,19 @@ class GlobalEnvironment(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
 
         test_env = artifactory.GlobalEnvironment("test-env")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import artifactory:index/globalEnvironment:GlobalEnvironment dev-env myenv
+        $ pulumi import artifactory:index/globalEnvironment:GlobalEnvironment dev-env myenv
         ```
 
         :param str resource_name: The name of the resource.
@@ -99,17 +101,19 @@ class GlobalEnvironment(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
 
         test_env = artifactory.GlobalEnvironment("test-env")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import artifactory:index/globalEnvironment:GlobalEnvironment dev-env myenv
+        $ pulumi import artifactory:index/globalEnvironment:GlobalEnvironment dev-env myenv
         ```
 
         :param str resource_name: The name of the resource.

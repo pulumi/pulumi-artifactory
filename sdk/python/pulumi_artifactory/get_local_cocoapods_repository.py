@@ -212,12 +212,14 @@ def get_local_cocoapods_repository(archive_browsing_enabled: Optional[bool] = No
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     local_test_cocoapods_repo = artifactory.get_local_cocoapods_repository(key="local-test-cocoapods-repo")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str key: the identity key of the repo.
@@ -283,12 +285,14 @@ def get_local_cocoapods_repository_output(archive_browsing_enabled: Optional[pul
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     local_test_cocoapods_repo = artifactory.get_local_cocoapods_repository(key="local-test-cocoapods-repo")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str key: the identity key of the repo.

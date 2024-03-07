@@ -20,6 +20,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -75,15 +76,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Current Property Set can be imported using `property-set1` as the `ID`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import artifactory:index/propertySet:PropertySet foo property-set1
-//
+// $ pulumi import artifactory:index/propertySet:PropertySet foo property-set1
 // ```
 type PropertySet struct {
 	pulumi.CustomResourceState

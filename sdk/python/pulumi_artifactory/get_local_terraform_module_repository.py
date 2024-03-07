@@ -207,12 +207,14 @@ def get_local_terraform_module_repository(archive_browsing_enabled: Optional[boo
     """
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     terraform_local_test_terraform_module_repo = artifactory.LocalTerraformModuleRepository("terraform-local-test-terraform-module-repo", key="terraform-local-test-terraform-module-repo")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str key: the identity key of the repo.
@@ -276,12 +278,14 @@ def get_local_terraform_module_repository_output(archive_browsing_enabled: Optio
     """
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     terraform_local_test_terraform_module_repo = artifactory.LocalTerraformModuleRepository("terraform-local-test-terraform-module-repo", key="terraform-local-test-terraform-module-repo")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str key: the identity key of the repo.

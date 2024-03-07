@@ -11,6 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -19,6 +20,7 @@ import * as utilities from "./utilities";
  *     key: "remote-ivy",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getRemoteIvyRepository(args: GetRemoteIvyRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRemoteIvyRepositoryResult> {
 
@@ -240,6 +242,7 @@ export interface GetRemoteIvyRepositoryResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -248,6 +251,7 @@ export interface GetRemoteIvyRepositoryResult {
  *     key: "remote-ivy",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getRemoteIvyRepositoryOutput(args: GetRemoteIvyRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteIvyRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getRemoteIvyRepository(a, opts))

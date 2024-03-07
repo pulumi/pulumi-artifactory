@@ -26,6 +26,8 @@ import javax.annotation.Nullable;
  * ~&gt;The `artifactory.Proxy` resource utilizes endpoints which are blocked/removed in SaaS environments (i.e. in Artifactory online), rendering this resource incompatible with Artifactory SaaS environments.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -65,13 +67,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Current Proxy can be imported using `proxy-key` from Artifactory as the `ID`, e.g.
  * 
  * ```sh
- *  $ pulumi import artifactory:index/proxy:Proxy my-proxy proxy-key
+ * $ pulumi import artifactory:index/proxy:Proxy my-proxy proxy-key
  * ```
  * 
  */

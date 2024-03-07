@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -17,6 +18,7 @@ import * as utilities from "./utilities";
  *     key: "local-test-conda-repo",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getLocalCondaRepository(args: GetLocalCondaRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalCondaRepositoryResult> {
 
@@ -97,6 +99,7 @@ export interface GetLocalCondaRepositoryResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -105,6 +108,7 @@ export interface GetLocalCondaRepositoryResult {
  *     key: "local-test-conda-repo",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getLocalCondaRepositoryOutput(args: GetLocalCondaRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalCondaRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getLocalCondaRepository(a, opts))

@@ -18,6 +18,7 @@ namespace Pulumi.Artifactory
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -50,13 +51,17 @@ namespace Pulumi.Artifactory
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
-    /// Current OAuth SSO settings can be imported using `oauth_settings` as the `ID`. If the resource is being imported, there will be a state drift, because `client_secret` can't be known. There are two options on how to approach this: 1) Don't set `client_secret` initially, import, then update the config with actual secret; 2) Accept that there is a drift initially and run `pulumi up` twice;
+    /// Current OAuth SSO settings can be imported using `oauth_settings` as the `ID`.
+    /// If the resource is being imported, there will be a state drift, because `client_secret` can't be known. There are two options on how to approach this:
+    /// 1) Don't set `client_secret` initially, import, then update the config with actual secret;
+    /// 2) Accept that there is a drift initially and run `pulumi up` twice;
     /// 
     /// ```sh
-    ///  $ pulumi import artifactory:index/oauthSettings:OauthSettings oauth oauth_settings
+    /// $ pulumi import artifactory:index/oauthSettings:OauthSettings oauth oauth_settings
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/oauthSettings:OauthSettings")]

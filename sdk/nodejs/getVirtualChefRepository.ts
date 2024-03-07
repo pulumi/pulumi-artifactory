@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -17,6 +18,7 @@ import * as utilities from "./utilities";
  *     key: "virtual-chef",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getVirtualChefRepository(args: GetVirtualChefRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualChefRepositoryResult> {
 
@@ -91,6 +93,7 @@ export interface GetVirtualChefRepositoryResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -99,6 +102,7 @@ export interface GetVirtualChefRepositoryResult {
  *     key: "virtual-chef",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getVirtualChefRepositoryOutput(args: GetVirtualChefRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualChefRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getVirtualChefRepository(a, opts))

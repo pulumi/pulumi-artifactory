@@ -370,6 +370,7 @@ class LdapGroupSettingV2(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -385,11 +386,12 @@ class LdapGroupSettingV2(pulumi.CustomResource):
             strategy="STATIC",
             sub_tree=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import artifactory:index/ldapGroupSettingV2:LdapGroupSettingV2 ldap ldapGroup1
+        $ pulumi import artifactory:index/ldapGroupSettingV2:LdapGroupSettingV2 ldap ldapGroup1
         ```
 
         :param str resource_name: The name of the resource.
@@ -423,6 +425,7 @@ class LdapGroupSettingV2(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -438,11 +441,12 @@ class LdapGroupSettingV2(pulumi.CustomResource):
             strategy="STATIC",
             sub_tree=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import artifactory:index/ldapGroupSettingV2:LdapGroupSettingV2 ldap ldapGroup1
+        $ pulumi import artifactory:index/ldapGroupSettingV2:LdapGroupSettingV2 ldap ldapGroup1
         ```
 
         :param str resource_name: The name of the resource.

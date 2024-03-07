@@ -346,6 +346,7 @@ class LdapGroupSetting(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -361,6 +362,7 @@ class LdapGroupSetting(pulumi.CustomResource):
             strategy="STATIC",
             sub_tree=True)
         ```
+        <!--End PulumiCodeChooser -->
         Note: `Name` argument has to match to the resource name.\\
         Reference Link: [JFrog LDAP](https://www.jfrog.com/confluence/display/JFROG/LDAP)
 
@@ -369,7 +371,7 @@ class LdapGroupSetting(pulumi.CustomResource):
         LDAP Group setting can be imported using the key, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/ldapGroupSetting:LdapGroupSetting ldap_group_name ldap_group_name
+        $ pulumi import artifactory:index/ldapGroupSetting:LdapGroupSetting ldap_group_name ldap_group_name
         ```
 
         :param str resource_name: The name of the resource.
@@ -403,6 +405,7 @@ class LdapGroupSetting(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -418,6 +421,7 @@ class LdapGroupSetting(pulumi.CustomResource):
             strategy="STATIC",
             sub_tree=True)
         ```
+        <!--End PulumiCodeChooser -->
         Note: `Name` argument has to match to the resource name.\\
         Reference Link: [JFrog LDAP](https://www.jfrog.com/confluence/display/JFROG/LDAP)
 
@@ -426,7 +430,7 @@ class LdapGroupSetting(pulumi.CustomResource):
         LDAP Group setting can be imported using the key, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/ldapGroupSetting:LdapGroupSetting ldap_group_name ldap_group_name
+        $ pulumi import artifactory:index/ldapGroupSetting:LdapGroupSetting ldap_group_name ldap_group_name
         ```
 
         :param str resource_name: The name of the resource.

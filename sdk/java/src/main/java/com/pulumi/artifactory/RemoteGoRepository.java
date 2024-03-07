@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
  * Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Go+Registry).
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -53,13 +55,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Remote repositories can be imported using their name, e.g.
  * 
  * ```sh
- *  $ pulumi import artifactory:index/remoteGoRepository:RemoteGoRepository my-remote-go my-remote-go
+ * $ pulumi import artifactory:index/remoteGoRepository:RemoteGoRepository my-remote-go my-remote-go
  * ```
  * 
  */

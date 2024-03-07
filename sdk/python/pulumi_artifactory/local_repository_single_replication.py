@@ -566,6 +566,7 @@ class LocalRepositorySingleReplication(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -593,13 +594,14 @@ class LocalRepositorySingleReplication(pulumi.CustomResource):
             exclude_path_prefix_pattern="/some-other-repo/",
             check_binary_existence_in_filestore=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Push replication configs can be imported using their repo key, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/localRepositorySingleReplication:LocalRepositorySingleReplication foo-rep provider_test_source
+        $ pulumi import artifactory:index/localRepositorySingleReplication:LocalRepositorySingleReplication foo-rep provider_test_source
         ```
 
         :param str resource_name: The name of the resource.
@@ -635,6 +637,7 @@ class LocalRepositorySingleReplication(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -662,13 +665,14 @@ class LocalRepositorySingleReplication(pulumi.CustomResource):
             exclude_path_prefix_pattern="/some-other-repo/",
             check_binary_existence_in_filestore=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Push replication configs can be imported using their repo key, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/localRepositorySingleReplication:LocalRepositorySingleReplication foo-rep provider_test_source
+        $ pulumi import artifactory:index/localRepositorySingleReplication:LocalRepositorySingleReplication foo-rep provider_test_source
         ```
 
         :param str resource_name: The name of the resource.

@@ -30,6 +30,8 @@ import javax.annotation.Nullable;
  * &gt; This resource requires Artifactory Enterprise license.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -81,13 +83,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Push replication configs can be imported using their repo key, e.g.
  * 
  * ```sh
- *  $ pulumi import artifactory:index/pushReplication:PushReplication foo-rep provider_test_source
+ * $ pulumi import artifactory:index/pushReplication:PushReplication foo-rep provider_test_source
  * ```
  * 
  */

@@ -1648,6 +1648,7 @@ class RemotePypiRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -1658,13 +1659,14 @@ class RemotePypiRepository(pulumi.CustomResource):
             pypi_repository_suffix="simple",
             url="https://files.pythonhosted.org")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Remote repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/remotePypiRepository:RemotePypiRepository pypi-remote pypi-remote
+        $ pulumi import artifactory:index/remotePypiRepository:RemotePypiRepository pypi-remote pypi-remote
         ```
 
         :param str resource_name: The name of the resource.
@@ -1759,6 +1761,7 @@ class RemotePypiRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -1769,13 +1772,14 @@ class RemotePypiRepository(pulumi.CustomResource):
             pypi_repository_suffix="simple",
             url="https://files.pythonhosted.org")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Remote repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/remotePypiRepository:RemotePypiRepository pypi-remote pypi-remote
+        $ pulumi import artifactory:index/remotePypiRepository:RemotePypiRepository pypi-remote pypi-remote
         ```
 
         :param str resource_name: The name of the resource.

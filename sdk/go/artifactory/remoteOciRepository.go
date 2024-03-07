@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -47,15 +48,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Remote OCI repositories can be imported using their name, e.g.
 //
 // ```sh
-//
-//	$ pulumi import artifactory:index/remoteOciRepository:RemoteOciRepository my-oci-remote my-oci-remote
-//
+// $ pulumi import artifactory:index/remoteOciRepository:RemoteOciRepository my-oci-remote my-oci-remote
 // ```
 type RemoteOciRepository struct {
 	pulumi.CustomResourceState

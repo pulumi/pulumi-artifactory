@@ -299,6 +299,7 @@ class ManagedUser(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -311,11 +312,12 @@ class ManagedUser(pulumi.CustomResource):
             ],
             password="my super secret password")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import artifactory:index/managedUser:ManagedUser test-user myusername
+        $ pulumi import artifactory:index/managedUser:ManagedUser test-user myusername
         ```
 
         :param str resource_name: The name of the resource.
@@ -338,6 +340,7 @@ class ManagedUser(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -350,11 +353,12 @@ class ManagedUser(pulumi.CustomResource):
             ],
             password="my super secret password")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import artifactory:index/managedUser:ManagedUser test-user myusername
+        $ pulumi import artifactory:index/managedUser:ManagedUser test-user myusername
         ```
 
         :param str resource_name: The name of the resource.

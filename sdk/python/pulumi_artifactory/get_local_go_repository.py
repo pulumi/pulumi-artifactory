@@ -212,12 +212,14 @@ def get_local_go_repository(archive_browsing_enabled: Optional[bool] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     local_test_go_repo = artifactory.get_local_go_repository(key="local-test-go-repo")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str key: the identity key of the repo.
@@ -283,12 +285,14 @@ def get_local_go_repository_output(archive_browsing_enabled: Optional[pulumi.Inp
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     local_test_go_repo = artifactory.get_local_go_repository(key="local-test-go-repo")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str key: the identity key of the repo.

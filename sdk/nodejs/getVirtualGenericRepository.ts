@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -17,6 +18,7 @@ import * as utilities from "./utilities";
  *     key: "virtual-generic",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getVirtualGenericRepository(args: GetVirtualGenericRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualGenericRepositoryResult> {
 
@@ -82,6 +84,7 @@ export interface GetVirtualGenericRepositoryResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -90,6 +93,7 @@ export interface GetVirtualGenericRepositoryResult {
  *     key: "virtual-generic",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getVirtualGenericRepositoryOutput(args: GetVirtualGenericRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualGenericRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getVirtualGenericRepository(a, opts))

@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -48,15 +49,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Remote repositories can be imported using their name, e.g.
 //
 // ```sh
-//
-//	$ pulumi import artifactory:index/remoteDockerRepository:RemoteDockerRepository my-remote-docker my-remote-docker
-//
+// $ pulumi import artifactory:index/remoteDockerRepository:RemoteDockerRepository my-remote-docker my-remote-docker
 // ```
 type RemoteDockerRepository struct {
 	pulumi.CustomResourceState

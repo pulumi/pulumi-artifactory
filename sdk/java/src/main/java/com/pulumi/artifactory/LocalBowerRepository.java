@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * Creates a local Bower repository.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -48,13 +50,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Local repositories can be imported using their name, e.g.
  * 
  * ```sh
- *  $ pulumi import artifactory:index/localBowerRepository:LocalBowerRepository terraform-local-test-bower-repo terraform-local-test-bower-repo
+ * $ pulumi import artifactory:index/localBowerRepository:LocalBowerRepository terraform-local-test-bower-repo terraform-local-test-bower-repo
  * ```
  * 
  */

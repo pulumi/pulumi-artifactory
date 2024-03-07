@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
  * Official documentation can be found [here](https://jfrog.com/help/r/jfrog-artifactory-documentation/set-up-local-hugging-face-repositories).
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -50,13 +52,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Local repositories can be imported using their name, e.g.
  * 
  * ```sh
- *  $ pulumi import artifactory:index/localHuggingfacemlRepository:LocalHuggingfacemlRepository local-huggingfaceml-repo local-huggingfaceml-repo
+ * $ pulumi import artifactory:index/localHuggingfacemlRepository:LocalHuggingfacemlRepository local-huggingfaceml-repo local-huggingfaceml-repo
  * ```
  * 
  */

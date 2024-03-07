@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -28,13 +29,14 @@ import * as utilities from "./utilities";
  *     dependsOn: [some_keypairRSA],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Local repositories can be imported using their name, e.g.
  *
  * ```sh
- *  $ pulumi import artifactory:index/alpineRepository:AlpineRepository terraform-local-test-alpine-repo-basic terraform-local-test-alpine-repo-basic
+ * $ pulumi import artifactory:index/alpineRepository:AlpineRepository terraform-local-test-alpine-repo-basic terraform-local-test-alpine-repo-basic
  * ```
  */
 export class AlpineRepository extends pulumi.CustomResource {

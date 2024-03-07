@@ -590,19 +590,21 @@ class LocalHuggingfacemlRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
 
         local_huggingfaceml_repo = artifactory.LocalHuggingfacemlRepository("local-huggingfaceml-repo", key="local-huggingfaceml-repo")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Local repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/localHuggingfacemlRepository:LocalHuggingfacemlRepository local-huggingfaceml-repo local-huggingfaceml-repo
+        $ pulumi import artifactory:index/localHuggingfacemlRepository:LocalHuggingfacemlRepository local-huggingfaceml-repo local-huggingfaceml-repo
         ```
 
         :param str resource_name: The name of the resource.
@@ -647,19 +649,21 @@ class LocalHuggingfacemlRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
 
         local_huggingfaceml_repo = artifactory.LocalHuggingfacemlRepository("local-huggingfaceml-repo", key="local-huggingfaceml-repo")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Local repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/localHuggingfacemlRepository:LocalHuggingfacemlRepository local-huggingfaceml-repo local-huggingfaceml-repo
+        $ pulumi import artifactory:index/localHuggingfacemlRepository:LocalHuggingfacemlRepository local-huggingfaceml-repo local-huggingfaceml-repo
         ```
 
         :param str resource_name: The name of the resource.

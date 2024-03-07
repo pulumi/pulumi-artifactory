@@ -10,6 +10,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -19,13 +20,14 @@ import * as utilities from "./utilities";
  *     useNamespaces: true,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Virtual repositories can be imported using their name, e.g.
  *
  * ```sh
- *  $ pulumi import artifactory:index/virtualHelmRepository:VirtualHelmRepository foo-helm-virtual foo-helm-virtual
+ * $ pulumi import artifactory:index/virtualHelmRepository:VirtualHelmRepository foo-helm-virtual foo-helm-virtual
  * ```
  */
 export class VirtualHelmRepository extends pulumi.CustomResource {

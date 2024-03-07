@@ -18,6 +18,8 @@ import javax.annotation.Nullable;
 
 /**
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -46,13 +48,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Local repositories can be imported using their name, e.g.
  * 
  * ```sh
- *  $ pulumi import artifactory:index/localTerraformProviderRepository:LocalTerraformProviderRepository terraform-local-test-terraform-provider-repo terraform-local-test-terraform-provider-repo
+ * $ pulumi import artifactory:index/localTerraformProviderRepository:LocalTerraformProviderRepository terraform-local-test-terraform-provider-repo terraform-local-test-terraform-provider-repo
  * ```
  * 
  */

@@ -14,10 +14,9 @@ namespace Pulumi.Artifactory
         /// <summary>
         /// Get a flat (the default) or deep listing of the files and folders (not included by default) within a folder. For deep listing you can specify an optional depth to limit the results. Optionally include a map of metadata timestamp values as part of the result.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,8 +33,7 @@ namespace Pulumi.Artifactory
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetFileListResult> InvokeAsync(GetFileListArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFileListResult>("artifactory:index/getFileList:getFileList", args ?? new GetFileListArgs(), options.WithDefaults());
@@ -43,10 +41,9 @@ namespace Pulumi.Artifactory
         /// <summary>
         /// Get a flat (the default) or deep listing of the files and folders (not included by default) within a folder. For deep listing you can specify an optional depth to limit the results. Optionally include a map of metadata timestamp values as part of the result.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -63,8 +60,7 @@ namespace Pulumi.Artifactory
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetFileListResult> Invoke(GetFileListInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFileListResult>("artifactory:index/getFileList:getFileList", args ?? new GetFileListInvokeArgs(), options.WithDefaults());

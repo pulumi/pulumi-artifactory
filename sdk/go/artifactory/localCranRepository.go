@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,15 +40,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Local repositories can be imported using their name, e.g.
 //
 // ```sh
-//
-//	$ pulumi import artifactory:index/localCranRepository:LocalCranRepository terraform-local-test-cran-repo terraform-local-test-cran-repo
-//
+// $ pulumi import artifactory:index/localCranRepository:LocalCranRepository terraform-local-test-cran-repo terraform-local-test-cran-repo
 // ```
 type LocalCranRepository struct {
 	pulumi.CustomResourceState

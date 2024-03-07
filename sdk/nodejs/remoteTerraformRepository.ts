@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -20,13 +21,14 @@ import * as utilities from "./utilities";
  *     url: "https://github.com/",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Remote repositories can be imported using their name, e.g.
  *
  * ```sh
- *  $ pulumi import artifactory:index/remoteTerraformRepository:RemoteTerraformRepository terraform-remote terraform-remote
+ * $ pulumi import artifactory:index/remoteTerraformRepository:RemoteTerraformRepository terraform-remote terraform-remote
  * ```
  */
 export class RemoteTerraformRepository extends pulumi.CustomResource {

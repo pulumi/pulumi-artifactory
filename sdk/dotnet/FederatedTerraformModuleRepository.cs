@@ -14,6 +14,7 @@ namespace Pulumi.Artifactory
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -42,13 +43,14 @@ namespace Pulumi.Artifactory
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Federated repositories can be imported using their name, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import artifactory:index/federatedTerraformModuleRepository:FederatedTerraformModuleRepository terraform-federated-test-terraform_module-repo terraform-federated-test-terraform-module-repo
+    /// $ pulumi import artifactory:index/federatedTerraformModuleRepository:FederatedTerraformModuleRepository terraform-federated-test-terraform_module-repo terraform-federated-test-terraform-module-repo
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/federatedTerraformModuleRepository:FederatedTerraformModuleRepository")]

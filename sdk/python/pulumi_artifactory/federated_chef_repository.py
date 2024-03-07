@@ -737,6 +737,7 @@ class FederatedChefRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -754,13 +755,14 @@ class FederatedChefRepository(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Federated repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/federatedChefRepository:FederatedChefRepository terraform-federated-test-chef-repo terraform-federated-test-chef-repo
+        $ pulumi import artifactory:index/federatedChefRepository:FederatedChefRepository terraform-federated-test-chef-repo terraform-federated-test-chef-repo
         ```
 
         :param str resource_name: The name of the resource.
@@ -811,6 +813,7 @@ class FederatedChefRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -828,13 +831,14 @@ class FederatedChefRepository(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Federated repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/federatedChefRepository:FederatedChefRepository terraform-federated-test-chef-repo terraform-federated-test-chef-repo
+        $ pulumi import artifactory:index/federatedChefRepository:FederatedChefRepository terraform-federated-test-chef-repo terraform-federated-test-chef-repo
         ```
 
         :param str resource_name: The name of the resource.

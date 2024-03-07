@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * Provides an Artifactory certificate resource. This can be used to create and manage Artifactory certificates which can be used as client authentication against remote repositories.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -54,13 +56,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Certificates can be imported using their alias, e.g.
  * 
  * ```sh
- *  $ pulumi import artifactory:index/certificate:Certificate my-cert my-cert
+ * $ pulumi import artifactory:index/certificate:Certificate my-cert my-cert
  * ```
  * 
  */

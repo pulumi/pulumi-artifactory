@@ -1549,6 +1549,7 @@ class RemoteAlpineRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -1557,13 +1558,14 @@ class RemoteAlpineRepository(pulumi.CustomResource):
             key="my-remote-alpine",
             url="http://dl-cdn.alpinelinux.org/alpine")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Remote repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/remoteAlpineRepository:RemoteAlpineRepository my-remote-alpine my-remote-alpine
+        $ pulumi import artifactory:index/remoteAlpineRepository:RemoteAlpineRepository my-remote-alpine my-remote-alpine
         ```
 
         :param str resource_name: The name of the resource.
@@ -1655,6 +1657,7 @@ class RemoteAlpineRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -1663,13 +1666,14 @@ class RemoteAlpineRepository(pulumi.CustomResource):
             key="my-remote-alpine",
             url="http://dl-cdn.alpinelinux.org/alpine")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Remote repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/remoteAlpineRepository:RemoteAlpineRepository my-remote-alpine my-remote-alpine
+        $ pulumi import artifactory:index/remoteAlpineRepository:RemoteAlpineRepository my-remote-alpine my-remote-alpine
         ```
 
         :param str resource_name: The name of the resource.

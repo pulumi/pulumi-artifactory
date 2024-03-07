@@ -11,6 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -19,6 +20,7 @@ import * as utilities from "./utilities";
  *     key: "remote-helm",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getRemoteHelmRepository(args: GetRemoteHelmRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRemoteHelmRepositoryResult> {
 
@@ -204,6 +206,7 @@ export interface GetRemoteHelmRepositoryResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -212,6 +215,7 @@ export interface GetRemoteHelmRepositoryResult {
  *     key: "remote-helm",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getRemoteHelmRepositoryOutput(args: GetRemoteHelmRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteHelmRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getRemoteHelmRepository(a, opts))
