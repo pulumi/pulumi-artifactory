@@ -588,19 +588,21 @@ class LocalVagrantRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
 
         terraform_local_test_vagrant_repo = artifactory.LocalVagrantRepository("terraform-local-test-vagrant-repo", key="terraform-local-test-vagrant-repo")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Local repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/localVagrantRepository:LocalVagrantRepository terraform-local-test-vagrant-repo terraform-local-test-vagrant-repo
+        $ pulumi import artifactory:index/localVagrantRepository:LocalVagrantRepository terraform-local-test-vagrant-repo terraform-local-test-vagrant-repo
         ```
 
         :param str resource_name: The name of the resource.
@@ -643,19 +645,21 @@ class LocalVagrantRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
 
         terraform_local_test_vagrant_repo = artifactory.LocalVagrantRepository("terraform-local-test-vagrant-repo", key="terraform-local-test-vagrant-repo")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Local repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/localVagrantRepository:LocalVagrantRepository terraform-local-test-vagrant-repo terraform-local-test-vagrant-repo
+        $ pulumi import artifactory:index/localVagrantRepository:LocalVagrantRepository terraform-local-test-vagrant-repo terraform-local-test-vagrant-repo
         ```
 
         :param str resource_name: The name of the resource.

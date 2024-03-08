@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,6 +39,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupVirtualGenericRepository(ctx *pulumi.Context, args *LookupVirtualGenericRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupVirtualGenericRepositoryResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVirtualGenericRepositoryResult

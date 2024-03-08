@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
  * Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Chef+Cookbook+Repositories#ChefCookbookRepositories-VirtualChefSupermarket).
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -55,13 +57,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Virtual repositories can be imported using their name, e.g.
  * 
  * ```sh
- *  $ pulumi import artifactory:index/virtualChefRepository:VirtualChefRepository foo-chef foo-chef
+ * $ pulumi import artifactory:index/virtualChefRepository:VirtualChefRepository foo-chef foo-chef
  * ```
  * 
  */

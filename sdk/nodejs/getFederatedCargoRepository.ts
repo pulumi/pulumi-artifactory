@@ -11,12 +11,14 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * const federated_test_cargo_repo = new artifactory.FederatedCargoRepository("federated-test-cargo-repo", {key: "federated-test-cargo-repo"});
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getFederatedCargoRepository(args: GetFederatedCargoRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetFederatedCargoRepositoryResult> {
 
@@ -139,12 +141,14 @@ export interface GetFederatedCargoRepositoryResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * const federated_test_cargo_repo = new artifactory.FederatedCargoRepository("federated-test-cargo-repo", {key: "federated-test-cargo-repo"});
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getFederatedCargoRepositoryOutput(args: GetFederatedCargoRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedCargoRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getFederatedCargoRepository(a, opts))

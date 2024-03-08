@@ -11,6 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -19,6 +20,7 @@ import * as utilities from "./utilities";
  *     key: "remote-conan",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getRemoteConanRepository(args: GetRemoteConanRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRemoteConanRepositoryResult> {
 
@@ -186,6 +188,7 @@ export interface GetRemoteConanRepositoryResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -194,6 +197,7 @@ export interface GetRemoteConanRepositoryResult {
  *     key: "remote-conan",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getRemoteConanRepositoryOutput(args: GetRemoteConanRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteConanRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getRemoteConanRepository(a, opts))

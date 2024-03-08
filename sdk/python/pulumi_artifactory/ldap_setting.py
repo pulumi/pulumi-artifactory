@@ -515,6 +515,7 @@ class LdapSetting(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -536,6 +537,7 @@ class LdapSetting(pulumi.CustomResource):
             search_sub_tree=True,
             user_dn_pattern="uid={0},ou=People")
         ```
+        <!--End PulumiCodeChooser -->
         Note: `Key` argument has to match to the resource name.\\
         Reference Link: [JFrog LDAP](https://www.jfrog.com/confluence/display/JFROG/LDAP)
 
@@ -544,7 +546,7 @@ class LdapSetting(pulumi.CustomResource):
         LDAP setting can be imported using the key, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/ldapSetting:LdapSetting ldap_name ldap_name
+        $ pulumi import artifactory:index/ldapSetting:LdapSetting ldap_name ldap_name
         ```
 
         :param str resource_name: The name of the resource.
@@ -583,6 +585,7 @@ class LdapSetting(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -604,6 +607,7 @@ class LdapSetting(pulumi.CustomResource):
             search_sub_tree=True,
             user_dn_pattern="uid={0},ou=People")
         ```
+        <!--End PulumiCodeChooser -->
         Note: `Key` argument has to match to the resource name.\\
         Reference Link: [JFrog LDAP](https://www.jfrog.com/confluence/display/JFROG/LDAP)
 
@@ -612,7 +616,7 @@ class LdapSetting(pulumi.CustomResource):
         LDAP setting can be imported using the key, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/ldapSetting:LdapSetting ldap_name ldap_name
+        $ pulumi import artifactory:index/ldapSetting:LdapSetting ldap_name ldap_name
         ```
 
         :param str resource_name: The name of the resource.

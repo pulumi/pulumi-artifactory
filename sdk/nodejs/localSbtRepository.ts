@@ -9,19 +9,21 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * const terraform_local_test_sbt_repo = new artifactory.LocalSbtRepository("terraform-local-test-sbt-repo", {key: "terraform-local-test-sbt-repo"});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Local repositories can be imported using their name, e.g.
  *
  * ```sh
- *  $ pulumi import artifactory:index/localSbtRepository:LocalSbtRepository terraform-local-test-sbt-repo terraform-local-test-sbt-repo
+ * $ pulumi import artifactory:index/localSbtRepository:LocalSbtRepository terraform-local-test-sbt-repo terraform-local-test-sbt-repo
  * ```
  */
 export class LocalSbtRepository extends pulumi.CustomResource {

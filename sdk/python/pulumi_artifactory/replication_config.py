@@ -148,6 +148,7 @@ class ReplicationConfig(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -165,13 +166,14 @@ class ReplicationConfig(pulumi.CustomResource):
             )],
             repo_key=provider_test_source.key)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Replication configs can be imported using their repo key, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/replicationConfig:ReplicationConfig foo-rep provider_test_source
+        $ pulumi import artifactory:index/replicationConfig:ReplicationConfig foo-rep provider_test_source
         ```
 
         :param str resource_name: The name of the resource.
@@ -191,6 +193,7 @@ class ReplicationConfig(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -208,13 +211,14 @@ class ReplicationConfig(pulumi.CustomResource):
             )],
             repo_key=provider_test_source.key)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Replication configs can be imported using their repo key, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/replicationConfig:ReplicationConfig foo-rep provider_test_source
+        $ pulumi import artifactory:index/replicationConfig:ReplicationConfig foo-rep provider_test_source
         ```
 
         :param str resource_name: The name of the resource.

@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -42,15 +43,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Remote repositories can be imported using their name, e.g.
 //
 // ```sh
-//
-//	$ pulumi import artifactory:index/remoteBowerRepository:RemoteBowerRepository my-remote-bower my-remote-bower
-//
+// $ pulumi import artifactory:index/remoteBowerRepository:RemoteBowerRepository my-remote-bower my-remote-bower
 // ```
 type RemoteBowerRepository struct {
 	pulumi.CustomResourceState

@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -48,15 +49,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Virtual OCI repositories can be imported using their name, e.g.
 //
 // ```sh
-//
-//	$ pulumi import artifactory:index/virtualOciRepository:VirtualOciRepository my-oci-virtual my-oci-virtual
-//
+// $ pulumi import artifactory:index/virtualOciRepository:VirtualOciRepository my-oci-virtual my-oci-virtual
 // ```
 type VirtualOciRepository struct {
 	pulumi.CustomResourceState

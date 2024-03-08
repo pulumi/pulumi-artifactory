@@ -18,6 +18,7 @@ namespace Pulumi.Artifactory
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -74,13 +75,14 @@ namespace Pulumi.Artifactory
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Current Property Set can be imported using `property-set1` as the `ID`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import artifactory:index/propertySet:PropertySet foo property-set1
+    /// $ pulumi import artifactory:index/propertySet:PropertySet foo property-set1
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/propertySet:PropertySet")]

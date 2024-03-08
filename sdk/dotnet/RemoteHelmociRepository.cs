@@ -16,6 +16,7 @@ namespace Pulumi.Artifactory
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -38,13 +39,14 @@ namespace Pulumi.Artifactory
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Remote repositories can be imported using their name, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import artifactory:index/remoteHelmociRepository:RemoteHelmociRepository my-helmoci-remote my-helmoci-remote
+    /// $ pulumi import artifactory:index/remoteHelmociRepository:RemoteHelmociRepository my-helmoci-remote my-helmoci-remote
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/remoteHelmociRepository:RemoteHelmociRepository")]

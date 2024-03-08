@@ -16,10 +16,9 @@ namespace Pulumi.Artifactory
         /// 
         /// Provides an Artifactory fileinfo datasource. This can be used to read metadata of files stored in Artifactory repositories.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -36,8 +35,7 @@ namespace Pulumi.Artifactory
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetFileinfoResult> InvokeAsync(GetFileinfoArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFileinfoResult>("artifactory:index/getFileinfo:getFileinfo", args ?? new GetFileinfoArgs(), options.WithDefaults());
@@ -47,10 +45,9 @@ namespace Pulumi.Artifactory
         /// 
         /// Provides an Artifactory fileinfo datasource. This can be used to read metadata of files stored in Artifactory repositories.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -67,8 +64,7 @@ namespace Pulumi.Artifactory
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetFileinfoResult> Invoke(GetFileinfoInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFileinfoResult>("artifactory:index/getFileinfo:getFileinfo", args ?? new GetFileinfoInvokeArgs(), options.WithDefaults());

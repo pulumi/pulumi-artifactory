@@ -212,12 +212,14 @@ def get_local_opkg_repository(archive_browsing_enabled: Optional[bool] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     local_test_opkg_repo = artifactory.get_local_opkg_repository(key="local-test-opkg-repo")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str key: the identity key of the repo.
@@ -283,12 +285,14 @@ def get_local_opkg_repository_output(archive_browsing_enabled: Optional[pulumi.I
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     local_test_opkg_repo = artifactory.get_local_opkg_repository(key="local-test-opkg-repo")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str key: the identity key of the repo.

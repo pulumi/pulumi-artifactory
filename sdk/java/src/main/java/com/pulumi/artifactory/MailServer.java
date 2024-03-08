@@ -20,7 +20,10 @@ import javax.annotation.Nullable;
  * Provides an Artifactory Mail Server resource. This can be used to create and manage Artifactory mail server configuration.
  * 
  * ## Example Usage
+ * 
  * ### S
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -58,14 +61,15 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * ```sh
- *  $ pulumi import artifactory:index/mailServer:MailServer my-mail-server mymailserver
+ * $ pulumi import artifactory:index/mailServer:MailServer my-mail-server mymailserver
  * ```
  * 
- *  ~&gt;The `password` attribute is not retrievable from Artifactory thus there will be state drift after importing this resource.
+ * ~&gt;The `password` attribute is not retrievable from Artifactory thus there will be state drift after importing this resource.
  * 
  */
 @ResourceType(type="artifactory:index/mailServer:MailServer")

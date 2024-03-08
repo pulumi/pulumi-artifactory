@@ -11,6 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -19,6 +20,7 @@ import * as utilities from "./utilities";
  *     key: "federated-test-alpine-repo",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getFederatedAlpineRepository(args: GetFederatedAlpineRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetFederatedAlpineRepositoryResult> {
 
@@ -138,6 +140,7 @@ export interface GetFederatedAlpineRepositoryResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -146,6 +149,7 @@ export interface GetFederatedAlpineRepositoryResult {
  *     key: "federated-test-alpine-repo",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getFederatedAlpineRepositoryOutput(args: GetFederatedAlpineRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedAlpineRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getFederatedAlpineRepository(a, opts))

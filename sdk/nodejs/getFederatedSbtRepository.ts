@@ -11,6 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -19,6 +20,7 @@ import * as utilities from "./utilities";
  *     key: "federated-test-sbt-repo",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getFederatedSbtRepository(args: GetFederatedSbtRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetFederatedSbtRepositoryResult> {
 
@@ -150,6 +152,7 @@ export interface GetFederatedSbtRepositoryResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -158,6 +161,7 @@ export interface GetFederatedSbtRepositoryResult {
  *     key: "federated-test-sbt-repo",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getFederatedSbtRepositoryOutput(args: GetFederatedSbtRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedSbtRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getFederatedSbtRepository(a, opts))

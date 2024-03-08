@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -17,6 +18,7 @@ import * as utilities from "./utilities";
  *     key: "virtual-helm",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getVirtualHelmRepository(args: GetVirtualHelmRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualHelmRepositoryResult> {
 
@@ -100,6 +102,7 @@ export interface GetVirtualHelmRepositoryResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -108,6 +111,7 @@ export interface GetVirtualHelmRepositoryResult {
  *     key: "virtual-helm",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getVirtualHelmRepositoryOutput(args: GetVirtualHelmRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualHelmRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getVirtualHelmRepository(a, opts))

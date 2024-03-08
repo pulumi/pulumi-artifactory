@@ -7,6 +7,7 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -14,11 +15,12 @@ import * as utilities from "./utilities";
  * // Define a new Artifactory 'anonymous' user for import
  * const anonymous = new artifactory.AnonymousUser("anonymous", {});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * ```sh
- *  $ pulumi import artifactory:index/anonymousUser:AnonymousUser anonymous-user anonymous
+ * $ pulumi import artifactory:index/anonymousUser:AnonymousUser anonymous-user anonymous
  * ```
  */
 export class AnonymousUser extends pulumi.CustomResource {

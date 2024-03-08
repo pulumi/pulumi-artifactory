@@ -433,10 +433,10 @@ class Group(pulumi.CustomResource):
         ## Import
 
         ```sh
-         $ pulumi import artifactory:index/group:Group terraform-group mygroup
+        $ pulumi import artifactory:index/group:Group terraform-group mygroup
         ```
 
-         ~> `users_names` can't be imported due to API limitations.
+        ~> `users_names` can't be imported due to API limitations.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -463,10 +463,10 @@ class Group(pulumi.CustomResource):
         ## Import
 
         ```sh
-         $ pulumi import artifactory:index/group:Group terraform-group mygroup
+        $ pulumi import artifactory:index/group:Group terraform-group mygroup
         ```
 
-         ~> `users_names` can't be imported due to API limitations.
+        ~> `users_names` can't be imported due to API limitations.
 
         :param str resource_name: The name of the resource.
         :param GroupArgs args: The arguments to use to populate this resource's properties.

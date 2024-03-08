@@ -432,6 +432,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Alpine repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -460,6 +462,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFederatedAlpineRepositoryResult> getFederatedAlpineRepository(GetFederatedAlpineRepositoryArgs args) {
@@ -469,6 +472,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Alpine repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -497,6 +502,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFederatedAlpineRepositoryResult> getFederatedAlpineRepositoryPlain(GetFederatedAlpineRepositoryPlainArgs args) {
@@ -506,6 +512,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Alpine repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -534,6 +542,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFederatedAlpineRepositoryResult> getFederatedAlpineRepository(GetFederatedAlpineRepositoryArgs args, InvokeOptions options) {
@@ -543,6 +552,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Alpine repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -571,6 +582,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFederatedAlpineRepositoryResult> getFederatedAlpineRepositoryPlain(GetFederatedAlpineRepositoryPlainArgs args, InvokeOptions options) {
@@ -580,6 +592,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Bower repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -608,6 +622,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFederatedBowerRepositoryResult> getFederatedBowerRepository(GetFederatedBowerRepositoryArgs args) {
@@ -617,6 +632,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Bower repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -645,6 +662,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFederatedBowerRepositoryResult> getFederatedBowerRepositoryPlain(GetFederatedBowerRepositoryPlainArgs args) {
@@ -654,6 +672,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Bower repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -682,6 +702,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFederatedBowerRepositoryResult> getFederatedBowerRepository(GetFederatedBowerRepositoryArgs args, InvokeOptions options) {
@@ -691,6 +712,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Bower repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -719,6 +742,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFederatedBowerRepositoryResult> getFederatedBowerRepositoryPlain(GetFederatedBowerRepositoryPlainArgs args, InvokeOptions options) {
@@ -728,6 +752,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Cargo repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -756,6 +782,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFederatedCargoRepositoryResult> getFederatedCargoRepository(GetFederatedCargoRepositoryArgs args) {
@@ -765,6 +792,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Cargo repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -793,6 +822,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFederatedCargoRepositoryResult> getFederatedCargoRepositoryPlain(GetFederatedCargoRepositoryPlainArgs args) {
@@ -802,6 +832,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Cargo repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -830,6 +862,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFederatedCargoRepositoryResult> getFederatedCargoRepository(GetFederatedCargoRepositoryArgs args, InvokeOptions options) {
@@ -839,6 +872,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Cargo repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -867,6 +902,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFederatedCargoRepositoryResult> getFederatedCargoRepositoryPlain(GetFederatedCargoRepositoryPlainArgs args, InvokeOptions options) {
@@ -876,6 +912,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Chef repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -904,6 +942,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFederatedChefRepositoryResult> getFederatedChefRepository(GetFederatedChefRepositoryArgs args) {
@@ -913,6 +952,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Chef repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -941,6 +982,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFederatedChefRepositoryResult> getFederatedChefRepositoryPlain(GetFederatedChefRepositoryPlainArgs args) {
@@ -950,6 +992,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Chef repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -978,6 +1022,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFederatedChefRepositoryResult> getFederatedChefRepository(GetFederatedChefRepositoryArgs args, InvokeOptions options) {
@@ -987,6 +1032,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Chef repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1015,6 +1062,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFederatedChefRepositoryResult> getFederatedChefRepositoryPlain(GetFederatedChefRepositoryPlainArgs args, InvokeOptions options) {
@@ -1024,6 +1072,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Cocoapods repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1052,6 +1102,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFederatedCocoapodsRepositoryResult> getFederatedCocoapodsRepository(GetFederatedCocoapodsRepositoryArgs args) {
@@ -1061,6 +1112,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Cocoapods repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1089,6 +1142,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFederatedCocoapodsRepositoryResult> getFederatedCocoapodsRepositoryPlain(GetFederatedCocoapodsRepositoryPlainArgs args) {
@@ -1098,6 +1152,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Cocoapods repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1126,6 +1182,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFederatedCocoapodsRepositoryResult> getFederatedCocoapodsRepository(GetFederatedCocoapodsRepositoryArgs args, InvokeOptions options) {
@@ -1135,6 +1192,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Cocoapods repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1163,6 +1222,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFederatedCocoapodsRepositoryResult> getFederatedCocoapodsRepositoryPlain(GetFederatedCocoapodsRepositoryPlainArgs args, InvokeOptions options) {
@@ -1172,6 +1232,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Composer repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1200,6 +1262,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFederatedComposerRepositoryResult> getFederatedComposerRepository(GetFederatedComposerRepositoryArgs args) {
@@ -1209,6 +1272,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Composer repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1237,6 +1302,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFederatedComposerRepositoryResult> getFederatedComposerRepositoryPlain(GetFederatedComposerRepositoryPlainArgs args) {
@@ -1246,6 +1312,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Composer repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1274,6 +1342,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFederatedComposerRepositoryResult> getFederatedComposerRepository(GetFederatedComposerRepositoryArgs args, InvokeOptions options) {
@@ -1283,6 +1352,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Composer repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1311,6 +1382,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFederatedComposerRepositoryResult> getFederatedComposerRepositoryPlain(GetFederatedComposerRepositoryPlainArgs args, InvokeOptions options) {
@@ -1320,6 +1392,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Conan repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1348,6 +1422,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFederatedConanRepositoryResult> getFederatedConanRepository(GetFederatedConanRepositoryArgs args) {
@@ -1357,6 +1432,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Conan repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1385,6 +1462,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFederatedConanRepositoryResult> getFederatedConanRepositoryPlain(GetFederatedConanRepositoryPlainArgs args) {
@@ -1394,6 +1472,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Conan repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1422,6 +1502,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFederatedConanRepositoryResult> getFederatedConanRepository(GetFederatedConanRepositoryArgs args, InvokeOptions options) {
@@ -1431,6 +1512,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Conan repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1459,6 +1542,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFederatedConanRepositoryResult> getFederatedConanRepositoryPlain(GetFederatedConanRepositoryPlainArgs args, InvokeOptions options) {
@@ -1468,6 +1552,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Conda repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1496,6 +1582,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFederatedCondaRepositoryResult> getFederatedCondaRepository(GetFederatedCondaRepositoryArgs args) {
@@ -1505,6 +1592,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Conda repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1533,6 +1622,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFederatedCondaRepositoryResult> getFederatedCondaRepositoryPlain(GetFederatedCondaRepositoryPlainArgs args) {
@@ -1542,6 +1632,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Conda repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1570,6 +1662,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFederatedCondaRepositoryResult> getFederatedCondaRepository(GetFederatedCondaRepositoryArgs args, InvokeOptions options) {
@@ -1579,6 +1672,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Conda repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1607,6 +1702,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFederatedCondaRepositoryResult> getFederatedCondaRepositoryPlain(GetFederatedCondaRepositoryPlainArgs args, InvokeOptions options) {
@@ -1616,6 +1712,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Cran repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1644,6 +1742,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFederatedCranRepositoryResult> getFederatedCranRepository(GetFederatedCranRepositoryArgs args) {
@@ -1653,6 +1752,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Cran repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1681,6 +1782,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFederatedCranRepositoryResult> getFederatedCranRepositoryPlain(GetFederatedCranRepositoryPlainArgs args) {
@@ -1690,6 +1792,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Cran repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1718,6 +1822,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFederatedCranRepositoryResult> getFederatedCranRepository(GetFederatedCranRepositoryArgs args, InvokeOptions options) {
@@ -1727,6 +1832,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Cran repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1755,6 +1862,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFederatedCranRepositoryResult> getFederatedCranRepositoryPlain(GetFederatedCranRepositoryPlainArgs args, InvokeOptions options) {
@@ -1764,6 +1872,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Debian repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1792,6 +1902,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFederatedDebianRepositoryResult> getFederatedDebianRepository(GetFederatedDebianRepositoryArgs args) {
@@ -1801,6 +1912,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Debian repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1829,6 +1942,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFederatedDebianRepositoryResult> getFederatedDebianRepositoryPlain(GetFederatedDebianRepositoryPlainArgs args) {
@@ -1838,6 +1952,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Debian repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1866,6 +1982,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFederatedDebianRepositoryResult> getFederatedDebianRepository(GetFederatedDebianRepositoryArgs args, InvokeOptions options) {
@@ -1875,6 +1992,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Debian repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1903,6 +2022,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFederatedDebianRepositoryResult> getFederatedDebianRepositoryPlain(GetFederatedDebianRepositoryPlainArgs args, InvokeOptions options) {
@@ -1924,6 +2044,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Docker repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1952,6 +2074,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFederatedDockerV1RepositoryResult> getFederatedDockerV1Repository(GetFederatedDockerV1RepositoryArgs args) {
@@ -1961,6 +2084,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Docker repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1989,6 +2114,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFederatedDockerV1RepositoryResult> getFederatedDockerV1RepositoryPlain(GetFederatedDockerV1RepositoryPlainArgs args) {
@@ -1998,6 +2124,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Docker repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2026,6 +2154,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFederatedDockerV1RepositoryResult> getFederatedDockerV1Repository(GetFederatedDockerV1RepositoryArgs args, InvokeOptions options) {
@@ -2035,6 +2164,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Docker repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2063,6 +2194,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFederatedDockerV1RepositoryResult> getFederatedDockerV1RepositoryPlain(GetFederatedDockerV1RepositoryPlainArgs args, InvokeOptions options) {
@@ -2072,6 +2204,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Docker repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2100,6 +2234,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFederatedDockerV2RepositoryResult> getFederatedDockerV2Repository(GetFederatedDockerV2RepositoryArgs args) {
@@ -2109,6 +2244,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Docker repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2137,6 +2274,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFederatedDockerV2RepositoryResult> getFederatedDockerV2RepositoryPlain(GetFederatedDockerV2RepositoryPlainArgs args) {
@@ -2146,6 +2284,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Docker repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2174,6 +2314,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFederatedDockerV2RepositoryResult> getFederatedDockerV2Repository(GetFederatedDockerV2RepositoryArgs args, InvokeOptions options) {
@@ -2183,6 +2324,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Docker repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2211,6 +2354,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFederatedDockerV2RepositoryResult> getFederatedDockerV2RepositoryPlain(GetFederatedDockerV2RepositoryPlainArgs args, InvokeOptions options) {
@@ -2220,6 +2364,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Gems repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2248,6 +2394,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFederatedGemsRepositoryResult> getFederatedGemsRepository(GetFederatedGemsRepositoryArgs args) {
@@ -2257,6 +2404,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Gems repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2285,6 +2434,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFederatedGemsRepositoryResult> getFederatedGemsRepositoryPlain(GetFederatedGemsRepositoryPlainArgs args) {
@@ -2294,6 +2444,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Gems repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2322,6 +2474,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFederatedGemsRepositoryResult> getFederatedGemsRepository(GetFederatedGemsRepositoryArgs args, InvokeOptions options) {
@@ -2331,6 +2484,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Gems repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2359,6 +2514,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFederatedGemsRepositoryResult> getFederatedGemsRepositoryPlain(GetFederatedGemsRepositoryPlainArgs args, InvokeOptions options) {
@@ -2368,6 +2524,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Generic repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2396,6 +2554,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFederatedGenericRepositoryResult> getFederatedGenericRepository(GetFederatedGenericRepositoryArgs args) {
@@ -2405,6 +2564,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Generic repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2433,6 +2594,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFederatedGenericRepositoryResult> getFederatedGenericRepositoryPlain(GetFederatedGenericRepositoryPlainArgs args) {
@@ -2442,6 +2604,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Generic repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2470,6 +2634,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFederatedGenericRepositoryResult> getFederatedGenericRepository(GetFederatedGenericRepositoryArgs args, InvokeOptions options) {
@@ -2479,6 +2644,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Generic repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2507,6 +2674,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFederatedGenericRepositoryResult> getFederatedGenericRepositoryPlain(GetFederatedGenericRepositoryPlainArgs args, InvokeOptions options) {
@@ -2516,6 +2684,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Gitlfs repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2544,6 +2714,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFederatedGitlfsRepositoryResult> getFederatedGitlfsRepository(GetFederatedGitlfsRepositoryArgs args) {
@@ -2553,6 +2724,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Gitlfs repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2581,6 +2754,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFederatedGitlfsRepositoryResult> getFederatedGitlfsRepositoryPlain(GetFederatedGitlfsRepositoryPlainArgs args) {
@@ -2590,6 +2764,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Gitlfs repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2618,6 +2794,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFederatedGitlfsRepositoryResult> getFederatedGitlfsRepository(GetFederatedGitlfsRepositoryArgs args, InvokeOptions options) {
@@ -2627,6 +2804,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Gitlfs repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2655,6 +2834,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFederatedGitlfsRepositoryResult> getFederatedGitlfsRepositoryPlain(GetFederatedGitlfsRepositoryPlainArgs args, InvokeOptions options) {
@@ -2664,6 +2844,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Go repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2692,6 +2874,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFederatedGoRepositoryResult> getFederatedGoRepository(GetFederatedGoRepositoryArgs args) {
@@ -2701,6 +2884,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Go repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2729,6 +2914,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFederatedGoRepositoryResult> getFederatedGoRepositoryPlain(GetFederatedGoRepositoryPlainArgs args) {
@@ -2738,6 +2924,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Go repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2766,6 +2954,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFederatedGoRepositoryResult> getFederatedGoRepository(GetFederatedGoRepositoryArgs args, InvokeOptions options) {
@@ -2775,6 +2964,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Go repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2803,6 +2994,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFederatedGoRepositoryResult> getFederatedGoRepositoryPlain(GetFederatedGoRepositoryPlainArgs args, InvokeOptions options) {
@@ -2812,6 +3004,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Gradle repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2840,6 +3034,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFederatedGradleRepositoryResult> getFederatedGradleRepository(GetFederatedGradleRepositoryArgs args) {
@@ -2849,6 +3044,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Gradle repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2877,6 +3074,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFederatedGradleRepositoryResult> getFederatedGradleRepositoryPlain(GetFederatedGradleRepositoryPlainArgs args) {
@@ -2886,6 +3084,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Gradle repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2914,6 +3114,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFederatedGradleRepositoryResult> getFederatedGradleRepository(GetFederatedGradleRepositoryArgs args, InvokeOptions options) {
@@ -2923,6 +3124,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Gradle repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2951,6 +3154,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFederatedGradleRepositoryResult> getFederatedGradleRepositoryPlain(GetFederatedGradleRepositoryPlainArgs args, InvokeOptions options) {
@@ -2960,6 +3164,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Helm repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2988,6 +3194,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFederatedHelmRepositoryResult> getFederatedHelmRepository(GetFederatedHelmRepositoryArgs args) {
@@ -2997,6 +3204,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Helm repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3025,6 +3234,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFederatedHelmRepositoryResult> getFederatedHelmRepositoryPlain(GetFederatedHelmRepositoryPlainArgs args) {
@@ -3034,6 +3244,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Helm repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3062,6 +3274,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFederatedHelmRepositoryResult> getFederatedHelmRepository(GetFederatedHelmRepositoryArgs args, InvokeOptions options) {
@@ -3071,6 +3284,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Helm repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3099,6 +3314,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFederatedHelmRepositoryResult> getFederatedHelmRepositoryPlain(GetFederatedHelmRepositoryPlainArgs args, InvokeOptions options) {
@@ -3108,6 +3324,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Helm OCI repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3136,6 +3354,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFederatedHelmociRepositoryResult> getFederatedHelmociRepository(GetFederatedHelmociRepositoryArgs args) {
@@ -3145,6 +3364,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Helm OCI repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3173,6 +3394,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFederatedHelmociRepositoryResult> getFederatedHelmociRepositoryPlain(GetFederatedHelmociRepositoryPlainArgs args) {
@@ -3182,6 +3404,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Helm OCI repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3210,6 +3434,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFederatedHelmociRepositoryResult> getFederatedHelmociRepository(GetFederatedHelmociRepositoryArgs args, InvokeOptions options) {
@@ -3219,6 +3444,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Helm OCI repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3247,6 +3474,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFederatedHelmociRepositoryResult> getFederatedHelmociRepositoryPlain(GetFederatedHelmociRepositoryPlainArgs args, InvokeOptions options) {
@@ -3256,6 +3484,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Ivy repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3284,6 +3514,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFederatedIvyRepositoryResult> getFederatedIvyRepository(GetFederatedIvyRepositoryArgs args) {
@@ -3293,6 +3524,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Ivy repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3321,6 +3554,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFederatedIvyRepositoryResult> getFederatedIvyRepositoryPlain(GetFederatedIvyRepositoryPlainArgs args) {
@@ -3330,6 +3564,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Ivy repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3358,6 +3594,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFederatedIvyRepositoryResult> getFederatedIvyRepository(GetFederatedIvyRepositoryArgs args, InvokeOptions options) {
@@ -3367,6 +3604,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Ivy repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3395,6 +3634,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFederatedIvyRepositoryResult> getFederatedIvyRepositoryPlain(GetFederatedIvyRepositoryPlainArgs args, InvokeOptions options) {
@@ -3404,6 +3644,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Maven repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3432,6 +3674,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFederatedMavenRepositoryResult> getFederatedMavenRepository(GetFederatedMavenRepositoryArgs args) {
@@ -3441,6 +3684,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Maven repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3469,6 +3714,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFederatedMavenRepositoryResult> getFederatedMavenRepositoryPlain(GetFederatedMavenRepositoryPlainArgs args) {
@@ -3478,6 +3724,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Maven repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3506,6 +3754,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFederatedMavenRepositoryResult> getFederatedMavenRepository(GetFederatedMavenRepositoryArgs args, InvokeOptions options) {
@@ -3515,6 +3764,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Maven repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3543,6 +3794,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFederatedMavenRepositoryResult> getFederatedMavenRepositoryPlain(GetFederatedMavenRepositoryPlainArgs args, InvokeOptions options) {
@@ -3552,6 +3804,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Npm repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3580,6 +3834,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFederatedNpmRepositoryResult> getFederatedNpmRepository(GetFederatedNpmRepositoryArgs args) {
@@ -3589,6 +3844,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Npm repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3617,6 +3874,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFederatedNpmRepositoryResult> getFederatedNpmRepositoryPlain(GetFederatedNpmRepositoryPlainArgs args) {
@@ -3626,6 +3884,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Npm repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3654,6 +3914,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFederatedNpmRepositoryResult> getFederatedNpmRepository(GetFederatedNpmRepositoryArgs args, InvokeOptions options) {
@@ -3663,6 +3924,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Npm repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3691,6 +3954,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFederatedNpmRepositoryResult> getFederatedNpmRepositoryPlain(GetFederatedNpmRepositoryPlainArgs args, InvokeOptions options) {
@@ -3700,6 +3964,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Nuget repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3728,6 +3994,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFederatedNugetRepositoryResult> getFederatedNugetRepository(GetFederatedNugetRepositoryArgs args) {
@@ -3737,6 +4004,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Nuget repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3765,6 +4034,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFederatedNugetRepositoryResult> getFederatedNugetRepositoryPlain(GetFederatedNugetRepositoryPlainArgs args) {
@@ -3774,6 +4044,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Nuget repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3802,6 +4074,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFederatedNugetRepositoryResult> getFederatedNugetRepository(GetFederatedNugetRepositoryArgs args, InvokeOptions options) {
@@ -3811,6 +4084,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Nuget repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3839,6 +4114,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFederatedNugetRepositoryResult> getFederatedNugetRepositoryPlain(GetFederatedNugetRepositoryPlainArgs args, InvokeOptions options) {
@@ -3848,6 +4124,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated OCI repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3876,6 +4154,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFederatedOciRepositoryResult> getFederatedOciRepository(GetFederatedOciRepositoryArgs args) {
@@ -3885,6 +4164,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated OCI repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3913,6 +4194,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFederatedOciRepositoryResult> getFederatedOciRepositoryPlain(GetFederatedOciRepositoryPlainArgs args) {
@@ -3922,6 +4204,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated OCI repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3950,6 +4234,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFederatedOciRepositoryResult> getFederatedOciRepository(GetFederatedOciRepositoryArgs args, InvokeOptions options) {
@@ -3959,6 +4244,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated OCI repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3987,6 +4274,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFederatedOciRepositoryResult> getFederatedOciRepositoryPlain(GetFederatedOciRepositoryPlainArgs args, InvokeOptions options) {
@@ -3996,6 +4284,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Opkg repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4024,6 +4314,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFederatedOpkgRepositoryResult> getFederatedOpkgRepository(GetFederatedOpkgRepositoryArgs args) {
@@ -4033,6 +4324,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Opkg repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4061,6 +4354,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFederatedOpkgRepositoryResult> getFederatedOpkgRepositoryPlain(GetFederatedOpkgRepositoryPlainArgs args) {
@@ -4070,6 +4364,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Opkg repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4098,6 +4394,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFederatedOpkgRepositoryResult> getFederatedOpkgRepository(GetFederatedOpkgRepositoryArgs args, InvokeOptions options) {
@@ -4107,6 +4404,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Opkg repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4135,6 +4434,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFederatedOpkgRepositoryResult> getFederatedOpkgRepositoryPlain(GetFederatedOpkgRepositoryPlainArgs args, InvokeOptions options) {
@@ -4144,6 +4444,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Puppet repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4172,6 +4474,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFederatedPuppetRepositoryResult> getFederatedPuppetRepository(GetFederatedPuppetRepositoryArgs args) {
@@ -4181,6 +4484,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Puppet repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4209,6 +4514,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFederatedPuppetRepositoryResult> getFederatedPuppetRepositoryPlain(GetFederatedPuppetRepositoryPlainArgs args) {
@@ -4218,6 +4524,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Puppet repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4246,6 +4554,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFederatedPuppetRepositoryResult> getFederatedPuppetRepository(GetFederatedPuppetRepositoryArgs args, InvokeOptions options) {
@@ -4255,6 +4564,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Puppet repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4283,6 +4594,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFederatedPuppetRepositoryResult> getFederatedPuppetRepositoryPlain(GetFederatedPuppetRepositoryPlainArgs args, InvokeOptions options) {
@@ -4292,6 +4604,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Pypi repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4320,6 +4634,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFederatedPypiRepositoryResult> getFederatedPypiRepository(GetFederatedPypiRepositoryArgs args) {
@@ -4329,6 +4644,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Pypi repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4357,6 +4674,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFederatedPypiRepositoryResult> getFederatedPypiRepositoryPlain(GetFederatedPypiRepositoryPlainArgs args) {
@@ -4366,6 +4684,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Pypi repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4394,6 +4714,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFederatedPypiRepositoryResult> getFederatedPypiRepository(GetFederatedPypiRepositoryArgs args, InvokeOptions options) {
@@ -4403,6 +4724,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Pypi repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4431,6 +4754,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFederatedPypiRepositoryResult> getFederatedPypiRepositoryPlain(GetFederatedPypiRepositoryPlainArgs args, InvokeOptions options) {
@@ -4440,6 +4764,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Rpm repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4468,6 +4794,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFederatedRpmRepositoryResult> getFederatedRpmRepository(GetFederatedRpmRepositoryArgs args) {
@@ -4477,6 +4804,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Rpm repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4505,6 +4834,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFederatedRpmRepositoryResult> getFederatedRpmRepositoryPlain(GetFederatedRpmRepositoryPlainArgs args) {
@@ -4514,6 +4844,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Rpm repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4542,6 +4874,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFederatedRpmRepositoryResult> getFederatedRpmRepository(GetFederatedRpmRepositoryArgs args, InvokeOptions options) {
@@ -4551,6 +4884,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Rpm repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4579,6 +4914,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFederatedRpmRepositoryResult> getFederatedRpmRepositoryPlain(GetFederatedRpmRepositoryPlainArgs args, InvokeOptions options) {
@@ -4588,6 +4924,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated SBT repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4616,6 +4954,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFederatedSbtRepositoryResult> getFederatedSbtRepository(GetFederatedSbtRepositoryArgs args) {
@@ -4625,6 +4964,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated SBT repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4653,6 +4994,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFederatedSbtRepositoryResult> getFederatedSbtRepositoryPlain(GetFederatedSbtRepositoryPlainArgs args) {
@@ -4662,6 +5004,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated SBT repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4690,6 +5034,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFederatedSbtRepositoryResult> getFederatedSbtRepository(GetFederatedSbtRepositoryArgs args, InvokeOptions options) {
@@ -4699,6 +5044,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated SBT repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4727,6 +5074,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFederatedSbtRepositoryResult> getFederatedSbtRepositoryPlain(GetFederatedSbtRepositoryPlainArgs args, InvokeOptions options) {
@@ -4736,6 +5084,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Swift repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4764,6 +5114,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFederatedSwiftRepositoryResult> getFederatedSwiftRepository(GetFederatedSwiftRepositoryArgs args) {
@@ -4773,6 +5124,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Swift repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4801,6 +5154,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFederatedSwiftRepositoryResult> getFederatedSwiftRepositoryPlain(GetFederatedSwiftRepositoryPlainArgs args) {
@@ -4810,6 +5164,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Swift repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4838,6 +5194,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFederatedSwiftRepositoryResult> getFederatedSwiftRepository(GetFederatedSwiftRepositoryArgs args, InvokeOptions options) {
@@ -4847,6 +5204,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Swift repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4875,6 +5234,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFederatedSwiftRepositoryResult> getFederatedSwiftRepositoryPlain(GetFederatedSwiftRepositoryPlainArgs args, InvokeOptions options) {
@@ -4882,6 +5242,8 @@ public final class ArtifactoryFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4910,6 +5272,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFederatedTerraformModuleRepositoryResult> getFederatedTerraformModuleRepository(GetFederatedTerraformModuleRepositoryArgs args) {
@@ -4917,6 +5280,8 @@ public final class ArtifactoryFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4945,6 +5310,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFederatedTerraformModuleRepositoryResult> getFederatedTerraformModuleRepositoryPlain(GetFederatedTerraformModuleRepositoryPlainArgs args) {
@@ -4952,6 +5318,8 @@ public final class ArtifactoryFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4980,6 +5348,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFederatedTerraformModuleRepositoryResult> getFederatedTerraformModuleRepository(GetFederatedTerraformModuleRepositoryArgs args, InvokeOptions options) {
@@ -4987,6 +5356,8 @@ public final class ArtifactoryFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5015,6 +5386,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFederatedTerraformModuleRepositoryResult> getFederatedTerraformModuleRepositoryPlain(GetFederatedTerraformModuleRepositoryPlainArgs args, InvokeOptions options) {
@@ -5022,6 +5394,8 @@ public final class ArtifactoryFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5050,6 +5424,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFederatedTerraformProviderRepositoryResult> getFederatedTerraformProviderRepository(GetFederatedTerraformProviderRepositoryArgs args) {
@@ -5057,6 +5432,8 @@ public final class ArtifactoryFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5085,6 +5462,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFederatedTerraformProviderRepositoryResult> getFederatedTerraformProviderRepositoryPlain(GetFederatedTerraformProviderRepositoryPlainArgs args) {
@@ -5092,6 +5470,8 @@ public final class ArtifactoryFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5120,6 +5500,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFederatedTerraformProviderRepositoryResult> getFederatedTerraformProviderRepository(GetFederatedTerraformProviderRepositoryArgs args, InvokeOptions options) {
@@ -5127,6 +5508,8 @@ public final class ArtifactoryFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5155,6 +5538,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFederatedTerraformProviderRepositoryResult> getFederatedTerraformProviderRepositoryPlain(GetFederatedTerraformProviderRepositoryPlainArgs args, InvokeOptions options) {
@@ -5164,6 +5548,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Vagrant repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5192,6 +5578,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFederatedVagrantRepositoryResult> getFederatedVagrantRepository(GetFederatedVagrantRepositoryArgs args) {
@@ -5201,6 +5588,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Vagrant repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5229,6 +5618,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFederatedVagrantRepositoryResult> getFederatedVagrantRepositoryPlain(GetFederatedVagrantRepositoryPlainArgs args) {
@@ -5238,6 +5628,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Vagrant repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5266,6 +5658,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFederatedVagrantRepositoryResult> getFederatedVagrantRepository(GetFederatedVagrantRepositoryArgs args, InvokeOptions options) {
@@ -5275,6 +5668,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a federated Vagrant repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5303,6 +5698,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFederatedVagrantRepositoryResult> getFederatedVagrantRepositoryPlain(GetFederatedVagrantRepositoryPlainArgs args, InvokeOptions options) {
@@ -5314,6 +5710,8 @@ public final class ArtifactoryFunctions {
      * Provides an Artifactory file datasource. This can be used to download a file from a given Artifactory repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5344,6 +5742,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFileResult> getFile(GetFileArgs args) {
@@ -5355,6 +5754,8 @@ public final class ArtifactoryFunctions {
      * Provides an Artifactory file datasource. This can be used to download a file from a given Artifactory repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5385,6 +5786,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFileResult> getFilePlain(GetFilePlainArgs args) {
@@ -5396,6 +5798,8 @@ public final class ArtifactoryFunctions {
      * Provides an Artifactory file datasource. This can be used to download a file from a given Artifactory repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5426,6 +5830,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFileResult> getFile(GetFileArgs args, InvokeOptions options) {
@@ -5437,6 +5842,8 @@ public final class ArtifactoryFunctions {
      * Provides an Artifactory file datasource. This can be used to download a file from a given Artifactory repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5467,6 +5874,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFileResult> getFilePlain(GetFilePlainArgs args, InvokeOptions options) {
@@ -5476,6 +5884,8 @@ public final class ArtifactoryFunctions {
      * Get a flat (the default) or deep listing of the files and folders (not included by default) within a folder. For deep listing you can specify an optional depth to limit the results. Optionally include a map of metadata timestamp values as part of the result.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5505,6 +5915,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFileListResult> getFileList(GetFileListArgs args) {
@@ -5514,6 +5925,8 @@ public final class ArtifactoryFunctions {
      * Get a flat (the default) or deep listing of the files and folders (not included by default) within a folder. For deep listing you can specify an optional depth to limit the results. Optionally include a map of metadata timestamp values as part of the result.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5543,6 +5956,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFileListResult> getFileListPlain(GetFileListPlainArgs args) {
@@ -5552,6 +5966,8 @@ public final class ArtifactoryFunctions {
      * Get a flat (the default) or deep listing of the files and folders (not included by default) within a folder. For deep listing you can specify an optional depth to limit the results. Optionally include a map of metadata timestamp values as part of the result.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5581,6 +5997,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFileListResult> getFileList(GetFileListArgs args, InvokeOptions options) {
@@ -5590,6 +6007,8 @@ public final class ArtifactoryFunctions {
      * Get a flat (the default) or deep listing of the files and folders (not included by default) within a folder. For deep listing you can specify an optional depth to limit the results. Optionally include a map of metadata timestamp values as part of the result.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5619,6 +6038,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFileListResult> getFileListPlain(GetFileListPlainArgs args, InvokeOptions options) {
@@ -5630,6 +6050,8 @@ public final class ArtifactoryFunctions {
      * Provides an Artifactory fileinfo datasource. This can be used to read metadata of files stored in Artifactory repositories.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5659,6 +6081,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFileinfoResult> getFileinfo(GetFileinfoArgs args) {
@@ -5670,6 +6093,8 @@ public final class ArtifactoryFunctions {
      * Provides an Artifactory fileinfo datasource. This can be used to read metadata of files stored in Artifactory repositories.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5699,6 +6124,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFileinfoResult> getFileinfoPlain(GetFileinfoPlainArgs args) {
@@ -5710,6 +6136,8 @@ public final class ArtifactoryFunctions {
      * Provides an Artifactory fileinfo datasource. This can be used to read metadata of files stored in Artifactory repositories.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5739,6 +6167,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFileinfoResult> getFileinfo(GetFileinfoArgs args, InvokeOptions options) {
@@ -5750,6 +6179,8 @@ public final class ArtifactoryFunctions {
      * Provides an Artifactory fileinfo datasource. This can be used to read metadata of files stored in Artifactory repositories.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5779,6 +6210,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFileinfoResult> getFileinfoPlain(GetFileinfoPlainArgs args, InvokeOptions options) {
@@ -5790,6 +6222,8 @@ public final class ArtifactoryFunctions {
      * Provides an Artifactory group datasource. This can be used to read the configuration of groups in artifactory.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5819,6 +6253,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetGroupResult> getGroup(GetGroupArgs args) {
@@ -5830,6 +6265,8 @@ public final class ArtifactoryFunctions {
      * Provides an Artifactory group datasource. This can be used to read the configuration of groups in artifactory.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5859,6 +6296,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetGroupResult> getGroupPlain(GetGroupPlainArgs args) {
@@ -5870,6 +6308,8 @@ public final class ArtifactoryFunctions {
      * Provides an Artifactory group datasource. This can be used to read the configuration of groups in artifactory.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5899,6 +6339,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetGroupResult> getGroup(GetGroupArgs args, InvokeOptions options) {
@@ -5910,6 +6351,8 @@ public final class ArtifactoryFunctions {
      * Provides an Artifactory group datasource. This can be used to read the configuration of groups in artifactory.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5939,6 +6382,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetGroupResult> getGroupPlain(GetGroupPlainArgs args, InvokeOptions options) {
@@ -5948,6 +6392,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local alpine repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5976,6 +6422,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLocalAlpineRepositoryResult> getLocalAlpineRepository(GetLocalAlpineRepositoryArgs args) {
@@ -5985,6 +6432,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local alpine repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -6013,6 +6462,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLocalAlpineRepositoryResult> getLocalAlpineRepositoryPlain(GetLocalAlpineRepositoryPlainArgs args) {
@@ -6022,6 +6472,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local alpine repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -6050,6 +6502,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLocalAlpineRepositoryResult> getLocalAlpineRepository(GetLocalAlpineRepositoryArgs args, InvokeOptions options) {
@@ -6059,6 +6512,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local alpine repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -6087,6 +6542,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLocalAlpineRepositoryResult> getLocalAlpineRepositoryPlain(GetLocalAlpineRepositoryPlainArgs args, InvokeOptions options) {
@@ -6096,6 +6552,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local Bower repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -6124,6 +6582,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLocalBowerRepositoryResult> getLocalBowerRepository(GetLocalBowerRepositoryArgs args) {
@@ -6133,6 +6592,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local Bower repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -6161,6 +6622,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLocalBowerRepositoryResult> getLocalBowerRepositoryPlain(GetLocalBowerRepositoryPlainArgs args) {
@@ -6170,6 +6632,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local Bower repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -6198,6 +6662,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLocalBowerRepositoryResult> getLocalBowerRepository(GetLocalBowerRepositoryArgs args, InvokeOptions options) {
@@ -6207,6 +6672,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local Bower repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -6235,6 +6702,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLocalBowerRepositoryResult> getLocalBowerRepositoryPlain(GetLocalBowerRepositoryPlainArgs args, InvokeOptions options) {
@@ -6244,6 +6712,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local cargo repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -6272,6 +6742,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLocalCargoRepositoryResult> getLocalCargoRepository(GetLocalCargoRepositoryArgs args) {
@@ -6281,6 +6752,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local cargo repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -6309,6 +6782,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLocalCargoRepositoryResult> getLocalCargoRepositoryPlain(GetLocalCargoRepositoryPlainArgs args) {
@@ -6318,6 +6792,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local cargo repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -6346,6 +6822,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLocalCargoRepositoryResult> getLocalCargoRepository(GetLocalCargoRepositoryArgs args, InvokeOptions options) {
@@ -6355,6 +6832,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local cargo repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -6383,6 +6862,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLocalCargoRepositoryResult> getLocalCargoRepositoryPlain(GetLocalCargoRepositoryPlainArgs args, InvokeOptions options) {
@@ -6392,6 +6872,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local Chef repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -6420,6 +6902,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLocalChefRepositoryResult> getLocalChefRepository(GetLocalChefRepositoryArgs args) {
@@ -6429,6 +6912,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local Chef repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -6457,6 +6942,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLocalChefRepositoryResult> getLocalChefRepositoryPlain(GetLocalChefRepositoryPlainArgs args) {
@@ -6466,6 +6952,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local Chef repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -6494,6 +6982,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLocalChefRepositoryResult> getLocalChefRepository(GetLocalChefRepositoryArgs args, InvokeOptions options) {
@@ -6503,6 +6992,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local Chef repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -6531,6 +7022,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLocalChefRepositoryResult> getLocalChefRepositoryPlain(GetLocalChefRepositoryPlainArgs args, InvokeOptions options) {
@@ -6540,6 +7032,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local cocoapods repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -6568,6 +7062,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLocalCocoapodsRepositoryResult> getLocalCocoapodsRepository(GetLocalCocoapodsRepositoryArgs args) {
@@ -6577,6 +7072,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local cocoapods repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -6605,6 +7102,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLocalCocoapodsRepositoryResult> getLocalCocoapodsRepositoryPlain(GetLocalCocoapodsRepositoryPlainArgs args) {
@@ -6614,6 +7112,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local cocoapods repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -6642,6 +7142,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLocalCocoapodsRepositoryResult> getLocalCocoapodsRepository(GetLocalCocoapodsRepositoryArgs args, InvokeOptions options) {
@@ -6651,6 +7152,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local cocoapods repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -6679,6 +7182,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLocalCocoapodsRepositoryResult> getLocalCocoapodsRepositoryPlain(GetLocalCocoapodsRepositoryPlainArgs args, InvokeOptions options) {
@@ -6688,6 +7192,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local composer repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -6716,6 +7222,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLocalComposerRepositoryResult> getLocalComposerRepository(GetLocalComposerRepositoryArgs args) {
@@ -6725,6 +7232,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local composer repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -6753,6 +7262,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLocalComposerRepositoryResult> getLocalComposerRepositoryPlain(GetLocalComposerRepositoryPlainArgs args) {
@@ -6762,6 +7272,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local composer repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -6790,6 +7302,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLocalComposerRepositoryResult> getLocalComposerRepository(GetLocalComposerRepositoryArgs args, InvokeOptions options) {
@@ -6799,6 +7312,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local composer repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -6827,6 +7342,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLocalComposerRepositoryResult> getLocalComposerRepositoryPlain(GetLocalComposerRepositoryPlainArgs args, InvokeOptions options) {
@@ -6836,6 +7352,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local conan repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -6864,6 +7382,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLocalConanRepositoryResult> getLocalConanRepository(GetLocalConanRepositoryArgs args) {
@@ -6873,6 +7392,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local conan repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -6901,6 +7422,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLocalConanRepositoryResult> getLocalConanRepositoryPlain(GetLocalConanRepositoryPlainArgs args) {
@@ -6910,6 +7432,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local conan repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -6938,6 +7462,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLocalConanRepositoryResult> getLocalConanRepository(GetLocalConanRepositoryArgs args, InvokeOptions options) {
@@ -6947,6 +7472,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local conan repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -6975,6 +7502,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLocalConanRepositoryResult> getLocalConanRepositoryPlain(GetLocalConanRepositoryPlainArgs args, InvokeOptions options) {
@@ -6984,6 +7512,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local conda repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -7012,6 +7542,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLocalCondaRepositoryResult> getLocalCondaRepository(GetLocalCondaRepositoryArgs args) {
@@ -7021,6 +7552,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local conda repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -7049,6 +7582,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLocalCondaRepositoryResult> getLocalCondaRepositoryPlain(GetLocalCondaRepositoryPlainArgs args) {
@@ -7058,6 +7592,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local conda repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -7086,6 +7622,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLocalCondaRepositoryResult> getLocalCondaRepository(GetLocalCondaRepositoryArgs args, InvokeOptions options) {
@@ -7095,6 +7632,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local conda repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -7123,6 +7662,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLocalCondaRepositoryResult> getLocalCondaRepositoryPlain(GetLocalCondaRepositoryPlainArgs args, InvokeOptions options) {
@@ -7132,6 +7672,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local cran repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -7160,6 +7702,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLocalCranRepositoryResult> getLocalCranRepository(GetLocalCranRepositoryArgs args) {
@@ -7169,6 +7712,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local cran repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -7197,6 +7742,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLocalCranRepositoryResult> getLocalCranRepositoryPlain(GetLocalCranRepositoryPlainArgs args) {
@@ -7206,6 +7752,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local cran repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -7234,6 +7782,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLocalCranRepositoryResult> getLocalCranRepository(GetLocalCranRepositoryArgs args, InvokeOptions options) {
@@ -7243,6 +7792,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local cran repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -7271,6 +7822,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLocalCranRepositoryResult> getLocalCranRepositoryPlain(GetLocalCranRepositoryPlainArgs args, InvokeOptions options) {
@@ -7280,6 +7832,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local Debian repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -7308,6 +7862,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLocalDebianRepositoryResult> getLocalDebianRepository(GetLocalDebianRepositoryArgs args) {
@@ -7317,6 +7872,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local Debian repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -7345,6 +7902,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLocalDebianRepositoryResult> getLocalDebianRepositoryPlain(GetLocalDebianRepositoryPlainArgs args) {
@@ -7354,6 +7912,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local Debian repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -7382,6 +7942,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLocalDebianRepositoryResult> getLocalDebianRepository(GetLocalDebianRepositoryArgs args, InvokeOptions options) {
@@ -7391,6 +7952,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local Debian repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -7419,6 +7982,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLocalDebianRepositoryResult> getLocalDebianRepositoryPlain(GetLocalDebianRepositoryPlainArgs args, InvokeOptions options) {
@@ -7428,6 +7992,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local Docker (v1) repository resource.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -7456,6 +8022,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLocalDockerV1RepositoryResult> getLocalDockerV1Repository(GetLocalDockerV1RepositoryArgs args) {
@@ -7465,6 +8032,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local Docker (v1) repository resource.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -7493,6 +8062,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLocalDockerV1RepositoryResult> getLocalDockerV1RepositoryPlain(GetLocalDockerV1RepositoryPlainArgs args) {
@@ -7502,6 +8072,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local Docker (v1) repository resource.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -7530,6 +8102,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLocalDockerV1RepositoryResult> getLocalDockerV1Repository(GetLocalDockerV1RepositoryArgs args, InvokeOptions options) {
@@ -7539,6 +8112,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local Docker (v1) repository resource.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -7567,6 +8142,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLocalDockerV1RepositoryResult> getLocalDockerV1RepositoryPlain(GetLocalDockerV1RepositoryPlainArgs args, InvokeOptions options) {
@@ -7576,6 +8152,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local Docker (V2) repository resource
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -7604,6 +8182,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLocalDockerV2RepositoryResult> getLocalDockerV2Repository(GetLocalDockerV2RepositoryArgs args) {
@@ -7613,6 +8192,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local Docker (V2) repository resource
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -7641,6 +8222,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLocalDockerV2RepositoryResult> getLocalDockerV2RepositoryPlain(GetLocalDockerV2RepositoryPlainArgs args) {
@@ -7650,6 +8232,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local Docker (V2) repository resource
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -7678,6 +8262,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLocalDockerV2RepositoryResult> getLocalDockerV2Repository(GetLocalDockerV2RepositoryArgs args, InvokeOptions options) {
@@ -7687,6 +8272,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local Docker (V2) repository resource
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -7715,6 +8302,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLocalDockerV2RepositoryResult> getLocalDockerV2RepositoryPlain(GetLocalDockerV2RepositoryPlainArgs args, InvokeOptions options) {
@@ -7724,6 +8312,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local gems repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -7752,6 +8342,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLocalGemsRepositoryResult> getLocalGemsRepository(GetLocalGemsRepositoryArgs args) {
@@ -7761,6 +8352,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local gems repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -7789,6 +8382,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLocalGemsRepositoryResult> getLocalGemsRepositoryPlain(GetLocalGemsRepositoryPlainArgs args) {
@@ -7798,6 +8392,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local gems repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -7826,6 +8422,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLocalGemsRepositoryResult> getLocalGemsRepository(GetLocalGemsRepositoryArgs args, InvokeOptions options) {
@@ -7835,6 +8432,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local gems repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -7863,6 +8462,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLocalGemsRepositoryResult> getLocalGemsRepositoryPlain(GetLocalGemsRepositoryPlainArgs args, InvokeOptions options) {
@@ -7872,6 +8472,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local generic repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -7900,6 +8502,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLocalGenericRepositoryResult> getLocalGenericRepository(GetLocalGenericRepositoryArgs args) {
@@ -7909,6 +8512,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local generic repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -7937,6 +8542,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLocalGenericRepositoryResult> getLocalGenericRepositoryPlain(GetLocalGenericRepositoryPlainArgs args) {
@@ -7946,6 +8552,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local generic repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -7974,6 +8582,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLocalGenericRepositoryResult> getLocalGenericRepository(GetLocalGenericRepositoryArgs args, InvokeOptions options) {
@@ -7983,6 +8592,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local generic repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -8011,6 +8622,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLocalGenericRepositoryResult> getLocalGenericRepositoryPlain(GetLocalGenericRepositoryPlainArgs args, InvokeOptions options) {
@@ -8020,6 +8632,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local gitlfs repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -8048,6 +8662,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLocalGitlfsRepositoryResult> getLocalGitlfsRepository(GetLocalGitlfsRepositoryArgs args) {
@@ -8057,6 +8672,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local gitlfs repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -8085,6 +8702,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLocalGitlfsRepositoryResult> getLocalGitlfsRepositoryPlain(GetLocalGitlfsRepositoryPlainArgs args) {
@@ -8094,6 +8712,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local gitlfs repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -8122,6 +8742,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLocalGitlfsRepositoryResult> getLocalGitlfsRepository(GetLocalGitlfsRepositoryArgs args, InvokeOptions options) {
@@ -8131,6 +8752,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local gitlfs repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -8159,6 +8782,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLocalGitlfsRepositoryResult> getLocalGitlfsRepositoryPlain(GetLocalGitlfsRepositoryPlainArgs args, InvokeOptions options) {
@@ -8168,6 +8792,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local go repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -8196,6 +8822,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLocalGoRepositoryResult> getLocalGoRepository(GetLocalGoRepositoryArgs args) {
@@ -8205,6 +8832,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local go repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -8233,6 +8862,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLocalGoRepositoryResult> getLocalGoRepositoryPlain(GetLocalGoRepositoryPlainArgs args) {
@@ -8242,6 +8872,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local go repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -8270,6 +8902,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLocalGoRepositoryResult> getLocalGoRepository(GetLocalGoRepositoryArgs args, InvokeOptions options) {
@@ -8279,6 +8912,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local go repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -8307,6 +8942,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLocalGoRepositoryResult> getLocalGoRepositoryPlain(GetLocalGoRepositoryPlainArgs args, InvokeOptions options) {
@@ -8316,6 +8952,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local Gradle repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -8344,6 +8982,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLocalGradleRepositoryResult> getLocalGradleRepository(GetLocalGradleRepositoryArgs args) {
@@ -8353,6 +8992,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local Gradle repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -8381,6 +9022,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLocalGradleRepositoryResult> getLocalGradleRepositoryPlain(GetLocalGradleRepositoryPlainArgs args) {
@@ -8390,6 +9032,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local Gradle repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -8418,6 +9062,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLocalGradleRepositoryResult> getLocalGradleRepository(GetLocalGradleRepositoryArgs args, InvokeOptions options) {
@@ -8427,6 +9072,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local Gradle repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -8455,6 +9102,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLocalGradleRepositoryResult> getLocalGradleRepositoryPlain(GetLocalGradleRepositoryPlainArgs args, InvokeOptions options) {
@@ -8464,6 +9112,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local helm repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -8492,6 +9142,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLocalHelmRepositoryResult> getLocalHelmRepository(GetLocalHelmRepositoryArgs args) {
@@ -8501,6 +9152,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local helm repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -8529,6 +9182,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLocalHelmRepositoryResult> getLocalHelmRepositoryPlain(GetLocalHelmRepositoryPlainArgs args) {
@@ -8538,6 +9192,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local helm repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -8566,6 +9222,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLocalHelmRepositoryResult> getLocalHelmRepository(GetLocalHelmRepositoryArgs args, InvokeOptions options) {
@@ -8575,6 +9232,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local helm repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -8603,6 +9262,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLocalHelmRepositoryResult> getLocalHelmRepositoryPlain(GetLocalHelmRepositoryPlainArgs args, InvokeOptions options) {
@@ -8612,6 +9272,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local Helm OCI repository resource
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -8640,6 +9302,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLocalHelmociRepositoryResult> getLocalHelmociRepository(GetLocalHelmociRepositoryArgs args) {
@@ -8649,6 +9312,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local Helm OCI repository resource
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -8677,6 +9342,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLocalHelmociRepositoryResult> getLocalHelmociRepositoryPlain(GetLocalHelmociRepositoryPlainArgs args) {
@@ -8686,6 +9352,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local Helm OCI repository resource
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -8714,6 +9382,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLocalHelmociRepositoryResult> getLocalHelmociRepository(GetLocalHelmociRepositoryArgs args, InvokeOptions options) {
@@ -8723,6 +9392,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local Helm OCI repository resource
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -8751,6 +9422,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLocalHelmociRepositoryResult> getLocalHelmociRepositoryPlain(GetLocalHelmociRepositoryPlainArgs args, InvokeOptions options) {
@@ -8788,6 +9460,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local Ivy repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -8816,6 +9490,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLocalIvyRepositoryResult> getLocalIvyRepository(GetLocalIvyRepositoryArgs args) {
@@ -8825,6 +9500,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local Ivy repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -8853,6 +9530,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLocalIvyRepositoryResult> getLocalIvyRepositoryPlain(GetLocalIvyRepositoryPlainArgs args) {
@@ -8862,6 +9540,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local Ivy repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -8890,6 +9570,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLocalIvyRepositoryResult> getLocalIvyRepository(GetLocalIvyRepositoryArgs args, InvokeOptions options) {
@@ -8899,6 +9580,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local Ivy repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -8927,6 +9610,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLocalIvyRepositoryResult> getLocalIvyRepositoryPlain(GetLocalIvyRepositoryPlainArgs args, InvokeOptions options) {
@@ -8936,6 +9620,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local Maven repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -8964,6 +9650,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLocalMavenRepositoryResult> getLocalMavenRepository(GetLocalMavenRepositoryArgs args) {
@@ -8973,6 +9660,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local Maven repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -9001,6 +9690,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLocalMavenRepositoryResult> getLocalMavenRepositoryPlain(GetLocalMavenRepositoryPlainArgs args) {
@@ -9010,6 +9700,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local Maven repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -9038,6 +9730,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLocalMavenRepositoryResult> getLocalMavenRepository(GetLocalMavenRepositoryArgs args, InvokeOptions options) {
@@ -9047,6 +9740,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local Maven repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -9075,6 +9770,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLocalMavenRepositoryResult> getLocalMavenRepositoryPlain(GetLocalMavenRepositoryPlainArgs args, InvokeOptions options) {
@@ -9084,6 +9780,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local npm repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -9112,6 +9810,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLocalNpmRepositoryResult> getLocalNpmRepository(GetLocalNpmRepositoryArgs args) {
@@ -9121,6 +9820,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local npm repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -9149,6 +9850,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLocalNpmRepositoryResult> getLocalNpmRepositoryPlain(GetLocalNpmRepositoryPlainArgs args) {
@@ -9158,6 +9860,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local npm repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -9186,6 +9890,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLocalNpmRepositoryResult> getLocalNpmRepository(GetLocalNpmRepositoryArgs args, InvokeOptions options) {
@@ -9195,6 +9900,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local npm repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -9223,6 +9930,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLocalNpmRepositoryResult> getLocalNpmRepositoryPlain(GetLocalNpmRepositoryPlainArgs args, InvokeOptions options) {
@@ -9232,6 +9940,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local Nuget repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -9260,6 +9970,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLocalNugetRepositoryResult> getLocalNugetRepository(GetLocalNugetRepositoryArgs args) {
@@ -9269,6 +9980,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local Nuget repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -9297,6 +10010,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLocalNugetRepositoryResult> getLocalNugetRepositoryPlain(GetLocalNugetRepositoryPlainArgs args) {
@@ -9306,6 +10020,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local Nuget repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -9334,6 +10050,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLocalNugetRepositoryResult> getLocalNugetRepository(GetLocalNugetRepositoryArgs args, InvokeOptions options) {
@@ -9343,6 +10060,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local Nuget repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -9371,6 +10090,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLocalNugetRepositoryResult> getLocalNugetRepositoryPlain(GetLocalNugetRepositoryPlainArgs args, InvokeOptions options) {
@@ -9380,6 +10100,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local OCI repository resource
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -9408,6 +10130,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLocalOciRepositoryResult> getLocalOciRepository(GetLocalOciRepositoryArgs args) {
@@ -9417,6 +10140,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local OCI repository resource
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -9445,6 +10170,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLocalOciRepositoryResult> getLocalOciRepositoryPlain(GetLocalOciRepositoryPlainArgs args) {
@@ -9454,6 +10180,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local OCI repository resource
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -9482,6 +10210,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLocalOciRepositoryResult> getLocalOciRepository(GetLocalOciRepositoryArgs args, InvokeOptions options) {
@@ -9491,6 +10220,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local OCI repository resource
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -9519,6 +10250,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLocalOciRepositoryResult> getLocalOciRepositoryPlain(GetLocalOciRepositoryPlainArgs args, InvokeOptions options) {
@@ -9528,6 +10260,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local opkg repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -9556,6 +10290,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLocalOpkgRepositoryResult> getLocalOpkgRepository(GetLocalOpkgRepositoryArgs args) {
@@ -9565,6 +10300,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local opkg repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -9593,6 +10330,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLocalOpkgRepositoryResult> getLocalOpkgRepositoryPlain(GetLocalOpkgRepositoryPlainArgs args) {
@@ -9602,6 +10340,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local opkg repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -9630,6 +10370,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLocalOpkgRepositoryResult> getLocalOpkgRepository(GetLocalOpkgRepositoryArgs args, InvokeOptions options) {
@@ -9639,6 +10380,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local opkg repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -9667,6 +10410,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLocalOpkgRepositoryResult> getLocalOpkgRepositoryPlain(GetLocalOpkgRepositoryPlainArgs args, InvokeOptions options) {
@@ -9676,6 +10420,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local pub repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -9704,6 +10450,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLocalPubRepositoryResult> getLocalPubRepository(GetLocalPubRepositoryArgs args) {
@@ -9713,6 +10460,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local pub repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -9741,6 +10490,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLocalPubRepositoryResult> getLocalPubRepositoryPlain(GetLocalPubRepositoryPlainArgs args) {
@@ -9750,6 +10500,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local pub repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -9778,6 +10530,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLocalPubRepositoryResult> getLocalPubRepository(GetLocalPubRepositoryArgs args, InvokeOptions options) {
@@ -9787,6 +10540,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local pub repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -9815,6 +10570,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLocalPubRepositoryResult> getLocalPubRepositoryPlain(GetLocalPubRepositoryPlainArgs args, InvokeOptions options) {
@@ -9824,6 +10580,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local puppet repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -9852,6 +10610,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLocalPuppetRepositoryResult> getLocalPuppetRepository(GetLocalPuppetRepositoryArgs args) {
@@ -9861,6 +10620,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local puppet repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -9889,6 +10650,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLocalPuppetRepositoryResult> getLocalPuppetRepositoryPlain(GetLocalPuppetRepositoryPlainArgs args) {
@@ -9898,6 +10660,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local puppet repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -9926,6 +10690,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLocalPuppetRepositoryResult> getLocalPuppetRepository(GetLocalPuppetRepositoryArgs args, InvokeOptions options) {
@@ -9935,6 +10700,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local puppet repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -9963,6 +10730,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLocalPuppetRepositoryResult> getLocalPuppetRepositoryPlain(GetLocalPuppetRepositoryPlainArgs args, InvokeOptions options) {
@@ -9972,6 +10740,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local pypi repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -10000,6 +10770,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLocalPypiRepositoryResult> getLocalPypiRepository(GetLocalPypiRepositoryArgs args) {
@@ -10009,6 +10780,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local pypi repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -10037,6 +10810,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLocalPypiRepositoryResult> getLocalPypiRepositoryPlain(GetLocalPypiRepositoryPlainArgs args) {
@@ -10046,6 +10820,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local pypi repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -10074,6 +10850,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLocalPypiRepositoryResult> getLocalPypiRepository(GetLocalPypiRepositoryArgs args, InvokeOptions options) {
@@ -10083,6 +10860,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local pypi repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -10111,6 +10890,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLocalPypiRepositoryResult> getLocalPypiRepositoryPlain(GetLocalPypiRepositoryPlainArgs args, InvokeOptions options) {
@@ -10120,6 +10900,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local RPM repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -10148,6 +10930,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLocalRpmRepositoryResult> getLocalRpmRepository(GetLocalRpmRepositoryArgs args) {
@@ -10157,6 +10940,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local RPM repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -10185,6 +10970,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLocalRpmRepositoryResult> getLocalRpmRepositoryPlain(GetLocalRpmRepositoryPlainArgs args) {
@@ -10194,6 +10980,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local RPM repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -10222,6 +11010,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLocalRpmRepositoryResult> getLocalRpmRepository(GetLocalRpmRepositoryArgs args, InvokeOptions options) {
@@ -10231,6 +11020,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local RPM repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -10259,6 +11050,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLocalRpmRepositoryResult> getLocalRpmRepositoryPlain(GetLocalRpmRepositoryPlainArgs args, InvokeOptions options) {
@@ -10268,6 +11060,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local Sbt repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -10296,6 +11090,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLocalSbtRepositoryResult> getLocalSbtRepository(GetLocalSbtRepositoryArgs args) {
@@ -10305,6 +11100,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local Sbt repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -10333,6 +11130,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLocalSbtRepositoryResult> getLocalSbtRepositoryPlain(GetLocalSbtRepositoryPlainArgs args) {
@@ -10342,6 +11140,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local Sbt repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -10370,6 +11170,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLocalSbtRepositoryResult> getLocalSbtRepository(GetLocalSbtRepositoryArgs args, InvokeOptions options) {
@@ -10379,6 +11180,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local Sbt repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -10407,6 +11210,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLocalSbtRepositoryResult> getLocalSbtRepositoryPlain(GetLocalSbtRepositoryPlainArgs args, InvokeOptions options) {
@@ -10416,6 +11220,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local swift repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -10444,6 +11250,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLocalSwiftRepositoryResult> getLocalSwiftRepository(GetLocalSwiftRepositoryArgs args) {
@@ -10453,6 +11260,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local swift repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -10481,6 +11290,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLocalSwiftRepositoryResult> getLocalSwiftRepositoryPlain(GetLocalSwiftRepositoryPlainArgs args) {
@@ -10490,6 +11300,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local swift repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -10518,6 +11330,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLocalSwiftRepositoryResult> getLocalSwiftRepository(GetLocalSwiftRepositoryArgs args, InvokeOptions options) {
@@ -10527,6 +11340,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local swift repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -10555,6 +11370,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLocalSwiftRepositoryResult> getLocalSwiftRepositoryPlain(GetLocalSwiftRepositoryPlainArgs args, InvokeOptions options) {
@@ -10562,6 +11378,8 @@ public final class ArtifactoryFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -10590,6 +11408,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLocalTerraformModuleRepositoryResult> getLocalTerraformModuleRepository(GetLocalTerraformModuleRepositoryArgs args) {
@@ -10597,6 +11416,8 @@ public final class ArtifactoryFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -10625,6 +11446,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLocalTerraformModuleRepositoryResult> getLocalTerraformModuleRepositoryPlain(GetLocalTerraformModuleRepositoryPlainArgs args) {
@@ -10632,6 +11454,8 @@ public final class ArtifactoryFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -10660,6 +11484,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLocalTerraformModuleRepositoryResult> getLocalTerraformModuleRepository(GetLocalTerraformModuleRepositoryArgs args, InvokeOptions options) {
@@ -10667,6 +11492,8 @@ public final class ArtifactoryFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -10695,6 +11522,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLocalTerraformModuleRepositoryResult> getLocalTerraformModuleRepositoryPlain(GetLocalTerraformModuleRepositoryPlainArgs args, InvokeOptions options) {
@@ -10702,6 +11530,8 @@ public final class ArtifactoryFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -10730,6 +11560,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLocalTerraformProviderRepositoryResult> getLocalTerraformProviderRepository(GetLocalTerraformProviderRepositoryArgs args) {
@@ -10737,6 +11568,8 @@ public final class ArtifactoryFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -10765,6 +11598,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLocalTerraformProviderRepositoryResult> getLocalTerraformProviderRepositoryPlain(GetLocalTerraformProviderRepositoryPlainArgs args) {
@@ -10772,6 +11606,8 @@ public final class ArtifactoryFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -10800,6 +11636,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLocalTerraformProviderRepositoryResult> getLocalTerraformProviderRepository(GetLocalTerraformProviderRepositoryArgs args, InvokeOptions options) {
@@ -10807,6 +11644,8 @@ public final class ArtifactoryFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -10835,6 +11674,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLocalTerraformProviderRepositoryResult> getLocalTerraformProviderRepositoryPlain(GetLocalTerraformProviderRepositoryPlainArgs args, InvokeOptions options) {
@@ -10842,6 +11682,8 @@ public final class ArtifactoryFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -10870,6 +11712,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLocalTerraformbackendRepositoryResult> getLocalTerraformbackendRepository(GetLocalTerraformbackendRepositoryArgs args) {
@@ -10877,6 +11720,8 @@ public final class ArtifactoryFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -10905,6 +11750,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLocalTerraformbackendRepositoryResult> getLocalTerraformbackendRepositoryPlain(GetLocalTerraformbackendRepositoryPlainArgs args) {
@@ -10912,6 +11758,8 @@ public final class ArtifactoryFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -10940,6 +11788,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLocalTerraformbackendRepositoryResult> getLocalTerraformbackendRepository(GetLocalTerraformbackendRepositoryArgs args, InvokeOptions options) {
@@ -10947,6 +11796,8 @@ public final class ArtifactoryFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -10975,6 +11826,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLocalTerraformbackendRepositoryResult> getLocalTerraformbackendRepositoryPlain(GetLocalTerraformbackendRepositoryPlainArgs args, InvokeOptions options) {
@@ -10984,6 +11836,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local vagrant repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -11012,6 +11866,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLocalVagrantRepositoryResult> getLocalVagrantRepository(GetLocalVagrantRepositoryArgs args) {
@@ -11021,6 +11876,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local vagrant repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -11049,6 +11906,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLocalVagrantRepositoryResult> getLocalVagrantRepositoryPlain(GetLocalVagrantRepositoryPlainArgs args) {
@@ -11058,6 +11916,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local vagrant repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -11086,6 +11946,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLocalVagrantRepositoryResult> getLocalVagrantRepository(GetLocalVagrantRepositoryArgs args, InvokeOptions options) {
@@ -11095,6 +11956,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a local vagrant repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -11123,6 +11986,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLocalVagrantRepositoryResult> getLocalVagrantRepositoryPlain(GetLocalVagrantRepositoryPlainArgs args, InvokeOptions options) {
@@ -11134,6 +11998,8 @@ public final class ArtifactoryFunctions {
      * Provides an Artifactory permission target data source. This can be used to read the configuration of permission targets in artifactory.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -11162,6 +12028,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPermissionTargetResult> getPermissionTarget(GetPermissionTargetArgs args) {
@@ -11173,6 +12040,8 @@ public final class ArtifactoryFunctions {
      * Provides an Artifactory permission target data source. This can be used to read the configuration of permission targets in artifactory.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -11201,6 +12070,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPermissionTargetResult> getPermissionTargetPlain(GetPermissionTargetPlainArgs args) {
@@ -11212,6 +12082,8 @@ public final class ArtifactoryFunctions {
      * Provides an Artifactory permission target data source. This can be used to read the configuration of permission targets in artifactory.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -11240,6 +12112,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPermissionTargetResult> getPermissionTarget(GetPermissionTargetArgs args, InvokeOptions options) {
@@ -11251,6 +12124,8 @@ public final class ArtifactoryFunctions {
      * Provides an Artifactory permission target data source. This can be used to read the configuration of permission targets in artifactory.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -11279,6 +12154,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPermissionTargetResult> getPermissionTargetPlain(GetPermissionTargetPlainArgs args, InvokeOptions options) {
@@ -11288,6 +12164,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Alpine repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -11316,6 +12194,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRemoteAlpineRepositoryResult> getRemoteAlpineRepository(GetRemoteAlpineRepositoryArgs args) {
@@ -11325,6 +12204,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Alpine repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -11353,6 +12234,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRemoteAlpineRepositoryResult> getRemoteAlpineRepositoryPlain(GetRemoteAlpineRepositoryPlainArgs args) {
@@ -11362,6 +12244,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Alpine repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -11390,6 +12274,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRemoteAlpineRepositoryResult> getRemoteAlpineRepository(GetRemoteAlpineRepositoryArgs args, InvokeOptions options) {
@@ -11399,6 +12284,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Alpine repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -11427,6 +12314,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRemoteAlpineRepositoryResult> getRemoteAlpineRepositoryPlain(GetRemoteAlpineRepositoryPlainArgs args, InvokeOptions options) {
@@ -11436,6 +12324,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Bower repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -11464,6 +12354,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRemoteBowerRepositoryResult> getRemoteBowerRepository(GetRemoteBowerRepositoryArgs args) {
@@ -11473,6 +12364,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Bower repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -11501,6 +12394,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRemoteBowerRepositoryResult> getRemoteBowerRepositoryPlain(GetRemoteBowerRepositoryPlainArgs args) {
@@ -11510,6 +12404,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Bower repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -11538,6 +12434,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRemoteBowerRepositoryResult> getRemoteBowerRepository(GetRemoteBowerRepositoryArgs args, InvokeOptions options) {
@@ -11547,6 +12444,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Bower repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -11575,6 +12474,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRemoteBowerRepositoryResult> getRemoteBowerRepositoryPlain(GetRemoteBowerRepositoryPlainArgs args, InvokeOptions options) {
@@ -11584,6 +12484,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Cargo repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -11612,6 +12514,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRemoteCargoRepositoryResult> getRemoteCargoRepository(GetRemoteCargoRepositoryArgs args) {
@@ -11621,6 +12524,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Cargo repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -11649,6 +12554,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRemoteCargoRepositoryResult> getRemoteCargoRepositoryPlain(GetRemoteCargoRepositoryPlainArgs args) {
@@ -11658,6 +12564,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Cargo repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -11686,6 +12594,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRemoteCargoRepositoryResult> getRemoteCargoRepository(GetRemoteCargoRepositoryArgs args, InvokeOptions options) {
@@ -11695,6 +12604,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Cargo repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -11723,6 +12634,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRemoteCargoRepositoryResult> getRemoteCargoRepositoryPlain(GetRemoteCargoRepositoryPlainArgs args, InvokeOptions options) {
@@ -11732,6 +12644,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Chef repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -11760,6 +12674,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRemoteChefRepositoryResult> getRemoteChefRepository(GetRemoteChefRepositoryArgs args) {
@@ -11769,6 +12684,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Chef repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -11797,6 +12714,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRemoteChefRepositoryResult> getRemoteChefRepositoryPlain(GetRemoteChefRepositoryPlainArgs args) {
@@ -11806,6 +12724,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Chef repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -11834,6 +12754,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRemoteChefRepositoryResult> getRemoteChefRepository(GetRemoteChefRepositoryArgs args, InvokeOptions options) {
@@ -11843,6 +12764,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Chef repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -11871,6 +12794,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRemoteChefRepositoryResult> getRemoteChefRepositoryPlain(GetRemoteChefRepositoryPlainArgs args, InvokeOptions options) {
@@ -11880,6 +12804,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote CocoaPods repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -11908,6 +12834,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRemoteCocoapodsRepositoryResult> getRemoteCocoapodsRepository(GetRemoteCocoapodsRepositoryArgs args) {
@@ -11917,6 +12844,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote CocoaPods repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -11945,6 +12874,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRemoteCocoapodsRepositoryResult> getRemoteCocoapodsRepositoryPlain(GetRemoteCocoapodsRepositoryPlainArgs args) {
@@ -11954,6 +12884,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote CocoaPods repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -11982,6 +12914,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRemoteCocoapodsRepositoryResult> getRemoteCocoapodsRepository(GetRemoteCocoapodsRepositoryArgs args, InvokeOptions options) {
@@ -11991,6 +12924,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote CocoaPods repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -12019,6 +12954,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRemoteCocoapodsRepositoryResult> getRemoteCocoapodsRepositoryPlain(GetRemoteCocoapodsRepositoryPlainArgs args, InvokeOptions options) {
@@ -12028,6 +12964,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Composer repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -12056,6 +12994,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRemoteComposerRepositoryResult> getRemoteComposerRepository(GetRemoteComposerRepositoryArgs args) {
@@ -12065,6 +13004,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Composer repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -12093,6 +13034,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRemoteComposerRepositoryResult> getRemoteComposerRepositoryPlain(GetRemoteComposerRepositoryPlainArgs args) {
@@ -12102,6 +13044,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Composer repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -12130,6 +13074,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRemoteComposerRepositoryResult> getRemoteComposerRepository(GetRemoteComposerRepositoryArgs args, InvokeOptions options) {
@@ -12139,6 +13084,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Composer repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -12167,6 +13114,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRemoteComposerRepositoryResult> getRemoteComposerRepositoryPlain(GetRemoteComposerRepositoryPlainArgs args, InvokeOptions options) {
@@ -12176,6 +13124,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Conan repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -12204,6 +13154,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRemoteConanRepositoryResult> getRemoteConanRepository(GetRemoteConanRepositoryArgs args) {
@@ -12213,6 +13164,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Conan repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -12241,6 +13194,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRemoteConanRepositoryResult> getRemoteConanRepositoryPlain(GetRemoteConanRepositoryPlainArgs args) {
@@ -12250,6 +13204,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Conan repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -12278,6 +13234,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRemoteConanRepositoryResult> getRemoteConanRepository(GetRemoteConanRepositoryArgs args, InvokeOptions options) {
@@ -12287,6 +13244,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Conan repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -12315,6 +13274,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRemoteConanRepositoryResult> getRemoteConanRepositoryPlain(GetRemoteConanRepositoryPlainArgs args, InvokeOptions options) {
@@ -12324,6 +13284,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Conda repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -12352,6 +13314,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRemoteCondaRepositoryResult> getRemoteCondaRepository(GetRemoteCondaRepositoryArgs args) {
@@ -12361,6 +13324,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Conda repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -12389,6 +13354,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRemoteCondaRepositoryResult> getRemoteCondaRepositoryPlain(GetRemoteCondaRepositoryPlainArgs args) {
@@ -12398,6 +13364,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Conda repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -12426,6 +13394,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRemoteCondaRepositoryResult> getRemoteCondaRepository(GetRemoteCondaRepositoryArgs args, InvokeOptions options) {
@@ -12435,6 +13404,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Conda repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -12463,6 +13434,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRemoteCondaRepositoryResult> getRemoteCondaRepositoryPlain(GetRemoteCondaRepositoryPlainArgs args, InvokeOptions options) {
@@ -12472,6 +13444,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote CRAN repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -12500,6 +13474,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRemoteCranRepositoryResult> getRemoteCranRepository(GetRemoteCranRepositoryArgs args) {
@@ -12509,6 +13484,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote CRAN repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -12537,6 +13514,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRemoteCranRepositoryResult> getRemoteCranRepositoryPlain(GetRemoteCranRepositoryPlainArgs args) {
@@ -12546,6 +13524,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote CRAN repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -12574,6 +13554,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRemoteCranRepositoryResult> getRemoteCranRepository(GetRemoteCranRepositoryArgs args, InvokeOptions options) {
@@ -12583,6 +13564,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote CRAN repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -12611,6 +13594,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRemoteCranRepositoryResult> getRemoteCranRepositoryPlain(GetRemoteCranRepositoryPlainArgs args, InvokeOptions options) {
@@ -12620,6 +13604,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Debian repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -12648,6 +13634,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRemoteDebianRepositoryResult> getRemoteDebianRepository(GetRemoteDebianRepositoryArgs args) {
@@ -12657,6 +13644,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Debian repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -12685,6 +13674,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRemoteDebianRepositoryResult> getRemoteDebianRepositoryPlain(GetRemoteDebianRepositoryPlainArgs args) {
@@ -12694,6 +13684,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Debian repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -12722,6 +13714,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRemoteDebianRepositoryResult> getRemoteDebianRepository(GetRemoteDebianRepositoryArgs args, InvokeOptions options) {
@@ -12731,6 +13724,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Debian repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -12759,6 +13754,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRemoteDebianRepositoryResult> getRemoteDebianRepositoryPlain(GetRemoteDebianRepositoryPlainArgs args, InvokeOptions options) {
@@ -12768,6 +13764,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Docker repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -12796,6 +13794,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRemoteDockerRepositoryResult> getRemoteDockerRepository(GetRemoteDockerRepositoryArgs args) {
@@ -12805,6 +13804,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Docker repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -12833,6 +13834,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRemoteDockerRepositoryResult> getRemoteDockerRepositoryPlain(GetRemoteDockerRepositoryPlainArgs args) {
@@ -12842,6 +13844,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Docker repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -12870,6 +13874,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRemoteDockerRepositoryResult> getRemoteDockerRepository(GetRemoteDockerRepositoryArgs args, InvokeOptions options) {
@@ -12879,6 +13884,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Docker repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -12907,6 +13914,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRemoteDockerRepositoryResult> getRemoteDockerRepositoryPlain(GetRemoteDockerRepositoryPlainArgs args, InvokeOptions options) {
@@ -12916,6 +13924,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Gems repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -12944,6 +13954,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRemoteGemsRepositoryResult> getRemoteGemsRepository(GetRemoteGemsRepositoryArgs args) {
@@ -12953,6 +13964,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Gems repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -12981,6 +13994,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRemoteGemsRepositoryResult> getRemoteGemsRepositoryPlain(GetRemoteGemsRepositoryPlainArgs args) {
@@ -12990,6 +14004,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Gems repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -13018,6 +14034,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRemoteGemsRepositoryResult> getRemoteGemsRepository(GetRemoteGemsRepositoryArgs args, InvokeOptions options) {
@@ -13027,6 +14044,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Gems repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -13055,6 +14074,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRemoteGemsRepositoryResult> getRemoteGemsRepositoryPlain(GetRemoteGemsRepositoryPlainArgs args, InvokeOptions options) {
@@ -13064,6 +14084,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Generic repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -13092,6 +14114,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRemoteGenericRepositoryResult> getRemoteGenericRepository(GetRemoteGenericRepositoryArgs args) {
@@ -13101,6 +14124,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Generic repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -13129,6 +14154,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRemoteGenericRepositoryResult> getRemoteGenericRepositoryPlain(GetRemoteGenericRepositoryPlainArgs args) {
@@ -13138,6 +14164,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Generic repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -13166,6 +14194,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRemoteGenericRepositoryResult> getRemoteGenericRepository(GetRemoteGenericRepositoryArgs args, InvokeOptions options) {
@@ -13175,6 +14204,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Generic repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -13203,6 +14234,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRemoteGenericRepositoryResult> getRemoteGenericRepositoryPlain(GetRemoteGenericRepositoryPlainArgs args, InvokeOptions options) {
@@ -13212,6 +14244,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote GitLfs repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -13240,6 +14274,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRemoteGitlfsRepositoryResult> getRemoteGitlfsRepository(GetRemoteGitlfsRepositoryArgs args) {
@@ -13249,6 +14284,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote GitLfs repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -13277,6 +14314,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRemoteGitlfsRepositoryResult> getRemoteGitlfsRepositoryPlain(GetRemoteGitlfsRepositoryPlainArgs args) {
@@ -13286,6 +14324,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote GitLfs repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -13314,6 +14354,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRemoteGitlfsRepositoryResult> getRemoteGitlfsRepository(GetRemoteGitlfsRepositoryArgs args, InvokeOptions options) {
@@ -13323,6 +14364,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote GitLfs repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -13351,6 +14394,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRemoteGitlfsRepositoryResult> getRemoteGitlfsRepositoryPlain(GetRemoteGitlfsRepositoryPlainArgs args, InvokeOptions options) {
@@ -13360,6 +14404,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Go repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -13388,6 +14434,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRemoteGoRepositoryResult> getRemoteGoRepository(GetRemoteGoRepositoryArgs args) {
@@ -13397,6 +14444,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Go repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -13425,6 +14474,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRemoteGoRepositoryResult> getRemoteGoRepositoryPlain(GetRemoteGoRepositoryPlainArgs args) {
@@ -13434,6 +14484,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Go repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -13462,6 +14514,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRemoteGoRepositoryResult> getRemoteGoRepository(GetRemoteGoRepositoryArgs args, InvokeOptions options) {
@@ -13471,6 +14524,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Go repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -13499,6 +14554,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRemoteGoRepositoryResult> getRemoteGoRepositoryPlain(GetRemoteGoRepositoryPlainArgs args, InvokeOptions options) {
@@ -13508,6 +14564,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Gradle repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -13536,6 +14594,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRemoteGradleRepositoryResult> getRemoteGradleRepository(GetRemoteGradleRepositoryArgs args) {
@@ -13545,6 +14604,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Gradle repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -13573,6 +14634,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRemoteGradleRepositoryResult> getRemoteGradleRepositoryPlain(GetRemoteGradleRepositoryPlainArgs args) {
@@ -13582,6 +14644,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Gradle repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -13610,6 +14674,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRemoteGradleRepositoryResult> getRemoteGradleRepository(GetRemoteGradleRepositoryArgs args, InvokeOptions options) {
@@ -13619,6 +14684,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Gradle repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -13647,6 +14714,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRemoteGradleRepositoryResult> getRemoteGradleRepositoryPlain(GetRemoteGradleRepositoryPlainArgs args, InvokeOptions options) {
@@ -13656,6 +14724,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Helm repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -13684,6 +14754,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRemoteHelmRepositoryResult> getRemoteHelmRepository(GetRemoteHelmRepositoryArgs args) {
@@ -13693,6 +14764,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Helm repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -13721,6 +14794,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRemoteHelmRepositoryResult> getRemoteHelmRepositoryPlain(GetRemoteHelmRepositoryPlainArgs args) {
@@ -13730,6 +14804,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Helm repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -13758,6 +14834,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRemoteHelmRepositoryResult> getRemoteHelmRepository(GetRemoteHelmRepositoryArgs args, InvokeOptions options) {
@@ -13767,6 +14844,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Helm repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -13795,6 +14874,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRemoteHelmRepositoryResult> getRemoteHelmRepositoryPlain(GetRemoteHelmRepositoryPlainArgs args, InvokeOptions options) {
@@ -13804,6 +14884,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Helm OCI repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -13832,6 +14914,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRemoteHelmociRepositoryResult> getRemoteHelmociRepository(GetRemoteHelmociRepositoryArgs args) {
@@ -13841,6 +14924,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Helm OCI repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -13869,6 +14954,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRemoteHelmociRepositoryResult> getRemoteHelmociRepositoryPlain(GetRemoteHelmociRepositoryPlainArgs args) {
@@ -13878,6 +14964,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Helm OCI repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -13906,6 +14994,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRemoteHelmociRepositoryResult> getRemoteHelmociRepository(GetRemoteHelmociRepositoryArgs args, InvokeOptions options) {
@@ -13915,6 +15004,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Helm OCI repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -13943,6 +15034,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRemoteHelmociRepositoryResult> getRemoteHelmociRepositoryPlain(GetRemoteHelmociRepositoryPlainArgs args, InvokeOptions options) {
@@ -13952,6 +15044,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Ivy repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -13980,6 +15074,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRemoteIvyRepositoryResult> getRemoteIvyRepository(GetRemoteIvyRepositoryArgs args) {
@@ -13989,6 +15084,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Ivy repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -14017,6 +15114,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRemoteIvyRepositoryResult> getRemoteIvyRepositoryPlain(GetRemoteIvyRepositoryPlainArgs args) {
@@ -14026,6 +15124,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Ivy repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -14054,6 +15154,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRemoteIvyRepositoryResult> getRemoteIvyRepository(GetRemoteIvyRepositoryArgs args, InvokeOptions options) {
@@ -14063,6 +15164,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Ivy repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -14091,6 +15194,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRemoteIvyRepositoryResult> getRemoteIvyRepositoryPlain(GetRemoteIvyRepositoryPlainArgs args, InvokeOptions options) {
@@ -14100,6 +15204,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Maven repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -14128,6 +15234,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRemoteMavenRepositoryResult> getRemoteMavenRepository(GetRemoteMavenRepositoryArgs args) {
@@ -14137,6 +15244,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Maven repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -14165,6 +15274,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRemoteMavenRepositoryResult> getRemoteMavenRepositoryPlain(GetRemoteMavenRepositoryPlainArgs args) {
@@ -14174,6 +15284,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Maven repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -14202,6 +15314,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRemoteMavenRepositoryResult> getRemoteMavenRepository(GetRemoteMavenRepositoryArgs args, InvokeOptions options) {
@@ -14211,6 +15324,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Maven repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -14239,6 +15354,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRemoteMavenRepositoryResult> getRemoteMavenRepositoryPlain(GetRemoteMavenRepositoryPlainArgs args, InvokeOptions options) {
@@ -14248,6 +15364,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Npm repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -14276,6 +15394,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRemoteNpmRepositoryResult> getRemoteNpmRepository(GetRemoteNpmRepositoryArgs args) {
@@ -14285,6 +15404,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Npm repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -14313,6 +15434,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRemoteNpmRepositoryResult> getRemoteNpmRepositoryPlain(GetRemoteNpmRepositoryPlainArgs args) {
@@ -14322,6 +15444,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Npm repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -14350,6 +15474,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRemoteNpmRepositoryResult> getRemoteNpmRepository(GetRemoteNpmRepositoryArgs args, InvokeOptions options) {
@@ -14359,6 +15484,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Npm repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -14387,6 +15514,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRemoteNpmRepositoryResult> getRemoteNpmRepositoryPlain(GetRemoteNpmRepositoryPlainArgs args, InvokeOptions options) {
@@ -14396,6 +15524,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote NuGet repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -14424,6 +15554,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRemoteNugetRepositoryResult> getRemoteNugetRepository(GetRemoteNugetRepositoryArgs args) {
@@ -14433,6 +15564,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote NuGet repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -14461,6 +15594,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRemoteNugetRepositoryResult> getRemoteNugetRepositoryPlain(GetRemoteNugetRepositoryPlainArgs args) {
@@ -14470,6 +15604,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote NuGet repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -14498,6 +15634,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRemoteNugetRepositoryResult> getRemoteNugetRepository(GetRemoteNugetRepositoryArgs args, InvokeOptions options) {
@@ -14507,6 +15644,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote NuGet repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -14535,6 +15674,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRemoteNugetRepositoryResult> getRemoteNugetRepositoryPlain(GetRemoteNugetRepositoryPlainArgs args, InvokeOptions options) {
@@ -14544,6 +15684,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote OCI repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -14572,6 +15714,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRemoteOciRepositoryResult> getRemoteOciRepository(GetRemoteOciRepositoryArgs args) {
@@ -14581,6 +15724,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote OCI repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -14609,6 +15754,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRemoteOciRepositoryResult> getRemoteOciRepositoryPlain(GetRemoteOciRepositoryPlainArgs args) {
@@ -14618,6 +15764,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote OCI repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -14646,6 +15794,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRemoteOciRepositoryResult> getRemoteOciRepository(GetRemoteOciRepositoryArgs args, InvokeOptions options) {
@@ -14655,6 +15804,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote OCI repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -14683,6 +15834,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRemoteOciRepositoryResult> getRemoteOciRepositoryPlain(GetRemoteOciRepositoryPlainArgs args, InvokeOptions options) {
@@ -14692,6 +15844,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Opkg repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -14720,6 +15874,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRemoteOpkgRepositoryResult> getRemoteOpkgRepository(GetRemoteOpkgRepositoryArgs args) {
@@ -14729,6 +15884,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Opkg repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -14757,6 +15914,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRemoteOpkgRepositoryResult> getRemoteOpkgRepositoryPlain(GetRemoteOpkgRepositoryPlainArgs args) {
@@ -14766,6 +15924,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Opkg repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -14794,6 +15954,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRemoteOpkgRepositoryResult> getRemoteOpkgRepository(GetRemoteOpkgRepositoryArgs args, InvokeOptions options) {
@@ -14803,6 +15964,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Opkg repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -14831,6 +15994,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRemoteOpkgRepositoryResult> getRemoteOpkgRepositoryPlain(GetRemoteOpkgRepositoryPlainArgs args, InvokeOptions options) {
@@ -14840,6 +16004,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote P2 repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -14868,6 +16034,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRemoteP2RepositoryResult> getRemoteP2Repository(GetRemoteP2RepositoryArgs args) {
@@ -14877,6 +16044,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote P2 repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -14905,6 +16074,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRemoteP2RepositoryResult> getRemoteP2RepositoryPlain(GetRemoteP2RepositoryPlainArgs args) {
@@ -14914,6 +16084,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote P2 repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -14942,6 +16114,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRemoteP2RepositoryResult> getRemoteP2Repository(GetRemoteP2RepositoryArgs args, InvokeOptions options) {
@@ -14951,6 +16124,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote P2 repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -14979,6 +16154,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRemoteP2RepositoryResult> getRemoteP2RepositoryPlain(GetRemoteP2RepositoryPlainArgs args, InvokeOptions options) {
@@ -14988,6 +16164,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Pub repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -15016,6 +16194,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRemotePubRepositoryResult> getRemotePubRepository(GetRemotePubRepositoryArgs args) {
@@ -15025,6 +16204,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Pub repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -15053,6 +16234,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRemotePubRepositoryResult> getRemotePubRepositoryPlain(GetRemotePubRepositoryPlainArgs args) {
@@ -15062,6 +16244,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Pub repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -15090,6 +16274,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRemotePubRepositoryResult> getRemotePubRepository(GetRemotePubRepositoryArgs args, InvokeOptions options) {
@@ -15099,6 +16284,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Pub repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -15127,6 +16314,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRemotePubRepositoryResult> getRemotePubRepositoryPlain(GetRemotePubRepositoryPlainArgs args, InvokeOptions options) {
@@ -15164,6 +16352,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Pypi repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -15192,6 +16382,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRemotePypiRepositoryResult> getRemotePypiRepository(GetRemotePypiRepositoryArgs args) {
@@ -15201,6 +16392,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Pypi repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -15229,6 +16422,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRemotePypiRepositoryResult> getRemotePypiRepositoryPlain(GetRemotePypiRepositoryPlainArgs args) {
@@ -15238,6 +16432,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Pypi repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -15266,6 +16462,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRemotePypiRepositoryResult> getRemotePypiRepository(GetRemotePypiRepositoryArgs args, InvokeOptions options) {
@@ -15275,6 +16472,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Pypi repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -15303,6 +16502,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRemotePypiRepositoryResult> getRemotePypiRepositoryPlain(GetRemotePypiRepositoryPlainArgs args, InvokeOptions options) {
@@ -15312,6 +16512,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Rpm repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -15340,6 +16542,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRemoteRpmRepositoryResult> getRemoteRpmRepository(GetRemoteRpmRepositoryArgs args) {
@@ -15349,6 +16552,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Rpm repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -15377,6 +16582,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRemoteRpmRepositoryResult> getRemoteRpmRepositoryPlain(GetRemoteRpmRepositoryPlainArgs args) {
@@ -15386,6 +16592,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Rpm repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -15414,6 +16622,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRemoteRpmRepositoryResult> getRemoteRpmRepository(GetRemoteRpmRepositoryArgs args, InvokeOptions options) {
@@ -15423,6 +16632,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Rpm repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -15451,6 +16662,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRemoteRpmRepositoryResult> getRemoteRpmRepositoryPlain(GetRemoteRpmRepositoryPlainArgs args, InvokeOptions options) {
@@ -15460,6 +16672,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote SBT repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -15488,6 +16702,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRemoteSbtRepositoryResult> getRemoteSbtRepository(GetRemoteSbtRepositoryArgs args) {
@@ -15497,6 +16712,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote SBT repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -15525,6 +16742,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRemoteSbtRepositoryResult> getRemoteSbtRepositoryPlain(GetRemoteSbtRepositoryPlainArgs args) {
@@ -15534,6 +16752,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote SBT repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -15562,6 +16782,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRemoteSbtRepositoryResult> getRemoteSbtRepository(GetRemoteSbtRepositoryArgs args, InvokeOptions options) {
@@ -15571,6 +16792,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote SBT repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -15599,6 +16822,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRemoteSbtRepositoryResult> getRemoteSbtRepositoryPlain(GetRemoteSbtRepositoryPlainArgs args, InvokeOptions options) {
@@ -15608,6 +16832,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Swift repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -15636,6 +16862,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRemoteSwiftRepositoryResult> getRemoteSwiftRepository(GetRemoteSwiftRepositoryArgs args) {
@@ -15645,6 +16872,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Swift repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -15673,6 +16902,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRemoteSwiftRepositoryResult> getRemoteSwiftRepositoryPlain(GetRemoteSwiftRepositoryPlainArgs args) {
@@ -15682,6 +16912,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Swift repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -15710,6 +16942,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRemoteSwiftRepositoryResult> getRemoteSwiftRepository(GetRemoteSwiftRepositoryArgs args, InvokeOptions options) {
@@ -15719,6 +16952,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote Swift repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -15747,6 +16982,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRemoteSwiftRepositoryResult> getRemoteSwiftRepositoryPlain(GetRemoteSwiftRepositoryPlainArgs args, InvokeOptions options) {
@@ -15754,6 +16990,8 @@ public final class ArtifactoryFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -15782,6 +17020,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRemoteTerraformRepositoryResult> getRemoteTerraformRepository(GetRemoteTerraformRepositoryArgs args) {
@@ -15789,6 +17028,8 @@ public final class ArtifactoryFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -15817,6 +17058,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRemoteTerraformRepositoryResult> getRemoteTerraformRepositoryPlain(GetRemoteTerraformRepositoryPlainArgs args) {
@@ -15824,6 +17066,8 @@ public final class ArtifactoryFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -15852,6 +17096,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRemoteTerraformRepositoryResult> getRemoteTerraformRepository(GetRemoteTerraformRepositoryArgs args, InvokeOptions options) {
@@ -15859,6 +17104,8 @@ public final class ArtifactoryFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -15887,6 +17134,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRemoteTerraformRepositoryResult> getRemoteTerraformRepositoryPlain(GetRemoteTerraformRepositoryPlainArgs args, InvokeOptions options) {
@@ -15896,6 +17144,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote VCS repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -15924,6 +17174,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRemoteVcsRepositoryResult> getRemoteVcsRepository(GetRemoteVcsRepositoryArgs args) {
@@ -15933,6 +17184,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote VCS repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -15961,6 +17214,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRemoteVcsRepositoryResult> getRemoteVcsRepositoryPlain(GetRemoteVcsRepositoryPlainArgs args) {
@@ -15970,6 +17224,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote VCS repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -15998,6 +17254,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRemoteVcsRepositoryResult> getRemoteVcsRepository(GetRemoteVcsRepositoryArgs args, InvokeOptions options) {
@@ -16007,6 +17264,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a remote VCS repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -16035,6 +17294,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRemoteVcsRepositoryResult> getRemoteVcsRepositoryPlain(GetRemoteVcsRepositoryPlainArgs args, InvokeOptions options) {
@@ -16044,6 +17304,8 @@ public final class ArtifactoryFunctions {
      * Returns a list of minimal repository details for all repositories of the specified type.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -16073,6 +17335,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRepositoriesResult> getRepositories() {
@@ -16082,6 +17345,8 @@ public final class ArtifactoryFunctions {
      * Returns a list of minimal repository details for all repositories of the specified type.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -16111,6 +17376,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRepositoriesResult> getRepositoriesPlain() {
@@ -16120,6 +17386,8 @@ public final class ArtifactoryFunctions {
      * Returns a list of minimal repository details for all repositories of the specified type.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -16149,6 +17417,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRepositoriesResult> getRepositories(GetRepositoriesArgs args) {
@@ -16158,6 +17427,8 @@ public final class ArtifactoryFunctions {
      * Returns a list of minimal repository details for all repositories of the specified type.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -16187,6 +17458,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRepositoriesResult> getRepositoriesPlain(GetRepositoriesPlainArgs args) {
@@ -16196,6 +17468,8 @@ public final class ArtifactoryFunctions {
      * Returns a list of minimal repository details for all repositories of the specified type.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -16225,6 +17499,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRepositoriesResult> getRepositories(GetRepositoriesArgs args, InvokeOptions options) {
@@ -16234,6 +17509,8 @@ public final class ArtifactoryFunctions {
      * Returns a list of minimal repository details for all repositories of the specified type.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -16263,6 +17540,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRepositoriesResult> getRepositoriesPlain(GetRepositoriesPlainArgs args, InvokeOptions options) {
@@ -16274,6 +17552,8 @@ public final class ArtifactoryFunctions {
      * Provides an Artifactory user data source. This can be used to read the configuration of users in artifactory.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -16302,6 +17582,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetUserResult> getUser(GetUserArgs args) {
@@ -16313,6 +17594,8 @@ public final class ArtifactoryFunctions {
      * Provides an Artifactory user data source. This can be used to read the configuration of users in artifactory.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -16341,6 +17624,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetUserResult> getUserPlain(GetUserPlainArgs args) {
@@ -16352,6 +17636,8 @@ public final class ArtifactoryFunctions {
      * Provides an Artifactory user data source. This can be used to read the configuration of users in artifactory.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -16380,6 +17666,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetUserResult> getUser(GetUserArgs args, InvokeOptions options) {
@@ -16391,6 +17678,8 @@ public final class ArtifactoryFunctions {
      * Provides an Artifactory user data source. This can be used to read the configuration of users in artifactory.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -16419,6 +17708,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetUserResult> getUserPlain(GetUserPlainArgs args, InvokeOptions options) {
@@ -16428,6 +17718,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Alpine repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -16456,6 +17748,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVirtualAlpineRepositoryResult> getVirtualAlpineRepository(GetVirtualAlpineRepositoryArgs args) {
@@ -16465,6 +17758,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Alpine repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -16493,6 +17788,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVirtualAlpineRepositoryResult> getVirtualAlpineRepositoryPlain(GetVirtualAlpineRepositoryPlainArgs args) {
@@ -16502,6 +17798,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Alpine repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -16530,6 +17828,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVirtualAlpineRepositoryResult> getVirtualAlpineRepository(GetVirtualAlpineRepositoryArgs args, InvokeOptions options) {
@@ -16539,6 +17838,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Alpine repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -16567,6 +17868,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVirtualAlpineRepositoryResult> getVirtualAlpineRepositoryPlain(GetVirtualAlpineRepositoryPlainArgs args, InvokeOptions options) {
@@ -16576,6 +17878,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Bower repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -16604,6 +17908,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVirtualBowerRepositoryResult> getVirtualBowerRepository(GetVirtualBowerRepositoryArgs args) {
@@ -16613,6 +17918,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Bower repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -16641,6 +17948,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVirtualBowerRepositoryResult> getVirtualBowerRepositoryPlain(GetVirtualBowerRepositoryPlainArgs args) {
@@ -16650,6 +17958,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Bower repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -16678,6 +17988,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVirtualBowerRepositoryResult> getVirtualBowerRepository(GetVirtualBowerRepositoryArgs args, InvokeOptions options) {
@@ -16687,6 +17998,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Bower repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -16715,6 +18028,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVirtualBowerRepositoryResult> getVirtualBowerRepositoryPlain(GetVirtualBowerRepositoryPlainArgs args, InvokeOptions options) {
@@ -16724,6 +18038,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Chef repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -16752,6 +18068,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVirtualChefRepositoryResult> getVirtualChefRepository(GetVirtualChefRepositoryArgs args) {
@@ -16761,6 +18078,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Chef repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -16789,6 +18108,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVirtualChefRepositoryResult> getVirtualChefRepositoryPlain(GetVirtualChefRepositoryPlainArgs args) {
@@ -16798,6 +18118,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Chef repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -16826,6 +18148,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVirtualChefRepositoryResult> getVirtualChefRepository(GetVirtualChefRepositoryArgs args, InvokeOptions options) {
@@ -16835,6 +18158,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Chef repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -16863,6 +18188,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVirtualChefRepositoryResult> getVirtualChefRepositoryPlain(GetVirtualChefRepositoryPlainArgs args, InvokeOptions options) {
@@ -16872,6 +18198,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual PHP Composer repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -16900,6 +18228,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVirtualComposerRepositoryResult> getVirtualComposerRepository(GetVirtualComposerRepositoryArgs args) {
@@ -16909,6 +18238,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual PHP Composer repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -16937,6 +18268,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVirtualComposerRepositoryResult> getVirtualComposerRepositoryPlain(GetVirtualComposerRepositoryPlainArgs args) {
@@ -16946,6 +18278,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual PHP Composer repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -16974,6 +18308,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVirtualComposerRepositoryResult> getVirtualComposerRepository(GetVirtualComposerRepositoryArgs args, InvokeOptions options) {
@@ -16983,6 +18318,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual PHP Composer repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -17011,6 +18348,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVirtualComposerRepositoryResult> getVirtualComposerRepositoryPlain(GetVirtualComposerRepositoryPlainArgs args, InvokeOptions options) {
@@ -17020,6 +18358,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Conan repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -17048,6 +18388,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVirtualConanRepositoryResult> getVirtualConanRepository(GetVirtualConanRepositoryArgs args) {
@@ -17057,6 +18398,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Conan repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -17085,6 +18428,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVirtualConanRepositoryResult> getVirtualConanRepositoryPlain(GetVirtualConanRepositoryPlainArgs args) {
@@ -17094,6 +18438,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Conan repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -17122,6 +18468,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVirtualConanRepositoryResult> getVirtualConanRepository(GetVirtualConanRepositoryArgs args, InvokeOptions options) {
@@ -17131,6 +18478,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Conan repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -17159,6 +18508,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVirtualConanRepositoryResult> getVirtualConanRepositoryPlain(GetVirtualConanRepositoryPlainArgs args, InvokeOptions options) {
@@ -17168,6 +18518,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Conda repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -17196,6 +18548,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVirtualCondaRepositoryResult> getVirtualCondaRepository(GetVirtualCondaRepositoryArgs args) {
@@ -17205,6 +18558,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Conda repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -17233,6 +18588,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVirtualCondaRepositoryResult> getVirtualCondaRepositoryPlain(GetVirtualCondaRepositoryPlainArgs args) {
@@ -17242,6 +18598,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Conda repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -17270,6 +18628,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVirtualCondaRepositoryResult> getVirtualCondaRepository(GetVirtualCondaRepositoryArgs args, InvokeOptions options) {
@@ -17279,6 +18638,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Conda repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -17307,6 +18668,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVirtualCondaRepositoryResult> getVirtualCondaRepositoryPlain(GetVirtualCondaRepositoryPlainArgs args, InvokeOptions options) {
@@ -17316,6 +18678,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Cran repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -17344,6 +18708,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVirtualCranRepositoryResult> getVirtualCranRepository(GetVirtualCranRepositoryArgs args) {
@@ -17353,6 +18718,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Cran repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -17381,6 +18748,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVirtualCranRepositoryResult> getVirtualCranRepositoryPlain(GetVirtualCranRepositoryPlainArgs args) {
@@ -17390,6 +18758,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Cran repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -17418,6 +18788,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVirtualCranRepositoryResult> getVirtualCranRepository(GetVirtualCranRepositoryArgs args, InvokeOptions options) {
@@ -17427,6 +18798,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Cran repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -17455,6 +18828,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVirtualCranRepositoryResult> getVirtualCranRepositoryPlain(GetVirtualCranRepositoryPlainArgs args, InvokeOptions options) {
@@ -17464,6 +18838,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Debian repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -17492,6 +18868,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVirtualDebianRepositoryResult> getVirtualDebianRepository(GetVirtualDebianRepositoryArgs args) {
@@ -17501,6 +18878,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Debian repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -17529,6 +18908,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVirtualDebianRepositoryResult> getVirtualDebianRepositoryPlain(GetVirtualDebianRepositoryPlainArgs args) {
@@ -17538,6 +18918,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Debian repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -17566,6 +18948,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVirtualDebianRepositoryResult> getVirtualDebianRepository(GetVirtualDebianRepositoryArgs args, InvokeOptions options) {
@@ -17575,6 +18958,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Debian repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -17603,6 +18988,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVirtualDebianRepositoryResult> getVirtualDebianRepositoryPlain(GetVirtualDebianRepositoryPlainArgs args, InvokeOptions options) {
@@ -17612,6 +18998,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Docker repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -17640,6 +19028,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVirtualDockerRepositoryResult> getVirtualDockerRepository(GetVirtualDockerRepositoryArgs args) {
@@ -17649,6 +19038,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Docker repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -17677,6 +19068,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVirtualDockerRepositoryResult> getVirtualDockerRepositoryPlain(GetVirtualDockerRepositoryPlainArgs args) {
@@ -17686,6 +19078,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Docker repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -17714,6 +19108,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVirtualDockerRepositoryResult> getVirtualDockerRepository(GetVirtualDockerRepositoryArgs args, InvokeOptions options) {
@@ -17723,6 +19118,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Docker repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -17751,6 +19148,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVirtualDockerRepositoryResult> getVirtualDockerRepositoryPlain(GetVirtualDockerRepositoryPlainArgs args, InvokeOptions options) {
@@ -17760,6 +19158,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Gems repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -17788,6 +19188,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVirtualGemsRepositoryResult> getVirtualGemsRepository(GetVirtualGemsRepositoryArgs args) {
@@ -17797,6 +19198,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Gems repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -17825,6 +19228,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVirtualGemsRepositoryResult> getVirtualGemsRepositoryPlain(GetVirtualGemsRepositoryPlainArgs args) {
@@ -17834,6 +19238,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Gems repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -17862,6 +19268,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVirtualGemsRepositoryResult> getVirtualGemsRepository(GetVirtualGemsRepositoryArgs args, InvokeOptions options) {
@@ -17871,6 +19278,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Gems repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -17899,6 +19308,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVirtualGemsRepositoryResult> getVirtualGemsRepositoryPlain(GetVirtualGemsRepositoryPlainArgs args, InvokeOptions options) {
@@ -17908,6 +19318,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Generic repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -17936,6 +19348,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVirtualGenericRepositoryResult> getVirtualGenericRepository(GetVirtualGenericRepositoryArgs args) {
@@ -17945,6 +19358,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Generic repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -17973,6 +19388,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVirtualGenericRepositoryResult> getVirtualGenericRepositoryPlain(GetVirtualGenericRepositoryPlainArgs args) {
@@ -17982,6 +19398,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Generic repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -18010,6 +19428,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVirtualGenericRepositoryResult> getVirtualGenericRepository(GetVirtualGenericRepositoryArgs args, InvokeOptions options) {
@@ -18019,6 +19438,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Generic repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -18047,6 +19468,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVirtualGenericRepositoryResult> getVirtualGenericRepositoryPlain(GetVirtualGenericRepositoryPlainArgs args, InvokeOptions options) {
@@ -18056,6 +19478,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Git LFS repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -18084,6 +19508,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVirtualGitlfsRepositoryResult> getVirtualGitlfsRepository(GetVirtualGitlfsRepositoryArgs args) {
@@ -18093,6 +19518,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Git LFS repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -18121,6 +19548,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVirtualGitlfsRepositoryResult> getVirtualGitlfsRepositoryPlain(GetVirtualGitlfsRepositoryPlainArgs args) {
@@ -18130,6 +19558,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Git LFS repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -18158,6 +19588,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVirtualGitlfsRepositoryResult> getVirtualGitlfsRepository(GetVirtualGitlfsRepositoryArgs args, InvokeOptions options) {
@@ -18167,6 +19598,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Git LFS repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -18195,6 +19628,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVirtualGitlfsRepositoryResult> getVirtualGitlfsRepositoryPlain(GetVirtualGitlfsRepositoryPlainArgs args, InvokeOptions options) {
@@ -18204,6 +19638,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Go repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -18232,6 +19668,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVirtualGoRepositoryResult> getVirtualGoRepository(GetVirtualGoRepositoryArgs args) {
@@ -18241,6 +19678,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Go repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -18269,6 +19708,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVirtualGoRepositoryResult> getVirtualGoRepositoryPlain(GetVirtualGoRepositoryPlainArgs args) {
@@ -18278,6 +19718,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Go repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -18306,6 +19748,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVirtualGoRepositoryResult> getVirtualGoRepository(GetVirtualGoRepositoryArgs args, InvokeOptions options) {
@@ -18315,6 +19758,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Go repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -18343,6 +19788,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVirtualGoRepositoryResult> getVirtualGoRepositoryPlain(GetVirtualGoRepositoryPlainArgs args, InvokeOptions options) {
@@ -18352,6 +19798,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Gradle repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -18380,6 +19828,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVirtualGradleRepositoryResult> getVirtualGradleRepository(GetVirtualGradleRepositoryArgs args) {
@@ -18389,6 +19838,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Gradle repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -18417,6 +19868,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVirtualGradleRepositoryResult> getVirtualGradleRepositoryPlain(GetVirtualGradleRepositoryPlainArgs args) {
@@ -18426,6 +19878,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Gradle repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -18454,6 +19908,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVirtualGradleRepositoryResult> getVirtualGradleRepository(GetVirtualGradleRepositoryArgs args, InvokeOptions options) {
@@ -18463,6 +19918,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Gradle repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -18491,6 +19948,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVirtualGradleRepositoryResult> getVirtualGradleRepositoryPlain(GetVirtualGradleRepositoryPlainArgs args, InvokeOptions options) {
@@ -18500,6 +19958,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Helm repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -18528,6 +19988,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVirtualHelmRepositoryResult> getVirtualHelmRepository(GetVirtualHelmRepositoryArgs args) {
@@ -18537,6 +19998,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Helm repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -18565,6 +20028,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVirtualHelmRepositoryResult> getVirtualHelmRepositoryPlain(GetVirtualHelmRepositoryPlainArgs args) {
@@ -18574,6 +20038,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Helm repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -18602,6 +20068,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVirtualHelmRepositoryResult> getVirtualHelmRepository(GetVirtualHelmRepositoryArgs args, InvokeOptions options) {
@@ -18611,6 +20078,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Helm repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -18639,6 +20108,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVirtualHelmRepositoryResult> getVirtualHelmRepositoryPlain(GetVirtualHelmRepositoryPlainArgs args, InvokeOptions options) {
@@ -18648,6 +20118,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Helm OCI repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -18676,6 +20148,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVirtualHelmociRepositoryResult> getVirtualHelmociRepository(GetVirtualHelmociRepositoryArgs args) {
@@ -18685,6 +20158,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Helm OCI repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -18713,6 +20188,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVirtualHelmociRepositoryResult> getVirtualHelmociRepositoryPlain(GetVirtualHelmociRepositoryPlainArgs args) {
@@ -18722,6 +20198,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Helm OCI repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -18750,6 +20228,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVirtualHelmociRepositoryResult> getVirtualHelmociRepository(GetVirtualHelmociRepositoryArgs args, InvokeOptions options) {
@@ -18759,6 +20238,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Helm OCI repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -18787,6 +20268,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVirtualHelmociRepositoryResult> getVirtualHelmociRepositoryPlain(GetVirtualHelmociRepositoryPlainArgs args, InvokeOptions options) {
@@ -18796,6 +20278,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Ivy repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -18824,6 +20308,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVirtualIvyRepositoryResult> getVirtualIvyRepository(GetVirtualIvyRepositoryArgs args) {
@@ -18833,6 +20318,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Ivy repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -18861,6 +20348,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVirtualIvyRepositoryResult> getVirtualIvyRepositoryPlain(GetVirtualIvyRepositoryPlainArgs args) {
@@ -18870,6 +20358,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Ivy repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -18898,6 +20388,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVirtualIvyRepositoryResult> getVirtualIvyRepository(GetVirtualIvyRepositoryArgs args, InvokeOptions options) {
@@ -18907,6 +20398,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Ivy repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -18935,6 +20428,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVirtualIvyRepositoryResult> getVirtualIvyRepositoryPlain(GetVirtualIvyRepositoryPlainArgs args, InvokeOptions options) {
@@ -18944,6 +20438,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Maven repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -18972,6 +20468,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVirtualMavenRepositoryResult> getVirtualMavenRepository(GetVirtualMavenRepositoryArgs args) {
@@ -18981,6 +20478,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Maven repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -19009,6 +20508,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVirtualMavenRepositoryResult> getVirtualMavenRepositoryPlain(GetVirtualMavenRepositoryPlainArgs args) {
@@ -19018,6 +20518,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Maven repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -19046,6 +20548,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVirtualMavenRepositoryResult> getVirtualMavenRepository(GetVirtualMavenRepositoryArgs args, InvokeOptions options) {
@@ -19055,6 +20558,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Maven repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -19083,6 +20588,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVirtualMavenRepositoryResult> getVirtualMavenRepositoryPlain(GetVirtualMavenRepositoryPlainArgs args, InvokeOptions options) {
@@ -19092,6 +20598,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual NPM repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -19120,6 +20628,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVirtualNpmRepositoryResult> getVirtualNpmRepository(GetVirtualNpmRepositoryArgs args) {
@@ -19129,6 +20638,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual NPM repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -19157,6 +20668,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVirtualNpmRepositoryResult> getVirtualNpmRepositoryPlain(GetVirtualNpmRepositoryPlainArgs args) {
@@ -19166,6 +20678,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual NPM repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -19194,6 +20708,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVirtualNpmRepositoryResult> getVirtualNpmRepository(GetVirtualNpmRepositoryArgs args, InvokeOptions options) {
@@ -19203,6 +20718,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual NPM repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -19231,6 +20748,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVirtualNpmRepositoryResult> getVirtualNpmRepositoryPlain(GetVirtualNpmRepositoryPlainArgs args, InvokeOptions options) {
@@ -19240,6 +20758,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual NPM repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -19268,6 +20788,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVirtualNugetRepositoryResult> getVirtualNugetRepository(GetVirtualNugetRepositoryArgs args) {
@@ -19277,6 +20798,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual NPM repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -19305,6 +20828,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVirtualNugetRepositoryResult> getVirtualNugetRepositoryPlain(GetVirtualNugetRepositoryPlainArgs args) {
@@ -19314,6 +20838,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual NPM repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -19342,6 +20868,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVirtualNugetRepositoryResult> getVirtualNugetRepository(GetVirtualNugetRepositoryArgs args, InvokeOptions options) {
@@ -19351,6 +20878,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual NPM repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -19379,6 +20908,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVirtualNugetRepositoryResult> getVirtualNugetRepositoryPlain(GetVirtualNugetRepositoryPlainArgs args, InvokeOptions options) {
@@ -19388,6 +20918,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual OCI repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -19416,6 +20948,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVirtualOciRepositoryResult> getVirtualOciRepository(GetVirtualOciRepositoryArgs args) {
@@ -19425,6 +20958,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual OCI repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -19453,6 +20988,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVirtualOciRepositoryResult> getVirtualOciRepositoryPlain(GetVirtualOciRepositoryPlainArgs args) {
@@ -19462,6 +20998,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual OCI repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -19490,6 +21028,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVirtualOciRepositoryResult> getVirtualOciRepository(GetVirtualOciRepositoryArgs args, InvokeOptions options) {
@@ -19499,6 +21038,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual OCI repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -19527,6 +21068,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVirtualOciRepositoryResult> getVirtualOciRepositoryPlain(GetVirtualOciRepositoryPlainArgs args, InvokeOptions options) {
@@ -19536,6 +21078,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual P2 repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -19564,6 +21108,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVirtualP2RepositoryResult> getVirtualP2Repository(GetVirtualP2RepositoryArgs args) {
@@ -19573,6 +21118,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual P2 repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -19601,6 +21148,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVirtualP2RepositoryResult> getVirtualP2RepositoryPlain(GetVirtualP2RepositoryPlainArgs args) {
@@ -19610,6 +21158,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual P2 repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -19638,6 +21188,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVirtualP2RepositoryResult> getVirtualP2Repository(GetVirtualP2RepositoryArgs args, InvokeOptions options) {
@@ -19647,6 +21198,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual P2 repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -19675,6 +21228,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVirtualP2RepositoryResult> getVirtualP2RepositoryPlain(GetVirtualP2RepositoryPlainArgs args, InvokeOptions options) {
@@ -19684,6 +21238,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Pub repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -19712,6 +21268,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVirtualPubRepositoryResult> getVirtualPubRepository(GetVirtualPubRepositoryArgs args) {
@@ -19721,6 +21278,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Pub repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -19749,6 +21308,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVirtualPubRepositoryResult> getVirtualPubRepositoryPlain(GetVirtualPubRepositoryPlainArgs args) {
@@ -19758,6 +21318,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Pub repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -19786,6 +21348,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVirtualPubRepositoryResult> getVirtualPubRepository(GetVirtualPubRepositoryArgs args, InvokeOptions options) {
@@ -19795,6 +21358,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Pub repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -19823,6 +21388,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVirtualPubRepositoryResult> getVirtualPubRepositoryPlain(GetVirtualPubRepositoryPlainArgs args, InvokeOptions options) {
@@ -19832,6 +21398,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Puppet repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -19860,6 +21428,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVirtualPuppetRepositoryResult> getVirtualPuppetRepository(GetVirtualPuppetRepositoryArgs args) {
@@ -19869,6 +21438,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Puppet repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -19897,6 +21468,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVirtualPuppetRepositoryResult> getVirtualPuppetRepositoryPlain(GetVirtualPuppetRepositoryPlainArgs args) {
@@ -19906,6 +21478,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Puppet repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -19934,6 +21508,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVirtualPuppetRepositoryResult> getVirtualPuppetRepository(GetVirtualPuppetRepositoryArgs args, InvokeOptions options) {
@@ -19943,6 +21518,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Puppet repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -19971,6 +21548,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVirtualPuppetRepositoryResult> getVirtualPuppetRepositoryPlain(GetVirtualPuppetRepositoryPlainArgs args, InvokeOptions options) {
@@ -19980,6 +21558,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Pypi repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -20008,6 +21588,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVirtualPypiRepositoryResult> getVirtualPypiRepository(GetVirtualPypiRepositoryArgs args) {
@@ -20017,6 +21598,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Pypi repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -20045,6 +21628,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVirtualPypiRepositoryResult> getVirtualPypiRepositoryPlain(GetVirtualPypiRepositoryPlainArgs args) {
@@ -20054,6 +21638,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Pypi repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -20082,6 +21668,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVirtualPypiRepositoryResult> getVirtualPypiRepository(GetVirtualPypiRepositoryArgs args, InvokeOptions options) {
@@ -20091,6 +21678,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Pypi repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -20119,6 +21708,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVirtualPypiRepositoryResult> getVirtualPypiRepositoryPlain(GetVirtualPypiRepositoryPlainArgs args, InvokeOptions options) {
@@ -20128,6 +21718,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Rpm repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -20156,6 +21748,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVirtualRpmRepositoryResult> getVirtualRpmRepository(GetVirtualRpmRepositoryArgs args) {
@@ -20165,6 +21758,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Rpm repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -20193,6 +21788,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVirtualRpmRepositoryResult> getVirtualRpmRepositoryPlain(GetVirtualRpmRepositoryPlainArgs args) {
@@ -20202,6 +21798,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Rpm repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -20230,6 +21828,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVirtualRpmRepositoryResult> getVirtualRpmRepository(GetVirtualRpmRepositoryArgs args, InvokeOptions options) {
@@ -20239,6 +21838,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Rpm repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -20267,6 +21868,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVirtualRpmRepositoryResult> getVirtualRpmRepositoryPlain(GetVirtualRpmRepositoryPlainArgs args, InvokeOptions options) {
@@ -20276,6 +21878,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual SBT repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -20304,6 +21908,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVirtualSbtRepositoryResult> getVirtualSbtRepository(GetVirtualSbtRepositoryArgs args) {
@@ -20313,6 +21918,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual SBT repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -20341,6 +21948,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVirtualSbtRepositoryResult> getVirtualSbtRepositoryPlain(GetVirtualSbtRepositoryPlainArgs args) {
@@ -20350,6 +21958,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual SBT repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -20378,6 +21988,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVirtualSbtRepositoryResult> getVirtualSbtRepository(GetVirtualSbtRepositoryArgs args, InvokeOptions options) {
@@ -20387,6 +21998,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual SBT repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -20415,6 +22028,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVirtualSbtRepositoryResult> getVirtualSbtRepositoryPlain(GetVirtualSbtRepositoryPlainArgs args, InvokeOptions options) {
@@ -20424,6 +22038,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Swift repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -20452,6 +22068,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVirtualSwiftRepositoryResult> getVirtualSwiftRepository(GetVirtualSwiftRepositoryArgs args) {
@@ -20461,6 +22078,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Swift repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -20489,6 +22108,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVirtualSwiftRepositoryResult> getVirtualSwiftRepositoryPlain(GetVirtualSwiftRepositoryPlainArgs args) {
@@ -20498,6 +22118,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Swift repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -20526,6 +22148,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVirtualSwiftRepositoryResult> getVirtualSwiftRepository(GetVirtualSwiftRepositoryArgs args, InvokeOptions options) {
@@ -20535,6 +22158,8 @@ public final class ArtifactoryFunctions {
      * Retrieves a virtual Swift repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -20563,6 +22188,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVirtualSwiftRepositoryResult> getVirtualSwiftRepositoryPlain(GetVirtualSwiftRepositoryPlainArgs args, InvokeOptions options) {
@@ -20570,6 +22196,8 @@ public final class ArtifactoryFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -20598,6 +22226,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVirtualTerraformRepositoryResult> getVirtualTerraformRepository(GetVirtualTerraformRepositoryArgs args) {
@@ -20605,6 +22234,8 @@ public final class ArtifactoryFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -20633,6 +22264,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVirtualTerraformRepositoryResult> getVirtualTerraformRepositoryPlain(GetVirtualTerraformRepositoryPlainArgs args) {
@@ -20640,6 +22272,8 @@ public final class ArtifactoryFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -20668,6 +22302,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVirtualTerraformRepositoryResult> getVirtualTerraformRepository(GetVirtualTerraformRepositoryArgs args, InvokeOptions options) {
@@ -20675,6 +22310,8 @@ public final class ArtifactoryFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -20703,6 +22340,7 @@ public final class ArtifactoryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVirtualTerraformRepositoryResult> getVirtualTerraformRepositoryPlain(GetVirtualTerraformRepositoryPlainArgs args, InvokeOptions options) {

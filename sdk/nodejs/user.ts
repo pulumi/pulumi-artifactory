@@ -13,6 +13,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -30,6 +31,8 @@ import * as utilities from "./utilities";
  *     profileUpdatable: true,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Managing groups relationship
  *
  * See our recommendation on how to manage user-group relationship.
@@ -37,7 +40,7 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * ```sh
- *  $ pulumi import artifactory:index/user:User test-user myusername
+ * $ pulumi import artifactory:index/user:User test-user myusername
  * ```
  */
 export class User extends pulumi.CustomResource {

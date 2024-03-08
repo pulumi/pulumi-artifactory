@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -47,15 +48,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Remote repositories can be imported using their name, e.g.
 //
 // ```sh
-//
-//	$ pulumi import artifactory:index/remoteHelmociRepository:RemoteHelmociRepository my-helmoci-remote my-helmoci-remote
-//
+// $ pulumi import artifactory:index/remoteHelmociRepository:RemoteHelmociRepository my-helmoci-remote my-helmoci-remote
 // ```
 type RemoteHelmociRepository struct {
 	pulumi.CustomResourceState

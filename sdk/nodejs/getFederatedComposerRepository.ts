@@ -11,6 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -19,6 +20,7 @@ import * as utilities from "./utilities";
  *     key: "federated-test-composer-repo",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getFederatedComposerRepository(args: GetFederatedComposerRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetFederatedComposerRepositoryResult> {
 
@@ -132,6 +134,7 @@ export interface GetFederatedComposerRepositoryResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -140,6 +143,7 @@ export interface GetFederatedComposerRepositoryResult {
  *     key: "federated-test-composer-repo",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getFederatedComposerRepositoryOutput(args: GetFederatedComposerRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedComposerRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getFederatedComposerRepository(a, opts))

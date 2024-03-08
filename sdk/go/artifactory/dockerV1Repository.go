@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,15 +40,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Local repositories can be imported using their name, e.g.
 //
 // ```sh
-//
-//	$ pulumi import artifactory:index/dockerV1Repository:DockerV1Repository foo foo
-//
+// $ pulumi import artifactory:index/dockerV1Repository:DockerV1Repository foo foo
 // ```
 type DockerV1Repository struct {
 	pulumi.CustomResourceState

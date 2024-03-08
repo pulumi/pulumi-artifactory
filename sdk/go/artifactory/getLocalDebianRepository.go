@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,6 +39,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetLocalDebianRepository(ctx *pulumi.Context, args *GetLocalDebianRepositoryArgs, opts ...pulumi.InvokeOption) (*GetLocalDebianRepositoryResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetLocalDebianRepositoryResult

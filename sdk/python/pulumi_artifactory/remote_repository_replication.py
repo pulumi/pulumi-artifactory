@@ -372,6 +372,7 @@ class RemoteRepositoryReplication(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -395,13 +396,14 @@ class RemoteRepositoryReplication(pulumi.CustomResource):
             exclude_path_prefix_pattern="/some-other-repo/",
             check_binary_existence_in_filestore=False)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Push replication configs can be imported using their repo key, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/remoteRepositoryReplication:RemoteRepositoryReplication foo-rep provider_test_source
+        $ pulumi import artifactory:index/remoteRepositoryReplication:RemoteRepositoryReplication foo-rep provider_test_source
         ```
 
         :param str resource_name: The name of the resource.
@@ -430,6 +432,7 @@ class RemoteRepositoryReplication(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -453,13 +456,14 @@ class RemoteRepositoryReplication(pulumi.CustomResource):
             exclude_path_prefix_pattern="/some-other-repo/",
             check_binary_existence_in_filestore=False)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Push replication configs can be imported using their repo key, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/remoteRepositoryReplication:RemoteRepositoryReplication foo-rep provider_test_source
+        $ pulumi import artifactory:index/remoteRepositoryReplication:RemoteRepositoryReplication foo-rep provider_test_source
         ```
 
         :param str resource_name: The name of the resource.

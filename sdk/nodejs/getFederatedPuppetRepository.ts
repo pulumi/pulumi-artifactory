@@ -11,6 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -19,6 +20,7 @@ import * as utilities from "./utilities";
  *     key: "federated-test-puppet-repo",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getFederatedPuppetRepository(args: GetFederatedPuppetRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetFederatedPuppetRepositoryResult> {
 
@@ -132,6 +134,7 @@ export interface GetFederatedPuppetRepositoryResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -140,6 +143,7 @@ export interface GetFederatedPuppetRepositoryResult {
  *     key: "federated-test-puppet-repo",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getFederatedPuppetRepositoryOutput(args: GetFederatedPuppetRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedPuppetRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getFederatedPuppetRepository(a, opts))

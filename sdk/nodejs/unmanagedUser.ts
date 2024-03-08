@@ -15,6 +15,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -29,6 +30,8 @@ import * as utilities from "./utilities";
  *     password: "my super secret password",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Managing groups relationship
  *
  * See our recommendation on how to manage user-group relationship.
@@ -38,7 +41,7 @@ import * as utilities from "./utilities";
  * Users can be imported using their name, e.g.
  *
  * ```sh
- *  $ pulumi import artifactory:index/unmanagedUser:UnmanagedUser test-user myusername
+ * $ pulumi import artifactory:index/unmanagedUser:UnmanagedUser test-user myusername
  * ```
  */
 export class UnmanagedUser extends pulumi.CustomResource {

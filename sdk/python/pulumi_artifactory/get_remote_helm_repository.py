@@ -520,12 +520,14 @@ def get_remote_helm_repository(allow_any_host_auth: Optional[bool] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     remote_helm = artifactory.get_remote_helm_repository(key="remote-helm")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param bool external_dependencies_enabled: (Optional) When set, external dependencies are rewritten. `External Dependency Rewrite` in the UI.
@@ -684,12 +686,14 @@ def get_remote_helm_repository_output(allow_any_host_auth: Optional[pulumi.Input
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     remote_helm = artifactory.get_remote_helm_repository(key="remote-helm")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param bool external_dependencies_enabled: (Optional) When set, external dependencies are rewritten. `External Dependency Rewrite` in the UI.

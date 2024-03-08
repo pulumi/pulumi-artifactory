@@ -21,6 +21,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -58,6 +59,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 // Note: `Key` argument has to match to the resource name.\
 // Reference Link: [JFrog LDAP](https://www.jfrog.com/confluence/display/JFROG/LDAP)
 //
@@ -66,9 +68,7 @@ import (
 // LDAP setting can be imported using the key, e.g.
 //
 // ```sh
-//
-//	$ pulumi import artifactory:index/ldapSetting:LdapSetting ldap_name ldap_name
-//
+// $ pulumi import artifactory:index/ldapSetting:LdapSetting ldap_name ldap_name
 // ```
 type LdapSetting struct {
 	pulumi.CustomResourceState

@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -17,6 +18,7 @@ import * as utilities from "./utilities";
  *     key: "virtual-debian",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getVirtualDebianRepository(args: GetVirtualDebianRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualDebianRepositoryResult> {
 
@@ -127,6 +129,7 @@ export interface GetVirtualDebianRepositoryResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -135,6 +138,7 @@ export interface GetVirtualDebianRepositoryResult {
  *     key: "virtual-debian",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getVirtualDebianRepositoryOutput(args: GetVirtualDebianRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualDebianRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getVirtualDebianRepository(a, opts))

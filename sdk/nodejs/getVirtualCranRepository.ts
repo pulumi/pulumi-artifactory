@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -17,6 +18,7 @@ import * as utilities from "./utilities";
  *     key: "virtual-cran",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getVirtualCranRepository(args: GetVirtualCranRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualCranRepositoryResult> {
 
@@ -91,6 +93,7 @@ export interface GetVirtualCranRepositoryResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -99,6 +102,7 @@ export interface GetVirtualCranRepositoryResult {
  *     key: "virtual-cran",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getVirtualCranRepositoryOutput(args: GetVirtualCranRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualCranRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getVirtualCranRepository(a, opts))

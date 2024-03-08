@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -43,15 +44,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Local repositories can be imported using their name, e.g.
 //
 // ```sh
-//
-//	$ pulumi import artifactory:index/localHelmociRepository:LocalHelmociRepository my-helmoci-local my-helmoci-local
-//
+// $ pulumi import artifactory:index/localHelmociRepository:LocalHelmociRepository my-helmoci-local my-helmoci-local
 // ```
 type LocalHelmociRepository struct {
 	pulumi.CustomResourceState

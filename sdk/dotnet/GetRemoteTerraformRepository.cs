@@ -12,10 +12,9 @@ namespace Pulumi.Artifactory
     public static class GetRemoteTerraformRepository
     {
         /// <summary>
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -31,17 +30,15 @@ namespace Pulumi.Artifactory
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetRemoteTerraformRepositoryResult> InvokeAsync(GetRemoteTerraformRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRemoteTerraformRepositoryResult>("artifactory:index/getRemoteTerraformRepository:getRemoteTerraformRepository", args ?? new GetRemoteTerraformRepositoryArgs(), options.WithDefaults());
 
         /// <summary>
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -57,8 +54,7 @@ namespace Pulumi.Artifactory
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetRemoteTerraformRepositoryResult> Invoke(GetRemoteTerraformRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRemoteTerraformRepositoryResult>("artifactory:index/getRemoteTerraformRepository:getRemoteTerraformRepository", args ?? new GetRemoteTerraformRepositoryInvokeArgs(), options.WithDefaults());

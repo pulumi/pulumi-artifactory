@@ -12,10 +12,9 @@ namespace Pulumi.Artifactory
     public static class GetVirtualTerraformRepository
     {
         /// <summary>
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -31,17 +30,15 @@ namespace Pulumi.Artifactory
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetVirtualTerraformRepositoryResult> InvokeAsync(GetVirtualTerraformRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualTerraformRepositoryResult>("artifactory:index/getVirtualTerraformRepository:getVirtualTerraformRepository", args ?? new GetVirtualTerraformRepositoryArgs(), options.WithDefaults());
 
         /// <summary>
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -57,8 +54,7 @@ namespace Pulumi.Artifactory
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetVirtualTerraformRepositoryResult> Invoke(GetVirtualTerraformRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualTerraformRepositoryResult>("artifactory:index/getVirtualTerraformRepository:getVirtualTerraformRepository", args ?? new GetVirtualTerraformRepositoryInvokeArgs(), options.WithDefaults());

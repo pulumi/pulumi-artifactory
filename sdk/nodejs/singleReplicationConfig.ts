@@ -18,7 +18,7 @@ import * as utilities from "./utilities";
  * Replication configs can be imported using their repo key, e.g.
  *
  * ```sh
- *  $ pulumi import artifactory:index/singleReplicationConfig:SingleReplicationConfig foo-rep repository-key
+ * $ pulumi import artifactory:index/singleReplicationConfig:SingleReplicationConfig foo-rep repository-key
  * ```
  */
 export class SingleReplicationConfig extends pulumi.CustomResource {

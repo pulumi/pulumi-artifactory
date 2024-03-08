@@ -12,6 +12,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -21,13 +22,14 @@ import * as utilities from "./utilities";
  *     url: "http://dl-cdn.alpinelinux.org/alpine",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Remote repositories can be imported using their name, e.g.
  *
  * ```sh
- *  $ pulumi import artifactory:index/remoteAlpineRepository:RemoteAlpineRepository my-remote-alpine my-remote-alpine
+ * $ pulumi import artifactory:index/remoteAlpineRepository:RemoteAlpineRepository my-remote-alpine my-remote-alpine
  * ```
  */
 export class RemoteAlpineRepository extends pulumi.CustomResource {

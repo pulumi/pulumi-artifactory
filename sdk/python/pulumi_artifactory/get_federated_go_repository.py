@@ -263,12 +263,14 @@ def get_federated_go_repository(archive_browsing_enabled: Optional[bool] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     federated_test_go_repo = artifactory.get_federated_go_repository(key="federated-test-go-repo")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param bool disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
@@ -352,12 +354,14 @@ def get_federated_go_repository_output(archive_browsing_enabled: Optional[pulumi
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     federated_test_go_repo = artifactory.get_federated_go_repository(key="federated-test-go-repo")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param bool disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.

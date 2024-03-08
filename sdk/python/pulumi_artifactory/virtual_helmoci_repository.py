@@ -475,6 +475,7 @@ class VirtualHelmociRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -488,13 +489,14 @@ class VirtualHelmociRepository(pulumi.CustomResource):
             repositories=[],
             resolve_oci_tags_by_timestamp=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Virtual Helm OCI repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/virtualHelmociRepository:VirtualHelmociRepository my-helmoci-virtual my-helmoci-virtual
+        $ pulumi import artifactory:index/virtualHelmociRepository:VirtualHelmociRepository my-helmoci-virtual my-helmoci-virtual
         ```
 
         :param str resource_name: The name of the resource.
@@ -532,6 +534,7 @@ class VirtualHelmociRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -545,13 +548,14 @@ class VirtualHelmociRepository(pulumi.CustomResource):
             repositories=[],
             resolve_oci_tags_by_timestamp=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Virtual Helm OCI repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/virtualHelmociRepository:VirtualHelmociRepository my-helmoci-virtual my-helmoci-virtual
+        $ pulumi import artifactory:index/virtualHelmociRepository:VirtualHelmociRepository my-helmoci-virtual my-helmoci-virtual
         ```
 
         :param str resource_name: The name of the resource.

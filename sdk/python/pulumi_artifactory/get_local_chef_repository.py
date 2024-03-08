@@ -218,12 +218,14 @@ def get_local_chef_repository(archive_browsing_enabled: Optional[bool] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     local_test_chef_repo = artifactory.get_local_chef_repository(key="local-test-chef-repo")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str description: (Optional)
@@ -291,12 +293,14 @@ def get_local_chef_repository_output(archive_browsing_enabled: Optional[pulumi.I
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     local_test_chef_repo = artifactory.get_local_chef_repository(key="local-test-chef-repo")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str description: (Optional)

@@ -650,6 +650,7 @@ class AlpineRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -665,13 +666,14 @@ class AlpineRepository(pulumi.CustomResource):
             primary_keypair_ref=some_keypair_rsa.pair_name,
             opts=pulumi.ResourceOptions(depends_on=[some_keypair_rsa]))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Local repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/alpineRepository:AlpineRepository terraform-local-test-alpine-repo-basic terraform-local-test-alpine-repo-basic
+        $ pulumi import artifactory:index/alpineRepository:AlpineRepository terraform-local-test-alpine-repo-basic terraform-local-test-alpine-repo-basic
         ```
 
         :param str resource_name: The name of the resource.
@@ -716,6 +718,7 @@ class AlpineRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -731,13 +734,14 @@ class AlpineRepository(pulumi.CustomResource):
             primary_keypair_ref=some_keypair_rsa.pair_name,
             opts=pulumi.ResourceOptions(depends_on=[some_keypair_rsa]))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Local repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/alpineRepository:AlpineRepository terraform-local-test-alpine-repo-basic terraform-local-test-alpine-repo-basic
+        $ pulumi import artifactory:index/alpineRepository:AlpineRepository terraform-local-test-alpine-repo-basic terraform-local-test-alpine-repo-basic
         ```
 
         :param str resource_name: The name of the resource.

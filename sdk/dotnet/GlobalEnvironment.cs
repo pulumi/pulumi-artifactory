@@ -14,6 +14,7 @@ namespace Pulumi.Artifactory
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -26,11 +27,12 @@ namespace Pulumi.Artifactory
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// ```sh
-    ///  $ pulumi import artifactory:index/globalEnvironment:GlobalEnvironment dev-env myenv
+    /// $ pulumi import artifactory:index/globalEnvironment:GlobalEnvironment dev-env myenv
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/globalEnvironment:GlobalEnvironment")]

@@ -18,6 +18,7 @@ namespace Pulumi.Artifactory
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -46,13 +47,14 @@ namespace Pulumi.Artifactory
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Current SAML SSO settings can be imported using `saml_settings` as the `ID`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import artifactory:index/samlSettings:SamlSettings saml saml_settings
+    /// $ pulumi import artifactory:index/samlSettings:SamlSettings saml saml_settings
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/samlSettings:SamlSettings")]

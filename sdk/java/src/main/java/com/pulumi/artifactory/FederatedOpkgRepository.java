@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * Creates a federated Opkg repository.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -59,13 +61,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Federated repositories can be imported using their name, e.g.
  * 
  * ```sh
- *  $ pulumi import artifactory:index/federatedOpkgRepository:FederatedOpkgRepository terraform-federated-test-opkg-repo terraform-federated-test-opkg-repo
+ * $ pulumi import artifactory:index/federatedOpkgRepository:FederatedOpkgRepository terraform-federated-test-opkg-repo terraform-federated-test-opkg-repo
  * ```
  * 
  */

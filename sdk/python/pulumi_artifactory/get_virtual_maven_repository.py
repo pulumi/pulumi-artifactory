@@ -205,12 +205,14 @@ def get_virtual_maven_repository(artifactory_requests_can_retrieve_remote_artifa
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     virtual_maven = artifactory.get_virtual_maven_repository(key="virtual-maven")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param bool force_maven_authentication: (Optional) Forces authentication when fetching from remote repos.
@@ -275,12 +277,14 @@ def get_virtual_maven_repository_output(artifactory_requests_can_retrieve_remote
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     virtual_maven = artifactory.get_virtual_maven_repository(key="virtual-maven")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param bool force_maven_authentication: (Optional) Forces authentication when fetching from remote repos.

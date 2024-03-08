@@ -14,6 +14,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -30,6 +31,7 @@ import * as utilities from "./utilities";
  *     subTree: true,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  * Note: `Name` argument has to match to the resource name.\
  * Reference Link: [JFrog LDAP](https://www.jfrog.com/confluence/display/JFROG/LDAP)
  *
@@ -38,7 +40,7 @@ import * as utilities from "./utilities";
  * LDAP Group setting can be imported using the key, e.g.
  *
  * ```sh
- *  $ pulumi import artifactory:index/ldapGroupSetting:LdapGroupSetting ldap_group_name ldap_group_name
+ * $ pulumi import artifactory:index/ldapGroupSetting:LdapGroupSetting ldap_group_name ldap_group_name
  * ```
  */
 export class LdapGroupSetting extends pulumi.CustomResource {

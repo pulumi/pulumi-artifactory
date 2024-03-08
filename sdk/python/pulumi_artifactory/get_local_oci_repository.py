@@ -235,12 +235,14 @@ def get_local_oci_repository(archive_browsing_enabled: Optional[bool] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     my_oci_local = artifactory.LocalOciRepository("my-oci-local", key="my-oci-local")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str key: the identity key of the repo.
@@ -314,12 +316,14 @@ def get_local_oci_repository_output(archive_browsing_enabled: Optional[pulumi.In
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     my_oci_local = artifactory.LocalOciRepository("my-oci-local", key="my-oci-local")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str key: the identity key of the repo.

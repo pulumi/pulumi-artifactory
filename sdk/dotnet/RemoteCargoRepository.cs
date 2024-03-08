@@ -15,6 +15,7 @@ namespace Pulumi.Artifactory
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -34,6 +35,7 @@ namespace Pulumi.Artifactory
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// ## Note
     /// 
     /// If you get a 400 error: `"Custom Base URL should be defined prior to creating a Cargo repository"`,
@@ -44,7 +46,7 @@ namespace Pulumi.Artifactory
     /// Remote repositories can be imported using their name, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import artifactory:index/remoteCargoRepository:RemoteCargoRepository my-remote-cargo my-remote-cargo
+    /// $ pulumi import artifactory:index/remoteCargoRepository:RemoteCargoRepository my-remote-cargo my-remote-cargo
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/remoteCargoRepository:RemoteCargoRepository")]

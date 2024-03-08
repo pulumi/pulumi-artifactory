@@ -24,6 +24,8 @@ import javax.annotation.Nullable;
  * Official documentation can be found [here](https://jfrog.com/help/r/jfrog-artifactory-documentation/vcs-repositories).
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -55,13 +57,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Remote repositories can be imported using their name, e.g.
  * 
  * ```sh
- *  $ pulumi import artifactory:index/remoteVcsRepository:RemoteVcsRepository my-remote-vcs my-remote-vcs
+ * $ pulumi import artifactory:index/remoteVcsRepository:RemoteVcsRepository my-remote-vcs my-remote-vcs
  * ```
  * 
  */

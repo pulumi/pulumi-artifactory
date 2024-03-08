@@ -11,6 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -19,6 +20,7 @@ import * as utilities from "./utilities";
  *     key: "federated-test-gems-repo",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getFederatedGemsRepository(args: GetFederatedGemsRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetFederatedGemsRepositoryResult> {
 
@@ -132,6 +134,7 @@ export interface GetFederatedGemsRepositoryResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -140,6 +143,7 @@ export interface GetFederatedGemsRepositoryResult {
  *     key: "federated-test-gems-repo",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getFederatedGemsRepositoryOutput(args: GetFederatedGemsRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedGemsRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getFederatedGemsRepository(a, opts))

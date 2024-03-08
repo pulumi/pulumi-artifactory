@@ -212,12 +212,14 @@ def get_local_vagrant_repository(archive_browsing_enabled: Optional[bool] = None
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     local_test_vagrant_repo = artifactory.get_local_vagrant_repository(key="local-test-vagrant-repo")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str key: the identity key of the repo.
@@ -283,12 +285,14 @@ def get_local_vagrant_repository_output(archive_browsing_enabled: Optional[pulum
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     local_test_vagrant_repo = artifactory.get_local_vagrant_repository(key="local-test-vagrant-repo")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str key: the identity key of the repo.

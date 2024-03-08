@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -17,6 +18,7 @@ import * as utilities from "./utilities";
  *     key: "local-test-ivy-repo",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getLocalIvyRepository(args: GetLocalIvyRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalIvyRepositoryResult> {
 
@@ -172,6 +174,7 @@ export interface GetLocalIvyRepositoryResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -180,6 +183,7 @@ export interface GetLocalIvyRepositoryResult {
  *     key: "local-test-ivy-repo",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getLocalIvyRepositoryOutput(args: GetLocalIvyRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalIvyRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getLocalIvyRepository(a, opts))

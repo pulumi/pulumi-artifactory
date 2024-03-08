@@ -12,6 +12,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -21,13 +22,14 @@ import * as utilities from "./utilities";
  *     url: "https://supermarket.chef.io",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Remote repositories can be imported using their name, e.g.
  *
  * ```sh
- *  $ pulumi import artifactory:index/remoteChefRepository:RemoteChefRepository my-remote-chef my-remote-chef
+ * $ pulumi import artifactory:index/remoteChefRepository:RemoteChefRepository my-remote-chef my-remote-chef
  * ```
  */
 export class RemoteChefRepository extends pulumi.CustomResource {

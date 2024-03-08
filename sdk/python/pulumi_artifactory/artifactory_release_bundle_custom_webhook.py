@@ -235,6 +235,7 @@ class ArtifactoryReleaseBundleCustomWebhook(pulumi.CustomResource):
         ## Example Usage
 
         .
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -266,6 +267,7 @@ class ArtifactoryReleaseBundleCustomWebhook(pulumi.CustomResource):
             )],
             key="artifactory-release-bundle-custom-webhook")
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -288,6 +290,7 @@ class ArtifactoryReleaseBundleCustomWebhook(pulumi.CustomResource):
         ## Example Usage
 
         .
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -319,6 +322,7 @@ class ArtifactoryReleaseBundleCustomWebhook(pulumi.CustomResource):
             )],
             key="artifactory-release-bundle-custom-webhook")
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param ArtifactoryReleaseBundleCustomWebhookArgs args: The arguments to use to populate this resource's properties.

@@ -1780,6 +1780,7 @@ class RemoteSbtRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -1792,13 +1793,14 @@ class RemoteSbtRepository(pulumi.CustomResource):
             suppress_pom_consistency_checks=True,
             url="https://repo1.maven.org/maven2/")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Remote repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/remoteSbtRepository:RemoteSbtRepository sbt-remote sbt-remote
+        $ pulumi import artifactory:index/remoteSbtRepository:RemoteSbtRepository sbt-remote sbt-remote
         ```
 
         :param str resource_name: The name of the resource.
@@ -1897,6 +1899,7 @@ class RemoteSbtRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -1909,13 +1912,14 @@ class RemoteSbtRepository(pulumi.CustomResource):
             suppress_pom_consistency_checks=True,
             url="https://repo1.maven.org/maven2/")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Remote repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/remoteSbtRepository:RemoteSbtRepository sbt-remote sbt-remote
+        $ pulumi import artifactory:index/remoteSbtRepository:RemoteSbtRepository sbt-remote sbt-remote
         ```
 
         :param str resource_name: The name of the resource.

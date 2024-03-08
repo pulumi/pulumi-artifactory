@@ -19,6 +19,7 @@ namespace Pulumi.Artifactory
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -48,6 +49,7 @@ namespace Pulumi.Artifactory
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// Note: `Key` argument has to match to the resource name.\
     /// Reference Link: [JFrog LDAP](https://www.jfrog.com/confluence/display/JFROG/LDAP)
     /// 
@@ -56,7 +58,7 @@ namespace Pulumi.Artifactory
     /// LDAP setting can be imported using the key, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import artifactory:index/ldapSetting:LdapSetting ldap_name ldap_name
+    /// $ pulumi import artifactory:index/ldapSetting:LdapSetting ldap_name ldap_name
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/ldapSetting:LdapSetting")]

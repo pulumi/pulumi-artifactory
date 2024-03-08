@@ -533,12 +533,14 @@ def get_remote_oci_repository(allow_any_host_auth: Optional[bool] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     my_oci_remote = artifactory.get_remote_oci_repository(key="my-oci-remote")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param bool disable_url_normalization: (Optional) Whether to disable URL normalization.
@@ -701,12 +703,14 @@ def get_remote_oci_repository_output(allow_any_host_auth: Optional[pulumi.Input[
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     my_oci_remote = artifactory.get_remote_oci_repository(key="my-oci-remote")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param bool disable_url_normalization: (Optional) Whether to disable URL normalization.

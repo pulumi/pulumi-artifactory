@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,6 +39,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupRemoteIvyRepository(ctx *pulumi.Context, args *LookupRemoteIvyRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupRemoteIvyRepositoryResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRemoteIvyRepositoryResult

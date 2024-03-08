@@ -1672,6 +1672,7 @@ class RemoteHelmRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -1683,13 +1684,14 @@ class RemoteHelmRepository(pulumi.CustomResource):
             key="helm-remote-foo25",
             url="https://repo.chartcenter.io/")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Remote repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/remoteHelmRepository:RemoteHelmRepository helm-remote helm-remote
+        $ pulumi import artifactory:index/remoteHelmRepository:RemoteHelmRepository helm-remote helm-remote
         ```
 
         :param str resource_name: The name of the resource.
@@ -1790,6 +1792,7 @@ class RemoteHelmRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -1801,13 +1804,14 @@ class RemoteHelmRepository(pulumi.CustomResource):
             key="helm-remote-foo25",
             url="https://repo.chartcenter.io/")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Remote repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/remoteHelmRepository:RemoteHelmRepository helm-remote helm-remote
+        $ pulumi import artifactory:index/remoteHelmRepository:RemoteHelmRepository helm-remote helm-remote
         ```
 
         :param str resource_name: The name of the resource.

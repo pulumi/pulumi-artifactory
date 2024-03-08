@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
  * Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/SBT+Repositories).
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -56,13 +58,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Remote repositories can be imported using their name, e.g.
  * 
  * ```sh
- *  $ pulumi import artifactory:index/remoteSbtRepository:RemoteSbtRepository sbt-remote sbt-remote
+ * $ pulumi import artifactory:index/remoteSbtRepository:RemoteSbtRepository sbt-remote sbt-remote
  * ```
  * 
  */

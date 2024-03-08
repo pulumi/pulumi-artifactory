@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -23,13 +24,14 @@ import * as utilities from "./utilities";
  *     suppressPomConsistencyChecks: true,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Local repositories can be imported using their name, e.g.
  *
  * ```sh
- *  $ pulumi import artifactory:index/localGradleRepository:LocalGradleRepository terraform-local-test-gradle-repo-basic terraform-local-test-gradle-repo-basic
+ * $ pulumi import artifactory:index/localGradleRepository:LocalGradleRepository terraform-local-test-gradle-repo-basic terraform-local-test-gradle-repo-basic
  * ```
  */
 export class LocalGradleRepository extends pulumi.CustomResource {

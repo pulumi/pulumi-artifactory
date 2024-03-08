@@ -370,6 +370,7 @@ class Proxy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -389,13 +390,14 @@ class Proxy(pulumi.CustomResource):
             ],
             username="user1")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Current Proxy can be imported using `proxy-key` from Artifactory as the `ID`, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/proxy:Proxy my-proxy proxy-key
+        $ pulumi import artifactory:index/proxy:Proxy my-proxy proxy-key
         ```
 
         :param str resource_name: The name of the resource.
@@ -427,6 +429,7 @@ class Proxy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -446,13 +449,14 @@ class Proxy(pulumi.CustomResource):
             ],
             username="user1")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Current Proxy can be imported using `proxy-key` from Artifactory as the `ID`, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/proxy:Proxy my-proxy proxy-key
+        $ pulumi import artifactory:index/proxy:Proxy my-proxy proxy-key
         ```
 
         :param str resource_name: The name of the resource.

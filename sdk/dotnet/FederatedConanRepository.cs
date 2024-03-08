@@ -14,6 +14,7 @@ namespace Pulumi.Artifactory
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -42,13 +43,14 @@ namespace Pulumi.Artifactory
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Federated repositories can be imported using their name, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import artifactory:index/federatedConanRepository:FederatedConanRepository terraform-federated-test-conan-repo terraform-federated-test-conan-repo
+    /// $ pulumi import artifactory:index/federatedConanRepository:FederatedConanRepository terraform-federated-test-conan-repo terraform-federated-test-conan-repo
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/federatedConanRepository:FederatedConanRepository")]

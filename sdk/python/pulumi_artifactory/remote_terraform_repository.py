@@ -1620,6 +1620,7 @@ class RemoteTerraformRepository(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -1630,13 +1631,14 @@ class RemoteTerraformRepository(pulumi.CustomResource):
             terraform_registry_url="https://registry.terraform.io",
             url="https://github.com/")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Remote repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/remoteTerraformRepository:RemoteTerraformRepository terraform-remote terraform-remote
+        $ pulumi import artifactory:index/remoteTerraformRepository:RemoteTerraformRepository terraform-remote terraform-remote
         ```
 
         :param str resource_name: The name of the resource.
@@ -1729,6 +1731,7 @@ class RemoteTerraformRepository(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -1739,13 +1742,14 @@ class RemoteTerraformRepository(pulumi.CustomResource):
             terraform_registry_url="https://registry.terraform.io",
             url="https://github.com/")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Remote repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/remoteTerraformRepository:RemoteTerraformRepository terraform-remote terraform-remote
+        $ pulumi import artifactory:index/remoteTerraformRepository:RemoteTerraformRepository terraform-remote terraform-remote
         ```
 
         :param str resource_name: The name of the resource.

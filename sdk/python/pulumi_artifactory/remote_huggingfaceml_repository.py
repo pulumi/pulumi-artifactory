@@ -1551,19 +1551,21 @@ class RemoteHuggingfacemlRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
 
         huggingfaceml_remote = artifactory.RemoteHuggingfacemlRepository("huggingfaceml-remote", key="huggingfaceml-remote-foo25")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Remote repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/remoteHuggingfacemlRepository:RemoteHuggingfacemlRepository huggingfaceml-remote huggingfaceml-remote
+        $ pulumi import artifactory:index/remoteHuggingfacemlRepository:RemoteHuggingfacemlRepository huggingfaceml-remote huggingfaceml-remote
         ```
 
         :param str resource_name: The name of the resource.
@@ -1656,19 +1658,21 @@ class RemoteHuggingfacemlRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
 
         huggingfaceml_remote = artifactory.RemoteHuggingfacemlRepository("huggingfaceml-remote", key="huggingfaceml-remote-foo25")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Remote repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/remoteHuggingfacemlRepository:RemoteHuggingfacemlRepository huggingfaceml-remote huggingfaceml-remote
+        $ pulumi import artifactory:index/remoteHuggingfacemlRepository:RemoteHuggingfacemlRepository huggingfaceml-remote huggingfaceml-remote
         ```
 
         :param str resource_name: The name of the resource.

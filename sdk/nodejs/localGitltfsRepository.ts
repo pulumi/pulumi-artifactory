@@ -9,19 +9,21 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * const terraform_local_test_gitlfs_repo = new artifactory.LocalGitltfsRepository("terraform-local-test-gitlfs-repo", {key: "terraform-local-test-gitlfs-repo"});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Local repositories can be imported using their name, e.g.
  *
  * ```sh
- *  $ pulumi import artifactory:index/localGitltfsRepository:LocalGitltfsRepository terraform-local-test-gitlfs-repo terraform-local-test-gitlfs-repo
+ * $ pulumi import artifactory:index/localGitltfsRepository:LocalGitltfsRepository terraform-local-test-gitlfs-repo terraform-local-test-gitlfs-repo
  * ```
  */
 export class LocalGitltfsRepository extends pulumi.CustomResource {

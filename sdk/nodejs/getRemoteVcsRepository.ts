@@ -11,6 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -19,6 +20,7 @@ import * as utilities from "./utilities";
  *     key: "remote-vcs",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getRemoteVcsRepository(args: GetRemoteVcsRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRemoteVcsRepositoryResult> {
 
@@ -204,6 +206,7 @@ export interface GetRemoteVcsRepositoryResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -212,6 +215,7 @@ export interface GetRemoteVcsRepositoryResult {
  *     key: "remote-vcs",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getRemoteVcsRepositoryOutput(args: GetRemoteVcsRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteVcsRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getRemoteVcsRepository(a, opts))

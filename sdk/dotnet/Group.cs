@@ -13,10 +13,10 @@ namespace Pulumi.Artifactory
     /// ## Import
     /// 
     /// ```sh
-    ///  $ pulumi import artifactory:index/group:Group terraform-group mygroup
+    /// $ pulumi import artifactory:index/group:Group terraform-group mygroup
     /// ```
     /// 
-    ///  ~&gt; `users_names` can't be imported due to API limitations.
+    /// ~&gt; `users_names` can't be imported due to API limitations.
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/group:Group")]
     public partial class Group : global::Pulumi.CustomResource

@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,15 +42,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Remote repositories can be imported using their name, e.g.
 //
 // ```sh
-//
-//	$ pulumi import artifactory:index/remoteSwiftRepository:RemoteSwiftRepository my-remote-swift my-remote-swift
-//
+// $ pulumi import artifactory:index/remoteSwiftRepository:RemoteSwiftRepository my-remote-swift my-remote-swift
 // ```
 type RemoteSwiftRepository struct {
 	pulumi.CustomResourceState

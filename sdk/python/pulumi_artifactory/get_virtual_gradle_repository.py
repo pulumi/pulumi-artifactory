@@ -208,12 +208,14 @@ def get_virtual_gradle_repository(artifactory_requests_can_retrieve_remote_artif
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     virtual_gradle = artifactory.get_virtual_gradle_repository(key="virtual-gradle")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str key: the identity key of the repo.
@@ -281,12 +283,14 @@ def get_virtual_gradle_repository_output(artifactory_requests_can_retrieve_remot
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     virtual_gradle = artifactory.get_virtual_gradle_repository(key="virtual-gradle")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str key: the identity key of the repo.

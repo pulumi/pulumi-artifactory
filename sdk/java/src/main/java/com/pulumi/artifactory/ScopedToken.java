@@ -27,47 +27,75 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
- * ### Create a new Artifactory scoped token for an existing user
+ * ### S
  * 
- * resource &#34;artifactory_scoped_token&#34; &#34;scoped_token&#34; {
- *   username = &#34;existing-user&#34;
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.artifactory.ScopedToken;
+ * import com.pulumi.artifactory.ScopedTokenArgs;
+ * import com.pulumi.artifactory.User;
+ * import com.pulumi.artifactory.UserArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var scopedToken = new ScopedToken(&#34;scopedToken&#34;, ScopedTokenArgs.builder()        
+ *             .username(&#34;existing-user&#34;)
+ *             .build());
+ * 
+ *         var newUser = new User(&#34;newUser&#34;, UserArgs.builder()        
+ *             .email(&#34;new_user@somewhere.com&#34;)
+ *             .groups(&#34;readers&#34;)
+ *             .build());
+ * 
+ *         var scopedTokenUser = new ScopedToken(&#34;scopedTokenUser&#34;, ScopedTokenArgs.builder()        
+ *             .username(newUser.name())
+ *             .build());
+ * 
+ *         var scopedTokenGroup = new ScopedToken(&#34;scopedTokenGroup&#34;, ScopedTokenArgs.builder()        
+ *             .scopes(&#34;applied-permissions/groups:readers&#34;)
+ *             .build());
+ * 
+ *         var scopedTokenNoExpiry = new ScopedToken(&#34;scopedTokenNoExpiry&#34;, ScopedTokenArgs.builder()        
+ *             .username(&#34;existing-user&#34;)
+ *             .expiresIn(7200)
+ *             .build());
+ * 
+ *         var scopedTokenRefreshable = new ScopedToken(&#34;scopedTokenRefreshable&#34;, ScopedTokenArgs.builder()        
+ *             .username(&#34;existing-user&#34;)
+ *             .refreshable(true)
+ *             .build());
+ * 
+ *         var admin = new ScopedToken(&#34;admin&#34;, ScopedTokenArgs.builder()        
+ *             .username(&#34;admin-user&#34;)
+ *             .scopes(&#34;applied-permissions/admin&#34;)
+ *             .build());
+ * 
+ *         var audience = new ScopedToken(&#34;audience&#34;, ScopedTokenArgs.builder()        
+ *             .username(&#34;admin-user&#34;)
+ *             .scopes(&#34;applied-permissions/admin&#34;)
+ *             .audiences(&#34;jfrt@*&#34;)
+ *             .build());
+ * 
+ *     }
  * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * ### **Note:** This assumes that the user `existing-user` has already been created in Artifactory by different means, i.e. manually or in a separate pulumi up.
- * 
- * ### Create a new Artifactory user and scoped token
- * resource &#34;artifactory_user&#34; &#34;new_user&#34; {
- *   name   = &#34;new_user&#34;
- *   email  = &#34;new_user@somewhere.com&#34;
- *   groups = [&#34;readers&#34;]
- * }
- * 
- * resource &#34;artifactory_scoped_token&#34; &#34;scoped_token_user&#34; {
- *   username = artifactory_user.new_user.name
- * }
- * 
- * ### Creates a new token for groups
- * resource &#34;artifactory_scoped_token&#34; &#34;scoped_token_group&#34; {
- *   scopes = [&#34;applied-permissions/groups:readers&#34;]
- * }
- * 
- * ### Create token with expiry
- * resource &#34;artifactory_scoped_token&#34; &#34;scoped_token_no_expiry&#34; {
- *   username   = &#34;existing-user&#34;
- *   expires_in = 7200 // in seconds
- * }
- * 
- * ### Creates a refreshable token
- * resource &#34;artifactory_scoped_token&#34; &#34;scoped_token_refreshable&#34; {
- *   username    = &#34;existing-user&#34;
- *   refreshable = true
- * }
- * 
- * ### Creates an administrator token
- * resource &#34;artifactory_scoped_token&#34; &#34;admin&#34; {
- *   username = &#34;admin-user&#34;
- *   scopes   = [&#34;applied-permissions/admin&#34;]
- * }
  * ## References
  * 
  * - https://jfrog.com/help/r/jfrog-platform-administration-documentation/access-tokens

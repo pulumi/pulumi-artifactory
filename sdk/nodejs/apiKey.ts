@@ -11,6 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -18,13 +19,14 @@ import * as utilities from "./utilities";
  * // Create a new Artifactory API key for the configured user
  * const ci = new artifactory.ApiKey("ci", {});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * A user's API key can be imported using any identifier, e.g.
  *
  * ```sh
- *  $ pulumi import artifactory:index/apiKey:ApiKey test import
+ * $ pulumi import artifactory:index/apiKey:ApiKey test import
  * ```
  */
 export class ApiKey extends pulumi.CustomResource {

@@ -9,19 +9,21 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * const terraform_local_test_go_repo = new artifactory.LocalGoRepository("terraform-local-test-go-repo", {key: "terraform-local-test-go-repo"});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Local repositories can be imported using their name, e.g.
  *
  * ```sh
- *  $ pulumi import artifactory:index/localGoRepository:LocalGoRepository terraform-local-test-go-repo terraform-local-test-go-repo
+ * $ pulumi import artifactory:index/localGoRepository:LocalGoRepository terraform-local-test-go-repo terraform-local-test-go-repo
  * ```
  */
 export class LocalGoRepository extends pulumi.CustomResource {

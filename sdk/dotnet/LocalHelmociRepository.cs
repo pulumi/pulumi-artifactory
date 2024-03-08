@@ -16,6 +16,7 @@ namespace Pulumi.Artifactory
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -33,13 +34,14 @@ namespace Pulumi.Artifactory
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Local repositories can be imported using their name, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import artifactory:index/localHelmociRepository:LocalHelmociRepository my-helmoci-local my-helmoci-local
+    /// $ pulumi import artifactory:index/localHelmociRepository:LocalHelmociRepository my-helmoci-local my-helmoci-local
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/localHelmociRepository:LocalHelmociRepository")]

@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,6 +39,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupRemoteGitlfsRepository(ctx *pulumi.Context, args *LookupRemoteGitlfsRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupRemoteGitlfsRepositoryResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRemoteGitlfsRepositoryResult

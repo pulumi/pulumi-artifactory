@@ -592,19 +592,21 @@ class LocalGenericRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
 
         terraform_local_test_generic_repo = artifactory.LocalGenericRepository("terraform-local-test-generic-repo", key="terraform-local-test-generic-repo")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Local repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/localGenericRepository:LocalGenericRepository terraform-local-test-generic-repo terraform-local-test-generic-repo
+        $ pulumi import artifactory:index/localGenericRepository:LocalGenericRepository terraform-local-test-generic-repo terraform-local-test-generic-repo
         ```
 
         :param str resource_name: The name of the resource.
@@ -648,19 +650,21 @@ class LocalGenericRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
 
         terraform_local_test_generic_repo = artifactory.LocalGenericRepository("terraform-local-test-generic-repo", key="terraform-local-test-generic-repo")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Local repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/localGenericRepository:LocalGenericRepository terraform-local-test-generic-repo terraform-local-test-generic-repo
+        $ pulumi import artifactory:index/localGenericRepository:LocalGenericRepository terraform-local-test-generic-repo terraform-local-test-generic-repo
         ```
 
         :param str resource_name: The name of the resource.

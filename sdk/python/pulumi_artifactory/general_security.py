@@ -75,6 +75,7 @@ class GeneralSecurity(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -82,15 +83,17 @@ class GeneralSecurity(pulumi.CustomResource):
         # Configure Artifactory general security settings
         security = artifactory.GeneralSecurity("security", enable_anonymous_access=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Current general security settings can be imported using `security` as the `ID`, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/generalSecurity:GeneralSecurity security security
+        $ pulumi import artifactory:index/generalSecurity:GeneralSecurity security security
         ```
-         ~>The `artifactory_general_security` resource uses endpoints that are undocumented and may not work with SaaS environments, or may change without notice.
+        ~>The `artifactory_general_security` resource uses endpoints that are undocumented and may not work with SaaS
+        environments, or may change without notice.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -111,6 +114,7 @@ class GeneralSecurity(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -118,15 +122,17 @@ class GeneralSecurity(pulumi.CustomResource):
         # Configure Artifactory general security settings
         security = artifactory.GeneralSecurity("security", enable_anonymous_access=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Current general security settings can be imported using `security` as the `ID`, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/generalSecurity:GeneralSecurity security security
+        $ pulumi import artifactory:index/generalSecurity:GeneralSecurity security security
         ```
-         ~>The `artifactory_general_security` resource uses endpoints that are undocumented and may not work with SaaS environments, or may change without notice.
+        ~>The `artifactory_general_security` resource uses endpoints that are undocumented and may not work with SaaS
+        environments, or may change without notice.
 
         :param str resource_name: The name of the resource.
         :param GeneralSecurityArgs args: The arguments to use to populate this resource's properties.

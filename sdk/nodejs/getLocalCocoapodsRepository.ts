@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -17,6 +18,7 @@ import * as utilities from "./utilities";
  *     key: "local-test-cocoapods-repo",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getLocalCocoapodsRepository(args: GetLocalCocoapodsRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalCocoapodsRepositoryResult> {
 
@@ -97,6 +99,7 @@ export interface GetLocalCocoapodsRepositoryResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -105,6 +108,7 @@ export interface GetLocalCocoapodsRepositoryResult {
  *     key: "local-test-cocoapods-repo",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getLocalCocoapodsRepositoryOutput(args: GetLocalCocoapodsRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalCocoapodsRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getLocalCocoapodsRepository(a, opts))

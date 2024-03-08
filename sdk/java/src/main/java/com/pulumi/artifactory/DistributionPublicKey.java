@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * See [API description](https://jfrog.com/help/r/jfrog-rest-apis/set-distributionpublic-gpg-key) in the Artifactory documentation for more details. Also the [UI documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/managing-webstart-and-jar-signing) has further details on where to find these keys in Artifactory.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -48,13 +50,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Distribution Public Key can be imported using the key id, e.g.
  * 
  * ```sh
- *  $ pulumi import artifactory:index/distributionPublicKey:DistributionPublicKey my-key keyid
+ * $ pulumi import artifactory:index/distributionPublicKey:DistributionPublicKey my-key keyid
  * ```
  * 
  */

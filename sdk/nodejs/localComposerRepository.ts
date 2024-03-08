@@ -9,19 +9,21 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * const terraform_local_test_composer_repo = new artifactory.LocalComposerRepository("terraform-local-test-composer-repo", {key: "terraform-local-test-composer-repo"});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Local repositories can be imported using their name, e.g.
  *
  * ```sh
- *  $ pulumi import artifactory:index/localComposerRepository:LocalComposerRepository terraform-local-test-composer-repo terraform-local-test-composer-repo
+ * $ pulumi import artifactory:index/localComposerRepository:LocalComposerRepository terraform-local-test-composer-repo terraform-local-test-composer-repo
  * ```
  */
 export class LocalComposerRepository extends pulumi.CustomResource {

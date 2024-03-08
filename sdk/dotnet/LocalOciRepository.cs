@@ -14,6 +14,7 @@ namespace Pulumi.Artifactory
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -31,13 +32,14 @@ namespace Pulumi.Artifactory
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Local repositories can be imported using their name, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import artifactory:index/localOciRepository:LocalOciRepository my-oci-local my-oci-local
+    /// $ pulumi import artifactory:index/localOciRepository:LocalOciRepository my-oci-local my-oci-local
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/localOciRepository:LocalOciRepository")]

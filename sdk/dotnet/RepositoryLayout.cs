@@ -16,6 +16,7 @@ namespace Pulumi.Artifactory
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -35,13 +36,14 @@ namespace Pulumi.Artifactory
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Repository layout can be imported using its name, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import artifactory:index/repositoryLayout:RepositoryLayout custom-layout custom-layout
+    /// $ pulumi import artifactory:index/repositoryLayout:RepositoryLayout custom-layout custom-layout
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/repositoryLayout:RepositoryLayout")]

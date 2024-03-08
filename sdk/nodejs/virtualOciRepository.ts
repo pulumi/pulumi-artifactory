@@ -11,6 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -26,13 +27,14 @@ import * as utilities from "./utilities";
  *     resolveOciTagsByTimestamp: true,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Virtual OCI repositories can be imported using their name, e.g.
  *
  * ```sh
- *  $ pulumi import artifactory:index/virtualOciRepository:VirtualOciRepository my-oci-virtual my-oci-virtual
+ * $ pulumi import artifactory:index/virtualOciRepository:VirtualOciRepository my-oci-virtual my-oci-virtual
  * ```
  */
 export class VirtualOciRepository extends pulumi.CustomResource {

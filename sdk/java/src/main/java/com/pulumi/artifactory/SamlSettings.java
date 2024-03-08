@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
  * ~&gt;The `artifactory.SamlSettings` resource utilizes endpoints which are blocked/removed in SaaS environments (i.e. in Artifactory online), rendering this resource incompatible with Artifactory SaaS environments.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -63,13 +65,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Current SAML SSO settings can be imported using `saml_settings` as the `ID`, e.g.
  * 
  * ```sh
- *  $ pulumi import artifactory:index/samlSettings:SamlSettings saml saml_settings
+ * $ pulumi import artifactory:index/samlSettings:SamlSettings saml saml_settings
  * ```
  * 
  */

@@ -15,6 +15,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -55,13 +56,14 @@ import * as utilities from "./utilities";
  *     visible: true,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Current Property Set can be imported using `property-set1` as the `ID`, e.g.
  *
  * ```sh
- *  $ pulumi import artifactory:index/propertySet:PropertySet foo property-set1
+ * $ pulumi import artifactory:index/propertySet:PropertySet foo property-set1
  * ```
  */
 export class PropertySet extends pulumi.CustomResource {

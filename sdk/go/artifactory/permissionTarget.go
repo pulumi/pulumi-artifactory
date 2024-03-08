@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -125,6 +126,8 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ## Permissions
 //
 // The provider supports the following `permission` enums:
@@ -152,9 +155,7 @@ import (
 // Permission targets can be imported using their name, e.g.
 //
 // ```sh
-//
-//	$ pulumi import artifactory:index/permissionTarget:PermissionTarget terraform-test-permission mypermission
-//
+// $ pulumi import artifactory:index/permissionTarget:PermissionTarget terraform-test-permission mypermission
 // ```
 type PermissionTarget struct {
 	pulumi.CustomResourceState

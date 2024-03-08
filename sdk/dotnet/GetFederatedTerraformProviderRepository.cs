@@ -12,10 +12,9 @@ namespace Pulumi.Artifactory
     public static class GetFederatedTerraformProviderRepository
     {
         /// <summary>
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -31,17 +30,15 @@ namespace Pulumi.Artifactory
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetFederatedTerraformProviderRepositoryResult> InvokeAsync(GetFederatedTerraformProviderRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFederatedTerraformProviderRepositoryResult>("artifactory:index/getFederatedTerraformProviderRepository:getFederatedTerraformProviderRepository", args ?? new GetFederatedTerraformProviderRepositoryArgs(), options.WithDefaults());
 
         /// <summary>
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -57,8 +54,7 @@ namespace Pulumi.Artifactory
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetFederatedTerraformProviderRepositoryResult> Invoke(GetFederatedTerraformProviderRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFederatedTerraformProviderRepositoryResult>("artifactory:index/getFederatedTerraformProviderRepository:getFederatedTerraformProviderRepository", args ?? new GetFederatedTerraformProviderRepositoryInvokeArgs(), options.WithDefaults());

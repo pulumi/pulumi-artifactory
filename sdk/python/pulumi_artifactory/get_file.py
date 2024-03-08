@@ -234,6 +234,7 @@ def get_file(force_overwrite: Optional[bool] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
@@ -242,6 +243,7 @@ def get_file(force_overwrite: Optional[bool] = None,
         path="/path/to/the/artifact.zip",
         repository="repo-key")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param bool force_overwrite: If set to true, an existing file in the output_path will be overwritten. Default: `false`
@@ -293,6 +295,7 @@ def get_file_output(force_overwrite: Optional[pulumi.Input[Optional[bool]]] = No
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
@@ -301,6 +304,7 @@ def get_file_output(force_overwrite: Optional[pulumi.Input[Optional[bool]]] = No
         path="/path/to/the/artifact.zip",
         repository="repo-key")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param bool force_overwrite: If set to true, an existing file in the output_path will be overwritten. Default: `false`

@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -17,6 +18,7 @@ import * as utilities from "./utilities";
  *     key: "virtual-puppet",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getVirtualPuppetRepository(args: GetVirtualPuppetRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualPuppetRepositoryResult> {
 
@@ -82,6 +84,7 @@ export interface GetVirtualPuppetRepositoryResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -90,6 +93,7 @@ export interface GetVirtualPuppetRepositoryResult {
  *     key: "virtual-puppet",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getVirtualPuppetRepositoryOutput(args: GetVirtualPuppetRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualPuppetRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getVirtualPuppetRepository(a, opts))
