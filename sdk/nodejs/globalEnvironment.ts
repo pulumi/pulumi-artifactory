@@ -9,17 +9,19 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * const test_env = new artifactory.GlobalEnvironment("test-env", {});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * ```sh
- *  $ pulumi import artifactory:index/globalEnvironment:GlobalEnvironment dev-env myenv
+ * $ pulumi import artifactory:index/globalEnvironment:GlobalEnvironment dev-env myenv
  * ```
  */
 export class GlobalEnvironment extends pulumi.CustomResource {

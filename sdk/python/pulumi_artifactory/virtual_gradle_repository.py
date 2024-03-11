@@ -556,6 +556,7 @@ class VirtualGradleRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -569,13 +570,14 @@ class VirtualGradleRepository(pulumi.CustomResource):
             pom_repository_references_cleanup_policy="discard_active_reference",
             repositories=[])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Virtual repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/virtualGradleRepository:VirtualGradleRepository foo-gradle foo-gradle
+        $ pulumi import artifactory:index/virtualGradleRepository:VirtualGradleRepository foo-gradle foo-gradle
         ```
 
         :param str resource_name: The name of the resource.
@@ -618,6 +620,7 @@ class VirtualGradleRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -631,13 +634,14 @@ class VirtualGradleRepository(pulumi.CustomResource):
             pom_repository_references_cleanup_policy="discard_active_reference",
             repositories=[])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Virtual repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/virtualGradleRepository:VirtualGradleRepository foo-gradle foo-gradle
+        $ pulumi import artifactory:index/virtualGradleRepository:VirtualGradleRepository foo-gradle foo-gradle
         ```
 
         :param str resource_name: The name of the resource.

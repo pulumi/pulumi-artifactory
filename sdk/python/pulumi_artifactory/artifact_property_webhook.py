@@ -235,6 +235,7 @@ class ArtifactPropertyWebhook(pulumi.CustomResource):
         ## Example Usage
 
         .
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -264,6 +265,7 @@ class ArtifactPropertyWebhook(pulumi.CustomResource):
             )],
             opts=pulumi.ResourceOptions(depends_on=[my_generic_local]))
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -286,6 +288,7 @@ class ArtifactPropertyWebhook(pulumi.CustomResource):
         ## Example Usage
 
         .
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -315,6 +318,7 @@ class ArtifactPropertyWebhook(pulumi.CustomResource):
             )],
             opts=pulumi.ResourceOptions(depends_on=[my_generic_local]))
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param ArtifactPropertyWebhookArgs args: The arguments to use to populate this resource's properties.

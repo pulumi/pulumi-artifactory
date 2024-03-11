@@ -1648,6 +1648,7 @@ class RemoteBowerRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -1657,13 +1658,14 @@ class RemoteBowerRepository(pulumi.CustomResource):
             url="https://github.com/",
             vcs_git_provider="GITHUB")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Remote repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/remoteBowerRepository:RemoteBowerRepository my-remote-bower my-remote-bower
+        $ pulumi import artifactory:index/remoteBowerRepository:RemoteBowerRepository my-remote-bower my-remote-bower
         ```
 
         :param str resource_name: The name of the resource.
@@ -1758,6 +1760,7 @@ class RemoteBowerRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -1767,13 +1770,14 @@ class RemoteBowerRepository(pulumi.CustomResource):
             url="https://github.com/",
             vcs_git_provider="GITHUB")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Remote repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/remoteBowerRepository:RemoteBowerRepository my-remote-bower my-remote-bower
+        $ pulumi import artifactory:index/remoteBowerRepository:RemoteBowerRepository my-remote-bower my-remote-bower
         ```
 
         :param str resource_name: The name of the resource.

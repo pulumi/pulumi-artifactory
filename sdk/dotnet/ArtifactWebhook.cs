@@ -15,6 +15,7 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// .
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -79,6 +80,7 @@ namespace Pulumi.Artifactory
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/artifactWebhook:ArtifactWebhook")]
     public partial class ArtifactWebhook : global::Pulumi.CustomResource

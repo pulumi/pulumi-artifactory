@@ -213,12 +213,14 @@ def get_local_terraform_provider_repository(archive_browsing_enabled: Optional[b
     """
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     local_test_terraform_provider_repo = artifactory.get_local_terraform_provider_repository(key="local-test-terraform-provider-repo")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str description: (Optional)
@@ -284,12 +286,14 @@ def get_local_terraform_provider_repository_output(archive_browsing_enabled: Opt
     """
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     local_test_terraform_provider_repo = artifactory.get_local_terraform_provider_repository(key="local-test-terraform-provider-repo")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str description: (Optional)

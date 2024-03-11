@@ -216,6 +216,7 @@ class Certificate(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -227,13 +228,14 @@ class Certificate(pulumi.CustomResource):
         # This can then be used by a remote repository
         my_remote = artifactory.RemoteMavenRepository("my-remote", client_tls_certificate=my_cert.alias)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Certificates can be imported using their alias, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/certificate:Certificate my-cert my-cert
+        $ pulumi import artifactory:index/certificate:Certificate my-cert my-cert
         ```
 
         :param str resource_name: The name of the resource.
@@ -253,6 +255,7 @@ class Certificate(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -264,13 +267,14 @@ class Certificate(pulumi.CustomResource):
         # This can then be used by a remote repository
         my_remote = artifactory.RemoteMavenRepository("my-remote", client_tls_certificate=my_cert.alias)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Certificates can be imported using their alias, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/certificate:Certificate my-cert my-cert
+        $ pulumi import artifactory:index/certificate:Certificate my-cert my-cert
         ```
 
         :param str resource_name: The name of the resource.

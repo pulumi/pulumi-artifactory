@@ -478,6 +478,7 @@ class VirtualCranRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -490,13 +491,14 @@ class VirtualCranRepository(pulumi.CustomResource):
             notes="Internal description",
             repositories=[])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Virtual repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/virtualCranRepository:VirtualCranRepository foo-cran foo-cran
+        $ pulumi import artifactory:index/virtualCranRepository:VirtualCranRepository foo-cran foo-cran
         ```
 
         :param str resource_name: The name of the resource.
@@ -534,6 +536,7 @@ class VirtualCranRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -546,13 +549,14 @@ class VirtualCranRepository(pulumi.CustomResource):
             notes="Internal description",
             repositories=[])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Virtual repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/virtualCranRepository:VirtualCranRepository foo-cran foo-cran
+        $ pulumi import artifactory:index/virtualCranRepository:VirtualCranRepository foo-cran foo-cran
         ```
 
         :param str resource_name: The name of the resource.

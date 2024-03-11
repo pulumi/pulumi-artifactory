@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -66,15 +67,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Virtual repositories can be imported using their name, e.g.
 //
 // ```sh
-//
-//	$ pulumi import artifactory:index/mavenRepository:MavenRepository maven-virt-repo maven-virt-repo
-//
+// $ pulumi import artifactory:index/mavenRepository:MavenRepository maven-virt-repo maven-virt-repo
 // ```
 type MavenRepository struct {
 	pulumi.CustomResourceState

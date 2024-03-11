@@ -15,6 +15,7 @@ namespace Pulumi.Artifactory
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.IO;
@@ -36,13 +37,14 @@ namespace Pulumi.Artifactory
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Keypair can be imported using the pair name, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import artifactory:index/keypair:Keypair my-keypair my-keypair-name
+    /// $ pulumi import artifactory:index/keypair:Keypair my-keypair my-keypair-name
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/keypair:Keypair")]

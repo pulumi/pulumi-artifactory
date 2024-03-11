@@ -737,6 +737,7 @@ class FederatedBowerRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -754,13 +755,14 @@ class FederatedBowerRepository(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Federated repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/federatedBowerRepository:FederatedBowerRepository terraform-federated-test-bower-repo terraform-federated-test-bower-repo
+        $ pulumi import artifactory:index/federatedBowerRepository:FederatedBowerRepository terraform-federated-test-bower-repo terraform-federated-test-bower-repo
         ```
 
         :param str resource_name: The name of the resource.
@@ -811,6 +813,7 @@ class FederatedBowerRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -828,13 +831,14 @@ class FederatedBowerRepository(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Federated repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/federatedBowerRepository:FederatedBowerRepository terraform-federated-test-bower-repo terraform-federated-test-bower-repo
+        $ pulumi import artifactory:index/federatedBowerRepository:FederatedBowerRepository terraform-federated-test-bower-repo terraform-federated-test-bower-repo
         ```
 
         :param str resource_name: The name of the resource.

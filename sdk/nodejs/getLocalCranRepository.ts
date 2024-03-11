@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -17,6 +18,7 @@ import * as utilities from "./utilities";
  *     key: "local-test-cran-repo",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getLocalCranRepository(args: GetLocalCranRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalCranRepositoryResult> {
 
@@ -97,6 +99,7 @@ export interface GetLocalCranRepositoryResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -105,6 +108,7 @@ export interface GetLocalCranRepositoryResult {
  *     key: "local-test-cran-repo",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getLocalCranRepositoryOutput(args: GetLocalCranRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalCranRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getLocalCranRepository(a, opts))

@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
  * Official documentation can be found [here](https://jfrog.com/help/r/jfrog-artifactory-documentation/helm-oci-repositories)
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -53,13 +55,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Local repositories can be imported using their name, e.g.
  * 
  * ```sh
- *  $ pulumi import artifactory:index/localHelmociRepository:LocalHelmociRepository my-helmoci-local my-helmoci-local
+ * $ pulumi import artifactory:index/localHelmociRepository:LocalHelmociRepository my-helmoci-local my-helmoci-local
  * ```
  * 
  */

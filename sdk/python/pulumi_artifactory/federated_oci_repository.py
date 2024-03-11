@@ -807,6 +807,7 @@ class FederatedOciRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -824,13 +825,14 @@ class FederatedOciRepository(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Federated OCI repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/federatedOciRepository:FederatedOciRepository my-oci-federated my-oci-federated
+        $ pulumi import artifactory:index/federatedOciRepository:FederatedOciRepository my-oci-federated my-oci-federated
         ```
 
         :param str resource_name: The name of the resource.
@@ -884,6 +886,7 @@ class FederatedOciRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -901,13 +904,14 @@ class FederatedOciRepository(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Federated OCI repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/federatedOciRepository:FederatedOciRepository my-oci-federated my-oci-federated
+        $ pulumi import artifactory:index/federatedOciRepository:FederatedOciRepository my-oci-federated my-oci-federated
         ```
 
         :param str resource_name: The name of the resource.

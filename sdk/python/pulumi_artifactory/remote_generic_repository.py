@@ -1581,6 +1581,7 @@ class RemoteGenericRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -1589,13 +1590,14 @@ class RemoteGenericRepository(pulumi.CustomResource):
             key="my-remote-generic",
             url="http://testartifactory.io/artifactory/example-generic/")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Remote repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/remoteGenericRepository:RemoteGenericRepository my-remote-generic my-remote-generic
+        $ pulumi import artifactory:index/remoteGenericRepository:RemoteGenericRepository my-remote-generic my-remote-generic
         ```
 
         :param str resource_name: The name of the resource.
@@ -1687,6 +1689,7 @@ class RemoteGenericRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -1695,13 +1698,14 @@ class RemoteGenericRepository(pulumi.CustomResource):
             key="my-remote-generic",
             url="http://testartifactory.io/artifactory/example-generic/")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Remote repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/remoteGenericRepository:RemoteGenericRepository my-remote-generic my-remote-generic
+        $ pulumi import artifactory:index/remoteGenericRepository:RemoteGenericRepository my-remote-generic my-remote-generic
         ```
 
         :param str resource_name: The name of the resource.

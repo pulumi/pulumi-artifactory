@@ -13,6 +13,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -20,15 +21,17 @@ import * as utilities from "./utilities";
  * // Configure Artifactory general security settings
  * const security = new artifactory.GeneralSecurity("security", {enableAnonymousAccess: true});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Current general security settings can be imported using `security` as the `ID`, e.g.
  *
  * ```sh
- *  $ pulumi import artifactory:index/generalSecurity:GeneralSecurity security security
+ * $ pulumi import artifactory:index/generalSecurity:GeneralSecurity security security
  * ```
- *  ~>The `artifactory_general_security` resource uses endpoints that are undocumented and may not work with SaaS environments, or may change without notice.
+ * ~>The `artifactory_general_security` resource uses endpoints that are undocumented and may not work with SaaS
+ * environments, or may change without notice.
  */
 export class GeneralSecurity extends pulumi.CustomResource {
     /**

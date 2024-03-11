@@ -507,6 +507,7 @@ class PullReplication(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -523,13 +524,14 @@ class PullReplication(pulumi.CustomResource):
             enable_event_replication=True,
             repo_key=provider_test_dest.key)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Pull replication config can be imported using its repo key, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/pullReplication:PullReplication foo-rep repository-key
+        $ pulumi import artifactory:index/pullReplication:PullReplication foo-rep repository-key
         ```
 
         :param str resource_name: The name of the resource.
@@ -566,6 +568,7 @@ class PullReplication(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -582,13 +585,14 @@ class PullReplication(pulumi.CustomResource):
             enable_event_replication=True,
             repo_key=provider_test_dest.key)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Pull replication config can be imported using its repo key, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/pullReplication:PullReplication foo-rep repository-key
+        $ pulumi import artifactory:index/pullReplication:PullReplication foo-rep repository-key
         ```
 
         :param str resource_name: The name of the resource.

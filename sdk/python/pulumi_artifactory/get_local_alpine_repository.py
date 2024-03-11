@@ -232,12 +232,14 @@ def get_local_alpine_repository(archive_browsing_enabled: Optional[bool] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     local_test_alpine_repo_basic = artifactory.get_local_alpine_repository(key="local-test-alpine-repo-basic")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str key: the identity key of the repo.
@@ -310,12 +312,14 @@ def get_local_alpine_repository_output(archive_browsing_enabled: Optional[pulumi
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     local_test_alpine_repo_basic = artifactory.get_local_alpine_repository(key="local-test-alpine-repo-basic")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str key: the identity key of the repo.

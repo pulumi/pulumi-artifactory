@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * Creates a local Docker v1 repository - By choosing a V1 repository, you don&#39;t really have many options.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -49,13 +51,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Local repositories can be imported using their name, e.g.
  * 
  * ```sh
- *  $ pulumi import artifactory:index/dockerV1Repository:DockerV1Repository foo foo
+ * $ pulumi import artifactory:index/dockerV1Repository:DockerV1Repository foo foo
  * ```
  * 
  */

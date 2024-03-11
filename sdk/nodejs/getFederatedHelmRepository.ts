@@ -11,6 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -19,6 +20,7 @@ import * as utilities from "./utilities";
  *     key: "federated-test-helm-repo",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getFederatedHelmRepository(args: GetFederatedHelmRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetFederatedHelmRepositoryResult> {
 
@@ -132,6 +134,7 @@ export interface GetFederatedHelmRepositoryResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -140,6 +143,7 @@ export interface GetFederatedHelmRepositoryResult {
  *     key: "federated-test-helm-repo",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getFederatedHelmRepositoryOutput(args: GetFederatedHelmRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedHelmRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getFederatedHelmRepository(a, opts))

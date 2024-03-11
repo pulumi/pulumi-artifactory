@@ -11,6 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -23,13 +24,14 @@ import * as utilities from "./utilities";
  *     folderIntegrationRevisionRegexp: "Foo",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Repository layout can be imported using its name, e.g.
  *
  * ```sh
- *  $ pulumi import artifactory:index/repositoryLayout:RepositoryLayout custom-layout custom-layout
+ * $ pulumi import artifactory:index/repositoryLayout:RepositoryLayout custom-layout custom-layout
  * ```
  */
 export class RepositoryLayout extends pulumi.CustomResource {

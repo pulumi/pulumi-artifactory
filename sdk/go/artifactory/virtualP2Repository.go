@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -45,15 +46,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Virtual repositories can be imported using their name, e.g.
 //
 // ```sh
-//
-//	$ pulumi import artifactory:index/virtualP2Repository:VirtualP2Repository foo-p2 foo-p2
-//
+// $ pulumi import artifactory:index/virtualP2Repository:VirtualP2Repository foo-p2 foo-p2
 // ```
 type VirtualP2Repository struct {
 	pulumi.CustomResourceState

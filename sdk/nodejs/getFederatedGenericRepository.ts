@@ -11,6 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -19,6 +20,7 @@ import * as utilities from "./utilities";
  *     key: "terraform-federated-test-generic-repo",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getFederatedGenericRepository(args: GetFederatedGenericRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetFederatedGenericRepositoryResult> {
 
@@ -132,6 +134,7 @@ export interface GetFederatedGenericRepositoryResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -140,6 +143,7 @@ export interface GetFederatedGenericRepositoryResult {
  *     key: "terraform-federated-test-generic-repo",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getFederatedGenericRepositoryOutput(args: GetFederatedGenericRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedGenericRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getFederatedGenericRepository(a, opts))

@@ -14,6 +14,7 @@ import (
 
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -42,13 +43,12 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // ```sh
-//
-//	$ pulumi import artifactory:index/managedUser:ManagedUser test-user myusername
-//
+// $ pulumi import artifactory:index/managedUser:ManagedUser test-user myusername
 // ```
 type ManagedUser struct {
 	pulumi.CustomResourceState

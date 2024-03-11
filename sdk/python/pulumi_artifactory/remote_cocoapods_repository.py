@@ -1652,6 +1652,7 @@ class RemoteCocoapodsRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -1662,13 +1663,14 @@ class RemoteCocoapodsRepository(pulumi.CustomResource):
             url="https://github.com/",
             vcs_git_provider="GITHUB")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Remote repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/remoteCocoapodsRepository:RemoteCocoapodsRepository my-remote-cocoapods my-remote-cocoapods
+        $ pulumi import artifactory:index/remoteCocoapodsRepository:RemoteCocoapodsRepository my-remote-cocoapods my-remote-cocoapods
         ```
 
         :param str resource_name: The name of the resource.
@@ -1764,6 +1766,7 @@ class RemoteCocoapodsRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -1774,13 +1777,14 @@ class RemoteCocoapodsRepository(pulumi.CustomResource):
             url="https://github.com/",
             vcs_git_provider="GITHUB")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Remote repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/remoteCocoapodsRepository:RemoteCocoapodsRepository my-remote-cocoapods my-remote-cocoapods
+        $ pulumi import artifactory:index/remoteCocoapodsRepository:RemoteCocoapodsRepository my-remote-cocoapods my-remote-cocoapods
         ```
 
         :param str resource_name: The name of the resource.

@@ -262,12 +262,14 @@ def get_local_docker_v1_repository(archive_browsing_enabled: Optional[bool] = No
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     artifactory_local_test_docker_v1_repository = artifactory.DockerV1Repository("artifactoryLocalTestDockerV1Repository", key="artifactory_local_test_docker_v1_repository")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str key: the identity key of the repo.
@@ -342,12 +344,14 @@ def get_local_docker_v1_repository_output(archive_browsing_enabled: Optional[pul
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     artifactory_local_test_docker_v1_repository = artifactory.DockerV1Repository("artifactoryLocalTestDockerV1Repository", key="artifactory_local_test_docker_v1_repository")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str key: the identity key of the repo.

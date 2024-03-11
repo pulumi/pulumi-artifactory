@@ -323,12 +323,14 @@ def get_federated_ivy_repository(archive_browsing_enabled: Optional[bool] = None
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     federated_test_ivy_repo = artifactory.get_federated_ivy_repository(key="federated-test-ivy-repo")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param bool disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
@@ -430,12 +432,14 @@ def get_federated_ivy_repository_output(archive_browsing_enabled: Optional[pulum
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     federated_test_ivy_repo = artifactory.get_federated_ivy_repository(key="federated-test-ivy-repo")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param bool disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.

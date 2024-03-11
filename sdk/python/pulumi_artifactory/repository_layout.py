@@ -235,6 +235,7 @@ class RepositoryLayout(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -246,13 +247,14 @@ class RepositoryLayout(pulumi.CustomResource):
             file_integration_revision_regexp="Foo|(?:(?:[0-9]{8}.[0-9]{6})-(?:[0-9]+))",
             folder_integration_revision_regexp="Foo")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Repository layout can be imported using its name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/repositoryLayout:RepositoryLayout custom-layout custom-layout
+        $ pulumi import artifactory:index/repositoryLayout:RepositoryLayout custom-layout custom-layout
         ```
 
         :param str resource_name: The name of the resource.
@@ -277,6 +279,7 @@ class RepositoryLayout(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -288,13 +291,14 @@ class RepositoryLayout(pulumi.CustomResource):
             file_integration_revision_regexp="Foo|(?:(?:[0-9]{8}.[0-9]{6})-(?:[0-9]+))",
             folder_integration_revision_regexp="Foo")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Repository layout can be imported using its name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/repositoryLayout:RepositoryLayout custom-layout custom-layout
+        $ pulumi import artifactory:index/repositoryLayout:RepositoryLayout custom-layout custom-layout
         ```
 
         :param str resource_name: The name of the resource.

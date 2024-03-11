@@ -182,12 +182,14 @@ def get_virtual_conda_repository(artifactory_requests_can_retrieve_remote_artifa
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     virtual_conda = artifactory.get_virtual_conda_repository(key="virtual-conda")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str key: the identity key of the repo.
@@ -245,12 +247,14 @@ def get_virtual_conda_repository_output(artifactory_requests_can_retrieve_remote
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     virtual_conda = artifactory.get_virtual_conda_repository(key="virtual-conda")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str key: the identity key of the repo.

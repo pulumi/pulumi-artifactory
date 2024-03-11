@@ -182,12 +182,14 @@ def get_virtual_oci_repository(artifactory_requests_can_retrieve_remote_artifact
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     my_oci_virtual = artifactory.get_virtual_oci_repository(key="my-oci-virtual")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str key: the identity key of the repo.
@@ -245,12 +247,14 @@ def get_virtual_oci_repository_output(artifactory_requests_can_retrieve_remote_a
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     my_oci_virtual = artifactory.get_virtual_oci_repository(key="my-oci-virtual")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str key: the identity key of the repo.

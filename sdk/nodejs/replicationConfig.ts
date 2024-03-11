@@ -13,6 +13,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -31,13 +32,14 @@ import * as utilities from "./utilities";
  *     repoKey: providerTestSource.key,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Replication configs can be imported using their repo key, e.g.
  *
  * ```sh
- *  $ pulumi import artifactory:index/replicationConfig:ReplicationConfig foo-rep provider_test_source
+ * $ pulumi import artifactory:index/replicationConfig:ReplicationConfig foo-rep provider_test_source
  * ```
  */
 export class ReplicationConfig extends pulumi.CustomResource {

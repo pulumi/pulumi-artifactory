@@ -13,19 +13,21 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * const huggingfaceml_remote = new artifactory.RemoteHuggingfacemlRepository("huggingfaceml-remote", {key: "huggingfaceml-remote-foo25"});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Remote repositories can be imported using their name, e.g.
  *
  * ```sh
- *  $ pulumi import artifactory:index/remoteHuggingfacemlRepository:RemoteHuggingfacemlRepository huggingfaceml-remote huggingfaceml-remote
+ * $ pulumi import artifactory:index/remoteHuggingfacemlRepository:RemoteHuggingfacemlRepository huggingfaceml-remote huggingfaceml-remote
  * ```
  */
 export class RemoteHuggingfacemlRepository extends pulumi.CustomResource {

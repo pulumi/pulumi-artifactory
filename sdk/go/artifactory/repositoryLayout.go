@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -45,15 +46,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Repository layout can be imported using its name, e.g.
 //
 // ```sh
-//
-//	$ pulumi import artifactory:index/repositoryLayout:RepositoryLayout custom-layout custom-layout
-//
+// $ pulumi import artifactory:index/repositoryLayout:RepositoryLayout custom-layout custom-layout
 // ```
 type RepositoryLayout struct {
 	pulumi.CustomResourceState

@@ -175,6 +175,7 @@ class LocalRepositoryMultiReplication(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -206,13 +207,14 @@ class LocalRepositoryMultiReplication(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Push replication configs can be imported using their repo key, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/localRepositoryMultiReplication:LocalRepositoryMultiReplication foo-rep provider_test_source
+        $ pulumi import artifactory:index/localRepositoryMultiReplication:LocalRepositoryMultiReplication foo-rep provider_test_source
         ```
 
         :param str resource_name: The name of the resource.
@@ -238,6 +240,7 @@ class LocalRepositoryMultiReplication(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -269,13 +272,14 @@ class LocalRepositoryMultiReplication(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Push replication configs can be imported using their repo key, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/localRepositoryMultiReplication:LocalRepositoryMultiReplication foo-rep provider_test_source
+        $ pulumi import artifactory:index/localRepositoryMultiReplication:LocalRepositoryMultiReplication foo-rep provider_test_source
         ```
 
         :param str resource_name: The name of the resource.

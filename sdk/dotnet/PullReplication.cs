@@ -18,6 +18,7 @@ namespace Pulumi.Artifactory
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -49,13 +50,14 @@ namespace Pulumi.Artifactory
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Pull replication config can be imported using its repo key, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import artifactory:index/pullReplication:PullReplication foo-rep repository-key
+    /// $ pulumi import artifactory:index/pullReplication:PullReplication foo-rep repository-key
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/pullReplication:PullReplication")]

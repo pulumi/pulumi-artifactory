@@ -1722,6 +1722,7 @@ class RemoteNugetRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -1734,13 +1735,14 @@ class RemoteNugetRepository(pulumi.CustomResource):
             url="https://www.nuget.org/",
             v3_feed_url="https://api.nuget.org/v3/index.json")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Remote repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/remoteNugetRepository:RemoteNugetRepository my-remote-nuget my-remote-nuget
+        $ pulumi import artifactory:index/remoteNugetRepository:RemoteNugetRepository my-remote-nuget my-remote-nuget
         ```
 
         :param str resource_name: The name of the resource.
@@ -1839,6 +1841,7 @@ class RemoteNugetRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -1851,13 +1854,14 @@ class RemoteNugetRepository(pulumi.CustomResource):
             url="https://www.nuget.org/",
             v3_feed_url="https://api.nuget.org/v3/index.json")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Remote repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/remoteNugetRepository:RemoteNugetRepository my-remote-nuget my-remote-nuget
+        $ pulumi import artifactory:index/remoteNugetRepository:RemoteNugetRepository my-remote-nuget my-remote-nuget
         ```
 
         :param str resource_name: The name of the resource.

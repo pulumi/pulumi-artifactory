@@ -445,6 +445,7 @@ class VirtualSwiftRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_swift as swift
@@ -458,13 +459,14 @@ class VirtualSwiftRepository(pulumi.CustomResource):
             includes_pattern=com/jfrog/**,cloud/jfrog/**,
             excludes_pattern=com/google/**)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Virtual repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/virtualSwiftRepository:VirtualSwiftRepository foo-swift foo-swift
+        $ pulumi import artifactory:index/virtualSwiftRepository:VirtualSwiftRepository foo-swift foo-swift
         ```
 
         :param str resource_name: The name of the resource.
@@ -501,6 +503,7 @@ class VirtualSwiftRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_swift as swift
@@ -514,13 +517,14 @@ class VirtualSwiftRepository(pulumi.CustomResource):
             includes_pattern=com/jfrog/**,cloud/jfrog/**,
             excludes_pattern=com/google/**)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Virtual repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/virtualSwiftRepository:VirtualSwiftRepository foo-swift foo-swift
+        $ pulumi import artifactory:index/virtualSwiftRepository:VirtualSwiftRepository foo-swift foo-swift
         ```
 
         :param str resource_name: The name of the resource.

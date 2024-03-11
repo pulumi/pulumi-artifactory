@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,15 +40,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Local repositories can be imported using their name, e.g.
 //
 // ```sh
-//
-//	$ pulumi import artifactory:index/localConanRepository:LocalConanRepository terraform-local-test-conan-repo terraform-local-test-conan-repo
-//
+// $ pulumi import artifactory:index/localConanRepository:LocalConanRepository terraform-local-test-conan-repo terraform-local-test-conan-repo
 // ```
 type LocalConanRepository struct {
 	pulumi.CustomResourceState

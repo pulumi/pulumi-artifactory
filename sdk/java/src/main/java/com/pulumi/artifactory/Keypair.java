@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * used to sign and validate packages integrity in JFrog Distribution. The JFrog Platform enables you to manage multiple RSA and GPG signing keys through the Keys Management UI and REST API. The JFrog Platform supports managing multiple pairs of GPG signing keys to sign packages for authentication of several package types such as Debian, Opkg, and RPM through the Keys Management UI and REST API.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -53,13 +55,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Keypair can be imported using the pair name, e.g.
  * 
  * ```sh
- *  $ pulumi import artifactory:index/keypair:Keypair my-keypair my-keypair-name
+ * $ pulumi import artifactory:index/keypair:Keypair my-keypair my-keypair-name
  * ```
  * 
  */

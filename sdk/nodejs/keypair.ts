@@ -10,6 +10,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -24,13 +25,14 @@ import * as utilities from "./utilities";
  *     passphrase: "PASSPHRASE",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Keypair can be imported using the pair name, e.g.
  *
  * ```sh
- *  $ pulumi import artifactory:index/keypair:Keypair my-keypair my-keypair-name
+ * $ pulumi import artifactory:index/keypair:Keypair my-keypair my-keypair-name
  * ```
  */
 export class Keypair extends pulumi.CustomResource {

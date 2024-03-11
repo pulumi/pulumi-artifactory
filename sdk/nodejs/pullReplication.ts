@@ -13,6 +13,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -31,13 +32,14 @@ import * as utilities from "./utilities";
  *     repoKey: providerTestDest.key,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Pull replication config can be imported using its repo key, e.g.
  *
  * ```sh
- *  $ pulumi import artifactory:index/pullReplication:PullReplication foo-rep repository-key
+ * $ pulumi import artifactory:index/pullReplication:PullReplication foo-rep repository-key
  * ```
  */
 export class PullReplication extends pulumi.CustomResource {

@@ -300,12 +300,14 @@ def get_local_maven_repository(archive_browsing_enabled: Optional[bool] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     local_test_maven_repo_basic = artifactory.LocalMavenRepository("local-test-maven-repo-basic", key="local-test-maven-repo-basic")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str checksum_policy_type: Checksum policy determines how Artifactory behaves when a client checksum for a
@@ -408,12 +410,14 @@ def get_local_maven_repository_output(archive_browsing_enabled: Optional[pulumi.
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     local_test_maven_repo_basic = artifactory.LocalMavenRepository("local-test-maven-repo-basic", key="local-test-maven-repo-basic")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str checksum_policy_type: Checksum policy determines how Artifactory behaves when a client checksum for a

@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -17,6 +18,7 @@ import * as utilities from "./utilities";
  *     key: "local-test-generic-repo",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getLocalGenericRepository(args: GetLocalGenericRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalGenericRepositoryResult> {
 
@@ -97,6 +99,7 @@ export interface GetLocalGenericRepositoryResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -105,6 +108,7 @@ export interface GetLocalGenericRepositoryResult {
  *     key: "local-test-generic-repo",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getLocalGenericRepositoryOutput(args: GetLocalGenericRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalGenericRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getLocalGenericRepository(a, opts))

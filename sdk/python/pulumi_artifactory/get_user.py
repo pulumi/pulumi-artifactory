@@ -140,12 +140,14 @@ def get_user(admin: Optional[bool] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     user1 = artifactory.get_user(name="user1")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param bool admin: When enabled, this user is an administrator with all the ensuing privileges. Default value is `false`.
@@ -194,12 +196,14 @@ def get_user_output(admin: Optional[pulumi.Input[Optional[bool]]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     user1 = artifactory.get_user(name="user1")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param bool admin: When enabled, this user is an administrator with all the ensuing privileges. Default value is `false`.

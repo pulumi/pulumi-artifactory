@@ -654,6 +654,7 @@ class LocalOciRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -663,13 +664,14 @@ class LocalOciRepository(pulumi.CustomResource):
             max_unique_tags=5,
             tag_retention=3)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Local repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/localOciRepository:LocalOciRepository my-oci-local my-oci-local
+        $ pulumi import artifactory:index/localOciRepository:LocalOciRepository my-oci-local my-oci-local
         ```
 
         :param str resource_name: The name of the resource.
@@ -714,6 +716,7 @@ class LocalOciRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -723,13 +726,14 @@ class LocalOciRepository(pulumi.CustomResource):
             max_unique_tags=5,
             tag_retention=3)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Local repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/localOciRepository:LocalOciRepository my-oci-local my-oci-local
+        $ pulumi import artifactory:index/localOciRepository:LocalOciRepository my-oci-local my-oci-local
         ```
 
         :param str resource_name: The name of the resource.

@@ -307,6 +307,7 @@ class UnmanagedUser(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -320,6 +321,8 @@ class UnmanagedUser(pulumi.CustomResource):
             ],
             password="my super secret password")
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Managing groups relationship
 
         See our recommendation on how to manage user-group relationship.
@@ -329,7 +332,7 @@ class UnmanagedUser(pulumi.CustomResource):
         Users can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/unmanagedUser:UnmanagedUser test-user myusername
+        $ pulumi import artifactory:index/unmanagedUser:UnmanagedUser test-user myusername
         ```
 
         :param str resource_name: The name of the resource.
@@ -360,6 +363,7 @@ class UnmanagedUser(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -373,6 +377,8 @@ class UnmanagedUser(pulumi.CustomResource):
             ],
             password="my super secret password")
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Managing groups relationship
 
         See our recommendation on how to manage user-group relationship.
@@ -382,7 +388,7 @@ class UnmanagedUser(pulumi.CustomResource):
         Users can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/unmanagedUser:UnmanagedUser test-user myusername
+        $ pulumi import artifactory:index/unmanagedUser:UnmanagedUser test-user myusername
         ```
 
         :param str resource_name: The name of the resource.

@@ -475,6 +475,7 @@ class VirtualOciRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -489,13 +490,14 @@ class VirtualOciRepository(pulumi.CustomResource):
             ],
             resolve_oci_tags_by_timestamp=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Virtual OCI repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/virtualOciRepository:VirtualOciRepository my-oci-virtual my-oci-virtual
+        $ pulumi import artifactory:index/virtualOciRepository:VirtualOciRepository my-oci-virtual my-oci-virtual
         ```
 
         :param str resource_name: The name of the resource.
@@ -533,6 +535,7 @@ class VirtualOciRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -547,13 +550,14 @@ class VirtualOciRepository(pulumi.CustomResource):
             ],
             resolve_oci_tags_by_timestamp=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Virtual OCI repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/virtualOciRepository:VirtualOciRepository my-oci-virtual my-oci-virtual
+        $ pulumi import artifactory:index/virtualOciRepository:VirtualOciRepository my-oci-virtual my-oci-virtual
         ```
 
         :param str resource_name: The name of the resource.

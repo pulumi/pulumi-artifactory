@@ -73,6 +73,7 @@ class AnonymousUser(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -80,11 +81,12 @@ class AnonymousUser(pulumi.CustomResource):
         # Define a new Artifactory 'anonymous' user for import
         anonymous = artifactory.AnonymousUser("anonymous")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import artifactory:index/anonymousUser:AnonymousUser anonymous-user anonymous
+        $ pulumi import artifactory:index/anonymousUser:AnonymousUser anonymous-user anonymous
         ```
 
         :param str resource_name: The name of the resource.
@@ -101,6 +103,7 @@ class AnonymousUser(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -108,11 +111,12 @@ class AnonymousUser(pulumi.CustomResource):
         # Define a new Artifactory 'anonymous' user for import
         anonymous = artifactory.AnonymousUser("anonymous")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import artifactory:index/anonymousUser:AnonymousUser anonymous-user anonymous
+        $ pulumi import artifactory:index/anonymousUser:AnonymousUser anonymous-user anonymous
         ```
 
         :param str resource_name: The name of the resource.

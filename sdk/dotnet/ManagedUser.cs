@@ -12,6 +12,7 @@ namespace Pulumi.Artifactory
     /// <summary>
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -33,11 +34,12 @@ namespace Pulumi.Artifactory
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// ```sh
-    ///  $ pulumi import artifactory:index/managedUser:ManagedUser test-user myusername
+    /// $ pulumi import artifactory:index/managedUser:ManagedUser test-user myusername
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/managedUser:ManagedUser")]

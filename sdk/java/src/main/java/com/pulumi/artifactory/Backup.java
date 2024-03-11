@@ -26,6 +26,8 @@ import javax.annotation.Nullable;
  * ~&gt;The `artifactory.Backup` resource utilizes endpoints which are blocked/removed in SaaS environments (i.e. in Artifactory online), rendering this resource incompatible with Artifactory SaaS environments.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -63,6 +65,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * Note: `Key` argument has to match to the resource name.
  * Reference Link: [JFrog Artifactory Backup](https://www.jfrog.com/confluence/display/JFROG/Backups)
  * 
@@ -71,7 +74,7 @@ import javax.annotation.Nullable;
  * Backup config can be imported using the key, e.g.
  * 
  * ```sh
- *  $ pulumi import artifactory:index/backup:Backup backup_name backup_name
+ * $ pulumi import artifactory:index/backup:Backup backup_name backup_name
  * ```
  * 
  */

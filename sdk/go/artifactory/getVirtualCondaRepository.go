@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,6 +39,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupVirtualCondaRepository(ctx *pulumi.Context, args *LookupVirtualCondaRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupVirtualCondaRepositoryResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVirtualCondaRepositoryResult

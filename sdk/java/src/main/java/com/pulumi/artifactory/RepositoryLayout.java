@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * ~&gt;The `artifactory.RepositoryLayout` resource utilizes endpoints which are blocked/removed in SaaS environments (i.e. in Artifactory online), rendering this resource incompatible with Artifactory SaaS environments.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -53,13 +55,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Repository layout can be imported using its name, e.g.
  * 
  * ```sh
- *  $ pulumi import artifactory:index/repositoryLayout:RepositoryLayout custom-layout custom-layout
+ * $ pulumi import artifactory:index/repositoryLayout:RepositoryLayout custom-layout custom-layout
  * ```
  * 
  */

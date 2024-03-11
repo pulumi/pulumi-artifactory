@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * Creates a local Debian repository and allows for the creation of a GPG key.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -78,13 +80,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Local repositories can be imported using their name, e.g.
  * 
  * ```sh
- *  $ pulumi import artifactory:index/debianRepository:DebianRepository my-debian-repo my-debian-repo
+ * $ pulumi import artifactory:index/debianRepository:DebianRepository my-debian-repo my-debian-repo
  * ```
  * 
  */

@@ -26,6 +26,8 @@ import javax.annotation.Nullable;
  * [API documentation](https://jfrog.com/help/r/jfrog-rest-apis/ldap-setting), [general documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/ldap).
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -67,11 +69,12 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * ```sh
- *  $ pulumi import artifactory:index/ldapSettingV2:LdapSettingV2 ldap ldap1
+ * $ pulumi import artifactory:index/ldapSettingV2:LdapSettingV2 ldap ldap1
  * ```
  * 
  */

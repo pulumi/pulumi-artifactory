@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * Provides an Artifactory permission target resource. This can be used to create and manage Artifactory permission targets.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -112,6 +114,8 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Permissions
  * 
  * The provider supports the following `permission` enums:
@@ -139,7 +143,7 @@ import javax.annotation.Nullable;
  * Permission targets can be imported using their name, e.g.
  * 
  * ```sh
- *  $ pulumi import artifactory:index/permissionTarget:PermissionTarget terraform-test-permission mypermission
+ * $ pulumi import artifactory:index/permissionTarget:PermissionTarget terraform-test-permission mypermission
  * ```
  * 
  */

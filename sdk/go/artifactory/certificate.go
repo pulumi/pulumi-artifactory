@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -58,15 +59,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Certificates can be imported using their alias, e.g.
 //
 // ```sh
-//
-//	$ pulumi import artifactory:index/certificate:Certificate my-cert my-cert
-//
+// $ pulumi import artifactory:index/certificate:Certificate my-cert my-cert
 // ```
 type Certificate struct {
 	pulumi.CustomResourceState

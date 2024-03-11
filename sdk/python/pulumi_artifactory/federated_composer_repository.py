@@ -737,6 +737,7 @@ class FederatedComposerRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -754,13 +755,14 @@ class FederatedComposerRepository(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Federated repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/federatedComposerRepository:FederatedComposerRepository terraform-federated-test-composer-repo terraform-federated-test-composer-repo
+        $ pulumi import artifactory:index/federatedComposerRepository:FederatedComposerRepository terraform-federated-test-composer-repo terraform-federated-test-composer-repo
         ```
 
         :param str resource_name: The name of the resource.
@@ -811,6 +813,7 @@ class FederatedComposerRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -828,13 +831,14 @@ class FederatedComposerRepository(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Federated repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/federatedComposerRepository:FederatedComposerRepository terraform-federated-test-composer-repo terraform-federated-test-composer-repo
+        $ pulumi import artifactory:index/federatedComposerRepository:FederatedComposerRepository terraform-federated-test-composer-repo terraform-federated-test-composer-repo
         ```
 
         :param str resource_name: The name of the resource.

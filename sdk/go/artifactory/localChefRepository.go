@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,15 +40,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Local repositories can be imported using their name, e.g.
 //
 // ```sh
-//
-//	$ pulumi import artifactory:index/localChefRepository:LocalChefRepository terraform-local-test-chef-repo terraform-local-test-chef-repo
-//
+// $ pulumi import artifactory:index/localChefRepository:LocalChefRepository terraform-local-test-chef-repo terraform-local-test-chef-repo
 // ```
 type LocalChefRepository struct {
 	pulumi.CustomResourceState

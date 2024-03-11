@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,6 +39,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupRemoteMavenRepository(ctx *pulumi.Context, args *LookupRemoteMavenRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupRemoteMavenRepositoryResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRemoteMavenRepositoryResult

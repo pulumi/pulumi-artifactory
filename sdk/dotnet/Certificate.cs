@@ -14,6 +14,7 @@ namespace Pulumi.Artifactory
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.IO;
@@ -38,13 +39,14 @@ namespace Pulumi.Artifactory
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Certificates can be imported using their alias, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import artifactory:index/certificate:Certificate my-cert my-cert
+    /// $ pulumi import artifactory:index/certificate:Certificate my-cert my-cert
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/certificate:Certificate")]
