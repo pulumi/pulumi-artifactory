@@ -11,6 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -19,6 +20,7 @@ import * as utilities from "./utilities";
  *     key: "my-helmoci-federated",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getFederatedHelmociRepository(args: GetFederatedHelmociRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetFederatedHelmociRepositoryResult> {
 
@@ -138,6 +140,7 @@ export interface GetFederatedHelmociRepositoryResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -146,6 +149,7 @@ export interface GetFederatedHelmociRepositoryResult {
  *     key: "my-helmoci-federated",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getFederatedHelmociRepositoryOutput(args: GetFederatedHelmociRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedHelmociRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getFederatedHelmociRepository(a, opts))

@@ -935,6 +935,7 @@ class FederatedRpmRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -952,13 +953,14 @@ class FederatedRpmRepository(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Federated repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/federatedRpmRepository:FederatedRpmRepository terraform-federated-test-rpm-repo terraform-federated-test-rpm-repo
+        $ pulumi import artifactory:index/federatedRpmRepository:FederatedRpmRepository terraform-federated-test-rpm-repo terraform-federated-test-rpm-repo
         ```
 
         :param str resource_name: The name of the resource.
@@ -1017,6 +1019,7 @@ class FederatedRpmRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -1034,13 +1037,14 @@ class FederatedRpmRepository(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Federated repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/federatedRpmRepository:FederatedRpmRepository terraform-federated-test-rpm-repo terraform-federated-test-rpm-repo
+        $ pulumi import artifactory:index/federatedRpmRepository:FederatedRpmRepository terraform-federated-test-rpm-repo terraform-federated-test-rpm-repo
         ```
 
         :param str resource_name: The name of the resource.

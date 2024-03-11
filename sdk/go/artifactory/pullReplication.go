@@ -20,6 +20,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -63,15 +64,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Pull replication config can be imported using its repo key, e.g.
 //
 // ```sh
-//
-//	$ pulumi import artifactory:index/pullReplication:PullReplication foo-rep repository-key
-//
+// $ pulumi import artifactory:index/pullReplication:PullReplication foo-rep repository-key
 // ```
 type PullReplication struct {
 	pulumi.CustomResourceState

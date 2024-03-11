@@ -11,6 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -20,6 +21,7 @@ import * as utilities from "./utilities";
  *     repositoryKey: "my-generic-local",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getFileList(args: GetFileListArgs, opts?: pulumi.InvokeOptions): Promise<GetFileListResult> {
 
@@ -123,6 +125,7 @@ export interface GetFileListResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -132,6 +135,7 @@ export interface GetFileListResult {
  *     repositoryKey: "my-generic-local",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getFileListOutput(args: GetFileListOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFileListResult> {
     return pulumi.output(args).apply((a: any) => getFileList(a, opts))

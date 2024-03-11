@@ -468,6 +468,7 @@ class SamlSettings(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -488,13 +489,14 @@ class SamlSettings(pulumi.CustomResource):
             use_encrypted_assertion=False,
             verify_audience_restriction=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Current SAML SSO settings can be imported using `saml_settings` as the `ID`, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/samlSettings:SamlSettings saml saml_settings
+        $ pulumi import artifactory:index/samlSettings:SamlSettings saml saml_settings
         ```
 
         :param str resource_name: The name of the resource.
@@ -528,6 +530,7 @@ class SamlSettings(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -548,13 +551,14 @@ class SamlSettings(pulumi.CustomResource):
             use_encrypted_assertion=False,
             verify_audience_restriction=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Current SAML SSO settings can be imported using `saml_settings` as the `ID`, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/samlSettings:SamlSettings saml saml_settings
+        $ pulumi import artifactory:index/samlSettings:SamlSettings saml saml_settings
         ```
 
         :param str resource_name: The name of the resource.

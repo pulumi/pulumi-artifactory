@@ -8,8 +8,10 @@ import * as utilities from "./utilities";
  * Provides an Artifactory Mail Server resource. This can be used to create and manage Artifactory mail server configuration.
  *
  * ## Example Usage
+ *
  * ### S
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -27,14 +29,15 @@ import * as utilities from "./utilities";
  *     username: "test-user",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * ```sh
- *  $ pulumi import artifactory:index/mailServer:MailServer my-mail-server mymailserver
+ * $ pulumi import artifactory:index/mailServer:MailServer my-mail-server mymailserver
  * ```
  *
- *  ~>The `password` attribute is not retrievable from Artifactory thus there will be state drift after importing this resource.
+ * ~>The `password` attribute is not retrievable from Artifactory thus there will be state drift after importing this resource.
  */
 export class MailServer extends pulumi.CustomResource {
     /**

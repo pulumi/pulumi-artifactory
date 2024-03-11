@@ -511,6 +511,7 @@ class VirtualHelmRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -519,13 +520,14 @@ class VirtualHelmRepository(pulumi.CustomResource):
             key="foo-helm-virtual",
             use_namespaces=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Virtual repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/virtualHelmRepository:VirtualHelmRepository foo-helm-virtual foo-helm-virtual
+        $ pulumi import artifactory:index/virtualHelmRepository:VirtualHelmRepository foo-helm-virtual foo-helm-virtual
         ```
 
         :param str resource_name: The name of the resource.
@@ -564,6 +566,7 @@ class VirtualHelmRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -572,13 +575,14 @@ class VirtualHelmRepository(pulumi.CustomResource):
             key="foo-helm-virtual",
             use_namespaces=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Virtual repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/virtualHelmRepository:VirtualHelmRepository foo-helm-virtual foo-helm-virtual
+        $ pulumi import artifactory:index/virtualHelmRepository:VirtualHelmRepository foo-helm-virtual foo-helm-virtual
         ```
 
         :param str resource_name: The name of the resource.

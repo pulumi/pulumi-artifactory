@@ -24,6 +24,8 @@ import javax.annotation.Nullable;
  * Official documentation can be found [here](https://jfrog.com/help/r/jfrog-artifactory-documentation/oci-registry).
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -56,13 +58,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Remote OCI repositories can be imported using their name, e.g.
  * 
  * ```sh
- *  $ pulumi import artifactory:index/remoteOciRepository:RemoteOciRepository my-oci-remote my-oci-remote
+ * $ pulumi import artifactory:index/remoteOciRepository:RemoteOciRepository my-oci-remote my-oci-remote
  * ```
  * 
  */

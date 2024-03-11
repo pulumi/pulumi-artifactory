@@ -64,6 +64,8 @@ public final class ArtifactCustomWebhookHandlerArgs extends com.pulumi.resources
 
     /**
      * Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won&#39;t work. Example:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -86,6 +88,7 @@ public final class ArtifactCustomWebhookHandlerArgs extends com.pulumi.resources
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     @Import(name="secrets")
@@ -93,6 +96,8 @@ public final class ArtifactCustomWebhookHandlerArgs extends com.pulumi.resources
 
     /**
      * @return Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won&#39;t work. Example:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -115,6 +120,7 @@ public final class ArtifactCustomWebhookHandlerArgs extends com.pulumi.resources
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public Optional<Output<Map<String,String>>> secrets() {
@@ -229,6 +235,8 @@ public final class ArtifactCustomWebhookHandlerArgs extends com.pulumi.resources
 
         /**
          * @param secrets Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won&#39;t work. Example:
+         * 
+         * &lt;!--Start PulumiCodeChooser --&gt;
          * ```java
          * package generated_program;
          * 
@@ -251,6 +259,7 @@ public final class ArtifactCustomWebhookHandlerArgs extends com.pulumi.resources
          *     }
          * }
          * ```
+         * &lt;!--End PulumiCodeChooser --&gt;
          * 
          * @return builder
          * 
@@ -262,6 +271,8 @@ public final class ArtifactCustomWebhookHandlerArgs extends com.pulumi.resources
 
         /**
          * @param secrets Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won&#39;t work. Example:
+         * 
+         * &lt;!--Start PulumiCodeChooser --&gt;
          * ```java
          * package generated_program;
          * 
@@ -284,6 +295,7 @@ public final class ArtifactCustomWebhookHandlerArgs extends com.pulumi.resources
          *     }
          * }
          * ```
+         * &lt;!--End PulumiCodeChooser --&gt;
          * 
          * @return builder
          * 

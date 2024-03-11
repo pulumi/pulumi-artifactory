@@ -664,6 +664,7 @@ class LocalHelmociRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -673,13 +674,14 @@ class LocalHelmociRepository(pulumi.CustomResource):
             max_unique_tags=5,
             tag_retention=3)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Local repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/localHelmociRepository:LocalHelmociRepository my-helmoci-local my-helmoci-local
+        $ pulumi import artifactory:index/localHelmociRepository:LocalHelmociRepository my-helmoci-local my-helmoci-local
         ```
 
         :param str resource_name: The name of the resource.
@@ -728,6 +730,7 @@ class LocalHelmociRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -737,13 +740,14 @@ class LocalHelmociRepository(pulumi.CustomResource):
             max_unique_tags=5,
             tag_retention=3)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Local repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/localHelmociRepository:LocalHelmociRepository my-helmoci-local my-helmoci-local
+        $ pulumi import artifactory:index/localHelmociRepository:LocalHelmociRepository my-helmoci-local my-helmoci-local
         ```
 
         :param str resource_name: The name of the resource.

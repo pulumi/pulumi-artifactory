@@ -584,47 +584,44 @@ class ScopedToken(pulumi.CustomResource):
 
         ## Example Usage
 
+        ### S
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
         ### Create a new Artifactory scoped token for an existing user
-
-        resource "artifactory_scoped_token" "scoped_token" {
-          username = "existing-user"
-        }
-
+        scoped_token = artifactory.ScopedToken("scopedToken", username="existing-user")
         ### **Note:** This assumes that the user `existing-user` has already been created in Artifactory by different means, i.e. manually or in a separate pulumi up.
-
         ### Create a new Artifactory user and scoped token
-        resource "artifactory_user" "new_user" {
-          name   = "new_user"
-          email  = "new_user@somewhere.com"
-          groups = ["readers"]
-        }
-
-        resource "artifactory_scoped_token" "scoped_token_user" {
-          username = artifactory_user.new_user.name
-        }
-
+        new_user = artifactory.User("newUser",
+            email="new_user@somewhere.com",
+            groups=["readers"])
+        scoped_token_user = artifactory.ScopedToken("scopedTokenUser", username=new_user.name)
         ### Creates a new token for groups
-        resource "artifactory_scoped_token" "scoped_token_group" {
-          scopes = ["applied-permissions/groups:readers"]
-        }
-
+        scoped_token_group = artifactory.ScopedToken("scopedTokenGroup", scopes=["applied-permissions/groups:readers"])
         ### Create token with expiry
-        resource "artifactory_scoped_token" "scoped_token_no_expiry" {
-          username   = "existing-user"
-          expires_in = 7200 // in seconds
-        }
-
+        scoped_token_no_expiry = artifactory.ScopedToken("scopedTokenNoExpiry",
+            username="existing-user",
+            expires_in=7200)
+        # in seconds
         ### Creates a refreshable token
-        resource "artifactory_scoped_token" "scoped_token_refreshable" {
-          username    = "existing-user"
-          refreshable = true
-        }
-
+        scoped_token_refreshable = artifactory.ScopedToken("scopedTokenRefreshable",
+            username="existing-user",
+            refreshable=True)
         ### Creates an administrator token
-        resource "artifactory_scoped_token" "admin" {
-          username = "admin-user"
-          scopes   = ["applied-permissions/admin"]
-        }
+        admin = artifactory.ScopedToken("admin",
+            username="admin-user",
+            scopes=["applied-permissions/admin"])
+        ### Creates a token with an audience
+        audience = artifactory.ScopedToken("audience",
+            username="admin-user",
+            scopes=["applied-permissions/admin"],
+            audiences=["jfrt@*"])
+        ```
+        <!--End PulumiCodeChooser -->
+
         ## References
 
         - https://jfrog.com/help/r/jfrog-platform-administration-documentation/access-tokens
@@ -691,47 +688,44 @@ class ScopedToken(pulumi.CustomResource):
 
         ## Example Usage
 
+        ### S
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
         ### Create a new Artifactory scoped token for an existing user
-
-        resource "artifactory_scoped_token" "scoped_token" {
-          username = "existing-user"
-        }
-
+        scoped_token = artifactory.ScopedToken("scopedToken", username="existing-user")
         ### **Note:** This assumes that the user `existing-user` has already been created in Artifactory by different means, i.e. manually or in a separate pulumi up.
-
         ### Create a new Artifactory user and scoped token
-        resource "artifactory_user" "new_user" {
-          name   = "new_user"
-          email  = "new_user@somewhere.com"
-          groups = ["readers"]
-        }
-
-        resource "artifactory_scoped_token" "scoped_token_user" {
-          username = artifactory_user.new_user.name
-        }
-
+        new_user = artifactory.User("newUser",
+            email="new_user@somewhere.com",
+            groups=["readers"])
+        scoped_token_user = artifactory.ScopedToken("scopedTokenUser", username=new_user.name)
         ### Creates a new token for groups
-        resource "artifactory_scoped_token" "scoped_token_group" {
-          scopes = ["applied-permissions/groups:readers"]
-        }
-
+        scoped_token_group = artifactory.ScopedToken("scopedTokenGroup", scopes=["applied-permissions/groups:readers"])
         ### Create token with expiry
-        resource "artifactory_scoped_token" "scoped_token_no_expiry" {
-          username   = "existing-user"
-          expires_in = 7200 // in seconds
-        }
-
+        scoped_token_no_expiry = artifactory.ScopedToken("scopedTokenNoExpiry",
+            username="existing-user",
+            expires_in=7200)
+        # in seconds
         ### Creates a refreshable token
-        resource "artifactory_scoped_token" "scoped_token_refreshable" {
-          username    = "existing-user"
-          refreshable = true
-        }
-
+        scoped_token_refreshable = artifactory.ScopedToken("scopedTokenRefreshable",
+            username="existing-user",
+            refreshable=True)
         ### Creates an administrator token
-        resource "artifactory_scoped_token" "admin" {
-          username = "admin-user"
-          scopes   = ["applied-permissions/admin"]
-        }
+        admin = artifactory.ScopedToken("admin",
+            username="admin-user",
+            scopes=["applied-permissions/admin"])
+        ### Creates a token with an audience
+        audience = artifactory.ScopedToken("audience",
+            username="admin-user",
+            scopes=["applied-permissions/admin"],
+            audiences=["jfrt@*"])
+        ```
+        <!--End PulumiCodeChooser -->
+
         ## References
 
         - https://jfrog.com/help/r/jfrog-platform-administration-documentation/access-tokens

@@ -11,6 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -19,6 +20,7 @@ import * as utilities from "./utilities";
  *     key: "federated-test-debian-repo",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getFederatedDebianRepository(args: GetFederatedDebianRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetFederatedDebianRepositoryResult> {
 
@@ -150,6 +152,7 @@ export interface GetFederatedDebianRepositoryResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -158,6 +161,7 @@ export interface GetFederatedDebianRepositoryResult {
  *     key: "federated-test-debian-repo",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getFederatedDebianRepositoryOutput(args: GetFederatedDebianRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedDebianRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getFederatedDebianRepository(a, opts))

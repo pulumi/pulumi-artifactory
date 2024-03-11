@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -45,15 +46,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Virtual repositories can be imported using their name, e.g.
 //
 // ```sh
-//
-//	$ pulumi import artifactory:index/virtualCranRepository:VirtualCranRepository foo-cran foo-cran
-//
+// $ pulumi import artifactory:index/virtualCranRepository:VirtualCranRepository foo-cran foo-cran
 // ```
 type VirtualCranRepository struct {
 	pulumi.CustomResourceState

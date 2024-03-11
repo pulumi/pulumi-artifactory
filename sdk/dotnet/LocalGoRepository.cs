@@ -14,6 +14,7 @@ namespace Pulumi.Artifactory
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -29,13 +30,14 @@ namespace Pulumi.Artifactory
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Local repositories can be imported using their name, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import artifactory:index/localGoRepository:LocalGoRepository terraform-local-test-go-repo terraform-local-test-go-repo
+    /// $ pulumi import artifactory:index/localGoRepository:LocalGoRepository terraform-local-test-go-repo terraform-local-test-go-repo
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/localGoRepository:LocalGoRepository")]

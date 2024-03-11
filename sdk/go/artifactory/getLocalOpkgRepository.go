@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,6 +39,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupLocalOpkgRepository(ctx *pulumi.Context, args *LookupLocalOpkgRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupLocalOpkgRepositoryResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupLocalOpkgRepositoryResult

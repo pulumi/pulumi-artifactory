@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,15 +40,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Local repositories can be imported using their name, e.g.
 //
 // ```sh
-//
-//	$ pulumi import artifactory:index/localSwiftRepository:LocalSwiftRepository terraform-local-test-swift-repo terraform-local-test-swift-repo
-//
+// $ pulumi import artifactory:index/localSwiftRepository:LocalSwiftRepository terraform-local-test-swift-repo terraform-local-test-swift-repo
 // ```
 type LocalSwiftRepository struct {
 	pulumi.CustomResourceState

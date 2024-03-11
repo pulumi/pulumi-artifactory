@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
  * Provides an Artifactory replication config resource. This can be used to create and manage Artifactory replications.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -69,13 +71,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Replication configs can be imported using their repo key, e.g.
  * 
  * ```sh
- *  $ pulumi import artifactory:index/replicationConfig:ReplicationConfig foo-rep provider_test_source
+ * $ pulumi import artifactory:index/replicationConfig:ReplicationConfig foo-rep provider_test_source
  * ```
  * 
  */

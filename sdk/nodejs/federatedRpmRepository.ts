@@ -11,6 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -29,13 +30,14 @@ import * as utilities from "./utilities";
  *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Federated repositories can be imported using their name, e.g.
  *
  * ```sh
- *  $ pulumi import artifactory:index/federatedRpmRepository:FederatedRpmRepository terraform-federated-test-rpm-repo terraform-federated-test-rpm-repo
+ * $ pulumi import artifactory:index/federatedRpmRepository:FederatedRpmRepository terraform-federated-test-rpm-repo terraform-federated-test-rpm-repo
  * ```
  */
 export class FederatedRpmRepository extends pulumi.CustomResource {

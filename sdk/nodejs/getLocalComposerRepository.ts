@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -17,6 +18,7 @@ import * as utilities from "./utilities";
  *     key: "local-test-composer-repo",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getLocalComposerRepository(args: GetLocalComposerRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalComposerRepositoryResult> {
 
@@ -97,6 +99,7 @@ export interface GetLocalComposerRepositoryResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -105,6 +108,7 @@ export interface GetLocalComposerRepositoryResult {
  *     key: "local-test-composer-repo",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getLocalComposerRepositoryOutput(args: GetLocalComposerRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalComposerRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getLocalComposerRepository(a, opts))

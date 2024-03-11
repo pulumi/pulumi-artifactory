@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -81,15 +82,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Local repositories can be imported using their name, e.g.
 //
 // ```sh
-//
-//	$ pulumi import artifactory:index/debianRepository:DebianRepository my-debian-repo my-debian-repo
-//
+// $ pulumi import artifactory:index/debianRepository:DebianRepository my-debian-repo my-debian-repo
 // ```
 type DebianRepository struct {
 	pulumi.CustomResourceState

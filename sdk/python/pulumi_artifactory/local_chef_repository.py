@@ -588,19 +588,21 @@ class LocalChefRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
 
         terraform_local_test_chef_repo = artifactory.LocalChefRepository("terraform-local-test-chef-repo", key="terraform-local-test-chef-repo")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Local repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/localChefRepository:LocalChefRepository terraform-local-test-chef-repo terraform-local-test-chef-repo
+        $ pulumi import artifactory:index/localChefRepository:LocalChefRepository terraform-local-test-chef-repo terraform-local-test-chef-repo
         ```
 
         :param str resource_name: The name of the resource.
@@ -643,19 +645,21 @@ class LocalChefRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
 
         terraform_local_test_chef_repo = artifactory.LocalChefRepository("terraform-local-test-chef-repo", key="terraform-local-test-chef-repo")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Local repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/localChefRepository:LocalChefRepository terraform-local-test-chef-repo terraform-local-test-chef-repo
+        $ pulumi import artifactory:index/localChefRepository:LocalChefRepository terraform-local-test-chef-repo terraform-local-test-chef-repo
         ```
 
         :param str resource_name: The name of the resource.

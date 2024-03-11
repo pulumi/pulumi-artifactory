@@ -13,8 +13,10 @@ namespace Pulumi.Artifactory
     /// Provides an Artifactory Mail Server resource. This can be used to create and manage Artifactory mail server configuration.
     /// 
     /// ## Example Usage
+    /// 
     /// ### S
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -39,14 +41,15 @@ namespace Pulumi.Artifactory
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// ```sh
-    ///  $ pulumi import artifactory:index/mailServer:MailServer my-mail-server mymailserver
+    /// $ pulumi import artifactory:index/mailServer:MailServer my-mail-server mymailserver
     /// ```
     /// 
-    ///  ~&gt;The `password` attribute is not retrievable from Artifactory thus there will be state drift after importing this resource.
+    /// ~&gt;The `password` attribute is not retrievable from Artifactory thus there will be state drift after importing this resource.
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/mailServer:MailServer")]
     public partial class MailServer : global::Pulumi.CustomResource

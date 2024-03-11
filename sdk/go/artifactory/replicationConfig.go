@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -63,15 +64,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Replication configs can be imported using their repo key, e.g.
 //
 // ```sh
-//
-//	$ pulumi import artifactory:index/replicationConfig:ReplicationConfig foo-rep provider_test_source
-//
+// $ pulumi import artifactory:index/replicationConfig:ReplicationConfig foo-rep provider_test_source
 // ```
 type ReplicationConfig struct {
 	pulumi.CustomResourceState

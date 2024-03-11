@@ -649,19 +649,21 @@ class DockerV1Repository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
 
         foo = artifactory.DockerV1Repository("foo", key="foo")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Local repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/dockerV1Repository:DockerV1Repository foo foo
+        $ pulumi import artifactory:index/dockerV1Repository:DockerV1Repository foo foo
         ```
 
         :param str resource_name: The name of the resource.
@@ -704,19 +706,21 @@ class DockerV1Repository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
 
         foo = artifactory.DockerV1Repository("foo", key="foo")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Local repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/dockerV1Repository:DockerV1Repository foo foo
+        $ pulumi import artifactory:index/dockerV1Repository:DockerV1Repository foo foo
         ```
 
         :param str resource_name: The name of the resource.

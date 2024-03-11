@@ -15,6 +15,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -36,13 +37,17 @@ import * as utilities from "./utilities";
  *     persistUsers: true,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
- * Current OAuth SSO settings can be imported using `oauth_settings` as the `ID`. If the resource is being imported, there will be a state drift, because `client_secret` can't be known. There are two options on how to approach this: 1) Don't set `client_secret` initially, import, then update the config with actual secret; 2) Accept that there is a drift initially and run `pulumi up` twice;
+ * Current OAuth SSO settings can be imported using `oauth_settings` as the `ID`.
+ * If the resource is being imported, there will be a state drift, because `client_secret` can't be known. There are two options on how to approach this:
+ * 1) Don't set `client_secret` initially, import, then update the config with actual secret;
+ * 2) Accept that there is a drift initially and run `pulumi up` twice;
  *
  * ```sh
- *  $ pulumi import artifactory:index/oauthSettings:OauthSettings oauth oauth_settings
+ * $ pulumi import artifactory:index/oauthSettings:OauthSettings oauth oauth_settings
  * ```
  */
 export class OauthSettings extends pulumi.CustomResource {

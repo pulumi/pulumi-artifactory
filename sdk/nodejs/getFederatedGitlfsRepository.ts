@@ -11,6 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -19,6 +20,7 @@ import * as utilities from "./utilities";
  *     key: "federated-test-gitlfs-repo",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getFederatedGitlfsRepository(args: GetFederatedGitlfsRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetFederatedGitlfsRepositoryResult> {
 
@@ -132,6 +134,7 @@ export interface GetFederatedGitlfsRepositoryResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -140,6 +143,7 @@ export interface GetFederatedGitlfsRepositoryResult {
  *     key: "federated-test-gitlfs-repo",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getFederatedGitlfsRepositoryOutput(args: GetFederatedGitlfsRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedGitlfsRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getFederatedGitlfsRepository(a, opts))

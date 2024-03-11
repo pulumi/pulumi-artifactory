@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * Creates a federated Vagrant repository.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -59,13 +61,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Federated repositories can be imported using their name, e.g.
  * 
  * ```sh
- *  $ pulumi import artifactory:index/federatedVagrantRepository:FederatedVagrantRepository terraform-federated-test-vagrant-repo terraform-federated-test-vagrant-repo
+ * $ pulumi import artifactory:index/federatedVagrantRepository:FederatedVagrantRepository terraform-federated-test-vagrant-repo terraform-federated-test-vagrant-repo
  * ```
  * 
  */

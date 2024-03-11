@@ -544,6 +544,7 @@ class MavenRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -569,13 +570,14 @@ class MavenRepository(pulumi.CustomResource):
                 baz.key,
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Virtual repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/mavenRepository:MavenRepository maven-virt-repo maven-virt-repo
+        $ pulumi import artifactory:index/mavenRepository:MavenRepository maven-virt-repo maven-virt-repo
         ```
 
         :param str resource_name: The name of the resource.
@@ -615,6 +617,7 @@ class MavenRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -640,13 +643,14 @@ class MavenRepository(pulumi.CustomResource):
                 baz.key,
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Virtual repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/mavenRepository:MavenRepository maven-virt-repo maven-virt-repo
+        $ pulumi import artifactory:index/mavenRepository:MavenRepository maven-virt-repo maven-virt-repo
         ```
 
         :param str resource_name: The name of the resource.

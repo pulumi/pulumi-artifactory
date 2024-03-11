@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -17,6 +18,7 @@ import * as utilities from "./utilities";
  *     key: "local-test-gradle-repo-basic",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getLocalGradleRepository(args: GetLocalGradleRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalGradleRepositoryResult> {
 
@@ -172,6 +174,7 @@ export interface GetLocalGradleRepositoryResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -180,6 +183,7 @@ export interface GetLocalGradleRepositoryResult {
  *     key: "local-test-gradle-repo-basic",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getLocalGradleRepositoryOutput(args: GetLocalGradleRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalGradleRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getLocalGradleRepository(a, opts))

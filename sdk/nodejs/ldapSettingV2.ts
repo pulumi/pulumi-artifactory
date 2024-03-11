@@ -16,6 +16,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -37,11 +38,12 @@ import * as utilities from "./utilities";
  *     userDnPattern: "uid={0},ou=People",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * ```sh
- *  $ pulumi import artifactory:index/ldapSettingV2:LdapSettingV2 ldap ldap1
+ * $ pulumi import artifactory:index/ldapSettingV2:LdapSettingV2 ldap ldap1
  * ```
  */
 export class LdapSettingV2 extends pulumi.CustomResource {

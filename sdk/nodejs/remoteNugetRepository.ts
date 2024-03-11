@@ -12,6 +12,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -25,13 +26,14 @@ import * as utilities from "./utilities";
  *     v3FeedUrl: "https://api.nuget.org/v3/index.json",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Remote repositories can be imported using their name, e.g.
  *
  * ```sh
- *  $ pulumi import artifactory:index/remoteNugetRepository:RemoteNugetRepository my-remote-nuget my-remote-nuget
+ * $ pulumi import artifactory:index/remoteNugetRepository:RemoteNugetRepository my-remote-nuget my-remote-nuget
  * ```
  */
 export class RemoteNugetRepository extends pulumi.CustomResource {

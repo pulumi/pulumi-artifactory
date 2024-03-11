@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -17,6 +18,7 @@ import * as utilities from "./utilities";
  *     key: "local-test-debian-repo-basic",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getLocalDebianRepository(args: GetLocalDebianRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalDebianRepositoryResult> {
 
@@ -136,6 +138,7 @@ export interface GetLocalDebianRepositoryResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -144,6 +147,7 @@ export interface GetLocalDebianRepositoryResult {
  *     key: "local-test-debian-repo-basic",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getLocalDebianRepositoryOutput(args: GetLocalDebianRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalDebianRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getLocalDebianRepository(a, opts))

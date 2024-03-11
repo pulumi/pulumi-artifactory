@@ -182,12 +182,14 @@ def get_virtual_cran_repository(artifactory_requests_can_retrieve_remote_artifac
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     virtual_cran = artifactory.get_virtual_cran_repository(key="virtual-cran")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str key: the identity key of the repo.
@@ -245,12 +247,14 @@ def get_virtual_cran_repository_output(artifactory_requests_can_retrieve_remote_
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     virtual_cran = artifactory.get_virtual_cran_repository(key="virtual-cran")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str key: the identity key of the repo.

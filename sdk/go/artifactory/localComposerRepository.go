@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,15 +40,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Local repositories can be imported using their name, e.g.
 //
 // ```sh
-//
-//	$ pulumi import artifactory:index/localComposerRepository:LocalComposerRepository terraform-local-test-composer-repo terraform-local-test-composer-repo
-//
+// $ pulumi import artifactory:index/localComposerRepository:LocalComposerRepository terraform-local-test-composer-repo terraform-local-test-composer-repo
 // ```
 type LocalComposerRepository struct {
 	pulumi.CustomResourceState

@@ -588,19 +588,21 @@ class LocalPuppetRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
 
         terraform_local_test_puppet_repo = artifactory.LocalPuppetRepository("terraform-local-test-puppet-repo", key="terraform-local-test-puppet-repo")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Local repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/localPuppetRepository:LocalPuppetRepository terraform-local-test-puppet-repo terraform-local-test-puppet-repo
+        $ pulumi import artifactory:index/localPuppetRepository:LocalPuppetRepository terraform-local-test-puppet-repo terraform-local-test-puppet-repo
         ```
 
         :param str resource_name: The name of the resource.
@@ -643,19 +645,21 @@ class LocalPuppetRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
 
         terraform_local_test_puppet_repo = artifactory.LocalPuppetRepository("terraform-local-test-puppet-repo", key="terraform-local-test-puppet-repo")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Local repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/localPuppetRepository:LocalPuppetRepository terraform-local-test-puppet-repo terraform-local-test-puppet-repo
+        $ pulumi import artifactory:index/localPuppetRepository:LocalPuppetRepository terraform-local-test-puppet-repo terraform-local-test-puppet-repo
         ```
 
         :param str resource_name: The name of the resource.

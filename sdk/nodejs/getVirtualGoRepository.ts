@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -17,6 +18,7 @@ import * as utilities from "./utilities";
  *     key: "virtual-go",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getVirtualGoRepository(args: GetVirtualGoRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualGoRepositoryResult> {
 
@@ -102,6 +104,7 @@ export interface GetVirtualGoRepositoryResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -110,6 +113,7 @@ export interface GetVirtualGoRepositoryResult {
  *     key: "virtual-go",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getVirtualGoRepositoryOutput(args: GetVirtualGoRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualGoRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getVirtualGoRepository(a, opts))

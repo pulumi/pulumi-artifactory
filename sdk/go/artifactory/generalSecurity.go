@@ -19,6 +19,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -43,18 +44,17 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Current general security settings can be imported using `security` as the `ID`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import artifactory:index/generalSecurity:GeneralSecurity security security
-//
+// $ pulumi import artifactory:index/generalSecurity:GeneralSecurity security security
 // ```
-//
-//	~>The `artifactory_general_security` resource uses endpoints that are undocumented and may not work with SaaS environments, or may change without notice.
+// ~>The `artifactory_general_security` resource uses endpoints that are undocumented and may not work with SaaS
+// environments, or may change without notice.
 type GeneralSecurity struct {
 	pulumi.CustomResourceState
 

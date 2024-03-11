@@ -15,6 +15,7 @@ namespace Pulumi.Artifactory
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -33,13 +34,14 @@ namespace Pulumi.Artifactory
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Remote repositories can be imported using their name, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import artifactory:index/remoteCocoapodsRepository:RemoteCocoapodsRepository my-remote-cocoapods my-remote-cocoapods
+    /// $ pulumi import artifactory:index/remoteCocoapodsRepository:RemoteCocoapodsRepository my-remote-cocoapods my-remote-cocoapods
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/remoteCocoapodsRepository:RemoteCocoapodsRepository")]

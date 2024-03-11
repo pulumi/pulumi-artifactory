@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,6 +39,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupVirtualHelmRepository(ctx *pulumi.Context, args *LookupVirtualHelmRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupVirtualHelmRepositoryResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVirtualHelmRepositoryResult

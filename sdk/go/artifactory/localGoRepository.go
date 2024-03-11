@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,15 +40,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Local repositories can be imported using their name, e.g.
 //
 // ```sh
-//
-//	$ pulumi import artifactory:index/localGoRepository:LocalGoRepository terraform-local-test-go-repo terraform-local-test-go-repo
-//
+// $ pulumi import artifactory:index/localGoRepository:LocalGoRepository terraform-local-test-go-repo terraform-local-test-go-repo
 // ```
 type LocalGoRepository struct {
 	pulumi.CustomResourceState

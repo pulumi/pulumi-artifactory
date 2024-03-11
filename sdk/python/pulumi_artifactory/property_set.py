@@ -142,6 +142,7 @@ class PropertySet(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -181,13 +182,14 @@ class PropertySet(pulumi.CustomResource):
             ],
             visible=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Current Property Set can be imported using `property-set1` as the `ID`, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/propertySet:PropertySet foo property-set1
+        $ pulumi import artifactory:index/propertySet:PropertySet foo property-set1
         ```
 
         :param str resource_name: The name of the resource.
@@ -211,6 +213,7 @@ class PropertySet(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -250,13 +253,14 @@ class PropertySet(pulumi.CustomResource):
             ],
             visible=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Current Property Set can be imported using `property-set1` as the `ID`, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/propertySet:PropertySet foo property-set1
+        $ pulumi import artifactory:index/propertySet:PropertySet foo property-set1
         ```
 
         :param str resource_name: The name of the resource.

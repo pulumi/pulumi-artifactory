@@ -586,19 +586,21 @@ class LocalTerraformModuleRepository(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
 
         terraform_local_test_terraform_module_repo = artifactory.LocalTerraformModuleRepository("terraform-local-test-terraform-module-repo", key="terraform-local-test-terraform-module-repo")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Local repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/localTerraformModuleRepository:LocalTerraformModuleRepository terraform-local-test-terraform-module-repo terraform-local-test-terraform-module-repo
+        $ pulumi import artifactory:index/localTerraformModuleRepository:LocalTerraformModuleRepository terraform-local-test-terraform-module-repo terraform-local-test-terraform-module-repo
         ```
 
         :param str resource_name: The name of the resource.
@@ -639,19 +641,21 @@ class LocalTerraformModuleRepository(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
 
         terraform_local_test_terraform_module_repo = artifactory.LocalTerraformModuleRepository("terraform-local-test-terraform-module-repo", key="terraform-local-test-terraform-module-repo")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Local repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/localTerraformModuleRepository:LocalTerraformModuleRepository terraform-local-test-terraform-module-repo terraform-local-test-terraform-module-repo
+        $ pulumi import artifactory:index/localTerraformModuleRepository:LocalTerraformModuleRepository terraform-local-test-terraform-module-repo terraform-local-test-terraform-module-repo
         ```
 
         :param str resource_name: The name of the resource.

@@ -23,6 +23,7 @@ namespace Pulumi.Artifactory
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -65,13 +66,14 @@ namespace Pulumi.Artifactory
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Push replication configs can be imported using their repo key, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import artifactory:index/pushReplication:PushReplication foo-rep provider_test_source
+    /// $ pulumi import artifactory:index/pushReplication:PushReplication foo-rep provider_test_source
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/pushReplication:PushReplication")]

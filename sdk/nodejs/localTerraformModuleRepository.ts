@@ -7,19 +7,21 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * const terraform_local_test_terraform_module_repo = new artifactory.LocalTerraformModuleRepository("terraform-local-test-terraform-module-repo", {key: "terraform-local-test-terraform-module-repo"});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Local repositories can be imported using their name, e.g.
  *
  * ```sh
- *  $ pulumi import artifactory:index/localTerraformModuleRepository:LocalTerraformModuleRepository terraform-local-test-terraform-module-repo terraform-local-test-terraform-module-repo
+ * $ pulumi import artifactory:index/localTerraformModuleRepository:LocalTerraformModuleRepository terraform-local-test-terraform-module-repo terraform-local-test-terraform-module-repo
  * ```
  */
 export class LocalTerraformModuleRepository extends pulumi.CustomResource {

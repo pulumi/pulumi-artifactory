@@ -99,6 +99,7 @@ def get_repositories(package_type: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
@@ -106,6 +107,7 @@ def get_repositories(package_type: Optional[str] = None,
     all_alpine_local = artifactory.get_repositories(package_type="alpine",
         repository_type="local")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str project_key: Filter for repositories assigned to a specific project.
@@ -136,6 +138,7 @@ def get_repositories_output(package_type: Optional[pulumi.Input[Optional[str]]] 
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
@@ -143,6 +146,7 @@ def get_repositories_output(package_type: Optional[pulumi.Input[Optional[str]]] 
     all_alpine_local = artifactory.get_repositories(package_type="alpine",
         repository_type="local")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str project_key: Filter for repositories assigned to a specific project.

@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -22,13 +23,14 @@ import * as utilities from "./utilities";
  * // This can then be used by a remote repository
  * const my_remote = new artifactory.RemoteMavenRepository("my-remote", {clientTlsCertificate: my_cert.alias});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Certificates can be imported using their alias, e.g.
  *
  * ```sh
- *  $ pulumi import artifactory:index/certificate:Certificate my-cert my-cert
+ * $ pulumi import artifactory:index/certificate:Certificate my-cert my-cert
  * ```
  */
 export class Certificate extends pulumi.CustomResource {

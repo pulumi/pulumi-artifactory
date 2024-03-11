@@ -18,6 +18,7 @@ namespace Pulumi.Artifactory
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -43,6 +44,8 @@ namespace Pulumi.Artifactory
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Managing groups relationship
     /// 
     /// See our recommendation on how to manage user-group relationship.
@@ -50,7 +53,7 @@ namespace Pulumi.Artifactory
     /// ## Import
     /// 
     /// ```sh
-    ///  $ pulumi import artifactory:index/user:User test-user myusername
+    /// $ pulumi import artifactory:index/user:User test-user myusername
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/user:User")]

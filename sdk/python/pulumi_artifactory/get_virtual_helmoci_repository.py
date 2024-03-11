@@ -182,12 +182,14 @@ def get_virtual_helmoci_repository(artifactory_requests_can_retrieve_remote_arti
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     my_helmoci_virtual = artifactory.get_virtual_helmoci_repository(key="my-helmoci-virtual")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str key: the identity key of the repo.
@@ -245,12 +247,14 @@ def get_virtual_helmoci_repository_output(artifactory_requests_can_retrieve_remo
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     my_helmoci_virtual = artifactory.get_virtual_helmoci_repository(key="my-helmoci-virtual")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str key: the identity key of the repo.

@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -36,13 +37,12 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // ```sh
-//
-//	$ pulumi import artifactory:index/globalEnvironment:GlobalEnvironment dev-env myenv
-//
+// $ pulumi import artifactory:index/globalEnvironment:GlobalEnvironment dev-env myenv
 // ```
 type GlobalEnvironment struct {
 	pulumi.CustomResourceState

@@ -16,6 +16,7 @@ namespace Pulumi.Artifactory
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -37,13 +38,14 @@ namespace Pulumi.Artifactory
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Virtual Helm OCI repositories can be imported using their name, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import artifactory:index/virtualHelmociRepository:VirtualHelmociRepository my-helmoci-virtual my-helmoci-virtual
+    /// $ pulumi import artifactory:index/virtualHelmociRepository:VirtualHelmociRepository my-helmoci-virtual my-helmoci-virtual
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/virtualHelmociRepository:VirtualHelmociRepository")]

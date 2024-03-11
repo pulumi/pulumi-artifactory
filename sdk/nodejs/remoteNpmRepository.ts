@@ -12,6 +12,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -23,13 +24,14 @@ import * as utilities from "./utilities";
  *     url: "https://registry.npmjs.org",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Remote repositories can be imported using their name, e.g.
  *
  * ```sh
- *  $ pulumi import artifactory:index/remoteNpmRepository:RemoteNpmRepository npm-remote npm-remote
+ * $ pulumi import artifactory:index/remoteNpmRepository:RemoteNpmRepository npm-remote npm-remote
  * ```
  */
 export class RemoteNpmRepository extends pulumi.CustomResource {

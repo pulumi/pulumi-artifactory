@@ -212,12 +212,14 @@ def get_local_swift_repository(archive_browsing_enabled: Optional[bool] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     local_test_swift_repo = artifactory.get_local_swift_repository(key="local-test-swift-repo")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str key: the identity key of the repo.
@@ -283,12 +285,14 @@ def get_local_swift_repository_output(archive_browsing_enabled: Optional[pulumi.
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     local_test_swift_repo = artifactory.get_local_swift_repository(key="local-test-swift-repo")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str key: the identity key of the repo.

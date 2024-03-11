@@ -12,6 +12,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -26,13 +27,14 @@ import * as utilities from "./utilities";
  *     url: "https://repo1.maven.org/maven2/",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Remote repositories can be imported using their name, e.g.
  *
  * ```sh
- *  $ pulumi import artifactory:index/remoteMavenRepository:RemoteMavenRepository maven-remote maven-remote
+ * $ pulumi import artifactory:index/remoteMavenRepository:RemoteMavenRepository maven-remote maven-remote
  * ```
  */
 export class RemoteMavenRepository extends pulumi.CustomResource {

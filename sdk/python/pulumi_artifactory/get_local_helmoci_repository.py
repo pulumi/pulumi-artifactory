@@ -235,12 +235,14 @@ def get_local_helmoci_repository(archive_browsing_enabled: Optional[bool] = None
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     my_helmoci_local = artifactory.LocalHelmociRepository("my-helmoci-local", key="my-helmoci-local")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str key: the identity key of the repo.
@@ -314,12 +316,14 @@ def get_local_helmoci_repository_output(archive_browsing_enabled: Optional[pulum
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     my_helmoci_local = artifactory.LocalHelmociRepository("my-helmoci-local", key="my-helmoci-local")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str key: the identity key of the repo.

@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,15 +40,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Local repositories can be imported using their name, e.g.
 //
 // ```sh
-//
-//	$ pulumi import artifactory:index/localGitltfsRepository:LocalGitltfsRepository terraform-local-test-gitlfs-repo terraform-local-test-gitlfs-repo
-//
+// $ pulumi import artifactory:index/localGitltfsRepository:LocalGitltfsRepository terraform-local-test-gitlfs-repo terraform-local-test-gitlfs-repo
 // ```
 type LocalGitltfsRepository struct {
 	pulumi.CustomResourceState

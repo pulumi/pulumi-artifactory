@@ -588,19 +588,21 @@ class LocalHelmRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
 
         terraform_local_test_helm_repo = artifactory.LocalHelmRepository("terraform-local-test-helm-repo", key="terraform-local-test-helm-repo")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Local repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/localHelmRepository:LocalHelmRepository terraform-local-test-helm-repo terraform-local-test-helm-repo
+        $ pulumi import artifactory:index/localHelmRepository:LocalHelmRepository terraform-local-test-helm-repo terraform-local-test-helm-repo
         ```
 
         :param str resource_name: The name of the resource.
@@ -643,19 +645,21 @@ class LocalHelmRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
 
         terraform_local_test_helm_repo = artifactory.LocalHelmRepository("terraform-local-test-helm-repo", key="terraform-local-test-helm-repo")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Local repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/localHelmRepository:LocalHelmRepository terraform-local-test-helm-repo terraform-local-test-helm-repo
+        $ pulumi import artifactory:index/localHelmRepository:LocalHelmRepository terraform-local-test-helm-repo terraform-local-test-helm-repo
         ```
 
         :param str resource_name: The name of the resource.

@@ -25,6 +25,8 @@ import javax.annotation.Nullable;
  * ~&gt;The `artifactory.PropertySet` resource utilizes endpoints which are blocked/removed in SaaS environments (i.e. in Artifactory online), rendering this resource incompatible with Artifactory SaaS environments.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -83,13 +85,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Current Property Set can be imported using `property-set1` as the `ID`, e.g.
  * 
  * ```sh
- *  $ pulumi import artifactory:index/propertySet:PropertySet foo property-set1
+ * $ pulumi import artifactory:index/propertySet:PropertySet foo property-set1
  * ```
  * 
  */

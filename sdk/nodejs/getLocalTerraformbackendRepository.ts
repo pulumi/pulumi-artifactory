@@ -7,6 +7,7 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -15,6 +16,7 @@ import * as utilities from "./utilities";
  *     key: "local-test-terraformbackend-repo",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getLocalTerraformbackendRepository(args: GetLocalTerraformbackendRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalTerraformbackendRepositoryResult> {
 
@@ -93,6 +95,7 @@ export interface GetLocalTerraformbackendRepositoryResult {
 /**
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -101,6 +104,7 @@ export interface GetLocalTerraformbackendRepositoryResult {
  *     key: "local-test-terraformbackend-repo",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getLocalTerraformbackendRepositoryOutput(args: GetLocalTerraformbackendRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalTerraformbackendRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getLocalTerraformbackendRepository(a, opts))

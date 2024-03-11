@@ -12,6 +12,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -21,13 +22,14 @@ import * as utilities from "./utilities";
  *     url: "http://testartifactory.io/artifactory/example-gitlfs/",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Remote repositories can be imported using their name, e.g.
  *
  * ```sh
- *  $ pulumi import artifactory:index/remoteGitlfsRepository:RemoteGitlfsRepository my-remote-gitlfs my-remote-gitlfs
+ * $ pulumi import artifactory:index/remoteGitlfsRepository:RemoteGitlfsRepository my-remote-gitlfs my-remote-gitlfs
  * ```
  */
 export class RemoteGitlfsRepository extends pulumi.CustomResource {

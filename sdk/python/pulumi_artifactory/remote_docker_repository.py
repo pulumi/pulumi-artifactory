@@ -1780,6 +1780,7 @@ class RemoteDockerRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -1792,13 +1793,14 @@ class RemoteDockerRepository(pulumi.CustomResource):
             key="my-remote-docker",
             url="https://registry-1.docker.io/")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Remote repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/remoteDockerRepository:RemoteDockerRepository my-remote-docker my-remote-docker
+        $ pulumi import artifactory:index/remoteDockerRepository:RemoteDockerRepository my-remote-docker my-remote-docker
         ```
 
         :param str resource_name: The name of the resource.
@@ -1905,6 +1907,7 @@ class RemoteDockerRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -1917,13 +1920,14 @@ class RemoteDockerRepository(pulumi.CustomResource):
             key="my-remote-docker",
             url="https://registry-1.docker.io/")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Remote repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/remoteDockerRepository:RemoteDockerRepository my-remote-docker my-remote-docker
+        $ pulumi import artifactory:index/remoteDockerRepository:RemoteDockerRepository my-remote-docker my-remote-docker
         ```
 
         :param str resource_name: The name of the resource.

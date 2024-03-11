@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -17,6 +18,7 @@ import * as utilities from "./utilities";
  *     key: "remote-terraform",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getRemoteTerraformRepository(args: GetRemoteTerraformRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRemoteTerraformRepositoryResult> {
 
@@ -179,6 +181,7 @@ export interface GetRemoteTerraformRepositoryResult {
 /**
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -187,6 +190,7 @@ export interface GetRemoteTerraformRepositoryResult {
  *     key: "remote-terraform",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getRemoteTerraformRepositoryOutput(args: GetRemoteTerraformRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteTerraformRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getRemoteTerraformRepository(a, opts))

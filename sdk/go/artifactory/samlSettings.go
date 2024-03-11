@@ -20,6 +20,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -56,15 +57,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Current SAML SSO settings can be imported using `saml_settings` as the `ID`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import artifactory:index/samlSettings:SamlSettings saml saml_settings
-//
+// $ pulumi import artifactory:index/samlSettings:SamlSettings saml saml_settings
 // ```
 type SamlSettings struct {
 	pulumi.CustomResourceState

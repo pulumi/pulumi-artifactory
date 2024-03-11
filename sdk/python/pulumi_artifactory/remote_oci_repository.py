@@ -1678,6 +1678,7 @@ class RemoteOciRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -1689,13 +1690,14 @@ class RemoteOciRepository(pulumi.CustomResource):
             key="my-oci-remote",
             url="https://registry-1.docker.io/")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Remote OCI repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/remoteOciRepository:RemoteOciRepository my-oci-remote my-oci-remote
+        $ pulumi import artifactory:index/remoteOciRepository:RemoteOciRepository my-oci-remote my-oci-remote
         ```
 
         :param str resource_name: The name of the resource.
@@ -1791,6 +1793,7 @@ class RemoteOciRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -1802,13 +1805,14 @@ class RemoteOciRepository(pulumi.CustomResource):
             key="my-oci-remote",
             url="https://registry-1.docker.io/")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Remote OCI repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/remoteOciRepository:RemoteOciRepository my-oci-remote my-oci-remote
+        $ pulumi import artifactory:index/remoteOciRepository:RemoteOciRepository my-oci-remote my-oci-remote
         ```
 
         :param str resource_name: The name of the resource.

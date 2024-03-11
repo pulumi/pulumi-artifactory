@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
  * Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Opkg+Repositories).
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -52,13 +54,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Remote repositories can be imported using their name, e.g.
  * 
  * ```sh
- *  $ pulumi import artifactory:index/remoteOpkgRepository:RemoteOpkgRepository my-remote-opkg my-remote-opkg
+ * $ pulumi import artifactory:index/remoteOpkgRepository:RemoteOpkgRepository my-remote-opkg my-remote-opkg
  * ```
  * 
  */

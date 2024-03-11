@@ -22,6 +22,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -51,6 +52,8 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ## Managing groups relationship
 //
 // See our recommendation on how to manage user-group relationship.
@@ -60,9 +63,7 @@ import (
 // Users can be imported using their name, e.g.
 //
 // ```sh
-//
-//	$ pulumi import artifactory:index/unmanagedUser:UnmanagedUser test-user myusername
-//
+// $ pulumi import artifactory:index/unmanagedUser:UnmanagedUser test-user myusername
 // ```
 type UnmanagedUser struct {
 	pulumi.CustomResourceState

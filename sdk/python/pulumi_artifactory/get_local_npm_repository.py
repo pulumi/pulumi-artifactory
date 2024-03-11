@@ -212,12 +212,14 @@ def get_local_npm_repository(archive_browsing_enabled: Optional[bool] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     local_test_npm_repo = artifactory.get_local_npm_repository(key="local-test-npm-repo")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str key: the identity key of the repo.
@@ -283,12 +285,14 @@ def get_local_npm_repository_output(archive_browsing_enabled: Optional[pulumi.In
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     local_test_npm_repo = artifactory.get_local_npm_repository(key="local-test-npm-repo")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str key: the identity key of the repo.

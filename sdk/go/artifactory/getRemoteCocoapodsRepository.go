@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,6 +39,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupRemoteCocoapodsRepository(ctx *pulumi.Context, args *LookupRemoteCocoapodsRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupRemoteCocoapodsRepositoryResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRemoteCocoapodsRepositoryResult

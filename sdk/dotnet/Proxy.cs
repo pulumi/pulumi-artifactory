@@ -19,6 +19,7 @@ namespace Pulumi.Artifactory
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -50,13 +51,14 @@ namespace Pulumi.Artifactory
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Current Proxy can be imported using `proxy-key` from Artifactory as the `ID`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import artifactory:index/proxy:Proxy my-proxy proxy-key
+    /// $ pulumi import artifactory:index/proxy:Proxy my-proxy proxy-key
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/proxy:Proxy")]

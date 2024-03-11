@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -17,6 +18,7 @@ import * as utilities from "./utilities";
  *     key: "virtual-alpine",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getVirtualAlpineRepository(args: GetVirtualAlpineRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualAlpineRepositoryResult> {
 
@@ -100,6 +102,7 @@ export interface GetVirtualAlpineRepositoryResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -108,6 +111,7 @@ export interface GetVirtualAlpineRepositoryResult {
  *     key: "virtual-alpine",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getVirtualAlpineRepositoryOutput(args: GetVirtualAlpineRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualAlpineRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getVirtualAlpineRepository(a, opts))

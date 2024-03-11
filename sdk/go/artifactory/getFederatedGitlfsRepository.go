@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,6 +39,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetFederatedGitlfsRepository(ctx *pulumi.Context, args *GetFederatedGitlfsRepositoryArgs, opts ...pulumi.InvokeOption) (*GetFederatedGitlfsRepositoryResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetFederatedGitlfsRepositoryResult

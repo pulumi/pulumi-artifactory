@@ -1582,6 +1582,7 @@ class RemoteConanRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -1591,13 +1592,14 @@ class RemoteConanRepository(pulumi.CustomResource):
             key="my-remote-conan",
             url="https://conan.io/center/")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Remote repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/remoteConanRepository:RemoteConanRepository my-remote-conan my-remote-conan
+        $ pulumi import artifactory:index/remoteConanRepository:RemoteConanRepository my-remote-conan my-remote-conan
         ```
 
         :param str resource_name: The name of the resource.
@@ -1690,6 +1692,7 @@ class RemoteConanRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -1699,13 +1702,14 @@ class RemoteConanRepository(pulumi.CustomResource):
             key="my-remote-conan",
             url="https://conan.io/center/")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Remote repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/remoteConanRepository:RemoteConanRepository my-remote-conan my-remote-conan
+        $ pulumi import artifactory:index/remoteConanRepository:RemoteConanRepository my-remote-conan my-remote-conan
         ```
 
         :param str resource_name: The name of the resource.

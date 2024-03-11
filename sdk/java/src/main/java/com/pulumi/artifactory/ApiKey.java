@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * &gt; **Note:** API keys will be stored in the raw state as plain-text. Read more about sensitive data in state.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -45,13 +47,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * A user&#39;s API key can be imported using any identifier, e.g.
  * 
  * ```sh
- *  $ pulumi import artifactory:index/apiKey:ApiKey test import
+ * $ pulumi import artifactory:index/apiKey:ApiKey test import
  * ```
  * 
  */

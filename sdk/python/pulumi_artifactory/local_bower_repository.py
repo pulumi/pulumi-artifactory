@@ -588,19 +588,21 @@ class LocalBowerRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
 
         terraform_local_test_bower_repo = artifactory.LocalBowerRepository("terraform-local-test-bower-repo", key="terraform-local-test-bower-repo")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Local repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/localBowerRepository:LocalBowerRepository terraform-local-test-bower-repo terraform-local-test-bower-repo
+        $ pulumi import artifactory:index/localBowerRepository:LocalBowerRepository terraform-local-test-bower-repo terraform-local-test-bower-repo
         ```
 
         :param str resource_name: The name of the resource.
@@ -643,19 +645,21 @@ class LocalBowerRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
 
         terraform_local_test_bower_repo = artifactory.LocalBowerRepository("terraform-local-test-bower-repo", key="terraform-local-test-bower-repo")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Local repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/localBowerRepository:LocalBowerRepository terraform-local-test-bower-repo terraform-local-test-bower-repo
+        $ pulumi import artifactory:index/localBowerRepository:LocalBowerRepository terraform-local-test-bower-repo terraform-local-test-bower-repo
         ```
 
         :param str resource_name: The name of the resource.

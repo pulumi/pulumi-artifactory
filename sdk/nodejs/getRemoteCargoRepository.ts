@@ -11,6 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -19,6 +20,7 @@ import * as utilities from "./utilities";
  *     key: "remote-cargo",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getRemoteCargoRepository(args: GetRemoteCargoRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRemoteCargoRepositoryResult> {
 
@@ -204,6 +206,7 @@ export interface GetRemoteCargoRepositoryResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -212,6 +215,7 @@ export interface GetRemoteCargoRepositoryResult {
  *     key: "remote-cargo",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getRemoteCargoRepositoryOutput(args: GetRemoteCargoRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteCargoRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getRemoteCargoRepository(a, opts))

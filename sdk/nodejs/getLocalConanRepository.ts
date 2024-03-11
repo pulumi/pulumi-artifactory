@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -17,6 +18,7 @@ import * as utilities from "./utilities";
  *     key: "local-test-conan-repo",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getLocalConanRepository(args: GetLocalConanRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalConanRepositoryResult> {
 
@@ -108,6 +110,7 @@ export interface GetLocalConanRepositoryResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -116,6 +119,7 @@ export interface GetLocalConanRepositoryResult {
  *     key: "local-test-conan-repo",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getLocalConanRepositoryOutput(args: GetLocalConanRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalConanRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getLocalConanRepository(a, opts))

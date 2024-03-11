@@ -14,47 +14,49 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * ### Create a new Artifactory scoped token for an existing user
+ * ### S
  *
- * resource "artifactory_scoped_token" "scoped_token" {
- *   username = "existing-user"
- * }
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
  *
- * ### **Note:** This assumes that the user `existing-user` has already been created in Artifactory by different means, i.e. manually or in a separate pulumi up.
+ * //## Create a new Artifactory scoped token for an existing user
+ * const scopedToken = new artifactory.ScopedToken("scopedToken", {username: "existing-user"});
+ * //## **Note:** This assumes that the user `existing-user` has already been created in Artifactory by different means, i.e. manually or in a separate pulumi up.
+ * //## Create a new Artifactory user and scoped token
+ * const newUser = new artifactory.User("newUser", {
+ *     email: "new_user@somewhere.com",
+ *     groups: ["readers"],
+ * });
+ * const scopedTokenUser = new artifactory.ScopedToken("scopedTokenUser", {username: newUser.name});
+ * //## Creates a new token for groups
+ * const scopedTokenGroup = new artifactory.ScopedToken("scopedTokenGroup", {scopes: ["applied-permissions/groups:readers"]});
+ * //## Create token with expiry
+ * const scopedTokenNoExpiry = new artifactory.ScopedToken("scopedTokenNoExpiry", {
+ *     username: "existing-user",
+ *     expiresIn: 7200,
+ * });
+ * // in seconds
+ * //## Creates a refreshable token
+ * const scopedTokenRefreshable = new artifactory.ScopedToken("scopedTokenRefreshable", {
+ *     username: "existing-user",
+ *     refreshable: true,
+ * });
+ * //## Creates an administrator token
+ * const admin = new artifactory.ScopedToken("admin", {
+ *     username: "admin-user",
+ *     scopes: ["applied-permissions/admin"],
+ * });
+ * //## Creates a token with an audience
+ * const audience = new artifactory.ScopedToken("audience", {
+ *     username: "admin-user",
+ *     scopes: ["applied-permissions/admin"],
+ *     audiences: ["jfrt@*"],
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
  *
- * ### Create a new Artifactory user and scoped token
- * resource "artifactory_user" "new_user" {
- *   name   = "new_user"
- *   email  = "new_user@somewhere.com"
- *   groups = ["readers"]
- * }
- *
- * resource "artifactory_scoped_token" "scoped_token_user" {
- *   username = artifactory_user.new_user.name
- * }
- *
- * ### Creates a new token for groups
- * resource "artifactory_scoped_token" "scoped_token_group" {
- *   scopes = ["applied-permissions/groups:readers"]
- * }
- *
- * ### Create token with expiry
- * resource "artifactory_scoped_token" "scoped_token_no_expiry" {
- *   username   = "existing-user"
- *   expires_in = 7200 // in seconds
- * }
- *
- * ### Creates a refreshable token
- * resource "artifactory_scoped_token" "scoped_token_refreshable" {
- *   username    = "existing-user"
- *   refreshable = true
- * }
- *
- * ### Creates an administrator token
- * resource "artifactory_scoped_token" "admin" {
- *   username = "admin-user"
- *   scopes   = ["applied-permissions/admin"]
- * }
  * ## References
  *
  * - https://jfrog.com/help/r/jfrog-platform-administration-documentation/access-tokens

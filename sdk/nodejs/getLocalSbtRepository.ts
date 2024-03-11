@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -17,6 +18,7 @@ import * as utilities from "./utilities";
  *     key: "local-test-sbt-repo",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getLocalSbtRepository(args: GetLocalSbtRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalSbtRepositoryResult> {
 
@@ -172,6 +174,7 @@ export interface GetLocalSbtRepositoryResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -180,6 +183,7 @@ export interface GetLocalSbtRepositoryResult {
  *     key: "local-test-sbt-repo",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getLocalSbtRepositoryOutput(args: GetLocalSbtRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalSbtRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getLocalSbtRepository(a, opts))

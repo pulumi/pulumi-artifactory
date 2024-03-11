@@ -12,6 +12,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -24,6 +25,7 @@ import * as utilities from "./utilities";
  *     url: "https://github.com/rust-lang/crates.io-index",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  * ## Note
  *
  * If you get a 400 error: `"Custom Base URL should be defined prior to creating a Cargo repository"`,
@@ -34,7 +36,7 @@ import * as utilities from "./utilities";
  * Remote repositories can be imported using their name, e.g.
  *
  * ```sh
- *  $ pulumi import artifactory:index/remoteCargoRepository:RemoteCargoRepository my-remote-cargo my-remote-cargo
+ * $ pulumi import artifactory:index/remoteCargoRepository:RemoteCargoRepository my-remote-cargo my-remote-cargo
  * ```
  */
 export class RemoteCargoRepository extends pulumi.CustomResource {

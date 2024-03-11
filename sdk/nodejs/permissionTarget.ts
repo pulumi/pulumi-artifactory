@@ -11,6 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -84,6 +85,8 @@ import * as utilities from "./utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Permissions
  *
  * The provider supports the following `permission` enums:
@@ -111,7 +114,7 @@ import * as utilities from "./utilities";
  * Permission targets can be imported using their name, e.g.
  *
  * ```sh
- *  $ pulumi import artifactory:index/permissionTarget:PermissionTarget terraform-test-permission mypermission
+ * $ pulumi import artifactory:index/permissionTarget:PermissionTarget terraform-test-permission mypermission
  * ```
  */
 export class PermissionTarget extends pulumi.CustomResource {

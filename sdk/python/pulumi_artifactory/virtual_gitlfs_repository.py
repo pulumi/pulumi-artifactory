@@ -445,6 +445,7 @@ class VirtualGitlfsRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -457,13 +458,14 @@ class VirtualGitlfsRepository(pulumi.CustomResource):
             notes="Internal description",
             repositories=[])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Virtual repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/virtualGitlfsRepository:VirtualGitlfsRepository foo-gitlfs foo-gitlfs
+        $ pulumi import artifactory:index/virtualGitlfsRepository:VirtualGitlfsRepository foo-gitlfs foo-gitlfs
         ```
 
         :param str resource_name: The name of the resource.
@@ -500,6 +502,7 @@ class VirtualGitlfsRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -512,13 +515,14 @@ class VirtualGitlfsRepository(pulumi.CustomResource):
             notes="Internal description",
             repositories=[])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Virtual repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/virtualGitlfsRepository:VirtualGitlfsRepository foo-gitlfs foo-gitlfs
+        $ pulumi import artifactory:index/virtualGitlfsRepository:VirtualGitlfsRepository foo-gitlfs foo-gitlfs
         ```
 
         :param str resource_name: The name of the resource.

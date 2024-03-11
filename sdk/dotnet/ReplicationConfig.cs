@@ -16,6 +16,7 @@ namespace Pulumi.Artifactory
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -53,13 +54,14 @@ namespace Pulumi.Artifactory
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Replication configs can be imported using their repo key, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import artifactory:index/replicationConfig:ReplicationConfig foo-rep provider_test_source
+    /// $ pulumi import artifactory:index/replicationConfig:ReplicationConfig foo-rep provider_test_source
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/replicationConfig:ReplicationConfig")]

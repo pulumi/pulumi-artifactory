@@ -172,6 +172,7 @@ class PermissionTarget(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -244,6 +245,8 @@ class PermissionTarget(pulumi.CustomResource):
                 repositories=["example-repo-local"],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Permissions
 
         The provider supports the following `permission` enums:
@@ -271,7 +274,7 @@ class PermissionTarget(pulumi.CustomResource):
         Permission targets can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/permissionTarget:PermissionTarget terraform-test-permission mypermission
+        $ pulumi import artifactory:index/permissionTarget:PermissionTarget terraform-test-permission mypermission
         ```
 
         :param str resource_name: The name of the resource.
@@ -292,6 +295,7 @@ class PermissionTarget(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -364,6 +368,8 @@ class PermissionTarget(pulumi.CustomResource):
                 repositories=["example-repo-local"],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Permissions
 
         The provider supports the following `permission` enums:
@@ -391,7 +397,7 @@ class PermissionTarget(pulumi.CustomResource):
         Permission targets can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/permissionTarget:PermissionTarget terraform-test-permission mypermission
+        $ pulumi import artifactory:index/permissionTarget:PermissionTarget terraform-test-permission mypermission
         ```
 
         :param str resource_name: The name of the resource.

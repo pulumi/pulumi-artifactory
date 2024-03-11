@@ -11,6 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -21,13 +22,14 @@ import * as utilities from "./utilities";
  *     publicKey: fs.readFileSync("samples/rsa.pub", "utf8"),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Distribution Public Key can be imported using the key id, e.g.
  *
  * ```sh
- *  $ pulumi import artifactory:index/distributionPublicKey:DistributionPublicKey my-key keyid
+ * $ pulumi import artifactory:index/distributionPublicKey:DistributionPublicKey my-key keyid
  * ```
  */
 export class DistributionPublicKey extends pulumi.CustomResource {

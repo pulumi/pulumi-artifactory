@@ -1647,6 +1647,7 @@ class RemoteCargoRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -1658,6 +1659,7 @@ class RemoteCargoRepository(pulumi.CustomResource):
             key="my-remote-cargo",
             url="https://github.com/rust-lang/crates.io-index")
         ```
+        <!--End PulumiCodeChooser -->
         ## Note
 
         If you get a 400 error: `"Custom Base URL should be defined prior to creating a Cargo repository"`,
@@ -1668,7 +1670,7 @@ class RemoteCargoRepository(pulumi.CustomResource):
         Remote repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/remoteCargoRepository:RemoteCargoRepository my-remote-cargo my-remote-cargo
+        $ pulumi import artifactory:index/remoteCargoRepository:RemoteCargoRepository my-remote-cargo my-remote-cargo
         ```
 
         :param str resource_name: The name of the resource.
@@ -1763,6 +1765,7 @@ class RemoteCargoRepository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -1774,6 +1777,7 @@ class RemoteCargoRepository(pulumi.CustomResource):
             key="my-remote-cargo",
             url="https://github.com/rust-lang/crates.io-index")
         ```
+        <!--End PulumiCodeChooser -->
         ## Note
 
         If you get a 400 error: `"Custom Base URL should be defined prior to creating a Cargo repository"`,
@@ -1784,7 +1788,7 @@ class RemoteCargoRepository(pulumi.CustomResource):
         Remote repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/remoteCargoRepository:RemoteCargoRepository my-remote-cargo my-remote-cargo
+        $ pulumi import artifactory:index/remoteCargoRepository:RemoteCargoRepository my-remote-cargo my-remote-cargo
         ```
 
         :param str resource_name: The name of the resource.
