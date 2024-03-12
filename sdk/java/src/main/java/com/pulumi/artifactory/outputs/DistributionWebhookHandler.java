@@ -5,6 +5,7 @@ package com.pulumi.artifactory.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -33,6 +34,11 @@ public final class DistributionWebhookHandler {
      * 
      */
     private String url;
+    /**
+     * @return When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
+     * 
+     */
+    private @Nullable Boolean useSecretForSigning;
 
     private DistributionWebhookHandler() {}
     /**
@@ -63,6 +69,13 @@ public final class DistributionWebhookHandler {
     public String url() {
         return this.url;
     }
+    /**
+     * @return When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
+     * 
+     */
+    public Optional<Boolean> useSecretForSigning() {
+        return Optional.ofNullable(this.useSecretForSigning);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -77,6 +90,7 @@ public final class DistributionWebhookHandler {
         private @Nullable String proxy;
         private @Nullable String secret;
         private String url;
+        private @Nullable Boolean useSecretForSigning;
         public Builder() {}
         public Builder(DistributionWebhookHandler defaults) {
     	      Objects.requireNonNull(defaults);
@@ -84,6 +98,7 @@ public final class DistributionWebhookHandler {
     	      this.proxy = defaults.proxy;
     	      this.secret = defaults.secret;
     	      this.url = defaults.url;
+    	      this.useSecretForSigning = defaults.useSecretForSigning;
         }
 
         @CustomType.Setter
@@ -112,12 +127,19 @@ public final class DistributionWebhookHandler {
             this.url = url;
             return this;
         }
+        @CustomType.Setter
+        public Builder useSecretForSigning(@Nullable Boolean useSecretForSigning) {
+
+            this.useSecretForSigning = useSecretForSigning;
+            return this;
+        }
         public DistributionWebhookHandler build() {
             final var _resultValue = new DistributionWebhookHandler();
             _resultValue.customHttpHeaders = customHttpHeaders;
             _resultValue.proxy = proxy;
             _resultValue.secret = secret;
             _resultValue.url = url;
+            _resultValue.useSecretForSigning = useSecretForSigning;
             return _resultValue;
         }
     }

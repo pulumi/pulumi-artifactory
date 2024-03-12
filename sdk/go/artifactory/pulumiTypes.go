@@ -1162,6 +1162,8 @@ type ArtifactPropertyWebhookHandler struct {
 	Secret *string `pulumi:"secret"`
 	// Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
 	Url string `pulumi:"url"`
+	// When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
+	UseSecretForSigning *bool `pulumi:"useSecretForSigning"`
 }
 
 // ArtifactPropertyWebhookHandlerInput is an input type that accepts ArtifactPropertyWebhookHandlerArgs and ArtifactPropertyWebhookHandlerOutput values.
@@ -1184,6 +1186,8 @@ type ArtifactPropertyWebhookHandlerArgs struct {
 	Secret pulumi.StringPtrInput `pulumi:"secret"`
 	// Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
 	Url pulumi.StringInput `pulumi:"url"`
+	// When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
+	UseSecretForSigning pulumi.BoolPtrInput `pulumi:"useSecretForSigning"`
 }
 
 func (ArtifactPropertyWebhookHandlerArgs) ElementType() reflect.Type {
@@ -1255,6 +1259,11 @@ func (o ArtifactPropertyWebhookHandlerOutput) Secret() pulumi.StringPtrOutput {
 // Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
 func (o ArtifactPropertyWebhookHandlerOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v ArtifactPropertyWebhookHandler) string { return v.Url }).(pulumi.StringOutput)
+}
+
+// When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
+func (o ArtifactPropertyWebhookHandlerOutput) UseSecretForSigning() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ArtifactPropertyWebhookHandler) *bool { return v.UseSecretForSigning }).(pulumi.BoolPtrOutput)
 }
 
 type ArtifactPropertyWebhookHandlerArrayOutput struct{ *pulumi.OutputState }
@@ -1499,6 +1508,8 @@ type ArtifactWebhookHandler struct {
 	Secret *string `pulumi:"secret"`
 	// Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
 	Url string `pulumi:"url"`
+	// When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
+	UseSecretForSigning *bool `pulumi:"useSecretForSigning"`
 }
 
 // ArtifactWebhookHandlerInput is an input type that accepts ArtifactWebhookHandlerArgs and ArtifactWebhookHandlerOutput values.
@@ -1521,6 +1532,8 @@ type ArtifactWebhookHandlerArgs struct {
 	Secret pulumi.StringPtrInput `pulumi:"secret"`
 	// Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
 	Url pulumi.StringInput `pulumi:"url"`
+	// When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
+	UseSecretForSigning pulumi.BoolPtrInput `pulumi:"useSecretForSigning"`
 }
 
 func (ArtifactWebhookHandlerArgs) ElementType() reflect.Type {
@@ -1592,6 +1605,11 @@ func (o ArtifactWebhookHandlerOutput) Secret() pulumi.StringPtrOutput {
 // Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
 func (o ArtifactWebhookHandlerOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v ArtifactWebhookHandler) string { return v.Url }).(pulumi.StringOutput)
+}
+
+// When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
+func (o ArtifactWebhookHandlerOutput) UseSecretForSigning() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ArtifactWebhookHandler) *bool { return v.UseSecretForSigning }).(pulumi.BoolPtrOutput)
 }
 
 type ArtifactWebhookHandlerArrayOutput struct{ *pulumi.OutputState }
@@ -2195,6 +2213,8 @@ type ArtifactoryReleaseBundleWebhookHandler struct {
 	Secret *string `pulumi:"secret"`
 	// Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
 	Url string `pulumi:"url"`
+	// When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
+	UseSecretForSigning *bool `pulumi:"useSecretForSigning"`
 }
 
 // ArtifactoryReleaseBundleWebhookHandlerInput is an input type that accepts ArtifactoryReleaseBundleWebhookHandlerArgs and ArtifactoryReleaseBundleWebhookHandlerOutput values.
@@ -2217,6 +2237,8 @@ type ArtifactoryReleaseBundleWebhookHandlerArgs struct {
 	Secret pulumi.StringPtrInput `pulumi:"secret"`
 	// Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
 	Url pulumi.StringInput `pulumi:"url"`
+	// When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
+	UseSecretForSigning pulumi.BoolPtrInput `pulumi:"useSecretForSigning"`
 }
 
 func (ArtifactoryReleaseBundleWebhookHandlerArgs) ElementType() reflect.Type {
@@ -2288,6 +2310,11 @@ func (o ArtifactoryReleaseBundleWebhookHandlerOutput) Secret() pulumi.StringPtrO
 // Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
 func (o ArtifactoryReleaseBundleWebhookHandlerOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v ArtifactoryReleaseBundleWebhookHandler) string { return v.Url }).(pulumi.StringOutput)
+}
+
+// When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
+func (o ArtifactoryReleaseBundleWebhookHandlerOutput) UseSecretForSigning() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ArtifactoryReleaseBundleWebhookHandler) *bool { return v.UseSecretForSigning }).(pulumi.BoolPtrOutput)
 }
 
 type ArtifactoryReleaseBundleWebhookHandlerArrayOutput struct{ *pulumi.OutputState }
@@ -2891,6 +2918,8 @@ type BuildWebhookHandler struct {
 	Secret *string `pulumi:"secret"`
 	// Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
 	Url string `pulumi:"url"`
+	// When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
+	UseSecretForSigning *bool `pulumi:"useSecretForSigning"`
 }
 
 // BuildWebhookHandlerInput is an input type that accepts BuildWebhookHandlerArgs and BuildWebhookHandlerOutput values.
@@ -2913,6 +2942,8 @@ type BuildWebhookHandlerArgs struct {
 	Secret pulumi.StringPtrInput `pulumi:"secret"`
 	// Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
 	Url pulumi.StringInput `pulumi:"url"`
+	// When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
+	UseSecretForSigning pulumi.BoolPtrInput `pulumi:"useSecretForSigning"`
 }
 
 func (BuildWebhookHandlerArgs) ElementType() reflect.Type {
@@ -2984,6 +3015,11 @@ func (o BuildWebhookHandlerOutput) Secret() pulumi.StringPtrOutput {
 // Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
 func (o BuildWebhookHandlerOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v BuildWebhookHandler) string { return v.Url }).(pulumi.StringOutput)
+}
+
+// When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
+func (o BuildWebhookHandlerOutput) UseSecretForSigning() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BuildWebhookHandler) *bool { return v.UseSecretForSigning }).(pulumi.BoolPtrOutput)
 }
 
 type BuildWebhookHandlerArrayOutput struct{ *pulumi.OutputState }
@@ -3587,6 +3623,8 @@ type DistributionWebhookHandler struct {
 	Secret *string `pulumi:"secret"`
 	// Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
 	Url string `pulumi:"url"`
+	// When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
+	UseSecretForSigning *bool `pulumi:"useSecretForSigning"`
 }
 
 // DistributionWebhookHandlerInput is an input type that accepts DistributionWebhookHandlerArgs and DistributionWebhookHandlerOutput values.
@@ -3609,6 +3647,8 @@ type DistributionWebhookHandlerArgs struct {
 	Secret pulumi.StringPtrInput `pulumi:"secret"`
 	// Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
 	Url pulumi.StringInput `pulumi:"url"`
+	// When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
+	UseSecretForSigning pulumi.BoolPtrInput `pulumi:"useSecretForSigning"`
 }
 
 func (DistributionWebhookHandlerArgs) ElementType() reflect.Type {
@@ -3680,6 +3720,11 @@ func (o DistributionWebhookHandlerOutput) Secret() pulumi.StringPtrOutput {
 // Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
 func (o DistributionWebhookHandlerOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v DistributionWebhookHandler) string { return v.Url }).(pulumi.StringOutput)
+}
+
+// When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
+func (o DistributionWebhookHandlerOutput) UseSecretForSigning() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DistributionWebhookHandler) *bool { return v.UseSecretForSigning }).(pulumi.BoolPtrOutput)
 }
 
 type DistributionWebhookHandlerArrayOutput struct{ *pulumi.OutputState }
@@ -4321,6 +4366,8 @@ type DockerWebhookHandler struct {
 	Secret *string `pulumi:"secret"`
 	// Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
 	Url string `pulumi:"url"`
+	// When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
+	UseSecretForSigning *bool `pulumi:"useSecretForSigning"`
 }
 
 // DockerWebhookHandlerInput is an input type that accepts DockerWebhookHandlerArgs and DockerWebhookHandlerOutput values.
@@ -4343,6 +4390,8 @@ type DockerWebhookHandlerArgs struct {
 	Secret pulumi.StringPtrInput `pulumi:"secret"`
 	// Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
 	Url pulumi.StringInput `pulumi:"url"`
+	// When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
+	UseSecretForSigning pulumi.BoolPtrInput `pulumi:"useSecretForSigning"`
 }
 
 func (DockerWebhookHandlerArgs) ElementType() reflect.Type {
@@ -4414,6 +4463,11 @@ func (o DockerWebhookHandlerOutput) Secret() pulumi.StringPtrOutput {
 // Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
 func (o DockerWebhookHandlerOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v DockerWebhookHandler) string { return v.Url }).(pulumi.StringOutput)
+}
+
+// When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
+func (o DockerWebhookHandlerOutput) UseSecretForSigning() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DockerWebhookHandler) *bool { return v.UseSecretForSigning }).(pulumi.BoolPtrOutput)
 }
 
 type DockerWebhookHandlerArrayOutput struct{ *pulumi.OutputState }
@@ -11168,6 +11222,8 @@ type ReleaseBundleWebhookHandler struct {
 	Secret *string `pulumi:"secret"`
 	// Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
 	Url string `pulumi:"url"`
+	// When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
+	UseSecretForSigning *bool `pulumi:"useSecretForSigning"`
 }
 
 // ReleaseBundleWebhookHandlerInput is an input type that accepts ReleaseBundleWebhookHandlerArgs and ReleaseBundleWebhookHandlerOutput values.
@@ -11190,6 +11246,8 @@ type ReleaseBundleWebhookHandlerArgs struct {
 	Secret pulumi.StringPtrInput `pulumi:"secret"`
 	// Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
 	Url pulumi.StringInput `pulumi:"url"`
+	// When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
+	UseSecretForSigning pulumi.BoolPtrInput `pulumi:"useSecretForSigning"`
 }
 
 func (ReleaseBundleWebhookHandlerArgs) ElementType() reflect.Type {
@@ -11261,6 +11319,11 @@ func (o ReleaseBundleWebhookHandlerOutput) Secret() pulumi.StringPtrOutput {
 // Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
 func (o ReleaseBundleWebhookHandlerOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v ReleaseBundleWebhookHandler) string { return v.Url }).(pulumi.StringOutput)
+}
+
+// When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
+func (o ReleaseBundleWebhookHandlerOutput) UseSecretForSigning() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ReleaseBundleWebhookHandler) *bool { return v.UseSecretForSigning }).(pulumi.BoolPtrOutput)
 }
 
 type ReleaseBundleWebhookHandlerArrayOutput struct{ *pulumi.OutputState }

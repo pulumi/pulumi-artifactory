@@ -6,6 +6,7 @@ package com.pulumi.artifactory.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -77,6 +78,21 @@ public final class DockerWebhookHandlerArgs extends com.pulumi.resources.Resourc
         return this.url;
     }
 
+    /**
+     * When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
+     * 
+     */
+    @Import(name="useSecretForSigning")
+    private @Nullable Output<Boolean> useSecretForSigning;
+
+    /**
+     * @return When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
+     * 
+     */
+    public Optional<Output<Boolean>> useSecretForSigning() {
+        return Optional.ofNullable(this.useSecretForSigning);
+    }
+
     private DockerWebhookHandlerArgs() {}
 
     private DockerWebhookHandlerArgs(DockerWebhookHandlerArgs $) {
@@ -84,6 +100,7 @@ public final class DockerWebhookHandlerArgs extends com.pulumi.resources.Resourc
         this.proxy = $.proxy;
         this.secret = $.secret;
         this.url = $.url;
+        this.useSecretForSigning = $.useSecretForSigning;
     }
 
     public static Builder builder() {
@@ -186,6 +203,27 @@ public final class DockerWebhookHandlerArgs extends com.pulumi.resources.Resourc
          */
         public Builder url(String url) {
             return url(Output.of(url));
+        }
+
+        /**
+         * @param useSecretForSigning When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder useSecretForSigning(@Nullable Output<Boolean> useSecretForSigning) {
+            $.useSecretForSigning = useSecretForSigning;
+            return this;
+        }
+
+        /**
+         * @param useSecretForSigning When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder useSecretForSigning(Boolean useSecretForSigning) {
+            return useSecretForSigning(Output.of(useSecretForSigning));
         }
 
         public DockerWebhookHandlerArgs build() {
