@@ -676,12 +676,14 @@ class ArtifactPropertyWebhookHandlerArgs:
                  url: pulumi.Input[str],
                  custom_http_headers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  proxy: Optional[pulumi.Input[str]] = None,
-                 secret: Optional[pulumi.Input[str]] = None):
+                 secret: Optional[pulumi.Input[str]] = None,
+                 use_secret_for_signing: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] url: Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] custom_http_headers: Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
         :param pulumi.Input[str] proxy: Proxy key from Artifactory UI (Administration > Proxies > Configuration).
         :param pulumi.Input[str] secret: Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
+        :param pulumi.Input[bool] use_secret_for_signing: When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
         """
         pulumi.set(__self__, "url", url)
         if custom_http_headers is not None:
@@ -690,6 +692,8 @@ class ArtifactPropertyWebhookHandlerArgs:
             pulumi.set(__self__, "proxy", proxy)
         if secret is not None:
             pulumi.set(__self__, "secret", secret)
+        if use_secret_for_signing is not None:
+            pulumi.set(__self__, "use_secret_for_signing", use_secret_for_signing)
 
     @property
     @pulumi.getter
@@ -738,6 +742,18 @@ class ArtifactPropertyWebhookHandlerArgs:
     @secret.setter
     def secret(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "secret", value)
+
+    @property
+    @pulumi.getter(name="useSecretForSigning")
+    def use_secret_for_signing(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
+        """
+        return pulumi.get(self, "use_secret_for_signing")
+
+    @use_secret_for_signing.setter
+    def use_secret_for_signing(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_secret_for_signing", value)
 
 
 @pulumi.input_type
@@ -830,12 +846,14 @@ class ArtifactWebhookHandlerArgs:
                  url: pulumi.Input[str],
                  custom_http_headers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  proxy: Optional[pulumi.Input[str]] = None,
-                 secret: Optional[pulumi.Input[str]] = None):
+                 secret: Optional[pulumi.Input[str]] = None,
+                 use_secret_for_signing: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] url: Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] custom_http_headers: Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
         :param pulumi.Input[str] proxy: Proxy key from Artifactory UI (Administration > Proxies > Configuration).
         :param pulumi.Input[str] secret: Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
+        :param pulumi.Input[bool] use_secret_for_signing: When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
         """
         pulumi.set(__self__, "url", url)
         if custom_http_headers is not None:
@@ -844,6 +862,8 @@ class ArtifactWebhookHandlerArgs:
             pulumi.set(__self__, "proxy", proxy)
         if secret is not None:
             pulumi.set(__self__, "secret", secret)
+        if use_secret_for_signing is not None:
+            pulumi.set(__self__, "use_secret_for_signing", use_secret_for_signing)
 
     @property
     @pulumi.getter
@@ -892,6 +912,18 @@ class ArtifactWebhookHandlerArgs:
     @secret.setter
     def secret(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "secret", value)
+
+    @property
+    @pulumi.getter(name="useSecretForSigning")
+    def use_secret_for_signing(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
+        """
+        return pulumi.get(self, "use_secret_for_signing")
+
+    @use_secret_for_signing.setter
+    def use_secret_for_signing(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_secret_for_signing", value)
 
 
 @pulumi.input_type
@@ -1136,12 +1168,14 @@ class ArtifactoryReleaseBundleWebhookHandlerArgs:
                  url: pulumi.Input[str],
                  custom_http_headers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  proxy: Optional[pulumi.Input[str]] = None,
-                 secret: Optional[pulumi.Input[str]] = None):
+                 secret: Optional[pulumi.Input[str]] = None,
+                 use_secret_for_signing: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] url: Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] custom_http_headers: Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
         :param pulumi.Input[str] proxy: Proxy key from Artifactory UI (Administration > Proxies > Configuration).
         :param pulumi.Input[str] secret: Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
+        :param pulumi.Input[bool] use_secret_for_signing: When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
         """
         pulumi.set(__self__, "url", url)
         if custom_http_headers is not None:
@@ -1150,6 +1184,8 @@ class ArtifactoryReleaseBundleWebhookHandlerArgs:
             pulumi.set(__self__, "proxy", proxy)
         if secret is not None:
             pulumi.set(__self__, "secret", secret)
+        if use_secret_for_signing is not None:
+            pulumi.set(__self__, "use_secret_for_signing", use_secret_for_signing)
 
     @property
     @pulumi.getter
@@ -1198,6 +1234,18 @@ class ArtifactoryReleaseBundleWebhookHandlerArgs:
     @secret.setter
     def secret(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "secret", value)
+
+    @property
+    @pulumi.getter(name="useSecretForSigning")
+    def use_secret_for_signing(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
+        """
+        return pulumi.get(self, "use_secret_for_signing")
+
+    @use_secret_for_signing.setter
+    def use_secret_for_signing(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_secret_for_signing", value)
 
 
 @pulumi.input_type
@@ -1442,12 +1490,14 @@ class BuildWebhookHandlerArgs:
                  url: pulumi.Input[str],
                  custom_http_headers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  proxy: Optional[pulumi.Input[str]] = None,
-                 secret: Optional[pulumi.Input[str]] = None):
+                 secret: Optional[pulumi.Input[str]] = None,
+                 use_secret_for_signing: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] url: Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] custom_http_headers: Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
         :param pulumi.Input[str] proxy: Proxy key from Artifactory UI (Administration > Proxies > Configuration).
         :param pulumi.Input[str] secret: Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
+        :param pulumi.Input[bool] use_secret_for_signing: When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
         """
         pulumi.set(__self__, "url", url)
         if custom_http_headers is not None:
@@ -1456,6 +1506,8 @@ class BuildWebhookHandlerArgs:
             pulumi.set(__self__, "proxy", proxy)
         if secret is not None:
             pulumi.set(__self__, "secret", secret)
+        if use_secret_for_signing is not None:
+            pulumi.set(__self__, "use_secret_for_signing", use_secret_for_signing)
 
     @property
     @pulumi.getter
@@ -1504,6 +1556,18 @@ class BuildWebhookHandlerArgs:
     @secret.setter
     def secret(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "secret", value)
+
+    @property
+    @pulumi.getter(name="useSecretForSigning")
+    def use_secret_for_signing(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
+        """
+        return pulumi.get(self, "use_secret_for_signing")
+
+    @use_secret_for_signing.setter
+    def use_secret_for_signing(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_secret_for_signing", value)
 
 
 @pulumi.input_type
@@ -1748,12 +1812,14 @@ class DistributionWebhookHandlerArgs:
                  url: pulumi.Input[str],
                  custom_http_headers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  proxy: Optional[pulumi.Input[str]] = None,
-                 secret: Optional[pulumi.Input[str]] = None):
+                 secret: Optional[pulumi.Input[str]] = None,
+                 use_secret_for_signing: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] url: Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] custom_http_headers: Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
         :param pulumi.Input[str] proxy: Proxy key from Artifactory UI (Administration > Proxies > Configuration).
         :param pulumi.Input[str] secret: Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
+        :param pulumi.Input[bool] use_secret_for_signing: When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
         """
         pulumi.set(__self__, "url", url)
         if custom_http_headers is not None:
@@ -1762,6 +1828,8 @@ class DistributionWebhookHandlerArgs:
             pulumi.set(__self__, "proxy", proxy)
         if secret is not None:
             pulumi.set(__self__, "secret", secret)
+        if use_secret_for_signing is not None:
+            pulumi.set(__self__, "use_secret_for_signing", use_secret_for_signing)
 
     @property
     @pulumi.getter
@@ -1810,6 +1878,18 @@ class DistributionWebhookHandlerArgs:
     @secret.setter
     def secret(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "secret", value)
+
+    @property
+    @pulumi.getter(name="useSecretForSigning")
+    def use_secret_for_signing(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
+        """
+        return pulumi.get(self, "use_secret_for_signing")
+
+    @use_secret_for_signing.setter
+    def use_secret_for_signing(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_secret_for_signing", value)
 
 
 @pulumi.input_type
@@ -2084,12 +2164,14 @@ class DockerWebhookHandlerArgs:
                  url: pulumi.Input[str],
                  custom_http_headers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  proxy: Optional[pulumi.Input[str]] = None,
-                 secret: Optional[pulumi.Input[str]] = None):
+                 secret: Optional[pulumi.Input[str]] = None,
+                 use_secret_for_signing: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] url: Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] custom_http_headers: Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
         :param pulumi.Input[str] proxy: Proxy key from Artifactory UI (Administration > Proxies > Configuration).
         :param pulumi.Input[str] secret: Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
+        :param pulumi.Input[bool] use_secret_for_signing: When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
         """
         pulumi.set(__self__, "url", url)
         if custom_http_headers is not None:
@@ -2098,6 +2180,8 @@ class DockerWebhookHandlerArgs:
             pulumi.set(__self__, "proxy", proxy)
         if secret is not None:
             pulumi.set(__self__, "secret", secret)
+        if use_secret_for_signing is not None:
+            pulumi.set(__self__, "use_secret_for_signing", use_secret_for_signing)
 
     @property
     @pulumi.getter
@@ -2146,6 +2230,18 @@ class DockerWebhookHandlerArgs:
     @secret.setter
     def secret(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "secret", value)
+
+    @property
+    @pulumi.getter(name="useSecretForSigning")
+    def use_secret_for_signing(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
+        """
+        return pulumi.get(self, "use_secret_for_signing")
+
+    @use_secret_for_signing.setter
+    def use_secret_for_signing(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_secret_for_signing", value)
 
 
 @pulumi.input_type
@@ -4858,12 +4954,14 @@ class ReleaseBundleWebhookHandlerArgs:
                  url: pulumi.Input[str],
                  custom_http_headers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  proxy: Optional[pulumi.Input[str]] = None,
-                 secret: Optional[pulumi.Input[str]] = None):
+                 secret: Optional[pulumi.Input[str]] = None,
+                 use_secret_for_signing: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] url: Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] custom_http_headers: Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
         :param pulumi.Input[str] proxy: Proxy key from Artifactory UI (Administration > Proxies > Configuration).
         :param pulumi.Input[str] secret: Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
+        :param pulumi.Input[bool] use_secret_for_signing: When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
         """
         pulumi.set(__self__, "url", url)
         if custom_http_headers is not None:
@@ -4872,6 +4970,8 @@ class ReleaseBundleWebhookHandlerArgs:
             pulumi.set(__self__, "proxy", proxy)
         if secret is not None:
             pulumi.set(__self__, "secret", secret)
+        if use_secret_for_signing is not None:
+            pulumi.set(__self__, "use_secret_for_signing", use_secret_for_signing)
 
     @property
     @pulumi.getter
@@ -4920,6 +5020,18 @@ class ReleaseBundleWebhookHandlerArgs:
     @secret.setter
     def secret(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "secret", value)
+
+    @property
+    @pulumi.getter(name="useSecretForSigning")
+    def use_secret_for_signing(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
+        """
+        return pulumi.get(self, "use_secret_for_signing")
+
+    @use_secret_for_signing.setter
+    def use_secret_for_signing(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_secret_for_signing", value)
 
 
 @pulumi.input_type

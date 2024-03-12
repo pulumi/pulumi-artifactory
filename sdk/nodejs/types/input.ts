@@ -153,6 +153,10 @@ export interface ArtifactPropertyWebhookHandler {
      * Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
      */
     url: pulumi.Input<string>;
+    /**
+     * When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
+     */
+    useSecretForSigning?: pulumi.Input<boolean>;
 }
 
 export interface ArtifactWebhookCriteria {
@@ -195,6 +199,10 @@ export interface ArtifactWebhookHandler {
      * Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
      */
     url: pulumi.Input<string>;
+    /**
+     * When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
+     */
+    useSecretForSigning?: pulumi.Input<boolean>;
 }
 
 export interface ArtifactoryReleaseBundleCustomWebhookCriteria {
@@ -281,6 +289,10 @@ export interface ArtifactoryReleaseBundleWebhookHandler {
      * Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
      */
     url: pulumi.Input<string>;
+    /**
+     * When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
+     */
+    useSecretForSigning?: pulumi.Input<boolean>;
 }
 
 export interface BuildCustomWebhookCriteria {
@@ -367,6 +379,10 @@ export interface BuildWebhookHandler {
      * Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
      */
     url: pulumi.Input<string>;
+    /**
+     * When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
+     */
+    useSecretForSigning?: pulumi.Input<boolean>;
 }
 
 export interface DistributionCustomWebhookCriteria {
@@ -453,6 +469,10 @@ export interface DistributionWebhookHandler {
      * Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
      */
     url: pulumi.Input<string>;
+    /**
+     * When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
+     */
+    useSecretForSigning?: pulumi.Input<boolean>;
 }
 
 export interface DockerCustomWebhookCriteria {
@@ -547,6 +567,10 @@ export interface DockerWebhookHandler {
      * Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
      */
     url: pulumi.Input<string>;
+    /**
+     * When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
+     */
+    useSecretForSigning?: pulumi.Input<boolean>;
 }
 
 export interface FederatedAlpineRepositoryMember {
@@ -3676,6 +3700,10 @@ export interface ReleaseBundleWebhookHandler {
      * Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
      */
     url: pulumi.Input<string>;
+    /**
+     * When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
+     */
+    useSecretForSigning?: pulumi.Input<boolean>;
 }
 
 export interface RemoteAlpineRepositoryContentSynchronisation {
