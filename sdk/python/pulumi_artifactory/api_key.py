@@ -26,12 +26,11 @@ class _ApiKeyState:
                  api_key: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ApiKey resources.
-        :param pulumi.Input[str] api_key: The API key. Deprecated. An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
-               In September 2022, the option to block the usage/creation of API Keys will be enabled by default, with the option for admins to change it back to enable API Keys.
-               In January 2023, API Keys will be deprecated all together and the option to use them will no longer be available.
-               It is recommended to use scoped tokens instead - `ScopedToken` resource.
-               Please check the [release notes](https://www.jfrog.com/confluence/display/JFROG/Artifactory+Release+Notes#ArtifactoryReleaseNotes-Artifactory7.38.4).
+        :param pulumi.Input[str] api_key: The API key. Deprecated.
         """
+        if api_key is not None:
+            warnings.warn("""Deprecated in favor of \"artifactory_scoped_token\".""", DeprecationWarning)
+            pulumi.log.warn("""api_key is deprecated: Deprecated in favor of \"artifactory_scoped_token\".""")
         if api_key is not None:
             pulumi.set(__self__, "api_key", api_key)
 
@@ -39,12 +38,11 @@ class _ApiKeyState:
     @pulumi.getter(name="apiKey")
     def api_key(self) -> Optional[pulumi.Input[str]]:
         """
-        The API key. Deprecated. An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
-        In September 2022, the option to block the usage/creation of API Keys will be enabled by default, with the option for admins to change it back to enable API Keys.
-        In January 2023, API Keys will be deprecated all together and the option to use them will no longer be available.
-        It is recommended to use scoped tokens instead - `ScopedToken` resource.
-        Please check the [release notes](https://www.jfrog.com/confluence/display/JFROG/Artifactory+Release+Notes#ArtifactoryReleaseNotes-Artifactory7.38.4).
+        The API key. Deprecated.
         """
+        warnings.warn("""Deprecated in favor of \"artifactory_scoped_token\".""", DeprecationWarning)
+        pulumi.log.warn("""api_key is deprecated: Deprecated in favor of \"artifactory_scoped_token\".""")
+
         return pulumi.get(self, "api_key")
 
     @api_key.setter
@@ -62,6 +60,8 @@ class ApiKey(pulumi.CustomResource):
         Provides an Artifactory API key resource. This can be used to create and manage Artifactory API keys.
 
         > **Note:** API keys will be stored in the raw state as plain-text. Read more about sensitive data in state.
+
+        !> As notified in [Artifactory 7.47.10](https://jfrog.com/help/r/jfrog-release-information/artifactory-7.47.10-cloud-self-hosted), support for API Key is slated to be removed in a future release. To ease customer migration to [reference tokens](https://jfrog.com/help/r/jfrog-platform-administration-documentation/user-profile), which replaces API key, we are disabling the ability to create new API keys at the end of Q3 2024. The ability to use API keys will be removed at the end of Q4 2024. For more information, see [JFrog API Key Deprecation Process](https://jfrog.com/help/r/jfrog-platform-administration-documentation/jfrog-api-key-deprecation-process).
 
         ## Example Usage
 
@@ -96,6 +96,8 @@ class ApiKey(pulumi.CustomResource):
         Provides an Artifactory API key resource. This can be used to create and manage Artifactory API keys.
 
         > **Note:** API keys will be stored in the raw state as plain-text. Read more about sensitive data in state.
+
+        !> As notified in [Artifactory 7.47.10](https://jfrog.com/help/r/jfrog-release-information/artifactory-7.47.10-cloud-self-hosted), support for API Key is slated to be removed in a future release. To ease customer migration to [reference tokens](https://jfrog.com/help/r/jfrog-platform-administration-documentation/user-profile), which replaces API key, we are disabling the ability to create new API keys at the end of Q3 2024. The ability to use API keys will be removed at the end of Q4 2024. For more information, see [JFrog API Key Deprecation Process](https://jfrog.com/help/r/jfrog-platform-administration-documentation/jfrog-api-key-deprecation-process).
 
         ## Example Usage
 
@@ -162,11 +164,7 @@ class ApiKey(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] api_key: The API key. Deprecated. An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
-               In September 2022, the option to block the usage/creation of API Keys will be enabled by default, with the option for admins to change it back to enable API Keys.
-               In January 2023, API Keys will be deprecated all together and the option to use them will no longer be available.
-               It is recommended to use scoped tokens instead - `ScopedToken` resource.
-               Please check the [release notes](https://www.jfrog.com/confluence/display/JFROG/Artifactory+Release+Notes#ArtifactoryReleaseNotes-Artifactory7.38.4).
+        :param pulumi.Input[str] api_key: The API key. Deprecated.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -179,11 +177,10 @@ class ApiKey(pulumi.CustomResource):
     @pulumi.getter(name="apiKey")
     def api_key(self) -> pulumi.Output[str]:
         """
-        The API key. Deprecated. An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
-        In September 2022, the option to block the usage/creation of API Keys will be enabled by default, with the option for admins to change it back to enable API Keys.
-        In January 2023, API Keys will be deprecated all together and the option to use them will no longer be available.
-        It is recommended to use scoped tokens instead - `ScopedToken` resource.
-        Please check the [release notes](https://www.jfrog.com/confluence/display/JFROG/Artifactory+Release+Notes#ArtifactoryReleaseNotes-Artifactory7.38.4).
+        The API key. Deprecated.
         """
+        warnings.warn("""Deprecated in favor of \"artifactory_scoped_token\".""", DeprecationWarning)
+        pulumi.log.warn("""api_key is deprecated: Deprecated in favor of \"artifactory_scoped_token\".""")
+
         return pulumi.get(self, "api_key")
 
