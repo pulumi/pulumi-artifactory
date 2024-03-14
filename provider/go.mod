@@ -8,7 +8,7 @@ replace (
 )
 
 require (
-	github.com/jfrog/terraform-provider-artifactory/v10 v10.3.0
+	github.com/jfrog/terraform-provider-artifactory/v10 v10.3.1
 	github.com/pulumi/pulumi-terraform-bridge/pf v0.30.0
 	github.com/pulumi/pulumi-terraform-bridge/v3 v3.77.0
 	github.com/pulumi/pulumi/sdk/v3 v3.108.1
@@ -74,6 +74,7 @@ require (
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/deckarep/golang-set/v2 v2.5.0 // indirect
 	github.com/djherbis/times v1.5.0 // indirect
+	github.com/dlclark/regexp2 v1.11.0 // indirect
 	github.com/edsrzf/mmap-go v1.1.0 // indirect
 	github.com/emirpasic/gods v1.18.1 // indirect
 	github.com/ettle/strcase v0.1.1 // indirect
