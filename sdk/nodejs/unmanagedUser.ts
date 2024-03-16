@@ -23,10 +23,7 @@ import * as utilities from "./utilities";
  * // Create a new Artifactory user called terraform
  * const test_user = new artifactory.UnmanagedUser("test-user", {
  *     email: "test-user@artifactory-terraform.com",
- *     groups: [
- *         "logged-in-users",
- *         "readers",
- *     ],
+ *     groups: ["logged-in-users"],
  *     password: "my super secret password",
  * });
  * ```

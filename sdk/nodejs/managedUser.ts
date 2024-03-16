@@ -70,7 +70,7 @@ export class ManagedUser extends pulumi.CustomResource {
      */
     public readonly email!: pulumi.Output<string>;
     /**
-     * List of groups this user is a part of. If no groups set, `readers` group will be added by default. If other groups are assigned, `readers` must be added to the list manually to avoid state drift.
+     * List of groups this user is a part of. **Notes:** If this attribute is not specified then user's group membership is set to empty. User will not be part of default "readers" group automatically.
      */
     public readonly groups!: pulumi.Output<string[]>;
     /**
@@ -149,7 +149,7 @@ export interface ManagedUserState {
      */
     email?: pulumi.Input<string>;
     /**
-     * List of groups this user is a part of. If no groups set, `readers` group will be added by default. If other groups are assigned, `readers` must be added to the list manually to avoid state drift.
+     * List of groups this user is a part of. **Notes:** If this attribute is not specified then user's group membership is set to empty. User will not be part of default "readers" group automatically.
      */
     groups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -187,7 +187,7 @@ export interface ManagedUserArgs {
      */
     email: pulumi.Input<string>;
     /**
-     * List of groups this user is a part of. If no groups set, `readers` group will be added by default. If other groups are assigned, `readers` must be added to the list manually to avoid state drift.
+     * List of groups this user is a part of. **Notes:** If this attribute is not specified then user's group membership is set to empty. User will not be part of default "readers" group automatically.
      */
     groups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
