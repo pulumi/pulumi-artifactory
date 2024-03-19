@@ -51,9 +51,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var test_user = new UnmanagedUser(&#34;test-user&#34;, UnmanagedUserArgs.builder()        
  *             .email(&#34;test-user@artifactory-terraform.com&#34;)
- *             .groups(            
- *                 &#34;logged-in-users&#34;,
- *                 &#34;readers&#34;)
+ *             .groups(&#34;logged-in-users&#34;)
  *             .password(&#34;my super secret password&#34;)
  *             .build());
  * 

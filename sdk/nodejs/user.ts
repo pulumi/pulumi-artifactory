@@ -22,10 +22,7 @@ import * as utilities from "./utilities";
  *     admin: false,
  *     disableUiAccess: false,
  *     email: "test-user@artifactory-terraform.com",
- *     groups: [
- *         "readers",
- *         "logged-in-users",
- *     ],
+ *     groups: ["logged-in-users"],
  *     internalPasswordDisabled: false,
  *     password: "my super secret password",
  *     profileUpdatable: true,
@@ -84,7 +81,7 @@ export class User extends pulumi.CustomResource {
      */
     public readonly email!: pulumi.Output<string>;
     /**
-     * List of groups this user is a part of. If no groups set, `readers` group will be added by default. If other groups are assigned, `readers` must be added to the list manually to avoid state drift.
+     * List of groups this user is a part of. **Notes:** If this attribute is not specified then user's group membership is set to empty. User will not be part of default "readers" group automatically.
      */
     public readonly groups!: pulumi.Output<string[]>;
     /**
@@ -163,7 +160,7 @@ export interface UserState {
      */
     email?: pulumi.Input<string>;
     /**
-     * List of groups this user is a part of. If no groups set, `readers` group will be added by default. If other groups are assigned, `readers` must be added to the list manually to avoid state drift.
+     * List of groups this user is a part of. **Notes:** If this attribute is not specified then user's group membership is set to empty. User will not be part of default "readers" group automatically.
      */
     groups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -201,7 +198,7 @@ export interface UserArgs {
      */
     email: pulumi.Input<string>;
     /**
-     * List of groups this user is a part of. If no groups set, `readers` group will be added by default. If other groups are assigned, `readers` must be added to the list manually to avoid state drift.
+     * List of groups this user is a part of. **Notes:** If this attribute is not specified then user's group membership is set to empty. User will not be part of default "readers" group automatically.
      */
     groups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
