@@ -115,7 +115,7 @@ namespace Pulumi.Artifactory
         /// <summary>
         /// The API key. Deprecated.
         /// </summary>
-        [Obsolete(@"Deprecated in favor of ""artifactory_scoped_token"".")]
+        [Obsolete(@"Deprecated in favor of ""artifactory.ScopedToken"".")]
         public Input<string>? Key
         {
             get => _apiKey;
