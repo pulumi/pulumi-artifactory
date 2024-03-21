@@ -2357,10 +2357,10 @@ github.com/jbenet/go-context v0.0.0-20150711004518-d14ea06fba99 h1:BQSFePA1RWJOl
 github.com/jbenet/go-context v0.0.0-20150711004518-d14ea06fba99/go.mod h1:1lJo3i6rXxKeerYnT8Nvf0QmHCRC1n8sfWVwXF2Frvo=
 github.com/jessevdk/go-flags v1.4.0/go.mod h1:4FA24M0QyGHXBuZZK/XkWh8h0e1EYbRYJSGM75WSRxI=
 github.com/jessevdk/go-flags v1.5.0/go.mod h1:Fw0T6WPc1dYxT4mKEZRfG5kJhaTDP9pj1c2EWnYs/m4=
-github.com/jfrog/terraform-provider-artifactory/v10 v10.3.1 h1:r7Rly9CiE8C3zj2NbNpdGeHLF/OezDjvBqoms8vnT98=
-github.com/jfrog/terraform-provider-artifactory/v10 v10.3.1/go.mod h1:2ATtjwoU/kvl8kK5GqftF77IPtRUDJndatr+YKWNGV4=
-github.com/jfrog/terraform-provider-shared v1.21.1 h1:hBlk7087fjMVk7fdx2BkpZM3RnLIzS6fGNZEJc5HLYc=
-github.com/jfrog/terraform-provider-shared v1.21.1/go.mod h1:Ioq1OBLb2h9uj4t4KzBEfA1piHbUg+Lgvn84Vbzk5uI=
+github.com/jfrog/terraform-provider-artifactory/v10 v10.4.0 h1:iiLQHLXLA9JbEa/Xzit6y0d0ML2Hc12x/tALGopxi90=
+github.com/jfrog/terraform-provider-artifactory/v10 v10.4.0/go.mod h1:bQgbwu+rdM/OhZVwD6+HtepiGJ9f+WSAd5GsVwAONvM=
+github.com/jfrog/terraform-provider-shared v1.22.1 h1:tGety2oaxUiMB4yrpJ9S+770tDxSIlnD4qpL0y9p+z0=
+github.com/jfrog/terraform-provider-shared v1.22.1/go.mod h1:OozwvfahZU4Q9u3kXdpQI3h/Etrs2DXoouQDrpxB1cQ=
 github.com/jhump/gopoet v0.0.0-20190322174617-17282ff210b3/go.mod h1:me9yfT6IJSlOL3FCfrg+L6yzUEZ+5jW6WHt4Sk+UPUI=
 github.com/jhump/gopoet v0.1.0/go.mod h1:me9yfT6IJSlOL3FCfrg+L6yzUEZ+5jW6WHt4Sk+UPUI=
 github.com/jhump/goprotoc v0.5.0/go.mod h1:VrbvcYrQOrTi3i0Vf+m+oqQWk9l72mjkJCYo7UvLHRQ=
@@ -4204,8 +4204,9 @@ google.golang.org/protobuf v1.28.2-0.20230222093303-bc1253ad3743/go.mod h1:HV8QO
 google.golang.org/protobuf v1.29.1/go.mod h1:HV8QOd/L58Z+nl8r43ehVNZIU/HEI6OcFqwMG9pJV4I=
 google.golang.org/protobuf v1.30.0/go.mod h1:HV8QOd/L58Z+nl8r43ehVNZIU/HEI6OcFqwMG9pJV4I=
 google.golang.org/protobuf v1.31.0/go.mod h1:HV8QOd/L58Z+nl8r43ehVNZIU/HEI6OcFqwMG9pJV4I=
-google.golang.org/protobuf v1.32.0 h1:pPC6BG5ex8PDFnkbrGU3EixyhKcQ2aDuBS36lqK/C7I=
 google.golang.org/protobuf v1.32.0/go.mod h1:c6P6GXX6sHbq/GpV6MGZEdwhWPcYBgnhAHhKbcUYpos=
+google.golang.org/protobuf v1.33.0 h1:uNO2rsAINq/JlFpSdYEKIZ0uKD/R9cpdv0T+yoGwGmI=
+google.golang.org/protobuf v1.33.0/go.mod h1:c6P6GXX6sHbq/GpV6MGZEdwhWPcYBgnhAHhKbcUYpos=
 gopkg.in/airbrake/gobrake.v2 v2.0.9/go.mod h1:/h5ZAUhDkGaJfjzjKLSjv6zCL6O0LLBxU4K+aSYdM/U=
 gopkg.in/alecthomas/kingpin.v2 v2.2.6/go.mod h1:FMv+mEhP44yOT+4EoQTLFTRgOQ1FBLkstjWtayDeSgw=
 gopkg.in/asn1-ber.v1 v1.0.0-20181015200546-f715ec2f112d h1:TxyelI5cVkbREznMhfzycHdkp5cLA7DpE+GKjSslYhM=
