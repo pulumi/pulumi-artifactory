@@ -29,8 +29,8 @@ class _ApiKeyState:
         :param pulumi.Input[str] api_key: The API key. Deprecated.
         """
         if api_key is not None:
-            warnings.warn("""Deprecated in favor of \"artifactory_scoped_token\".""", DeprecationWarning)
-            pulumi.log.warn("""api_key is deprecated: Deprecated in favor of \"artifactory_scoped_token\".""")
+            warnings.warn("""Deprecated in favor of \"ScopedToken\".""", DeprecationWarning)
+            pulumi.log.warn("""api_key is deprecated: Deprecated in favor of \"ScopedToken\".""")
         if api_key is not None:
             pulumi.set(__self__, "api_key", api_key)
 
@@ -40,8 +40,8 @@ class _ApiKeyState:
         """
         The API key. Deprecated.
         """
-        warnings.warn("""Deprecated in favor of \"artifactory_scoped_token\".""", DeprecationWarning)
-        pulumi.log.warn("""api_key is deprecated: Deprecated in favor of \"artifactory_scoped_token\".""")
+        warnings.warn("""Deprecated in favor of \"ScopedToken\".""", DeprecationWarning)
+        pulumi.log.warn("""api_key is deprecated: Deprecated in favor of \"ScopedToken\".""")
 
         return pulumi.get(self, "api_key")
 
@@ -179,8 +179,8 @@ class ApiKey(pulumi.CustomResource):
         """
         The API key. Deprecated.
         """
-        warnings.warn("""Deprecated in favor of \"artifactory_scoped_token\".""", DeprecationWarning)
-        pulumi.log.warn("""api_key is deprecated: Deprecated in favor of \"artifactory_scoped_token\".""")
+        warnings.warn("""Deprecated in favor of \"ScopedToken\".""", DeprecationWarning)
+        pulumi.log.warn("""api_key is deprecated: Deprecated in favor of \"ScopedToken\".""")
 
         return pulumi.get(self, "api_key")
 

@@ -56,7 +56,7 @@ type ApiKey struct {
 
 	// The API key. Deprecated.
 	//
-	// Deprecated: Deprecated in favor of "artifactory_scoped_token".
+	// Deprecated: Deprecated in favor of "ScopedToken".
 	ApiKey pulumi.StringOutput `pulumi:"apiKey"`
 }
 
@@ -96,14 +96,14 @@ func GetApiKey(ctx *pulumi.Context,
 type apiKeyState struct {
 	// The API key. Deprecated.
 	//
-	// Deprecated: Deprecated in favor of "artifactory_scoped_token".
+	// Deprecated: Deprecated in favor of "ScopedToken".
 	ApiKey *string `pulumi:"apiKey"`
 }
 
 type ApiKeyState struct {
 	// The API key. Deprecated.
 	//
-	// Deprecated: Deprecated in favor of "artifactory_scoped_token".
+	// Deprecated: Deprecated in favor of "ScopedToken".
 	ApiKey pulumi.StringPtrInput
 }
 
@@ -207,7 +207,7 @@ func (o ApiKeyOutput) ToApiKeyOutputWithContext(ctx context.Context) ApiKeyOutpu
 
 // The API key. Deprecated.
 //
-// Deprecated: Deprecated in favor of "artifactory_scoped_token".
+// Deprecated: Deprecated in favor of "ScopedToken".
 func (o ApiKeyOutput) ApiKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiKey) pulumi.StringOutput { return v.ApiKey }).(pulumi.StringOutput)
 }
