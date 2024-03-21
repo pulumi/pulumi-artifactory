@@ -145,7 +145,7 @@ type RemoteHelmociRepository struct {
 	ProjectEnvironments pulumi.StringArrayOutput `pulumi:"projectEnvironments"`
 	// Use this attribute to enter your GCR, GAR Project Id to limit the scope of this remote repo to a specific project in your third-party registry. When leaving this field blank or unset, remote repositories that support project id will default to their default project as you have set up in your account.
 	ProjectId pulumi.StringPtrOutput `pulumi:"projectId"`
-	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
+	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrOutput `pulumi:"projectKey"`
 	// List of property set names
@@ -314,7 +314,7 @@ type remoteHelmociRepositoryState struct {
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
 	// Use this attribute to enter your GCR, GAR Project Id to limit the scope of this remote repo to a specific project in your third-party registry. When leaving this field blank or unset, remote repositories that support project id will default to their default project as you have set up in your account.
 	ProjectId *string `pulumi:"projectId"`
-	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
+	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey *string `pulumi:"projectKey"`
 	// List of property set names
@@ -441,7 +441,7 @@ type RemoteHelmociRepositoryState struct {
 	ProjectEnvironments pulumi.StringArrayInput
 	// Use this attribute to enter your GCR, GAR Project Id to limit the scope of this remote repo to a specific project in your third-party registry. When leaving this field blank or unset, remote repositories that support project id will default to their default project as you have set up in your account.
 	ProjectId pulumi.StringPtrInput
-	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
+	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrInput
 	// List of property set names
@@ -571,7 +571,7 @@ type remoteHelmociRepositoryArgs struct {
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
 	// Use this attribute to enter your GCR, GAR Project Id to limit the scope of this remote repo to a specific project in your third-party registry. When leaving this field blank or unset, remote repositories that support project id will default to their default project as you have set up in your account.
 	ProjectId *string `pulumi:"projectId"`
-	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
+	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey *string `pulumi:"projectKey"`
 	// List of property set names
@@ -698,7 +698,7 @@ type RemoteHelmociRepositoryArgs struct {
 	ProjectEnvironments pulumi.StringArrayInput
 	// Use this attribute to enter your GCR, GAR Project Id to limit the scope of this remote repo to a specific project in your third-party registry. When leaving this field blank or unset, remote repositories that support project id will default to their default project as you have set up in your account.
 	ProjectId pulumi.StringPtrInput
-	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
+	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrInput
 	// List of property set names
@@ -1009,7 +1009,7 @@ func (o RemoteHelmociRepositoryOutput) ProjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemoteHelmociRepository) pulumi.StringPtrOutput { return v.ProjectId }).(pulumi.StringPtrOutput)
 }
 
-// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
+// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
 // assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 func (o RemoteHelmociRepositoryOutput) ProjectKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemoteHelmociRepository) pulumi.StringPtrOutput { return v.ProjectKey }).(pulumi.StringPtrOutput)

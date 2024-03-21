@@ -19,6 +19,21 @@ public final class DockerWebhookCriteriaArgs extends com.pulumi.resources.Resour
     public static final DockerWebhookCriteriaArgs Empty = new DockerWebhookCriteriaArgs();
 
     /**
+     * Trigger on any federated repo.
+     * 
+     */
+    @Import(name="anyFederated", required=true)
+    private Output<Boolean> anyFederated;
+
+    /**
+     * @return Trigger on any federated repo.
+     * 
+     */
+    public Output<Boolean> anyFederated() {
+        return this.anyFederated;
+    }
+
+    /**
      * Trigger on any local repo.
      * 
      */
@@ -96,6 +111,7 @@ public final class DockerWebhookCriteriaArgs extends com.pulumi.resources.Resour
     private DockerWebhookCriteriaArgs() {}
 
     private DockerWebhookCriteriaArgs(DockerWebhookCriteriaArgs $) {
+        this.anyFederated = $.anyFederated;
         this.anyLocal = $.anyLocal;
         this.anyRemote = $.anyRemote;
         this.excludePatterns = $.excludePatterns;
@@ -119,6 +135,27 @@ public final class DockerWebhookCriteriaArgs extends com.pulumi.resources.Resour
 
         public Builder(DockerWebhookCriteriaArgs defaults) {
             $ = new DockerWebhookCriteriaArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param anyFederated Trigger on any federated repo.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder anyFederated(Output<Boolean> anyFederated) {
+            $.anyFederated = anyFederated;
+            return this;
+        }
+
+        /**
+         * @param anyFederated Trigger on any federated repo.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder anyFederated(Boolean anyFederated) {
+            return anyFederated(Output.of(anyFederated));
         }
 
         /**
@@ -257,6 +294,9 @@ public final class DockerWebhookCriteriaArgs extends com.pulumi.resources.Resour
         }
 
         public DockerWebhookCriteriaArgs build() {
+            if ($.anyFederated == null) {
+                throw new MissingRequiredPropertyException("DockerWebhookCriteriaArgs", "anyFederated");
+            }
             if ($.anyLocal == null) {
                 throw new MissingRequiredPropertyException("DockerWebhookCriteriaArgs", "anyLocal");
             }

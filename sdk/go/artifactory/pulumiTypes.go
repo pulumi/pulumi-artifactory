@@ -147,6 +147,8 @@ func (o AccessTokenAdminTokenPtrOutput) InstanceId() pulumi.StringPtrOutput {
 }
 
 type ArtifactCustomWebhookCriteria struct {
+	// Trigger on any federated repositories
+	AnyFederated bool `pulumi:"anyFederated"`
 	// Trigger on any local repo.
 	AnyLocal bool `pulumi:"anyLocal"`
 	// Trigger on any remote repo.
@@ -171,6 +173,8 @@ type ArtifactCustomWebhookCriteriaInput interface {
 }
 
 type ArtifactCustomWebhookCriteriaArgs struct {
+	// Trigger on any federated repositories
+	AnyFederated pulumi.BoolInput `pulumi:"anyFederated"`
 	// Trigger on any local repo.
 	AnyLocal pulumi.BoolInput `pulumi:"anyLocal"`
 	// Trigger on any remote repo.
@@ -260,6 +264,11 @@ func (o ArtifactCustomWebhookCriteriaOutput) ToArtifactCustomWebhookCriteriaPtrO
 	}).(ArtifactCustomWebhookCriteriaPtrOutput)
 }
 
+// Trigger on any federated repositories
+func (o ArtifactCustomWebhookCriteriaOutput) AnyFederated() pulumi.BoolOutput {
+	return o.ApplyT(func(v ArtifactCustomWebhookCriteria) bool { return v.AnyFederated }).(pulumi.BoolOutput)
+}
+
 // Trigger on any local repo.
 func (o ArtifactCustomWebhookCriteriaOutput) AnyLocal() pulumi.BoolOutput {
 	return o.ApplyT(func(v ArtifactCustomWebhookCriteria) bool { return v.AnyLocal }).(pulumi.BoolOutput)
@@ -307,6 +316,16 @@ func (o ArtifactCustomWebhookCriteriaPtrOutput) Elem() ArtifactCustomWebhookCrit
 		var ret ArtifactCustomWebhookCriteria
 		return ret
 	}).(ArtifactCustomWebhookCriteriaOutput)
+}
+
+// Trigger on any federated repositories
+func (o ArtifactCustomWebhookCriteriaPtrOutput) AnyFederated() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ArtifactCustomWebhookCriteria) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.AnyFederated
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Trigger on any local repo.
@@ -544,6 +563,8 @@ func (o ArtifactCustomWebhookHandlerArrayOutput) Index(i pulumi.IntInput) Artifa
 }
 
 type ArtifactPropertyCustomWebhookCriteria struct {
+	// Trigger on any federated repositories
+	AnyFederated bool `pulumi:"anyFederated"`
 	// Trigger on any local repo.
 	AnyLocal bool `pulumi:"anyLocal"`
 	// Trigger on any remote repo.
@@ -568,6 +589,8 @@ type ArtifactPropertyCustomWebhookCriteriaInput interface {
 }
 
 type ArtifactPropertyCustomWebhookCriteriaArgs struct {
+	// Trigger on any federated repositories
+	AnyFederated pulumi.BoolInput `pulumi:"anyFederated"`
 	// Trigger on any local repo.
 	AnyLocal pulumi.BoolInput `pulumi:"anyLocal"`
 	// Trigger on any remote repo.
@@ -657,6 +680,11 @@ func (o ArtifactPropertyCustomWebhookCriteriaOutput) ToArtifactPropertyCustomWeb
 	}).(ArtifactPropertyCustomWebhookCriteriaPtrOutput)
 }
 
+// Trigger on any federated repositories
+func (o ArtifactPropertyCustomWebhookCriteriaOutput) AnyFederated() pulumi.BoolOutput {
+	return o.ApplyT(func(v ArtifactPropertyCustomWebhookCriteria) bool { return v.AnyFederated }).(pulumi.BoolOutput)
+}
+
 // Trigger on any local repo.
 func (o ArtifactPropertyCustomWebhookCriteriaOutput) AnyLocal() pulumi.BoolOutput {
 	return o.ApplyT(func(v ArtifactPropertyCustomWebhookCriteria) bool { return v.AnyLocal }).(pulumi.BoolOutput)
@@ -704,6 +732,16 @@ func (o ArtifactPropertyCustomWebhookCriteriaPtrOutput) Elem() ArtifactPropertyC
 		var ret ArtifactPropertyCustomWebhookCriteria
 		return ret
 	}).(ArtifactPropertyCustomWebhookCriteriaOutput)
+}
+
+// Trigger on any federated repositories
+func (o ArtifactPropertyCustomWebhookCriteriaPtrOutput) AnyFederated() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ArtifactPropertyCustomWebhookCriteria) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.AnyFederated
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Trigger on any local repo.
@@ -941,6 +979,8 @@ func (o ArtifactPropertyCustomWebhookHandlerArrayOutput) Index(i pulumi.IntInput
 }
 
 type ArtifactPropertyWebhookCriteria struct {
+	// Trigger on any federated repo.
+	AnyFederated bool `pulumi:"anyFederated"`
 	// Trigger on any local repo.
 	AnyLocal bool `pulumi:"anyLocal"`
 	// Trigger on any remote repo.
@@ -965,6 +1005,8 @@ type ArtifactPropertyWebhookCriteriaInput interface {
 }
 
 type ArtifactPropertyWebhookCriteriaArgs struct {
+	// Trigger on any federated repo.
+	AnyFederated pulumi.BoolInput `pulumi:"anyFederated"`
 	// Trigger on any local repo.
 	AnyLocal pulumi.BoolInput `pulumi:"anyLocal"`
 	// Trigger on any remote repo.
@@ -1054,6 +1096,11 @@ func (o ArtifactPropertyWebhookCriteriaOutput) ToArtifactPropertyWebhookCriteria
 	}).(ArtifactPropertyWebhookCriteriaPtrOutput)
 }
 
+// Trigger on any federated repo.
+func (o ArtifactPropertyWebhookCriteriaOutput) AnyFederated() pulumi.BoolOutput {
+	return o.ApplyT(func(v ArtifactPropertyWebhookCriteria) bool { return v.AnyFederated }).(pulumi.BoolOutput)
+}
+
 // Trigger on any local repo.
 func (o ArtifactPropertyWebhookCriteriaOutput) AnyLocal() pulumi.BoolOutput {
 	return o.ApplyT(func(v ArtifactPropertyWebhookCriteria) bool { return v.AnyLocal }).(pulumi.BoolOutput)
@@ -1101,6 +1148,16 @@ func (o ArtifactPropertyWebhookCriteriaPtrOutput) Elem() ArtifactPropertyWebhook
 		var ret ArtifactPropertyWebhookCriteria
 		return ret
 	}).(ArtifactPropertyWebhookCriteriaOutput)
+}
+
+// Trigger on any federated repo.
+func (o ArtifactPropertyWebhookCriteriaPtrOutput) AnyFederated() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ArtifactPropertyWebhookCriteria) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.AnyFederated
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Trigger on any local repo.
@@ -1287,6 +1344,8 @@ func (o ArtifactPropertyWebhookHandlerArrayOutput) Index(i pulumi.IntInput) Arti
 }
 
 type ArtifactWebhookCriteria struct {
+	// Trigger on any federated repo.
+	AnyFederated bool `pulumi:"anyFederated"`
 	// Trigger on any local repo.
 	AnyLocal bool `pulumi:"anyLocal"`
 	// Trigger on any remote repo.
@@ -1311,6 +1370,8 @@ type ArtifactWebhookCriteriaInput interface {
 }
 
 type ArtifactWebhookCriteriaArgs struct {
+	// Trigger on any federated repo.
+	AnyFederated pulumi.BoolInput `pulumi:"anyFederated"`
 	// Trigger on any local repo.
 	AnyLocal pulumi.BoolInput `pulumi:"anyLocal"`
 	// Trigger on any remote repo.
@@ -1400,6 +1461,11 @@ func (o ArtifactWebhookCriteriaOutput) ToArtifactWebhookCriteriaPtrOutputWithCon
 	}).(ArtifactWebhookCriteriaPtrOutput)
 }
 
+// Trigger on any federated repo.
+func (o ArtifactWebhookCriteriaOutput) AnyFederated() pulumi.BoolOutput {
+	return o.ApplyT(func(v ArtifactWebhookCriteria) bool { return v.AnyFederated }).(pulumi.BoolOutput)
+}
+
 // Trigger on any local repo.
 func (o ArtifactWebhookCriteriaOutput) AnyLocal() pulumi.BoolOutput {
 	return o.ApplyT(func(v ArtifactWebhookCriteria) bool { return v.AnyLocal }).(pulumi.BoolOutput)
@@ -1447,6 +1513,16 @@ func (o ArtifactWebhookCriteriaPtrOutput) Elem() ArtifactWebhookCriteriaOutput {
 		var ret ArtifactWebhookCriteria
 		return ret
 	}).(ArtifactWebhookCriteriaOutput)
+}
+
+// Trigger on any federated repo.
+func (o ArtifactWebhookCriteriaPtrOutput) AnyFederated() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ArtifactWebhookCriteria) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.AnyFederated
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Trigger on any local repo.
@@ -3748,6 +3824,8 @@ func (o DistributionWebhookHandlerArrayOutput) Index(i pulumi.IntInput) Distribu
 }
 
 type DockerCustomWebhookCriteria struct {
+	// Trigger on any federated repositories
+	AnyFederated bool `pulumi:"anyFederated"`
 	// Trigger on any local repo.
 	AnyLocal bool `pulumi:"anyLocal"`
 	// Trigger on any remote repo.
@@ -3772,6 +3850,8 @@ type DockerCustomWebhookCriteriaInput interface {
 }
 
 type DockerCustomWebhookCriteriaArgs struct {
+	// Trigger on any federated repositories
+	AnyFederated pulumi.BoolInput `pulumi:"anyFederated"`
 	// Trigger on any local repo.
 	AnyLocal pulumi.BoolInput `pulumi:"anyLocal"`
 	// Trigger on any remote repo.
@@ -3861,6 +3941,11 @@ func (o DockerCustomWebhookCriteriaOutput) ToDockerCustomWebhookCriteriaPtrOutpu
 	}).(DockerCustomWebhookCriteriaPtrOutput)
 }
 
+// Trigger on any federated repositories
+func (o DockerCustomWebhookCriteriaOutput) AnyFederated() pulumi.BoolOutput {
+	return o.ApplyT(func(v DockerCustomWebhookCriteria) bool { return v.AnyFederated }).(pulumi.BoolOutput)
+}
+
 // Trigger on any local repo.
 func (o DockerCustomWebhookCriteriaOutput) AnyLocal() pulumi.BoolOutput {
 	return o.ApplyT(func(v DockerCustomWebhookCriteria) bool { return v.AnyLocal }).(pulumi.BoolOutput)
@@ -3908,6 +3993,16 @@ func (o DockerCustomWebhookCriteriaPtrOutput) Elem() DockerCustomWebhookCriteria
 		var ret DockerCustomWebhookCriteria
 		return ret
 	}).(DockerCustomWebhookCriteriaOutput)
+}
+
+// Trigger on any federated repositories
+func (o DockerCustomWebhookCriteriaPtrOutput) AnyFederated() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DockerCustomWebhookCriteria) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.AnyFederated
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Trigger on any local repo.
@@ -4145,6 +4240,8 @@ func (o DockerCustomWebhookHandlerArrayOutput) Index(i pulumi.IntInput) DockerCu
 }
 
 type DockerWebhookCriteria struct {
+	// Trigger on any federated repo.
+	AnyFederated bool `pulumi:"anyFederated"`
 	// Trigger on any local repo.
 	AnyLocal bool `pulumi:"anyLocal"`
 	// Trigger on any remote repo.
@@ -4169,6 +4266,8 @@ type DockerWebhookCriteriaInput interface {
 }
 
 type DockerWebhookCriteriaArgs struct {
+	// Trigger on any federated repo.
+	AnyFederated pulumi.BoolInput `pulumi:"anyFederated"`
 	// Trigger on any local repo.
 	AnyLocal pulumi.BoolInput `pulumi:"anyLocal"`
 	// Trigger on any remote repo.
@@ -4258,6 +4357,11 @@ func (o DockerWebhookCriteriaOutput) ToDockerWebhookCriteriaPtrOutputWithContext
 	}).(DockerWebhookCriteriaPtrOutput)
 }
 
+// Trigger on any federated repo.
+func (o DockerWebhookCriteriaOutput) AnyFederated() pulumi.BoolOutput {
+	return o.ApplyT(func(v DockerWebhookCriteria) bool { return v.AnyFederated }).(pulumi.BoolOutput)
+}
+
 // Trigger on any local repo.
 func (o DockerWebhookCriteriaOutput) AnyLocal() pulumi.BoolOutput {
 	return o.ApplyT(func(v DockerWebhookCriteria) bool { return v.AnyLocal }).(pulumi.BoolOutput)
@@ -4305,6 +4409,16 @@ func (o DockerWebhookCriteriaPtrOutput) Elem() DockerWebhookCriteriaOutput {
 		var ret DockerWebhookCriteria
 		return ret
 	}).(DockerWebhookCriteriaOutput)
+}
+
+// Trigger on any federated repo.
+func (o DockerWebhookCriteriaPtrOutput) AnyFederated() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DockerWebhookCriteria) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.AnyFederated
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Trigger on any local repo.

@@ -59,7 +59,7 @@ type ManagedUser struct {
 	DisableUiAccess pulumi.BoolOutput `pulumi:"disableUiAccess"`
 	// Email for user.
 	Email pulumi.StringOutput `pulumi:"email"`
-	// List of groups this user is a part of. If no groups set, `readers` group will be added by default. If other groups are assigned, `readers` must be added to the list manually to avoid state drift.
+	// List of groups this user is a part of. **Notes:** If this attribute is not specified then user's group membership is set to empty. User will not be part of default "readers" group automatically.
 	Groups pulumi.StringArrayOutput `pulumi:"groups"`
 	// (Optional, Default: false) When enabled, disables the fallback mechanism for using an internal password when external authentication (such as LDAP) is enabled.
 	InternalPasswordDisabled pulumi.BoolOutput `pulumi:"internalPasswordDisabled"`
@@ -117,7 +117,7 @@ type managedUserState struct {
 	DisableUiAccess *bool `pulumi:"disableUiAccess"`
 	// Email for user.
 	Email *string `pulumi:"email"`
-	// List of groups this user is a part of. If no groups set, `readers` group will be added by default. If other groups are assigned, `readers` must be added to the list manually to avoid state drift.
+	// List of groups this user is a part of. **Notes:** If this attribute is not specified then user's group membership is set to empty. User will not be part of default "readers" group automatically.
 	Groups []string `pulumi:"groups"`
 	// (Optional, Default: false) When enabled, disables the fallback mechanism for using an internal password when external authentication (such as LDAP) is enabled.
 	InternalPasswordDisabled *bool `pulumi:"internalPasswordDisabled"`
@@ -136,7 +136,7 @@ type ManagedUserState struct {
 	DisableUiAccess pulumi.BoolPtrInput
 	// Email for user.
 	Email pulumi.StringPtrInput
-	// List of groups this user is a part of. If no groups set, `readers` group will be added by default. If other groups are assigned, `readers` must be added to the list manually to avoid state drift.
+	// List of groups this user is a part of. **Notes:** If this attribute is not specified then user's group membership is set to empty. User will not be part of default "readers" group automatically.
 	Groups pulumi.StringArrayInput
 	// (Optional, Default: false) When enabled, disables the fallback mechanism for using an internal password when external authentication (such as LDAP) is enabled.
 	InternalPasswordDisabled pulumi.BoolPtrInput
@@ -159,7 +159,7 @@ type managedUserArgs struct {
 	DisableUiAccess *bool `pulumi:"disableUiAccess"`
 	// Email for user.
 	Email string `pulumi:"email"`
-	// List of groups this user is a part of. If no groups set, `readers` group will be added by default. If other groups are assigned, `readers` must be added to the list manually to avoid state drift.
+	// List of groups this user is a part of. **Notes:** If this attribute is not specified then user's group membership is set to empty. User will not be part of default "readers" group automatically.
 	Groups []string `pulumi:"groups"`
 	// (Optional, Default: false) When enabled, disables the fallback mechanism for using an internal password when external authentication (such as LDAP) is enabled.
 	InternalPasswordDisabled *bool `pulumi:"internalPasswordDisabled"`
@@ -179,7 +179,7 @@ type ManagedUserArgs struct {
 	DisableUiAccess pulumi.BoolPtrInput
 	// Email for user.
 	Email pulumi.StringInput
-	// List of groups this user is a part of. If no groups set, `readers` group will be added by default. If other groups are assigned, `readers` must be added to the list manually to avoid state drift.
+	// List of groups this user is a part of. **Notes:** If this attribute is not specified then user's group membership is set to empty. User will not be part of default "readers" group automatically.
 	Groups pulumi.StringArrayInput
 	// (Optional, Default: false) When enabled, disables the fallback mechanism for using an internal password when external authentication (such as LDAP) is enabled.
 	InternalPasswordDisabled pulumi.BoolPtrInput
@@ -293,7 +293,7 @@ func (o ManagedUserOutput) Email() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedUser) pulumi.StringOutput { return v.Email }).(pulumi.StringOutput)
 }
 
-// List of groups this user is a part of. If no groups set, `readers` group will be added by default. If other groups are assigned, `readers` must be added to the list manually to avoid state drift.
+// List of groups this user is a part of. **Notes:** If this attribute is not specified then user's group membership is set to empty. User will not be part of default "readers" group automatically.
 func (o ManagedUserOutput) Groups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ManagedUser) pulumi.StringArrayOutput { return v.Groups }).(pulumi.StringArrayOutput)
 }

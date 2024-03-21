@@ -317,7 +317,7 @@ public class FederatedConanRepository extends com.pulumi.resources.CustomResourc
         return this.projectEnvironments;
     }
     /**
-     * Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
+     * Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
      * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      * 
      */
@@ -325,7 +325,7 @@ public class FederatedConanRepository extends com.pulumi.resources.CustomResourc
     private Output</* @Nullable */ String> projectKey;
 
     /**
-     * @return Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
+     * @return Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
      * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      * 
      */

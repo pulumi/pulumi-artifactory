@@ -13,6 +13,12 @@ namespace Pulumi.Artifactory.Inputs
     public sealed class ArtifactCustomWebhookCriteriaArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Trigger on any federated repositories
+        /// </summary>
+        [Input("anyFederated", required: true)]
+        public Input<bool> AnyFederated { get; set; } = null!;
+
+        /// <summary>
         /// Trigger on any local repo.
         /// </summary>
         [Input("anyLocal", required: true)]

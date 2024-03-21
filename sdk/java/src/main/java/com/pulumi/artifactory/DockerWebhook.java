@@ -64,6 +64,7 @@ import javax.annotation.Nullable;
  *             .criteria(DockerWebhookCriteriaArgs.builder()
  *                 .anyLocal(true)
  *                 .anyRemote(false)
+ *                 .anyFederated(false)
  *                 .repoKeys(my_docker_local.key())
  *                 .includePatterns(&#34;foo/**&#34;)
  *                 .excludePatterns(&#34;bar/**&#34;)

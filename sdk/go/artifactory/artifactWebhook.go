@@ -45,8 +45,9 @@ import (
 //					pulumi.String("copied"),
 //				},
 //				Criteria: &artifactory.ArtifactWebhookCriteriaArgs{
-//					AnyLocal:  pulumi.Bool(true),
-//					AnyRemote: pulumi.Bool(false),
+//					AnyLocal:     pulumi.Bool(true),
+//					AnyRemote:    pulumi.Bool(false),
+//					AnyFederated: pulumi.Bool(false),
 //					RepoKeys: pulumi.StringArray{
 //						my_generic_local.Key,
 //					},

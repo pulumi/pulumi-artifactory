@@ -65,6 +65,7 @@ import javax.annotation.Nullable;
  *             .criteria(ArtifactWebhookCriteriaArgs.builder()
  *                 .anyLocal(true)
  *                 .anyRemote(false)
+ *                 .anyFederated(false)
  *                 .repoKeys(my_generic_local.key())
  *                 .includePatterns(&#34;foo/**&#34;)
  *                 .excludePatterns(&#34;bar/**&#34;)

@@ -43,6 +43,7 @@ namespace Pulumi.Artifactory
     ///         {
     ///             AnyLocal = true,
     ///             AnyRemote = false,
+    ///             AnyFederated = false,
     ///             RepoKeys = new[]
     ///             {
     ///                 my_generic_local.Key,

@@ -12,6 +12,8 @@ namespace Pulumi.Artifactory
     /// <summary>
     /// Provides an Artifactory permission target resource. This can be used to create and manage Artifactory permission targets.
     /// 
+    /// &gt; This resource has been deprecated in favor of platform_permission resource.
+    /// 
     /// ## Example Usage
     /// 
     /// &lt;!--Start PulumiCodeChooser --&gt;

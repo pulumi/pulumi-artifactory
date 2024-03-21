@@ -19,6 +19,21 @@ public final class ArtifactPropertyWebhookCriteriaArgs extends com.pulumi.resour
     public static final ArtifactPropertyWebhookCriteriaArgs Empty = new ArtifactPropertyWebhookCriteriaArgs();
 
     /**
+     * Trigger on any federated repo.
+     * 
+     */
+    @Import(name="anyFederated", required=true)
+    private Output<Boolean> anyFederated;
+
+    /**
+     * @return Trigger on any federated repo.
+     * 
+     */
+    public Output<Boolean> anyFederated() {
+        return this.anyFederated;
+    }
+
+    /**
      * Trigger on any local repo.
      * 
      */
@@ -96,6 +111,7 @@ public final class ArtifactPropertyWebhookCriteriaArgs extends com.pulumi.resour
     private ArtifactPropertyWebhookCriteriaArgs() {}
 
     private ArtifactPropertyWebhookCriteriaArgs(ArtifactPropertyWebhookCriteriaArgs $) {
+        this.anyFederated = $.anyFederated;
         this.anyLocal = $.anyLocal;
         this.anyRemote = $.anyRemote;
         this.excludePatterns = $.excludePatterns;
@@ -119,6 +135,27 @@ public final class ArtifactPropertyWebhookCriteriaArgs extends com.pulumi.resour
 
         public Builder(ArtifactPropertyWebhookCriteriaArgs defaults) {
             $ = new ArtifactPropertyWebhookCriteriaArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param anyFederated Trigger on any federated repo.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder anyFederated(Output<Boolean> anyFederated) {
+            $.anyFederated = anyFederated;
+            return this;
+        }
+
+        /**
+         * @param anyFederated Trigger on any federated repo.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder anyFederated(Boolean anyFederated) {
+            return anyFederated(Output.of(anyFederated));
         }
 
         /**
@@ -257,6 +294,9 @@ public final class ArtifactPropertyWebhookCriteriaArgs extends com.pulumi.resour
         }
 
         public ArtifactPropertyWebhookCriteriaArgs build() {
+            if ($.anyFederated == null) {
+                throw new MissingRequiredPropertyException("ArtifactPropertyWebhookCriteriaArgs", "anyFederated");
+            }
             if ($.anyLocal == null) {
                 throw new MissingRequiredPropertyException("ArtifactPropertyWebhookCriteriaArgs", "anyLocal");
             }

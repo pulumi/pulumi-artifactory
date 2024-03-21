@@ -99,7 +99,7 @@ export class VirtualHelmRepository extends pulumi.CustomResource {
      */
     public readonly projectEnvironments!: pulumi.Output<string[]>;
     /**
-     * Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
+     * Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
      * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      */
     public readonly projectKey!: pulumi.Output<string | undefined>;
@@ -217,7 +217,7 @@ export interface VirtualHelmRepositoryState {
      */
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
+     * Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
      * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      */
     projectKey?: pulumi.Input<string>;
@@ -283,7 +283,7 @@ export interface VirtualHelmRepositoryArgs {
      */
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
+     * Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
      * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      */
     projectKey?: pulumi.Input<string>;

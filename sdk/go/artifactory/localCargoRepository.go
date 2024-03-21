@@ -92,7 +92,7 @@ type LocalCargoRepository struct {
 	// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
 	// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments pulumi.StringArrayOutput `pulumi:"projectEnvironments"`
-	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
+	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrOutput `pulumi:"projectKey"`
 	// List of property set name
@@ -175,7 +175,7 @@ type localCargoRepositoryState struct {
 	// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
 	// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
-	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
+	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey *string `pulumi:"projectKey"`
 	// List of property set name
@@ -226,7 +226,7 @@ type LocalCargoRepositoryState struct {
 	// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
 	// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments pulumi.StringArrayInput
-	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
+	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrInput
 	// List of property set name
@@ -280,7 +280,7 @@ type localCargoRepositoryArgs struct {
 	// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
 	// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
-	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
+	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey *string `pulumi:"projectKey"`
 	// List of property set name
@@ -331,7 +331,7 @@ type LocalCargoRepositoryArgs struct {
 	// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
 	// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments pulumi.StringArrayInput
-	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
+	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrInput
 	// List of property set name
@@ -513,7 +513,7 @@ func (o LocalCargoRepositoryOutput) ProjectEnvironments() pulumi.StringArrayOutp
 	return o.ApplyT(func(v *LocalCargoRepository) pulumi.StringArrayOutput { return v.ProjectEnvironments }).(pulumi.StringArrayOutput)
 }
 
-// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
+// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
 // assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 func (o LocalCargoRepositoryOutput) ProjectKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LocalCargoRepository) pulumi.StringPtrOutput { return v.ProjectKey }).(pulumi.StringPtrOutput)
