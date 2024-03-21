@@ -19,10 +19,10 @@ public final class ApiKeyState extends com.pulumi.resources.ResourceArgs {
      * The API key. Deprecated.
      * 
      * @deprecated
-     * Deprecated in favor of &#34;artifactory_scoped_token&#34;.
+     * Deprecated in favor of &#34;artifactory.ScopedToken&#34;.
      * 
      */
-    @Deprecated /* Deprecated in favor of ""artifactory_scoped_token"". */
+    @Deprecated /* Deprecated in favor of ""artifactory.ScopedToken"". */
     @Import(name="apiKey")
     private @Nullable Output<String> apiKey;
 
@@ -30,10 +30,10 @@ public final class ApiKeyState extends com.pulumi.resources.ResourceArgs {
      * @return The API key. Deprecated.
      * 
      * @deprecated
-     * Deprecated in favor of &#34;artifactory_scoped_token&#34;.
+     * Deprecated in favor of &#34;artifactory.ScopedToken&#34;.
      * 
      */
-    @Deprecated /* Deprecated in favor of ""artifactory_scoped_token"". */
+    @Deprecated /* Deprecated in favor of ""artifactory.ScopedToken"". */
     public Optional<Output<String>> apiKey() {
         return Optional.ofNullable(this.apiKey);
     }
@@ -68,10 +68,10 @@ public final class ApiKeyState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * Deprecated in favor of &#34;artifactory_scoped_token&#34;.
+         * Deprecated in favor of &#34;artifactory.ScopedToken&#34;.
          * 
          */
-        @Deprecated /* Deprecated in favor of ""artifactory_scoped_token"". */
+        @Deprecated /* Deprecated in favor of ""artifactory.ScopedToken"". */
         public Builder apiKey(@Nullable Output<String> apiKey) {
             $.apiKey = apiKey;
             return this;
@@ -83,10 +83,10 @@ public final class ApiKeyState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * Deprecated in favor of &#34;artifactory_scoped_token&#34;.
+         * Deprecated in favor of &#34;artifactory.ScopedToken&#34;.
          * 
          */
-        @Deprecated /* Deprecated in favor of ""artifactory_scoped_token"". */
+        @Deprecated /* Deprecated in favor of ""artifactory.ScopedToken"". */
         public Builder apiKey(String apiKey) {
             return apiKey(Output.of(apiKey));
         }
