@@ -4,6 +4,6 @@ new artifactory.User("node-test-user", {
   admin: false,
   disableUiAccess: false,
   email: "node-test-user@artifactory-terraform.com",
-  internalPasswordDisabled: true,
+  internalPasswordDisabled: false,
   profileUpdatable: true,
 });
