@@ -27,6 +27,7 @@ import * as utilities from "./utilities";
  *     criteria: {
  *         anyLocal: true,
  *         anyRemote: false,
+ *         anyFederated: false,
  *         repoKeys: [my_generic_local.key],
  *         includePatterns: ["foo/**"],
  *         excludePatterns: ["bar/**"],

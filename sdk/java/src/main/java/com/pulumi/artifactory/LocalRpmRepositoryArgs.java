@@ -248,7 +248,7 @@ public final class LocalRpmRepositoryArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
+     * Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
      * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      * 
      */
@@ -256,7 +256,7 @@ public final class LocalRpmRepositoryArgs extends com.pulumi.resources.ResourceA
     private @Nullable Output<String> projectKey;
 
     /**
-     * @return Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
+     * @return Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
      * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      * 
      */
@@ -738,7 +738,7 @@ public final class LocalRpmRepositoryArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param projectKey Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
+         * @param projectKey Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
          * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
          * 
          * @return builder
@@ -750,7 +750,7 @@ public final class LocalRpmRepositoryArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param projectKey Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
+         * @param projectKey Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
          * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
          * 
          * @return builder

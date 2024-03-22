@@ -14,6 +14,10 @@ namespace Pulumi.Artifactory.Outputs
     public sealed class ArtifactPropertyCustomWebhookCriteria
     {
         /// <summary>
+        /// Trigger on any federated repositories
+        /// </summary>
+        public readonly bool AnyFederated;
+        /// <summary>
         /// Trigger on any local repo.
         /// </summary>
         public readonly bool AnyLocal;
@@ -36,6 +40,8 @@ namespace Pulumi.Artifactory.Outputs
 
         [OutputConstructor]
         private ArtifactPropertyCustomWebhookCriteria(
+            bool anyFederated,
+
             bool anyLocal,
 
             bool anyRemote,
@@ -46,6 +52,7 @@ namespace Pulumi.Artifactory.Outputs
 
             ImmutableArray<string> repoKeys)
         {
+            AnyFederated = anyFederated;
             AnyLocal = anyLocal;
             AnyRemote = anyRemote;
             ExcludePatterns = excludePatterns;

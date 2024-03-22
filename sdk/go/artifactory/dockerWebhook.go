@@ -44,8 +44,9 @@ import (
 //					pulumi.String("promoted"),
 //				},
 //				Criteria: &artifactory.DockerWebhookCriteriaArgs{
-//					AnyLocal:  pulumi.Bool(true),
-//					AnyRemote: pulumi.Bool(false),
+//					AnyLocal:     pulumi.Bool(true),
+//					AnyRemote:    pulumi.Bool(false),
+//					AnyFederated: pulumi.Bool(false),
 //					RepoKeys: pulumi.StringArray{
 //						my_docker_local.Key,
 //					},

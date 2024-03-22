@@ -131,7 +131,7 @@ class RemoteDockerRepositoryArgs:
                attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
                be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
         :param pulumi.Input[str] project_id: Use this attribute to enter your GCR, GAR Project Id to limit the scope of this remote repo to a specific project in your third-party registry. When leaving this field blank or unset, remote repositories that support project id will default to their default project as you have set up in your account.
-        :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
+        :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set names
         :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies settings. Can't be set if `disable_proxy = true`.
@@ -689,7 +689,7 @@ class RemoteDockerRepositoryArgs:
     @pulumi.getter(name="projectKey")
     def project_key(self) -> Optional[pulumi.Input[str]]:
         """
-        Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
+        Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
         assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         """
         return pulumi.get(self, "project_key")
@@ -977,7 +977,7 @@ class _RemoteDockerRepositoryState:
                attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
                be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
         :param pulumi.Input[str] project_id: Use this attribute to enter your GCR, GAR Project Id to limit the scope of this remote repo to a specific project in your third-party registry. When leaving this field blank or unset, remote repositories that support project id will default to their default project as you have set up in your account.
-        :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
+        :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set names
         :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies settings. Can't be set if `disable_proxy = true`.
@@ -1537,7 +1537,7 @@ class _RemoteDockerRepositoryState:
     @pulumi.getter(name="projectKey")
     def project_key(self) -> Optional[pulumi.Input[str]]:
         """
-        Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
+        Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
         assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         """
         return pulumi.get(self, "project_key")
@@ -1869,7 +1869,7 @@ class RemoteDockerRepository(pulumi.CustomResource):
                attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
                be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
         :param pulumi.Input[str] project_id: Use this attribute to enter your GCR, GAR Project Id to limit the scope of this remote repo to a specific project in your third-party registry. When leaving this field blank or unset, remote repositories that support project id will default to their default project as you have set up in your account.
-        :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
+        :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set names
         :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies settings. Can't be set if `disable_proxy = true`.
@@ -2187,7 +2187,7 @@ class RemoteDockerRepository(pulumi.CustomResource):
                attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
                be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
         :param pulumi.Input[str] project_id: Use this attribute to enter your GCR, GAR Project Id to limit the scope of this remote repo to a specific project in your third-party registry. When leaving this field blank or unset, remote repositories that support project id will default to their default project as you have set up in your account.
-        :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
+        :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set names
         :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies settings. Can't be set if `disable_proxy = true`.
@@ -2567,7 +2567,7 @@ class RemoteDockerRepository(pulumi.CustomResource):
     @pulumi.getter(name="projectKey")
     def project_key(self) -> pulumi.Output[Optional[str]]:
         """
-        Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
+        Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
         assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         """
         return pulumi.get(self, "project_key")

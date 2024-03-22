@@ -28,6 +28,7 @@ import * as utilities from "./utilities";
  *     criteria: {
  *         anyLocal: true,
  *         anyRemote: false,
+ *         anyFederated: false,
  *         repoKeys: [my_docker_local.key],
  *         includePatterns: ["foo/**"],
  *         excludePatterns: ["bar/**"],

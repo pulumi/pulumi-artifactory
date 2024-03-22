@@ -36,7 +36,6 @@ namespace Pulumi.Artifactory
     ///         Groups = new[]
     ///         {
     ///             "logged-in-users",
-    ///             "readers",
     ///         },
     ///         Password = "my super secret password",
     ///     });

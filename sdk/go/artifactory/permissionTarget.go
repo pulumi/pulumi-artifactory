@@ -13,6 +13,8 @@ import (
 
 // Provides an Artifactory permission target resource. This can be used to create and manage Artifactory permission targets.
 //
+// > This resource has been deprecated in favor of platformPermission resource.
+//
 // ## Example Usage
 //
 // <!--Start PulumiCodeChooser -->

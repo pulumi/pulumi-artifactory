@@ -42,6 +42,7 @@ namespace Pulumi.Artifactory
     ///         {
     ///             AnyLocal = true,
     ///             AnyRemote = false,
+    ///             AnyFederated = false,
     ///             RepoKeys = new[]
     ///             {
     ///                 my_docker_local.Key,

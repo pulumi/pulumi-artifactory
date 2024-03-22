@@ -315,10 +315,7 @@ class UnmanagedUser(pulumi.CustomResource):
         # Create a new Artifactory user called terraform
         test_user = artifactory.UnmanagedUser("test-user",
             email="test-user@artifactory-terraform.com",
-            groups=[
-                "logged-in-users",
-                "readers",
-            ],
+            groups=["logged-in-users"],
             password="my super secret password")
         ```
         <!--End PulumiCodeChooser -->
@@ -371,10 +368,7 @@ class UnmanagedUser(pulumi.CustomResource):
         # Create a new Artifactory user called terraform
         test_user = artifactory.UnmanagedUser("test-user",
             email="test-user@artifactory-terraform.com",
-            groups=[
-                "logged-in-users",
-                "readers",
-            ],
+            groups=["logged-in-users"],
             password="my super secret password")
         ```
         <!--End PulumiCodeChooser -->

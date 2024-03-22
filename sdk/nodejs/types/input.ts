@@ -11,6 +11,10 @@ export interface AccessTokenAdminToken {
 
 export interface ArtifactCustomWebhookCriteria {
     /**
+     * Trigger on any federated repositories
+     */
+    anyFederated: pulumi.Input<boolean>;
+    /**
      * Trigger on any local repo.
      */
     anyLocal: pulumi.Input<boolean>;
@@ -62,6 +66,10 @@ export interface ArtifactCustomWebhookHandler {
 }
 
 export interface ArtifactPropertyCustomWebhookCriteria {
+    /**
+     * Trigger on any federated repositories
+     */
+    anyFederated: pulumi.Input<boolean>;
     /**
      * Trigger on any local repo.
      */
@@ -115,6 +123,10 @@ export interface ArtifactPropertyCustomWebhookHandler {
 
 export interface ArtifactPropertyWebhookCriteria {
     /**
+     * Trigger on any federated repo.
+     */
+    anyFederated: pulumi.Input<boolean>;
+    /**
      * Trigger on any local repo.
      */
     anyLocal: pulumi.Input<boolean>;
@@ -160,6 +172,10 @@ export interface ArtifactPropertyWebhookHandler {
 }
 
 export interface ArtifactWebhookCriteria {
+    /**
+     * Trigger on any federated repo.
+     */
+    anyFederated: pulumi.Input<boolean>;
     /**
      * Trigger on any local repo.
      */
@@ -477,6 +493,10 @@ export interface DistributionWebhookHandler {
 
 export interface DockerCustomWebhookCriteria {
     /**
+     * Trigger on any federated repositories
+     */
+    anyFederated: pulumi.Input<boolean>;
+    /**
      * Trigger on any local repo.
      */
     anyLocal: pulumi.Input<boolean>;
@@ -528,6 +548,10 @@ export interface DockerCustomWebhookHandler {
 }
 
 export interface DockerWebhookCriteria {
+    /**
+     * Trigger on any federated repo.
+     */
+    anyFederated: pulumi.Input<boolean>;
     /**
      * Trigger on any local repo.
      */
