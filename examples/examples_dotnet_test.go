@@ -12,7 +12,6 @@ import (
 )
 
 func TestCreateUserDotnet(t *testing.T) {
-	t.Skip("skip for now")
 	test := getCSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir: filepath.Join(getCwd(t), "test-create-user", "csharp"),

@@ -22,7 +22,6 @@ func getPythonBaseOptions(t *testing.T) integration.ProgramTestOptions {
 }
 
 func TestCreateUserPy(t *testing.T) {
-	t.Skip("experiment")
 	test := getPythonBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir: filepath.Join(getCwd(t), "test-create-user", "py"),

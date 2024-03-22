@@ -7,7 +7,7 @@ test_user = artifactory.User(
     admin=False,
     disable_ui_access=False,
     email="python-test-user@artifactory-terraform.com",
-    internal_password_disabled=True,
+    internal_password_disabled=False,
     profile_updatable=True
 )
 
