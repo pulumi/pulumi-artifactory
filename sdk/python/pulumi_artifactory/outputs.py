@@ -244,7 +244,9 @@ class ArtifactCustomWebhookCriteria(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "anyLocal":
+        if key == "anyFederated":
+            suggest = "any_federated"
+        elif key == "anyLocal":
             suggest = "any_local"
         elif key == "anyRemote":
             suggest = "any_remote"
@@ -267,18 +269,21 @@ class ArtifactCustomWebhookCriteria(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 any_federated: bool,
                  any_local: bool,
                  any_remote: bool,
                  repo_keys: Sequence[str],
                  exclude_patterns: Optional[Sequence[str]] = None,
                  include_patterns: Optional[Sequence[str]] = None):
         """
+        :param bool any_federated: Trigger on any federated repositories
         :param bool any_local: Trigger on any local repo.
         :param bool any_remote: Trigger on any remote repo.
         :param Sequence[str] repo_keys: Trigger on this list of repo keys.
         :param Sequence[str] exclude_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`.
         :param Sequence[str] include_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`.
         """
+        pulumi.set(__self__, "any_federated", any_federated)
         pulumi.set(__self__, "any_local", any_local)
         pulumi.set(__self__, "any_remote", any_remote)
         pulumi.set(__self__, "repo_keys", repo_keys)
@@ -286,6 +291,14 @@ class ArtifactCustomWebhookCriteria(dict):
             pulumi.set(__self__, "exclude_patterns", exclude_patterns)
         if include_patterns is not None:
             pulumi.set(__self__, "include_patterns", include_patterns)
+
+    @property
+    @pulumi.getter(name="anyFederated")
+    def any_federated(self) -> bool:
+        """
+        Trigger on any federated repositories
+        """
+        return pulumi.get(self, "any_federated")
 
     @property
     @pulumi.getter(name="anyLocal")
@@ -428,7 +441,9 @@ class ArtifactPropertyCustomWebhookCriteria(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "anyLocal":
+        if key == "anyFederated":
+            suggest = "any_federated"
+        elif key == "anyLocal":
             suggest = "any_local"
         elif key == "anyRemote":
             suggest = "any_remote"
@@ -451,18 +466,21 @@ class ArtifactPropertyCustomWebhookCriteria(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 any_federated: bool,
                  any_local: bool,
                  any_remote: bool,
                  repo_keys: Sequence[str],
                  exclude_patterns: Optional[Sequence[str]] = None,
                  include_patterns: Optional[Sequence[str]] = None):
         """
+        :param bool any_federated: Trigger on any federated repositories
         :param bool any_local: Trigger on any local repo.
         :param bool any_remote: Trigger on any remote repo.
         :param Sequence[str] repo_keys: Trigger on this list of repo keys.
         :param Sequence[str] exclude_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`.
         :param Sequence[str] include_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`.
         """
+        pulumi.set(__self__, "any_federated", any_federated)
         pulumi.set(__self__, "any_local", any_local)
         pulumi.set(__self__, "any_remote", any_remote)
         pulumi.set(__self__, "repo_keys", repo_keys)
@@ -470,6 +488,14 @@ class ArtifactPropertyCustomWebhookCriteria(dict):
             pulumi.set(__self__, "exclude_patterns", exclude_patterns)
         if include_patterns is not None:
             pulumi.set(__self__, "include_patterns", include_patterns)
+
+    @property
+    @pulumi.getter(name="anyFederated")
+    def any_federated(self) -> bool:
+        """
+        Trigger on any federated repositories
+        """
+        return pulumi.get(self, "any_federated")
 
     @property
     @pulumi.getter(name="anyLocal")
@@ -612,7 +638,9 @@ class ArtifactPropertyWebhookCriteria(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "anyLocal":
+        if key == "anyFederated":
+            suggest = "any_federated"
+        elif key == "anyLocal":
             suggest = "any_local"
         elif key == "anyRemote":
             suggest = "any_remote"
@@ -635,18 +663,21 @@ class ArtifactPropertyWebhookCriteria(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 any_federated: bool,
                  any_local: bool,
                  any_remote: bool,
                  repo_keys: Sequence[str],
                  exclude_patterns: Optional[Sequence[str]] = None,
                  include_patterns: Optional[Sequence[str]] = None):
         """
+        :param bool any_federated: Trigger on any federated repo.
         :param bool any_local: Trigger on any local repo.
         :param bool any_remote: Trigger on any remote repo.
         :param Sequence[str] repo_keys: Trigger on this list of repo keys.
         :param Sequence[str] exclude_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`.
         :param Sequence[str] include_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`.
         """
+        pulumi.set(__self__, "any_federated", any_federated)
         pulumi.set(__self__, "any_local", any_local)
         pulumi.set(__self__, "any_remote", any_remote)
         pulumi.set(__self__, "repo_keys", repo_keys)
@@ -654,6 +685,14 @@ class ArtifactPropertyWebhookCriteria(dict):
             pulumi.set(__self__, "exclude_patterns", exclude_patterns)
         if include_patterns is not None:
             pulumi.set(__self__, "include_patterns", include_patterns)
+
+    @property
+    @pulumi.getter(name="anyFederated")
+    def any_federated(self) -> bool:
+        """
+        Trigger on any federated repo.
+        """
+        return pulumi.get(self, "any_federated")
 
     @property
     @pulumi.getter(name="anyLocal")
@@ -786,7 +825,9 @@ class ArtifactWebhookCriteria(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "anyLocal":
+        if key == "anyFederated":
+            suggest = "any_federated"
+        elif key == "anyLocal":
             suggest = "any_local"
         elif key == "anyRemote":
             suggest = "any_remote"
@@ -809,18 +850,21 @@ class ArtifactWebhookCriteria(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 any_federated: bool,
                  any_local: bool,
                  any_remote: bool,
                  repo_keys: Sequence[str],
                  exclude_patterns: Optional[Sequence[str]] = None,
                  include_patterns: Optional[Sequence[str]] = None):
         """
+        :param bool any_federated: Trigger on any federated repo.
         :param bool any_local: Trigger on any local repo.
         :param bool any_remote: Trigger on any remote repo.
         :param Sequence[str] repo_keys: Trigger on this list of repo keys.
         :param Sequence[str] exclude_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`.
         :param Sequence[str] include_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`.
         """
+        pulumi.set(__self__, "any_federated", any_federated)
         pulumi.set(__self__, "any_local", any_local)
         pulumi.set(__self__, "any_remote", any_remote)
         pulumi.set(__self__, "repo_keys", repo_keys)
@@ -828,6 +872,14 @@ class ArtifactWebhookCriteria(dict):
             pulumi.set(__self__, "exclude_patterns", exclude_patterns)
         if include_patterns is not None:
             pulumi.set(__self__, "include_patterns", include_patterns)
+
+    @property
+    @pulumi.getter(name="anyFederated")
+    def any_federated(self) -> bool:
+        """
+        Trigger on any federated repo.
+        """
+        return pulumi.get(self, "any_federated")
 
     @property
     @pulumi.getter(name="anyLocal")
@@ -1956,7 +2008,9 @@ class DockerCustomWebhookCriteria(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "anyLocal":
+        if key == "anyFederated":
+            suggest = "any_federated"
+        elif key == "anyLocal":
             suggest = "any_local"
         elif key == "anyRemote":
             suggest = "any_remote"
@@ -1979,18 +2033,21 @@ class DockerCustomWebhookCriteria(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 any_federated: bool,
                  any_local: bool,
                  any_remote: bool,
                  repo_keys: Sequence[str],
                  exclude_patterns: Optional[Sequence[str]] = None,
                  include_patterns: Optional[Sequence[str]] = None):
         """
+        :param bool any_federated: Trigger on any federated repositories
         :param bool any_local: Trigger on any local repo.
         :param bool any_remote: Trigger on any remote repo.
         :param Sequence[str] repo_keys: Trigger on this list of repo keys.
         :param Sequence[str] exclude_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`.
         :param Sequence[str] include_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`.
         """
+        pulumi.set(__self__, "any_federated", any_federated)
         pulumi.set(__self__, "any_local", any_local)
         pulumi.set(__self__, "any_remote", any_remote)
         pulumi.set(__self__, "repo_keys", repo_keys)
@@ -1998,6 +2055,14 @@ class DockerCustomWebhookCriteria(dict):
             pulumi.set(__self__, "exclude_patterns", exclude_patterns)
         if include_patterns is not None:
             pulumi.set(__self__, "include_patterns", include_patterns)
+
+    @property
+    @pulumi.getter(name="anyFederated")
+    def any_federated(self) -> bool:
+        """
+        Trigger on any federated repositories
+        """
+        return pulumi.get(self, "any_federated")
 
     @property
     @pulumi.getter(name="anyLocal")
@@ -2140,7 +2205,9 @@ class DockerWebhookCriteria(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "anyLocal":
+        if key == "anyFederated":
+            suggest = "any_federated"
+        elif key == "anyLocal":
             suggest = "any_local"
         elif key == "anyRemote":
             suggest = "any_remote"
@@ -2163,18 +2230,21 @@ class DockerWebhookCriteria(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 any_federated: bool,
                  any_local: bool,
                  any_remote: bool,
                  repo_keys: Sequence[str],
                  exclude_patterns: Optional[Sequence[str]] = None,
                  include_patterns: Optional[Sequence[str]] = None):
         """
+        :param bool any_federated: Trigger on any federated repo.
         :param bool any_local: Trigger on any local repo.
         :param bool any_remote: Trigger on any remote repo.
         :param Sequence[str] repo_keys: Trigger on this list of repo keys.
         :param Sequence[str] exclude_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`.
         :param Sequence[str] include_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`.
         """
+        pulumi.set(__self__, "any_federated", any_federated)
         pulumi.set(__self__, "any_local", any_local)
         pulumi.set(__self__, "any_remote", any_remote)
         pulumi.set(__self__, "repo_keys", repo_keys)
@@ -2182,6 +2252,14 @@ class DockerWebhookCriteria(dict):
             pulumi.set(__self__, "exclude_patterns", exclude_patterns)
         if include_patterns is not None:
             pulumi.set(__self__, "include_patterns", include_patterns)
+
+    @property
+    @pulumi.getter(name="anyFederated")
+    def any_federated(self) -> bool:
+        """
+        Trigger on any federated repo.
+        """
+        return pulumi.get(self, "any_federated")
 
     @property
     @pulumi.getter(name="anyLocal")

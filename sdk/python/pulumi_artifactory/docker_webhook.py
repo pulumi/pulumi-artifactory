@@ -251,6 +251,7 @@ class DockerWebhook(pulumi.CustomResource):
             criteria=artifactory.DockerWebhookCriteriaArgs(
                 any_local=True,
                 any_remote=False,
+                any_federated=False,
                 repo_keys=[my_docker_local.key],
                 include_patterns=["foo/**"],
                 exclude_patterns=["bar/**"],
@@ -305,6 +306,7 @@ class DockerWebhook(pulumi.CustomResource):
             criteria=artifactory.DockerWebhookCriteriaArgs(
                 any_local=True,
                 any_remote=False,
+                any_federated=False,
                 repo_keys=[my_docker_local.key],
                 include_patterns=["foo/**"],
                 exclude_patterns=["bar/**"],

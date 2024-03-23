@@ -252,6 +252,7 @@ class ArtifactWebhook(pulumi.CustomResource):
             criteria=artifactory.ArtifactWebhookCriteriaArgs(
                 any_local=True,
                 any_remote=False,
+                any_federated=False,
                 repo_keys=[my_generic_local.key],
                 include_patterns=["foo/**"],
                 exclude_patterns=["bar/**"],
@@ -307,6 +308,7 @@ class ArtifactWebhook(pulumi.CustomResource):
             criteria=artifactory.ArtifactWebhookCriteriaArgs(
                 any_local=True,
                 any_remote=False,
+                any_federated=False,
                 repo_keys=[my_generic_local.key],
                 include_patterns=["foo/**"],
                 exclude_patterns=["bar/**"],

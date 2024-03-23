@@ -87,7 +87,7 @@ type DockerV1Repository struct {
 	// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
 	// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments pulumi.StringArrayOutput `pulumi:"projectEnvironments"`
-	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
+	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrOutput `pulumi:"projectKey"`
 	// List of property set name
@@ -168,7 +168,7 @@ type dockerV1RepositoryState struct {
 	// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
 	// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
-	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
+	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey *string `pulumi:"projectKey"`
 	// List of property set name
@@ -217,7 +217,7 @@ type DockerV1RepositoryState struct {
 	// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
 	// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments pulumi.StringArrayInput
-	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
+	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrInput
 	// List of property set name
@@ -267,7 +267,7 @@ type dockerV1RepositoryArgs struct {
 	// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
 	// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
-	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
+	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey *string `pulumi:"projectKey"`
 	// List of property set name
@@ -313,7 +313,7 @@ type DockerV1RepositoryArgs struct {
 	// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
 	// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments pulumi.StringArrayInput
-	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
+	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrInput
 	// List of property set name
@@ -492,7 +492,7 @@ func (o DockerV1RepositoryOutput) ProjectEnvironments() pulumi.StringArrayOutput
 	return o.ApplyT(func(v *DockerV1Repository) pulumi.StringArrayOutput { return v.ProjectEnvironments }).(pulumi.StringArrayOutput)
 }
 
-// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
+// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
 // assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 func (o DockerV1RepositoryOutput) ProjectKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DockerV1Repository) pulumi.StringPtrOutput { return v.ProjectKey }).(pulumi.StringPtrOutput)

@@ -14,6 +14,11 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ArtifactPropertyWebhookCriteria {
     /**
+     * @return Trigger on any federated repo.
+     * 
+     */
+    private Boolean anyFederated;
+    /**
      * @return Trigger on any local repo.
      * 
      */
@@ -40,6 +45,13 @@ public final class ArtifactPropertyWebhookCriteria {
     private List<String> repoKeys;
 
     private ArtifactPropertyWebhookCriteria() {}
+    /**
+     * @return Trigger on any federated repo.
+     * 
+     */
+    public Boolean anyFederated() {
+        return this.anyFederated;
+    }
     /**
      * @return Trigger on any local repo.
      * 
@@ -85,6 +97,7 @@ public final class ArtifactPropertyWebhookCriteria {
     }
     @CustomType.Builder
     public static final class Builder {
+        private Boolean anyFederated;
         private Boolean anyLocal;
         private Boolean anyRemote;
         private @Nullable List<String> excludePatterns;
@@ -93,6 +106,7 @@ public final class ArtifactPropertyWebhookCriteria {
         public Builder() {}
         public Builder(ArtifactPropertyWebhookCriteria defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.anyFederated = defaults.anyFederated;
     	      this.anyLocal = defaults.anyLocal;
     	      this.anyRemote = defaults.anyRemote;
     	      this.excludePatterns = defaults.excludePatterns;
@@ -100,6 +114,14 @@ public final class ArtifactPropertyWebhookCriteria {
     	      this.repoKeys = defaults.repoKeys;
         }
 
+        @CustomType.Setter
+        public Builder anyFederated(Boolean anyFederated) {
+            if (anyFederated == null) {
+              throw new MissingRequiredPropertyException("ArtifactPropertyWebhookCriteria", "anyFederated");
+            }
+            this.anyFederated = anyFederated;
+            return this;
+        }
         @CustomType.Setter
         public Builder anyLocal(Boolean anyLocal) {
             if (anyLocal == null) {
@@ -147,6 +169,7 @@ public final class ArtifactPropertyWebhookCriteria {
         }
         public ArtifactPropertyWebhookCriteria build() {
             final var _resultValue = new ArtifactPropertyWebhookCriteria();
+            _resultValue.anyFederated = anyFederated;
             _resultValue.anyLocal = anyLocal;
             _resultValue.anyRemote = anyRemote;
             _resultValue.excludePatterns = excludePatterns;

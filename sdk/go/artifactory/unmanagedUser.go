@@ -40,7 +40,6 @@ import (
 //				Email: pulumi.String("test-user@artifactory-terraform.com"),
 //				Groups: pulumi.StringArray{
 //					pulumi.String("logged-in-users"),
-//					pulumi.String("readers"),
 //				},
 //				Password: pulumi.String("my super secret password"),
 //			})

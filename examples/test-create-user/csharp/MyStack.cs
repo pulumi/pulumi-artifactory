@@ -10,7 +10,7 @@ class MyStack : Stack
             Admin = false,
             DisableUiAccess = false,
             Email = "csharp-test-user@artifactory-terraform.com",
-            InternalPasswordDisabled = true,
+            InternalPasswordDisabled = false,
             ProfileUpdatable = true,
       });
     }

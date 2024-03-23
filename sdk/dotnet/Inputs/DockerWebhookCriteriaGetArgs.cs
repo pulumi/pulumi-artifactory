@@ -13,6 +13,12 @@ namespace Pulumi.Artifactory.Inputs
     public sealed class DockerWebhookCriteriaGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Trigger on any federated repo.
+        /// </summary>
+        [Input("anyFederated", required: true)]
+        public Input<bool> AnyFederated { get; set; } = null!;
+
+        /// <summary>
         /// Trigger on any local repo.
         /// </summary>
         [Input("anyLocal", required: true)]

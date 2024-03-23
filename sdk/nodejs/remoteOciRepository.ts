@@ -208,7 +208,7 @@ export class RemoteOciRepository extends pulumi.CustomResource {
      */
     public readonly projectId!: pulumi.Output<string | undefined>;
     /**
-     * Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
+     * Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
      * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      */
     public readonly projectKey!: pulumi.Output<string | undefined>;
@@ -544,7 +544,7 @@ export interface RemoteOciRepositoryState {
      */
     projectId?: pulumi.Input<string>;
     /**
-     * Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
+     * Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
      * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      */
     projectKey?: pulumi.Input<string>;
@@ -757,7 +757,7 @@ export interface RemoteOciRepositoryArgs {
      */
     projectId?: pulumi.Input<string>;
     /**
-     * Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
+     * Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
      * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      */
     projectKey?: pulumi.Input<string>;
