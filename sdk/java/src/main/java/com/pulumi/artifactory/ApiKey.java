@@ -66,10 +66,10 @@ public class ApiKey extends com.pulumi.resources.CustomResource {
      * The API key. Deprecated.
      * 
      * @deprecated
-     * Deprecated in favor of &#34;artifactory.ScopedToken&#34;.
+     * Deprecated in favor of &#34;artifactory_scoped_token&#34;.
      * 
      */
-    @Deprecated /* Deprecated in favor of ""artifactory.ScopedToken"". */
+    @Deprecated /* Deprecated in favor of ""artifactory_scoped_token"". */
     @Export(name="apiKey", refs={String.class}, tree="[0]")
     private Output<String> apiKey;
 
