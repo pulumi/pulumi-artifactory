@@ -62,7 +62,7 @@ export class ApiKey extends pulumi.CustomResource {
     /**
      * The API key. Deprecated.
      *
-     * @deprecated Deprecated in favor of "artifactory.ScopedToken".
+     * @deprecated Deprecated in favor of "artifactory_scoped_token".
      */
     public /*out*/ readonly apiKey!: pulumi.Output<string>;
 
@@ -98,7 +98,7 @@ export interface ApiKeyState {
     /**
      * The API key. Deprecated.
      *
-     * @deprecated Deprecated in favor of "artifactory.ScopedToken".
+     * @deprecated Deprecated in favor of "artifactory_scoped_token".
      */
     apiKey?: pulumi.Input<string>;
 }
