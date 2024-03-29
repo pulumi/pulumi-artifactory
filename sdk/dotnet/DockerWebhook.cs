@@ -72,9 +72,9 @@ namespace Pulumi.Artifactory
     ///         },
     ///     }, new CustomResourceOptions
     ///     {
-    ///         DependsOn = new[]
+    ///         DependsOn =
     ///         {
-    ///             my_docker_local,
+    ///             my_docker_local, 
     ///         },
     ///     });
     /// 

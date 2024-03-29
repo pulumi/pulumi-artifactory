@@ -46,6 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // Configure Artifactory SAML SSO settings
  *         var saml = new SamlSettings(&#34;saml&#34;, SamlSettingsArgs.builder()        
  *             .allowUserToAccessProfile(true)
  *             .autoRedirect(true)

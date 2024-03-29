@@ -47,6 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // Configure Artifactory LDAP setting
  *         var ldapGroupName = new LdapGroupSetting(&#34;ldapGroupName&#34;, LdapGroupSettingArgs.builder()        
  *             .descriptionAttribute(&#34;description&#34;)
  *             .filter(&#34;(objectClass=groupOfNames)&#34;)

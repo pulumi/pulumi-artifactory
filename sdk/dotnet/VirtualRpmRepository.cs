@@ -50,10 +50,10 @@ namespace Pulumi.Artifactory
     ///         SecondaryKeypairRef = secondary_keypair.PairName,
     ///     }, new CustomResourceOptions
     ///     {
-    ///         DependsOn = new[]
+    ///         DependsOn =
     ///         {
-    ///             primary_keypair,
-    ///             secondary_keypair,
+    ///             primary_keypair, 
+    ///             secondary_keypair, 
     ///         },
     ///     });
     /// 

@@ -45,6 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // Configure Artifactory general security settings
  *         var security = new GeneralSecurity(&#34;security&#34;, GeneralSecurityArgs.builder()        
  *             .enableAnonymousAccess(true)
  *             .build());

@@ -56,10 +56,10 @@ namespace Pulumi.Artifactory
     ///         TrivialLayout = true,
     ///     }, new CustomResourceOptions
     ///     {
-    ///         DependsOn = new[]
+    ///         DependsOn =
     ///         {
-    ///             some_keypairGPG1,
-    ///             some_keypairGPG2,
+    ///             some_keypairGPG1, 
+    ///             some_keypairGPG2, 
     ///         },
     ///     });
     /// 
