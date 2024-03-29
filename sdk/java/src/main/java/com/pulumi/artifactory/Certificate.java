@@ -44,11 +44,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // Create a new Artifactory certificate called my-cert
  *         var my_cert = new Certificate(&#34;my-cert&#34;, CertificateArgs.builder()        
  *             .alias(&#34;my-cert&#34;)
  *             .content(Files.readString(Paths.get(&#34;/path/to/bundle.pem&#34;)))
  *             .build());
  * 
+ *         // This can then be used by a remote repository
  *         var my_remote = new RemoteMavenRepository(&#34;my-remote&#34;, RemoteMavenRepositoryArgs.builder()        
  *             .clientTlsCertificate(my_cert.alias())
  *             .build());

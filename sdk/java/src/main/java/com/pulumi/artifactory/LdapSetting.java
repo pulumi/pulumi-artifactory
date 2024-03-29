@@ -48,6 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // Configure Artifactory LDAP setting
  *         var ldapName = new LdapSetting(&#34;ldapName&#34;, LdapSettingArgs.builder()        
  *             .allowUserToAccessProfile(false)
  *             .autoCreateUser(true)

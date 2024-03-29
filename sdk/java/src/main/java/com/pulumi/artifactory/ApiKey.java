@@ -44,6 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // Create a new Artifactory API key for the configured user
  *         var ci = new ApiKey(&#34;ci&#34;);
  * 
  *     }

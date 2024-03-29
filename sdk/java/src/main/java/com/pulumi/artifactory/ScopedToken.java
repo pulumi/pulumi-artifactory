@@ -53,10 +53,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         //## Create a new Artifactory scoped token for an existing user
  *         var scopedToken = new ScopedToken(&#34;scopedToken&#34;, ScopedTokenArgs.builder()        
  *             .username(&#34;existing-user&#34;)
  *             .build());
  * 
+ *         //## **Note:** This assumes that the user `existing-user` has already been created in Artifactory by different means, i.e. manually or in a separate pulumi up.
+ *         //## Create a new Artifactory user and scoped token
  *         var newUser = new User(&#34;newUser&#34;, UserArgs.builder()        
  *             .email(&#34;new_user@somewhere.com&#34;)
  *             .groups(&#34;readers&#34;)
@@ -66,25 +69,31 @@ import javax.annotation.Nullable;
  *             .username(newUser.name())
  *             .build());
  * 
+ *         //## Creates a new token for groups
  *         var scopedTokenGroup = new ScopedToken(&#34;scopedTokenGroup&#34;, ScopedTokenArgs.builder()        
  *             .scopes(&#34;applied-permissions/groups:readers&#34;)
  *             .build());
  * 
+ *         //## Create token with expiry
  *         var scopedTokenNoExpiry = new ScopedToken(&#34;scopedTokenNoExpiry&#34;, ScopedTokenArgs.builder()        
  *             .username(&#34;existing-user&#34;)
  *             .expiresIn(7200)
  *             .build());
  * 
+ *         // in seconds
+ *         //## Creates a refreshable token
  *         var scopedTokenRefreshable = new ScopedToken(&#34;scopedTokenRefreshable&#34;, ScopedTokenArgs.builder()        
  *             .username(&#34;existing-user&#34;)
  *             .refreshable(true)
  *             .build());
  * 
+ *         //## Creates an administrator token
  *         var admin = new ScopedToken(&#34;admin&#34;, ScopedTokenArgs.builder()        
  *             .username(&#34;admin-user&#34;)
  *             .scopes(&#34;applied-permissions/admin&#34;)
  *             .build());
  * 
+ *         //## Creates a token with an audience
  *         var audience = new ScopedToken(&#34;audience&#34;, ScopedTokenArgs.builder()        
  *             .username(&#34;admin-user&#34;)
  *             .scopes(&#34;applied-permissions/admin&#34;)

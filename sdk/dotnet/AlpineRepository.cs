@@ -39,9 +39,9 @@ namespace Pulumi.Artifactory
     ///         PrimaryKeypairRef = some_keypairRSA.PairName,
     ///     }, new CustomResourceOptions
     ///     {
-    ///         DependsOn = new[]
+    ///         DependsOn =
     ///         {
-    ///             some_keypairRSA,
+    ///             some_keypairRSA, 
     ///         },
     ///     });
     /// 

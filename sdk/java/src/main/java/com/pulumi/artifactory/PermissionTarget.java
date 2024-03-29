@@ -52,6 +52,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // Create a new Artifactory permission target called testpermission
  *         var test_perm = new PermissionTarget(&#34;test-perm&#34;, PermissionTargetArgs.builder()        
  *             .build(PermissionTargetBuildArgs.builder()
  *                 .actions(PermissionTargetBuildActionsArgs.builder()

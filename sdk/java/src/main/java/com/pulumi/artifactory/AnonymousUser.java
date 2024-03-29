@@ -37,6 +37,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // Define a new Artifactory &#39;anonymous&#39; user for import
  *         var anonymous = new AnonymousUser(&#34;anonymous&#34;);
  * 
  *     }
