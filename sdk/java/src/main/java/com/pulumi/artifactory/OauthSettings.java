@@ -48,6 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // Configure Artifactory OAuth SSO settings
  *         var oauth = new OauthSettings(&#34;oauth&#34;, OauthSettingsArgs.builder()        
  *             .allowUserToAccessProfile(true)
  *             .enable(true)

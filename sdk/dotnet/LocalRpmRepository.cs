@@ -53,10 +53,10 @@ namespace Pulumi.Artifactory
     ///         SecondaryKeypairRef = artifactory_keypair.Some_keypairGPG2.Pair_name,
     ///     }, new CustomResourceOptions
     ///     {
-    ///         DependsOn = new[]
+    ///         DependsOn =
     ///         {
-    ///             some_keypair_gpg_1,
-    ///             some_keypair_gpg_2,
+    ///             some_keypair_gpg_1, 
+    ///             some_keypair_gpg_2, 
     ///         },
     ///     });
     /// 

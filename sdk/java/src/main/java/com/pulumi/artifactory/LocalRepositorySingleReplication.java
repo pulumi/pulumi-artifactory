@@ -53,6 +53,7 @@ import javax.annotation.Nullable;
  *         final var artifactoryUrl = config.get(&#34;artifactoryUrl&#34;);
  *         final var artifactoryUsername = config.get(&#34;artifactoryUsername&#34;);
  *         final var artifactoryPassword = config.get(&#34;artifactoryPassword&#34;);
+ *         // Create a replication between two artifactory local repositories
  *         var providerTestSource = new LocalMavenRepository(&#34;providerTestSource&#34;, LocalMavenRepositoryArgs.builder()        
  *             .key(&#34;provider_test_source&#34;)
  *             .build());

@@ -75,9 +75,9 @@ namespace Pulumi.Artifactory
     ///         },
     ///     }, new CustomResourceOptions
     ///     {
-    ///         DependsOn = new[]
+    ///         DependsOn =
     ///         {
-    ///             my_generic_local,
+    ///             my_generic_local, 
     ///         },
     ///     });
     /// 
