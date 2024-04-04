@@ -1,0 +1,10 @@
+name: artifactory-backup-yaml
+runtime: yaml
+description: |
+  Regression test for https://github.com/pulumi/pulumi-artifactory/issues/672
+resources:
+  backup:
+    type: artifactory:Backup
+    properties:
+      cronExp: "* 5,7,9 14/2 ? * WED,SAT *"
+      key: "1,2,3"
