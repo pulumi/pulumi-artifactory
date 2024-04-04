@@ -1,4 +1,4 @@
-// Copyright 2016-2018, Pulumi Corporation.
+// Copyright 2016-2024, Pulumi Corporation.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -28,6 +28,7 @@ import (
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	tks "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/tokens"
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
 
 	"github.com/pulumi/pulumi-artifactory/provider/v6/pkg/version"
@@ -44,6 +45,37 @@ const (
 
 //go:embed cmd/pulumi-resource-artifactory/bridge-metadata.json
 var bridgeMetadata []byte
+
+type computeIDFunc = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error)
+
+func computeIDField(field resource.PropertyKey) computeIDFunc {
+	return func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
+		fieldValue, ok := state[field]
+		if !ok {
+			return "", fmt.Errorf("id: could not find required property '%s'", field)
+		}
+
+		// ComputeID is only called during when preview=false, so we don't need to
+		// deal with computed properties.
+
+		if fieldValue.IsSecret() || (fieldValue.IsOutput() && fieldValue.OutputValue().Secret) {
+			msg := fmt.Sprintf("Setting non-secret resource ID as '%s' (which is secret)", field)
+			tfbridge.GetLogger(ctx).Warn(msg)
+			if fieldValue.IsSecret() {
+				fieldValue = fieldValue.SecretValue().Element
+			} else {
+				fieldValue = fieldValue.OutputValue().Element
+			}
+		}
+
+		if !fieldValue.IsString() {
+			return "", fmt.Errorf("expected '%s' to be of type string, found %s",
+				field, fieldValue.TypeString())
+		}
+
+		return resource.ID(fieldValue.StringValue()), nil
+	}
+}
 
 // Provider returns additional overlaid schema and metadata associated with the provider..
 func Provider() tfbridge.ProviderInfo {
@@ -85,6 +117,8 @@ func Provider() tfbridge.ProviderInfo {
 					"api_key": {CSharpName: "Key"},
 				},
 			},
+
+			"artifactory_backup": {ComputeID: computeIDField("key")},
 
 			// Old Manual Mappings.
 			//
