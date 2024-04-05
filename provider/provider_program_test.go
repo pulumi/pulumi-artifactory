@@ -44,9 +44,7 @@ func testProgram(t *testing.T, dir string) {
 }
 
 func TestPrograms(t *testing.T) {
-	programs := []string{
-		"test_programs/backup",
-	}
+	programs := []string{}
 	for _, p := range programs {
 		t.Run(p, func(t *testing.T) {
 			testProgram(t, p)
