@@ -44,7 +44,20 @@ func testProgram(t *testing.T, dir string) {
 }
 
 func TestPrograms(t *testing.T) {
-	programs := []string{}
+	programs := []string{
+		"test-programs/index_AlpineRepository",
+		"test-programs/index_AnonymousUser",
+		"test-programs/index_ArtifactCustomWebhook",
+		"test-programs/index_ArtifactPropertyCustomWebhook",
+		"test-programs/index_ArtifactPropertyWebhook",
+		"test-programs/index_BuildWebhook",
+		"test-programs/index_Certificate",
+		"test-programs/index_DebianRepository",
+		"test-programs/index_DistributionCustomWebhook",
+		"test-programs/index_DistributionPublicKey",
+		"test-programs/index_FederatedAlpineRepository",
+		"test-programs/index_AccessToken",
+	}
 	for _, p := range programs {
 		t.Run(p, func(t *testing.T) {
 			testProgram(t, p)
