@@ -1,0 +1,92 @@
+{
+  "version": 3,
+  "deployment": {
+    "manifest": {
+      "time": "2024-04-10T11:55:57.173541+01:00",
+      "magic": "0e109972342b6ebd571fa6d2cffefcb95394f9c4f7bdd855463082d16126072c",
+      "version": "v3.111.1"
+    },
+    "secrets_providers": {
+      "type": "passphrase",
+      "state": {
+        "salt": "v1:uemHPzNxjKI=:v1:sC5Oa9gULkL21KP4:Vj9xNvKjgiPZRAZvyKil1OCBU+tg2Q=="
+      }
+    },
+    "resources": [
+      {
+        "urn": "urn:pulumi:test::index_AlpineRepositoryV3cipJRuW0Xm::pulumi:pulumi:Stack::index_AlpineRepositoryV3cipJRuW0Xm-test",
+        "custom": false,
+        "type": "pulumi:pulumi:Stack",
+        "created": "2024-04-10T10:55:55.925075Z",
+        "modified": "2024-04-10T10:55:55.925075Z"
+      },
+      {
+        "urn": "urn:pulumi:test::index_AlpineRepositoryV3cipJRuW0Xm::pulumi:providers:artifactory::default",
+        "custom": true,
+        "id": "fc59b6e4-d872-4a4b-9939-3d39e88b1765",
+        "type": "pulumi:providers:artifactory",
+        "inputs": {
+          "checkLicense": "false"
+        },
+        "outputs": {
+          "checkLicense": "false"
+        },
+        "created": "2024-04-10T10:55:56.011181Z",
+        "modified": "2024-04-10T10:55:56.011181Z"
+      },
+      {
+        "urn": "urn:pulumi:test::index_AlpineRepositoryV3cipJRuW0Xm::artifactory:index/alpineRepository:AlpineRepository::my_artifactory_alpine_repo",
+        "custom": true,
+        "id": "my-alpine-repository",
+        "type": "artifactory:index/alpineRepository:AlpineRepository",
+        "inputs": {
+          "__defaults": [
+            "blackedOut",
+            "cdnRedirect",
+            "priorityResolution",
+            "repoLayoutRef",
+            "xrayIndex"
+          ],
+          "blackedOut": false,
+          "cdnRedirect": false,
+          "excludesPattern": "",
+          "includesPattern": "**/*",
+          "key": "my-alpine-repository",
+          "priorityResolution": false,
+          "repoLayoutRef": "simple-default",
+          "xrayIndex": false
+        },
+        "outputs": {
+          "__meta": "{\"schema_version\":\"1\"}",
+          "archiveBrowsingEnabled": false,
+          "blackedOut": false,
+          "cdnRedirect": false,
+          "description": "",
+          "downloadDirect": false,
+          "excludesPattern": "",
+          "id": "my-alpine-repository",
+          "includesPattern": "**/*",
+          "key": "my-alpine-repository",
+          "notes": "",
+          "packageType": "alpine",
+          "primaryKeypairRef": "",
+          "priorityResolution": false,
+          "projectEnvironments": [],
+          "projectKey": "",
+          "propertySets": [],
+          "repoLayoutRef": "simple-default",
+          "xrayIndex": false
+        },
+        "parent": "urn:pulumi:test::index_AlpineRepositoryV3cipJRuW0Xm::pulumi:pulumi:Stack::index_AlpineRepositoryV3cipJRuW0Xm-test",
+        "provider": "urn:pulumi:test::index_AlpineRepositoryV3cipJRuW0Xm::pulumi:providers:artifactory::default::fc59b6e4-d872-4a4b-9939-3d39e88b1765",
+        "propertyDependencies": {
+          "excludesPattern": [],
+          "includesPattern": [],
+          "key": []
+        },
+        "created": "2024-04-10T10:55:57.173465Z",
+        "modified": "2024-04-10T10:55:57.173465Z"
+      }
+    ]
+  }
+}

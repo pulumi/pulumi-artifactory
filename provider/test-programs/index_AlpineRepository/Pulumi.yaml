@@ -1,0 +1,14 @@
+name: index_AlpineRepositoryV3cipJRuW0Xm
+runtime: yaml
+description: ""
+config:
+  pulumi:tags:
+    value:
+      pulumi:template: https://www.pulumi.com/ai/api/project/f675d323-090f-4dd6-9ff0-77bf2999392b.zip
+resources:
+  my_artifactory_alpine_repo:
+    properties:
+      excludesPattern: ""
+      includesPattern: "**/*"
+      key: my-alpine-repository
+    type: artifactory:AlpineRepository

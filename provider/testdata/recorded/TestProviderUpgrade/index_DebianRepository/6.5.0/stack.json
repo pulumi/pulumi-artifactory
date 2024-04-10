@@ -1,0 +1,97 @@
+{
+  "version": 3,
+  "deployment": {
+    "manifest": {
+      "time": "2024-04-10T11:55:48.350625+01:00",
+      "magic": "0e109972342b6ebd571fa6d2cffefcb95394f9c4f7bdd855463082d16126072c",
+      "version": "v3.111.1"
+    },
+    "secrets_providers": {
+      "type": "passphrase",
+      "state": {
+        "salt": "v1:QOadjFQZDD4=:v1:Ac/S7o76ecmjlBLR:i+iOKhvKss36Kq7W5FQ9S0wHjFQGuw=="
+      }
+    },
+    "resources": [
+      {
+        "urn": "urn:pulumi:test::index_DebianRepositoryaqEjOkndmsJ4::pulumi:pulumi:Stack::index_DebianRepositoryaqEjOkndmsJ4-test",
+        "custom": false,
+        "type": "pulumi:pulumi:Stack",
+        "created": "2024-04-10T10:55:47.026046Z",
+        "modified": "2024-04-10T10:55:47.026046Z"
+      },
+      {
+        "urn": "urn:pulumi:test::index_DebianRepositoryaqEjOkndmsJ4::pulumi:providers:artifactory::default",
+        "custom": true,
+        "id": "38ea8fed-1b5e-4848-8738-aab23715b9a9",
+        "type": "pulumi:providers:artifactory",
+        "inputs": {
+          "checkLicense": "false"
+        },
+        "outputs": {
+          "checkLicense": "false"
+        },
+        "created": "2024-04-10T10:55:47.136833Z",
+        "modified": "2024-04-10T10:55:47.136833Z"
+      },
+      {
+        "urn": "urn:pulumi:test::index_DebianRepositoryaqEjOkndmsJ4::artifactory:index/debianRepository:DebianRepository::debian_repo",
+        "custom": true,
+        "id": "my-debian-repository",
+        "type": "artifactory:index/debianRepository:DebianRepository",
+        "inputs": {
+          "__defaults": [
+            "blackedOut",
+            "cdnRedirect",
+            "priorityResolution",
+            "repoLayoutRef",
+            "xrayIndex"
+          ],
+          "blackedOut": false,
+          "cdnRedirect": false,
+          "excludesPattern": "",
+          "includesPattern": "**/*",
+          "key": "my-debian-repository",
+          "priorityResolution": false,
+          "repoLayoutRef": "simple-default",
+          "xrayIndex": false
+        },
+        "outputs": {
+          "__meta": "{\"schema_version\":\"1\"}",
+          "archiveBrowsingEnabled": false,
+          "blackedOut": false,
+          "cdnRedirect": false,
+          "description": "",
+          "downloadDirect": false,
+          "excludesPattern": "",
+          "id": "my-debian-repository",
+          "includesPattern": "**/*",
+          "indexCompressionFormats": [
+            "bz2"
+          ],
+          "key": "my-debian-repository",
+          "notes": "",
+          "packageType": "debian",
+          "primaryKeypairRef": "",
+          "priorityResolution": false,
+          "projectEnvironments": [],
+          "projectKey": "",
+          "propertySets": [],
+          "repoLayoutRef": "simple-default",
+          "secondaryKeypairRef": "",
+          "trivialLayout": false,
+          "xrayIndex": false
+        },
+        "parent": "urn:pulumi:test::index_DebianRepositoryaqEjOkndmsJ4::pulumi:pulumi:Stack::index_DebianRepositoryaqEjOkndmsJ4-test",
+        "provider": "urn:pulumi:test::index_DebianRepositoryaqEjOkndmsJ4::pulumi:providers:artifactory::default::38ea8fed-1b5e-4848-8738-aab23715b9a9",
+        "propertyDependencies": {
+          "excludesPattern": [],
+          "includesPattern": [],
+          "key": []
+        },
+        "created": "2024-04-10T10:55:48.350528Z",
+        "modified": "2024-04-10T10:55:48.350528Z"
+      }
+    ]
+  }
+}
