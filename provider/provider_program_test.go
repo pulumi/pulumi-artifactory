@@ -19,7 +19,7 @@ import (
 )
 
 const providerName = "artifactory"
-const defaultBaselineVersion = "6.4.5"
+const defaultBaselineVersion = "6.5.0"
 
 var programs = []string{
 	"test-programs/index_DebianRepository",
@@ -110,7 +110,6 @@ func TestPrograms(t *testing.T) {
 }
 
 func TestProgramsUpgrade(t *testing.T) {
-	t.Skipf("skip upgrade tests for now as we have not recorded them.")
 	for _, p := range programs {
 		t.Run(p, func(t *testing.T) {
 			testProviderUpgrade(t, p)
