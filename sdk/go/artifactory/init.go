@@ -227,6 +227,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &MavenRepository{}
 	case "artifactory:index/oauthSettings:OauthSettings":
 		r = &OauthSettings{}
+	case "artifactory:index/passwordExpirationPolicy:PasswordExpirationPolicy":
+		r = &PasswordExpirationPolicy{}
 	case "artifactory:index/permissionTarget:PermissionTarget":
 		r = &PermissionTarget{}
 	case "artifactory:index/propertySet:PropertySet":
@@ -325,6 +327,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &UnmanagedUser{}
 	case "artifactory:index/user:User":
 		r = &User{}
+	case "artifactory:index/userLockPolicy:UserLockPolicy":
+		r = &UserLockPolicy{}
 	case "artifactory:index/virtualAlpineRepository:VirtualAlpineRepository":
 		r = &VirtualAlpineRepository{}
 	case "artifactory:index/virtualBowerRepository:VirtualBowerRepository":
@@ -927,6 +931,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"artifactory",
+		"index/passwordExpirationPolicy",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
 		"index/permissionTarget",
 		&module{version},
 	)
@@ -1168,6 +1177,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"artifactory",
 		"index/user",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/userLockPolicy",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
