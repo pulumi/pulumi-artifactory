@@ -247,6 +247,7 @@ from .mail_server import *
 from .managed_user import *
 from .maven_repository import *
 from .oauth_settings import *
+from .password_expiration_policy import *
 from .permission_target import *
 from .property_set import *
 from .provider import *
@@ -297,6 +298,7 @@ from .scoped_token import *
 from .single_replication_config import *
 from .unmanaged_user import *
 from .user import *
+from .user_lock_policy import *
 from .virtual_alpine_repository import *
 from .virtual_bower_repository import *
 from .virtual_chef_repository import *
@@ -1163,6 +1165,14 @@ _utilities.register(
  },
  {
   "pkg": "artifactory",
+  "mod": "index/passwordExpirationPolicy",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/passwordExpirationPolicy:PasswordExpirationPolicy": "PasswordExpirationPolicy"
+  }
+ },
+ {
+  "pkg": "artifactory",
   "mod": "index/permissionTarget",
   "fqn": "pulumi_artifactory",
   "classes": {
@@ -1551,6 +1561,14 @@ _utilities.register(
   "fqn": "pulumi_artifactory",
   "classes": {
    "artifactory:index/user:User": "User"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/userLockPolicy",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/userLockPolicy:UserLockPolicy": "UserLockPolicy"
   }
  },
  {

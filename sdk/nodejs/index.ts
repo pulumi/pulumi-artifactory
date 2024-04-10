@@ -1215,6 +1215,11 @@ export type OauthSettings = import("./oauthSettings").OauthSettings;
 export const OauthSettings: typeof import("./oauthSettings").OauthSettings = null as any;
 utilities.lazyLoad(exports, ["OauthSettings"], () => require("./oauthSettings"));
 
+export { PasswordExpirationPolicyArgs, PasswordExpirationPolicyState } from "./passwordExpirationPolicy";
+export type PasswordExpirationPolicy = import("./passwordExpirationPolicy").PasswordExpirationPolicy;
+export const PasswordExpirationPolicy: typeof import("./passwordExpirationPolicy").PasswordExpirationPolicy = null as any;
+utilities.lazyLoad(exports, ["PasswordExpirationPolicy"], () => require("./passwordExpirationPolicy"));
+
 export { PermissionTargetArgs, PermissionTargetState } from "./permissionTarget";
 export type PermissionTarget = import("./permissionTarget").PermissionTarget;
 export const PermissionTarget: typeof import("./permissionTarget").PermissionTarget = null as any;
@@ -1464,6 +1469,11 @@ export { UserArgs, UserState } from "./user";
 export type User = import("./user").User;
 export const User: typeof import("./user").User = null as any;
 utilities.lazyLoad(exports, ["User"], () => require("./user"));
+
+export { UserLockPolicyArgs, UserLockPolicyState } from "./userLockPolicy";
+export type UserLockPolicy = import("./userLockPolicy").UserLockPolicy;
+export const UserLockPolicy: typeof import("./userLockPolicy").UserLockPolicy = null as any;
+utilities.lazyLoad(exports, ["UserLockPolicy"], () => require("./userLockPolicy"));
 
 export { VirtualAlpineRepositoryArgs, VirtualAlpineRepositoryState } from "./virtualAlpineRepository";
 export type VirtualAlpineRepository = import("./virtualAlpineRepository").VirtualAlpineRepository;
@@ -1820,6 +1830,8 @@ const _module = {
                 return new MavenRepository(name, <any>undefined, { urn })
             case "artifactory:index/oauthSettings:OauthSettings":
                 return new OauthSettings(name, <any>undefined, { urn })
+            case "artifactory:index/passwordExpirationPolicy:PasswordExpirationPolicy":
+                return new PasswordExpirationPolicy(name, <any>undefined, { urn })
             case "artifactory:index/permissionTarget:PermissionTarget":
                 return new PermissionTarget(name, <any>undefined, { urn })
             case "artifactory:index/propertySet:PropertySet":
@@ -1918,6 +1930,8 @@ const _module = {
                 return new UnmanagedUser(name, <any>undefined, { urn })
             case "artifactory:index/user:User":
                 return new User(name, <any>undefined, { urn })
+            case "artifactory:index/userLockPolicy:UserLockPolicy":
+                return new UserLockPolicy(name, <any>undefined, { urn })
             case "artifactory:index/virtualAlpineRepository:VirtualAlpineRepository":
                 return new VirtualAlpineRepository(name, <any>undefined, { urn })
             case "artifactory:index/virtualBowerRepository:VirtualBowerRepository":
@@ -2080,6 +2094,7 @@ pulumi.runtime.registerResourceModule("artifactory", "index/mailServer", _module
 pulumi.runtime.registerResourceModule("artifactory", "index/managedUser", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/mavenRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/oauthSettings", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/passwordExpirationPolicy", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/permissionTarget", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/propertySet", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/proxy", _module)
@@ -2129,6 +2144,7 @@ pulumi.runtime.registerResourceModule("artifactory", "index/scopedToken", _modul
 pulumi.runtime.registerResourceModule("artifactory", "index/singleReplicationConfig", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/unmanagedUser", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/user", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/userLockPolicy", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/virtualAlpineRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/virtualBowerRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/virtualChefRepository", _module)

@@ -1406,6 +1406,10 @@
                     }
                 }
             },
+            "artifactory_password_expiration_policy": {
+                "current": "artifactory:index/passwordExpirationPolicy:PasswordExpirationPolicy",
+                "majorVersion": 6
+            },
             "artifactory_permission_target": {
                 "current": "artifactory:index/permissionTarget:PermissionTarget",
                 "majorVersion": 6,
@@ -2214,6 +2218,10 @@
                         "maxItemsOne": false
                     }
                 }
+            },
+            "artifactory_user_lock_policy": {
+                "current": "artifactory:index/userLockPolicy:UserLockPolicy",
+                "majorVersion": 6
             },
             "artifactory_virtual_alpine_repository": {
                 "current": "artifactory:index/virtualAlpineRepository:VirtualAlpineRepository",
@@ -4691,6 +4699,7 @@
             "artifactory:index/managedUser:ManagedUser": 1,
             "artifactory:index/mavenRepository:MavenRepository": 0,
             "artifactory:index/oauthSettings:OauthSettings": 0,
+            "artifactory:index/passwordExpirationPolicy:PasswordExpirationPolicy": 1,
             "artifactory:index/permissionTarget:PermissionTarget": 0,
             "artifactory:index/propertySet:PropertySet": 0,
             "artifactory:index/proxy:Proxy": 1,
@@ -4740,6 +4749,7 @@
             "artifactory:index/singleReplicationConfig:SingleReplicationConfig": 0,
             "artifactory:index/unmanagedUser:UnmanagedUser": 0,
             "artifactory:index/user:User": 1,
+            "artifactory:index/userLockPolicy:UserLockPolicy": 1,
             "artifactory:index/virtualAlpineRepository:VirtualAlpineRepository": 0,
             "artifactory:index/virtualBowerRepository:VirtualBowerRepository": 0,
             "artifactory:index/virtualChefRepository:VirtualChefRepository": 0,
