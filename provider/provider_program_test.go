@@ -19,10 +19,9 @@ import (
 )
 
 const providerName = "artifactory"
-const defaultBaselineVersion = "6.4.4"
+const defaultBaselineVersion = "6.4.5"
 
 var programs = []string{
-	"test-programs/.DS_Store",
 	"test-programs/index_DebianRepository",
 	"test-programs/index_AlpineRepository",
 }
@@ -97,6 +96,7 @@ func testProgram(t *testing.T, dir string) {
 	require.NoError(t, err)
 	test := pulumitest.NewPulumiTest(t, dir,
 		opttest.LocalProviderPath(providerName, filepath.Join(cwd, "..", "bin")),
+		opttest.SkipInstall(),
 	)
 	test.Up()
 }
