@@ -10,8 +10,8 @@ replace (
 require (
 	github.com/jfrog/terraform-provider-artifactory/v10 v10.5.0
 	github.com/pulumi/providertest v0.0.11
-	github.com/pulumi/pulumi-terraform-bridge/pf v0.33.0
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.80.0
+	github.com/pulumi/pulumi-terraform-bridge/pf v0.33.1-0.20240411140837-dc17b1f7f141
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.80.1-0.20240411140837-dc17b1f7f141
 	github.com/pulumi/pulumi/sdk/v3 v3.112.0
 	github.com/stretchr/testify v1.9.0
 )
