@@ -165,14 +165,14 @@ public class UnmanagedUser extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="password", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> password;
+    private Output<String> password;
 
     /**
      * @return Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters.
      * 
      */
-    public Output<Optional<String>> password() {
-        return Codegen.optional(this.password);
+    public Output<String> password() {
+        return this.password;
     }
     /**
      * When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.

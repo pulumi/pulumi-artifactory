@@ -96,7 +96,7 @@ export class UnmanagedUser extends pulumi.CustomResource {
     /**
      * Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters.
      */
-    public readonly password!: pulumi.Output<string | undefined>;
+    public readonly password!: pulumi.Output<string>;
     /**
      * When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
      */
