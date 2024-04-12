@@ -112,15 +112,15 @@ public final class ManagedUserArgs extends com.pulumi.resources.ResourceArgs {
      * (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters
      * 
      */
-    @Import(name="password")
-    private @Nullable Output<String> password;
+    @Import(name="password", required=true)
+    private Output<String> password;
 
     /**
      * @return (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters
      * 
      */
-    public Optional<Output<String>> password() {
-        return Optional.ofNullable(this.password);
+    public Output<String> password() {
+        return this.password;
     }
 
     /**
@@ -311,7 +311,7 @@ public final class ManagedUserArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder password(@Nullable Output<String> password) {
+        public Builder password(Output<String> password) {
             $.password = password;
             return this;
         }
@@ -350,6 +350,9 @@ public final class ManagedUserArgs extends com.pulumi.resources.ResourceArgs {
         public ManagedUserArgs build() {
             if ($.email == null) {
                 throw new MissingRequiredPropertyException("ManagedUserArgs", "email");
+            }
+            if ($.password == null) {
+                throw new MissingRequiredPropertyException("ManagedUserArgs", "password");
             }
             return $;
         }

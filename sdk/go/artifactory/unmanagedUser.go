@@ -80,7 +80,7 @@ type UnmanagedUser struct {
 	// Username for user. May contain lowercase letters, numbers and symbols: '.-_@'
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters.
-	Password pulumi.StringPtrOutput `pulumi:"password"`
+	Password pulumi.StringOutput `pulumi:"password"`
 	// When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
 	ProfileUpdatable pulumi.BoolPtrOutput `pulumi:"profileUpdatable"`
 }
@@ -323,8 +323,8 @@ func (o UnmanagedUserOutput) Name() pulumi.StringOutput {
 }
 
 // Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters.
-func (o UnmanagedUserOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *UnmanagedUser) pulumi.StringPtrOutput { return v.Password }).(pulumi.StringPtrOutput)
+func (o UnmanagedUserOutput) Password() pulumi.StringOutput {
+	return o.ApplyT(func(v *UnmanagedUser) pulumi.StringOutput { return v.Password }).(pulumi.StringOutput)
 }
 
 // When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.

@@ -66,7 +66,7 @@ type ManagedUser struct {
 	// Username for user. May contain lowercase letters, numbers and symbols: '.-_@'
 	Name pulumi.StringOutput `pulumi:"name"`
 	// (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters
-	Password pulumi.StringPtrOutput `pulumi:"password"`
+	Password pulumi.StringOutput `pulumi:"password"`
 	// (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an administrator can update the password). There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.
 	ProfileUpdatable pulumi.BoolOutput `pulumi:"profileUpdatable"`
 }
@@ -81,8 +81,11 @@ func NewManagedUser(ctx *pulumi.Context,
 	if args.Email == nil {
 		return nil, errors.New("invalid value for required argument 'Email'")
 	}
+	if args.Password == nil {
+		return nil, errors.New("invalid value for required argument 'Password'")
+	}
 	if args.Password != nil {
-		args.Password = pulumi.ToSecret(args.Password).(pulumi.StringPtrInput)
+		args.Password = pulumi.ToSecret(args.Password).(pulumi.StringInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"password",
@@ -166,7 +169,7 @@ type managedUserArgs struct {
 	// Username for user. May contain lowercase letters, numbers and symbols: '.-_@'
 	Name *string `pulumi:"name"`
 	// (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters
-	Password *string `pulumi:"password"`
+	Password string `pulumi:"password"`
 	// (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an administrator can update the password). There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.
 	ProfileUpdatable *bool `pulumi:"profileUpdatable"`
 }
@@ -186,7 +189,7 @@ type ManagedUserArgs struct {
 	// Username for user. May contain lowercase letters, numbers and symbols: '.-_@'
 	Name pulumi.StringPtrInput
 	// (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters
-	Password pulumi.StringPtrInput
+	Password pulumi.StringInput
 	// (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an administrator can update the password). There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.
 	ProfileUpdatable pulumi.BoolPtrInput
 }
@@ -309,8 +312,8 @@ func (o ManagedUserOutput) Name() pulumi.StringOutput {
 }
 
 // (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters
-func (o ManagedUserOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ManagedUser) pulumi.StringPtrOutput { return v.Password }).(pulumi.StringPtrOutput)
+func (o ManagedUserOutput) Password() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedUser) pulumi.StringOutput { return v.Password }).(pulumi.StringOutput)
 }
 
 // (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an administrator can update the password). There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.

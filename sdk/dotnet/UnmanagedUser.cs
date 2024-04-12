@@ -99,7 +99,7 @@ namespace Pulumi.Artifactory
         /// Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters.
         /// </summary>
         [Output("password")]
-        public Output<string?> Password { get; private set; } = null!;
+        public Output<string> Password { get; private set; } = null!;
 
         /// <summary>
         /// When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.

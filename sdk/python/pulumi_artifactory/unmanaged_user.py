@@ -527,7 +527,7 @@ class UnmanagedUser(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def password(self) -> pulumi.Output[Optional[str]]:
+    def password(self) -> pulumi.Output[str]:
         """
         Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters.
         """
