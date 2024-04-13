@@ -29,6 +29,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AnonymousUser{}
 	case "artifactory:index/apiKey:ApiKey":
 		r = &ApiKey{}
+	case "artifactory:index/artifact:Artifact":
+		r = &Artifact{}
 	case "artifactory:index/artifactCustomWebhook:ArtifactCustomWebhook":
 		r = &ArtifactCustomWebhook{}
 	case "artifactory:index/artifactPropertyCustomWebhook:ArtifactPropertyCustomWebhook":
@@ -432,6 +434,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"artifactory",
 		"index/apiKey",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/artifact",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

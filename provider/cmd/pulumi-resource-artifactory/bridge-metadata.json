@@ -21,6 +21,10 @@
                 "current": "artifactory:index/apiKey:ApiKey",
                 "majorVersion": 6
             },
+            "artifactory_artifact": {
+                "current": "artifactory:index/artifact:Artifact",
+                "majorVersion": 6
+            },
             "artifactory_artifact_custom_webhook": {
                 "current": "artifactory:index/artifactCustomWebhook:ArtifactCustomWebhook",
                 "majorVersion": 6,
@@ -4600,6 +4604,7 @@
             "artifactory:index/alpineRepository:AlpineRepository": 0,
             "artifactory:index/anonymousUser:AnonymousUser": 1,
             "artifactory:index/apiKey:ApiKey": 0,
+            "artifactory:index/artifact:Artifact": 1,
             "artifactory:index/artifactCustomWebhook:ArtifactCustomWebhook": 0,
             "artifactory:index/artifactPropertyCustomWebhook:ArtifactPropertyCustomWebhook": 0,
             "artifactory:index/artifactPropertyWebhook:ArtifactPropertyWebhook": 0,
