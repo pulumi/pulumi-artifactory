@@ -9,6 +9,7 @@ from .access_token import *
 from .alpine_repository import *
 from .anonymous_user import *
 from .api_key import *
+from .artifact import *
 from .artifact_custom_webhook import *
 from .artifact_property_custom_webhook import *
 from .artifact_property_webhook import *
@@ -369,6 +370,14 @@ _utilities.register(
   "fqn": "pulumi_artifactory",
   "classes": {
    "artifactory:index/apiKey:ApiKey": "ApiKey"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/artifact",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/artifact:Artifact": "Artifact"
   }
  },
  {
