@@ -33,12 +33,12 @@ import (
 //				Key: pulumi.String("terraform-federated-test-vagrant-repo"),
 //				Members: artifactory.FederatedVagrantRepositoryMemberArray{
 //					&artifactory.FederatedVagrantRepositoryMemberArgs{
-//						Enabled: pulumi.Bool(true),
 //						Url:     pulumi.String("http://tempurl.org/artifactory/terraform-federated-test-vagrant-repo"),
+//						Enabled: pulumi.Bool(true),
 //					},
 //					&artifactory.FederatedVagrantRepositoryMemberArgs{
-//						Enabled: pulumi.Bool(true),
 //						Url:     pulumi.String("http://tempurl2.org/artifactory/terraform-federated-test-vagrant-repo-2"),
+//						Enabled: pulumi.Bool(true),
 //					},
 //				},
 //			})

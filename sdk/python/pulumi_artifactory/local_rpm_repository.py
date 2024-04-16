@@ -808,40 +808,6 @@ class LocalRpmRepository(pulumi.CustomResource):
         """
         Creates a local RPM repository.
 
-        ## Example Usage
-
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        import pulumi_artifactory as artifactory
-
-        some_keypair_gpg_1 = artifactory.Keypair("some-keypair-gpg-1",
-            pair_name=f"some-keypair{random_id['randid']['id']}",
-            pair_type="GPG",
-            alias="foo-alias1",
-            private_key=(lambda path: open(path).read())("samples/gpg.priv"),
-            public_key=(lambda path: open(path).read())("samples/gpg.pub"))
-        some_keypair_gpg_2 = artifactory.Keypair("some-keypair-gpg-2",
-            pair_name=f"some-keypair{random_id['randid']['id']}",
-            pair_type="GPG",
-            alias="foo-alias2",
-            private_key=(lambda path: open(path).read())("samples/gpg.priv"),
-            public_key=(lambda path: open(path).read())("samples/gpg.pub"))
-        terraform_local_test_rpm_repo_basic = artifactory.LocalRpmRepository("terraform-local-test-rpm-repo-basic",
-            key="terraform-local-test-rpm-repo-basic",
-            yum_root_depth=5,
-            calculate_yum_metadata=True,
-            enable_file_lists_indexing=True,
-            yum_group_file_names="file-1.xml,file-2.xml",
-            primary_keypair_ref=artifactory_keypair["some-keypairGPG1"]["pair_name"],
-            secondary_keypair_ref=artifactory_keypair["some-keypairGPG2"]["pair_name"],
-            opts=pulumi.ResourceOptions(depends_on=[
-                    some_keypair_gpg_1,
-                    some_keypair_gpg_2,
-                ]))
-        ```
-        <!--End PulumiCodeChooser -->
-
         ## Import
 
         Local repositories can be imported using their name, e.g.
@@ -899,40 +865,6 @@ class LocalRpmRepository(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Creates a local RPM repository.
-
-        ## Example Usage
-
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        import pulumi_artifactory as artifactory
-
-        some_keypair_gpg_1 = artifactory.Keypair("some-keypair-gpg-1",
-            pair_name=f"some-keypair{random_id['randid']['id']}",
-            pair_type="GPG",
-            alias="foo-alias1",
-            private_key=(lambda path: open(path).read())("samples/gpg.priv"),
-            public_key=(lambda path: open(path).read())("samples/gpg.pub"))
-        some_keypair_gpg_2 = artifactory.Keypair("some-keypair-gpg-2",
-            pair_name=f"some-keypair{random_id['randid']['id']}",
-            pair_type="GPG",
-            alias="foo-alias2",
-            private_key=(lambda path: open(path).read())("samples/gpg.priv"),
-            public_key=(lambda path: open(path).read())("samples/gpg.pub"))
-        terraform_local_test_rpm_repo_basic = artifactory.LocalRpmRepository("terraform-local-test-rpm-repo-basic",
-            key="terraform-local-test-rpm-repo-basic",
-            yum_root_depth=5,
-            calculate_yum_metadata=True,
-            enable_file_lists_indexing=True,
-            yum_group_file_names="file-1.xml,file-2.xml",
-            primary_keypair_ref=artifactory_keypair["some-keypairGPG1"]["pair_name"],
-            secondary_keypair_ref=artifactory_keypair["some-keypairGPG2"]["pair_name"],
-            opts=pulumi.ResourceOptions(depends_on=[
-                    some_keypair_gpg_1,
-                    some_keypair_gpg_2,
-                ]))
-        ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -26,30 +26,30 @@ namespace Pulumi.Artifactory
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Create a replication between two artifactory local repositories
-    ///     var providerTestSource = new Artifactory.LocalMavenRepository("providerTestSource", new()
+    ///     var providerTestSource = new Artifactory.LocalMavenRepository("provider_test_source", new()
     ///     {
     ///         Key = "provider_test_source",
     ///     });
     /// 
-    ///     var providerTestDest = new Artifactory.LocalMavenRepository("providerTestDest", new()
+    ///     var providerTestDest = new Artifactory.LocalMavenRepository("provider_test_dest", new()
     ///     {
     ///         Key = "provider_test_dest",
     ///     });
     /// 
     ///     var foo_rep = new Artifactory.ReplicationConfig("foo-rep", new()
     ///     {
+    ///         RepoKey = providerTestSource.Key,
     ///         CronExp = "0 0 * * * ?",
     ///         EnableEventReplication = true,
     ///         Replications = new[]
     ///         {
     ///             new Artifactory.Inputs.ReplicationConfigReplicationArgs
     ///             {
-    ///                 Password = "$var.artifactory_password",
     ///                 Url = "$var.artifactory_url",
     ///                 Username = "$var.artifactory_username",
+    ///                 Password = "$var.artifactory_password",
     ///             },
     ///         },
-    ///         RepoKey = providerTestSource.Key,
     ///     });
     /// 
     /// });

@@ -49,9 +49,9 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var my_remote_vcs = new RemoteVcsRepository(&#34;my-remote-vcs&#34;, RemoteVcsRepositoryArgs.builder()        
  *             .key(&#34;my-remote-vcs&#34;)
- *             .maxUniqueSnapshots(5)
  *             .url(&#34;https://github.com/&#34;)
  *             .vcsGitProvider(&#34;GITHUB&#34;)
+ *             .maxUniqueSnapshots(5)
  *             .build());
  * 
  *     }

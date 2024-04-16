@@ -824,12 +824,12 @@ class FederatedHelmociRepository(pulumi.CustomResource):
             key="my-helmoci-federated",
             members=[
                 artifactory.FederatedHelmociRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl.org/artifactory/my-helmoci-federated",
+                    enabled=True,
                 ),
                 artifactory.FederatedHelmociRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl2.org/artifactory/my-helmoci-federated-2",
+                    enabled=True,
                 ),
             ])
         ```
@@ -905,12 +905,12 @@ class FederatedHelmociRepository(pulumi.CustomResource):
             key="my-helmoci-federated",
             members=[
                 artifactory.FederatedHelmociRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl.org/artifactory/my-helmoci-federated",
+                    enabled=True,
                 ),
                 artifactory.FederatedHelmociRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl2.org/artifactory/my-helmoci-federated-2",
+                    enabled=True,
                 ),
             ])
         ```

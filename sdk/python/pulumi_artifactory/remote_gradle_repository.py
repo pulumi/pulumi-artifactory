@@ -1786,12 +1786,12 @@ class RemoteGradleRepository(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         gradle_remote = artifactory.RemoteGradleRepository("gradle-remote",
+            key="gradle-remote-foo",
+            url="https://repo1.maven.org/maven2/",
             fetch_jars_eagerly=True,
             fetch_sources_eagerly=False,
-            key="gradle-remote-foo",
-            reject_invalid_jars=True,
             suppress_pom_consistency_checks=True,
-            url="https://repo1.maven.org/maven2/")
+            reject_invalid_jars=True)
         ```
         <!--End PulumiCodeChooser -->
 
@@ -1905,12 +1905,12 @@ class RemoteGradleRepository(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         gradle_remote = artifactory.RemoteGradleRepository("gradle-remote",
+            key="gradle-remote-foo",
+            url="https://repo1.maven.org/maven2/",
             fetch_jars_eagerly=True,
             fetch_sources_eagerly=False,
-            key="gradle-remote-foo",
-            reject_invalid_jars=True,
             suppress_pom_consistency_checks=True,
-            url="https://repo1.maven.org/maven2/")
+            reject_invalid_jars=True)
         ```
         <!--End PulumiCodeChooser -->
 

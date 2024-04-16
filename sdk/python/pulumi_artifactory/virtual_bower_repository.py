@@ -549,13 +549,13 @@ class VirtualBowerRepository(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         foo_bower = artifactory.VirtualBowerRepository("foo-bower",
-            description="A test virtual repo",
-            excludes_pattern="com/google/**",
-            external_dependencies_enabled=False,
-            includes_pattern="com/jfrog/**,cloud/jfrog/**",
             key="foo-bower",
+            repositories=[],
+            description="A test virtual repo",
             notes="Internal description",
-            repositories=[])
+            includes_pattern="com/jfrog/**,cloud/jfrog/**",
+            excludes_pattern="com/google/**",
+            external_dependencies_enabled=False)
         ```
         <!--End PulumiCodeChooser -->
 
@@ -609,13 +609,13 @@ class VirtualBowerRepository(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         foo_bower = artifactory.VirtualBowerRepository("foo-bower",
-            description="A test virtual repo",
-            excludes_pattern="com/google/**",
-            external_dependencies_enabled=False,
-            includes_pattern="com/jfrog/**,cloud/jfrog/**",
             key="foo-bower",
+            repositories=[],
+            description="A test virtual repo",
             notes="Internal description",
-            repositories=[])
+            includes_pattern="com/jfrog/**,cloud/jfrog/**",
+            excludes_pattern="com/google/**",
+            external_dependencies_enabled=False)
         ```
         <!--End PulumiCodeChooser -->
 

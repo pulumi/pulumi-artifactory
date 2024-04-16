@@ -29,16 +29,16 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.NewFederatedTerraformModuleRepository(ctx, "terraform-federated-test-terraformModule-repo", &artifactory.FederatedTerraformModuleRepositoryArgs{
+//			_, err := artifactory.NewFederatedTerraformModuleRepository(ctx, "terraform-federated-test-terraform_module-repo", &artifactory.FederatedTerraformModuleRepositoryArgs{
 //				Key: pulumi.String("terraform-federated-test-terraform-module-repo"),
 //				Members: artifactory.FederatedTerraformModuleRepositoryMemberArray{
 //					&artifactory.FederatedTerraformModuleRepositoryMemberArgs{
-//						Enabled: pulumi.Bool(true),
 //						Url:     pulumi.String("http://tempurl.org/artifactory/terraform-federated-test-terraform_module-repo"),
+//						Enabled: pulumi.Bool(true),
 //					},
 //					&artifactory.FederatedTerraformModuleRepositoryMemberArgs{
-//						Enabled: pulumi.Bool(true),
 //						Url:     pulumi.String("http://tempurl2.org/artifactory/terraform-federated-test-terraform_module-repo-2"),
+//						Enabled: pulumi.Bool(true),
 //					},
 //				},
 //			})

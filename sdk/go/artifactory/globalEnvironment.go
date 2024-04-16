@@ -28,7 +28,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.NewGlobalEnvironment(ctx, "test-env", nil)
+//			_, err := artifactory.NewGlobalEnvironment(ctx, "test-env", &artifactory.GlobalEnvironmentArgs{
+//				Name: pulumi.String("test-env"),
+//			})
 //			if err != nil {
 //				return err
 //			}

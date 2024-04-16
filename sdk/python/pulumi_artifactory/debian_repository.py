@@ -734,42 +734,6 @@ class DebianRepository(pulumi.CustomResource):
         """
         Creates a local Debian repository and allows for the creation of a GPG key.
 
-        ## Example Usage
-
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        import pulumi_artifactory as artifactory
-
-        some_keypair_gpg1 = artifactory.Keypair("some-keypairGPG1",
-            pair_name=f"some-keypair{random_id['randid']['id']}",
-            pair_type="GPG",
-            alias="foo-alias1",
-            private_key=(lambda path: open(path).read())("samples/gpg.priv"),
-            public_key=(lambda path: open(path).read())("samples/gpg.pub"))
-        some_keypair_gpg2 = artifactory.Keypair("some-keypairGPG2",
-            pair_name=f"some-keypair4{random_id['randid']['id']}",
-            pair_type="GPG",
-            alias="foo-alias2",
-            private_key=(lambda path: open(path).read())("samples/gpg.priv"),
-            public_key=(lambda path: open(path).read())("samples/gpg.pub"))
-        my_debian_repo = artifactory.DebianRepository("my-debian-repo",
-            key="my-debian-repo",
-            primary_keypair_ref=some_keypair_gpg1.pair_name,
-            secondary_keypair_ref=some_keypair_gpg2.pair_name,
-            index_compression_formats=[
-                "bz2",
-                "lzma",
-                "xz",
-            ],
-            trivial_layout=True,
-            opts=pulumi.ResourceOptions(depends_on=[
-                    some_keypair_gpg1,
-                    some_keypair_gpg2,
-                ]))
-        ```
-        <!--End PulumiCodeChooser -->
-
         ## Import
 
         Local repositories can be imported using their name, e.g.
@@ -820,42 +784,6 @@ class DebianRepository(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Creates a local Debian repository and allows for the creation of a GPG key.
-
-        ## Example Usage
-
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        import pulumi_artifactory as artifactory
-
-        some_keypair_gpg1 = artifactory.Keypair("some-keypairGPG1",
-            pair_name=f"some-keypair{random_id['randid']['id']}",
-            pair_type="GPG",
-            alias="foo-alias1",
-            private_key=(lambda path: open(path).read())("samples/gpg.priv"),
-            public_key=(lambda path: open(path).read())("samples/gpg.pub"))
-        some_keypair_gpg2 = artifactory.Keypair("some-keypairGPG2",
-            pair_name=f"some-keypair4{random_id['randid']['id']}",
-            pair_type="GPG",
-            alias="foo-alias2",
-            private_key=(lambda path: open(path).read())("samples/gpg.priv"),
-            public_key=(lambda path: open(path).read())("samples/gpg.pub"))
-        my_debian_repo = artifactory.DebianRepository("my-debian-repo",
-            key="my-debian-repo",
-            primary_keypair_ref=some_keypair_gpg1.pair_name,
-            secondary_keypair_ref=some_keypair_gpg2.pair_name,
-            index_compression_formats=[
-                "bz2",
-                "lzma",
-                "xz",
-            ],
-            trivial_layout=True,
-            opts=pulumi.ResourceOptions(depends_on=[
-                    some_keypair_gpg1,
-                    some_keypair_gpg2,
-                ]))
-        ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

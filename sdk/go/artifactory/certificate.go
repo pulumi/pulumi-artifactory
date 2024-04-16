@@ -14,53 +14,6 @@ import (
 
 // Provides an Artifactory certificate resource. This can be used to create and manage Artifactory certificates which can be used as client authentication against remote repositories.
 //
-// ## Example Usage
-//
-// <!--Start PulumiCodeChooser -->
-// ```go
-// package main
-//
-// import (
-//
-//	"os"
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v6/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			// Create a new Artifactory certificate called my-cert
-//			_, err := artifactory.NewCertificate(ctx, "my-cert", &artifactory.CertificateArgs{
-//				Alias:   pulumi.String("my-cert"),
-//				Content: readFileOrPanic("/path/to/bundle.pem"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			// This can then be used by a remote repository
-//			_, err = artifactory.NewRemoteMavenRepository(ctx, "my-remote", &artifactory.RemoteMavenRepositoryArgs{
-//				ClientTlsCertificate: my_cert.Alias,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// <!--End PulumiCodeChooser -->
-//
 // ## Import
 //
 // Certificates can be imported using their alias, e.g.

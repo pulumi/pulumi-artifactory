@@ -443,24 +443,6 @@ class VirtualSwiftRepository(pulumi.CustomResource):
         Creates a virtual Swift repository.
         Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Swift+Repositories#SwiftRepositories-VirtualRepositories).
 
-        ## Example Usage
-
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        import pulumi_swift as swift
-
-        foo_conan = swift.index.Swift("foo-conan",
-            key=foo-conan,
-            repo_layout_ref=swift-default,
-            repositories=[],
-            description=A test virtual repo,
-            notes=Internal description,
-            includes_pattern=com/jfrog/**,cloud/jfrog/**,
-            excludes_pattern=com/google/**)
-        ```
-        <!--End PulumiCodeChooser -->
-
         ## Import
 
         Virtual repositories can be imported using their name, e.g.
@@ -500,24 +482,6 @@ class VirtualSwiftRepository(pulumi.CustomResource):
         """
         Creates a virtual Swift repository.
         Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Swift+Repositories#SwiftRepositories-VirtualRepositories).
-
-        ## Example Usage
-
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        import pulumi_swift as swift
-
-        foo_conan = swift.index.Swift("foo-conan",
-            key=foo-conan,
-            repo_layout_ref=swift-default,
-            repositories=[],
-            description=A test virtual repo,
-            notes=Internal description,
-            includes_pattern=com/jfrog/**,cloud/jfrog/**,
-            excludes_pattern=com/google/**)
-        ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

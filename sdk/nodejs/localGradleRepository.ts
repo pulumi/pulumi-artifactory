@@ -15,12 +15,12 @@ import * as utilities from "./utilities";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * const terraform_local_test_gradle_repo_basic = new artifactory.LocalGradleRepository("terraform-local-test-gradle-repo-basic", {
+ *     key: "terraform-local-test-gradle-repo-basic",
  *     checksumPolicyType: "client-checksums",
+ *     snapshotVersionBehavior: "unique",
+ *     maxUniqueSnapshots: 10,
  *     handleReleases: true,
  *     handleSnapshots: true,
- *     key: "terraform-local-test-gradle-repo-basic",
- *     maxUniqueSnapshots: 10,
- *     snapshotVersionBehavior: "unique",
  *     suppressPomConsistencyChecks: true,
  * });
  * ```

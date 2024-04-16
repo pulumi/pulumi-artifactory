@@ -16,18 +16,18 @@ import * as utilities from "./utilities";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * const baz_go = new artifactory.GoRepository("baz-go", {
+ *     key: "baz-go",
+ *     repoLayoutRef: "go-default",
+ *     repositories: [],
  *     description: "A test virtual repo",
+ *     notes: "Internal description",
+ *     includesPattern: "com/jfrog/**,cloud/jfrog/**",
  *     excludesPattern: "com/google/**",
  *     externalDependenciesEnabled: true,
  *     externalDependenciesPatterns: [
  *         "**&#47;github.com/**",
  *         "**&#47;go.googlesource.com/**",
  *     ],
- *     includesPattern: "com/jfrog/**,cloud/jfrog/**",
- *     key: "baz-go",
- *     notes: "Internal description",
- *     repoLayoutRef: "go-default",
- *     repositories: [],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

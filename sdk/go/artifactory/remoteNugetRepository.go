@@ -31,12 +31,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewRemoteNugetRepository(ctx, "my-remote-nuget", &artifactory.RemoteNugetRepositoryArgs{
+//				Key:                      pulumi.String("my-remote-nuget"),
+//				Url:                      pulumi.String("https://www.nuget.org/"),
 //				DownloadContextPath:      pulumi.String("api/v2/package"),
 //				ForceNugetAuthentication: pulumi.Bool(true),
-//				Key:                      pulumi.String("my-remote-nuget"),
-//				SymbolServerUrl:          pulumi.String("https://symbols.nuget.org/download/symbols"),
-//				Url:                      pulumi.String("https://www.nuget.org/"),
 //				V3FeedUrl:                pulumi.String("https://api.nuget.org/v3/index.json"),
+//				SymbolServerUrl:          pulumi.String("https://symbols.nuget.org/download/symbols"),
 //			})
 //			if err != nil {
 //				return err

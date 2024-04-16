@@ -672,9 +672,9 @@ class LocalNugetRepository(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         terraform_local_test_nuget_repo_basic = artifactory.LocalNugetRepository("terraform-local-test-nuget-repo-basic",
-            force_nuget_authentication=True,
             key="terraform-local-test-nuget-repo-basic",
-            max_unique_snapshots=5)
+            max_unique_snapshots=5,
+            force_nuget_authentication=True)
         ```
         <!--End PulumiCodeChooser -->
 
@@ -737,9 +737,9 @@ class LocalNugetRepository(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         terraform_local_test_nuget_repo_basic = artifactory.LocalNugetRepository("terraform-local-test-nuget-repo-basic",
-            force_nuget_authentication=True,
             key="terraform-local-test-nuget-repo-basic",
-            max_unique_snapshots=5)
+            max_unique_snapshots=5,
+            force_nuget_authentication=True)
         ```
         <!--End PulumiCodeChooser -->
 

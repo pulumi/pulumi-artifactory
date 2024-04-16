@@ -1672,9 +1672,9 @@ class RemoteVcsRepository(pulumi.CustomResource):
 
         my_remote_vcs = artifactory.RemoteVcsRepository("my-remote-vcs",
             key="my-remote-vcs",
-            max_unique_snapshots=5,
             url="https://github.com/",
-            vcs_git_provider="GITHUB")
+            vcs_git_provider="GITHUB",
+            max_unique_snapshots=5)
         ```
         <!--End PulumiCodeChooser -->
 
@@ -1790,9 +1790,9 @@ class RemoteVcsRepository(pulumi.CustomResource):
 
         my_remote_vcs = artifactory.RemoteVcsRepository("my-remote-vcs",
             key="my-remote-vcs",
-            max_unique_snapshots=5,
             url="https://github.com/",
-            vcs_git_provider="GITHUB")
+            vcs_git_provider="GITHUB",
+            max_unique_snapshots=5)
         ```
         <!--End PulumiCodeChooser -->
 

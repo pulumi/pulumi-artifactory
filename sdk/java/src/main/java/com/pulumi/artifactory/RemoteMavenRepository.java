@@ -47,13 +47,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var maven_remote = new RemoteMavenRepository(&#34;maven-remote&#34;, RemoteMavenRepositoryArgs.builder()        
+ *             .key(&#34;maven-remote-foo&#34;)
+ *             .url(&#34;https://repo1.maven.org/maven2/&#34;)
  *             .fetchJarsEagerly(true)
  *             .fetchSourcesEagerly(false)
- *             .key(&#34;maven-remote-foo&#34;)
- *             .metadataRetrievalTimeoutSecs(120)
- *             .rejectInvalidJars(true)
  *             .suppressPomConsistencyChecks(false)
- *             .url(&#34;https://repo1.maven.org/maven2/&#34;)
+ *             .rejectInvalidJars(true)
+ *             .metadataRetrievalTimeoutSecs(120)
  *             .build());
  * 
  *     }

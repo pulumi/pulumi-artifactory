@@ -562,13 +562,13 @@ class VirtualSbtRepository(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         foo_sbt = artifactory.VirtualSbtRepository("foo-sbt",
-            description="A test virtual repo",
-            excludes_pattern="com/google/**",
-            includes_pattern="com/jfrog/**,cloud/jfrog/**",
             key="foo-sbt",
+            repositories=[],
+            description="A test virtual repo",
             notes="Internal description",
-            pom_repository_references_cleanup_policy="discard_active_reference",
-            repositories=[])
+            includes_pattern="com/jfrog/**,cloud/jfrog/**",
+            excludes_pattern="com/google/**",
+            pom_repository_references_cleanup_policy="discard_active_reference")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -626,13 +626,13 @@ class VirtualSbtRepository(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         foo_sbt = artifactory.VirtualSbtRepository("foo-sbt",
-            description="A test virtual repo",
-            excludes_pattern="com/google/**",
-            includes_pattern="com/jfrog/**,cloud/jfrog/**",
             key="foo-sbt",
+            repositories=[],
+            description="A test virtual repo",
             notes="Internal description",
-            pom_repository_references_cleanup_policy="discard_active_reference",
-            repositories=[])
+            includes_pattern="com/jfrog/**,cloud/jfrog/**",
+            excludes_pattern="com/google/**",
+            pom_repository_references_cleanup_policy="discard_active_reference")
         ```
         <!--End PulumiCodeChooser -->
 

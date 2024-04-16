@@ -31,12 +31,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewRemoteSbtRepository(ctx, "sbt-remote", &artifactory.RemoteSbtRepositoryArgs{
+//				Key:                          pulumi.String("sbt-remote-foo"),
+//				Url:                          pulumi.String("https://repo1.maven.org/maven2/"),
 //				FetchJarsEagerly:             pulumi.Bool(true),
 //				FetchSourcesEagerly:          pulumi.Bool(false),
-//				Key:                          pulumi.String("sbt-remote-foo"),
-//				RejectInvalidJars:            pulumi.Bool(true),
 //				SuppressPomConsistencyChecks: pulumi.Bool(true),
-//				Url:                          pulumi.String("https://repo1.maven.org/maven2/"),
+//				RejectInvalidJars:            pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err

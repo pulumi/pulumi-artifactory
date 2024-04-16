@@ -59,14 +59,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var foo_rep = new ReplicationConfig(&#34;foo-rep&#34;, ReplicationConfigArgs.builder()        
+ *             .repoKey(providerTestSource.key())
  *             .cronExp(&#34;0 0 * * * ?&#34;)
  *             .enableEventReplication(true)
  *             .replications(ReplicationConfigReplicationArgs.builder()
- *                 .password(&#34;$var.artifactory_password&#34;)
  *                 .url(&#34;$var.artifactory_url&#34;)
  *                 .username(&#34;$var.artifactory_username&#34;)
+ *                 .password(&#34;$var.artifactory_password&#34;)
  *                 .build())
- *             .repoKey(providerTestSource.key())
  *             .build());
  * 
  *     }

@@ -17,30 +17,30 @@ import * as utilities from "./utilities";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * const build_custom_webhook = new artifactory.BuildCustomWebhook("build-custom-webhook", {
- *     criteria: {
- *         anyBuild: true,
- *         excludePatterns: ["bar/**"],
- *         includePatterns: ["foo/**"],
- *         selectedBuilds: ["build-id"],
- *     },
+ *     key: "build-custom-webhook",
  *     eventTypes: [
  *         "uploaded",
  *         "deleted",
  *         "promoted",
  *     ],
+ *     criteria: {
+ *         anyBuild: true,
+ *         selectedBuilds: ["build-id"],
+ *         includePatterns: ["foo/**"],
+ *         excludePatterns: ["bar/**"],
+ *     },
  *     handlers: [{
+ *         url: "https://tempurl.org",
+ *         secrets: {
+ *             secretName1: "value1",
+ *             secretName2: "value2",
+ *         },
  *         httpHeaders: {
  *             headerName1: "value1",
  *             headerName2: "value2",
  *         },
  *         payload: "{ \"ref\": \"main\" , \"inputs\": { \"artifact_path\": \"test-repo/repo-path\" } }",
- *         secrets: {
- *             secretName1: "value1",
- *             secretName2: "value2",
- *         },
- *         url: "https://tempurl.org",
  *     }],
- *     key: "build-custom-webhook",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

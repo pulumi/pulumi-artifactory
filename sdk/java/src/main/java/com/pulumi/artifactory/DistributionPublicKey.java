@@ -18,40 +18,6 @@ import javax.annotation.Nullable;
  * 
  * See [API description](https://jfrog.com/help/r/jfrog-rest-apis/set-distributionpublic-gpg-key) in the Artifactory documentation for more details. Also the [UI documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/managing-webstart-and-jar-signing) has further details on where to find these keys in Artifactory.
  * 
- * ## Example Usage
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.artifactory.DistributionPublicKey;
- * import com.pulumi.artifactory.DistributionPublicKeyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var my_key = new DistributionPublicKey(&#34;my-key&#34;, DistributionPublicKeyArgs.builder()        
- *             .alias(&#34;my-key&#34;)
- *             .publicKey(Files.readString(Paths.get(&#34;samples/rsa.pub&#34;)))
- *             .build());
- * 
- *     }
- * }
- * ```
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  * ## Import
  * 
  * Distribution Public Key can be imported using the key id, e.g.

@@ -18,8 +18,8 @@ import * as utilities from "./utilities";
  *
  * const my_helmoci_local = new artifactory.LocalHelmociRepository("my-helmoci-local", {
  *     key: "my-helmoci-local",
- *     maxUniqueTags: 5,
  *     tagRetention: 3,
+ *     maxUniqueTags: 5,
  * });
  * ```
  * <!--End PulumiCodeChooser -->

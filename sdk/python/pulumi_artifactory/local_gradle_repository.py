@@ -824,12 +824,12 @@ class LocalGradleRepository(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         terraform_local_test_gradle_repo_basic = artifactory.LocalGradleRepository("terraform-local-test-gradle-repo-basic",
+            key="terraform-local-test-gradle-repo-basic",
             checksum_policy_type="client-checksums",
+            snapshot_version_behavior="unique",
+            max_unique_snapshots=10,
             handle_releases=True,
             handle_snapshots=True,
-            key="terraform-local-test-gradle-repo-basic",
-            max_unique_snapshots=10,
-            snapshot_version_behavior="unique",
             suppress_pom_consistency_checks=True)
         ```
         <!--End PulumiCodeChooser -->
@@ -902,12 +902,12 @@ class LocalGradleRepository(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         terraform_local_test_gradle_repo_basic = artifactory.LocalGradleRepository("terraform-local-test-gradle-repo-basic",
+            key="terraform-local-test-gradle-repo-basic",
             checksum_policy_type="client-checksums",
+            snapshot_version_behavior="unique",
+            max_unique_snapshots=10,
             handle_releases=True,
             handle_snapshots=True,
-            key="terraform-local-test-gradle-repo-basic",
-            max_unique_snapshots=10,
-            snapshot_version_behavior="unique",
             suppress_pom_consistency_checks=True)
         ```
         <!--End PulumiCodeChooser -->

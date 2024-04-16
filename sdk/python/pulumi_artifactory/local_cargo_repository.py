@@ -689,9 +689,9 @@ class LocalCargoRepository(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         terraform_local_test_cargo_repo_basic = artifactory.LocalCargoRepository("terraform-local-test-cargo-repo-basic",
+            key="terraform-local-test-cargo-repo-basic",
             anonymous_access=False,
-            enable_sparse_index=True,
-            key="terraform-local-test-cargo-repo-basic")
+            enable_sparse_index=True)
         ```
         <!--End PulumiCodeChooser -->
 
@@ -752,9 +752,9 @@ class LocalCargoRepository(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         terraform_local_test_cargo_repo_basic = artifactory.LocalCargoRepository("terraform-local-test-cargo-repo-basic",
+            key="terraform-local-test-cargo-repo-basic",
             anonymous_access=False,
-            enable_sparse_index=True,
-            key="terraform-local-test-cargo-repo-basic")
+            enable_sparse_index=True)
         ```
         <!--End PulumiCodeChooser -->
 

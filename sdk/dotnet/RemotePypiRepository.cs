@@ -27,9 +27,9 @@ namespace Pulumi.Artifactory
     ///     var pypi_remote = new Artifactory.RemotePypiRepository("pypi-remote", new()
     ///     {
     ///         Key = "pypi-remote-foo",
+    ///         Url = "https://files.pythonhosted.org",
     ///         PypiRegistryUrl = "https://pypi.org",
     ///         PypiRepositorySuffix = "simple",
-    ///         Url = "https://files.pythonhosted.org",
     ///     });
     /// 
     /// });

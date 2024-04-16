@@ -49,27 +49,27 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var artifactory_release_bundle_webhook = new ArtifactoryReleaseBundleWebhook(&#34;artifactory-release-bundle-webhook&#34;, ArtifactoryReleaseBundleWebhookArgs.builder()        
- *             .criteria(ArtifactoryReleaseBundleWebhookCriteriaArgs.builder()
- *                 .anyReleaseBundle(false)
- *                 .excludePatterns(&#34;bar/**&#34;)
- *                 .includePatterns(&#34;foo/**&#34;)
- *                 .registeredReleaseBundleNames(&#34;bundle-name&#34;)
- *                 .build())
+ *             .key(&#34;artifactory-release-bundle-webhook&#34;)
  *             .eventTypes(            
  *                 &#34;received&#34;,
  *                 &#34;delete_started&#34;,
  *                 &#34;delete_completed&#34;,
  *                 &#34;delete_failed&#34;)
+ *             .criteria(ArtifactoryReleaseBundleWebhookCriteriaArgs.builder()
+ *                 .anyReleaseBundle(false)
+ *                 .registeredReleaseBundleNames(&#34;bundle-name&#34;)
+ *                 .includePatterns(&#34;foo/**&#34;)
+ *                 .excludePatterns(&#34;bar/**&#34;)
+ *                 .build())
  *             .handlers(ArtifactoryReleaseBundleWebhookHandlerArgs.builder()
+ *                 .url(&#34;http://tempurl.org/webhook&#34;)
+ *                 .secret(&#34;some-secret&#34;)
+ *                 .proxy(&#34;proxy-key&#34;)
  *                 .customHttpHeaders(Map.ofEntries(
  *                     Map.entry(&#34;header-1&#34;, &#34;value-1&#34;),
  *                     Map.entry(&#34;header-2&#34;, &#34;value-2&#34;)
  *                 ))
- *                 .proxy(&#34;proxy-key&#34;)
- *                 .secret(&#34;some-secret&#34;)
- *                 .url(&#34;http://tempurl.org/webhook&#34;)
  *                 .build())
- *             .key(&#34;artifactory-release-bundle-webhook&#34;)
  *             .build());
  * 
  *     }

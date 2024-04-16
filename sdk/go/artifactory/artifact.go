@@ -30,9 +30,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewArtifact(ctx, "my-artifact", &artifactory.ArtifactArgs{
-//				FilePath:   pulumi.String("/path/to/my-file.zip"),
-//				Path:       pulumi.String("/my-path/my-file.zip"),
 //				Repository: pulumi.String("my-generic-local"),
+//				Path:       pulumi.String("/my-path/my-file.zip"),
+//				FilePath:   pulumi.String("/path/to/my-file.zip"),
 //			})
 //			if err != nil {
 //				return err

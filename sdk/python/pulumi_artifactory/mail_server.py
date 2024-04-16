@@ -373,16 +373,16 @@ class MailServer(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         mymailserver = artifactory.MailServer("mymailserver",
-            artifactory_url="http://tempurl.org",
             enabled=True,
+            artifactory_url="http://tempurl.org",
             from_="test@jfrog.com",
             host="http://tempurl.org",
+            username="test-user",
             password="test-password",
             port=25,
             subject_prefix="[Test]",
             use_ssl=True,
-            use_tls=True,
-            username="test-user")
+            use_tls=True)
         ```
         <!--End PulumiCodeChooser -->
 
@@ -426,16 +426,16 @@ class MailServer(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         mymailserver = artifactory.MailServer("mymailserver",
-            artifactory_url="http://tempurl.org",
             enabled=True,
+            artifactory_url="http://tempurl.org",
             from_="test@jfrog.com",
             host="http://tempurl.org",
+            username="test-user",
             password="test-password",
             port=25,
             subject_prefix="[Test]",
             use_ssl=True,
-            use_tls=True,
-            username="test-user")
+            use_tls=True)
         ```
         <!--End PulumiCodeChooser -->
 

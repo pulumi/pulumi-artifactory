@@ -43,9 +43,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var my_password_expiration_policy = new PasswordExpirationPolicy(&#34;my-password-expiration-policy&#34;, PasswordExpirationPolicyArgs.builder()        
+ *             .name(&#34;my-password-expiration-policy&#34;)
  *             .enabled(true)
- *             .notifyByEmail(true)
  *             .passwordMaxAge(120)
+ *             .notifyByEmail(true)
  *             .build());
  * 
  *     }

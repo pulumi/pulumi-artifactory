@@ -746,12 +746,12 @@ class FederatedGenericRepository(pulumi.CustomResource):
             key="terraform-federated-test-generic-repo",
             members=[
                 artifactory.FederatedGenericRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl.org/artifactory/terraform-federated-test-generic-repo",
+                    enabled=True,
                 ),
                 artifactory.FederatedGenericRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl2.org/artifactory/terraform-federated-test-generic-repo-2",
+                    enabled=True,
                 ),
             ])
         ```
@@ -822,12 +822,12 @@ class FederatedGenericRepository(pulumi.CustomResource):
             key="terraform-federated-test-generic-repo",
             members=[
                 artifactory.FederatedGenericRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl.org/artifactory/terraform-federated-test-generic-repo",
+                    enabled=True,
                 ),
                 artifactory.FederatedGenericRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl2.org/artifactory/terraform-federated-test-generic-repo-2",
+                    enabled=True,
                 ),
             ])
         ```

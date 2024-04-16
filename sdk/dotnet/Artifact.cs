@@ -25,9 +25,9 @@ namespace Pulumi.Artifactory
     /// {
     ///     var my_artifact = new Artifactory.Artifact("my-artifact", new()
     ///     {
-    ///         FilePath = "/path/to/my-file.zip",
-    ///         Path = "/my-path/my-file.zip",
     ///         Repository = "my-generic-local",
+    ///         Path = "/my-path/my-file.zip",
+    ///         FilePath = "/path/to/my-file.zip",
     ///     });
     /// 
     /// });

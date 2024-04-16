@@ -29,48 +29,49 @@ namespace Pulumi.Artifactory
     /// {
     ///     var foo = new Artifactory.PropertySet("foo", new()
     ///     {
+    ///         Name = "property-set1",
+    ///         Visible = true,
     ///         Properties = new[]
     ///         {
     ///             new Artifactory.Inputs.PropertySetPropertyArgs
     ///             {
-    ///                 ClosedPredefinedValues = true,
-    ///                 MultipleChoice = true,
     ///                 Name = "set1property1",
     ///                 PredefinedValues = new[]
     ///                 {
     ///                     new Artifactory.Inputs.PropertySetPropertyPredefinedValueArgs
     ///                     {
-    ///                         DefaultValue = true,
     ///                         Name = "passed-QA",
+    ///                         DefaultValue = true,
     ///                     },
     ///                     new Artifactory.Inputs.PropertySetPropertyPredefinedValueArgs
     ///                     {
-    ///                         DefaultValue = false,
     ///                         Name = "failed-QA",
+    ///                         DefaultValue = false,
     ///                     },
     ///                 },
+    ///                 ClosedPredefinedValues = true,
+    ///                 MultipleChoice = true,
     ///             },
     ///             new Artifactory.Inputs.PropertySetPropertyArgs
     ///             {
-    ///                 ClosedPredefinedValues = false,
-    ///                 MultipleChoice = false,
     ///                 Name = "set1property2",
     ///                 PredefinedValues = new[]
     ///                 {
     ///                     new Artifactory.Inputs.PropertySetPropertyPredefinedValueArgs
     ///                     {
-    ///                         DefaultValue = true,
     ///                         Name = "passed-QA",
+    ///                         DefaultValue = true,
     ///                     },
     ///                     new Artifactory.Inputs.PropertySetPropertyPredefinedValueArgs
     ///                     {
-    ///                         DefaultValue = false,
     ///                         Name = "failed-QA",
+    ///                         DefaultValue = false,
     ///                     },
     ///                 },
+    ///                 ClosedPredefinedValues = false,
+    ///                 MultipleChoice = false,
     ///             },
     ///         },
-    ///         Visible = true,
     ///     });
     /// 
     /// });

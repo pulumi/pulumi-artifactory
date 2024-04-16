@@ -49,15 +49,16 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var ldapGroupName = new LdapGroupSettingV2(&#34;ldapGroupName&#34;, LdapGroupSettingV2Args.builder()        
- *             .descriptionAttribute(&#34;description&#34;)
+ *             .name(&#34;ldap_group_name&#34;)
  *             .enabledLdap(&#34;ldap_name&#34;)
- *             .filter(&#34;(objectClass=groupOfNames)&#34;)
- *             .forceAttributeSearch(false)
  *             .groupBaseDn(&#34;CN=Users,DC=MyDomain,DC=com&#34;)
- *             .groupMemberAttribute(&#34;uniqueMember&#34;)
  *             .groupNameAttribute(&#34;cn&#34;)
- *             .strategy(&#34;STATIC&#34;)
+ *             .groupMemberAttribute(&#34;uniqueMember&#34;)
  *             .subTree(true)
+ *             .forceAttributeSearch(false)
+ *             .filter(&#34;(objectClass=groupOfNames)&#34;)
+ *             .descriptionAttribute(&#34;description&#34;)
+ *             .strategy(&#34;STATIC&#34;)
  *             .build());
  * 
  *     }

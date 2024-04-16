@@ -8,41 +8,6 @@ import * as utilities from "./utilities";
  * Creates a virtual Rpm repository.
  * Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/RPM+Repositories).
  *
- * ## Example Usage
- *
- * <!--Start PulumiCodeChooser -->
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- * import * as fs from "fs";
- *
- * const primary_keypair = new artifactory.Keypair("primary-keypair", {
- *     pairName: "primary-keypair",
- *     pairType: "GPG",
- *     alias: "foo-alias-1",
- *     privateKey: fs.readFileSync("samples/gpg.priv", "utf8"),
- *     publicKey: fs.readFileSync("samples/gpg.pub", "utf8"),
- * });
- * const secondary_keypair = new artifactory.Keypair("secondary-keypair", {
- *     pairName: "secondary-keypair",
- *     pairType: "GPG",
- *     alias: "foo-alias-2",
- *     privateKey: fs.readFileSync("samples/gpg.priv", "utf8"),
- *     publicKey: fs.readFileSync("samples/gpg.pub", "utf8"),
- * });
- * const foo_rpm_virtual = new artifactory.VirtualRpmRepository("foo-rpm-virtual", {
- *     key: "foo-rpm-virtual",
- *     primaryKeypairRef: primary_keypair.pairName,
- *     secondaryKeypairRef: secondary_keypair.pairName,
- * }, {
- *     dependsOn: [
- *         primary_keypair,
- *         secondary_keypair,
- *     ],
- * });
- * ```
- * <!--End PulumiCodeChooser -->
- *
  * ## Import
  *
  * Virtual repositories can be imported using their name, e.g.

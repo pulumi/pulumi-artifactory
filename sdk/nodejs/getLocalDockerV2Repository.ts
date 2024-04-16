@@ -14,7 +14,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const artifactoryLocalTestDockerV2Repository = new artifactory.DockerV2Repository("artifactoryLocalTestDockerV2Repository", {key: "artifactory_local_test_docker_v2_repository"});
+ * const artifactoryLocalTestDockerV2Repository = new artifactory.DockerV2Repository("artifactory_local_test_docker_v2_repository", {key: "artifactory_local_test_docker_v2_repository"});
  * ```
  * <!--End PulumiCodeChooser -->
  */
@@ -138,7 +138,7 @@ export interface GetLocalDockerV2RepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const artifactoryLocalTestDockerV2Repository = new artifactory.DockerV2Repository("artifactoryLocalTestDockerV2Repository", {key: "artifactory_local_test_docker_v2_repository"});
+ * const artifactoryLocalTestDockerV2Repository = new artifactory.DockerV2Repository("artifactory_local_test_docker_v2_repository", {key: "artifactory_local_test_docker_v2_repository"});
  * ```
  * <!--End PulumiCodeChooser -->
  */

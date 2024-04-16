@@ -33,12 +33,12 @@ import (
 //				Key: pulumi.String("terraform-federated-test-cocoapods-repo"),
 //				Members: artifactory.FederatedCocoapodsRepositoryMemberArray{
 //					&artifactory.FederatedCocoapodsRepositoryMemberArgs{
-//						Enabled: pulumi.Bool(true),
 //						Url:     pulumi.String("http://tempurl.org/artifactory/terraform-federated-test-cocoapods-repo"),
+//						Enabled: pulumi.Bool(true),
 //					},
 //					&artifactory.FederatedCocoapodsRepositoryMemberArgs{
-//						Enabled: pulumi.Bool(true),
 //						Url:     pulumi.String("http://tempurl2.org/artifactory/terraform-federated-test-cocoapods-repo-2"),
+//						Enabled: pulumi.Bool(true),
 //					},
 //				},
 //			})

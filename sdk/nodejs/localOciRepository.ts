@@ -16,8 +16,8 @@ import * as utilities from "./utilities";
  *
  * const my_oci_local = new artifactory.LocalOciRepository("my-oci-local", {
  *     key: "my-oci-local",
- *     maxUniqueTags: 5,
  *     tagRetention: 3,
+ *     maxUniqueTags: 5,
  * });
  * ```
  * <!--End PulumiCodeChooser -->

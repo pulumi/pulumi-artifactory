@@ -31,8 +31,8 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewLocalOciRepository(ctx, "my-oci-local", &artifactory.LocalOciRepositoryArgs{
 //				Key:           pulumi.String("my-oci-local"),
-//				MaxUniqueTags: pulumi.Int(5),
 //				TagRetention:  pulumi.Int(3),
+//				MaxUniqueTags: pulumi.Int(5),
 //			})
 //			if err != nil {
 //				return err

@@ -30,9 +30,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewPasswordExpirationPolicy(ctx, "my-password-expiration-policy", &artifactory.PasswordExpirationPolicyArgs{
+//				Name:           pulumi.String("my-password-expiration-policy"),
 //				Enabled:        pulumi.Bool(true),
-//				NotifyByEmail:  pulumi.Bool(true),
 //				PasswordMaxAge: pulumi.Int(120),
+//				NotifyByEmail:  pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err

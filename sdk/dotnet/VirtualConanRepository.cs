@@ -26,13 +26,13 @@ namespace Pulumi.Artifactory
     /// {
     ///     var foo_conan = new Artifactory.VirtualConanRepository("foo-conan", new()
     ///     {
-    ///         Description = "A test virtual repo",
-    ///         ExcludesPattern = "com/google/**",
-    ///         IncludesPattern = "com/jfrog/**,cloud/jfrog/**",
     ///         Key = "foo-conan",
-    ///         Notes = "Internal description",
     ///         RepoLayoutRef = "conan-default",
     ///         Repositories = new[] {},
+    ///         Description = "A test virtual repo",
+    ///         Notes = "Internal description",
+    ///         IncludesPattern = "com/jfrog/**,cloud/jfrog/**",
+    ///         ExcludesPattern = "com/google/**",
     ///     });
     /// 
     /// });

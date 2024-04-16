@@ -554,21 +554,21 @@ class MavenRepository(pulumi.CustomResource):
             repo_layout_ref="maven-2-default")
         baz = artifactory.RemoteMavenRepository("baz",
             key="baz",
-            repo_layout_ref="maven-2-default",
-            url="https://search.maven.com/")
+            url="https://search.maven.com/",
+            repo_layout_ref="maven-2-default")
         maven_virt_repo = artifactory.MavenRepository("maven-virt-repo",
-            description="A test virtual repo",
-            excludes_pattern="com/google/**",
-            force_maven_authentication=True,
-            includes_pattern="com/jfrog/**,cloud/jfrog/**",
             key="maven-virt-repo",
-            notes="Internal description",
-            pom_repository_references_cleanup_policy="discard_active_reference",
             repo_layout_ref="maven-2-default",
             repositories=[
                 bar.key,
                 baz.key,
-            ])
+            ],
+            description="A test virtual repo",
+            notes="Internal description",
+            includes_pattern="com/jfrog/**,cloud/jfrog/**",
+            excludes_pattern="com/google/**",
+            force_maven_authentication=True,
+            pom_repository_references_cleanup_policy="discard_active_reference")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -627,21 +627,21 @@ class MavenRepository(pulumi.CustomResource):
             repo_layout_ref="maven-2-default")
         baz = artifactory.RemoteMavenRepository("baz",
             key="baz",
-            repo_layout_ref="maven-2-default",
-            url="https://search.maven.com/")
+            url="https://search.maven.com/",
+            repo_layout_ref="maven-2-default")
         maven_virt_repo = artifactory.MavenRepository("maven-virt-repo",
-            description="A test virtual repo",
-            excludes_pattern="com/google/**",
-            force_maven_authentication=True,
-            includes_pattern="com/jfrog/**,cloud/jfrog/**",
             key="maven-virt-repo",
-            notes="Internal description",
-            pom_repository_references_cleanup_policy="discard_active_reference",
             repo_layout_ref="maven-2-default",
             repositories=[
                 bar.key,
                 baz.key,
-            ])
+            ],
+            description="A test virtual repo",
+            notes="Internal description",
+            includes_pattern="com/jfrog/**,cloud/jfrog/**",
+            excludes_pattern="com/google/**",
+            force_maven_authentication=True,
+            pom_repository_references_cleanup_policy="discard_active_reference")
         ```
         <!--End PulumiCodeChooser -->
 

@@ -145,6 +145,7 @@ def get_user(admin: Optional[bool] = None,
     import pulumi
     import pulumi_artifactory as artifactory
 
+    #
     user1 = artifactory.get_user(name="user1")
     ```
     <!--End PulumiCodeChooser -->
@@ -201,6 +202,7 @@ def get_user_output(admin: Optional[pulumi.Input[Optional[bool]]] = None,
     import pulumi
     import pulumi_artifactory as artifactory
 
+    #
     user1 = artifactory.get_user(name="user1")
     ```
     <!--End PulumiCodeChooser -->

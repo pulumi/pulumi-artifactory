@@ -16,11 +16,12 @@ import * as utilities from "./utilities";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * const config = new pulumi.Config();
+ * // The base URL of the Artifactory deployment
  * const artifactoryUrl = config.require("artifactoryUrl");
- * const providerTestSource = new artifactory.LocalMavenRepository("providerTestSource", {key: "provider_test_source"});
- * const providerTestDest = new artifactory.RemoteMavenRepository("providerTestDest", {
+ * const providerTestSource = new artifactory.LocalMavenRepository("provider_test_source", {key: "provider_test_source"});
+ * const providerTestDest = new artifactory.RemoteMavenRepository("provider_test_dest", {
  *     key: "provider_test_dest",
- *     url: `${artifactoryUrl}/artifactory/${artifactory_local_maven_repository.artifactory_local_maven_repository.key}`,
+ *     url: `${artifactoryUrl}/artifactory/${artifactoryLocalMavenRepository.key}`,
  *     username: "foo",
  *     password: "bar",
  * });

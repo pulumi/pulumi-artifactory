@@ -25,9 +25,9 @@ namespace Pulumi.Artifactory
     /// {
     ///     var terraform_local_test_nuget_repo_basic = new Artifactory.LocalNugetRepository("terraform-local-test-nuget-repo-basic", new()
     ///     {
-    ///         ForceNugetAuthentication = true,
     ///         Key = "terraform-local-test-nuget-repo-basic",
     ///         MaxUniqueSnapshots = 5,
+    ///         ForceNugetAuthentication = true,
     ///     });
     /// 
     /// });

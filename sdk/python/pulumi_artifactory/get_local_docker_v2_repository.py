@@ -269,7 +269,7 @@ def get_local_docker_v2_repository(archive_browsing_enabled: Optional[bool] = No
     import pulumi
     import pulumi_artifactory as artifactory
 
-    artifactory_local_test_docker_v2_repository = artifactory.DockerV2Repository("artifactoryLocalTestDockerV2Repository", key="artifactory_local_test_docker_v2_repository")
+    artifactory_local_test_docker_v2_repository = artifactory.DockerV2Repository("artifactory_local_test_docker_v2_repository", key="artifactory_local_test_docker_v2_repository")
     ```
     <!--End PulumiCodeChooser -->
 
@@ -359,7 +359,7 @@ def get_local_docker_v2_repository_output(archive_browsing_enabled: Optional[pul
     import pulumi
     import pulumi_artifactory as artifactory
 
-    artifactory_local_test_docker_v2_repository = artifactory.DockerV2Repository("artifactoryLocalTestDockerV2Repository", key="artifactory_local_test_docker_v2_repository")
+    artifactory_local_test_docker_v2_repository = artifactory.DockerV2Repository("artifactory_local_test_docker_v2_repository", key="artifactory_local_test_docker_v2_repository")
     ```
     <!--End PulumiCodeChooser -->
 

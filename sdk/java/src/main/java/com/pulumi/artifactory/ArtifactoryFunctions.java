@@ -5734,9 +5734,9 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var my-file = ArtifactoryFunctions.getFile(GetFileArgs.builder()
-     *             .outputPath(&#34;tmp/artifact.zip&#34;)
-     *             .path(&#34;/path/to/the/artifact.zip&#34;)
      *             .repository(&#34;repo-key&#34;)
+     *             .path(&#34;/path/to/the/artifact.zip&#34;)
+     *             .outputPath(&#34;tmp/artifact.zip&#34;)
      *             .build());
      * 
      *     }
@@ -5778,9 +5778,9 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var my-file = ArtifactoryFunctions.getFile(GetFileArgs.builder()
-     *             .outputPath(&#34;tmp/artifact.zip&#34;)
-     *             .path(&#34;/path/to/the/artifact.zip&#34;)
      *             .repository(&#34;repo-key&#34;)
+     *             .path(&#34;/path/to/the/artifact.zip&#34;)
+     *             .outputPath(&#34;tmp/artifact.zip&#34;)
      *             .build());
      * 
      *     }
@@ -5822,9 +5822,9 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var my-file = ArtifactoryFunctions.getFile(GetFileArgs.builder()
-     *             .outputPath(&#34;tmp/artifact.zip&#34;)
-     *             .path(&#34;/path/to/the/artifact.zip&#34;)
      *             .repository(&#34;repo-key&#34;)
+     *             .path(&#34;/path/to/the/artifact.zip&#34;)
+     *             .outputPath(&#34;tmp/artifact.zip&#34;)
      *             .build());
      * 
      *     }
@@ -5866,9 +5866,9 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var my-file = ArtifactoryFunctions.getFile(GetFileArgs.builder()
-     *             .outputPath(&#34;tmp/artifact.zip&#34;)
-     *             .path(&#34;/path/to/the/artifact.zip&#34;)
      *             .repository(&#34;repo-key&#34;)
+     *             .path(&#34;/path/to/the/artifact.zip&#34;)
+     *             .outputPath(&#34;tmp/artifact.zip&#34;)
      *             .build());
      * 
      *     }
@@ -5908,8 +5908,8 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var my-repo-file-list = ArtifactoryFunctions.getFileList(GetFileListArgs.builder()
-     *             .folderPath(&#34;path/to/artifact&#34;)
      *             .repositoryKey(&#34;my-generic-local&#34;)
+     *             .folderPath(&#34;path/to/artifact&#34;)
      *             .build());
      * 
      *     }
@@ -5949,8 +5949,8 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var my-repo-file-list = ArtifactoryFunctions.getFileList(GetFileListArgs.builder()
-     *             .folderPath(&#34;path/to/artifact&#34;)
      *             .repositoryKey(&#34;my-generic-local&#34;)
+     *             .folderPath(&#34;path/to/artifact&#34;)
      *             .build());
      * 
      *     }
@@ -5990,8 +5990,8 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var my-repo-file-list = ArtifactoryFunctions.getFileList(GetFileListArgs.builder()
-     *             .folderPath(&#34;path/to/artifact&#34;)
      *             .repositoryKey(&#34;my-generic-local&#34;)
+     *             .folderPath(&#34;path/to/artifact&#34;)
      *             .build());
      * 
      *     }
@@ -6031,8 +6031,8 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var my-repo-file-list = ArtifactoryFunctions.getFileList(GetFileListArgs.builder()
-     *             .folderPath(&#34;path/to/artifact&#34;)
      *             .repositoryKey(&#34;my-generic-local&#34;)
+     *             .folderPath(&#34;path/to/artifact&#34;)
      *             .build());
      * 
      *     }
@@ -6073,9 +6073,10 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // 
      *         final var my-file = ArtifactoryFunctions.getFileinfo(GetFileinfoArgs.builder()
-     *             .path(&#34;/path/to/the/artifact.zip&#34;)
      *             .repository(&#34;repo-key&#34;)
+     *             .path(&#34;/path/to/the/artifact.zip&#34;)
      *             .build());
      * 
      *     }
@@ -6116,9 +6117,10 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // 
      *         final var my-file = ArtifactoryFunctions.getFileinfo(GetFileinfoArgs.builder()
-     *             .path(&#34;/path/to/the/artifact.zip&#34;)
      *             .repository(&#34;repo-key&#34;)
+     *             .path(&#34;/path/to/the/artifact.zip&#34;)
      *             .build());
      * 
      *     }
@@ -6159,9 +6161,10 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // 
      *         final var my-file = ArtifactoryFunctions.getFileinfo(GetFileinfoArgs.builder()
-     *             .path(&#34;/path/to/the/artifact.zip&#34;)
      *             .repository(&#34;repo-key&#34;)
+     *             .path(&#34;/path/to/the/artifact.zip&#34;)
      *             .build());
      * 
      *     }
@@ -6202,9 +6205,10 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // 
      *         final var my-file = ArtifactoryFunctions.getFileinfo(GetFileinfoArgs.builder()
-     *             .path(&#34;/path/to/the/artifact.zip&#34;)
      *             .repository(&#34;repo-key&#34;)
+     *             .path(&#34;/path/to/the/artifact.zip&#34;)
      *             .build());
      * 
      *     }
@@ -6245,9 +6249,10 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         //
      *         final var myGroup = ArtifactoryFunctions.getGroup(GetGroupArgs.builder()
-     *             .includeUsers(true)
      *             .name(&#34;my_group&#34;)
+     *             .includeUsers(true)
      *             .build());
      * 
      *     }
@@ -6288,9 +6293,10 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         //
      *         final var myGroup = ArtifactoryFunctions.getGroup(GetGroupArgs.builder()
-     *             .includeUsers(true)
      *             .name(&#34;my_group&#34;)
+     *             .includeUsers(true)
      *             .build());
      * 
      *     }
@@ -6331,9 +6337,10 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         //
      *         final var myGroup = ArtifactoryFunctions.getGroup(GetGroupArgs.builder()
-     *             .includeUsers(true)
      *             .name(&#34;my_group&#34;)
+     *             .includeUsers(true)
      *             .build());
      * 
      *     }
@@ -6374,9 +6381,10 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         //
      *         final var myGroup = ArtifactoryFunctions.getGroup(GetGroupArgs.builder()
-     *             .includeUsers(true)
      *             .name(&#34;my_group&#34;)
+     *             .includeUsers(true)
      *             .build());
      * 
      *     }
@@ -12021,6 +12029,7 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         //
      *         final var target1 = ArtifactoryFunctions.getPermissionTarget(GetPermissionTargetArgs.builder()
      *             .name(&#34;my_permission&#34;)
      *             .build());
@@ -12063,6 +12072,7 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         //
      *         final var target1 = ArtifactoryFunctions.getPermissionTarget(GetPermissionTargetArgs.builder()
      *             .name(&#34;my_permission&#34;)
      *             .build());
@@ -12105,6 +12115,7 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         //
      *         final var target1 = ArtifactoryFunctions.getPermissionTarget(GetPermissionTargetArgs.builder()
      *             .name(&#34;my_permission&#34;)
      *             .build());
@@ -12147,6 +12158,7 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         //
      *         final var target1 = ArtifactoryFunctions.getPermissionTarget(GetPermissionTargetArgs.builder()
      *             .name(&#34;my_permission&#34;)
      *             .build());
@@ -17328,8 +17340,8 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var all-alpine-local = ArtifactoryFunctions.getRepositories(GetRepositoriesArgs.builder()
-     *             .packageType(&#34;alpine&#34;)
      *             .repositoryType(&#34;local&#34;)
+     *             .packageType(&#34;alpine&#34;)
      *             .build());
      * 
      *     }
@@ -17369,8 +17381,8 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var all-alpine-local = ArtifactoryFunctions.getRepositories(GetRepositoriesArgs.builder()
-     *             .packageType(&#34;alpine&#34;)
      *             .repositoryType(&#34;local&#34;)
+     *             .packageType(&#34;alpine&#34;)
      *             .build());
      * 
      *     }
@@ -17410,8 +17422,8 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var all-alpine-local = ArtifactoryFunctions.getRepositories(GetRepositoriesArgs.builder()
-     *             .packageType(&#34;alpine&#34;)
      *             .repositoryType(&#34;local&#34;)
+     *             .packageType(&#34;alpine&#34;)
      *             .build());
      * 
      *     }
@@ -17451,8 +17463,8 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var all-alpine-local = ArtifactoryFunctions.getRepositories(GetRepositoriesArgs.builder()
-     *             .packageType(&#34;alpine&#34;)
      *             .repositoryType(&#34;local&#34;)
+     *             .packageType(&#34;alpine&#34;)
      *             .build());
      * 
      *     }
@@ -17492,8 +17504,8 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var all-alpine-local = ArtifactoryFunctions.getRepositories(GetRepositoriesArgs.builder()
-     *             .packageType(&#34;alpine&#34;)
      *             .repositoryType(&#34;local&#34;)
+     *             .packageType(&#34;alpine&#34;)
      *             .build());
      * 
      *     }
@@ -17533,8 +17545,8 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var all-alpine-local = ArtifactoryFunctions.getRepositories(GetRepositoriesArgs.builder()
-     *             .packageType(&#34;alpine&#34;)
      *             .repositoryType(&#34;local&#34;)
+     *             .packageType(&#34;alpine&#34;)
      *             .build());
      * 
      *     }
@@ -17575,6 +17587,7 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         //
      *         final var user1 = ArtifactoryFunctions.getUser(GetUserArgs.builder()
      *             .name(&#34;user1&#34;)
      *             .build());
@@ -17617,6 +17630,7 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         //
      *         final var user1 = ArtifactoryFunctions.getUser(GetUserArgs.builder()
      *             .name(&#34;user1&#34;)
      *             .build());
@@ -17659,6 +17673,7 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         //
      *         final var user1 = ArtifactoryFunctions.getUser(GetUserArgs.builder()
      *             .name(&#34;user1&#34;)
      *             .build());
@@ -17701,6 +17716,7 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         //
      *         final var user1 = ArtifactoryFunctions.getUser(GetUserArgs.builder()
      *             .name(&#34;user1&#34;)
      *             .build());

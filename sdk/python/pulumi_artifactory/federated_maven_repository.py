@@ -980,12 +980,12 @@ class FederatedMavenRepository(pulumi.CustomResource):
             key="terraform-federated-test-maven-repo",
             members=[
                 artifactory.FederatedMavenRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl.org/artifactory/terraform-federated-test-maven-repo",
+                    enabled=True,
                 ),
                 artifactory.FederatedMavenRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl2.org/artifactory/terraform-federated-test-maven-repo-2",
+                    enabled=True,
                 ),
             ])
         ```
@@ -1071,12 +1071,12 @@ class FederatedMavenRepository(pulumi.CustomResource):
             key="terraform-federated-test-maven-repo",
             members=[
                 artifactory.FederatedMavenRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl.org/artifactory/terraform-federated-test-maven-repo",
+                    enabled=True,
                 ),
                 artifactory.FederatedMavenRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl2.org/artifactory/terraform-federated-test-maven-repo-2",
+                    enabled=True,
                 ),
             ])
         ```

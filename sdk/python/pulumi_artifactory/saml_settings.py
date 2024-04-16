@@ -475,19 +475,19 @@ class SamlSettings(pulumi.CustomResource):
 
         # Configure Artifactory SAML SSO settings
         saml = artifactory.SamlSettings("saml",
-            allow_user_to_access_profile=True,
-            auto_redirect=True,
-            certificate="test-certificate",
-            email_attribute="email",
             enable=True,
-            group_attribute="groups",
+            service_provider_name="okta",
             login_url="test-login-url",
             logout_url="test-logout-url",
+            certificate="test-certificate",
+            email_attribute="email",
+            group_attribute="groups",
             no_auto_user_creation=False,
-            service_provider_name="okta",
+            allow_user_to_access_profile=True,
+            auto_redirect=True,
             sync_groups=True,
-            use_encrypted_assertion=False,
-            verify_audience_restriction=True)
+            verify_audience_restriction=True,
+            use_encrypted_assertion=False)
         ```
         <!--End PulumiCodeChooser -->
 
@@ -537,19 +537,19 @@ class SamlSettings(pulumi.CustomResource):
 
         # Configure Artifactory SAML SSO settings
         saml = artifactory.SamlSettings("saml",
-            allow_user_to_access_profile=True,
-            auto_redirect=True,
-            certificate="test-certificate",
-            email_attribute="email",
             enable=True,
-            group_attribute="groups",
+            service_provider_name="okta",
             login_url="test-login-url",
             logout_url="test-logout-url",
+            certificate="test-certificate",
+            email_attribute="email",
+            group_attribute="groups",
             no_auto_user_creation=False,
-            service_provider_name="okta",
+            allow_user_to_access_profile=True,
+            auto_redirect=True,
             sync_groups=True,
-            use_encrypted_assertion=False,
-            verify_audience_restriction=True)
+            verify_audience_restriction=True,
+            use_encrypted_assertion=False)
         ```
         <!--End PulumiCodeChooser -->
 

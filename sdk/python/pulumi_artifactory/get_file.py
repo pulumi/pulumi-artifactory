@@ -239,9 +239,9 @@ def get_file(force_overwrite: Optional[bool] = None,
     import pulumi
     import pulumi_artifactory as artifactory
 
-    my_file = artifactory.get_file(output_path="tmp/artifact.zip",
+    my_file = artifactory.get_file(repository="repo-key",
         path="/path/to/the/artifact.zip",
-        repository="repo-key")
+        output_path="tmp/artifact.zip")
     ```
     <!--End PulumiCodeChooser -->
 
@@ -300,9 +300,9 @@ def get_file_output(force_overwrite: Optional[pulumi.Input[Optional[bool]]] = No
     import pulumi
     import pulumi_artifactory as artifactory
 
-    my_file = artifactory.get_file(output_path="tmp/artifact.zip",
+    my_file = artifactory.get_file(repository="repo-key",
         path="/path/to/the/artifact.zip",
-        repository="repo-key")
+        output_path="tmp/artifact.zip")
     ```
     <!--End PulumiCodeChooser -->
 

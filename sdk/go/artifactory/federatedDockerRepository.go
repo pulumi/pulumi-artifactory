@@ -35,12 +35,12 @@ import (
 //				Key: pulumi.String("terraform-federated-test-docker-repo"),
 //				Members: artifactory.FederatedDockerRepositoryMemberArray{
 //					&artifactory.FederatedDockerRepositoryMemberArgs{
-//						Enabled: pulumi.Bool(true),
 //						Url:     pulumi.String("http://tempurl.org/artifactory/terraform-federated-test-docker-repo"),
+//						Enabled: pulumi.Bool(true),
 //					},
 //					&artifactory.FederatedDockerRepositoryMemberArgs{
-//						Enabled: pulumi.Bool(true),
 //						Url:     pulumi.String("http://tempurl2.org/artifactory/terraform-federated-test-docker-repo-2"),
+//						Enabled: pulumi.Bool(true),
 //					},
 //				},
 //			})

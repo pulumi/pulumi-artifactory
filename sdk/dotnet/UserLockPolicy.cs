@@ -25,6 +25,7 @@ namespace Pulumi.Artifactory
     /// {
     ///     var my_user_lock_policy = new Artifactory.UserLockPolicy("my-user-lock-policy", new()
     ///     {
+    ///         Name = "my-user-lock-policy",
     ///         Enabled = true,
     ///         LoginAttempts = 10,
     ///     });

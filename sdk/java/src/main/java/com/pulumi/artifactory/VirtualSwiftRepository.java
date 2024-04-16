@@ -20,45 +20,6 @@ import javax.annotation.Nullable;
  * Creates a virtual Swift repository.
  * Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Swift+Repositories#SwiftRepositories-VirtualRepositories).
  * 
- * ## Example Usage
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.swift.swift;
- * import com.pulumi.swift.SwiftArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var foo_conan = new Swift(&#34;foo-conan&#34;, SwiftArgs.builder()        
- *             .key(&#34;foo-conan&#34;)
- *             .repoLayoutRef(&#34;swift-default&#34;)
- *             .repositories()
- *             .description(&#34;A test virtual repo&#34;)
- *             .notes(&#34;Internal description&#34;)
- *             .includesPattern(&#34;com/jfrog/**,cloud/jfrog/**&#34;)
- *             .excludesPattern(&#34;com/google/**&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  * ## Import
  * 
  * Virtual repositories can be imported using their name, e.g.

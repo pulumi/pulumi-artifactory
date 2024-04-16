@@ -30,13 +30,13 @@ namespace Pulumi.Artifactory
     ///         {
     ///             new Artifactory.Inputs.FederatedOciRepositoryMemberArgs
     ///             {
-    ///                 Enabled = true,
     ///                 Url = "http://tempurl.org/artifactory/my-oci-federated",
+    ///                 Enabled = true,
     ///             },
     ///             new Artifactory.Inputs.FederatedOciRepositoryMemberArgs
     ///             {
-    ///                 Enabled = true,
     ///                 Url = "http://tempurl2.org/artifactory/my-oci-federated-2",
+    ///                 Enabled = true,
     ///             },
     ///         },
     ///     });

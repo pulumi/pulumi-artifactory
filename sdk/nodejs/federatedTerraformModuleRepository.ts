@@ -16,16 +16,16 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const terraform_federated_test_terraformModule_repo = new artifactory.FederatedTerraformModuleRepository("terraform-federated-test-terraformModule-repo", {
+ * const terraform_federated_test_terraformModule_repo = new artifactory.FederatedTerraformModuleRepository("terraform-federated-test-terraform_module-repo", {
  *     key: "terraform-federated-test-terraform-module-repo",
  *     members: [
  *         {
- *             enabled: true,
  *             url: "http://tempurl.org/artifactory/terraform-federated-test-terraform_module-repo",
+ *             enabled: true,
  *         },
  *         {
- *             enabled: true,
  *             url: "http://tempurl2.org/artifactory/terraform-federated-test-terraform_module-repo-2",
+ *             enabled: true,
  *         },
  *     ],
  * });

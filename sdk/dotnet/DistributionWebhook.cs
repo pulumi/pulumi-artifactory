@@ -26,22 +26,7 @@ namespace Pulumi.Artifactory
     /// {
     ///     var distribution_webhook = new Artifactory.DistributionWebhook("distribution-webhook", new()
     ///     {
-    ///         Criteria = new Artifactory.Inputs.DistributionWebhookCriteriaArgs
-    ///         {
-    ///             AnyReleaseBundle = false,
-    ///             ExcludePatterns = new[]
-    ///             {
-    ///                 "bar/**",
-    ///             },
-    ///             IncludePatterns = new[]
-    ///             {
-    ///                 "foo/**",
-    ///             },
-    ///             RegisteredReleaseBundleNames = new[]
-    ///             {
-    ///                 "bundle-name",
-    ///             },
-    ///         },
+    ///         Key = "distribution-webhook",
     ///         EventTypes = new[]
     ///         {
     ///             "distribute_started",
@@ -52,21 +37,36 @@ namespace Pulumi.Artifactory
     ///             "delete_completed",
     ///             "delete_failed",
     ///         },
+    ///         Criteria = new Artifactory.Inputs.DistributionWebhookCriteriaArgs
+    ///         {
+    ///             AnyReleaseBundle = false,
+    ///             RegisteredReleaseBundleNames = new[]
+    ///             {
+    ///                 "bundle-name",
+    ///             },
+    ///             IncludePatterns = new[]
+    ///             {
+    ///                 "foo/**",
+    ///             },
+    ///             ExcludePatterns = new[]
+    ///             {
+    ///                 "bar/**",
+    ///             },
+    ///         },
     ///         Handlers = new[]
     ///         {
     ///             new Artifactory.Inputs.DistributionWebhookHandlerArgs
     ///             {
+    ///                 Url = "http://tempurl.org/webhook",
+    ///                 Secret = "some-secret",
+    ///                 Proxy = "proxy-key",
     ///                 CustomHttpHeaders = 
     ///                 {
     ///                     { "header-1", "value-1" },
     ///                     { "header-2", "value-2" },
     ///                 },
-    ///                 Proxy = "proxy-key",
-    ///                 Secret = "some-secret",
-    ///                 Url = "http://tempurl.org/webhook",
     ///             },
     ///         },
-    ///         Key = "distribution-webhook",
     ///     });
     /// 
     /// });

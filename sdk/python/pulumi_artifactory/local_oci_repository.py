@@ -661,8 +661,8 @@ class LocalOciRepository(pulumi.CustomResource):
 
         my_oci_local = artifactory.LocalOciRepository("my-oci-local",
             key="my-oci-local",
-            max_unique_tags=5,
-            tag_retention=3)
+            tag_retention=3,
+            max_unique_tags=5)
         ```
         <!--End PulumiCodeChooser -->
 
@@ -723,8 +723,8 @@ class LocalOciRepository(pulumi.CustomResource):
 
         my_oci_local = artifactory.LocalOciRepository("my-oci-local",
             key="my-oci-local",
-            max_unique_tags=5,
-            tag_retention=3)
+            tag_retention=3,
+            max_unique_tags=5)
         ```
         <!--End PulumiCodeChooser -->
 

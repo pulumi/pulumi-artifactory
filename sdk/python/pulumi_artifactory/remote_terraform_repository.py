@@ -1627,9 +1627,9 @@ class RemoteTerraformRepository(pulumi.CustomResource):
 
         terraform_remote = artifactory.RemoteTerraformRepository("terraform-remote",
             key="terraform-remote",
-            terraform_providers_url="https://releases.hashicorp.com",
+            url="https://github.com/",
             terraform_registry_url="https://registry.terraform.io",
-            url="https://github.com/")
+            terraform_providers_url="https://releases.hashicorp.com")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -1738,9 +1738,9 @@ class RemoteTerraformRepository(pulumi.CustomResource):
 
         terraform_remote = artifactory.RemoteTerraformRepository("terraform-remote",
             key="terraform-remote",
-            terraform_providers_url="https://releases.hashicorp.com",
+            url="https://github.com/",
             terraform_registry_url="https://registry.terraform.io",
-            url="https://github.com/")
+            terraform_providers_url="https://releases.hashicorp.com")
         ```
         <!--End PulumiCodeChooser -->
 

@@ -30,9 +30,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewLocalNugetRepository(ctx, "terraform-local-test-nuget-repo-basic", &artifactory.LocalNugetRepositoryArgs{
-//				ForceNugetAuthentication: pulumi.Bool(true),
 //				Key:                      pulumi.String("terraform-local-test-nuget-repo-basic"),
 //				MaxUniqueSnapshots:       pulumi.Int(5),
+//				ForceNugetAuthentication: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err

@@ -484,13 +484,13 @@ class VirtualNugetRepository(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         foo_nuget = artifactory.VirtualNugetRepository("foo-nuget",
-            description="A test virtual repo",
-            excludes_pattern="com/google/**",
-            force_nuget_authentication=True,
-            includes_pattern="com/jfrog/**,cloud/jfrog/**",
             key="foo-nuget",
+            repositories=[],
+            description="A test virtual repo",
             notes="Internal description",
-            repositories=[])
+            includes_pattern="com/jfrog/**,cloud/jfrog/**",
+            excludes_pattern="com/google/**",
+            force_nuget_authentication=True)
         ```
         <!--End PulumiCodeChooser -->
 
@@ -543,13 +543,13 @@ class VirtualNugetRepository(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         foo_nuget = artifactory.VirtualNugetRepository("foo-nuget",
-            description="A test virtual repo",
-            excludes_pattern="com/google/**",
-            force_nuget_authentication=True,
-            includes_pattern="com/jfrog/**,cloud/jfrog/**",
             key="foo-nuget",
+            repositories=[],
+            description="A test virtual repo",
             notes="Internal description",
-            repositories=[])
+            includes_pattern="com/jfrog/**,cloud/jfrog/**",
+            excludes_pattern="com/google/**",
+            force_nuget_authentication=True)
         ```
         <!--End PulumiCodeChooser -->
 

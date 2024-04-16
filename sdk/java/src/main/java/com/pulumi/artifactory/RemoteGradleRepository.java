@@ -47,12 +47,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var gradle_remote = new RemoteGradleRepository(&#34;gradle-remote&#34;, RemoteGradleRepositoryArgs.builder()        
+ *             .key(&#34;gradle-remote-foo&#34;)
+ *             .url(&#34;https://repo1.maven.org/maven2/&#34;)
  *             .fetchJarsEagerly(true)
  *             .fetchSourcesEagerly(false)
- *             .key(&#34;gradle-remote-foo&#34;)
- *             .rejectInvalidJars(true)
  *             .suppressPomConsistencyChecks(true)
- *             .url(&#34;https://repo1.maven.org/maven2/&#34;)
+ *             .rejectInvalidJars(true)
  *             .build());
  * 
  *     }

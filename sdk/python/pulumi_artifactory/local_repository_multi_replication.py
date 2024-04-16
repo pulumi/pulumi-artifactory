@@ -181,13 +181,16 @@ class LocalRepositoryMultiReplication(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         config = pulumi.Config()
+        # The base URL of the Artifactory deployment
         artifactory_url = config.require("artifactoryUrl")
+        # The username for the Artifactory
         artifactory_username = config.require("artifactoryUsername")
+        # The password for the Artifactory
         artifactory_password = config.require("artifactoryPassword")
         # Create a replication between two artifactory local repositories
-        provider_test_source = artifactory.LocalMavenRepository("providerTestSource", key="provider_test_source")
-        provider_test_dest = artifactory.LocalMavenRepository("providerTestDest", key="provider_test_dest")
-        provider_test_dest1 = artifactory.LocalMavenRepository("providerTestDest1", key="provider_test_dest1")
+        provider_test_source = artifactory.LocalMavenRepository("provider_test_source", key="provider_test_source")
+        provider_test_dest = artifactory.LocalMavenRepository("provider_test_dest", key="provider_test_dest")
+        provider_test_dest1 = artifactory.LocalMavenRepository("provider_test_dest1", key="provider_test_dest1")
         foo_rep = artifactory.LocalRepositoryMultiReplication("foo-rep",
             repo_key=provider_test_source.key,
             cron_exp="0 0 * * * ?",
@@ -246,13 +249,16 @@ class LocalRepositoryMultiReplication(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         config = pulumi.Config()
+        # The base URL of the Artifactory deployment
         artifactory_url = config.require("artifactoryUrl")
+        # The username for the Artifactory
         artifactory_username = config.require("artifactoryUsername")
+        # The password for the Artifactory
         artifactory_password = config.require("artifactoryPassword")
         # Create a replication between two artifactory local repositories
-        provider_test_source = artifactory.LocalMavenRepository("providerTestSource", key="provider_test_source")
-        provider_test_dest = artifactory.LocalMavenRepository("providerTestDest", key="provider_test_dest")
-        provider_test_dest1 = artifactory.LocalMavenRepository("providerTestDest1", key="provider_test_dest1")
+        provider_test_source = artifactory.LocalMavenRepository("provider_test_source", key="provider_test_source")
+        provider_test_dest = artifactory.LocalMavenRepository("provider_test_dest", key="provider_test_dest")
+        provider_test_dest1 = artifactory.LocalMavenRepository("provider_test_dest1", key="provider_test_dest1")
         foo_rep = artifactory.LocalRepositoryMultiReplication("foo-rep",
             repo_key=provider_test_source.key,
             cron_exp="0 0 * * * ?",

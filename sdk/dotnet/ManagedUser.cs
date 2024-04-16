@@ -23,13 +23,14 @@ namespace Pulumi.Artifactory
     /// {
     ///     var test_user = new Artifactory.ManagedUser("test-user", new()
     ///     {
+    ///         Name = "terraform",
+    ///         Password = "my super secret password",
     ///         Email = "test-user@artifactory-terraform.com",
     ///         Groups = new[]
     ///         {
     ///             "readers",
     ///             "logged-in-users",
     ///         },
-    ///         Password = "my super secret password",
     ///     });
     /// 
     /// });

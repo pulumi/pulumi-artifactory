@@ -29,8 +29,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.GetRepositories(ctx, &artifactory.GetRepositoriesArgs{
-//				PackageType:    pulumi.StringRef("alpine"),
 //				RepositoryType: pulumi.StringRef("local"),
+//				PackageType:    pulumi.StringRef("alpine"),
 //			}, nil)
 //			if err != nil {
 //				return err

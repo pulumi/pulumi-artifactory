@@ -1589,9 +1589,9 @@ class RemoteNpmRepository(pulumi.CustomResource):
 
         npm_remote = artifactory.RemoteNpmRepository("npm-remote",
             key="npm-remote",
+            url="https://registry.npmjs.org",
             list_remote_folder_items=True,
-            mismatching_mime_types_override_list="application/json,application/xml",
-            url="https://registry.npmjs.org")
+            mismatching_mime_types_override_list="application/json,application/xml")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -1700,9 +1700,9 @@ class RemoteNpmRepository(pulumi.CustomResource):
 
         npm_remote = artifactory.RemoteNpmRepository("npm-remote",
             key="npm-remote",
+            url="https://registry.npmjs.org",
             list_remote_folder_items=True,
-            mismatching_mime_types_override_list="application/json,application/xml",
-            url="https://registry.npmjs.org")
+            mismatching_mime_types_override_list="application/json,application/xml")
         ```
         <!--End PulumiCodeChooser -->
 

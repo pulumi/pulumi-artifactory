@@ -33,12 +33,12 @@ import (
 //				Key: pulumi.String("terraform-federated-test-conda-repo"),
 //				Members: artifactory.FederatedCondaRepositoryMemberArray{
 //					&artifactory.FederatedCondaRepositoryMemberArgs{
-//						Enabled: pulumi.Bool(true),
 //						Url:     pulumi.String("http://tempurl.org/artifactory/terraform-federated-test-conda-repo"),
+//						Enabled: pulumi.Bool(true),
 //					},
 //					&artifactory.FederatedCondaRepositoryMemberArgs{
-//						Enabled: pulumi.Bool(true),
 //						Url:     pulumi.String("http://tempurl2.org/artifactory/terraform-federated-test-conda-repo-2"),
+//						Enabled: pulumi.Bool(true),
 //					},
 //				},
 //			})

@@ -18,11 +18,11 @@ import * as utilities from "./utilities";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * const helm_remote = new artifactory.RemoteHelmRepository("helm-remote", {
- *     externalDependenciesEnabled: true,
- *     externalDependenciesPatterns: ["**github.com**"],
- *     helmChartsBaseUrl: "https://foo.com",
  *     key: "helm-remote-foo25",
  *     url: "https://repo.chartcenter.io/",
+ *     helmChartsBaseUrl: "https://foo.com",
+ *     externalDependenciesEnabled: true,
+ *     externalDependenciesPatterns: ["**github.com**"],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

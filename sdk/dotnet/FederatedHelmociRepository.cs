@@ -30,13 +30,13 @@ namespace Pulumi.Artifactory
     ///         {
     ///             new Artifactory.Inputs.FederatedHelmociRepositoryMemberArgs
     ///             {
-    ///                 Enabled = true,
     ///                 Url = "http://tempurl.org/artifactory/my-helmoci-federated",
+    ///                 Enabled = true,
     ///             },
     ///             new Artifactory.Inputs.FederatedHelmociRepositoryMemberArgs
     ///             {
-    ///                 Enabled = true,
     ///                 Url = "http://tempurl2.org/artifactory/my-helmoci-federated-2",
+    ///                 Enabled = true,
     ///             },
     ///         },
     ///     });

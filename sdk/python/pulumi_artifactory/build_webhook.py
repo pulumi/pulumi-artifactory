@@ -241,27 +241,27 @@ class BuildWebhook(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         build_webhook = artifactory.BuildWebhook("build-webhook",
-            criteria=artifactory.BuildWebhookCriteriaArgs(
-                any_build=True,
-                exclude_patterns=["bar/**"],
-                include_patterns=["foo/**"],
-                selected_builds=["build-id"],
-            ),
+            key="build-webhook",
             event_types=[
                 "uploaded",
                 "deleted",
                 "promoted",
             ],
+            criteria=artifactory.BuildWebhookCriteriaArgs(
+                any_build=True,
+                selected_builds=["build-id"],
+                include_patterns=["foo/**"],
+                exclude_patterns=["bar/**"],
+            ),
             handlers=[artifactory.BuildWebhookHandlerArgs(
+                url="http://tempurl.org/webhook",
+                secret="some-secret",
+                proxy="proxy-key",
                 custom_http_headers={
                     "header-1": "value-1",
                     "header-2": "value-2",
                 },
-                proxy="proxy-key",
-                secret="some-secret",
-                url="http://tempurl.org/webhook",
-            )],
-            key="build-webhook")
+            )])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -292,27 +292,27 @@ class BuildWebhook(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         build_webhook = artifactory.BuildWebhook("build-webhook",
-            criteria=artifactory.BuildWebhookCriteriaArgs(
-                any_build=True,
-                exclude_patterns=["bar/**"],
-                include_patterns=["foo/**"],
-                selected_builds=["build-id"],
-            ),
+            key="build-webhook",
             event_types=[
                 "uploaded",
                 "deleted",
                 "promoted",
             ],
+            criteria=artifactory.BuildWebhookCriteriaArgs(
+                any_build=True,
+                selected_builds=["build-id"],
+                include_patterns=["foo/**"],
+                exclude_patterns=["bar/**"],
+            ),
             handlers=[artifactory.BuildWebhookHandlerArgs(
+                url="http://tempurl.org/webhook",
+                secret="some-secret",
+                proxy="proxy-key",
                 custom_http_headers={
                     "header-1": "value-1",
                     "header-2": "value-2",
                 },
-                proxy="proxy-key",
-                secret="some-secret",
-                url="http://tempurl.org/webhook",
-            )],
-            key="build-webhook")
+            )])
         ```
         <!--End PulumiCodeChooser -->
 

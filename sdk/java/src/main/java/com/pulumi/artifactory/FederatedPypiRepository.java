@@ -49,12 +49,12 @@ import javax.annotation.Nullable;
  *             .key(&#34;terraform-federated-test-pypi-repo&#34;)
  *             .members(            
  *                 FederatedPypiRepositoryMemberArgs.builder()
- *                     .enabled(true)
  *                     .url(&#34;http://tempurl.org/artifactory/terraform-federated-test-pypi-repo&#34;)
+ *                     .enabled(true)
  *                     .build(),
  *                 FederatedPypiRepositoryMemberArgs.builder()
- *                     .enabled(true)
  *                     .url(&#34;http://tempurl2.org/artifactory/terraform-federated-test-pypi-repo-2&#34;)
+ *                     .enabled(true)
  *                     .build())
  *             .build());
  * 

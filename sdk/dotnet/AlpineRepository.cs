@@ -12,43 +12,6 @@ namespace Pulumi.Artifactory
     /// <summary>
     /// Creates a local Alpine repository.
     /// 
-    /// ## Example Usage
-    /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.IO;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Artifactory = Pulumi.Artifactory;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var some_keypairRSA = new Artifactory.Keypair("some-keypairRSA", new()
-    ///     {
-    ///         PairName = "some-keypair",
-    ///         PairType = "RSA",
-    ///         Alias = "foo-alias",
-    ///         PrivateKey = File.ReadAllText("samples/rsa.priv"),
-    ///         PublicKey = File.ReadAllText("samples/rsa.pub"),
-    ///     });
-    /// 
-    ///     var terraform_local_test_alpine_repo_basic = new Artifactory.AlpineRepository("terraform-local-test-alpine-repo-basic", new()
-    ///     {
-    ///         Key = "terraform-local-test-alpine-repo-basic",
-    ///         PrimaryKeypairRef = some_keypairRSA.PairName,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             some_keypairRSA, 
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
-    /// 
     /// ## Import
     /// 
     /// Local repositories can be imported using their name, e.g.

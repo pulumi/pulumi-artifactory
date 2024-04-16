@@ -1728,12 +1728,12 @@ class RemoteNugetRepository(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         my_remote_nuget = artifactory.RemoteNugetRepository("my-remote-nuget",
+            key="my-remote-nuget",
+            url="https://www.nuget.org/",
             download_context_path="api/v2/package",
             force_nuget_authentication=True,
-            key="my-remote-nuget",
-            symbol_server_url="https://symbols.nuget.org/download/symbols",
-            url="https://www.nuget.org/",
-            v3_feed_url="https://api.nuget.org/v3/index.json")
+            v3_feed_url="https://api.nuget.org/v3/index.json",
+            symbol_server_url="https://symbols.nuget.org/download/symbols")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -1847,12 +1847,12 @@ class RemoteNugetRepository(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         my_remote_nuget = artifactory.RemoteNugetRepository("my-remote-nuget",
+            key="my-remote-nuget",
+            url="https://www.nuget.org/",
             download_context_path="api/v2/package",
             force_nuget_authentication=True,
-            key="my-remote-nuget",
-            symbol_server_url="https://symbols.nuget.org/download/symbols",
-            url="https://www.nuget.org/",
-            v3_feed_url="https://api.nuget.org/v3/index.json")
+            v3_feed_url="https://api.nuget.org/v3/index.json",
+            symbol_server_url="https://symbols.nuget.org/download/symbols")
         ```
         <!--End PulumiCodeChooser -->
 

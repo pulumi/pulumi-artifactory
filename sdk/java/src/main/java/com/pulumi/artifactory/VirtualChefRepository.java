@@ -46,12 +46,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var foo_chef = new VirtualChefRepository(&#34;foo-chef&#34;, VirtualChefRepositoryArgs.builder()        
- *             .description(&#34;A test virtual repo&#34;)
- *             .excludesPattern(&#34;com/google/**&#34;)
- *             .includesPattern(&#34;com/jfrog/**,cloud/jfrog/**&#34;)
  *             .key(&#34;foo-chef&#34;)
- *             .notes(&#34;Internal description&#34;)
  *             .repositories()
+ *             .description(&#34;A test virtual repo&#34;)
+ *             .notes(&#34;Internal description&#34;)
+ *             .includesPattern(&#34;com/jfrog/**,cloud/jfrog/**&#34;)
+ *             .excludesPattern(&#34;com/google/**&#34;)
  *             .build());
  * 
  *     }

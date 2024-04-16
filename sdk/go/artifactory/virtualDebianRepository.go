@@ -31,17 +31,17 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewVirtualDebianRepository(ctx, "foo-debian", &artifactory.VirtualDebianRepositoryArgs{
-//				DebianDefaultArchitectures: pulumi.String("amd64,i386"),
-//				Description:                pulumi.String("A test virtual repo"),
-//				ExcludesPattern:            pulumi.String("com/google/**"),
-//				IncludesPattern:            pulumi.String("com/jfrog/**,cloud/jfrog/**"),
-//				Key:                        pulumi.String("foo-debian"),
-//				Notes:                      pulumi.String("Internal description"),
+//				Key:             pulumi.String("foo-debian"),
+//				Repositories:    pulumi.StringArray{},
+//				Description:     pulumi.String("A test virtual repo"),
+//				Notes:           pulumi.String("Internal description"),
+//				IncludesPattern: pulumi.String("com/jfrog/**,cloud/jfrog/**"),
+//				ExcludesPattern: pulumi.String("com/google/**"),
 //				OptionalIndexCompressionFormats: pulumi.StringArray{
 //					pulumi.String("bz2"),
 //					pulumi.String("xz"),
 //				},
-//				Repositories: pulumi.StringArray{},
+//				DebianDefaultArchitectures: pulumi.String("amd64,i386"),
 //			})
 //			if err != nil {
 //				return err

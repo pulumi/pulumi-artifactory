@@ -16,17 +16,17 @@ import * as utilities from "./utilities";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * const foo_debian = new artifactory.VirtualDebianRepository("foo-debian", {
- *     debianDefaultArchitectures: "amd64,i386",
- *     description: "A test virtual repo",
- *     excludesPattern: "com/google/**",
- *     includesPattern: "com/jfrog/**,cloud/jfrog/**",
  *     key: "foo-debian",
+ *     repositories: [],
+ *     description: "A test virtual repo",
  *     notes: "Internal description",
+ *     includesPattern: "com/jfrog/**,cloud/jfrog/**",
+ *     excludesPattern: "com/google/**",
  *     optionalIndexCompressionFormats: [
  *         "bz2",
  *         "xz",
  *     ],
- *     repositories: [],
+ *     debianDefaultArchitectures: "amd64,i386",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

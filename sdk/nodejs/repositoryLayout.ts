@@ -17,11 +17,12 @@ import * as utilities from "./utilities";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * const custom_layout = new artifactory.RepositoryLayout("custom-layout", {
+ *     name: "custom-layout",
  *     artifactPathPattern: "[orgPath]/[module]/[baseRev](-[folderItegRev])/[module]-[baseRev](-[fileItegRev])(-[classifier]).[ext]",
- *     descriptorPathPattern: "[orgPath]/[module]/[baseRev](-[folderItegRev])/[module]-[baseRev](-[fileItegRev])(-[classifier]).pom",
  *     distinctiveDescriptorPathPattern: true,
- *     fileIntegrationRevisionRegexp: "Foo|(?:(?:[0-9]{8}.[0-9]{6})-(?:[0-9]+))",
+ *     descriptorPathPattern: "[orgPath]/[module]/[baseRev](-[folderItegRev])/[module]-[baseRev](-[fileItegRev])(-[classifier]).pom",
  *     folderIntegrationRevisionRegexp: "Foo",
+ *     fileIntegrationRevisionRegexp: "Foo|(?:(?:[0-9]{8}.[0-9]{6})-(?:[0-9]+))",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

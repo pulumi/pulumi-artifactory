@@ -36,14 +36,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			// ## Create a new Artifactory scoped token for an existing user
-//			_, err := artifactory.NewScopedToken(ctx, "scopedToken", &artifactory.ScopedTokenArgs{
+//			_, err := artifactory.NewScopedToken(ctx, "scoped_token", &artifactory.ScopedTokenArgs{
 //				Username: pulumi.String("existing-user"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			// ## Create a new Artifactory user and scoped token
-//			newUser, err := artifactory.NewUser(ctx, "newUser", &artifactory.UserArgs{
+//			newUser, err := artifactory.NewUser(ctx, "new_user", &artifactory.UserArgs{
+//				Name:  pulumi.String("new_user"),
 //				Email: pulumi.String("new_user@somewhere.com"),
 //				Groups: pulumi.StringArray{
 //					pulumi.String("readers"),
@@ -52,14 +53,14 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = artifactory.NewScopedToken(ctx, "scopedTokenUser", &artifactory.ScopedTokenArgs{
+//			_, err = artifactory.NewScopedToken(ctx, "scoped_token_user", &artifactory.ScopedTokenArgs{
 //				Username: newUser.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			// ## Creates a new token for groups
-//			_, err = artifactory.NewScopedToken(ctx, "scopedTokenGroup", &artifactory.ScopedTokenArgs{
+//			_, err = artifactory.NewScopedToken(ctx, "scoped_token_group", &artifactory.ScopedTokenArgs{
 //				Scopes: pulumi.StringArray{
 //					pulumi.String("applied-permissions/groups:readers"),
 //				},
@@ -68,7 +69,7 @@ import (
 //				return err
 //			}
 //			// ## Create token with expiry
-//			_, err = artifactory.NewScopedToken(ctx, "scopedTokenNoExpiry", &artifactory.ScopedTokenArgs{
+//			_, err = artifactory.NewScopedToken(ctx, "scoped_token_no_expiry", &artifactory.ScopedTokenArgs{
 //				Username:  pulumi.String("existing-user"),
 //				ExpiresIn: pulumi.Int(7200),
 //			})
@@ -76,7 +77,7 @@ import (
 //				return err
 //			}
 //			// ## Creates a refreshable token
-//			_, err = artifactory.NewScopedToken(ctx, "scopedTokenRefreshable", &artifactory.ScopedTokenArgs{
+//			_, err = artifactory.NewScopedToken(ctx, "scoped_token_refreshable", &artifactory.ScopedTokenArgs{
 //				Username:    pulumi.String("existing-user"),
 //				Refreshable: pulumi.Bool(true),
 //			})

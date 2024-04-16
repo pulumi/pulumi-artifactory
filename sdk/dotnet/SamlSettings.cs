@@ -30,19 +30,19 @@ namespace Pulumi.Artifactory
     ///     // Configure Artifactory SAML SSO settings
     ///     var saml = new Artifactory.SamlSettings("saml", new()
     ///     {
-    ///         AllowUserToAccessProfile = true,
-    ///         AutoRedirect = true,
-    ///         Certificate = "test-certificate",
-    ///         EmailAttribute = "email",
     ///         Enable = true,
-    ///         GroupAttribute = "groups",
+    ///         ServiceProviderName = "okta",
     ///         LoginUrl = "test-login-url",
     ///         LogoutUrl = "test-logout-url",
+    ///         Certificate = "test-certificate",
+    ///         EmailAttribute = "email",
+    ///         GroupAttribute = "groups",
     ///         NoAutoUserCreation = false,
-    ///         ServiceProviderName = "okta",
+    ///         AllowUserToAccessProfile = true,
+    ///         AutoRedirect = true,
     ///         SyncGroups = true,
-    ///         UseEncryptedAssertion = false,
     ///         VerifyAudienceRestriction = true,
+    ///         UseEncryptedAssertion = false,
     ///     });
     /// 
     /// });

@@ -50,12 +50,12 @@ import javax.annotation.Nullable;
  *             .key(&#34;terraform-federated-test-docker-repo&#34;)
  *             .members(            
  *                 FederatedDockerV2RepositoryMemberArgs.builder()
- *                     .enabled(true)
  *                     .url(&#34;http://tempurl.org/artifactory/terraform-federated-test-docker-repo&#34;)
+ *                     .enabled(true)
  *                     .build(),
  *                 FederatedDockerV2RepositoryMemberArgs.builder()
- *                     .enabled(true)
  *                     .url(&#34;http://tempurl2.org/artifactory/terraform-federated-test-docker-repo-2&#34;)
+ *                     .enabled(true)
  *                     .build())
  *             .build());
  * 

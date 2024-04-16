@@ -25,7 +25,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var artifactoryLocalTestDockerV1Repository = new Artifactory.DockerV1Repository("artifactoryLocalTestDockerV1Repository", new()
+        ///     var artifactoryLocalTestDockerV1Repository = new Artifactory.DockerV1Repository("artifactory_local_test_docker_v1_repository", new()
         ///     {
         ///         Key = "artifactory_local_test_docker_v1_repository",
         ///     });
@@ -51,7 +51,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var artifactoryLocalTestDockerV1Repository = new Artifactory.DockerV1Repository("artifactoryLocalTestDockerV1Repository", new()
+        ///     var artifactoryLocalTestDockerV1Repository = new Artifactory.DockerV1Repository("artifactory_local_test_docker_v1_repository", new()
         ///     {
         ///         Key = "artifactory_local_test_docker_v1_repository",
         ///     });

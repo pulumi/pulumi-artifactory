@@ -49,12 +49,12 @@ import javax.annotation.Nullable;
  *             .key(&#34;terraform-federated-test-bower-repo&#34;)
  *             .members(            
  *                 FederatedBowerRepositoryMemberArgs.builder()
- *                     .enabled(true)
  *                     .url(&#34;http://tempurl.org/artifactory/terraform-federated-test-bower-repo&#34;)
+ *                     .enabled(true)
  *                     .build(),
  *                 FederatedBowerRepositoryMemberArgs.builder()
- *                     .enabled(true)
  *                     .url(&#34;http://tempurl2.org/artifactory/terraform-federated-test-bower-repo-2&#34;)
+ *                     .enabled(true)
  *                     .build())
  *             .build());
  * 

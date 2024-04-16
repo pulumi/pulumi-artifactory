@@ -141,6 +141,7 @@ class UserLockPolicy(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         my_user_lock_policy = artifactory.UserLockPolicy("my-user-lock-policy",
+            name="my-user-lock-policy",
             enabled=True,
             login_attempts=10)
         ```
@@ -175,6 +176,7 @@ class UserLockPolicy(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         my_user_lock_policy = artifactory.UserLockPolicy("my-user-lock-policy",
+            name="my-user-lock-policy",
             enabled=True,
             login_attempts=10)
         ```

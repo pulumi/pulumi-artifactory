@@ -48,8 +48,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var my_helmoci_local = new LocalHelmociRepository(&#34;my-helmoci-local&#34;, LocalHelmociRepositoryArgs.builder()        
  *             .key(&#34;my-helmoci-local&#34;)
- *             .maxUniqueTags(5)
  *             .tagRetention(3)
+ *             .maxUniqueTags(5)
  *             .build());
  * 
  *     }

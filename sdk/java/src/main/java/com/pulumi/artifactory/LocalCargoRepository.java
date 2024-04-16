@@ -44,9 +44,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var terraform_local_test_cargo_repo_basic = new LocalCargoRepository(&#34;terraform-local-test-cargo-repo-basic&#34;, LocalCargoRepositoryArgs.builder()        
+ *             .key(&#34;terraform-local-test-cargo-repo-basic&#34;)
  *             .anonymousAccess(false)
  *             .enableSparseIndex(true)
- *             .key(&#34;terraform-local-test-cargo-repo-basic&#34;)
  *             .build());
  * 
  *     }

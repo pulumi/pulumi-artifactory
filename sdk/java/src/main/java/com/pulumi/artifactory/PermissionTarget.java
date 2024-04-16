@@ -33,12 +33,12 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.artifactory.PermissionTarget;
  * import com.pulumi.artifactory.PermissionTargetArgs;
+ * import com.pulumi.artifactory.inputs.PermissionTargetRepoArgs;
+ * import com.pulumi.artifactory.inputs.PermissionTargetRepoActionsArgs;
  * import com.pulumi.artifactory.inputs.PermissionTargetBuildArgs;
  * import com.pulumi.artifactory.inputs.PermissionTargetBuildActionsArgs;
  * import com.pulumi.artifactory.inputs.PermissionTargetReleaseBundleArgs;
  * import com.pulumi.artifactory.inputs.PermissionTargetReleaseBundleActionsArgs;
- * import com.pulumi.artifactory.inputs.PermissionTargetRepoArgs;
- * import com.pulumi.artifactory.inputs.PermissionTargetRepoActionsArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -54,7 +54,41 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         // Create a new Artifactory permission target called testpermission
  *         var test_perm = new PermissionTarget(&#34;test-perm&#34;, PermissionTargetArgs.builder()        
+ *             .name(&#34;test-perm&#34;)
+ *             .repo(PermissionTargetRepoArgs.builder()
+ *                 .includesPatterns(&#34;foo/**&#34;)
+ *                 .excludesPatterns(&#34;bar/**&#34;)
+ *                 .repositories(&#34;example-repo-local&#34;)
+ *                 .actions(PermissionTargetRepoActionsArgs.builder()
+ *                     .users(                    
+ *                         PermissionTargetRepoActionsUserArgs.builder()
+ *                             .name(&#34;anonymous&#34;)
+ *                             .permissions(                            
+ *                                 &#34;read&#34;,
+ *                                 &#34;write&#34;)
+ *                             .build(),
+ *                         PermissionTargetRepoActionsUserArgs.builder()
+ *                             .name(&#34;user1&#34;)
+ *                             .permissions(                            
+ *                                 &#34;read&#34;,
+ *                                 &#34;write&#34;)
+ *                             .build())
+ *                     .groups(                    
+ *                         PermissionTargetRepoActionsGroupArgs.builder()
+ *                             .name(&#34;readers&#34;)
+ *                             .permissions(&#34;read&#34;)
+ *                             .build(),
+ *                         PermissionTargetRepoActionsGroupArgs.builder()
+ *                             .name(&#34;dev&#34;)
+ *                             .permissions(                            
+ *                                 &#34;read&#34;,
+ *                                 &#34;write&#34;)
+ *                             .build())
+ *                     .build())
+ *                 .build())
  *             .build(PermissionTargetBuildArgs.builder()
+ *                 .includesPatterns(&#34;**&#34;)
+ *                 .repositories(&#34;artifactory-build-info&#34;)
  *                 .actions(PermissionTargetBuildActionsArgs.builder()
  *                     .users(                    
  *                         PermissionTargetBuildActionsUserArgs.builder()
@@ -68,49 +102,16 @@ import javax.annotation.Nullable;
  *                                 &#34;write&#34;)
  *                             .build())
  *                     .build())
- *                 .includesPatterns(&#34;**&#34;)
- *                 .repositories(&#34;artifactory-build-info&#34;)
  *                 .build())
  *             .releaseBundle(PermissionTargetReleaseBundleArgs.builder()
+ *                 .includesPatterns(&#34;**&#34;)
+ *                 .repositories(&#34;release-bundles&#34;)
  *                 .actions(PermissionTargetReleaseBundleActionsArgs.builder()
  *                     .users(PermissionTargetReleaseBundleActionsUserArgs.builder()
  *                         .name(&#34;anonymous&#34;)
  *                         .permissions(&#34;read&#34;)
  *                         .build())
  *                     .build())
- *                 .includesPatterns(&#34;**&#34;)
- *                 .repositories(&#34;release-bundles&#34;)
- *                 .build())
- *             .repo(PermissionTargetRepoArgs.builder()
- *                 .actions(PermissionTargetRepoActionsArgs.builder()
- *                     .groups(                    
- *                         PermissionTargetRepoActionsGroupArgs.builder()
- *                             .name(&#34;readers&#34;)
- *                             .permissions(&#34;read&#34;)
- *                             .build(),
- *                         PermissionTargetRepoActionsGroupArgs.builder()
- *                             .name(&#34;dev&#34;)
- *                             .permissions(                            
- *                                 &#34;read&#34;,
- *                                 &#34;write&#34;)
- *                             .build())
- *                     .users(                    
- *                         PermissionTargetRepoActionsUserArgs.builder()
- *                             .name(&#34;anonymous&#34;)
- *                             .permissions(                            
- *                                 &#34;read&#34;,
- *                                 &#34;write&#34;)
- *                             .build(),
- *                         PermissionTargetRepoActionsUserArgs.builder()
- *                             .name(&#34;user1&#34;)
- *                             .permissions(                            
- *                                 &#34;read&#34;,
- *                                 &#34;write&#34;)
- *                             .build())
- *                     .build())
- *                 .excludesPatterns(&#34;bar/**&#34;)
- *                 .includesPatterns(&#34;foo/**&#34;)
- *                 .repositories(&#34;example-repo-local&#34;)
  *                 .build())
  *             .build());
  * 

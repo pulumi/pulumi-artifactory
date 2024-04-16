@@ -36,16 +36,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.NewLdapGroupSettingV2(ctx, "ldapGroupName", &artifactory.LdapGroupSettingV2Args{
-//				DescriptionAttribute: pulumi.String("description"),
+//			_, err := artifactory.NewLdapGroupSettingV2(ctx, "ldap_group_name", &artifactory.LdapGroupSettingV2Args{
+//				Name:                 pulumi.String("ldap_group_name"),
 //				EnabledLdap:          pulumi.String("ldap_name"),
-//				Filter:               pulumi.String("(objectClass=groupOfNames)"),
-//				ForceAttributeSearch: pulumi.Bool(false),
 //				GroupBaseDn:          pulumi.String("CN=Users,DC=MyDomain,DC=com"),
-//				GroupMemberAttribute: pulumi.String("uniqueMember"),
 //				GroupNameAttribute:   pulumi.String("cn"),
-//				Strategy:             pulumi.String("STATIC"),
+//				GroupMemberAttribute: pulumi.String("uniqueMember"),
 //				SubTree:              pulumi.Bool(true),
+//				ForceAttributeSearch: pulumi.Bool(false),
+//				Filter:               pulumi.String("(objectClass=groupOfNames)"),
+//				DescriptionAttribute: pulumi.String("description"),
+//				Strategy:             pulumi.String("STATIC"),
 //			})
 //			if err != nil {
 //				return err

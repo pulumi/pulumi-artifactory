@@ -746,12 +746,12 @@ class FederatedHelmRepository(pulumi.CustomResource):
             key="terraform-federated-test-helm-repo",
             members=[
                 artifactory.FederatedHelmRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl.org/artifactory/terraform-federated-test-helm-repo",
+                    enabled=True,
                 ),
                 artifactory.FederatedHelmRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl2.org/artifactory/terraform-federated-test-helm-repo-2",
+                    enabled=True,
                 ),
             ])
         ```
@@ -822,12 +822,12 @@ class FederatedHelmRepository(pulumi.CustomResource):
             key="terraform-federated-test-helm-repo",
             members=[
                 artifactory.FederatedHelmRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl.org/artifactory/terraform-federated-test-helm-repo",
+                    enabled=True,
                 ),
                 artifactory.FederatedHelmRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl2.org/artifactory/terraform-federated-test-helm-repo-2",
+                    enabled=True,
                 ),
             ])
         ```

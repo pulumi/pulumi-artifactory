@@ -20,15 +20,16 @@ import * as utilities from "./utilities";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * // Configure Artifactory LDAP setting
- * const ldapGroupName = new artifactory.LdapGroupSetting("ldapGroupName", {
- *     descriptionAttribute: "description",
- *     filter: "(objectClass=groupOfNames)",
- *     groupBaseDn: "",
- *     groupMemberAttribute: "uniqueMember",
- *     groupNameAttribute: "cn",
+ * const ldapGroupName = new artifactory.LdapGroupSetting("ldap_group_name", {
+ *     name: "ldap_group_name",
  *     ldapSettingKey: "ldap_name",
- *     strategy: "STATIC",
+ *     groupBaseDn: "",
+ *     groupNameAttribute: "cn",
+ *     groupMemberAttribute: "uniqueMember",
  *     subTree: true,
+ *     filter: "(objectClass=groupOfNames)",
+ *     descriptionAttribute: "description",
+ *     strategy: "STATIC",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

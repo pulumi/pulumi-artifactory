@@ -20,68 +20,6 @@ import javax.annotation.Nullable;
 /**
  * Creates a local RPM repository.
  * 
- * ## Example Usage
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.artifactory.Keypair;
- * import com.pulumi.artifactory.KeypairArgs;
- * import com.pulumi.artifactory.LocalRpmRepository;
- * import com.pulumi.artifactory.LocalRpmRepositoryArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var some_keypair_gpg_1 = new Keypair(&#34;some-keypair-gpg-1&#34;, KeypairArgs.builder()        
- *             .pairName(String.format(&#34;some-keypair%s&#34;, random_id.randid().id()))
- *             .pairType(&#34;GPG&#34;)
- *             .alias(&#34;foo-alias1&#34;)
- *             .privateKey(Files.readString(Paths.get(&#34;samples/gpg.priv&#34;)))
- *             .publicKey(Files.readString(Paths.get(&#34;samples/gpg.pub&#34;)))
- *             .build());
- * 
- *         var some_keypair_gpg_2 = new Keypair(&#34;some-keypair-gpg-2&#34;, KeypairArgs.builder()        
- *             .pairName(String.format(&#34;some-keypair%s&#34;, random_id.randid().id()))
- *             .pairType(&#34;GPG&#34;)
- *             .alias(&#34;foo-alias2&#34;)
- *             .privateKey(Files.readString(Paths.get(&#34;samples/gpg.priv&#34;)))
- *             .publicKey(Files.readString(Paths.get(&#34;samples/gpg.pub&#34;)))
- *             .build());
- * 
- *         var terraform_local_test_rpm_repo_basic = new LocalRpmRepository(&#34;terraform-local-test-rpm-repo-basic&#34;, LocalRpmRepositoryArgs.builder()        
- *             .key(&#34;terraform-local-test-rpm-repo-basic&#34;)
- *             .yumRootDepth(5)
- *             .calculateYumMetadata(true)
- *             .enableFileListsIndexing(true)
- *             .yumGroupFileNames(&#34;file-1.xml,file-2.xml&#34;)
- *             .primaryKeypairRef(artifactory_keypair.some-keypairGPG1().pair_name())
- *             .secondaryKeypairRef(artifactory_keypair.some-keypairGPG2().pair_name())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(                
- *                     some_keypair_gpg_1,
- *                     some_keypair_gpg_2)
- *                 .build());
- * 
- *     }
- * }
- * ```
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  * ## Import
  * 
  * Local repositories can be imported using their name, e.g.

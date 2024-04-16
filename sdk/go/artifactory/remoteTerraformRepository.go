@@ -29,9 +29,9 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewRemoteTerraformRepository(ctx, "terraform-remote", &artifactory.RemoteTerraformRepositoryArgs{
 //				Key:                   pulumi.String("terraform-remote"),
-//				TerraformProvidersUrl: pulumi.String("https://releases.hashicorp.com"),
-//				TerraformRegistryUrl:  pulumi.String("https://registry.terraform.io"),
 //				Url:                   pulumi.String("https://github.com/"),
+//				TerraformRegistryUrl:  pulumi.String("https://registry.terraform.io"),
+//				TerraformProvidersUrl: pulumi.String("https://releases.hashicorp.com"),
 //			})
 //			if err != nil {
 //				return err

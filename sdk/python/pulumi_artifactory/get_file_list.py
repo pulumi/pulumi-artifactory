@@ -183,8 +183,8 @@ def get_file_list(deep_listing: Optional[bool] = None,
     import pulumi
     import pulumi_artifactory as artifactory
 
-    my_repo_file_list = artifactory.get_file_list(folder_path="path/to/artifact",
-        repository_key="my-generic-local")
+    my_repo_file_list = artifactory.get_file_list(repository_key="my-generic-local",
+        folder_path="path/to/artifact")
     ```
     <!--End PulumiCodeChooser -->
 
@@ -241,8 +241,8 @@ def get_file_list_output(deep_listing: Optional[pulumi.Input[Optional[bool]]] = 
     import pulumi
     import pulumi_artifactory as artifactory
 
-    my_repo_file_list = artifactory.get_file_list(folder_path="path/to/artifact",
-        repository_key="my-generic-local")
+    my_repo_file_list = artifactory.get_file_list(repository_key="my-generic-local",
+        folder_path="path/to/artifact")
     ```
     <!--End PulumiCodeChooser -->
 

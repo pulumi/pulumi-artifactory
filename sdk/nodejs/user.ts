@@ -18,13 +18,14 @@ import * as utilities from "./utilities";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * const test_user = new artifactory.User("test-user", {
- *     admin: false,
- *     disableUiAccess: false,
- *     email: "test-user@artifactory-terraform.com",
- *     groups: ["logged-in-users"],
- *     internalPasswordDisabled: false,
+ *     name: "terraform",
  *     password: "my super secret password",
+ *     email: "test-user@artifactory-terraform.com",
+ *     admin: false,
  *     profileUpdatable: true,
+ *     disableUiAccess: false,
+ *     internalPasswordDisabled: false,
+ *     groups: ["logged-in-users"],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

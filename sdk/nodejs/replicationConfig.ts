@@ -19,17 +19,17 @@ import * as utilities from "./utilities";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * // Create a replication between two artifactory local repositories
- * const providerTestSource = new artifactory.LocalMavenRepository("providerTestSource", {key: "provider_test_source"});
- * const providerTestDest = new artifactory.LocalMavenRepository("providerTestDest", {key: "provider_test_dest"});
+ * const providerTestSource = new artifactory.LocalMavenRepository("provider_test_source", {key: "provider_test_source"});
+ * const providerTestDest = new artifactory.LocalMavenRepository("provider_test_dest", {key: "provider_test_dest"});
  * const foo_rep = new artifactory.ReplicationConfig("foo-rep", {
+ *     repoKey: providerTestSource.key,
  *     cronExp: "0 0 * * * ?",
  *     enableEventReplication: true,
  *     replications: [{
- *         password: "$var.artifactory_password",
  *         url: "$var.artifactory_url",
  *         username: "$var.artifactory_username",
+ *         password: "$var.artifactory_password",
  *     }],
- *     repoKey: providerTestSource.key,
  * });
  * ```
  * <!--End PulumiCodeChooser -->

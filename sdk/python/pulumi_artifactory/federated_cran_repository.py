@@ -746,12 +746,12 @@ class FederatedCranRepository(pulumi.CustomResource):
             key="terraform-federated-test-cran-repo",
             members=[
                 artifactory.FederatedCranRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl.org/artifactory/terraform-federated-test-cran-repo",
+                    enabled=True,
                 ),
                 artifactory.FederatedCranRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl2.org/artifactory/terraform-federated-test-cran-repo-2",
+                    enabled=True,
                 ),
             ])
         ```
@@ -822,12 +822,12 @@ class FederatedCranRepository(pulumi.CustomResource):
             key="terraform-federated-test-cran-repo",
             members=[
                 artifactory.FederatedCranRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl.org/artifactory/terraform-federated-test-cran-repo",
+                    enabled=True,
                 ),
                 artifactory.FederatedCranRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl2.org/artifactory/terraform-federated-test-cran-repo-2",
+                    enabled=True,
                 ),
             ])
         ```

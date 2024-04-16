@@ -16,13 +16,13 @@ import * as utilities from "./utilities";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * const foo_nuget = new artifactory.VirtualNugetRepository("foo-nuget", {
+ *     key: "foo-nuget",
+ *     repositories: [],
  *     description: "A test virtual repo",
+ *     notes: "Internal description",
+ *     includesPattern: "com/jfrog/**,cloud/jfrog/**",
  *     excludesPattern: "com/google/**",
  *     forceNugetAuthentication: true,
- *     includesPattern: "com/jfrog/**,cloud/jfrog/**",
- *     key: "foo-nuget",
- *     notes: "Internal description",
- *     repositories: [],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

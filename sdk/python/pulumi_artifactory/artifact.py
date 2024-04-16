@@ -284,9 +284,9 @@ class Artifact(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         my_artifact = artifactory.Artifact("my-artifact",
-            file_path="/path/to/my-file.zip",
+            repository="my-generic-local",
             path="/my-path/my-file.zip",
-            repository="my-generic-local")
+            file_path="/path/to/my-file.zip")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -313,9 +313,9 @@ class Artifact(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         my_artifact = artifactory.Artifact("my-artifact",
-            file_path="/path/to/my-file.zip",
+            repository="my-generic-local",
             path="/my-path/my-file.zip",
-            repository="my-generic-local")
+            file_path="/path/to/my-file.zip")
         ```
         <!--End PulumiCodeChooser -->
 

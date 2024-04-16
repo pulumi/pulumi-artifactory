@@ -49,12 +49,12 @@ import javax.annotation.Nullable;
  *             .key(&#34;terraform-federated-test-cran-repo&#34;)
  *             .members(            
  *                 FederatedCranRepositoryMemberArgs.builder()
- *                     .enabled(true)
  *                     .url(&#34;http://tempurl.org/artifactory/terraform-federated-test-cran-repo&#34;)
+ *                     .enabled(true)
  *                     .build(),
  *                 FederatedCranRepositoryMemberArgs.builder()
- *                     .enabled(true)
  *                     .url(&#34;http://tempurl2.org/artifactory/terraform-federated-test-cran-repo-2&#34;)
+ *                     .enabled(true)
  *                     .build())
  *             .build());
  * 

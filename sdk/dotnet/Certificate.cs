@@ -12,35 +12,6 @@ namespace Pulumi.Artifactory
     /// <summary>
     /// Provides an Artifactory certificate resource. This can be used to create and manage Artifactory certificates which can be used as client authentication against remote repositories.
     /// 
-    /// ## Example Usage
-    /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.IO;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Artifactory = Pulumi.Artifactory;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     // Create a new Artifactory certificate called my-cert
-    ///     var my_cert = new Artifactory.Certificate("my-cert", new()
-    ///     {
-    ///         Alias = "my-cert",
-    ///         Content = File.ReadAllText("/path/to/bundle.pem"),
-    ///     });
-    /// 
-    ///     // This can then be used by a remote repository
-    ///     var my_remote = new Artifactory.RemoteMavenRepository("my-remote", new()
-    ///     {
-    ///         ClientTlsCertificate = my_cert.Alias,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
-    /// 
     /// ## Import
     /// 
     /// Certificates can be imported using their alias, e.g.

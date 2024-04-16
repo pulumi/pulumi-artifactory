@@ -726,8 +726,8 @@ class DockerV2Repository(pulumi.CustomResource):
 
         foo = artifactory.DockerV2Repository("foo",
             key="foo",
-            max_unique_tags=5,
-            tag_retention=3)
+            tag_retention=3,
+            max_unique_tags=5)
         ```
         <!--End PulumiCodeChooser -->
 
@@ -793,8 +793,8 @@ class DockerV2Repository(pulumi.CustomResource):
 
         foo = artifactory.DockerV2Repository("foo",
             key="foo",
-            max_unique_tags=5,
-            tag_retention=3)
+            tag_retention=3,
+            max_unique_tags=5)
         ```
         <!--End PulumiCodeChooser -->
 

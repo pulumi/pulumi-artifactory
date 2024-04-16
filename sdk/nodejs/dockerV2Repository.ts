@@ -16,8 +16,8 @@ import * as utilities from "./utilities";
  *
  * const foo = new artifactory.DockerV2Repository("foo", {
  *     key: "foo",
- *     maxUniqueTags: 5,
  *     tagRetention: 3,
+ *     maxUniqueTags: 5,
  * });
  * ```
  * <!--End PulumiCodeChooser -->

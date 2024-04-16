@@ -27,6 +27,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
+        ///     //
         ///     var target1 = Artifactory.GetPermissionTarget.Invoke(new()
         ///     {
         ///         Name = "my_permission",
@@ -55,6 +56,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
+        ///     //
         ///     var target1 = Artifactory.GetPermissionTarget.Invoke(new()
         ///     {
         ///         Name = "my_permission",

@@ -25,13 +25,13 @@ namespace Pulumi.Artifactory
     /// {
     ///     var foo_bower = new Artifactory.VirtualBowerRepository("foo-bower", new()
     ///     {
+    ///         Key = "foo-bower",
+    ///         Repositories = new[] {},
     ///         Description = "A test virtual repo",
+    ///         Notes = "Internal description",
+    ///         IncludesPattern = "com/jfrog/**,cloud/jfrog/**",
     ///         ExcludesPattern = "com/google/**",
     ///         ExternalDependenciesEnabled = false,
-    ///         IncludesPattern = "com/jfrog/**,cloud/jfrog/**",
-    ///         Key = "foo-bower",
-    ///         Notes = "Internal description",
-    ///         Repositories = new[] {},
     ///     });
     /// 
     /// });

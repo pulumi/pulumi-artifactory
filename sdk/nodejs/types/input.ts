@@ -51,12 +51,6 @@ export interface ArtifactCustomWebhookHandler {
     proxy?: pulumi.Input<string>;
     /**
      * Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example: 
-     *
-     * <!--Start PulumiCodeChooser -->
-     * ```typescript
-     * import * as pulumi from "@pulumi/pulumi";
-     * ```
-     * <!--End PulumiCodeChooser -->
      */
     secrets?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -107,12 +101,6 @@ export interface ArtifactPropertyCustomWebhookHandler {
     proxy?: pulumi.Input<string>;
     /**
      * Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
-     *
-     * <!--Start PulumiCodeChooser -->
-     * ```typescript
-     * import * as pulumi from "@pulumi/pulumi";
-     * ```
-     * <!--End PulumiCodeChooser -->
      */
     secrets?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -255,12 +243,6 @@ export interface ArtifactoryReleaseBundleCustomWebhookHandler {
     proxy?: pulumi.Input<string>;
     /**
      * Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
-     *
-     * <!--Start PulumiCodeChooser -->
-     * ```typescript
-     * import * as pulumi from "@pulumi/pulumi";
-     * ```
-     * <!--End PulumiCodeChooser -->
      */
     secrets?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -345,12 +327,6 @@ export interface BuildCustomWebhookHandler {
     proxy?: pulumi.Input<string>;
     /**
      * Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
-     *
-     * <!--Start PulumiCodeChooser -->
-     * ```typescript
-     * import * as pulumi from "@pulumi/pulumi";
-     * ```
-     * <!--End PulumiCodeChooser -->
      */
     secrets?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -435,12 +411,6 @@ export interface DistributionCustomWebhookHandler {
     proxy?: pulumi.Input<string>;
     /**
      * Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
-     *
-     * <!--Start PulumiCodeChooser -->
-     * ```typescript
-     * import * as pulumi from "@pulumi/pulumi";
-     * ```
-     * <!--End PulumiCodeChooser -->
      */
     secrets?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -533,12 +503,6 @@ export interface DockerCustomWebhookHandler {
     proxy?: pulumi.Input<string>;
     /**
      * Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
-     *
-     * <!--Start PulumiCodeChooser -->
-     * ```typescript
-     * import * as pulumi from "@pulumi/pulumi";
-     * ```
-     * <!--End PulumiCodeChooser -->
      */
     secrets?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -3674,12 +3638,6 @@ export interface ReleaseBundleCustomWebhookHandler {
     proxy?: pulumi.Input<string>;
     /**
      * Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
-     *
-     * <!--Start PulumiCodeChooser -->
-     * ```typescript
-     * import * as pulumi from "@pulumi/pulumi";
-     * ```
-     * <!--End PulumiCodeChooser -->
      */
     secrets?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

@@ -378,11 +378,12 @@ class RemoteRepositoryReplication(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         config = pulumi.Config()
+        # The base URL of the Artifactory deployment
         artifactory_url = config.require("artifactoryUrl")
-        provider_test_source = artifactory.LocalMavenRepository("providerTestSource", key="provider_test_source")
-        provider_test_dest = artifactory.RemoteMavenRepository("providerTestDest",
+        provider_test_source = artifactory.LocalMavenRepository("provider_test_source", key="provider_test_source")
+        provider_test_dest = artifactory.RemoteMavenRepository("provider_test_dest",
             key="provider_test_dest",
-            url=f"{artifactory_url}/artifactory/{artifactory_local_maven_repository['artifactory_local_maven_repository']['key']}",
+            url=f"{artifactory_url}/artifactory/{artifactory_local_maven_repository['key']}",
             username="foo",
             password="bar")
         remote_rep = artifactory.RemoteRepositoryReplication("remote-rep",
@@ -438,11 +439,12 @@ class RemoteRepositoryReplication(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         config = pulumi.Config()
+        # The base URL of the Artifactory deployment
         artifactory_url = config.require("artifactoryUrl")
-        provider_test_source = artifactory.LocalMavenRepository("providerTestSource", key="provider_test_source")
-        provider_test_dest = artifactory.RemoteMavenRepository("providerTestDest",
+        provider_test_source = artifactory.LocalMavenRepository("provider_test_source", key="provider_test_source")
+        provider_test_dest = artifactory.RemoteMavenRepository("provider_test_dest",
             key="provider_test_dest",
-            url=f"{artifactory_url}/artifactory/{artifactory_local_maven_repository['artifactory_local_maven_repository']['key']}",
+            url=f"{artifactory_url}/artifactory/{artifactory_local_maven_repository['key']}",
             username="foo",
             password="bar")
         remote_rep = artifactory.RemoteRepositoryReplication("remote-rep",

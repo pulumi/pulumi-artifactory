@@ -27,8 +27,8 @@ namespace Pulumi.Artifactory
         /// {
         ///     var my_repo_file_list = Artifactory.GetFileList.Invoke(new()
         ///     {
-        ///         FolderPath = "path/to/artifact",
         ///         RepositoryKey = "my-generic-local",
+        ///         FolderPath = "path/to/artifact",
         ///     });
         /// 
         /// });
@@ -54,8 +54,8 @@ namespace Pulumi.Artifactory
         /// {
         ///     var my_repo_file_list = Artifactory.GetFileList.Invoke(new()
         ///     {
-        ///         FolderPath = "path/to/artifact",
         ///         RepositoryKey = "my-generic-local",
+        ///         FolderPath = "path/to/artifact",
         ///     });
         /// 
         /// });

@@ -26,22 +26,7 @@ namespace Pulumi.Artifactory
     /// {
     ///     var artifactory_release_bundle_custom_webhook = new Artifactory.ArtifactoryReleaseBundleCustomWebhook("artifactory-release-bundle-custom-webhook", new()
     ///     {
-    ///         Criteria = new Artifactory.Inputs.ArtifactoryReleaseBundleCustomWebhookCriteriaArgs
-    ///         {
-    ///             AnyReleaseBundle = false,
-    ///             ExcludePatterns = new[]
-    ///             {
-    ///                 "bar/**",
-    ///             },
-    ///             IncludePatterns = new[]
-    ///             {
-    ///                 "foo/**",
-    ///             },
-    ///             RegisteredReleaseBundleNames = new[]
-    ///             {
-    ///                 "bundle-name",
-    ///             },
-    ///         },
+    ///         Key = "artifactory-release-bundle-custom-webhook",
     ///         EventTypes = new[]
     ///         {
     ///             "received",
@@ -49,25 +34,40 @@ namespace Pulumi.Artifactory
     ///             "delete_completed",
     ///             "delete_failed",
     ///         },
+    ///         Criteria = new Artifactory.Inputs.ArtifactoryReleaseBundleCustomWebhookCriteriaArgs
+    ///         {
+    ///             AnyReleaseBundle = false,
+    ///             RegisteredReleaseBundleNames = new[]
+    ///             {
+    ///                 "bundle-name",
+    ///             },
+    ///             IncludePatterns = new[]
+    ///             {
+    ///                 "foo/**",
+    ///             },
+    ///             ExcludePatterns = new[]
+    ///             {
+    ///                 "bar/**",
+    ///             },
+    ///         },
     ///         Handlers = new[]
     ///         {
     ///             new Artifactory.Inputs.ArtifactoryReleaseBundleCustomWebhookHandlerArgs
     ///             {
+    ///                 Url = "https://tempurl.org",
+    ///                 Secrets = 
+    ///                 {
+    ///                     { "secretName1", "value1" },
+    ///                     { "secretName2", "value2" },
+    ///                 },
     ///                 HttpHeaders = 
     ///                 {
     ///                     { "headerName1", "value1" },
     ///                     { "headerName2", "value2" },
     ///                 },
     ///                 Payload = "{ \"ref\": \"main\" , \"inputs\": { \"artifact_path\": \"test-repo/repo-path\" } }",
-    ///                 Secrets = 
-    ///                 {
-    ///                     { "secretName1", "value1" },
-    ///                     { "secretName2", "value2" },
-    ///                 },
-    ///                 Url = "https://tempurl.org",
     ///             },
     ///         },
-    ///         Key = "artifactory-release-bundle-custom-webhook",
     ///     });
     /// 
     /// });

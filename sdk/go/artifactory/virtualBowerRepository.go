@@ -30,13 +30,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewVirtualBowerRepository(ctx, "foo-bower", &artifactory.VirtualBowerRepositoryArgs{
+//				Key:                         pulumi.String("foo-bower"),
+//				Repositories:                pulumi.StringArray{},
 //				Description:                 pulumi.String("A test virtual repo"),
+//				Notes:                       pulumi.String("Internal description"),
+//				IncludesPattern:             pulumi.String("com/jfrog/**,cloud/jfrog/**"),
 //				ExcludesPattern:             pulumi.String("com/google/**"),
 //				ExternalDependenciesEnabled: pulumi.Bool(false),
-//				IncludesPattern:             pulumi.String("com/jfrog/**,cloud/jfrog/**"),
-//				Key:                         pulumi.String("foo-bower"),
-//				Notes:                       pulumi.String("Internal description"),
-//				Repositories:                pulumi.StringArray{},
 //			})
 //			if err != nil {
 //				return err

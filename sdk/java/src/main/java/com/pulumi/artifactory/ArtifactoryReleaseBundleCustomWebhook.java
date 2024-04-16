@@ -49,30 +49,30 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var artifactory_release_bundle_custom_webhook = new ArtifactoryReleaseBundleCustomWebhook(&#34;artifactory-release-bundle-custom-webhook&#34;, ArtifactoryReleaseBundleCustomWebhookArgs.builder()        
- *             .criteria(ArtifactoryReleaseBundleCustomWebhookCriteriaArgs.builder()
- *                 .anyReleaseBundle(false)
- *                 .excludePatterns(&#34;bar/**&#34;)
- *                 .includePatterns(&#34;foo/**&#34;)
- *                 .registeredReleaseBundleNames(&#34;bundle-name&#34;)
- *                 .build())
+ *             .key(&#34;artifactory-release-bundle-custom-webhook&#34;)
  *             .eventTypes(            
  *                 &#34;received&#34;,
  *                 &#34;delete_started&#34;,
  *                 &#34;delete_completed&#34;,
  *                 &#34;delete_failed&#34;)
+ *             .criteria(ArtifactoryReleaseBundleCustomWebhookCriteriaArgs.builder()
+ *                 .anyReleaseBundle(false)
+ *                 .registeredReleaseBundleNames(&#34;bundle-name&#34;)
+ *                 .includePatterns(&#34;foo/**&#34;)
+ *                 .excludePatterns(&#34;bar/**&#34;)
+ *                 .build())
  *             .handlers(ArtifactoryReleaseBundleCustomWebhookHandlerArgs.builder()
+ *                 .url(&#34;https://tempurl.org&#34;)
+ *                 .secrets(Map.ofEntries(
+ *                     Map.entry(&#34;secretName1&#34;, &#34;value1&#34;),
+ *                     Map.entry(&#34;secretName2&#34;, &#34;value2&#34;)
+ *                 ))
  *                 .httpHeaders(Map.ofEntries(
  *                     Map.entry(&#34;headerName1&#34;, &#34;value1&#34;),
  *                     Map.entry(&#34;headerName2&#34;, &#34;value2&#34;)
  *                 ))
  *                 .payload(&#34;{ \&#34;ref\&#34;: \&#34;main\&#34; , \&#34;inputs\&#34;: { \&#34;artifact_path\&#34;: \&#34;test-repo/repo-path\&#34; } }&#34;)
- *                 .secrets(Map.ofEntries(
- *                     Map.entry(&#34;secretName1&#34;, &#34;value1&#34;),
- *                     Map.entry(&#34;secretName2&#34;, &#34;value2&#34;)
- *                 ))
- *                 .url(&#34;https://tempurl.org&#34;)
  *                 .build())
- *             .key(&#34;artifactory-release-bundle-custom-webhook&#34;)
  *             .build());
  * 
  *     }

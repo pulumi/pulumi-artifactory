@@ -46,13 +46,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test_user = new User(&#34;test-user&#34;, UserArgs.builder()        
- *             .admin(false)
- *             .disableUiAccess(false)
- *             .email(&#34;test-user@artifactory-terraform.com&#34;)
- *             .groups(&#34;logged-in-users&#34;)
- *             .internalPasswordDisabled(false)
+ *             .name(&#34;terraform&#34;)
  *             .password(&#34;my super secret password&#34;)
+ *             .email(&#34;test-user@artifactory-terraform.com&#34;)
+ *             .admin(false)
  *             .profileUpdatable(true)
+ *             .disableUiAccess(false)
+ *             .internalPasswordDisabled(false)
+ *             .groups(&#34;logged-in-users&#34;)
  *             .build());
  * 
  *     }

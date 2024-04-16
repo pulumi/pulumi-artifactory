@@ -31,18 +31,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewDistributionWebhook(ctx, "distribution-webhook", &artifactory.DistributionWebhookArgs{
-//				Criteria: &artifactory.DistributionWebhookCriteriaArgs{
-//					AnyReleaseBundle: pulumi.Bool(false),
-//					ExcludePatterns: pulumi.StringArray{
-//						pulumi.String("bar/**"),
-//					},
-//					IncludePatterns: pulumi.StringArray{
-//						pulumi.String("foo/**"),
-//					},
-//					RegisteredReleaseBundleNames: pulumi.StringArray{
-//						pulumi.String("bundle-name"),
-//					},
-//				},
+//				Key: pulumi.String("distribution-webhook"),
 //				EventTypes: pulumi.StringArray{
 //					pulumi.String("distribute_started"),
 //					pulumi.String("distribute_completed"),
@@ -52,18 +41,29 @@ import (
 //					pulumi.String("delete_completed"),
 //					pulumi.String("delete_failed"),
 //				},
+//				Criteria: &artifactory.DistributionWebhookCriteriaArgs{
+//					AnyReleaseBundle: pulumi.Bool(false),
+//					RegisteredReleaseBundleNames: pulumi.StringArray{
+//						pulumi.String("bundle-name"),
+//					},
+//					IncludePatterns: pulumi.StringArray{
+//						pulumi.String("foo/**"),
+//					},
+//					ExcludePatterns: pulumi.StringArray{
+//						pulumi.String("bar/**"),
+//					},
+//				},
 //				Handlers: artifactory.DistributionWebhookHandlerArray{
 //					&artifactory.DistributionWebhookHandlerArgs{
+//						Url:    pulumi.String("http://tempurl.org/webhook"),
+//						Secret: pulumi.String("some-secret"),
+//						Proxy:  pulumi.String("proxy-key"),
 //						CustomHttpHeaders: pulumi.StringMap{
 //							"header-1": pulumi.String("value-1"),
 //							"header-2": pulumi.String("value-2"),
 //						},
-//						Proxy:  pulumi.String("proxy-key"),
-//						Secret: pulumi.String("some-secret"),
-//						Url:    pulumi.String("http://tempurl.org/webhook"),
 //					},
 //				},
-//				Key: pulumi.String("distribution-webhook"),
 //			})
 //			if err != nil {
 //				return err

@@ -27,16 +27,16 @@ namespace Pulumi.Artifactory
     /// {
     ///     var mymailserver = new Artifactory.MailServer("mymailserver", new()
     ///     {
-    ///         ArtifactoryUrl = "http://tempurl.org",
     ///         Enabled = true,
+    ///         ArtifactoryUrl = "http://tempurl.org",
     ///         From = "test@jfrog.com",
     ///         Host = "http://tempurl.org",
+    ///         Username = "test-user",
     ///         Password = "test-password",
     ///         Port = 25,
     ///         SubjectPrefix = "[Test]",
     ///         UseSsl = true,
     ///         UseTls = true,
-    ///         Username = "test-user",
     ///     });
     /// 
     /// });

@@ -746,12 +746,12 @@ class FederatedGemsRepository(pulumi.CustomResource):
             key="terraform-federated-test-gems-repo",
             members=[
                 artifactory.FederatedGemsRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl.org/artifactory/terraform-federated-test-gems-repo",
+                    enabled=True,
                 ),
                 artifactory.FederatedGemsRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl2.org/artifactory/terraform-federated-test-gems-repo-2",
+                    enabled=True,
                 ),
             ])
         ```
@@ -822,12 +822,12 @@ class FederatedGemsRepository(pulumi.CustomResource):
             key="terraform-federated-test-gems-repo",
             members=[
                 artifactory.FederatedGemsRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl.org/artifactory/terraform-federated-test-gems-repo",
+                    enabled=True,
                 ),
                 artifactory.FederatedGemsRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl2.org/artifactory/terraform-federated-test-gems-repo-2",
+                    enabled=True,
                 ),
             ])
         ```

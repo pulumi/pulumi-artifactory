@@ -214,22 +214,6 @@ class Certificate(pulumi.CustomResource):
         """
         Provides an Artifactory certificate resource. This can be used to create and manage Artifactory certificates which can be used as client authentication against remote repositories.
 
-        ## Example Usage
-
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        import pulumi_artifactory as artifactory
-
-        # Create a new Artifactory certificate called my-cert
-        my_cert = artifactory.Certificate("my-cert",
-            alias="my-cert",
-            content=(lambda path: open(path).read())("/path/to/bundle.pem"))
-        # This can then be used by a remote repository
-        my_remote = artifactory.RemoteMavenRepository("my-remote", client_tls_certificate=my_cert.alias)
-        ```
-        <!--End PulumiCodeChooser -->
-
         ## Import
 
         Certificates can be imported using their alias, e.g.
@@ -252,22 +236,6 @@ class Certificate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an Artifactory certificate resource. This can be used to create and manage Artifactory certificates which can be used as client authentication against remote repositories.
-
-        ## Example Usage
-
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        import pulumi_artifactory as artifactory
-
-        # Create a new Artifactory certificate called my-cert
-        my_cert = artifactory.Certificate("my-cert",
-            alias="my-cert",
-            content=(lambda path: open(path).read())("/path/to/bundle.pem"))
-        # This can then be used by a remote repository
-        my_remote = artifactory.RemoteMavenRepository("my-remote", client_tls_certificate=my_cert.alias)
-        ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

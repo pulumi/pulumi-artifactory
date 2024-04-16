@@ -12,58 +12,6 @@ namespace Pulumi.Artifactory
     /// <summary>
     /// Creates a local RPM repository.
     /// 
-    /// ## Example Usage
-    /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.IO;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Artifactory = Pulumi.Artifactory;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var some_keypair_gpg_1 = new Artifactory.Keypair("some-keypair-gpg-1", new()
-    ///     {
-    ///         PairName = $"some-keypair{random_id.Randid.Id}",
-    ///         PairType = "GPG",
-    ///         Alias = "foo-alias1",
-    ///         PrivateKey = File.ReadAllText("samples/gpg.priv"),
-    ///         PublicKey = File.ReadAllText("samples/gpg.pub"),
-    ///     });
-    /// 
-    ///     var some_keypair_gpg_2 = new Artifactory.Keypair("some-keypair-gpg-2", new()
-    ///     {
-    ///         PairName = $"some-keypair{random_id.Randid.Id}",
-    ///         PairType = "GPG",
-    ///         Alias = "foo-alias2",
-    ///         PrivateKey = File.ReadAllText("samples/gpg.priv"),
-    ///         PublicKey = File.ReadAllText("samples/gpg.pub"),
-    ///     });
-    /// 
-    ///     var terraform_local_test_rpm_repo_basic = new Artifactory.LocalRpmRepository("terraform-local-test-rpm-repo-basic", new()
-    ///     {
-    ///         Key = "terraform-local-test-rpm-repo-basic",
-    ///         YumRootDepth = 5,
-    ///         CalculateYumMetadata = true,
-    ///         EnableFileListsIndexing = true,
-    ///         YumGroupFileNames = "file-1.xml,file-2.xml",
-    ///         PrimaryKeypairRef = artifactory_keypair.Some_keypairGPG1.Pair_name,
-    ///         SecondaryKeypairRef = artifactory_keypair.Some_keypairGPG2.Pair_name,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             some_keypair_gpg_1, 
-    ///             some_keypair_gpg_2, 
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
-    /// 
     /// ## Import
     /// 
     /// Local repositories can be imported using their name, e.g.

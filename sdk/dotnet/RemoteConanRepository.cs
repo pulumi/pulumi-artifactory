@@ -26,9 +26,9 @@ namespace Pulumi.Artifactory
     /// {
     ///     var my_remote_conan = new Artifactory.RemoteConanRepository("my-remote-conan", new()
     ///     {
-    ///         ForceConanAuthentication = true,
     ///         Key = "my-remote-conan",
     ///         Url = "https://conan.io/center/",
+    ///         ForceConanAuthentication = true,
     ///     });
     /// 
     /// });

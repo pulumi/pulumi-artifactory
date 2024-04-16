@@ -27,11 +27,12 @@ namespace Pulumi.Artifactory
     /// {
     ///     var custom_layout = new Artifactory.RepositoryLayout("custom-layout", new()
     ///     {
+    ///         Name = "custom-layout",
     ///         ArtifactPathPattern = "[orgPath]/[module]/[baseRev](-[folderItegRev])/[module]-[baseRev](-[fileItegRev])(-[classifier]).[ext]",
-    ///         DescriptorPathPattern = "[orgPath]/[module]/[baseRev](-[folderItegRev])/[module]-[baseRev](-[fileItegRev])(-[classifier]).pom",
     ///         DistinctiveDescriptorPathPattern = true,
-    ///         FileIntegrationRevisionRegexp = "Foo|(?:(?:[0-9]{8}.[0-9]{6})-(?:[0-9]+))",
+    ///         DescriptorPathPattern = "[orgPath]/[module]/[baseRev](-[folderItegRev])/[module]-[baseRev](-[fileItegRev])(-[classifier]).pom",
     ///         FolderIntegrationRevisionRegexp = "Foo",
+    ///         FileIntegrationRevisionRegexp = "Foo|(?:(?:[0-9]{8}.[0-9]{6})-(?:[0-9]+))",
     ///     });
     /// 
     /// });

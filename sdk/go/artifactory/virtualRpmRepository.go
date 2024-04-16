@@ -15,69 +15,6 @@ import (
 // Creates a virtual Rpm repository.
 // Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/RPM+Repositories).
 //
-// ## Example Usage
-//
-// <!--Start PulumiCodeChooser -->
-// ```go
-// package main
-//
-// import (
-//
-//	"os"
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v6/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.NewKeypair(ctx, "primary-keypair", &artifactory.KeypairArgs{
-//				PairName:   pulumi.String("primary-keypair"),
-//				PairType:   pulumi.String("GPG"),
-//				Alias:      pulumi.String("foo-alias-1"),
-//				PrivateKey: readFileOrPanic("samples/gpg.priv"),
-//				PublicKey:  readFileOrPanic("samples/gpg.pub"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = artifactory.NewKeypair(ctx, "secondary-keypair", &artifactory.KeypairArgs{
-//				PairName:   pulumi.String("secondary-keypair"),
-//				PairType:   pulumi.String("GPG"),
-//				Alias:      pulumi.String("foo-alias-2"),
-//				PrivateKey: readFileOrPanic("samples/gpg.priv"),
-//				PublicKey:  readFileOrPanic("samples/gpg.pub"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = artifactory.NewVirtualRpmRepository(ctx, "foo-rpm-virtual", &artifactory.VirtualRpmRepositoryArgs{
-//				Key:                 pulumi.String("foo-rpm-virtual"),
-//				PrimaryKeypairRef:   primary_keypair.PairName,
-//				SecondaryKeypairRef: secondary_keypair.PairName,
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				primary_keypair,
-//				secondary_keypair,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// <!--End PulumiCodeChooser -->
-//
 // ## Import
 //
 // Virtual repositories can be imported using their name, e.g.

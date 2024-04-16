@@ -149,39 +149,40 @@ class PropertySet(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         foo = artifactory.PropertySet("foo",
+            name="property-set1",
+            visible=True,
             properties=[
                 artifactory.PropertySetPropertyArgs(
-                    closed_predefined_values=True,
-                    multiple_choice=True,
                     name="set1property1",
                     predefined_values=[
                         artifactory.PropertySetPropertyPredefinedValueArgs(
-                            default_value=True,
                             name="passed-QA",
+                            default_value=True,
                         ),
                         artifactory.PropertySetPropertyPredefinedValueArgs(
-                            default_value=False,
                             name="failed-QA",
+                            default_value=False,
                         ),
                     ],
+                    closed_predefined_values=True,
+                    multiple_choice=True,
                 ),
                 artifactory.PropertySetPropertyArgs(
-                    closed_predefined_values=False,
-                    multiple_choice=False,
                     name="set1property2",
                     predefined_values=[
                         artifactory.PropertySetPropertyPredefinedValueArgs(
-                            default_value=True,
                             name="passed-QA",
+                            default_value=True,
                         ),
                         artifactory.PropertySetPropertyPredefinedValueArgs(
-                            default_value=False,
                             name="failed-QA",
+                            default_value=False,
                         ),
                     ],
+                    closed_predefined_values=False,
+                    multiple_choice=False,
                 ),
-            ],
-            visible=True)
+            ])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -220,39 +221,40 @@ class PropertySet(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         foo = artifactory.PropertySet("foo",
+            name="property-set1",
+            visible=True,
             properties=[
                 artifactory.PropertySetPropertyArgs(
-                    closed_predefined_values=True,
-                    multiple_choice=True,
                     name="set1property1",
                     predefined_values=[
                         artifactory.PropertySetPropertyPredefinedValueArgs(
-                            default_value=True,
                             name="passed-QA",
+                            default_value=True,
                         ),
                         artifactory.PropertySetPropertyPredefinedValueArgs(
-                            default_value=False,
                             name="failed-QA",
+                            default_value=False,
                         ),
                     ],
+                    closed_predefined_values=True,
+                    multiple_choice=True,
                 ),
                 artifactory.PropertySetPropertyArgs(
-                    closed_predefined_values=False,
-                    multiple_choice=False,
                     name="set1property2",
                     predefined_values=[
                         artifactory.PropertySetPropertyPredefinedValueArgs(
-                            default_value=True,
                             name="passed-QA",
+                            default_value=True,
                         ),
                         artifactory.PropertySetPropertyPredefinedValueArgs(
-                            default_value=False,
                             name="failed-QA",
+                            default_value=False,
                         ),
                     ],
+                    closed_predefined_values=False,
+                    multiple_choice=False,
                 ),
-            ],
-            visible=True)
+            ])
         ```
         <!--End PulumiCodeChooser -->
 

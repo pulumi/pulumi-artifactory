@@ -7,24 +7,6 @@ import * as utilities from "./utilities";
 /**
  * Provides an Artifactory certificate resource. This can be used to create and manage Artifactory certificates which can be used as client authentication against remote repositories.
  *
- * ## Example Usage
- *
- * <!--Start PulumiCodeChooser -->
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- * import * as fs from "fs";
- *
- * // Create a new Artifactory certificate called my-cert
- * const my_cert = new artifactory.Certificate("my-cert", {
- *     alias: "my-cert",
- *     content: fs.readFileSync("/path/to/bundle.pem", "utf8"),
- * });
- * // This can then be used by a remote repository
- * const my_remote = new artifactory.RemoteMavenRepository("my-remote", {clientTlsCertificate: my_cert.alias});
- * ```
- * <!--End PulumiCodeChooser -->
- *
  * ## Import
  *
  * Certificates can be imported using their alias, e.g.

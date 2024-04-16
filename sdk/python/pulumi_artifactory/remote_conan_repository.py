@@ -1588,9 +1588,9 @@ class RemoteConanRepository(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         my_remote_conan = artifactory.RemoteConanRepository("my-remote-conan",
-            force_conan_authentication=True,
             key="my-remote-conan",
-            url="https://conan.io/center/")
+            url="https://conan.io/center/",
+            force_conan_authentication=True)
         ```
         <!--End PulumiCodeChooser -->
 
@@ -1698,9 +1698,9 @@ class RemoteConanRepository(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         my_remote_conan = artifactory.RemoteConanRepository("my-remote-conan",
-            force_conan_authentication=True,
             key="my-remote-conan",
-            url="https://conan.io/center/")
+            url="https://conan.io/center/",
+            force_conan_authentication=True)
         ```
         <!--End PulumiCodeChooser -->
 

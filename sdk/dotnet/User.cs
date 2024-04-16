@@ -28,16 +28,17 @@ namespace Pulumi.Artifactory
     /// {
     ///     var test_user = new Artifactory.User("test-user", new()
     ///     {
-    ///         Admin = false,
-    ///         DisableUiAccess = false,
+    ///         Name = "terraform",
+    ///         Password = "my super secret password",
     ///         Email = "test-user@artifactory-terraform.com",
+    ///         Admin = false,
+    ///         ProfileUpdatable = true,
+    ///         DisableUiAccess = false,
+    ///         InternalPasswordDisabled = false,
     ///         Groups = new[]
     ///         {
     ///             "logged-in-users",
     ///         },
-    ///         InternalPasswordDisabled = false,
-    ///         Password = "my super secret password",
-    ///         ProfileUpdatable = true,
     ///     });
     /// 
     /// });

@@ -944,12 +944,12 @@ class FederatedRpmRepository(pulumi.CustomResource):
             key="terraform-federated-test-rpm-repo",
             members=[
                 artifactory.FederatedRpmRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl.org/artifactory/terraform-federated-test-rpm-repo",
+                    enabled=True,
                 ),
                 artifactory.FederatedRpmRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl2.org/artifactory/terraform-federated-test-rpm-repo-2",
+                    enabled=True,
                 ),
             ])
         ```
@@ -1028,12 +1028,12 @@ class FederatedRpmRepository(pulumi.CustomResource):
             key="terraform-federated-test-rpm-repo",
             members=[
                 artifactory.FederatedRpmRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl.org/artifactory/terraform-federated-test-rpm-repo",
+                    enabled=True,
                 ),
                 artifactory.FederatedRpmRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl2.org/artifactory/terraform-federated-test-rpm-repo-2",
+                    enabled=True,
                 ),
             ])
         ```

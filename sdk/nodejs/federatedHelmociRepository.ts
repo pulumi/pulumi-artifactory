@@ -20,12 +20,12 @@ import * as utilities from "./utilities";
  *     key: "my-helmoci-federated",
  *     members: [
  *         {
- *             enabled: true,
  *             url: "http://tempurl.org/artifactory/my-helmoci-federated",
+ *             enabled: true,
  *         },
  *         {
- *             enabled: true,
  *             url: "http://tempurl2.org/artifactory/my-helmoci-federated-2",
+ *             enabled: true,
  *         },
  *     ],
  * });

@@ -33,12 +33,12 @@ import (
 //				Key: pulumi.String("terraform-federated-test-conan-repo"),
 //				Members: artifactory.FederatedConanRepositoryMemberArray{
 //					&artifactory.FederatedConanRepositoryMemberArgs{
-//						Enabled: pulumi.Bool(true),
 //						Url:     pulumi.String("http://tempurl.org/artifactory/terraform-federated-test-conan-repo"),
+//						Enabled: pulumi.Bool(true),
 //					},
 //					&artifactory.FederatedConanRepositoryMemberArgs{
-//						Enabled: pulumi.Bool(true),
 //						Url:     pulumi.String("http://tempurl2.org/artifactory/terraform-federated-test-conan-repo-2"),
+//						Enabled: pulumi.Bool(true),
 //					},
 //				},
 //			})

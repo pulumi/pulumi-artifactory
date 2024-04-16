@@ -19,10 +19,10 @@ import * as utilities from "./utilities";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * const my_helmoci_remote = new artifactory.RemoteHelmociRepository("my-helmoci-remote", {
- *     enableTokenAuthentication: true,
+ *     key: "my-helmoci-remote",
  *     externalDependenciesEnabled: true,
  *     externalDependenciesPatterns: ["**&#47;registry-1.docker.io/**"],
- *     key: "my-helmoci-remote",
+ *     enableTokenAuthentication: true,
  *     url: "https://registry-1.docker.io/",
  * });
  * ```

@@ -31,13 +31,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewVirtualNugetRepository(ctx, "foo-nuget", &artifactory.VirtualNugetRepositoryArgs{
+//				Key:                      pulumi.String("foo-nuget"),
+//				Repositories:             pulumi.StringArray{},
 //				Description:              pulumi.String("A test virtual repo"),
+//				Notes:                    pulumi.String("Internal description"),
+//				IncludesPattern:          pulumi.String("com/jfrog/**,cloud/jfrog/**"),
 //				ExcludesPattern:          pulumi.String("com/google/**"),
 //				ForceNugetAuthentication: pulumi.Bool(true),
-//				IncludesPattern:          pulumi.String("com/jfrog/**,cloud/jfrog/**"),
-//				Key:                      pulumi.String("foo-nuget"),
-//				Notes:                    pulumi.String("Internal description"),
-//				Repositories:             pulumi.StringArray{},
 //			})
 //			if err != nil {
 //				return err

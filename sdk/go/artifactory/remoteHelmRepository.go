@@ -31,13 +31,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewRemoteHelmRepository(ctx, "helm-remote", &artifactory.RemoteHelmRepositoryArgs{
+//				Key:                         pulumi.String("helm-remote-foo25"),
+//				Url:                         pulumi.String("https://repo.chartcenter.io/"),
+//				HelmChartsBaseUrl:           pulumi.String("https://foo.com"),
 //				ExternalDependenciesEnabled: pulumi.Bool(true),
 //				ExternalDependenciesPatterns: pulumi.StringArray{
 //					pulumi.String("**github.com**"),
 //				},
-//				HelmChartsBaseUrl: pulumi.String("https://foo.com"),
-//				Key:               pulumi.String("helm-remote-foo25"),
-//				Url:               pulumi.String("https://repo.chartcenter.io/"),
 //			})
 //			if err != nil {
 //				return err

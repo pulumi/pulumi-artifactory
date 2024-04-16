@@ -47,9 +47,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var my_remote_conan = new RemoteConanRepository(&#34;my-remote-conan&#34;, RemoteConanRepositoryArgs.builder()        
- *             .forceConanAuthentication(true)
  *             .key(&#34;my-remote-conan&#34;)
  *             .url(&#34;https://conan.io/center/&#34;)
+ *             .forceConanAuthentication(true)
  *             .build());
  * 
  *     }

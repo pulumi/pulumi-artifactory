@@ -20,19 +20,19 @@ import * as utilities from "./utilities";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * const my_proxy = new artifactory.Proxy("my-proxy", {
- *     host: "my-proxy.mycompany.com",
  *     key: "my-proxy",
- *     ntDomain: "MYCOMPANY",
- *     ntHost: "MYCOMPANY.COM",
- *     password: "password",
- *     platformDefault: false,
+ *     host: "my-proxy.mycompany.com",
  *     port: 8888,
+ *     username: "user1",
+ *     password: "password",
+ *     ntHost: "MYCOMPANY.COM",
+ *     ntDomain: "MYCOMPANY",
+ *     platformDefault: false,
  *     redirectToHosts: ["redirec-host.mycompany.com"],
  *     services: [
  *         "jfrt",
  *         "jfxr",
  *     ],
- *     username: "user1",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

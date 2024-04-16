@@ -26,22 +26,7 @@ namespace Pulumi.Artifactory
     /// {
     ///     var artifactory_release_bundle_webhook = new Artifactory.ArtifactoryReleaseBundleWebhook("artifactory-release-bundle-webhook", new()
     ///     {
-    ///         Criteria = new Artifactory.Inputs.ArtifactoryReleaseBundleWebhookCriteriaArgs
-    ///         {
-    ///             AnyReleaseBundle = false,
-    ///             ExcludePatterns = new[]
-    ///             {
-    ///                 "bar/**",
-    ///             },
-    ///             IncludePatterns = new[]
-    ///             {
-    ///                 "foo/**",
-    ///             },
-    ///             RegisteredReleaseBundleNames = new[]
-    ///             {
-    ///                 "bundle-name",
-    ///             },
-    ///         },
+    ///         Key = "artifactory-release-bundle-webhook",
     ///         EventTypes = new[]
     ///         {
     ///             "received",
@@ -49,21 +34,36 @@ namespace Pulumi.Artifactory
     ///             "delete_completed",
     ///             "delete_failed",
     ///         },
+    ///         Criteria = new Artifactory.Inputs.ArtifactoryReleaseBundleWebhookCriteriaArgs
+    ///         {
+    ///             AnyReleaseBundle = false,
+    ///             RegisteredReleaseBundleNames = new[]
+    ///             {
+    ///                 "bundle-name",
+    ///             },
+    ///             IncludePatterns = new[]
+    ///             {
+    ///                 "foo/**",
+    ///             },
+    ///             ExcludePatterns = new[]
+    ///             {
+    ///                 "bar/**",
+    ///             },
+    ///         },
     ///         Handlers = new[]
     ///         {
     ///             new Artifactory.Inputs.ArtifactoryReleaseBundleWebhookHandlerArgs
     ///             {
+    ///                 Url = "http://tempurl.org/webhook",
+    ///                 Secret = "some-secret",
+    ///                 Proxy = "proxy-key",
     ///                 CustomHttpHeaders = 
     ///                 {
     ///                     { "header-1", "value-1" },
     ///                     { "header-2", "value-2" },
     ///                 },
-    ///                 Proxy = "proxy-key",
-    ///                 Secret = "some-secret",
-    ///                 Url = "http://tempurl.org/webhook",
     ///             },
     ///         },
-    ///         Key = "artifactory-release-bundle-webhook",
     ///     });
     /// 
     /// });

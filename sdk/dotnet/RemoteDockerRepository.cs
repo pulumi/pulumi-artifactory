@@ -27,15 +27,15 @@ namespace Pulumi.Artifactory
     /// {
     ///     var my_remote_docker = new Artifactory.RemoteDockerRepository("my-remote-docker", new()
     ///     {
-    ///         BlockPushingSchema1 = true,
-    ///         EnableTokenAuthentication = true,
+    ///         Key = "my-remote-docker",
     ///         ExternalDependenciesEnabled = true,
     ///         ExternalDependenciesPatterns = new[]
     ///         {
     ///             "**/registry-1.docker.io/**",
     ///         },
-    ///         Key = "my-remote-docker",
+    ///         EnableTokenAuthentication = true,
     ///         Url = "https://registry-1.docker.io/",
+    ///         BlockPushingSchema1 = true,
     ///     });
     /// 
     /// });

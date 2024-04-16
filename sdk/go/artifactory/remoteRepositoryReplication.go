@@ -34,16 +34,17 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			cfg := config.New(ctx, "")
+//			// The base URL of the Artifactory deployment
 //			artifactoryUrl := cfg.Require("artifactoryUrl")
-//			_, err := artifactory.NewLocalMavenRepository(ctx, "providerTestSource", &artifactory.LocalMavenRepositoryArgs{
+//			_, err := artifactory.NewLocalMavenRepository(ctx, "provider_test_source", &artifactory.LocalMavenRepositoryArgs{
 //				Key: pulumi.String("provider_test_source"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			providerTestDest, err := artifactory.NewRemoteMavenRepository(ctx, "providerTestDest", &artifactory.RemoteMavenRepositoryArgs{
+//			providerTestDest, err := artifactory.NewRemoteMavenRepository(ctx, "provider_test_dest", &artifactory.RemoteMavenRepositoryArgs{
 //				Key:      pulumi.String("provider_test_dest"),
-//				Url:      pulumi.String(fmt.Sprintf("%v/artifactory/%v", artifactoryUrl, artifactory_local_maven_repository.Artifactory_local_maven_repository.Key)),
+//				Url:      pulumi.String(fmt.Sprintf("%v/artifactory/%v", artifactoryUrl, artifactoryLocalMavenRepository.Key)),
 //				Username: pulumi.String("foo"),
 //				Password: pulumi.String("bar"),
 //			})

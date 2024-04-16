@@ -35,15 +35,16 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			// Configure Artifactory LDAP setting
-//			_, err := artifactory.NewLdapGroupSetting(ctx, "ldapGroupName", &artifactory.LdapGroupSettingArgs{
-//				DescriptionAttribute: pulumi.String("description"),
-//				Filter:               pulumi.String("(objectClass=groupOfNames)"),
-//				GroupBaseDn:          pulumi.String(""),
-//				GroupMemberAttribute: pulumi.String("uniqueMember"),
-//				GroupNameAttribute:   pulumi.String("cn"),
+//			_, err := artifactory.NewLdapGroupSetting(ctx, "ldap_group_name", &artifactory.LdapGroupSettingArgs{
+//				Name:                 pulumi.String("ldap_group_name"),
 //				LdapSettingKey:       pulumi.String("ldap_name"),
-//				Strategy:             pulumi.String("STATIC"),
+//				GroupBaseDn:          pulumi.String(""),
+//				GroupNameAttribute:   pulumi.String("cn"),
+//				GroupMemberAttribute: pulumi.String("uniqueMember"),
 //				SubTree:              pulumi.Bool(true),
+//				Filter:               pulumi.String("(objectClass=groupOfNames)"),
+//				DescriptionAttribute: pulumi.String("description"),
+//				Strategy:             pulumi.String("STATIC"),
 //			})
 //			if err != nil {
 //				return err

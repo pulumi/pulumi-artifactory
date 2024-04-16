@@ -32,9 +32,9 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewRemoteCocoapodsRepository(ctx, "my-remote-cocoapods", &artifactory.RemoteCocoapodsRepositoryArgs{
 //				Key:              pulumi.String("my-remote-cocoapods"),
-//				PodsSpecsRepoUrl: pulumi.String("https://github.com/CocoaPods/Spec"),
 //				Url:              pulumi.String("https://github.com/"),
 //				VcsGitProvider:   pulumi.String("GITHUB"),
+//				PodsSpecsRepoUrl: pulumi.String("https://github.com/CocoaPods/Spec"),
 //			})
 //			if err != nil {
 //				return err

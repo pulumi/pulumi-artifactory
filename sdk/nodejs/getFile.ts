@@ -17,9 +17,9 @@ import * as utilities from "./utilities";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * const my-file = artifactory.getFile({
- *     outputPath: "tmp/artifact.zip",
- *     path: "/path/to/the/artifact.zip",
  *     repository: "repo-key",
+ *     path: "/path/to/the/artifact.zip",
+ *     outputPath: "tmp/artifact.zip",
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -133,9 +133,9 @@ export interface GetFileResult {
  * import * as artifactory from "@pulumi/artifactory";
  *
  * const my-file = artifactory.getFile({
- *     outputPath: "tmp/artifact.zip",
- *     path: "/path/to/the/artifact.zip",
  *     repository: "repo-key",
+ *     path: "/path/to/the/artifact.zip",
+ *     outputPath: "tmp/artifact.zip",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

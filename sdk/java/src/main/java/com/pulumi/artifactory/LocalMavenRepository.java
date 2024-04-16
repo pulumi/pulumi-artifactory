@@ -45,12 +45,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var terraform_local_test_maven_repo_basic = new LocalMavenRepository(&#34;terraform-local-test-maven-repo-basic&#34;, LocalMavenRepositoryArgs.builder()        
+ *             .key(&#34;terraform-local-test-maven-repo-basic&#34;)
  *             .checksumPolicyType(&#34;client-checksums&#34;)
+ *             .snapshotVersionBehavior(&#34;unique&#34;)
+ *             .maxUniqueSnapshots(10)
  *             .handleReleases(true)
  *             .handleSnapshots(true)
- *             .key(&#34;terraform-local-test-maven-repo-basic&#34;)
- *             .maxUniqueSnapshots(10)
- *             .snapshotVersionBehavior(&#34;unique&#34;)
  *             .suppressPomConsistencyChecks(false)
  *             .build());
  * 

@@ -32,13 +32,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewVirtualOciRepository(ctx, "my-oci-virtual", &artifactory.VirtualOciRepositoryArgs{
-//				Description: pulumi.String("A test virtual OCI repo"),
-//				Key:         pulumi.String("my-oci-virtual"),
-//				Notes:       pulumi.String("Internal description"),
+//				Key: pulumi.String("my-oci-virtual"),
 //				Repositories: pulumi.StringArray{
 //					pulumi.String("my-oci-local"),
 //					pulumi.String("my-oci-remote"),
 //				},
+//				Description:               pulumi.String("A test virtual OCI repo"),
+//				Notes:                     pulumi.String("Internal description"),
 //				ResolveOciTagsByTimestamp: pulumi.Bool(true),
 //			})
 //			if err != nil {

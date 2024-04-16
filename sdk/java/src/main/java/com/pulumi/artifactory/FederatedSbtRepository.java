@@ -50,12 +50,12 @@ import javax.annotation.Nullable;
  *             .key(&#34;terraform-federated-test-sbt-repo&#34;)
  *             .members(            
  *                 FederatedSbtRepositoryMemberArgs.builder()
- *                     .enabled(true)
  *                     .url(&#34;http://tempurl.org/artifactory/terraform-federated-test-sbt-repo&#34;)
+ *                     .enabled(true)
  *                     .build(),
  *                 FederatedSbtRepositoryMemberArgs.builder()
- *                     .enabled(true)
  *                     .url(&#34;http://tempurl2.org/artifactory/terraform-federated-test-sbt-repo-2&#34;)
+ *                     .enabled(true)
  *                     .build())
  *             .build());
  * 

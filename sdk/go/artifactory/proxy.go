@@ -35,13 +35,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewProxy(ctx, "my-proxy", &artifactory.ProxyArgs{
-//				Host:            pulumi.String("my-proxy.mycompany.com"),
 //				Key:             pulumi.String("my-proxy"),
-//				NtDomain:        pulumi.String("MYCOMPANY"),
-//				NtHost:          pulumi.String("MYCOMPANY.COM"),
-//				Password:        pulumi.String("password"),
-//				PlatformDefault: pulumi.Bool(false),
+//				Host:            pulumi.String("my-proxy.mycompany.com"),
 //				Port:            pulumi.Int(8888),
+//				Username:        pulumi.String("user1"),
+//				Password:        pulumi.String("password"),
+//				NtHost:          pulumi.String("MYCOMPANY.COM"),
+//				NtDomain:        pulumi.String("MYCOMPANY"),
+//				PlatformDefault: pulumi.Bool(false),
 //				RedirectToHosts: pulumi.StringArray{
 //					pulumi.String("redirec-host.mycompany.com"),
 //				},
@@ -49,7 +50,6 @@ import (
 //					pulumi.String("jfrt"),
 //					pulumi.String("jfxr"),
 //				},
-//				Username: pulumi.String("user1"),
 //			})
 //			if err != nil {
 //				return err

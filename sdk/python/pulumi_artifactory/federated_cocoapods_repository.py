@@ -746,12 +746,12 @@ class FederatedCocoapodsRepository(pulumi.CustomResource):
             key="terraform-federated-test-cocoapods-repo",
             members=[
                 artifactory.FederatedCocoapodsRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl.org/artifactory/terraform-federated-test-cocoapods-repo",
+                    enabled=True,
                 ),
                 artifactory.FederatedCocoapodsRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl2.org/artifactory/terraform-federated-test-cocoapods-repo-2",
+                    enabled=True,
                 ),
             ])
         ```
@@ -822,12 +822,12 @@ class FederatedCocoapodsRepository(pulumi.CustomResource):
             key="terraform-federated-test-cocoapods-repo",
             members=[
                 artifactory.FederatedCocoapodsRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl.org/artifactory/terraform-federated-test-cocoapods-repo",
+                    enabled=True,
                 ),
                 artifactory.FederatedCocoapodsRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl2.org/artifactory/terraform-federated-test-cocoapods-repo-2",
+                    enabled=True,
                 ),
             ])
         ```

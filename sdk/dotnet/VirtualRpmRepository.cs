@@ -13,54 +13,6 @@ namespace Pulumi.Artifactory
     /// Creates a virtual Rpm repository.
     /// Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/RPM+Repositories).
     /// 
-    /// ## Example Usage
-    /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.IO;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Artifactory = Pulumi.Artifactory;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var primary_keypair = new Artifactory.Keypair("primary-keypair", new()
-    ///     {
-    ///         PairName = "primary-keypair",
-    ///         PairType = "GPG",
-    ///         Alias = "foo-alias-1",
-    ///         PrivateKey = File.ReadAllText("samples/gpg.priv"),
-    ///         PublicKey = File.ReadAllText("samples/gpg.pub"),
-    ///     });
-    /// 
-    ///     var secondary_keypair = new Artifactory.Keypair("secondary-keypair", new()
-    ///     {
-    ///         PairName = "secondary-keypair",
-    ///         PairType = "GPG",
-    ///         Alias = "foo-alias-2",
-    ///         PrivateKey = File.ReadAllText("samples/gpg.priv"),
-    ///         PublicKey = File.ReadAllText("samples/gpg.pub"),
-    ///     });
-    /// 
-    ///     var foo_rpm_virtual = new Artifactory.VirtualRpmRepository("foo-rpm-virtual", new()
-    ///     {
-    ///         Key = "foo-rpm-virtual",
-    ///         PrimaryKeypairRef = primary_keypair.PairName,
-    ///         SecondaryKeypairRef = secondary_keypair.PairName,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             primary_keypair, 
-    ///             secondary_keypair, 
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
-    /// 
     /// ## Import
     /// 
     /// Virtual repositories can be imported using their name, e.g.

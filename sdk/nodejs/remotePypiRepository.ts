@@ -19,9 +19,9 @@ import * as utilities from "./utilities";
  *
  * const pypi_remote = new artifactory.RemotePypiRepository("pypi-remote", {
  *     key: "pypi-remote-foo",
+ *     url: "https://files.pythonhosted.org",
  *     pypiRegistryUrl: "https://pypi.org",
  *     pypiRepositorySuffix: "simple",
- *     url: "https://files.pythonhosted.org",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

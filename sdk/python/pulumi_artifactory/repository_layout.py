@@ -241,11 +241,12 @@ class RepositoryLayout(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         custom_layout = artifactory.RepositoryLayout("custom-layout",
+            name="custom-layout",
             artifact_path_pattern="[orgPath]/[module]/[baseRev](-[folderItegRev])/[module]-[baseRev](-[fileItegRev])(-[classifier]).[ext]",
-            descriptor_path_pattern="[orgPath]/[module]/[baseRev](-[folderItegRev])/[module]-[baseRev](-[fileItegRev])(-[classifier]).pom",
             distinctive_descriptor_path_pattern=True,
-            file_integration_revision_regexp="Foo|(?:(?:[0-9]{8}.[0-9]{6})-(?:[0-9]+))",
-            folder_integration_revision_regexp="Foo")
+            descriptor_path_pattern="[orgPath]/[module]/[baseRev](-[folderItegRev])/[module]-[baseRev](-[fileItegRev])(-[classifier]).pom",
+            folder_integration_revision_regexp="Foo",
+            file_integration_revision_regexp="Foo|(?:(?:[0-9]{8}.[0-9]{6})-(?:[0-9]+))")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -285,11 +286,12 @@ class RepositoryLayout(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         custom_layout = artifactory.RepositoryLayout("custom-layout",
+            name="custom-layout",
             artifact_path_pattern="[orgPath]/[module]/[baseRev](-[folderItegRev])/[module]-[baseRev](-[fileItegRev])(-[classifier]).[ext]",
-            descriptor_path_pattern="[orgPath]/[module]/[baseRev](-[folderItegRev])/[module]-[baseRev](-[fileItegRev])(-[classifier]).pom",
             distinctive_descriptor_path_pattern=True,
-            file_integration_revision_regexp="Foo|(?:(?:[0-9]{8}.[0-9]{6})-(?:[0-9]+))",
-            folder_integration_revision_regexp="Foo")
+            descriptor_path_pattern="[orgPath]/[module]/[baseRev](-[folderItegRev])/[module]-[baseRev](-[fileItegRev])(-[classifier]).pom",
+            folder_integration_revision_regexp="Foo",
+            file_integration_revision_regexp="Foo|(?:(?:[0-9]{8}.[0-9]{6})-(?:[0-9]+))")
         ```
         <!--End PulumiCodeChooser -->
 

@@ -1655,9 +1655,9 @@ class RemotePypiRepository(pulumi.CustomResource):
 
         pypi_remote = artifactory.RemotePypiRepository("pypi-remote",
             key="pypi-remote-foo",
+            url="https://files.pythonhosted.org",
             pypi_registry_url="https://pypi.org",
-            pypi_repository_suffix="simple",
-            url="https://files.pythonhosted.org")
+            pypi_repository_suffix="simple")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -1768,9 +1768,9 @@ class RemotePypiRepository(pulumi.CustomResource):
 
         pypi_remote = artifactory.RemotePypiRepository("pypi-remote",
             key="pypi-remote-foo",
+            url="https://files.pythonhosted.org",
             pypi_registry_url="https://pypi.org",
-            pypi_repository_suffix="simple",
-            url="https://files.pythonhosted.org")
+            pypi_repository_suffix="simple")
         ```
         <!--End PulumiCodeChooser -->
 

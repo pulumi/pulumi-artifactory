@@ -35,19 +35,19 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			// Configure Artifactory SAML SSO settings
 //			_, err := artifactory.NewSamlSettings(ctx, "saml", &artifactory.SamlSettingsArgs{
-//				AllowUserToAccessProfile:  pulumi.Bool(true),
-//				AutoRedirect:              pulumi.Bool(true),
-//				Certificate:               pulumi.String("test-certificate"),
-//				EmailAttribute:            pulumi.String("email"),
 //				Enable:                    pulumi.Bool(true),
-//				GroupAttribute:            pulumi.String("groups"),
+//				ServiceProviderName:       pulumi.String("okta"),
 //				LoginUrl:                  pulumi.String("test-login-url"),
 //				LogoutUrl:                 pulumi.String("test-logout-url"),
+//				Certificate:               pulumi.String("test-certificate"),
+//				EmailAttribute:            pulumi.String("email"),
+//				GroupAttribute:            pulumi.String("groups"),
 //				NoAutoUserCreation:        pulumi.Bool(false),
-//				ServiceProviderName:       pulumi.String("okta"),
+//				AllowUserToAccessProfile:  pulumi.Bool(true),
+//				AutoRedirect:              pulumi.Bool(true),
 //				SyncGroups:                pulumi.Bool(true),
-//				UseEncryptedAssertion:     pulumi.Bool(false),
 //				VerifyAudienceRestriction: pulumi.Bool(true),
+//				UseEncryptedAssertion:     pulumi.Bool(false),
 //			})
 //			if err != nil {
 //				return err

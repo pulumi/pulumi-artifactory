@@ -31,18 +31,18 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewGoRepository(ctx, "baz-go", &artifactory.GoRepositoryArgs{
+//				Key:                         pulumi.String("baz-go"),
+//				RepoLayoutRef:               pulumi.String("go-default"),
+//				Repositories:                pulumi.StringArray{},
 //				Description:                 pulumi.String("A test virtual repo"),
+//				Notes:                       pulumi.String("Internal description"),
+//				IncludesPattern:             pulumi.String("com/jfrog/**,cloud/jfrog/**"),
 //				ExcludesPattern:             pulumi.String("com/google/**"),
 //				ExternalDependenciesEnabled: pulumi.Bool(true),
 //				ExternalDependenciesPatterns: pulumi.StringArray{
 //					pulumi.String("**/github.com/**"),
 //					pulumi.String("**/go.googlesource.com/**"),
 //				},
-//				IncludesPattern: pulumi.String("com/jfrog/**,cloud/jfrog/**"),
-//				Key:             pulumi.String("baz-go"),
-//				Notes:           pulumi.String("Internal description"),
-//				RepoLayoutRef:   pulumi.String("go-default"),
-//				Repositories:    pulumi.StringArray{},
 //			})
 //			if err != nil {
 //				return err

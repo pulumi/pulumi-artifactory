@@ -28,8 +28,8 @@ namespace Pulumi.Artifactory
     ///     var my_helmoci_local = new Artifactory.LocalHelmociRepository("my-helmoci-local", new()
     ///     {
     ///         Key = "my-helmoci-local",
-    ///         MaxUniqueTags = 5,
     ///         TagRetention = 3,
+    ///         MaxUniqueTags = 5,
     ///     });
     /// 
     /// });

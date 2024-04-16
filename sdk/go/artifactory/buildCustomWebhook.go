@@ -30,38 +30,38 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewBuildCustomWebhook(ctx, "build-custom-webhook", &artifactory.BuildCustomWebhookArgs{
-//				Criteria: &artifactory.BuildCustomWebhookCriteriaArgs{
-//					AnyBuild: pulumi.Bool(true),
-//					ExcludePatterns: pulumi.StringArray{
-//						pulumi.String("bar/**"),
-//					},
-//					IncludePatterns: pulumi.StringArray{
-//						pulumi.String("foo/**"),
-//					},
-//					SelectedBuilds: pulumi.StringArray{
-//						pulumi.String("build-id"),
-//					},
-//				},
+//				Key: pulumi.String("build-custom-webhook"),
 //				EventTypes: pulumi.StringArray{
 //					pulumi.String("uploaded"),
 //					pulumi.String("deleted"),
 //					pulumi.String("promoted"),
 //				},
+//				Criteria: &artifactory.BuildCustomWebhookCriteriaArgs{
+//					AnyBuild: pulumi.Bool(true),
+//					SelectedBuilds: pulumi.StringArray{
+//						pulumi.String("build-id"),
+//					},
+//					IncludePatterns: pulumi.StringArray{
+//						pulumi.String("foo/**"),
+//					},
+//					ExcludePatterns: pulumi.StringArray{
+//						pulumi.String("bar/**"),
+//					},
+//				},
 //				Handlers: artifactory.BuildCustomWebhookHandlerArray{
 //					&artifactory.BuildCustomWebhookHandlerArgs{
+//						Url: pulumi.String("https://tempurl.org"),
+//						Secrets: pulumi.StringMap{
+//							"secretName1": pulumi.String("value1"),
+//							"secretName2": pulumi.String("value2"),
+//						},
 //						HttpHeaders: pulumi.StringMap{
 //							"headerName1": pulumi.String("value1"),
 //							"headerName2": pulumi.String("value2"),
 //						},
 //						Payload: pulumi.String("{ \"ref\": \"main\" , \"inputs\": { \"artifact_path\": \"test-repo/repo-path\" } }"),
-//						Secrets: pulumi.StringMap{
-//							"secretName1": pulumi.String("value1"),
-//							"secretName2": pulumi.String("value2"),
-//						},
-//						Url: pulumi.String("https://tempurl.org"),
 //					},
 //				},
-//				Key: pulumi.String("build-custom-webhook"),
 //			})
 //			if err != nil {
 //				return err

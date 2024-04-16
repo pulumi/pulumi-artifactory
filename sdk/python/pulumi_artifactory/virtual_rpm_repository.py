@@ -509,36 +509,6 @@ class VirtualRpmRepository(pulumi.CustomResource):
         Creates a virtual Rpm repository.
         Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/RPM+Repositories).
 
-        ## Example Usage
-
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        import pulumi_artifactory as artifactory
-
-        primary_keypair = artifactory.Keypair("primary-keypair",
-            pair_name="primary-keypair",
-            pair_type="GPG",
-            alias="foo-alias-1",
-            private_key=(lambda path: open(path).read())("samples/gpg.priv"),
-            public_key=(lambda path: open(path).read())("samples/gpg.pub"))
-        secondary_keypair = artifactory.Keypair("secondary-keypair",
-            pair_name="secondary-keypair",
-            pair_type="GPG",
-            alias="foo-alias-2",
-            private_key=(lambda path: open(path).read())("samples/gpg.priv"),
-            public_key=(lambda path: open(path).read())("samples/gpg.pub"))
-        foo_rpm_virtual = artifactory.VirtualRpmRepository("foo-rpm-virtual",
-            key="foo-rpm-virtual",
-            primary_keypair_ref=primary_keypair.pair_name,
-            secondary_keypair_ref=secondary_keypair.pair_name,
-            opts=pulumi.ResourceOptions(depends_on=[
-                    primary_keypair,
-                    secondary_keypair,
-                ]))
-        ```
-        <!--End PulumiCodeChooser -->
-
         ## Import
 
         Virtual repositories can be imported using their name, e.g.
@@ -580,36 +550,6 @@ class VirtualRpmRepository(pulumi.CustomResource):
         """
         Creates a virtual Rpm repository.
         Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/RPM+Repositories).
-
-        ## Example Usage
-
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        import pulumi_artifactory as artifactory
-
-        primary_keypair = artifactory.Keypair("primary-keypair",
-            pair_name="primary-keypair",
-            pair_type="GPG",
-            alias="foo-alias-1",
-            private_key=(lambda path: open(path).read())("samples/gpg.priv"),
-            public_key=(lambda path: open(path).read())("samples/gpg.pub"))
-        secondary_keypair = artifactory.Keypair("secondary-keypair",
-            pair_name="secondary-keypair",
-            pair_type="GPG",
-            alias="foo-alias-2",
-            private_key=(lambda path: open(path).read())("samples/gpg.priv"),
-            public_key=(lambda path: open(path).read())("samples/gpg.pub"))
-        foo_rpm_virtual = artifactory.VirtualRpmRepository("foo-rpm-virtual",
-            key="foo-rpm-virtual",
-            primary_keypair_ref=primary_keypair.pair_name,
-            secondary_keypair_ref=secondary_keypair.pair_name,
-            opts=pulumi.ResourceOptions(depends_on=[
-                    primary_keypair,
-                    secondary_keypair,
-                ]))
-        ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

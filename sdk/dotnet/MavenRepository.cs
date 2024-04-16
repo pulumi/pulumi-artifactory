@@ -33,25 +33,25 @@ namespace Pulumi.Artifactory
     ///     var baz = new Artifactory.RemoteMavenRepository("baz", new()
     ///     {
     ///         Key = "baz",
-    ///         RepoLayoutRef = "maven-2-default",
     ///         Url = "https://search.maven.com/",
+    ///         RepoLayoutRef = "maven-2-default",
     ///     });
     /// 
     ///     var maven_virt_repo = new Artifactory.MavenRepository("maven-virt-repo", new()
     ///     {
-    ///         Description = "A test virtual repo",
-    ///         ExcludesPattern = "com/google/**",
-    ///         ForceMavenAuthentication = true,
-    ///         IncludesPattern = "com/jfrog/**,cloud/jfrog/**",
     ///         Key = "maven-virt-repo",
-    ///         Notes = "Internal description",
-    ///         PomRepositoryReferencesCleanupPolicy = "discard_active_reference",
     ///         RepoLayoutRef = "maven-2-default",
     ///         Repositories = new[]
     ///         {
     ///             bar.Key,
     ///             baz.Key,
     ///         },
+    ///         Description = "A test virtual repo",
+    ///         Notes = "Internal description",
+    ///         IncludesPattern = "com/jfrog/**,cloud/jfrog/**",
+    ///         ExcludesPattern = "com/google/**",
+    ///         ForceMavenAuthentication = true,
+    ///         PomRepositoryReferencesCleanupPolicy = "discard_active_reference",
     ///     });
     /// 
     /// });

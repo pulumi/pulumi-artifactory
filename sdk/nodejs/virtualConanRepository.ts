@@ -16,13 +16,13 @@ import * as utilities from "./utilities";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * const foo_conan = new artifactory.VirtualConanRepository("foo-conan", {
- *     description: "A test virtual repo",
- *     excludesPattern: "com/google/**",
- *     includesPattern: "com/jfrog/**,cloud/jfrog/**",
  *     key: "foo-conan",
- *     notes: "Internal description",
  *     repoLayoutRef: "conan-default",
  *     repositories: [],
+ *     description: "A test virtual repo",
+ *     notes: "Internal description",
+ *     includesPattern: "com/jfrog/**,cloud/jfrog/**",
+ *     excludesPattern: "com/google/**",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

@@ -18,13 +18,13 @@ import * as utilities from "./utilities";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * const maven_remote = new artifactory.RemoteMavenRepository("maven-remote", {
+ *     key: "maven-remote-foo",
+ *     url: "https://repo1.maven.org/maven2/",
  *     fetchJarsEagerly: true,
  *     fetchSourcesEagerly: false,
- *     key: "maven-remote-foo",
- *     metadataRetrievalTimeoutSecs: 120,
- *     rejectInvalidJars: true,
  *     suppressPomConsistencyChecks: false,
- *     url: "https://repo1.maven.org/maven2/",
+ *     rejectInvalidJars: true,
+ *     metadataRetrievalTimeoutSecs: 120,
  * });
  * ```
  * <!--End PulumiCodeChooser -->

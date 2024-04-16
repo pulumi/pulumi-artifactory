@@ -15,9 +15,9 @@ import * as utilities from "./utilities";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * const my_artifact = new artifactory.Artifact("my-artifact", {
- *     filePath: "/path/to/my-file.zip",
- *     path: "/my-path/my-file.zip",
  *     repository: "my-generic-local",
+ *     path: "/my-path/my-file.zip",
+ *     filePath: "/path/to/my-file.zip",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

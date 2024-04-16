@@ -27,9 +27,9 @@ namespace Pulumi.Artifactory
     ///     var npm_remote = new Artifactory.RemoteNpmRepository("npm-remote", new()
     ///     {
     ///         Key = "npm-remote",
+    ///         Url = "https://registry.npmjs.org",
     ///         ListRemoteFolderItems = true,
     ///         MismatchingMimeTypesOverrideList = "application/json,application/xml",
-    ///         Url = "https://registry.npmjs.org",
     ///     });
     /// 
     /// });

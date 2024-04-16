@@ -18,48 +18,6 @@ import javax.annotation.Nullable;
 /**
  * Provides an Artifactory certificate resource. This can be used to create and manage Artifactory certificates which can be used as client authentication against remote repositories.
  * 
- * ## Example Usage
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.artifactory.Certificate;
- * import com.pulumi.artifactory.CertificateArgs;
- * import com.pulumi.artifactory.RemoteMavenRepository;
- * import com.pulumi.artifactory.RemoteMavenRepositoryArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         // Create a new Artifactory certificate called my-cert
- *         var my_cert = new Certificate(&#34;my-cert&#34;, CertificateArgs.builder()        
- *             .alias(&#34;my-cert&#34;)
- *             .content(Files.readString(Paths.get(&#34;/path/to/bundle.pem&#34;)))
- *             .build());
- * 
- *         // This can then be used by a remote repository
- *         var my_remote = new RemoteMavenRepository(&#34;my-remote&#34;, RemoteMavenRepositoryArgs.builder()        
- *             .clientTlsCertificate(my_cert.alias())
- *             .build());
- * 
- *     }
- * }
- * ```
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  * ## Import
  * 
  * Certificates can be imported using their alias, e.g.

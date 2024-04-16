@@ -18,12 +18,7 @@ import * as utilities from "./utilities";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * const distribution_webhook = new artifactory.DistributionWebhook("distribution-webhook", {
- *     criteria: {
- *         anyReleaseBundle: false,
- *         excludePatterns: ["bar/**"],
- *         includePatterns: ["foo/**"],
- *         registeredReleaseBundleNames: ["bundle-name"],
- *     },
+ *     key: "distribution-webhook",
  *     eventTypes: [
  *         "distribute_started",
  *         "distribute_completed",
@@ -33,16 +28,21 @@ import * as utilities from "./utilities";
  *         "delete_completed",
  *         "delete_failed",
  *     ],
+ *     criteria: {
+ *         anyReleaseBundle: false,
+ *         registeredReleaseBundleNames: ["bundle-name"],
+ *         includePatterns: ["foo/**"],
+ *         excludePatterns: ["bar/**"],
+ *     },
  *     handlers: [{
+ *         url: "http://tempurl.org/webhook",
+ *         secret: "some-secret",
+ *         proxy: "proxy-key",
  *         customHttpHeaders: {
  *             "header-1": "value-1",
  *             "header-2": "value-2",
  *         },
- *         proxy: "proxy-key",
- *         secret: "some-secret",
- *         url: "http://tempurl.org/webhook",
  *     }],
- *     key: "distribution-webhook",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

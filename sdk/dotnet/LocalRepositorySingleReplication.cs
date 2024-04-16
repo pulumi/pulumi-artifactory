@@ -27,16 +27,19 @@ namespace Pulumi.Artifactory
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var config = new Config();
+    ///     // The base URL of the Artifactory deployment
     ///     var artifactoryUrl = config.Require("artifactoryUrl");
+    ///     // The username for the Artifactory
     ///     var artifactoryUsername = config.Require("artifactoryUsername");
+    ///     // The password for the Artifactory
     ///     var artifactoryPassword = config.Require("artifactoryPassword");
     ///     // Create a replication between two artifactory local repositories
-    ///     var providerTestSource = new Artifactory.LocalMavenRepository("providerTestSource", new()
+    ///     var providerTestSource = new Artifactory.LocalMavenRepository("provider_test_source", new()
     ///     {
     ///         Key = "provider_test_source",
     ///     });
     /// 
-    ///     var providerTestDest = new Artifactory.LocalMavenRepository("providerTestDest", new()
+    ///     var providerTestDest = new Artifactory.LocalMavenRepository("provider_test_dest", new()
     ///     {
     ///         Key = "provider_test_dest",
     ///     });

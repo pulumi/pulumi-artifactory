@@ -38,23 +38,26 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			cfg := config.New(ctx, "")
+//			// The base URL of the Artifactory deployment
 //			artifactoryUrl := cfg.Require("artifactoryUrl")
+//			// The username for the Artifactory
 //			artifactoryUsername := cfg.Require("artifactoryUsername")
+//			// The password for the Artifactory
 //			artifactoryPassword := cfg.Require("artifactoryPassword")
 //			// Create a replication between two artifactory local repositories
-//			providerTestSource, err := artifactory.NewLocalMavenRepository(ctx, "providerTestSource", &artifactory.LocalMavenRepositoryArgs{
+//			providerTestSource, err := artifactory.NewLocalMavenRepository(ctx, "provider_test_source", &artifactory.LocalMavenRepositoryArgs{
 //				Key: pulumi.String("provider_test_source"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			providerTestDest, err := artifactory.NewLocalMavenRepository(ctx, "providerTestDest", &artifactory.LocalMavenRepositoryArgs{
+//			providerTestDest, err := artifactory.NewLocalMavenRepository(ctx, "provider_test_dest", &artifactory.LocalMavenRepositoryArgs{
 //				Key: pulumi.String("provider_test_dest"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			providerTestDest1, err := artifactory.NewLocalMavenRepository(ctx, "providerTestDest1", &artifactory.LocalMavenRepositoryArgs{
+//			providerTestDest1, err := artifactory.NewLocalMavenRepository(ctx, "provider_test_dest1", &artifactory.LocalMavenRepositoryArgs{
 //				Key: pulumi.String("provider_test_dest1"),
 //			})
 //			if err != nil {

@@ -240,30 +240,30 @@ class BuildCustomWebhook(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         build_custom_webhook = artifactory.BuildCustomWebhook("build-custom-webhook",
-            criteria=artifactory.BuildCustomWebhookCriteriaArgs(
-                any_build=True,
-                exclude_patterns=["bar/**"],
-                include_patterns=["foo/**"],
-                selected_builds=["build-id"],
-            ),
+            key="build-custom-webhook",
             event_types=[
                 "uploaded",
                 "deleted",
                 "promoted",
             ],
+            criteria=artifactory.BuildCustomWebhookCriteriaArgs(
+                any_build=True,
+                selected_builds=["build-id"],
+                include_patterns=["foo/**"],
+                exclude_patterns=["bar/**"],
+            ),
             handlers=[artifactory.BuildCustomWebhookHandlerArgs(
+                url="https://tempurl.org",
+                secrets={
+                    "secretName1": "value1",
+                    "secretName2": "value2",
+                },
                 http_headers={
                     "headerName1": "value1",
                     "headerName2": "value2",
                 },
                 payload="{ \\"ref\\": \\"main\\" , \\"inputs\\": { \\"artifact_path\\": \\"test-repo/repo-path\\" } }",
-                secrets={
-                    "secretName1": "value1",
-                    "secretName2": "value2",
-                },
-                url="https://tempurl.org",
-            )],
-            key="build-custom-webhook")
+            )])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -293,30 +293,30 @@ class BuildCustomWebhook(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         build_custom_webhook = artifactory.BuildCustomWebhook("build-custom-webhook",
-            criteria=artifactory.BuildCustomWebhookCriteriaArgs(
-                any_build=True,
-                exclude_patterns=["bar/**"],
-                include_patterns=["foo/**"],
-                selected_builds=["build-id"],
-            ),
+            key="build-custom-webhook",
             event_types=[
                 "uploaded",
                 "deleted",
                 "promoted",
             ],
+            criteria=artifactory.BuildCustomWebhookCriteriaArgs(
+                any_build=True,
+                selected_builds=["build-id"],
+                include_patterns=["foo/**"],
+                exclude_patterns=["bar/**"],
+            ),
             handlers=[artifactory.BuildCustomWebhookHandlerArgs(
+                url="https://tempurl.org",
+                secrets={
+                    "secretName1": "value1",
+                    "secretName2": "value2",
+                },
                 http_headers={
                     "headerName1": "value1",
                     "headerName2": "value2",
                 },
                 payload="{ \\"ref\\": \\"main\\" , \\"inputs\\": { \\"artifact_path\\": \\"test-repo/repo-path\\" } }",
-                secrets={
-                    "secretName1": "value1",
-                    "secretName2": "value2",
-                },
-                url="https://tempurl.org",
-            )],
-            key="build-custom-webhook")
+            )])
         ```
         <!--End PulumiCodeChooser -->
 

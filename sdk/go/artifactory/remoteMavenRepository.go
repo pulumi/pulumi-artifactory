@@ -31,13 +31,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewRemoteMavenRepository(ctx, "maven-remote", &artifactory.RemoteMavenRepositoryArgs{
+//				Key:                          pulumi.String("maven-remote-foo"),
+//				Url:                          pulumi.String("https://repo1.maven.org/maven2/"),
 //				FetchJarsEagerly:             pulumi.Bool(true),
 //				FetchSourcesEagerly:          pulumi.Bool(false),
-//				Key:                          pulumi.String("maven-remote-foo"),
-//				MetadataRetrievalTimeoutSecs: pulumi.Int(120),
-//				RejectInvalidJars:            pulumi.Bool(true),
 //				SuppressPomConsistencyChecks: pulumi.Bool(false),
-//				Url:                          pulumi.String("https://repo1.maven.org/maven2/"),
+//				RejectInvalidJars:            pulumi.Bool(true),
+//				MetadataRetrievalTimeoutSecs: pulumi.Int(120),
 //			})
 //			if err != nil {
 //				return err

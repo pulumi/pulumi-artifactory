@@ -481,13 +481,13 @@ class VirtualOciRepository(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         my_oci_virtual = artifactory.VirtualOciRepository("my-oci-virtual",
-            description="A test virtual OCI repo",
             key="my-oci-virtual",
-            notes="Internal description",
             repositories=[
                 "my-oci-local",
                 "my-oci-remote",
             ],
+            description="A test virtual OCI repo",
+            notes="Internal description",
             resolve_oci_tags_by_timestamp=True)
         ```
         <!--End PulumiCodeChooser -->
@@ -541,13 +541,13 @@ class VirtualOciRepository(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         my_oci_virtual = artifactory.VirtualOciRepository("my-oci-virtual",
-            description="A test virtual OCI repo",
             key="my-oci-virtual",
-            notes="Internal description",
             repositories=[
                 "my-oci-local",
                 "my-oci-remote",
             ],
+            description="A test virtual OCI repo",
+            notes="Internal description",
             resolve_oci_tags_by_timestamp=True)
         ```
         <!--End PulumiCodeChooser -->

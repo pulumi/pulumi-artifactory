@@ -50,12 +50,12 @@ import javax.annotation.Nullable;
  *             .key(&#34;terraform-federated-test-ivy-repo&#34;)
  *             .members(            
  *                 FederatedIvyRepositoryMemberArgs.builder()
- *                     .enabled(true)
  *                     .url(&#34;http://tempurl.org/artifactory/terraform-federated-test-ivy-repo&#34;)
+ *                     .enabled(true)
  *                     .build(),
  *                 FederatedIvyRepositoryMemberArgs.builder()
- *                     .enabled(true)
  *                     .url(&#34;http://tempurl2.org/artifactory/terraform-federated-test-ivy-repo-2&#34;)
+ *                     .enabled(true)
  *                     .build())
  *             .build());
  * 

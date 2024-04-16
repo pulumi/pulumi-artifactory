@@ -20,12 +20,19 @@ import * as utilities from "./utilities";
  *
  * // Create a new Artifactory permission target called testpermission
  * const test_perm = new artifactory.PermissionTarget("test-perm", {
- *     build: {
+ *     name: "test-perm",
+ *     repo: {
+ *         includesPatterns: ["foo/**"],
+ *         excludesPatterns: ["bar/**"],
+ *         repositories: ["example-repo-local"],
  *         actions: {
  *             users: [
  *                 {
  *                     name: "anonymous",
- *                     permissions: ["read"],
+ *                     permissions: [
+ *                         "read",
+ *                         "write",
+ *                     ],
  *                 },
  *                 {
  *                     name: "user1",
@@ -35,22 +42,6 @@ import * as utilities from "./utilities";
  *                     ],
  *                 },
  *             ],
- *         },
- *         includesPatterns: ["**"],
- *         repositories: ["artifactory-build-info"],
- *     },
- *     releaseBundle: {
- *         actions: {
- *             users: [{
- *                 name: "anonymous",
- *                 permissions: ["read"],
- *             }],
- *         },
- *         includesPatterns: ["**"],
- *         repositories: ["release-bundles"],
- *     },
- *     repo: {
- *         actions: {
  *             groups: [
  *                 {
  *                     name: "readers",
@@ -64,13 +55,16 @@ import * as utilities from "./utilities";
  *                     ],
  *                 },
  *             ],
+ *         },
+ *     },
+ *     build: {
+ *         includesPatterns: ["**"],
+ *         repositories: ["artifactory-build-info"],
+ *         actions: {
  *             users: [
  *                 {
  *                     name: "anonymous",
- *                     permissions: [
- *                         "read",
- *                         "write",
- *                     ],
+ *                     permissions: ["read"],
  *                 },
  *                 {
  *                     name: "user1",
@@ -81,9 +75,16 @@ import * as utilities from "./utilities";
  *                 },
  *             ],
  *         },
- *         excludesPatterns: ["bar/**"],
- *         includesPatterns: ["foo/**"],
- *         repositories: ["example-repo-local"],
+ *     },
+ *     releaseBundle: {
+ *         includesPatterns: ["**"],
+ *         repositories: ["release-bundles"],
+ *         actions: {
+ *             users: [{
+ *                 name: "anonymous",
+ *                 permissions: ["read"],
+ *             }],
+ *         },
  *     },
  * });
  * ```

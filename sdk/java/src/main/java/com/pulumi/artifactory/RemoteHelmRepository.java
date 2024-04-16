@@ -47,11 +47,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var helm_remote = new RemoteHelmRepository(&#34;helm-remote&#34;, RemoteHelmRepositoryArgs.builder()        
- *             .externalDependenciesEnabled(true)
- *             .externalDependenciesPatterns(&#34;**github.com**&#34;)
- *             .helmChartsBaseUrl(&#34;https://foo.com&#34;)
  *             .key(&#34;helm-remote-foo25&#34;)
  *             .url(&#34;https://repo.chartcenter.io/&#34;)
+ *             .helmChartsBaseUrl(&#34;https://foo.com&#34;)
+ *             .externalDependenciesEnabled(true)
+ *             .externalDependenciesPatterns(&#34;**github.com**&#34;)
  *             .build());
  * 
  *     }

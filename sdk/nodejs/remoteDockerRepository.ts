@@ -19,12 +19,12 @@ import * as utilities from "./utilities";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * const my_remote_docker = new artifactory.RemoteDockerRepository("my-remote-docker", {
- *     blockPushingSchema1: true,
- *     enableTokenAuthentication: true,
+ *     key: "my-remote-docker",
  *     externalDependenciesEnabled: true,
  *     externalDependenciesPatterns: ["**&#47;registry-1.docker.io/**"],
- *     key: "my-remote-docker",
+ *     enableTokenAuthentication: true,
  *     url: "https://registry-1.docker.io/",
+ *     blockPushingSchema1: true,
  * });
  * ```
  * <!--End PulumiCodeChooser -->

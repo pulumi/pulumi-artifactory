@@ -31,36 +31,36 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewArtifactoryReleaseBundleWebhook(ctx, "artifactory-release-bundle-webhook", &artifactory.ArtifactoryReleaseBundleWebhookArgs{
-//				Criteria: &artifactory.ArtifactoryReleaseBundleWebhookCriteriaArgs{
-//					AnyReleaseBundle: pulumi.Bool(false),
-//					ExcludePatterns: pulumi.StringArray{
-//						pulumi.String("bar/**"),
-//					},
-//					IncludePatterns: pulumi.StringArray{
-//						pulumi.String("foo/**"),
-//					},
-//					RegisteredReleaseBundleNames: pulumi.StringArray{
-//						pulumi.String("bundle-name"),
-//					},
-//				},
+//				Key: pulumi.String("artifactory-release-bundle-webhook"),
 //				EventTypes: pulumi.StringArray{
 //					pulumi.String("received"),
 //					pulumi.String("delete_started"),
 //					pulumi.String("delete_completed"),
 //					pulumi.String("delete_failed"),
 //				},
+//				Criteria: &artifactory.ArtifactoryReleaseBundleWebhookCriteriaArgs{
+//					AnyReleaseBundle: pulumi.Bool(false),
+//					RegisteredReleaseBundleNames: pulumi.StringArray{
+//						pulumi.String("bundle-name"),
+//					},
+//					IncludePatterns: pulumi.StringArray{
+//						pulumi.String("foo/**"),
+//					},
+//					ExcludePatterns: pulumi.StringArray{
+//						pulumi.String("bar/**"),
+//					},
+//				},
 //				Handlers: artifactory.ArtifactoryReleaseBundleWebhookHandlerArray{
 //					&artifactory.ArtifactoryReleaseBundleWebhookHandlerArgs{
+//						Url:    pulumi.String("http://tempurl.org/webhook"),
+//						Secret: pulumi.String("some-secret"),
+//						Proxy:  pulumi.String("proxy-key"),
 //						CustomHttpHeaders: pulumi.StringMap{
 //							"header-1": pulumi.String("value-1"),
 //							"header-2": pulumi.String("value-2"),
 //						},
-//						Proxy:  pulumi.String("proxy-key"),
-//						Secret: pulumi.String("some-secret"),
-//						Url:    pulumi.String("http://tempurl.org/webhook"),
 //					},
 //				},
-//				Key: pulumi.String("artifactory-release-bundle-webhook"),
 //			})
 //			if err != nil {
 //				return err

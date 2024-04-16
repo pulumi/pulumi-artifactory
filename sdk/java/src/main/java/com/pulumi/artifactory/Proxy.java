@@ -50,18 +50,18 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var my_proxy = new Proxy(&#34;my-proxy&#34;, ProxyArgs.builder()        
- *             .host(&#34;my-proxy.mycompany.com&#34;)
  *             .key(&#34;my-proxy&#34;)
- *             .ntDomain(&#34;MYCOMPANY&#34;)
- *             .ntHost(&#34;MYCOMPANY.COM&#34;)
- *             .password(&#34;password&#34;)
- *             .platformDefault(false)
+ *             .host(&#34;my-proxy.mycompany.com&#34;)
  *             .port(8888)
+ *             .username(&#34;user1&#34;)
+ *             .password(&#34;password&#34;)
+ *             .ntHost(&#34;MYCOMPANY.COM&#34;)
+ *             .ntDomain(&#34;MYCOMPANY&#34;)
+ *             .platformDefault(false)
  *             .redirectToHosts(&#34;redirec-host.mycompany.com&#34;)
  *             .services(            
  *                 &#34;jfrt&#34;,
  *                 &#34;jfxr&#34;)
- *             .username(&#34;user1&#34;)
  *             .build());
  * 
  *     }

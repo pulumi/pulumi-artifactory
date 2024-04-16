@@ -16,9 +16,9 @@ import * as utilities from "./utilities";
  *
  * const terraform_remote = new artifactory.RemoteTerraformRepository("terraform-remote", {
  *     key: "terraform-remote",
- *     terraformProvidersUrl: "https://releases.hashicorp.com",
- *     terraformRegistryUrl: "https://registry.terraform.io",
  *     url: "https://github.com/",
+ *     terraformRegistryUrl: "https://registry.terraform.io",
+ *     terraformProvidersUrl: "https://releases.hashicorp.com",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

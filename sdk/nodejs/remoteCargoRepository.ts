@@ -18,11 +18,11 @@ import * as utilities from "./utilities";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * const my_remote_cargo = new artifactory.RemoteCargoRepository("my-remote-cargo", {
+ *     key: "my-remote-cargo",
  *     anonymousAccess: true,
  *     enableSparseIndex: true,
- *     gitRegistryUrl: "https://github.com/rust-lang/foo.index",
- *     key: "my-remote-cargo",
  *     url: "https://github.com/rust-lang/crates.io-index",
+ *     gitRegistryUrl: "https://github.com/rust-lang/foo.index",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

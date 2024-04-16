@@ -49,12 +49,12 @@ import javax.annotation.Nullable;
  *             .key(&#34;terraform-federated-test-opkg-repo&#34;)
  *             .members(            
  *                 FederatedOpkgRepositoryMemberArgs.builder()
- *                     .enabled(true)
  *                     .url(&#34;http://tempurl.org/artifactory/terraform-federated-test-opkg-repo&#34;)
+ *                     .enabled(true)
  *                     .build(),
  *                 FederatedOpkgRepositoryMemberArgs.builder()
- *                     .enabled(true)
  *                     .url(&#34;http://tempurl2.org/artifactory/terraform-federated-test-opkg-repo-2&#34;)
+ *                     .enabled(true)
  *                     .build())
  *             .build());
  * 

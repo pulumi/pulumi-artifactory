@@ -32,9 +32,9 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewRemoteNpmRepository(ctx, "npm-remote", &artifactory.RemoteNpmRepositoryArgs{
 //				Key:                              pulumi.String("npm-remote"),
+//				Url:                              pulumi.String("https://registry.npmjs.org"),
 //				ListRemoteFolderItems:            pulumi.Bool(true),
 //				MismatchingMimeTypesOverrideList: pulumi.String("application/json,application/xml"),
-//				Url:                              pulumi.String("https://registry.npmjs.org"),
 //			})
 //			if err != nil {
 //				return err

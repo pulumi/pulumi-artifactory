@@ -61,6 +61,7 @@ import javax.annotation.Nullable;
  *         //## **Note:** This assumes that the user `existing-user` has already been created in Artifactory by different means, i.e. manually or in a separate pulumi up.
  *         //## Create a new Artifactory user and scoped token
  *         var newUser = new User(&#34;newUser&#34;, UserArgs.builder()        
+ *             .name(&#34;new_user&#34;)
  *             .email(&#34;new_user@somewhere.com&#34;)
  *             .groups(&#34;readers&#34;)
  *             .build());
@@ -80,7 +81,6 @@ import javax.annotation.Nullable;
  *             .expiresIn(7200)
  *             .build());
  * 
- *         // in seconds
  *         //## Creates a refreshable token
  *         var scopedTokenRefreshable = new ScopedToken(&#34;scopedTokenRefreshable&#34;, ScopedTokenArgs.builder()        
  *             .username(&#34;existing-user&#34;)

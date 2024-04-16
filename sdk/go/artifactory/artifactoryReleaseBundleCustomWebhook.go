@@ -31,39 +31,39 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewArtifactoryReleaseBundleCustomWebhook(ctx, "artifactory-release-bundle-custom-webhook", &artifactory.ArtifactoryReleaseBundleCustomWebhookArgs{
-//				Criteria: &artifactory.ArtifactoryReleaseBundleCustomWebhookCriteriaArgs{
-//					AnyReleaseBundle: pulumi.Bool(false),
-//					ExcludePatterns: pulumi.StringArray{
-//						pulumi.String("bar/**"),
-//					},
-//					IncludePatterns: pulumi.StringArray{
-//						pulumi.String("foo/**"),
-//					},
-//					RegisteredReleaseBundleNames: pulumi.StringArray{
-//						pulumi.String("bundle-name"),
-//					},
-//				},
+//				Key: pulumi.String("artifactory-release-bundle-custom-webhook"),
 //				EventTypes: pulumi.StringArray{
 //					pulumi.String("received"),
 //					pulumi.String("delete_started"),
 //					pulumi.String("delete_completed"),
 //					pulumi.String("delete_failed"),
 //				},
+//				Criteria: &artifactory.ArtifactoryReleaseBundleCustomWebhookCriteriaArgs{
+//					AnyReleaseBundle: pulumi.Bool(false),
+//					RegisteredReleaseBundleNames: pulumi.StringArray{
+//						pulumi.String("bundle-name"),
+//					},
+//					IncludePatterns: pulumi.StringArray{
+//						pulumi.String("foo/**"),
+//					},
+//					ExcludePatterns: pulumi.StringArray{
+//						pulumi.String("bar/**"),
+//					},
+//				},
 //				Handlers: artifactory.ArtifactoryReleaseBundleCustomWebhookHandlerArray{
 //					&artifactory.ArtifactoryReleaseBundleCustomWebhookHandlerArgs{
+//						Url: pulumi.String("https://tempurl.org"),
+//						Secrets: pulumi.StringMap{
+//							"secretName1": pulumi.String("value1"),
+//							"secretName2": pulumi.String("value2"),
+//						},
 //						HttpHeaders: pulumi.StringMap{
 //							"headerName1": pulumi.String("value1"),
 //							"headerName2": pulumi.String("value2"),
 //						},
 //						Payload: pulumi.String("{ \"ref\": \"main\" , \"inputs\": { \"artifact_path\": \"test-repo/repo-path\" } }"),
-//						Secrets: pulumi.StringMap{
-//							"secretName1": pulumi.String("value1"),
-//							"secretName2": pulumi.String("value2"),
-//						},
-//						Url: pulumi.String("https://tempurl.org"),
 //					},
 //				},
-//				Key: pulumi.String("artifactory-release-bundle-custom-webhook"),
 //			})
 //			if err != nil {
 //				return err

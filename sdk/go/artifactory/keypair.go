@@ -15,49 +15,6 @@ import (
 // RSA key pairs are used to sign and verify the Alpine Linux index files in JFrog Artifactory, while GPG key pairs are
 // used to sign and validate packages integrity in JFrog Distribution. The JFrog Platform enables you to manage multiple RSA and GPG signing keys through the Keys Management UI and REST API. The JFrog Platform supports managing multiple pairs of GPG signing keys to sign packages for authentication of several package types such as Debian, Opkg, and RPM through the Keys Management UI and REST API.
 //
-// ## Example Usage
-//
-// <!--Start PulumiCodeChooser -->
-// ```go
-// package main
-//
-// import (
-//
-//	"os"
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v6/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.NewKeypair(ctx, "some-keypair-6543461672124900137", &artifactory.KeypairArgs{
-//				PairName:   pulumi.String("some-keypair-6543461672124900137"),
-//				PairType:   pulumi.String("RSA"),
-//				Alias:      pulumi.String("some-alias-6543461672124900137"),
-//				PrivateKey: readFileOrPanic("samples/rsa.priv"),
-//				PublicKey:  readFileOrPanic("samples/rsa.pub"),
-//				Passphrase: pulumi.String("PASSPHRASE"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// <!--End PulumiCodeChooser -->
-//
 // ## Import
 //
 // Keypair can be imported using the pair name, e.g.

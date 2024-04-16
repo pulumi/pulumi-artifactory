@@ -27,14 +27,14 @@ namespace Pulumi.Artifactory
     /// {
     ///     var my_oci_remote = new Artifactory.RemoteOciRepository("my-oci-remote", new()
     ///     {
-    ///         EnableTokenAuthentication = true,
+    ///         Key = "my-oci-remote",
+    ///         Url = "https://registry-1.docker.io/",
     ///         ExternalDependenciesEnabled = true,
     ///         ExternalDependenciesPatterns = new[]
     ///         {
     ///             "**/registry-1.docker.io/**",
     ///         },
-    ///         Key = "my-oci-remote",
-    ///         Url = "https://registry-1.docker.io/",
+    ///         EnableTokenAuthentication = true,
     ///     });
     /// 
     /// });

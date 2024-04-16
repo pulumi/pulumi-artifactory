@@ -33,12 +33,12 @@ import (
 //				Key: pulumi.String("terraform-federated-test-debian-repo"),
 //				Members: artifactory.FederatedDebianRepositoryMemberArray{
 //					&artifactory.FederatedDebianRepositoryMemberArgs{
-//						Enabled: pulumi.Bool(true),
 //						Url:     pulumi.String("http://tempurl.org/artifactory/terraform-federated-test-debian-repo"),
+//						Enabled: pulumi.Bool(true),
 //					},
 //					&artifactory.FederatedDebianRepositoryMemberArgs{
-//						Enabled: pulumi.Bool(true),
 //						Url:     pulumi.String("http://tempurl2.org/artifactory/terraform-federated-test-debian-repo-2"),
+//						Enabled: pulumi.Bool(true),
 //					},
 //				},
 //			})

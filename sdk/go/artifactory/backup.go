@@ -35,17 +35,17 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			// Configure Artifactory Backup system config
-//			_, err := artifactory.NewBackup(ctx, "backupConfigName", &artifactory.BackupArgs{
-//				CreateArchive:          pulumi.Bool(false),
-//				CronExp:                pulumi.String("0 0 12 * * ? *"),
-//				Enabled:                pulumi.Bool(true),
-//				ExcludeNewRepositories: pulumi.Bool(true),
-//				ExcludedRepositories:   pulumi.StringArray{},
-//				ExportMissionControl:   pulumi.Bool(true),
+//			_, err := artifactory.NewBackup(ctx, "backup_config_name", &artifactory.BackupArgs{
 //				Key:                    pulumi.String("backup_config_name"),
+//				Enabled:                pulumi.Bool(true),
+//				CronExp:                pulumi.String("0 0 12 * * ? *"),
 //				RetentionPeriodHours:   pulumi.Int(1000),
+//				ExcludedRepositories:   pulumi.StringArray{},
+//				CreateArchive:          pulumi.Bool(false),
+//				ExcludeNewRepositories: pulumi.Bool(true),
 //				SendMailOnError:        pulumi.Bool(true),
 //				VerifyDiskSpace:        pulumi.Bool(true),
+//				ExportMissionControl:   pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err

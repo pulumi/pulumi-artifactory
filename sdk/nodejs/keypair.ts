@@ -8,25 +8,6 @@ import * as utilities from "./utilities";
  * RSA key pairs are used to sign and verify the Alpine Linux index files in JFrog Artifactory, while GPG key pairs are
  * used to sign and validate packages integrity in JFrog Distribution. The JFrog Platform enables you to manage multiple RSA and GPG signing keys through the Keys Management UI and REST API. The JFrog Platform supports managing multiple pairs of GPG signing keys to sign packages for authentication of several package types such as Debian, Opkg, and RPM through the Keys Management UI and REST API.
  *
- * ## Example Usage
- *
- * <!--Start PulumiCodeChooser -->
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- * import * as fs from "fs";
- *
- * const some_keypair_6543461672124900137 = new artifactory.Keypair("some-keypair-6543461672124900137", {
- *     pairName: "some-keypair-6543461672124900137",
- *     pairType: "RSA",
- *     alias: "some-alias-6543461672124900137",
- *     privateKey: fs.readFileSync("samples/rsa.priv", "utf8"),
- *     publicKey: fs.readFileSync("samples/rsa.pub", "utf8"),
- *     passphrase: "PASSPHRASE",
- * });
- * ```
- * <!--End PulumiCodeChooser -->
- *
  * ## Import
  *
  * Keypair can be imported using the pair name, e.g.

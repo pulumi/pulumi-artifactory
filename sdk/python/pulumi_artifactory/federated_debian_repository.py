@@ -882,12 +882,12 @@ class FederatedDebianRepository(pulumi.CustomResource):
             key="terraform-federated-test-debian-repo",
             members=[
                 artifactory.FederatedDebianRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl.org/artifactory/terraform-federated-test-debian-repo",
+                    enabled=True,
                 ),
                 artifactory.FederatedDebianRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl2.org/artifactory/terraform-federated-test-debian-repo-2",
+                    enabled=True,
                 ),
             ])
         ```
@@ -961,12 +961,12 @@ class FederatedDebianRepository(pulumi.CustomResource):
             key="terraform-federated-test-debian-repo",
             members=[
                 artifactory.FederatedDebianRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl.org/artifactory/terraform-federated-test-debian-repo",
+                    enabled=True,
                 ),
                 artifactory.FederatedDebianRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl2.org/artifactory/terraform-federated-test-debian-repo-2",
+                    enabled=True,
                 ),
             ])
         ```
