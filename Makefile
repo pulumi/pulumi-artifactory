@@ -114,6 +114,7 @@ install_plugins: .pulumi/bin/pulumi
 	.pulumi/bin/pulumi plugin install converter terraform 1.0.16
 	.pulumi/bin/pulumi plugin install resource random 4.3.1
 	.pulumi/bin/pulumi plugin install resource time 0.0.15
+	.pulumi/bin/pulumi plugin install resource std 1.6.2
 
 lint_provider: provider
 	cd provider && golangci-lint run -c ../.golangci.yml
