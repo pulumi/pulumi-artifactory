@@ -238,6 +238,24 @@ class Keypair(pulumi.CustomResource):
         RSA key pairs are used to sign and verify the Alpine Linux index files in JFrog Artifactory, while GPG key pairs are
         used to sign and validate packages integrity in JFrog Distribution. The JFrog Platform enables you to manage multiple RSA and GPG signing keys through the Keys Management UI and REST API. The JFrog Platform supports managing multiple pairs of GPG signing keys to sign packages for authentication of several package types such as Debian, Opkg, and RPM through the Keys Management UI and REST API.
 
+        ## Example Usage
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+        import pulumi_std as std
+
+        some_keypair_6543461672124900137 = artifactory.Keypair("some-keypair-6543461672124900137",
+            pair_name="some-keypair-6543461672124900137",
+            pair_type="RSA",
+            alias="some-alias-6543461672124900137",
+            private_key=std.file(input="samples/rsa.priv").result,
+            public_key=std.file(input="samples/rsa.pub").result,
+            passphrase="PASSPHRASE")
+        ```
+        <!--End PulumiCodeChooser -->
+
         ## Import
 
         Keypair can be imported using the pair name, e.g.
@@ -266,6 +284,24 @@ class Keypair(pulumi.CustomResource):
         """
         RSA key pairs are used to sign and verify the Alpine Linux index files in JFrog Artifactory, while GPG key pairs are
         used to sign and validate packages integrity in JFrog Distribution. The JFrog Platform enables you to manage multiple RSA and GPG signing keys through the Keys Management UI and REST API. The JFrog Platform supports managing multiple pairs of GPG signing keys to sign packages for authentication of several package types such as Debian, Opkg, and RPM through the Keys Management UI and REST API.
+
+        ## Example Usage
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+        import pulumi_std as std
+
+        some_keypair_6543461672124900137 = artifactory.Keypair("some-keypair-6543461672124900137",
+            pair_name="some-keypair-6543461672124900137",
+            pair_type="RSA",
+            alias="some-alias-6543461672124900137",
+            private_key=std.file(input="samples/rsa.priv").result,
+            public_key=std.file(input="samples/rsa.pub").result,
+            passphrase="PASSPHRASE")
+        ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

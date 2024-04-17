@@ -9,6 +9,23 @@ import * as utilities from "./utilities";
  *
  * See [API description](https://jfrog.com/help/r/jfrog-rest-apis/set-distributionpublic-gpg-key) in the Artifactory documentation for more details. Also the [UI documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/managing-webstart-and-jar-signing) has further details on where to find these keys in Artifactory.
  *
+ * ## Example Usage
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ * import * as std from "@pulumi/std";
+ *
+ * const my_key = new artifactory.DistributionPublicKey("my-key", {
+ *     alias: "my-key",
+ *     publicKey: std.file({
+ *         input: "samples/rsa.pub",
+ *     }).then(invoke => invoke.result),
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Import
  *
  * Distribution Public Key can be imported using the key id, e.g.

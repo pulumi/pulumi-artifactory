@@ -14,6 +14,92 @@ import (
 
 // Creates a local Debian repository and allows for the creation of a GPG key.
 //
+// ## Example Usage
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v6/go/artifactory"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			invokeFile, err := std.File(ctx, &std.FileArgs{
+//				Input: "samples/gpg.priv",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			invokeFile1, err := std.File(ctx, &std.FileArgs{
+//				Input: "samples/gpg.pub",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = artifactory.NewKeypair(ctx, "some-keypairGPG1", &artifactory.KeypairArgs{
+//				PairName:   pulumi.String(fmt.Sprintf("some-keypair%v", randid.Id)),
+//				PairType:   pulumi.String("GPG"),
+//				Alias:      pulumi.String("foo-alias1"),
+//				PrivateKey: invokeFile.Result,
+//				PublicKey:  invokeFile1.Result,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			invokeFile2, err := std.File(ctx, &std.FileArgs{
+//				Input: "samples/gpg.priv",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			invokeFile3, err := std.File(ctx, &std.FileArgs{
+//				Input: "samples/gpg.pub",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = artifactory.NewKeypair(ctx, "some-keypairGPG2", &artifactory.KeypairArgs{
+//				PairName:   pulumi.String(fmt.Sprintf("some-keypair4%v", randid.Id)),
+//				PairType:   pulumi.String("GPG"),
+//				Alias:      pulumi.String("foo-alias2"),
+//				PrivateKey: invokeFile2.Result,
+//				PublicKey:  invokeFile3.Result,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = artifactory.NewDebianRepository(ctx, "my-debian-repo", &artifactory.DebianRepositoryArgs{
+//				Key:                 pulumi.String("my-debian-repo"),
+//				PrimaryKeypairRef:   some_keypairGPG1.PairName,
+//				SecondaryKeypairRef: some_keypairGPG2.PairName,
+//				IndexCompressionFormats: pulumi.StringArray{
+//					pulumi.String("bz2"),
+//					pulumi.String("lzma"),
+//					pulumi.String("xz"),
+//				},
+//				TrivialLayout: pulumi.Bool(true),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				some_keypairGPG1,
+//				some_keypairGPG2,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
+//
 // ## Import
 //
 // Local repositories can be imported using their name, e.g.

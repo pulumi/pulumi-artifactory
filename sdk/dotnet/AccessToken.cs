@@ -247,6 +247,54 @@ namespace Pulumi.Artifactory
     /// });
     /// ```
     /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
+    /// ### Rotate token each pulumi up
+    /// This example will generate a token that will expire in 1 hour.
+    /// 
+    /// If `pulumi up` is run before 1 hour, a new token is generated with an expiry of 1 hour.
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Artifactory = Pulumi.Artifactory;
+    /// using Std = Pulumi.Std;
+    /// using Time = Pulumiverse.Time;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var nowPlus1Hours = new Time.Rotating("now_plus_1_hours", new()
+    ///     {
+    ///         Triggers = 
+    ///         {
+    ///             { "key", Std.Timestamp.Invoke().Apply(invoke =&gt; invoke.Result) },
+    ///         },
+    ///         RotationHours = 1,
+    ///     });
+    /// 
+    ///     var rotating = new Artifactory.AccessToken("rotating", new()
+    ///     {
+    ///         Username = "rotating",
+    ///         EndDate = nowPlus1Hour.RotationRfc3339,
+    ///         Groups = new[]
+    ///         {
+    ///             "readers",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
+    /// ## References
+    /// 
+    /// - https://www.jfrog.com/confluence/display/ACC1X/Access+Tokens
+    /// - https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-CreateToken
+    /// 
+    /// ## Import
+    /// 
+    /// Artifactory **does not** retain access tokens and cannot be imported into state.
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/accessToken:AccessToken")]
     public partial class AccessToken : global::Pulumi.CustomResource

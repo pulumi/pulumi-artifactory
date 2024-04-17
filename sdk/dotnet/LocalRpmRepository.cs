@@ -12,6 +12,70 @@ namespace Pulumi.Artifactory
     /// <summary>
     /// Creates a local RPM repository.
     /// 
+    /// ## Example Usage
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Artifactory = Pulumi.Artifactory;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var some_keypair_gpg_1 = new Artifactory.Keypair("some-keypair-gpg-1", new()
+    ///     {
+    ///         PairName = $"some-keypair{randid.Id}",
+    ///         PairType = "GPG",
+    ///         Alias = "foo-alias1",
+    ///         PrivateKey = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "samples/gpg.priv",
+    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///         PublicKey = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "samples/gpg.pub",
+    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///     });
+    /// 
+    ///     var some_keypair_gpg_2 = new Artifactory.Keypair("some-keypair-gpg-2", new()
+    ///     {
+    ///         PairName = $"some-keypair{randid.Id}",
+    ///         PairType = "GPG",
+    ///         Alias = "foo-alias2",
+    ///         PrivateKey = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "samples/gpg.priv",
+    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///         PublicKey = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "samples/gpg.pub",
+    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///     });
+    /// 
+    ///     var terraform_local_test_rpm_repo_basic = new Artifactory.LocalRpmRepository("terraform-local-test-rpm-repo-basic", new()
+    ///     {
+    ///         Key = "terraform-local-test-rpm-repo-basic",
+    ///         YumRootDepth = 5,
+    ///         CalculateYumMetadata = true,
+    ///         EnableFileListsIndexing = true,
+    ///         YumGroupFileNames = "file-1.xml,file-2.xml",
+    ///         PrimaryKeypairRef = some_keypairGPG1.PairName,
+    ///         SecondaryKeypairRef = some_keypairGPG2.PairName,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             some_keypair_gpg_1, 
+    ///             some_keypair_gpg_2, 
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Import
     /// 
     /// Local repositories can be imported using their name, e.g.

@@ -317,6 +317,65 @@ import (
 //
 // ```
 // <!--End PulumiCodeChooser -->
+//
+// ### Rotate token each pulumi up
+// This example will generate a token that will expire in 1 hour.
+//
+// If `pulumi up` is run before 1 hour, a new token is generated with an expiry of 1 hour.
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v6/go/artifactory"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi-time/sdk/go/time"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			invokeTimestamp, err := std.Timestamp(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = time.NewRotating(ctx, "now_plus_1_hours", &time.RotatingArgs{
+//				Triggers: pulumi.StringMap{
+//					"key": invokeTimestamp.Result,
+//				},
+//				RotationHours: pulumi.Int(1),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = artifactory.NewAccessToken(ctx, "rotating", &artifactory.AccessTokenArgs{
+//				Username: pulumi.String("rotating"),
+//				EndDate:  pulumi.Any(nowPlus1Hour.RotationRfc3339),
+//				Groups: pulumi.StringArray{
+//					pulumi.String("readers"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
+//
+// ## References
+//
+// - https://www.jfrog.com/confluence/display/ACC1X/Access+Tokens
+// - https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-CreateToken
+//
+// ## Import
+//
+// Artifactory **does not** retain access tokens and cannot be imported into state.
 type AccessToken struct {
 	pulumi.CustomResourceState
 

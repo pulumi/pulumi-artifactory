@@ -7,6 +7,55 @@ import * as utilities from "./utilities";
 /**
  * Creates a local Debian repository and allows for the creation of a GPG key.
  *
+ * ## Example Usage
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ * import * as std from "@pulumi/std";
+ *
+ * const some_keypairGPG1 = new artifactory.Keypair("some-keypairGPG1", {
+ *     pairName: `some-keypair${randid.id}`,
+ *     pairType: "GPG",
+ *     alias: "foo-alias1",
+ *     privateKey: std.file({
+ *         input: "samples/gpg.priv",
+ *     }).then(invoke => invoke.result),
+ *     publicKey: std.file({
+ *         input: "samples/gpg.pub",
+ *     }).then(invoke => invoke.result),
+ * });
+ * const some_keypairGPG2 = new artifactory.Keypair("some-keypairGPG2", {
+ *     pairName: `some-keypair4${randid.id}`,
+ *     pairType: "GPG",
+ *     alias: "foo-alias2",
+ *     privateKey: std.file({
+ *         input: "samples/gpg.priv",
+ *     }).then(invoke => invoke.result),
+ *     publicKey: std.file({
+ *         input: "samples/gpg.pub",
+ *     }).then(invoke => invoke.result),
+ * });
+ * const my_debian_repo = new artifactory.DebianRepository("my-debian-repo", {
+ *     key: "my-debian-repo",
+ *     primaryKeypairRef: some_keypairGPG1.pairName,
+ *     secondaryKeypairRef: some_keypairGPG2.pairName,
+ *     indexCompressionFormats: [
+ *         "bz2",
+ *         "lzma",
+ *         "xz",
+ *     ],
+ *     trivialLayout: true,
+ * }, {
+ *     dependsOn: [
+ *         some_keypairGPG1,
+ *         some_keypairGPG2,
+ *     ],
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Import
  *
  * Local repositories can be imported using their name, e.g.

@@ -441,6 +441,39 @@ class AccessToken(pulumi.CustomResource):
         ```
         <!--End PulumiCodeChooser -->
 
+        ### Rotate token each pulumi up
+        This example will generate a token that will expire in 1 hour.
+
+        If `pulumi up` is run before 1 hour, a new token is generated with an expiry of 1 hour.
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+        import pulumi_std as std
+        import pulumiverse_time as time
+
+        now_plus1_hours = time.Rotating("now_plus_1_hours",
+            triggers={
+                "key": std.timestamp().result,
+            },
+            rotation_hours=1)
+        rotating = artifactory.AccessToken("rotating",
+            username="rotating",
+            end_date=now_plus1_hour["rotationRfc3339"],
+            groups=["readers"])
+        ```
+        <!--End PulumiCodeChooser -->
+
+        ## References
+
+        - https://www.jfrog.com/confluence/display/ACC1X/Access+Tokens
+        - https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-CreateToken
+
+        ## Import
+
+        Artifactory **does not** retain access tokens and cannot be imported into state.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['AccessTokenAdminTokenArgs']] admin_token: (Optional) Specify the `instance_id` in this block to grant this token admin privileges. This can only be created when the authenticated user is an admin. `admin_token` cannot be specified with `groups`.
@@ -600,6 +633,39 @@ class AccessToken(pulumi.CustomResource):
             groups=["readers"])
         ```
         <!--End PulumiCodeChooser -->
+
+        ### Rotate token each pulumi up
+        This example will generate a token that will expire in 1 hour.
+
+        If `pulumi up` is run before 1 hour, a new token is generated with an expiry of 1 hour.
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+        import pulumi_std as std
+        import pulumiverse_time as time
+
+        now_plus1_hours = time.Rotating("now_plus_1_hours",
+            triggers={
+                "key": std.timestamp().result,
+            },
+            rotation_hours=1)
+        rotating = artifactory.AccessToken("rotating",
+            username="rotating",
+            end_date=now_plus1_hour["rotationRfc3339"],
+            groups=["readers"])
+        ```
+        <!--End PulumiCodeChooser -->
+
+        ## References
+
+        - https://www.jfrog.com/confluence/display/ACC1X/Access+Tokens
+        - https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-CreateToken
+
+        ## Import
+
+        Artifactory **does not** retain access tokens and cannot be imported into state.
 
         :param str resource_name: The name of the resource.
         :param AccessTokenArgs args: The arguments to use to populate this resource's properties.

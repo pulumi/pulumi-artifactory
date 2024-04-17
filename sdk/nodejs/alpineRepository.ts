@@ -7,6 +7,34 @@ import * as utilities from "./utilities";
 /**
  * Creates a local Alpine repository.
  *
+ * ## Example Usage
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ * import * as std from "@pulumi/std";
+ *
+ * const some_keypairRSA = new artifactory.Keypair("some-keypairRSA", {
+ *     pairName: "some-keypair",
+ *     pairType: "RSA",
+ *     alias: "foo-alias",
+ *     privateKey: std.file({
+ *         input: "samples/rsa.priv",
+ *     }).then(invoke => invoke.result),
+ *     publicKey: std.file({
+ *         input: "samples/rsa.pub",
+ *     }).then(invoke => invoke.result),
+ * });
+ * const terraform_local_test_alpine_repo_basic = new artifactory.AlpineRepository("terraform-local-test-alpine-repo-basic", {
+ *     key: "terraform-local-test-alpine-repo-basic",
+ *     primaryKeypairRef: some_keypairRSA.pairName,
+ * }, {
+ *     dependsOn: [some_keypairRSA],
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Import
  *
  * Local repositories can be imported using their name, e.g.

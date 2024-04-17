@@ -190,6 +190,20 @@ class DistributionPublicKey(pulumi.CustomResource):
 
         See [API description](https://jfrog.com/help/r/jfrog-rest-apis/set-distributionpublic-gpg-key) in the Artifactory documentation for more details. Also the [UI documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/managing-webstart-and-jar-signing) has further details on where to find these keys in Artifactory.
 
+        ## Example Usage
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+        import pulumi_std as std
+
+        my_key = artifactory.DistributionPublicKey("my-key",
+            alias="my-key",
+            public_key=std.file(input="samples/rsa.pub").result)
+        ```
+        <!--End PulumiCodeChooser -->
+
         ## Import
 
         Distribution Public Key can be imported using the key id, e.g.
@@ -215,6 +229,20 @@ class DistributionPublicKey(pulumi.CustomResource):
         Provides an Artifactory Distribution Public Key resource. This can be used to create and manage Artifactory Distribution Public Keys.
 
         See [API description](https://jfrog.com/help/r/jfrog-rest-apis/set-distributionpublic-gpg-key) in the Artifactory documentation for more details. Also the [UI documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/managing-webstart-and-jar-signing) has further details on where to find these keys in Artifactory.
+
+        ## Example Usage
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+        import pulumi_std as std
+
+        my_key = artifactory.DistributionPublicKey("my-key",
+            alias="my-key",
+            public_key=std.file(input="samples/rsa.pub").result)
+        ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

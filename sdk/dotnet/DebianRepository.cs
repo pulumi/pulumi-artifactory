@@ -12,6 +12,73 @@ namespace Pulumi.Artifactory
     /// <summary>
     /// Creates a local Debian repository and allows for the creation of a GPG key.
     /// 
+    /// ## Example Usage
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Artifactory = Pulumi.Artifactory;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var some_keypairGPG1 = new Artifactory.Keypair("some-keypairGPG1", new()
+    ///     {
+    ///         PairName = $"some-keypair{randid.Id}",
+    ///         PairType = "GPG",
+    ///         Alias = "foo-alias1",
+    ///         PrivateKey = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "samples/gpg.priv",
+    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///         PublicKey = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "samples/gpg.pub",
+    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///     });
+    /// 
+    ///     var some_keypairGPG2 = new Artifactory.Keypair("some-keypairGPG2", new()
+    ///     {
+    ///         PairName = $"some-keypair4{randid.Id}",
+    ///         PairType = "GPG",
+    ///         Alias = "foo-alias2",
+    ///         PrivateKey = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "samples/gpg.priv",
+    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///         PublicKey = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "samples/gpg.pub",
+    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///     });
+    /// 
+    ///     var my_debian_repo = new Artifactory.DebianRepository("my-debian-repo", new()
+    ///     {
+    ///         Key = "my-debian-repo",
+    ///         PrimaryKeypairRef = some_keypairGPG1.PairName,
+    ///         SecondaryKeypairRef = some_keypairGPG2.PairName,
+    ///         IndexCompressionFormats = new[]
+    ///         {
+    ///             "bz2",
+    ///             "lzma",
+    ///             "xz",
+    ///         },
+    ///         TrivialLayout = true,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             some_keypairGPG1, 
+    ///             some_keypairGPG2, 
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Import
     /// 
     /// Local repositories can be imported using their name, e.g.

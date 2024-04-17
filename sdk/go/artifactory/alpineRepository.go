@@ -14,6 +14,60 @@ import (
 
 // Creates a local Alpine repository.
 //
+// ## Example Usage
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v6/go/artifactory"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			invokeFile, err := std.File(ctx, &std.FileArgs{
+//				Input: "samples/rsa.priv",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			invokeFile1, err := std.File(ctx, &std.FileArgs{
+//				Input: "samples/rsa.pub",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = artifactory.NewKeypair(ctx, "some-keypairRSA", &artifactory.KeypairArgs{
+//				PairName:   pulumi.String("some-keypair"),
+//				PairType:   pulumi.String("RSA"),
+//				Alias:      pulumi.String("foo-alias"),
+//				PrivateKey: invokeFile.Result,
+//				PublicKey:  invokeFile1.Result,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = artifactory.NewAlpineRepository(ctx, "terraform-local-test-alpine-repo-basic", &artifactory.AlpineRepositoryArgs{
+//				Key:               pulumi.String("terraform-local-test-alpine-repo-basic"),
+//				PrimaryKeypairRef: some_keypairRSA.PairName,
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				some_keypairRSA,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
+//
 // ## Import
 //
 // Local repositories can be imported using their name, e.g.

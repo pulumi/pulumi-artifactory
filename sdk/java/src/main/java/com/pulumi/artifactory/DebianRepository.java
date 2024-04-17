@@ -19,6 +19,77 @@ import javax.annotation.Nullable;
 /**
  * Creates a local Debian repository and allows for the creation of a GPG key.
  * 
+ * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.artifactory.Keypair;
+ * import com.pulumi.artifactory.KeypairArgs;
+ * import com.pulumi.artifactory.DebianRepository;
+ * import com.pulumi.artifactory.DebianRepositoryArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var some_keypairGPG1 = new Keypair(&#34;some-keypairGPG1&#34;, KeypairArgs.builder()        
+ *             .pairName(String.format(&#34;some-keypair%s&#34;, randid.id()))
+ *             .pairType(&#34;GPG&#34;)
+ *             .alias(&#34;foo-alias1&#34;)
+ *             .privateKey(StdFunctions.file(FileArgs.builder()
+ *                 .input(&#34;samples/gpg.priv&#34;)
+ *                 .build()).result())
+ *             .publicKey(StdFunctions.file(FileArgs.builder()
+ *                 .input(&#34;samples/gpg.pub&#34;)
+ *                 .build()).result())
+ *             .build());
+ * 
+ *         var some_keypairGPG2 = new Keypair(&#34;some-keypairGPG2&#34;, KeypairArgs.builder()        
+ *             .pairName(String.format(&#34;some-keypair4%s&#34;, randid.id()))
+ *             .pairType(&#34;GPG&#34;)
+ *             .alias(&#34;foo-alias2&#34;)
+ *             .privateKey(StdFunctions.file(FileArgs.builder()
+ *                 .input(&#34;samples/gpg.priv&#34;)
+ *                 .build()).result())
+ *             .publicKey(StdFunctions.file(FileArgs.builder()
+ *                 .input(&#34;samples/gpg.pub&#34;)
+ *                 .build()).result())
+ *             .build());
+ * 
+ *         var my_debian_repo = new DebianRepository(&#34;my-debian-repo&#34;, DebianRepositoryArgs.builder()        
+ *             .key(&#34;my-debian-repo&#34;)
+ *             .primaryKeypairRef(some_keypairGPG1.pairName())
+ *             .secondaryKeypairRef(some_keypairGPG2.pairName())
+ *             .indexCompressionFormats(            
+ *                 &#34;bz2&#34;,
+ *                 &#34;lzma&#34;,
+ *                 &#34;xz&#34;)
+ *             .trivialLayout(true)
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(                
+ *                     some_keypairGPG1,
+ *                     some_keypairGPG2)
+ *                 .build());
+ * 
+ *     }
+ * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
  * Local repositories can be imported using their name, e.g.

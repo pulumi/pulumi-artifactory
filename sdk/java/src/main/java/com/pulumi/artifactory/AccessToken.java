@@ -359,6 +359,60 @@ import javax.annotation.Nullable;
  * ```
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ### Rotate token each pulumi up
+ * This example will generate a token that will expire in 1 hour.
+ * 
+ * If `pulumi up` is run before 1 hour, a new token is generated with an expiry of 1 hour.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.time.Rotating;
+ * import com.pulumi.time.RotatingArgs;
+ * import com.pulumi.artifactory.AccessToken;
+ * import com.pulumi.artifactory.AccessTokenArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var nowPlus1Hours = new Rotating(&#34;nowPlus1Hours&#34;, RotatingArgs.builder()        
+ *             .triggers(Map.of(&#34;key&#34;, StdFunctions.timestamp().result()))
+ *             .rotationHours(&#34;1&#34;)
+ *             .build());
+ * 
+ *         var rotating = new AccessToken(&#34;rotating&#34;, AccessTokenArgs.builder()        
+ *             .username(&#34;rotating&#34;)
+ *             .endDate(nowPlus1Hour.rotationRfc3339())
+ *             .groups(&#34;readers&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ## References
+ * 
+ * - https://www.jfrog.com/confluence/display/ACC1X/Access+Tokens
+ * - https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-CreateToken
+ * 
+ * ## Import
+ * 
+ * Artifactory **does not** retain access tokens and cannot be imported into state.
+ * 
  */
 @ResourceType(type="artifactory:index/accessToken:AccessToken")
 public class AccessToken extends com.pulumi.resources.CustomResource {

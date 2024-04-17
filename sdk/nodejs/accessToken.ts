@@ -159,6 +159,41 @@ import * as utilities from "./utilities";
  * });
  * ```
  * <!--End PulumiCodeChooser -->
+ *
+ * ### Rotate token each pulumi up
+ * This example will generate a token that will expire in 1 hour.
+ *
+ * If `pulumi up` is run before 1 hour, a new token is generated with an expiry of 1 hour.
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ * import * as std from "@pulumi/std";
+ * import * as time from "@pulumiverse/time";
+ *
+ * const nowPlus1Hours = new time.Rotating("now_plus_1_hours", {
+ *     triggers: {
+ *         key: std.timestamp({}).then(invoke => invoke.result),
+ *     },
+ *     rotationHours: 1,
+ * });
+ * const rotating = new artifactory.AccessToken("rotating", {
+ *     username: "rotating",
+ *     endDate: nowPlus1Hour.rotationRfc3339,
+ *     groups: ["readers"],
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
+ *
+ * ## References
+ *
+ * - https://www.jfrog.com/confluence/display/ACC1X/Access+Tokens
+ * - https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-CreateToken
+ *
+ * ## Import
+ *
+ * Artifactory **does not** retain access tokens and cannot be imported into state.
  */
 export class AccessToken extends pulumi.CustomResource {
     /**
