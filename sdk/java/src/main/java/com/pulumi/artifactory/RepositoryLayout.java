@@ -101,14 +101,14 @@ public class RepositoryLayout extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="distinctiveDescriptorPathPattern", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> distinctiveDescriptorPathPattern;
+    private Output<Boolean> distinctiveDescriptorPathPattern;
 
     /**
      * @return When set, `descriptor_path_pattern` will be used. Default to `false`.
      * 
      */
-    public Output<Optional<Boolean>> distinctiveDescriptorPathPattern() {
-        return Codegen.optional(this.distinctiveDescriptorPathPattern);
+    public Output<Boolean> distinctiveDescriptorPathPattern() {
+        return this.distinctiveDescriptorPathPattern;
     }
     /**
      * A regular expression matching the integration revision string appearing in a file name as part of the artifact&#39;s path. For example, `SNAPSHOT|(?:(?:[0-9]{8}.[0-9]{6})-(?:[0-9]+))`, in Maven. Note! Take care not to introduce any regexp capturing groups within this expression. If not applicable use `.*`

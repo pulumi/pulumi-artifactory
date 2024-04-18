@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v6/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -93,19 +92,16 @@ type PropertySet struct {
 	// A list of properties that will be part of the property set.
 	Properties PropertySetPropertyArrayOutput `pulumi:"properties"`
 	// Defines if the list visible and assignable to the repository or artifact. Default value is `true`.
-	Visible pulumi.BoolPtrOutput `pulumi:"visible"`
+	Visible pulumi.BoolOutput `pulumi:"visible"`
 }
 
 // NewPropertySet registers a new resource with the given unique name, arguments, and options.
 func NewPropertySet(ctx *pulumi.Context,
 	name string, args *PropertySetArgs, opts ...pulumi.ResourceOption) (*PropertySet, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &PropertySetArgs{}
 	}
 
-	if args.Properties == nil {
-		return nil, errors.New("invalid value for required argument 'Properties'")
-	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PropertySet
 	err := ctx.RegisterResource("artifactory:index/propertySet:PropertySet", name, args, &resource, opts...)
@@ -267,8 +263,8 @@ func (o PropertySetOutput) Properties() PropertySetPropertyArrayOutput {
 }
 
 // Defines if the list visible and assignable to the repository or artifact. Default value is `true`.
-func (o PropertySetOutput) Visible() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *PropertySet) pulumi.BoolPtrOutput { return v.Visible }).(pulumi.BoolPtrOutput)
+func (o PropertySetOutput) Visible() pulumi.BoolOutput {
+	return o.ApplyT(func(v *PropertySet) pulumi.BoolOutput { return v.Visible }).(pulumi.BoolOutput)
 }
 
 type PropertySetArrayOutput struct{ *pulumi.OutputState }

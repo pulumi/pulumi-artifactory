@@ -30,7 +30,7 @@ namespace Pulumi.Artifactory.Inputs
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        [Input("predefinedValues", required: true)]
+        [Input("predefinedValues")]
         private InputList<Inputs.PropertySetPropertyPredefinedValueArgs>? _predefinedValues;
 
         /// <summary>

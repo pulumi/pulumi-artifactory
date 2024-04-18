@@ -65,7 +65,7 @@ namespace Pulumi.Artifactory
         /// When set, `descriptor_path_pattern` will be used. Default to `false`.
         /// </summary>
         [Output("distinctiveDescriptorPathPattern")]
-        public Output<bool?> DistinctiveDescriptorPathPattern { get; private set; } = null!;
+        public Output<bool> DistinctiveDescriptorPathPattern { get; private set; } = null!;
 
         /// <summary>
         /// A regular expression matching the integration revision string appearing in a file name as part of the artifact's path. For example, `SNAPSHOT|(?:(?:[0-9]{8}.[0-9]{6})-(?:[0-9]+))`, in Maven. Note! Take care not to introduce any regexp capturing groups within this expression. If not applicable use `.*`

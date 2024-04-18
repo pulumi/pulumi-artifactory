@@ -68,15 +68,15 @@ public final class PropertySetPropertyArgs extends com.pulumi.resources.Resource
      * Properties in the property set.
      * 
      */
-    @Import(name="predefinedValues", required=true)
-    private Output<List<PropertySetPropertyPredefinedValueArgs>> predefinedValues;
+    @Import(name="predefinedValues")
+    private @Nullable Output<List<PropertySetPropertyPredefinedValueArgs>> predefinedValues;
 
     /**
      * @return Properties in the property set.
      * 
      */
-    public Output<List<PropertySetPropertyPredefinedValueArgs>> predefinedValues() {
-        return this.predefinedValues;
+    public Optional<Output<List<PropertySetPropertyPredefinedValueArgs>>> predefinedValues() {
+        return Optional.ofNullable(this.predefinedValues);
     }
 
     private PropertySetPropertyArgs() {}
@@ -175,7 +175,7 @@ public final class PropertySetPropertyArgs extends com.pulumi.resources.Resource
          * @return builder
          * 
          */
-        public Builder predefinedValues(Output<List<PropertySetPropertyPredefinedValueArgs>> predefinedValues) {
+        public Builder predefinedValues(@Nullable Output<List<PropertySetPropertyPredefinedValueArgs>> predefinedValues) {
             $.predefinedValues = predefinedValues;
             return this;
         }
@@ -203,9 +203,6 @@ public final class PropertySetPropertyArgs extends com.pulumi.resources.Resource
         public PropertySetPropertyArgs build() {
             if ($.name == null) {
                 throw new MissingRequiredPropertyException("PropertySetPropertyArgs", "name");
-            }
-            if ($.predefinedValues == null) {
-                throw new MissingRequiredPropertyException("PropertySetPropertyArgs", "predefinedValues");
             }
             return $;
         }

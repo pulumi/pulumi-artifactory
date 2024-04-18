@@ -63,7 +63,7 @@ type RepositoryLayout struct {
 	// Please refer to: [Descriptor Path Patterns](https://www.jfrog.com/confluence/display/JFROG/Repository+Layouts#RepositoryLayouts-DescriptorPathPatterns) in the Artifactory Wiki documentation.
 	DescriptorPathPattern pulumi.StringPtrOutput `pulumi:"descriptorPathPattern"`
 	// When set, `descriptorPathPattern` will be used. Default to `false`.
-	DistinctiveDescriptorPathPattern pulumi.BoolPtrOutput `pulumi:"distinctiveDescriptorPathPattern"`
+	DistinctiveDescriptorPathPattern pulumi.BoolOutput `pulumi:"distinctiveDescriptorPathPattern"`
 	// A regular expression matching the integration revision string appearing in a file name as part of the artifact's path. For example, `SNAPSHOT|(?:(?:[0-9]{8}.[0-9]{6})-(?:[0-9]+))`, in Maven. Note! Take care not to introduce any regexp capturing groups within this expression. If not applicable use `.*`
 	FileIntegrationRevisionRegexp pulumi.StringOutput `pulumi:"fileIntegrationRevisionRegexp"`
 	// A regular expression matching the integration revision string appearing in a folder name as part of the artifact's path. For example, `SNAPSHOT`, in Maven. Note! Take care not to introduce any regexp capturing groups within this expression. If not applicable use `.*`
@@ -273,8 +273,8 @@ func (o RepositoryLayoutOutput) DescriptorPathPattern() pulumi.StringPtrOutput {
 }
 
 // When set, `descriptorPathPattern` will be used. Default to `false`.
-func (o RepositoryLayoutOutput) DistinctiveDescriptorPathPattern() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *RepositoryLayout) pulumi.BoolPtrOutput { return v.DistinctiveDescriptorPathPattern }).(pulumi.BoolPtrOutput)
+func (o RepositoryLayoutOutput) DistinctiveDescriptorPathPattern() pulumi.BoolOutput {
+	return o.ApplyT(func(v *RepositoryLayout) pulumi.BoolOutput { return v.DistinctiveDescriptorPathPattern }).(pulumi.BoolOutput)
 }
 
 // A regular expression matching the integration revision string appearing in a file name as part of the artifact's path. For example, `SNAPSHOT|(?:(?:[0-9]{8}.[0-9]{6})-(?:[0-9]+))`, in Maven. Note! Take care not to introduce any regexp capturing groups within this expression. If not applicable use `.*`
