@@ -2442,11 +2442,11 @@ export interface PropertySetProperty {
     /**
      * Disables `multipleChoice` if set to `false` at the same time with multipleChoice set to `true`. Default value is `false`
      */
-    closedPredefinedValues?: boolean;
+    closedPredefinedValues: boolean;
     /**
      * Defines if user can select multiple values. `closedPredefinedValues` should be set to `true`. Default value is `false`.
      */
-    multipleChoice?: boolean;
+    multipleChoice: boolean;
     /**
      * Predefined property name.
      */
@@ -2454,7 +2454,7 @@ export interface PropertySetProperty {
     /**
      * Properties in the property set.
      */
-    predefinedValues: outputs.PropertySetPropertyPredefinedValue[];
+    predefinedValues?: outputs.PropertySetPropertyPredefinedValue[];
 }
 
 export interface PropertySetPropertyPredefinedValue {

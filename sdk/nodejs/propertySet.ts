@@ -101,11 +101,11 @@ export class PropertySet extends pulumi.CustomResource {
     /**
      * A list of properties that will be part of the property set.
      */
-    public readonly properties!: pulumi.Output<outputs.PropertySetProperty[]>;
+    public readonly properties!: pulumi.Output<outputs.PropertySetProperty[] | undefined>;
     /**
      * Defines if the list visible and assignable to the repository or artifact. Default value is `true`.
      */
-    public readonly visible!: pulumi.Output<boolean | undefined>;
+    public readonly visible!: pulumi.Output<boolean>;
 
     /**
      * Create a PropertySet resource with the given unique name, arguments, and options.
@@ -114,7 +114,7 @@ export class PropertySet extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: PropertySetArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args?: PropertySetArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PropertySetArgs | PropertySetState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -125,9 +125,6 @@ export class PropertySet extends pulumi.CustomResource {
             resourceInputs["visible"] = state ? state.visible : undefined;
         } else {
             const args = argsOrState as PropertySetArgs | undefined;
-            if ((!args || args.properties === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'properties'");
-            }
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["visible"] = args ? args.visible : undefined;
@@ -166,7 +163,7 @@ export interface PropertySetArgs {
     /**
      * A list of properties that will be part of the property set.
      */
-    properties: pulumi.Input<pulumi.Input<inputs.PropertySetProperty>[]>;
+    properties?: pulumi.Input<pulumi.Input<inputs.PropertySetProperty>[]>;
     /**
      * Defines if the list visible and assignable to the repository or artifact. Default value is `true`.
      */

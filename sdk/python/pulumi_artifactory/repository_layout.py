@@ -403,7 +403,7 @@ class RepositoryLayout(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="distinctiveDescriptorPathPattern")
-    def distinctive_descriptor_path_pattern(self) -> pulumi.Output[Optional[bool]]:
+    def distinctive_descriptor_path_pattern(self) -> pulumi.Output[bool]:
         """
         When set, `descriptor_path_pattern` will be used. Default to `false`.
         """

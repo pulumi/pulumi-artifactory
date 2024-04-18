@@ -73,7 +73,7 @@ export class RepositoryLayout extends pulumi.CustomResource {
     /**
      * When set, `descriptorPathPattern` will be used. Default to `false`.
      */
-    public readonly distinctiveDescriptorPathPattern!: pulumi.Output<boolean | undefined>;
+    public readonly distinctiveDescriptorPathPattern!: pulumi.Output<boolean>;
     /**
      * A regular expression matching the integration revision string appearing in a file name as part of the artifact's path. For example, `SNAPSHOT|(?:(?:[0-9]{8}.[0-9]{6})-(?:[0-9]+))`, in Maven. Note! Take care not to introduce any regexp capturing groups within this expression. If not applicable use `.*`
      */

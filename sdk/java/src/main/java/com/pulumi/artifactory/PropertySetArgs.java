@@ -6,7 +6,6 @@ package com.pulumi.artifactory;
 import com.pulumi.artifactory.inputs.PropertySetPropertyArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -38,15 +37,15 @@ public final class PropertySetArgs extends com.pulumi.resources.ResourceArgs {
      * A list of properties that will be part of the property set.
      * 
      */
-    @Import(name="properties", required=true)
-    private Output<List<PropertySetPropertyArgs>> properties;
+    @Import(name="properties")
+    private @Nullable Output<List<PropertySetPropertyArgs>> properties;
 
     /**
      * @return A list of properties that will be part of the property set.
      * 
      */
-    public Output<List<PropertySetPropertyArgs>> properties() {
-        return this.properties;
+    public Optional<Output<List<PropertySetPropertyArgs>>> properties() {
+        return Optional.ofNullable(this.properties);
     }
 
     /**
@@ -117,7 +116,7 @@ public final class PropertySetArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder properties(Output<List<PropertySetPropertyArgs>> properties) {
+        public Builder properties(@Nullable Output<List<PropertySetPropertyArgs>> properties) {
             $.properties = properties;
             return this;
         }
@@ -164,9 +163,6 @@ public final class PropertySetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public PropertySetArgs build() {
-            if ($.properties == null) {
-                throw new MissingRequiredPropertyException("PropertySetArgs", "properties");
-            }
             return $;
         }
     }

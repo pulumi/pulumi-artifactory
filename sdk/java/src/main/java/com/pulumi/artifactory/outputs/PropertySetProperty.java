@@ -34,7 +34,7 @@ public final class PropertySetProperty {
      * @return Properties in the property set.
      * 
      */
-    private List<PropertySetPropertyPredefinedValue> predefinedValues;
+    private @Nullable List<PropertySetPropertyPredefinedValue> predefinedValues;
 
     private PropertySetProperty() {}
     /**
@@ -63,7 +63,7 @@ public final class PropertySetProperty {
      * 
      */
     public List<PropertySetPropertyPredefinedValue> predefinedValues() {
-        return this.predefinedValues;
+        return this.predefinedValues == null ? List.of() : this.predefinedValues;
     }
 
     public static Builder builder() {
@@ -78,7 +78,7 @@ public final class PropertySetProperty {
         private @Nullable Boolean closedPredefinedValues;
         private @Nullable Boolean multipleChoice;
         private String name;
-        private List<PropertySetPropertyPredefinedValue> predefinedValues;
+        private @Nullable List<PropertySetPropertyPredefinedValue> predefinedValues;
         public Builder() {}
         public Builder(PropertySetProperty defaults) {
     	      Objects.requireNonNull(defaults);
@@ -109,10 +109,8 @@ public final class PropertySetProperty {
             return this;
         }
         @CustomType.Setter
-        public Builder predefinedValues(List<PropertySetPropertyPredefinedValue> predefinedValues) {
-            if (predefinedValues == null) {
-              throw new MissingRequiredPropertyException("PropertySetProperty", "predefinedValues");
-            }
+        public Builder predefinedValues(@Nullable List<PropertySetPropertyPredefinedValue> predefinedValues) {
+
             this.predefinedValues = predefinedValues;
             return this;
         }

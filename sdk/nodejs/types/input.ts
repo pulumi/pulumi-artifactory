@@ -3577,7 +3577,7 @@ export interface PropertySetProperty {
     /**
      * Properties in the property set.
      */
-    predefinedValues: pulumi.Input<pulumi.Input<inputs.PropertySetPropertyPredefinedValue>[]>;
+    predefinedValues?: pulumi.Input<pulumi.Input<inputs.PropertySetPropertyPredefinedValue>[]>;
 }
 
 export interface PropertySetPropertyPredefinedValue {
