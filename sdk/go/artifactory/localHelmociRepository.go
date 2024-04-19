@@ -33,8 +33,8 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewLocalHelmociRepository(ctx, "my-helmoci-local", &artifactory.LocalHelmociRepositoryArgs{
 //				Key:           pulumi.String("my-helmoci-local"),
-//				MaxUniqueTags: pulumi.Int(5),
 //				TagRetention:  pulumi.Int(3),
+//				MaxUniqueTags: pulumi.Int(5),
 //			})
 //			if err != nil {
 //				return err

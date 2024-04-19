@@ -55,22 +55,22 @@ import javax.annotation.Nullable;
  * 
  *         var baz = new RemoteMavenRepository(&#34;baz&#34;, RemoteMavenRepositoryArgs.builder()        
  *             .key(&#34;baz&#34;)
- *             .repoLayoutRef(&#34;maven-2-default&#34;)
  *             .url(&#34;https://search.maven.com/&#34;)
+ *             .repoLayoutRef(&#34;maven-2-default&#34;)
  *             .build());
  * 
  *         var maven_virt_repo = new MavenRepository(&#34;maven-virt-repo&#34;, MavenRepositoryArgs.builder()        
- *             .description(&#34;A test virtual repo&#34;)
- *             .excludesPattern(&#34;com/google/**&#34;)
- *             .forceMavenAuthentication(true)
- *             .includesPattern(&#34;com/jfrog/**,cloud/jfrog/**&#34;)
  *             .key(&#34;maven-virt-repo&#34;)
- *             .notes(&#34;Internal description&#34;)
- *             .pomRepositoryReferencesCleanupPolicy(&#34;discard_active_reference&#34;)
  *             .repoLayoutRef(&#34;maven-2-default&#34;)
  *             .repositories(            
  *                 bar.key(),
  *                 baz.key())
+ *             .description(&#34;A test virtual repo&#34;)
+ *             .notes(&#34;Internal description&#34;)
+ *             .includesPattern(&#34;com/jfrog/**,cloud/jfrog/**&#34;)
+ *             .excludesPattern(&#34;com/google/**&#34;)
+ *             .forceMavenAuthentication(true)
+ *             .pomRepositoryReferencesCleanupPolicy(&#34;discard_active_reference&#34;)
  *             .build());
  * 
  *     }

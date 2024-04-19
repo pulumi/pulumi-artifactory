@@ -33,12 +33,12 @@ import (
 //				Key: pulumi.String("terraform-federated-test-maven-repo"),
 //				Members: artifactory.FederatedMavenRepositoryMemberArray{
 //					&artifactory.FederatedMavenRepositoryMemberArgs{
-//						Enabled: pulumi.Bool(true),
 //						Url:     pulumi.String("http://tempurl.org/artifactory/terraform-federated-test-maven-repo"),
+//						Enabled: pulumi.Bool(true),
 //					},
 //					&artifactory.FederatedMavenRepositoryMemberArgs{
-//						Enabled: pulumi.Bool(true),
 //						Url:     pulumi.String("http://tempurl2.org/artifactory/terraform-federated-test-maven-repo-2"),
+//						Enabled: pulumi.Bool(true),
 //					},
 //				},
 //			})

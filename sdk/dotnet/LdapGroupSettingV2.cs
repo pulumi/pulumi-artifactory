@@ -30,17 +30,18 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var ldapGroupName = new Artifactory.LdapGroupSettingV2("ldapGroupName", new()
+    ///     var ldapGroupName = new Artifactory.LdapGroupSettingV2("ldap_group_name", new()
     ///     {
-    ///         DescriptionAttribute = "description",
+    ///         Name = "ldap_group_name",
     ///         EnabledLdap = "ldap_name",
-    ///         Filter = "(objectClass=groupOfNames)",
-    ///         ForceAttributeSearch = false,
     ///         GroupBaseDn = "CN=Users,DC=MyDomain,DC=com",
-    ///         GroupMemberAttribute = "uniqueMember",
     ///         GroupNameAttribute = "cn",
-    ///         Strategy = "STATIC",
+    ///         GroupMemberAttribute = "uniqueMember",
     ///         SubTree = true,
+    ///         ForceAttributeSearch = false,
+    ///         Filter = "(objectClass=groupOfNames)",
+    ///         DescriptionAttribute = "description",
+    ///         Strategy = "STATIC",
     ///     });
     /// 
     /// });

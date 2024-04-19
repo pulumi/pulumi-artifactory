@@ -47,7 +47,9 @@ import javax.annotation.Nullable;
  *         // Create a new Artifactory certificate called my-cert
  *         var my_cert = new Certificate(&#34;my-cert&#34;, CertificateArgs.builder()        
  *             .alias(&#34;my-cert&#34;)
- *             .content(Files.readString(Paths.get(&#34;/path/to/bundle.pem&#34;)))
+ *             .content(StdFunctions.file(FileArgs.builder()
+ *                 .input(&#34;/path/to/bundle.pem&#34;)
+ *                 .build()).result())
  *             .build());
  * 
  *         // This can then be used by a remote repository

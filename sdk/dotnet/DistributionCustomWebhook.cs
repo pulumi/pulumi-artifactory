@@ -25,22 +25,7 @@ namespace Pulumi.Artifactory
     /// {
     ///     var distribution_custom_webhook = new Artifactory.DistributionCustomWebhook("distribution-custom-webhook", new()
     ///     {
-    ///         Criteria = new Artifactory.Inputs.DistributionCustomWebhookCriteriaArgs
-    ///         {
-    ///             AnyReleaseBundle = false,
-    ///             ExcludePatterns = new[]
-    ///             {
-    ///                 "bar/**",
-    ///             },
-    ///             IncludePatterns = new[]
-    ///             {
-    ///                 "foo/**",
-    ///             },
-    ///             RegisteredReleaseBundleNames = new[]
-    ///             {
-    ///                 "bundle-name",
-    ///             },
-    ///         },
+    ///         Key = "distribution-custom-webhook",
     ///         EventTypes = new[]
     ///         {
     ///             "distribute_started",
@@ -51,25 +36,40 @@ namespace Pulumi.Artifactory
     ///             "delete_completed",
     ///             "delete_failed",
     ///         },
+    ///         Criteria = new Artifactory.Inputs.DistributionCustomWebhookCriteriaArgs
+    ///         {
+    ///             AnyReleaseBundle = false,
+    ///             RegisteredReleaseBundleNames = new[]
+    ///             {
+    ///                 "bundle-name",
+    ///             },
+    ///             IncludePatterns = new[]
+    ///             {
+    ///                 "foo/**",
+    ///             },
+    ///             ExcludePatterns = new[]
+    ///             {
+    ///                 "bar/**",
+    ///             },
+    ///         },
     ///         Handlers = new[]
     ///         {
     ///             new Artifactory.Inputs.DistributionCustomWebhookHandlerArgs
     ///             {
+    ///                 Url = "https://tempurl.org",
+    ///                 Secrets = 
+    ///                 {
+    ///                     { "secretName1", "value1" },
+    ///                     { "secretName2", "value2" },
+    ///                 },
     ///                 HttpHeaders = 
     ///                 {
     ///                     { "headerName1", "value1" },
     ///                     { "headerName2", "value2" },
     ///                 },
     ///                 Payload = "{ \"ref\": \"main\" , \"inputs\": { \"artifact_path\": \"test-repo/repo-path\" } }",
-    ///                 Secrets = 
-    ///                 {
-    ///                     { "secretName1", "value1" },
-    ///                     { "secretName2", "value2" },
-    ///                 },
-    ///                 Url = "https://tempurl.org",
     ///             },
     ///         },
-    ///         Key = "distribution-custom-webhook",
     ///     });
     /// 
     /// });

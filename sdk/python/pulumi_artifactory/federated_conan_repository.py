@@ -779,12 +779,12 @@ class FederatedConanRepository(pulumi.CustomResource):
             key="terraform-federated-test-conan-repo",
             members=[
                 artifactory.FederatedConanRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl.org/artifactory/terraform-federated-test-conan-repo",
+                    enabled=True,
                 ),
                 artifactory.FederatedConanRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl2.org/artifactory/terraform-federated-test-conan-repo-2",
+                    enabled=True,
                 ),
             ])
         ```
@@ -856,12 +856,12 @@ class FederatedConanRepository(pulumi.CustomResource):
             key="terraform-federated-test-conan-repo",
             members=[
                 artifactory.FederatedConanRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl.org/artifactory/terraform-federated-test-conan-repo",
+                    enabled=True,
                 ),
                 artifactory.FederatedConanRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl2.org/artifactory/terraform-federated-test-conan-repo-2",
+                    enabled=True,
                 ),
             ])
         ```

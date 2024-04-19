@@ -50,12 +50,12 @@ import javax.annotation.Nullable;
  *             .key(&#34;my-oci-federated&#34;)
  *             .members(            
  *                 FederatedOciRepositoryMemberArgs.builder()
- *                     .enabled(true)
  *                     .url(&#34;http://tempurl.org/artifactory/my-oci-federated&#34;)
+ *                     .enabled(true)
  *                     .build(),
  *                 FederatedOciRepositoryMemberArgs.builder()
- *                     .enabled(true)
  *                     .url(&#34;http://tempurl2.org/artifactory/my-oci-federated-2&#34;)
+ *                     .enabled(true)
  *                     .build())
  *             .build());
  * 

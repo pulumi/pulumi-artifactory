@@ -1684,10 +1684,10 @@ class RemoteHelmociRepository(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         my_helmoci_remote = artifactory.RemoteHelmociRepository("my-helmoci-remote",
-            enable_token_authentication=True,
+            key="my-helmoci-remote",
             external_dependencies_enabled=True,
             external_dependencies_patterns=["**/registry-1.docker.io/**"],
-            key="my-helmoci-remote",
+            enable_token_authentication=True,
             url="https://registry-1.docker.io/")
         ```
         <!--End PulumiCodeChooser -->
@@ -1799,10 +1799,10 @@ class RemoteHelmociRepository(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         my_helmoci_remote = artifactory.RemoteHelmociRepository("my-helmoci-remote",
-            enable_token_authentication=True,
+            key="my-helmoci-remote",
             external_dependencies_enabled=True,
             external_dependencies_patterns=["**/registry-1.docker.io/**"],
-            key="my-helmoci-remote",
+            enable_token_authentication=True,
             url="https://registry-1.docker.io/")
         ```
         <!--End PulumiCodeChooser -->

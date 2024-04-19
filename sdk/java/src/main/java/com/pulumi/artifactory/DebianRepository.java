@@ -47,19 +47,27 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var some_keypairGPG1 = new Keypair(&#34;some-keypairGPG1&#34;, KeypairArgs.builder()        
- *             .pairName(String.format(&#34;some-keypair%s&#34;, random_id.randid().id()))
+ *             .pairName(String.format(&#34;some-keypair%s&#34;, randid.id()))
  *             .pairType(&#34;GPG&#34;)
  *             .alias(&#34;foo-alias1&#34;)
- *             .privateKey(Files.readString(Paths.get(&#34;samples/gpg.priv&#34;)))
- *             .publicKey(Files.readString(Paths.get(&#34;samples/gpg.pub&#34;)))
+ *             .privateKey(StdFunctions.file(FileArgs.builder()
+ *                 .input(&#34;samples/gpg.priv&#34;)
+ *                 .build()).result())
+ *             .publicKey(StdFunctions.file(FileArgs.builder()
+ *                 .input(&#34;samples/gpg.pub&#34;)
+ *                 .build()).result())
  *             .build());
  * 
  *         var some_keypairGPG2 = new Keypair(&#34;some-keypairGPG2&#34;, KeypairArgs.builder()        
- *             .pairName(String.format(&#34;some-keypair4%s&#34;, random_id.randid().id()))
+ *             .pairName(String.format(&#34;some-keypair4%s&#34;, randid.id()))
  *             .pairType(&#34;GPG&#34;)
  *             .alias(&#34;foo-alias2&#34;)
- *             .privateKey(Files.readString(Paths.get(&#34;samples/gpg.priv&#34;)))
- *             .publicKey(Files.readString(Paths.get(&#34;samples/gpg.pub&#34;)))
+ *             .privateKey(StdFunctions.file(FileArgs.builder()
+ *                 .input(&#34;samples/gpg.priv&#34;)
+ *                 .build()).result())
+ *             .publicKey(StdFunctions.file(FileArgs.builder()
+ *                 .input(&#34;samples/gpg.pub&#34;)
+ *                 .build()).result())
  *             .build());
  * 
  *         var my_debian_repo = new DebianRepository(&#34;my-debian-repo&#34;, DebianRepositoryArgs.builder()        

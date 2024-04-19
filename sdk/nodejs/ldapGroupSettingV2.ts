@@ -21,16 +21,17 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const ldapGroupName = new artifactory.LdapGroupSettingV2("ldapGroupName", {
- *     descriptionAttribute: "description",
+ * const ldapGroupName = new artifactory.LdapGroupSettingV2("ldap_group_name", {
+ *     name: "ldap_group_name",
  *     enabledLdap: "ldap_name",
- *     filter: "(objectClass=groupOfNames)",
- *     forceAttributeSearch: false,
  *     groupBaseDn: "CN=Users,DC=MyDomain,DC=com",
- *     groupMemberAttribute: "uniqueMember",
  *     groupNameAttribute: "cn",
- *     strategy: "STATIC",
+ *     groupMemberAttribute: "uniqueMember",
  *     subTree: true,
+ *     forceAttributeSearch: false,
+ *     filter: "(objectClass=groupOfNames)",
+ *     descriptionAttribute: "description",
+ *     strategy: "STATIC",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

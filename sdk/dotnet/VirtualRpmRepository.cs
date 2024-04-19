@@ -18,10 +18,10 @@ namespace Pulumi.Artifactory
     /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
@@ -30,8 +30,14 @@ namespace Pulumi.Artifactory
     ///         PairName = "primary-keypair",
     ///         PairType = "GPG",
     ///         Alias = "foo-alias-1",
-    ///         PrivateKey = File.ReadAllText("samples/gpg.priv"),
-    ///         PublicKey = File.ReadAllText("samples/gpg.pub"),
+    ///         PrivateKey = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "samples/gpg.priv",
+    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///         PublicKey = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "samples/gpg.pub",
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///     });
     /// 
     ///     var secondary_keypair = new Artifactory.Keypair("secondary-keypair", new()
@@ -39,8 +45,14 @@ namespace Pulumi.Artifactory
     ///         PairName = "secondary-keypair",
     ///         PairType = "GPG",
     ///         Alias = "foo-alias-2",
-    ///         PrivateKey = File.ReadAllText("samples/gpg.priv"),
-    ///         PublicKey = File.ReadAllText("samples/gpg.pub"),
+    ///         PrivateKey = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "samples/gpg.priv",
+    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///         PublicKey = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "samples/gpg.pub",
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///     });
     /// 
     ///     var foo_rpm_virtual = new Artifactory.VirtualRpmRepository("foo-rpm-virtual", new()

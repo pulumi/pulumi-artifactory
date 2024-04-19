@@ -20,12 +20,12 @@ import * as utilities from "./utilities";
  *     key: "terraform-federated-test-gradle-repo",
  *     members: [
  *         {
- *             enabled: true,
  *             url: "http://tempurl.org/artifactory/terraform-federated-test-gradle-repo",
+ *             enabled: true,
  *         },
  *         {
- *             enabled: true,
  *             url: "http://tempurl2.org/artifactory/terraform-federated-test-gradle-repo-2",
+ *             enabled: true,
  *         },
  *     ],
  * });

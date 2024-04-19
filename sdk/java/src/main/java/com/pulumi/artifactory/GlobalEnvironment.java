@@ -26,6 +26,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.artifactory.GlobalEnvironment;
+ * import com.pulumi.artifactory.GlobalEnvironmentArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -39,7 +40,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test_env = new GlobalEnvironment(&#34;test-env&#34;);
+ *         var test_env = new GlobalEnvironment(&#34;test-env&#34;, GlobalEnvironmentArgs.builder()        
+ *             .name(&#34;test-env&#34;)
+ *             .build());
  * 
  *     }
  * }

@@ -22,27 +22,24 @@ import (
 //
 // import (
 //
-//	"os"
-//
 //	"github.com/pulumi/pulumi-artifactory/sdk/v6/go/artifactory"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
-//	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
-//
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			invokeFile, err := std.File(ctx, &std.FileArgs{
+//				Input: "/path/to/bundle.pem",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
 //			// Create a new Artifactory certificate called my-cert
-//			_, err := artifactory.NewCertificate(ctx, "my-cert", &artifactory.CertificateArgs{
+//			_, err = artifactory.NewCertificate(ctx, "my-cert", &artifactory.CertificateArgs{
 //				Alias:   pulumi.String("my-cert"),
-//				Content: readFileOrPanic("/path/to/bundle.pem"),
+//				Content: invokeFile.Result,
 //			})
 //			if err != nil {
 //				return err

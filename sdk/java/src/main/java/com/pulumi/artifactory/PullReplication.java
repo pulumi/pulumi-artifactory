@@ -59,15 +59,15 @@ import javax.annotation.Nullable;
  * 
  *         var providerTestDest = new RemoteMavenRepository(&#34;providerTestDest&#34;, RemoteMavenRepositoryArgs.builder()        
  *             .key(&#34;provider_test_dest&#34;)
- *             .password(&#34;bar&#34;)
- *             .url(String.format(&#34;https://example.com/artifactory/%s&#34;, artifactory_local_maven_repository.artifactory_local_maven_repository().key()))
+ *             .url(String.format(&#34;https://example.com/artifactory/%s&#34;, artifactoryLocalMavenRepository.key()))
  *             .username(&#34;foo&#34;)
+ *             .password(&#34;bar&#34;)
  *             .build());
  * 
  *         var remote_rep = new PullReplication(&#34;remote-rep&#34;, PullReplicationArgs.builder()        
+ *             .repoKey(providerTestDest.key())
  *             .cronExp(&#34;0 0 * * * ?&#34;)
  *             .enableEventReplication(true)
- *             .repoKey(providerTestDest.key())
  *             .build());
  * 
  *     }

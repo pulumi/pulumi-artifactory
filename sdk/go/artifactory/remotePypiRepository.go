@@ -32,9 +32,9 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewRemotePypiRepository(ctx, "pypi-remote", &artifactory.RemotePypiRepositoryArgs{
 //				Key:                  pulumi.String("pypi-remote-foo"),
+//				Url:                  pulumi.String("https://files.pythonhosted.org"),
 //				PypiRegistryUrl:      pulumi.String("https://pypi.org"),
 //				PypiRepositorySuffix: pulumi.String("simple"),
-//				Url:                  pulumi.String("https://files.pythonhosted.org"),
 //			})
 //			if err != nil {
 //				return err

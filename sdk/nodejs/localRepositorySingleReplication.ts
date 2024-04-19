@@ -18,12 +18,15 @@ import * as utilities from "./utilities";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * const config = new pulumi.Config();
+ * // The base URL of the Artifactory deployment
  * const artifactoryUrl = config.require("artifactoryUrl");
+ * // The username for the Artifactory
  * const artifactoryUsername = config.require("artifactoryUsername");
+ * // The password for the Artifactory
  * const artifactoryPassword = config.require("artifactoryPassword");
  * // Create a replication between two artifactory local repositories
- * const providerTestSource = new artifactory.LocalMavenRepository("providerTestSource", {key: "provider_test_source"});
- * const providerTestDest = new artifactory.LocalMavenRepository("providerTestDest", {key: "provider_test_dest"});
+ * const providerTestSource = new artifactory.LocalMavenRepository("provider_test_source", {key: "provider_test_source"});
+ * const providerTestDest = new artifactory.LocalMavenRepository("provider_test_dest", {key: "provider_test_dest"});
  * const foo_rep = new artifactory.LocalRepositorySingleReplication("foo-rep", {
  *     repoKey: providerTestSource.key,
  *     cronExp: "0 0 * * * ?",

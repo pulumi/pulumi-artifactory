@@ -17,10 +17,10 @@ namespace Pulumi.Artifactory
     /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
@@ -29,8 +29,14 @@ namespace Pulumi.Artifactory
     ///         PairName = "some-keypair",
     ///         PairType = "RSA",
     ///         Alias = "foo-alias",
-    ///         PrivateKey = File.ReadAllText("samples/rsa.priv"),
-    ///         PublicKey = File.ReadAllText("samples/rsa.pub"),
+    ///         PrivateKey = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "samples/rsa.priv",
+    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///         PublicKey = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "samples/rsa.pub",
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///     });
     /// 
     ///     var terraform_local_test_alpine_repo_basic = new Artifactory.AlpineRepository("terraform-local-test-alpine-repo-basic", new()

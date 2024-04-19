@@ -30,12 +30,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewLocalMavenRepository(ctx, "terraform-local-test-maven-repo-basic", &artifactory.LocalMavenRepositoryArgs{
+//				Key:                          pulumi.String("terraform-local-test-maven-repo-basic"),
 //				ChecksumPolicyType:           pulumi.String("client-checksums"),
+//				SnapshotVersionBehavior:      pulumi.String("unique"),
+//				MaxUniqueSnapshots:           pulumi.Int(10),
 //				HandleReleases:               pulumi.Bool(true),
 //				HandleSnapshots:              pulumi.Bool(true),
-//				Key:                          pulumi.String("terraform-local-test-maven-repo-basic"),
-//				MaxUniqueSnapshots:           pulumi.Int(10),
-//				SnapshotVersionBehavior:      pulumi.String("unique"),
 //				SuppressPomConsistencyChecks: pulumi.Bool(false),
 //			})
 //			if err != nil {

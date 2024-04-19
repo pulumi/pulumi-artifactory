@@ -65,62 +65,12 @@ public final class DockerCustomWebhookHandlerArgs extends com.pulumi.resources.R
     /**
      * Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won&#39;t work. Example:
      * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *     }
-     * }
-     * ```
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
      */
     @Import(name="secrets")
     private @Nullable Output<Map<String,String>> secrets;
 
     /**
      * @return Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won&#39;t work. Example:
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *     }
-     * }
-     * ```
-     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public Optional<Output<Map<String,String>>> secrets() {
@@ -236,31 +186,6 @@ public final class DockerCustomWebhookHandlerArgs extends com.pulumi.resources.R
         /**
          * @param secrets Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won&#39;t work. Example:
          * 
-         * &lt;!--Start PulumiCodeChooser --&gt;
-         * ```java
-         * package generated_program;
-         * 
-         * import com.pulumi.Context;
-         * import com.pulumi.Pulumi;
-         * import com.pulumi.core.Output;
-         * import java.util.List;
-         * import java.util.ArrayList;
-         * import java.util.Map;
-         * import java.io.File;
-         * import java.nio.file.Files;
-         * import java.nio.file.Paths;
-         * 
-         * public class App {
-         *     public static void main(String[] args) {
-         *         Pulumi.run(App::stack);
-         *     }
-         * 
-         *     public static void stack(Context ctx) {
-         *     }
-         * }
-         * ```
-         * &lt;!--End PulumiCodeChooser --&gt;
-         * 
          * @return builder
          * 
          */
@@ -271,31 +196,6 @@ public final class DockerCustomWebhookHandlerArgs extends com.pulumi.resources.R
 
         /**
          * @param secrets Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won&#39;t work. Example:
-         * 
-         * &lt;!--Start PulumiCodeChooser --&gt;
-         * ```java
-         * package generated_program;
-         * 
-         * import com.pulumi.Context;
-         * import com.pulumi.Pulumi;
-         * import com.pulumi.core.Output;
-         * import java.util.List;
-         * import java.util.ArrayList;
-         * import java.util.Map;
-         * import java.io.File;
-         * import java.nio.file.Files;
-         * import java.nio.file.Paths;
-         * 
-         * public class App {
-         *     public static void main(String[] args) {
-         *         Pulumi.run(App::stack);
-         *     }
-         * 
-         *     public static void stack(Context ctx) {
-         *     }
-         * }
-         * ```
-         * &lt;!--End PulumiCodeChooser --&gt;
          * 
          * @return builder
          * 

@@ -35,21 +35,21 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			// Configure Artifactory OAuth SSO settings
 //			_, err := artifactory.NewOauthSettings(ctx, "oauth", &artifactory.OauthSettingsArgs{
-//				AllowUserToAccessProfile: pulumi.Bool(true),
 //				Enable:                   pulumi.Bool(true),
+//				PersistUsers:             pulumi.Bool(true),
+//				AllowUserToAccessProfile: pulumi.Bool(true),
 //				OauthProviders: artifactory.OauthSettingsOauthProviderArray{
 //					&artifactory.OauthSettingsOauthProviderArgs{
-//						ApiUrl:       pulumi.String("https://organization.okta.com/oauth2/v1/userinfo"),
-//						AuthUrl:      pulumi.String("https://organization.okta.com/oauth2/v1/authorize"),
+//						Name:         pulumi.String("okta"),
+//						Enabled:      pulumi.Bool(false),
+//						Type:         pulumi.String("openId"),
 //						ClientId:     pulumi.String("foo"),
 //						ClientSecret: pulumi.String("bar"),
-//						Enabled:      pulumi.Bool(false),
-//						Name:         pulumi.String("okta"),
+//						ApiUrl:       pulumi.String("https://organization.okta.com/oauth2/v1/userinfo"),
+//						AuthUrl:      pulumi.String("https://organization.okta.com/oauth2/v1/authorize"),
 //						TokenUrl:     pulumi.String("https://organization.okta.com/oauth2/v1/token"),
-//						Type:         pulumi.String("openId"),
 //					},
 //				},
-//				PersistUsers: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err

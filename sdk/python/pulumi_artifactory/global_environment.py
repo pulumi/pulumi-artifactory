@@ -76,7 +76,7 @@ class GlobalEnvironment(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        test_env = artifactory.GlobalEnvironment("test-env")
+        test_env = artifactory.GlobalEnvironment("test-env", name="test-env")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -106,7 +106,7 @@ class GlobalEnvironment(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        test_env = artifactory.GlobalEnvironment("test-env")
+        test_env = artifactory.GlobalEnvironment("test-env", name="test-env")
         ```
         <!--End PulumiCodeChooser -->
 

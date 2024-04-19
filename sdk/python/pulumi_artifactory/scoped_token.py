@@ -592,22 +592,22 @@ class ScopedToken(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         ### Create a new Artifactory scoped token for an existing user
-        scoped_token = artifactory.ScopedToken("scopedToken", username="existing-user")
+        scoped_token = artifactory.ScopedToken("scoped_token", username="existing-user")
         ### **Note:** This assumes that the user `existing-user` has already been created in Artifactory by different means, i.e. manually or in a separate pulumi up.
         ### Create a new Artifactory user and scoped token
-        new_user = artifactory.User("newUser",
+        new_user = artifactory.User("new_user",
+            name="new_user",
             email="new_user@somewhere.com",
             groups=["readers"])
-        scoped_token_user = artifactory.ScopedToken("scopedTokenUser", username=new_user.name)
+        scoped_token_user = artifactory.ScopedToken("scoped_token_user", username=new_user.name)
         ### Creates a new token for groups
-        scoped_token_group = artifactory.ScopedToken("scopedTokenGroup", scopes=["applied-permissions/groups:readers"])
+        scoped_token_group = artifactory.ScopedToken("scoped_token_group", scopes=["applied-permissions/groups:readers"])
         ### Create token with expiry
-        scoped_token_no_expiry = artifactory.ScopedToken("scopedTokenNoExpiry",
+        scoped_token_no_expiry = artifactory.ScopedToken("scoped_token_no_expiry",
             username="existing-user",
             expires_in=7200)
-        # in seconds
         ### Creates a refreshable token
-        scoped_token_refreshable = artifactory.ScopedToken("scopedTokenRefreshable",
+        scoped_token_refreshable = artifactory.ScopedToken("scoped_token_refreshable",
             username="existing-user",
             refreshable=True)
         ### Creates an administrator token
@@ -696,22 +696,22 @@ class ScopedToken(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         ### Create a new Artifactory scoped token for an existing user
-        scoped_token = artifactory.ScopedToken("scopedToken", username="existing-user")
+        scoped_token = artifactory.ScopedToken("scoped_token", username="existing-user")
         ### **Note:** This assumes that the user `existing-user` has already been created in Artifactory by different means, i.e. manually or in a separate pulumi up.
         ### Create a new Artifactory user and scoped token
-        new_user = artifactory.User("newUser",
+        new_user = artifactory.User("new_user",
+            name="new_user",
             email="new_user@somewhere.com",
             groups=["readers"])
-        scoped_token_user = artifactory.ScopedToken("scopedTokenUser", username=new_user.name)
+        scoped_token_user = artifactory.ScopedToken("scoped_token_user", username=new_user.name)
         ### Creates a new token for groups
-        scoped_token_group = artifactory.ScopedToken("scopedTokenGroup", scopes=["applied-permissions/groups:readers"])
+        scoped_token_group = artifactory.ScopedToken("scoped_token_group", scopes=["applied-permissions/groups:readers"])
         ### Create token with expiry
-        scoped_token_no_expiry = artifactory.ScopedToken("scopedTokenNoExpiry",
+        scoped_token_no_expiry = artifactory.ScopedToken("scoped_token_no_expiry",
             username="existing-user",
             expires_in=7200)
-        # in seconds
         ### Creates a refreshable token
-        scoped_token_refreshable = artifactory.ScopedToken("scopedTokenRefreshable",
+        scoped_token_refreshable = artifactory.ScopedToken("scoped_token_refreshable",
             username="existing-user",
             refreshable=True)
         ### Creates an administrator token

@@ -352,15 +352,16 @@ class LdapGroupSetting(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         # Configure Artifactory LDAP setting
-        ldap_group_name = artifactory.LdapGroupSetting("ldapGroupName",
-            description_attribute="description",
-            filter="(objectClass=groupOfNames)",
-            group_base_dn="",
-            group_member_attribute="uniqueMember",
-            group_name_attribute="cn",
+        ldap_group_name = artifactory.LdapGroupSetting("ldap_group_name",
+            name="ldap_group_name",
             ldap_setting_key="ldap_name",
-            strategy="STATIC",
-            sub_tree=True)
+            group_base_dn="",
+            group_name_attribute="cn",
+            group_member_attribute="uniqueMember",
+            sub_tree=True,
+            filter="(objectClass=groupOfNames)",
+            description_attribute="description",
+            strategy="STATIC")
         ```
         <!--End PulumiCodeChooser -->
         Note: `Name` argument has to match to the resource name.\\
@@ -411,15 +412,16 @@ class LdapGroupSetting(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         # Configure Artifactory LDAP setting
-        ldap_group_name = artifactory.LdapGroupSetting("ldapGroupName",
-            description_attribute="description",
-            filter="(objectClass=groupOfNames)",
-            group_base_dn="",
-            group_member_attribute="uniqueMember",
-            group_name_attribute="cn",
+        ldap_group_name = artifactory.LdapGroupSetting("ldap_group_name",
+            name="ldap_group_name",
             ldap_setting_key="ldap_name",
-            strategy="STATIC",
-            sub_tree=True)
+            group_base_dn="",
+            group_name_attribute="cn",
+            group_member_attribute="uniqueMember",
+            sub_tree=True,
+            filter="(objectClass=groupOfNames)",
+            description_attribute="description",
+            strategy="STATIC")
         ```
         <!--End PulumiCodeChooser -->
         Note: `Name` argument has to match to the resource name.\\

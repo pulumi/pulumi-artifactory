@@ -31,13 +31,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewVirtualGenericRepository(ctx, "foo-generic", &artifactory.VirtualGenericRepositoryArgs{
-//				Description:     pulumi.String("A test virtual repo"),
-//				ExcludesPattern: pulumi.String("com/google/**"),
-//				IncludesPattern: pulumi.String("com/jfrog/**,cloud/jfrog/**"),
 //				Key:             pulumi.String("foo-generic"),
-//				Notes:           pulumi.String("Internal description"),
 //				RepoLayoutRef:   pulumi.String("simple-default"),
 //				Repositories:    pulumi.StringArray{},
+//				Description:     pulumi.String("A test virtual repo"),
+//				Notes:           pulumi.String("Internal description"),
+//				IncludesPattern: pulumi.String("com/jfrog/**,cloud/jfrog/**"),
+//				ExcludesPattern: pulumi.String("com/google/**"),
 //			})
 //			if err != nil {
 //				return err

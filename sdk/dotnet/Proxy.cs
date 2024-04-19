@@ -30,13 +30,14 @@ namespace Pulumi.Artifactory
     /// {
     ///     var my_proxy = new Artifactory.Proxy("my-proxy", new()
     ///     {
-    ///         Host = "my-proxy.mycompany.com",
     ///         Key = "my-proxy",
-    ///         NtDomain = "MYCOMPANY",
-    ///         NtHost = "MYCOMPANY.COM",
-    ///         Password = "password",
-    ///         PlatformDefault = false,
+    ///         Host = "my-proxy.mycompany.com",
     ///         Port = 8888,
+    ///         Username = "user1",
+    ///         Password = "password",
+    ///         NtHost = "MYCOMPANY.COM",
+    ///         NtDomain = "MYCOMPANY",
+    ///         PlatformDefault = false,
     ///         RedirectToHosts = new[]
     ///         {
     ///             "redirec-host.mycompany.com",
@@ -46,7 +47,6 @@ namespace Pulumi.Artifactory
     ///             "jfrt",
     ///             "jfxr",
     ///         },
-    ///         Username = "user1",
     ///     });
     /// 
     /// });

@@ -45,9 +45,9 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var terraform_remote = new RemoteTerraformRepository(&#34;terraform-remote&#34;, RemoteTerraformRepositoryArgs.builder()        
  *             .key(&#34;terraform-remote&#34;)
- *             .terraformProvidersUrl(&#34;https://releases.hashicorp.com&#34;)
- *             .terraformRegistryUrl(&#34;https://registry.terraform.io&#34;)
  *             .url(&#34;https://github.com/&#34;)
+ *             .terraformRegistryUrl(&#34;https://registry.terraform.io&#34;)
+ *             .terraformProvidersUrl(&#34;https://releases.hashicorp.com&#34;)
  *             .build());
  * 
  *     }

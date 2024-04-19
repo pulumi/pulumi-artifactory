@@ -26,8 +26,8 @@ namespace Pulumi.Artifactory
     ///     var my_oci_local = new Artifactory.LocalOciRepository("my-oci-local", new()
     ///     {
     ///         Key = "my-oci-local",
-    ///         MaxUniqueTags = 5,
     ///         TagRetention = 3,
+    ///         MaxUniqueTags = 5,
     ///     });
     /// 
     /// });

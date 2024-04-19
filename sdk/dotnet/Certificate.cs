@@ -17,10 +17,10 @@ namespace Pulumi.Artifactory
     /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
@@ -28,7 +28,10 @@ namespace Pulumi.Artifactory
     ///     var my_cert = new Artifactory.Certificate("my-cert", new()
     ///     {
     ///         Alias = "my-cert",
-    ///         Content = File.ReadAllText("/path/to/bundle.pem"),
+    ///         Content = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "/path/to/bundle.pem",
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///     });
     /// 
     ///     // This can then be used by a remote repository

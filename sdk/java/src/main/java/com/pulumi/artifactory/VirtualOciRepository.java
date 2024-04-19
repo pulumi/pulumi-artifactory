@@ -46,12 +46,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var my_oci_virtual = new VirtualOciRepository(&#34;my-oci-virtual&#34;, VirtualOciRepositoryArgs.builder()        
- *             .description(&#34;A test virtual OCI repo&#34;)
  *             .key(&#34;my-oci-virtual&#34;)
- *             .notes(&#34;Internal description&#34;)
  *             .repositories(            
  *                 &#34;my-oci-local&#34;,
  *                 &#34;my-oci-remote&#34;)
+ *             .description(&#34;A test virtual OCI repo&#34;)
+ *             .notes(&#34;Internal description&#34;)
  *             .resolveOciTagsByTimestamp(true)
  *             .build());
  * 

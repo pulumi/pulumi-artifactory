@@ -50,12 +50,12 @@ import javax.annotation.Nullable;
  *             .key(&#34;my-helmoci-federated&#34;)
  *             .members(            
  *                 FederatedHelmociRepositoryMemberArgs.builder()
- *                     .enabled(true)
  *                     .url(&#34;http://tempurl.org/artifactory/my-helmoci-federated&#34;)
+ *                     .enabled(true)
  *                     .build(),
  *                 FederatedHelmociRepositoryMemberArgs.builder()
- *                     .enabled(true)
  *                     .url(&#34;http://tempurl2.org/artifactory/my-helmoci-federated-2&#34;)
+ *                     .enabled(true)
  *                     .build())
  *             .build());
  * 

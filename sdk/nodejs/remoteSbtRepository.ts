@@ -18,12 +18,12 @@ import * as utilities from "./utilities";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * const sbt_remote = new artifactory.RemoteSbtRepository("sbt-remote", {
+ *     key: "sbt-remote-foo",
+ *     url: "https://repo1.maven.org/maven2/",
  *     fetchJarsEagerly: true,
  *     fetchSourcesEagerly: false,
- *     key: "sbt-remote-foo",
- *     rejectInvalidJars: true,
  *     suppressPomConsistencyChecks: true,
- *     url: "https://repo1.maven.org/maven2/",
+ *     rejectInvalidJars: true,
  * });
  * ```
  * <!--End PulumiCodeChooser -->

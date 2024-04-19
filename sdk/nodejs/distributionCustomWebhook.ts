@@ -17,12 +17,7 @@ import * as utilities from "./utilities";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * const distribution_custom_webhook = new artifactory.DistributionCustomWebhook("distribution-custom-webhook", {
- *     criteria: {
- *         anyReleaseBundle: false,
- *         excludePatterns: ["bar/**"],
- *         includePatterns: ["foo/**"],
- *         registeredReleaseBundleNames: ["bundle-name"],
- *     },
+ *     key: "distribution-custom-webhook",
  *     eventTypes: [
  *         "distribute_started",
  *         "distribute_completed",
@@ -32,19 +27,24 @@ import * as utilities from "./utilities";
  *         "delete_completed",
  *         "delete_failed",
  *     ],
+ *     criteria: {
+ *         anyReleaseBundle: false,
+ *         registeredReleaseBundleNames: ["bundle-name"],
+ *         includePatterns: ["foo/**"],
+ *         excludePatterns: ["bar/**"],
+ *     },
  *     handlers: [{
+ *         url: "https://tempurl.org",
+ *         secrets: {
+ *             secretName1: "value1",
+ *             secretName2: "value2",
+ *         },
  *         httpHeaders: {
  *             headerName1: "value1",
  *             headerName2: "value2",
  *         },
  *         payload: "{ \"ref\": \"main\" , \"inputs\": { \"artifact_path\": \"test-repo/repo-path\" } }",
- *         secrets: {
- *             secretName1: "value1",
- *             secretName2: "value2",
- *         },
- *         url: "https://tempurl.org",
  *     }],
- *     key: "distribution-custom-webhook",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

@@ -30,6 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewUserLockPolicy(ctx, "my-user-lock-policy", &artifactory.UserLockPolicyArgs{
+//				Name:          pulumi.String("my-user-lock-policy"),
 //				Enabled:       pulumi.Bool(true),
 //				LoginAttempts: pulumi.Int(10),
 //			})

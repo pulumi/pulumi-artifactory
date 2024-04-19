@@ -816,12 +816,12 @@ class FederatedNugetRepository(pulumi.CustomResource):
             key="terraform-federated-test-nuget-repo",
             members=[
                 artifactory.FederatedNugetRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl.org/artifactory/terraform-federated-test-nuget-repo",
+                    enabled=True,
                 ),
                 artifactory.FederatedNugetRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl2.org/artifactory/terraform-federated-test-nuget-repo-2",
+                    enabled=True,
                 ),
             ])
         ```
@@ -895,12 +895,12 @@ class FederatedNugetRepository(pulumi.CustomResource):
             key="terraform-federated-test-nuget-repo",
             members=[
                 artifactory.FederatedNugetRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl.org/artifactory/terraform-federated-test-nuget-repo",
+                    enabled=True,
                 ),
                 artifactory.FederatedNugetRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl2.org/artifactory/terraform-federated-test-nuget-repo-2",
+                    enabled=True,
                 ),
             ])
         ```

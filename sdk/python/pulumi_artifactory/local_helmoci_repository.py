@@ -671,8 +671,8 @@ class LocalHelmociRepository(pulumi.CustomResource):
 
         my_helmoci_local = artifactory.LocalHelmociRepository("my-helmoci-local",
             key="my-helmoci-local",
-            max_unique_tags=5,
-            tag_retention=3)
+            tag_retention=3,
+            max_unique_tags=5)
         ```
         <!--End PulumiCodeChooser -->
 
@@ -737,8 +737,8 @@ class LocalHelmociRepository(pulumi.CustomResource):
 
         my_helmoci_local = artifactory.LocalHelmociRepository("my-helmoci-local",
             key="my-helmoci-local",
-            max_unique_tags=5,
-            tag_retention=3)
+            tag_retention=3,
+            max_unique_tags=5)
         ```
         <!--End PulumiCodeChooser -->
 

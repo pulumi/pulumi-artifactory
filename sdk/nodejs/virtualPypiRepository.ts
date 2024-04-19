@@ -16,12 +16,12 @@ import * as utilities from "./utilities";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * const foo_pypi = new artifactory.VirtualPypiRepository("foo-pypi", {
- *     description: "A test virtual repo",
- *     excludesPattern: "com/google/**",
- *     includesPattern: "com/jfrog/**,cloud/jfrog/**",
  *     key: "foo-pypi",
- *     notes: "Internal description",
  *     repositories: [],
+ *     description: "A test virtual repo",
+ *     notes: "Internal description",
+ *     includesPattern: "com/jfrog/**,cloud/jfrog/**",
+ *     excludesPattern: "com/google/**",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

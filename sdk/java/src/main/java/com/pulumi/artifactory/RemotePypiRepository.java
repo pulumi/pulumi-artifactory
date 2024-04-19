@@ -48,9 +48,9 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var pypi_remote = new RemotePypiRepository(&#34;pypi-remote&#34;, RemotePypiRepositoryArgs.builder()        
  *             .key(&#34;pypi-remote-foo&#34;)
+ *             .url(&#34;https://files.pythonhosted.org&#34;)
  *             .pypiRegistryUrl(&#34;https://pypi.org&#34;)
  *             .pypiRepositorySuffix(&#34;simple&#34;)
- *             .url(&#34;https://files.pythonhosted.org&#34;)
  *             .build());
  * 
  *     }

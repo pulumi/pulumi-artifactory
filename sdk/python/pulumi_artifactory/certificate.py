@@ -220,11 +220,12 @@ class Certificate(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
+        import pulumi_std as std
 
         # Create a new Artifactory certificate called my-cert
         my_cert = artifactory.Certificate("my-cert",
             alias="my-cert",
-            content=(lambda path: open(path).read())("/path/to/bundle.pem"))
+            content=std.file(input="/path/to/bundle.pem").result)
         # This can then be used by a remote repository
         my_remote = artifactory.RemoteMavenRepository("my-remote", client_tls_certificate=my_cert.alias)
         ```
@@ -259,11 +260,12 @@ class Certificate(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
+        import pulumi_std as std
 
         # Create a new Artifactory certificate called my-cert
         my_cert = artifactory.Certificate("my-cert",
             alias="my-cert",
-            content=(lambda path: open(path).read())("/path/to/bundle.pem"))
+            content=std.file(input="/path/to/bundle.pem").result)
         # This can then be used by a remote repository
         my_remote = artifactory.RemoteMavenRepository("my-remote", client_tls_certificate=my_cert.alias)
         ```

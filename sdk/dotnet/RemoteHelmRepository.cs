@@ -26,14 +26,14 @@ namespace Pulumi.Artifactory
     /// {
     ///     var helm_remote = new Artifactory.RemoteHelmRepository("helm-remote", new()
     ///     {
+    ///         Key = "helm-remote-foo25",
+    ///         Url = "https://repo.chartcenter.io/",
+    ///         HelmChartsBaseUrl = "https://foo.com",
     ///         ExternalDependenciesEnabled = true,
     ///         ExternalDependenciesPatterns = new[]
     ///         {
     ///             "**github.com**",
     ///         },
-    ///         HelmChartsBaseUrl = "https://foo.com",
-    ///         Key = "helm-remote-foo25",
-    ///         Url = "https://repo.chartcenter.io/",
     ///     });
     /// 
     /// });

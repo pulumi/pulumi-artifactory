@@ -17,8 +17,8 @@ import * as utilities from "./utilities";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * const all-alpine-local = artifactory.getRepositories({
- *     packageType: "alpine",
  *     repositoryType: "local",
+ *     packageType: "alpine",
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -82,8 +82,8 @@ export interface GetRepositoriesResult {
  * import * as artifactory from "@pulumi/artifactory";
  *
  * const all-alpine-local = artifactory.getRepositories({
- *     packageType: "alpine",
  *     repositoryType: "local",
+ *     packageType: "alpine",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

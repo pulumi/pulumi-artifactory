@@ -32,11 +32,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewRepositoryLayout(ctx, "custom-layout", &artifactory.RepositoryLayoutArgs{
+//				Name:                             pulumi.String("custom-layout"),
 //				ArtifactPathPattern:              pulumi.String("[orgPath]/[module]/[baseRev](-[folderItegRev])/[module]-[baseRev](-[fileItegRev])(-[classifier]).[ext]"),
-//				DescriptorPathPattern:            pulumi.String("[orgPath]/[module]/[baseRev](-[folderItegRev])/[module]-[baseRev](-[fileItegRev])(-[classifier]).pom"),
 //				DistinctiveDescriptorPathPattern: pulumi.Bool(true),
-//				FileIntegrationRevisionRegexp:    pulumi.String("Foo|(?:(?:[0-9]{8}.[0-9]{6})-(?:[0-9]+))"),
+//				DescriptorPathPattern:            pulumi.String("[orgPath]/[module]/[baseRev](-[folderItegRev])/[module]-[baseRev](-[fileItegRev])(-[classifier]).pom"),
 //				FolderIntegrationRevisionRegexp:  pulumi.String("Foo"),
+//				FileIntegrationRevisionRegexp:    pulumi.String("Foo|(?:(?:[0-9]{8}.[0-9]{6})-(?:[0-9]+))"),
 //			})
 //			if err != nil {
 //				return err

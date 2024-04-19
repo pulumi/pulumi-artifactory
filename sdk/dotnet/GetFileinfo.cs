@@ -27,10 +27,11 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
+        ///     // 
         ///     var my_file = Artifactory.GetFileinfo.Invoke(new()
         ///     {
-        ///         Path = "/path/to/the/artifact.zip",
         ///         Repository = "repo-key",
+        ///         Path = "/path/to/the/artifact.zip",
         ///     });
         /// 
         /// });
@@ -56,10 +57,11 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
+        ///     // 
         ///     var my_file = Artifactory.GetFileinfo.Invoke(new()
         ///     {
-        ///         Path = "/path/to/the/artifact.zip",
         ///         Repository = "repo-key",
+        ///         Path = "/path/to/the/artifact.zip",
         ///     });
         /// 
         /// });

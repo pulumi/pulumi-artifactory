@@ -17,16 +17,16 @@ import * as utilities from "./utilities";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * const mymailserver = new artifactory.MailServer("mymailserver", {
- *     artifactoryUrl: "http://tempurl.org",
  *     enabled: true,
+ *     artifactoryUrl: "http://tempurl.org",
  *     from: "test@jfrog.com",
  *     host: "http://tempurl.org",
+ *     username: "test-user",
  *     password: "test-password",
  *     port: 25,
  *     subjectPrefix: "[Test]",
  *     useSsl: true,
  *     useTls: true,
- *     username: "test-user",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

@@ -20,12 +20,12 @@ import * as utilities from "./utilities";
  *     key: "terraform-federated-test-vagrant-repo",
  *     members: [
  *         {
- *             enabled: true,
  *             url: "http://tempurl.org/artifactory/terraform-federated-test-vagrant-repo",
+ *             enabled: true,
  *         },
  *         {
- *             enabled: true,
  *             url: "http://tempurl2.org/artifactory/terraform-federated-test-vagrant-repo-2",
+ *             enabled: true,
  *         },
  *     ],
  * });

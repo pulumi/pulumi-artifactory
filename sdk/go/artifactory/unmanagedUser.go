@@ -36,6 +36,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			// Create a new Artifactory user called terraform
 //			_, err := artifactory.NewUnmanagedUser(ctx, "test-user", &artifactory.UnmanagedUserArgs{
+//				Name:  pulumi.String("terraform"),
 //				Email: pulumi.String("test-user@artifactory-terraform.com"),
 //				Groups: pulumi.StringArray{
 //					pulumi.String("logged-in-users"),

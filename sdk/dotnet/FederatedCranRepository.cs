@@ -30,13 +30,13 @@ namespace Pulumi.Artifactory
     ///         {
     ///             new Artifactory.Inputs.FederatedCranRepositoryMemberArgs
     ///             {
-    ///                 Enabled = true,
     ///                 Url = "http://tempurl.org/artifactory/terraform-federated-test-cran-repo",
+    ///                 Enabled = true,
     ///             },
     ///             new Artifactory.Inputs.FederatedCranRepositoryMemberArgs
     ///             {
-    ///                 Enabled = true,
     ///                 Url = "http://tempurl2.org/artifactory/terraform-federated-test-cran-repo-2",
+    ///                 Enabled = true,
     ///             },
     ///         },
     ///     });

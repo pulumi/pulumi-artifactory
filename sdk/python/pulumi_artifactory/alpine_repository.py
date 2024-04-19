@@ -654,13 +654,14 @@ class AlpineRepository(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
+        import pulumi_std as std
 
         some_keypair_rsa = artifactory.Keypair("some-keypairRSA",
             pair_name="some-keypair",
             pair_type="RSA",
             alias="foo-alias",
-            private_key=(lambda path: open(path).read())("samples/rsa.priv"),
-            public_key=(lambda path: open(path).read())("samples/rsa.pub"))
+            private_key=std.file(input="samples/rsa.priv").result,
+            public_key=std.file(input="samples/rsa.pub").result)
         terraform_local_test_alpine_repo_basic = artifactory.AlpineRepository("terraform-local-test-alpine-repo-basic",
             key="terraform-local-test-alpine-repo-basic",
             primary_keypair_ref=some_keypair_rsa.pair_name,
@@ -722,13 +723,14 @@ class AlpineRepository(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
+        import pulumi_std as std
 
         some_keypair_rsa = artifactory.Keypair("some-keypairRSA",
             pair_name="some-keypair",
             pair_type="RSA",
             alias="foo-alias",
-            private_key=(lambda path: open(path).read())("samples/rsa.priv"),
-            public_key=(lambda path: open(path).read())("samples/rsa.pub"))
+            private_key=std.file(input="samples/rsa.priv").result,
+            public_key=std.file(input="samples/rsa.pub").result)
         terraform_local_test_alpine_repo_basic = artifactory.AlpineRepository("terraform-local-test-alpine-repo-basic",
             key="terraform-local-test-alpine-repo-basic",
             primary_keypair_ref=some_keypair_rsa.pair_name,

@@ -19,9 +19,9 @@ import * as utilities from "./utilities";
  *
  * const npm_remote = new artifactory.RemoteNpmRepository("npm-remote", {
  *     key: "npm-remote",
+ *     url: "https://registry.npmjs.org",
  *     listRemoteFolderItems: true,
  *     mismatchingMimeTypesOverrideList: "application/json,application/xml",
- *     url: "https://registry.npmjs.org",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

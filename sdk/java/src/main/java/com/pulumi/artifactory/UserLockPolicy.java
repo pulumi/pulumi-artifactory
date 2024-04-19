@@ -43,6 +43,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var my_user_lock_policy = new UserLockPolicy(&#34;my-user-lock-policy&#34;, UserLockPolicyArgs.builder()        
+ *             .name(&#34;my-user-lock-policy&#34;)
  *             .enabled(true)
  *             .loginAttempts(10)
  *             .build());

@@ -49,12 +49,12 @@ import javax.annotation.Nullable;
  *             .key(&#34;terraform-federated-test-debian-repo&#34;)
  *             .members(            
  *                 FederatedDebianRepositoryMemberArgs.builder()
- *                     .enabled(true)
  *                     .url(&#34;http://tempurl.org/artifactory/terraform-federated-test-debian-repo&#34;)
+ *                     .enabled(true)
  *                     .build(),
  *                 FederatedDebianRepositoryMemberArgs.builder()
- *                     .enabled(true)
  *                     .url(&#34;http://tempurl2.org/artifactory/terraform-federated-test-debian-repo-2&#34;)
+ *                     .enabled(true)
  *                     .build())
  *             .build());
  * 

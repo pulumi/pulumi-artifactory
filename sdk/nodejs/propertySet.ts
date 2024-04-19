@@ -21,39 +21,40 @@ import * as utilities from "./utilities";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * const foo = new artifactory.PropertySet("foo", {
+ *     name: "property-set1",
+ *     visible: true,
  *     properties: [
  *         {
- *             closedPredefinedValues: true,
- *             multipleChoice: true,
  *             name: "set1property1",
  *             predefinedValues: [
  *                 {
- *                     defaultValue: true,
  *                     name: "passed-QA",
+ *                     defaultValue: true,
  *                 },
  *                 {
- *                     defaultValue: false,
  *                     name: "failed-QA",
+ *                     defaultValue: false,
  *                 },
  *             ],
+ *             closedPredefinedValues: true,
+ *             multipleChoice: true,
  *         },
  *         {
- *             closedPredefinedValues: false,
- *             multipleChoice: false,
  *             name: "set1property2",
  *             predefinedValues: [
  *                 {
- *                     defaultValue: true,
  *                     name: "passed-QA",
+ *                     defaultValue: true,
  *                 },
  *                 {
- *                     defaultValue: false,
  *                     name: "failed-QA",
+ *                     defaultValue: false,
  *                 },
  *             ],
+ *             closedPredefinedValues: false,
+ *             multipleChoice: false,
  *         },
  *     ],
- *     visible: true,
  * });
  * ```
  * <!--End PulumiCodeChooser -->

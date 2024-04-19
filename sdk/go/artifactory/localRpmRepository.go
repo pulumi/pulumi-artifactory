@@ -23,39 +23,55 @@ import (
 // import (
 //
 //	"fmt"
-//	"os"
 //
 //	"github.com/pulumi/pulumi-artifactory/sdk/v6/go/artifactory"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
-//	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
-//
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.NewKeypair(ctx, "some-keypair-gpg-1", &artifactory.KeypairArgs{
-//				PairName:   pulumi.String(fmt.Sprintf("some-keypair%v", random_id.Randid.Id)),
+//			invokeFile, err := std.File(ctx, &std.FileArgs{
+//				Input: "samples/gpg.priv",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			invokeFile1, err := std.File(ctx, &std.FileArgs{
+//				Input: "samples/gpg.pub",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = artifactory.NewKeypair(ctx, "some-keypair-gpg-1", &artifactory.KeypairArgs{
+//				PairName:   pulumi.String(fmt.Sprintf("some-keypair%v", randid.Id)),
 //				PairType:   pulumi.String("GPG"),
 //				Alias:      pulumi.String("foo-alias1"),
-//				PrivateKey: readFileOrPanic("samples/gpg.priv"),
-//				PublicKey:  readFileOrPanic("samples/gpg.pub"),
+//				PrivateKey: invokeFile.Result,
+//				PublicKey:  invokeFile1.Result,
 //			})
 //			if err != nil {
 //				return err
 //			}
+//			invokeFile2, err := std.File(ctx, &std.FileArgs{
+//				Input: "samples/gpg.priv",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			invokeFile3, err := std.File(ctx, &std.FileArgs{
+//				Input: "samples/gpg.pub",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
 //			_, err = artifactory.NewKeypair(ctx, "some-keypair-gpg-2", &artifactory.KeypairArgs{
-//				PairName:   pulumi.String(fmt.Sprintf("some-keypair%v", random_id.Randid.Id)),
+//				PairName:   pulumi.String(fmt.Sprintf("some-keypair%v", randid.Id)),
 //				PairType:   pulumi.String("GPG"),
 //				Alias:      pulumi.String("foo-alias2"),
-//				PrivateKey: readFileOrPanic("samples/gpg.priv"),
-//				PublicKey:  readFileOrPanic("samples/gpg.pub"),
+//				PrivateKey: invokeFile2.Result,
+//				PublicKey:  invokeFile3.Result,
 //			})
 //			if err != nil {
 //				return err
@@ -66,8 +82,8 @@ import (
 //				CalculateYumMetadata:    pulumi.Bool(true),
 //				EnableFileListsIndexing: pulumi.Bool(true),
 //				YumGroupFileNames:       pulumi.String("file-1.xml,file-2.xml"),
-//				PrimaryKeypairRef:       pulumi.Any(artifactory_keypair.SomeKeypairGPG1.Pair_name),
-//				SecondaryKeypairRef:     pulumi.Any(artifactory_keypair.SomeKeypairGPG2.Pair_name),
+//				PrimaryKeypairRef:       pulumi.Any(some_keypairGPG1.PairName),
+//				SecondaryKeypairRef:     pulumi.Any(some_keypairGPG2.PairName),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				some_keypair_gpg_1,
 //				some_keypair_gpg_2,

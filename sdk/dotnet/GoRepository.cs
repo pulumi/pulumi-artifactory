@@ -26,7 +26,12 @@ namespace Pulumi.Artifactory
     /// {
     ///     var baz_go = new Artifactory.GoRepository("baz-go", new()
     ///     {
+    ///         Key = "baz-go",
+    ///         RepoLayoutRef = "go-default",
+    ///         Repositories = new[] {},
     ///         Description = "A test virtual repo",
+    ///         Notes = "Internal description",
+    ///         IncludesPattern = "com/jfrog/**,cloud/jfrog/**",
     ///         ExcludesPattern = "com/google/**",
     ///         ExternalDependenciesEnabled = true,
     ///         ExternalDependenciesPatterns = new[]
@@ -34,11 +39,6 @@ namespace Pulumi.Artifactory
     ///             "**/github.com/**",
     ///             "**/go.googlesource.com/**",
     ///         },
-    ///         IncludesPattern = "com/jfrog/**,cloud/jfrog/**",
-    ///         Key = "baz-go",
-    ///         Notes = "Internal description",
-    ///         RepoLayoutRef = "go-default",
-    ///         Repositories = new[] {},
     ///     });
     /// 
     /// });

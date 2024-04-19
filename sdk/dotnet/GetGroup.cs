@@ -27,10 +27,11 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
+        ///     //
         ///     var myGroup = Artifactory.GetGroup.Invoke(new()
         ///     {
-        ///         IncludeUsers = "true",
         ///         Name = "my_group",
+        ///         IncludeUsers = "true",
         ///     });
         /// 
         /// });
@@ -56,10 +57,11 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
+        ///     //
         ///     var myGroup = Artifactory.GetGroup.Invoke(new()
         ///     {
-        ///         IncludeUsers = "true",
         ///         Name = "my_group",
+        ///         IncludeUsers = "true",
         ///     });
         /// 
         /// });

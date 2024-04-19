@@ -49,12 +49,12 @@ import javax.annotation.Nullable;
  *             .key(&#34;terraform-federated-test-terraform-provider-repo&#34;)
  *             .members(            
  *                 FederatedTerraformProviderRepositoryMemberArgs.builder()
- *                     .enabled(true)
  *                     .url(&#34;http://tempurl.org/artifactory/terraform-federated-test-terraform_provider-repo&#34;)
+ *                     .enabled(true)
  *                     .build(),
  *                 FederatedTerraformProviderRepositoryMemberArgs.builder()
- *                     .enabled(true)
  *                     .url(&#34;http://tempurl2.org/artifactory/terraform-federated-test-terraform_provider-repo-2&#34;)
+ *                     .enabled(true)
  *                     .build())
  *             .build());
  * 

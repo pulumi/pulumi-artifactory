@@ -451,12 +451,12 @@ class VirtualPubRepository(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         foo_pub = artifactory.VirtualPubRepository("foo-pub",
-            description="A test virtual repo",
-            excludes_pattern="com/google/**",
-            includes_pattern="com/jfrog/**,cloud/jfrog/**",
             key="foo-pub",
+            repositories=[],
+            description="A test virtual repo",
             notes="Internal description",
-            repositories=[])
+            includes_pattern="com/jfrog/**,cloud/jfrog/**",
+            excludes_pattern="com/google/**")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -508,12 +508,12 @@ class VirtualPubRepository(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         foo_pub = artifactory.VirtualPubRepository("foo-pub",
-            description="A test virtual repo",
-            excludes_pattern="com/google/**",
-            includes_pattern="com/jfrog/**,cloud/jfrog/**",
             key="foo-pub",
+            repositories=[],
+            description="A test virtual repo",
             notes="Internal description",
-            repositories=[])
+            includes_pattern="com/jfrog/**,cloud/jfrog/**",
+            excludes_pattern="com/google/**")
         ```
         <!--End PulumiCodeChooser -->
 

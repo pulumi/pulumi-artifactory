@@ -27,9 +27,9 @@ namespace Pulumi.Artifactory
     ///     var my_remote_cocoapods = new Artifactory.RemoteCocoapodsRepository("my-remote-cocoapods", new()
     ///     {
     ///         Key = "my-remote-cocoapods",
-    ///         PodsSpecsRepoUrl = "https://github.com/CocoaPods/Spec",
     ///         Url = "https://github.com/",
     ///         VcsGitProvider = "GITHUB",
+    ///         PodsSpecsRepoUrl = "https://github.com/CocoaPods/Spec",
     ///     });
     /// 
     /// });

@@ -20,9 +20,9 @@ import * as utilities from "./utilities";
  *
  * const my_remote_vcs = new artifactory.RemoteVcsRepository("my-remote-vcs", {
  *     key: "my-remote-vcs",
- *     maxUniqueSnapshots: 5,
  *     url: "https://github.com/",
  *     vcsGitProvider: "GITHUB",
+ *     maxUniqueSnapshots: 5,
  * });
  * ```
  * <!--End PulumiCodeChooser -->

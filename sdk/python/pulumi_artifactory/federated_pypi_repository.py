@@ -746,12 +746,12 @@ class FederatedPypiRepository(pulumi.CustomResource):
             key="terraform-federated-test-pypi-repo",
             members=[
                 artifactory.FederatedPypiRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl.org/artifactory/terraform-federated-test-pypi-repo",
+                    enabled=True,
                 ),
                 artifactory.FederatedPypiRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl2.org/artifactory/terraform-federated-test-pypi-repo-2",
+                    enabled=True,
                 ),
             ])
         ```
@@ -822,12 +822,12 @@ class FederatedPypiRepository(pulumi.CustomResource):
             key="terraform-federated-test-pypi-repo",
             members=[
                 artifactory.FederatedPypiRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl.org/artifactory/terraform-federated-test-pypi-repo",
+                    enabled=True,
                 ),
                 artifactory.FederatedPypiRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl2.org/artifactory/terraform-federated-test-pypi-repo-2",
+                    enabled=True,
                 ),
             ])
         ```

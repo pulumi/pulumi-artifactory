@@ -746,12 +746,12 @@ class FederatedBowerRepository(pulumi.CustomResource):
             key="terraform-federated-test-bower-repo",
             members=[
                 artifactory.FederatedBowerRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl.org/artifactory/terraform-federated-test-bower-repo",
+                    enabled=True,
                 ),
                 artifactory.FederatedBowerRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl2.org/artifactory/terraform-federated-test-bower-repo-2",
+                    enabled=True,
                 ),
             ])
         ```
@@ -822,12 +822,12 @@ class FederatedBowerRepository(pulumi.CustomResource):
             key="terraform-federated-test-bower-repo",
             members=[
                 artifactory.FederatedBowerRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl.org/artifactory/terraform-federated-test-bower-repo",
+                    enabled=True,
                 ),
                 artifactory.FederatedBowerRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl2.org/artifactory/terraform-federated-test-bower-repo-2",
+                    enabled=True,
                 ),
             ])
         ```

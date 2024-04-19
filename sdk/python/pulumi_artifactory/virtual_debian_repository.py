@@ -616,17 +616,17 @@ class VirtualDebianRepository(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         foo_debian = artifactory.VirtualDebianRepository("foo-debian",
-            debian_default_architectures="amd64,i386",
-            description="A test virtual repo",
-            excludes_pattern="com/google/**",
-            includes_pattern="com/jfrog/**,cloud/jfrog/**",
             key="foo-debian",
+            repositories=[],
+            description="A test virtual repo",
             notes="Internal description",
+            includes_pattern="com/jfrog/**,cloud/jfrog/**",
+            excludes_pattern="com/google/**",
             optional_index_compression_formats=[
                 "bz2",
                 "xz",
             ],
-            repositories=[])
+            debian_default_architectures="amd64,i386")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -683,17 +683,17 @@ class VirtualDebianRepository(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         foo_debian = artifactory.VirtualDebianRepository("foo-debian",
-            debian_default_architectures="amd64,i386",
-            description="A test virtual repo",
-            excludes_pattern="com/google/**",
-            includes_pattern="com/jfrog/**,cloud/jfrog/**",
             key="foo-debian",
+            repositories=[],
+            description="A test virtual repo",
             notes="Internal description",
+            includes_pattern="com/jfrog/**,cloud/jfrog/**",
+            excludes_pattern="com/google/**",
             optional_index_compression_formats=[
                 "bz2",
                 "xz",
             ],
-            repositories=[])
+            debian_default_architectures="amd64,i386")
         ```
         <!--End PulumiCodeChooser -->
 

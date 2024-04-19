@@ -50,20 +50,20 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         // Configure Artifactory LDAP setting
  *         var ldapName = new LdapSetting(&#34;ldapName&#34;, LdapSettingArgs.builder()        
- *             .allowUserToAccessProfile(false)
- *             .autoCreateUser(true)
- *             .emailAttribute(&#34;mail&#34;)
- *             .enabled(true)
  *             .key(&#34;ldap_name&#34;)
- *             .ldapPoisoningProtection(true)
+ *             .enabled(true)
  *             .ldapUrl(&#34;ldap://ldap_server_url&#34;)
+ *             .userDnPattern(&#34;uid={0},ou=People&#34;)
+ *             .emailAttribute(&#34;mail&#34;)
+ *             .autoCreateUser(true)
+ *             .ldapPoisoningProtection(true)
+ *             .allowUserToAccessProfile(false)
+ *             .pagingSupportEnabled(false)
+ *             .searchFilter(&#34;(uid={0})&#34;)
+ *             .searchBase(&#34;ou=users&#34;)
+ *             .searchSubTree(true)
  *             .managerDn(&#34;mgr_dn&#34;)
  *             .managerPassword(&#34;mgr_passwd_random&#34;)
- *             .pagingSupportEnabled(false)
- *             .searchBase(&#34;ou=users&#34;)
- *             .searchFilter(&#34;(uid={0})&#34;)
- *             .searchSubTree(true)
- *             .userDnPattern(&#34;uid={0},ou=People&#34;)
  *             .build());
  * 
  *     }

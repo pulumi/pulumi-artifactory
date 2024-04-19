@@ -27,12 +27,12 @@ namespace Pulumi.Artifactory
     /// {
     ///     var my_helmoci_virtual = new Artifactory.VirtualHelmociRepository("my-helmoci-virtual", new()
     ///     {
-    ///         Description = "A test virtual repo",
-    ///         ExcludesPattern = "com/google/**",
-    ///         IncludesPattern = "com/jfrog/**,cloud/jfrog/**",
     ///         Key = "my-helmoci-virtual",
-    ///         Notes = "Internal description",
     ///         Repositories = new[] {},
+    ///         Description = "A test virtual repo",
+    ///         Notes = "Internal description",
+    ///         IncludesPattern = "com/jfrog/**,cloud/jfrog/**",
+    ///         ExcludesPattern = "com/google/**",
     ///         ResolveOciTagsByTimestamp = true,
     ///     });
     /// 

@@ -16,9 +16,10 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
+ * // 
  * const my-file = artifactory.getFileinfo({
- *     path: "/path/to/the/artifact.zip",
  *     repository: "repo-key",
+ *     path: "/path/to/the/artifact.zip",
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -113,9 +114,10 @@ export interface GetFileinfoResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
+ * // 
  * const my-file = artifactory.getFileinfo({
- *     path: "/path/to/the/artifact.zip",
  *     repository: "repo-key",
+ *     path: "/path/to/the/artifact.zip",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

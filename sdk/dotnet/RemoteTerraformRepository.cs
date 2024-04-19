@@ -24,9 +24,9 @@ namespace Pulumi.Artifactory
     ///     var terraform_remote = new Artifactory.RemoteTerraformRepository("terraform-remote", new()
     ///     {
     ///         Key = "terraform-remote",
-    ///         TerraformProvidersUrl = "https://releases.hashicorp.com",
-    ///         TerraformRegistryUrl = "https://registry.terraform.io",
     ///         Url = "https://github.com/",
+    ///         TerraformRegistryUrl = "https://registry.terraform.io",
+    ///         TerraformProvidersUrl = "https://releases.hashicorp.com",
     ///     });
     /// 
     /// });

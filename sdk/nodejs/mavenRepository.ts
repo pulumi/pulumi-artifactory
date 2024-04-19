@@ -21,22 +21,22 @@ import * as utilities from "./utilities";
  * });
  * const baz = new artifactory.RemoteMavenRepository("baz", {
  *     key: "baz",
- *     repoLayoutRef: "maven-2-default",
  *     url: "https://search.maven.com/",
+ *     repoLayoutRef: "maven-2-default",
  * });
  * const maven_virt_repo = new artifactory.MavenRepository("maven-virt-repo", {
- *     description: "A test virtual repo",
- *     excludesPattern: "com/google/**",
- *     forceMavenAuthentication: true,
- *     includesPattern: "com/jfrog/**,cloud/jfrog/**",
  *     key: "maven-virt-repo",
- *     notes: "Internal description",
- *     pomRepositoryReferencesCleanupPolicy: "discard_active_reference",
  *     repoLayoutRef: "maven-2-default",
  *     repositories: [
  *         bar.key,
  *         baz.key,
  *     ],
+ *     description: "A test virtual repo",
+ *     notes: "Internal description",
+ *     includesPattern: "com/jfrog/**,cloud/jfrog/**",
+ *     excludesPattern: "com/google/**",
+ *     forceMavenAuthentication: true,
+ *     pomRepositoryReferencesCleanupPolicy: "discard_active_reference",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

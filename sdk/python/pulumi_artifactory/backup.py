@@ -377,17 +377,17 @@ class Backup(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         # Configure Artifactory Backup system config
-        backup_config_name = artifactory.Backup("backupConfigName",
-            create_archive=False,
-            cron_exp="0 0 12 * * ? *",
-            enabled=True,
-            exclude_new_repositories=True,
-            excluded_repositories=[],
-            export_mission_control=True,
+        backup_config_name = artifactory.Backup("backup_config_name",
             key="backup_config_name",
+            enabled=True,
+            cron_exp="0 0 12 * * ? *",
             retention_period_hours=1000,
+            excluded_repositories=[],
+            create_archive=False,
+            exclude_new_repositories=True,
             send_mail_on_error=True,
-            verify_disk_space=True)
+            verify_disk_space=True,
+            export_mission_control=True)
         ```
         <!--End PulumiCodeChooser -->
         Note: `Key` argument has to match to the resource name.
@@ -436,17 +436,17 @@ class Backup(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         # Configure Artifactory Backup system config
-        backup_config_name = artifactory.Backup("backupConfigName",
-            create_archive=False,
-            cron_exp="0 0 12 * * ? *",
-            enabled=True,
-            exclude_new_repositories=True,
-            excluded_repositories=[],
-            export_mission_control=True,
+        backup_config_name = artifactory.Backup("backup_config_name",
             key="backup_config_name",
+            enabled=True,
+            cron_exp="0 0 12 * * ? *",
             retention_period_hours=1000,
+            excluded_repositories=[],
+            create_archive=False,
+            exclude_new_repositories=True,
             send_mail_on_error=True,
-            verify_disk_space=True)
+            verify_disk_space=True,
+            export_mission_control=True)
         ```
         <!--End PulumiCodeChooser -->
         Note: `Key` argument has to match to the resource name.

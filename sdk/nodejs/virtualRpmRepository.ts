@@ -14,21 +14,29 @@ import * as utilities from "./utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
  * const primary_keypair = new artifactory.Keypair("primary-keypair", {
  *     pairName: "primary-keypair",
  *     pairType: "GPG",
  *     alias: "foo-alias-1",
- *     privateKey: fs.readFileSync("samples/gpg.priv", "utf8"),
- *     publicKey: fs.readFileSync("samples/gpg.pub", "utf8"),
+ *     privateKey: std.file({
+ *         input: "samples/gpg.priv",
+ *     }).then(invoke => invoke.result),
+ *     publicKey: std.file({
+ *         input: "samples/gpg.pub",
+ *     }).then(invoke => invoke.result),
  * });
  * const secondary_keypair = new artifactory.Keypair("secondary-keypair", {
  *     pairName: "secondary-keypair",
  *     pairType: "GPG",
  *     alias: "foo-alias-2",
- *     privateKey: fs.readFileSync("samples/gpg.priv", "utf8"),
- *     publicKey: fs.readFileSync("samples/gpg.pub", "utf8"),
+ *     privateKey: std.file({
+ *         input: "samples/gpg.priv",
+ *     }).then(invoke => invoke.result),
+ *     publicKey: std.file({
+ *         input: "samples/gpg.pub",
+ *     }).then(invoke => invoke.result),
  * });
  * const foo_rpm_virtual = new artifactory.VirtualRpmRepository("foo-rpm-virtual", {
  *     key: "foo-rpm-virtual",

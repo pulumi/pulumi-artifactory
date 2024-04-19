@@ -18,12 +18,12 @@ import * as utilities from "./utilities";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * const ivy_remote = new artifactory.RemoteIvyRepository("ivy-remote", {
+ *     key: "ivy-remote-foo",
+ *     url: "https://repo1.maven.org/maven2/",
  *     fetchJarsEagerly: true,
  *     fetchSourcesEagerly: false,
- *     key: "ivy-remote-foo",
- *     rejectInvalidJars: true,
  *     suppressPomConsistencyChecks: true,
- *     url: "https://repo1.maven.org/maven2/",
+ *     rejectInvalidJars: true,
  * });
  * ```
  * <!--End PulumiCodeChooser -->

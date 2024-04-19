@@ -515,19 +515,20 @@ class VirtualRpmRepository(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
+        import pulumi_std as std
 
         primary_keypair = artifactory.Keypair("primary-keypair",
             pair_name="primary-keypair",
             pair_type="GPG",
             alias="foo-alias-1",
-            private_key=(lambda path: open(path).read())("samples/gpg.priv"),
-            public_key=(lambda path: open(path).read())("samples/gpg.pub"))
+            private_key=std.file(input="samples/gpg.priv").result,
+            public_key=std.file(input="samples/gpg.pub").result)
         secondary_keypair = artifactory.Keypair("secondary-keypair",
             pair_name="secondary-keypair",
             pair_type="GPG",
             alias="foo-alias-2",
-            private_key=(lambda path: open(path).read())("samples/gpg.priv"),
-            public_key=(lambda path: open(path).read())("samples/gpg.pub"))
+            private_key=std.file(input="samples/gpg.priv").result,
+            public_key=std.file(input="samples/gpg.pub").result)
         foo_rpm_virtual = artifactory.VirtualRpmRepository("foo-rpm-virtual",
             key="foo-rpm-virtual",
             primary_keypair_ref=primary_keypair.pair_name,
@@ -587,19 +588,20 @@ class VirtualRpmRepository(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
+        import pulumi_std as std
 
         primary_keypair = artifactory.Keypair("primary-keypair",
             pair_name="primary-keypair",
             pair_type="GPG",
             alias="foo-alias-1",
-            private_key=(lambda path: open(path).read())("samples/gpg.priv"),
-            public_key=(lambda path: open(path).read())("samples/gpg.pub"))
+            private_key=std.file(input="samples/gpg.priv").result,
+            public_key=std.file(input="samples/gpg.pub").result)
         secondary_keypair = artifactory.Keypair("secondary-keypair",
             pair_name="secondary-keypair",
             pair_type="GPG",
             alias="foo-alias-2",
-            private_key=(lambda path: open(path).read())("samples/gpg.priv"),
-            public_key=(lambda path: open(path).read())("samples/gpg.pub"))
+            private_key=std.file(input="samples/gpg.priv").result,
+            public_key=std.file(input="samples/gpg.pub").result)
         foo_rpm_virtual = artifactory.VirtualRpmRepository("foo-rpm-virtual",
             key="foo-rpm-virtual",
             primary_keypair_ref=primary_keypair.pair_name,

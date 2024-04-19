@@ -27,13 +27,13 @@ namespace Pulumi.Artifactory
     /// {
     ///     var my_helmoci_remote = new Artifactory.RemoteHelmociRepository("my-helmoci-remote", new()
     ///     {
-    ///         EnableTokenAuthentication = true,
+    ///         Key = "my-helmoci-remote",
     ///         ExternalDependenciesEnabled = true,
     ///         ExternalDependenciesPatterns = new[]
     ///         {
     ///             "**/registry-1.docker.io/**",
     ///         },
-    ///         Key = "my-helmoci-remote",
+    ///         EnableTokenAuthentication = true,
     ///         Url = "https://registry-1.docker.io/",
     ///     });
     /// 

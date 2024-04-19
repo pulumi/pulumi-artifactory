@@ -17,13 +17,13 @@ import * as utilities from "./utilities";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * const my_oci_virtual = new artifactory.VirtualOciRepository("my-oci-virtual", {
- *     description: "A test virtual OCI repo",
  *     key: "my-oci-virtual",
- *     notes: "Internal description",
  *     repositories: [
  *         "my-oci-local",
  *         "my-oci-remote",
  *     ],
+ *     description: "A test virtual OCI repo",
+ *     notes: "Internal description",
  *     resolveOciTagsByTimestamp: true,
  * });
  * ```

@@ -36,25 +36,25 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			// Create a replication between two artifactory local repositories
-//			_, err := artifactory.NewLocalMavenRepository(ctx, "providerTestSource", &artifactory.LocalMavenRepositoryArgs{
+//			_, err := artifactory.NewLocalMavenRepository(ctx, "provider_test_source", &artifactory.LocalMavenRepositoryArgs{
 //				Key: pulumi.String("provider_test_source"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			providerTestDest, err := artifactory.NewRemoteMavenRepository(ctx, "providerTestDest", &artifactory.RemoteMavenRepositoryArgs{
+//			providerTestDest, err := artifactory.NewRemoteMavenRepository(ctx, "provider_test_dest", &artifactory.RemoteMavenRepositoryArgs{
 //				Key:      pulumi.String("provider_test_dest"),
-//				Password: pulumi.String("bar"),
-//				Url:      pulumi.String(fmt.Sprintf("https://example.com/artifactory/%v", artifactory_local_maven_repository.Artifactory_local_maven_repository.Key)),
+//				Url:      pulumi.String(fmt.Sprintf("https://example.com/artifactory/%v", artifactoryLocalMavenRepository.Key)),
 //				Username: pulumi.String("foo"),
+//				Password: pulumi.String("bar"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = artifactory.NewPullReplication(ctx, "remote-rep", &artifactory.PullReplicationArgs{
+//				RepoKey:                providerTestDest.Key,
 //				CronExp:                pulumi.String("0 0 * * * ?"),
 //				EnableEventReplication: pulumi.Bool(true),
-//				RepoKey:                providerTestDest.Key,
 //			})
 //			if err != nil {
 //				return err

@@ -16,9 +16,10 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
+ * //
  * const myGroup = artifactory.getGroup({
- *     includeUsers: "true",
  *     name: "my_group",
+ *     includeUsers: "true",
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -159,9 +160,10 @@ export interface GetGroupResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
+ * //
  * const myGroup = artifactory.getGroup({
- *     includeUsers: "true",
  *     name: "my_group",
+ *     includeUsers: "true",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

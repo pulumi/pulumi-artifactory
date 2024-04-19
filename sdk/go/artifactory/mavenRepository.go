@@ -39,25 +39,25 @@ import (
 //			}
 //			baz, err := artifactory.NewRemoteMavenRepository(ctx, "baz", &artifactory.RemoteMavenRepositoryArgs{
 //				Key:           pulumi.String("baz"),
-//				RepoLayoutRef: pulumi.String("maven-2-default"),
 //				Url:           pulumi.String("https://search.maven.com/"),
+//				RepoLayoutRef: pulumi.String("maven-2-default"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = artifactory.NewMavenRepository(ctx, "maven-virt-repo", &artifactory.MavenRepositoryArgs{
-//				Description:                          pulumi.String("A test virtual repo"),
-//				ExcludesPattern:                      pulumi.String("com/google/**"),
-//				ForceMavenAuthentication:             pulumi.Bool(true),
-//				IncludesPattern:                      pulumi.String("com/jfrog/**,cloud/jfrog/**"),
-//				Key:                                  pulumi.String("maven-virt-repo"),
-//				Notes:                                pulumi.String("Internal description"),
-//				PomRepositoryReferencesCleanupPolicy: pulumi.String("discard_active_reference"),
-//				RepoLayoutRef:                        pulumi.String("maven-2-default"),
+//				Key:           pulumi.String("maven-virt-repo"),
+//				RepoLayoutRef: pulumi.String("maven-2-default"),
 //				Repositories: pulumi.StringArray{
 //					bar.Key,
 //					baz.Key,
 //				},
+//				Description:                          pulumi.String("A test virtual repo"),
+//				Notes:                                pulumi.String("Internal description"),
+//				IncludesPattern:                      pulumi.String("com/jfrog/**,cloud/jfrog/**"),
+//				ExcludesPattern:                      pulumi.String("com/google/**"),
+//				ForceMavenAuthentication:             pulumi.Bool(true),
+//				PomRepositoryReferencesCleanupPolicy: pulumi.String("discard_active_reference"),
 //			})
 //			if err != nil {
 //				return err

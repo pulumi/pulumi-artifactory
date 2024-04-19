@@ -25,9 +25,9 @@ namespace Pulumi.Artifactory
     /// {
     ///     var terraform_local_test_cargo_repo_basic = new Artifactory.LocalCargoRepository("terraform-local-test-cargo-repo-basic", new()
     ///     {
+    ///         Key = "terraform-local-test-cargo-repo-basic",
     ///         AnonymousAccess = false,
     ///         EnableSparseIndex = true,
-    ///         Key = "terraform-local-test-cargo-repo-basic",
     ///     });
     /// 
     /// });

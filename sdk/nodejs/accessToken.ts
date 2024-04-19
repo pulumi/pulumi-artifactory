@@ -24,9 +24,9 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const exisingUser = new artifactory.AccessToken("exisingUser", {
- *     endDateRelative: "5m",
+ * const exisingUser = new artifactory.AccessToken("exising_user", {
  *     username: "existing-user",
+ *     endDateRelative: "5m",
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -39,12 +39,13 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const newUserUser = new artifactory.User("newUserUser", {
+ * const newUser = new artifactory.User("new_user", {
+ *     name: "new_user",
  *     email: "new_user@somewhere.com",
  *     groups: ["readers"],
  * });
- * const newUserAccessToken = new artifactory.AccessToken("newUserAccessToken", {
- *     username: newUserUser.name,
+ * const newUserAccessToken = new artifactory.AccessToken("new_user", {
+ *     username: newUser.name,
  *     endDateRelative: "5m",
  * });
  * ```
@@ -57,10 +58,10 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const temporaryUser = new artifactory.AccessToken("temporaryUser", {
+ * const temporaryUser = new artifactory.AccessToken("temporary_user", {
+ *     username: "temporary-user",
  *     endDateRelative: "1h",
  *     groups: ["readers"],
- *     username: "temporary-user",
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -71,9 +72,9 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const noExpiry = new artifactory.AccessToken("noExpiry", {
- *     endDateRelative: "0s",
+ * const noExpiry = new artifactory.AccessToken("no_expiry", {
  *     username: "existing-user",
+ *     endDateRelative: "0s",
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -85,10 +86,10 @@ import * as utilities from "./utilities";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * const refreshable = new artifactory.AccessToken("refreshable", {
- *     endDateRelative: "1m",
- *     groups: ["readers"],
- *     refreshable: true,
  *     username: "refreshable",
+ *     endDateRelative: "1m",
+ *     refreshable: true,
+ *     groups: ["readers"],
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -100,11 +101,11 @@ import * as utilities from "./utilities";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * const admin = new artifactory.AccessToken("admin", {
+ *     username: "admin",
+ *     endDateRelative: "1m",
  *     adminToken: {
  *         instanceId: "<instance id>",
  *     },
- *     endDateRelative: "1m",
- *     username: "admin",
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -116,10 +117,10 @@ import * as utilities from "./utilities";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * const audience = new artifactory.AccessToken("audience", {
- *     audience: "jfrt@*",
- *     endDateRelative: "1m",
- *     refreshable: true,
  *     username: "audience",
+ *     endDateRelative: "1m",
+ *     audience: "jfrt@*",
+ *     refreshable: true,
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -131,9 +132,9 @@ import * as utilities from "./utilities";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * const fixeddate = new artifactory.AccessToken("fixeddate", {
+ *     username: "fixeddate",
  *     endDate: "2018-01-01T01:02:03Z",
  *     groups: ["readers"],
- *     username: "fixeddate",
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -150,14 +151,49 @@ import * as utilities from "./utilities";
  * import * as artifactory from "@pulumi/artifactory";
  * import * as time from "@pulumiverse/time";
  *
- * const nowPlus1Hours = new time.Rotating("nowPlus1Hours", {rotationHours: 1});
+ * const nowPlus1Hours = new time.Rotating("now_plus_1_hours", {rotationHours: 1});
  * const rotating = new artifactory.AccessToken("rotating", {
  *     username: "rotating",
- *     endDate: time_rotating.now_plus_1_hour.rotation_rfc3339,
+ *     endDate: nowPlus1Hour.rotationRfc3339,
  *     groups: ["readers"],
  * });
  * ```
  * <!--End PulumiCodeChooser -->
+ *
+ * ### Rotate token each pulumi up
+ * This example will generate a token that will expire in 1 hour.
+ *
+ * If `pulumi up` is run before 1 hour, a new token is generated with an expiry of 1 hour.
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ * import * as std from "@pulumi/std";
+ * import * as time from "@pulumiverse/time";
+ *
+ * const nowPlus1Hours = new time.Rotating("now_plus_1_hours", {
+ *     triggers: {
+ *         key: std.timestamp({}).then(invoke => invoke.result),
+ *     },
+ *     rotationHours: 1,
+ * });
+ * const rotating = new artifactory.AccessToken("rotating", {
+ *     username: "rotating",
+ *     endDate: nowPlus1Hour.rotationRfc3339,
+ *     groups: ["readers"],
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
+ *
+ * ## References
+ *
+ * - https://www.jfrog.com/confluence/display/ACC1X/Access+Tokens
+ * - https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-CreateToken
+ *
+ * ## Import
+ *
+ * Artifactory **does not** retain access tokens and cannot be imported into state.
  */
 export class AccessToken extends pulumi.CustomResource {
     /**

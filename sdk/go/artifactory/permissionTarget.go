@@ -32,7 +32,58 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			// Create a new Artifactory permission target called testpermission
 //			_, err := artifactory.NewPermissionTarget(ctx, "test-perm", &artifactory.PermissionTargetArgs{
+//				Name: pulumi.String("test-perm"),
+//				Repo: &artifactory.PermissionTargetRepoArgs{
+//					IncludesPatterns: pulumi.StringArray{
+//						pulumi.String("foo/**"),
+//					},
+//					ExcludesPatterns: pulumi.StringArray{
+//						pulumi.String("bar/**"),
+//					},
+//					Repositories: pulumi.StringArray{
+//						pulumi.String("example-repo-local"),
+//					},
+//					Actions: &artifactory.PermissionTargetRepoActionsArgs{
+//						Users: artifactory.PermissionTargetRepoActionsUserArray{
+//							&artifactory.PermissionTargetRepoActionsUserArgs{
+//								Name: pulumi.String("anonymous"),
+//								Permissions: pulumi.StringArray{
+//									pulumi.String("read"),
+//									pulumi.String("write"),
+//								},
+//							},
+//							&artifactory.PermissionTargetRepoActionsUserArgs{
+//								Name: pulumi.String("user1"),
+//								Permissions: pulumi.StringArray{
+//									pulumi.String("read"),
+//									pulumi.String("write"),
+//								},
+//							},
+//						},
+//						Groups: artifactory.PermissionTargetRepoActionsGroupArray{
+//							&artifactory.PermissionTargetRepoActionsGroupArgs{
+//								Name: pulumi.String("readers"),
+//								Permissions: pulumi.StringArray{
+//									pulumi.String("read"),
+//								},
+//							},
+//							&artifactory.PermissionTargetRepoActionsGroupArgs{
+//								Name: pulumi.String("dev"),
+//								Permissions: pulumi.StringArray{
+//									pulumi.String("read"),
+//									pulumi.String("write"),
+//								},
+//							},
+//						},
+//					},
+//				},
 //				Build: &artifactory.PermissionTargetBuildArgs{
+//					IncludesPatterns: pulumi.StringArray{
+//						pulumi.String("**"),
+//					},
+//					Repositories: pulumi.StringArray{
+//						pulumi.String("artifactory-build-info"),
+//					},
 //					Actions: &artifactory.PermissionTargetBuildActionsArgs{
 //						Users: artifactory.PermissionTargetBuildActionsUserArray{
 //							&artifactory.PermissionTargetBuildActionsUserArgs{
@@ -50,14 +101,14 @@ import (
 //							},
 //						},
 //					},
+//				},
+//				ReleaseBundle: &artifactory.PermissionTargetReleaseBundleArgs{
 //					IncludesPatterns: pulumi.StringArray{
 //						pulumi.String("**"),
 //					},
 //					Repositories: pulumi.StringArray{
-//						pulumi.String("artifactory-build-info"),
+//						pulumi.String("release-bundles"),
 //					},
-//				},
-//				ReleaseBundle: &artifactory.PermissionTargetReleaseBundleArgs{
 //					Actions: &artifactory.PermissionTargetReleaseBundleActionsArgs{
 //						Users: artifactory.PermissionTargetReleaseBundleActionsUserArray{
 //							&artifactory.PermissionTargetReleaseBundleActionsUserArgs{
@@ -67,56 +118,6 @@ import (
 //								},
 //							},
 //						},
-//					},
-//					IncludesPatterns: pulumi.StringArray{
-//						pulumi.String("**"),
-//					},
-//					Repositories: pulumi.StringArray{
-//						pulumi.String("release-bundles"),
-//					},
-//				},
-//				Repo: &artifactory.PermissionTargetRepoArgs{
-//					Actions: &artifactory.PermissionTargetRepoActionsArgs{
-//						Groups: artifactory.PermissionTargetRepoActionsGroupArray{
-//							&artifactory.PermissionTargetRepoActionsGroupArgs{
-//								Name: pulumi.String("readers"),
-//								Permissions: pulumi.StringArray{
-//									pulumi.String("read"),
-//								},
-//							},
-//							&artifactory.PermissionTargetRepoActionsGroupArgs{
-//								Name: pulumi.String("dev"),
-//								Permissions: pulumi.StringArray{
-//									pulumi.String("read"),
-//									pulumi.String("write"),
-//								},
-//							},
-//						},
-//						Users: artifactory.PermissionTargetRepoActionsUserArray{
-//							&artifactory.PermissionTargetRepoActionsUserArgs{
-//								Name: pulumi.String("anonymous"),
-//								Permissions: pulumi.StringArray{
-//									pulumi.String("read"),
-//									pulumi.String("write"),
-//								},
-//							},
-//							&artifactory.PermissionTargetRepoActionsUserArgs{
-//								Name: pulumi.String("user1"),
-//								Permissions: pulumi.StringArray{
-//									pulumi.String("read"),
-//									pulumi.String("write"),
-//								},
-//							},
-//						},
-//					},
-//					ExcludesPatterns: pulumi.StringArray{
-//						pulumi.String("bar/**"),
-//					},
-//					IncludesPatterns: pulumi.StringArray{
-//						pulumi.String("foo/**"),
-//					},
-//					Repositories: pulumi.StringArray{
-//						pulumi.String("example-repo-local"),
 //					},
 //				},
 //			})

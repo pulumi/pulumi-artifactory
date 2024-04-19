@@ -241,28 +241,28 @@ class ArtifactoryReleaseBundleWebhook(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         artifactory_release_bundle_webhook = artifactory.ArtifactoryReleaseBundleWebhook("artifactory-release-bundle-webhook",
-            criteria=artifactory.ArtifactoryReleaseBundleWebhookCriteriaArgs(
-                any_release_bundle=False,
-                exclude_patterns=["bar/**"],
-                include_patterns=["foo/**"],
-                registered_release_bundle_names=["bundle-name"],
-            ),
+            key="artifactory-release-bundle-webhook",
             event_types=[
                 "received",
                 "delete_started",
                 "delete_completed",
                 "delete_failed",
             ],
+            criteria=artifactory.ArtifactoryReleaseBundleWebhookCriteriaArgs(
+                any_release_bundle=False,
+                registered_release_bundle_names=["bundle-name"],
+                include_patterns=["foo/**"],
+                exclude_patterns=["bar/**"],
+            ),
             handlers=[artifactory.ArtifactoryReleaseBundleWebhookHandlerArgs(
+                url="http://tempurl.org/webhook",
+                secret="some-secret",
+                proxy="proxy-key",
                 custom_http_headers={
                     "header-1": "value-1",
                     "header-2": "value-2",
                 },
-                proxy="proxy-key",
-                secret="some-secret",
-                url="http://tempurl.org/webhook",
-            )],
-            key="artifactory-release-bundle-webhook")
+            )])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -293,28 +293,28 @@ class ArtifactoryReleaseBundleWebhook(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         artifactory_release_bundle_webhook = artifactory.ArtifactoryReleaseBundleWebhook("artifactory-release-bundle-webhook",
-            criteria=artifactory.ArtifactoryReleaseBundleWebhookCriteriaArgs(
-                any_release_bundle=False,
-                exclude_patterns=["bar/**"],
-                include_patterns=["foo/**"],
-                registered_release_bundle_names=["bundle-name"],
-            ),
+            key="artifactory-release-bundle-webhook",
             event_types=[
                 "received",
                 "delete_started",
                 "delete_completed",
                 "delete_failed",
             ],
+            criteria=artifactory.ArtifactoryReleaseBundleWebhookCriteriaArgs(
+                any_release_bundle=False,
+                registered_release_bundle_names=["bundle-name"],
+                include_patterns=["foo/**"],
+                exclude_patterns=["bar/**"],
+            ),
             handlers=[artifactory.ArtifactoryReleaseBundleWebhookHandlerArgs(
+                url="http://tempurl.org/webhook",
+                secret="some-secret",
+                proxy="proxy-key",
                 custom_http_headers={
                     "header-1": "value-1",
                     "header-2": "value-2",
                 },
-                proxy="proxy-key",
-                secret="some-secret",
-                url="http://tempurl.org/webhook",
-            )],
-            key="artifactory-release-bundle-webhook")
+            )])
         ```
         <!--End PulumiCodeChooser -->
 

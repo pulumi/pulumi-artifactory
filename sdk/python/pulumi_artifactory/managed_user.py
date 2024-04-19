@@ -304,12 +304,13 @@ class ManagedUser(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         test_user = artifactory.ManagedUser("test-user",
+            name="terraform",
+            password="my super secret password",
             email="test-user@artifactory-terraform.com",
             groups=[
                 "readers",
                 "logged-in-users",
-            ],
-            password="my super secret password")
+            ])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -345,12 +346,13 @@ class ManagedUser(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         test_user = artifactory.ManagedUser("test-user",
+            name="terraform",
+            password="my super secret password",
             email="test-user@artifactory-terraform.com",
             groups=[
                 "readers",
                 "logged-in-users",
-            ],
-            password="my super secret password")
+            ])
         ```
         <!--End PulumiCodeChooser -->
 

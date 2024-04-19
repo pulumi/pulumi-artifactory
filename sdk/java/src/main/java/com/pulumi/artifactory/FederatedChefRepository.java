@@ -49,12 +49,12 @@ import javax.annotation.Nullable;
  *             .key(&#34;terraform-federated-test-chef-repo&#34;)
  *             .members(            
  *                 FederatedChefRepositoryMemberArgs.builder()
- *                     .enabled(true)
  *                     .url(&#34;http://tempurl.org/artifactory/terraform-federated-test-chef-repo&#34;)
+ *                     .enabled(true)
  *                     .build(),
  *                 FederatedChefRepositoryMemberArgs.builder()
- *                     .enabled(true)
  *                     .url(&#34;http://tempurl2.org/artifactory/terraform-federated-test-chef-repo-2&#34;)
+ *                     .enabled(true)
  *                     .build())
  *             .build());
  * 

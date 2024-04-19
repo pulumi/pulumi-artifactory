@@ -154,17 +154,17 @@ class ReplicationConfig(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         # Create a replication between two artifactory local repositories
-        provider_test_source = artifactory.LocalMavenRepository("providerTestSource", key="provider_test_source")
-        provider_test_dest = artifactory.LocalMavenRepository("providerTestDest", key="provider_test_dest")
+        provider_test_source = artifactory.LocalMavenRepository("provider_test_source", key="provider_test_source")
+        provider_test_dest = artifactory.LocalMavenRepository("provider_test_dest", key="provider_test_dest")
         foo_rep = artifactory.ReplicationConfig("foo-rep",
+            repo_key=provider_test_source.key,
             cron_exp="0 0 * * * ?",
             enable_event_replication=True,
             replications=[artifactory.ReplicationConfigReplicationArgs(
-                password="$var.artifactory_password",
                 url="$var.artifactory_url",
                 username="$var.artifactory_username",
-            )],
-            repo_key=provider_test_source.key)
+                password="$var.artifactory_password",
+            )])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -199,17 +199,17 @@ class ReplicationConfig(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         # Create a replication between two artifactory local repositories
-        provider_test_source = artifactory.LocalMavenRepository("providerTestSource", key="provider_test_source")
-        provider_test_dest = artifactory.LocalMavenRepository("providerTestDest", key="provider_test_dest")
+        provider_test_source = artifactory.LocalMavenRepository("provider_test_source", key="provider_test_source")
+        provider_test_dest = artifactory.LocalMavenRepository("provider_test_dest", key="provider_test_dest")
         foo_rep = artifactory.ReplicationConfig("foo-rep",
+            repo_key=provider_test_source.key,
             cron_exp="0 0 * * * ?",
             enable_event_replication=True,
             replications=[artifactory.ReplicationConfigReplicationArgs(
-                password="$var.artifactory_password",
                 url="$var.artifactory_url",
                 username="$var.artifactory_username",
-            )],
-            repo_key=provider_test_source.key)
+                password="$var.artifactory_password",
+            )])
         ```
         <!--End PulumiCodeChooser -->
 

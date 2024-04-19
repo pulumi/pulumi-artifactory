@@ -19,17 +19,20 @@ namespace Pulumi.Artifactory
     /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var my_key = new Artifactory.DistributionPublicKey("my-key", new()
     ///     {
     ///         Alias = "my-key",
-    ///         PublicKey = File.ReadAllText("samples/rsa.pub"),
+    ///         PublicKey = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "samples/rsa.pub",
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///     });
     /// 
     /// });

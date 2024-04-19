@@ -18,6 +18,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
+ * //
  * const target1 = artifactory.getPermissionTarget({
  *     name: "my_permission",
  * });
@@ -91,6 +92,7 @@ export interface GetPermissionTargetResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
+ * //
  * const target1 = artifactory.getPermissionTarget({
  *     name: "my_permission",
  * });

@@ -33,39 +33,40 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewPropertySet(ctx, "foo", &artifactory.PropertySetArgs{
+//				Name:    pulumi.String("property-set1"),
+//				Visible: pulumi.Bool(true),
 //				Properties: artifactory.PropertySetPropertyArray{
 //					&artifactory.PropertySetPropertyArgs{
+//						Name: pulumi.String("set1property1"),
+//						PredefinedValues: artifactory.PropertySetPropertyPredefinedValueArray{
+//							&artifactory.PropertySetPropertyPredefinedValueArgs{
+//								Name:         pulumi.String("passed-QA"),
+//								DefaultValue: pulumi.Bool(true),
+//							},
+//							&artifactory.PropertySetPropertyPredefinedValueArgs{
+//								Name:         pulumi.String("failed-QA"),
+//								DefaultValue: pulumi.Bool(false),
+//							},
+//						},
 //						ClosedPredefinedValues: pulumi.Bool(true),
 //						MultipleChoice:         pulumi.Bool(true),
-//						Name:                   pulumi.String("set1property1"),
-//						PredefinedValues: artifactory.PropertySetPropertyPredefinedValueArray{
-//							&artifactory.PropertySetPropertyPredefinedValueArgs{
-//								DefaultValue: pulumi.Bool(true),
-//								Name:         pulumi.String("passed-QA"),
-//							},
-//							&artifactory.PropertySetPropertyPredefinedValueArgs{
-//								DefaultValue: pulumi.Bool(false),
-//								Name:         pulumi.String("failed-QA"),
-//							},
-//						},
 //					},
 //					&artifactory.PropertySetPropertyArgs{
-//						ClosedPredefinedValues: pulumi.Bool(false),
-//						MultipleChoice:         pulumi.Bool(false),
-//						Name:                   pulumi.String("set1property2"),
+//						Name: pulumi.String("set1property2"),
 //						PredefinedValues: artifactory.PropertySetPropertyPredefinedValueArray{
 //							&artifactory.PropertySetPropertyPredefinedValueArgs{
-//								DefaultValue: pulumi.Bool(true),
 //								Name:         pulumi.String("passed-QA"),
+//								DefaultValue: pulumi.Bool(true),
 //							},
 //							&artifactory.PropertySetPropertyPredefinedValueArgs{
-//								DefaultValue: pulumi.Bool(false),
 //								Name:         pulumi.String("failed-QA"),
+//								DefaultValue: pulumi.Bool(false),
 //							},
 //						},
+//						ClosedPredefinedValues: pulumi.Bool(false),
+//						MultipleChoice:         pulumi.Bool(false),
 //					},
 //				},
-//				Visible: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err

@@ -21,21 +21,21 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const ldapName = new artifactory.LdapSettingV2("ldapName", {
- *     allowUserToAccessProfile: false,
- *     autoCreateUser: true,
- *     emailAttribute: "mail",
- *     enabled: true,
+ * const ldapName = new artifactory.LdapSettingV2("ldap_name", {
  *     key: "ldap_name",
- *     ldapPoisoningProtection: true,
+ *     enabled: true,
  *     ldapUrl: "ldap://ldap_server_url",
+ *     userDnPattern: "uid={0},ou=People",
+ *     emailAttribute: "mail",
+ *     autoCreateUser: true,
+ *     ldapPoisoningProtection: true,
+ *     allowUserToAccessProfile: false,
+ *     pagingSupportEnabled: false,
+ *     searchFilter: "(uid={0})",
+ *     searchBase: "ou=users",
+ *     searchSubTree: true,
  *     managerDn: "mgr_dn",
  *     managerPassword: "mgr_passwd_random",
- *     pagingSupportEnabled: false,
- *     searchBase: "ou=users",
- *     searchFilter: "(uid={0})",
- *     searchSubTree: true,
- *     userDnPattern: "uid={0},ou=People",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

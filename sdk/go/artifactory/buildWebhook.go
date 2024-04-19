@@ -31,35 +31,35 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewBuildWebhook(ctx, "build-webhook", &artifactory.BuildWebhookArgs{
-//				Criteria: &artifactory.BuildWebhookCriteriaArgs{
-//					AnyBuild: pulumi.Bool(true),
-//					ExcludePatterns: pulumi.StringArray{
-//						pulumi.String("bar/**"),
-//					},
-//					IncludePatterns: pulumi.StringArray{
-//						pulumi.String("foo/**"),
-//					},
-//					SelectedBuilds: pulumi.StringArray{
-//						pulumi.String("build-id"),
-//					},
-//				},
+//				Key: pulumi.String("build-webhook"),
 //				EventTypes: pulumi.StringArray{
 //					pulumi.String("uploaded"),
 //					pulumi.String("deleted"),
 //					pulumi.String("promoted"),
 //				},
+//				Criteria: &artifactory.BuildWebhookCriteriaArgs{
+//					AnyBuild: pulumi.Bool(true),
+//					SelectedBuilds: pulumi.StringArray{
+//						pulumi.String("build-id"),
+//					},
+//					IncludePatterns: pulumi.StringArray{
+//						pulumi.String("foo/**"),
+//					},
+//					ExcludePatterns: pulumi.StringArray{
+//						pulumi.String("bar/**"),
+//					},
+//				},
 //				Handlers: artifactory.BuildWebhookHandlerArray{
 //					&artifactory.BuildWebhookHandlerArgs{
+//						Url:    pulumi.String("http://tempurl.org/webhook"),
+//						Secret: pulumi.String("some-secret"),
+//						Proxy:  pulumi.String("proxy-key"),
 //						CustomHttpHeaders: pulumi.StringMap{
 //							"header-1": pulumi.String("value-1"),
 //							"header-2": pulumi.String("value-2"),
 //						},
-//						Proxy:  pulumi.String("proxy-key"),
-//						Secret: pulumi.String("some-secret"),
-//						Url:    pulumi.String("http://tempurl.org/webhook"),
 //					},
 //				},
-//				Key: pulumi.String("build-webhook"),
 //			})
 //			if err != nil {
 //				return err

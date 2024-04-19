@@ -746,12 +746,12 @@ class FederatedNpmRepository(pulumi.CustomResource):
             key="terraform-federated-test-npm-repo",
             members=[
                 artifactory.FederatedNpmRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl.org/artifactory/terraform-federated-test-npm-repo",
+                    enabled=True,
                 ),
                 artifactory.FederatedNpmRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl2.org/artifactory/terraform-federated-test-npm-repo-2",
+                    enabled=True,
                 ),
             ])
         ```
@@ -822,12 +822,12 @@ class FederatedNpmRepository(pulumi.CustomResource):
             key="terraform-federated-test-npm-repo",
             members=[
                 artifactory.FederatedNpmRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl.org/artifactory/terraform-federated-test-npm-repo",
+                    enabled=True,
                 ),
                 artifactory.FederatedNpmRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl2.org/artifactory/terraform-federated-test-npm-repo-2",
+                    enabled=True,
                 ),
             ])
         ```

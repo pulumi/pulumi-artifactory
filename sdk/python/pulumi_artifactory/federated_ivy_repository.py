@@ -980,12 +980,12 @@ class FederatedIvyRepository(pulumi.CustomResource):
             key="terraform-federated-test-ivy-repo",
             members=[
                 artifactory.FederatedIvyRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl.org/artifactory/terraform-federated-test-ivy-repo",
+                    enabled=True,
                 ),
                 artifactory.FederatedIvyRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl2.org/artifactory/terraform-federated-test-ivy-repo-2",
+                    enabled=True,
                 ),
             ])
         ```
@@ -1071,12 +1071,12 @@ class FederatedIvyRepository(pulumi.CustomResource):
             key="terraform-federated-test-ivy-repo",
             members=[
                 artifactory.FederatedIvyRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl.org/artifactory/terraform-federated-test-ivy-repo",
+                    enabled=True,
                 ),
                 artifactory.FederatedIvyRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl2.org/artifactory/terraform-federated-test-ivy-repo-2",
+                    enabled=True,
                 ),
             ])
         ```

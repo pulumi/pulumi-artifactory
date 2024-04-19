@@ -746,12 +746,12 @@ class FederatedGitltfsRepository(pulumi.CustomResource):
             key="terraform-federated-test-gitlfs-repo",
             members=[
                 artifactory.FederatedGitltfsRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl.org/artifactory/terraform-federated-test-gitlfs-repo",
+                    enabled=True,
                 ),
                 artifactory.FederatedGitltfsRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl2.org/artifactory/terraform-federated-test-gitlfs-repo-2",
+                    enabled=True,
                 ),
             ])
         ```
@@ -822,12 +822,12 @@ class FederatedGitltfsRepository(pulumi.CustomResource):
             key="terraform-federated-test-gitlfs-repo",
             members=[
                 artifactory.FederatedGitltfsRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl.org/artifactory/terraform-federated-test-gitlfs-repo",
+                    enabled=True,
                 ),
                 artifactory.FederatedGitltfsRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl2.org/artifactory/terraform-federated-test-gitlfs-repo-2",
+                    enabled=True,
                 ),
             ])
         ```

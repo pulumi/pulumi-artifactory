@@ -18,27 +18,27 @@ import * as utilities from "./utilities";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * const build_webhook = new artifactory.BuildWebhook("build-webhook", {
- *     criteria: {
- *         anyBuild: true,
- *         excludePatterns: ["bar/**"],
- *         includePatterns: ["foo/**"],
- *         selectedBuilds: ["build-id"],
- *     },
+ *     key: "build-webhook",
  *     eventTypes: [
  *         "uploaded",
  *         "deleted",
  *         "promoted",
  *     ],
+ *     criteria: {
+ *         anyBuild: true,
+ *         selectedBuilds: ["build-id"],
+ *         includePatterns: ["foo/**"],
+ *         excludePatterns: ["bar/**"],
+ *     },
  *     handlers: [{
+ *         url: "http://tempurl.org/webhook",
+ *         secret: "some-secret",
+ *         proxy: "proxy-key",
  *         customHttpHeaders: {
  *             "header-1": "value-1",
  *             "header-2": "value-2",
  *         },
- *         proxy: "proxy-key",
- *         secret: "some-secret",
- *         url: "http://tempurl.org/webhook",
  *     }],
- *     key: "build-webhook",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

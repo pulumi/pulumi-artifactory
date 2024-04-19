@@ -13,12 +13,14 @@ import * as utilities from "./utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
  * // Create a new Artifactory certificate called my-cert
  * const my_cert = new artifactory.Certificate("my-cert", {
  *     alias: "my-cert",
- *     content: fs.readFileSync("/path/to/bundle.pem", "utf8"),
+ *     content: std.file({
+ *         input: "/path/to/bundle.pem",
+ *     }).then(invoke => invoke.result),
  * });
  * // This can then be used by a remote repository
  * const my_remote = new artifactory.RemoteMavenRepository("my-remote", {clientTlsCertificate: my_cert.alias});

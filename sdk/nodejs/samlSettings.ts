@@ -20,19 +20,19 @@ import * as utilities from "./utilities";
  *
  * // Configure Artifactory SAML SSO settings
  * const saml = new artifactory.SamlSettings("saml", {
- *     allowUserToAccessProfile: true,
- *     autoRedirect: true,
- *     certificate: "test-certificate",
- *     emailAttribute: "email",
  *     enable: true,
- *     groupAttribute: "groups",
+ *     serviceProviderName: "okta",
  *     loginUrl: "test-login-url",
  *     logoutUrl: "test-logout-url",
+ *     certificate: "test-certificate",
+ *     emailAttribute: "email",
+ *     groupAttribute: "groups",
  *     noAutoUserCreation: false,
- *     serviceProviderName: "okta",
+ *     allowUserToAccessProfile: true,
+ *     autoRedirect: true,
  *     syncGroups: true,
- *     useEncryptedAssertion: false,
  *     verifyAudienceRestriction: true,
+ *     useEncryptedAssertion: false,
  * });
  * ```
  * <!--End PulumiCodeChooser -->

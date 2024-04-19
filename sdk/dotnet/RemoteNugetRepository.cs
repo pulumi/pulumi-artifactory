@@ -26,12 +26,12 @@ namespace Pulumi.Artifactory
     /// {
     ///     var my_remote_nuget = new Artifactory.RemoteNugetRepository("my-remote-nuget", new()
     ///     {
+    ///         Key = "my-remote-nuget",
+    ///         Url = "https://www.nuget.org/",
     ///         DownloadContextPath = "api/v2/package",
     ///         ForceNugetAuthentication = true,
-    ///         Key = "my-remote-nuget",
-    ///         SymbolServerUrl = "https://symbols.nuget.org/download/symbols",
-    ///         Url = "https://www.nuget.org/",
     ///         V3FeedUrl = "https://api.nuget.org/v3/index.json",
+    ///         SymbolServerUrl = "https://symbols.nuget.org/download/symbols",
     ///     });
     /// 
     /// });

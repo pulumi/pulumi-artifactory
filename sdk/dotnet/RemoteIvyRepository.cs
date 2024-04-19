@@ -26,12 +26,12 @@ namespace Pulumi.Artifactory
     /// {
     ///     var ivy_remote = new Artifactory.RemoteIvyRepository("ivy-remote", new()
     ///     {
+    ///         Key = "ivy-remote-foo",
+    ///         Url = "https://repo1.maven.org/maven2/",
     ///         FetchJarsEagerly = true,
     ///         FetchSourcesEagerly = false,
-    ///         Key = "ivy-remote-foo",
-    ///         RejectInvalidJars = true,
     ///         SuppressPomConsistencyChecks = true,
-    ///         Url = "https://repo1.maven.org/maven2/",
+    ///         RejectInvalidJars = true,
     ///     });
     /// 
     /// });

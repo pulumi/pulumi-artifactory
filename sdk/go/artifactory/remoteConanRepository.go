@@ -31,9 +31,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewRemoteConanRepository(ctx, "my-remote-conan", &artifactory.RemoteConanRepositoryArgs{
-//				ForceConanAuthentication: pulumi.Bool(true),
 //				Key:                      pulumi.String("my-remote-conan"),
 //				Url:                      pulumi.String("https://conan.io/center/"),
+//				ForceConanAuthentication: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err

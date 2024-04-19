@@ -196,10 +196,11 @@ class DistributionPublicKey(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
+        import pulumi_std as std
 
         my_key = artifactory.DistributionPublicKey("my-key",
             alias="my-key",
-            public_key=(lambda path: open(path).read())("samples/rsa.pub"))
+            public_key=std.file(input="samples/rsa.pub").result)
         ```
         <!--End PulumiCodeChooser -->
 
@@ -235,10 +236,11 @@ class DistributionPublicKey(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
+        import pulumi_std as std
 
         my_key = artifactory.DistributionPublicKey("my-key",
             alias="my-key",
-            public_key=(lambda path: open(path).read())("samples/rsa.pub"))
+            public_key=std.file(input="samples/rsa.pub").result)
         ```
         <!--End PulumiCodeChooser -->
 

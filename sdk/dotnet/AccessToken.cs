@@ -31,10 +31,10 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exisingUser = new Artifactory.AccessToken("exisingUser", new()
+    ///     var exisingUser = new Artifactory.AccessToken("exising_user", new()
     ///     {
-    ///         EndDateRelative = "5m",
     ///         Username = "existing-user",
+    ///         EndDateRelative = "5m",
     ///     });
     /// 
     /// });
@@ -53,8 +53,9 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var newUserUser = new Artifactory.User("newUserUser", new()
+    ///     var newUser = new Artifactory.User("new_user", new()
     ///     {
+    ///         Name = "new_user",
     ///         Email = "new_user@somewhere.com",
     ///         Groups = new[]
     ///         {
@@ -62,9 +63,9 @@ namespace Pulumi.Artifactory
     ///         },
     ///     });
     /// 
-    ///     var newUserAccessToken = new Artifactory.AccessToken("newUserAccessToken", new()
+    ///     var newUserAccessToken = new Artifactory.AccessToken("new_user", new()
     ///     {
-    ///         Username = newUserUser.Name,
+    ///         Username = newUser.Name,
     ///         EndDateRelative = "5m",
     ///     });
     /// 
@@ -83,14 +84,14 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var temporaryUser = new Artifactory.AccessToken("temporaryUser", new()
+    ///     var temporaryUser = new Artifactory.AccessToken("temporary_user", new()
     ///     {
+    ///         Username = "temporary-user",
     ///         EndDateRelative = "1h",
     ///         Groups = new[]
     ///         {
     ///             "readers",
     ///         },
-    ///         Username = "temporary-user",
     ///     });
     /// 
     /// });
@@ -107,10 +108,10 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var noExpiry = new Artifactory.AccessToken("noExpiry", new()
+    ///     var noExpiry = new Artifactory.AccessToken("no_expiry", new()
     ///     {
-    ///         EndDateRelative = "0s",
     ///         Username = "existing-user",
+    ///         EndDateRelative = "0s",
     ///     });
     /// 
     /// });
@@ -129,13 +130,13 @@ namespace Pulumi.Artifactory
     /// {
     ///     var refreshable = new Artifactory.AccessToken("refreshable", new()
     ///     {
+    ///         Username = "refreshable",
     ///         EndDateRelative = "1m",
+    ///         Refreshable = true,
     ///         Groups = new[]
     ///         {
     ///             "readers",
     ///         },
-    ///         Refreshable = true,
-    ///         Username = "refreshable",
     ///     });
     /// 
     /// });
@@ -154,12 +155,12 @@ namespace Pulumi.Artifactory
     /// {
     ///     var admin = new Artifactory.AccessToken("admin", new()
     ///     {
+    ///         Username = "admin",
+    ///         EndDateRelative = "1m",
     ///         AdminToken = new Artifactory.Inputs.AccessTokenAdminTokenArgs
     ///         {
     ///             InstanceId = "&lt;instance id&gt;",
     ///         },
-    ///         EndDateRelative = "1m",
-    ///         Username = "admin",
     ///     });
     /// 
     /// });
@@ -178,10 +179,10 @@ namespace Pulumi.Artifactory
     /// {
     ///     var audience = new Artifactory.AccessToken("audience", new()
     ///     {
-    ///         Audience = "jfrt@*",
-    ///         EndDateRelative = "1m",
-    ///         Refreshable = true,
     ///         Username = "audience",
+    ///         EndDateRelative = "1m",
+    ///         Audience = "jfrt@*",
+    ///         Refreshable = true,
     ///     });
     /// 
     /// });
@@ -200,12 +201,12 @@ namespace Pulumi.Artifactory
     /// {
     ///     var fixeddate = new Artifactory.AccessToken("fixeddate", new()
     ///     {
+    ///         Username = "fixeddate",
     ///         EndDate = "2018-01-01T01:02:03Z",
     ///         Groups = new[]
     ///         {
     ///             "readers",
     ///         },
-    ///         Username = "fixeddate",
     ///     });
     /// 
     /// });
@@ -228,7 +229,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var nowPlus1Hours = new Time.Rotating("nowPlus1Hours", new()
+    ///     var nowPlus1Hours = new Time.Rotating("now_plus_1_hours", new()
     ///     {
     ///         RotationHours = 1,
     ///     });
@@ -236,7 +237,7 @@ namespace Pulumi.Artifactory
     ///     var rotating = new Artifactory.AccessToken("rotating", new()
     ///     {
     ///         Username = "rotating",
-    ///         EndDate = time_rotating.Now_plus_1_hour.Rotation_rfc3339,
+    ///         EndDate = nowPlus1Hour.RotationRfc3339,
     ///         Groups = new[]
     ///         {
     ///             "readers",
@@ -246,6 +247,54 @@ namespace Pulumi.Artifactory
     /// });
     /// ```
     /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
+    /// ### Rotate token each pulumi up
+    /// This example will generate a token that will expire in 1 hour.
+    /// 
+    /// If `pulumi up` is run before 1 hour, a new token is generated with an expiry of 1 hour.
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Artifactory = Pulumi.Artifactory;
+    /// using Std = Pulumi.Std;
+    /// using Time = Pulumiverse.Time;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var nowPlus1Hours = new Time.Rotating("now_plus_1_hours", new()
+    ///     {
+    ///         Triggers = 
+    ///         {
+    ///             { "key", Std.Timestamp.Invoke().Apply(invoke =&gt; invoke.Result) },
+    ///         },
+    ///         RotationHours = 1,
+    ///     });
+    /// 
+    ///     var rotating = new Artifactory.AccessToken("rotating", new()
+    ///     {
+    ///         Username = "rotating",
+    ///         EndDate = nowPlus1Hour.RotationRfc3339,
+    ///         Groups = new[]
+    ///         {
+    ///             "readers",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
+    /// ## References
+    /// 
+    /// - https://www.jfrog.com/confluence/display/ACC1X/Access+Tokens
+    /// - https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-CreateToken
+    /// 
+    /// ## Import
+    /// 
+    /// Artifactory **does not** retain access tokens and cannot be imported into state.
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/accessToken:AccessToken")]
     public partial class AccessToken : global::Pulumi.CustomResource

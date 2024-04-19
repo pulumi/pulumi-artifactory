@@ -746,12 +746,12 @@ class FederatedPuppetRepository(pulumi.CustomResource):
             key="terraform-federated-test-puppet-repo",
             members=[
                 artifactory.FederatedPuppetRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl.org/artifactory/terraform-federated-test-puppet-repo",
+                    enabled=True,
                 ),
                 artifactory.FederatedPuppetRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl2.org/artifactory/terraform-federated-test-puppet-repo-2",
+                    enabled=True,
                 ),
             ])
         ```
@@ -822,12 +822,12 @@ class FederatedPuppetRepository(pulumi.CustomResource):
             key="terraform-federated-test-puppet-repo",
             members=[
                 artifactory.FederatedPuppetRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl.org/artifactory/terraform-federated-test-puppet-repo",
+                    enabled=True,
                 ),
                 artifactory.FederatedPuppetRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl2.org/artifactory/terraform-federated-test-puppet-repo-2",
+                    enabled=True,
                 ),
             ])
         ```

@@ -241,12 +241,7 @@ class DistributionWebhook(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         distribution_webhook = artifactory.DistributionWebhook("distribution-webhook",
-            criteria=artifactory.DistributionWebhookCriteriaArgs(
-                any_release_bundle=False,
-                exclude_patterns=["bar/**"],
-                include_patterns=["foo/**"],
-                registered_release_bundle_names=["bundle-name"],
-            ),
+            key="distribution-webhook",
             event_types=[
                 "distribute_started",
                 "distribute_completed",
@@ -256,16 +251,21 @@ class DistributionWebhook(pulumi.CustomResource):
                 "delete_completed",
                 "delete_failed",
             ],
+            criteria=artifactory.DistributionWebhookCriteriaArgs(
+                any_release_bundle=False,
+                registered_release_bundle_names=["bundle-name"],
+                include_patterns=["foo/**"],
+                exclude_patterns=["bar/**"],
+            ),
             handlers=[artifactory.DistributionWebhookHandlerArgs(
+                url="http://tempurl.org/webhook",
+                secret="some-secret",
+                proxy="proxy-key",
                 custom_http_headers={
                     "header-1": "value-1",
                     "header-2": "value-2",
                 },
-                proxy="proxy-key",
-                secret="some-secret",
-                url="http://tempurl.org/webhook",
-            )],
-            key="distribution-webhook")
+            )])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -296,12 +296,7 @@ class DistributionWebhook(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         distribution_webhook = artifactory.DistributionWebhook("distribution-webhook",
-            criteria=artifactory.DistributionWebhookCriteriaArgs(
-                any_release_bundle=False,
-                exclude_patterns=["bar/**"],
-                include_patterns=["foo/**"],
-                registered_release_bundle_names=["bundle-name"],
-            ),
+            key="distribution-webhook",
             event_types=[
                 "distribute_started",
                 "distribute_completed",
@@ -311,16 +306,21 @@ class DistributionWebhook(pulumi.CustomResource):
                 "delete_completed",
                 "delete_failed",
             ],
+            criteria=artifactory.DistributionWebhookCriteriaArgs(
+                any_release_bundle=False,
+                registered_release_bundle_names=["bundle-name"],
+                include_patterns=["foo/**"],
+                exclude_patterns=["bar/**"],
+            ),
             handlers=[artifactory.DistributionWebhookHandlerArgs(
+                url="http://tempurl.org/webhook",
+                secret="some-secret",
+                proxy="proxy-key",
                 custom_http_headers={
                     "header-1": "value-1",
                     "header-2": "value-2",
                 },
-                proxy="proxy-key",
-                secret="some-secret",
-                url="http://tempurl.org/webhook",
-            )],
-            key="distribution-webhook")
+            )])
         ```
         <!--End PulumiCodeChooser -->
 

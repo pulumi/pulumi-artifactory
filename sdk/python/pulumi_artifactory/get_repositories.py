@@ -104,8 +104,8 @@ def get_repositories(package_type: Optional[str] = None,
     import pulumi
     import pulumi_artifactory as artifactory
 
-    all_alpine_local = artifactory.get_repositories(package_type="alpine",
-        repository_type="local")
+    all_alpine_local = artifactory.get_repositories(repository_type="local",
+        package_type="alpine")
     ```
     <!--End PulumiCodeChooser -->
 
@@ -143,8 +143,8 @@ def get_repositories_output(package_type: Optional[pulumi.Input[Optional[str]]] 
     import pulumi
     import pulumi_artifactory as artifactory
 
-    all_alpine_local = artifactory.get_repositories(package_type="alpine",
-        repository_type="local")
+    all_alpine_local = artifactory.get_repositories(repository_type="local",
+        package_type="alpine")
     ```
     <!--End PulumiCodeChooser -->
 

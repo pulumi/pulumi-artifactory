@@ -17,8 +17,8 @@ import * as utilities from "./utilities";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * const my-repo-file-list = artifactory.getFileList({
- *     folderPath: "path/to/artifact",
  *     repositoryKey: "my-generic-local",
+ *     folderPath: "path/to/artifact",
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -131,8 +131,8 @@ export interface GetFileListResult {
  * import * as artifactory from "@pulumi/artifactory";
  *
  * const my-repo-file-list = artifactory.getFileList({
- *     folderPath: "path/to/artifact",
  *     repositoryKey: "my-generic-local",
+ *     folderPath: "path/to/artifact",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

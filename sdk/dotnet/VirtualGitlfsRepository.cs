@@ -26,12 +26,12 @@ namespace Pulumi.Artifactory
     /// {
     ///     var foo_gitlfs = new Artifactory.VirtualGitlfsRepository("foo-gitlfs", new()
     ///     {
-    ///         Description = "A test virtual repo",
-    ///         ExcludesPattern = "com/google/**",
-    ///         IncludesPattern = "com/jfrog/**,cloud/jfrog/**",
     ///         Key = "foo-gitlfs",
-    ///         Notes = "Internal description",
     ///         Repositories = new[] {},
+    ///         Description = "A test virtual repo",
+    ///         Notes = "Internal description",
+    ///         IncludesPattern = "com/jfrog/**,cloud/jfrog/**",
+    ///         ExcludesPattern = "com/google/**",
     ///     });
     /// 
     /// });

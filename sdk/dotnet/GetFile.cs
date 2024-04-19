@@ -29,9 +29,9 @@ namespace Pulumi.Artifactory
         /// {
         ///     var my_file = Artifactory.GetFile.Invoke(new()
         ///     {
-        ///         OutputPath = "tmp/artifact.zip",
-        ///         Path = "/path/to/the/artifact.zip",
         ///         Repository = "repo-key",
+        ///         Path = "/path/to/the/artifact.zip",
+        ///         OutputPath = "tmp/artifact.zip",
         ///     });
         /// 
         /// });
@@ -59,9 +59,9 @@ namespace Pulumi.Artifactory
         /// {
         ///     var my_file = Artifactory.GetFile.Invoke(new()
         ///     {
-        ///         OutputPath = "tmp/artifact.zip",
-        ///         Path = "/path/to/the/artifact.zip",
         ///         Repository = "repo-key",
+        ///         Path = "/path/to/the/artifact.zip",
+        ///         OutputPath = "tmp/artifact.zip",
         ///     });
         /// 
         /// });

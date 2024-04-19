@@ -182,19 +182,19 @@ class OauthSettings(pulumi.CustomResource):
 
         # Configure Artifactory OAuth SSO settings
         oauth = artifactory.OauthSettings("oauth",
-            allow_user_to_access_profile=True,
             enable=True,
+            persist_users=True,
+            allow_user_to_access_profile=True,
             oauth_providers=[artifactory.OauthSettingsOauthProviderArgs(
-                api_url="https://organization.okta.com/oauth2/v1/userinfo",
-                auth_url="https://organization.okta.com/oauth2/v1/authorize",
+                name="okta",
+                enabled=False,
+                type="openId",
                 client_id="foo",
                 client_secret="bar",
-                enabled=False,
-                name="okta",
+                api_url="https://organization.okta.com/oauth2/v1/userinfo",
+                auth_url="https://organization.okta.com/oauth2/v1/authorize",
                 token_url="https://organization.okta.com/oauth2/v1/token",
-                type="openId",
-            )],
-            persist_users=True)
+            )])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -238,19 +238,19 @@ class OauthSettings(pulumi.CustomResource):
 
         # Configure Artifactory OAuth SSO settings
         oauth = artifactory.OauthSettings("oauth",
-            allow_user_to_access_profile=True,
             enable=True,
+            persist_users=True,
+            allow_user_to_access_profile=True,
             oauth_providers=[artifactory.OauthSettingsOauthProviderArgs(
-                api_url="https://organization.okta.com/oauth2/v1/userinfo",
-                auth_url="https://organization.okta.com/oauth2/v1/authorize",
+                name="okta",
+                enabled=False,
+                type="openId",
                 client_id="foo",
                 client_secret="bar",
-                enabled=False,
-                name="okta",
+                api_url="https://organization.okta.com/oauth2/v1/userinfo",
+                auth_url="https://organization.okta.com/oauth2/v1/authorize",
                 token_url="https://organization.okta.com/oauth2/v1/token",
-                type="openId",
-            )],
-            persist_users=True)
+            )])
         ```
         <!--End PulumiCodeChooser -->
 

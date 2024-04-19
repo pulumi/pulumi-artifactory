@@ -19,11 +19,11 @@ import * as utilities from "./utilities";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * const my_oci_remote = new artifactory.RemoteOciRepository("my-oci-remote", {
- *     enableTokenAuthentication: true,
- *     externalDependenciesEnabled: true,
- *     externalDependenciesPatterns: ["**&#47;registry-1.docker.io/**"],
  *     key: "my-oci-remote",
  *     url: "https://registry-1.docker.io/",
+ *     externalDependenciesEnabled: true,
+ *     externalDependenciesPatterns: ["**&#47;registry-1.docker.io/**"],
+ *     enableTokenAuthentication: true,
  * });
  * ```
  * <!--End PulumiCodeChooser -->

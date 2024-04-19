@@ -50,12 +50,12 @@ import javax.annotation.Nullable;
  *             .key(&#34;terraform-federated-test-rpm-repo&#34;)
  *             .members(            
  *                 FederatedRpmRepositoryMemberArgs.builder()
- *                     .enabled(true)
  *                     .url(&#34;http://tempurl.org/artifactory/terraform-federated-test-rpm-repo&#34;)
+ *                     .enabled(true)
  *                     .build(),
  *                 FederatedRpmRepositoryMemberArgs.builder()
- *                     .enabled(true)
  *                     .url(&#34;http://tempurl2.org/artifactory/terraform-federated-test-rpm-repo-2&#34;)
+ *                     .enabled(true)
  *                     .build())
  *             .build());
  * 

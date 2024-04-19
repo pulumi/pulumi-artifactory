@@ -15,11 +15,13 @@ import * as utilities from "./utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
  * const my_key = new artifactory.DistributionPublicKey("my-key", {
  *     alias: "my-key",
- *     publicKey: fs.readFileSync("samples/rsa.pub", "utf8"),
+ *     publicKey: std.file({
+ *         input: "samples/rsa.pub",
+ *     }).then(invoke => invoke.result),
  * });
  * ```
  * <!--End PulumiCodeChooser -->

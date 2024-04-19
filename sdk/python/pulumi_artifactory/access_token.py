@@ -315,9 +315,9 @@ class AccessToken(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        exising_user = artifactory.AccessToken("exisingUser",
-            end_date_relative="5m",
-            username="existing-user")
+        exising_user = artifactory.AccessToken("exising_user",
+            username="existing-user",
+            end_date_relative="5m")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -329,11 +329,12 @@ class AccessToken(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        new_user_user = artifactory.User("newUserUser",
+        new_user = artifactory.User("new_user",
+            name="new_user",
             email="new_user@somewhere.com",
             groups=["readers"])
-        new_user_access_token = artifactory.AccessToken("newUserAccessToken",
-            username=new_user_user.name,
+        new_user_access_token = artifactory.AccessToken("new_user",
+            username=new_user.name,
             end_date_relative="5m")
         ```
         <!--End PulumiCodeChooser -->
@@ -345,10 +346,10 @@ class AccessToken(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        temporary_user = artifactory.AccessToken("temporaryUser",
+        temporary_user = artifactory.AccessToken("temporary_user",
+            username="temporary-user",
             end_date_relative="1h",
-            groups=["readers"],
-            username="temporary-user")
+            groups=["readers"])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -358,9 +359,9 @@ class AccessToken(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        no_expiry = artifactory.AccessToken("noExpiry",
-            end_date_relative="0s",
-            username="existing-user")
+        no_expiry = artifactory.AccessToken("no_expiry",
+            username="existing-user",
+            end_date_relative="0s")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -371,10 +372,10 @@ class AccessToken(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         refreshable = artifactory.AccessToken("refreshable",
+            username="refreshable",
             end_date_relative="1m",
-            groups=["readers"],
             refreshable=True,
-            username="refreshable")
+            groups=["readers"])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -385,11 +386,11 @@ class AccessToken(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         admin = artifactory.AccessToken("admin",
+            username="admin",
+            end_date_relative="1m",
             admin_token=artifactory.AccessTokenAdminTokenArgs(
                 instance_id="<instance id>",
-            ),
-            end_date_relative="1m",
-            username="admin")
+            ))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -400,10 +401,10 @@ class AccessToken(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         audience = artifactory.AccessToken("audience",
-            audience="jfrt@*",
+            username="audience",
             end_date_relative="1m",
-            refreshable=True,
-            username="audience")
+            audience="jfrt@*",
+            refreshable=True)
         ```
         <!--End PulumiCodeChooser -->
 
@@ -414,9 +415,9 @@ class AccessToken(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         fixeddate = artifactory.AccessToken("fixeddate",
+            username="fixeddate",
             end_date="2018-01-01T01:02:03Z",
-            groups=["readers"],
-            username="fixeddate")
+            groups=["readers"])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -432,13 +433,46 @@ class AccessToken(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
         import pulumiverse_time as time
 
-        now_plus1_hours = time.Rotating("nowPlus1Hours", rotation_hours=1)
+        now_plus1_hours = time.Rotating("now_plus_1_hours", rotation_hours=1)
         rotating = artifactory.AccessToken("rotating",
             username="rotating",
-            end_date=time_rotating["now_plus_1_hour"]["rotation_rfc3339"],
+            end_date=now_plus1_hour["rotationRfc3339"],
             groups=["readers"])
         ```
         <!--End PulumiCodeChooser -->
+
+        ### Rotate token each pulumi up
+        This example will generate a token that will expire in 1 hour.
+
+        If `pulumi up` is run before 1 hour, a new token is generated with an expiry of 1 hour.
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+        import pulumi_std as std
+        import pulumiverse_time as time
+
+        now_plus1_hours = time.Rotating("now_plus_1_hours",
+            triggers={
+                "key": std.timestamp().result,
+            },
+            rotation_hours=1)
+        rotating = artifactory.AccessToken("rotating",
+            username="rotating",
+            end_date=now_plus1_hour["rotationRfc3339"],
+            groups=["readers"])
+        ```
+        <!--End PulumiCodeChooser -->
+
+        ## References
+
+        - https://www.jfrog.com/confluence/display/ACC1X/Access+Tokens
+        - https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-CreateToken
+
+        ## Import
+
+        Artifactory **does not** retain access tokens and cannot be imported into state.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -474,9 +508,9 @@ class AccessToken(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        exising_user = artifactory.AccessToken("exisingUser",
-            end_date_relative="5m",
-            username="existing-user")
+        exising_user = artifactory.AccessToken("exising_user",
+            username="existing-user",
+            end_date_relative="5m")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -488,11 +522,12 @@ class AccessToken(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        new_user_user = artifactory.User("newUserUser",
+        new_user = artifactory.User("new_user",
+            name="new_user",
             email="new_user@somewhere.com",
             groups=["readers"])
-        new_user_access_token = artifactory.AccessToken("newUserAccessToken",
-            username=new_user_user.name,
+        new_user_access_token = artifactory.AccessToken("new_user",
+            username=new_user.name,
             end_date_relative="5m")
         ```
         <!--End PulumiCodeChooser -->
@@ -504,10 +539,10 @@ class AccessToken(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        temporary_user = artifactory.AccessToken("temporaryUser",
+        temporary_user = artifactory.AccessToken("temporary_user",
+            username="temporary-user",
             end_date_relative="1h",
-            groups=["readers"],
-            username="temporary-user")
+            groups=["readers"])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -517,9 +552,9 @@ class AccessToken(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        no_expiry = artifactory.AccessToken("noExpiry",
-            end_date_relative="0s",
-            username="existing-user")
+        no_expiry = artifactory.AccessToken("no_expiry",
+            username="existing-user",
+            end_date_relative="0s")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -530,10 +565,10 @@ class AccessToken(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         refreshable = artifactory.AccessToken("refreshable",
+            username="refreshable",
             end_date_relative="1m",
-            groups=["readers"],
             refreshable=True,
-            username="refreshable")
+            groups=["readers"])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -544,11 +579,11 @@ class AccessToken(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         admin = artifactory.AccessToken("admin",
+            username="admin",
+            end_date_relative="1m",
             admin_token=artifactory.AccessTokenAdminTokenArgs(
                 instance_id="<instance id>",
-            ),
-            end_date_relative="1m",
-            username="admin")
+            ))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -559,10 +594,10 @@ class AccessToken(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         audience = artifactory.AccessToken("audience",
-            audience="jfrt@*",
+            username="audience",
             end_date_relative="1m",
-            refreshable=True,
-            username="audience")
+            audience="jfrt@*",
+            refreshable=True)
         ```
         <!--End PulumiCodeChooser -->
 
@@ -573,9 +608,9 @@ class AccessToken(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         fixeddate = artifactory.AccessToken("fixeddate",
+            username="fixeddate",
             end_date="2018-01-01T01:02:03Z",
-            groups=["readers"],
-            username="fixeddate")
+            groups=["readers"])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -591,13 +626,46 @@ class AccessToken(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
         import pulumiverse_time as time
 
-        now_plus1_hours = time.Rotating("nowPlus1Hours", rotation_hours=1)
+        now_plus1_hours = time.Rotating("now_plus_1_hours", rotation_hours=1)
         rotating = artifactory.AccessToken("rotating",
             username="rotating",
-            end_date=time_rotating["now_plus_1_hour"]["rotation_rfc3339"],
+            end_date=now_plus1_hour["rotationRfc3339"],
             groups=["readers"])
         ```
         <!--End PulumiCodeChooser -->
+
+        ### Rotate token each pulumi up
+        This example will generate a token that will expire in 1 hour.
+
+        If `pulumi up` is run before 1 hour, a new token is generated with an expiry of 1 hour.
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+        import pulumi_std as std
+        import pulumiverse_time as time
+
+        now_plus1_hours = time.Rotating("now_plus_1_hours",
+            triggers={
+                "key": std.timestamp().result,
+            },
+            rotation_hours=1)
+        rotating = artifactory.AccessToken("rotating",
+            username="rotating",
+            end_date=now_plus1_hour["rotationRfc3339"],
+            groups=["readers"])
+        ```
+        <!--End PulumiCodeChooser -->
+
+        ## References
+
+        - https://www.jfrog.com/confluence/display/ACC1X/Access+Tokens
+        - https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-CreateToken
+
+        ## Import
+
+        Artifactory **does not** retain access tokens and cannot be imported into state.
 
         :param str resource_name: The name of the resource.
         :param AccessTokenArgs args: The arguments to use to populate this resource's properties.

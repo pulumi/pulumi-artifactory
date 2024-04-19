@@ -244,13 +244,14 @@ class Keypair(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
+        import pulumi_std as std
 
         some_keypair_6543461672124900137 = artifactory.Keypair("some-keypair-6543461672124900137",
             pair_name="some-keypair-6543461672124900137",
             pair_type="RSA",
             alias="some-alias-6543461672124900137",
-            private_key=(lambda path: open(path).read())("samples/rsa.priv"),
-            public_key=(lambda path: open(path).read())("samples/rsa.pub"),
+            private_key=std.file(input="samples/rsa.priv").result,
+            public_key=std.file(input="samples/rsa.pub").result,
             passphrase="PASSPHRASE")
         ```
         <!--End PulumiCodeChooser -->
@@ -290,13 +291,14 @@ class Keypair(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
+        import pulumi_std as std
 
         some_keypair_6543461672124900137 = artifactory.Keypair("some-keypair-6543461672124900137",
             pair_name="some-keypair-6543461672124900137",
             pair_type="RSA",
             alias="some-alias-6543461672124900137",
-            private_key=(lambda path: open(path).read())("samples/rsa.priv"),
-            public_key=(lambda path: open(path).read())("samples/rsa.pub"),
+            private_key=std.file(input="samples/rsa.priv").result,
+            public_key=std.file(input="samples/rsa.pub").result,
             passphrase="PASSPHRASE")
         ```
         <!--End PulumiCodeChooser -->

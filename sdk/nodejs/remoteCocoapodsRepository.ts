@@ -19,9 +19,9 @@ import * as utilities from "./utilities";
  *
  * const my_remote_cocoapods = new artifactory.RemoteCocoapodsRepository("my-remote-cocoapods", {
  *     key: "my-remote-cocoapods",
- *     podsSpecsRepoUrl: "https://github.com/CocoaPods/Spec",
  *     url: "https://github.com/",
  *     vcsGitProvider: "GITHUB",
+ *     podsSpecsRepoUrl: "https://github.com/CocoaPods/Spec",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

@@ -31,8 +31,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.LookupGroup(ctx, &artifactory.LookupGroupArgs{
-//				IncludeUsers: pulumi.StringRef("true"),
 //				Name:         "my_group",
+//				IncludeUsers: pulumi.StringRef("true"),
 //			}, nil)
 //			if err != nil {
 //				return err

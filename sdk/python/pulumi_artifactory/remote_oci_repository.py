@@ -1684,11 +1684,11 @@ class RemoteOciRepository(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         my_oci_remote = artifactory.RemoteOciRepository("my-oci-remote",
-            enable_token_authentication=True,
+            key="my-oci-remote",
+            url="https://registry-1.docker.io/",
             external_dependencies_enabled=True,
             external_dependencies_patterns=["**/registry-1.docker.io/**"],
-            key="my-oci-remote",
-            url="https://registry-1.docker.io/")
+            enable_token_authentication=True)
         ```
         <!--End PulumiCodeChooser -->
 
@@ -1799,11 +1799,11 @@ class RemoteOciRepository(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         my_oci_remote = artifactory.RemoteOciRepository("my-oci-remote",
-            enable_token_authentication=True,
+            key="my-oci-remote",
+            url="https://registry-1.docker.io/",
             external_dependencies_enabled=True,
             external_dependencies_patterns=["**/registry-1.docker.io/**"],
-            key="my-oci-remote",
-            url="https://registry-1.docker.io/")
+            enable_token_authentication=True)
         ```
         <!--End PulumiCodeChooser -->
 

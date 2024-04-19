@@ -46,8 +46,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var foo = new DockerV2Repository(&#34;foo&#34;, DockerV2RepositoryArgs.builder()        
  *             .key(&#34;foo&#34;)
- *             .maxUniqueTags(5)
  *             .tagRetention(3)
+ *             .maxUniqueTags(5)
  *             .build());
  * 
  *     }

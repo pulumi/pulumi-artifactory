@@ -48,19 +48,19 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         // Configure Artifactory SAML SSO settings
  *         var saml = new SamlSettings(&#34;saml&#34;, SamlSettingsArgs.builder()        
- *             .allowUserToAccessProfile(true)
- *             .autoRedirect(true)
- *             .certificate(&#34;test-certificate&#34;)
- *             .emailAttribute(&#34;email&#34;)
  *             .enable(true)
- *             .groupAttribute(&#34;groups&#34;)
+ *             .serviceProviderName(&#34;okta&#34;)
  *             .loginUrl(&#34;test-login-url&#34;)
  *             .logoutUrl(&#34;test-logout-url&#34;)
+ *             .certificate(&#34;test-certificate&#34;)
+ *             .emailAttribute(&#34;email&#34;)
+ *             .groupAttribute(&#34;groups&#34;)
  *             .noAutoUserCreation(false)
- *             .serviceProviderName(&#34;okta&#34;)
+ *             .allowUserToAccessProfile(true)
+ *             .autoRedirect(true)
  *             .syncGroups(true)
- *             .useEncryptedAssertion(false)
  *             .verifyAudienceRestriction(true)
+ *             .useEncryptedAssertion(false)
  *             .build());
  * 
  *     }

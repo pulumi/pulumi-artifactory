@@ -48,19 +48,27 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var some_keypair_gpg_1 = new Keypair(&#34;some-keypair-gpg-1&#34;, KeypairArgs.builder()        
- *             .pairName(String.format(&#34;some-keypair%s&#34;, random_id.randid().id()))
+ *             .pairName(String.format(&#34;some-keypair%s&#34;, randid.id()))
  *             .pairType(&#34;GPG&#34;)
  *             .alias(&#34;foo-alias1&#34;)
- *             .privateKey(Files.readString(Paths.get(&#34;samples/gpg.priv&#34;)))
- *             .publicKey(Files.readString(Paths.get(&#34;samples/gpg.pub&#34;)))
+ *             .privateKey(StdFunctions.file(FileArgs.builder()
+ *                 .input(&#34;samples/gpg.priv&#34;)
+ *                 .build()).result())
+ *             .publicKey(StdFunctions.file(FileArgs.builder()
+ *                 .input(&#34;samples/gpg.pub&#34;)
+ *                 .build()).result())
  *             .build());
  * 
  *         var some_keypair_gpg_2 = new Keypair(&#34;some-keypair-gpg-2&#34;, KeypairArgs.builder()        
- *             .pairName(String.format(&#34;some-keypair%s&#34;, random_id.randid().id()))
+ *             .pairName(String.format(&#34;some-keypair%s&#34;, randid.id()))
  *             .pairType(&#34;GPG&#34;)
  *             .alias(&#34;foo-alias2&#34;)
- *             .privateKey(Files.readString(Paths.get(&#34;samples/gpg.priv&#34;)))
- *             .publicKey(Files.readString(Paths.get(&#34;samples/gpg.pub&#34;)))
+ *             .privateKey(StdFunctions.file(FileArgs.builder()
+ *                 .input(&#34;samples/gpg.priv&#34;)
+ *                 .build()).result())
+ *             .publicKey(StdFunctions.file(FileArgs.builder()
+ *                 .input(&#34;samples/gpg.pub&#34;)
+ *                 .build()).result())
  *             .build());
  * 
  *         var terraform_local_test_rpm_repo_basic = new LocalRpmRepository(&#34;terraform-local-test-rpm-repo-basic&#34;, LocalRpmRepositoryArgs.builder()        
@@ -69,8 +77,8 @@ import javax.annotation.Nullable;
  *             .calculateYumMetadata(true)
  *             .enableFileListsIndexing(true)
  *             .yumGroupFileNames(&#34;file-1.xml,file-2.xml&#34;)
- *             .primaryKeypairRef(artifactory_keypair.some-keypairGPG1().pair_name())
- *             .secondaryKeypairRef(artifactory_keypair.some-keypairGPG2().pair_name())
+ *             .primaryKeypairRef(some_keypairGPG1.pairName())
+ *             .secondaryKeypairRef(some_keypairGPG2.pairName())
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(                
  *                     some_keypair_gpg_1,

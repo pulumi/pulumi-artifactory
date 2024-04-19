@@ -13,12 +13,13 @@ import * as utilities from "./utilities";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * const test_user = new artifactory.ManagedUser("test-user", {
+ *     name: "terraform",
+ *     password: "my super secret password",
  *     email: "test-user@artifactory-terraform.com",
  *     groups: [
  *         "readers",
  *         "logged-in-users",
  *     ],
- *     password: "my super secret password",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

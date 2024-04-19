@@ -26,12 +26,12 @@ namespace Pulumi.Artifactory
     /// {
     ///     var foo_p2 = new Artifactory.VirtualP2Repository("foo-p2", new()
     ///     {
-    ///         Description = "A test virtual repo",
-    ///         ExcludesPattern = "com/google/**",
-    ///         IncludesPattern = "com/jfrog/**,cloud/jfrog/**",
     ///         Key = "foo-p2",
-    ///         Notes = "Internal description",
     ///         Repositories = new[] {},
+    ///         Description = "A test virtual repo",
+    ///         Notes = "Internal description",
+    ///         IncludesPattern = "com/jfrog/**,cloud/jfrog/**",
+    ///         ExcludesPattern = "com/google/**",
     ///     });
     /// 
     /// });

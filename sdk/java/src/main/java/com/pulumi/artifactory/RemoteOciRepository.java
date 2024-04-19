@@ -48,11 +48,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var my_oci_remote = new RemoteOciRepository(&#34;my-oci-remote&#34;, RemoteOciRepositoryArgs.builder()        
- *             .enableTokenAuthentication(true)
- *             .externalDependenciesEnabled(true)
- *             .externalDependenciesPatterns(&#34;**{@literal /}registry-1.docker.io/**&#34;)
  *             .key(&#34;my-oci-remote&#34;)
  *             .url(&#34;https://registry-1.docker.io/&#34;)
+ *             .externalDependenciesEnabled(true)
+ *             .externalDependenciesPatterns(&#34;**{@literal /}registry-1.docker.io/**&#34;)
+ *             .enableTokenAuthentication(true)
  *             .build());
  * 
  *     }

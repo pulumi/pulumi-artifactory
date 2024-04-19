@@ -376,19 +376,19 @@ class Proxy(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         my_proxy = artifactory.Proxy("my-proxy",
-            host="my-proxy.mycompany.com",
             key="my-proxy",
-            nt_domain="MYCOMPANY",
-            nt_host="MYCOMPANY.COM",
-            password="password",
-            platform_default=False,
+            host="my-proxy.mycompany.com",
             port=8888,
+            username="user1",
+            password="password",
+            nt_host="MYCOMPANY.COM",
+            nt_domain="MYCOMPANY",
+            platform_default=False,
             redirect_to_hosts=["redirec-host.mycompany.com"],
             services=[
                 "jfrt",
                 "jfxr",
-            ],
-            username="user1")
+            ])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -435,19 +435,19 @@ class Proxy(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         my_proxy = artifactory.Proxy("my-proxy",
-            host="my-proxy.mycompany.com",
             key="my-proxy",
-            nt_domain="MYCOMPANY",
-            nt_host="MYCOMPANY.COM",
-            password="password",
-            platform_default=False,
+            host="my-proxy.mycompany.com",
             port=8888,
+            username="user1",
+            password="password",
+            nt_host="MYCOMPANY.COM",
+            nt_domain="MYCOMPANY",
+            platform_default=False,
             redirect_to_hosts=["redirec-host.mycompany.com"],
             services=[
                 "jfrt",
                 "jfxr",
-            ],
-            username="user1")
+            ])
         ```
         <!--End PulumiCodeChooser -->
 

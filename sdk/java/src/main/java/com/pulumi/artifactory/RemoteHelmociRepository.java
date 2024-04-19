@@ -48,10 +48,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var my_helmoci_remote = new RemoteHelmociRepository(&#34;my-helmoci-remote&#34;, RemoteHelmociRepositoryArgs.builder()        
- *             .enableTokenAuthentication(true)
+ *             .key(&#34;my-helmoci-remote&#34;)
  *             .externalDependenciesEnabled(true)
  *             .externalDependenciesPatterns(&#34;**{@literal /}registry-1.docker.io/**&#34;)
- *             .key(&#34;my-helmoci-remote&#34;)
+ *             .enableTokenAuthentication(true)
  *             .url(&#34;https://registry-1.docker.io/&#34;)
  *             .build());
  * 

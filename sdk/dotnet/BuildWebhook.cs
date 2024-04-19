@@ -26,43 +26,43 @@ namespace Pulumi.Artifactory
     /// {
     ///     var build_webhook = new Artifactory.BuildWebhook("build-webhook", new()
     ///     {
-    ///         Criteria = new Artifactory.Inputs.BuildWebhookCriteriaArgs
-    ///         {
-    ///             AnyBuild = true,
-    ///             ExcludePatterns = new[]
-    ///             {
-    ///                 "bar/**",
-    ///             },
-    ///             IncludePatterns = new[]
-    ///             {
-    ///                 "foo/**",
-    ///             },
-    ///             SelectedBuilds = new[]
-    ///             {
-    ///                 "build-id",
-    ///             },
-    ///         },
+    ///         Key = "build-webhook",
     ///         EventTypes = new[]
     ///         {
     ///             "uploaded",
     ///             "deleted",
     ///             "promoted",
     ///         },
+    ///         Criteria = new Artifactory.Inputs.BuildWebhookCriteriaArgs
+    ///         {
+    ///             AnyBuild = true,
+    ///             SelectedBuilds = new[]
+    ///             {
+    ///                 "build-id",
+    ///             },
+    ///             IncludePatterns = new[]
+    ///             {
+    ///                 "foo/**",
+    ///             },
+    ///             ExcludePatterns = new[]
+    ///             {
+    ///                 "bar/**",
+    ///             },
+    ///         },
     ///         Handlers = new[]
     ///         {
     ///             new Artifactory.Inputs.BuildWebhookHandlerArgs
     ///             {
+    ///                 Url = "http://tempurl.org/webhook",
+    ///                 Secret = "some-secret",
+    ///                 Proxy = "proxy-key",
     ///                 CustomHttpHeaders = 
     ///                 {
     ///                     { "header-1", "value-1" },
     ///                     { "header-2", "value-2" },
     ///                 },
-    ///                 Proxy = "proxy-key",
-    ///                 Secret = "some-secret",
-    ///                 Url = "http://tempurl.org/webhook",
     ///             },
     ///         },
-    ///         Key = "build-webhook",
     ///     });
     /// 
     /// });

@@ -47,8 +47,12 @@ import javax.annotation.Nullable;
  *             .pairName(&#34;some-keypair-6543461672124900137&#34;)
  *             .pairType(&#34;RSA&#34;)
  *             .alias(&#34;some-alias-6543461672124900137&#34;)
- *             .privateKey(Files.readString(Paths.get(&#34;samples/rsa.priv&#34;)))
- *             .publicKey(Files.readString(Paths.get(&#34;samples/rsa.pub&#34;)))
+ *             .privateKey(StdFunctions.file(FileArgs.builder()
+ *                 .input(&#34;samples/rsa.priv&#34;)
+ *                 .build()).result())
+ *             .publicKey(StdFunctions.file(FileArgs.builder()
+ *                 .input(&#34;samples/rsa.pub&#34;)
+ *                 .build()).result())
  *             .passphrase(&#34;PASSPHRASE&#34;)
  *             .build());
  * 

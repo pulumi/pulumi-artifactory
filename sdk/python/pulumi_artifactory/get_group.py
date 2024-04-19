@@ -207,8 +207,9 @@ def get_group(admin_privileges: Optional[bool] = None,
     import pulumi
     import pulumi_artifactory as artifactory
 
-    my_group = artifactory.get_group(include_users="true",
-        name="my_group")
+    #
+    my_group = artifactory.get_group(name="my_group",
+        include_users="true")
     ```
     <!--End PulumiCodeChooser -->
 
@@ -284,8 +285,9 @@ def get_group_output(admin_privileges: Optional[pulumi.Input[Optional[bool]]] = 
     import pulumi
     import pulumi_artifactory as artifactory
 
-    my_group = artifactory.get_group(include_users="true",
-        name="my_group")
+    #
+    my_group = artifactory.get_group(name="my_group",
+        include_users="true")
     ```
     <!--End PulumiCodeChooser -->
 

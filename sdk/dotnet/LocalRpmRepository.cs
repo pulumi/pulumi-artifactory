@@ -17,29 +17,41 @@ namespace Pulumi.Artifactory
     /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var some_keypair_gpg_1 = new Artifactory.Keypair("some-keypair-gpg-1", new()
     ///     {
-    ///         PairName = $"some-keypair{random_id.Randid.Id}",
+    ///         PairName = $"some-keypair{randid.Id}",
     ///         PairType = "GPG",
     ///         Alias = "foo-alias1",
-    ///         PrivateKey = File.ReadAllText("samples/gpg.priv"),
-    ///         PublicKey = File.ReadAllText("samples/gpg.pub"),
+    ///         PrivateKey = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "samples/gpg.priv",
+    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///         PublicKey = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "samples/gpg.pub",
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///     });
     /// 
     ///     var some_keypair_gpg_2 = new Artifactory.Keypair("some-keypair-gpg-2", new()
     ///     {
-    ///         PairName = $"some-keypair{random_id.Randid.Id}",
+    ///         PairName = $"some-keypair{randid.Id}",
     ///         PairType = "GPG",
     ///         Alias = "foo-alias2",
-    ///         PrivateKey = File.ReadAllText("samples/gpg.priv"),
-    ///         PublicKey = File.ReadAllText("samples/gpg.pub"),
+    ///         PrivateKey = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "samples/gpg.priv",
+    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///         PublicKey = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "samples/gpg.pub",
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///     });
     /// 
     ///     var terraform_local_test_rpm_repo_basic = new Artifactory.LocalRpmRepository("terraform-local-test-rpm-repo-basic", new()
@@ -49,8 +61,8 @@ namespace Pulumi.Artifactory
     ///         CalculateYumMetadata = true,
     ///         EnableFileListsIndexing = true,
     ///         YumGroupFileNames = "file-1.xml,file-2.xml",
-    ///         PrimaryKeypairRef = artifactory_keypair.Some_keypairGPG1.Pair_name,
-    ///         SecondaryKeypairRef = artifactory_keypair.Some_keypairGPG2.Pair_name,
+    ///         PrimaryKeypairRef = some_keypairGPG1.PairName,
+    ///         SecondaryKeypairRef = some_keypairGPG2.PairName,
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =

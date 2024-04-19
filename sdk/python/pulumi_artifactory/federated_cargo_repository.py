@@ -849,12 +849,12 @@ class FederatedCargoRepository(pulumi.CustomResource):
             key="terraform-federated-test-cargo-repo",
             members=[
                 artifactory.FederatedCargoRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl.org/artifactory/terraform-federated-test-cargo-repo",
+                    enabled=True,
                 ),
                 artifactory.FederatedCargoRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl2.org/artifactory/terraform-federated-test-cargo-repo-2",
+                    enabled=True,
                 ),
             ])
         ```
@@ -930,12 +930,12 @@ class FederatedCargoRepository(pulumi.CustomResource):
             key="terraform-federated-test-cargo-repo",
             members=[
                 artifactory.FederatedCargoRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl.org/artifactory/terraform-federated-test-cargo-repo",
+                    enabled=True,
                 ),
                 artifactory.FederatedCargoRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl2.org/artifactory/terraform-federated-test-cargo-repo-2",
+                    enabled=True,
                 ),
             ])
         ```

@@ -50,19 +50,19 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         // Configure Artifactory OAuth SSO settings
  *         var oauth = new OauthSettings(&#34;oauth&#34;, OauthSettingsArgs.builder()        
- *             .allowUserToAccessProfile(true)
  *             .enable(true)
+ *             .persistUsers(true)
+ *             .allowUserToAccessProfile(true)
  *             .oauthProviders(OauthSettingsOauthProviderArgs.builder()
- *                 .apiUrl(&#34;https://organization.okta.com/oauth2/v1/userinfo&#34;)
- *                 .authUrl(&#34;https://organization.okta.com/oauth2/v1/authorize&#34;)
+ *                 .name(&#34;okta&#34;)
+ *                 .enabled(false)
+ *                 .type(&#34;openId&#34;)
  *                 .clientId(&#34;foo&#34;)
  *                 .clientSecret(&#34;bar&#34;)
- *                 .enabled(false)
- *                 .name(&#34;okta&#34;)
+ *                 .apiUrl(&#34;https://organization.okta.com/oauth2/v1/userinfo&#34;)
+ *                 .authUrl(&#34;https://organization.okta.com/oauth2/v1/authorize&#34;)
  *                 .tokenUrl(&#34;https://organization.okta.com/oauth2/v1/token&#34;)
- *                 .type(&#34;openId&#34;)
  *                 .build())
- *             .persistUsers(true)
  *             .build());
  * 
  *     }

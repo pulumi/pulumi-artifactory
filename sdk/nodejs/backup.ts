@@ -20,17 +20,17 @@ import * as utilities from "./utilities";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * // Configure Artifactory Backup system config
- * const backupConfigName = new artifactory.Backup("backupConfigName", {
- *     createArchive: false,
- *     cronExp: "0 0 12 * * ? *",
- *     enabled: true,
- *     excludeNewRepositories: true,
- *     excludedRepositories: [],
- *     exportMissionControl: true,
+ * const backupConfigName = new artifactory.Backup("backup_config_name", {
  *     key: "backup_config_name",
+ *     enabled: true,
+ *     cronExp: "0 0 12 * * ? *",
  *     retentionPeriodHours: 1000,
+ *     excludedRepositories: [],
+ *     createArchive: false,
+ *     excludeNewRepositories: true,
  *     sendMailOnError: true,
  *     verifyDiskSpace: true,
+ *     exportMissionControl: true,
  * });
  * ```
  * <!--End PulumiCodeChooser -->

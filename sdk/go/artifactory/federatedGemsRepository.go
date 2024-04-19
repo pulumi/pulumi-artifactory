@@ -33,12 +33,12 @@ import (
 //				Key: pulumi.String("terraform-federated-test-gems-repo"),
 //				Members: artifactory.FederatedGemsRepositoryMemberArray{
 //					&artifactory.FederatedGemsRepositoryMemberArgs{
-//						Enabled: pulumi.Bool(true),
 //						Url:     pulumi.String("http://tempurl.org/artifactory/terraform-federated-test-gems-repo"),
+//						Enabled: pulumi.Bool(true),
 //					},
 //					&artifactory.FederatedGemsRepositoryMemberArgs{
-//						Enabled: pulumi.Bool(true),
 //						Url:     pulumi.String("http://tempurl2.org/artifactory/terraform-federated-test-gems-repo-2"),
+//						Enabled: pulumi.Bool(true),
 //					},
 //				},
 //			})

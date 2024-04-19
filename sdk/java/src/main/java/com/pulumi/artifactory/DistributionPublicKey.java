@@ -44,7 +44,9 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var my_key = new DistributionPublicKey(&#34;my-key&#34;, DistributionPublicKeyArgs.builder()        
  *             .alias(&#34;my-key&#34;)
- *             .publicKey(Files.readString(Paths.get(&#34;samples/rsa.pub&#34;)))
+ *             .publicKey(StdFunctions.file(FileArgs.builder()
+ *                 .input(&#34;samples/rsa.pub&#34;)
+ *                 .build()).result())
  *             .build());
  * 
  *     }

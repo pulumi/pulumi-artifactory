@@ -15,13 +15,13 @@ import * as utilities from "./utilities";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * const foo_bower = new artifactory.VirtualBowerRepository("foo-bower", {
+ *     key: "foo-bower",
+ *     repositories: [],
  *     description: "A test virtual repo",
+ *     notes: "Internal description",
+ *     includesPattern: "com/jfrog/**,cloud/jfrog/**",
  *     excludesPattern: "com/google/**",
  *     externalDependenciesEnabled: false,
- *     includesPattern: "com/jfrog/**,cloud/jfrog/**",
- *     key: "foo-bower",
- *     notes: "Internal description",
- *     repositories: [],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

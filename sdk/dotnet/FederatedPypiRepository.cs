@@ -30,13 +30,13 @@ namespace Pulumi.Artifactory
     ///         {
     ///             new Artifactory.Inputs.FederatedPypiRepositoryMemberArgs
     ///             {
-    ///                 Enabled = true,
     ///                 Url = "http://tempurl.org/artifactory/terraform-federated-test-pypi-repo",
+    ///                 Enabled = true,
     ///             },
     ///             new Artifactory.Inputs.FederatedPypiRepositoryMemberArgs
     ///             {
-    ///                 Enabled = true,
     ///                 Url = "http://tempurl2.org/artifactory/terraform-federated-test-pypi-repo-2",
+    ///                 Enabled = true,
     ///             },
     ///         },
     ///     });

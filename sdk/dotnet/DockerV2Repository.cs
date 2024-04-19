@@ -26,8 +26,8 @@ namespace Pulumi.Artifactory
     ///     var foo = new Artifactory.DockerV2Repository("foo", new()
     ///     {
     ///         Key = "foo",
-    ///         MaxUniqueTags = 5,
     ///         TagRetention = 3,
+    ///         MaxUniqueTags = 5,
     ///     });
     /// 
     /// });

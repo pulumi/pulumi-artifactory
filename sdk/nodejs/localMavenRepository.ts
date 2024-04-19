@@ -15,12 +15,12 @@ import * as utilities from "./utilities";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * const terraform_local_test_maven_repo_basic = new artifactory.LocalMavenRepository("terraform-local-test-maven-repo-basic", {
+ *     key: "terraform-local-test-maven-repo-basic",
  *     checksumPolicyType: "client-checksums",
+ *     snapshotVersionBehavior: "unique",
+ *     maxUniqueSnapshots: 10,
  *     handleReleases: true,
  *     handleSnapshots: true,
- *     key: "terraform-local-test-maven-repo-basic",
- *     maxUniqueSnapshots: 10,
- *     snapshotVersionBehavior: "unique",
  *     suppressPomConsistencyChecks: false,
  * });
  * ```

@@ -29,8 +29,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.GetFileList(ctx, &artifactory.GetFileListArgs{
-//				FolderPath:    "path/to/artifact",
 //				RepositoryKey: "my-generic-local",
+//				FolderPath:    "path/to/artifact",
 //			}, nil)
 //			if err != nil {
 //				return err

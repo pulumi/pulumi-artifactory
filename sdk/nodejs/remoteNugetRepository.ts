@@ -18,12 +18,12 @@ import * as utilities from "./utilities";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * const my_remote_nuget = new artifactory.RemoteNugetRepository("my-remote-nuget", {
+ *     key: "my-remote-nuget",
+ *     url: "https://www.nuget.org/",
  *     downloadContextPath: "api/v2/package",
  *     forceNugetAuthentication: true,
- *     key: "my-remote-nuget",
- *     symbolServerUrl: "https://symbols.nuget.org/download/symbols",
- *     url: "https://www.nuget.org/",
  *     v3FeedUrl: "https://api.nuget.org/v3/index.json",
+ *     symbolServerUrl: "https://symbols.nuget.org/download/symbols",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

@@ -26,12 +26,12 @@ namespace Pulumi.Artifactory
     /// {
     ///     var gradle_remote = new Artifactory.RemoteGradleRepository("gradle-remote", new()
     ///     {
+    ///         Key = "gradle-remote-foo",
+    ///         Url = "https://repo1.maven.org/maven2/",
     ///         FetchJarsEagerly = true,
     ///         FetchSourcesEagerly = false,
-    ///         Key = "gradle-remote-foo",
-    ///         RejectInvalidJars = true,
     ///         SuppressPomConsistencyChecks = true,
-    ///         Url = "https://repo1.maven.org/maven2/",
+    ///         RejectInvalidJars = true,
     ///     });
     /// 
     /// });

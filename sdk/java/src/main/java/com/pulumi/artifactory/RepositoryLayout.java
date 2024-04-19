@@ -45,11 +45,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var custom_layout = new RepositoryLayout(&#34;custom-layout&#34;, RepositoryLayoutArgs.builder()        
+ *             .name(&#34;custom-layout&#34;)
  *             .artifactPathPattern(&#34;[orgPath]/[module]/[baseRev](-[folderItegRev])/[module]-[baseRev](-[fileItegRev])(-[classifier]).[ext]&#34;)
- *             .descriptorPathPattern(&#34;[orgPath]/[module]/[baseRev](-[folderItegRev])/[module]-[baseRev](-[fileItegRev])(-[classifier]).pom&#34;)
  *             .distinctiveDescriptorPathPattern(true)
- *             .fileIntegrationRevisionRegexp(&#34;Foo|(?:(?:[0-9]{8}.[0-9]{6})-(?:[0-9]+))&#34;)
+ *             .descriptorPathPattern(&#34;[orgPath]/[module]/[baseRev](-[folderItegRev])/[module]-[baseRev](-[fileItegRev])(-[classifier]).pom&#34;)
  *             .folderIntegrationRevisionRegexp(&#34;Foo&#34;)
+ *             .fileIntegrationRevisionRegexp(&#34;Foo|(?:(?:[0-9]{8}.[0-9]{6})-(?:[0-9]+))&#34;)
  *             .build());
  * 
  *     }

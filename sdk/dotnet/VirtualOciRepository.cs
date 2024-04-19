@@ -27,14 +27,14 @@ namespace Pulumi.Artifactory
     /// {
     ///     var my_oci_virtual = new Artifactory.VirtualOciRepository("my-oci-virtual", new()
     ///     {
-    ///         Description = "A test virtual OCI repo",
     ///         Key = "my-oci-virtual",
-    ///         Notes = "Internal description",
     ///         Repositories = new[]
     ///         {
     ///             "my-oci-local",
     ///             "my-oci-remote",
     ///         },
+    ///         Description = "A test virtual OCI repo",
+    ///         Notes = "Internal description",
     ///         ResolveOciTagsByTimestamp = true,
     ///     });
     /// 

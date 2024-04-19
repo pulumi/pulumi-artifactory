@@ -47,12 +47,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var sbt_remote = new RemoteSbtRepository(&#34;sbt-remote&#34;, RemoteSbtRepositoryArgs.builder()        
+ *             .key(&#34;sbt-remote-foo&#34;)
+ *             .url(&#34;https://repo1.maven.org/maven2/&#34;)
  *             .fetchJarsEagerly(true)
  *             .fetchSourcesEagerly(false)
- *             .key(&#34;sbt-remote-foo&#34;)
- *             .rejectInvalidJars(true)
  *             .suppressPomConsistencyChecks(true)
- *             .url(&#34;https://repo1.maven.org/maven2/&#34;)
+ *             .rejectInvalidJars(true)
  *             .build());
  * 
  *     }

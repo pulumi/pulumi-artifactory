@@ -22,19 +22,19 @@ import * as utilities from "./utilities";
  *
  * // Configure Artifactory OAuth SSO settings
  * const oauth = new artifactory.OauthSettings("oauth", {
- *     allowUserToAccessProfile: true,
  *     enable: true,
+ *     persistUsers: true,
+ *     allowUserToAccessProfile: true,
  *     oauthProviders: [{
- *         apiUrl: "https://organization.okta.com/oauth2/v1/userinfo",
- *         authUrl: "https://organization.okta.com/oauth2/v1/authorize",
+ *         name: "okta",
+ *         enabled: false,
+ *         type: "openId",
  *         clientId: "foo",
  *         clientSecret: "bar",
- *         enabled: false,
- *         name: "okta",
+ *         apiUrl: "https://organization.okta.com/oauth2/v1/userinfo",
+ *         authUrl: "https://organization.okta.com/oauth2/v1/authorize",
  *         tokenUrl: "https://organization.okta.com/oauth2/v1/token",
- *         type: "openId",
  *     }],
- *     persistUsers: true,
  * });
  * ```
  * <!--End PulumiCodeChooser -->

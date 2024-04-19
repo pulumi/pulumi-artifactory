@@ -31,8 +31,8 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewDockerV2Repository(ctx, "foo", &artifactory.DockerV2RepositoryArgs{
 //				Key:           pulumi.String("foo"),
-//				MaxUniqueTags: pulumi.Int(5),
 //				TagRetention:  pulumi.Int(3),
+//				MaxUniqueTags: pulumi.Int(5),
 //			})
 //			if err != nil {
 //				return err

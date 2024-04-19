@@ -33,12 +33,12 @@ import (
 //				Key: pulumi.String("terraform-federated-test-gradle-repo"),
 //				Members: artifactory.FederatedGradleRepositoryMemberArray{
 //					&artifactory.FederatedGradleRepositoryMemberArgs{
-//						Enabled: pulumi.Bool(true),
 //						Url:     pulumi.String("http://tempurl.org/artifactory/terraform-federated-test-gradle-repo"),
+//						Enabled: pulumi.Bool(true),
 //					},
 //					&artifactory.FederatedGradleRepositoryMemberArgs{
-//						Enabled: pulumi.Bool(true),
 //						Url:     pulumi.String("http://tempurl2.org/artifactory/terraform-federated-test-gradle-repo-2"),
+//						Enabled: pulumi.Bool(true),
 //					},
 //				},
 //			})

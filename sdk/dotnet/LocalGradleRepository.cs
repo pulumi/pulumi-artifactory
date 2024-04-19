@@ -25,12 +25,12 @@ namespace Pulumi.Artifactory
     /// {
     ///     var terraform_local_test_gradle_repo_basic = new Artifactory.LocalGradleRepository("terraform-local-test-gradle-repo-basic", new()
     ///     {
+    ///         Key = "terraform-local-test-gradle-repo-basic",
     ///         ChecksumPolicyType = "client-checksums",
+    ///         SnapshotVersionBehavior = "unique",
+    ///         MaxUniqueSnapshots = 10,
     ///         HandleReleases = true,
     ///         HandleSnapshots = true,
-    ///         Key = "terraform-local-test-gradle-repo-basic",
-    ///         MaxUniqueSnapshots = 10,
-    ///         SnapshotVersionBehavior = "unique",
     ///         SuppressPomConsistencyChecks = true,
     ///     });
     /// 

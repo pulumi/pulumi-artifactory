@@ -47,12 +47,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var my_remote_nuget = new RemoteNugetRepository(&#34;my-remote-nuget&#34;, RemoteNugetRepositoryArgs.builder()        
+ *             .key(&#34;my-remote-nuget&#34;)
+ *             .url(&#34;https://www.nuget.org/&#34;)
  *             .downloadContextPath(&#34;api/v2/package&#34;)
  *             .forceNugetAuthentication(true)
- *             .key(&#34;my-remote-nuget&#34;)
- *             .symbolServerUrl(&#34;https://symbols.nuget.org/download/symbols&#34;)
- *             .url(&#34;https://www.nuget.org/&#34;)
  *             .v3FeedUrl(&#34;https://api.nuget.org/v3/index.json&#34;)
+ *             .symbolServerUrl(&#34;https://symbols.nuget.org/download/symbols&#34;)
  *             .build());
  * 
  *     }

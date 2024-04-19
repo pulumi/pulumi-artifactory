@@ -310,13 +310,14 @@ class User(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         test_user = artifactory.User("test-user",
-            admin=False,
-            disable_ui_access=False,
-            email="test-user@artifactory-terraform.com",
-            groups=["logged-in-users"],
-            internal_password_disabled=False,
+            name="terraform",
             password="my super secret password",
-            profile_updatable=True)
+            email="test-user@artifactory-terraform.com",
+            admin=False,
+            profile_updatable=True,
+            disable_ui_access=False,
+            internal_password_disabled=False,
+            groups=["logged-in-users"])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -361,13 +362,14 @@ class User(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         test_user = artifactory.User("test-user",
-            admin=False,
-            disable_ui_access=False,
-            email="test-user@artifactory-terraform.com",
-            groups=["logged-in-users"],
-            internal_password_disabled=False,
+            name="terraform",
             password="my super secret password",
-            profile_updatable=True)
+            email="test-user@artifactory-terraform.com",
+            admin=False,
+            profile_updatable=True,
+            disable_ui_access=False,
+            internal_password_disabled=False,
+            groups=["logged-in-users"])
         ```
         <!--End PulumiCodeChooser -->
 

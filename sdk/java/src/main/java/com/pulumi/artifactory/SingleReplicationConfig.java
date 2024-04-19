@@ -62,12 +62,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var foo_rep = new SingleReplicationConfig(&#34;foo-rep&#34;, SingleReplicationConfigArgs.builder()        
+ *             .repoKey(providerTestSource.key())
  *             .cronExp(&#34;0 0 * * * ?&#34;)
  *             .enableEventReplication(true)
- *             .password(var_.artifactory_password())
- *             .repoKey(providerTestSource.key())
- *             .url(var_.artifactory_url())
- *             .username(var_.artifactory_username())
+ *             .url(artifactoryUrl)
+ *             .username(artifactoryUsername)
+ *             .password(artifactoryPassword)
  *             .build());
  * 
  *     }

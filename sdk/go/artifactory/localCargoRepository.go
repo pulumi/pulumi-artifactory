@@ -30,9 +30,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewLocalCargoRepository(ctx, "terraform-local-test-cargo-repo-basic", &artifactory.LocalCargoRepositoryArgs{
+//				Key:               pulumi.String("terraform-local-test-cargo-repo-basic"),
 //				AnonymousAccess:   pulumi.Bool(false),
 //				EnableSparseIndex: pulumi.Bool(true),
-//				Key:               pulumi.String("terraform-local-test-cargo-repo-basic"),
 //			})
 //			if err != nil {
 //				return err

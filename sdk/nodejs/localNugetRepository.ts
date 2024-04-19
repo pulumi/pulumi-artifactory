@@ -15,9 +15,9 @@ import * as utilities from "./utilities";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * const terraform_local_test_nuget_repo_basic = new artifactory.LocalNugetRepository("terraform-local-test-nuget-repo-basic", {
- *     forceNugetAuthentication: true,
  *     key: "terraform-local-test-nuget-repo-basic",
  *     maxUniqueSnapshots: 5,
+ *     forceNugetAuthentication: true,
  * });
  * ```
  * <!--End PulumiCodeChooser -->

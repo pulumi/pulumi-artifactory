@@ -51,16 +51,24 @@ import javax.annotation.Nullable;
  *             .pairName(&#34;primary-keypair&#34;)
  *             .pairType(&#34;GPG&#34;)
  *             .alias(&#34;foo-alias-1&#34;)
- *             .privateKey(Files.readString(Paths.get(&#34;samples/gpg.priv&#34;)))
- *             .publicKey(Files.readString(Paths.get(&#34;samples/gpg.pub&#34;)))
+ *             .privateKey(StdFunctions.file(FileArgs.builder()
+ *                 .input(&#34;samples/gpg.priv&#34;)
+ *                 .build()).result())
+ *             .publicKey(StdFunctions.file(FileArgs.builder()
+ *                 .input(&#34;samples/gpg.pub&#34;)
+ *                 .build()).result())
  *             .build());
  * 
  *         var secondary_keypair = new Keypair(&#34;secondary-keypair&#34;, KeypairArgs.builder()        
  *             .pairName(&#34;secondary-keypair&#34;)
  *             .pairType(&#34;GPG&#34;)
  *             .alias(&#34;foo-alias-2&#34;)
- *             .privateKey(Files.readString(Paths.get(&#34;samples/gpg.priv&#34;)))
- *             .publicKey(Files.readString(Paths.get(&#34;samples/gpg.pub&#34;)))
+ *             .privateKey(StdFunctions.file(FileArgs.builder()
+ *                 .input(&#34;samples/gpg.priv&#34;)
+ *                 .build()).result())
+ *             .publicKey(StdFunctions.file(FileArgs.builder()
+ *                 .input(&#34;samples/gpg.pub&#34;)
+ *                 .build()).result())
  *             .build());
  * 
  *         var foo_rpm_virtual = new VirtualRpmRepository(&#34;foo-rpm-virtual&#34;, VirtualRpmRepositoryArgs.builder()        

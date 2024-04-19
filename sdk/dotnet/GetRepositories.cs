@@ -27,8 +27,8 @@ namespace Pulumi.Artifactory
         /// {
         ///     var all_alpine_local = Artifactory.GetRepositories.Invoke(new()
         ///     {
-        ///         PackageType = "alpine",
         ///         RepositoryType = "local",
+        ///         PackageType = "alpine",
         ///     });
         /// 
         /// });
@@ -54,8 +54,8 @@ namespace Pulumi.Artifactory
         /// {
         ///     var all_alpine_local = Artifactory.GetRepositories.Invoke(new()
         ///     {
-        ///         PackageType = "alpine",
         ///         RepositoryType = "local",
+        ///         PackageType = "alpine",
         ///     });
         /// 
         /// });

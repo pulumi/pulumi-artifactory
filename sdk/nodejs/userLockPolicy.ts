@@ -15,6 +15,7 @@ import * as utilities from "./utilities";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * const my_user_lock_policy = new artifactory.UserLockPolicy("my-user-lock-policy", {
+ *     name: "my-user-lock-policy",
  *     enabled: true,
  *     loginAttempts: 10,
  * });

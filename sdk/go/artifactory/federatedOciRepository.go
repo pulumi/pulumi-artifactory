@@ -33,12 +33,12 @@ import (
 //				Key: pulumi.String("my-oci-federated"),
 //				Members: artifactory.FederatedOciRepositoryMemberArray{
 //					&artifactory.FederatedOciRepositoryMemberArgs{
-//						Enabled: pulumi.Bool(true),
 //						Url:     pulumi.String("http://tempurl.org/artifactory/my-oci-federated"),
+//						Enabled: pulumi.Bool(true),
 //					},
 //					&artifactory.FederatedOciRepositoryMemberArgs{
-//						Enabled: pulumi.Bool(true),
 //						Url:     pulumi.String("http://tempurl2.org/artifactory/my-oci-federated-2"),
+//						Enabled: pulumi.Bool(true),
 //					},
 //				},
 //			})

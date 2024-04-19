@@ -18,28 +18,28 @@ import * as utilities from "./utilities";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * const artifactory_release_bundle_webhook = new artifactory.ArtifactoryReleaseBundleWebhook("artifactory-release-bundle-webhook", {
- *     criteria: {
- *         anyReleaseBundle: false,
- *         excludePatterns: ["bar/**"],
- *         includePatterns: ["foo/**"],
- *         registeredReleaseBundleNames: ["bundle-name"],
- *     },
+ *     key: "artifactory-release-bundle-webhook",
  *     eventTypes: [
  *         "received",
  *         "delete_started",
  *         "delete_completed",
  *         "delete_failed",
  *     ],
+ *     criteria: {
+ *         anyReleaseBundle: false,
+ *         registeredReleaseBundleNames: ["bundle-name"],
+ *         includePatterns: ["foo/**"],
+ *         excludePatterns: ["bar/**"],
+ *     },
  *     handlers: [{
+ *         url: "http://tempurl.org/webhook",
+ *         secret: "some-secret",
+ *         proxy: "proxy-key",
  *         customHttpHeaders: {
  *             "header-1": "value-1",
  *             "header-2": "value-2",
  *         },
- *         proxy: "proxy-key",
- *         secret: "some-secret",
- *         url: "http://tempurl.org/webhook",
  *     }],
- *     key: "artifactory-release-bundle-webhook",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

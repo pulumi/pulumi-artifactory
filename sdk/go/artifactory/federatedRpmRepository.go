@@ -33,12 +33,12 @@ import (
 //				Key: pulumi.String("terraform-federated-test-rpm-repo"),
 //				Members: artifactory.FederatedRpmRepositoryMemberArray{
 //					&artifactory.FederatedRpmRepositoryMemberArgs{
-//						Enabled: pulumi.Bool(true),
 //						Url:     pulumi.String("http://tempurl.org/artifactory/terraform-federated-test-rpm-repo"),
+//						Enabled: pulumi.Bool(true),
 //					},
 //					&artifactory.FederatedRpmRepositoryMemberArgs{
-//						Enabled: pulumi.Bool(true),
 //						Url:     pulumi.String("http://tempurl2.org/artifactory/terraform-federated-test-rpm-repo-2"),
+//						Enabled: pulumi.Bool(true),
 //					},
 //				},
 //			})

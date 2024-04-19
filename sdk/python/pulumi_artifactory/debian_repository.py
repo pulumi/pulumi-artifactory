@@ -740,19 +740,20 @@ class DebianRepository(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
+        import pulumi_std as std
 
         some_keypair_gpg1 = artifactory.Keypair("some-keypairGPG1",
-            pair_name=f"some-keypair{random_id['randid']['id']}",
+            pair_name=f"some-keypair{randid['id']}",
             pair_type="GPG",
             alias="foo-alias1",
-            private_key=(lambda path: open(path).read())("samples/gpg.priv"),
-            public_key=(lambda path: open(path).read())("samples/gpg.pub"))
+            private_key=std.file(input="samples/gpg.priv").result,
+            public_key=std.file(input="samples/gpg.pub").result)
         some_keypair_gpg2 = artifactory.Keypair("some-keypairGPG2",
-            pair_name=f"some-keypair4{random_id['randid']['id']}",
+            pair_name=f"some-keypair4{randid['id']}",
             pair_type="GPG",
             alias="foo-alias2",
-            private_key=(lambda path: open(path).read())("samples/gpg.priv"),
-            public_key=(lambda path: open(path).read())("samples/gpg.pub"))
+            private_key=std.file(input="samples/gpg.priv").result,
+            public_key=std.file(input="samples/gpg.pub").result)
         my_debian_repo = artifactory.DebianRepository("my-debian-repo",
             key="my-debian-repo",
             primary_keypair_ref=some_keypair_gpg1.pair_name,
@@ -827,19 +828,20 @@ class DebianRepository(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
+        import pulumi_std as std
 
         some_keypair_gpg1 = artifactory.Keypair("some-keypairGPG1",
-            pair_name=f"some-keypair{random_id['randid']['id']}",
+            pair_name=f"some-keypair{randid['id']}",
             pair_type="GPG",
             alias="foo-alias1",
-            private_key=(lambda path: open(path).read())("samples/gpg.priv"),
-            public_key=(lambda path: open(path).read())("samples/gpg.pub"))
+            private_key=std.file(input="samples/gpg.priv").result,
+            public_key=std.file(input="samples/gpg.pub").result)
         some_keypair_gpg2 = artifactory.Keypair("some-keypairGPG2",
-            pair_name=f"some-keypair4{random_id['randid']['id']}",
+            pair_name=f"some-keypair4{randid['id']}",
             pair_type="GPG",
             alias="foo-alias2",
-            private_key=(lambda path: open(path).read())("samples/gpg.priv"),
-            public_key=(lambda path: open(path).read())("samples/gpg.pub"))
+            private_key=std.file(input="samples/gpg.priv").result,
+            public_key=std.file(input="samples/gpg.pub").result)
         my_debian_repo = artifactory.DebianRepository("my-debian-repo",
             key="my-debian-repo",
             primary_keypair_ref=some_keypair_gpg1.pair_name,

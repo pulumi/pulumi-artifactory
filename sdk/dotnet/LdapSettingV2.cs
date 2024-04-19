@@ -30,22 +30,22 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var ldapName = new Artifactory.LdapSettingV2("ldapName", new()
+    ///     var ldapName = new Artifactory.LdapSettingV2("ldap_name", new()
     ///     {
-    ///         AllowUserToAccessProfile = false,
-    ///         AutoCreateUser = true,
-    ///         EmailAttribute = "mail",
-    ///         Enabled = true,
     ///         Key = "ldap_name",
-    ///         LdapPoisoningProtection = true,
+    ///         Enabled = true,
     ///         LdapUrl = "ldap://ldap_server_url",
+    ///         UserDnPattern = "uid={0},ou=People",
+    ///         EmailAttribute = "mail",
+    ///         AutoCreateUser = true,
+    ///         LdapPoisoningProtection = true,
+    ///         AllowUserToAccessProfile = false,
+    ///         PagingSupportEnabled = false,
+    ///         SearchFilter = "(uid={0})",
+    ///         SearchBase = "ou=users",
+    ///         SearchSubTree = true,
     ///         ManagerDn = "mgr_dn",
     ///         ManagerPassword = "mgr_passwd_random",
-    ///         PagingSupportEnabled = false,
-    ///         SearchBase = "ou=users",
-    ///         SearchFilter = "(uid={0})",
-    ///         SearchSubTree = true,
-    ///         UserDnPattern = "uid={0},ou=People",
     ///     });
     /// 
     /// });

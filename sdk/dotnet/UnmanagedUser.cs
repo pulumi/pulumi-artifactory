@@ -31,6 +31,7 @@ namespace Pulumi.Artifactory
     ///     // Create a new Artifactory user called terraform
     ///     var test_user = new Artifactory.UnmanagedUser("test-user", new()
     ///     {
+    ///         Name = "terraform",
     ///         Email = "test-user@artifactory-terraform.com",
     ///         Groups = new[]
     ///         {

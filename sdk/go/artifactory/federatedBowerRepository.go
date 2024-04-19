@@ -33,12 +33,12 @@ import (
 //				Key: pulumi.String("terraform-federated-test-bower-repo"),
 //				Members: artifactory.FederatedBowerRepositoryMemberArray{
 //					&artifactory.FederatedBowerRepositoryMemberArgs{
-//						Enabled: pulumi.Bool(true),
 //						Url:     pulumi.String("http://tempurl.org/artifactory/terraform-federated-test-bower-repo"),
+//						Enabled: pulumi.Bool(true),
 //					},
 //					&artifactory.FederatedBowerRepositoryMemberArgs{
-//						Enabled: pulumi.Bool(true),
 //						Url:     pulumi.String("http://tempurl2.org/artifactory/terraform-federated-test-bower-repo-2"),
+//						Enabled: pulumi.Bool(true),
 //					},
 //				},
 //			})

@@ -33,12 +33,12 @@ import (
 //				Key: pulumi.String("terraform-federated-test-gitlfs-repo"),
 //				Members: artifactory.FederatedGitltfsRepositoryMemberArray{
 //					&artifactory.FederatedGitltfsRepositoryMemberArgs{
-//						Enabled: pulumi.Bool(true),
 //						Url:     pulumi.String("http://tempurl.org/artifactory/terraform-federated-test-gitlfs-repo"),
+//						Enabled: pulumi.Bool(true),
 //					},
 //					&artifactory.FederatedGitltfsRepositoryMemberArgs{
-//						Enabled: pulumi.Bool(true),
 //						Url:     pulumi.String("http://tempurl2.org/artifactory/terraform-federated-test-gitlfs-repo-2"),
+//						Enabled: pulumi.Bool(true),
 //					},
 //				},
 //			})

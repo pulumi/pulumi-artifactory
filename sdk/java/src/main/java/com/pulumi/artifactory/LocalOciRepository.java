@@ -46,8 +46,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var my_oci_local = new LocalOciRepository(&#34;my-oci-local&#34;, LocalOciRepositoryArgs.builder()        
  *             .key(&#34;my-oci-local&#34;)
- *             .maxUniqueTags(5)
  *             .tagRetention(3)
+ *             .maxUniqueTags(5)
  *             .build());
  * 
  *     }

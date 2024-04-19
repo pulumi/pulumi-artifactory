@@ -1815,13 +1815,13 @@ class RemoteMavenRepository(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         maven_remote = artifactory.RemoteMavenRepository("maven-remote",
+            key="maven-remote-foo",
+            url="https://repo1.maven.org/maven2/",
             fetch_jars_eagerly=True,
             fetch_sources_eagerly=False,
-            key="maven-remote-foo",
-            metadata_retrieval_timeout_secs=120,
-            reject_invalid_jars=True,
             suppress_pom_consistency_checks=False,
-            url="https://repo1.maven.org/maven2/")
+            reject_invalid_jars=True,
+            metadata_retrieval_timeout_secs=120)
         ```
         <!--End PulumiCodeChooser -->
 
@@ -1935,13 +1935,13 @@ class RemoteMavenRepository(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         maven_remote = artifactory.RemoteMavenRepository("maven-remote",
+            key="maven-remote-foo",
+            url="https://repo1.maven.org/maven2/",
             fetch_jars_eagerly=True,
             fetch_sources_eagerly=False,
-            key="maven-remote-foo",
-            metadata_retrieval_timeout_secs=120,
-            reject_invalid_jars=True,
             suppress_pom_consistency_checks=False,
-            url="https://repo1.maven.org/maven2/")
+            reject_invalid_jars=True,
+            metadata_retrieval_timeout_secs=120)
         ```
         <!--End PulumiCodeChooser -->
 

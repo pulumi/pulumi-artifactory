@@ -26,11 +26,11 @@ namespace Pulumi.Artifactory
     /// {
     ///     var my_remote_cargo = new Artifactory.RemoteCargoRepository("my-remote-cargo", new()
     ///     {
+    ///         Key = "my-remote-cargo",
     ///         AnonymousAccess = true,
     ///         EnableSparseIndex = true,
-    ///         GitRegistryUrl = "https://github.com/rust-lang/foo.index",
-    ///         Key = "my-remote-cargo",
     ///         Url = "https://github.com/rust-lang/crates.io-index",
+    ///         GitRegistryUrl = "https://github.com/rust-lang/foo.index",
     ///     });
     /// 
     /// });

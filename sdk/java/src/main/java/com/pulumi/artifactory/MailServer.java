@@ -46,16 +46,16 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var mymailserver = new MailServer(&#34;mymailserver&#34;, MailServerArgs.builder()        
- *             .artifactoryUrl(&#34;http://tempurl.org&#34;)
  *             .enabled(true)
+ *             .artifactoryUrl(&#34;http://tempurl.org&#34;)
  *             .from(&#34;test@jfrog.com&#34;)
  *             .host(&#34;http://tempurl.org&#34;)
+ *             .username(&#34;test-user&#34;)
  *             .password(&#34;test-password&#34;)
  *             .port(25)
  *             .subjectPrefix(&#34;[Test]&#34;)
  *             .useSsl(true)
  *             .useTls(true)
- *             .username(&#34;test-user&#34;)
  *             .build());
  * 
  *     }

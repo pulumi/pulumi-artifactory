@@ -16,13 +16,13 @@ import * as utilities from "./utilities";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * const foo_generic = new artifactory.VirtualGenericRepository("foo-generic", {
- *     description: "A test virtual repo",
- *     excludesPattern: "com/google/**",
- *     includesPattern: "com/jfrog/**,cloud/jfrog/**",
  *     key: "foo-generic",
- *     notes: "Internal description",
  *     repoLayoutRef: "simple-default",
  *     repositories: [],
+ *     description: "A test virtual repo",
+ *     notes: "Internal description",
+ *     includesPattern: "com/jfrog/**,cloud/jfrog/**",
+ *     excludesPattern: "com/google/**",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

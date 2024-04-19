@@ -15,40 +15,6 @@ import (
 // Creates a virtual Swift repository.
 // Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Swift+Repositories#SwiftRepositories-VirtualRepositories).
 //
-// ## Example Usage
-//
-// <!--Start PulumiCodeChooser -->
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-swift/sdk/v1/go/swift"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := index.NewSwift(ctx, "foo-conan", &index.SwiftArgs{
-//				Key:             "foo-conan",
-//				RepoLayoutRef:   "swift-default",
-//				Repositories:    []interface{}{},
-//				Description:     "A test virtual repo",
-//				Notes:           "Internal description",
-//				IncludesPattern: "com/jfrog/**,cloud/jfrog/**",
-//				ExcludesPattern: "com/google/**",
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// <!--End PulumiCodeChooser -->
-//
 // ## Import
 //
 // Virtual repositories can be imported using their name, e.g.

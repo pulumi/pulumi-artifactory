@@ -53,8 +53,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var exisingUser = new AccessToken(&#34;exisingUser&#34;, AccessTokenArgs.builder()        
- *             .endDateRelative(&#34;5m&#34;)
  *             .username(&#34;existing-user&#34;)
+ *             .endDateRelative(&#34;5m&#34;)
  *             .build());
  * 
  *     }
@@ -89,13 +89,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var newUserUser = new User(&#34;newUserUser&#34;, UserArgs.builder()        
+ *         var newUser = new User(&#34;newUser&#34;, UserArgs.builder()        
+ *             .name(&#34;new_user&#34;)
  *             .email(&#34;new_user@somewhere.com&#34;)
  *             .groups(&#34;readers&#34;)
  *             .build());
  * 
  *         var newUserAccessToken = new AccessToken(&#34;newUserAccessToken&#34;, AccessTokenArgs.builder()        
- *             .username(newUserUser.name())
+ *             .username(newUser.name())
  *             .endDateRelative(&#34;5m&#34;)
  *             .build());
  * 
@@ -129,9 +130,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var temporaryUser = new AccessToken(&#34;temporaryUser&#34;, AccessTokenArgs.builder()        
+ *             .username(&#34;temporary-user&#34;)
  *             .endDateRelative(&#34;1h&#34;)
  *             .groups(&#34;readers&#34;)
- *             .username(&#34;temporary-user&#34;)
  *             .build());
  * 
  *     }
@@ -163,8 +164,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var noExpiry = new AccessToken(&#34;noExpiry&#34;, AccessTokenArgs.builder()        
- *             .endDateRelative(&#34;0s&#34;)
  *             .username(&#34;existing-user&#34;)
+ *             .endDateRelative(&#34;0s&#34;)
  *             .build());
  * 
  *     }
@@ -196,10 +197,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var refreshable = new AccessToken(&#34;refreshable&#34;, AccessTokenArgs.builder()        
- *             .endDateRelative(&#34;1m&#34;)
- *             .groups(&#34;readers&#34;)
- *             .refreshable(true)
  *             .username(&#34;refreshable&#34;)
+ *             .endDateRelative(&#34;1m&#34;)
+ *             .refreshable(true)
+ *             .groups(&#34;readers&#34;)
  *             .build());
  * 
  *     }
@@ -232,11 +233,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var admin = new AccessToken(&#34;admin&#34;, AccessTokenArgs.builder()        
+ *             .username(&#34;admin&#34;)
+ *             .endDateRelative(&#34;1m&#34;)
  *             .adminToken(AccessTokenAdminTokenArgs.builder()
  *                 .instanceId(&#34;&lt;instance id&gt;&#34;)
  *                 .build())
- *             .endDateRelative(&#34;1m&#34;)
- *             .username(&#34;admin&#34;)
  *             .build());
  * 
  *     }
@@ -268,10 +269,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var audience = new AccessToken(&#34;audience&#34;, AccessTokenArgs.builder()        
- *             .audience(&#34;jfrt@*&#34;)
- *             .endDateRelative(&#34;1m&#34;)
- *             .refreshable(true)
  *             .username(&#34;audience&#34;)
+ *             .endDateRelative(&#34;1m&#34;)
+ *             .audience(&#34;jfrt@*&#34;)
+ *             .refreshable(true)
  *             .build());
  * 
  *     }
@@ -303,9 +304,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var fixeddate = new AccessToken(&#34;fixeddate&#34;, AccessTokenArgs.builder()        
+ *             .username(&#34;fixeddate&#34;)
  *             .endDate(&#34;2018-01-01T01:02:03Z&#34;)
  *             .groups(&#34;readers&#34;)
- *             .username(&#34;fixeddate&#34;)
  *             .build());
  * 
  *     }
@@ -349,7 +350,7 @@ import javax.annotation.Nullable;
  * 
  *         var rotating = new AccessToken(&#34;rotating&#34;, AccessTokenArgs.builder()        
  *             .username(&#34;rotating&#34;)
- *             .endDate(time_rotating.now_plus_1_hour().rotation_rfc3339())
+ *             .endDate(nowPlus1Hour.rotationRfc3339())
  *             .groups(&#34;readers&#34;)
  *             .build());
  * 
@@ -357,6 +358,60 @@ import javax.annotation.Nullable;
  * }
  * ```
  * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Rotate token each pulumi up
+ * This example will generate a token that will expire in 1 hour.
+ * 
+ * If `pulumi up` is run before 1 hour, a new token is generated with an expiry of 1 hour.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.time.Rotating;
+ * import com.pulumi.time.RotatingArgs;
+ * import com.pulumi.artifactory.AccessToken;
+ * import com.pulumi.artifactory.AccessTokenArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var nowPlus1Hours = new Rotating(&#34;nowPlus1Hours&#34;, RotatingArgs.builder()        
+ *             .triggers(Map.of(&#34;key&#34;, StdFunctions.timestamp().result()))
+ *             .rotationHours(&#34;1&#34;)
+ *             .build());
+ * 
+ *         var rotating = new AccessToken(&#34;rotating&#34;, AccessTokenArgs.builder()        
+ *             .username(&#34;rotating&#34;)
+ *             .endDate(nowPlus1Hour.rotationRfc3339())
+ *             .groups(&#34;readers&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ## References
+ * 
+ * - https://www.jfrog.com/confluence/display/ACC1X/Access+Tokens
+ * - https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-CreateToken
+ * 
+ * ## Import
+ * 
+ * Artifactory **does not** retain access tokens and cannot be imported into state.
  * 
  */
 @ResourceType(type="artifactory:index/accessToken:AccessToken")

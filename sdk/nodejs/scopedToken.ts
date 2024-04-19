@@ -22,24 +22,24 @@ import * as utilities from "./utilities";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * //## Create a new Artifactory scoped token for an existing user
- * const scopedToken = new artifactory.ScopedToken("scopedToken", {username: "existing-user"});
+ * const scopedToken = new artifactory.ScopedToken("scoped_token", {username: "existing-user"});
  * //## **Note:** This assumes that the user `existing-user` has already been created in Artifactory by different means, i.e. manually or in a separate pulumi up.
  * //## Create a new Artifactory user and scoped token
- * const newUser = new artifactory.User("newUser", {
+ * const newUser = new artifactory.User("new_user", {
+ *     name: "new_user",
  *     email: "new_user@somewhere.com",
  *     groups: ["readers"],
  * });
- * const scopedTokenUser = new artifactory.ScopedToken("scopedTokenUser", {username: newUser.name});
+ * const scopedTokenUser = new artifactory.ScopedToken("scoped_token_user", {username: newUser.name});
  * //## Creates a new token for groups
- * const scopedTokenGroup = new artifactory.ScopedToken("scopedTokenGroup", {scopes: ["applied-permissions/groups:readers"]});
+ * const scopedTokenGroup = new artifactory.ScopedToken("scoped_token_group", {scopes: ["applied-permissions/groups:readers"]});
  * //## Create token with expiry
- * const scopedTokenNoExpiry = new artifactory.ScopedToken("scopedTokenNoExpiry", {
+ * const scopedTokenNoExpiry = new artifactory.ScopedToken("scoped_token_no_expiry", {
  *     username: "existing-user",
  *     expiresIn: 7200,
  * });
- * // in seconds
  * //## Creates a refreshable token
- * const scopedTokenRefreshable = new artifactory.ScopedToken("scopedTokenRefreshable", {
+ * const scopedTokenRefreshable = new artifactory.ScopedToken("scoped_token_refreshable", {
  *     username: "existing-user",
  *     refreshable: true,
  * });

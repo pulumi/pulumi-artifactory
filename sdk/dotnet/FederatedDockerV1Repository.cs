@@ -30,13 +30,13 @@ namespace Pulumi.Artifactory
     ///         {
     ///             new Artifactory.Inputs.FederatedDockerV1RepositoryMemberArgs
     ///             {
-    ///                 Enabled = true,
     ///                 Url = "http://tempurl.org/artifactory/terraform-federated-test-docker-repo",
+    ///                 Enabled = true,
     ///             },
     ///             new Artifactory.Inputs.FederatedDockerV1RepositoryMemberArgs
     ///             {
-    ///                 Enabled = true,
     ///                 Url = "http://tempurl2.org/artifactory/terraform-federated-test-docker-repo-2",
+    ///                 Enabled = true,
     ///             },
     ///         },
     ///     });

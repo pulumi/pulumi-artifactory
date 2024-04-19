@@ -33,15 +33,16 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewUser(ctx, "test-user", &artifactory.UserArgs{
-//				Admin:           pulumi.Bool(false),
-//				DisableUiAccess: pulumi.Bool(false),
-//				Email:           pulumi.String("test-user@artifactory-terraform.com"),
+//				Name:                     pulumi.String("terraform"),
+//				Password:                 pulumi.String("my super secret password"),
+//				Email:                    pulumi.String("test-user@artifactory-terraform.com"),
+//				Admin:                    pulumi.Bool(false),
+//				ProfileUpdatable:         pulumi.Bool(true),
+//				DisableUiAccess:          pulumi.Bool(false),
+//				InternalPasswordDisabled: pulumi.Bool(false),
 //				Groups: pulumi.StringArray{
 //					pulumi.String("logged-in-users"),
 //				},
-//				InternalPasswordDisabled: pulumi.Bool(false),
-//				Password:                 pulumi.String("my super secret password"),
-//				ProfileUpdatable:         pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err

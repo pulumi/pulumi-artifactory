@@ -17,12 +17,12 @@ import * as utilities from "./utilities";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * const my_helmoci_virtual = new artifactory.VirtualHelmociRepository("my-helmoci-virtual", {
- *     description: "A test virtual repo",
- *     excludesPattern: "com/google/**",
- *     includesPattern: "com/jfrog/**,cloud/jfrog/**",
  *     key: "my-helmoci-virtual",
- *     notes: "Internal description",
  *     repositories: [],
+ *     description: "A test virtual repo",
+ *     notes: "Internal description",
+ *     includesPattern: "com/jfrog/**,cloud/jfrog/**",
+ *     excludesPattern: "com/google/**",
  *     resolveOciTagsByTimestamp: true,
  * });
  * ```

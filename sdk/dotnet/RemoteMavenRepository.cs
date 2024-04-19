@@ -26,13 +26,13 @@ namespace Pulumi.Artifactory
     /// {
     ///     var maven_remote = new Artifactory.RemoteMavenRepository("maven-remote", new()
     ///     {
+    ///         Key = "maven-remote-foo",
+    ///         Url = "https://repo1.maven.org/maven2/",
     ///         FetchJarsEagerly = true,
     ///         FetchSourcesEagerly = false,
-    ///         Key = "maven-remote-foo",
-    ///         MetadataRetrievalTimeoutSecs = 120,
-    ///         RejectInvalidJars = true,
     ///         SuppressPomConsistencyChecks = false,
-    ///         Url = "https://repo1.maven.org/maven2/",
+    ///         RejectInvalidJars = true,
+    ///         MetadataRetrievalTimeoutSecs = 120,
     ///     });
     /// 
     /// });

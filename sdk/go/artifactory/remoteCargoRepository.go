@@ -31,11 +31,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewRemoteCargoRepository(ctx, "my-remote-cargo", &artifactory.RemoteCargoRepositoryArgs{
+//				Key:               pulumi.String("my-remote-cargo"),
 //				AnonymousAccess:   pulumi.Bool(true),
 //				EnableSparseIndex: pulumi.Bool(true),
-//				GitRegistryUrl:    pulumi.String("https://github.com/rust-lang/foo.index"),
-//				Key:               pulumi.String("my-remote-cargo"),
 //				Url:               pulumi.String("https://github.com/rust-lang/crates.io-index"),
+//				GitRegistryUrl:    pulumi.String("https://github.com/rust-lang/foo.index"),
 //			})
 //			if err != nil {
 //				return err

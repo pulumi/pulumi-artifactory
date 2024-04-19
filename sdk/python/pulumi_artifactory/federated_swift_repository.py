@@ -746,12 +746,12 @@ class FederatedSwiftRepository(pulumi.CustomResource):
             key="terraform-federated-test-swift-repo",
             members=[
                 artifactory.FederatedSwiftRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl.org/artifactory/terraform-federated-test-swift-repo",
+                    enabled=True,
                 ),
                 artifactory.FederatedSwiftRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl2.org/artifactory/terraform-federated-test-swift-repo-2",
+                    enabled=True,
                 ),
             ])
         ```
@@ -822,12 +822,12 @@ class FederatedSwiftRepository(pulumi.CustomResource):
             key="terraform-federated-test-swift-repo",
             members=[
                 artifactory.FederatedSwiftRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl.org/artifactory/terraform-federated-test-swift-repo",
+                    enabled=True,
                 ),
                 artifactory.FederatedSwiftRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl2.org/artifactory/terraform-federated-test-swift-repo-2",
+                    enabled=True,
                 ),
             ])
         ```

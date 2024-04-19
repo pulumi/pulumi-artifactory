@@ -1659,9 +1659,9 @@ class RemoteCocoapodsRepository(pulumi.CustomResource):
 
         my_remote_cocoapods = artifactory.RemoteCocoapodsRepository("my-remote-cocoapods",
             key="my-remote-cocoapods",
-            pods_specs_repo_url="https://github.com/CocoaPods/Spec",
             url="https://github.com/",
-            vcs_git_provider="GITHUB")
+            vcs_git_provider="GITHUB",
+            pods_specs_repo_url="https://github.com/CocoaPods/Spec")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -1773,9 +1773,9 @@ class RemoteCocoapodsRepository(pulumi.CustomResource):
 
         my_remote_cocoapods = artifactory.RemoteCocoapodsRepository("my-remote-cocoapods",
             key="my-remote-cocoapods",
-            pods_specs_repo_url="https://github.com/CocoaPods/Spec",
             url="https://github.com/",
-            vcs_git_provider="GITHUB")
+            vcs_git_provider="GITHUB",
+            pods_specs_repo_url="https://github.com/CocoaPods/Spec")
         ```
         <!--End PulumiCodeChooser -->
 

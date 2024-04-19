@@ -14,14 +14,18 @@ import * as utilities from "./utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
  * const some_keypair_6543461672124900137 = new artifactory.Keypair("some-keypair-6543461672124900137", {
  *     pairName: "some-keypair-6543461672124900137",
  *     pairType: "RSA",
  *     alias: "some-alias-6543461672124900137",
- *     privateKey: fs.readFileSync("samples/rsa.priv", "utf8"),
- *     publicKey: fs.readFileSync("samples/rsa.pub", "utf8"),
+ *     privateKey: std.file({
+ *         input: "samples/rsa.priv",
+ *     }).then(invoke => invoke.result),
+ *     publicKey: std.file({
+ *         input: "samples/rsa.pub",
+ *     }).then(invoke => invoke.result),
  *     passphrase: "PASSPHRASE",
  * });
  * ```

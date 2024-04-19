@@ -45,17 +45,17 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var baz_go = new GoRepository(&#34;baz-go&#34;, GoRepositoryArgs.builder()        
+ *             .key(&#34;baz-go&#34;)
+ *             .repoLayoutRef(&#34;go-default&#34;)
+ *             .repositories()
  *             .description(&#34;A test virtual repo&#34;)
+ *             .notes(&#34;Internal description&#34;)
+ *             .includesPattern(&#34;com/jfrog/**,cloud/jfrog/**&#34;)
  *             .excludesPattern(&#34;com/google/**&#34;)
  *             .externalDependenciesEnabled(true)
  *             .externalDependenciesPatterns(            
  *                 &#34;**{@literal /}github.com/**&#34;,
  *                 &#34;**{@literal /}go.googlesource.com/**&#34;)
- *             .includesPattern(&#34;com/jfrog/**,cloud/jfrog/**&#34;)
- *             .key(&#34;baz-go&#34;)
- *             .notes(&#34;Internal description&#34;)
- *             .repoLayoutRef(&#34;go-default&#34;)
- *             .repositories()
  *             .build());
  * 
  *     }

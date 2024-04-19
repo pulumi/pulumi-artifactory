@@ -521,18 +521,18 @@ class GoRepository(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         baz_go = artifactory.GoRepository("baz-go",
+            key="baz-go",
+            repo_layout_ref="go-default",
+            repositories=[],
             description="A test virtual repo",
+            notes="Internal description",
+            includes_pattern="com/jfrog/**,cloud/jfrog/**",
             excludes_pattern="com/google/**",
             external_dependencies_enabled=True,
             external_dependencies_patterns=[
                 "**/github.com/**",
                 "**/go.googlesource.com/**",
-            ],
-            includes_pattern="com/jfrog/**,cloud/jfrog/**",
-            key="baz-go",
-            notes="Internal description",
-            repo_layout_ref="go-default",
-            repositories=[])
+            ])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -587,18 +587,18 @@ class GoRepository(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         baz_go = artifactory.GoRepository("baz-go",
+            key="baz-go",
+            repo_layout_ref="go-default",
+            repositories=[],
             description="A test virtual repo",
+            notes="Internal description",
+            includes_pattern="com/jfrog/**,cloud/jfrog/**",
             excludes_pattern="com/google/**",
             external_dependencies_enabled=True,
             external_dependencies_patterns=[
                 "**/github.com/**",
                 "**/go.googlesource.com/**",
-            ],
-            includes_pattern="com/jfrog/**,cloud/jfrog/**",
-            key="baz-go",
-            notes="Internal description",
-            repo_layout_ref="go-default",
-            repositories=[])
+            ])
         ```
         <!--End PulumiCodeChooser -->
 

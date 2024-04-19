@@ -746,12 +746,12 @@ class FederatedGoRepository(pulumi.CustomResource):
             key="terraform-federated-test-go-repo",
             members=[
                 artifactory.FederatedGoRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl.org/artifactory/terraform-federated-test-go-repo",
+                    enabled=True,
                 ),
                 artifactory.FederatedGoRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl2.org/artifactory/terraform-federated-test-go-repo-2",
+                    enabled=True,
                 ),
             ])
         ```
@@ -822,12 +822,12 @@ class FederatedGoRepository(pulumi.CustomResource):
             key="terraform-federated-test-go-repo",
             members=[
                 artifactory.FederatedGoRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl.org/artifactory/terraform-federated-test-go-repo",
+                    enabled=True,
                 ),
                 artifactory.FederatedGoRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl2.org/artifactory/terraform-federated-test-go-repo-2",
+                    enabled=True,
                 ),
             ])
         ```

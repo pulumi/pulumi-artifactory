@@ -28,8 +28,76 @@ namespace Pulumi.Artifactory
     ///     // Create a new Artifactory permission target called testpermission
     ///     var test_perm = new Artifactory.PermissionTarget("test-perm", new()
     ///     {
+    ///         Name = "test-perm",
+    ///         Repo = new Artifactory.Inputs.PermissionTargetRepoArgs
+    ///         {
+    ///             IncludesPatterns = new[]
+    ///             {
+    ///                 "foo/**",
+    ///             },
+    ///             ExcludesPatterns = new[]
+    ///             {
+    ///                 "bar/**",
+    ///             },
+    ///             Repositories = new[]
+    ///             {
+    ///                 "example-repo-local",
+    ///             },
+    ///             Actions = new Artifactory.Inputs.PermissionTargetRepoActionsArgs
+    ///             {
+    ///                 Users = new[]
+    ///                 {
+    ///                     new Artifactory.Inputs.PermissionTargetRepoActionsUserArgs
+    ///                     {
+    ///                         Name = "anonymous",
+    ///                         Permissions = new[]
+    ///                         {
+    ///                             "read",
+    ///                             "write",
+    ///                         },
+    ///                     },
+    ///                     new Artifactory.Inputs.PermissionTargetRepoActionsUserArgs
+    ///                     {
+    ///                         Name = "user1",
+    ///                         Permissions = new[]
+    ///                         {
+    ///                             "read",
+    ///                             "write",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Groups = new[]
+    ///                 {
+    ///                     new Artifactory.Inputs.PermissionTargetRepoActionsGroupArgs
+    ///                     {
+    ///                         Name = "readers",
+    ///                         Permissions = new[]
+    ///                         {
+    ///                             "read",
+    ///                         },
+    ///                     },
+    ///                     new Artifactory.Inputs.PermissionTargetRepoActionsGroupArgs
+    ///                     {
+    ///                         Name = "dev",
+    ///                         Permissions = new[]
+    ///                         {
+    ///                             "read",
+    ///                             "write",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
     ///         Build = new Artifactory.Inputs.PermissionTargetBuildArgs
     ///         {
+    ///             IncludesPatterns = new[]
+    ///             {
+    ///                 "**",
+    ///             },
+    ///             Repositories = new[]
+    ///             {
+    ///                 "artifactory-build-info",
+    ///             },
     ///             Actions = new Artifactory.Inputs.PermissionTargetBuildActionsArgs
     ///             {
     ///                 Users = new[]
@@ -53,17 +121,17 @@ namespace Pulumi.Artifactory
     ///                     },
     ///                 },
     ///             },
+    ///         },
+    ///         ReleaseBundle = new Artifactory.Inputs.PermissionTargetReleaseBundleArgs
+    ///         {
     ///             IncludesPatterns = new[]
     ///             {
     ///                 "**",
     ///             },
     ///             Repositories = new[]
     ///             {
-    ///                 "artifactory-build-info",
+    ///                 "release-bundles",
     ///             },
-    ///         },
-    ///         ReleaseBundle = new Artifactory.Inputs.PermissionTargetReleaseBundleArgs
-    ///         {
     ///             Actions = new Artifactory.Inputs.PermissionTargetReleaseBundleActionsArgs
     ///             {
     ///                 Users = new[]
@@ -77,73 +145,6 @@ namespace Pulumi.Artifactory
     ///                         },
     ///                     },
     ///                 },
-    ///             },
-    ///             IncludesPatterns = new[]
-    ///             {
-    ///                 "**",
-    ///             },
-    ///             Repositories = new[]
-    ///             {
-    ///                 "release-bundles",
-    ///             },
-    ///         },
-    ///         Repo = new Artifactory.Inputs.PermissionTargetRepoArgs
-    ///         {
-    ///             Actions = new Artifactory.Inputs.PermissionTargetRepoActionsArgs
-    ///             {
-    ///                 Groups = new[]
-    ///                 {
-    ///                     new Artifactory.Inputs.PermissionTargetRepoActionsGroupArgs
-    ///                     {
-    ///                         Name = "readers",
-    ///                         Permissions = new[]
-    ///                         {
-    ///                             "read",
-    ///                         },
-    ///                     },
-    ///                     new Artifactory.Inputs.PermissionTargetRepoActionsGroupArgs
-    ///                     {
-    ///                         Name = "dev",
-    ///                         Permissions = new[]
-    ///                         {
-    ///                             "read",
-    ///                             "write",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Users = new[]
-    ///                 {
-    ///                     new Artifactory.Inputs.PermissionTargetRepoActionsUserArgs
-    ///                     {
-    ///                         Name = "anonymous",
-    ///                         Permissions = new[]
-    ///                         {
-    ///                             "read",
-    ///                             "write",
-    ///                         },
-    ///                     },
-    ///                     new Artifactory.Inputs.PermissionTargetRepoActionsUserArgs
-    ///                     {
-    ///                         Name = "user1",
-    ///                         Permissions = new[]
-    ///                         {
-    ///                             "read",
-    ///                             "write",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///             ExcludesPatterns = new[]
-    ///             {
-    ///                 "bar/**",
-    ///             },
-    ///             IncludesPatterns = new[]
-    ///             {
-    ///                 "foo/**",
-    ///             },
-    ///             Repositories = new[]
-    ///             {
-    ///                 "example-repo-local",
     ///             },
     ///         },
     ///     });

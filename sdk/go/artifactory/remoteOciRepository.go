@@ -32,13 +32,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewRemoteOciRepository(ctx, "my-oci-remote", &artifactory.RemoteOciRepositoryArgs{
-//				EnableTokenAuthentication:   pulumi.Bool(true),
+//				Key:                         pulumi.String("my-oci-remote"),
+//				Url:                         pulumi.String("https://registry-1.docker.io/"),
 //				ExternalDependenciesEnabled: pulumi.Bool(true),
 //				ExternalDependenciesPatterns: pulumi.StringArray{
 //					pulumi.String("**/registry-1.docker.io/**"),
 //				},
-//				Key: pulumi.String("my-oci-remote"),
-//				Url: pulumi.String("https://registry-1.docker.io/"),
+//				EnableTokenAuthentication: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err

@@ -13,21 +13,29 @@ import * as utilities from "./utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
  * const some_keypair_gpg_1 = new artifactory.Keypair("some-keypair-gpg-1", {
- *     pairName: `some-keypair${random_id.randid.id}`,
+ *     pairName: `some-keypair${randid.id}`,
  *     pairType: "GPG",
  *     alias: "foo-alias1",
- *     privateKey: fs.readFileSync("samples/gpg.priv", "utf8"),
- *     publicKey: fs.readFileSync("samples/gpg.pub", "utf8"),
+ *     privateKey: std.file({
+ *         input: "samples/gpg.priv",
+ *     }).then(invoke => invoke.result),
+ *     publicKey: std.file({
+ *         input: "samples/gpg.pub",
+ *     }).then(invoke => invoke.result),
  * });
  * const some_keypair_gpg_2 = new artifactory.Keypair("some-keypair-gpg-2", {
- *     pairName: `some-keypair${random_id.randid.id}`,
+ *     pairName: `some-keypair${randid.id}`,
  *     pairType: "GPG",
  *     alias: "foo-alias2",
- *     privateKey: fs.readFileSync("samples/gpg.priv", "utf8"),
- *     publicKey: fs.readFileSync("samples/gpg.pub", "utf8"),
+ *     privateKey: std.file({
+ *         input: "samples/gpg.priv",
+ *     }).then(invoke => invoke.result),
+ *     publicKey: std.file({
+ *         input: "samples/gpg.pub",
+ *     }).then(invoke => invoke.result),
  * });
  * const terraform_local_test_rpm_repo_basic = new artifactory.LocalRpmRepository("terraform-local-test-rpm-repo-basic", {
  *     key: "terraform-local-test-rpm-repo-basic",
@@ -35,8 +43,8 @@ import * as utilities from "./utilities";
  *     calculateYumMetadata: true,
  *     enableFileListsIndexing: true,
  *     yumGroupFileNames: "file-1.xml,file-2.xml",
- *     primaryKeypairRef: artifactory_keypair["some-keypairGPG1"].pair_name,
- *     secondaryKeypairRef: artifactory_keypair["some-keypairGPG2"].pair_name,
+ *     primaryKeypairRef: some_keypairGPG1.pairName,
+ *     secondaryKeypairRef: some_keypairGPG2.pairName,
  * }, {
  *     dependsOn: [
  *         some_keypair_gpg_1,

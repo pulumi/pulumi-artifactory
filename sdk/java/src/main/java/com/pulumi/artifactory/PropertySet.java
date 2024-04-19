@@ -50,36 +50,37 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var foo = new PropertySet(&#34;foo&#34;, PropertySetArgs.builder()        
+ *             .name(&#34;property-set1&#34;)
+ *             .visible(true)
  *             .properties(            
  *                 PropertySetPropertyArgs.builder()
- *                     .closedPredefinedValues(true)
- *                     .multipleChoice(true)
  *                     .name(&#34;set1property1&#34;)
  *                     .predefinedValues(                    
  *                         PropertySetPropertyPredefinedValueArgs.builder()
- *                             .defaultValue(true)
  *                             .name(&#34;passed-QA&#34;)
+ *                             .defaultValue(true)
  *                             .build(),
  *                         PropertySetPropertyPredefinedValueArgs.builder()
- *                             .defaultValue(false)
  *                             .name(&#34;failed-QA&#34;)
+ *                             .defaultValue(false)
  *                             .build())
+ *                     .closedPredefinedValues(true)
+ *                     .multipleChoice(true)
  *                     .build(),
  *                 PropertySetPropertyArgs.builder()
- *                     .closedPredefinedValues(false)
- *                     .multipleChoice(false)
  *                     .name(&#34;set1property2&#34;)
  *                     .predefinedValues(                    
  *                         PropertySetPropertyPredefinedValueArgs.builder()
- *                             .defaultValue(true)
  *                             .name(&#34;passed-QA&#34;)
+ *                             .defaultValue(true)
  *                             .build(),
  *                         PropertySetPropertyPredefinedValueArgs.builder()
- *                             .defaultValue(false)
  *                             .name(&#34;failed-QA&#34;)
+ *                             .defaultValue(false)
  *                             .build())
+ *                     .closedPredefinedValues(false)
+ *                     .multipleChoice(false)
  *                     .build())
- *             .visible(true)
  *             .build());
  * 
  *     }

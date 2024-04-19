@@ -26,12 +26,12 @@ namespace Pulumi.Artifactory
     /// {
     ///     var sbt_remote = new Artifactory.RemoteSbtRepository("sbt-remote", new()
     ///     {
+    ///         Key = "sbt-remote-foo",
+    ///         Url = "https://repo1.maven.org/maven2/",
     ///         FetchJarsEagerly = true,
     ///         FetchSourcesEagerly = false,
-    ///         Key = "sbt-remote-foo",
-    ///         RejectInvalidJars = true,
     ///         SuppressPomConsistencyChecks = true,
-    ///         Url = "https://repo1.maven.org/maven2/",
+    ///         RejectInvalidJars = true,
     ///     });
     /// 
     /// });

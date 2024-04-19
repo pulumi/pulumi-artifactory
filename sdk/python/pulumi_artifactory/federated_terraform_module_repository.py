@@ -742,16 +742,16 @@ class FederatedTerraformModuleRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_federated_test_terraform_module_repo = artifactory.FederatedTerraformModuleRepository("terraform-federated-test-terraformModule-repo",
+        terraform_federated_test_terraform_module_repo = artifactory.FederatedTerraformModuleRepository("terraform-federated-test-terraform_module-repo",
             key="terraform-federated-test-terraform-module-repo",
             members=[
                 artifactory.FederatedTerraformModuleRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl.org/artifactory/terraform-federated-test-terraform_module-repo",
+                    enabled=True,
                 ),
                 artifactory.FederatedTerraformModuleRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl2.org/artifactory/terraform-federated-test-terraform_module-repo-2",
+                    enabled=True,
                 ),
             ])
         ```
@@ -818,16 +818,16 @@ class FederatedTerraformModuleRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_federated_test_terraform_module_repo = artifactory.FederatedTerraformModuleRepository("terraform-federated-test-terraformModule-repo",
+        terraform_federated_test_terraform_module_repo = artifactory.FederatedTerraformModuleRepository("terraform-federated-test-terraform_module-repo",
             key="terraform-federated-test-terraform-module-repo",
             members=[
                 artifactory.FederatedTerraformModuleRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl.org/artifactory/terraform-federated-test-terraform_module-repo",
+                    enabled=True,
                 ),
                 artifactory.FederatedTerraformModuleRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl2.org/artifactory/terraform-federated-test-terraform_module-repo-2",
+                    enabled=True,
                 ),
             ])
         ```

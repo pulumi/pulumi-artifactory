@@ -26,18 +26,18 @@ namespace Pulumi.Artifactory
     /// {
     ///     var foo_debian = new Artifactory.VirtualDebianRepository("foo-debian", new()
     ///     {
-    ///         DebianDefaultArchitectures = "amd64,i386",
-    ///         Description = "A test virtual repo",
-    ///         ExcludesPattern = "com/google/**",
-    ///         IncludesPattern = "com/jfrog/**,cloud/jfrog/**",
     ///         Key = "foo-debian",
+    ///         Repositories = new[] {},
+    ///         Description = "A test virtual repo",
     ///         Notes = "Internal description",
+    ///         IncludesPattern = "com/jfrog/**,cloud/jfrog/**",
+    ///         ExcludesPattern = "com/google/**",
     ///         OptionalIndexCompressionFormats = new[]
     ///         {
     ///             "bz2",
     ///             "xz",
     ///         },
-    ///         Repositories = new[] {},
+    ///         DebianDefaultArchitectures = "amd64,i386",
     ///     });
     /// 
     /// });

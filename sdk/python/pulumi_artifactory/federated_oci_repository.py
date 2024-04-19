@@ -816,12 +816,12 @@ class FederatedOciRepository(pulumi.CustomResource):
             key="my-oci-federated",
             members=[
                 artifactory.FederatedOciRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl.org/artifactory/my-oci-federated",
+                    enabled=True,
                 ),
                 artifactory.FederatedOciRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl2.org/artifactory/my-oci-federated-2",
+                    enabled=True,
                 ),
             ])
         ```
@@ -895,12 +895,12 @@ class FederatedOciRepository(pulumi.CustomResource):
             key="my-oci-federated",
             members=[
                 artifactory.FederatedOciRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl.org/artifactory/my-oci-federated",
+                    enabled=True,
                 ),
                 artifactory.FederatedOciRepositoryMemberArgs(
-                    enabled=True,
                     url="http://tempurl2.org/artifactory/my-oci-federated-2",
+                    enabled=True,
                 ),
             ])
         ```

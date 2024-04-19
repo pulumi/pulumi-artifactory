@@ -20,12 +20,12 @@ import * as utilities from "./utilities";
  *     key: "my-oci-federated",
  *     members: [
  *         {
- *             enabled: true,
  *             url: "http://tempurl.org/artifactory/my-oci-federated",
+ *             enabled: true,
  *         },
  *         {
- *             enabled: true,
  *             url: "http://tempurl2.org/artifactory/my-oci-federated-2",
+ *             enabled: true,
  *         },
  *     ],
  * });

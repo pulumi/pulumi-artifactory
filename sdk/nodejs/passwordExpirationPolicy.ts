@@ -15,9 +15,10 @@ import * as utilities from "./utilities";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * const my_password_expiration_policy = new artifactory.PasswordExpirationPolicy("my-password-expiration-policy", {
+ *     name: "my-password-expiration-policy",
  *     enabled: true,
- *     notifyByEmail: true,
  *     passwordMaxAge: 120,
+ *     notifyByEmail: true,
  * });
  * ```
  * <!--End PulumiCodeChooser -->

@@ -521,21 +521,21 @@ class LdapSetting(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         # Configure Artifactory LDAP setting
-        ldap_name = artifactory.LdapSetting("ldapName",
-            allow_user_to_access_profile=False,
-            auto_create_user=True,
-            email_attribute="mail",
-            enabled=True,
+        ldap_name = artifactory.LdapSetting("ldap_name",
             key="ldap_name",
-            ldap_poisoning_protection=True,
+            enabled=True,
             ldap_url="ldap://ldap_server_url",
-            manager_dn="mgr_dn",
-            manager_password="mgr_passwd_random",
+            user_dn_pattern="uid={0},ou=People",
+            email_attribute="mail",
+            auto_create_user=True,
+            ldap_poisoning_protection=True,
+            allow_user_to_access_profile=False,
             paging_support_enabled=False,
-            search_base="ou=users",
             search_filter="(uid={0})",
+            search_base="ou=users",
             search_sub_tree=True,
-            user_dn_pattern="uid={0},ou=People")
+            manager_dn="mgr_dn",
+            manager_password="mgr_passwd_random")
         ```
         <!--End PulumiCodeChooser -->
         Note: `Key` argument has to match to the resource name.\\
@@ -591,21 +591,21 @@ class LdapSetting(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         # Configure Artifactory LDAP setting
-        ldap_name = artifactory.LdapSetting("ldapName",
-            allow_user_to_access_profile=False,
-            auto_create_user=True,
-            email_attribute="mail",
-            enabled=True,
+        ldap_name = artifactory.LdapSetting("ldap_name",
             key="ldap_name",
-            ldap_poisoning_protection=True,
+            enabled=True,
             ldap_url="ldap://ldap_server_url",
-            manager_dn="mgr_dn",
-            manager_password="mgr_passwd_random",
+            user_dn_pattern="uid={0},ou=People",
+            email_attribute="mail",
+            auto_create_user=True,
+            ldap_poisoning_protection=True,
+            allow_user_to_access_profile=False,
             paging_support_enabled=False,
-            search_base="ou=users",
             search_filter="(uid={0})",
+            search_base="ou=users",
             search_sub_tree=True,
-            user_dn_pattern="uid={0},ou=People")
+            manager_dn="mgr_dn",
+            manager_password="mgr_passwd_random")
         ```
         <!--End PulumiCodeChooser -->
         Note: `Key` argument has to match to the resource name.\\

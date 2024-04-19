@@ -481,12 +481,12 @@ class VirtualHelmociRepository(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         my_helmoci_virtual = artifactory.VirtualHelmociRepository("my-helmoci-virtual",
-            description="A test virtual repo",
-            excludes_pattern="com/google/**",
-            includes_pattern="com/jfrog/**,cloud/jfrog/**",
             key="my-helmoci-virtual",
-            notes="Internal description",
             repositories=[],
+            description="A test virtual repo",
+            notes="Internal description",
+            includes_pattern="com/jfrog/**,cloud/jfrog/**",
+            excludes_pattern="com/google/**",
             resolve_oci_tags_by_timestamp=True)
         ```
         <!--End PulumiCodeChooser -->
@@ -540,12 +540,12 @@ class VirtualHelmociRepository(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         my_helmoci_virtual = artifactory.VirtualHelmociRepository("my-helmoci-virtual",
-            description="A test virtual repo",
-            excludes_pattern="com/google/**",
-            includes_pattern="com/jfrog/**,cloud/jfrog/**",
             key="my-helmoci-virtual",
-            notes="Internal description",
             repositories=[],
+            description="A test virtual repo",
+            notes="Internal description",
+            includes_pattern="com/jfrog/**,cloud/jfrog/**",
+            excludes_pattern="com/google/**",
             resolve_oci_tags_by_timestamp=True)
         ```
         <!--End PulumiCodeChooser -->

@@ -50,8 +50,12 @@ import javax.annotation.Nullable;
  *             .pairName(&#34;some-keypair&#34;)
  *             .pairType(&#34;RSA&#34;)
  *             .alias(&#34;foo-alias&#34;)
- *             .privateKey(Files.readString(Paths.get(&#34;samples/rsa.priv&#34;)))
- *             .publicKey(Files.readString(Paths.get(&#34;samples/rsa.pub&#34;)))
+ *             .privateKey(StdFunctions.file(FileArgs.builder()
+ *                 .input(&#34;samples/rsa.priv&#34;)
+ *                 .build()).result())
+ *             .publicKey(StdFunctions.file(FileArgs.builder()
+ *                 .input(&#34;samples/rsa.pub&#34;)
+ *                 .build()).result())
  *             .build());
  * 
  *         var terraform_local_test_alpine_repo_basic = new AlpineRepository(&#34;terraform-local-test-alpine-repo-basic&#34;, AlpineRepositoryArgs.builder()        

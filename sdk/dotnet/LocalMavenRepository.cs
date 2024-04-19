@@ -25,12 +25,12 @@ namespace Pulumi.Artifactory
     /// {
     ///     var terraform_local_test_maven_repo_basic = new Artifactory.LocalMavenRepository("terraform-local-test-maven-repo-basic", new()
     ///     {
+    ///         Key = "terraform-local-test-maven-repo-basic",
     ///         ChecksumPolicyType = "client-checksums",
+    ///         SnapshotVersionBehavior = "unique",
+    ///         MaxUniqueSnapshots = 10,
     ///         HandleReleases = true,
     ///         HandleSnapshots = true,
-    ///         Key = "terraform-local-test-maven-repo-basic",
-    ///         MaxUniqueSnapshots = 10,
-    ///         SnapshotVersionBehavior = "unique",
     ///         SuppressPomConsistencyChecks = false,
     ///     });
     /// 

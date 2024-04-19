@@ -1653,11 +1653,11 @@ class RemoteCargoRepository(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         my_remote_cargo = artifactory.RemoteCargoRepository("my-remote-cargo",
+            key="my-remote-cargo",
             anonymous_access=True,
             enable_sparse_index=True,
-            git_registry_url="https://github.com/rust-lang/foo.index",
-            key="my-remote-cargo",
-            url="https://github.com/rust-lang/crates.io-index")
+            url="https://github.com/rust-lang/crates.io-index",
+            git_registry_url="https://github.com/rust-lang/foo.index")
         ```
         <!--End PulumiCodeChooser -->
         ## Note
@@ -1771,11 +1771,11 @@ class RemoteCargoRepository(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         my_remote_cargo = artifactory.RemoteCargoRepository("my-remote-cargo",
+            key="my-remote-cargo",
             anonymous_access=True,
             enable_sparse_index=True,
-            git_registry_url="https://github.com/rust-lang/foo.index",
-            key="my-remote-cargo",
-            url="https://github.com/rust-lang/crates.io-index")
+            url="https://github.com/rust-lang/crates.io-index",
+            git_registry_url="https://github.com/rust-lang/foo.index")
         ```
         <!--End PulumiCodeChooser -->
         ## Note

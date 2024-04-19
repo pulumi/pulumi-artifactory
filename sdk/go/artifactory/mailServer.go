@@ -32,16 +32,16 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewMailServer(ctx, "mymailserver", &artifactory.MailServerArgs{
-//				ArtifactoryUrl: pulumi.String("http://tempurl.org"),
 //				Enabled:        pulumi.Bool(true),
+//				ArtifactoryUrl: pulumi.String("http://tempurl.org"),
 //				From:           pulumi.String("test@jfrog.com"),
 //				Host:           pulumi.String("http://tempurl.org"),
+//				Username:       pulumi.String("test-user"),
 //				Password:       pulumi.String("test-password"),
 //				Port:           pulumi.Int(25),
 //				SubjectPrefix:  pulumi.String("[Test]"),
 //				UseSsl:         pulumi.Bool(true),
 //				UseTls:         pulumi.Bool(true),
-//				Username:       pulumi.String("test-user"),
 //			})
 //			if err != nil {
 //				return err

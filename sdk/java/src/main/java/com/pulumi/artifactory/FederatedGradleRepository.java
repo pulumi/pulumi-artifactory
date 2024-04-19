@@ -50,12 +50,12 @@ import javax.annotation.Nullable;
  *             .key(&#34;terraform-federated-test-gradle-repo&#34;)
  *             .members(            
  *                 FederatedGradleRepositoryMemberArgs.builder()
- *                     .enabled(true)
  *                     .url(&#34;http://tempurl.org/artifactory/terraform-federated-test-gradle-repo&#34;)
+ *                     .enabled(true)
  *                     .build(),
  *                 FederatedGradleRepositoryMemberArgs.builder()
- *                     .enabled(true)
  *                     .url(&#34;http://tempurl2.org/artifactory/terraform-federated-test-gradle-repo-2&#34;)
+ *                     .enabled(true)
  *                     .build())
  *             .build());
  * 

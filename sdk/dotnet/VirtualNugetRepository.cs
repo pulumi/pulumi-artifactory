@@ -26,13 +26,13 @@ namespace Pulumi.Artifactory
     /// {
     ///     var foo_nuget = new Artifactory.VirtualNugetRepository("foo-nuget", new()
     ///     {
+    ///         Key = "foo-nuget",
+    ///         Repositories = new[] {},
     ///         Description = "A test virtual repo",
+    ///         Notes = "Internal description",
+    ///         IncludesPattern = "com/jfrog/**,cloud/jfrog/**",
     ///         ExcludesPattern = "com/google/**",
     ///         ForceNugetAuthentication = true,
-    ///         IncludesPattern = "com/jfrog/**,cloud/jfrog/**",
-    ///         Key = "foo-nuget",
-    ///         Notes = "Internal description",
-    ///         Repositories = new[] {},
     ///     });
     /// 
     /// });

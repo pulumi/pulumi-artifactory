@@ -42,9 +42,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var my_artifact = new Artifact(&#34;my-artifact&#34;, ArtifactArgs.builder()        
- *             .filePath(&#34;/path/to/my-file.zip&#34;)
- *             .path(&#34;/my-path/my-file.zip&#34;)
  *             .repository(&#34;my-generic-local&#34;)
+ *             .path(&#34;/my-path/my-file.zip&#34;)
+ *             .filePath(&#34;/path/to/my-file.zip&#34;)
  *             .build());
  * 
  *     }

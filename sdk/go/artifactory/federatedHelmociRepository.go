@@ -33,12 +33,12 @@ import (
 //				Key: pulumi.String("my-helmoci-federated"),
 //				Members: artifactory.FederatedHelmociRepositoryMemberArray{
 //					&artifactory.FederatedHelmociRepositoryMemberArgs{
-//						Enabled: pulumi.Bool(true),
 //						Url:     pulumi.String("http://tempurl.org/artifactory/my-helmoci-federated"),
+//						Enabled: pulumi.Bool(true),
 //					},
 //					&artifactory.FederatedHelmociRepositoryMemberArgs{
-//						Enabled: pulumi.Bool(true),
 //						Url:     pulumi.String("http://tempurl2.org/artifactory/my-helmoci-federated-2"),
+//						Enabled: pulumi.Bool(true),
 //					},
 //				},
 //			})

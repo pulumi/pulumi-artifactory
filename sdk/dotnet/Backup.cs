@@ -29,18 +29,18 @@ namespace Pulumi.Artifactory
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Configure Artifactory Backup system config
-    ///     var backupConfigName = new Artifactory.Backup("backupConfigName", new()
+    ///     var backupConfigName = new Artifactory.Backup("backup_config_name", new()
     ///     {
-    ///         CreateArchive = false,
-    ///         CronExp = "0 0 12 * * ? *",
-    ///         Enabled = true,
-    ///         ExcludeNewRepositories = true,
-    ///         ExcludedRepositories = new[] {},
-    ///         ExportMissionControl = true,
     ///         Key = "backup_config_name",
+    ///         Enabled = true,
+    ///         CronExp = "0 0 12 * * ? *",
     ///         RetentionPeriodHours = 1000,
+    ///         ExcludedRepositories = new[] {},
+    ///         CreateArchive = false,
+    ///         ExcludeNewRepositories = true,
     ///         SendMailOnError = true,
     ///         VerifyDiskSpace = true,
+    ///         ExportMissionControl = true,
     ///     });
     /// 
     /// });

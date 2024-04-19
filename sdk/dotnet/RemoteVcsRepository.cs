@@ -28,9 +28,9 @@ namespace Pulumi.Artifactory
     ///     var my_remote_vcs = new Artifactory.RemoteVcsRepository("my-remote-vcs", new()
     ///     {
     ///         Key = "my-remote-vcs",
-    ///         MaxUniqueSnapshots = 5,
     ///         Url = "https://github.com/",
     ///         VcsGitProvider = "GITHUB",
+    ///         MaxUniqueSnapshots = 5,
     ///     });
     /// 
     /// });

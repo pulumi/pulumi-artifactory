@@ -47,11 +47,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var my_remote_cargo = new RemoteCargoRepository(&#34;my-remote-cargo&#34;, RemoteCargoRepositoryArgs.builder()        
+ *             .key(&#34;my-remote-cargo&#34;)
  *             .anonymousAccess(true)
  *             .enableSparseIndex(true)
- *             .gitRegistryUrl(&#34;https://github.com/rust-lang/foo.index&#34;)
- *             .key(&#34;my-remote-cargo&#34;)
  *             .url(&#34;https://github.com/rust-lang/crates.io-index&#34;)
+ *             .gitRegistryUrl(&#34;https://github.com/rust-lang/foo.index&#34;)
  *             .build());
  * 
  *     }

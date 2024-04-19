@@ -386,22 +386,6 @@ type ArtifactCustomWebhookHandler struct {
 	// Proxy key from Artifactory UI (Administration > Proxies > Configuration).
 	Proxy *string `pulumi:"proxy"`
 	// Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
-	//
-	// <!--Start PulumiCodeChooser -->
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
-	// <!--End PulumiCodeChooser -->
 	Secrets map[string]string `pulumi:"secrets"`
 	// Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
 	Url string `pulumi:"url"`
@@ -426,22 +410,6 @@ type ArtifactCustomWebhookHandlerArgs struct {
 	// Proxy key from Artifactory UI (Administration > Proxies > Configuration).
 	Proxy pulumi.StringPtrInput `pulumi:"proxy"`
 	// Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
-	//
-	// <!--Start PulumiCodeChooser -->
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
-	// <!--End PulumiCodeChooser -->
 	Secrets pulumi.StringMapInput `pulumi:"secrets"`
 	// Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
 	Url pulumi.StringInput `pulumi:"url"`
@@ -514,25 +482,6 @@ func (o ArtifactCustomWebhookHandlerOutput) Proxy() pulumi.StringPtrOutput {
 }
 
 // Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
-//
-// <!--Start PulumiCodeChooser -->
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
-// <!--End PulumiCodeChooser -->
 func (o ArtifactCustomWebhookHandlerOutput) Secrets() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ArtifactCustomWebhookHandler) map[string]string { return v.Secrets }).(pulumi.StringMapOutput)
 }
@@ -802,22 +751,6 @@ type ArtifactPropertyCustomWebhookHandler struct {
 	// Proxy key from Artifactory UI (Administration > Proxies > Configuration).
 	Proxy *string `pulumi:"proxy"`
 	// Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
-	//
-	// <!--Start PulumiCodeChooser -->
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
-	// <!--End PulumiCodeChooser -->
 	Secrets map[string]string `pulumi:"secrets"`
 	// Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
 	Url string `pulumi:"url"`
@@ -842,22 +775,6 @@ type ArtifactPropertyCustomWebhookHandlerArgs struct {
 	// Proxy key from Artifactory UI (Administration > Proxies > Configuration).
 	Proxy pulumi.StringPtrInput `pulumi:"proxy"`
 	// Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
-	//
-	// <!--Start PulumiCodeChooser -->
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
-	// <!--End PulumiCodeChooser -->
 	Secrets pulumi.StringMapInput `pulumi:"secrets"`
 	// Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
 	Url pulumi.StringInput `pulumi:"url"`
@@ -930,25 +847,6 @@ func (o ArtifactPropertyCustomWebhookHandlerOutput) Proxy() pulumi.StringPtrOutp
 }
 
 // Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
-//
-// <!--Start PulumiCodeChooser -->
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
-// <!--End PulumiCodeChooser -->
 func (o ArtifactPropertyCustomWebhookHandlerOutput) Secrets() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ArtifactPropertyCustomWebhookHandler) map[string]string { return v.Secrets }).(pulumi.StringMapOutput)
 }
@@ -1910,22 +1808,6 @@ type ArtifactoryReleaseBundleCustomWebhookHandler struct {
 	// Proxy key from Artifactory UI (Administration > Proxies > Configuration).
 	Proxy *string `pulumi:"proxy"`
 	// Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
-	//
-	// <!--Start PulumiCodeChooser -->
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
-	// <!--End PulumiCodeChooser -->
 	Secrets map[string]string `pulumi:"secrets"`
 	// Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
 	Url string `pulumi:"url"`
@@ -1950,22 +1832,6 @@ type ArtifactoryReleaseBundleCustomWebhookHandlerArgs struct {
 	// Proxy key from Artifactory UI (Administration > Proxies > Configuration).
 	Proxy pulumi.StringPtrInput `pulumi:"proxy"`
 	// Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
-	//
-	// <!--Start PulumiCodeChooser -->
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
-	// <!--End PulumiCodeChooser -->
 	Secrets pulumi.StringMapInput `pulumi:"secrets"`
 	// Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
 	Url pulumi.StringInput `pulumi:"url"`
@@ -2038,25 +1904,6 @@ func (o ArtifactoryReleaseBundleCustomWebhookHandlerOutput) Proxy() pulumi.Strin
 }
 
 // Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
-//
-// <!--Start PulumiCodeChooser -->
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
-// <!--End PulumiCodeChooser -->
 func (o ArtifactoryReleaseBundleCustomWebhookHandlerOutput) Secrets() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ArtifactoryReleaseBundleCustomWebhookHandler) map[string]string { return v.Secrets }).(pulumi.StringMapOutput)
 }
@@ -2615,22 +2462,6 @@ type BuildCustomWebhookHandler struct {
 	// Proxy key from Artifactory UI (Administration > Proxies > Configuration).
 	Proxy *string `pulumi:"proxy"`
 	// Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
-	//
-	// <!--Start PulumiCodeChooser -->
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
-	// <!--End PulumiCodeChooser -->
 	Secrets map[string]string `pulumi:"secrets"`
 	// Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
 	Url string `pulumi:"url"`
@@ -2655,22 +2486,6 @@ type BuildCustomWebhookHandlerArgs struct {
 	// Proxy key from Artifactory UI (Administration > Proxies > Configuration).
 	Proxy pulumi.StringPtrInput `pulumi:"proxy"`
 	// Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
-	//
-	// <!--Start PulumiCodeChooser -->
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
-	// <!--End PulumiCodeChooser -->
 	Secrets pulumi.StringMapInput `pulumi:"secrets"`
 	// Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
 	Url pulumi.StringInput `pulumi:"url"`
@@ -2743,25 +2558,6 @@ func (o BuildCustomWebhookHandlerOutput) Proxy() pulumi.StringPtrOutput {
 }
 
 // Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
-//
-// <!--Start PulumiCodeChooser -->
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
-// <!--End PulumiCodeChooser -->
 func (o BuildCustomWebhookHandlerOutput) Secrets() pulumi.StringMapOutput {
 	return o.ApplyT(func(v BuildCustomWebhookHandler) map[string]string { return v.Secrets }).(pulumi.StringMapOutput)
 }
@@ -3320,22 +3116,6 @@ type DistributionCustomWebhookHandler struct {
 	// Proxy key from Artifactory UI (Administration > Proxies > Configuration).
 	Proxy *string `pulumi:"proxy"`
 	// Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
-	//
-	// <!--Start PulumiCodeChooser -->
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
-	// <!--End PulumiCodeChooser -->
 	Secrets map[string]string `pulumi:"secrets"`
 	// Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
 	Url string `pulumi:"url"`
@@ -3360,22 +3140,6 @@ type DistributionCustomWebhookHandlerArgs struct {
 	// Proxy key from Artifactory UI (Administration > Proxies > Configuration).
 	Proxy pulumi.StringPtrInput `pulumi:"proxy"`
 	// Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
-	//
-	// <!--Start PulumiCodeChooser -->
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
-	// <!--End PulumiCodeChooser -->
 	Secrets pulumi.StringMapInput `pulumi:"secrets"`
 	// Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
 	Url pulumi.StringInput `pulumi:"url"`
@@ -3448,25 +3212,6 @@ func (o DistributionCustomWebhookHandlerOutput) Proxy() pulumi.StringPtrOutput {
 }
 
 // Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
-//
-// <!--Start PulumiCodeChooser -->
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
-// <!--End PulumiCodeChooser -->
 func (o DistributionCustomWebhookHandlerOutput) Secrets() pulumi.StringMapOutput {
 	return o.ApplyT(func(v DistributionCustomWebhookHandler) map[string]string { return v.Secrets }).(pulumi.StringMapOutput)
 }
@@ -4063,22 +3808,6 @@ type DockerCustomWebhookHandler struct {
 	// Proxy key from Artifactory UI (Administration > Proxies > Configuration).
 	Proxy *string `pulumi:"proxy"`
 	// Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
-	//
-	// <!--Start PulumiCodeChooser -->
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
-	// <!--End PulumiCodeChooser -->
 	Secrets map[string]string `pulumi:"secrets"`
 	// Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
 	Url string `pulumi:"url"`
@@ -4103,22 +3832,6 @@ type DockerCustomWebhookHandlerArgs struct {
 	// Proxy key from Artifactory UI (Administration > Proxies > Configuration).
 	Proxy pulumi.StringPtrInput `pulumi:"proxy"`
 	// Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
-	//
-	// <!--Start PulumiCodeChooser -->
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
-	// <!--End PulumiCodeChooser -->
 	Secrets pulumi.StringMapInput `pulumi:"secrets"`
 	// Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
 	Url pulumi.StringInput `pulumi:"url"`
@@ -4191,25 +3904,6 @@ func (o DockerCustomWebhookHandlerOutput) Proxy() pulumi.StringPtrOutput {
 }
 
 // Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
-//
-// <!--Start PulumiCodeChooser -->
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
-// <!--End PulumiCodeChooser -->
 func (o DockerCustomWebhookHandlerOutput) Secrets() pulumi.StringMapOutput {
 	return o.ApplyT(func(v DockerCustomWebhookHandler) map[string]string { return v.Secrets }).(pulumi.StringMapOutput)
 }
@@ -10957,22 +10651,6 @@ type ReleaseBundleCustomWebhookHandler struct {
 	// Proxy key from Artifactory UI (Administration > Proxies > Configuration).
 	Proxy *string `pulumi:"proxy"`
 	// Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
-	//
-	// <!--Start PulumiCodeChooser -->
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
-	// <!--End PulumiCodeChooser -->
 	Secrets map[string]string `pulumi:"secrets"`
 	// Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
 	Url string `pulumi:"url"`
@@ -10997,22 +10675,6 @@ type ReleaseBundleCustomWebhookHandlerArgs struct {
 	// Proxy key from Artifactory UI (Administration > Proxies > Configuration).
 	Proxy pulumi.StringPtrInput `pulumi:"proxy"`
 	// Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
-	//
-	// <!--Start PulumiCodeChooser -->
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
-	// <!--End PulumiCodeChooser -->
 	Secrets pulumi.StringMapInput `pulumi:"secrets"`
 	// Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
 	Url pulumi.StringInput `pulumi:"url"`
@@ -11085,25 +10747,6 @@ func (o ReleaseBundleCustomWebhookHandlerOutput) Proxy() pulumi.StringPtrOutput 
 }
 
 // Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
-//
-// <!--Start PulumiCodeChooser -->
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
-// <!--End PulumiCodeChooser -->
 func (o ReleaseBundleCustomWebhookHandlerOutput) Secrets() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ReleaseBundleCustomWebhookHandler) map[string]string { return v.Secrets }).(pulumi.StringMapOutput)
 }

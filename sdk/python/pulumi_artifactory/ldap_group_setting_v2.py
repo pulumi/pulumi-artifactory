@@ -375,16 +375,17 @@ class LdapGroupSettingV2(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        ldap_group_name = artifactory.LdapGroupSettingV2("ldapGroupName",
-            description_attribute="description",
+        ldap_group_name = artifactory.LdapGroupSettingV2("ldap_group_name",
+            name="ldap_group_name",
             enabled_ldap="ldap_name",
-            filter="(objectClass=groupOfNames)",
-            force_attribute_search=False,
             group_base_dn="CN=Users,DC=MyDomain,DC=com",
-            group_member_attribute="uniqueMember",
             group_name_attribute="cn",
-            strategy="STATIC",
-            sub_tree=True)
+            group_member_attribute="uniqueMember",
+            sub_tree=True,
+            force_attribute_search=False,
+            filter="(objectClass=groupOfNames)",
+            description_attribute="description",
+            strategy="STATIC")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -430,16 +431,17 @@ class LdapGroupSettingV2(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        ldap_group_name = artifactory.LdapGroupSettingV2("ldapGroupName",
-            description_attribute="description",
+        ldap_group_name = artifactory.LdapGroupSettingV2("ldap_group_name",
+            name="ldap_group_name",
             enabled_ldap="ldap_name",
-            filter="(objectClass=groupOfNames)",
-            force_attribute_search=False,
             group_base_dn="CN=Users,DC=MyDomain,DC=com",
-            group_member_attribute="uniqueMember",
             group_name_attribute="cn",
-            strategy="STATIC",
-            sub_tree=True)
+            group_member_attribute="uniqueMember",
+            sub_tree=True,
+            force_attribute_search=False,
+            filter="(objectClass=groupOfNames)",
+            description_attribute="description",
+            strategy="STATIC")
         ```
         <!--End PulumiCodeChooser -->
 

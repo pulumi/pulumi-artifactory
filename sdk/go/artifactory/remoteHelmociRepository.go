@@ -32,13 +32,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewRemoteHelmociRepository(ctx, "my-helmoci-remote", &artifactory.RemoteHelmociRepositoryArgs{
-//				EnableTokenAuthentication:   pulumi.Bool(true),
+//				Key:                         pulumi.String("my-helmoci-remote"),
 //				ExternalDependenciesEnabled: pulumi.Bool(true),
 //				ExternalDependenciesPatterns: pulumi.StringArray{
 //					pulumi.String("**/registry-1.docker.io/**"),
 //				},
-//				Key: pulumi.String("my-helmoci-remote"),
-//				Url: pulumi.String("https://registry-1.docker.io/"),
+//				EnableTokenAuthentication: pulumi.Bool(true),
+//				Url:                       pulumi.String("https://registry-1.docker.io/"),
 //			})
 //			if err != nil {
 //				return err

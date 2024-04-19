@@ -1786,12 +1786,12 @@ class RemoteDockerRepository(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         my_remote_docker = artifactory.RemoteDockerRepository("my-remote-docker",
-            block_pushing_schema1=True,
-            enable_token_authentication=True,
+            key="my-remote-docker",
             external_dependencies_enabled=True,
             external_dependencies_patterns=["**/registry-1.docker.io/**"],
-            key="my-remote-docker",
-            url="https://registry-1.docker.io/")
+            enable_token_authentication=True,
+            url="https://registry-1.docker.io/",
+            block_pushing_schema1=True)
         ```
         <!--End PulumiCodeChooser -->
 
@@ -1913,12 +1913,12 @@ class RemoteDockerRepository(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         my_remote_docker = artifactory.RemoteDockerRepository("my-remote-docker",
-            block_pushing_schema1=True,
-            enable_token_authentication=True,
+            key="my-remote-docker",
             external_dependencies_enabled=True,
             external_dependencies_patterns=["**/registry-1.docker.io/**"],
-            key="my-remote-docker",
-            url="https://registry-1.docker.io/")
+            enable_token_authentication=True,
+            url="https://registry-1.docker.io/",
+            block_pushing_schema1=True)
         ```
         <!--End PulumiCodeChooser -->
 

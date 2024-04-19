@@ -484,12 +484,12 @@ class VirtualCondaRepository(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         foo_conda = artifactory.VirtualCondaRepository("foo-conda",
-            description="A test virtual repo",
-            excludes_pattern="com/google/**",
-            includes_pattern="com/jfrog/**,cloud/jfrog/**",
             key="foo-conda",
+            repositories=[],
+            description="A test virtual repo",
             notes="Internal description",
-            repositories=[])
+            includes_pattern="com/jfrog/**,cloud/jfrog/**",
+            excludes_pattern="com/google/**")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -542,12 +542,12 @@ class VirtualCondaRepository(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         foo_conda = artifactory.VirtualCondaRepository("foo-conda",
-            description="A test virtual repo",
-            excludes_pattern="com/google/**",
-            includes_pattern="com/jfrog/**,cloud/jfrog/**",
             key="foo-conda",
+            repositories=[],
+            description="A test virtual repo",
             notes="Internal description",
-            repositories=[])
+            includes_pattern="com/jfrog/**,cloud/jfrog/**",
+            excludes_pattern="com/google/**")
         ```
         <!--End PulumiCodeChooser -->
 
