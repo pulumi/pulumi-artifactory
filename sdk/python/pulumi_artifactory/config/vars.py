@@ -39,6 +39,15 @@ class _ExportableConfig(types.ModuleType):
         return __config__.get_bool('checkLicense') or False
 
     @property
+    def oidc_provider_name(self) -> Optional[str]:
+        """
+        OIDC provider name. See [Configure an OIDC
+        Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-an-oidc-integration) for
+        more details.
+        """
+        return __config__.get('oidcProviderName')
+
+    @property
     def url(self) -> Optional[str]:
         """
         Artifactory URL.

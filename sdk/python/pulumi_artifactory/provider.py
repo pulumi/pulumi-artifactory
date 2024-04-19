@@ -17,6 +17,7 @@ class ProviderArgs:
                  access_token: Optional[pulumi.Input[str]] = None,
                  api_key: Optional[pulumi.Input[str]] = None,
                  check_license: Optional[pulumi.Input[bool]] = None,
+                 oidc_provider_name: Optional[pulumi.Input[str]] = None,
                  url: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Provider resource.
@@ -25,6 +26,9 @@ class ProviderArgs:
         :param pulumi.Input[str] api_key: API key. If `access_token` attribute, `JFROG_ACCESS_TOKEN` or `ARTIFACTORY_ACCESS_TOKEN` environment variable is set,
                the provider will ignore this attribute.
         :param pulumi.Input[bool] check_license: Toggle for pre-flight checking of Artifactory Pro and Enterprise license. Default to `true`.
+        :param pulumi.Input[str] oidc_provider_name: OIDC provider name. See [Configure an OIDC
+               Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-an-oidc-integration) for
+               more details.
         :param pulumi.Input[str] url: Artifactory URL.
         """
         if access_token is not None:
@@ -32,16 +36,18 @@ class ProviderArgs:
         if api_key is not None:
             warnings.warn("""An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
 In a future version (scheduled for end of Q3, 2023), the option to disable the usage/creation of API Keys will be available and set to disabled by default. Admins will be able to enable the usage/creation of API Keys.
-By end of Q1 2024, API Keys will be deprecated all together and the option to use them will no longer be available.""", DeprecationWarning)
+By end of Q4 2024, API Keys will be deprecated all together and the option to use them will no longer be available. See [JFrog API deprecation process](https://jfrog.com/help/r/jfrog-platform-administration-documentation/jfrog-api-key-deprecation-process) for more details.""", DeprecationWarning)
             pulumi.log.warn("""api_key is deprecated: An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
 In a future version (scheduled for end of Q3, 2023), the option to disable the usage/creation of API Keys will be available and set to disabled by default. Admins will be able to enable the usage/creation of API Keys.
-By end of Q1 2024, API Keys will be deprecated all together and the option to use them will no longer be available.""")
+By end of Q4 2024, API Keys will be deprecated all together and the option to use them will no longer be available. See [JFrog API deprecation process](https://jfrog.com/help/r/jfrog-platform-administration-documentation/jfrog-api-key-deprecation-process) for more details.""")
         if api_key is not None:
             pulumi.set(__self__, "api_key", api_key)
         if check_license is None:
             check_license = False
         if check_license is not None:
             pulumi.set(__self__, "check_license", check_license)
+        if oidc_provider_name is not None:
+            pulumi.set(__self__, "oidc_provider_name", oidc_provider_name)
         if url is not None:
             pulumi.set(__self__, "url", url)
 
@@ -67,10 +73,10 @@ By end of Q1 2024, API Keys will be deprecated all together and the option to us
         """
         warnings.warn("""An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
 In a future version (scheduled for end of Q3, 2023), the option to disable the usage/creation of API Keys will be available and set to disabled by default. Admins will be able to enable the usage/creation of API Keys.
-By end of Q1 2024, API Keys will be deprecated all together and the option to use them will no longer be available.""", DeprecationWarning)
+By end of Q4 2024, API Keys will be deprecated all together and the option to use them will no longer be available. See [JFrog API deprecation process](https://jfrog.com/help/r/jfrog-platform-administration-documentation/jfrog-api-key-deprecation-process) for more details.""", DeprecationWarning)
         pulumi.log.warn("""api_key is deprecated: An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
 In a future version (scheduled for end of Q3, 2023), the option to disable the usage/creation of API Keys will be available and set to disabled by default. Admins will be able to enable the usage/creation of API Keys.
-By end of Q1 2024, API Keys will be deprecated all together and the option to use them will no longer be available.""")
+By end of Q4 2024, API Keys will be deprecated all together and the option to use them will no longer be available. See [JFrog API deprecation process](https://jfrog.com/help/r/jfrog-platform-administration-documentation/jfrog-api-key-deprecation-process) for more details.""")
 
         return pulumi.get(self, "api_key")
 
@@ -89,6 +95,20 @@ By end of Q1 2024, API Keys will be deprecated all together and the option to us
     @check_license.setter
     def check_license(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "check_license", value)
+
+    @property
+    @pulumi.getter(name="oidcProviderName")
+    def oidc_provider_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        OIDC provider name. See [Configure an OIDC
+        Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-an-oidc-integration) for
+        more details.
+        """
+        return pulumi.get(self, "oidc_provider_name")
+
+    @oidc_provider_name.setter
+    def oidc_provider_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "oidc_provider_name", value)
 
     @property
     @pulumi.getter
@@ -111,6 +131,7 @@ class Provider(pulumi.ProviderResource):
                  access_token: Optional[pulumi.Input[str]] = None,
                  api_key: Optional[pulumi.Input[str]] = None,
                  check_license: Optional[pulumi.Input[bool]] = None,
+                 oidc_provider_name: Optional[pulumi.Input[str]] = None,
                  url: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -126,6 +147,9 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[str] api_key: API key. If `access_token` attribute, `JFROG_ACCESS_TOKEN` or `ARTIFACTORY_ACCESS_TOKEN` environment variable is set,
                the provider will ignore this attribute.
         :param pulumi.Input[bool] check_license: Toggle for pre-flight checking of Artifactory Pro and Enterprise license. Default to `true`.
+        :param pulumi.Input[str] oidc_provider_name: OIDC provider name. See [Configure an OIDC
+               Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-an-oidc-integration) for
+               more details.
         :param pulumi.Input[str] url: Artifactory URL.
         """
         ...
@@ -158,6 +182,7 @@ class Provider(pulumi.ProviderResource):
                  access_token: Optional[pulumi.Input[str]] = None,
                  api_key: Optional[pulumi.Input[str]] = None,
                  check_license: Optional[pulumi.Input[bool]] = None,
+                 oidc_provider_name: Optional[pulumi.Input[str]] = None,
                  url: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -173,6 +198,7 @@ class Provider(pulumi.ProviderResource):
             if check_license is None:
                 check_license = False
             __props__.__dict__["check_license"] = pulumi.Output.from_input(check_license).apply(pulumi.runtime.to_json) if check_license is not None else None
+            __props__.__dict__["oidc_provider_name"] = oidc_provider_name
             __props__.__dict__["url"] = url
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["accessToken", "apiKey"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
@@ -200,12 +226,22 @@ class Provider(pulumi.ProviderResource):
         """
         warnings.warn("""An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
 In a future version (scheduled for end of Q3, 2023), the option to disable the usage/creation of API Keys will be available and set to disabled by default. Admins will be able to enable the usage/creation of API Keys.
-By end of Q1 2024, API Keys will be deprecated all together and the option to use them will no longer be available.""", DeprecationWarning)
+By end of Q4 2024, API Keys will be deprecated all together and the option to use them will no longer be available. See [JFrog API deprecation process](https://jfrog.com/help/r/jfrog-platform-administration-documentation/jfrog-api-key-deprecation-process) for more details.""", DeprecationWarning)
         pulumi.log.warn("""api_key is deprecated: An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
 In a future version (scheduled for end of Q3, 2023), the option to disable the usage/creation of API Keys will be available and set to disabled by default. Admins will be able to enable the usage/creation of API Keys.
-By end of Q1 2024, API Keys will be deprecated all together and the option to use them will no longer be available.""")
+By end of Q4 2024, API Keys will be deprecated all together and the option to use them will no longer be available. See [JFrog API deprecation process](https://jfrog.com/help/r/jfrog-platform-administration-documentation/jfrog-api-key-deprecation-process) for more details.""")
 
         return pulumi.get(self, "api_key")
+
+    @property
+    @pulumi.getter(name="oidcProviderName")
+    def oidc_provider_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        OIDC provider name. See [Configure an OIDC
+        Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-an-oidc-integration) for
+        more details.
+        """
+        return pulumi.get(self, "oidc_provider_name")
 
     @property
     @pulumi.getter

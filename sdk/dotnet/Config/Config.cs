@@ -64,6 +64,18 @@ namespace Pulumi.Artifactory
             set => _checkLicense.Set(value);
         }
 
+        private static readonly __Value<string?> _oidcProviderName = new __Value<string?>(() => __config.Get("oidcProviderName"));
+        /// <summary>
+        /// OIDC provider name. See [Configure an OIDC
+        /// Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-an-oidc-integration) for
+        /// more details.
+        /// </summary>
+        public static string? OidcProviderName
+        {
+            get => _oidcProviderName.Get();
+            set => _oidcProviderName.Set(value);
+        }
+
         private static readonly __Value<string?> _url = new __Value<string?>(() => __config.Get("url"));
         /// <summary>
         /// Artifactory URL.

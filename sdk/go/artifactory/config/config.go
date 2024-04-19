@@ -22,7 +22,7 @@ func GetAccessToken(ctx *pulumi.Context) string {
 //
 // Deprecated: An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
 // In a future version (scheduled for end of Q3, 2023), the option to disable the usage/creation of API Keys will be available and set to disabled by default. Admins will be able to enable the usage/creation of API Keys.
-// By end of Q1 2024, API Keys will be deprecated all together and the option to use them will no longer be available.
+// By end of Q4 2024, API Keys will be deprecated all together and the option to use them will no longer be available. See [JFrog API deprecation process](https://jfrog.com/help/r/jfrog-platform-administration-documentation/jfrog-api-key-deprecation-process) for more details.
 func GetApiKey(ctx *pulumi.Context) string {
 	return config.Get(ctx, "artifactory:apiKey")
 }
@@ -36,6 +36,13 @@ func GetCheckLicense(ctx *pulumi.Context) bool {
 	var value bool
 	value = false
 	return value
+}
+
+// OIDC provider name. See [Configure an OIDC
+// Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-an-oidc-integration) for
+// more details.
+func GetOidcProviderName(ctx *pulumi.Context) string {
+	return config.Get(ctx, "artifactory:oidcProviderName")
 }
 
 // Artifactory URL.

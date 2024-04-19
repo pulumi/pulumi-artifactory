@@ -35,6 +35,15 @@ public final class Config {
         return Codegen.booleanProp("checkLicense").config(config).def(false).get();
     }
 /**
+ * OIDC provider name. See [Configure an OIDC
+ * Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-an-oidc-integration) for
+ * more details.
+ * 
+ */
+    public Optional<String> oidcProviderName() {
+        return Codegen.stringProp("oidcProviderName").config(config).get();
+    }
+/**
  * Artifactory URL.
  * 
  */
