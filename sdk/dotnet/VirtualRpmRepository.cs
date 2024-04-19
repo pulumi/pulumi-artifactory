@@ -52,8 +52,8 @@ namespace Pulumi.Artifactory
     ///     {
     ///         DependsOn =
     ///         {
-    ///             primary_keypair, 
-    ///             secondary_keypair, 
+    ///             primary_keypair,
+    ///             secondary_keypair,
     ///         },
     ///     });
     /// 

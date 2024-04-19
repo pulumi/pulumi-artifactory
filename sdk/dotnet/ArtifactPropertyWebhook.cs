@@ -73,7 +73,7 @@ namespace Pulumi.Artifactory
     ///     {
     ///         DependsOn =
     ///         {
-    ///             my_generic_local, 
+    ///             my_generic_local,
     ///         },
     ///     });
     /// 
