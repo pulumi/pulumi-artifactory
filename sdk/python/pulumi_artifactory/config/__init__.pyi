@@ -26,6 +26,13 @@ checkLicense: bool
 Toggle for pre-flight checking of Artifactory Pro and Enterprise license. Default to `true`.
 """
 
+oidcProviderName: Optional[str]
+"""
+OIDC provider name. See [Configure an OIDC
+Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-an-oidc-integration) for
+more details.
+"""
+
 url: Optional[str]
 """
 Artifactory URL.

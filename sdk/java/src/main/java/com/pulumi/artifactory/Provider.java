@@ -46,12 +46,12 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * @deprecated
      * An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
      * In a future version (scheduled for end of Q3, 2023), the option to disable the usage/creation of API Keys will be available and set to disabled by default. Admins will be able to enable the usage/creation of API Keys.
-     * By end of Q1 2024, API Keys will be deprecated all together and the option to use them will no longer be available.
+     * By end of Q4 2024, API Keys will be deprecated all together and the option to use them will no longer be available. See [JFrog API deprecation process](https://jfrog.com/help/r/jfrog-platform-administration-documentation/jfrog-api-key-deprecation-process) for more details.
      * 
      */
     @Deprecated /* An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
 In a future version (scheduled for end of Q3, 2023), the option to disable the usage/creation of API Keys will be available and set to disabled by default. Admins will be able to enable the usage/creation of API Keys.
-By end of Q1 2024, API Keys will be deprecated all together and the option to use them will no longer be available. */
+By end of Q4 2024, API Keys will be deprecated all together and the option to use them will no longer be available. See [JFrog API deprecation process](https://jfrog.com/help/r/jfrog-platform-administration-documentation/jfrog-api-key-deprecation-process) for more details. */
     @Export(name="apiKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> apiKey;
 
@@ -62,6 +62,24 @@ By end of Q1 2024, API Keys will be deprecated all together and the option to us
      */
     public Output<Optional<String>> apiKey() {
         return Codegen.optional(this.apiKey);
+    }
+    /**
+     * OIDC provider name. See [Configure an OIDC
+     * Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-an-oidc-integration) for
+     * more details.
+     * 
+     */
+    @Export(name="oidcProviderName", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> oidcProviderName;
+
+    /**
+     * @return OIDC provider name. See [Configure an OIDC
+     * Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-an-oidc-integration) for
+     * more details.
+     * 
+     */
+    public Output<Optional<String>> oidcProviderName() {
+        return Codegen.optional(this.oidcProviderName);
     }
     /**
      * Artifactory URL.

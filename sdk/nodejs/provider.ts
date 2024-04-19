@@ -36,9 +36,15 @@ export class Provider extends pulumi.ProviderResource {
      *
      * @deprecated An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
 In a future version (scheduled for end of Q3, 2023), the option to disable the usage/creation of API Keys will be available and set to disabled by default. Admins will be able to enable the usage/creation of API Keys.
-By end of Q1 2024, API Keys will be deprecated all together and the option to use them will no longer be available.
+By end of Q4 2024, API Keys will be deprecated all together and the option to use them will no longer be available. See [JFrog API deprecation process](https://jfrog.com/help/r/jfrog-platform-administration-documentation/jfrog-api-key-deprecation-process) for more details.
      */
     public readonly apiKey!: pulumi.Output<string | undefined>;
+    /**
+     * OIDC provider name. See [Configure an OIDC
+     * Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-an-oidc-integration) for
+     * more details.
+     */
+    public readonly oidcProviderName!: pulumi.Output<string | undefined>;
     /**
      * Artifactory URL.
      */
@@ -58,6 +64,7 @@ By end of Q1 2024, API Keys will be deprecated all together and the option to us
             resourceInputs["accessToken"] = args?.accessToken ? pulumi.secret(args.accessToken) : undefined;
             resourceInputs["apiKey"] = args?.apiKey ? pulumi.secret(args.apiKey) : undefined;
             resourceInputs["checkLicense"] = pulumi.output((args ? args.checkLicense : undefined) ?? false).apply(JSON.stringify);
+            resourceInputs["oidcProviderName"] = args ? args.oidcProviderName : undefined;
             resourceInputs["url"] = args ? args.url : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -82,13 +89,19 @@ export interface ProviderArgs {
      *
      * @deprecated An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
 In a future version (scheduled for end of Q3, 2023), the option to disable the usage/creation of API Keys will be available and set to disabled by default. Admins will be able to enable the usage/creation of API Keys.
-By end of Q1 2024, API Keys will be deprecated all together and the option to use them will no longer be available.
+By end of Q4 2024, API Keys will be deprecated all together and the option to use them will no longer be available. See [JFrog API deprecation process](https://jfrog.com/help/r/jfrog-platform-administration-documentation/jfrog-api-key-deprecation-process) for more details.
      */
     apiKey?: pulumi.Input<string>;
     /**
      * Toggle for pre-flight checking of Artifactory Pro and Enterprise license. Default to `true`.
      */
     checkLicense?: pulumi.Input<boolean>;
+    /**
+     * OIDC provider name. See [Configure an OIDC
+     * Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-an-oidc-integration) for
+     * more details.
+     */
+    oidcProviderName?: pulumi.Input<string>;
     /**
      * Artifactory URL.
      */

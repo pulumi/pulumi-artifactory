@@ -43,6 +43,19 @@ Object.defineProperty(exports, "checkLicense", {
 });
 
 /**
+ * OIDC provider name. See [Configure an OIDC
+ * Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-an-oidc-integration) for
+ * more details.
+ */
+export declare const oidcProviderName: string | undefined;
+Object.defineProperty(exports, "oidcProviderName", {
+    get() {
+        return __config.get("oidcProviderName");
+    },
+    enumerable: true,
+});
+
+/**
  * Artifactory URL.
  */
 export declare const url: string | undefined;

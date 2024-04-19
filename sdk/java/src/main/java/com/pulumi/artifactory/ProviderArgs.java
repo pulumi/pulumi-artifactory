@@ -41,12 +41,12 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
      * @deprecated
      * An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
      * In a future version (scheduled for end of Q3, 2023), the option to disable the usage/creation of API Keys will be available and set to disabled by default. Admins will be able to enable the usage/creation of API Keys.
-     * By end of Q1 2024, API Keys will be deprecated all together and the option to use them will no longer be available.
+     * By end of Q4 2024, API Keys will be deprecated all together and the option to use them will no longer be available. See [JFrog API deprecation process](https://jfrog.com/help/r/jfrog-platform-administration-documentation/jfrog-api-key-deprecation-process) for more details.
      * 
      */
     @Deprecated /* An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
 In a future version (scheduled for end of Q3, 2023), the option to disable the usage/creation of API Keys will be available and set to disabled by default. Admins will be able to enable the usage/creation of API Keys.
-By end of Q1 2024, API Keys will be deprecated all together and the option to use them will no longer be available. */
+By end of Q4 2024, API Keys will be deprecated all together and the option to use them will no longer be available. See [JFrog API deprecation process](https://jfrog.com/help/r/jfrog-platform-administration-documentation/jfrog-api-key-deprecation-process) for more details. */
     @Import(name="apiKey")
     private @Nullable Output<String> apiKey;
 
@@ -57,12 +57,12 @@ By end of Q1 2024, API Keys will be deprecated all together and the option to us
      * @deprecated
      * An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
      * In a future version (scheduled for end of Q3, 2023), the option to disable the usage/creation of API Keys will be available and set to disabled by default. Admins will be able to enable the usage/creation of API Keys.
-     * By end of Q1 2024, API Keys will be deprecated all together and the option to use them will no longer be available.
+     * By end of Q4 2024, API Keys will be deprecated all together and the option to use them will no longer be available. See [JFrog API deprecation process](https://jfrog.com/help/r/jfrog-platform-administration-documentation/jfrog-api-key-deprecation-process) for more details.
      * 
      */
     @Deprecated /* An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
 In a future version (scheduled for end of Q3, 2023), the option to disable the usage/creation of API Keys will be available and set to disabled by default. Admins will be able to enable the usage/creation of API Keys.
-By end of Q1 2024, API Keys will be deprecated all together and the option to use them will no longer be available. */
+By end of Q4 2024, API Keys will be deprecated all together and the option to use them will no longer be available. See [JFrog API deprecation process](https://jfrog.com/help/r/jfrog-platform-administration-documentation/jfrog-api-key-deprecation-process) for more details. */
     public Optional<Output<String>> apiKey() {
         return Optional.ofNullable(this.apiKey);
     }
@@ -80,6 +80,25 @@ By end of Q1 2024, API Keys will be deprecated all together and the option to us
      */
     public Optional<Output<Boolean>> checkLicense() {
         return Optional.ofNullable(this.checkLicense);
+    }
+
+    /**
+     * OIDC provider name. See [Configure an OIDC
+     * Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-an-oidc-integration) for
+     * more details.
+     * 
+     */
+    @Import(name="oidcProviderName")
+    private @Nullable Output<String> oidcProviderName;
+
+    /**
+     * @return OIDC provider name. See [Configure an OIDC
+     * Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-an-oidc-integration) for
+     * more details.
+     * 
+     */
+    public Optional<Output<String>> oidcProviderName() {
+        return Optional.ofNullable(this.oidcProviderName);
     }
 
     /**
@@ -103,6 +122,7 @@ By end of Q1 2024, API Keys will be deprecated all together and the option to us
         this.accessToken = $.accessToken;
         this.apiKey = $.apiKey;
         this.checkLicense = $.checkLicense;
+        this.oidcProviderName = $.oidcProviderName;
         this.url = $.url;
     }
 
@@ -156,12 +176,12 @@ By end of Q1 2024, API Keys will be deprecated all together and the option to us
          * @deprecated
          * An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
          * In a future version (scheduled for end of Q3, 2023), the option to disable the usage/creation of API Keys will be available and set to disabled by default. Admins will be able to enable the usage/creation of API Keys.
-         * By end of Q1 2024, API Keys will be deprecated all together and the option to use them will no longer be available.
+         * By end of Q4 2024, API Keys will be deprecated all together and the option to use them will no longer be available. See [JFrog API deprecation process](https://jfrog.com/help/r/jfrog-platform-administration-documentation/jfrog-api-key-deprecation-process) for more details.
          * 
          */
         @Deprecated /* An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
 In a future version (scheduled for end of Q3, 2023), the option to disable the usage/creation of API Keys will be available and set to disabled by default. Admins will be able to enable the usage/creation of API Keys.
-By end of Q1 2024, API Keys will be deprecated all together and the option to use them will no longer be available. */
+By end of Q4 2024, API Keys will be deprecated all together and the option to use them will no longer be available. See [JFrog API deprecation process](https://jfrog.com/help/r/jfrog-platform-administration-documentation/jfrog-api-key-deprecation-process) for more details. */
         public Builder apiKey(@Nullable Output<String> apiKey) {
             $.apiKey = apiKey;
             return this;
@@ -176,12 +196,12 @@ By end of Q1 2024, API Keys will be deprecated all together and the option to us
          * @deprecated
          * An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
          * In a future version (scheduled for end of Q3, 2023), the option to disable the usage/creation of API Keys will be available and set to disabled by default. Admins will be able to enable the usage/creation of API Keys.
-         * By end of Q1 2024, API Keys will be deprecated all together and the option to use them will no longer be available.
+         * By end of Q4 2024, API Keys will be deprecated all together and the option to use them will no longer be available. See [JFrog API deprecation process](https://jfrog.com/help/r/jfrog-platform-administration-documentation/jfrog-api-key-deprecation-process) for more details.
          * 
          */
         @Deprecated /* An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
 In a future version (scheduled for end of Q3, 2023), the option to disable the usage/creation of API Keys will be available and set to disabled by default. Admins will be able to enable the usage/creation of API Keys.
-By end of Q1 2024, API Keys will be deprecated all together and the option to use them will no longer be available. */
+By end of Q4 2024, API Keys will be deprecated all together and the option to use them will no longer be available. See [JFrog API deprecation process](https://jfrog.com/help/r/jfrog-platform-administration-documentation/jfrog-api-key-deprecation-process) for more details. */
         public Builder apiKey(String apiKey) {
             return apiKey(Output.of(apiKey));
         }
@@ -205,6 +225,31 @@ By end of Q1 2024, API Keys will be deprecated all together and the option to us
          */
         public Builder checkLicense(Boolean checkLicense) {
             return checkLicense(Output.of(checkLicense));
+        }
+
+        /**
+         * @param oidcProviderName OIDC provider name. See [Configure an OIDC
+         * Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-an-oidc-integration) for
+         * more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder oidcProviderName(@Nullable Output<String> oidcProviderName) {
+            $.oidcProviderName = oidcProviderName;
+            return this;
+        }
+
+        /**
+         * @param oidcProviderName OIDC provider name. See [Configure an OIDC
+         * Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-an-oidc-integration) for
+         * more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder oidcProviderName(String oidcProviderName) {
+            return oidcProviderName(Output.of(oidcProviderName));
         }
 
         /**
