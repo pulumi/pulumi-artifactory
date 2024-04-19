@@ -298,7 +298,6 @@ class ManagedUser(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -311,7 +310,6 @@ class ManagedUser(pulumi.CustomResource):
             ],
             password="my super secret password")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -339,7 +337,6 @@ class ManagedUser(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -352,7 +349,6 @@ class ManagedUser(pulumi.CustomResource):
             ],
             password="my super secret password")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

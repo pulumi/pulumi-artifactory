@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -20,7 +19,6 @@ import * as utilities from "./utilities";
  *     key: "federated-test-swift-repo",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getFederatedSwiftRepository(args: GetFederatedSwiftRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetFederatedSwiftRepositoryResult> {
 
@@ -134,7 +132,6 @@ export interface GetFederatedSwiftRepositoryResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -143,7 +140,6 @@ export interface GetFederatedSwiftRepositoryResult {
  *     key: "federated-test-swift-repo",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getFederatedSwiftRepositoryOutput(args: GetFederatedSwiftRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedSwiftRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getFederatedSwiftRepository(a, opts))

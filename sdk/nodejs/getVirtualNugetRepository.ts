@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -18,7 +17,6 @@ import * as utilities from "./utilities";
  *     key: "virtual-npm",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getVirtualNugetRepository(args: GetVirtualNugetRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNugetRepositoryResult> {
 
@@ -93,7 +91,6 @@ export interface GetVirtualNugetRepositoryResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -102,7 +99,6 @@ export interface GetVirtualNugetRepositoryResult {
  *     key: "virtual-npm",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getVirtualNugetRepositoryOutput(args: GetVirtualNugetRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNugetRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getVirtualNugetRepository(a, opts))

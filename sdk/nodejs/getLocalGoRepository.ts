@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -18,7 +17,6 @@ import * as utilities from "./utilities";
  *     key: "local-test-go-repo",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLocalGoRepository(args: GetLocalGoRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalGoRepositoryResult> {
 
@@ -99,7 +97,6 @@ export interface GetLocalGoRepositoryResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -108,7 +105,6 @@ export interface GetLocalGoRepositoryResult {
  *     key: "local-test-go-repo",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLocalGoRepositoryOutput(args: GetLocalGoRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalGoRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getLocalGoRepository(a, opts))

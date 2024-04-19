@@ -9,14 +9,12 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * const terraform_local_test_cocoapods_repo = new artifactory.LocalCocoapodsRepository("terraform-local-test-cocoapods-repo", {key: "terraform-local-test-cocoapods-repo"});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

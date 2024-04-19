@@ -494,14 +494,12 @@ def get_remote_conan_repository(allow_any_host_auth: Optional[bool] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     remote_conan = artifactory.get_remote_conan_repository(key="remote-conan")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param bool force_conan_authentication: (Optional) Force basic authentication credentials in order to use this repository. Default value is `false`.
@@ -652,14 +650,12 @@ def get_remote_conan_repository_output(allow_any_host_auth: Optional[pulumi.Inpu
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     remote_conan = artifactory.get_remote_conan_repository(key="remote-conan")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param bool force_conan_authentication: (Optional) Force basic authentication credentials in order to use this repository. Default value is `false`.

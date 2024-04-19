@@ -511,7 +511,6 @@ class VirtualConanRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -525,7 +524,6 @@ class VirtualConanRepository(pulumi.CustomResource):
             repo_layout_ref="conan-default",
             repositories=[])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -571,7 +569,6 @@ class VirtualConanRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -585,7 +582,6 @@ class VirtualConanRepository(pulumi.CustomResource):
             repo_layout_ref="conan-default",
             repositories=[])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

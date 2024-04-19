@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,7 +38,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetVirtualMavenRepository(ctx *pulumi.Context, args *GetVirtualMavenRepositoryArgs, opts ...pulumi.InvokeOption) (*GetVirtualMavenRepositoryResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetVirtualMavenRepositoryResult

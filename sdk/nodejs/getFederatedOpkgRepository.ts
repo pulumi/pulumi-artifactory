@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -20,7 +19,6 @@ import * as utilities from "./utilities";
  *     key: "federated-test-opkg-repo",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getFederatedOpkgRepository(args: GetFederatedOpkgRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetFederatedOpkgRepositoryResult> {
 
@@ -134,7 +132,6 @@ export interface GetFederatedOpkgRepositoryResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -143,7 +140,6 @@ export interface GetFederatedOpkgRepositoryResult {
  *     key: "federated-test-opkg-repo",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getFederatedOpkgRepositoryOutput(args: GetFederatedOpkgRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedOpkgRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getFederatedOpkgRepository(a, opts))

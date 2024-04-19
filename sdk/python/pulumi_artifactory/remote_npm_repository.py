@@ -1582,7 +1582,6 @@ class RemoteNpmRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -1593,7 +1592,6 @@ class RemoteNpmRepository(pulumi.CustomResource):
             mismatching_mime_types_override_list="application/json,application/xml",
             url="https://registry.npmjs.org")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1693,7 +1691,6 @@ class RemoteNpmRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -1704,7 +1701,6 @@ class RemoteNpmRepository(pulumi.CustomResource):
             mismatching_mime_types_override_list="application/json,application/xml",
             url="https://registry.npmjs.org")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

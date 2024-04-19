@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -21,7 +20,6 @@ import * as utilities from "./utilities";
  *     repository: "repo-key",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getFileinfo(args: GetFileinfoArgs, opts?: pulumi.InvokeOptions): Promise<GetFileinfoResult> {
 
@@ -108,7 +106,6 @@ export interface GetFileinfoResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -118,7 +115,6 @@ export interface GetFileinfoResult {
  *     repository: "repo-key",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getFileinfoOutput(args: GetFileinfoOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFileinfoResult> {
     return pulumi.output(args).apply((a: any) => getFileinfo(a, opts))

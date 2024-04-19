@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -18,7 +17,6 @@ import * as utilities from "./utilities";
  *     key: "local-test-chef-repo",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLocalChefRepository(args: GetLocalChefRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalChefRepositoryResult> {
 
@@ -111,7 +109,6 @@ export interface GetLocalChefRepositoryResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -120,7 +117,6 @@ export interface GetLocalChefRepositoryResult {
  *     key: "local-test-chef-repo",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLocalChefRepositoryOutput(args: GetLocalChefRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalChefRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getLocalChefRepository(a, opts))

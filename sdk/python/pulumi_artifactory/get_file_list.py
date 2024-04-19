@@ -178,7 +178,6 @@ def get_file_list(deep_listing: Optional[bool] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
@@ -186,7 +185,6 @@ def get_file_list(deep_listing: Optional[bool] = None,
     my_repo_file_list = artifactory.get_file_list(folder_path="path/to/artifact",
         repository_key="my-generic-local")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param bool deep_listing: Get deep listing
@@ -236,7 +234,6 @@ def get_file_list_output(deep_listing: Optional[pulumi.Input[Optional[bool]]] = 
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
@@ -244,7 +241,6 @@ def get_file_list_output(deep_listing: Optional[pulumi.Input[Optional[bool]]] = 
     my_repo_file_list = artifactory.get_file_list(folder_path="path/to/artifact",
         repository_key="my-generic-local")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param bool deep_listing: Get deep listing

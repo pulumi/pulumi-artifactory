@@ -543,7 +543,6 @@ class VirtualBowerRepository(pulumi.CustomResource):
         Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Bower+Repositories#BowerRepositories-VirtualRepositories).
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -557,7 +556,6 @@ class VirtualBowerRepository(pulumi.CustomResource):
             notes="Internal description",
             repositories=[])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -603,7 +601,6 @@ class VirtualBowerRepository(pulumi.CustomResource):
         Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Bower+Repositories#BowerRepositories-VirtualRepositories).
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -617,7 +614,6 @@ class VirtualBowerRepository(pulumi.CustomResource):
             notes="Internal description",
             repositories=[])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

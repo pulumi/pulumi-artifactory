@@ -367,7 +367,6 @@ class MailServer(pulumi.CustomResource):
 
         ### S
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -384,7 +383,6 @@ class MailServer(pulumi.CustomResource):
             use_tls=True,
             username="test-user")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -420,7 +418,6 @@ class MailServer(pulumi.CustomResource):
 
         ### S
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -437,7 +434,6 @@ class MailServer(pulumi.CustomResource):
             use_tls=True,
             username="test-user")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

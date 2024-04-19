@@ -1672,7 +1672,6 @@ class RemoteHelmRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -1684,7 +1683,6 @@ class RemoteHelmRepository(pulumi.CustomResource):
             key="helm-remote-foo25",
             url="https://repo.chartcenter.io/")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1792,7 +1790,6 @@ class RemoteHelmRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -1804,7 +1801,6 @@ class RemoteHelmRepository(pulumi.CustomResource):
             key="helm-remote-foo25",
             url="https://repo.chartcenter.io/")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

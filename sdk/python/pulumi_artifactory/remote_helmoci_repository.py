@@ -1678,7 +1678,6 @@ class RemoteHelmociRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -1690,7 +1689,6 @@ class RemoteHelmociRepository(pulumi.CustomResource):
             key="my-helmoci-remote",
             url="https://registry-1.docker.io/")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1793,7 +1791,6 @@ class RemoteHelmociRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -1805,7 +1802,6 @@ class RemoteHelmociRepository(pulumi.CustomResource):
             key="my-helmoci-remote",
             url="https://registry-1.docker.io/")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

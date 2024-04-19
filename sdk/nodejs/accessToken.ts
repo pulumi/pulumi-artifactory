@@ -19,7 +19,6 @@ import * as utilities from "./utilities";
  * ### S
  * ### Create a new Artifactory Access Token for an existing user
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -29,12 +28,10 @@ import * as utilities from "./utilities";
  *     username: "existing-user",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * Note: This assumes that the user `existing-user` has already been created in Artifactory by different means, i.e. manually or in a separate pulumi up.
  *
  * ### Create a new Artifactory User and Access token
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -48,11 +45,9 @@ import * as utilities from "./utilities";
  *     endDateRelative: "5m",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Creates a new token for groups
  * This creates a transient user called `temporary-user`.
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -63,10 +58,8 @@ import * as utilities from "./utilities";
  *     username: "temporary-user",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Create token with no expiry
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -76,10 +69,8 @@ import * as utilities from "./utilities";
  *     username: "existing-user",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Creates a refreshable token
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -91,10 +82,8 @@ import * as utilities from "./utilities";
  *     username: "refreshable",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Creates an administrator token
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -107,10 +96,8 @@ import * as utilities from "./utilities";
  *     username: "admin",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Creates a token with an audience
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -122,10 +109,8 @@ import * as utilities from "./utilities";
  *     username: "audience",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Creates a token with a fixed end date
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -136,7 +121,6 @@ import * as utilities from "./utilities";
  *     username: "fixeddate",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Rotate token after it expires
  * This example will generate a token that will expire in 1 hour.
@@ -144,7 +128,6 @@ import * as utilities from "./utilities";
  * If `pulumi up` is run before 1 hour, nothing changes.
  * One an hour has passed, `pulumi up` will generate a new token.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -157,7 +140,6 @@ import * as utilities from "./utilities";
  *     groups: ["readers"],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export class AccessToken extends pulumi.CustomResource {
     /**

@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,7 +38,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupVirtualBowerRepository(ctx *pulumi.Context, args *LookupVirtualBowerRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupVirtualBowerRepositoryResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVirtualBowerRepositoryResult

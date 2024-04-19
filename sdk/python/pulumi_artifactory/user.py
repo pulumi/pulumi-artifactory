@@ -304,7 +304,6 @@ class User(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -318,7 +317,6 @@ class User(pulumi.CustomResource):
             password="my super secret password",
             profile_updatable=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Managing groups relationship
 
@@ -355,7 +353,6 @@ class User(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -369,7 +366,6 @@ class User(pulumi.CustomResource):
             password="my super secret password",
             profile_updatable=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Managing groups relationship
 

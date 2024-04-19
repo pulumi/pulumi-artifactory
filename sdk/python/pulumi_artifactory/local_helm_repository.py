@@ -588,14 +588,12 @@ class LocalHelmRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
 
         terraform_local_test_helm_repo = artifactory.LocalHelmRepository("terraform-local-test-helm-repo", key="terraform-local-test-helm-repo")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -645,14 +643,12 @@ class LocalHelmRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
 
         terraform_local_test_helm_repo = artifactory.LocalHelmRepository("terraform-local-test-helm-repo", key="terraform-local-test-helm-repo")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

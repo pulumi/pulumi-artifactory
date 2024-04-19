@@ -1549,7 +1549,6 @@ class RemoteDebianRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -1558,7 +1557,6 @@ class RemoteDebianRepository(pulumi.CustomResource):
             key="my-remote-Debian",
             url="http://archive.ubuntu.com/ubuntu/")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1657,7 +1655,6 @@ class RemoteDebianRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -1666,7 +1663,6 @@ class RemoteDebianRepository(pulumi.CustomResource):
             key="my-remote-Debian",
             url="http://archive.ubuntu.com/ubuntu/")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

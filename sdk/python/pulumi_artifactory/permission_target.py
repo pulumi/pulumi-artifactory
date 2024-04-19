@@ -174,7 +174,6 @@ class PermissionTarget(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -247,7 +246,6 @@ class PermissionTarget(pulumi.CustomResource):
                 repositories=["example-repo-local"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Permissions
 
@@ -299,7 +297,6 @@ class PermissionTarget(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -372,7 +369,6 @@ class PermissionTarget(pulumi.CustomResource):
                 repositories=["example-repo-local"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Permissions
 

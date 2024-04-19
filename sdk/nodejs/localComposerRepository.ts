@@ -9,14 +9,12 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * const terraform_local_test_composer_repo = new artifactory.LocalComposerRepository("terraform-local-test-composer-repo", {key: "terraform-local-test-composer-repo"});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

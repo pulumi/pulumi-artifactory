@@ -586,14 +586,12 @@ class LocalTerraformBackendRepository(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
 
         terraform_local_test_terraformbackend_repo = artifactory.LocalTerraformBackendRepository("terraform-local-test-terraformbackend-repo", key="terraform-local-test-terraformbackend-repo")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -641,14 +639,12 @@ class LocalTerraformBackendRepository(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
 
         terraform_local_test_terraformbackend_repo = artifactory.LocalTerraformBackendRepository("terraform-local-test-terraformbackend-repo", key="terraform-local-test-terraformbackend-repo")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

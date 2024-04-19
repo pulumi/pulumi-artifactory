@@ -240,7 +240,6 @@ class Keypair(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -253,7 +252,6 @@ class Keypair(pulumi.CustomResource):
             public_key=(lambda path: open(path).read())("samples/rsa.pub"),
             passphrase="PASSPHRASE")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -286,7 +284,6 @@ class Keypair(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -299,7 +296,6 @@ class Keypair(pulumi.CustomResource):
             public_key=(lambda path: open(path).read())("samples/rsa.pub"),
             passphrase="PASSPHRASE")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

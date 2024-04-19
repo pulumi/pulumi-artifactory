@@ -370,7 +370,6 @@ class Proxy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -390,7 +389,6 @@ class Proxy(pulumi.CustomResource):
             ],
             username="user1")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -429,7 +427,6 @@ class Proxy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -449,7 +446,6 @@ class Proxy(pulumi.CustomResource):
             ],
             username="user1")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

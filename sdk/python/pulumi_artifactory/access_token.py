@@ -310,7 +310,6 @@ class AccessToken(pulumi.CustomResource):
         ### S
         ### Create a new Artifactory Access Token for an existing user
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -319,12 +318,10 @@ class AccessToken(pulumi.CustomResource):
             end_date_relative="5m",
             username="existing-user")
         ```
-        <!--End PulumiCodeChooser -->
 
         Note: This assumes that the user `existing-user` has already been created in Artifactory by different means, i.e. manually or in a separate pulumi up.
 
         ### Create a new Artifactory User and Access token
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -336,11 +333,9 @@ class AccessToken(pulumi.CustomResource):
             username=new_user_user.name,
             end_date_relative="5m")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Creates a new token for groups
         This creates a transient user called `temporary-user`.
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -350,10 +345,8 @@ class AccessToken(pulumi.CustomResource):
             groups=["readers"],
             username="temporary-user")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Create token with no expiry
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -362,10 +355,8 @@ class AccessToken(pulumi.CustomResource):
             end_date_relative="0s",
             username="existing-user")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Creates a refreshable token
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -376,10 +367,8 @@ class AccessToken(pulumi.CustomResource):
             refreshable=True,
             username="refreshable")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Creates an administrator token
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -391,10 +380,8 @@ class AccessToken(pulumi.CustomResource):
             end_date_relative="1m",
             username="admin")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Creates a token with an audience
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -405,10 +392,8 @@ class AccessToken(pulumi.CustomResource):
             refreshable=True,
             username="audience")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Creates a token with a fixed end date
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -418,7 +403,6 @@ class AccessToken(pulumi.CustomResource):
             groups=["readers"],
             username="fixeddate")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Rotate token after it expires
         This example will generate a token that will expire in 1 hour.
@@ -426,7 +410,6 @@ class AccessToken(pulumi.CustomResource):
         If `pulumi up` is run before 1 hour, nothing changes.
         One an hour has passed, `pulumi up` will generate a new token.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -438,7 +421,6 @@ class AccessToken(pulumi.CustomResource):
             end_date=time_rotating["now_plus_1_hour"]["rotation_rfc3339"],
             groups=["readers"])
         ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -469,7 +451,6 @@ class AccessToken(pulumi.CustomResource):
         ### S
         ### Create a new Artifactory Access Token for an existing user
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -478,12 +459,10 @@ class AccessToken(pulumi.CustomResource):
             end_date_relative="5m",
             username="existing-user")
         ```
-        <!--End PulumiCodeChooser -->
 
         Note: This assumes that the user `existing-user` has already been created in Artifactory by different means, i.e. manually or in a separate pulumi up.
 
         ### Create a new Artifactory User and Access token
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -495,11 +474,9 @@ class AccessToken(pulumi.CustomResource):
             username=new_user_user.name,
             end_date_relative="5m")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Creates a new token for groups
         This creates a transient user called `temporary-user`.
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -509,10 +486,8 @@ class AccessToken(pulumi.CustomResource):
             groups=["readers"],
             username="temporary-user")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Create token with no expiry
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -521,10 +496,8 @@ class AccessToken(pulumi.CustomResource):
             end_date_relative="0s",
             username="existing-user")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Creates a refreshable token
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -535,10 +508,8 @@ class AccessToken(pulumi.CustomResource):
             refreshable=True,
             username="refreshable")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Creates an administrator token
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -550,10 +521,8 @@ class AccessToken(pulumi.CustomResource):
             end_date_relative="1m",
             username="admin")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Creates a token with an audience
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -564,10 +533,8 @@ class AccessToken(pulumi.CustomResource):
             refreshable=True,
             username="audience")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Creates a token with a fixed end date
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -577,7 +544,6 @@ class AccessToken(pulumi.CustomResource):
             groups=["readers"],
             username="fixeddate")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Rotate token after it expires
         This example will generate a token that will expire in 1 hour.
@@ -585,7 +551,6 @@ class AccessToken(pulumi.CustomResource):
         If `pulumi up` is run before 1 hour, nothing changes.
         One an hour has passed, `pulumi up` will generate a new token.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -597,7 +562,6 @@ class AccessToken(pulumi.CustomResource):
             end_date=time_rotating["now_plus_1_hour"]["rotation_rfc3339"],
             groups=["readers"])
         ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param AccessTokenArgs args: The arguments to use to populate this resource's properties.

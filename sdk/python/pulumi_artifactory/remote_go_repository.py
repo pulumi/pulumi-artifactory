@@ -1582,7 +1582,6 @@ class RemoteGoRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -1592,7 +1591,6 @@ class RemoteGoRepository(pulumi.CustomResource):
             url="https://proxy.golang.org/",
             vcs_git_provider="ARTIFACTORY")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1692,7 +1690,6 @@ class RemoteGoRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -1702,7 +1699,6 @@ class RemoteGoRepository(pulumi.CustomResource):
             url="https://proxy.golang.org/",
             vcs_git_provider="ARTIFACTORY")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

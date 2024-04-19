@@ -505,7 +505,6 @@ class LdapSettingV2(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -526,7 +525,6 @@ class LdapSettingV2(pulumi.CustomResource):
             search_sub_tree=True,
             user_dn_pattern="uid={0},ou=People")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -569,7 +567,6 @@ class LdapSettingV2(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -590,7 +587,6 @@ class LdapSettingV2(pulumi.CustomResource):
             search_sub_tree=True,
             user_dn_pattern="uid={0},ou=People")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

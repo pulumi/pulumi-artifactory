@@ -196,14 +196,12 @@ def get_virtual_conan_repository(artifactory_requests_can_retrieve_remote_artifa
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     virtual_conan = artifactory.get_virtual_conan_repository(key="virtual-conan")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param bool force_conan_authentication: Force basic authentication credentials in order to use this repository.
@@ -266,14 +264,12 @@ def get_virtual_conan_repository_output(artifactory_requests_can_retrieve_remote
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     virtual_conan = artifactory.get_virtual_conan_repository(key="virtual-conan")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param bool force_conan_authentication: Force basic authentication credentials in order to use this repository.

@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -20,7 +19,6 @@ import * as utilities from "./utilities";
  *     key: "remote-rpm",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRemoteRpmRepository(args: GetRemoteRpmRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRemoteRpmRepositoryResult> {
 
@@ -179,7 +177,6 @@ export interface GetRemoteRpmRepositoryResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -188,7 +185,6 @@ export interface GetRemoteRpmRepositoryResult {
  *     key: "remote-rpm",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRemoteRpmRepositoryOutput(args: GetRemoteRpmRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteRpmRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getRemoteRpmRepository(a, opts))

@@ -1780,7 +1780,6 @@ class RemoteDockerRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -1793,7 +1792,6 @@ class RemoteDockerRepository(pulumi.CustomResource):
             key="my-remote-docker",
             url="https://registry-1.docker.io/")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1907,7 +1905,6 @@ class RemoteDockerRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -1920,7 +1917,6 @@ class RemoteDockerRepository(pulumi.CustomResource):
             key="my-remote-docker",
             url="https://registry-1.docker.io/")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

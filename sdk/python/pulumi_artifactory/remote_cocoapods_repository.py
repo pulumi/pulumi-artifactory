@@ -1652,7 +1652,6 @@ class RemoteCocoapodsRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -1663,7 +1662,6 @@ class RemoteCocoapodsRepository(pulumi.CustomResource):
             url="https://github.com/",
             vcs_git_provider="GITHUB")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1766,7 +1764,6 @@ class RemoteCocoapodsRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -1777,7 +1774,6 @@ class RemoteCocoapodsRepository(pulumi.CustomResource):
             url="https://github.com/",
             vcs_git_provider="GITHUB")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

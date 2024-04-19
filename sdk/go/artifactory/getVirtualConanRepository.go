@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,7 +38,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupVirtualConanRepository(ctx *pulumi.Context, args *LookupVirtualConanRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupVirtualConanRepositoryResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVirtualConanRepositoryResult

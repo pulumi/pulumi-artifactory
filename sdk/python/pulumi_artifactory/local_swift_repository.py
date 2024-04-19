@@ -588,14 +588,12 @@ class LocalSwiftRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
 
         terraform_local_test_swift_repo = artifactory.LocalSwiftRepository("terraform-local-test-swift-repo", key="terraform-local-test-swift-repo")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -645,14 +643,12 @@ class LocalSwiftRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
 
         terraform_local_test_swift_repo = artifactory.LocalSwiftRepository("terraform-local-test-swift-repo", key="terraform-local-test-swift-repo")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

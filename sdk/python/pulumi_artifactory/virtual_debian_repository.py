@@ -610,7 +610,6 @@ class VirtualDebianRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -628,7 +627,6 @@ class VirtualDebianRepository(pulumi.CustomResource):
             ],
             repositories=[])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -677,7 +675,6 @@ class VirtualDebianRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -695,7 +692,6 @@ class VirtualDebianRepository(pulumi.CustomResource):
             ],
             repositories=[])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

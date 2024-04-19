@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -23,7 +22,6 @@ import * as utilities from "./utilities";
  * // This can then be used by a remote repository
  * const my_remote = new artifactory.RemoteMavenRepository("my-remote", {clientTlsCertificate: my_cert.alias});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

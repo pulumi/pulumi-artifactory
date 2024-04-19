@@ -235,7 +235,6 @@ class RepositoryLayout(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -247,7 +246,6 @@ class RepositoryLayout(pulumi.CustomResource):
             file_integration_revision_regexp="Foo|(?:(?:[0-9]{8}.[0-9]{6})-(?:[0-9]+))",
             folder_integration_revision_regexp="Foo")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -279,7 +277,6 @@ class RepositoryLayout(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -291,7 +288,6 @@ class RepositoryLayout(pulumi.CustomResource):
             file_integration_revision_regexp="Foo|(?:(?:[0-9]{8}.[0-9]{6})-(?:[0-9]+))",
             folder_integration_revision_regexp="Foo")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -12,7 +12,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -25,7 +24,6 @@ import * as utilities from "./utilities";
  *     url: "https://github.com/rust-lang/crates.io-index",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  * ## Note
  *
  * If you get a 400 error: `"Custom Base URL should be defined prior to creating a Cargo repository"`,

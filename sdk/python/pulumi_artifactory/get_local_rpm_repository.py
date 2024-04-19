@@ -293,14 +293,12 @@ def get_local_rpm_repository(archive_browsing_enabled: Optional[bool] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     local_test_rpm_repo_basic = artifactory.get_local_rpm_repository(key="local-test-rpm-repo-basic")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param bool calculate_yum_metadata: Default: `false`.
@@ -396,14 +394,12 @@ def get_local_rpm_repository_output(archive_browsing_enabled: Optional[pulumi.In
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     local_test_rpm_repo_basic = artifactory.get_local_rpm_repository(key="local-test-rpm-repo-basic")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param bool calculate_yum_metadata: Default: `false`.

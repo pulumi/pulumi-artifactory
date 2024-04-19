@@ -143,7 +143,6 @@ class PropertySet(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -183,7 +182,6 @@ class PropertySet(pulumi.CustomResource):
             ],
             visible=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -214,7 +212,6 @@ class PropertySet(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -254,7 +251,6 @@ class PropertySet(pulumi.CustomResource):
             ],
             visible=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

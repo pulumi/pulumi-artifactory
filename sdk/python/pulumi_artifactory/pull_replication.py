@@ -507,7 +507,6 @@ class PullReplication(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -524,7 +523,6 @@ class PullReplication(pulumi.CustomResource):
             enable_event_replication=True,
             repo_key=provider_test_dest.key)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -568,7 +566,6 @@ class PullReplication(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -585,7 +582,6 @@ class PullReplication(pulumi.CustomResource):
             enable_event_replication=True,
             repo_key=provider_test_dest.key)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

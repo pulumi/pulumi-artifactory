@@ -22,7 +22,6 @@ namespace Pulumi.Artifactory
     /// ### S
     /// ### Create a new Artifactory Access Token for an existing user
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -39,12 +38,10 @@ namespace Pulumi.Artifactory
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// Note: This assumes that the user `existing-user` has already been created in Artifactory by different means, i.e. manually or in a separate pulumi up.
     /// 
     /// ### Create a new Artifactory User and Access token
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -70,11 +67,9 @@ namespace Pulumi.Artifactory
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Creates a new token for groups
     /// This creates a transient user called `temporary-user`.
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -95,10 +90,8 @@ namespace Pulumi.Artifactory
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Create token with no expiry
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -115,10 +108,8 @@ namespace Pulumi.Artifactory
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Creates a refreshable token
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -140,10 +131,8 @@ namespace Pulumi.Artifactory
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Creates an administrator token
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -164,10 +153,8 @@ namespace Pulumi.Artifactory
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Creates a token with an audience
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -186,10 +173,8 @@ namespace Pulumi.Artifactory
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Creates a token with a fixed end date
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -210,7 +195,6 @@ namespace Pulumi.Artifactory
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Rotate token after it expires
     /// This example will generate a token that will expire in 1 hour.
@@ -218,7 +202,6 @@ namespace Pulumi.Artifactory
     /// If `pulumi up` is run before 1 hour, nothing changes.
     /// One an hour has passed, `pulumi up` will generate a new token.
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -245,7 +228,6 @@ namespace Pulumi.Artifactory
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/accessToken:AccessToken")]
     public partial class AccessToken : global::Pulumi.CustomResource

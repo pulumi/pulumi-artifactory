@@ -445,7 +445,6 @@ class VirtualPuppetRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -458,7 +457,6 @@ class VirtualPuppetRepository(pulumi.CustomResource):
             notes="Internal description",
             repositories=[])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -502,7 +500,6 @@ class VirtualPuppetRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -515,7 +512,6 @@ class VirtualPuppetRepository(pulumi.CustomResource):
             notes="Internal description",
             repositories=[])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -24,7 +24,6 @@ import (
 // ### S
 // ### Create a new Artifactory Access Token for an existing user
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -49,12 +48,10 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // Note: This assumes that the user `existing-user` has already been created in Artifactory by different means, i.e. manually or in a separate pulumi up.
 //
 // ### Create a new Artifactory User and Access token
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -88,11 +85,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Creates a new token for groups
 // This creates a transient user called `temporary-user`.
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -120,10 +115,8 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Create token with no expiry
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -148,10 +141,8 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Creates a refreshable token
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -180,10 +171,8 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Creates an administrator token
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -211,10 +200,8 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Creates a token with an audience
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -241,10 +228,8 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Creates a token with a fixed end date
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -272,7 +257,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Rotate token after it expires
 // This example will generate a token that will expire in 1 hour.
@@ -280,7 +264,6 @@ import (
 // If `pulumi up` is run before 1 hour, nothing changes.
 // One an hour has passed, `pulumi up` will generate a new token.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -315,7 +298,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 type AccessToken struct {
 	pulumi.CustomResourceState
 

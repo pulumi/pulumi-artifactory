@@ -15,7 +15,6 @@ namespace Pulumi.Artifactory
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -35,7 +34,6 @@ namespace Pulumi.Artifactory
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// ## Note
     /// 
     /// If you get a 400 error: `"Custom Base URL should be defined prior to creating a Cargo repository"`,

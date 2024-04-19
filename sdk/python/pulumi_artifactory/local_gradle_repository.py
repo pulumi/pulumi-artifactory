@@ -818,7 +818,6 @@ class LocalGradleRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -832,7 +831,6 @@ class LocalGradleRepository(pulumi.CustomResource):
             snapshot_version_behavior="unique",
             suppress_pom_consistency_checks=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -896,7 +894,6 @@ class LocalGradleRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -910,7 +907,6 @@ class LocalGradleRepository(pulumi.CustomResource):
             snapshot_version_behavior="unique",
             suppress_pom_consistency_checks=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

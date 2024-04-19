@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -18,7 +17,6 @@ import * as utilities from "./utilities";
  *     key: "virtual-composer",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getVirtualComposerRepository(args: GetVirtualComposerRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualComposerRepositoryResult> {
 
@@ -84,7 +82,6 @@ export interface GetVirtualComposerRepositoryResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -93,7 +90,6 @@ export interface GetVirtualComposerRepositoryResult {
  *     key: "virtual-composer",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getVirtualComposerRepositoryOutput(args: GetVirtualComposerRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualComposerRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getVirtualComposerRepository(a, opts))

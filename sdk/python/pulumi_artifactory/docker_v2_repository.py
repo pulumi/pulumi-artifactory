@@ -719,7 +719,6 @@ class DockerV2Repository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -729,7 +728,6 @@ class DockerV2Repository(pulumi.CustomResource):
             max_unique_tags=5,
             tag_retention=3)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -786,7 +784,6 @@ class DockerV2Repository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -796,7 +793,6 @@ class DockerV2Repository(pulumi.CustomResource):
             max_unique_tags=5,
             tag_retention=3)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

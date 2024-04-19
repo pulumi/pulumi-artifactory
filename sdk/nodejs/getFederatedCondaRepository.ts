@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -20,7 +19,6 @@ import * as utilities from "./utilities";
  *     key: "federated-test-conda-repo",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getFederatedCondaRepository(args: GetFederatedCondaRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetFederatedCondaRepositoryResult> {
 
@@ -134,7 +132,6 @@ export interface GetFederatedCondaRepositoryResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -143,7 +140,6 @@ export interface GetFederatedCondaRepositoryResult {
  *     key: "federated-test-conda-repo",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getFederatedCondaRepositoryOutput(args: GetFederatedCondaRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedCondaRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getFederatedCondaRepository(a, opts))

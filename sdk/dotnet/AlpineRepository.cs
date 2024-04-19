@@ -14,7 +14,6 @@ namespace Pulumi.Artifactory
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.IO;
@@ -41,13 +40,12 @@ namespace Pulumi.Artifactory
     ///     {
     ///         DependsOn =
     ///         {
-    ///             some_keypairRSA, 
+    ///             some_keypairRSA,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

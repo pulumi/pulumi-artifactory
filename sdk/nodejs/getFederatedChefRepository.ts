@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -20,7 +19,6 @@ import * as utilities from "./utilities";
  *     key: "federated-test-chef-repo",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getFederatedChefRepository(args: GetFederatedChefRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetFederatedChefRepositoryResult> {
 
@@ -137,7 +135,6 @@ export interface GetFederatedChefRepositoryResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -146,7 +143,6 @@ export interface GetFederatedChefRepositoryResult {
  *     key: "federated-test-chef-repo",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getFederatedChefRepositoryOutput(args: GetFederatedChefRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedChefRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getFederatedChefRepository(a, opts))

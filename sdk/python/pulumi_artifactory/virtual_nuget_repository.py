@@ -478,7 +478,6 @@ class VirtualNugetRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -492,7 +491,6 @@ class VirtualNugetRepository(pulumi.CustomResource):
             notes="Internal description",
             repositories=[])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -537,7 +535,6 @@ class VirtualNugetRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -551,7 +548,6 @@ class VirtualNugetRepository(pulumi.CustomResource):
             notes="Internal description",
             repositories=[])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

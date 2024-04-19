@@ -9,14 +9,12 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * const artifactoryLocalTestDockerV2Repository = new artifactory.DockerV2Repository("artifactoryLocalTestDockerV2Repository", {key: "artifactory_local_test_docker_v2_repository"});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLocalDockerV2Repository(args: GetLocalDockerV2RepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalDockerV2RepositoryResult> {
 
@@ -133,14 +131,12 @@ export interface GetLocalDockerV2RepositoryResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * const artifactoryLocalTestDockerV2Repository = new artifactory.DockerV2Repository("artifactoryLocalTestDockerV2Repository", {key: "artifactory_local_test_docker_v2_repository"});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLocalDockerV2RepositoryOutput(args: GetLocalDockerV2RepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalDockerV2RepositoryResult> {
     return pulumi.output(args).apply((a: any) => getLocalDockerV2Repository(a, opts))

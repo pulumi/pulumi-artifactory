@@ -556,7 +556,6 @@ class VirtualGradleRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -570,7 +569,6 @@ class VirtualGradleRepository(pulumi.CustomResource):
             pom_repository_references_cleanup_policy="discard_active_reference",
             repositories=[])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -620,7 +618,6 @@ class VirtualGradleRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -634,7 +631,6 @@ class VirtualGradleRepository(pulumi.CustomResource):
             pom_repository_references_cleanup_policy="discard_active_reference",
             repositories=[])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -588,14 +588,12 @@ class LocalPypiRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
 
         terraform_local_test_pypi_repo = artifactory.LocalPypiRepository("terraform-local-test-pypi-repo", key="terraform-local-test-pypi-repo")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -645,14 +643,12 @@ class LocalPypiRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
 
         terraform_local_test_pypi_repo = artifactory.LocalPypiRepository("terraform-local-test-pypi-repo", key="terraform-local-test-pypi-repo")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

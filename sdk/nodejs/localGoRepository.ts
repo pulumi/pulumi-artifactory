@@ -9,14 +9,12 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * const terraform_local_test_go_repo = new artifactory.LocalGoRepository("terraform-local-test-go-repo", {key: "terraform-local-test-go-repo"});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

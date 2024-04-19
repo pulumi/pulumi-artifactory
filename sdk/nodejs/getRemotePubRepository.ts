@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -20,7 +19,6 @@ import * as utilities from "./utilities";
  *     key: "remote-pub",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRemotePubRepository(args: GetRemotePubRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRemotePubRepositoryResult> {
 
@@ -179,7 +177,6 @@ export interface GetRemotePubRepositoryResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -188,7 +185,6 @@ export interface GetRemotePubRepositoryResult {
  *     key: "remote-pub",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRemotePubRepositoryOutput(args: GetRemotePubRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemotePubRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getRemotePubRepository(a, opts))

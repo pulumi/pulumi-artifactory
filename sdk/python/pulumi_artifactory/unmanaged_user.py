@@ -306,7 +306,6 @@ class UnmanagedUser(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -317,7 +316,6 @@ class UnmanagedUser(pulumi.CustomResource):
             groups=["logged-in-users"],
             password="my super secret password")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Managing groups relationship
 
@@ -358,7 +356,6 @@ class UnmanagedUser(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -369,7 +366,6 @@ class UnmanagedUser(pulumi.CustomResource):
             groups=["logged-in-users"],
             password="my super secret password")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Managing groups relationship
 

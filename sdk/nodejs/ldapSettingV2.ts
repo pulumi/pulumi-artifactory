@@ -16,7 +16,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -38,7 +37,6 @@ import * as utilities from "./utilities";
  *     userDnPattern: "uid={0},ou=People",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

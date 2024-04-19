@@ -265,14 +265,12 @@ def get_local_debian_repository(archive_browsing_enabled: Optional[bool] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     local_test_debian_repo_basic = artifactory.get_local_debian_repository(key="local-test-debian-repo-basic")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[str] index_compression_formats: The options are Bzip2 (.bz2 extension) (default), LZMA (.lzma extension)
@@ -355,14 +353,12 @@ def get_local_debian_repository_output(archive_browsing_enabled: Optional[pulumi
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     local_test_debian_repo_basic = artifactory.get_local_debian_repository(key="local-test-debian-repo-basic")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[str] index_compression_formats: The options are Bzip2 (.bz2 extension) (default), LZMA (.lzma extension)

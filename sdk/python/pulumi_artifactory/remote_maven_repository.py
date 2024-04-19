@@ -1809,7 +1809,6 @@ class RemoteMavenRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -1823,7 +1822,6 @@ class RemoteMavenRepository(pulumi.CustomResource):
             suppress_pom_consistency_checks=False,
             url="https://repo1.maven.org/maven2/")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1929,7 +1927,6 @@ class RemoteMavenRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -1943,7 +1940,6 @@ class RemoteMavenRepository(pulumi.CustomResource):
             suppress_pom_consistency_checks=False,
             url="https://repo1.maven.org/maven2/")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

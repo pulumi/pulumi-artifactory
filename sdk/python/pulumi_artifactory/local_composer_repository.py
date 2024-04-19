@@ -588,14 +588,12 @@ class LocalComposerRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
 
         terraform_local_test_composer_repo = artifactory.LocalComposerRepository("terraform-local-test-composer-repo", key="terraform-local-test-composer-repo")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -645,14 +643,12 @@ class LocalComposerRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
 
         terraform_local_test_composer_repo = artifactory.LocalComposerRepository("terraform-local-test-composer-repo", key="terraform-local-test-composer-repo")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -293,14 +293,12 @@ def get_federated_cargo_repository(anonymous_access: Optional[bool] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     federated_test_cargo_repo = artifactory.FederatedCargoRepository("federated-test-cargo-repo", key="federated-test-cargo-repo")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param bool disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
@@ -393,14 +391,12 @@ def get_federated_cargo_repository_output(anonymous_access: Optional[pulumi.Inpu
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     federated_test_cargo_repo = artifactory.FederatedCargoRepository("federated-test-cargo-repo", key="federated-test-cargo-repo")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param bool disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.

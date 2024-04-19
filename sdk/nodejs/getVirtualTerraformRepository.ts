@@ -7,7 +7,6 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -16,7 +15,6 @@ import * as utilities from "./utilities";
  *     key: "virtual-terraform",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getVirtualTerraformRepository(args: GetVirtualTerraformRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualTerraformRepositoryResult> {
 
@@ -80,7 +78,6 @@ export interface GetVirtualTerraformRepositoryResult {
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -89,7 +86,6 @@ export interface GetVirtualTerraformRepositoryResult {
  *     key: "virtual-terraform",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getVirtualTerraformRepositoryOutput(args: GetVirtualTerraformRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualTerraformRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getVirtualTerraformRepository(a, opts))

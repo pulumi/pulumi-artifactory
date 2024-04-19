@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,7 +38,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupVirtualOciRepository(ctx *pulumi.Context, args *LookupVirtualOciRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupVirtualOciRepositoryResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVirtualOciRepositoryResult

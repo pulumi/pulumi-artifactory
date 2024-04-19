@@ -683,7 +683,6 @@ class LocalCargoRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -693,7 +692,6 @@ class LocalCargoRepository(pulumi.CustomResource):
             enable_sparse_index=True,
             key="terraform-local-test-cargo-repo-basic")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -746,7 +744,6 @@ class LocalCargoRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -756,7 +753,6 @@ class LocalCargoRepository(pulumi.CustomResource):
             enable_sparse_index=True,
             key="terraform-local-test-cargo-repo-basic")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -478,7 +478,6 @@ class VirtualCranRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -491,7 +490,6 @@ class VirtualCranRepository(pulumi.CustomResource):
             notes="Internal description",
             repositories=[])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -536,7 +534,6 @@ class VirtualCranRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -549,7 +546,6 @@ class VirtualCranRepository(pulumi.CustomResource):
             notes="Internal description",
             repositories=[])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

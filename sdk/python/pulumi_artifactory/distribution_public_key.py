@@ -192,7 +192,6 @@ class DistributionPublicKey(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -201,7 +200,6 @@ class DistributionPublicKey(pulumi.CustomResource):
             alias="my-key",
             public_key=(lambda path: open(path).read())("samples/rsa.pub"))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -231,7 +229,6 @@ class DistributionPublicKey(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -240,7 +237,6 @@ class DistributionPublicKey(pulumi.CustomResource):
             alias="my-key",
             public_key=(lambda path: open(path).read())("samples/rsa.pub"))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

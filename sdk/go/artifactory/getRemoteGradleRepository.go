@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,7 +38,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupRemoteGradleRepository(ctx *pulumi.Context, args *LookupRemoteGradleRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupRemoteGradleRepositoryResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRemoteGradleRepositoryResult

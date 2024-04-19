@@ -17,7 +17,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,7 +40,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupPermissionTarget(ctx *pulumi.Context, args *LookupPermissionTargetArgs, opts ...pulumi.InvokeOption) (*LookupPermissionTargetResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupPermissionTargetResult

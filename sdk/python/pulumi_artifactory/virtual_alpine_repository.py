@@ -511,7 +511,6 @@ class VirtualAlpineRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -524,7 +523,6 @@ class VirtualAlpineRepository(pulumi.CustomResource):
             notes="Internal description",
             repositories=[])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -570,7 +568,6 @@ class VirtualAlpineRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -583,7 +580,6 @@ class VirtualAlpineRepository(pulumi.CustomResource):
             notes="Internal description",
             repositories=[])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

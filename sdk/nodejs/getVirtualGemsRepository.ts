@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -18,7 +17,6 @@ import * as utilities from "./utilities";
  *     key: "virtual-gems",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getVirtualGemsRepository(args: GetVirtualGemsRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualGemsRepositoryResult> {
 
@@ -84,7 +82,6 @@ export interface GetVirtualGemsRepositoryResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -93,7 +90,6 @@ export interface GetVirtualGemsRepositoryResult {
  *     key: "virtual-gems",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getVirtualGemsRepositoryOutput(args: GetVirtualGemsRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualGemsRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getVirtualGemsRepository(a, opts))

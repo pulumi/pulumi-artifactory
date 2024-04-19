@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,7 +38,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetLocalDockerV2Repository(ctx *pulumi.Context, args *GetLocalDockerV2RepositoryArgs, opts ...pulumi.InvokeOption) (*GetLocalDockerV2RepositoryResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetLocalDockerV2RepositoryResult

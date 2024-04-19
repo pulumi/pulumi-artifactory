@@ -1620,7 +1620,6 @@ class RemoteTerraformRepository(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -1631,7 +1630,6 @@ class RemoteTerraformRepository(pulumi.CustomResource):
             terraform_registry_url="https://registry.terraform.io",
             url="https://github.com/")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1731,7 +1729,6 @@ class RemoteTerraformRepository(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -1742,7 +1739,6 @@ class RemoteTerraformRepository(pulumi.CustomResource):
             terraform_registry_url="https://registry.terraform.io",
             url="https://github.com/")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

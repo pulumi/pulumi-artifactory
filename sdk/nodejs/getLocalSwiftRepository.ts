@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -18,7 +17,6 @@ import * as utilities from "./utilities";
  *     key: "local-test-swift-repo",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLocalSwiftRepository(args: GetLocalSwiftRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalSwiftRepositoryResult> {
 
@@ -99,7 +97,6 @@ export interface GetLocalSwiftRepositoryResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -108,7 +105,6 @@ export interface GetLocalSwiftRepositoryResult {
  *     key: "local-test-swift-repo",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLocalSwiftRepositoryOutput(args: GetLocalSwiftRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalSwiftRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getLocalSwiftRepository(a, opts))

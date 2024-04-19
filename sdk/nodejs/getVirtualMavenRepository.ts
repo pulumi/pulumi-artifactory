@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -18,7 +17,6 @@ import * as utilities from "./utilities";
  *     key: "virtual-maven",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getVirtualMavenRepository(args: GetVirtualMavenRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMavenRepositoryResult> {
 
@@ -105,7 +103,6 @@ export interface GetVirtualMavenRepositoryResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -114,7 +111,6 @@ export interface GetVirtualMavenRepositoryResult {
  *     key: "virtual-maven",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getVirtualMavenRepositoryOutput(args: GetVirtualMavenRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMavenRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getVirtualMavenRepository(a, opts))
