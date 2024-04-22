@@ -67,8 +67,8 @@ namespace Pulumi.Artifactory
     ///     {
     ///         DependsOn =
     ///         {
-    ///             some_keypair_gpg_1, 
-    ///             some_keypair_gpg_2, 
+    ///             some_keypair_gpg_1,
+    ///             some_keypair_gpg_2,
     ///         },
     ///     });
     /// 

@@ -76,7 +76,7 @@ namespace Pulumi.Artifactory
     ///     {
     ///         DependsOn =
     ///         {
-    ///             my_docker_local, 
+    ///             my_docker_local,
     ///         },
     ///     });
     /// 

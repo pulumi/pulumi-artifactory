@@ -47,7 +47,7 @@ namespace Pulumi.Artifactory
     ///     {
     ///         DependsOn =
     ///         {
-    ///             some_keypairRSA, 
+    ///             some_keypairRSA,
     ///         },
     ///     });
     /// 
