@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,7 +38,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupRemoteCranRepository(ctx *pulumi.Context, args *LookupRemoteCranRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupRemoteCranRepositoryResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRemoteCranRepositoryResult

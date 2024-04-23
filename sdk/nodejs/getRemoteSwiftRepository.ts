@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -20,7 +19,6 @@ import * as utilities from "./utilities";
  *     key: "remote-swift",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRemoteSwiftRepository(args: GetRemoteSwiftRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRemoteSwiftRepositoryResult> {
 
@@ -179,7 +177,6 @@ export interface GetRemoteSwiftRepositoryResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -188,7 +185,6 @@ export interface GetRemoteSwiftRepositoryResult {
  *     key: "remote-swift",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRemoteSwiftRepositoryOutput(args: GetRemoteSwiftRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteSwiftRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getRemoteSwiftRepository(a, opts))

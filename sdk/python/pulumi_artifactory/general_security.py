@@ -75,7 +75,6 @@ class GeneralSecurity(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -83,7 +82,6 @@ class GeneralSecurity(pulumi.CustomResource):
         # Configure Artifactory general security settings
         security = artifactory.GeneralSecurity("security", enable_anonymous_access=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -114,7 +112,6 @@ class GeneralSecurity(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -122,7 +119,6 @@ class GeneralSecurity(pulumi.CustomResource):
         # Configure Artifactory general security settings
         security = artifactory.GeneralSecurity("security", enable_anonymous_access=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

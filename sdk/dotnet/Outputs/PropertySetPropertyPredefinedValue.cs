@@ -18,7 +18,7 @@ namespace Pulumi.Artifactory.Outputs
         /// </summary>
         public readonly bool DefaultValue;
         /// <summary>
-        /// Predefined property name.
+        /// Property set name.
         /// </summary>
         public readonly string Name;
 

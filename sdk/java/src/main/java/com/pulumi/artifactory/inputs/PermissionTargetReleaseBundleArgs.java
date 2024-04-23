@@ -26,14 +26,14 @@ public final class PermissionTargetReleaseBundleArgs extends com.pulumi.resource
     }
 
     /**
-     * Pattern of artifacts to exclude.
+     * The default value will be [] if nothing is supplied
      * 
      */
     @Import(name="excludesPatterns")
     private @Nullable Output<List<String>> excludesPatterns;
 
     /**
-     * @return Pattern of artifacts to exclude.
+     * @return The default value will be [] if nothing is supplied
      * 
      */
     public Optional<Output<List<String>>> excludesPatterns() {
@@ -41,14 +41,14 @@ public final class PermissionTargetReleaseBundleArgs extends com.pulumi.resource
     }
 
     /**
-     * Pattern of artifacts to include.
+     * The default value will be [&#34;&#34;] if nothing is supplied
      * 
      */
     @Import(name="includesPatterns")
     private @Nullable Output<List<String>> includesPatterns;
 
     /**
-     * @return Pattern of artifacts to include.
+     * @return The default value will be [&#34;&#34;] if nothing is supplied
      * 
      */
     public Optional<Output<List<String>>> includesPatterns() {
@@ -56,14 +56,14 @@ public final class PermissionTargetReleaseBundleArgs extends com.pulumi.resource
     }
 
     /**
-     * List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
+     * This can only be 1 value: &#34;artifactory-build-info&#34;, and currently, validation of sets/lists is not allowed. Artifactory will reject the request if you change this
      * 
      */
     @Import(name="repositories", required=true)
     private Output<List<String>> repositories;
 
     /**
-     * @return List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
+     * @return This can only be 1 value: &#34;artifactory-build-info&#34;, and currently, validation of sets/lists is not allowed. Artifactory will reject the request if you change this
      * 
      */
     public Output<List<String>> repositories() {
@@ -107,7 +107,7 @@ public final class PermissionTargetReleaseBundleArgs extends com.pulumi.resource
         }
 
         /**
-         * @param excludesPatterns Pattern of artifacts to exclude.
+         * @param excludesPatterns The default value will be [] if nothing is supplied
          * 
          * @return builder
          * 
@@ -118,7 +118,7 @@ public final class PermissionTargetReleaseBundleArgs extends com.pulumi.resource
         }
 
         /**
-         * @param excludesPatterns Pattern of artifacts to exclude.
+         * @param excludesPatterns The default value will be [] if nothing is supplied
          * 
          * @return builder
          * 
@@ -128,7 +128,7 @@ public final class PermissionTargetReleaseBundleArgs extends com.pulumi.resource
         }
 
         /**
-         * @param excludesPatterns Pattern of artifacts to exclude.
+         * @param excludesPatterns The default value will be [] if nothing is supplied
          * 
          * @return builder
          * 
@@ -138,7 +138,7 @@ public final class PermissionTargetReleaseBundleArgs extends com.pulumi.resource
         }
 
         /**
-         * @param includesPatterns Pattern of artifacts to include.
+         * @param includesPatterns The default value will be [&#34;&#34;] if nothing is supplied
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class PermissionTargetReleaseBundleArgs extends com.pulumi.resource
         }
 
         /**
-         * @param includesPatterns Pattern of artifacts to include.
+         * @param includesPatterns The default value will be [&#34;&#34;] if nothing is supplied
          * 
          * @return builder
          * 
@@ -159,7 +159,7 @@ public final class PermissionTargetReleaseBundleArgs extends com.pulumi.resource
         }
 
         /**
-         * @param includesPatterns Pattern of artifacts to include.
+         * @param includesPatterns The default value will be [&#34;&#34;] if nothing is supplied
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class PermissionTargetReleaseBundleArgs extends com.pulumi.resource
         }
 
         /**
-         * @param repositories List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
+         * @param repositories This can only be 1 value: &#34;artifactory-build-info&#34;, and currently, validation of sets/lists is not allowed. Artifactory will reject the request if you change this
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class PermissionTargetReleaseBundleArgs extends com.pulumi.resource
         }
 
         /**
-         * @param repositories List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
+         * @param repositories This can only be 1 value: &#34;artifactory-build-info&#34;, and currently, validation of sets/lists is not allowed. Artifactory will reject the request if you change this
          * 
          * @return builder
          * 
@@ -190,7 +190,7 @@ public final class PermissionTargetReleaseBundleArgs extends com.pulumi.resource
         }
 
         /**
-         * @param repositories List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
+         * @param repositories This can only be 1 value: &#34;artifactory-build-info&#34;, and currently, validation of sets/lists is not allowed. Artifactory will reject the request if you change this
          * 
          * @return builder
          * 

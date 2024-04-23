@@ -16,7 +16,6 @@ namespace Pulumi.Artifactory
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -32,7 +31,6 @@ namespace Pulumi.Artifactory
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetRemoteGradleRepositoryResult> InvokeAsync(GetRemoteGradleRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRemoteGradleRepositoryResult>("artifactory:index/getRemoteGradleRepository:getRemoteGradleRepository", args ?? new GetRemoteGradleRepositoryArgs(), options.WithDefaults());
@@ -42,7 +40,6 @@ namespace Pulumi.Artifactory
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -58,7 +55,6 @@ namespace Pulumi.Artifactory
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetRemoteGradleRepositoryResult> Invoke(GetRemoteGradleRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRemoteGradleRepositoryResult>("artifactory:index/getRemoteGradleRepository:getRemoteGradleRepository", args ?? new GetRemoteGradleRepositoryInvokeArgs(), options.WithDefaults());

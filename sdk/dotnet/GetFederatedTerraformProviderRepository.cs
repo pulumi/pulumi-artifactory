@@ -14,7 +14,6 @@ namespace Pulumi.Artifactory
         /// <summary>
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -30,7 +29,6 @@ namespace Pulumi.Artifactory
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetFederatedTerraformProviderRepositoryResult> InvokeAsync(GetFederatedTerraformProviderRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFederatedTerraformProviderRepositoryResult>("artifactory:index/getFederatedTerraformProviderRepository:getFederatedTerraformProviderRepository", args ?? new GetFederatedTerraformProviderRepositoryArgs(), options.WithDefaults());
@@ -38,7 +36,6 @@ namespace Pulumi.Artifactory
         /// <summary>
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -54,7 +51,6 @@ namespace Pulumi.Artifactory
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetFederatedTerraformProviderRepositoryResult> Invoke(GetFederatedTerraformProviderRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFederatedTerraformProviderRepositoryResult>("artifactory:index/getFederatedTerraformProviderRepository:getFederatedTerraformProviderRepository", args ?? new GetFederatedTerraformProviderRepositoryInvokeArgs(), options.WithDefaults());

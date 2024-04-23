@@ -16,7 +16,6 @@ namespace Pulumi.Artifactory
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -32,7 +31,6 @@ namespace Pulumi.Artifactory
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetVirtualPubRepositoryResult> InvokeAsync(GetVirtualPubRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualPubRepositoryResult>("artifactory:index/getVirtualPubRepository:getVirtualPubRepository", args ?? new GetVirtualPubRepositoryArgs(), options.WithDefaults());
@@ -42,7 +40,6 @@ namespace Pulumi.Artifactory
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -58,7 +55,6 @@ namespace Pulumi.Artifactory
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetVirtualPubRepositoryResult> Invoke(GetVirtualPubRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualPubRepositoryResult>("artifactory:index/getVirtualPubRepository:getVirtualPubRepository", args ?? new GetVirtualPubRepositoryInvokeArgs(), options.WithDefaults());

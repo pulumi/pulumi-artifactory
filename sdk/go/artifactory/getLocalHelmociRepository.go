@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,7 +38,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupLocalHelmociRepository(ctx *pulumi.Context, args *LookupLocalHelmociRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupLocalHelmociRepositoryResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupLocalHelmociRepositoryResult

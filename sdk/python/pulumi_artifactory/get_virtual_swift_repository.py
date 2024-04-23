@@ -169,14 +169,12 @@ def get_virtual_swift_repository(artifactory_requests_can_retrieve_remote_artifa
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     virtual_swift = artifactory.get_virtual_swift_repository(key="virtual-swift")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str key: the identity key of the repo.
@@ -230,14 +228,12 @@ def get_virtual_swift_repository_output(artifactory_requests_can_retrieve_remote
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     virtual_swift = artifactory.get_virtual_swift_repository(key="virtual-swift")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str key: the identity key of the repo.

@@ -588,14 +588,12 @@ class LocalPubRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
 
         terraform_local_test_pub_repo = artifactory.LocalPubRepository("terraform-local-test-pub-repo", key="terraform-local-test-pub-repo")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -645,14 +643,12 @@ class LocalPubRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
 
         terraform_local_test_pub_repo = artifactory.LocalPubRepository("terraform-local-test-pub-repo", key="terraform-local-test-pub-repo")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

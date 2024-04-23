@@ -588,14 +588,12 @@ class LocalCranRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
 
         terraform_local_test_cran_repo = artifactory.LocalCranRepository("terraform-local-test-cran-repo", key="terraform-local-test-cran-repo")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -645,14 +643,12 @@ class LocalCranRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
 
         terraform_local_test_cran_repo = artifactory.LocalCranRepository("terraform-local-test-cran-repo", key="terraform-local-test-cran-repo")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

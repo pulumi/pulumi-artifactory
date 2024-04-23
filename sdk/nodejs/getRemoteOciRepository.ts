@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -20,7 +19,6 @@ import * as utilities from "./utilities";
  *     key: "my-oci-remote",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRemoteOciRepository(args: GetRemoteOciRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRemoteOciRepositoryResult> {
 
@@ -215,7 +213,6 @@ export interface GetRemoteOciRepositoryResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -224,7 +221,6 @@ export interface GetRemoteOciRepositoryResult {
  *     key: "my-oci-remote",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRemoteOciRepositoryOutput(args: GetRemoteOciRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteOciRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getRemoteOciRepository(a, opts))

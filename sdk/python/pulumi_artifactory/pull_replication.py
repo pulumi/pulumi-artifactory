@@ -507,7 +507,6 @@ class PullReplication(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -524,7 +523,6 @@ class PullReplication(pulumi.CustomResource):
             cron_exp="0 0 * * * ?",
             enable_event_replication=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -568,7 +566,6 @@ class PullReplication(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -585,7 +582,6 @@ class PullReplication(pulumi.CustomResource):
             cron_exp="0 0 * * * ?",
             enable_event_replication=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

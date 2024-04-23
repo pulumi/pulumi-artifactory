@@ -9,14 +9,12 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * const terraform_local_test_pypi_repo = new artifactory.LocalPypiRepository("terraform-local-test-pypi-repo", {key: "terraform-local-test-pypi-repo"});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

@@ -9,14 +9,12 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * const terraform_local_test_cran_repo = new artifactory.LocalCranRepository("terraform-local-test-cran-repo", {key: "terraform-local-test-cran-repo"});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

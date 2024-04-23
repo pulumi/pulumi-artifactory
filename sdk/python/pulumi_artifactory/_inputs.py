@@ -3935,9 +3935,9 @@ class PermissionTargetBuildArgs:
                  excludes_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  includes_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] repositories: List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] excludes_patterns: Pattern of artifacts to exclude.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] includes_patterns: Pattern of artifacts to include.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] repositories: This can only be 1 value: "artifactory-build-info", and currently, validation of sets/lists is not allowed. Artifactory will reject the request if you change this
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] excludes_patterns: The default value will be [] if nothing is supplied
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] includes_patterns: The default value will be [""] if nothing is supplied
         """
         pulumi.set(__self__, "repositories", repositories)
         if actions is not None:
@@ -3951,7 +3951,7 @@ class PermissionTargetBuildArgs:
     @pulumi.getter
     def repositories(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
+        This can only be 1 value: "artifactory-build-info", and currently, validation of sets/lists is not allowed. Artifactory will reject the request if you change this
         """
         return pulumi.get(self, "repositories")
 
@@ -3972,7 +3972,7 @@ class PermissionTargetBuildArgs:
     @pulumi.getter(name="excludesPatterns")
     def excludes_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Pattern of artifacts to exclude.
+        The default value will be [] if nothing is supplied
         """
         return pulumi.get(self, "excludes_patterns")
 
@@ -3984,7 +3984,7 @@ class PermissionTargetBuildArgs:
     @pulumi.getter(name="includesPatterns")
     def includes_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Pattern of artifacts to include.
+        The default value will be [""] if nothing is supplied
         """
         return pulumi.get(self, "includes_patterns")
 
@@ -3998,10 +3998,6 @@ class PermissionTargetBuildActionsArgs:
     def __init__(__self__, *,
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input['PermissionTargetBuildActionsGroupArgs']]]] = None,
                  users: Optional[pulumi.Input[Sequence[pulumi.Input['PermissionTargetBuildActionsUserArgs']]]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input['PermissionTargetBuildActionsGroupArgs']]] groups: Groups this permission applies for.
-        :param pulumi.Input[Sequence[pulumi.Input['PermissionTargetBuildActionsUserArgs']]] users: Users this permission target applies for.
-        """
         if groups is not None:
             pulumi.set(__self__, "groups", groups)
         if users is not None:
@@ -4010,9 +4006,6 @@ class PermissionTargetBuildActionsArgs:
     @property
     @pulumi.getter
     def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PermissionTargetBuildActionsGroupArgs']]]]:
-        """
-        Groups this permission applies for.
-        """
         return pulumi.get(self, "groups")
 
     @groups.setter
@@ -4022,9 +4015,6 @@ class PermissionTargetBuildActionsArgs:
     @property
     @pulumi.getter
     def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PermissionTargetBuildActionsUserArgs']]]]:
-        """
-        Users this permission target applies for.
-        """
         return pulumi.get(self, "users")
 
     @users.setter
@@ -4106,9 +4096,9 @@ class PermissionTargetReleaseBundleArgs:
                  excludes_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  includes_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] repositories: List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] excludes_patterns: Pattern of artifacts to exclude.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] includes_patterns: Pattern of artifacts to include.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] repositories: This can only be 1 value: "artifactory-build-info", and currently, validation of sets/lists is not allowed. Artifactory will reject the request if you change this
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] excludes_patterns: The default value will be [] if nothing is supplied
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] includes_patterns: The default value will be [""] if nothing is supplied
         """
         pulumi.set(__self__, "repositories", repositories)
         if actions is not None:
@@ -4122,7 +4112,7 @@ class PermissionTargetReleaseBundleArgs:
     @pulumi.getter
     def repositories(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
+        This can only be 1 value: "artifactory-build-info", and currently, validation of sets/lists is not allowed. Artifactory will reject the request if you change this
         """
         return pulumi.get(self, "repositories")
 
@@ -4143,7 +4133,7 @@ class PermissionTargetReleaseBundleArgs:
     @pulumi.getter(name="excludesPatterns")
     def excludes_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Pattern of artifacts to exclude.
+        The default value will be [] if nothing is supplied
         """
         return pulumi.get(self, "excludes_patterns")
 
@@ -4155,7 +4145,7 @@ class PermissionTargetReleaseBundleArgs:
     @pulumi.getter(name="includesPatterns")
     def includes_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Pattern of artifacts to include.
+        The default value will be [""] if nothing is supplied
         """
         return pulumi.get(self, "includes_patterns")
 
@@ -4169,10 +4159,6 @@ class PermissionTargetReleaseBundleActionsArgs:
     def __init__(__self__, *,
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input['PermissionTargetReleaseBundleActionsGroupArgs']]]] = None,
                  users: Optional[pulumi.Input[Sequence[pulumi.Input['PermissionTargetReleaseBundleActionsUserArgs']]]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input['PermissionTargetReleaseBundleActionsGroupArgs']]] groups: Groups this permission applies for.
-        :param pulumi.Input[Sequence[pulumi.Input['PermissionTargetReleaseBundleActionsUserArgs']]] users: Users this permission target applies for.
-        """
         if groups is not None:
             pulumi.set(__self__, "groups", groups)
         if users is not None:
@@ -4181,9 +4167,6 @@ class PermissionTargetReleaseBundleActionsArgs:
     @property
     @pulumi.getter
     def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PermissionTargetReleaseBundleActionsGroupArgs']]]]:
-        """
-        Groups this permission applies for.
-        """
         return pulumi.get(self, "groups")
 
     @groups.setter
@@ -4193,9 +4176,6 @@ class PermissionTargetReleaseBundleActionsArgs:
     @property
     @pulumi.getter
     def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PermissionTargetReleaseBundleActionsUserArgs']]]]:
-        """
-        Users this permission target applies for.
-        """
         return pulumi.get(self, "users")
 
     @users.setter
@@ -4340,10 +4320,6 @@ class PermissionTargetRepoActionsArgs:
     def __init__(__self__, *,
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input['PermissionTargetRepoActionsGroupArgs']]]] = None,
                  users: Optional[pulumi.Input[Sequence[pulumi.Input['PermissionTargetRepoActionsUserArgs']]]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input['PermissionTargetRepoActionsGroupArgs']]] groups: Groups this permission applies for.
-        :param pulumi.Input[Sequence[pulumi.Input['PermissionTargetRepoActionsUserArgs']]] users: Users this permission target applies for.
-        """
         if groups is not None:
             pulumi.set(__self__, "groups", groups)
         if users is not None:
@@ -4352,9 +4328,6 @@ class PermissionTargetRepoActionsArgs:
     @property
     @pulumi.getter
     def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PermissionTargetRepoActionsGroupArgs']]]]:
-        """
-        Groups this permission applies for.
-        """
         return pulumi.get(self, "groups")
 
     @groups.setter
@@ -4364,9 +4337,6 @@ class PermissionTargetRepoActionsArgs:
     @property
     @pulumi.getter
     def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PermissionTargetRepoActionsUserArgs']]]]:
-        """
-        Users this permission target applies for.
-        """
         return pulumi.get(self, "users")
 
     @users.setter
@@ -4517,7 +4487,7 @@ class PropertySetPropertyPredefinedValueArgs:
                  name: pulumi.Input[str]):
         """
         :param pulumi.Input[bool] default_value: Whether the value is selected by default in the UI.
-        :param pulumi.Input[str] name: Predefined property name.
+        :param pulumi.Input[str] name: Property set name.
         """
         pulumi.set(__self__, "default_value", default_value)
         pulumi.set(__self__, "name", name)
@@ -4538,7 +4508,7 @@ class PropertySetPropertyPredefinedValueArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Predefined property name.
+        Property set name.
         """
         return pulumi.get(self, "name")
 

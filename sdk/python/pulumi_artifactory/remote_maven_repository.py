@@ -1809,7 +1809,6 @@ class RemoteMavenRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -1823,7 +1822,6 @@ class RemoteMavenRepository(pulumi.CustomResource):
             reject_invalid_jars=True,
             metadata_retrieval_timeout_secs=120)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1929,7 +1927,6 @@ class RemoteMavenRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -1943,7 +1940,6 @@ class RemoteMavenRepository(pulumi.CustomResource):
             reject_invalid_jars=True,
             metadata_retrieval_timeout_secs=120)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

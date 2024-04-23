@@ -16,7 +16,6 @@ namespace Pulumi.Artifactory
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -32,7 +31,6 @@ namespace Pulumi.Artifactory
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetLocalNpmRepositoryResult> InvokeAsync(GetLocalNpmRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLocalNpmRepositoryResult>("artifactory:index/getLocalNpmRepository:getLocalNpmRepository", args ?? new GetLocalNpmRepositoryArgs(), options.WithDefaults());
@@ -42,7 +40,6 @@ namespace Pulumi.Artifactory
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -58,7 +55,6 @@ namespace Pulumi.Artifactory
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetLocalNpmRepositoryResult> Invoke(GetLocalNpmRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalNpmRepositoryResult>("artifactory:index/getLocalNpmRepository:getLocalNpmRepository", args ?? new GetLocalNpmRepositoryInvokeArgs(), options.WithDefaults());

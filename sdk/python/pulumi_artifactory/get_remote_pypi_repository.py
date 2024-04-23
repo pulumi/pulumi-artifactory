@@ -517,14 +517,12 @@ def get_remote_pypi_repository(allow_any_host_auth: Optional[bool] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     remote_pypi = artifactory.get_remote_pypi_repository(key="remote-pypi")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str key: the identity key of the repo.
@@ -682,14 +680,12 @@ def get_remote_pypi_repository_output(allow_any_host_auth: Optional[pulumi.Input
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     remote_pypi = artifactory.get_remote_pypi_repository(key="remote-pypi")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str key: the identity key of the repo.

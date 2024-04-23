@@ -248,14 +248,12 @@ def get_local_cargo_repository(anonymous_access: Optional[bool] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     local_test_cargo_repo_basic = artifactory.get_local_cargo_repository(key="local-test-cargo-repo-basic")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param bool anonymous_access: Cargo client does not send credentials when performing download and search for crates.
@@ -335,14 +333,12 @@ def get_local_cargo_repository_output(anonymous_access: Optional[pulumi.Input[Op
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     local_test_cargo_repo_basic = artifactory.get_local_cargo_repository(key="local-test-cargo-repo-basic")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param bool anonymous_access: Cargo client does not send credentials when performing download and search for crates.

@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -18,7 +17,6 @@ import * as utilities from "./utilities";
  *     key: "federated-test-terraform-provider-repo",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getFederatedTerraformProviderRepository(args: GetFederatedTerraformProviderRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetFederatedTerraformProviderRepositoryResult> {
 
@@ -130,7 +128,6 @@ export interface GetFederatedTerraformProviderRepositoryResult {
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -139,7 +136,6 @@ export interface GetFederatedTerraformProviderRepositoryResult {
  *     key: "federated-test-terraform-provider-repo",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getFederatedTerraformProviderRepositoryOutput(args: GetFederatedTerraformProviderRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedTerraformProviderRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getFederatedTerraformProviderRepository(a, opts))

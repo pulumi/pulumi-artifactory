@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -20,7 +19,6 @@ import * as utilities from "./utilities";
  *     key: "federated-test-nuget-repo",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getFederatedNugetRepository(args: GetFederatedNugetRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetFederatedNugetRepositoryResult> {
 
@@ -140,7 +138,6 @@ export interface GetFederatedNugetRepositoryResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -149,7 +146,6 @@ export interface GetFederatedNugetRepositoryResult {
  *     key: "federated-test-nuget-repo",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getFederatedNugetRepositoryOutput(args: GetFederatedNugetRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedNugetRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getFederatedNugetRepository(a, opts))

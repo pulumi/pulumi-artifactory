@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -21,7 +20,6 @@ import * as utilities from "./utilities";
  *     packageType: "alpine",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRepositories(args?: GetRepositoriesArgs, opts?: pulumi.InvokeOptions): Promise<GetRepositoriesResult> {
     args = args || {};
@@ -76,7 +74,6 @@ export interface GetRepositoriesResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -86,7 +83,6 @@ export interface GetRepositoriesResult {
  *     packageType: "alpine",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRepositoriesOutput(args?: GetRepositoriesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRepositoriesResult> {
     return pulumi.output(args).apply((a: any) => getRepositories(a, opts))

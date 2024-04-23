@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -20,7 +19,6 @@ import * as utilities from "./utilities";
  *     key: "federated-test-go-repo",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getFederatedGoRepository(args: GetFederatedGoRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetFederatedGoRepositoryResult> {
 
@@ -134,7 +132,6 @@ export interface GetFederatedGoRepositoryResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -143,7 +140,6 @@ export interface GetFederatedGoRepositoryResult {
  *     key: "federated-test-go-repo",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getFederatedGoRepositoryOutput(args: GetFederatedGoRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedGoRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getFederatedGoRepository(a, opts))

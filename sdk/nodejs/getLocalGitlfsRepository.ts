@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -18,7 +17,6 @@ import * as utilities from "./utilities";
  *     key: "local-test-gitlfs-repo",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLocalGitlfsRepository(args: GetLocalGitlfsRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalGitlfsRepositoryResult> {
 
@@ -99,7 +97,6 @@ export interface GetLocalGitlfsRepositoryResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -108,7 +105,6 @@ export interface GetLocalGitlfsRepositoryResult {
  *     key: "local-test-gitlfs-repo",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLocalGitlfsRepositoryOutput(args: GetLocalGitlfsRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalGitlfsRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getLocalGitlfsRepository(a, opts))

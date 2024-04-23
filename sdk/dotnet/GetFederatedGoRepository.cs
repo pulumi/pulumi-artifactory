@@ -16,7 +16,6 @@ namespace Pulumi.Artifactory
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -32,7 +31,6 @@ namespace Pulumi.Artifactory
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetFederatedGoRepositoryResult> InvokeAsync(GetFederatedGoRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFederatedGoRepositoryResult>("artifactory:index/getFederatedGoRepository:getFederatedGoRepository", args ?? new GetFederatedGoRepositoryArgs(), options.WithDefaults());
@@ -42,7 +40,6 @@ namespace Pulumi.Artifactory
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -58,7 +55,6 @@ namespace Pulumi.Artifactory
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetFederatedGoRepositoryResult> Invoke(GetFederatedGoRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFederatedGoRepositoryResult>("artifactory:index/getFederatedGoRepository:getFederatedGoRepository", args ?? new GetFederatedGoRepositoryInvokeArgs(), options.WithDefaults());

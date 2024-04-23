@@ -588,14 +588,12 @@ class LocalCocoapodsRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
 
         terraform_local_test_cocoapods_repo = artifactory.LocalCocoapodsRepository("terraform-local-test-cocoapods-repo", key="terraform-local-test-cocoapods-repo")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -645,14 +643,12 @@ class LocalCocoapodsRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
 
         terraform_local_test_cocoapods_repo = artifactory.LocalCocoapodsRepository("terraform-local-test-cocoapods-repo", key="terraform-local-test-cocoapods-repo")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

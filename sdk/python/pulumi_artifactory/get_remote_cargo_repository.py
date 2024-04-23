@@ -520,14 +520,12 @@ def get_remote_cargo_repository(allow_any_host_auth: Optional[bool] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     remote_cargo = artifactory.get_remote_cargo_repository(key="remote-cargo")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param bool anonymous_access: (Required) Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
@@ -686,14 +684,12 @@ def get_remote_cargo_repository_output(allow_any_host_auth: Optional[pulumi.Inpu
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     remote_cargo = artifactory.get_remote_cargo_repository(key="remote-cargo")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param bool anonymous_access: (Required) Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.

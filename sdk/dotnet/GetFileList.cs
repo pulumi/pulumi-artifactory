@@ -16,7 +16,6 @@ namespace Pulumi.Artifactory
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -33,7 +32,6 @@ namespace Pulumi.Artifactory
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetFileListResult> InvokeAsync(GetFileListArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFileListResult>("artifactory:index/getFileList:getFileList", args ?? new GetFileListArgs(), options.WithDefaults());
@@ -43,7 +41,6 @@ namespace Pulumi.Artifactory
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -60,7 +57,6 @@ namespace Pulumi.Artifactory
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetFileListResult> Invoke(GetFileListInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFileListResult>("artifactory:index/getFileList:getFileList", args ?? new GetFileListInvokeArgs(), options.WithDefaults());
@@ -100,7 +96,7 @@ namespace Pulumi.Artifactory
         public bool? ListFolders { get; set; }
 
         /// <summary>
-        /// File metadata
+        /// Include metadata timestamps
         /// </summary>
         [Input("metadataTimestamps")]
         public bool? MetadataTimestamps { get; set; }
@@ -150,7 +146,7 @@ namespace Pulumi.Artifactory
         public Input<bool>? ListFolders { get; set; }
 
         /// <summary>
-        /// File metadata
+        /// Include metadata timestamps
         /// </summary>
         [Input("metadataTimestamps")]
         public Input<bool>? MetadataTimestamps { get; set; }

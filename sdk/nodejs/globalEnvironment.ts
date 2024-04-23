@@ -9,14 +9,12 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * const test_env = new artifactory.GlobalEnvironment("test-env", {name: "test-env"});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

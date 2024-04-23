@@ -218,14 +218,12 @@ def get_local_bower_repository(archive_browsing_enabled: Optional[bool] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     local_test_bower_repo = artifactory.get_local_bower_repository(key="local-test-bower-repo")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str description: (Optional)
@@ -293,14 +291,12 @@ def get_local_bower_repository_output(archive_browsing_enabled: Optional[pulumi.
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     local_test_bower_repo = artifactory.get_local_bower_repository(key="local-test-bower-repo")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str description: (Optional)

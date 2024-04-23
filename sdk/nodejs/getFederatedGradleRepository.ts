@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -20,7 +19,6 @@ import * as utilities from "./utilities";
  *     key: "federated-test-gradle-repo",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getFederatedGradleRepository(args: GetFederatedGradleRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetFederatedGradleRepositoryResult> {
 
@@ -152,7 +150,6 @@ export interface GetFederatedGradleRepositoryResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -161,7 +158,6 @@ export interface GetFederatedGradleRepositoryResult {
  *     key: "federated-test-gradle-repo",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getFederatedGradleRepositoryOutput(args: GetFederatedGradleRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedGradleRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getFederatedGradleRepository(a, opts))

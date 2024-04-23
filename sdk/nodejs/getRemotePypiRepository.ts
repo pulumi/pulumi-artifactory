@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -20,7 +19,6 @@ import * as utilities from "./utilities";
  *     key: "remote-pypi",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRemotePypiRepository(args: GetRemotePypiRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRemotePypiRepositoryResult> {
 
@@ -200,7 +198,6 @@ export interface GetRemotePypiRepositoryResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -209,7 +206,6 @@ export interface GetRemotePypiRepositoryResult {
  *     key: "remote-pypi",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRemotePypiRepositoryOutput(args: GetRemotePypiRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemotePypiRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getRemotePypiRepository(a, opts))

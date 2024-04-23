@@ -9,14 +9,12 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * const terraform_local_test_helm_repo = new artifactory.LocalHelmRepository("terraform-local-test-helm-repo", {key: "terraform-local-test-helm-repo"});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

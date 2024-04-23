@@ -13,14 +13,12 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * const huggingfaceml_remote = new artifactory.RemoteHuggingfacemlRepository("huggingfaceml-remote", {key: "huggingfaceml-remote-foo25"});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

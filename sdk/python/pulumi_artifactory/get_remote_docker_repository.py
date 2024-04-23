@@ -556,14 +556,12 @@ def get_remote_docker_repository(allow_any_host_auth: Optional[bool] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     remote_docker = artifactory.get_remote_docker_repository(key="remote-docker")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param bool block_pushing_schema1: (Optional) When set, Artifactory will block the pulling of Docker images with manifest v2 schema 1 from the remote repository (i.e. the upstream). It will be possible to pull images with manifest v2 schema 1 that exist in the cache.
@@ -733,14 +731,12 @@ def get_remote_docker_repository_output(allow_any_host_auth: Optional[pulumi.Inp
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     remote_docker = artifactory.get_remote_docker_repository(key="remote-docker")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param bool block_pushing_schema1: (Optional) When set, Artifactory will block the pulling of Docker images with manifest v2 schema 1 from the remote repository (i.e. the upstream). It will be possible to pull images with manifest v2 schema 1 that exist in the cache.

@@ -481,14 +481,12 @@ def get_remote_chef_repository(allow_any_host_auth: Optional[bool] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     remote_chef = artifactory.get_remote_chef_repository(key="remote-chef")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str key: the identity key of the repo.
@@ -635,14 +633,12 @@ def get_remote_chef_repository_output(allow_any_host_auth: Optional[pulumi.Input
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     remote_chef = artifactory.get_remote_chef_repository(key="remote-chef")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str key: the identity key of the repo.

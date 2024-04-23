@@ -372,7 +372,6 @@ class RemoteRepositoryReplication(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -397,7 +396,6 @@ class RemoteRepositoryReplication(pulumi.CustomResource):
             exclude_path_prefix_pattern="/some-other-repo/",
             check_binary_existence_in_filestore=False)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -433,7 +431,6 @@ class RemoteRepositoryReplication(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -458,7 +455,6 @@ class RemoteRepositoryReplication(pulumi.CustomResource):
             exclude_path_prefix_pattern="/some-other-repo/",
             check_binary_existence_in_filestore=False)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

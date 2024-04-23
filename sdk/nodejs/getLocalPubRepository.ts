@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -18,7 +17,6 @@ import * as utilities from "./utilities";
  *     key: "local-test-pub-repo",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLocalPubRepository(args: GetLocalPubRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalPubRepositoryResult> {
 
@@ -99,7 +97,6 @@ export interface GetLocalPubRepositoryResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -108,7 +105,6 @@ export interface GetLocalPubRepositoryResult {
  *     key: "local-test-pub-repo",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLocalPubRepositoryOutput(args: GetLocalPubRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalPubRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getLocalPubRepository(a, opts))

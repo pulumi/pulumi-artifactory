@@ -649,14 +649,12 @@ class DockerV1Repository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
 
         foo = artifactory.DockerV1Repository("foo", key="foo")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -706,14 +704,12 @@ class DockerV1Repository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
 
         foo = artifactory.DockerV1Repository("foo", key="foo")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

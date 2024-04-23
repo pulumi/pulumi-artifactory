@@ -9,14 +9,12 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * const my_helmoci_local = new artifactory.LocalHelmociRepository("my-helmoci-local", {key: "my-helmoci-local"});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLocalHelmociRepository(args: GetLocalHelmociRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalHelmociRepositoryResult> {
 
@@ -112,14 +110,12 @@ export interface GetLocalHelmociRepositoryResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * const my_helmoci_local = new artifactory.LocalHelmociRepository("my-helmoci-local", {key: "my-helmoci-local"});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLocalHelmociRepositoryOutput(args: GetLocalHelmociRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalHelmociRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getLocalHelmociRepository(a, opts))

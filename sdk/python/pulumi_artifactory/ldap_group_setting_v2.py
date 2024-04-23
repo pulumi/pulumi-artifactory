@@ -370,7 +370,6 @@ class LdapGroupSettingV2(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -387,7 +386,6 @@ class LdapGroupSettingV2(pulumi.CustomResource):
             description_attribute="description",
             strategy="STATIC")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -426,7 +424,6 @@ class LdapGroupSettingV2(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -443,7 +440,6 @@ class LdapGroupSettingV2(pulumi.CustomResource):
             description_attribute="description",
             strategy="STATIC")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

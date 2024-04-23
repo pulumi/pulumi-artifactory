@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -20,7 +19,6 @@ import * as utilities from "./utilities";
  *     key: "remote-cran",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRemoteCranRepository(args: GetRemoteCranRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRemoteCranRepositoryResult> {
 
@@ -179,7 +177,6 @@ export interface GetRemoteCranRepositoryResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -188,7 +185,6 @@ export interface GetRemoteCranRepositoryResult {
  *     key: "remote-cran",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRemoteCranRepositoryOutput(args: GetRemoteCranRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteCranRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getRemoteCranRepository(a, opts))

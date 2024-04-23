@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -20,7 +19,6 @@ import * as utilities from "./utilities";
  *     key: "my-helmoci-remote",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRemoteHelmociRepository(args: GetRemoteHelmociRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRemoteHelmociRepositoryResult> {
 
@@ -209,7 +207,6 @@ export interface GetRemoteHelmociRepositoryResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -218,7 +215,6 @@ export interface GetRemoteHelmociRepositoryResult {
  *     key: "my-helmoci-remote",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRemoteHelmociRepositoryOutput(args: GetRemoteHelmociRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteHelmociRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getRemoteHelmociRepository(a, opts))

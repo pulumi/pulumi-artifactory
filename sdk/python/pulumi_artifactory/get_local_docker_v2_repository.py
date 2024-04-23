@@ -264,14 +264,12 @@ def get_local_docker_v2_repository(archive_browsing_enabled: Optional[bool] = No
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     artifactory_local_test_docker_v2_repository = artifactory.DockerV2Repository("artifactory_local_test_docker_v2_repository", key="artifactory_local_test_docker_v2_repository")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param bool block_pushing_schema1: When set, Artifactory will block the pushing of Docker images with manifest v2
@@ -354,14 +352,12 @@ def get_local_docker_v2_repository_output(archive_browsing_enabled: Optional[pul
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     artifactory_local_test_docker_v2_repository = artifactory.DockerV2Repository("artifactory_local_test_docker_v2_repository", key="artifactory_local_test_docker_v2_repository")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param bool block_pushing_schema1: When set, Artifactory will block the pushing of Docker images with manifest v2

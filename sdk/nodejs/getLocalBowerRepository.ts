@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -18,7 +17,6 @@ import * as utilities from "./utilities";
  *     key: "local-test-bower-repo",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLocalBowerRepository(args: GetLocalBowerRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalBowerRepositoryResult> {
 
@@ -111,7 +109,6 @@ export interface GetLocalBowerRepositoryResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -120,7 +117,6 @@ export interface GetLocalBowerRepositoryResult {
  *     key: "local-test-bower-repo",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLocalBowerRepositoryOutput(args: GetLocalBowerRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalBowerRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getLocalBowerRepository(a, opts))

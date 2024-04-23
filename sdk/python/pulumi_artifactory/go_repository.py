@@ -515,7 +515,6 @@ class GoRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -534,7 +533,6 @@ class GoRepository(pulumi.CustomResource):
                 "**/go.googlesource.com/**",
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -581,7 +579,6 @@ class GoRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -600,7 +597,6 @@ class GoRepository(pulumi.CustomResource):
                 "**/go.googlesource.com/**",
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

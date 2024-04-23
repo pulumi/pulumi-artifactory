@@ -18,7 +18,6 @@ namespace Pulumi.Artifactory
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -76,7 +75,6 @@ namespace Pulumi.Artifactory
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -90,7 +88,7 @@ namespace Pulumi.Artifactory
     public partial class PropertySet : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Predefined property name.
+        /// Property set name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -154,7 +152,7 @@ namespace Pulumi.Artifactory
     public sealed class PropertySetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Predefined property name.
+        /// Property set name.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -186,7 +184,7 @@ namespace Pulumi.Artifactory
     public sealed class PropertySetState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Predefined property name.
+        /// Property set name.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

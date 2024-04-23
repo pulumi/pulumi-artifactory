@@ -505,7 +505,6 @@ class LdapSettingV2(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -526,7 +525,6 @@ class LdapSettingV2(pulumi.CustomResource):
             manager_dn="mgr_dn",
             manager_password="mgr_passwd_random")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -569,7 +567,6 @@ class LdapSettingV2(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -590,7 +587,6 @@ class LdapSettingV2(pulumi.CustomResource):
             manager_dn="mgr_dn",
             manager_password="mgr_passwd_random")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

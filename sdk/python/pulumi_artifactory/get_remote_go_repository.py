@@ -494,14 +494,12 @@ def get_remote_go_repository(allow_any_host_auth: Optional[bool] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     remote_go = artifactory.get_remote_go_repository(key="remote-go")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str key: the identity key of the repo.
@@ -652,14 +650,12 @@ def get_remote_go_repository_output(allow_any_host_auth: Optional[pulumi.Input[O
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     remote_go = artifactory.get_remote_go_repository(key="remote-go")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str key: the identity key of the repo.

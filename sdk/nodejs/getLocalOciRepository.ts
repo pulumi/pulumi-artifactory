@@ -9,14 +9,12 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * const my_oci_local = new artifactory.LocalOciRepository("my-oci-local", {key: "my-oci-local"});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLocalOciRepository(args: GetLocalOciRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalOciRepositoryResult> {
 
@@ -112,14 +110,12 @@ export interface GetLocalOciRepositoryResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * const my_oci_local = new artifactory.LocalOciRepository("my-oci-local", {key: "my-oci-local"});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLocalOciRepositoryOutput(args: GetLocalOciRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalOciRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getLocalOciRepository(a, opts))

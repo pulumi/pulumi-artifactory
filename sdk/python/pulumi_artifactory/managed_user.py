@@ -298,7 +298,6 @@ class ManagedUser(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -312,7 +311,6 @@ class ManagedUser(pulumi.CustomResource):
                 "logged-in-users",
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -340,7 +338,6 @@ class ManagedUser(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -354,7 +351,6 @@ class ManagedUser(pulumi.CustomResource):
                 "logged-in-users",
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

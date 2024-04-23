@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -18,7 +17,6 @@ import * as utilities from "./utilities";
  *     key: "local-test-helm-repo",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLocalHelmRepository(args: GetLocalHelmRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalHelmRepositoryResult> {
 
@@ -99,7 +97,6 @@ export interface GetLocalHelmRepositoryResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -108,7 +105,6 @@ export interface GetLocalHelmRepositoryResult {
  *     key: "local-test-helm-repo",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLocalHelmRepositoryOutput(args: GetLocalHelmRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalHelmRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getLocalHelmRepository(a, opts))

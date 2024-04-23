@@ -103,7 +103,6 @@ def get_permission_target(build: Optional[pulumi.InputType['GetPermissionTargetB
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
@@ -111,7 +110,6 @@ def get_permission_target(build: Optional[pulumi.InputType['GetPermissionTargetB
     #
     target1 = artifactory.get_permission_target(name="my_permission")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param pulumi.InputType['GetPermissionTargetBuildArgs'] build: Same as repo but for artifactory-build-info permissions.
@@ -148,7 +146,6 @@ def get_permission_target_output(build: Optional[pulumi.Input[Optional[pulumi.In
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
@@ -156,7 +153,6 @@ def get_permission_target_output(build: Optional[pulumi.Input[Optional[pulumi.In
     #
     target1 = artifactory.get_permission_target(name="my_permission")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param pulumi.InputType['GetPermissionTargetBuildArgs'] build: Same as repo but for artifactory-build-info permissions.

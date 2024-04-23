@@ -14,7 +14,6 @@ namespace Pulumi.Artifactory
         /// <summary>
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -30,7 +29,6 @@ namespace Pulumi.Artifactory
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetLocalTerraformbackendRepositoryResult> InvokeAsync(GetLocalTerraformbackendRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLocalTerraformbackendRepositoryResult>("artifactory:index/getLocalTerraformbackendRepository:getLocalTerraformbackendRepository", args ?? new GetLocalTerraformbackendRepositoryArgs(), options.WithDefaults());
@@ -38,7 +36,6 @@ namespace Pulumi.Artifactory
         /// <summary>
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -54,7 +51,6 @@ namespace Pulumi.Artifactory
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetLocalTerraformbackendRepositoryResult> Invoke(GetLocalTerraformbackendRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalTerraformbackendRepositoryResult>("artifactory:index/getLocalTerraformbackendRepository:getLocalTerraformbackendRepository", args ?? new GetLocalTerraformbackendRepositoryInvokeArgs(), options.WithDefaults());

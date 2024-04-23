@@ -666,7 +666,6 @@ class LocalNugetRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -676,7 +675,6 @@ class LocalNugetRepository(pulumi.CustomResource):
             max_unique_snapshots=5,
             force_nuget_authentication=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -731,7 +729,6 @@ class LocalNugetRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -741,7 +738,6 @@ class LocalNugetRepository(pulumi.CustomResource):
             max_unique_snapshots=5,
             force_nuget_authentication=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

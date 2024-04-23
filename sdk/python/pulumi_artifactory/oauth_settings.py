@@ -175,7 +175,6 @@ class OauthSettings(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -196,7 +195,6 @@ class OauthSettings(pulumi.CustomResource):
                 token_url="https://organization.okta.com/oauth2/v1/token",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -231,7 +229,6 @@ class OauthSettings(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -252,7 +249,6 @@ class OauthSettings(pulumi.CustomResource):
                 token_url="https://organization.okta.com/oauth2/v1/token",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
