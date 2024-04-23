@@ -167,7 +167,6 @@ class PasswordExpirationPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -178,7 +177,6 @@ class PasswordExpirationPolicy(pulumi.CustomResource):
             password_max_age=120,
             notify_by_email=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -204,7 +202,6 @@ class PasswordExpirationPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -215,7 +212,6 @@ class PasswordExpirationPolicy(pulumi.CustomResource):
             password_max_age=120,
             notify_by_email=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

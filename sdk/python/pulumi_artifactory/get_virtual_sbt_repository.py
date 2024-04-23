@@ -208,14 +208,12 @@ def get_virtual_sbt_repository(artifactory_requests_can_retrieve_remote_artifact
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     virtual_sbt = artifactory.get_virtual_sbt_repository(key="virtual-sbt")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str key: the identity key of the repo.
@@ -283,14 +281,12 @@ def get_virtual_sbt_repository_output(artifactory_requests_can_retrieve_remote_a
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     virtual_sbt = artifactory.get_virtual_sbt_repository(key="virtual-sbt")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str key: the identity key of the repo.

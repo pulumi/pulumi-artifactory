@@ -238,14 +238,12 @@ def get_local_nuget_repository(archive_browsing_enabled: Optional[bool] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     local_test_nuget_repo_basic = artifactory.get_local_nuget_repository(key="local-test-nuget-repo-basic")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param bool force_nuget_authentication: Force basic authentication credentials in order to use this repository.
@@ -322,14 +320,12 @@ def get_local_nuget_repository_output(archive_browsing_enabled: Optional[pulumi.
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     local_test_nuget_repo_basic = artifactory.get_local_nuget_repository(key="local-test-nuget-repo-basic")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param bool force_nuget_authentication: Force basic authentication credentials in order to use this repository.

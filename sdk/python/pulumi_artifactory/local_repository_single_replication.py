@@ -566,7 +566,6 @@ class LocalRepositorySingleReplication(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -597,7 +596,6 @@ class LocalRepositorySingleReplication(pulumi.CustomResource):
             exclude_path_prefix_pattern="/some-other-repo/",
             check_binary_existence_in_filestore=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -640,7 +638,6 @@ class LocalRepositorySingleReplication(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -671,7 +668,6 @@ class LocalRepositorySingleReplication(pulumi.CustomResource):
             exclude_path_prefix_pattern="/some-other-repo/",
             check_binary_existence_in_filestore=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

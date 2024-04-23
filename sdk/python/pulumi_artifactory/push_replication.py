@@ -171,7 +171,6 @@ class PushReplication(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -197,7 +196,6 @@ class PushReplication(pulumi.CustomResource):
                 enabled=True,
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -233,7 +231,6 @@ class PushReplication(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -259,7 +256,6 @@ class PushReplication(pulumi.CustomResource):
                 enabled=True,
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

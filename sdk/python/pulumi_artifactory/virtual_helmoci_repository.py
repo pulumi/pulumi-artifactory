@@ -475,7 +475,6 @@ class VirtualHelmociRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -489,7 +488,6 @@ class VirtualHelmociRepository(pulumi.CustomResource):
             excludes_pattern="com/google/**",
             resolve_oci_tags_by_timestamp=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -534,7 +532,6 @@ class VirtualHelmociRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -548,7 +545,6 @@ class VirtualHelmociRepository(pulumi.CustomResource):
             excludes_pattern="com/google/**",
             resolve_oci_tags_by_timestamp=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

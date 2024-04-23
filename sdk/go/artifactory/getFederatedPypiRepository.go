@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,7 +38,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupFederatedPypiRepository(ctx *pulumi.Context, args *LookupFederatedPypiRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupFederatedPypiRepositoryResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupFederatedPypiRepositoryResult

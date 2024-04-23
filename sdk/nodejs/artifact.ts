@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -20,7 +19,6 @@ import * as utilities from "./utilities";
  *     filePath: "/path/to/my-file.zip",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export class Artifact extends pulumi.CustomResource {
     /**

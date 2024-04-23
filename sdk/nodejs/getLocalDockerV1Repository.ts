@@ -9,14 +9,12 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * const artifactoryLocalTestDockerV1Repository = new artifactory.DockerV1Repository("artifactory_local_test_docker_v1_repository", {key: "artifactory_local_test_docker_v1_repository"});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLocalDockerV1Repository(args: GetLocalDockerV1RepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalDockerV1RepositoryResult> {
 
@@ -121,14 +119,12 @@ export interface GetLocalDockerV1RepositoryResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * const artifactoryLocalTestDockerV1Repository = new artifactory.DockerV1Repository("artifactory_local_test_docker_v1_repository", {key: "artifactory_local_test_docker_v1_repository"});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLocalDockerV1RepositoryOutput(args: GetLocalDockerV1RepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalDockerV1RepositoryResult> {
     return pulumi.output(args).apply((a: any) => getLocalDockerV1Repository(a, opts))

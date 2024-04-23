@@ -650,7 +650,6 @@ class AlpineRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -667,7 +666,6 @@ class AlpineRepository(pulumi.CustomResource):
             primary_keypair_ref=some_keypair_rsa.pair_name,
             opts=pulumi.ResourceOptions(depends_on=[some_keypair_rsa]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -719,7 +717,6 @@ class AlpineRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -736,7 +733,6 @@ class AlpineRepository(pulumi.CustomResource):
             primary_keypair_ref=some_keypair_rsa.pair_name,
             opts=pulumi.ResourceOptions(depends_on=[some_keypair_rsa]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

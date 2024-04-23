@@ -810,7 +810,6 @@ class LocalRpmRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -841,7 +840,6 @@ class LocalRpmRepository(pulumi.CustomResource):
                     some_keypair_gpg_2,
                 ]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -903,7 +901,6 @@ class LocalRpmRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -934,7 +931,6 @@ class LocalRpmRepository(pulumi.CustomResource):
                     some_keypair_gpg_2,
                 ]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -588,14 +588,12 @@ class LocalGitltfsRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
 
         terraform_local_test_gitlfs_repo = artifactory.LocalGitltfsRepository("terraform-local-test-gitlfs-repo", key="terraform-local-test-gitlfs-repo")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -645,14 +643,12 @@ class LocalGitltfsRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
 
         terraform_local_test_gitlfs_repo = artifactory.LocalGitltfsRepository("terraform-local-test-gitlfs-repo", key="terraform-local-test-gitlfs-repo")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

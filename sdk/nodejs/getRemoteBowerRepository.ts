@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -20,7 +19,6 @@ import * as utilities from "./utilities";
  *     key: "remote-bower",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRemoteBowerRepository(args: GetRemoteBowerRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRemoteBowerRepositoryResult> {
 
@@ -194,7 +192,6 @@ export interface GetRemoteBowerRepositoryResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -203,7 +200,6 @@ export interface GetRemoteBowerRepositoryResult {
  *     key: "remote-bower",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRemoteBowerRepositoryOutput(args: GetRemoteBowerRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteBowerRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getRemoteBowerRepository(a, opts))

@@ -182,14 +182,12 @@ def get_virtual_docker_repository(artifactory_requests_can_retrieve_remote_artif
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     virtual_docker = artifactory.get_virtual_docker_repository(key="virtual-docker")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str key: the identity key of the repo.
@@ -247,14 +245,12 @@ def get_virtual_docker_repository_output(artifactory_requests_can_retrieve_remot
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     virtual_docker = artifactory.get_virtual_docker_repository(key="virtual-docker")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str key: the identity key of the repo.

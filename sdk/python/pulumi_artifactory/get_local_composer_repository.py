@@ -212,14 +212,12 @@ def get_local_composer_repository(archive_browsing_enabled: Optional[bool] = Non
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     local_test_composer_repo = artifactory.get_local_composer_repository(key="local-test-composer-repo")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str key: the identity key of the repo.
@@ -285,14 +283,12 @@ def get_local_composer_repository_output(archive_browsing_enabled: Optional[pulu
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     local_test_composer_repo = artifactory.get_local_composer_repository(key="local-test-composer-repo")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str key: the identity key of the repo.

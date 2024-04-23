@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -18,7 +17,6 @@ import * as utilities from "./utilities";
  *     key: "virtual-conda",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getVirtualCondaRepository(args: GetVirtualCondaRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualCondaRepositoryResult> {
 
@@ -93,7 +91,6 @@ export interface GetVirtualCondaRepositoryResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -102,7 +99,6 @@ export interface GetVirtualCondaRepositoryResult {
  *     key: "virtual-conda",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getVirtualCondaRepositoryOutput(args: GetVirtualCondaRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualCondaRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getVirtualCondaRepository(a, opts))

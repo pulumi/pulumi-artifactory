@@ -169,14 +169,12 @@ def get_virtual_composer_repository(artifactory_requests_can_retrieve_remote_art
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     virtual_composer = artifactory.get_virtual_composer_repository(key="virtual-composer")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str key: the identity key of the repo.
@@ -230,14 +228,12 @@ def get_virtual_composer_repository_output(artifactory_requests_can_retrieve_rem
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     virtual_composer = artifactory.get_virtual_composer_repository(key="virtual-composer")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str key: the identity key of the repo.

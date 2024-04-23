@@ -1665,7 +1665,6 @@ class RemoteVcsRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -1676,7 +1675,6 @@ class RemoteVcsRepository(pulumi.CustomResource):
             vcs_git_provider="GITHUB",
             max_unique_snapshots=5)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1783,7 +1781,6 @@ class RemoteVcsRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -1794,7 +1791,6 @@ class RemoteVcsRepository(pulumi.CustomResource):
             vcs_git_provider="GITHUB",
             max_unique_snapshots=5)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

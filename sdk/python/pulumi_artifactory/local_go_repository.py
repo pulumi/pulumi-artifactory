@@ -588,14 +588,12 @@ class LocalGoRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
 
         terraform_local_test_go_repo = artifactory.LocalGoRepository("terraform-local-test-go-repo", key="terraform-local-test-go-repo")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -645,14 +643,12 @@ class LocalGoRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
 
         terraform_local_test_go_repo = artifactory.LocalGoRepository("terraform-local-test-go-repo", key="terraform-local-test-go-repo")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

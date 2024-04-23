@@ -478,7 +478,6 @@ class VirtualDockerRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -492,7 +491,6 @@ class VirtualDockerRepository(pulumi.CustomResource):
             excludes_pattern="com/google/**",
             resolve_docker_tags_by_timestamp=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -537,7 +535,6 @@ class VirtualDockerRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -551,7 +548,6 @@ class VirtualDockerRepository(pulumi.CustomResource):
             excludes_pattern="com/google/**",
             resolve_docker_tags_by_timestamp=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

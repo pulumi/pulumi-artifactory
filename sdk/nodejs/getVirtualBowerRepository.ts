@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -18,7 +17,6 @@ import * as utilities from "./utilities";
  *     key: "virtual-alpine",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getVirtualBowerRepository(args: GetVirtualBowerRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualBowerRepositoryResult> {
 
@@ -111,7 +109,6 @@ export interface GetVirtualBowerRepositoryResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -120,7 +117,6 @@ export interface GetVirtualBowerRepositoryResult {
  *     key: "virtual-alpine",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getVirtualBowerRepositoryOutput(args: GetVirtualBowerRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualBowerRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getVirtualBowerRepository(a, opts))

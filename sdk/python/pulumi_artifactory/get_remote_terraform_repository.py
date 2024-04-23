@@ -499,14 +499,12 @@ def get_remote_terraform_repository(allow_any_host_auth: Optional[bool] = None,
     """
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     remote_terraform = artifactory.get_remote_terraform_repository(key="remote-terraform")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str key: the identity key of the repo.
@@ -657,14 +655,12 @@ def get_remote_terraform_repository_output(allow_any_host_auth: Optional[pulumi.
     """
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     remote_terraform = artifactory.get_remote_terraform_repository(key="remote-terraform")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str key: the identity key of the repo.

@@ -822,14 +822,12 @@ class LocalSbtRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
 
         terraform_local_test_sbt_repo = artifactory.LocalSbtRepository("terraform-local-test-sbt-repo", key="terraform-local-test-sbt-repo")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -894,14 +892,12 @@ class LocalSbtRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
 
         terraform_local_test_sbt_repo = artifactory.LocalSbtRepository("terraform-local-test-sbt-repo", key="terraform-local-test-sbt-repo")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

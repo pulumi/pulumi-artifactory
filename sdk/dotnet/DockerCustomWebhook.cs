@@ -14,7 +14,6 @@ namespace Pulumi.Artifactory
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -76,13 +75,12 @@ namespace Pulumi.Artifactory
     ///     {
     ///         DependsOn =
     ///         {
-    ///             my_docker_local, 
+    ///             my_docker_local,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/dockerCustomWebhook:DockerCustomWebhook")]
     public partial class DockerCustomWebhook : global::Pulumi.CustomResource

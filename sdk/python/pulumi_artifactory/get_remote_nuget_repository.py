@@ -546,14 +546,12 @@ def get_remote_nuget_repository(allow_any_host_auth: Optional[bool] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     remote_nuget = artifactory.get_remote_nuget_repository(key="remote-nuget")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str download_context_path: (Optional) The context path prefix through which NuGet downloads are served. For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.
@@ -720,14 +718,12 @@ def get_remote_nuget_repository_output(allow_any_host_auth: Optional[pulumi.Inpu
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     remote_nuget = artifactory.get_remote_nuget_repository(key="remote-nuget")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str download_context_path: (Optional) The context path prefix through which NuGet downloads are served. For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.

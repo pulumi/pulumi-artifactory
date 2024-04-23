@@ -9,14 +9,12 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * const terraform_local_test_conan_repo = new artifactory.LocalConanRepository("terraform-local-test-conan-repo", {key: "terraform-local-test-conan-repo"});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

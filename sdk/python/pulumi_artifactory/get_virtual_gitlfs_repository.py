@@ -169,14 +169,12 @@ def get_virtual_gitlfs_repository(artifactory_requests_can_retrieve_remote_artif
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     virtual_gitlfs = artifactory.get_virtual_gitlfs_repository(key="virtual-gitlfs")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str key: the identity key of the repo.
@@ -230,14 +228,12 @@ def get_virtual_gitlfs_repository_output(artifactory_requests_can_retrieve_remot
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     virtual_gitlfs = artifactory.get_virtual_gitlfs_repository(key="virtual-gitlfs")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str key: the identity key of the repo.

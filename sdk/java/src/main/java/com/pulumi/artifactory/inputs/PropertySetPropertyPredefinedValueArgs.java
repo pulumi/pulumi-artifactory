@@ -31,14 +31,14 @@ public final class PropertySetPropertyPredefinedValueArgs extends com.pulumi.res
     }
 
     /**
-     * Predefined property name.
+     * Property set name.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Predefined property name.
+     * @return Property set name.
      * 
      */
     public Output<String> name() {
@@ -92,7 +92,7 @@ public final class PropertySetPropertyPredefinedValueArgs extends com.pulumi.res
         }
 
         /**
-         * @param name Predefined property name.
+         * @param name Property set name.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class PropertySetPropertyPredefinedValueArgs extends com.pulumi.res
         }
 
         /**
-         * @param name Predefined property name.
+         * @param name Property set name.
          * 
          * @return builder
          * 

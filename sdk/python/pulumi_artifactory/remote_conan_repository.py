@@ -1582,7 +1582,6 @@ class RemoteConanRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -1592,7 +1591,6 @@ class RemoteConanRepository(pulumi.CustomResource):
             url="https://conan.io/center/",
             force_conan_authentication=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1692,7 +1690,6 @@ class RemoteConanRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -1702,7 +1699,6 @@ class RemoteConanRepository(pulumi.CustomResource):
             url="https://conan.io/center/",
             force_conan_authentication=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

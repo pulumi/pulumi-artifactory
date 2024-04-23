@@ -445,7 +445,6 @@ class VirtualGenericRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -459,7 +458,6 @@ class VirtualGenericRepository(pulumi.CustomResource):
             includes_pattern="com/jfrog/**,cloud/jfrog/**",
             excludes_pattern="com/google/**")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -503,7 +501,6 @@ class VirtualGenericRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -517,7 +514,6 @@ class VirtualGenericRepository(pulumi.CustomResource):
             includes_pattern="com/jfrog/**,cloud/jfrog/**",
             excludes_pattern="com/google/**")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

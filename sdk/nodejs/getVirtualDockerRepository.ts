@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -18,7 +17,6 @@ import * as utilities from "./utilities";
  *     key: "virtual-docker",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getVirtualDockerRepository(args: GetVirtualDockerRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualDockerRepositoryResult> {
 
@@ -93,7 +91,6 @@ export interface GetVirtualDockerRepositoryResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -102,7 +99,6 @@ export interface GetVirtualDockerRepositoryResult {
  *     key: "virtual-docker",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getVirtualDockerRepositoryOutput(args: GetVirtualDockerRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualDockerRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getVirtualDockerRepository(a, opts))

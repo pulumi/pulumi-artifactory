@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -20,7 +19,6 @@ import * as utilities from "./utilities";
  *     key: "remote-chef",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRemoteChefRepository(args: GetRemoteChefRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRemoteChefRepositoryResult> {
 
@@ -179,7 +177,6 @@ export interface GetRemoteChefRepositoryResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -188,7 +185,6 @@ export interface GetRemoteChefRepositoryResult {
  *     key: "remote-chef",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRemoteChefRepositoryOutput(args: GetRemoteChefRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteChefRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getRemoteChefRepository(a, opts))

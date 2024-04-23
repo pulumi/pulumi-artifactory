@@ -1549,7 +1549,6 @@ class RemoteOpkgRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -1558,7 +1557,6 @@ class RemoteOpkgRepository(pulumi.CustomResource):
             key="my-remote-opkg",
             url="http://testartifactory.io/artifactory/example-opkg/")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1657,7 +1655,6 @@ class RemoteOpkgRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -1666,7 +1663,6 @@ class RemoteOpkgRepository(pulumi.CustomResource):
             key="my-remote-opkg",
             url="http://testartifactory.io/artifactory/example-opkg/")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -590,14 +590,12 @@ class LocalHuggingfacemlRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
 
         local_huggingfaceml_repo = artifactory.LocalHuggingfacemlRepository("local-huggingfaceml-repo", key="local-huggingfaceml-repo")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -649,14 +647,12 @@ class LocalHuggingfacemlRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
 
         local_huggingfaceml_repo = artifactory.LocalHuggingfacemlRepository("local-huggingfaceml-repo", key="local-huggingfaceml-repo")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -9,14 +9,12 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * const terraform_local_test_swift_repo = new artifactory.LocalSwiftRepository("terraform-local-test-swift-repo", {key: "terraform-local-test-swift-repo"});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

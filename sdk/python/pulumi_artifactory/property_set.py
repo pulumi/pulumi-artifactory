@@ -21,7 +21,7 @@ class PropertySetArgs:
                  visible: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a PropertySet resource.
-        :param pulumi.Input[str] name: Predefined property name.
+        :param pulumi.Input[str] name: Property set name.
         :param pulumi.Input[Sequence[pulumi.Input['PropertySetPropertyArgs']]] properties: A list of properties that will be part of the property set.
         :param pulumi.Input[bool] visible: Defines if the list visible and assignable to the repository or artifact. Default value is `true`.
         """
@@ -36,7 +36,7 @@ class PropertySetArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Predefined property name.
+        Property set name.
         """
         return pulumi.get(self, "name")
 
@@ -77,7 +77,7 @@ class _PropertySetState:
                  visible: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering PropertySet resources.
-        :param pulumi.Input[str] name: Predefined property name.
+        :param pulumi.Input[str] name: Property set name.
         :param pulumi.Input[Sequence[pulumi.Input['PropertySetPropertyArgs']]] properties: A list of properties that will be part of the property set.
         :param pulumi.Input[bool] visible: Defines if the list visible and assignable to the repository or artifact. Default value is `true`.
         """
@@ -92,7 +92,7 @@ class _PropertySetState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Predefined property name.
+        Property set name.
         """
         return pulumi.get(self, "name")
 
@@ -143,7 +143,6 @@ class PropertySet(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -184,7 +183,6 @@ class PropertySet(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -196,7 +194,7 @@ class PropertySet(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Predefined property name.
+        :param pulumi.Input[str] name: Property set name.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PropertySetPropertyArgs']]]] properties: A list of properties that will be part of the property set.
         :param pulumi.Input[bool] visible: Defines if the list visible and assignable to the repository or artifact. Default value is `true`.
         """
@@ -215,7 +213,6 @@ class PropertySet(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -256,7 +253,6 @@ class PropertySet(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -316,7 +312,7 @@ class PropertySet(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Predefined property name.
+        :param pulumi.Input[str] name: Property set name.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PropertySetPropertyArgs']]]] properties: A list of properties that will be part of the property set.
         :param pulumi.Input[bool] visible: Defines if the list visible and assignable to the repository or artifact. Default value is `true`.
         """
@@ -333,7 +329,7 @@ class PropertySet(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Predefined property name.
+        Property set name.
         """
         return pulumi.get(self, "name")
 

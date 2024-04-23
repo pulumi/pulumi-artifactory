@@ -468,7 +468,6 @@ class SamlSettings(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -489,7 +488,6 @@ class SamlSettings(pulumi.CustomResource):
             verify_audience_restriction=True,
             use_encrypted_assertion=False)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -530,7 +528,6 @@ class SamlSettings(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -551,7 +548,6 @@ class SamlSettings(pulumi.CustomResource):
             verify_audience_restriction=True,
             use_encrypted_assertion=False)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

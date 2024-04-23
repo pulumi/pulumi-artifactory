@@ -511,7 +511,6 @@ class VirtualRpmRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -538,7 +537,6 @@ class VirtualRpmRepository(pulumi.CustomResource):
                     secondary_keypair,
                 ]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -584,7 +582,6 @@ class VirtualRpmRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -611,7 +608,6 @@ class VirtualRpmRepository(pulumi.CustomResource):
                     secondary_keypair,
                 ]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

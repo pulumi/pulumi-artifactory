@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -18,7 +17,6 @@ import * as utilities from "./utilities";
  *     key: "local-test-cargo-repo-basic",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLocalCargoRepository(args: GetLocalCargoRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalCargoRepositoryResult> {
 
@@ -123,7 +121,6 @@ export interface GetLocalCargoRepositoryResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -132,7 +129,6 @@ export interface GetLocalCargoRepositoryResult {
  *     key: "local-test-cargo-repo-basic",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLocalCargoRepositoryOutput(args: GetLocalCargoRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalCargoRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getLocalCargoRepository(a, opts))

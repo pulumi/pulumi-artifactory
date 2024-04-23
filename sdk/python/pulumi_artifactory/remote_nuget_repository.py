@@ -1722,7 +1722,6 @@ class RemoteNugetRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -1735,7 +1734,6 @@ class RemoteNugetRepository(pulumi.CustomResource):
             v3_feed_url="https://api.nuget.org/v3/index.json",
             symbol_server_url="https://symbols.nuget.org/download/symbols")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1841,7 +1839,6 @@ class RemoteNugetRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -1854,7 +1851,6 @@ class RemoteNugetRepository(pulumi.CustomResource):
             v3_feed_url="https://api.nuget.org/v3/index.json",
             symbol_server_url="https://symbols.nuget.org/download/symbols")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

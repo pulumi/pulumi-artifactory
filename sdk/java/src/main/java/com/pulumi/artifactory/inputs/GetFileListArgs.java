@@ -94,14 +94,14 @@ public final class GetFileListArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * File metadata
+     * Include metadata timestamps
      * 
      */
     @Import(name="metadataTimestamps")
     private @Nullable Output<Boolean> metadataTimestamps;
 
     /**
-     * @return File metadata
+     * @return Include metadata timestamps
      * 
      */
     public Optional<Output<Boolean>> metadataTimestamps() {
@@ -259,7 +259,7 @@ public final class GetFileListArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param metadataTimestamps File metadata
+         * @param metadataTimestamps Include metadata timestamps
          * 
          * @return builder
          * 
@@ -270,7 +270,7 @@ public final class GetFileListArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param metadataTimestamps File metadata
+         * @param metadataTimestamps Include metadata timestamps
          * 
          * @return builder
          * 

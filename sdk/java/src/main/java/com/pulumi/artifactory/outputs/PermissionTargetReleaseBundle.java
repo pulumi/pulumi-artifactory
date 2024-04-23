@@ -16,17 +16,17 @@ import javax.annotation.Nullable;
 public final class PermissionTargetReleaseBundle {
     private @Nullable PermissionTargetReleaseBundleActions actions;
     /**
-     * @return Pattern of artifacts to exclude.
+     * @return The default value will be [] if nothing is supplied
      * 
      */
     private @Nullable List<String> excludesPatterns;
     /**
-     * @return Pattern of artifacts to include.
+     * @return The default value will be [&#34;&#34;] if nothing is supplied
      * 
      */
     private @Nullable List<String> includesPatterns;
     /**
-     * @return List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
+     * @return This can only be 1 value: &#34;artifactory-build-info&#34;, and currently, validation of sets/lists is not allowed. Artifactory will reject the request if you change this
      * 
      */
     private List<String> repositories;
@@ -36,21 +36,21 @@ public final class PermissionTargetReleaseBundle {
         return Optional.ofNullable(this.actions);
     }
     /**
-     * @return Pattern of artifacts to exclude.
+     * @return The default value will be [] if nothing is supplied
      * 
      */
     public List<String> excludesPatterns() {
         return this.excludesPatterns == null ? List.of() : this.excludesPatterns;
     }
     /**
-     * @return Pattern of artifacts to include.
+     * @return The default value will be [&#34;&#34;] if nothing is supplied
      * 
      */
     public List<String> includesPatterns() {
         return this.includesPatterns == null ? List.of() : this.includesPatterns;
     }
     /**
-     * @return List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
+     * @return This can only be 1 value: &#34;artifactory-build-info&#34;, and currently, validation of sets/lists is not allowed. Artifactory will reject the request if you change this
      * 
      */
     public List<String> repositories() {

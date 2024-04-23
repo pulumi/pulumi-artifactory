@@ -226,14 +226,12 @@ def get_local_conan_repository(archive_browsing_enabled: Optional[bool] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     local_test_conan_repo = artifactory.get_local_conan_repository(key="local-test-conan-repo")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param bool force_conan_authentication: Force basic authentication credentials in order to use this repository.
@@ -304,14 +302,12 @@ def get_local_conan_repository_output(archive_browsing_enabled: Optional[pulumi.
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     local_test_conan_repo = artifactory.get_local_conan_repository(key="local-test-conan-repo")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param bool force_conan_authentication: Force basic authentication credentials in order to use this repository.

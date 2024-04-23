@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -20,7 +19,6 @@ import * as utilities from "./utilities";
  *     key: "federated-test-rpm-repo",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getFederatedRpmRepository(args: GetFederatedRpmRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetFederatedRpmRepositoryResult> {
 
@@ -152,7 +150,6 @@ export interface GetFederatedRpmRepositoryResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -161,7 +158,6 @@ export interface GetFederatedRpmRepositoryResult {
  *     key: "federated-test-rpm-repo",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getFederatedRpmRepositoryOutput(args: GetFederatedRpmRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedRpmRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getFederatedRpmRepository(a, opts))

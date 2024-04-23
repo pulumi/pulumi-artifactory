@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -18,7 +17,6 @@ import * as utilities from "./utilities";
  *     key: "local-test-alpine-repo-basic",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLocalAlpineRepository(args: GetLocalAlpineRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalAlpineRepositoryResult> {
 
@@ -108,7 +106,6 @@ export interface GetLocalAlpineRepositoryResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -117,7 +114,6 @@ export interface GetLocalAlpineRepositoryResult {
  *     key: "local-test-alpine-repo-basic",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLocalAlpineRepositoryOutput(args: GetLocalAlpineRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalAlpineRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getLocalAlpineRepository(a, opts))

@@ -135,7 +135,6 @@ class UserLockPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -145,7 +144,6 @@ class UserLockPolicy(pulumi.CustomResource):
             enabled=True,
             login_attempts=10)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -170,7 +168,6 @@ class UserLockPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -180,7 +177,6 @@ class UserLockPolicy(pulumi.CustomResource):
             enabled=True,
             login_attempts=10)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

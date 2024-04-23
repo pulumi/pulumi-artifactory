@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -20,7 +19,6 @@ import * as utilities from "./utilities";
  *     key: "remote-opkg",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRemoteOpkgRepository(args: GetRemoteOpkgRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRemoteOpkgRepositoryResult> {
 
@@ -179,7 +177,6 @@ export interface GetRemoteOpkgRepositoryResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -188,7 +185,6 @@ export interface GetRemoteOpkgRepositoryResult {
  *     key: "remote-opkg",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRemoteOpkgRepositoryOutput(args: GetRemoteOpkgRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteOpkgRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getRemoteOpkgRepository(a, opts))

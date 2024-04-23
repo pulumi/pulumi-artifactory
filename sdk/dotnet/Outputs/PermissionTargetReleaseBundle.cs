@@ -15,15 +15,15 @@ namespace Pulumi.Artifactory.Outputs
     {
         public readonly Outputs.PermissionTargetReleaseBundleActions? Actions;
         /// <summary>
-        /// Pattern of artifacts to exclude.
+        /// The default value will be [] if nothing is supplied
         /// </summary>
         public readonly ImmutableArray<string> ExcludesPatterns;
         /// <summary>
-        /// Pattern of artifacts to include.
+        /// The default value will be [""] if nothing is supplied
         /// </summary>
         public readonly ImmutableArray<string> IncludesPatterns;
         /// <summary>
-        /// List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
+        /// This can only be 1 value: "artifactory-build-info", and currently, validation of sets/lists is not allowed. Artifactory will reject the request if you change this
         /// </summary>
         public readonly ImmutableArray<string> Repositories;
 

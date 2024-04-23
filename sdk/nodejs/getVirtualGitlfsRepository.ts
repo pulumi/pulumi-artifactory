@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -18,7 +17,6 @@ import * as utilities from "./utilities";
  *     key: "virtual-gitlfs",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getVirtualGitlfsRepository(args: GetVirtualGitlfsRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualGitlfsRepositoryResult> {
 
@@ -84,7 +82,6 @@ export interface GetVirtualGitlfsRepositoryResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -93,7 +90,6 @@ export interface GetVirtualGitlfsRepositoryResult {
  *     key: "virtual-gitlfs",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getVirtualGitlfsRepositoryOutput(args: GetVirtualGitlfsRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualGitlfsRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getVirtualGitlfsRepository(a, opts))

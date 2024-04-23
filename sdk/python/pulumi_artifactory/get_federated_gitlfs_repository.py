@@ -263,14 +263,12 @@ def get_federated_gitlfs_repository(archive_browsing_enabled: Optional[bool] = N
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     federated_test_gitlfs_repo = artifactory.get_federated_gitlfs_repository(key="federated-test-gitlfs-repo")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param bool disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
@@ -354,14 +352,12 @@ def get_federated_gitlfs_repository_output(archive_browsing_enabled: Optional[pu
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     federated_test_gitlfs_repo = artifactory.get_federated_gitlfs_repository(key="federated-test-gitlfs-repo")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param bool disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
