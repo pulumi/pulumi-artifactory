@@ -15,7 +15,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -57,7 +56,6 @@ import * as utilities from "./utilities";
  *     ],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -96,7 +94,7 @@ export class PropertySet extends pulumi.CustomResource {
     }
 
     /**
-     * Predefined property name.
+     * Property set name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -140,7 +138,7 @@ export class PropertySet extends pulumi.CustomResource {
  */
 export interface PropertySetState {
     /**
-     * Predefined property name.
+     * Property set name.
      */
     name?: pulumi.Input<string>;
     /**
@@ -158,7 +156,7 @@ export interface PropertySetState {
  */
 export interface PropertySetArgs {
     /**
-     * Predefined property name.
+     * Property set name.
      */
     name?: pulumi.Input<string>;
     /**

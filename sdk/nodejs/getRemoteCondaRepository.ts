@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -20,7 +19,6 @@ import * as utilities from "./utilities";
  *     key: "remote-conda",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRemoteCondaRepository(args: GetRemoteCondaRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRemoteCondaRepositoryResult> {
 
@@ -179,7 +177,6 @@ export interface GetRemoteCondaRepositoryResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -188,7 +185,6 @@ export interface GetRemoteCondaRepositoryResult {
  *     key: "remote-conda",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRemoteCondaRepositoryOutput(args: GetRemoteCondaRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteCondaRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getRemoteCondaRepository(a, opts))

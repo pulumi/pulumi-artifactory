@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -18,7 +17,6 @@ import * as utilities from "./utilities";
  *     key: "virtual-sbt",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getVirtualSbtRepository(args: GetVirtualSbtRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualSbtRepositoryResult> {
 
@@ -111,7 +109,6 @@ export interface GetVirtualSbtRepositoryResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -120,7 +117,6 @@ export interface GetVirtualSbtRepositoryResult {
  *     key: "virtual-sbt",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getVirtualSbtRepositoryOutput(args: GetVirtualSbtRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualSbtRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getVirtualSbtRepository(a, opts))

@@ -588,14 +588,12 @@ class LocalGemsRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
 
         terraform_local_test_gems_repo = artifactory.LocalGemsRepository("terraform-local-test-gems-repo", key="terraform-local-test-gems-repo")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -645,14 +643,12 @@ class LocalGemsRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
 
         terraform_local_test_gems_repo = artifactory.LocalGemsRepository("terraform-local-test-gems-repo", key="terraform-local-test-gems-repo")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

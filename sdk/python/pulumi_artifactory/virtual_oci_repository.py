@@ -475,7 +475,6 @@ class VirtualOciRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -490,7 +489,6 @@ class VirtualOciRepository(pulumi.CustomResource):
             notes="Internal description",
             resolve_oci_tags_by_timestamp=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -535,7 +533,6 @@ class VirtualOciRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -550,7 +547,6 @@ class VirtualOciRepository(pulumi.CustomResource):
             notes="Internal description",
             resolve_oci_tags_by_timestamp=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

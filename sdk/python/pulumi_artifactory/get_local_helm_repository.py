@@ -212,14 +212,12 @@ def get_local_helm_repository(archive_browsing_enabled: Optional[bool] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     local_test_helm_repo = artifactory.get_local_helm_repository(key="local-test-helm-repo")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str key: the identity key of the repo.
@@ -285,14 +283,12 @@ def get_local_helm_repository_output(archive_browsing_enabled: Optional[pulumi.I
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     local_test_helm_repo = artifactory.get_local_helm_repository(key="local-test-helm-repo")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str key: the identity key of the repo.

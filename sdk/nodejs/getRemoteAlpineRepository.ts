@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -20,7 +19,6 @@ import * as utilities from "./utilities";
  *     key: "remote-alpine",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRemoteAlpineRepository(args: GetRemoteAlpineRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRemoteAlpineRepositoryResult> {
 
@@ -179,7 +177,6 @@ export interface GetRemoteAlpineRepositoryResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -188,7 +185,6 @@ export interface GetRemoteAlpineRepositoryResult {
  *     key: "remote-alpine",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRemoteAlpineRepositoryOutput(args: GetRemoteAlpineRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteAlpineRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getRemoteAlpineRepository(a, opts))

@@ -1549,7 +1549,6 @@ class RemoteP2Repository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -1558,7 +1557,6 @@ class RemoteP2Repository(pulumi.CustomResource):
             key="my-remote-p2",
             url="http://testartifactory.io/artifactory/example-p2/")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1657,7 +1655,6 @@ class RemoteP2Repository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -1666,7 +1663,6 @@ class RemoteP2Repository(pulumi.CustomResource):
             key="my-remote-p2",
             url="http://testartifactory.io/artifactory/example-p2/")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

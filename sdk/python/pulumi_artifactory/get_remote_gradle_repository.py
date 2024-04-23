@@ -572,14 +572,12 @@ def get_remote_gradle_repository(allow_any_host_auth: Optional[bool] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     remote_gradle = artifactory.get_remote_gradle_repository(key="remote-gradle")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param bool fetch_jars_eagerly: (Optional, Default: `false`) When set, if a POM is requested, Artifactory attempts to fetch the corresponding jar in the background. This will accelerate first access time to the jar when it is subsequently requested.
@@ -754,14 +752,12 @@ def get_remote_gradle_repository_output(allow_any_host_auth: Optional[pulumi.Inp
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     remote_gradle = artifactory.get_remote_gradle_repository(key="remote-gradle")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param bool fetch_jars_eagerly: (Optional, Default: `false`) When set, if a POM is requested, Artifactory attempts to fetch the corresponding jar in the background. This will accelerate first access time to the jar when it is subsequently requested.

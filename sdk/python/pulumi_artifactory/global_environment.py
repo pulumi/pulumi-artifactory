@@ -71,14 +71,12 @@ class GlobalEnvironment(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
 
         test_env = artifactory.GlobalEnvironment("test-env", name="test-env")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -101,14 +99,12 @@ class GlobalEnvironment(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
 
         test_env = artifactory.GlobalEnvironment("test-env", name="test-env")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

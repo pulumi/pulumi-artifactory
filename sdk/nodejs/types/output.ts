@@ -2276,27 +2276,21 @@ export interface OauthSettingsOauthProvider {
 export interface PermissionTargetBuild {
     actions?: outputs.PermissionTargetBuildActions;
     /**
-     * Pattern of artifacts to exclude.
+     * The default value will be [] if nothing is supplied
      */
     excludesPatterns?: string[];
     /**
-     * Pattern of artifacts to include.
+     * The default value will be [""] if nothing is supplied
      */
     includesPatterns?: string[];
     /**
-     * List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
+     * This can only be 1 value: "artifactory-build-info", and currently, validation of sets/lists is not allowed. Artifactory will reject the request if you change this
      */
     repositories: string[];
 }
 
 export interface PermissionTargetBuildActions {
-    /**
-     * Groups this permission applies for.
-     */
     groups?: outputs.PermissionTargetBuildActionsGroup[];
-    /**
-     * Users this permission target applies for.
-     */
     users?: outputs.PermissionTargetBuildActionsUser[];
 }
 
@@ -2319,27 +2313,21 @@ export interface PermissionTargetBuildActionsUser {
 export interface PermissionTargetReleaseBundle {
     actions?: outputs.PermissionTargetReleaseBundleActions;
     /**
-     * Pattern of artifacts to exclude.
+     * The default value will be [] if nothing is supplied
      */
     excludesPatterns?: string[];
     /**
-     * Pattern of artifacts to include.
+     * The default value will be [""] if nothing is supplied
      */
     includesPatterns?: string[];
     /**
-     * List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
+     * This can only be 1 value: "artifactory-build-info", and currently, validation of sets/lists is not allowed. Artifactory will reject the request if you change this
      */
     repositories: string[];
 }
 
 export interface PermissionTargetReleaseBundleActions {
-    /**
-     * Groups this permission applies for.
-     */
     groups?: outputs.PermissionTargetReleaseBundleActionsGroup[];
-    /**
-     * Users this permission target applies for.
-     */
     users?: outputs.PermissionTargetReleaseBundleActionsUser[];
 }
 
@@ -2376,13 +2364,7 @@ export interface PermissionTargetRepo {
 }
 
 export interface PermissionTargetRepoActions {
-    /**
-     * Groups this permission applies for.
-     */
     groups?: outputs.PermissionTargetRepoActionsGroup[];
-    /**
-     * Users this permission target applies for.
-     */
     users?: outputs.PermissionTargetRepoActionsUser[];
 }
 
@@ -2427,7 +2409,7 @@ export interface PropertySetPropertyPredefinedValue {
      */
     defaultValue: boolean;
     /**
-     * Predefined property name.
+     * Property set name.
      */
     name: string;
 }

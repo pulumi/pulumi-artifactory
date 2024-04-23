@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -20,7 +19,6 @@ import * as utilities from "./utilities";
  *     key: "remote-go",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRemoteGoRepository(args: GetRemoteGoRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRemoteGoRepositoryResult> {
 
@@ -188,7 +186,6 @@ export interface GetRemoteGoRepositoryResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -197,7 +194,6 @@ export interface GetRemoteGoRepositoryResult {
  *     key: "remote-go",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRemoteGoRepositoryOutput(args: GetRemoteGoRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteGoRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getRemoteGoRepository(a, opts))

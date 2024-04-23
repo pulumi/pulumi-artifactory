@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -18,7 +17,6 @@ import * as utilities from "./utilities";
  *     key: "local-test-npm-repo",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLocalNpmRepository(args: GetLocalNpmRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalNpmRepositoryResult> {
 
@@ -99,7 +97,6 @@ export interface GetLocalNpmRepositoryResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -108,7 +105,6 @@ export interface GetLocalNpmRepositoryResult {
  *     key: "local-test-npm-repo",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLocalNpmRepositoryOutput(args: GetLocalNpmRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalNpmRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getLocalNpmRepository(a, opts))

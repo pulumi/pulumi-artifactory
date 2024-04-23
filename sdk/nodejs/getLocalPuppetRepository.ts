@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -18,7 +17,6 @@ import * as utilities from "./utilities";
  *     key: "local-test-puppet-repo",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLocalPuppetRepository(args: GetLocalPuppetRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalPuppetRepositoryResult> {
 
@@ -99,7 +97,6 @@ export interface GetLocalPuppetRepositoryResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -108,7 +105,6 @@ export interface GetLocalPuppetRepositoryResult {
  *     key: "local-test-puppet-repo",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLocalPuppetRepositoryOutput(args: GetLocalPuppetRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalPuppetRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getLocalPuppetRepository(a, opts))

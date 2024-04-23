@@ -278,7 +278,6 @@ class Artifact(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -288,7 +287,6 @@ class Artifact(pulumi.CustomResource):
             path="/my-path/my-file.zip",
             file_path="/path/to/my-file.zip")
         ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -307,7 +305,6 @@ class Artifact(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -317,7 +314,6 @@ class Artifact(pulumi.CustomResource):
             path="/my-path/my-file.zip",
             file_path="/path/to/my-file.zip")
         ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param ArtifactArgs args: The arguments to use to populate this resource's properties.

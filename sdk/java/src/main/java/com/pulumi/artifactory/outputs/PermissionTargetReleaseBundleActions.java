@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PermissionTargetReleaseBundleActions {
-    /**
-     * @return Groups this permission applies for.
-     * 
-     */
     private @Nullable List<PermissionTargetReleaseBundleActionsGroup> groups;
-    /**
-     * @return Users this permission target applies for.
-     * 
-     */
     private @Nullable List<PermissionTargetReleaseBundleActionsUser> users;
 
     private PermissionTargetReleaseBundleActions() {}
-    /**
-     * @return Groups this permission applies for.
-     * 
-     */
     public List<PermissionTargetReleaseBundleActionsGroup> groups() {
         return this.groups == null ? List.of() : this.groups;
     }
-    /**
-     * @return Users this permission target applies for.
-     * 
-     */
     public List<PermissionTargetReleaseBundleActionsUser> users() {
         return this.users == null ? List.of() : this.users;
     }

@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,7 +39,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetFileList(ctx *pulumi.Context, args *GetFileListArgs, opts ...pulumi.InvokeOption) (*GetFileListResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetFileListResult
@@ -63,7 +61,7 @@ type GetFileListArgs struct {
 	IncludeRootPath *bool `pulumi:"includeRootPath"`
 	// Include folders
 	ListFolders *bool `pulumi:"listFolders"`
-	// File metadata
+	// Include metadata timestamps
 	MetadataTimestamps *bool `pulumi:"metadataTimestamps"`
 	// Repository key
 	RepositoryKey string `pulumi:"repositoryKey"`
@@ -120,7 +118,7 @@ type GetFileListOutputArgs struct {
 	IncludeRootPath pulumi.BoolPtrInput `pulumi:"includeRootPath"`
 	// Include folders
 	ListFolders pulumi.BoolPtrInput `pulumi:"listFolders"`
-	// File metadata
+	// Include metadata timestamps
 	MetadataTimestamps pulumi.BoolPtrInput `pulumi:"metadataTimestamps"`
 	// Repository key
 	RepositoryKey pulumi.StringInput `pulumi:"repositoryKey"`

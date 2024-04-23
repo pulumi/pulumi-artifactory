@@ -586,7 +586,6 @@ class ScopedToken(pulumi.CustomResource):
 
         ### S
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -620,7 +619,6 @@ class ScopedToken(pulumi.CustomResource):
             scopes=["applied-permissions/admin"],
             audiences=["jfrt@*"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## References
 
@@ -690,7 +688,6 @@ class ScopedToken(pulumi.CustomResource):
 
         ### S
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -724,7 +721,6 @@ class ScopedToken(pulumi.CustomResource):
             scopes=["applied-permissions/admin"],
             audiences=["jfrt@*"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## References
 

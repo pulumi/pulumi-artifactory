@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -20,7 +19,6 @@ import * as utilities from "./utilities";
  *     key: "federated-test-pypi-repo",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getFederatedPypiRepository(args: GetFederatedPypiRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetFederatedPypiRepositoryResult> {
 
@@ -134,7 +132,6 @@ export interface GetFederatedPypiRepositoryResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -143,7 +140,6 @@ export interface GetFederatedPypiRepositoryResult {
  *     key: "federated-test-pypi-repo",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getFederatedPypiRepositoryOutput(args: GetFederatedPypiRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedPypiRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getFederatedPypiRepository(a, opts))

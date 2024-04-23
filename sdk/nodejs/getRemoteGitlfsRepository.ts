@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -20,7 +19,6 @@ import * as utilities from "./utilities";
  *     key: "remote-gitlfs",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRemoteGitlfsRepository(args: GetRemoteGitlfsRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRemoteGitlfsRepositoryResult> {
 
@@ -179,7 +177,6 @@ export interface GetRemoteGitlfsRepositoryResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -188,7 +185,6 @@ export interface GetRemoteGitlfsRepositoryResult {
  *     key: "remote-gitlfs",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRemoteGitlfsRepositoryOutput(args: GetRemoteGitlfsRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteGitlfsRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getRemoteGitlfsRepository(a, opts))

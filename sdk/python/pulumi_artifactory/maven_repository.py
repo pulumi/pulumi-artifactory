@@ -544,7 +544,6 @@ class MavenRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -570,7 +569,6 @@ class MavenRepository(pulumi.CustomResource):
             force_maven_authentication=True,
             pom_repository_references_cleanup_policy="discard_active_reference")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -617,7 +615,6 @@ class MavenRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -643,7 +640,6 @@ class MavenRepository(pulumi.CustomResource):
             force_maven_authentication=True,
             pom_repository_references_cleanup_policy="discard_active_reference")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

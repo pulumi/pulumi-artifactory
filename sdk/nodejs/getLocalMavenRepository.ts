@@ -9,14 +9,12 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * const local_test_maven_repo_basic = new artifactory.LocalMavenRepository("local-test-maven-repo-basic", {key: "local-test-maven-repo-basic"});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLocalMavenRepository(args: GetLocalMavenRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalMavenRepositoryResult> {
 
@@ -174,14 +172,12 @@ export interface GetLocalMavenRepositoryResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * const local_test_maven_repo_basic = new artifactory.LocalMavenRepository("local-test-maven-repo-basic", {key: "local-test-maven-repo-basic"});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLocalMavenRepositoryOutput(args: GetLocalMavenRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalMavenRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getLocalMavenRepository(a, opts))

@@ -299,14 +299,12 @@ def get_local_sbt_repository(archive_browsing_enabled: Optional[bool] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     local_test_sbt_repo = artifactory.get_local_sbt_repository(key="local-test-sbt-repo")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str checksum_policy_type: Checksum policy determines how Artifactory behaves when a client checksum for a deployed
@@ -408,14 +406,12 @@ def get_local_sbt_repository_output(archive_browsing_enabled: Optional[pulumi.In
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     local_test_sbt_repo = artifactory.get_local_sbt_repository(key="local-test-sbt-repo")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str checksum_policy_type: Checksum policy determines how Artifactory behaves when a client checksum for a deployed

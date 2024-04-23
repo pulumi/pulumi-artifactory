@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -18,7 +17,6 @@ import * as utilities from "./utilities";
  *     key: "my-oci-virtual",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getVirtualOciRepository(args: GetVirtualOciRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualOciRepositoryResult> {
 
@@ -93,7 +91,6 @@ export interface GetVirtualOciRepositoryResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -102,7 +99,6 @@ export interface GetVirtualOciRepositoryResult {
  *     key: "my-oci-virtual",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getVirtualOciRepositoryOutput(args: GetVirtualOciRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualOciRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getVirtualOciRepository(a, opts))

@@ -3399,27 +3399,21 @@ export interface OauthSettingsOauthProvider {
 export interface PermissionTargetBuild {
     actions?: pulumi.Input<inputs.PermissionTargetBuildActions>;
     /**
-     * Pattern of artifacts to exclude.
+     * The default value will be [] if nothing is supplied
      */
     excludesPatterns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Pattern of artifacts to include.
+     * The default value will be [""] if nothing is supplied
      */
     includesPatterns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
+     * This can only be 1 value: "artifactory-build-info", and currently, validation of sets/lists is not allowed. Artifactory will reject the request if you change this
      */
     repositories: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 export interface PermissionTargetBuildActions {
-    /**
-     * Groups this permission applies for.
-     */
     groups?: pulumi.Input<pulumi.Input<inputs.PermissionTargetBuildActionsGroup>[]>;
-    /**
-     * Users this permission target applies for.
-     */
     users?: pulumi.Input<pulumi.Input<inputs.PermissionTargetBuildActionsUser>[]>;
 }
 
@@ -3442,27 +3436,21 @@ export interface PermissionTargetBuildActionsUser {
 export interface PermissionTargetReleaseBundle {
     actions?: pulumi.Input<inputs.PermissionTargetReleaseBundleActions>;
     /**
-     * Pattern of artifacts to exclude.
+     * The default value will be [] if nothing is supplied
      */
     excludesPatterns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Pattern of artifacts to include.
+     * The default value will be [""] if nothing is supplied
      */
     includesPatterns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
+     * This can only be 1 value: "artifactory-build-info", and currently, validation of sets/lists is not allowed. Artifactory will reject the request if you change this
      */
     repositories: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 export interface PermissionTargetReleaseBundleActions {
-    /**
-     * Groups this permission applies for.
-     */
     groups?: pulumi.Input<pulumi.Input<inputs.PermissionTargetReleaseBundleActionsGroup>[]>;
-    /**
-     * Users this permission target applies for.
-     */
     users?: pulumi.Input<pulumi.Input<inputs.PermissionTargetReleaseBundleActionsUser>[]>;
 }
 
@@ -3499,13 +3487,7 @@ export interface PermissionTargetRepo {
 }
 
 export interface PermissionTargetRepoActions {
-    /**
-     * Groups this permission applies for.
-     */
     groups?: pulumi.Input<pulumi.Input<inputs.PermissionTargetRepoActionsGroup>[]>;
-    /**
-     * Users this permission target applies for.
-     */
     users?: pulumi.Input<pulumi.Input<inputs.PermissionTargetRepoActionsUser>[]>;
 }
 
@@ -3550,7 +3532,7 @@ export interface PropertySetPropertyPredefinedValue {
      */
     defaultValue: pulumi.Input<boolean>;
     /**
-     * Predefined property name.
+     * Property set name.
      */
     name: pulumi.Input<string>;
 }

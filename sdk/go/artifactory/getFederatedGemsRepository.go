@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,7 +38,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupFederatedGemsRepository(ctx *pulumi.Context, args *LookupFederatedGemsRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupFederatedGemsRepositoryResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupFederatedGemsRepositoryResult

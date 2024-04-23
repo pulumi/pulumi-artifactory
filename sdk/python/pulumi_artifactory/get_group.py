@@ -202,7 +202,6 @@ def get_group(admin_privileges: Optional[bool] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
@@ -211,7 +210,6 @@ def get_group(admin_privileges: Optional[bool] = None,
     my_group = artifactory.get_group(name="my_group",
         include_users="true")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param bool admin_privileges: Any users added to this group will automatically be assigned with admin privileges in the system.
@@ -280,7 +278,6 @@ def get_group_output(admin_privileges: Optional[pulumi.Input[Optional[bool]]] = 
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
@@ -289,7 +286,6 @@ def get_group_output(admin_privileges: Optional[pulumi.Input[Optional[bool]]] = 
     my_group = artifactory.get_group(name="my_group",
         include_users="true")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param bool admin_privileges: Any users added to this group will automatically be assigned with admin privileges in the system.

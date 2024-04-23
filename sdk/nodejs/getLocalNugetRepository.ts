@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -18,7 +17,6 @@ import * as utilities from "./utilities";
  *     key: "local-test-nuget-repo-basic",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLocalNugetRepository(args: GetLocalNugetRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalNugetRepositoryResult> {
 
@@ -120,7 +118,6 @@ export interface GetLocalNugetRepositoryResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -129,7 +126,6 @@ export interface GetLocalNugetRepositoryResult {
  *     key: "local-test-nuget-repo-basic",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLocalNugetRepositoryOutput(args: GetLocalNugetRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalNugetRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getLocalNugetRepository(a, opts))

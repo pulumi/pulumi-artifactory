@@ -13,7 +13,6 @@ import (
 
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -37,7 +36,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupLocalTerraformProviderRepository(ctx *pulumi.Context, args *LookupLocalTerraformProviderRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupLocalTerraformProviderRepositoryResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupLocalTerraformProviderRepositoryResult

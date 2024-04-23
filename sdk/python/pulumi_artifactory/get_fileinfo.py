@@ -204,7 +204,6 @@ def get_fileinfo(path: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
@@ -213,7 +212,6 @@ def get_fileinfo(path: Optional[str] = None,
     my_file = artifactory.get_fileinfo(repository="repo-key",
         path="/path/to/the/artifact.zip")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str path: The path to the file within the repository.
@@ -253,7 +251,6 @@ def get_fileinfo_output(path: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
@@ -262,7 +259,6 @@ def get_fileinfo_output(path: Optional[pulumi.Input[str]] = None,
     my_file = artifactory.get_fileinfo(repository="repo-key",
         path="/path/to/the/artifact.zip")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str path: The path to the file within the repository.

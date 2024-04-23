@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,7 +38,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupLocalVagrantRepository(ctx *pulumi.Context, args *LookupLocalVagrantRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupLocalVagrantRepositoryResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupLocalVagrantRepositoryResult

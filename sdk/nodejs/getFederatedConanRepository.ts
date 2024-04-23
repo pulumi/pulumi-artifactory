@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -20,7 +19,6 @@ import * as utilities from "./utilities";
  *     key: "federated-test-conan-repo",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getFederatedConanRepository(args: GetFederatedConanRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetFederatedConanRepositoryResult> {
 
@@ -137,7 +135,6 @@ export interface GetFederatedConanRepositoryResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -146,7 +143,6 @@ export interface GetFederatedConanRepositoryResult {
  *     key: "federated-test-conan-repo",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getFederatedConanRepositoryOutput(args: GetFederatedConanRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedConanRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getFederatedConanRepository(a, opts))

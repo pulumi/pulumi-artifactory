@@ -8368,11 +8368,11 @@ func (o OauthSettingsOauthProviderArrayOutput) Index(i pulumi.IntInput) OauthSet
 
 type PermissionTargetBuild struct {
 	Actions *PermissionTargetBuildActions `pulumi:"actions"`
-	// Pattern of artifacts to exclude.
+	// The default value will be [] if nothing is supplied
 	ExcludesPatterns []string `pulumi:"excludesPatterns"`
-	// Pattern of artifacts to include.
+	// The default value will be [""] if nothing is supplied
 	IncludesPatterns []string `pulumi:"includesPatterns"`
-	// List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
+	// This can only be 1 value: "artifactory-build-info", and currently, validation of sets/lists is not allowed. Artifactory will reject the request if you change this
 	Repositories []string `pulumi:"repositories"`
 }
 
@@ -8389,11 +8389,11 @@ type PermissionTargetBuildInput interface {
 
 type PermissionTargetBuildArgs struct {
 	Actions PermissionTargetBuildActionsPtrInput `pulumi:"actions"`
-	// Pattern of artifacts to exclude.
+	// The default value will be [] if nothing is supplied
 	ExcludesPatterns pulumi.StringArrayInput `pulumi:"excludesPatterns"`
-	// Pattern of artifacts to include.
+	// The default value will be [""] if nothing is supplied
 	IncludesPatterns pulumi.StringArrayInput `pulumi:"includesPatterns"`
-	// List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
+	// This can only be 1 value: "artifactory-build-info", and currently, validation of sets/lists is not allowed. Artifactory will reject the request if you change this
 	Repositories pulumi.StringArrayInput `pulumi:"repositories"`
 }
 
@@ -8478,17 +8478,17 @@ func (o PermissionTargetBuildOutput) Actions() PermissionTargetBuildActionsPtrOu
 	return o.ApplyT(func(v PermissionTargetBuild) *PermissionTargetBuildActions { return v.Actions }).(PermissionTargetBuildActionsPtrOutput)
 }
 
-// Pattern of artifacts to exclude.
+// The default value will be [] if nothing is supplied
 func (o PermissionTargetBuildOutput) ExcludesPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PermissionTargetBuild) []string { return v.ExcludesPatterns }).(pulumi.StringArrayOutput)
 }
 
-// Pattern of artifacts to include.
+// The default value will be [""] if nothing is supplied
 func (o PermissionTargetBuildOutput) IncludesPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PermissionTargetBuild) []string { return v.IncludesPatterns }).(pulumi.StringArrayOutput)
 }
 
-// List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
+// This can only be 1 value: "artifactory-build-info", and currently, validation of sets/lists is not allowed. Artifactory will reject the request if you change this
 func (o PermissionTargetBuildOutput) Repositories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PermissionTargetBuild) []string { return v.Repositories }).(pulumi.StringArrayOutput)
 }
@@ -8526,7 +8526,7 @@ func (o PermissionTargetBuildPtrOutput) Actions() PermissionTargetBuildActionsPt
 	}).(PermissionTargetBuildActionsPtrOutput)
 }
 
-// Pattern of artifacts to exclude.
+// The default value will be [] if nothing is supplied
 func (o PermissionTargetBuildPtrOutput) ExcludesPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PermissionTargetBuild) []string {
 		if v == nil {
@@ -8536,7 +8536,7 @@ func (o PermissionTargetBuildPtrOutput) ExcludesPatterns() pulumi.StringArrayOut
 	}).(pulumi.StringArrayOutput)
 }
 
-// Pattern of artifacts to include.
+// The default value will be [""] if nothing is supplied
 func (o PermissionTargetBuildPtrOutput) IncludesPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PermissionTargetBuild) []string {
 		if v == nil {
@@ -8546,7 +8546,7 @@ func (o PermissionTargetBuildPtrOutput) IncludesPatterns() pulumi.StringArrayOut
 	}).(pulumi.StringArrayOutput)
 }
 
-// List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
+// This can only be 1 value: "artifactory-build-info", and currently, validation of sets/lists is not allowed. Artifactory will reject the request if you change this
 func (o PermissionTargetBuildPtrOutput) Repositories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PermissionTargetBuild) []string {
 		if v == nil {
@@ -8557,10 +8557,8 @@ func (o PermissionTargetBuildPtrOutput) Repositories() pulumi.StringArrayOutput 
 }
 
 type PermissionTargetBuildActions struct {
-	// Groups this permission applies for.
 	Groups []PermissionTargetBuildActionsGroup `pulumi:"groups"`
-	// Users this permission target applies for.
-	Users []PermissionTargetBuildActionsUser `pulumi:"users"`
+	Users  []PermissionTargetBuildActionsUser  `pulumi:"users"`
 }
 
 // PermissionTargetBuildActionsInput is an input type that accepts PermissionTargetBuildActionsArgs and PermissionTargetBuildActionsOutput values.
@@ -8575,10 +8573,8 @@ type PermissionTargetBuildActionsInput interface {
 }
 
 type PermissionTargetBuildActionsArgs struct {
-	// Groups this permission applies for.
 	Groups PermissionTargetBuildActionsGroupArrayInput `pulumi:"groups"`
-	// Users this permission target applies for.
-	Users PermissionTargetBuildActionsUserArrayInput `pulumi:"users"`
+	Users  PermissionTargetBuildActionsUserArrayInput  `pulumi:"users"`
 }
 
 func (PermissionTargetBuildActionsArgs) ElementType() reflect.Type {
@@ -8658,12 +8654,10 @@ func (o PermissionTargetBuildActionsOutput) ToPermissionTargetBuildActionsPtrOut
 	}).(PermissionTargetBuildActionsPtrOutput)
 }
 
-// Groups this permission applies for.
 func (o PermissionTargetBuildActionsOutput) Groups() PermissionTargetBuildActionsGroupArrayOutput {
 	return o.ApplyT(func(v PermissionTargetBuildActions) []PermissionTargetBuildActionsGroup { return v.Groups }).(PermissionTargetBuildActionsGroupArrayOutput)
 }
 
-// Users this permission target applies for.
 func (o PermissionTargetBuildActionsOutput) Users() PermissionTargetBuildActionsUserArrayOutput {
 	return o.ApplyT(func(v PermissionTargetBuildActions) []PermissionTargetBuildActionsUser { return v.Users }).(PermissionTargetBuildActionsUserArrayOutput)
 }
@@ -8692,7 +8686,6 @@ func (o PermissionTargetBuildActionsPtrOutput) Elem() PermissionTargetBuildActio
 	}).(PermissionTargetBuildActionsOutput)
 }
 
-// Groups this permission applies for.
 func (o PermissionTargetBuildActionsPtrOutput) Groups() PermissionTargetBuildActionsGroupArrayOutput {
 	return o.ApplyT(func(v *PermissionTargetBuildActions) []PermissionTargetBuildActionsGroup {
 		if v == nil {
@@ -8702,7 +8695,6 @@ func (o PermissionTargetBuildActionsPtrOutput) Groups() PermissionTargetBuildAct
 	}).(PermissionTargetBuildActionsGroupArrayOutput)
 }
 
-// Users this permission target applies for.
 func (o PermissionTargetBuildActionsPtrOutput) Users() PermissionTargetBuildActionsUserArrayOutput {
 	return o.ApplyT(func(v *PermissionTargetBuildActions) []PermissionTargetBuildActionsUser {
 		if v == nil {
@@ -8920,11 +8912,11 @@ func (o PermissionTargetBuildActionsUserArrayOutput) Index(i pulumi.IntInput) Pe
 
 type PermissionTargetReleaseBundle struct {
 	Actions *PermissionTargetReleaseBundleActions `pulumi:"actions"`
-	// Pattern of artifacts to exclude.
+	// The default value will be [] if nothing is supplied
 	ExcludesPatterns []string `pulumi:"excludesPatterns"`
-	// Pattern of artifacts to include.
+	// The default value will be [""] if nothing is supplied
 	IncludesPatterns []string `pulumi:"includesPatterns"`
-	// List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
+	// This can only be 1 value: "artifactory-build-info", and currently, validation of sets/lists is not allowed. Artifactory will reject the request if you change this
 	Repositories []string `pulumi:"repositories"`
 }
 
@@ -8941,11 +8933,11 @@ type PermissionTargetReleaseBundleInput interface {
 
 type PermissionTargetReleaseBundleArgs struct {
 	Actions PermissionTargetReleaseBundleActionsPtrInput `pulumi:"actions"`
-	// Pattern of artifacts to exclude.
+	// The default value will be [] if nothing is supplied
 	ExcludesPatterns pulumi.StringArrayInput `pulumi:"excludesPatterns"`
-	// Pattern of artifacts to include.
+	// The default value will be [""] if nothing is supplied
 	IncludesPatterns pulumi.StringArrayInput `pulumi:"includesPatterns"`
-	// List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
+	// This can only be 1 value: "artifactory-build-info", and currently, validation of sets/lists is not allowed. Artifactory will reject the request if you change this
 	Repositories pulumi.StringArrayInput `pulumi:"repositories"`
 }
 
@@ -9030,17 +9022,17 @@ func (o PermissionTargetReleaseBundleOutput) Actions() PermissionTargetReleaseBu
 	return o.ApplyT(func(v PermissionTargetReleaseBundle) *PermissionTargetReleaseBundleActions { return v.Actions }).(PermissionTargetReleaseBundleActionsPtrOutput)
 }
 
-// Pattern of artifacts to exclude.
+// The default value will be [] if nothing is supplied
 func (o PermissionTargetReleaseBundleOutput) ExcludesPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PermissionTargetReleaseBundle) []string { return v.ExcludesPatterns }).(pulumi.StringArrayOutput)
 }
 
-// Pattern of artifacts to include.
+// The default value will be [""] if nothing is supplied
 func (o PermissionTargetReleaseBundleOutput) IncludesPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PermissionTargetReleaseBundle) []string { return v.IncludesPatterns }).(pulumi.StringArrayOutput)
 }
 
-// List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
+// This can only be 1 value: "artifactory-build-info", and currently, validation of sets/lists is not allowed. Artifactory will reject the request if you change this
 func (o PermissionTargetReleaseBundleOutput) Repositories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PermissionTargetReleaseBundle) []string { return v.Repositories }).(pulumi.StringArrayOutput)
 }
@@ -9078,7 +9070,7 @@ func (o PermissionTargetReleaseBundlePtrOutput) Actions() PermissionTargetReleas
 	}).(PermissionTargetReleaseBundleActionsPtrOutput)
 }
 
-// Pattern of artifacts to exclude.
+// The default value will be [] if nothing is supplied
 func (o PermissionTargetReleaseBundlePtrOutput) ExcludesPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PermissionTargetReleaseBundle) []string {
 		if v == nil {
@@ -9088,7 +9080,7 @@ func (o PermissionTargetReleaseBundlePtrOutput) ExcludesPatterns() pulumi.String
 	}).(pulumi.StringArrayOutput)
 }
 
-// Pattern of artifacts to include.
+// The default value will be [""] if nothing is supplied
 func (o PermissionTargetReleaseBundlePtrOutput) IncludesPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PermissionTargetReleaseBundle) []string {
 		if v == nil {
@@ -9098,7 +9090,7 @@ func (o PermissionTargetReleaseBundlePtrOutput) IncludesPatterns() pulumi.String
 	}).(pulumi.StringArrayOutput)
 }
 
-// List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
+// This can only be 1 value: "artifactory-build-info", and currently, validation of sets/lists is not allowed. Artifactory will reject the request if you change this
 func (o PermissionTargetReleaseBundlePtrOutput) Repositories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PermissionTargetReleaseBundle) []string {
 		if v == nil {
@@ -9109,10 +9101,8 @@ func (o PermissionTargetReleaseBundlePtrOutput) Repositories() pulumi.StringArra
 }
 
 type PermissionTargetReleaseBundleActions struct {
-	// Groups this permission applies for.
 	Groups []PermissionTargetReleaseBundleActionsGroup `pulumi:"groups"`
-	// Users this permission target applies for.
-	Users []PermissionTargetReleaseBundleActionsUser `pulumi:"users"`
+	Users  []PermissionTargetReleaseBundleActionsUser  `pulumi:"users"`
 }
 
 // PermissionTargetReleaseBundleActionsInput is an input type that accepts PermissionTargetReleaseBundleActionsArgs and PermissionTargetReleaseBundleActionsOutput values.
@@ -9127,10 +9117,8 @@ type PermissionTargetReleaseBundleActionsInput interface {
 }
 
 type PermissionTargetReleaseBundleActionsArgs struct {
-	// Groups this permission applies for.
 	Groups PermissionTargetReleaseBundleActionsGroupArrayInput `pulumi:"groups"`
-	// Users this permission target applies for.
-	Users PermissionTargetReleaseBundleActionsUserArrayInput `pulumi:"users"`
+	Users  PermissionTargetReleaseBundleActionsUserArrayInput  `pulumi:"users"`
 }
 
 func (PermissionTargetReleaseBundleActionsArgs) ElementType() reflect.Type {
@@ -9210,14 +9198,12 @@ func (o PermissionTargetReleaseBundleActionsOutput) ToPermissionTargetReleaseBun
 	}).(PermissionTargetReleaseBundleActionsPtrOutput)
 }
 
-// Groups this permission applies for.
 func (o PermissionTargetReleaseBundleActionsOutput) Groups() PermissionTargetReleaseBundleActionsGroupArrayOutput {
 	return o.ApplyT(func(v PermissionTargetReleaseBundleActions) []PermissionTargetReleaseBundleActionsGroup {
 		return v.Groups
 	}).(PermissionTargetReleaseBundleActionsGroupArrayOutput)
 }
 
-// Users this permission target applies for.
 func (o PermissionTargetReleaseBundleActionsOutput) Users() PermissionTargetReleaseBundleActionsUserArrayOutput {
 	return o.ApplyT(func(v PermissionTargetReleaseBundleActions) []PermissionTargetReleaseBundleActionsUser {
 		return v.Users
@@ -9248,7 +9234,6 @@ func (o PermissionTargetReleaseBundleActionsPtrOutput) Elem() PermissionTargetRe
 	}).(PermissionTargetReleaseBundleActionsOutput)
 }
 
-// Groups this permission applies for.
 func (o PermissionTargetReleaseBundleActionsPtrOutput) Groups() PermissionTargetReleaseBundleActionsGroupArrayOutput {
 	return o.ApplyT(func(v *PermissionTargetReleaseBundleActions) []PermissionTargetReleaseBundleActionsGroup {
 		if v == nil {
@@ -9258,7 +9243,6 @@ func (o PermissionTargetReleaseBundleActionsPtrOutput) Groups() PermissionTarget
 	}).(PermissionTargetReleaseBundleActionsGroupArrayOutput)
 }
 
-// Users this permission target applies for.
 func (o PermissionTargetReleaseBundleActionsPtrOutput) Users() PermissionTargetReleaseBundleActionsUserArrayOutput {
 	return o.ApplyT(func(v *PermissionTargetReleaseBundleActions) []PermissionTargetReleaseBundleActionsUser {
 		if v == nil {
@@ -9665,10 +9649,8 @@ func (o PermissionTargetRepoPtrOutput) Repositories() pulumi.StringArrayOutput {
 }
 
 type PermissionTargetRepoActions struct {
-	// Groups this permission applies for.
 	Groups []PermissionTargetRepoActionsGroup `pulumi:"groups"`
-	// Users this permission target applies for.
-	Users []PermissionTargetRepoActionsUser `pulumi:"users"`
+	Users  []PermissionTargetRepoActionsUser  `pulumi:"users"`
 }
 
 // PermissionTargetRepoActionsInput is an input type that accepts PermissionTargetRepoActionsArgs and PermissionTargetRepoActionsOutput values.
@@ -9683,10 +9665,8 @@ type PermissionTargetRepoActionsInput interface {
 }
 
 type PermissionTargetRepoActionsArgs struct {
-	// Groups this permission applies for.
 	Groups PermissionTargetRepoActionsGroupArrayInput `pulumi:"groups"`
-	// Users this permission target applies for.
-	Users PermissionTargetRepoActionsUserArrayInput `pulumi:"users"`
+	Users  PermissionTargetRepoActionsUserArrayInput  `pulumi:"users"`
 }
 
 func (PermissionTargetRepoActionsArgs) ElementType() reflect.Type {
@@ -9766,12 +9746,10 @@ func (o PermissionTargetRepoActionsOutput) ToPermissionTargetRepoActionsPtrOutpu
 	}).(PermissionTargetRepoActionsPtrOutput)
 }
 
-// Groups this permission applies for.
 func (o PermissionTargetRepoActionsOutput) Groups() PermissionTargetRepoActionsGroupArrayOutput {
 	return o.ApplyT(func(v PermissionTargetRepoActions) []PermissionTargetRepoActionsGroup { return v.Groups }).(PermissionTargetRepoActionsGroupArrayOutput)
 }
 
-// Users this permission target applies for.
 func (o PermissionTargetRepoActionsOutput) Users() PermissionTargetRepoActionsUserArrayOutput {
 	return o.ApplyT(func(v PermissionTargetRepoActions) []PermissionTargetRepoActionsUser { return v.Users }).(PermissionTargetRepoActionsUserArrayOutput)
 }
@@ -9800,7 +9778,6 @@ func (o PermissionTargetRepoActionsPtrOutput) Elem() PermissionTargetRepoActions
 	}).(PermissionTargetRepoActionsOutput)
 }
 
-// Groups this permission applies for.
 func (o PermissionTargetRepoActionsPtrOutput) Groups() PermissionTargetRepoActionsGroupArrayOutput {
 	return o.ApplyT(func(v *PermissionTargetRepoActions) []PermissionTargetRepoActionsGroup {
 		if v == nil {
@@ -9810,7 +9787,6 @@ func (o PermissionTargetRepoActionsPtrOutput) Groups() PermissionTargetRepoActio
 	}).(PermissionTargetRepoActionsGroupArrayOutput)
 }
 
-// Users this permission target applies for.
 func (o PermissionTargetRepoActionsPtrOutput) Users() PermissionTargetRepoActionsUserArrayOutput {
 	return o.ApplyT(func(v *PermissionTargetRepoActions) []PermissionTargetRepoActionsUser {
 		if v == nil {
@@ -10153,7 +10129,7 @@ func (o PropertySetPropertyArrayOutput) Index(i pulumi.IntInput) PropertySetProp
 type PropertySetPropertyPredefinedValue struct {
 	// Whether the value is selected by default in the UI.
 	DefaultValue bool `pulumi:"defaultValue"`
-	// Predefined property name.
+	// Property set name.
 	Name string `pulumi:"name"`
 }
 
@@ -10171,7 +10147,7 @@ type PropertySetPropertyPredefinedValueInput interface {
 type PropertySetPropertyPredefinedValueArgs struct {
 	// Whether the value is selected by default in the UI.
 	DefaultValue pulumi.BoolInput `pulumi:"defaultValue"`
-	// Predefined property name.
+	// Property set name.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -10231,7 +10207,7 @@ func (o PropertySetPropertyPredefinedValueOutput) DefaultValue() pulumi.BoolOutp
 	return o.ApplyT(func(v PropertySetPropertyPredefinedValue) bool { return v.DefaultValue }).(pulumi.BoolOutput)
 }
 
-// Predefined property name.
+// Property set name.
 func (o PropertySetPropertyPredefinedValueOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PropertySetPropertyPredefinedValue) string { return v.Name }).(pulumi.StringOutput)
 }

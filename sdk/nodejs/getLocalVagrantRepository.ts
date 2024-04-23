@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -18,7 +17,6 @@ import * as utilities from "./utilities";
  *     key: "local-test-vagrant-repo",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLocalVagrantRepository(args: GetLocalVagrantRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalVagrantRepositoryResult> {
 
@@ -99,7 +97,6 @@ export interface GetLocalVagrantRepositoryResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -108,7 +105,6 @@ export interface GetLocalVagrantRepositoryResult {
  *     key: "local-test-vagrant-repo",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLocalVagrantRepositoryOutput(args: GetLocalVagrantRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalVagrantRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getLocalVagrantRepository(a, opts))

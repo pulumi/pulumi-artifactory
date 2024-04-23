@@ -654,7 +654,6 @@ class LocalOciRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -664,7 +663,6 @@ class LocalOciRepository(pulumi.CustomResource):
             tag_retention=3,
             max_unique_tags=5)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -716,7 +714,6 @@ class LocalOciRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -726,7 +723,6 @@ class LocalOciRepository(pulumi.CustomResource):
             tag_retention=3,
             max_unique_tags=5)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

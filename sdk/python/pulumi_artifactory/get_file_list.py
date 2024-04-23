@@ -178,7 +178,6 @@ def get_file_list(deep_listing: Optional[bool] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
@@ -186,7 +185,6 @@ def get_file_list(deep_listing: Optional[bool] = None,
     my_repo_file_list = artifactory.get_file_list(repository_key="my-generic-local",
         folder_path="path/to/artifact")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param bool deep_listing: Get deep listing
@@ -194,7 +192,7 @@ def get_file_list(deep_listing: Optional[bool] = None,
     :param str folder_path: Path of the folder
     :param bool include_root_path: Include root path
     :param bool list_folders: Include folders
-    :param bool metadata_timestamps: File metadata
+    :param bool metadata_timestamps: Include metadata timestamps
     :param str repository_key: Repository key
     """
     __args__ = dict()
@@ -236,7 +234,6 @@ def get_file_list_output(deep_listing: Optional[pulumi.Input[Optional[bool]]] = 
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
@@ -244,7 +241,6 @@ def get_file_list_output(deep_listing: Optional[pulumi.Input[Optional[bool]]] = 
     my_repo_file_list = artifactory.get_file_list(repository_key="my-generic-local",
         folder_path="path/to/artifact")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param bool deep_listing: Get deep listing
@@ -252,7 +248,7 @@ def get_file_list_output(deep_listing: Optional[pulumi.Input[Optional[bool]]] = 
     :param str folder_path: Path of the folder
     :param bool include_root_path: Include root path
     :param bool list_folders: Include folders
-    :param bool metadata_timestamps: File metadata
+    :param bool metadata_timestamps: Include metadata timestamps
     :param str repository_key: Repository key
     """
     ...

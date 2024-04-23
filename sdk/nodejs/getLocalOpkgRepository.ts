@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -18,7 +17,6 @@ import * as utilities from "./utilities";
  *     key: "local-test-opkg-repo",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLocalOpkgRepository(args: GetLocalOpkgRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalOpkgRepositoryResult> {
 
@@ -99,7 +97,6 @@ export interface GetLocalOpkgRepositoryResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -108,7 +105,6 @@ export interface GetLocalOpkgRepositoryResult {
  *     key: "local-test-opkg-repo",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLocalOpkgRepositoryOutput(args: GetLocalOpkgRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalOpkgRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getLocalOpkgRepository(a, opts))

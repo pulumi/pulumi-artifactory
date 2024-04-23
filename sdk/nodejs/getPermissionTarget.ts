@@ -13,7 +13,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -23,7 +22,6 @@ import * as utilities from "./utilities";
  *     name: "my_permission",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getPermissionTarget(args: GetPermissionTargetArgs, opts?: pulumi.InvokeOptions): Promise<GetPermissionTargetResult> {
 
@@ -87,7 +85,6 @@ export interface GetPermissionTargetResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -97,7 +94,6 @@ export interface GetPermissionTargetResult {
  *     name: "my_permission",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getPermissionTargetOutput(args: GetPermissionTargetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPermissionTargetResult> {
     return pulumi.output(args).apply((a: any) => getPermissionTarget(a, opts))

@@ -511,7 +511,6 @@ class VirtualHelmRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -520,7 +519,6 @@ class VirtualHelmRepository(pulumi.CustomResource):
             key="foo-helm-virtual",
             use_namespaces=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -566,7 +564,6 @@ class VirtualHelmRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -575,7 +572,6 @@ class VirtualHelmRepository(pulumi.CustomResource):
             key="foo-helm-virtual",
             use_namespaces=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

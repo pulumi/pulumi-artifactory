@@ -169,14 +169,12 @@ def get_virtual_p2_repository(artifactory_requests_can_retrieve_remote_artifacts
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     virtual_p2 = artifactory.get_virtual_p2_repository(key="virtual-p2")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str key: the identity key of the repo.
@@ -230,14 +228,12 @@ def get_virtual_p2_repository_output(artifactory_requests_can_retrieve_remote_ar
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     virtual_p2 = artifactory.get_virtual_p2_repository(key="virtual-p2")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str key: the identity key of the repo.

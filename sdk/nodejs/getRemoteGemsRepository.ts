@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -20,7 +19,6 @@ import * as utilities from "./utilities";
  *     key: "remote-gems",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRemoteGemsRepository(args: GetRemoteGemsRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRemoteGemsRepositoryResult> {
 
@@ -179,7 +177,6 @@ export interface GetRemoteGemsRepositoryResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -188,7 +185,6 @@ export interface GetRemoteGemsRepositoryResult {
  *     key: "remote-gems",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRemoteGemsRepositoryOutput(args: GetRemoteGemsRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteGemsRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getRemoteGemsRepository(a, opts))

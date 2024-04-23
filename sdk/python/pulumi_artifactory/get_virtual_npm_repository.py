@@ -212,14 +212,12 @@ def get_virtual_npm_repository(artifactory_requests_can_retrieve_remote_artifact
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     virtual_npm = artifactory.get_virtual_npm_repository(key="virtual-npm")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str key: the identity key of the repo.
@@ -286,14 +284,12 @@ def get_virtual_npm_repository_output(artifactory_requests_can_retrieve_remote_a
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     virtual_npm = artifactory.get_virtual_npm_repository(key="virtual-npm")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str key: the identity key of the repo.

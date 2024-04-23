@@ -588,14 +588,12 @@ class LocalVagrantRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
 
         terraform_local_test_vagrant_repo = artifactory.LocalVagrantRepository("terraform-local-test-vagrant-repo", key="terraform-local-test-vagrant-repo")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -645,14 +643,12 @@ class LocalVagrantRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
 
         terraform_local_test_vagrant_repo = artifactory.LocalVagrantRepository("terraform-local-test-vagrant-repo", key="terraform-local-test-vagrant-repo")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -621,14 +621,12 @@ class LocalConanRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
 
         terraform_local_test_conan_repo = artifactory.LocalConanRepository("terraform-local-test-conan-repo", key="terraform-local-test-conan-repo")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -679,14 +677,12 @@ class LocalConanRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
 
         terraform_local_test_conan_repo = artifactory.LocalConanRepository("terraform-local-test-conan-repo", key="terraform-local-test-conan-repo")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

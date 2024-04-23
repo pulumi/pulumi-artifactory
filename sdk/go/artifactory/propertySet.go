@@ -19,7 +19,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -76,7 +75,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -88,7 +86,7 @@ import (
 type PropertySet struct {
 	pulumi.CustomResourceState
 
-	// Predefined property name.
+	// Property set name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A list of properties that will be part of the property set.
 	Properties PropertySetPropertyArrayOutput `pulumi:"properties"`
@@ -126,7 +124,7 @@ func GetPropertySet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PropertySet resources.
 type propertySetState struct {
-	// Predefined property name.
+	// Property set name.
 	Name *string `pulumi:"name"`
 	// A list of properties that will be part of the property set.
 	Properties []PropertySetProperty `pulumi:"properties"`
@@ -135,7 +133,7 @@ type propertySetState struct {
 }
 
 type PropertySetState struct {
-	// Predefined property name.
+	// Property set name.
 	Name pulumi.StringPtrInput
 	// A list of properties that will be part of the property set.
 	Properties PropertySetPropertyArrayInput
@@ -148,7 +146,7 @@ func (PropertySetState) ElementType() reflect.Type {
 }
 
 type propertySetArgs struct {
-	// Predefined property name.
+	// Property set name.
 	Name *string `pulumi:"name"`
 	// A list of properties that will be part of the property set.
 	Properties []PropertySetProperty `pulumi:"properties"`
@@ -158,7 +156,7 @@ type propertySetArgs struct {
 
 // The set of arguments for constructing a PropertySet resource.
 type PropertySetArgs struct {
-	// Predefined property name.
+	// Property set name.
 	Name pulumi.StringPtrInput
 	// A list of properties that will be part of the property set.
 	Properties PropertySetPropertyArrayInput
@@ -253,7 +251,7 @@ func (o PropertySetOutput) ToPropertySetOutputWithContext(ctx context.Context) P
 	return o
 }
 
-// Predefined property name.
+// Property set name.
 func (o PropertySetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *PropertySet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

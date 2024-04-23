@@ -302,14 +302,12 @@ def get_federated_docker_v2_repository(archive_browsing_enabled: Optional[bool] 
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     federated_test_docker_repo = artifactory.get_federated_docker_v2_repository(key="federated-test-docker-repo")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param bool disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
@@ -403,14 +401,12 @@ def get_federated_docker_v2_repository_output(archive_browsing_enabled: Optional
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_artifactory as artifactory
 
     federated_test_docker_repo = artifactory.get_federated_docker_v2_repository(key="federated-test-docker-repo")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param bool disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.

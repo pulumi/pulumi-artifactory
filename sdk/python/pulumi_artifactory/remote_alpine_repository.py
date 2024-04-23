@@ -1549,7 +1549,6 @@ class RemoteAlpineRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -1558,7 +1557,6 @@ class RemoteAlpineRepository(pulumi.CustomResource):
             key="my-remote-alpine",
             url="http://dl-cdn.alpinelinux.org/alpine")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1657,7 +1655,6 @@ class RemoteAlpineRepository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
@@ -1666,7 +1663,6 @@ class RemoteAlpineRepository(pulumi.CustomResource):
             key="my-remote-alpine",
             url="http://dl-cdn.alpinelinux.org/alpine")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

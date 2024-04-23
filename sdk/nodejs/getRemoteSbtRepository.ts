@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -20,7 +19,6 @@ import * as utilities from "./utilities";
  *     key: "remote-sbt",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRemoteSbtRepository(args: GetRemoteSbtRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRemoteSbtRepositoryResult> {
 
@@ -242,7 +240,6 @@ export interface GetRemoteSbtRepositoryResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -251,7 +248,6 @@ export interface GetRemoteSbtRepositoryResult {
  *     key: "remote-sbt",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRemoteSbtRepositoryOutput(args: GetRemoteSbtRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteSbtRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getRemoteSbtRepository(a, opts))

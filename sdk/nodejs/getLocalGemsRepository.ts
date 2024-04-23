@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -18,7 +17,6 @@ import * as utilities from "./utilities";
  *     key: "local-test-gems-repo",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLocalGemsRepository(args: GetLocalGemsRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalGemsRepositoryResult> {
 
@@ -99,7 +97,6 @@ export interface GetLocalGemsRepositoryResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
@@ -108,7 +105,6 @@ export interface GetLocalGemsRepositoryResult {
  *     key: "local-test-gems-repo",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLocalGemsRepositoryOutput(args: GetLocalGemsRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalGemsRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getLocalGemsRepository(a, opts))
