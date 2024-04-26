@@ -475,7 +475,7 @@ class UnmanagedUser(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def admin(self) -> pulumi.Output[Optional[bool]]:
+    def admin(self) -> pulumi.Output[bool]:
         """
         When enabled, this user is an administrator with all the ensuing privileges. Default value is `false`.
         """
@@ -483,7 +483,7 @@ class UnmanagedUser(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="disableUiAccess")
-    def disable_ui_access(self) -> pulumi.Output[Optional[bool]]:
+    def disable_ui_access(self) -> pulumi.Output[bool]:
         """
         When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges. Default value is `true`.
         """
@@ -499,7 +499,7 @@ class UnmanagedUser(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def groups(self) -> pulumi.Output[Optional[Sequence[str]]]:
+    def groups(self) -> pulumi.Output[Sequence[str]]:
         """
         List of groups this user is a part of. **Notes:** If this attribute is not specified then user's group membership is set to empty. User will not be part of default "readers" group automatically.
         """
@@ -507,7 +507,7 @@ class UnmanagedUser(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="internalPasswordDisabled")
-    def internal_password_disabled(self) -> pulumi.Output[Optional[bool]]:
+    def internal_password_disabled(self) -> pulumi.Output[bool]:
         """
         When set, disables the fallback of using an internal password when external authentication (such as LDAP) is enabled.
         """
@@ -531,7 +531,7 @@ class UnmanagedUser(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="profileUpdatable")
-    def profile_updatable(self) -> pulumi.Output[Optional[bool]]:
+    def profile_updatable(self) -> pulumi.Output[bool]:
         """
         When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
         """

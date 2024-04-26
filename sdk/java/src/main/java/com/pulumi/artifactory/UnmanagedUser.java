@@ -13,7 +13,6 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
-import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -81,28 +80,28 @@ public class UnmanagedUser extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="admin", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> admin;
+    private Output<Boolean> admin;
 
     /**
      * @return When enabled, this user is an administrator with all the ensuing privileges. Default value is `false`.
      * 
      */
-    public Output<Optional<Boolean>> admin() {
-        return Codegen.optional(this.admin);
+    public Output<Boolean> admin() {
+        return this.admin;
     }
     /**
      * When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges. Default value is `true`.
      * 
      */
     @Export(name="disableUiAccess", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> disableUiAccess;
+    private Output<Boolean> disableUiAccess;
 
     /**
      * @return When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges. Default value is `true`.
      * 
      */
-    public Output<Optional<Boolean>> disableUiAccess() {
-        return Codegen.optional(this.disableUiAccess);
+    public Output<Boolean> disableUiAccess() {
+        return this.disableUiAccess;
     }
     /**
      * Email for user.
@@ -123,28 +122,28 @@ public class UnmanagedUser extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="groups", refs={List.class,String.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<String>> groups;
+    private Output<List<String>> groups;
 
     /**
      * @return List of groups this user is a part of. **Notes:** If this attribute is not specified then user&#39;s group membership is set to empty. User will not be part of default &#34;readers&#34; group automatically.
      * 
      */
-    public Output<Optional<List<String>>> groups() {
-        return Codegen.optional(this.groups);
+    public Output<List<String>> groups() {
+        return this.groups;
     }
     /**
      * When set, disables the fallback of using an internal password when external authentication (such as LDAP) is enabled.
      * 
      */
     @Export(name="internalPasswordDisabled", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> internalPasswordDisabled;
+    private Output<Boolean> internalPasswordDisabled;
 
     /**
      * @return When set, disables the fallback of using an internal password when external authentication (such as LDAP) is enabled.
      * 
      */
-    public Output<Optional<Boolean>> internalPasswordDisabled() {
-        return Codegen.optional(this.internalPasswordDisabled);
+    public Output<Boolean> internalPasswordDisabled() {
+        return this.internalPasswordDisabled;
     }
     /**
      * Username for user. May contain lowercase letters, numbers and symbols: &#39;.-_@&#39;
@@ -179,14 +178,14 @@ public class UnmanagedUser extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="profileUpdatable", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> profileUpdatable;
+    private Output<Boolean> profileUpdatable;
 
     /**
      * @return When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
      * 
      */
-    public Output<Optional<Boolean>> profileUpdatable() {
-        return Codegen.optional(this.profileUpdatable);
+    public Output<Boolean> profileUpdatable() {
+        return this.profileUpdatable;
     }
 
     /**

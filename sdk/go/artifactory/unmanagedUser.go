@@ -66,21 +66,21 @@ type UnmanagedUser struct {
 	pulumi.CustomResourceState
 
 	// When enabled, this user is an administrator with all the ensuing privileges. Default value is `false`.
-	Admin pulumi.BoolPtrOutput `pulumi:"admin"`
+	Admin pulumi.BoolOutput `pulumi:"admin"`
 	// When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges. Default value is `true`.
-	DisableUiAccess pulumi.BoolPtrOutput `pulumi:"disableUiAccess"`
+	DisableUiAccess pulumi.BoolOutput `pulumi:"disableUiAccess"`
 	// Email for user.
 	Email pulumi.StringOutput `pulumi:"email"`
 	// List of groups this user is a part of. **Notes:** If this attribute is not specified then user's group membership is set to empty. User will not be part of default "readers" group automatically.
 	Groups pulumi.StringArrayOutput `pulumi:"groups"`
 	// When set, disables the fallback of using an internal password when external authentication (such as LDAP) is enabled.
-	InternalPasswordDisabled pulumi.BoolPtrOutput `pulumi:"internalPasswordDisabled"`
+	InternalPasswordDisabled pulumi.BoolOutput `pulumi:"internalPasswordDisabled"`
 	// Username for user. May contain lowercase letters, numbers and symbols: '.-_@'
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters.
 	Password pulumi.StringOutput `pulumi:"password"`
 	// When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
-	ProfileUpdatable pulumi.BoolPtrOutput `pulumi:"profileUpdatable"`
+	ProfileUpdatable pulumi.BoolOutput `pulumi:"profileUpdatable"`
 }
 
 // NewUnmanagedUser registers a new resource with the given unique name, arguments, and options.
@@ -291,13 +291,13 @@ func (o UnmanagedUserOutput) ToUnmanagedUserOutputWithContext(ctx context.Contex
 }
 
 // When enabled, this user is an administrator with all the ensuing privileges. Default value is `false`.
-func (o UnmanagedUserOutput) Admin() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *UnmanagedUser) pulumi.BoolPtrOutput { return v.Admin }).(pulumi.BoolPtrOutput)
+func (o UnmanagedUserOutput) Admin() pulumi.BoolOutput {
+	return o.ApplyT(func(v *UnmanagedUser) pulumi.BoolOutput { return v.Admin }).(pulumi.BoolOutput)
 }
 
 // When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges. Default value is `true`.
-func (o UnmanagedUserOutput) DisableUiAccess() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *UnmanagedUser) pulumi.BoolPtrOutput { return v.DisableUiAccess }).(pulumi.BoolPtrOutput)
+func (o UnmanagedUserOutput) DisableUiAccess() pulumi.BoolOutput {
+	return o.ApplyT(func(v *UnmanagedUser) pulumi.BoolOutput { return v.DisableUiAccess }).(pulumi.BoolOutput)
 }
 
 // Email for user.
@@ -311,8 +311,8 @@ func (o UnmanagedUserOutput) Groups() pulumi.StringArrayOutput {
 }
 
 // When set, disables the fallback of using an internal password when external authentication (such as LDAP) is enabled.
-func (o UnmanagedUserOutput) InternalPasswordDisabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *UnmanagedUser) pulumi.BoolPtrOutput { return v.InternalPasswordDisabled }).(pulumi.BoolPtrOutput)
+func (o UnmanagedUserOutput) InternalPasswordDisabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *UnmanagedUser) pulumi.BoolOutput { return v.InternalPasswordDisabled }).(pulumi.BoolOutput)
 }
 
 // Username for user. May contain lowercase letters, numbers and symbols: '.-_@'
@@ -326,8 +326,8 @@ func (o UnmanagedUserOutput) Password() pulumi.StringOutput {
 }
 
 // When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
-func (o UnmanagedUserOutput) ProfileUpdatable() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *UnmanagedUser) pulumi.BoolPtrOutput { return v.ProfileUpdatable }).(pulumi.BoolPtrOutput)
+func (o UnmanagedUserOutput) ProfileUpdatable() pulumi.BoolOutput {
+	return o.ApplyT(func(v *UnmanagedUser) pulumi.BoolOutput { return v.ProfileUpdatable }).(pulumi.BoolOutput)
 }
 
 type UnmanagedUserArrayOutput struct{ *pulumi.OutputState }

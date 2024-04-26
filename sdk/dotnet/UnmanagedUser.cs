@@ -61,13 +61,13 @@ namespace Pulumi.Artifactory
         /// When enabled, this user is an administrator with all the ensuing privileges. Default value is `false`.
         /// </summary>
         [Output("admin")]
-        public Output<bool?> Admin { get; private set; } = null!;
+        public Output<bool> Admin { get; private set; } = null!;
 
         /// <summary>
         /// When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges. Default value is `true`.
         /// </summary>
         [Output("disableUiAccess")]
-        public Output<bool?> DisableUiAccess { get; private set; } = null!;
+        public Output<bool> DisableUiAccess { get; private set; } = null!;
 
         /// <summary>
         /// Email for user.
@@ -85,7 +85,7 @@ namespace Pulumi.Artifactory
         /// When set, disables the fallback of using an internal password when external authentication (such as LDAP) is enabled.
         /// </summary>
         [Output("internalPasswordDisabled")]
-        public Output<bool?> InternalPasswordDisabled { get; private set; } = null!;
+        public Output<bool> InternalPasswordDisabled { get; private set; } = null!;
 
         /// <summary>
         /// Username for user. May contain lowercase letters, numbers and symbols: '.-_@'
@@ -103,7 +103,7 @@ namespace Pulumi.Artifactory
         /// When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
         /// </summary>
         [Output("profileUpdatable")]
-        public Output<bool?> ProfileUpdatable { get; private set; } = null!;
+        public Output<bool> ProfileUpdatable { get; private set; } = null!;
 
 
         /// <summary>
