@@ -70,11 +70,11 @@ export class UnmanagedUser extends pulumi.CustomResource {
     /**
      * When enabled, this user is an administrator with all the ensuing privileges. Default value is `false`.
      */
-    public readonly admin!: pulumi.Output<boolean | undefined>;
+    public readonly admin!: pulumi.Output<boolean>;
     /**
      * When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges. Default value is `true`.
      */
-    public readonly disableUiAccess!: pulumi.Output<boolean | undefined>;
+    public readonly disableUiAccess!: pulumi.Output<boolean>;
     /**
      * Email for user.
      */
@@ -82,11 +82,11 @@ export class UnmanagedUser extends pulumi.CustomResource {
     /**
      * List of groups this user is a part of. **Notes:** If this attribute is not specified then user's group membership is set to empty. User will not be part of default "readers" group automatically.
      */
-    public readonly groups!: pulumi.Output<string[] | undefined>;
+    public readonly groups!: pulumi.Output<string[]>;
     /**
      * When set, disables the fallback of using an internal password when external authentication (such as LDAP) is enabled.
      */
-    public readonly internalPasswordDisabled!: pulumi.Output<boolean | undefined>;
+    public readonly internalPasswordDisabled!: pulumi.Output<boolean>;
     /**
      * Username for user. May contain lowercase letters, numbers and symbols: '.-_@'
      */
@@ -98,7 +98,7 @@ export class UnmanagedUser extends pulumi.CustomResource {
     /**
      * When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
      */
-    public readonly profileUpdatable!: pulumi.Output<boolean | undefined>;
+    public readonly profileUpdatable!: pulumi.Output<boolean>;
 
     /**
      * Create a UnmanagedUser resource with the given unique name, arguments, and options.
