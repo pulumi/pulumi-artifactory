@@ -82,11 +82,11 @@ export class Proxy extends pulumi.CustomResource {
     /**
      * The proxy domain/realm name.
      */
-    public readonly ntDomain!: pulumi.Output<string | undefined>;
+    public readonly ntDomain!: pulumi.Output<string>;
     /**
      * The computer name of the machine (the machine connecting to the NTLM proxy).
      */
-    public readonly ntHost!: pulumi.Output<string | undefined>;
+    public readonly ntHost!: pulumi.Output<string>;
     /**
      * The proxy password when authentication credentials are required.
      */
@@ -110,7 +110,7 @@ export class Proxy extends pulumi.CustomResource {
     /**
      * The proxy username when authentication credentials are required.
      */
-    public readonly username!: pulumi.Output<string | undefined>;
+    public readonly username!: pulumi.Output<string>;
 
     /**
      * Create a Proxy resource with the given unique name, arguments, and options.

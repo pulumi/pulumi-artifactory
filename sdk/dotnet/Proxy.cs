@@ -78,13 +78,13 @@ namespace Pulumi.Artifactory
         /// The proxy domain/realm name.
         /// </summary>
         [Output("ntDomain")]
-        public Output<string?> NtDomain { get; private set; } = null!;
+        public Output<string> NtDomain { get; private set; } = null!;
 
         /// <summary>
         /// The computer name of the machine (the machine connecting to the NTLM proxy).
         /// </summary>
         [Output("ntHost")]
-        public Output<string?> NtHost { get; private set; } = null!;
+        public Output<string> NtHost { get; private set; } = null!;
 
         /// <summary>
         /// The proxy password when authentication credentials are required.
@@ -120,7 +120,7 @@ namespace Pulumi.Artifactory
         /// The proxy username when authentication credentials are required.
         /// </summary>
         [Output("username")]
-        public Output<string?> Username { get; private set; } = null!;
+        public Output<string> Username { get; private set; } = null!;
 
 
         /// <summary>

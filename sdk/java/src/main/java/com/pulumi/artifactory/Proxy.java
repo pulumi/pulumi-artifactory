@@ -113,28 +113,28 @@ public class Proxy extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="ntDomain", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> ntDomain;
+    private Output<String> ntDomain;
 
     /**
      * @return The proxy domain/realm name.
      * 
      */
-    public Output<Optional<String>> ntDomain() {
-        return Codegen.optional(this.ntDomain);
+    public Output<String> ntDomain() {
+        return this.ntDomain;
     }
     /**
      * The computer name of the machine (the machine connecting to the NTLM proxy).
      * 
      */
     @Export(name="ntHost", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> ntHost;
+    private Output<String> ntHost;
 
     /**
      * @return The computer name of the machine (the machine connecting to the NTLM proxy).
      * 
      */
-    public Output<Optional<String>> ntHost() {
-        return Codegen.optional(this.ntHost);
+    public Output<String> ntHost() {
+        return this.ntHost;
     }
     /**
      * The proxy password when authentication credentials are required.
@@ -211,14 +211,14 @@ public class Proxy extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="username", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> username;
+    private Output<String> username;
 
     /**
      * @return The proxy username when authentication credentials are required.
      * 
      */
-    public Output<Optional<String>> username() {
-        return Codegen.optional(this.username);
+    public Output<String> username() {
+        return this.username;
     }
 
     /**

@@ -74,9 +74,9 @@ type Proxy struct {
 	// The unique ID of the proxy.
 	Key pulumi.StringOutput `pulumi:"key"`
 	// The proxy domain/realm name.
-	NtDomain pulumi.StringPtrOutput `pulumi:"ntDomain"`
+	NtDomain pulumi.StringOutput `pulumi:"ntDomain"`
 	// The computer name of the machine (the machine connecting to the NTLM proxy).
-	NtHost pulumi.StringPtrOutput `pulumi:"ntHost"`
+	NtHost pulumi.StringOutput `pulumi:"ntHost"`
 	// The proxy password when authentication credentials are required.
 	Password pulumi.StringPtrOutput `pulumi:"password"`
 	// When set, this proxy will be the default proxy for new remote repositories and for internal HTTP requests issued by Artifactory. Will also be used as proxy for all other services in the platform (for example: Xray, Distribution, etc).
@@ -88,7 +88,7 @@ type Proxy struct {
 	// An optional list of services names to which this proxy be the default of. The options are `jfrt`, `jfmc`, `jfxr`, `jfds`.
 	Services pulumi.StringArrayOutput `pulumi:"services"`
 	// The proxy username when authentication credentials are required.
-	Username pulumi.StringPtrOutput `pulumi:"username"`
+	Username pulumi.StringOutput `pulumi:"username"`
 }
 
 // NewProxy registers a new resource with the given unique name, arguments, and options.
@@ -331,13 +331,13 @@ func (o ProxyOutput) Key() pulumi.StringOutput {
 }
 
 // The proxy domain/realm name.
-func (o ProxyOutput) NtDomain() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Proxy) pulumi.StringPtrOutput { return v.NtDomain }).(pulumi.StringPtrOutput)
+func (o ProxyOutput) NtDomain() pulumi.StringOutput {
+	return o.ApplyT(func(v *Proxy) pulumi.StringOutput { return v.NtDomain }).(pulumi.StringOutput)
 }
 
 // The computer name of the machine (the machine connecting to the NTLM proxy).
-func (o ProxyOutput) NtHost() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Proxy) pulumi.StringPtrOutput { return v.NtHost }).(pulumi.StringPtrOutput)
+func (o ProxyOutput) NtHost() pulumi.StringOutput {
+	return o.ApplyT(func(v *Proxy) pulumi.StringOutput { return v.NtHost }).(pulumi.StringOutput)
 }
 
 // The proxy password when authentication credentials are required.
@@ -366,8 +366,8 @@ func (o ProxyOutput) Services() pulumi.StringArrayOutput {
 }
 
 // The proxy username when authentication credentials are required.
-func (o ProxyOutput) Username() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Proxy) pulumi.StringPtrOutput { return v.Username }).(pulumi.StringPtrOutput)
+func (o ProxyOutput) Username() pulumi.StringOutput {
+	return o.ApplyT(func(v *Proxy) pulumi.StringOutput { return v.Username }).(pulumi.StringOutput)
 }
 
 type ProxyArrayOutput struct{ *pulumi.OutputState }

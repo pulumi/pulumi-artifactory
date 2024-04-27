@@ -579,7 +579,7 @@ class Proxy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ntDomain")
-    def nt_domain(self) -> pulumi.Output[Optional[str]]:
+    def nt_domain(self) -> pulumi.Output[str]:
         """
         The proxy domain/realm name.
         """
@@ -587,7 +587,7 @@ class Proxy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ntHost")
-    def nt_host(self) -> pulumi.Output[Optional[str]]:
+    def nt_host(self) -> pulumi.Output[str]:
         """
         The computer name of the machine (the machine connecting to the NTLM proxy).
         """
@@ -635,7 +635,7 @@ class Proxy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def username(self) -> pulumi.Output[Optional[str]]:
+    def username(self) -> pulumi.Output[str]:
         """
         The proxy username when authentication credentials are required.
         """
