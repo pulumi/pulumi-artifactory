@@ -68,8 +68,7 @@ type VirtualNpmRepository struct {
 	ExcludesPattern pulumi.StringPtrOutput `pulumi:"excludesPattern"`
 	// When set, external dependencies are rewritten. Default value is false.
 	ExternalDependenciesEnabled pulumi.BoolPtrOutput `pulumi:"externalDependenciesEnabled"`
-	// An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default,
-	// this is set to ** which means that dependencies may be downloaded from any external source.
+	// An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded from any external source.
 	ExternalDependenciesPatterns pulumi.StringArrayOutput `pulumi:"externalDependenciesPatterns"`
 	// The remote repository aggregated by this virtual repository in which the external dependency will be cached.
 	ExternalDependenciesRemoteRepo pulumi.StringPtrOutput `pulumi:"externalDependenciesRemoteRepo"`
@@ -143,8 +142,7 @@ type virtualNpmRepositoryState struct {
 	ExcludesPattern *string `pulumi:"excludesPattern"`
 	// When set, external dependencies are rewritten. Default value is false.
 	ExternalDependenciesEnabled *bool `pulumi:"externalDependenciesEnabled"`
-	// An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default,
-	// this is set to ** which means that dependencies may be downloaded from any external source.
+	// An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded from any external source.
 	ExternalDependenciesPatterns []string `pulumi:"externalDependenciesPatterns"`
 	// The remote repository aggregated by this virtual repository in which the external dependency will be cached.
 	ExternalDependenciesRemoteRepo *string `pulumi:"externalDependenciesRemoteRepo"`
@@ -186,8 +184,7 @@ type VirtualNpmRepositoryState struct {
 	ExcludesPattern pulumi.StringPtrInput
 	// When set, external dependencies are rewritten. Default value is false.
 	ExternalDependenciesEnabled pulumi.BoolPtrInput
-	// An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default,
-	// this is set to ** which means that dependencies may be downloaded from any external source.
+	// An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded from any external source.
 	ExternalDependenciesPatterns pulumi.StringArrayInput
 	// The remote repository aggregated by this virtual repository in which the external dependency will be cached.
 	ExternalDependenciesRemoteRepo pulumi.StringPtrInput
@@ -233,8 +230,7 @@ type virtualNpmRepositoryArgs struct {
 	ExcludesPattern *string `pulumi:"excludesPattern"`
 	// When set, external dependencies are rewritten. Default value is false.
 	ExternalDependenciesEnabled *bool `pulumi:"externalDependenciesEnabled"`
-	// An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default,
-	// this is set to ** which means that dependencies may be downloaded from any external source.
+	// An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded from any external source.
 	ExternalDependenciesPatterns []string `pulumi:"externalDependenciesPatterns"`
 	// The remote repository aggregated by this virtual repository in which the external dependency will be cached.
 	ExternalDependenciesRemoteRepo *string `pulumi:"externalDependenciesRemoteRepo"`
@@ -276,8 +272,7 @@ type VirtualNpmRepositoryArgs struct {
 	ExcludesPattern pulumi.StringPtrInput
 	// When set, external dependencies are rewritten. Default value is false.
 	ExternalDependenciesEnabled pulumi.BoolPtrInput
-	// An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default,
-	// this is set to ** which means that dependencies may be downloaded from any external source.
+	// An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded from any external source.
 	ExternalDependenciesPatterns pulumi.StringArrayInput
 	// The remote repository aggregated by this virtual repository in which the external dependency will be cached.
 	ExternalDependenciesRemoteRepo pulumi.StringPtrInput
@@ -421,8 +416,7 @@ func (o VirtualNpmRepositoryOutput) ExternalDependenciesEnabled() pulumi.BoolPtr
 	return o.ApplyT(func(v *VirtualNpmRepository) pulumi.BoolPtrOutput { return v.ExternalDependenciesEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default,
-// this is set to ** which means that dependencies may be downloaded from any external source.
+// An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded from any external source.
 func (o VirtualNpmRepositoryOutput) ExternalDependenciesPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VirtualNpmRepository) pulumi.StringArrayOutput { return v.ExternalDependenciesPatterns }).(pulumi.StringArrayOutput)
 }

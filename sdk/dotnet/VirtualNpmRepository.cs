@@ -80,8 +80,7 @@ namespace Pulumi.Artifactory
         public Output<bool?> ExternalDependenciesEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default,
-        /// this is set to ** which means that dependencies may be downloaded from any external source.
+        /// An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded from any external source.
         /// </summary>
         [Output("externalDependenciesPatterns")]
         public Output<ImmutableArray<string>> ExternalDependenciesPatterns { get; private set; } = null!;
@@ -231,8 +230,7 @@ namespace Pulumi.Artifactory
         private InputList<string>? _externalDependenciesPatterns;
 
         /// <summary>
-        /// An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default,
-        /// this is set to ** which means that dependencies may be downloaded from any external source.
+        /// An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded from any external source.
         /// </summary>
         public InputList<string> ExternalDependenciesPatterns
         {
@@ -356,8 +354,7 @@ namespace Pulumi.Artifactory
         private InputList<string>? _externalDependenciesPatterns;
 
         /// <summary>
-        /// An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default,
-        /// this is set to ** which means that dependencies may be downloaded from any external source.
+        /// An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded from any external source.
         /// </summary>
         public InputList<string> ExternalDependenciesPatterns
         {

@@ -145,16 +145,14 @@ public class VirtualNpmRepository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.externalDependenciesEnabled);
     }
     /**
-     * An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default,
-     * this is set to ** which means that dependencies may be downloaded from any external source.
+     * An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded from any external source.
      * 
      */
     @Export(name="externalDependenciesPatterns", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> externalDependenciesPatterns;
 
     /**
-     * @return An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default,
-     * this is set to ** which means that dependencies may be downloaded from any external source.
+     * @return An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded from any external source.
      * 
      */
     public Output<Optional<List<String>>> externalDependenciesPatterns() {
