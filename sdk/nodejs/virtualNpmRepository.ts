@@ -83,8 +83,7 @@ export class VirtualNpmRepository extends pulumi.CustomResource {
      */
     public readonly externalDependenciesEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default,
-     * this is set to ** which means that dependencies may be downloaded from any external source.
+     * An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded from any external source.
      */
     public readonly externalDependenciesPatterns!: pulumi.Output<string[] | undefined>;
     /**
@@ -214,8 +213,7 @@ export interface VirtualNpmRepositoryState {
      */
     externalDependenciesEnabled?: pulumi.Input<boolean>;
     /**
-     * An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default,
-     * this is set to ** which means that dependencies may be downloaded from any external source.
+     * An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded from any external source.
      */
     externalDependenciesPatterns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -290,8 +288,7 @@ export interface VirtualNpmRepositoryArgs {
      */
     externalDependenciesEnabled?: pulumi.Input<boolean>;
     /**
-     * An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default,
-     * this is set to ** which means that dependencies may be downloaded from any external source.
+     * An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded from any external source.
      */
     externalDependenciesPatterns?: pulumi.Input<pulumi.Input<string>[]>;
     /**

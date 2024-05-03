@@ -98,16 +98,14 @@ public final class VirtualNpmRepositoryState extends com.pulumi.resources.Resour
     }
 
     /**
-     * An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default,
-     * this is set to ** which means that dependencies may be downloaded from any external source.
+     * An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded from any external source.
      * 
      */
     @Import(name="externalDependenciesPatterns")
     private @Nullable Output<List<String>> externalDependenciesPatterns;
 
     /**
-     * @return An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default,
-     * this is set to ** which means that dependencies may be downloaded from any external source.
+     * @return An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded from any external source.
      * 
      */
     public Optional<Output<List<String>>> externalDependenciesPatterns() {
@@ -417,8 +415,7 @@ public final class VirtualNpmRepositoryState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param externalDependenciesPatterns An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default,
-         * this is set to ** which means that dependencies may be downloaded from any external source.
+         * @param externalDependenciesPatterns An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded from any external source.
          * 
          * @return builder
          * 
@@ -429,8 +426,7 @@ public final class VirtualNpmRepositoryState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param externalDependenciesPatterns An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default,
-         * this is set to ** which means that dependencies may be downloaded from any external source.
+         * @param externalDependenciesPatterns An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded from any external source.
          * 
          * @return builder
          * 
@@ -440,8 +436,7 @@ public final class VirtualNpmRepositoryState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param externalDependenciesPatterns An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default,
-         * this is set to ** which means that dependencies may be downloaded from any external source.
+         * @param externalDependenciesPatterns An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded from any external source.
          * 
          * @return builder
          * 

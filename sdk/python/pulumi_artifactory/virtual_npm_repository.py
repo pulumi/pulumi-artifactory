@@ -40,8 +40,7 @@ class VirtualNpmRepositoryArgs:
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
                artifacts are excluded.
         :param pulumi.Input[bool] external_dependencies_enabled: When set, external dependencies are rewritten. Default value is false.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_dependencies_patterns: An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default,
-               this is set to ** which means that dependencies may be downloaded from any external source.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_dependencies_patterns: An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded from any external source.
         :param pulumi.Input[str] external_dependencies_remote_repo: The remote repository aggregated by this virtual repository in which the external dependency will be cached.
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
                used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
@@ -165,8 +164,7 @@ class VirtualNpmRepositoryArgs:
     @pulumi.getter(name="externalDependenciesPatterns")
     def external_dependencies_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default,
-        this is set to ** which means that dependencies may be downloaded from any external source.
+        An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded from any external source.
         """
         return pulumi.get(self, "external_dependencies_patterns")
 
@@ -304,8 +302,7 @@ class _VirtualNpmRepositoryState:
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
                artifacts are excluded.
         :param pulumi.Input[bool] external_dependencies_enabled: When set, external dependencies are rewritten. Default value is false.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_dependencies_patterns: An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default,
-               this is set to ** which means that dependencies may be downloaded from any external source.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_dependencies_patterns: An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded from any external source.
         :param pulumi.Input[str] external_dependencies_remote_repo: The remote repository aggregated by this virtual repository in which the external dependency will be cached.
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
                used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
@@ -421,8 +418,7 @@ class _VirtualNpmRepositoryState:
     @pulumi.getter(name="externalDependenciesPatterns")
     def external_dependencies_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default,
-        this is set to ** which means that dependencies may be downloaded from any external source.
+        An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded from any external source.
         """
         return pulumi.get(self, "external_dependencies_patterns")
 
@@ -611,8 +607,7 @@ class VirtualNpmRepository(pulumi.CustomResource):
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
                artifacts are excluded.
         :param pulumi.Input[bool] external_dependencies_enabled: When set, external dependencies are rewritten. Default value is false.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_dependencies_patterns: An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default,
-               this is set to ** which means that dependencies may be downloaded from any external source.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_dependencies_patterns: An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded from any external source.
         :param pulumi.Input[str] external_dependencies_remote_repo: The remote repository aggregated by this virtual repository in which the external dependency will be cached.
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
                used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
@@ -759,8 +754,7 @@ class VirtualNpmRepository(pulumi.CustomResource):
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
                artifacts are excluded.
         :param pulumi.Input[bool] external_dependencies_enabled: When set, external dependencies are rewritten. Default value is false.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_dependencies_patterns: An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default,
-               this is set to ** which means that dependencies may be downloaded from any external source.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_dependencies_patterns: An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded from any external source.
         :param pulumi.Input[str] external_dependencies_remote_repo: The remote repository aggregated by this virtual repository in which the external dependency will be cached.
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
                used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
@@ -845,8 +839,7 @@ class VirtualNpmRepository(pulumi.CustomResource):
     @pulumi.getter(name="externalDependenciesPatterns")
     def external_dependencies_patterns(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default,
-        this is set to ** which means that dependencies may be downloaded from any external source.
+        An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded from any external source.
         """
         return pulumi.get(self, "external_dependencies_patterns")
 
