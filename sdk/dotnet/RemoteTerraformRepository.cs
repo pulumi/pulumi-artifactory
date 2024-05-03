@@ -217,12 +217,6 @@ namespace Pulumi.Artifactory
         [Output("priorityResolution")]
         public Output<bool?> PriorityResolution { get; private set; } = null!;
 
-        /// <summary>
-        /// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
-        /// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
-        /// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-        /// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
-        /// </summary>
         [Output("projectEnvironments")]
         public Output<ImmutableArray<string>> ProjectEnvironments { get; private set; } = null!;
 
@@ -298,17 +292,9 @@ namespace Pulumi.Artifactory
         [Output("synchronizeProperties")]
         public Output<bool?> SynchronizeProperties { get; private set; } = null!;
 
-        /// <summary>
-        /// The base URL of the Provider's storage API. When using Smart remote repositories, set the URL to
-        /// &lt;base_Artifactory_URL&gt;/api/terraform/repokey/providers. Default value in UI is https://releases.hashicorp.com
-        /// </summary>
         [Output("terraformProvidersUrl")]
         public Output<string?> TerraformProvidersUrl { get; private set; } = null!;
 
-        /// <summary>
-        /// The base URL of the registry API. When using Smart Remote Repositories, set the URL to
-        /// &lt;base_Artifactory_URL&gt;/api/terraform/repokey. Default value in UI is https://registry.terraform.io
-        /// </summary>
         [Output("terraformRegistryUrl")]
         public Output<string?> TerraformRegistryUrl { get; private set; } = null!;
 
@@ -568,13 +554,6 @@ namespace Pulumi.Artifactory
 
         [Input("projectEnvironments")]
         private InputList<string>? _projectEnvironments;
-
-        /// <summary>
-        /// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
-        /// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
-        /// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-        /// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
-        /// </summary>
         public InputList<string> ProjectEnvironments
         {
             get => _projectEnvironments ?? (_projectEnvironments = new InputList<string>());
@@ -659,17 +638,9 @@ namespace Pulumi.Artifactory
         [Input("synchronizeProperties")]
         public Input<bool>? SynchronizeProperties { get; set; }
 
-        /// <summary>
-        /// The base URL of the Provider's storage API. When using Smart remote repositories, set the URL to
-        /// &lt;base_Artifactory_URL&gt;/api/terraform/repokey/providers. Default value in UI is https://releases.hashicorp.com
-        /// </summary>
         [Input("terraformProvidersUrl")]
         public Input<string>? TerraformProvidersUrl { get; set; }
 
-        /// <summary>
-        /// The base URL of the registry API. When using Smart Remote Repositories, set the URL to
-        /// &lt;base_Artifactory_URL&gt;/api/terraform/repokey. Default value in UI is https://registry.terraform.io
-        /// </summary>
         [Input("terraformRegistryUrl")]
         public Input<string>? TerraformRegistryUrl { get; set; }
 
@@ -890,13 +861,6 @@ namespace Pulumi.Artifactory
 
         [Input("projectEnvironments")]
         private InputList<string>? _projectEnvironments;
-
-        /// <summary>
-        /// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
-        /// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
-        /// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-        /// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
-        /// </summary>
         public InputList<string> ProjectEnvironments
         {
             get => _projectEnvironments ?? (_projectEnvironments = new InputList<string>());
@@ -981,17 +945,9 @@ namespace Pulumi.Artifactory
         [Input("synchronizeProperties")]
         public Input<bool>? SynchronizeProperties { get; set; }
 
-        /// <summary>
-        /// The base URL of the Provider's storage API. When using Smart remote repositories, set the URL to
-        /// &lt;base_Artifactory_URL&gt;/api/terraform/repokey/providers. Default value in UI is https://releases.hashicorp.com
-        /// </summary>
         [Input("terraformProvidersUrl")]
         public Input<string>? TerraformProvidersUrl { get; set; }
 
-        /// <summary>
-        /// The base URL of the registry API. When using Smart Remote Repositories, set the URL to
-        /// &lt;base_Artifactory_URL&gt;/api/terraform/repokey. Default value in UI is https://registry.terraform.io
-        /// </summary>
         [Input("terraformRegistryUrl")]
         public Input<string>? TerraformRegistryUrl { get; set; }
 

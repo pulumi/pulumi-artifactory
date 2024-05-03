@@ -76,11 +76,7 @@ type VirtualAlpineRepository struct {
 	Notes       pulumi.StringPtrOutput `pulumi:"notes"`
 	PackageType pulumi.StringOutput    `pulumi:"packageType"`
 	// Primary keypair used to sign artifacts. Default value is empty.
-	PrimaryKeypairRef pulumi.StringPtrOutput `pulumi:"primaryKeypairRef"`
-	// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
-	// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
-	// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-	// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+	PrimaryKeypairRef   pulumi.StringPtrOutput   `pulumi:"primaryKeypairRef"`
 	ProjectEnvironments pulumi.StringArrayOutput `pulumi:"projectEnvironments"`
 	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
@@ -146,11 +142,7 @@ type virtualAlpineRepositoryState struct {
 	Notes       *string `pulumi:"notes"`
 	PackageType *string `pulumi:"packageType"`
 	// Primary keypair used to sign artifacts. Default value is empty.
-	PrimaryKeypairRef *string `pulumi:"primaryKeypairRef"`
-	// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
-	// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
-	// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-	// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+	PrimaryKeypairRef   *string  `pulumi:"primaryKeypairRef"`
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
 	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
@@ -184,11 +176,7 @@ type VirtualAlpineRepositoryState struct {
 	Notes       pulumi.StringPtrInput
 	PackageType pulumi.StringPtrInput
 	// Primary keypair used to sign artifacts. Default value is empty.
-	PrimaryKeypairRef pulumi.StringPtrInput
-	// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
-	// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
-	// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-	// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+	PrimaryKeypairRef   pulumi.StringPtrInput
 	ProjectEnvironments pulumi.StringArrayInput
 	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
@@ -225,11 +213,7 @@ type virtualAlpineRepositoryArgs struct {
 	// Internal description.
 	Notes *string `pulumi:"notes"`
 	// Primary keypair used to sign artifacts. Default value is empty.
-	PrimaryKeypairRef *string `pulumi:"primaryKeypairRef"`
-	// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
-	// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
-	// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-	// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+	PrimaryKeypairRef   *string  `pulumi:"primaryKeypairRef"`
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
 	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
@@ -263,11 +247,7 @@ type VirtualAlpineRepositoryArgs struct {
 	// Internal description.
 	Notes pulumi.StringPtrInput
 	// Primary keypair used to sign artifacts. Default value is empty.
-	PrimaryKeypairRef pulumi.StringPtrInput
-	// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
-	// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
-	// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-	// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+	PrimaryKeypairRef   pulumi.StringPtrInput
 	ProjectEnvironments pulumi.StringArrayInput
 	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
@@ -417,10 +397,6 @@ func (o VirtualAlpineRepositoryOutput) PrimaryKeypairRef() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v *VirtualAlpineRepository) pulumi.StringPtrOutput { return v.PrimaryKeypairRef }).(pulumi.StringPtrOutput)
 }
 
-// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
-// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
-// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
 func (o VirtualAlpineRepositoryOutput) ProjectEnvironments() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VirtualAlpineRepository) pulumi.StringArrayOutput { return v.ProjectEnvironments }).(pulumi.StringArrayOutput)
 }

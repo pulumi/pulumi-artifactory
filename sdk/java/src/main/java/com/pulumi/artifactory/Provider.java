@@ -24,7 +24,7 @@ import javax.annotation.Nullable;
 @ResourceType(type="pulumi:providers:artifactory")
 public class Provider extends com.pulumi.resources.ProviderResource {
     /**
-     * This is a access token that can be given to you by your admin under `User Management -&gt; Access Tokens`. If not set, the
+     * This is a access token that can be given to you by your admin under `User Management &gt; Access Tokens`. If not set, the
      * &#39;api_key&#39; attribute value will be used.
      * 
      */
@@ -32,7 +32,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
     private Output</* @Nullable */ String> accessToken;
 
     /**
-     * @return This is a access token that can be given to you by your admin under `User Management -&gt; Access Tokens`. If not set, the
+     * @return This is a access token that can be given to you by your admin under `User Management &gt; Access Tokens`. If not set, the
      * &#39;api_key&#39; attribute value will be used.
      * 
      */

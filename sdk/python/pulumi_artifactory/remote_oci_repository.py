@@ -113,10 +113,6 @@ class RemoteOciRepositoryArgs:
         :param pulumi.Input[bool] priority_resolution: Setting Priority Resolution takes precedence over the resolution order when resolving virtual repositories. Setting
                repositories with priority will cause metadata to be merged only from repositories set with a priority. If a package is
                not found in those repositories, Artifactory will merge from repositories marked as non-priority.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
-               Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
-               attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-               be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
         :param pulumi.Input[str] project_id: Use this attribute to enter your GCR, GAR Project Id to limit the scope of this remote repo to a specific project in your third-party registry. When leaving this field blank or unset, remote repositories that support project id will default to their default project as you have set up in your account.
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
@@ -611,12 +607,6 @@ class RemoteOciRepositoryArgs:
     @property
     @pulumi.getter(name="projectEnvironments")
     def project_environments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
-        Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
-        attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-        be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
-        """
         return pulumi.get(self, "project_environments")
 
     @project_environments.setter
@@ -909,10 +899,6 @@ class _RemoteOciRepositoryState:
         :param pulumi.Input[bool] priority_resolution: Setting Priority Resolution takes precedence over the resolution order when resolving virtual repositories. Setting
                repositories with priority will cause metadata to be merged only from repositories set with a priority. If a package is
                not found in those repositories, Artifactory will merge from repositories marked as non-priority.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
-               Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
-               attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-               be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
         :param pulumi.Input[str] project_id: Use this attribute to enter your GCR, GAR Project Id to limit the scope of this remote repo to a specific project in your third-party registry. When leaving this field blank or unset, remote repositories that support project id will default to their default project as you have set up in your account.
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
@@ -1409,12 +1395,6 @@ class _RemoteOciRepositoryState:
     @property
     @pulumi.getter(name="projectEnvironments")
     def project_environments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
-        Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
-        attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-        be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
-        """
         return pulumi.get(self, "project_environments")
 
     @project_environments.setter
@@ -1748,10 +1728,6 @@ class RemoteOciRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] priority_resolution: Setting Priority Resolution takes precedence over the resolution order when resolving virtual repositories. Setting
                repositories with priority will cause metadata to be merged only from repositories set with a priority. If a package is
                not found in those repositories, Artifactory will merge from repositories marked as non-priority.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
-               Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
-               attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-               be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
         :param pulumi.Input[str] project_id: Use this attribute to enter your GCR, GAR Project Id to limit the scope of this remote repo to a specific project in your third-party registry. When leaving this field blank or unset, remote repositories that support project id will default to their default project as you have set up in your account.
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
@@ -2046,10 +2022,6 @@ class RemoteOciRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] priority_resolution: Setting Priority Resolution takes precedence over the resolution order when resolving virtual repositories. Setting
                repositories with priority will cause metadata to be merged only from repositories set with a priority. If a package is
                not found in those repositories, Artifactory will merge from repositories marked as non-priority.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
-               Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
-               attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-               be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
         :param pulumi.Input[str] project_id: Use this attribute to enter your GCR, GAR Project Id to limit the scope of this remote repo to a specific project in your third-party registry. When leaving this field blank or unset, remote repositories that support project id will default to their default project as you have set up in your account.
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
@@ -2384,12 +2356,6 @@ class RemoteOciRepository(pulumi.CustomResource):
     @property
     @pulumi.getter(name="projectEnvironments")
     def project_environments(self) -> pulumi.Output[Sequence[str]]:
-        """
-        Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
-        Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
-        attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-        be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
-        """
         return pulumi.get(self, "project_environments")
 
     @property

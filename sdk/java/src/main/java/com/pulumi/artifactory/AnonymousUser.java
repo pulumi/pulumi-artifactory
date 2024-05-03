@@ -54,19 +54,9 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="artifactory:index/anonymousUser:AnonymousUser")
 public class AnonymousUser extends com.pulumi.resources.CustomResource {
-    /**
-     * Username for anonymous user. This is only for ensuring resource schema is valid for Terraform. This is not meant to be
-     * set or updated in the HCL.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Username for anonymous user. This is only for ensuring resource schema is valid for Terraform. This is not meant to be
-     * set or updated in the HCL.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }

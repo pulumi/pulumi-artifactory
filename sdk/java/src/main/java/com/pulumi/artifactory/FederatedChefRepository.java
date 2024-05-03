@@ -122,19 +122,9 @@ public class FederatedChefRepository extends com.pulumi.resources.CustomResource
     public Output<Optional<Boolean>> cdnRedirect() {
         return Codegen.optional(this.cdnRedirect);
     }
-    /**
-     * Delete all federated members on `terraform destroy` if set to `true`. Caution: it will delete all the repositories in
-     * the federation on other Artifactory instances.
-     * 
-     */
     @Export(name="cleanupOnDelete", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> cleanupOnDelete;
 
-    /**
-     * @return Delete all federated members on `terraform destroy` if set to `true`. Caution: it will delete all the repositories in
-     * the federation on other Artifactory instances.
-     * 
-     */
     public Output<Optional<Boolean>> cleanupOnDelete() {
         return Codegen.optional(this.cleanupOnDelete);
     }
@@ -282,23 +272,9 @@ public class FederatedChefRepository extends com.pulumi.resources.CustomResource
     public Output<Optional<Boolean>> priorityResolution() {
         return Codegen.optional(this.priorityResolution);
     }
-    /**
-     * Project environment for assigning this repository to. Allow values: &#34;DEV&#34;, &#34;PROD&#34;, or one of custom environment. Before
-     * Artifactory 7.53.1, up to 2 values (&#34;DEV&#34; and &#34;PROD&#34;) are allowed. From 7.53.1 onward, only one value is allowed. The
-     * attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-     * be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
-     * 
-     */
     @Export(name="projectEnvironments", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> projectEnvironments;
 
-    /**
-     * @return Project environment for assigning this repository to. Allow values: &#34;DEV&#34;, &#34;PROD&#34;, or one of custom environment. Before
-     * Artifactory 7.53.1, up to 2 values (&#34;DEV&#34; and &#34;PROD&#34;) are allowed. From 7.53.1 onward, only one value is allowed. The
-     * attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-     * be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
-     * 
-     */
     public Output<List<String>> projectEnvironments() {
         return this.projectEnvironments;
     }
