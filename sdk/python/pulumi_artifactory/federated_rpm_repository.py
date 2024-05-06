@@ -54,8 +54,6 @@ class FederatedRpmRepositoryArgs:
         :param pulumi.Input[bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
         :param pulumi.Input[bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS
                CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
-        :param pulumi.Input[bool] cleanup_on_delete: Delete all federated members on `terraform destroy` if set to `true`. Caution: it will delete all the repositories in
-               the federation on other Artifactory instances.
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
@@ -67,10 +65,6 @@ class FederatedRpmRepositoryArgs:
         :param pulumi.Input[str] notes: Internal description.
         :param pulumi.Input[str] primary_keypair_ref: Primary keypair used to sign artifacts.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
-               Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
-               attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-               be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
@@ -213,10 +207,6 @@ class FederatedRpmRepositoryArgs:
     @property
     @pulumi.getter(name="cleanupOnDelete")
     def cleanup_on_delete(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Delete all federated members on `terraform destroy` if set to `true`. Caution: it will delete all the repositories in
-        the federation on other Artifactory instances.
-        """
         return pulumi.get(self, "cleanup_on_delete")
 
     @cleanup_on_delete.setter
@@ -334,12 +324,6 @@ class FederatedRpmRepositoryArgs:
     @property
     @pulumi.getter(name="projectEnvironments")
     def project_environments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
-        Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
-        attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-        be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
-        """
         return pulumi.get(self, "project_environments")
 
     @project_environments.setter
@@ -486,8 +470,6 @@ class _FederatedRpmRepositoryState:
         :param pulumi.Input[bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
         :param pulumi.Input[bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS
                CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
-        :param pulumi.Input[bool] cleanup_on_delete: Delete all federated members on `terraform destroy` if set to `true`. Caution: it will delete all the repositories in
-               the federation on other Artifactory instances.
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
@@ -504,10 +486,6 @@ class _FederatedRpmRepositoryState:
         :param pulumi.Input[str] notes: Internal description.
         :param pulumi.Input[str] primary_keypair_ref: Primary keypair used to sign artifacts.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
-               Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
-               attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-               be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
@@ -627,10 +605,6 @@ class _FederatedRpmRepositoryState:
     @property
     @pulumi.getter(name="cleanupOnDelete")
     def cleanup_on_delete(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Delete all federated members on `terraform destroy` if set to `true`. Caution: it will delete all the repositories in
-        the federation on other Artifactory instances.
-        """
         return pulumi.get(self, "cleanup_on_delete")
 
     @cleanup_on_delete.setter
@@ -784,12 +758,6 @@ class _FederatedRpmRepositoryState:
     @property
     @pulumi.getter(name="projectEnvironments")
     def project_environments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
-        Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
-        attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-        be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
-        """
         return pulumi.get(self, "project_environments")
 
     @project_environments.setter
@@ -969,8 +937,6 @@ class FederatedRpmRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
         :param pulumi.Input[bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS
                CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
-        :param pulumi.Input[bool] cleanup_on_delete: Delete all federated members on `terraform destroy` if set to `true`. Caution: it will delete all the repositories in
-               the federation on other Artifactory instances.
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
@@ -987,10 +953,6 @@ class FederatedRpmRepository(pulumi.CustomResource):
         :param pulumi.Input[str] notes: Internal description.
         :param pulumi.Input[str] primary_keypair_ref: Primary keypair used to sign artifacts.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
-               Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
-               attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-               be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
@@ -1171,8 +1133,6 @@ class FederatedRpmRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
         :param pulumi.Input[bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS
                CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
-        :param pulumi.Input[bool] cleanup_on_delete: Delete all federated members on `terraform destroy` if set to `true`. Caution: it will delete all the repositories in
-               the federation on other Artifactory instances.
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
@@ -1189,10 +1149,6 @@ class FederatedRpmRepository(pulumi.CustomResource):
         :param pulumi.Input[str] notes: Internal description.
         :param pulumi.Input[str] primary_keypair_ref: Primary keypair used to sign artifacts.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
-               Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
-               attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-               be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
@@ -1275,10 +1231,6 @@ class FederatedRpmRepository(pulumi.CustomResource):
     @property
     @pulumi.getter(name="cleanupOnDelete")
     def cleanup_on_delete(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Delete all federated members on `terraform destroy` if set to `true`. Caution: it will delete all the repositories in
-        the federation on other Artifactory instances.
-        """
         return pulumi.get(self, "cleanup_on_delete")
 
     @property
@@ -1380,12 +1332,6 @@ class FederatedRpmRepository(pulumi.CustomResource):
     @property
     @pulumi.getter(name="projectEnvironments")
     def project_environments(self) -> pulumi.Output[Sequence[str]]:
-        """
-        Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
-        Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
-        attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-        be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
-        """
         return pulumi.get(self, "project_environments")
 
     @property

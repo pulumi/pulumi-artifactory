@@ -81,9 +81,6 @@ export class Group extends pulumi.CustomResource {
      * When this override is set, User in the group can manage Xray Reports on any resource type. Default value is `false`.
      */
     public readonly reportsManager!: pulumi.Output<boolean>;
-    /**
-     * List of users assigned to the group. If not set or empty, Terraform will not manage group membership.
-     */
     public readonly usersNames!: pulumi.Output<string[]>;
     /**
      * When this override is set, User in the group can manage Xray Watches on any resource type. Default value is `false`.
@@ -179,9 +176,6 @@ export interface GroupState {
      * When this override is set, User in the group can manage Xray Reports on any resource type. Default value is `false`.
      */
     reportsManager?: pulumi.Input<boolean>;
-    /**
-     * List of users assigned to the group. If not set or empty, Terraform will not manage group membership.
-     */
     usersNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * When this override is set, User in the group can manage Xray Watches on any resource type. Default value is `false`.
@@ -233,9 +227,6 @@ export interface GroupArgs {
      * When this override is set, User in the group can manage Xray Reports on any resource type. Default value is `false`.
      */
     reportsManager?: pulumi.Input<boolean>;
-    /**
-     * List of users assigned to the group. If not set or empty, Terraform will not manage group membership.
-     */
     usersNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * When this override is set, User in the group can manage Xray Watches on any resource type. Default value is `false`.
