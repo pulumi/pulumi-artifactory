@@ -168,17 +168,9 @@ public class Group extends com.pulumi.resources.CustomResource {
     public Output<Boolean> reportsManager() {
         return this.reportsManager;
     }
-    /**
-     * List of users assigned to the group. If not set or empty, Terraform will not manage group membership.
-     * 
-     */
     @Export(name="usersNames", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> usersNames;
 
-    /**
-     * @return List of users assigned to the group. If not set or empty, Terraform will not manage group membership.
-     * 
-     */
     public Output<List<String>> usersNames() {
         return this.usersNames;
     }

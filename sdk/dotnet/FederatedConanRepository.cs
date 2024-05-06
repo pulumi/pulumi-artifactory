@@ -75,10 +75,6 @@ namespace Pulumi.Artifactory
         [Output("cdnRedirect")]
         public Output<bool?> CdnRedirect { get; private set; } = null!;
 
-        /// <summary>
-        /// Delete all federated members on `terraform destroy` if set to `true`. Caution: it will delete all the repositories in
-        /// the federation on other Artifactory instances.
-        /// </summary>
         [Output("cleanupOnDelete")]
         public Output<bool?> CleanupOnDelete { get; private set; } = null!;
 
@@ -151,12 +147,6 @@ namespace Pulumi.Artifactory
         [Output("priorityResolution")]
         public Output<bool?> PriorityResolution { get; private set; } = null!;
 
-        /// <summary>
-        /// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
-        /// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
-        /// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-        /// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
-        /// </summary>
         [Output("projectEnvironments")]
         public Output<ImmutableArray<string>> ProjectEnvironments { get; private set; } = null!;
 
@@ -259,10 +249,6 @@ namespace Pulumi.Artifactory
         [Input("cdnRedirect")]
         public Input<bool>? CdnRedirect { get; set; }
 
-        /// <summary>
-        /// Delete all federated members on `terraform destroy` if set to `true`. Caution: it will delete all the repositories in
-        /// the federation on other Artifactory instances.
-        /// </summary>
         [Input("cleanupOnDelete")]
         public Input<bool>? CleanupOnDelete { get; set; }
 
@@ -340,13 +326,6 @@ namespace Pulumi.Artifactory
 
         [Input("projectEnvironments")]
         private InputList<string>? _projectEnvironments;
-
-        /// <summary>
-        /// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
-        /// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
-        /// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-        /// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
-        /// </summary>
         public InputList<string> ProjectEnvironments
         {
             get => _projectEnvironments ?? (_projectEnvironments = new InputList<string>());
@@ -420,10 +399,6 @@ namespace Pulumi.Artifactory
         [Input("cdnRedirect")]
         public Input<bool>? CdnRedirect { get; set; }
 
-        /// <summary>
-        /// Delete all federated members on `terraform destroy` if set to `true`. Caution: it will delete all the repositories in
-        /// the federation on other Artifactory instances.
-        /// </summary>
         [Input("cleanupOnDelete")]
         public Input<bool>? CleanupOnDelete { get; set; }
 
@@ -504,13 +479,6 @@ namespace Pulumi.Artifactory
 
         [Input("projectEnvironments")]
         private InputList<string>? _projectEnvironments;
-
-        /// <summary>
-        /// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
-        /// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
-        /// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-        /// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
-        /// </summary>
         public InputList<string> ProjectEnvironments
         {
             get => _projectEnvironments ?? (_projectEnvironments = new InputList<string>());

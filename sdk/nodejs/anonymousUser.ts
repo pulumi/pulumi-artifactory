@@ -49,10 +49,6 @@ export class AnonymousUser extends pulumi.CustomResource {
         return obj['__pulumiType'] === AnonymousUser.__pulumiType;
     }
 
-    /**
-     * Username for anonymous user. This is only for ensuring resource schema is valid for Terraform. This is not meant to be
-     * set or updated in the HCL.
-     */
     public readonly name!: pulumi.Output<string>;
 
     /**
@@ -82,10 +78,6 @@ export class AnonymousUser extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AnonymousUser resources.
  */
 export interface AnonymousUserState {
-    /**
-     * Username for anonymous user. This is only for ensuring resource schema is valid for Terraform. This is not meant to be
-     * set or updated in the HCL.
-     */
     name?: pulumi.Input<string>;
 }
 
@@ -93,9 +85,5 @@ export interface AnonymousUserState {
  * The set of arguments for constructing a AnonymousUser resource.
  */
 export interface AnonymousUserArgs {
-    /**
-     * Username for anonymous user. This is only for ensuring resource schema is valid for Terraform. This is not meant to be
-     * set or updated in the HCL.
-     */
     name?: pulumi.Input<string>;
 }
