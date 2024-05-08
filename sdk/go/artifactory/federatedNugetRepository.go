@@ -68,9 +68,7 @@ type FederatedNugetRepository struct {
 	BlackedOut pulumi.BoolPtrOutput `pulumi:"blackedOut"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
 	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
-	CdnRedirect pulumi.BoolPtrOutput `pulumi:"cdnRedirect"`
-	// Delete all federated members on `terraform destroy` if set to `true`. Caution: it will delete all the repositories in
-	// the federation on other Artifactory instances.
+	CdnRedirect     pulumi.BoolPtrOutput `pulumi:"cdnRedirect"`
 	CleanupOnDelete pulumi.BoolPtrOutput `pulumi:"cleanupOnDelete"`
 	// Public description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -101,11 +99,7 @@ type FederatedNugetRepository struct {
 	Notes       pulumi.StringPtrOutput `pulumi:"notes"`
 	PackageType pulumi.StringOutput    `pulumi:"packageType"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
-	PriorityResolution pulumi.BoolPtrOutput `pulumi:"priorityResolution"`
-	// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
-	// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
-	// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-	// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+	PriorityResolution  pulumi.BoolPtrOutput     `pulumi:"priorityResolution"`
 	ProjectEnvironments pulumi.StringArrayOutput `pulumi:"projectEnvironments"`
 	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
@@ -165,9 +159,7 @@ type federatedNugetRepositoryState struct {
 	BlackedOut *bool `pulumi:"blackedOut"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
 	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
-	CdnRedirect *bool `pulumi:"cdnRedirect"`
-	// Delete all federated members on `terraform destroy` if set to `true`. Caution: it will delete all the repositories in
-	// the federation on other Artifactory instances.
+	CdnRedirect     *bool `pulumi:"cdnRedirect"`
 	CleanupOnDelete *bool `pulumi:"cleanupOnDelete"`
 	// Public description.
 	Description *string `pulumi:"description"`
@@ -198,11 +190,7 @@ type federatedNugetRepositoryState struct {
 	Notes       *string `pulumi:"notes"`
 	PackageType *string `pulumi:"packageType"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
-	PriorityResolution *bool `pulumi:"priorityResolution"`
-	// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
-	// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
-	// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-	// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+	PriorityResolution  *bool    `pulumi:"priorityResolution"`
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
 	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
@@ -227,9 +215,7 @@ type FederatedNugetRepositoryState struct {
 	BlackedOut pulumi.BoolPtrInput
 	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
 	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
-	CdnRedirect pulumi.BoolPtrInput
-	// Delete all federated members on `terraform destroy` if set to `true`. Caution: it will delete all the repositories in
-	// the federation on other Artifactory instances.
+	CdnRedirect     pulumi.BoolPtrInput
 	CleanupOnDelete pulumi.BoolPtrInput
 	// Public description.
 	Description pulumi.StringPtrInput
@@ -260,11 +246,7 @@ type FederatedNugetRepositoryState struct {
 	Notes       pulumi.StringPtrInput
 	PackageType pulumi.StringPtrInput
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
-	PriorityResolution pulumi.BoolPtrInput
-	// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
-	// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
-	// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-	// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+	PriorityResolution  pulumi.BoolPtrInput
 	ProjectEnvironments pulumi.StringArrayInput
 	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
@@ -293,9 +275,7 @@ type federatedNugetRepositoryArgs struct {
 	BlackedOut *bool `pulumi:"blackedOut"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
 	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
-	CdnRedirect *bool `pulumi:"cdnRedirect"`
-	// Delete all federated members on `terraform destroy` if set to `true`. Caution: it will delete all the repositories in
-	// the federation on other Artifactory instances.
+	CdnRedirect     *bool `pulumi:"cdnRedirect"`
 	CleanupOnDelete *bool `pulumi:"cleanupOnDelete"`
 	// Public description.
 	Description *string `pulumi:"description"`
@@ -325,11 +305,7 @@ type federatedNugetRepositoryArgs struct {
 	// Internal description.
 	Notes *string `pulumi:"notes"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
-	PriorityResolution *bool `pulumi:"priorityResolution"`
-	// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
-	// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
-	// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-	// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+	PriorityResolution  *bool    `pulumi:"priorityResolution"`
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
 	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
@@ -355,9 +331,7 @@ type FederatedNugetRepositoryArgs struct {
 	BlackedOut pulumi.BoolPtrInput
 	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
 	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
-	CdnRedirect pulumi.BoolPtrInput
-	// Delete all federated members on `terraform destroy` if set to `true`. Caution: it will delete all the repositories in
-	// the federation on other Artifactory instances.
+	CdnRedirect     pulumi.BoolPtrInput
 	CleanupOnDelete pulumi.BoolPtrInput
 	// Public description.
 	Description pulumi.StringPtrInput
@@ -387,11 +361,7 @@ type FederatedNugetRepositoryArgs struct {
 	// Internal description.
 	Notes pulumi.StringPtrInput
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
-	PriorityResolution pulumi.BoolPtrInput
-	// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
-	// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
-	// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-	// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+	PriorityResolution  pulumi.BoolPtrInput
 	ProjectEnvironments pulumi.StringArrayInput
 	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
@@ -512,8 +482,6 @@ func (o FederatedNugetRepositoryOutput) CdnRedirect() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FederatedNugetRepository) pulumi.BoolPtrOutput { return v.CdnRedirect }).(pulumi.BoolPtrOutput)
 }
 
-// Delete all federated members on `terraform destroy` if set to `true`. Caution: it will delete all the repositories in
-// the federation on other Artifactory instances.
 func (o FederatedNugetRepositoryOutput) CleanupOnDelete() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FederatedNugetRepository) pulumi.BoolPtrOutput { return v.CleanupOnDelete }).(pulumi.BoolPtrOutput)
 }
@@ -584,10 +552,6 @@ func (o FederatedNugetRepositoryOutput) PriorityResolution() pulumi.BoolPtrOutpu
 	return o.ApplyT(func(v *FederatedNugetRepository) pulumi.BoolPtrOutput { return v.PriorityResolution }).(pulumi.BoolPtrOutput)
 }
 
-// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
-// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
-// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
 func (o FederatedNugetRepositoryOutput) ProjectEnvironments() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FederatedNugetRepository) pulumi.StringArrayOutput { return v.ProjectEnvironments }).(pulumi.StringArrayOutput)
 }

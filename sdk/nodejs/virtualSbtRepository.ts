@@ -109,12 +109,6 @@ export class VirtualSbtRepository extends pulumi.CustomResource {
      * - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
      */
     public readonly pomRepositoryReferencesCleanupPolicy!: pulumi.Output<string>;
-    /**
-     * Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
-     * Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
-     * attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-     * be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
-     */
     public readonly projectEnvironments!: pulumi.Output<string[]>;
     /**
      * Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
@@ -236,12 +230,6 @@ export interface VirtualSbtRepositoryState {
      * - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
      */
     pomRepositoryReferencesCleanupPolicy?: pulumi.Input<string>;
-    /**
-     * Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
-     * Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
-     * attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-     * be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
-     */
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
@@ -309,12 +297,6 @@ export interface VirtualSbtRepositoryArgs {
      * - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
      */
     pomRepositoryReferencesCleanupPolicy?: pulumi.Input<string>;
-    /**
-     * Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
-     * Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
-     * attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-     * be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
-     */
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When

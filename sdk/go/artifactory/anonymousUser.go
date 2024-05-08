@@ -44,8 +44,6 @@ import (
 type AnonymousUser struct {
 	pulumi.CustomResourceState
 
-	// Username for anonymous user. This is only for ensuring resource schema is valid for Terraform. This is not meant to be
-	// set or updated in the HCL.
 	Name pulumi.StringOutput `pulumi:"name"`
 }
 
@@ -79,14 +77,10 @@ func GetAnonymousUser(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AnonymousUser resources.
 type anonymousUserState struct {
-	// Username for anonymous user. This is only for ensuring resource schema is valid for Terraform. This is not meant to be
-	// set or updated in the HCL.
 	Name *string `pulumi:"name"`
 }
 
 type AnonymousUserState struct {
-	// Username for anonymous user. This is only for ensuring resource schema is valid for Terraform. This is not meant to be
-	// set or updated in the HCL.
 	Name pulumi.StringPtrInput
 }
 
@@ -95,15 +89,11 @@ func (AnonymousUserState) ElementType() reflect.Type {
 }
 
 type anonymousUserArgs struct {
-	// Username for anonymous user. This is only for ensuring resource schema is valid for Terraform. This is not meant to be
-	// set or updated in the HCL.
 	Name *string `pulumi:"name"`
 }
 
 // The set of arguments for constructing a AnonymousUser resource.
 type AnonymousUserArgs struct {
-	// Username for anonymous user. This is only for ensuring resource schema is valid for Terraform. This is not meant to be
-	// set or updated in the HCL.
 	Name pulumi.StringPtrInput
 }
 
@@ -194,8 +184,6 @@ func (o AnonymousUserOutput) ToAnonymousUserOutputWithContext(ctx context.Contex
 	return o
 }
 
-// Username for anonymous user. This is only for ensuring resource schema is valid for Terraform. This is not meant to be
-// set or updated in the HCL.
 func (o AnonymousUserOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AnonymousUser) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

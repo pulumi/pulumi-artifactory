@@ -35,10 +35,6 @@ namespace Pulumi.Artifactory
     [ArtifactoryResourceType("artifactory:index/anonymousUser:AnonymousUser")]
     public partial class AnonymousUser : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Username for anonymous user. This is only for ensuring resource schema is valid for Terraform. This is not meant to be
-        /// set or updated in the HCL.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
@@ -88,10 +84,6 @@ namespace Pulumi.Artifactory
 
     public sealed class AnonymousUserArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Username for anonymous user. This is only for ensuring resource schema is valid for Terraform. This is not meant to be
-        /// set or updated in the HCL.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -103,10 +95,6 @@ namespace Pulumi.Artifactory
 
     public sealed class AnonymousUserState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Username for anonymous user. This is only for ensuring resource schema is valid for Terraform. This is not meant to be
-        /// set or updated in the HCL.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

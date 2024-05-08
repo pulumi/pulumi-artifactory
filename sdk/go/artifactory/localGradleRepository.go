@@ -95,11 +95,7 @@ type LocalGradleRepository struct {
 	Notes       pulumi.StringPtrOutput `pulumi:"notes"`
 	PackageType pulumi.StringOutput    `pulumi:"packageType"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
-	PriorityResolution pulumi.BoolPtrOutput `pulumi:"priorityResolution"`
-	// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
-	// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
-	// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-	// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+	PriorityResolution  pulumi.BoolPtrOutput     `pulumi:"priorityResolution"`
 	ProjectEnvironments pulumi.StringArrayOutput `pulumi:"projectEnvironments"`
 	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
@@ -192,11 +188,7 @@ type localGradleRepositoryState struct {
 	Notes       *string `pulumi:"notes"`
 	PackageType *string `pulumi:"packageType"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
-	PriorityResolution *bool `pulumi:"priorityResolution"`
-	// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
-	// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
-	// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-	// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+	PriorityResolution  *bool    `pulumi:"priorityResolution"`
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
 	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
@@ -257,11 +249,7 @@ type LocalGradleRepositoryState struct {
 	Notes       pulumi.StringPtrInput
 	PackageType pulumi.StringPtrInput
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
-	PriorityResolution pulumi.BoolPtrInput
-	// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
-	// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
-	// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-	// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+	PriorityResolution  pulumi.BoolPtrInput
 	ProjectEnvironments pulumi.StringArrayInput
 	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
@@ -325,11 +313,7 @@ type localGradleRepositoryArgs struct {
 	// Internal description.
 	Notes *string `pulumi:"notes"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
-	PriorityResolution *bool `pulumi:"priorityResolution"`
-	// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
-	// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
-	// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-	// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+	PriorityResolution  *bool    `pulumi:"priorityResolution"`
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
 	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
@@ -390,11 +374,7 @@ type LocalGradleRepositoryArgs struct {
 	// Internal description.
 	Notes pulumi.StringPtrInput
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
-	PriorityResolution pulumi.BoolPtrInput
-	// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
-	// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
-	// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-	// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+	PriorityResolution  pulumi.BoolPtrInput
 	ProjectEnvironments pulumi.StringArrayInput
 	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
@@ -587,10 +567,6 @@ func (o LocalGradleRepositoryOutput) PriorityResolution() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LocalGradleRepository) pulumi.BoolPtrOutput { return v.PriorityResolution }).(pulumi.BoolPtrOutput)
 }
 
-// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
-// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
-// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
 func (o LocalGradleRepositoryOutput) ProjectEnvironments() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LocalGradleRepository) pulumi.StringArrayOutput { return v.ProjectEnvironments }).(pulumi.StringArrayOutput)
 }
