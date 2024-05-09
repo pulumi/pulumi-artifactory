@@ -38,7 +38,6 @@ class GroupArgs:
         :param pulumi.Input[str] realm: The realm for the group.
         :param pulumi.Input[str] realm_attributes: The realm attributes for the group.
         :param pulumi.Input[bool] reports_manager: When this override is set, User in the group can manage Xray Reports on any resource type. Default value is `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] users_names: List of users assigned to the group. If not set or empty, Terraform will not manage group membership.
         :param pulumi.Input[bool] watch_manager: When this override is set, User in the group can manage Xray Watches on any resource type. Default value is `false`.
         """
         if admin_privileges is not None:
@@ -189,9 +188,6 @@ class GroupArgs:
     @property
     @pulumi.getter(name="usersNames")
     def users_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        List of users assigned to the group. If not set or empty, Terraform will not manage group membership.
-        """
         return pulumi.get(self, "users_names")
 
     @users_names.setter
@@ -238,7 +234,6 @@ class _GroupState:
         :param pulumi.Input[str] realm: The realm for the group.
         :param pulumi.Input[str] realm_attributes: The realm attributes for the group.
         :param pulumi.Input[bool] reports_manager: When this override is set, User in the group can manage Xray Reports on any resource type. Default value is `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] users_names: List of users assigned to the group. If not set or empty, Terraform will not manage group membership.
         :param pulumi.Input[bool] watch_manager: When this override is set, User in the group can manage Xray Watches on any resource type. Default value is `false`.
         """
         if admin_privileges is not None:
@@ -389,9 +384,6 @@ class _GroupState:
     @property
     @pulumi.getter(name="usersNames")
     def users_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        List of users assigned to the group. If not set or empty, Terraform will not manage group membership.
-        """
         return pulumi.get(self, "users_names")
 
     @users_names.setter
@@ -450,7 +442,6 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[str] realm: The realm for the group.
         :param pulumi.Input[str] realm_attributes: The realm attributes for the group.
         :param pulumi.Input[bool] reports_manager: When this override is set, User in the group can manage Xray Reports on any resource type. Default value is `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] users_names: List of users assigned to the group. If not set or empty, Terraform will not manage group membership.
         :param pulumi.Input[bool] watch_manager: When this override is set, User in the group can manage Xray Watches on any resource type. Default value is `false`.
         """
         ...
@@ -555,7 +546,6 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[str] realm: The realm for the group.
         :param pulumi.Input[str] realm_attributes: The realm attributes for the group.
         :param pulumi.Input[bool] reports_manager: When this override is set, User in the group can manage Xray Reports on any resource type. Default value is `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] users_names: List of users assigned to the group. If not set or empty, Terraform will not manage group membership.
         :param pulumi.Input[bool] watch_manager: When this override is set, User in the group can manage Xray Watches on any resource type. Default value is `false`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -659,9 +649,6 @@ class Group(pulumi.CustomResource):
     @property
     @pulumi.getter(name="usersNames")
     def users_names(self) -> pulumi.Output[Sequence[str]]:
-        """
-        List of users assigned to the group. If not set or empty, Terraform will not manage group membership.
-        """
         return pulumi.get(self, "users_names")
 
     @property

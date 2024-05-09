@@ -101,12 +101,8 @@ type MavenRepository struct {
 	Notes       pulumi.StringPtrOutput `pulumi:"notes"`
 	PackageType pulumi.StringOutput    `pulumi:"packageType"`
 	// One of: `"discardActiveReference", "discardAnyReference", "nothing"`
-	PomRepositoryReferencesCleanupPolicy pulumi.StringOutput `pulumi:"pomRepositoryReferencesCleanupPolicy"`
-	// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
-	// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
-	// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-	// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
-	ProjectEnvironments pulumi.StringArrayOutput `pulumi:"projectEnvironments"`
+	PomRepositoryReferencesCleanupPolicy pulumi.StringOutput      `pulumi:"pomRepositoryReferencesCleanupPolicy"`
+	ProjectEnvironments                  pulumi.StringArrayOutput `pulumi:"projectEnvironments"`
 	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrOutput `pulumi:"projectKey"`
@@ -173,12 +169,8 @@ type mavenRepositoryState struct {
 	Notes       *string `pulumi:"notes"`
 	PackageType *string `pulumi:"packageType"`
 	// One of: `"discardActiveReference", "discardAnyReference", "nothing"`
-	PomRepositoryReferencesCleanupPolicy *string `pulumi:"pomRepositoryReferencesCleanupPolicy"`
-	// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
-	// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
-	// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-	// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
-	ProjectEnvironments []string `pulumi:"projectEnvironments"`
+	PomRepositoryReferencesCleanupPolicy *string  `pulumi:"pomRepositoryReferencesCleanupPolicy"`
+	ProjectEnvironments                  []string `pulumi:"projectEnvironments"`
 	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey *string `pulumi:"projectKey"`
@@ -214,11 +206,7 @@ type MavenRepositoryState struct {
 	PackageType pulumi.StringPtrInput
 	// One of: `"discardActiveReference", "discardAnyReference", "nothing"`
 	PomRepositoryReferencesCleanupPolicy pulumi.StringPtrInput
-	// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
-	// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
-	// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-	// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
-	ProjectEnvironments pulumi.StringArrayInput
+	ProjectEnvironments                  pulumi.StringArrayInput
 	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrInput
@@ -256,12 +244,8 @@ type mavenRepositoryArgs struct {
 	// Internal description.
 	Notes *string `pulumi:"notes"`
 	// One of: `"discardActiveReference", "discardAnyReference", "nothing"`
-	PomRepositoryReferencesCleanupPolicy *string `pulumi:"pomRepositoryReferencesCleanupPolicy"`
-	// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
-	// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
-	// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-	// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
-	ProjectEnvironments []string `pulumi:"projectEnvironments"`
+	PomRepositoryReferencesCleanupPolicy *string  `pulumi:"pomRepositoryReferencesCleanupPolicy"`
+	ProjectEnvironments                  []string `pulumi:"projectEnvironments"`
 	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey *string `pulumi:"projectKey"`
@@ -297,11 +281,7 @@ type MavenRepositoryArgs struct {
 	Notes pulumi.StringPtrInput
 	// One of: `"discardActiveReference", "discardAnyReference", "nothing"`
 	PomRepositoryReferencesCleanupPolicy pulumi.StringPtrInput
-	// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
-	// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
-	// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-	// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
-	ProjectEnvironments pulumi.StringArrayInput
+	ProjectEnvironments                  pulumi.StringArrayInput
 	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrInput
@@ -456,10 +436,6 @@ func (o MavenRepositoryOutput) PomRepositoryReferencesCleanupPolicy() pulumi.Str
 	return o.ApplyT(func(v *MavenRepository) pulumi.StringOutput { return v.PomRepositoryReferencesCleanupPolicy }).(pulumi.StringOutput)
 }
 
-// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
-// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
-// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
 func (o MavenRepositoryOutput) ProjectEnvironments() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *MavenRepository) pulumi.StringArrayOutput { return v.ProjectEnvironments }).(pulumi.StringArrayOutput)
 }

@@ -109,10 +109,6 @@ class RemoteTerraformRepositoryArgs:
         :param pulumi.Input[bool] priority_resolution: Setting Priority Resolution takes precedence over the resolution order when resolving virtual repositories. Setting
                repositories with priority will cause metadata to be merged only from repositories set with a priority. If a package is
                not found in those repositories, Artifactory will merge from repositories marked as non-priority.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
-               Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
-               attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-               be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set names
@@ -132,10 +128,6 @@ class RemoteTerraformRepositoryArgs:
                one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory
                servers.
         :param pulumi.Input[bool] synchronize_properties: When set, remote artifacts are fetched along with their properties.
-        :param pulumi.Input[str] terraform_providers_url: The base URL of the Provider's storage API. When using Smart remote repositories, set the URL to
-               <base_Artifactory_URL>/api/terraform/repokey/providers. Default value in UI is https://releases.hashicorp.com
-        :param pulumi.Input[str] terraform_registry_url: The base URL of the registry API. When using Smart Remote Repositories, set the URL to
-               <base_Artifactory_URL>/api/terraform/repokey. Default value in UI is https://registry.terraform.io
         :param pulumi.Input[int] unused_artifacts_cleanup_period_hours: Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and
                eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
@@ -571,12 +563,6 @@ class RemoteTerraformRepositoryArgs:
     @property
     @pulumi.getter(name="projectEnvironments")
     def project_environments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
-        Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
-        attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-        be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
-        """
         return pulumi.get(self, "project_environments")
 
     @project_environments.setter
@@ -724,10 +710,6 @@ class RemoteTerraformRepositoryArgs:
     @property
     @pulumi.getter(name="terraformProvidersUrl")
     def terraform_providers_url(self) -> Optional[pulumi.Input[str]]:
-        """
-        The base URL of the Provider's storage API. When using Smart remote repositories, set the URL to
-        <base_Artifactory_URL>/api/terraform/repokey/providers. Default value in UI is https://releases.hashicorp.com
-        """
         return pulumi.get(self, "terraform_providers_url")
 
     @terraform_providers_url.setter
@@ -737,10 +719,6 @@ class RemoteTerraformRepositoryArgs:
     @property
     @pulumi.getter(name="terraformRegistryUrl")
     def terraform_registry_url(self) -> Optional[pulumi.Input[str]]:
-        """
-        The base URL of the registry API. When using Smart Remote Repositories, set the URL to
-        <base_Artifactory_URL>/api/terraform/repokey. Default value in UI is https://registry.terraform.io
-        """
         return pulumi.get(self, "terraform_registry_url")
 
     @terraform_registry_url.setter
@@ -879,10 +857,6 @@ class _RemoteTerraformRepositoryState:
         :param pulumi.Input[bool] priority_resolution: Setting Priority Resolution takes precedence over the resolution order when resolving virtual repositories. Setting
                repositories with priority will cause metadata to be merged only from repositories set with a priority. If a package is
                not found in those repositories, Artifactory will merge from repositories marked as non-priority.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
-               Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
-               attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-               be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set names
@@ -902,10 +876,6 @@ class _RemoteTerraformRepositoryState:
                one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory
                servers.
         :param pulumi.Input[bool] synchronize_properties: When set, remote artifacts are fetched along with their properties.
-        :param pulumi.Input[str] terraform_providers_url: The base URL of the Provider's storage API. When using Smart remote repositories, set the URL to
-               <base_Artifactory_URL>/api/terraform/repokey/providers. Default value in UI is https://releases.hashicorp.com
-        :param pulumi.Input[str] terraform_registry_url: The base URL of the registry API. When using Smart Remote Repositories, set the URL to
-               <base_Artifactory_URL>/api/terraform/repokey. Default value in UI is https://registry.terraform.io
         :param pulumi.Input[int] unused_artifacts_cleanup_period_hours: Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and
                eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
         :param pulumi.Input[str] url: The base URL of the Module storage API.
@@ -1343,12 +1313,6 @@ class _RemoteTerraformRepositoryState:
     @property
     @pulumi.getter(name="projectEnvironments")
     def project_environments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
-        Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
-        attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-        be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
-        """
         return pulumi.get(self, "project_environments")
 
     @project_environments.setter
@@ -1496,10 +1460,6 @@ class _RemoteTerraformRepositoryState:
     @property
     @pulumi.getter(name="terraformProvidersUrl")
     def terraform_providers_url(self) -> Optional[pulumi.Input[str]]:
-        """
-        The base URL of the Provider's storage API. When using Smart remote repositories, set the URL to
-        <base_Artifactory_URL>/api/terraform/repokey/providers. Default value in UI is https://releases.hashicorp.com
-        """
         return pulumi.get(self, "terraform_providers_url")
 
     @terraform_providers_url.setter
@@ -1509,10 +1469,6 @@ class _RemoteTerraformRepositoryState:
     @property
     @pulumi.getter(name="terraformRegistryUrl")
     def terraform_registry_url(self) -> Optional[pulumi.Input[str]]:
-        """
-        The base URL of the registry API. When using Smart Remote Repositories, set the URL to
-        <base_Artifactory_URL>/api/terraform/repokey. Default value in UI is https://registry.terraform.io
-        """
         return pulumi.get(self, "terraform_registry_url")
 
     @terraform_registry_url.setter
@@ -1687,10 +1643,6 @@ class RemoteTerraformRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] priority_resolution: Setting Priority Resolution takes precedence over the resolution order when resolving virtual repositories. Setting
                repositories with priority will cause metadata to be merged only from repositories set with a priority. If a package is
                not found in those repositories, Artifactory will merge from repositories marked as non-priority.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
-               Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
-               attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-               be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set names
@@ -1710,10 +1662,6 @@ class RemoteTerraformRepository(pulumi.CustomResource):
                one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory
                servers.
         :param pulumi.Input[bool] synchronize_properties: When set, remote artifacts are fetched along with their properties.
-        :param pulumi.Input[str] terraform_providers_url: The base URL of the Provider's storage API. When using Smart remote repositories, set the URL to
-               <base_Artifactory_URL>/api/terraform/repokey/providers. Default value in UI is https://releases.hashicorp.com
-        :param pulumi.Input[str] terraform_registry_url: The base URL of the registry API. When using Smart Remote Repositories, set the URL to
-               <base_Artifactory_URL>/api/terraform/repokey. Default value in UI is https://registry.terraform.io
         :param pulumi.Input[int] unused_artifacts_cleanup_period_hours: Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and
                eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
         :param pulumi.Input[str] url: The base URL of the Module storage API.
@@ -1975,10 +1923,6 @@ class RemoteTerraformRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] priority_resolution: Setting Priority Resolution takes precedence over the resolution order when resolving virtual repositories. Setting
                repositories with priority will cause metadata to be merged only from repositories set with a priority. If a package is
                not found in those repositories, Artifactory will merge from repositories marked as non-priority.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
-               Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
-               attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-               be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set names
@@ -1998,10 +1942,6 @@ class RemoteTerraformRepository(pulumi.CustomResource):
                one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory
                servers.
         :param pulumi.Input[bool] synchronize_properties: When set, remote artifacts are fetched along with their properties.
-        :param pulumi.Input[str] terraform_providers_url: The base URL of the Provider's storage API. When using Smart remote repositories, set the URL to
-               <base_Artifactory_URL>/api/terraform/repokey/providers. Default value in UI is https://releases.hashicorp.com
-        :param pulumi.Input[str] terraform_registry_url: The base URL of the registry API. When using Smart Remote Repositories, set the URL to
-               <base_Artifactory_URL>/api/terraform/repokey. Default value in UI is https://registry.terraform.io
         :param pulumi.Input[int] unused_artifacts_cleanup_period_hours: Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and
                eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
         :param pulumi.Input[str] url: The base URL of the Module storage API.
@@ -2291,12 +2231,6 @@ class RemoteTerraformRepository(pulumi.CustomResource):
     @property
     @pulumi.getter(name="projectEnvironments")
     def project_environments(self) -> pulumi.Output[Sequence[str]]:
-        """
-        Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
-        Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
-        attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-        be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
-        """
         return pulumi.get(self, "project_environments")
 
     @property
@@ -2396,19 +2330,11 @@ class RemoteTerraformRepository(pulumi.CustomResource):
     @property
     @pulumi.getter(name="terraformProvidersUrl")
     def terraform_providers_url(self) -> pulumi.Output[Optional[str]]:
-        """
-        The base URL of the Provider's storage API. When using Smart remote repositories, set the URL to
-        <base_Artifactory_URL>/api/terraform/repokey/providers. Default value in UI is https://releases.hashicorp.com
-        """
         return pulumi.get(self, "terraform_providers_url")
 
     @property
     @pulumi.getter(name="terraformRegistryUrl")
     def terraform_registry_url(self) -> pulumi.Output[Optional[str]]:
-        """
-        The base URL of the registry API. When using Smart Remote Repositories, set the URL to
-        <base_Artifactory_URL>/api/terraform/repokey. Default value in UI is https://registry.terraform.io
-        """
         return pulumi.get(self, "terraform_registry_url")
 
     @property

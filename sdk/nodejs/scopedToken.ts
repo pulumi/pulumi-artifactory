@@ -123,7 +123,7 @@ export class ScopedToken extends pulumi.CustomResource {
      */
     public /*out*/ readonly expiry!: pulumi.Output<number>;
     /**
-     * The grant type used to authenticate the request. In this case, the only value supported is `client_credentials` which is
+     * The grant type used to authenticate the request. In this case, the only value supported is `clientCredentials` which is
      * also the default value if this parameter is not specified.
      */
     public readonly grantType!: pulumi.Output<string>;
@@ -282,7 +282,7 @@ export interface ScopedTokenState {
      */
     expiry?: pulumi.Input<number>;
     /**
-     * The grant type used to authenticate the request. In this case, the only value supported is `client_credentials` which is
+     * The grant type used to authenticate the request. In this case, the only value supported is `clientCredentials` which is
      * also the default value if this parameter is not specified.
      */
     grantType?: pulumi.Input<string>;
@@ -377,7 +377,7 @@ export interface ScopedTokenArgs {
      */
     expiresIn?: pulumi.Input<number>;
     /**
-     * The grant type used to authenticate the request. In this case, the only value supported is `client_credentials` which is
+     * The grant type used to authenticate the request. In this case, the only value supported is `clientCredentials` which is
      * also the default value if this parameter is not specified.
      */
     grantType?: pulumi.Input<string>;
