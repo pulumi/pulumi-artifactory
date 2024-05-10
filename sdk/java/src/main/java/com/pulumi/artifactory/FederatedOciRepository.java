@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,22 +47,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var my_oci_federated = new FederatedOciRepository(&#34;my-oci-federated&#34;, FederatedOciRepositoryArgs.builder()        
- *             .key(&#34;my-oci-federated&#34;)
+ *         var my_oci_federated = new FederatedOciRepository("my-oci-federated", FederatedOciRepositoryArgs.builder()        
+ *             .key("my-oci-federated")
  *             .members(            
  *                 FederatedOciRepositoryMemberArgs.builder()
- *                     .url(&#34;http://tempurl.org/artifactory/my-oci-federated&#34;)
+ *                     .url("http://tempurl.org/artifactory/my-oci-federated")
  *                     .enabled(true)
  *                     .build(),
  *                 FederatedOciRepositoryMemberArgs.builder()
- *                     .url(&#34;http://tempurl2.org/artifactory/my-oci-federated-2&#34;)
+ *                     .url("http://tempurl2.org/artifactory/my-oci-federated-2")
  *                     .enabled(true)
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -123,19 +125,9 @@ public class FederatedOciRepository extends com.pulumi.resources.CustomResource 
     public Output<Optional<Boolean>> cdnRedirect() {
         return Codegen.optional(this.cdnRedirect);
     }
-    /**
-     * Delete all federated members on `terraform destroy` if set to `true`. Caution: it will delete all the repositories in
-     * the federation on other Artifactory instances.
-     * 
-     */
     @Export(name="cleanupOnDelete", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> cleanupOnDelete;
 
-    /**
-     * @return Delete all federated members on `terraform destroy` if set to `true`. Caution: it will delete all the repositories in
-     * the federation on other Artifactory instances.
-     * 
-     */
     public Output<Optional<Boolean>> cleanupOnDelete() {
         return Codegen.optional(this.cleanupOnDelete);
     }
@@ -299,23 +291,9 @@ public class FederatedOciRepository extends com.pulumi.resources.CustomResource 
     public Output<Optional<Boolean>> priorityResolution() {
         return Codegen.optional(this.priorityResolution);
     }
-    /**
-     * Project environment for assigning this repository to. Allow values: &#34;DEV&#34;, &#34;PROD&#34;, or one of custom environment. Before
-     * Artifactory 7.53.1, up to 2 values (&#34;DEV&#34; and &#34;PROD&#34;) are allowed. From 7.53.1 onward, only one value is allowed. The
-     * attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-     * be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
-     * 
-     */
     @Export(name="projectEnvironments", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> projectEnvironments;
 
-    /**
-     * @return Project environment for assigning this repository to. Allow values: &#34;DEV&#34;, &#34;PROD&#34;, or one of custom environment. Before
-     * Artifactory 7.53.1, up to 2 values (&#34;DEV&#34; and &#34;PROD&#34;) are allowed. From 7.53.1 onward, only one value is allowed. The
-     * attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-     * be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
-     * 
-     */
     public Output<List<String>> projectEnvironments() {
         return this.projectEnvironments;
     }

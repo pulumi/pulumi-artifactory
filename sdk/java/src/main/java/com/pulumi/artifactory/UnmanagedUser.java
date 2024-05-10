@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,16 +49,17 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Create a new Artifactory user called terraform
- *         var test_user = new UnmanagedUser(&#34;test-user&#34;, UnmanagedUserArgs.builder()        
- *             .name(&#34;terraform&#34;)
- *             .email(&#34;test-user@artifactory-terraform.com&#34;)
- *             .groups(&#34;logged-in-users&#34;)
- *             .password(&#34;my super secret password&#34;)
+ *         var test_user = new UnmanagedUser("test-user", UnmanagedUserArgs.builder()        
+ *             .name("terraform")
+ *             .email("test-user{@literal @}artifactory-terraform.com")
+ *             .groups("logged-in-users")
+ *             .password("my super secret password")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Managing groups relationship
@@ -146,14 +148,14 @@ public class UnmanagedUser extends com.pulumi.resources.CustomResource {
         return this.internalPasswordDisabled;
     }
     /**
-     * Username for user. May contain lowercase letters, numbers and symbols: &#39;.-_@&#39;
+     * Username for user. May contain lowercase letters, numbers and symbols: &#39;.-_{@literal @}&#39;
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Username for user. May contain lowercase letters, numbers and symbols: &#39;.-_@&#39;
+     * @return Username for user. May contain lowercase letters, numbers and symbols: &#39;.-_{@literal @}&#39;
      * 
      */
     public Output<String> name() {

@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,16 +48,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var my_remote_vcs = new RemoteVcsRepository(&#34;my-remote-vcs&#34;, RemoteVcsRepositoryArgs.builder()        
- *             .key(&#34;my-remote-vcs&#34;)
- *             .url(&#34;https://github.com/&#34;)
- *             .vcsGitProvider(&#34;GITHUB&#34;)
+ *         var my_remote_vcs = new RemoteVcsRepository("my-remote-vcs", RemoteVcsRepositoryArgs.builder()        
+ *             .key("my-remote-vcs")
+ *             .url("https://github.com/")
+ *             .vcsGitProvider("GITHUB")
  *             .maxUniqueSnapshots(5)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -486,23 +488,9 @@ public class RemoteVcsRepository extends com.pulumi.resources.CustomResource {
     public Output<Optional<Boolean>> priorityResolution() {
         return Codegen.optional(this.priorityResolution);
     }
-    /**
-     * Project environment for assigning this repository to. Allow values: &#34;DEV&#34;, &#34;PROD&#34;, or one of custom environment. Before
-     * Artifactory 7.53.1, up to 2 values (&#34;DEV&#34; and &#34;PROD&#34;) are allowed. From 7.53.1 onward, only one value is allowed. The
-     * attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-     * be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
-     * 
-     */
     @Export(name="projectEnvironments", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> projectEnvironments;
 
-    /**
-     * @return Project environment for assigning this repository to. Allow values: &#34;DEV&#34;, &#34;PROD&#34;, or one of custom environment. Before
-     * Artifactory 7.53.1, up to 2 values (&#34;DEV&#34; and &#34;PROD&#34;) are allowed. From 7.53.1 onward, only one value is allowed. The
-     * attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-     * be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
-     * 
-     */
     public Output<List<String>> projectEnvironments() {
         return this.projectEnvironments;
     }

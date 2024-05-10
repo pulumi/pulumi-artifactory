@@ -94,12 +94,6 @@ export class VirtualDockerRepository extends pulumi.CustomResource {
      */
     public readonly notes!: pulumi.Output<string | undefined>;
     public /*out*/ readonly packageType!: pulumi.Output<string>;
-    /**
-     * Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
-     * Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
-     * attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-     * be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
-     */
     public readonly projectEnvironments!: pulumi.Output<string[]>;
     /**
      * Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
@@ -206,12 +200,6 @@ export interface VirtualDockerRepositoryState {
      */
     notes?: pulumi.Input<string>;
     packageType?: pulumi.Input<string>;
-    /**
-     * Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
-     * Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
-     * attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-     * be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
-     */
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
@@ -268,12 +256,6 @@ export interface VirtualDockerRepositoryArgs {
      * Internal description.
      */
     notes?: pulumi.Input<string>;
-    /**
-     * Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
-     * Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
-     * attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-     * be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
-     */
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When

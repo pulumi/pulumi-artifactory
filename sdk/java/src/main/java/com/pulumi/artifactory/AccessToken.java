@@ -31,7 +31,8 @@ import javax.annotation.Nullable;
  * ### Create a new Artifactory Access Token for an existing user
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,21 +53,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exisingUser = new AccessToken(&#34;exisingUser&#34;, AccessTokenArgs.builder()        
- *             .username(&#34;existing-user&#34;)
- *             .endDateRelative(&#34;5m&#34;)
+ *         var exisingUser = new AccessToken("exisingUser", AccessTokenArgs.builder()        
+ *             .username("existing-user")
+ *             .endDateRelative("5m")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * Note: This assumes that the user `existing-user` has already been created in Artifactory by different means, i.e. manually or in a separate pulumi up.
  * 
  * ### Create a new Artifactory User and Access token
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -89,26 +92,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var newUser = new User(&#34;newUser&#34;, UserArgs.builder()        
- *             .name(&#34;new_user&#34;)
- *             .email(&#34;new_user@somewhere.com&#34;)
- *             .groups(&#34;readers&#34;)
+ *         var newUser = new User("newUser", UserArgs.builder()        
+ *             .name("new_user")
+ *             .email("new_user{@literal @}somewhere.com")
+ *             .groups("readers")
  *             .build());
  * 
- *         var newUserAccessToken = new AccessToken(&#34;newUserAccessToken&#34;, AccessTokenArgs.builder()        
+ *         var newUserAccessToken = new AccessToken("newUserAccessToken", AccessTokenArgs.builder()        
  *             .username(newUser.name())
- *             .endDateRelative(&#34;5m&#34;)
+ *             .endDateRelative("5m")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Creates a new token for groups
  * This creates a transient user called `temporary-user`.
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -129,20 +134,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var temporaryUser = new AccessToken(&#34;temporaryUser&#34;, AccessTokenArgs.builder()        
- *             .username(&#34;temporary-user&#34;)
- *             .endDateRelative(&#34;1h&#34;)
- *             .groups(&#34;readers&#34;)
+ *         var temporaryUser = new AccessToken("temporaryUser", AccessTokenArgs.builder()        
+ *             .username("temporary-user")
+ *             .endDateRelative("1h")
+ *             .groups("readers")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Create token with no expiry
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -163,19 +170,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var noExpiry = new AccessToken(&#34;noExpiry&#34;, AccessTokenArgs.builder()        
- *             .username(&#34;existing-user&#34;)
- *             .endDateRelative(&#34;0s&#34;)
+ *         var noExpiry = new AccessToken("noExpiry", AccessTokenArgs.builder()        
+ *             .username("existing-user")
+ *             .endDateRelative("0s")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Creates a refreshable token
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -196,21 +205,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var refreshable = new AccessToken(&#34;refreshable&#34;, AccessTokenArgs.builder()        
- *             .username(&#34;refreshable&#34;)
- *             .endDateRelative(&#34;1m&#34;)
+ *         var refreshable = new AccessToken("refreshable", AccessTokenArgs.builder()        
+ *             .username("refreshable")
+ *             .endDateRelative("1m")
  *             .refreshable(true)
- *             .groups(&#34;readers&#34;)
+ *             .groups("readers")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Creates an administrator token
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -232,22 +243,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var admin = new AccessToken(&#34;admin&#34;, AccessTokenArgs.builder()        
- *             .username(&#34;admin&#34;)
- *             .endDateRelative(&#34;1m&#34;)
+ *         var admin = new AccessToken("admin", AccessTokenArgs.builder()        
+ *             .username("admin")
+ *             .endDateRelative("1m")
  *             .adminToken(AccessTokenAdminTokenArgs.builder()
- *                 .instanceId(&#34;&lt;instance id&gt;&#34;)
+ *                 .instanceId("<instance id>")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Creates a token with an audience
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -268,21 +281,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var audience = new AccessToken(&#34;audience&#34;, AccessTokenArgs.builder()        
- *             .username(&#34;audience&#34;)
- *             .endDateRelative(&#34;1m&#34;)
- *             .audience(&#34;jfrt@*&#34;)
+ *         var audience = new AccessToken("audience", AccessTokenArgs.builder()        
+ *             .username("audience")
+ *             .endDateRelative("1m")
+ *             .audience("jfrt{@literal @}*")
  *             .refreshable(true)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Creates a token with a fixed end date
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -303,15 +318,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var fixeddate = new AccessToken(&#34;fixeddate&#34;, AccessTokenArgs.builder()        
- *             .username(&#34;fixeddate&#34;)
- *             .endDate(&#34;2018-01-01T01:02:03Z&#34;)
- *             .groups(&#34;readers&#34;)
+ *         var fixeddate = new AccessToken("fixeddate", AccessTokenArgs.builder()        
+ *             .username("fixeddate")
+ *             .endDate("2018-01-01T01:02:03Z")
+ *             .groups("readers")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Rotate token after it expires
@@ -321,7 +337,8 @@ import javax.annotation.Nullable;
  * One an hour has passed, `pulumi up` will generate a new token.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -344,19 +361,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var nowPlus1Hours = new Rotating(&#34;nowPlus1Hours&#34;, RotatingArgs.builder()        
- *             .rotationHours(&#34;1&#34;)
+ *         var nowPlus1Hours = new Rotating("nowPlus1Hours", RotatingArgs.builder()        
+ *             .rotationHours("1")
  *             .build());
  * 
- *         var rotating = new AccessToken(&#34;rotating&#34;, AccessTokenArgs.builder()        
- *             .username(&#34;rotating&#34;)
+ *         var rotating = new AccessToken("rotating", AccessTokenArgs.builder()        
+ *             .username("rotating")
  *             .endDate(nowPlus1Hour.rotationRfc3339())
- *             .groups(&#34;readers&#34;)
+ *             .groups("readers")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Rotate token each pulumi up
@@ -365,7 +383,8 @@ import javax.annotation.Nullable;
  * If `pulumi up` is run before 1 hour, a new token is generated with an expiry of 1 hour.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -388,20 +407,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var nowPlus1Hours = new Rotating(&#34;nowPlus1Hours&#34;, RotatingArgs.builder()        
- *             .triggers(Map.of(&#34;key&#34;, StdFunctions.timestamp().result()))
- *             .rotationHours(&#34;1&#34;)
+ *         var nowPlus1Hours = new Rotating("nowPlus1Hours", RotatingArgs.builder()        
+ *             .triggers(Map.of("key", StdFunctions.timestamp().result()))
+ *             .rotationHours("1")
  *             .build());
  * 
- *         var rotating = new AccessToken(&#34;rotating&#34;, AccessTokenArgs.builder()        
- *             .username(&#34;rotating&#34;)
+ *         var rotating = new AccessToken("rotating", AccessTokenArgs.builder()        
+ *             .username("rotating")
  *             .endDate(nowPlus1Hour.rotationRfc3339())
- *             .groups(&#34;readers&#34;)
+ *             .groups("readers")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## References
@@ -445,14 +465,14 @@ public class AccessToken extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.adminToken);
     }
     /**
-     * (Optional) A space-separate list of the other Artifactory instances or services that should accept this token identified by their Artifactory Service IDs. You may set `&#34;jfrt@*&#34;` so the token to be accepted by all Artifactory instances.
+     * (Optional) A space-separate list of the other Artifactory instances or services that should accept this token identified by their Artifactory Service IDs. You may set `&#34;jfrt{@literal @}*&#34;` so the token to be accepted by all Artifactory instances.
      * 
      */
     @Export(name="audience", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> audience;
 
     /**
-     * @return (Optional) A space-separate list of the other Artifactory instances or services that should accept this token identified by their Artifactory Service IDs. You may set `&#34;jfrt@*&#34;` so the token to be accepted by all Artifactory instances.
+     * @return (Optional) A space-separate list of the other Artifactory instances or services that should accept this token identified by their Artifactory Service IDs. You may set `&#34;jfrt{@literal @}*&#34;` so the token to be accepted by all Artifactory instances.
      * 
      */
     public Output<Optional<String>> audience() {

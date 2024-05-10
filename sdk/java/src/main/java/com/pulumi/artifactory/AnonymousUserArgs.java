@@ -15,19 +15,9 @@ public final class AnonymousUserArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final AnonymousUserArgs Empty = new AnonymousUserArgs();
 
-    /**
-     * Username for anonymous user. This is only for ensuring resource schema is valid for Terraform. This is not meant to be
-     * set or updated in the HCL.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Username for anonymous user. This is only for ensuring resource schema is valid for Terraform. This is not meant to be
-     * set or updated in the HCL.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -56,25 +46,11 @@ public final class AnonymousUserArgs extends com.pulumi.resources.ResourceArgs {
             $ = new AnonymousUserArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Username for anonymous user. This is only for ensuring resource schema is valid for Terraform. This is not meant to be
-         * set or updated in the HCL.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Username for anonymous user. This is only for ensuring resource schema is valid for Terraform. This is not meant to be
-         * set or updated in the HCL.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

@@ -113,7 +113,7 @@ type RemotePypiRepository struct {
 	// Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
 	// the remote before serving locally cached artifact or fail the request.
 	MetadataRetrievalTimeoutSecs pulumi.IntPtrOutput `pulumi:"metadataRetrievalTimeoutSecs"`
-	// The set of mime types that should override the block_mismatching_mime_types setting. Eg:
+	// The set of mime types that should override the blockMismatchingMimeTypes setting. Eg:
 	// 'application/json,application/xml'. Default value is empty.
 	MismatchingMimeTypesOverrideList pulumi.StringPtrOutput `pulumi:"mismatchingMimeTypesOverrideList"`
 	// Missed Retrieval Cache Period (Sec) in the UI. The number of seconds to cache artifact retrieval misses (artifact not
@@ -128,18 +128,14 @@ type RemotePypiRepository struct {
 	// Setting Priority Resolution takes precedence over the resolution order when resolving virtual repositories. Setting
 	// repositories with priority will cause metadata to be merged only from repositories set with a priority. If a package is
 	// not found in those repositories, Artifactory will merge from repositories marked as non-priority.
-	PriorityResolution pulumi.BoolPtrOutput `pulumi:"priorityResolution"`
-	// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
-	// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
-	// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-	// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+	PriorityResolution  pulumi.BoolPtrOutput     `pulumi:"priorityResolution"`
 	ProjectEnvironments pulumi.StringArrayOutput `pulumi:"projectEnvironments"`
 	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrOutput `pulumi:"projectKey"`
 	// List of property set names
 	PropertySets pulumi.StringArrayOutput `pulumi:"propertySets"`
-	// Proxy key from Artifactory Proxies settings. Can't be set if `disable_proxy = true`.
+	// Proxy key from Artifactory Proxies settings. Can't be set if `disableProxy = true`.
 	Proxy pulumi.StringPtrOutput `pulumi:"proxy"`
 	// To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another Artifactory server. See JFrog Pypi documentation [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories) for the usage details. Default value is `https://pypi.org`.
 	PypiRegistryUrl pulumi.StringPtrOutput `pulumi:"pypiRegistryUrl"`
@@ -281,7 +277,7 @@ type remotePypiRepositoryState struct {
 	// Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
 	// the remote before serving locally cached artifact or fail the request.
 	MetadataRetrievalTimeoutSecs *int `pulumi:"metadataRetrievalTimeoutSecs"`
-	// The set of mime types that should override the block_mismatching_mime_types setting. Eg:
+	// The set of mime types that should override the blockMismatchingMimeTypes setting. Eg:
 	// 'application/json,application/xml'. Default value is empty.
 	MismatchingMimeTypesOverrideList *string `pulumi:"mismatchingMimeTypesOverrideList"`
 	// Missed Retrieval Cache Period (Sec) in the UI. The number of seconds to cache artifact retrieval misses (artifact not
@@ -296,18 +292,14 @@ type remotePypiRepositoryState struct {
 	// Setting Priority Resolution takes precedence over the resolution order when resolving virtual repositories. Setting
 	// repositories with priority will cause metadata to be merged only from repositories set with a priority. If a package is
 	// not found in those repositories, Artifactory will merge from repositories marked as non-priority.
-	PriorityResolution *bool `pulumi:"priorityResolution"`
-	// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
-	// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
-	// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-	// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+	PriorityResolution  *bool    `pulumi:"priorityResolution"`
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
 	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey *string `pulumi:"projectKey"`
 	// List of property set names
 	PropertySets []string `pulumi:"propertySets"`
-	// Proxy key from Artifactory Proxies settings. Can't be set if `disable_proxy = true`.
+	// Proxy key from Artifactory Proxies settings. Can't be set if `disableProxy = true`.
 	Proxy *string `pulumi:"proxy"`
 	// To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another Artifactory server. See JFrog Pypi documentation [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories) for the usage details. Default value is `https://pypi.org`.
 	PypiRegistryUrl *string `pulumi:"pypiRegistryUrl"`
@@ -407,7 +399,7 @@ type RemotePypiRepositoryState struct {
 	// Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
 	// the remote before serving locally cached artifact or fail the request.
 	MetadataRetrievalTimeoutSecs pulumi.IntPtrInput
-	// The set of mime types that should override the block_mismatching_mime_types setting. Eg:
+	// The set of mime types that should override the blockMismatchingMimeTypes setting. Eg:
 	// 'application/json,application/xml'. Default value is empty.
 	MismatchingMimeTypesOverrideList pulumi.StringPtrInput
 	// Missed Retrieval Cache Period (Sec) in the UI. The number of seconds to cache artifact retrieval misses (artifact not
@@ -422,18 +414,14 @@ type RemotePypiRepositoryState struct {
 	// Setting Priority Resolution takes precedence over the resolution order when resolving virtual repositories. Setting
 	// repositories with priority will cause metadata to be merged only from repositories set with a priority. If a package is
 	// not found in those repositories, Artifactory will merge from repositories marked as non-priority.
-	PriorityResolution pulumi.BoolPtrInput
-	// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
-	// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
-	// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-	// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+	PriorityResolution  pulumi.BoolPtrInput
 	ProjectEnvironments pulumi.StringArrayInput
 	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrInput
 	// List of property set names
 	PropertySets pulumi.StringArrayInput
-	// Proxy key from Artifactory Proxies settings. Can't be set if `disable_proxy = true`.
+	// Proxy key from Artifactory Proxies settings. Can't be set if `disableProxy = true`.
 	Proxy pulumi.StringPtrInput
 	// To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another Artifactory server. See JFrog Pypi documentation [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories) for the usage details. Default value is `https://pypi.org`.
 	PypiRegistryUrl pulumi.StringPtrInput
@@ -537,7 +525,7 @@ type remotePypiRepositoryArgs struct {
 	// Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
 	// the remote before serving locally cached artifact or fail the request.
 	MetadataRetrievalTimeoutSecs *int `pulumi:"metadataRetrievalTimeoutSecs"`
-	// The set of mime types that should override the block_mismatching_mime_types setting. Eg:
+	// The set of mime types that should override the blockMismatchingMimeTypes setting. Eg:
 	// 'application/json,application/xml'. Default value is empty.
 	MismatchingMimeTypesOverrideList *string `pulumi:"mismatchingMimeTypesOverrideList"`
 	// Missed Retrieval Cache Period (Sec) in the UI. The number of seconds to cache artifact retrieval misses (artifact not
@@ -551,18 +539,14 @@ type remotePypiRepositoryArgs struct {
 	// Setting Priority Resolution takes precedence over the resolution order when resolving virtual repositories. Setting
 	// repositories with priority will cause metadata to be merged only from repositories set with a priority. If a package is
 	// not found in those repositories, Artifactory will merge from repositories marked as non-priority.
-	PriorityResolution *bool `pulumi:"priorityResolution"`
-	// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
-	// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
-	// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-	// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+	PriorityResolution  *bool    `pulumi:"priorityResolution"`
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
 	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey *string `pulumi:"projectKey"`
 	// List of property set names
 	PropertySets []string `pulumi:"propertySets"`
-	// Proxy key from Artifactory Proxies settings. Can't be set if `disable_proxy = true`.
+	// Proxy key from Artifactory Proxies settings. Can't be set if `disableProxy = true`.
 	Proxy *string `pulumi:"proxy"`
 	// To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another Artifactory server. See JFrog Pypi documentation [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories) for the usage details. Default value is `https://pypi.org`.
 	PypiRegistryUrl *string `pulumi:"pypiRegistryUrl"`
@@ -663,7 +647,7 @@ type RemotePypiRepositoryArgs struct {
 	// Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
 	// the remote before serving locally cached artifact or fail the request.
 	MetadataRetrievalTimeoutSecs pulumi.IntPtrInput
-	// The set of mime types that should override the block_mismatching_mime_types setting. Eg:
+	// The set of mime types that should override the blockMismatchingMimeTypes setting. Eg:
 	// 'application/json,application/xml'. Default value is empty.
 	MismatchingMimeTypesOverrideList pulumi.StringPtrInput
 	// Missed Retrieval Cache Period (Sec) in the UI. The number of seconds to cache artifact retrieval misses (artifact not
@@ -677,18 +661,14 @@ type RemotePypiRepositoryArgs struct {
 	// Setting Priority Resolution takes precedence over the resolution order when resolving virtual repositories. Setting
 	// repositories with priority will cause metadata to be merged only from repositories set with a priority. If a package is
 	// not found in those repositories, Artifactory will merge from repositories marked as non-priority.
-	PriorityResolution pulumi.BoolPtrInput
-	// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
-	// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
-	// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-	// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+	PriorityResolution  pulumi.BoolPtrInput
 	ProjectEnvironments pulumi.StringArrayInput
 	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrInput
 	// List of property set names
 	PropertySets pulumi.StringArrayInput
-	// Proxy key from Artifactory Proxies settings. Can't be set if `disable_proxy = true`.
+	// Proxy key from Artifactory Proxies settings. Can't be set if `disableProxy = true`.
 	Proxy pulumi.StringPtrInput
 	// To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another Artifactory server. See JFrog Pypi documentation [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories) for the usage details. Default value is `https://pypi.org`.
 	PypiRegistryUrl pulumi.StringPtrInput
@@ -939,7 +919,7 @@ func (o RemotePypiRepositoryOutput) MetadataRetrievalTimeoutSecs() pulumi.IntPtr
 	return o.ApplyT(func(v *RemotePypiRepository) pulumi.IntPtrOutput { return v.MetadataRetrievalTimeoutSecs }).(pulumi.IntPtrOutput)
 }
 
-// The set of mime types that should override the block_mismatching_mime_types setting. Eg:
+// The set of mime types that should override the blockMismatchingMimeTypes setting. Eg:
 // 'application/json,application/xml'. Default value is empty.
 func (o RemotePypiRepositoryOutput) MismatchingMimeTypesOverrideList() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemotePypiRepository) pulumi.StringPtrOutput { return v.MismatchingMimeTypesOverrideList }).(pulumi.StringPtrOutput)
@@ -976,10 +956,6 @@ func (o RemotePypiRepositoryOutput) PriorityResolution() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemotePypiRepository) pulumi.BoolPtrOutput { return v.PriorityResolution }).(pulumi.BoolPtrOutput)
 }
 
-// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
-// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
-// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
 func (o RemotePypiRepositoryOutput) ProjectEnvironments() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RemotePypiRepository) pulumi.StringArrayOutput { return v.ProjectEnvironments }).(pulumi.StringArrayOutput)
 }
@@ -995,7 +971,7 @@ func (o RemotePypiRepositoryOutput) PropertySets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RemotePypiRepository) pulumi.StringArrayOutput { return v.PropertySets }).(pulumi.StringArrayOutput)
 }
 
-// Proxy key from Artifactory Proxies settings. Can't be set if `disable_proxy = true`.
+// Proxy key from Artifactory Proxies settings. Can't be set if `disableProxy = true`.
 func (o RemotePypiRepositoryOutput) Proxy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemotePypiRepository) pulumi.StringPtrOutput { return v.Proxy }).(pulumi.StringPtrOutput)
 }

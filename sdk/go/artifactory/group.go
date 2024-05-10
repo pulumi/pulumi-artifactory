@@ -40,9 +40,8 @@ type Group struct {
 	// The realm attributes for the group.
 	RealmAttributes pulumi.StringOutput `pulumi:"realmAttributes"`
 	// When this override is set, User in the group can manage Xray Reports on any resource type. Default value is `false`.
-	ReportsManager pulumi.BoolOutput `pulumi:"reportsManager"`
-	// List of users assigned to the group. If not set or empty, Terraform will not manage group membership.
-	UsersNames pulumi.StringArrayOutput `pulumi:"usersNames"`
+	ReportsManager pulumi.BoolOutput        `pulumi:"reportsManager"`
+	UsersNames     pulumi.StringArrayOutput `pulumi:"usersNames"`
 	// When this override is set, User in the group can manage Xray Watches on any resource type. Default value is `false`.
 	WatchManager pulumi.BoolOutput `pulumi:"watchManager"`
 }
@@ -96,9 +95,8 @@ type groupState struct {
 	// The realm attributes for the group.
 	RealmAttributes *string `pulumi:"realmAttributes"`
 	// When this override is set, User in the group can manage Xray Reports on any resource type. Default value is `false`.
-	ReportsManager *bool `pulumi:"reportsManager"`
-	// List of users assigned to the group. If not set or empty, Terraform will not manage group membership.
-	UsersNames []string `pulumi:"usersNames"`
+	ReportsManager *bool    `pulumi:"reportsManager"`
+	UsersNames     []string `pulumi:"usersNames"`
 	// When this override is set, User in the group can manage Xray Watches on any resource type. Default value is `false`.
 	WatchManager *bool `pulumi:"watchManager"`
 }
@@ -124,8 +122,7 @@ type GroupState struct {
 	RealmAttributes pulumi.StringPtrInput
 	// When this override is set, User in the group can manage Xray Reports on any resource type. Default value is `false`.
 	ReportsManager pulumi.BoolPtrInput
-	// List of users assigned to the group. If not set or empty, Terraform will not manage group membership.
-	UsersNames pulumi.StringArrayInput
+	UsersNames     pulumi.StringArrayInput
 	// When this override is set, User in the group can manage Xray Watches on any resource type. Default value is `false`.
 	WatchManager pulumi.BoolPtrInput
 }
@@ -154,9 +151,8 @@ type groupArgs struct {
 	// The realm attributes for the group.
 	RealmAttributes *string `pulumi:"realmAttributes"`
 	// When this override is set, User in the group can manage Xray Reports on any resource type. Default value is `false`.
-	ReportsManager *bool `pulumi:"reportsManager"`
-	// List of users assigned to the group. If not set or empty, Terraform will not manage group membership.
-	UsersNames []string `pulumi:"usersNames"`
+	ReportsManager *bool    `pulumi:"reportsManager"`
+	UsersNames     []string `pulumi:"usersNames"`
 	// When this override is set, User in the group can manage Xray Watches on any resource type. Default value is `false`.
 	WatchManager *bool `pulumi:"watchManager"`
 }
@@ -183,8 +179,7 @@ type GroupArgs struct {
 	RealmAttributes pulumi.StringPtrInput
 	// When this override is set, User in the group can manage Xray Reports on any resource type. Default value is `false`.
 	ReportsManager pulumi.BoolPtrInput
-	// List of users assigned to the group. If not set or empty, Terraform will not manage group membership.
-	UsersNames pulumi.StringArrayInput
+	UsersNames     pulumi.StringArrayInput
 	// When this override is set, User in the group can manage Xray Watches on any resource type. Default value is `false`.
 	WatchManager pulumi.BoolPtrInput
 }
@@ -326,7 +321,6 @@ func (o GroupOutput) ReportsManager() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Group) pulumi.BoolOutput { return v.ReportsManager }).(pulumi.BoolOutput)
 }
 
-// List of users assigned to the group. If not set or empty, Terraform will not manage group membership.
 func (o GroupOutput) UsersNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringArrayOutput { return v.UsersNames }).(pulumi.StringArrayOutput)
 }

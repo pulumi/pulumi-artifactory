@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,16 +43,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var my_key = new DistributionPublicKey(&#34;my-key&#34;, DistributionPublicKeyArgs.builder()        
- *             .alias(&#34;my-key&#34;)
+ *         var my_key = new DistributionPublicKey("my-key", DistributionPublicKeyArgs.builder()        
+ *             .alias("my-key")
  *             .publicKey(StdFunctions.file(FileArgs.builder()
- *                 .input(&#34;samples/rsa.pub&#34;)
+ *                 .input("samples/rsa.pub")
  *                 .build()).result())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

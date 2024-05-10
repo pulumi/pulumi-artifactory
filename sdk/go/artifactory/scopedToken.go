@@ -143,7 +143,7 @@ type ScopedToken struct {
 	ExpiresIn pulumi.IntOutput `pulumi:"expiresIn"`
 	// Returns the token expiry.
 	Expiry pulumi.IntOutput `pulumi:"expiry"`
-	// The grant type used to authenticate the request. In this case, the only value supported is `client_credentials` which is
+	// The grant type used to authenticate the request. In this case, the only value supported is `clientCredentials` which is
 	// also the default value if this parameter is not specified.
 	GrantType pulumi.StringOutput `pulumi:"grantType"`
 	// Also create a reference token which can be used like an API key. Default is `false`.
@@ -244,7 +244,7 @@ type scopedTokenState struct {
 	ExpiresIn *int `pulumi:"expiresIn"`
 	// Returns the token expiry.
 	Expiry *int `pulumi:"expiry"`
-	// The grant type used to authenticate the request. In this case, the only value supported is `client_credentials` which is
+	// The grant type used to authenticate the request. In this case, the only value supported is `clientCredentials` which is
 	// also the default value if this parameter is not specified.
 	GrantType *string `pulumi:"grantType"`
 	// Also create a reference token which can be used like an API key. Default is `false`.
@@ -310,7 +310,7 @@ type ScopedTokenState struct {
 	ExpiresIn pulumi.IntPtrInput
 	// Returns the token expiry.
 	Expiry pulumi.IntPtrInput
-	// The grant type used to authenticate the request. In this case, the only value supported is `client_credentials` which is
+	// The grant type used to authenticate the request. In this case, the only value supported is `clientCredentials` which is
 	// also the default value if this parameter is not specified.
 	GrantType pulumi.StringPtrInput
 	// Also create a reference token which can be used like an API key. Default is `false`.
@@ -376,7 +376,7 @@ type scopedTokenArgs struct {
 	// documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/using-the-revocable-and-persistency-thresholds)
 	// for details.
 	ExpiresIn *int `pulumi:"expiresIn"`
-	// The grant type used to authenticate the request. In this case, the only value supported is `client_credentials` which is
+	// The grant type used to authenticate the request. In this case, the only value supported is `clientCredentials` which is
 	// also the default value if this parameter is not specified.
 	GrantType *string `pulumi:"grantType"`
 	// Also create a reference token which can be used like an API key. Default is `false`.
@@ -427,7 +427,7 @@ type ScopedTokenArgs struct {
 	// documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/using-the-revocable-and-persistency-thresholds)
 	// for details.
 	ExpiresIn pulumi.IntPtrInput
-	// The grant type used to authenticate the request. In this case, the only value supported is `client_credentials` which is
+	// The grant type used to authenticate the request. In this case, the only value supported is `clientCredentials` which is
 	// also the default value if this parameter is not specified.
 	GrantType pulumi.StringPtrInput
 	// Also create a reference token which can be used like an API key. Default is `false`.
@@ -582,7 +582,7 @@ func (o ScopedTokenOutput) Expiry() pulumi.IntOutput {
 	return o.ApplyT(func(v *ScopedToken) pulumi.IntOutput { return v.Expiry }).(pulumi.IntOutput)
 }
 
-// The grant type used to authenticate the request. In this case, the only value supported is `client_credentials` which is
+// The grant type used to authenticate the request. In this case, the only value supported is `clientCredentials` which is
 // also the default value if this parameter is not specified.
 func (o ScopedTokenOutput) GrantType() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScopedToken) pulumi.StringOutput { return v.GrantType }).(pulumi.StringOutput)

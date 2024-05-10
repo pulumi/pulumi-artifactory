@@ -18,7 +18,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     public static final ProviderArgs Empty = new ProviderArgs();
 
     /**
-     * This is a access token that can be given to you by your admin under `User Management -&gt; Access Tokens`. If not set, the
+     * This is a access token that can be given to you by your admin under `User Management &gt; Access Tokens`. If not set, the
      * &#39;api_key&#39; attribute value will be used.
      * 
      */
@@ -26,7 +26,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> accessToken;
 
     /**
-     * @return This is a access token that can be given to you by your admin under `User Management -&gt; Access Tokens`. If not set, the
+     * @return This is a access token that can be given to you by your admin under `User Management &gt; Access Tokens`. If not set, the
      * &#39;api_key&#39; attribute value will be used.
      * 
      */
@@ -145,7 +145,7 @@ By end of Q4 2024, API Keys will be deprecated all together and the option to us
         }
 
         /**
-         * @param accessToken This is a access token that can be given to you by your admin under `User Management -&gt; Access Tokens`. If not set, the
+         * @param accessToken This is a access token that can be given to you by your admin under `User Management &gt; Access Tokens`. If not set, the
          * &#39;api_key&#39; attribute value will be used.
          * 
          * @return builder
@@ -157,7 +157,7 @@ By end of Q4 2024, API Keys will be deprecated all together and the option to us
         }
 
         /**
-         * @param accessToken This is a access token that can be given to you by your admin under `User Management -&gt; Access Tokens`. If not set, the
+         * @param accessToken This is a access token that can be given to you by your admin under `User Management &gt; Access Tokens`. If not set, the
          * &#39;api_key&#39; attribute value will be used.
          * 
          * @return builder

@@ -19,7 +19,7 @@ namespace Pulumi.Artifactory
     public partial class Provider : global::Pulumi.ProviderResource
     {
         /// <summary>
-        /// This is a access token that can be given to you by your admin under `User Management -&gt; Access Tokens`. If not set, the
+        /// This is a access token that can be given to you by your admin under `User Management &gt; Access Tokens`. If not set, the
         /// 'api_key' attribute value will be used.
         /// </summary>
         [Output("accessToken")]
@@ -83,7 +83,7 @@ namespace Pulumi.Artifactory
         private Input<string>? _accessToken;
 
         /// <summary>
-        /// This is a access token that can be given to you by your admin under `User Management -&gt; Access Tokens`. If not set, the
+        /// This is a access token that can be given to you by your admin under `User Management &gt; Access Tokens`. If not set, the
         /// 'api_key' attribute value will be used.
         /// </summary>
         public Input<string>? AccessToken

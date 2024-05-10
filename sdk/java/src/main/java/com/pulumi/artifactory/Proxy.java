@@ -28,7 +28,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,24 +50,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var my_proxy = new Proxy(&#34;my-proxy&#34;, ProxyArgs.builder()        
- *             .key(&#34;my-proxy&#34;)
- *             .host(&#34;my-proxy.mycompany.com&#34;)
+ *         var my_proxy = new Proxy("my-proxy", ProxyArgs.builder()        
+ *             .key("my-proxy")
+ *             .host("my-proxy.mycompany.com")
  *             .port(8888)
- *             .username(&#34;user1&#34;)
- *             .password(&#34;password&#34;)
- *             .ntHost(&#34;MYCOMPANY.COM&#34;)
- *             .ntDomain(&#34;MYCOMPANY&#34;)
+ *             .username("user1")
+ *             .password("password")
+ *             .ntHost("MYCOMPANY.COM")
+ *             .ntDomain("MYCOMPANY")
  *             .platformDefault(false)
- *             .redirectToHosts(&#34;redirec-host.mycompany.com&#34;)
+ *             .redirectToHosts("redirec-host.mycompany.com")
  *             .services(            
- *                 &#34;jfrt&#34;,
- *                 &#34;jfxr&#34;)
+ *                 "jfrt",
+ *                 "jfxr")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

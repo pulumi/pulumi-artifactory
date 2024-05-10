@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -40,13 +41,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test_env = new GlobalEnvironment(&#34;test-env&#34;, GlobalEnvironmentArgs.builder()        
- *             .name(&#34;test-env&#34;)
+ *         var test_env = new GlobalEnvironment("test-env", GlobalEnvironmentArgs.builder()        
+ *             .name("test-env")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

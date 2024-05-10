@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,22 +49,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var ldapGroupName = new LdapGroupSettingV2(&#34;ldapGroupName&#34;, LdapGroupSettingV2Args.builder()        
- *             .name(&#34;ldap_group_name&#34;)
- *             .enabledLdap(&#34;ldap_name&#34;)
- *             .groupBaseDn(&#34;CN=Users,DC=MyDomain,DC=com&#34;)
- *             .groupNameAttribute(&#34;cn&#34;)
- *             .groupMemberAttribute(&#34;uniqueMember&#34;)
+ *         var ldapGroupName = new LdapGroupSettingV2("ldapGroupName", LdapGroupSettingV2Args.builder()        
+ *             .name("ldap_group_name")
+ *             .enabledLdap("ldap_name")
+ *             .groupBaseDn("CN=Users,DC=MyDomain,DC=com")
+ *             .groupNameAttribute("cn")
+ *             .groupMemberAttribute("uniqueMember")
  *             .subTree(true)
  *             .forceAttributeSearch(false)
- *             .filter(&#34;(objectClass=groupOfNames)&#34;)
- *             .descriptionAttribute(&#34;description&#34;)
- *             .strategy(&#34;STATIC&#34;)
+ *             .filter("(objectClass=groupOfNames)")
+ *             .descriptionAttribute("description")
+ *             .strategy("STATIC")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

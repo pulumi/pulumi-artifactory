@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -41,15 +42,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var my_artifact = new Artifact(&#34;my-artifact&#34;, ArtifactArgs.builder()        
- *             .repository(&#34;my-generic-local&#34;)
- *             .path(&#34;/my-path/my-file.zip&#34;)
- *             .filePath(&#34;/path/to/my-file.zip&#34;)
+ *         var my_artifact = new Artifact("my-artifact", ArtifactArgs.builder()        
+ *             .repository("my-generic-local")
+ *             .path("/my-path/my-file.zip")
+ *             .filePath("/path/to/my-file.zip")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

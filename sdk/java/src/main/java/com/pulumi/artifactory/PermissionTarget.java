@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -53,63 +54,63 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Create a new Artifactory permission target called testpermission
- *         var test_perm = new PermissionTarget(&#34;test-perm&#34;, PermissionTargetArgs.builder()        
- *             .name(&#34;test-perm&#34;)
+ *         var test_perm = new PermissionTarget("test-perm", PermissionTargetArgs.builder()        
+ *             .name("test-perm")
  *             .repo(PermissionTargetRepoArgs.builder()
- *                 .includesPatterns(&#34;foo/**&#34;)
- *                 .excludesPatterns(&#34;bar/**&#34;)
- *                 .repositories(&#34;example-repo-local&#34;)
+ *                 .includesPatterns("foo/**")
+ *                 .excludesPatterns("bar/**")
+ *                 .repositories("example-repo-local")
  *                 .actions(PermissionTargetRepoActionsArgs.builder()
  *                     .users(                    
  *                         PermissionTargetRepoActionsUserArgs.builder()
- *                             .name(&#34;anonymous&#34;)
+ *                             .name("anonymous")
  *                             .permissions(                            
- *                                 &#34;read&#34;,
- *                                 &#34;write&#34;)
+ *                                 "read",
+ *                                 "write")
  *                             .build(),
  *                         PermissionTargetRepoActionsUserArgs.builder()
- *                             .name(&#34;user1&#34;)
+ *                             .name("user1")
  *                             .permissions(                            
- *                                 &#34;read&#34;,
- *                                 &#34;write&#34;)
+ *                                 "read",
+ *                                 "write")
  *                             .build())
  *                     .groups(                    
  *                         PermissionTargetRepoActionsGroupArgs.builder()
- *                             .name(&#34;readers&#34;)
- *                             .permissions(&#34;read&#34;)
+ *                             .name("readers")
+ *                             .permissions("read")
  *                             .build(),
  *                         PermissionTargetRepoActionsGroupArgs.builder()
- *                             .name(&#34;dev&#34;)
+ *                             .name("dev")
  *                             .permissions(                            
- *                                 &#34;read&#34;,
- *                                 &#34;write&#34;)
+ *                                 "read",
+ *                                 "write")
  *                             .build())
  *                     .build())
  *                 .build())
  *             .build(PermissionTargetBuildArgs.builder()
- *                 .includesPatterns(&#34;**&#34;)
- *                 .repositories(&#34;artifactory-build-info&#34;)
+ *                 .includesPatterns("**")
+ *                 .repositories("artifactory-build-info")
  *                 .actions(PermissionTargetBuildActionsArgs.builder()
  *                     .users(                    
  *                         PermissionTargetBuildActionsUserArgs.builder()
- *                             .name(&#34;anonymous&#34;)
- *                             .permissions(&#34;read&#34;)
+ *                             .name("anonymous")
+ *                             .permissions("read")
  *                             .build(),
  *                         PermissionTargetBuildActionsUserArgs.builder()
- *                             .name(&#34;user1&#34;)
+ *                             .name("user1")
  *                             .permissions(                            
- *                                 &#34;read&#34;,
- *                                 &#34;write&#34;)
+ *                                 "read",
+ *                                 "write")
  *                             .build())
  *                     .build())
  *                 .build())
  *             .releaseBundle(PermissionTargetReleaseBundleArgs.builder()
- *                 .includesPatterns(&#34;**&#34;)
- *                 .repositories(&#34;release-bundles&#34;)
+ *                 .includesPatterns("**")
+ *                 .repositories("release-bundles")
  *                 .actions(PermissionTargetReleaseBundleActionsArgs.builder()
  *                     .users(PermissionTargetReleaseBundleActionsUserArgs.builder()
- *                         .name(&#34;anonymous&#34;)
- *                         .permissions(&#34;read&#34;)
+ *                         .name("anonymous")
+ *                         .permissions("read")
  *                         .build())
  *                     .build())
  *                 .build())
@@ -117,7 +118,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Permissions

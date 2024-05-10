@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,13 +47,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Configure Artifactory general security settings
- *         var security = new GeneralSecurity(&#34;security&#34;, GeneralSecurityArgs.builder()        
+ *         var security = new GeneralSecurity("security", GeneralSecurityArgs.builder()        
  *             .enableAnonymousAccess(true)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

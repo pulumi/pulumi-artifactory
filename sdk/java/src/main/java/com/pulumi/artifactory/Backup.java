@@ -28,7 +28,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,10 +51,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Configure Artifactory Backup system config
- *         var backupConfigName = new Backup(&#34;backupConfigName&#34;, BackupArgs.builder()        
- *             .key(&#34;backup_config_name&#34;)
+ *         var backupConfigName = new Backup("backupConfigName", BackupArgs.builder()        
+ *             .key("backup_config_name")
  *             .enabled(true)
- *             .cronExp(&#34;0 0 12 * * ? *&#34;)
+ *             .cronExp("0 0 12 * * ? *")
  *             .retentionPeriodHours(1000)
  *             .excludedRepositories()
  *             .createArchive(false)
@@ -65,7 +66,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * Note: `Key` argument has to match to the resource name.
  * Reference Link: [JFrog Artifactory Backup](https://www.jfrog.com/confluence/display/JFROG/Backups)

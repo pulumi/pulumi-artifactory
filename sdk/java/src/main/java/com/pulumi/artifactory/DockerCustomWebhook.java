@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,34 +51,34 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var my_docker_local = new DockerV2Repository(&#34;my-docker-local&#34;, DockerV2RepositoryArgs.builder()        
- *             .key(&#34;my-docker-local&#34;)
+ *         var my_docker_local = new DockerV2Repository("my-docker-local", DockerV2RepositoryArgs.builder()        
+ *             .key("my-docker-local")
  *             .build());
  * 
- *         var docker_custom_webhook = new DockerCustomWebhook(&#34;docker-custom-webhook&#34;, DockerCustomWebhookArgs.builder()        
- *             .key(&#34;docker-custom_webhook&#34;)
+ *         var docker_custom_webhook = new DockerCustomWebhook("docker-custom-webhook", DockerCustomWebhookArgs.builder()        
+ *             .key("docker-custom_webhook")
  *             .eventTypes(            
- *                 &#34;pushed&#34;,
- *                 &#34;deleted&#34;,
- *                 &#34;promoted&#34;)
+ *                 "pushed",
+ *                 "deleted",
+ *                 "promoted")
  *             .criteria(DockerCustomWebhookCriteriaArgs.builder()
  *                 .anyLocal(true)
  *                 .anyRemote(false)
  *                 .repoKeys(my_docker_local.key())
- *                 .includePatterns(&#34;foo/**&#34;)
- *                 .excludePatterns(&#34;bar/**&#34;)
+ *                 .includePatterns("foo/**")
+ *                 .excludePatterns("bar/**")
  *                 .build())
  *             .handlers(DockerCustomWebhookHandlerArgs.builder()
- *                 .url(&#34;https://tempurl.org&#34;)
+ *                 .url("https://tempurl.org")
  *                 .secrets(Map.ofEntries(
- *                     Map.entry(&#34;secretName1&#34;, &#34;value1&#34;),
- *                     Map.entry(&#34;secretName2&#34;, &#34;value2&#34;)
+ *                     Map.entry("secretName1", "value1"),
+ *                     Map.entry("secretName2", "value2")
  *                 ))
  *                 .httpHeaders(Map.ofEntries(
- *                     Map.entry(&#34;headerName1&#34;, &#34;value1&#34;),
- *                     Map.entry(&#34;headerName2&#34;, &#34;value2&#34;)
+ *                     Map.entry("headerName1", "value1"),
+ *                     Map.entry("headerName2", "value2")
  *                 ))
- *                 .payload(&#34;{ \&#34;ref\&#34;: \&#34;main\&#34; , \&#34;inputs\&#34;: { \&#34;artifact_path\&#34;: \&#34;test-repo/repo-path\&#34; } }&#34;)
+ *                 .payload("{ \"ref\": \"main\" , \"inputs\": { \"artifact_path\": \"test-repo/repo-path\" } }")
  *                 .build())
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(my_docker_local)
@@ -85,7 +86,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

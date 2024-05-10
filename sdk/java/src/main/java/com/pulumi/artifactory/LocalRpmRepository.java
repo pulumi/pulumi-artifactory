@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,36 +48,36 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var some_keypair_gpg_1 = new Keypair(&#34;some-keypair-gpg-1&#34;, KeypairArgs.builder()        
- *             .pairName(String.format(&#34;some-keypair%s&#34;, randid.id()))
- *             .pairType(&#34;GPG&#34;)
- *             .alias(&#34;foo-alias1&#34;)
+ *         var some_keypair_gpg_1 = new Keypair("some-keypair-gpg-1", KeypairArgs.builder()        
+ *             .pairName(String.format("some-keypair%s", randid.id()))
+ *             .pairType("GPG")
+ *             .alias("foo-alias1")
  *             .privateKey(StdFunctions.file(FileArgs.builder()
- *                 .input(&#34;samples/gpg.priv&#34;)
+ *                 .input("samples/gpg.priv")
  *                 .build()).result())
  *             .publicKey(StdFunctions.file(FileArgs.builder()
- *                 .input(&#34;samples/gpg.pub&#34;)
+ *                 .input("samples/gpg.pub")
  *                 .build()).result())
  *             .build());
  * 
- *         var some_keypair_gpg_2 = new Keypair(&#34;some-keypair-gpg-2&#34;, KeypairArgs.builder()        
- *             .pairName(String.format(&#34;some-keypair%s&#34;, randid.id()))
- *             .pairType(&#34;GPG&#34;)
- *             .alias(&#34;foo-alias2&#34;)
+ *         var some_keypair_gpg_2 = new Keypair("some-keypair-gpg-2", KeypairArgs.builder()        
+ *             .pairName(String.format("some-keypair%s", randid.id()))
+ *             .pairType("GPG")
+ *             .alias("foo-alias2")
  *             .privateKey(StdFunctions.file(FileArgs.builder()
- *                 .input(&#34;samples/gpg.priv&#34;)
+ *                 .input("samples/gpg.priv")
  *                 .build()).result())
  *             .publicKey(StdFunctions.file(FileArgs.builder()
- *                 .input(&#34;samples/gpg.pub&#34;)
+ *                 .input("samples/gpg.pub")
  *                 .build()).result())
  *             .build());
  * 
- *         var terraform_local_test_rpm_repo_basic = new LocalRpmRepository(&#34;terraform-local-test-rpm-repo-basic&#34;, LocalRpmRepositoryArgs.builder()        
- *             .key(&#34;terraform-local-test-rpm-repo-basic&#34;)
+ *         var terraform_local_test_rpm_repo_basic = new LocalRpmRepository("terraform-local-test-rpm-repo-basic", LocalRpmRepositoryArgs.builder()        
+ *             .key("terraform-local-test-rpm-repo-basic")
  *             .yumRootDepth(5)
  *             .calculateYumMetadata(true)
  *             .enableFileListsIndexing(true)
- *             .yumGroupFileNames(&#34;file-1.xml,file-2.xml&#34;)
+ *             .yumGroupFileNames("file-1.xml,file-2.xml")
  *             .primaryKeypairRef(some_keypairGPG1.pairName())
  *             .secondaryKeypairRef(some_keypairGPG2.pairName())
  *             .build(), CustomResourceOptions.builder()
@@ -87,7 +88,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -301,23 +303,9 @@ public class LocalRpmRepository extends com.pulumi.resources.CustomResource {
     public Output<Optional<Boolean>> priorityResolution() {
         return Codegen.optional(this.priorityResolution);
     }
-    /**
-     * Project environment for assigning this repository to. Allow values: &#34;DEV&#34;, &#34;PROD&#34;, or one of custom environment. Before
-     * Artifactory 7.53.1, up to 2 values (&#34;DEV&#34; and &#34;PROD&#34;) are allowed. From 7.53.1 onward, only one value is allowed. The
-     * attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-     * be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
-     * 
-     */
     @Export(name="projectEnvironments", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> projectEnvironments;
 
-    /**
-     * @return Project environment for assigning this repository to. Allow values: &#34;DEV&#34;, &#34;PROD&#34;, or one of custom environment. Before
-     * Artifactory 7.53.1, up to 2 values (&#34;DEV&#34; and &#34;PROD&#34;) are allowed. From 7.53.1 onward, only one value is allowed. The
-     * attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-     * be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
-     * 
-     */
     public Output<List<String>> projectEnvironments() {
         return this.projectEnvironments;
     }

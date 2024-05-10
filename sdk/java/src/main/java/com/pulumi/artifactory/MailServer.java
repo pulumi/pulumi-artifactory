@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ### S
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,22 +46,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var mymailserver = new MailServer(&#34;mymailserver&#34;, MailServerArgs.builder()        
+ *         var mymailserver = new MailServer("mymailserver", MailServerArgs.builder()        
  *             .enabled(true)
- *             .artifactoryUrl(&#34;http://tempurl.org&#34;)
- *             .from(&#34;test@jfrog.com&#34;)
- *             .host(&#34;http://tempurl.org&#34;)
- *             .username(&#34;test-user&#34;)
- *             .password(&#34;test-password&#34;)
+ *             .artifactoryUrl("http://tempurl.org")
+ *             .from("test{@literal @}jfrog.com")
+ *             .host("http://tempurl.org")
+ *             .username("test-user")
+ *             .password("test-password")
  *             .port(25)
- *             .subjectPrefix(&#34;[Test]&#34;)
+ *             .subjectPrefix("[Test]")
  *             .useSsl(true)
  *             .useTls(true)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

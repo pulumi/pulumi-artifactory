@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,8 +43,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var my_password_expiration_policy = new PasswordExpirationPolicy(&#34;my-password-expiration-policy&#34;, PasswordExpirationPolicyArgs.builder()        
- *             .name(&#34;my-password-expiration-policy&#34;)
+ *         var my_password_expiration_policy = new PasswordExpirationPolicy("my-password-expiration-policy", PasswordExpirationPolicyArgs.builder()        
+ *             .name("my-password-expiration-policy")
  *             .enabled(true)
  *             .passwordMaxAge(120)
  *             .notifyByEmail(true)
@@ -51,7 +52,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

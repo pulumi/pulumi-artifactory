@@ -30,7 +30,8 @@ import javax.annotation.Nullable;
  * ### S
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -54,55 +55,56 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         //## Create a new Artifactory scoped token for an existing user
- *         var scopedToken = new ScopedToken(&#34;scopedToken&#34;, ScopedTokenArgs.builder()        
- *             .username(&#34;existing-user&#34;)
+ *         var scopedToken = new ScopedToken("scopedToken", ScopedTokenArgs.builder()        
+ *             .username("existing-user")
  *             .build());
  * 
  *         //## **Note:** This assumes that the user `existing-user` has already been created in Artifactory by different means, i.e. manually or in a separate pulumi up.
  *         //## Create a new Artifactory user and scoped token
- *         var newUser = new User(&#34;newUser&#34;, UserArgs.builder()        
- *             .name(&#34;new_user&#34;)
- *             .email(&#34;new_user@somewhere.com&#34;)
- *             .groups(&#34;readers&#34;)
+ *         var newUser = new User("newUser", UserArgs.builder()        
+ *             .name("new_user")
+ *             .email("new_user{@literal @}somewhere.com")
+ *             .groups("readers")
  *             .build());
  * 
- *         var scopedTokenUser = new ScopedToken(&#34;scopedTokenUser&#34;, ScopedTokenArgs.builder()        
+ *         var scopedTokenUser = new ScopedToken("scopedTokenUser", ScopedTokenArgs.builder()        
  *             .username(newUser.name())
  *             .build());
  * 
  *         //## Creates a new token for groups
- *         var scopedTokenGroup = new ScopedToken(&#34;scopedTokenGroup&#34;, ScopedTokenArgs.builder()        
- *             .scopes(&#34;applied-permissions/groups:readers&#34;)
+ *         var scopedTokenGroup = new ScopedToken("scopedTokenGroup", ScopedTokenArgs.builder()        
+ *             .scopes("applied-permissions/groups:readers")
  *             .build());
  * 
  *         //## Create token with expiry
- *         var scopedTokenNoExpiry = new ScopedToken(&#34;scopedTokenNoExpiry&#34;, ScopedTokenArgs.builder()        
- *             .username(&#34;existing-user&#34;)
+ *         var scopedTokenNoExpiry = new ScopedToken("scopedTokenNoExpiry", ScopedTokenArgs.builder()        
+ *             .username("existing-user")
  *             .expiresIn(7200)
  *             .build());
  * 
  *         //## Creates a refreshable token
- *         var scopedTokenRefreshable = new ScopedToken(&#34;scopedTokenRefreshable&#34;, ScopedTokenArgs.builder()        
- *             .username(&#34;existing-user&#34;)
+ *         var scopedTokenRefreshable = new ScopedToken("scopedTokenRefreshable", ScopedTokenArgs.builder()        
+ *             .username("existing-user")
  *             .refreshable(true)
  *             .build());
  * 
  *         //## Creates an administrator token
- *         var admin = new ScopedToken(&#34;admin&#34;, ScopedTokenArgs.builder()        
- *             .username(&#34;admin-user&#34;)
- *             .scopes(&#34;applied-permissions/admin&#34;)
+ *         var admin = new ScopedToken("admin", ScopedTokenArgs.builder()        
+ *             .username("admin-user")
+ *             .scopes("applied-permissions/admin")
  *             .build());
  * 
  *         //## Creates a token with an audience
- *         var audience = new ScopedToken(&#34;audience&#34;, ScopedTokenArgs.builder()        
- *             .username(&#34;admin-user&#34;)
- *             .scopes(&#34;applied-permissions/admin&#34;)
- *             .audiences(&#34;jfrt@*&#34;)
+ *         var audience = new ScopedToken("audience", ScopedTokenArgs.builder()        
+ *             .username("admin-user")
+ *             .scopes("applied-permissions/admin")
+ *             .audiences("jfrt{@literal @}*")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## References
@@ -133,7 +135,7 @@ public class ScopedToken extends com.pulumi.resources.CustomResource {
     }
     /**
      * A list of the other instances or services that should accept this token identified by their Service-IDs. Limited to
-     * total 255 characters. Default to &#39;*@*&#39; if not set. Service ID must begin with valid JFrog service type. Options: jfrt,
+     * total 255 characters. Default to &#39;*{@literal @}*&#39; if not set. Service ID must begin with valid JFrog service type. Options: jfrt,
      * jfxr, jfpip, jfds, jfmc, jfac, jfevt, jfmd, jfcon, or *. For instructions to retrieve the Artifactory Service ID see
      * this [documentation](https://jfrog.com/help/r/jfrog-rest-apis/get-service-id)
      * 
@@ -143,7 +145,7 @@ public class ScopedToken extends com.pulumi.resources.CustomResource {
 
     /**
      * @return A list of the other instances or services that should accept this token identified by their Service-IDs. Limited to
-     * total 255 characters. Default to &#39;*@*&#39; if not set. Service ID must begin with valid JFrog service type. Options: jfrt,
+     * total 255 characters. Default to &#39;*{@literal @}*&#39; if not set. Service ID must begin with valid JFrog service type. Options: jfrt,
      * jfxr, jfpip, jfds, jfmc, jfac, jfevt, jfmd, jfcon, or *. For instructions to retrieve the Artifactory Service ID see
      * this [documentation](https://jfrog.com/help/r/jfrog-rest-apis/get-service-id)
      * 

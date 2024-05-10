@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,33 +50,33 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new PropertySet(&#34;foo&#34;, PropertySetArgs.builder()        
- *             .name(&#34;property-set1&#34;)
+ *         var foo = new PropertySet("foo", PropertySetArgs.builder()        
+ *             .name("property-set1")
  *             .visible(true)
  *             .properties(            
  *                 PropertySetPropertyArgs.builder()
- *                     .name(&#34;set1property1&#34;)
+ *                     .name("set1property1")
  *                     .predefinedValues(                    
  *                         PropertySetPropertyPredefinedValueArgs.builder()
- *                             .name(&#34;passed-QA&#34;)
+ *                             .name("passed-QA")
  *                             .defaultValue(true)
  *                             .build(),
  *                         PropertySetPropertyPredefinedValueArgs.builder()
- *                             .name(&#34;failed-QA&#34;)
+ *                             .name("failed-QA")
  *                             .defaultValue(false)
  *                             .build())
  *                     .closedPredefinedValues(true)
  *                     .multipleChoice(true)
  *                     .build(),
  *                 PropertySetPropertyArgs.builder()
- *                     .name(&#34;set1property2&#34;)
+ *                     .name("set1property2")
  *                     .predefinedValues(                    
  *                         PropertySetPropertyPredefinedValueArgs.builder()
- *                             .name(&#34;passed-QA&#34;)
+ *                             .name("passed-QA")
  *                             .defaultValue(true)
  *                             .build(),
  *                         PropertySetPropertyPredefinedValueArgs.builder()
- *                             .name(&#34;failed-QA&#34;)
+ *                             .name("failed-QA")
  *                             .defaultValue(false)
  *                             .build())
  *                     .closedPredefinedValues(false)
@@ -85,7 +86,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

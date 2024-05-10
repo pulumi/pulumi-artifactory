@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,18 +45,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var custom_layout = new RepositoryLayout(&#34;custom-layout&#34;, RepositoryLayoutArgs.builder()        
- *             .name(&#34;custom-layout&#34;)
- *             .artifactPathPattern(&#34;[orgPath]/[module]/[baseRev](-[folderItegRev])/[module]-[baseRev](-[fileItegRev])(-[classifier]).[ext]&#34;)
+ *         var custom_layout = new RepositoryLayout("custom-layout", RepositoryLayoutArgs.builder()        
+ *             .name("custom-layout")
+ *             .artifactPathPattern("[orgPath]/[module]/[baseRev](-[folderItegRev])/[module]-[baseRev](-[fileItegRev])(-[classifier]).[ext]")
  *             .distinctiveDescriptorPathPattern(true)
- *             .descriptorPathPattern(&#34;[orgPath]/[module]/[baseRev](-[folderItegRev])/[module]-[baseRev](-[fileItegRev])(-[classifier]).pom&#34;)
- *             .folderIntegrationRevisionRegexp(&#34;Foo&#34;)
- *             .fileIntegrationRevisionRegexp(&#34;Foo|(?:(?:[0-9]{8}.[0-9]{6})-(?:[0-9]+))&#34;)
+ *             .descriptorPathPattern("[orgPath]/[module]/[baseRev](-[folderItegRev])/[module]-[baseRev](-[fileItegRev])(-[classifier]).pom")
+ *             .folderIntegrationRevisionRegexp("Foo")
+ *             .fileIntegrationRevisionRegexp("Foo|(?:(?:[0-9]{8}.[0-9]{6})-(?:[0-9]+))")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

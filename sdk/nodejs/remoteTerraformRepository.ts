@@ -153,7 +153,7 @@ export class RemoteTerraformRepository extends pulumi.CustomResource {
      */
     public readonly metadataRetrievalTimeoutSecs!: pulumi.Output<number | undefined>;
     /**
-     * The set of mime types that should override the block_mismatching_mime_types setting. Eg:
+     * The set of mime types that should override the blockMismatchingMimeTypes setting. Eg:
      * 'application/json,application/xml'. Default value is empty.
      */
     public readonly mismatchingMimeTypesOverrideList!: pulumi.Output<string | undefined>;
@@ -178,12 +178,6 @@ export class RemoteTerraformRepository extends pulumi.CustomResource {
      * not found in those repositories, Artifactory will merge from repositories marked as non-priority.
      */
     public readonly priorityResolution!: pulumi.Output<boolean | undefined>;
-    /**
-     * Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
-     * Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
-     * attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-     * be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
-     */
     public readonly projectEnvironments!: pulumi.Output<string[]>;
     /**
      * Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
@@ -195,7 +189,7 @@ export class RemoteTerraformRepository extends pulumi.CustomResource {
      */
     public readonly propertySets!: pulumi.Output<string[] | undefined>;
     /**
-     * Proxy key from Artifactory Proxies settings. Can't be set if `disable_proxy = true`.
+     * Proxy key from Artifactory Proxies settings. Can't be set if `disableProxy = true`.
      */
     public readonly proxy!: pulumi.Output<string | undefined>;
     /**
@@ -235,15 +229,7 @@ export class RemoteTerraformRepository extends pulumi.CustomResource {
      * When set, remote artifacts are fetched along with their properties.
      */
     public readonly synchronizeProperties!: pulumi.Output<boolean | undefined>;
-    /**
-     * The base URL of the Provider's storage API. When using Smart remote repositories, set the URL to
-     * <base_Artifactory_URL>/api/terraform/repokey/providers. Default value in UI is https://releases.hashicorp.com
-     */
     public readonly terraformProvidersUrl!: pulumi.Output<string | undefined>;
-    /**
-     * The base URL of the registry API. When using Smart Remote Repositories, set the URL to
-     * <base_Artifactory_URL>/api/terraform/repokey. Default value in UI is https://registry.terraform.io
-     */
     public readonly terraformRegistryUrl!: pulumi.Output<string | undefined>;
     /**
      * Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and
@@ -480,7 +466,7 @@ export interface RemoteTerraformRepositoryState {
      */
     metadataRetrievalTimeoutSecs?: pulumi.Input<number>;
     /**
-     * The set of mime types that should override the block_mismatching_mime_types setting. Eg:
+     * The set of mime types that should override the blockMismatchingMimeTypes setting. Eg:
      * 'application/json,application/xml'. Default value is empty.
      */
     mismatchingMimeTypesOverrideList?: pulumi.Input<string>;
@@ -505,12 +491,6 @@ export interface RemoteTerraformRepositoryState {
      * not found in those repositories, Artifactory will merge from repositories marked as non-priority.
      */
     priorityResolution?: pulumi.Input<boolean>;
-    /**
-     * Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
-     * Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
-     * attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-     * be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
-     */
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
@@ -522,7 +502,7 @@ export interface RemoteTerraformRepositoryState {
      */
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Proxy key from Artifactory Proxies settings. Can't be set if `disable_proxy = true`.
+     * Proxy key from Artifactory Proxies settings. Can't be set if `disableProxy = true`.
      */
     proxy?: pulumi.Input<string>;
     /**
@@ -562,15 +542,7 @@ export interface RemoteTerraformRepositoryState {
      * When set, remote artifacts are fetched along with their properties.
      */
     synchronizeProperties?: pulumi.Input<boolean>;
-    /**
-     * The base URL of the Provider's storage API. When using Smart remote repositories, set the URL to
-     * <base_Artifactory_URL>/api/terraform/repokey/providers. Default value in UI is https://releases.hashicorp.com
-     */
     terraformProvidersUrl?: pulumi.Input<string>;
-    /**
-     * The base URL of the registry API. When using Smart Remote Repositories, set the URL to
-     * <base_Artifactory_URL>/api/terraform/repokey. Default value in UI is https://registry.terraform.io
-     */
     terraformRegistryUrl?: pulumi.Input<string>;
     /**
      * Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and
@@ -689,7 +661,7 @@ export interface RemoteTerraformRepositoryArgs {
      */
     metadataRetrievalTimeoutSecs?: pulumi.Input<number>;
     /**
-     * The set of mime types that should override the block_mismatching_mime_types setting. Eg:
+     * The set of mime types that should override the blockMismatchingMimeTypes setting. Eg:
      * 'application/json,application/xml'. Default value is empty.
      */
     mismatchingMimeTypesOverrideList?: pulumi.Input<string>;
@@ -713,12 +685,6 @@ export interface RemoteTerraformRepositoryArgs {
      * not found in those repositories, Artifactory will merge from repositories marked as non-priority.
      */
     priorityResolution?: pulumi.Input<boolean>;
-    /**
-     * Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
-     * Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
-     * attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-     * be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
-     */
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
@@ -730,7 +696,7 @@ export interface RemoteTerraformRepositoryArgs {
      */
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Proxy key from Artifactory Proxies settings. Can't be set if `disable_proxy = true`.
+     * Proxy key from Artifactory Proxies settings. Can't be set if `disableProxy = true`.
      */
     proxy?: pulumi.Input<string>;
     /**
@@ -770,15 +736,7 @@ export interface RemoteTerraformRepositoryArgs {
      * When set, remote artifacts are fetched along with their properties.
      */
     synchronizeProperties?: pulumi.Input<boolean>;
-    /**
-     * The base URL of the Provider's storage API. When using Smart remote repositories, set the URL to
-     * <base_Artifactory_URL>/api/terraform/repokey/providers. Default value in UI is https://releases.hashicorp.com
-     */
     terraformProvidersUrl?: pulumi.Input<string>;
-    /**
-     * The base URL of the registry API. When using Smart Remote Repositories, set the URL to
-     * <base_Artifactory_URL>/api/terraform/repokey. Default value in UI is https://registry.terraform.io
-     */
     terraformRegistryUrl?: pulumi.Input<string>;
     /**
      * Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and
