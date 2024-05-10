@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,35 +48,36 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var release_bundle_custom_webhook = new ReleaseBundleCustomWebhook(&#34;release-bundle-custom-webhook&#34;, ReleaseBundleCustomWebhookArgs.builder()        
- *             .key(&#34;release-bundle-custom-webhook&#34;)
+ *         var release_bundle_custom_webhook = new ReleaseBundleCustomWebhook("release-bundle-custom-webhook", ReleaseBundleCustomWebhookArgs.builder()        
+ *             .key("release-bundle-custom-webhook")
  *             .eventTypes(            
- *                 &#34;created&#34;,
- *                 &#34;signed&#34;,
- *                 &#34;deleted&#34;)
+ *                 "created",
+ *                 "signed",
+ *                 "deleted")
  *             .criteria(ReleaseBundleCustomWebhookCriteriaArgs.builder()
  *                 .anyReleaseBundle(false)
- *                 .registeredReleaseBundleNames(&#34;bundle-name&#34;)
- *                 .includePatterns(&#34;foo/**&#34;)
- *                 .excludePatterns(&#34;bar/**&#34;)
+ *                 .registeredReleaseBundleNames("bundle-name")
+ *                 .includePatterns("foo/**")
+ *                 .excludePatterns("bar/**")
  *                 .build())
  *             .handlers(ReleaseBundleCustomWebhookHandlerArgs.builder()
- *                 .url(&#34;https://tempurl.org&#34;)
+ *                 .url("https://tempurl.org")
  *                 .secrets(Map.ofEntries(
- *                     Map.entry(&#34;secretName1&#34;, &#34;value1&#34;),
- *                     Map.entry(&#34;secretName2&#34;, &#34;value2&#34;)
+ *                     Map.entry("secretName1", "value1"),
+ *                     Map.entry("secretName2", "value2")
  *                 ))
  *                 .httpHeaders(Map.ofEntries(
- *                     Map.entry(&#34;headerName1&#34;, &#34;value1&#34;),
- *                     Map.entry(&#34;headerName2&#34;, &#34;value2&#34;)
+ *                     Map.entry("headerName1", "value1"),
+ *                     Map.entry("headerName2", "value2")
  *                 ))
- *                 .payload(&#34;{ \&#34;ref\&#34;: \&#34;main\&#34; , \&#34;inputs\&#34;: { \&#34;artifact_path\&#34;: \&#34;test-repo/repo-path\&#34; } }&#34;)
+ *                 .payload("{ \"ref\": \"main\" , \"inputs\": { \"artifact_path\": \"test-repo/repo-path\" } }")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

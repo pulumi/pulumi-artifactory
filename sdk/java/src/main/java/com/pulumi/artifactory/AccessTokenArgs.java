@@ -35,14 +35,14 @@ public final class AccessTokenArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * (Optional) A space-separate list of the other Artifactory instances or services that should accept this token identified by their Artifactory Service IDs. You may set `&#34;jfrt@*&#34;` so the token to be accepted by all Artifactory instances.
+     * (Optional) A space-separate list of the other Artifactory instances or services that should accept this token identified by their Artifactory Service IDs. You may set `&#34;jfrt{@literal @}*&#34;` so the token to be accepted by all Artifactory instances.
      * 
      */
     @Import(name="audience")
     private @Nullable Output<String> audience;
 
     /**
-     * @return (Optional) A space-separate list of the other Artifactory instances or services that should accept this token identified by their Artifactory Service IDs. You may set `&#34;jfrt@*&#34;` so the token to be accepted by all Artifactory instances.
+     * @return (Optional) A space-separate list of the other Artifactory instances or services that should accept this token identified by their Artifactory Service IDs. You may set `&#34;jfrt{@literal @}*&#34;` so the token to be accepted by all Artifactory instances.
      * 
      */
     public Optional<Output<String>> audience() {
@@ -176,7 +176,7 @@ public final class AccessTokenArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param audience (Optional) A space-separate list of the other Artifactory instances or services that should accept this token identified by their Artifactory Service IDs. You may set `&#34;jfrt@*&#34;` so the token to be accepted by all Artifactory instances.
+         * @param audience (Optional) A space-separate list of the other Artifactory instances or services that should accept this token identified by their Artifactory Service IDs. You may set `&#34;jfrt{@literal @}*&#34;` so the token to be accepted by all Artifactory instances.
          * 
          * @return builder
          * 
@@ -187,7 +187,7 @@ public final class AccessTokenArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param audience (Optional) A space-separate list of the other Artifactory instances or services that should accept this token identified by their Artifactory Service IDs. You may set `&#34;jfrt@*&#34;` so the token to be accepted by all Artifactory instances.
+         * @param audience (Optional) A space-separate list of the other Artifactory instances or services that should accept this token identified by their Artifactory Service IDs. You may set `&#34;jfrt{@literal @}*&#34;` so the token to be accepted by all Artifactory instances.
          * 
          * @return builder
          * 

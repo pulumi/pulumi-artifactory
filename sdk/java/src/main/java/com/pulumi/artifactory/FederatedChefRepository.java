@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,22 +46,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var terraform_federated_test_chef_repo = new FederatedChefRepository(&#34;terraform-federated-test-chef-repo&#34;, FederatedChefRepositoryArgs.builder()        
- *             .key(&#34;terraform-federated-test-chef-repo&#34;)
+ *         var terraform_federated_test_chef_repo = new FederatedChefRepository("terraform-federated-test-chef-repo", FederatedChefRepositoryArgs.builder()        
+ *             .key("terraform-federated-test-chef-repo")
  *             .members(            
  *                 FederatedChefRepositoryMemberArgs.builder()
- *                     .url(&#34;http://tempurl.org/artifactory/terraform-federated-test-chef-repo&#34;)
+ *                     .url("http://tempurl.org/artifactory/terraform-federated-test-chef-repo")
  *                     .enabled(true)
  *                     .build(),
  *                 FederatedChefRepositoryMemberArgs.builder()
- *                     .url(&#34;http://tempurl2.org/artifactory/terraform-federated-test-chef-repo-2&#34;)
+ *                     .url("http://tempurl2.org/artifactory/terraform-federated-test-chef-repo-2")
  *                     .enabled(true)
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -122,19 +124,9 @@ public class FederatedChefRepository extends com.pulumi.resources.CustomResource
     public Output<Optional<Boolean>> cdnRedirect() {
         return Codegen.optional(this.cdnRedirect);
     }
-    /**
-     * Delete all federated members on `terraform destroy` if set to `true`. Caution: it will delete all the repositories in
-     * the federation on other Artifactory instances.
-     * 
-     */
     @Export(name="cleanupOnDelete", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> cleanupOnDelete;
 
-    /**
-     * @return Delete all federated members on `terraform destroy` if set to `true`. Caution: it will delete all the repositories in
-     * the federation on other Artifactory instances.
-     * 
-     */
     public Output<Optional<Boolean>> cleanupOnDelete() {
         return Codegen.optional(this.cleanupOnDelete);
     }
@@ -282,23 +274,9 @@ public class FederatedChefRepository extends com.pulumi.resources.CustomResource
     public Output<Optional<Boolean>> priorityResolution() {
         return Codegen.optional(this.priorityResolution);
     }
-    /**
-     * Project environment for assigning this repository to. Allow values: &#34;DEV&#34;, &#34;PROD&#34;, or one of custom environment. Before
-     * Artifactory 7.53.1, up to 2 values (&#34;DEV&#34; and &#34;PROD&#34;) are allowed. From 7.53.1 onward, only one value is allowed. The
-     * attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-     * be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
-     * 
-     */
     @Export(name="projectEnvironments", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> projectEnvironments;
 
-    /**
-     * @return Project environment for assigning this repository to. Allow values: &#34;DEV&#34;, &#34;PROD&#34;, or one of custom environment. Before
-     * Artifactory 7.53.1, up to 2 values (&#34;DEV&#34; and &#34;PROD&#34;) are allowed. From 7.53.1 onward, only one value is allowed. The
-     * attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-     * be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
-     * 
-     */
     public Output<List<String>> projectEnvironments() {
         return this.projectEnvironments;
     }

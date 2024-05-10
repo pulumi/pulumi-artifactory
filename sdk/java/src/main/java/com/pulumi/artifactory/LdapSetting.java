@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,26 +50,27 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Configure Artifactory LDAP setting
- *         var ldapName = new LdapSetting(&#34;ldapName&#34;, LdapSettingArgs.builder()        
- *             .key(&#34;ldap_name&#34;)
+ *         var ldapName = new LdapSetting("ldapName", LdapSettingArgs.builder()        
+ *             .key("ldap_name")
  *             .enabled(true)
- *             .ldapUrl(&#34;ldap://ldap_server_url&#34;)
- *             .userDnPattern(&#34;uid={0},ou=People&#34;)
- *             .emailAttribute(&#34;mail&#34;)
+ *             .ldapUrl("ldap://ldap_server_url")
+ *             .userDnPattern("uid={0},ou=People")
+ *             .emailAttribute("mail")
  *             .autoCreateUser(true)
  *             .ldapPoisoningProtection(true)
  *             .allowUserToAccessProfile(false)
  *             .pagingSupportEnabled(false)
- *             .searchFilter(&#34;(uid={0})&#34;)
- *             .searchBase(&#34;ou=users&#34;)
+ *             .searchFilter("(uid={0})")
+ *             .searchBase("ou=users")
  *             .searchSubTree(true)
- *             .managerDn(&#34;mgr_dn&#34;)
- *             .managerPassword(&#34;mgr_passwd_random&#34;)
+ *             .managerDn("mgr_dn")
+ *             .managerPassword("mgr_passwd_random")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * Note: `Key` argument has to match to the resource name.\
  * Reference Link: [JFrog LDAP](https://www.jfrog.com/confluence/display/JFROG/LDAP)

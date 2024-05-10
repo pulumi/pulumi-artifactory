@@ -69,19 +69,9 @@ public final class FederatedCondaRepositoryState extends com.pulumi.resources.Re
         return Optional.ofNullable(this.cdnRedirect);
     }
 
-    /**
-     * Delete all federated members on `terraform destroy` if set to `true`. Caution: it will delete all the repositories in
-     * the federation on other Artifactory instances.
-     * 
-     */
     @Import(name="cleanupOnDelete")
     private @Nullable Output<Boolean> cleanupOnDelete;
 
-    /**
-     * @return Delete all federated members on `terraform destroy` if set to `true`. Caution: it will delete all the repositories in
-     * the federation on other Artifactory instances.
-     * 
-     */
     public Optional<Output<Boolean>> cleanupOnDelete() {
         return Optional.ofNullable(this.cleanupOnDelete);
     }
@@ -240,23 +230,9 @@ public final class FederatedCondaRepositoryState extends com.pulumi.resources.Re
         return Optional.ofNullable(this.priorityResolution);
     }
 
-    /**
-     * Project environment for assigning this repository to. Allow values: &#34;DEV&#34;, &#34;PROD&#34;, or one of custom environment. Before
-     * Artifactory 7.53.1, up to 2 values (&#34;DEV&#34; and &#34;PROD&#34;) are allowed. From 7.53.1 onward, only one value is allowed. The
-     * attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-     * be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
-     * 
-     */
     @Import(name="projectEnvironments")
     private @Nullable Output<List<String>> projectEnvironments;
 
-    /**
-     * @return Project environment for assigning this repository to. Allow values: &#34;DEV&#34;, &#34;PROD&#34;, or one of custom environment. Before
-     * Artifactory 7.53.1, up to 2 values (&#34;DEV&#34; and &#34;PROD&#34;) are allowed. From 7.53.1 onward, only one value is allowed. The
-     * attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-     * be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
-     * 
-     */
     public Optional<Output<List<String>>> projectEnvironments() {
         return Optional.ofNullable(this.projectEnvironments);
     }
@@ -452,25 +428,11 @@ public final class FederatedCondaRepositoryState extends com.pulumi.resources.Re
             return cdnRedirect(Output.of(cdnRedirect));
         }
 
-        /**
-         * @param cleanupOnDelete Delete all federated members on `terraform destroy` if set to `true`. Caution: it will delete all the repositories in
-         * the federation on other Artifactory instances.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cleanupOnDelete(@Nullable Output<Boolean> cleanupOnDelete) {
             $.cleanupOnDelete = cleanupOnDelete;
             return this;
         }
 
-        /**
-         * @param cleanupOnDelete Delete all federated members on `terraform destroy` if set to `true`. Caution: it will delete all the repositories in
-         * the federation on other Artifactory instances.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cleanupOnDelete(Boolean cleanupOnDelete) {
             return cleanupOnDelete(Output.of(cleanupOnDelete));
         }
@@ -698,42 +660,15 @@ public final class FederatedCondaRepositoryState extends com.pulumi.resources.Re
             return priorityResolution(Output.of(priorityResolution));
         }
 
-        /**
-         * @param projectEnvironments Project environment for assigning this repository to. Allow values: &#34;DEV&#34;, &#34;PROD&#34;, or one of custom environment. Before
-         * Artifactory 7.53.1, up to 2 values (&#34;DEV&#34; and &#34;PROD&#34;) are allowed. From 7.53.1 onward, only one value is allowed. The
-         * attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-         * be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
-         * 
-         * @return builder
-         * 
-         */
         public Builder projectEnvironments(@Nullable Output<List<String>> projectEnvironments) {
             $.projectEnvironments = projectEnvironments;
             return this;
         }
 
-        /**
-         * @param projectEnvironments Project environment for assigning this repository to. Allow values: &#34;DEV&#34;, &#34;PROD&#34;, or one of custom environment. Before
-         * Artifactory 7.53.1, up to 2 values (&#34;DEV&#34; and &#34;PROD&#34;) are allowed. From 7.53.1 onward, only one value is allowed. The
-         * attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-         * be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
-         * 
-         * @return builder
-         * 
-         */
         public Builder projectEnvironments(List<String> projectEnvironments) {
             return projectEnvironments(Output.of(projectEnvironments));
         }
 
-        /**
-         * @param projectEnvironments Project environment for assigning this repository to. Allow values: &#34;DEV&#34;, &#34;PROD&#34;, or one of custom environment. Before
-         * Artifactory 7.53.1, up to 2 values (&#34;DEV&#34; and &#34;PROD&#34;) are allowed. From 7.53.1 onward, only one value is allowed. The
-         * attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-         * be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
-         * 
-         * @return builder
-         * 
-         */
         public Builder projectEnvironments(String... projectEnvironments) {
             return projectEnvironments(List.of(projectEnvironments));
         }

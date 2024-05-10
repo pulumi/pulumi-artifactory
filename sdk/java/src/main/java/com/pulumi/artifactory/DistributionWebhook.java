@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * 
  * .
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,36 +49,37 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var distribution_webhook = new DistributionWebhook(&#34;distribution-webhook&#34;, DistributionWebhookArgs.builder()        
- *             .key(&#34;distribution-webhook&#34;)
+ *         var distribution_webhook = new DistributionWebhook("distribution-webhook", DistributionWebhookArgs.builder()        
+ *             .key("distribution-webhook")
  *             .eventTypes(            
- *                 &#34;distribute_started&#34;,
- *                 &#34;distribute_completed&#34;,
- *                 &#34;distribute_aborted&#34;,
- *                 &#34;distribute_failed&#34;,
- *                 &#34;delete_started&#34;,
- *                 &#34;delete_completed&#34;,
- *                 &#34;delete_failed&#34;)
+ *                 "distribute_started",
+ *                 "distribute_completed",
+ *                 "distribute_aborted",
+ *                 "distribute_failed",
+ *                 "delete_started",
+ *                 "delete_completed",
+ *                 "delete_failed")
  *             .criteria(DistributionWebhookCriteriaArgs.builder()
  *                 .anyReleaseBundle(false)
- *                 .registeredReleaseBundleNames(&#34;bundle-name&#34;)
- *                 .includePatterns(&#34;foo/**&#34;)
- *                 .excludePatterns(&#34;bar/**&#34;)
+ *                 .registeredReleaseBundleNames("bundle-name")
+ *                 .includePatterns("foo/**")
+ *                 .excludePatterns("bar/**")
  *                 .build())
  *             .handlers(DistributionWebhookHandlerArgs.builder()
- *                 .url(&#34;http://tempurl.org/webhook&#34;)
- *                 .secret(&#34;some-secret&#34;)
- *                 .proxy(&#34;proxy-key&#34;)
+ *                 .url("http://tempurl.org/webhook")
+ *                 .secret("some-secret")
+ *                 .proxy("proxy-key")
  *                 .customHttpHeaders(Map.ofEntries(
- *                     Map.entry(&#34;header-1&#34;, &#34;value-1&#34;),
- *                     Map.entry(&#34;header-2&#34;, &#34;value-2&#34;)
+ *                     Map.entry("header-1", "value-1"),
+ *                     Map.entry("header-2", "value-2")
  *                 ))
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

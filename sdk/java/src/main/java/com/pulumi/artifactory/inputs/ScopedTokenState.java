@@ -35,7 +35,7 @@ public final class ScopedTokenState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * A list of the other instances or services that should accept this token identified by their Service-IDs. Limited to
-     * total 255 characters. Default to &#39;*@*&#39; if not set. Service ID must begin with valid JFrog service type. Options: jfrt,
+     * total 255 characters. Default to &#39;*{@literal @}*&#39; if not set. Service ID must begin with valid JFrog service type. Options: jfrt,
      * jfxr, jfpip, jfds, jfmc, jfac, jfevt, jfmd, jfcon, or *. For instructions to retrieve the Artifactory Service ID see
      * this [documentation](https://jfrog.com/help/r/jfrog-rest-apis/get-service-id)
      * 
@@ -45,7 +45,7 @@ public final class ScopedTokenState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return A list of the other instances or services that should accept this token identified by their Service-IDs. Limited to
-     * total 255 characters. Default to &#39;*@*&#39; if not set. Service ID must begin with valid JFrog service type. Options: jfrt,
+     * total 255 characters. Default to &#39;*{@literal @}*&#39; if not set. Service ID must begin with valid JFrog service type. Options: jfrt,
      * jfxr, jfpip, jfds, jfmc, jfac, jfevt, jfmd, jfcon, or *. For instructions to retrieve the Artifactory Service ID see
      * this [documentation](https://jfrog.com/help/r/jfrog-rest-apis/get-service-id)
      * 
@@ -394,7 +394,7 @@ public final class ScopedTokenState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param audiences A list of the other instances or services that should accept this token identified by their Service-IDs. Limited to
-         * total 255 characters. Default to &#39;*@*&#39; if not set. Service ID must begin with valid JFrog service type. Options: jfrt,
+         * total 255 characters. Default to &#39;*{@literal @}*&#39; if not set. Service ID must begin with valid JFrog service type. Options: jfrt,
          * jfxr, jfpip, jfds, jfmc, jfac, jfevt, jfmd, jfcon, or *. For instructions to retrieve the Artifactory Service ID see
          * this [documentation](https://jfrog.com/help/r/jfrog-rest-apis/get-service-id)
          * 
@@ -408,7 +408,7 @@ public final class ScopedTokenState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param audiences A list of the other instances or services that should accept this token identified by their Service-IDs. Limited to
-         * total 255 characters. Default to &#39;*@*&#39; if not set. Service ID must begin with valid JFrog service type. Options: jfrt,
+         * total 255 characters. Default to &#39;*{@literal @}*&#39; if not set. Service ID must begin with valid JFrog service type. Options: jfrt,
          * jfxr, jfpip, jfds, jfmc, jfac, jfevt, jfmd, jfcon, or *. For instructions to retrieve the Artifactory Service ID see
          * this [documentation](https://jfrog.com/help/r/jfrog-rest-apis/get-service-id)
          * 
@@ -421,7 +421,7 @@ public final class ScopedTokenState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param audiences A list of the other instances or services that should accept this token identified by their Service-IDs. Limited to
-         * total 255 characters. Default to &#39;*@*&#39; if not set. Service ID must begin with valid JFrog service type. Options: jfrt,
+         * total 255 characters. Default to &#39;*{@literal @}*&#39; if not set. Service ID must begin with valid JFrog service type. Options: jfrt,
          * jfxr, jfpip, jfds, jfmc, jfac, jfevt, jfmd, jfcon, or *. For instructions to retrieve the Artifactory Service ID see
          * this [documentation](https://jfrog.com/help/r/jfrog-rest-apis/get-service-id)
          * 

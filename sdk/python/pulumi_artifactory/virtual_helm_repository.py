@@ -40,10 +40,6 @@ class VirtualHelmRepositoryArgs:
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
                used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[str] notes: Internal description.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
-               Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
-               attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-               be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the virtual repository
@@ -168,12 +164,6 @@ class VirtualHelmRepositoryArgs:
     @property
     @pulumi.getter(name="projectEnvironments")
     def project_environments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
-        Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
-        attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-        be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
-        """
         return pulumi.get(self, "project_environments")
 
     @project_environments.setter
@@ -272,10 +262,6 @@ class _VirtualHelmRepositoryState:
         :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
                contain spaces or special characters.
         :param pulumi.Input[str] notes: Internal description.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
-               Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
-               attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-               be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the virtual repository
@@ -412,12 +398,6 @@ class _VirtualHelmRepositoryState:
     @property
     @pulumi.getter(name="projectEnvironments")
     def project_environments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
-        Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
-        attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-        be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
-        """
         return pulumi.get(self, "project_environments")
 
     @project_environments.setter
@@ -541,10 +521,6 @@ class VirtualHelmRepository(pulumi.CustomResource):
         :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
                contain spaces or special characters.
         :param pulumi.Input[str] notes: Internal description.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
-               Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
-               attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-               be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the virtual repository
@@ -676,10 +652,6 @@ class VirtualHelmRepository(pulumi.CustomResource):
         :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
                contain spaces or special characters.
         :param pulumi.Input[str] notes: Internal description.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
-               Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
-               attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-               be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the virtual repository
@@ -775,12 +747,6 @@ class VirtualHelmRepository(pulumi.CustomResource):
     @property
     @pulumi.getter(name="projectEnvironments")
     def project_environments(self) -> pulumi.Output[Sequence[str]]:
-        """
-        Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
-        Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
-        attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-        be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
-        """
         return pulumi.get(self, "project_environments")
 
     @property

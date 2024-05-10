@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,22 +44,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var some_keypair_6543461672124900137 = new Keypair(&#34;some-keypair-6543461672124900137&#34;, KeypairArgs.builder()        
- *             .pairName(&#34;some-keypair-6543461672124900137&#34;)
- *             .pairType(&#34;RSA&#34;)
- *             .alias(&#34;some-alias-6543461672124900137&#34;)
+ *         var some_keypair_6543461672124900137 = new Keypair("some-keypair-6543461672124900137", KeypairArgs.builder()        
+ *             .pairName("some-keypair-6543461672124900137")
+ *             .pairType("RSA")
+ *             .alias("some-alias-6543461672124900137")
  *             .privateKey(StdFunctions.file(FileArgs.builder()
- *                 .input(&#34;samples/rsa.priv&#34;)
+ *                 .input("samples/rsa.priv")
  *                 .build()).result())
  *             .publicKey(StdFunctions.file(FileArgs.builder()
- *                 .input(&#34;samples/rsa.pub&#34;)
+ *                 .input("samples/rsa.pub")
  *                 .build()).result())
- *             .passphrase(&#34;PASSPHRASE&#34;)
+ *             .passphrase("PASSPHRASE")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

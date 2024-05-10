@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -53,26 +54,27 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Create a replication between two artifactory local repositories
- *         var providerTestSource = new LocalMavenRepository(&#34;providerTestSource&#34;, LocalMavenRepositoryArgs.builder()        
- *             .key(&#34;provider_test_source&#34;)
+ *         var providerTestSource = new LocalMavenRepository("providerTestSource", LocalMavenRepositoryArgs.builder()        
+ *             .key("provider_test_source")
  *             .build());
  * 
- *         var providerTestDest = new RemoteMavenRepository(&#34;providerTestDest&#34;, RemoteMavenRepositoryArgs.builder()        
- *             .key(&#34;provider_test_dest&#34;)
- *             .url(String.format(&#34;https://example.com/artifactory/%s&#34;, artifactoryLocalMavenRepository.key()))
- *             .username(&#34;foo&#34;)
- *             .password(&#34;bar&#34;)
+ *         var providerTestDest = new RemoteMavenRepository("providerTestDest", RemoteMavenRepositoryArgs.builder()        
+ *             .key("provider_test_dest")
+ *             .url(String.format("https://example.com/artifactory/%s", artifactoryLocalMavenRepository.key()))
+ *             .username("foo")
+ *             .password("bar")
  *             .build());
  * 
- *         var remote_rep = new PullReplication(&#34;remote-rep&#34;, PullReplicationArgs.builder()        
+ *         var remote_rep = new PullReplication("remote-rep", PullReplicationArgs.builder()        
  *             .repoKey(providerTestDest.key())
- *             .cronExp(&#34;0 0 * * * ?&#34;)
+ *             .cronExp("0 0 * * * ?")
  *             .enableEventReplication(true)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

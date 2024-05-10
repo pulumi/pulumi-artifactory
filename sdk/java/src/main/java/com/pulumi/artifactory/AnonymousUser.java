@@ -17,7 +17,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -37,12 +38,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         // Define a new Artifactory &#39;anonymous&#39; user for import
- *         var anonymous = new AnonymousUser(&#34;anonymous&#34;);
+ *         // Define a new Artifactory 'anonymous' user for import
+ *         var anonymous = new AnonymousUser("anonymous");
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -54,19 +56,9 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="artifactory:index/anonymousUser:AnonymousUser")
 public class AnonymousUser extends com.pulumi.resources.CustomResource {
-    /**
-     * Username for anonymous user. This is only for ensuring resource schema is valid for Terraform. This is not meant to be
-     * set or updated in the HCL.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Username for anonymous user. This is only for ensuring resource schema is valid for Terraform. This is not meant to be
-     * set or updated in the HCL.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }

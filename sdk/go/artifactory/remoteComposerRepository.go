@@ -112,7 +112,7 @@ type RemoteComposerRepository struct {
 	// Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
 	// the remote before serving locally cached artifact or fail the request.
 	MetadataRetrievalTimeoutSecs pulumi.IntPtrOutput `pulumi:"metadataRetrievalTimeoutSecs"`
-	// The set of mime types that should override the block_mismatching_mime_types setting. Eg:
+	// The set of mime types that should override the blockMismatchingMimeTypes setting. Eg:
 	// 'application/json,application/xml'. Default value is empty.
 	MismatchingMimeTypesOverrideList pulumi.StringPtrOutput `pulumi:"mismatchingMimeTypesOverrideList"`
 	// Missed Retrieval Cache Period (Sec) in the UI. The number of seconds to cache artifact retrieval misses (artifact not
@@ -127,18 +127,14 @@ type RemoteComposerRepository struct {
 	// Setting Priority Resolution takes precedence over the resolution order when resolving virtual repositories. Setting
 	// repositories with priority will cause metadata to be merged only from repositories set with a priority. If a package is
 	// not found in those repositories, Artifactory will merge from repositories marked as non-priority.
-	PriorityResolution pulumi.BoolPtrOutput `pulumi:"priorityResolution"`
-	// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
-	// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
-	// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-	// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+	PriorityResolution  pulumi.BoolPtrOutput     `pulumi:"priorityResolution"`
 	ProjectEnvironments pulumi.StringArrayOutput `pulumi:"projectEnvironments"`
 	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrOutput `pulumi:"projectKey"`
 	// List of property set names
 	PropertySets pulumi.StringArrayOutput `pulumi:"propertySets"`
-	// Proxy key from Artifactory Proxies settings. Can't be set if `disable_proxy = true`.
+	// Proxy key from Artifactory Proxies settings. Can't be set if `disableProxy = true`.
 	Proxy pulumi.StringPtrOutput `pulumi:"proxy"`
 	// Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
 	// `param1=val1&param2=val2&param3=val3`
@@ -280,7 +276,7 @@ type remoteComposerRepositoryState struct {
 	// Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
 	// the remote before serving locally cached artifact or fail the request.
 	MetadataRetrievalTimeoutSecs *int `pulumi:"metadataRetrievalTimeoutSecs"`
-	// The set of mime types that should override the block_mismatching_mime_types setting. Eg:
+	// The set of mime types that should override the blockMismatchingMimeTypes setting. Eg:
 	// 'application/json,application/xml'. Default value is empty.
 	MismatchingMimeTypesOverrideList *string `pulumi:"mismatchingMimeTypesOverrideList"`
 	// Missed Retrieval Cache Period (Sec) in the UI. The number of seconds to cache artifact retrieval misses (artifact not
@@ -295,18 +291,14 @@ type remoteComposerRepositoryState struct {
 	// Setting Priority Resolution takes precedence over the resolution order when resolving virtual repositories. Setting
 	// repositories with priority will cause metadata to be merged only from repositories set with a priority. If a package is
 	// not found in those repositories, Artifactory will merge from repositories marked as non-priority.
-	PriorityResolution *bool `pulumi:"priorityResolution"`
-	// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
-	// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
-	// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-	// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+	PriorityResolution  *bool    `pulumi:"priorityResolution"`
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
 	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey *string `pulumi:"projectKey"`
 	// List of property set names
 	PropertySets []string `pulumi:"propertySets"`
-	// Proxy key from Artifactory Proxies settings. Can't be set if `disable_proxy = true`.
+	// Proxy key from Artifactory Proxies settings. Can't be set if `disableProxy = true`.
 	Proxy *string `pulumi:"proxy"`
 	// Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
 	// `param1=val1&param2=val2&param3=val3`
@@ -406,7 +398,7 @@ type RemoteComposerRepositoryState struct {
 	// Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
 	// the remote before serving locally cached artifact or fail the request.
 	MetadataRetrievalTimeoutSecs pulumi.IntPtrInput
-	// The set of mime types that should override the block_mismatching_mime_types setting. Eg:
+	// The set of mime types that should override the blockMismatchingMimeTypes setting. Eg:
 	// 'application/json,application/xml'. Default value is empty.
 	MismatchingMimeTypesOverrideList pulumi.StringPtrInput
 	// Missed Retrieval Cache Period (Sec) in the UI. The number of seconds to cache artifact retrieval misses (artifact not
@@ -421,18 +413,14 @@ type RemoteComposerRepositoryState struct {
 	// Setting Priority Resolution takes precedence over the resolution order when resolving virtual repositories. Setting
 	// repositories with priority will cause metadata to be merged only from repositories set with a priority. If a package is
 	// not found in those repositories, Artifactory will merge from repositories marked as non-priority.
-	PriorityResolution pulumi.BoolPtrInput
-	// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
-	// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
-	// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-	// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+	PriorityResolution  pulumi.BoolPtrInput
 	ProjectEnvironments pulumi.StringArrayInput
 	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrInput
 	// List of property set names
 	PropertySets pulumi.StringArrayInput
-	// Proxy key from Artifactory Proxies settings. Can't be set if `disable_proxy = true`.
+	// Proxy key from Artifactory Proxies settings. Can't be set if `disableProxy = true`.
 	Proxy pulumi.StringPtrInput
 	// Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
 	// `param1=val1&param2=val2&param3=val3`
@@ -536,7 +524,7 @@ type remoteComposerRepositoryArgs struct {
 	// Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
 	// the remote before serving locally cached artifact or fail the request.
 	MetadataRetrievalTimeoutSecs *int `pulumi:"metadataRetrievalTimeoutSecs"`
-	// The set of mime types that should override the block_mismatching_mime_types setting. Eg:
+	// The set of mime types that should override the blockMismatchingMimeTypes setting. Eg:
 	// 'application/json,application/xml'. Default value is empty.
 	MismatchingMimeTypesOverrideList *string `pulumi:"mismatchingMimeTypesOverrideList"`
 	// Missed Retrieval Cache Period (Sec) in the UI. The number of seconds to cache artifact retrieval misses (artifact not
@@ -550,18 +538,14 @@ type remoteComposerRepositoryArgs struct {
 	// Setting Priority Resolution takes precedence over the resolution order when resolving virtual repositories. Setting
 	// repositories with priority will cause metadata to be merged only from repositories set with a priority. If a package is
 	// not found in those repositories, Artifactory will merge from repositories marked as non-priority.
-	PriorityResolution *bool `pulumi:"priorityResolution"`
-	// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
-	// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
-	// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-	// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+	PriorityResolution  *bool    `pulumi:"priorityResolution"`
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
 	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey *string `pulumi:"projectKey"`
 	// List of property set names
 	PropertySets []string `pulumi:"propertySets"`
-	// Proxy key from Artifactory Proxies settings. Can't be set if `disable_proxy = true`.
+	// Proxy key from Artifactory Proxies settings. Can't be set if `disableProxy = true`.
 	Proxy *string `pulumi:"proxy"`
 	// Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
 	// `param1=val1&param2=val2&param3=val3`
@@ -662,7 +646,7 @@ type RemoteComposerRepositoryArgs struct {
 	// Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
 	// the remote before serving locally cached artifact or fail the request.
 	MetadataRetrievalTimeoutSecs pulumi.IntPtrInput
-	// The set of mime types that should override the block_mismatching_mime_types setting. Eg:
+	// The set of mime types that should override the blockMismatchingMimeTypes setting. Eg:
 	// 'application/json,application/xml'. Default value is empty.
 	MismatchingMimeTypesOverrideList pulumi.StringPtrInput
 	// Missed Retrieval Cache Period (Sec) in the UI. The number of seconds to cache artifact retrieval misses (artifact not
@@ -676,18 +660,14 @@ type RemoteComposerRepositoryArgs struct {
 	// Setting Priority Resolution takes precedence over the resolution order when resolving virtual repositories. Setting
 	// repositories with priority will cause metadata to be merged only from repositories set with a priority. If a package is
 	// not found in those repositories, Artifactory will merge from repositories marked as non-priority.
-	PriorityResolution pulumi.BoolPtrInput
-	// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
-	// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
-	// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-	// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
+	PriorityResolution  pulumi.BoolPtrInput
 	ProjectEnvironments pulumi.StringArrayInput
 	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrInput
 	// List of property set names
 	PropertySets pulumi.StringArrayInput
-	// Proxy key from Artifactory Proxies settings. Can't be set if `disable_proxy = true`.
+	// Proxy key from Artifactory Proxies settings. Can't be set if `disableProxy = true`.
 	Proxy pulumi.StringPtrInput
 	// Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
 	// `param1=val1&param2=val2&param3=val3`
@@ -938,7 +918,7 @@ func (o RemoteComposerRepositoryOutput) MetadataRetrievalTimeoutSecs() pulumi.In
 	return o.ApplyT(func(v *RemoteComposerRepository) pulumi.IntPtrOutput { return v.MetadataRetrievalTimeoutSecs }).(pulumi.IntPtrOutput)
 }
 
-// The set of mime types that should override the block_mismatching_mime_types setting. Eg:
+// The set of mime types that should override the blockMismatchingMimeTypes setting. Eg:
 // 'application/json,application/xml'. Default value is empty.
 func (o RemoteComposerRepositoryOutput) MismatchingMimeTypesOverrideList() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemoteComposerRepository) pulumi.StringPtrOutput { return v.MismatchingMimeTypesOverrideList }).(pulumi.StringPtrOutput)
@@ -975,10 +955,6 @@ func (o RemoteComposerRepositoryOutput) PriorityResolution() pulumi.BoolPtrOutpu
 	return o.ApplyT(func(v *RemoteComposerRepository) pulumi.BoolPtrOutput { return v.PriorityResolution }).(pulumi.BoolPtrOutput)
 }
 
-// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
-// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
-// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
 func (o RemoteComposerRepositoryOutput) ProjectEnvironments() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RemoteComposerRepository) pulumi.StringArrayOutput { return v.ProjectEnvironments }).(pulumi.StringArrayOutput)
 }
@@ -994,7 +970,7 @@ func (o RemoteComposerRepositoryOutput) PropertySets() pulumi.StringArrayOutput 
 	return o.ApplyT(func(v *RemoteComposerRepository) pulumi.StringArrayOutput { return v.PropertySets }).(pulumi.StringArrayOutput)
 }
 
-// Proxy key from Artifactory Proxies settings. Can't be set if `disable_proxy = true`.
+// Proxy key from Artifactory Proxies settings. Can't be set if `disableProxy = true`.
 func (o RemoteComposerRepositoryOutput) Proxy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemoteComposerRepository) pulumi.StringPtrOutput { return v.Proxy }).(pulumi.StringPtrOutput)
 }

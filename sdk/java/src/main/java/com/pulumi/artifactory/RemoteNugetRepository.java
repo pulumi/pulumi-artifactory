@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,18 +47,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var my_remote_nuget = new RemoteNugetRepository(&#34;my-remote-nuget&#34;, RemoteNugetRepositoryArgs.builder()        
- *             .key(&#34;my-remote-nuget&#34;)
- *             .url(&#34;https://www.nuget.org/&#34;)
- *             .downloadContextPath(&#34;api/v2/package&#34;)
+ *         var my_remote_nuget = new RemoteNugetRepository("my-remote-nuget", RemoteNugetRepositoryArgs.builder()        
+ *             .key("my-remote-nuget")
+ *             .url("https://www.nuget.org/")
+ *             .downloadContextPath("api/v2/package")
  *             .forceNugetAuthentication(true)
- *             .v3FeedUrl(&#34;https://api.nuget.org/v3/index.json&#34;)
- *             .symbolServerUrl(&#34;https://symbols.nuget.org/download/symbols&#34;)
+ *             .v3FeedUrl("https://api.nuget.org/v3/index.json")
+ *             .symbolServerUrl("https://symbols.nuget.org/download/symbols")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -515,23 +517,9 @@ public class RemoteNugetRepository extends com.pulumi.resources.CustomResource {
     public Output<Optional<Boolean>> priorityResolution() {
         return Codegen.optional(this.priorityResolution);
     }
-    /**
-     * Project environment for assigning this repository to. Allow values: &#34;DEV&#34;, &#34;PROD&#34;, or one of custom environment. Before
-     * Artifactory 7.53.1, up to 2 values (&#34;DEV&#34; and &#34;PROD&#34;) are allowed. From 7.53.1 onward, only one value is allowed. The
-     * attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-     * be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
-     * 
-     */
     @Export(name="projectEnvironments", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> projectEnvironments;
 
-    /**
-     * @return Project environment for assigning this repository to. Allow values: &#34;DEV&#34;, &#34;PROD&#34;, or one of custom environment. Before
-     * Artifactory 7.53.1, up to 2 values (&#34;DEV&#34; and &#34;PROD&#34;) are allowed. From 7.53.1 onward, only one value is allowed. The
-     * attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-     * be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
-     * 
-     */
     public Output<List<String>> projectEnvironments() {
         return this.projectEnvironments;
     }

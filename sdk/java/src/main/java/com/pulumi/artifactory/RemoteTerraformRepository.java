@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,16 +44,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var terraform_remote = new RemoteTerraformRepository(&#34;terraform-remote&#34;, RemoteTerraformRepositoryArgs.builder()        
- *             .key(&#34;terraform-remote&#34;)
- *             .url(&#34;https://github.com/&#34;)
- *             .terraformRegistryUrl(&#34;https://registry.terraform.io&#34;)
- *             .terraformProvidersUrl(&#34;https://releases.hashicorp.com&#34;)
+ *         var terraform_remote = new RemoteTerraformRepository("terraform-remote", RemoteTerraformRepositoryArgs.builder()        
+ *             .key("terraform-remote")
+ *             .url("https://github.com/")
+ *             .terraformRegistryUrl("https://registry.terraform.io")
+ *             .terraformProvidersUrl("https://releases.hashicorp.com")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -464,23 +466,9 @@ public class RemoteTerraformRepository extends com.pulumi.resources.CustomResour
     public Output<Optional<Boolean>> priorityResolution() {
         return Codegen.optional(this.priorityResolution);
     }
-    /**
-     * Project environment for assigning this repository to. Allow values: &#34;DEV&#34;, &#34;PROD&#34;, or one of custom environment. Before
-     * Artifactory 7.53.1, up to 2 values (&#34;DEV&#34; and &#34;PROD&#34;) are allowed. From 7.53.1 onward, only one value is allowed. The
-     * attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-     * be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
-     * 
-     */
     @Export(name="projectEnvironments", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> projectEnvironments;
 
-    /**
-     * @return Project environment for assigning this repository to. Allow values: &#34;DEV&#34;, &#34;PROD&#34;, or one of custom environment. Before
-     * Artifactory 7.53.1, up to 2 values (&#34;DEV&#34; and &#34;PROD&#34;) are allowed. From 7.53.1 onward, only one value is allowed. The
-     * attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-     * be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
-     * 
-     */
     public Output<List<String>> projectEnvironments() {
         return this.projectEnvironments;
     }
@@ -648,35 +636,15 @@ public class RemoteTerraformRepository extends com.pulumi.resources.CustomResour
     public Output<Optional<Boolean>> synchronizeProperties() {
         return Codegen.optional(this.synchronizeProperties);
     }
-    /**
-     * The base URL of the Provider&#39;s storage API. When using Smart remote repositories, set the URL to
-     * &lt;base_Artifactory_URL&gt;/api/terraform/repokey/providers. Default value in UI is https://releases.hashicorp.com
-     * 
-     */
     @Export(name="terraformProvidersUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> terraformProvidersUrl;
 
-    /**
-     * @return The base URL of the Provider&#39;s storage API. When using Smart remote repositories, set the URL to
-     * &lt;base_Artifactory_URL&gt;/api/terraform/repokey/providers. Default value in UI is https://releases.hashicorp.com
-     * 
-     */
     public Output<Optional<String>> terraformProvidersUrl() {
         return Codegen.optional(this.terraformProvidersUrl);
     }
-    /**
-     * The base URL of the registry API. When using Smart Remote Repositories, set the URL to
-     * &lt;base_Artifactory_URL&gt;/api/terraform/repokey. Default value in UI is https://registry.terraform.io
-     * 
-     */
     @Export(name="terraformRegistryUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> terraformRegistryUrl;
 
-    /**
-     * @return The base URL of the registry API. When using Smart Remote Repositories, set the URL to
-     * &lt;base_Artifactory_URL&gt;/api/terraform/repokey. Default value in UI is https://registry.terraform.io
-     * 
-     */
     public Output<Optional<String>> terraformRegistryUrl() {
         return Codegen.optional(this.terraformRegistryUrl);
     }

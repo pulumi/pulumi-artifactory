@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,33 +49,34 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var config = ctx.config();
- *         final var artifactoryUrl = config.get(&#34;artifactoryUrl&#34;);
- *         var providerTestSource = new LocalMavenRepository(&#34;providerTestSource&#34;, LocalMavenRepositoryArgs.builder()        
- *             .key(&#34;provider_test_source&#34;)
+ *         final var artifactoryUrl = config.get("artifactoryUrl");
+ *         var providerTestSource = new LocalMavenRepository("providerTestSource", LocalMavenRepositoryArgs.builder()        
+ *             .key("provider_test_source")
  *             .build());
  * 
- *         var providerTestDest = new RemoteMavenRepository(&#34;providerTestDest&#34;, RemoteMavenRepositoryArgs.builder()        
- *             .key(&#34;provider_test_dest&#34;)
- *             .url(String.format(&#34;%s/artifactory/%s&#34;, artifactoryUrl,artifactoryLocalMavenRepository.key()))
- *             .username(&#34;foo&#34;)
- *             .password(&#34;bar&#34;)
+ *         var providerTestDest = new RemoteMavenRepository("providerTestDest", RemoteMavenRepositoryArgs.builder()        
+ *             .key("provider_test_dest")
+ *             .url(String.format("%s/artifactory/%s", artifactoryUrl,artifactoryLocalMavenRepository.key()))
+ *             .username("foo")
+ *             .password("bar")
  *             .build());
  * 
- *         var remote_rep = new RemoteRepositoryReplication(&#34;remote-rep&#34;, RemoteRepositoryReplicationArgs.builder()        
+ *         var remote_rep = new RemoteRepositoryReplication("remote-rep", RemoteRepositoryReplicationArgs.builder()        
  *             .repoKey(providerTestDest.key())
- *             .cronExp(&#34;0 0 * * * ?&#34;)
+ *             .cronExp("0 0 * * * ?")
  *             .enableEventReplication(true)
  *             .enabled(true)
  *             .syncDeletes(false)
  *             .syncProperties(true)
- *             .includePathPrefixPattern(&#34;/some-repo/&#34;)
- *             .excludePathPrefixPattern(&#34;/some-other-repo/&#34;)
+ *             .includePathPrefixPattern("/some-repo/")
+ *             .excludePathPrefixPattern("/some-other-repo/")
  *             .checkBinaryExistenceInFilestore(false)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

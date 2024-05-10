@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,19 +46,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var my_oci_virtual = new VirtualOciRepository(&#34;my-oci-virtual&#34;, VirtualOciRepositoryArgs.builder()        
- *             .key(&#34;my-oci-virtual&#34;)
+ *         var my_oci_virtual = new VirtualOciRepository("my-oci-virtual", VirtualOciRepositoryArgs.builder()        
+ *             .key("my-oci-virtual")
  *             .repositories(            
- *                 &#34;my-oci-local&#34;,
- *                 &#34;my-oci-remote&#34;)
- *             .description(&#34;A test virtual OCI repo&#34;)
- *             .notes(&#34;Internal description&#34;)
+ *                 "my-oci-local",
+ *                 "my-oci-remote")
+ *             .description("A test virtual OCI repo")
+ *             .notes("Internal description")
  *             .resolveOciTagsByTimestamp(true)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -181,23 +183,9 @@ public class VirtualOciRepository extends com.pulumi.resources.CustomResource {
     public Output<String> packageType() {
         return this.packageType;
     }
-    /**
-     * Project environment for assigning this repository to. Allow values: &#34;DEV&#34;, &#34;PROD&#34;, or one of custom environment. Before
-     * Artifactory 7.53.1, up to 2 values (&#34;DEV&#34; and &#34;PROD&#34;) are allowed. From 7.53.1 onward, only one value is allowed. The
-     * attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-     * be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
-     * 
-     */
     @Export(name="projectEnvironments", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> projectEnvironments;
 
-    /**
-     * @return Project environment for assigning this repository to. Allow values: &#34;DEV&#34;, &#34;PROD&#34;, or one of custom environment. Before
-     * Artifactory 7.53.1, up to 2 values (&#34;DEV&#34; and &#34;PROD&#34;) are allowed. From 7.53.1 onward, only one value is allowed. The
-     * attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-     * be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
-     * 
-     */
     public Output<List<String>> projectEnvironments() {
         return this.projectEnvironments;
     }

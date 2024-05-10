@@ -155,7 +155,7 @@ export class RemoteGoRepository extends pulumi.CustomResource {
      */
     public readonly metadataRetrievalTimeoutSecs!: pulumi.Output<number | undefined>;
     /**
-     * The set of mime types that should override the block_mismatching_mime_types setting. Eg:
+     * The set of mime types that should override the blockMismatchingMimeTypes setting. Eg:
      * 'application/json,application/xml'. Default value is empty.
      */
     public readonly mismatchingMimeTypesOverrideList!: pulumi.Output<string | undefined>;
@@ -180,12 +180,6 @@ export class RemoteGoRepository extends pulumi.CustomResource {
      * not found in those repositories, Artifactory will merge from repositories marked as non-priority.
      */
     public readonly priorityResolution!: pulumi.Output<boolean | undefined>;
-    /**
-     * Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
-     * Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
-     * attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-     * be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
-     */
     public readonly projectEnvironments!: pulumi.Output<string[]>;
     /**
      * Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
@@ -197,7 +191,7 @@ export class RemoteGoRepository extends pulumi.CustomResource {
      */
     public readonly propertySets!: pulumi.Output<string[] | undefined>;
     /**
-     * Proxy key from Artifactory Proxies settings. Can't be set if `disable_proxy = true`.
+     * Proxy key from Artifactory Proxies settings. Can't be set if `disableProxy = true`.
      */
     public readonly proxy!: pulumi.Output<string | undefined>;
     /**
@@ -474,7 +468,7 @@ export interface RemoteGoRepositoryState {
      */
     metadataRetrievalTimeoutSecs?: pulumi.Input<number>;
     /**
-     * The set of mime types that should override the block_mismatching_mime_types setting. Eg:
+     * The set of mime types that should override the blockMismatchingMimeTypes setting. Eg:
      * 'application/json,application/xml'. Default value is empty.
      */
     mismatchingMimeTypesOverrideList?: pulumi.Input<string>;
@@ -499,12 +493,6 @@ export interface RemoteGoRepositoryState {
      * not found in those repositories, Artifactory will merge from repositories marked as non-priority.
      */
     priorityResolution?: pulumi.Input<boolean>;
-    /**
-     * Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
-     * Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
-     * attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-     * be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
-     */
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
@@ -516,7 +504,7 @@ export interface RemoteGoRepositoryState {
      */
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Proxy key from Artifactory Proxies settings. Can't be set if `disable_proxy = true`.
+     * Proxy key from Artifactory Proxies settings. Can't be set if `disableProxy = true`.
      */
     proxy?: pulumi.Input<string>;
     /**
@@ -677,7 +665,7 @@ export interface RemoteGoRepositoryArgs {
      */
     metadataRetrievalTimeoutSecs?: pulumi.Input<number>;
     /**
-     * The set of mime types that should override the block_mismatching_mime_types setting. Eg:
+     * The set of mime types that should override the blockMismatchingMimeTypes setting. Eg:
      * 'application/json,application/xml'. Default value is empty.
      */
     mismatchingMimeTypesOverrideList?: pulumi.Input<string>;
@@ -701,12 +689,6 @@ export interface RemoteGoRepositoryArgs {
      * not found in those repositories, Artifactory will merge from repositories marked as non-priority.
      */
     priorityResolution?: pulumi.Input<boolean>;
-    /**
-     * Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
-     * Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
-     * attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-     * be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
-     */
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
@@ -718,7 +700,7 @@ export interface RemoteGoRepositoryArgs {
      */
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Proxy key from Artifactory Proxies settings. Can't be set if `disable_proxy = true`.
+     * Proxy key from Artifactory Proxies settings. Can't be set if `disableProxy = true`.
      */
     proxy?: pulumi.Input<string>;
     /**

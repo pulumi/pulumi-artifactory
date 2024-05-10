@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,32 +48,32 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var primary_keypair = new Keypair(&#34;primary-keypair&#34;, KeypairArgs.builder()        
- *             .pairName(&#34;primary-keypair&#34;)
- *             .pairType(&#34;GPG&#34;)
- *             .alias(&#34;foo-alias-1&#34;)
+ *         var primary_keypair = new Keypair("primary-keypair", KeypairArgs.builder()        
+ *             .pairName("primary-keypair")
+ *             .pairType("GPG")
+ *             .alias("foo-alias-1")
  *             .privateKey(StdFunctions.file(FileArgs.builder()
- *                 .input(&#34;samples/gpg.priv&#34;)
+ *                 .input("samples/gpg.priv")
  *                 .build()).result())
  *             .publicKey(StdFunctions.file(FileArgs.builder()
- *                 .input(&#34;samples/gpg.pub&#34;)
+ *                 .input("samples/gpg.pub")
  *                 .build()).result())
  *             .build());
  * 
- *         var secondary_keypair = new Keypair(&#34;secondary-keypair&#34;, KeypairArgs.builder()        
- *             .pairName(&#34;secondary-keypair&#34;)
- *             .pairType(&#34;GPG&#34;)
- *             .alias(&#34;foo-alias-2&#34;)
+ *         var secondary_keypair = new Keypair("secondary-keypair", KeypairArgs.builder()        
+ *             .pairName("secondary-keypair")
+ *             .pairType("GPG")
+ *             .alias("foo-alias-2")
  *             .privateKey(StdFunctions.file(FileArgs.builder()
- *                 .input(&#34;samples/gpg.priv&#34;)
+ *                 .input("samples/gpg.priv")
  *                 .build()).result())
  *             .publicKey(StdFunctions.file(FileArgs.builder()
- *                 .input(&#34;samples/gpg.pub&#34;)
+ *                 .input("samples/gpg.pub")
  *                 .build()).result())
  *             .build());
  * 
- *         var foo_rpm_virtual = new VirtualRpmRepository(&#34;foo-rpm-virtual&#34;, VirtualRpmRepositoryArgs.builder()        
- *             .key(&#34;foo-rpm-virtual&#34;)
+ *         var foo_rpm_virtual = new VirtualRpmRepository("foo-rpm-virtual", VirtualRpmRepositoryArgs.builder()        
+ *             .key("foo-rpm-virtual")
  *             .primaryKeypairRef(primary_keypair.pairName())
  *             .secondaryKeypairRef(secondary_keypair.pairName())
  *             .build(), CustomResourceOptions.builder()
@@ -83,7 +84,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -223,23 +225,9 @@ public class VirtualRpmRepository extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> primaryKeypairRef() {
         return Codegen.optional(this.primaryKeypairRef);
     }
-    /**
-     * Project environment for assigning this repository to. Allow values: &#34;DEV&#34;, &#34;PROD&#34;, or one of custom environment. Before
-     * Artifactory 7.53.1, up to 2 values (&#34;DEV&#34; and &#34;PROD&#34;) are allowed. From 7.53.1 onward, only one value is allowed. The
-     * attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-     * be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
-     * 
-     */
     @Export(name="projectEnvironments", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> projectEnvironments;
 
-    /**
-     * @return Project environment for assigning this repository to. Allow values: &#34;DEV&#34;, &#34;PROD&#34;, or one of custom environment. Before
-     * Artifactory 7.53.1, up to 2 values (&#34;DEV&#34; and &#34;PROD&#34;) are allowed. From 7.53.1 onward, only one value is allowed. The
-     * attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-     * be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
-     * 
-     */
     public Output<List<String>> projectEnvironments() {
         return this.projectEnvironments;
     }

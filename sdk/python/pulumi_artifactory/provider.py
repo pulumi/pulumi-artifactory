@@ -21,7 +21,7 @@ class ProviderArgs:
                  url: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Provider resource.
-        :param pulumi.Input[str] access_token: This is a access token that can be given to you by your admin under `User Management -> Access Tokens`. If not set, the
+        :param pulumi.Input[str] access_token: This is a access token that can be given to you by your admin under `User Management > Access Tokens`. If not set, the
                'api_key' attribute value will be used.
         :param pulumi.Input[str] api_key: API key. If `access_token` attribute, `JFROG_ACCESS_TOKEN` or `ARTIFACTORY_ACCESS_TOKEN` environment variable is set,
                the provider will ignore this attribute.
@@ -55,7 +55,7 @@ By end of Q4 2024, API Keys will be deprecated all together and the option to us
     @pulumi.getter(name="accessToken")
     def access_token(self) -> Optional[pulumi.Input[str]]:
         """
-        This is a access token that can be given to you by your admin under `User Management -> Access Tokens`. If not set, the
+        This is a access token that can be given to you by your admin under `User Management > Access Tokens`. If not set, the
         'api_key' attribute value will be used.
         """
         return pulumi.get(self, "access_token")
@@ -142,7 +142,7 @@ class Provider(pulumi.ProviderResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] access_token: This is a access token that can be given to you by your admin under `User Management -> Access Tokens`. If not set, the
+        :param pulumi.Input[str] access_token: This is a access token that can be given to you by your admin under `User Management > Access Tokens`. If not set, the
                'api_key' attribute value will be used.
         :param pulumi.Input[str] api_key: API key. If `access_token` attribute, `JFROG_ACCESS_TOKEN` or `ARTIFACTORY_ACCESS_TOKEN` environment variable is set,
                the provider will ignore this attribute.
@@ -212,7 +212,7 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter(name="accessToken")
     def access_token(self) -> pulumi.Output[Optional[str]]:
         """
-        This is a access token that can be given to you by your admin under `User Management -> Access Tokens`. If not set, the
+        This is a access token that can be given to you by your admin under `User Management > Access Tokens`. If not set, the
         'api_key' attribute value will be used.
         """
         return pulumi.get(self, "access_token")

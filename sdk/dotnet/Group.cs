@@ -81,9 +81,6 @@ namespace Pulumi.Artifactory
         [Output("reportsManager")]
         public Output<bool> ReportsManager { get; private set; } = null!;
 
-        /// <summary>
-        /// List of users assigned to the group. If not set or empty, Terraform will not manage group membership.
-        /// </summary>
         [Output("usersNames")]
         public Output<ImmutableArray<string>> UsersNames { get; private set; } = null!;
 
@@ -201,10 +198,6 @@ namespace Pulumi.Artifactory
 
         [Input("usersNames")]
         private InputList<string>? _usersNames;
-
-        /// <summary>
-        /// List of users assigned to the group. If not set or empty, Terraform will not manage group membership.
-        /// </summary>
         public InputList<string> UsersNames
         {
             get => _usersNames ?? (_usersNames = new InputList<string>());
@@ -287,10 +280,6 @@ namespace Pulumi.Artifactory
 
         [Input("usersNames")]
         private InputList<string>? _usersNames;
-
-        /// <summary>
-        /// List of users assigned to the group. If not set or empty, Terraform will not manage group membership.
-        /// </summary>
         public InputList<string> UsersNames
         {
             get => _usersNames ?? (_usersNames = new InputList<string>());

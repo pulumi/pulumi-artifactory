@@ -81,10 +81,6 @@ export class FederatedConanRepository extends pulumi.CustomResource {
      * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
      */
     public readonly cdnRedirect!: pulumi.Output<boolean | undefined>;
-    /**
-     * Delete all federated members on `terraform destroy` if set to `true`. Caution: it will delete all the repositories in
-     * the federation on other Artifactory instances.
-     */
     public readonly cleanupOnDelete!: pulumi.Output<boolean | undefined>;
     /**
      * Public description.
@@ -133,12 +129,6 @@ export class FederatedConanRepository extends pulumi.CustomResource {
      * Setting repositories with priority will cause metadata to be merged only from repositories set with this field
      */
     public readonly priorityResolution!: pulumi.Output<boolean | undefined>;
-    /**
-     * Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
-     * Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
-     * attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-     * be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
-     */
     public readonly projectEnvironments!: pulumi.Output<string[]>;
     /**
      * Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
@@ -251,10 +241,6 @@ export interface FederatedConanRepositoryState {
      * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
      */
     cdnRedirect?: pulumi.Input<boolean>;
-    /**
-     * Delete all federated members on `terraform destroy` if set to `true`. Caution: it will delete all the repositories in
-     * the federation on other Artifactory instances.
-     */
     cleanupOnDelete?: pulumi.Input<boolean>;
     /**
      * Public description.
@@ -303,12 +289,6 @@ export interface FederatedConanRepositoryState {
      * Setting repositories with priority will cause metadata to be merged only from repositories set with this field
      */
     priorityResolution?: pulumi.Input<boolean>;
-    /**
-     * Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
-     * Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
-     * attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-     * be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
-     */
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
@@ -353,10 +333,6 @@ export interface FederatedConanRepositoryArgs {
      * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
      */
     cdnRedirect?: pulumi.Input<boolean>;
-    /**
-     * Delete all federated members on `terraform destroy` if set to `true`. Caution: it will delete all the repositories in
-     * the federation on other Artifactory instances.
-     */
     cleanupOnDelete?: pulumi.Input<boolean>;
     /**
      * Public description.
@@ -404,12 +380,6 @@ export interface FederatedConanRepositoryArgs {
      * Setting repositories with priority will cause metadata to be merged only from repositories set with this field
      */
     priorityResolution?: pulumi.Input<boolean>;
-    /**
-     * Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
-     * Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
-     * attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
-     * be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
-     */
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When

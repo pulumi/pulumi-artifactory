@@ -32,7 +32,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -57,33 +58,34 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var config = ctx.config();
- *         final var artifactoryUrl = config.get(&#34;artifactoryUrl&#34;);
- *         final var artifactoryUsername = config.get(&#34;artifactoryUsername&#34;);
- *         final var artifactoryPassword = config.get(&#34;artifactoryPassword&#34;);
+ *         final var artifactoryUrl = config.get("artifactoryUrl");
+ *         final var artifactoryUsername = config.get("artifactoryUsername");
+ *         final var artifactoryPassword = config.get("artifactoryPassword");
  *         // Create a replication between two artifactory local repositories
- *         var providerTestSource = new LocalMavenRepository(&#34;providerTestSource&#34;, LocalMavenRepositoryArgs.builder()        
- *             .key(&#34;provider_test_source&#34;)
+ *         var providerTestSource = new LocalMavenRepository("providerTestSource", LocalMavenRepositoryArgs.builder()        
+ *             .key("provider_test_source")
  *             .build());
  * 
- *         var providerTestDest = new LocalMavenRepository(&#34;providerTestDest&#34;, LocalMavenRepositoryArgs.builder()        
- *             .key(&#34;provider_test_dest&#34;)
+ *         var providerTestDest = new LocalMavenRepository("providerTestDest", LocalMavenRepositoryArgs.builder()        
+ *             .key("provider_test_dest")
  *             .build());
  * 
- *         var foo_rep = new PushReplication(&#34;foo-rep&#34;, PushReplicationArgs.builder()        
+ *         var foo_rep = new PushReplication("foo-rep", PushReplicationArgs.builder()        
  *             .repoKey(providerTestSource.key())
- *             .cronExp(&#34;0 0 * * * ?&#34;)
+ *             .cronExp("0 0 * * * ?")
  *             .enableEventReplication(true)
  *             .replications(PushReplicationReplicationArgs.builder()
- *                 .url(providerTestDest.key().applyValue(key -&gt; String.format(&#34;%s/%s&#34;, artifactoryUrl,key)))
- *                 .username(&#34;$var.artifactory_username&#34;)
- *                 .password(&#34;$var.artifactory_password&#34;)
+ *                 .url(providerTestDest.key().applyValue(key -> String.format("%s/%s", artifactoryUrl,key)))
+ *                 .username("$var.artifactory_username")
+ *                 .password("$var.artifactory_password")
  *                 .enabled(true)
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

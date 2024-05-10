@@ -94,14 +94,14 @@ public final class ManagedUserArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Username for user. May contain lowercase letters, numbers and symbols: &#39;.-_@&#39;
+     * Username for user. May contain lowercase letters, numbers and symbols: &#39;.-_{@literal @}&#39;
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Username for user. May contain lowercase letters, numbers and symbols: &#39;.-_@&#39;
+     * @return Username for user. May contain lowercase letters, numbers and symbols: &#39;.-_{@literal @}&#39;
      * 
      */
     public Optional<Output<String>> name() {
@@ -285,7 +285,7 @@ public final class ManagedUserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Username for user. May contain lowercase letters, numbers and symbols: &#39;.-_@&#39;
+         * @param name Username for user. May contain lowercase letters, numbers and symbols: &#39;.-_{@literal @}&#39;
          * 
          * @return builder
          * 
@@ -296,7 +296,7 @@ public final class ManagedUserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Username for user. May contain lowercase letters, numbers and symbols: &#39;.-_@&#39;
+         * @param name Username for user. May contain lowercase letters, numbers and symbols: &#39;.-_{@literal @}&#39;
          * 
          * @return builder
          * 

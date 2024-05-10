@@ -434,7 +434,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -456,12 +457,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-alpine-repo = ArtifactoryFunctions.getFederatedAlpineRepository(GetFederatedAlpineRepositoryArgs.builder()
-     *             .key(&#34;federated-test-alpine-repo&#34;)
+     *             .key("federated-test-alpine-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -474,7 +476,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -496,12 +499,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-alpine-repo = ArtifactoryFunctions.getFederatedAlpineRepository(GetFederatedAlpineRepositoryArgs.builder()
-     *             .key(&#34;federated-test-alpine-repo&#34;)
+     *             .key("federated-test-alpine-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -514,7 +518,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -536,12 +541,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-alpine-repo = ArtifactoryFunctions.getFederatedAlpineRepository(GetFederatedAlpineRepositoryArgs.builder()
-     *             .key(&#34;federated-test-alpine-repo&#34;)
+     *             .key("federated-test-alpine-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -554,7 +560,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -576,12 +583,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-alpine-repo = ArtifactoryFunctions.getFederatedAlpineRepository(GetFederatedAlpineRepositoryArgs.builder()
-     *             .key(&#34;federated-test-alpine-repo&#34;)
+     *             .key("federated-test-alpine-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -594,7 +602,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -616,12 +625,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-bower-repo = ArtifactoryFunctions.getFederatedBowerRepository(GetFederatedBowerRepositoryArgs.builder()
-     *             .key(&#34;federated-test-bower-repo&#34;)
+     *             .key("federated-test-bower-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -634,7 +644,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -656,12 +667,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-bower-repo = ArtifactoryFunctions.getFederatedBowerRepository(GetFederatedBowerRepositoryArgs.builder()
-     *             .key(&#34;federated-test-bower-repo&#34;)
+     *             .key("federated-test-bower-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -674,7 +686,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -696,12 +709,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-bower-repo = ArtifactoryFunctions.getFederatedBowerRepository(GetFederatedBowerRepositoryArgs.builder()
-     *             .key(&#34;federated-test-bower-repo&#34;)
+     *             .key("federated-test-bower-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -714,7 +728,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -736,12 +751,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-bower-repo = ArtifactoryFunctions.getFederatedBowerRepository(GetFederatedBowerRepositoryArgs.builder()
-     *             .key(&#34;federated-test-bower-repo&#34;)
+     *             .key("federated-test-bower-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -754,7 +770,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -775,13 +792,14 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var federated_test_cargo_repo = new FederatedCargoRepository(&#34;federated-test-cargo-repo&#34;, FederatedCargoRepositoryArgs.builder()        
-     *             .key(&#34;federated-test-cargo-repo&#34;)
+     *         var federated_test_cargo_repo = new FederatedCargoRepository("federated-test-cargo-repo", FederatedCargoRepositoryArgs.builder()        
+     *             .key("federated-test-cargo-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -794,7 +812,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -815,13 +834,14 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var federated_test_cargo_repo = new FederatedCargoRepository(&#34;federated-test-cargo-repo&#34;, FederatedCargoRepositoryArgs.builder()        
-     *             .key(&#34;federated-test-cargo-repo&#34;)
+     *         var federated_test_cargo_repo = new FederatedCargoRepository("federated-test-cargo-repo", FederatedCargoRepositoryArgs.builder()        
+     *             .key("federated-test-cargo-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -834,7 +854,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -855,13 +876,14 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var federated_test_cargo_repo = new FederatedCargoRepository(&#34;federated-test-cargo-repo&#34;, FederatedCargoRepositoryArgs.builder()        
-     *             .key(&#34;federated-test-cargo-repo&#34;)
+     *         var federated_test_cargo_repo = new FederatedCargoRepository("federated-test-cargo-repo", FederatedCargoRepositoryArgs.builder()        
+     *             .key("federated-test-cargo-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -874,7 +896,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -895,13 +918,14 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var federated_test_cargo_repo = new FederatedCargoRepository(&#34;federated-test-cargo-repo&#34;, FederatedCargoRepositoryArgs.builder()        
-     *             .key(&#34;federated-test-cargo-repo&#34;)
+     *         var federated_test_cargo_repo = new FederatedCargoRepository("federated-test-cargo-repo", FederatedCargoRepositoryArgs.builder()        
+     *             .key("federated-test-cargo-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -914,7 +938,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -936,12 +961,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-chef-repo = ArtifactoryFunctions.getFederatedChefRepository(GetFederatedChefRepositoryArgs.builder()
-     *             .key(&#34;federated-test-chef-repo&#34;)
+     *             .key("federated-test-chef-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -954,7 +980,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -976,12 +1003,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-chef-repo = ArtifactoryFunctions.getFederatedChefRepository(GetFederatedChefRepositoryArgs.builder()
-     *             .key(&#34;federated-test-chef-repo&#34;)
+     *             .key("federated-test-chef-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -994,7 +1022,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1016,12 +1045,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-chef-repo = ArtifactoryFunctions.getFederatedChefRepository(GetFederatedChefRepositoryArgs.builder()
-     *             .key(&#34;federated-test-chef-repo&#34;)
+     *             .key("federated-test-chef-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1034,7 +1064,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1056,12 +1087,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-chef-repo = ArtifactoryFunctions.getFederatedChefRepository(GetFederatedChefRepositoryArgs.builder()
-     *             .key(&#34;federated-test-chef-repo&#34;)
+     *             .key("federated-test-chef-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1074,7 +1106,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1096,12 +1129,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-cocoapods-repo = ArtifactoryFunctions.getFederatedCocoapodsRepository(GetFederatedCocoapodsRepositoryArgs.builder()
-     *             .key(&#34;federated-test-cocoapods-repo&#34;)
+     *             .key("federated-test-cocoapods-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1114,7 +1148,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1136,12 +1171,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-cocoapods-repo = ArtifactoryFunctions.getFederatedCocoapodsRepository(GetFederatedCocoapodsRepositoryArgs.builder()
-     *             .key(&#34;federated-test-cocoapods-repo&#34;)
+     *             .key("federated-test-cocoapods-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1154,7 +1190,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1176,12 +1213,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-cocoapods-repo = ArtifactoryFunctions.getFederatedCocoapodsRepository(GetFederatedCocoapodsRepositoryArgs.builder()
-     *             .key(&#34;federated-test-cocoapods-repo&#34;)
+     *             .key("federated-test-cocoapods-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1194,7 +1232,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1216,12 +1255,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-cocoapods-repo = ArtifactoryFunctions.getFederatedCocoapodsRepository(GetFederatedCocoapodsRepositoryArgs.builder()
-     *             .key(&#34;federated-test-cocoapods-repo&#34;)
+     *             .key("federated-test-cocoapods-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1234,7 +1274,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1256,12 +1297,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-composer-repo = ArtifactoryFunctions.getFederatedComposerRepository(GetFederatedComposerRepositoryArgs.builder()
-     *             .key(&#34;federated-test-composer-repo&#34;)
+     *             .key("federated-test-composer-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1274,7 +1316,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1296,12 +1339,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-composer-repo = ArtifactoryFunctions.getFederatedComposerRepository(GetFederatedComposerRepositoryArgs.builder()
-     *             .key(&#34;federated-test-composer-repo&#34;)
+     *             .key("federated-test-composer-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1314,7 +1358,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1336,12 +1381,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-composer-repo = ArtifactoryFunctions.getFederatedComposerRepository(GetFederatedComposerRepositoryArgs.builder()
-     *             .key(&#34;federated-test-composer-repo&#34;)
+     *             .key("federated-test-composer-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1354,7 +1400,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1376,12 +1423,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-composer-repo = ArtifactoryFunctions.getFederatedComposerRepository(GetFederatedComposerRepositoryArgs.builder()
-     *             .key(&#34;federated-test-composer-repo&#34;)
+     *             .key("federated-test-composer-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1394,7 +1442,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1416,12 +1465,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-conan-repo = ArtifactoryFunctions.getFederatedConanRepository(GetFederatedConanRepositoryArgs.builder()
-     *             .key(&#34;federated-test-conan-repo&#34;)
+     *             .key("federated-test-conan-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1434,7 +1484,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1456,12 +1507,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-conan-repo = ArtifactoryFunctions.getFederatedConanRepository(GetFederatedConanRepositoryArgs.builder()
-     *             .key(&#34;federated-test-conan-repo&#34;)
+     *             .key("federated-test-conan-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1474,7 +1526,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1496,12 +1549,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-conan-repo = ArtifactoryFunctions.getFederatedConanRepository(GetFederatedConanRepositoryArgs.builder()
-     *             .key(&#34;federated-test-conan-repo&#34;)
+     *             .key("federated-test-conan-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1514,7 +1568,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1536,12 +1591,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-conan-repo = ArtifactoryFunctions.getFederatedConanRepository(GetFederatedConanRepositoryArgs.builder()
-     *             .key(&#34;federated-test-conan-repo&#34;)
+     *             .key("federated-test-conan-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1554,7 +1610,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1576,12 +1633,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-conda-repo = ArtifactoryFunctions.getFederatedCondaRepository(GetFederatedCondaRepositoryArgs.builder()
-     *             .key(&#34;federated-test-conda-repo&#34;)
+     *             .key("federated-test-conda-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1594,7 +1652,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1616,12 +1675,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-conda-repo = ArtifactoryFunctions.getFederatedCondaRepository(GetFederatedCondaRepositoryArgs.builder()
-     *             .key(&#34;federated-test-conda-repo&#34;)
+     *             .key("federated-test-conda-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1634,7 +1694,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1656,12 +1717,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-conda-repo = ArtifactoryFunctions.getFederatedCondaRepository(GetFederatedCondaRepositoryArgs.builder()
-     *             .key(&#34;federated-test-conda-repo&#34;)
+     *             .key("federated-test-conda-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1674,7 +1736,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1696,12 +1759,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-conda-repo = ArtifactoryFunctions.getFederatedCondaRepository(GetFederatedCondaRepositoryArgs.builder()
-     *             .key(&#34;federated-test-conda-repo&#34;)
+     *             .key("federated-test-conda-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1714,7 +1778,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1736,12 +1801,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-cran-repo = ArtifactoryFunctions.getFederatedCranRepository(GetFederatedCranRepositoryArgs.builder()
-     *             .key(&#34;federated-test-cran-repo&#34;)
+     *             .key("federated-test-cran-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1754,7 +1820,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1776,12 +1843,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-cran-repo = ArtifactoryFunctions.getFederatedCranRepository(GetFederatedCranRepositoryArgs.builder()
-     *             .key(&#34;federated-test-cran-repo&#34;)
+     *             .key("federated-test-cran-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1794,7 +1862,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1816,12 +1885,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-cran-repo = ArtifactoryFunctions.getFederatedCranRepository(GetFederatedCranRepositoryArgs.builder()
-     *             .key(&#34;federated-test-cran-repo&#34;)
+     *             .key("federated-test-cran-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1834,7 +1904,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1856,12 +1927,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-cran-repo = ArtifactoryFunctions.getFederatedCranRepository(GetFederatedCranRepositoryArgs.builder()
-     *             .key(&#34;federated-test-cran-repo&#34;)
+     *             .key("federated-test-cran-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1874,7 +1946,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1896,12 +1969,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-debian-repo = ArtifactoryFunctions.getFederatedDebianRepository(GetFederatedDebianRepositoryArgs.builder()
-     *             .key(&#34;federated-test-debian-repo&#34;)
+     *             .key("federated-test-debian-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1914,7 +1988,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1936,12 +2011,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-debian-repo = ArtifactoryFunctions.getFederatedDebianRepository(GetFederatedDebianRepositoryArgs.builder()
-     *             .key(&#34;federated-test-debian-repo&#34;)
+     *             .key("federated-test-debian-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1954,7 +2030,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1976,12 +2053,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-debian-repo = ArtifactoryFunctions.getFederatedDebianRepository(GetFederatedDebianRepositoryArgs.builder()
-     *             .key(&#34;federated-test-debian-repo&#34;)
+     *             .key("federated-test-debian-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1994,7 +2072,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2016,12 +2095,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-debian-repo = ArtifactoryFunctions.getFederatedDebianRepository(GetFederatedDebianRepositoryArgs.builder()
-     *             .key(&#34;federated-test-debian-repo&#34;)
+     *             .key("federated-test-debian-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2046,7 +2126,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2068,12 +2149,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-docker-repo = ArtifactoryFunctions.getFederatedDockerV1Repository(GetFederatedDockerV1RepositoryArgs.builder()
-     *             .key(&#34;federated-test-docker-repo&#34;)
+     *             .key("federated-test-docker-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2086,7 +2168,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2108,12 +2191,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-docker-repo = ArtifactoryFunctions.getFederatedDockerV1Repository(GetFederatedDockerV1RepositoryArgs.builder()
-     *             .key(&#34;federated-test-docker-repo&#34;)
+     *             .key("federated-test-docker-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2126,7 +2210,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2148,12 +2233,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-docker-repo = ArtifactoryFunctions.getFederatedDockerV1Repository(GetFederatedDockerV1RepositoryArgs.builder()
-     *             .key(&#34;federated-test-docker-repo&#34;)
+     *             .key("federated-test-docker-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2166,7 +2252,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2188,12 +2275,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-docker-repo = ArtifactoryFunctions.getFederatedDockerV1Repository(GetFederatedDockerV1RepositoryArgs.builder()
-     *             .key(&#34;federated-test-docker-repo&#34;)
+     *             .key("federated-test-docker-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2206,7 +2294,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2228,12 +2317,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-docker-repo = ArtifactoryFunctions.getFederatedDockerV2Repository(GetFederatedDockerV2RepositoryArgs.builder()
-     *             .key(&#34;federated-test-docker-repo&#34;)
+     *             .key("federated-test-docker-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2246,7 +2336,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2268,12 +2359,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-docker-repo = ArtifactoryFunctions.getFederatedDockerV2Repository(GetFederatedDockerV2RepositoryArgs.builder()
-     *             .key(&#34;federated-test-docker-repo&#34;)
+     *             .key("federated-test-docker-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2286,7 +2378,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2308,12 +2401,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-docker-repo = ArtifactoryFunctions.getFederatedDockerV2Repository(GetFederatedDockerV2RepositoryArgs.builder()
-     *             .key(&#34;federated-test-docker-repo&#34;)
+     *             .key("federated-test-docker-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2326,7 +2420,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2348,12 +2443,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-docker-repo = ArtifactoryFunctions.getFederatedDockerV2Repository(GetFederatedDockerV2RepositoryArgs.builder()
-     *             .key(&#34;federated-test-docker-repo&#34;)
+     *             .key("federated-test-docker-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2366,7 +2462,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2388,12 +2485,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-gems-repo = ArtifactoryFunctions.getFederatedGemsRepository(GetFederatedGemsRepositoryArgs.builder()
-     *             .key(&#34;federated-test-gems-repo&#34;)
+     *             .key("federated-test-gems-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2406,7 +2504,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2428,12 +2527,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-gems-repo = ArtifactoryFunctions.getFederatedGemsRepository(GetFederatedGemsRepositoryArgs.builder()
-     *             .key(&#34;federated-test-gems-repo&#34;)
+     *             .key("federated-test-gems-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2446,7 +2546,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2468,12 +2569,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-gems-repo = ArtifactoryFunctions.getFederatedGemsRepository(GetFederatedGemsRepositoryArgs.builder()
-     *             .key(&#34;federated-test-gems-repo&#34;)
+     *             .key("federated-test-gems-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2486,7 +2588,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2508,12 +2611,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-gems-repo = ArtifactoryFunctions.getFederatedGemsRepository(GetFederatedGemsRepositoryArgs.builder()
-     *             .key(&#34;federated-test-gems-repo&#34;)
+     *             .key("federated-test-gems-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2526,7 +2630,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2548,12 +2653,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var terraform-federated-test-generic-repo = ArtifactoryFunctions.getFederatedGenericRepository(GetFederatedGenericRepositoryArgs.builder()
-     *             .key(&#34;terraform-federated-test-generic-repo&#34;)
+     *             .key("terraform-federated-test-generic-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2566,7 +2672,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2588,12 +2695,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var terraform-federated-test-generic-repo = ArtifactoryFunctions.getFederatedGenericRepository(GetFederatedGenericRepositoryArgs.builder()
-     *             .key(&#34;terraform-federated-test-generic-repo&#34;)
+     *             .key("terraform-federated-test-generic-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2606,7 +2714,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2628,12 +2737,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var terraform-federated-test-generic-repo = ArtifactoryFunctions.getFederatedGenericRepository(GetFederatedGenericRepositoryArgs.builder()
-     *             .key(&#34;terraform-federated-test-generic-repo&#34;)
+     *             .key("terraform-federated-test-generic-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2646,7 +2756,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2668,12 +2779,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var terraform-federated-test-generic-repo = ArtifactoryFunctions.getFederatedGenericRepository(GetFederatedGenericRepositoryArgs.builder()
-     *             .key(&#34;terraform-federated-test-generic-repo&#34;)
+     *             .key("terraform-federated-test-generic-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2686,7 +2798,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2708,12 +2821,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-gitlfs-repo = ArtifactoryFunctions.getFederatedGitlfsRepository(GetFederatedGitlfsRepositoryArgs.builder()
-     *             .key(&#34;federated-test-gitlfs-repo&#34;)
+     *             .key("federated-test-gitlfs-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2726,7 +2840,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2748,12 +2863,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-gitlfs-repo = ArtifactoryFunctions.getFederatedGitlfsRepository(GetFederatedGitlfsRepositoryArgs.builder()
-     *             .key(&#34;federated-test-gitlfs-repo&#34;)
+     *             .key("federated-test-gitlfs-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2766,7 +2882,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2788,12 +2905,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-gitlfs-repo = ArtifactoryFunctions.getFederatedGitlfsRepository(GetFederatedGitlfsRepositoryArgs.builder()
-     *             .key(&#34;federated-test-gitlfs-repo&#34;)
+     *             .key("federated-test-gitlfs-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2806,7 +2924,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2828,12 +2947,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-gitlfs-repo = ArtifactoryFunctions.getFederatedGitlfsRepository(GetFederatedGitlfsRepositoryArgs.builder()
-     *             .key(&#34;federated-test-gitlfs-repo&#34;)
+     *             .key("federated-test-gitlfs-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2846,7 +2966,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2868,12 +2989,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-go-repo = ArtifactoryFunctions.getFederatedGoRepository(GetFederatedGoRepositoryArgs.builder()
-     *             .key(&#34;federated-test-go-repo&#34;)
+     *             .key("federated-test-go-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2886,7 +3008,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2908,12 +3031,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-go-repo = ArtifactoryFunctions.getFederatedGoRepository(GetFederatedGoRepositoryArgs.builder()
-     *             .key(&#34;federated-test-go-repo&#34;)
+     *             .key("federated-test-go-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2926,7 +3050,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2948,12 +3073,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-go-repo = ArtifactoryFunctions.getFederatedGoRepository(GetFederatedGoRepositoryArgs.builder()
-     *             .key(&#34;federated-test-go-repo&#34;)
+     *             .key("federated-test-go-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2966,7 +3092,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2988,12 +3115,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-go-repo = ArtifactoryFunctions.getFederatedGoRepository(GetFederatedGoRepositoryArgs.builder()
-     *             .key(&#34;federated-test-go-repo&#34;)
+     *             .key("federated-test-go-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3006,7 +3134,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3028,12 +3157,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-gradle-repo = ArtifactoryFunctions.getFederatedGradleRepository(GetFederatedGradleRepositoryArgs.builder()
-     *             .key(&#34;federated-test-gradle-repo&#34;)
+     *             .key("federated-test-gradle-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3046,7 +3176,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3068,12 +3199,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-gradle-repo = ArtifactoryFunctions.getFederatedGradleRepository(GetFederatedGradleRepositoryArgs.builder()
-     *             .key(&#34;federated-test-gradle-repo&#34;)
+     *             .key("federated-test-gradle-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3086,7 +3218,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3108,12 +3241,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-gradle-repo = ArtifactoryFunctions.getFederatedGradleRepository(GetFederatedGradleRepositoryArgs.builder()
-     *             .key(&#34;federated-test-gradle-repo&#34;)
+     *             .key("federated-test-gradle-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3126,7 +3260,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3148,12 +3283,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-gradle-repo = ArtifactoryFunctions.getFederatedGradleRepository(GetFederatedGradleRepositoryArgs.builder()
-     *             .key(&#34;federated-test-gradle-repo&#34;)
+     *             .key("federated-test-gradle-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3166,7 +3302,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3188,12 +3325,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-helm-repo = ArtifactoryFunctions.getFederatedHelmRepository(GetFederatedHelmRepositoryArgs.builder()
-     *             .key(&#34;federated-test-helm-repo&#34;)
+     *             .key("federated-test-helm-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3206,7 +3344,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3228,12 +3367,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-helm-repo = ArtifactoryFunctions.getFederatedHelmRepository(GetFederatedHelmRepositoryArgs.builder()
-     *             .key(&#34;federated-test-helm-repo&#34;)
+     *             .key("federated-test-helm-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3246,7 +3386,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3268,12 +3409,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-helm-repo = ArtifactoryFunctions.getFederatedHelmRepository(GetFederatedHelmRepositoryArgs.builder()
-     *             .key(&#34;federated-test-helm-repo&#34;)
+     *             .key("federated-test-helm-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3286,7 +3428,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3308,12 +3451,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-helm-repo = ArtifactoryFunctions.getFederatedHelmRepository(GetFederatedHelmRepositoryArgs.builder()
-     *             .key(&#34;federated-test-helm-repo&#34;)
+     *             .key("federated-test-helm-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3326,7 +3470,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3348,12 +3493,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var my-helmoci-federated = ArtifactoryFunctions.getFederatedHelmociRepository(GetFederatedHelmociRepositoryArgs.builder()
-     *             .key(&#34;my-helmoci-federated&#34;)
+     *             .key("my-helmoci-federated")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3366,7 +3512,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3388,12 +3535,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var my-helmoci-federated = ArtifactoryFunctions.getFederatedHelmociRepository(GetFederatedHelmociRepositoryArgs.builder()
-     *             .key(&#34;my-helmoci-federated&#34;)
+     *             .key("my-helmoci-federated")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3406,7 +3554,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3428,12 +3577,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var my-helmoci-federated = ArtifactoryFunctions.getFederatedHelmociRepository(GetFederatedHelmociRepositoryArgs.builder()
-     *             .key(&#34;my-helmoci-federated&#34;)
+     *             .key("my-helmoci-federated")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3446,7 +3596,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3468,12 +3619,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var my-helmoci-federated = ArtifactoryFunctions.getFederatedHelmociRepository(GetFederatedHelmociRepositoryArgs.builder()
-     *             .key(&#34;my-helmoci-federated&#34;)
+     *             .key("my-helmoci-federated")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3486,7 +3638,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3508,12 +3661,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-ivy-repo = ArtifactoryFunctions.getFederatedIvyRepository(GetFederatedIvyRepositoryArgs.builder()
-     *             .key(&#34;federated-test-ivy-repo&#34;)
+     *             .key("federated-test-ivy-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3526,7 +3680,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3548,12 +3703,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-ivy-repo = ArtifactoryFunctions.getFederatedIvyRepository(GetFederatedIvyRepositoryArgs.builder()
-     *             .key(&#34;federated-test-ivy-repo&#34;)
+     *             .key("federated-test-ivy-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3566,7 +3722,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3588,12 +3745,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-ivy-repo = ArtifactoryFunctions.getFederatedIvyRepository(GetFederatedIvyRepositoryArgs.builder()
-     *             .key(&#34;federated-test-ivy-repo&#34;)
+     *             .key("federated-test-ivy-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3606,7 +3764,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3628,12 +3787,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-ivy-repo = ArtifactoryFunctions.getFederatedIvyRepository(GetFederatedIvyRepositoryArgs.builder()
-     *             .key(&#34;federated-test-ivy-repo&#34;)
+     *             .key("federated-test-ivy-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3646,7 +3806,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3668,12 +3829,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-maven-repo = ArtifactoryFunctions.getFederatedMavenRepository(GetFederatedMavenRepositoryArgs.builder()
-     *             .key(&#34;federated-test-maven-repo&#34;)
+     *             .key("federated-test-maven-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3686,7 +3848,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3708,12 +3871,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-maven-repo = ArtifactoryFunctions.getFederatedMavenRepository(GetFederatedMavenRepositoryArgs.builder()
-     *             .key(&#34;federated-test-maven-repo&#34;)
+     *             .key("federated-test-maven-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3726,7 +3890,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3748,12 +3913,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-maven-repo = ArtifactoryFunctions.getFederatedMavenRepository(GetFederatedMavenRepositoryArgs.builder()
-     *             .key(&#34;federated-test-maven-repo&#34;)
+     *             .key("federated-test-maven-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3766,7 +3932,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3788,12 +3955,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-maven-repo = ArtifactoryFunctions.getFederatedMavenRepository(GetFederatedMavenRepositoryArgs.builder()
-     *             .key(&#34;federated-test-maven-repo&#34;)
+     *             .key("federated-test-maven-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3806,7 +3974,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3828,12 +3997,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-npm-repo = ArtifactoryFunctions.getFederatedNpmRepository(GetFederatedNpmRepositoryArgs.builder()
-     *             .key(&#34;federated-test-npm-repo&#34;)
+     *             .key("federated-test-npm-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3846,7 +4016,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3868,12 +4039,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-npm-repo = ArtifactoryFunctions.getFederatedNpmRepository(GetFederatedNpmRepositoryArgs.builder()
-     *             .key(&#34;federated-test-npm-repo&#34;)
+     *             .key("federated-test-npm-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3886,7 +4058,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3908,12 +4081,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-npm-repo = ArtifactoryFunctions.getFederatedNpmRepository(GetFederatedNpmRepositoryArgs.builder()
-     *             .key(&#34;federated-test-npm-repo&#34;)
+     *             .key("federated-test-npm-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3926,7 +4100,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3948,12 +4123,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-npm-repo = ArtifactoryFunctions.getFederatedNpmRepository(GetFederatedNpmRepositoryArgs.builder()
-     *             .key(&#34;federated-test-npm-repo&#34;)
+     *             .key("federated-test-npm-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3966,7 +4142,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3988,12 +4165,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-nuget-repo = ArtifactoryFunctions.getFederatedNugetRepository(GetFederatedNugetRepositoryArgs.builder()
-     *             .key(&#34;federated-test-nuget-repo&#34;)
+     *             .key("federated-test-nuget-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4006,7 +4184,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4028,12 +4207,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-nuget-repo = ArtifactoryFunctions.getFederatedNugetRepository(GetFederatedNugetRepositoryArgs.builder()
-     *             .key(&#34;federated-test-nuget-repo&#34;)
+     *             .key("federated-test-nuget-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4046,7 +4226,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4068,12 +4249,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-nuget-repo = ArtifactoryFunctions.getFederatedNugetRepository(GetFederatedNugetRepositoryArgs.builder()
-     *             .key(&#34;federated-test-nuget-repo&#34;)
+     *             .key("federated-test-nuget-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4086,7 +4268,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4108,12 +4291,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-nuget-repo = ArtifactoryFunctions.getFederatedNugetRepository(GetFederatedNugetRepositoryArgs.builder()
-     *             .key(&#34;federated-test-nuget-repo&#34;)
+     *             .key("federated-test-nuget-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4126,7 +4310,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4148,12 +4333,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var my-oci-federated = ArtifactoryFunctions.getFederatedOciRepository(GetFederatedOciRepositoryArgs.builder()
-     *             .key(&#34;my-oci-federated&#34;)
+     *             .key("my-oci-federated")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4166,7 +4352,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4188,12 +4375,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var my-oci-federated = ArtifactoryFunctions.getFederatedOciRepository(GetFederatedOciRepositoryArgs.builder()
-     *             .key(&#34;my-oci-federated&#34;)
+     *             .key("my-oci-federated")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4206,7 +4394,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4228,12 +4417,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var my-oci-federated = ArtifactoryFunctions.getFederatedOciRepository(GetFederatedOciRepositoryArgs.builder()
-     *             .key(&#34;my-oci-federated&#34;)
+     *             .key("my-oci-federated")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4246,7 +4436,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4268,12 +4459,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var my-oci-federated = ArtifactoryFunctions.getFederatedOciRepository(GetFederatedOciRepositoryArgs.builder()
-     *             .key(&#34;my-oci-federated&#34;)
+     *             .key("my-oci-federated")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4286,7 +4478,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4308,12 +4501,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-opkg-repo = ArtifactoryFunctions.getFederatedOpkgRepository(GetFederatedOpkgRepositoryArgs.builder()
-     *             .key(&#34;federated-test-opkg-repo&#34;)
+     *             .key("federated-test-opkg-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4326,7 +4520,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4348,12 +4543,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-opkg-repo = ArtifactoryFunctions.getFederatedOpkgRepository(GetFederatedOpkgRepositoryArgs.builder()
-     *             .key(&#34;federated-test-opkg-repo&#34;)
+     *             .key("federated-test-opkg-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4366,7 +4562,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4388,12 +4585,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-opkg-repo = ArtifactoryFunctions.getFederatedOpkgRepository(GetFederatedOpkgRepositoryArgs.builder()
-     *             .key(&#34;federated-test-opkg-repo&#34;)
+     *             .key("federated-test-opkg-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4406,7 +4604,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4428,12 +4627,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-opkg-repo = ArtifactoryFunctions.getFederatedOpkgRepository(GetFederatedOpkgRepositoryArgs.builder()
-     *             .key(&#34;federated-test-opkg-repo&#34;)
+     *             .key("federated-test-opkg-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4446,7 +4646,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4468,12 +4669,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-puppet-repo = ArtifactoryFunctions.getFederatedPuppetRepository(GetFederatedPuppetRepositoryArgs.builder()
-     *             .key(&#34;federated-test-puppet-repo&#34;)
+     *             .key("federated-test-puppet-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4486,7 +4688,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4508,12 +4711,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-puppet-repo = ArtifactoryFunctions.getFederatedPuppetRepository(GetFederatedPuppetRepositoryArgs.builder()
-     *             .key(&#34;federated-test-puppet-repo&#34;)
+     *             .key("federated-test-puppet-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4526,7 +4730,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4548,12 +4753,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-puppet-repo = ArtifactoryFunctions.getFederatedPuppetRepository(GetFederatedPuppetRepositoryArgs.builder()
-     *             .key(&#34;federated-test-puppet-repo&#34;)
+     *             .key("federated-test-puppet-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4566,7 +4772,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4588,12 +4795,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-puppet-repo = ArtifactoryFunctions.getFederatedPuppetRepository(GetFederatedPuppetRepositoryArgs.builder()
-     *             .key(&#34;federated-test-puppet-repo&#34;)
+     *             .key("federated-test-puppet-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4606,7 +4814,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4628,12 +4837,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-pypi-repo = ArtifactoryFunctions.getFederatedPypiRepository(GetFederatedPypiRepositoryArgs.builder()
-     *             .key(&#34;federated-test-pypi-repo&#34;)
+     *             .key("federated-test-pypi-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4646,7 +4856,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4668,12 +4879,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-pypi-repo = ArtifactoryFunctions.getFederatedPypiRepository(GetFederatedPypiRepositoryArgs.builder()
-     *             .key(&#34;federated-test-pypi-repo&#34;)
+     *             .key("federated-test-pypi-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4686,7 +4898,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4708,12 +4921,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-pypi-repo = ArtifactoryFunctions.getFederatedPypiRepository(GetFederatedPypiRepositoryArgs.builder()
-     *             .key(&#34;federated-test-pypi-repo&#34;)
+     *             .key("federated-test-pypi-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4726,7 +4940,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4748,12 +4963,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-pypi-repo = ArtifactoryFunctions.getFederatedPypiRepository(GetFederatedPypiRepositoryArgs.builder()
-     *             .key(&#34;federated-test-pypi-repo&#34;)
+     *             .key("federated-test-pypi-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4766,7 +4982,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4788,12 +5005,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-rpm-repo = ArtifactoryFunctions.getFederatedRpmRepository(GetFederatedRpmRepositoryArgs.builder()
-     *             .key(&#34;federated-test-rpm-repo&#34;)
+     *             .key("federated-test-rpm-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4806,7 +5024,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4828,12 +5047,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-rpm-repo = ArtifactoryFunctions.getFederatedRpmRepository(GetFederatedRpmRepositoryArgs.builder()
-     *             .key(&#34;federated-test-rpm-repo&#34;)
+     *             .key("federated-test-rpm-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4846,7 +5066,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4868,12 +5089,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-rpm-repo = ArtifactoryFunctions.getFederatedRpmRepository(GetFederatedRpmRepositoryArgs.builder()
-     *             .key(&#34;federated-test-rpm-repo&#34;)
+     *             .key("federated-test-rpm-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4886,7 +5108,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4908,12 +5131,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-rpm-repo = ArtifactoryFunctions.getFederatedRpmRepository(GetFederatedRpmRepositoryArgs.builder()
-     *             .key(&#34;federated-test-rpm-repo&#34;)
+     *             .key("federated-test-rpm-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4926,7 +5150,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4948,12 +5173,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-sbt-repo = ArtifactoryFunctions.getFederatedSbtRepository(GetFederatedSbtRepositoryArgs.builder()
-     *             .key(&#34;federated-test-sbt-repo&#34;)
+     *             .key("federated-test-sbt-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4966,7 +5192,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4988,12 +5215,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-sbt-repo = ArtifactoryFunctions.getFederatedSbtRepository(GetFederatedSbtRepositoryArgs.builder()
-     *             .key(&#34;federated-test-sbt-repo&#34;)
+     *             .key("federated-test-sbt-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5006,7 +5234,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5028,12 +5257,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-sbt-repo = ArtifactoryFunctions.getFederatedSbtRepository(GetFederatedSbtRepositoryArgs.builder()
-     *             .key(&#34;federated-test-sbt-repo&#34;)
+     *             .key("federated-test-sbt-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5046,7 +5276,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5068,12 +5299,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-sbt-repo = ArtifactoryFunctions.getFederatedSbtRepository(GetFederatedSbtRepositoryArgs.builder()
-     *             .key(&#34;federated-test-sbt-repo&#34;)
+     *             .key("federated-test-sbt-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5086,7 +5318,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5108,12 +5341,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-swift-repo = ArtifactoryFunctions.getFederatedSwiftRepository(GetFederatedSwiftRepositoryArgs.builder()
-     *             .key(&#34;federated-test-swift-repo&#34;)
+     *             .key("federated-test-swift-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5126,7 +5360,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5148,12 +5383,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-swift-repo = ArtifactoryFunctions.getFederatedSwiftRepository(GetFederatedSwiftRepositoryArgs.builder()
-     *             .key(&#34;federated-test-swift-repo&#34;)
+     *             .key("federated-test-swift-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5166,7 +5402,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5188,12 +5425,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-swift-repo = ArtifactoryFunctions.getFederatedSwiftRepository(GetFederatedSwiftRepositoryArgs.builder()
-     *             .key(&#34;federated-test-swift-repo&#34;)
+     *             .key("federated-test-swift-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5206,7 +5444,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5228,12 +5467,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-swift-repo = ArtifactoryFunctions.getFederatedSwiftRepository(GetFederatedSwiftRepositoryArgs.builder()
-     *             .key(&#34;federated-test-swift-repo&#34;)
+     *             .key("federated-test-swift-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5244,7 +5484,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5266,12 +5507,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-terraformModule-repo = ArtifactoryFunctions.getFederatedTerraformModuleRepository(GetFederatedTerraformModuleRepositoryArgs.builder()
-     *             .key(&#34;federated-test-terraform-module-repo&#34;)
+     *             .key("federated-test-terraform-module-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5282,7 +5524,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5304,12 +5547,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-terraformModule-repo = ArtifactoryFunctions.getFederatedTerraformModuleRepository(GetFederatedTerraformModuleRepositoryArgs.builder()
-     *             .key(&#34;federated-test-terraform-module-repo&#34;)
+     *             .key("federated-test-terraform-module-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5320,7 +5564,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5342,12 +5587,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-terraformModule-repo = ArtifactoryFunctions.getFederatedTerraformModuleRepository(GetFederatedTerraformModuleRepositoryArgs.builder()
-     *             .key(&#34;federated-test-terraform-module-repo&#34;)
+     *             .key("federated-test-terraform-module-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5358,7 +5604,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5380,12 +5627,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-terraformModule-repo = ArtifactoryFunctions.getFederatedTerraformModuleRepository(GetFederatedTerraformModuleRepositoryArgs.builder()
-     *             .key(&#34;federated-test-terraform-module-repo&#34;)
+     *             .key("federated-test-terraform-module-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5396,7 +5644,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5418,12 +5667,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-terraformProvider-repo = ArtifactoryFunctions.getFederatedTerraformProviderRepository(GetFederatedTerraformProviderRepositoryArgs.builder()
-     *             .key(&#34;federated-test-terraform-provider-repo&#34;)
+     *             .key("federated-test-terraform-provider-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5434,7 +5684,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5456,12 +5707,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-terraformProvider-repo = ArtifactoryFunctions.getFederatedTerraformProviderRepository(GetFederatedTerraformProviderRepositoryArgs.builder()
-     *             .key(&#34;federated-test-terraform-provider-repo&#34;)
+     *             .key("federated-test-terraform-provider-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5472,7 +5724,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5494,12 +5747,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-terraformProvider-repo = ArtifactoryFunctions.getFederatedTerraformProviderRepository(GetFederatedTerraformProviderRepositoryArgs.builder()
-     *             .key(&#34;federated-test-terraform-provider-repo&#34;)
+     *             .key("federated-test-terraform-provider-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5510,7 +5764,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5532,12 +5787,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-terraformProvider-repo = ArtifactoryFunctions.getFederatedTerraformProviderRepository(GetFederatedTerraformProviderRepositoryArgs.builder()
-     *             .key(&#34;federated-test-terraform-provider-repo&#34;)
+     *             .key("federated-test-terraform-provider-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5550,7 +5806,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5572,12 +5829,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-vagrant-repo = ArtifactoryFunctions.getFederatedVagrantRepository(GetFederatedVagrantRepositoryArgs.builder()
-     *             .key(&#34;federated-test-vagrant-repo&#34;)
+     *             .key("federated-test-vagrant-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5590,7 +5848,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5612,12 +5871,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-vagrant-repo = ArtifactoryFunctions.getFederatedVagrantRepository(GetFederatedVagrantRepositoryArgs.builder()
-     *             .key(&#34;federated-test-vagrant-repo&#34;)
+     *             .key("federated-test-vagrant-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5630,7 +5890,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5652,12 +5913,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-vagrant-repo = ArtifactoryFunctions.getFederatedVagrantRepository(GetFederatedVagrantRepositoryArgs.builder()
-     *             .key(&#34;federated-test-vagrant-repo&#34;)
+     *             .key("federated-test-vagrant-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5670,7 +5932,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5692,12 +5955,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var federated-test-vagrant-repo = ArtifactoryFunctions.getFederatedVagrantRepository(GetFederatedVagrantRepositoryArgs.builder()
-     *             .key(&#34;federated-test-vagrant-repo&#34;)
+     *             .key("federated-test-vagrant-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5712,7 +5976,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5734,14 +5999,15 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var my-file = ArtifactoryFunctions.getFile(GetFileArgs.builder()
-     *             .repository(&#34;repo-key&#34;)
-     *             .path(&#34;/path/to/the/artifact.zip&#34;)
-     *             .outputPath(&#34;tmp/artifact.zip&#34;)
+     *             .repository("repo-key")
+     *             .path("/path/to/the/artifact.zip")
+     *             .outputPath("tmp/artifact.zip")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5756,7 +6022,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5778,14 +6045,15 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var my-file = ArtifactoryFunctions.getFile(GetFileArgs.builder()
-     *             .repository(&#34;repo-key&#34;)
-     *             .path(&#34;/path/to/the/artifact.zip&#34;)
-     *             .outputPath(&#34;tmp/artifact.zip&#34;)
+     *             .repository("repo-key")
+     *             .path("/path/to/the/artifact.zip")
+     *             .outputPath("tmp/artifact.zip")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5800,7 +6068,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5822,14 +6091,15 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var my-file = ArtifactoryFunctions.getFile(GetFileArgs.builder()
-     *             .repository(&#34;repo-key&#34;)
-     *             .path(&#34;/path/to/the/artifact.zip&#34;)
-     *             .outputPath(&#34;tmp/artifact.zip&#34;)
+     *             .repository("repo-key")
+     *             .path("/path/to/the/artifact.zip")
+     *             .outputPath("tmp/artifact.zip")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5844,7 +6114,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5866,14 +6137,15 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var my-file = ArtifactoryFunctions.getFile(GetFileArgs.builder()
-     *             .repository(&#34;repo-key&#34;)
-     *             .path(&#34;/path/to/the/artifact.zip&#34;)
-     *             .outputPath(&#34;tmp/artifact.zip&#34;)
+     *             .repository("repo-key")
+     *             .path("/path/to/the/artifact.zip")
+     *             .outputPath("tmp/artifact.zip")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5886,7 +6158,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5908,13 +6181,14 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var my-repo-file-list = ArtifactoryFunctions.getFileList(GetFileListArgs.builder()
-     *             .repositoryKey(&#34;my-generic-local&#34;)
-     *             .folderPath(&#34;path/to/artifact&#34;)
+     *             .repositoryKey("my-generic-local")
+     *             .folderPath("path/to/artifact")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5927,7 +6201,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5949,13 +6224,14 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var my-repo-file-list = ArtifactoryFunctions.getFileList(GetFileListArgs.builder()
-     *             .repositoryKey(&#34;my-generic-local&#34;)
-     *             .folderPath(&#34;path/to/artifact&#34;)
+     *             .repositoryKey("my-generic-local")
+     *             .folderPath("path/to/artifact")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5968,7 +6244,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5990,13 +6267,14 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var my-repo-file-list = ArtifactoryFunctions.getFileList(GetFileListArgs.builder()
-     *             .repositoryKey(&#34;my-generic-local&#34;)
-     *             .folderPath(&#34;path/to/artifact&#34;)
+     *             .repositoryKey("my-generic-local")
+     *             .folderPath("path/to/artifact")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6009,7 +6287,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6031,13 +6310,14 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var my-repo-file-list = ArtifactoryFunctions.getFileList(GetFileListArgs.builder()
-     *             .repositoryKey(&#34;my-generic-local&#34;)
-     *             .folderPath(&#34;path/to/artifact&#34;)
+     *             .repositoryKey("my-generic-local")
+     *             .folderPath("path/to/artifact")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6052,7 +6332,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6075,13 +6356,14 @@ public final class ArtifactoryFunctions {
      *     public static void stack(Context ctx) {
      *         // 
      *         final var my-file = ArtifactoryFunctions.getFileinfo(GetFileinfoArgs.builder()
-     *             .repository(&#34;repo-key&#34;)
-     *             .path(&#34;/path/to/the/artifact.zip&#34;)
+     *             .repository("repo-key")
+     *             .path("/path/to/the/artifact.zip")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6096,7 +6378,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6119,13 +6402,14 @@ public final class ArtifactoryFunctions {
      *     public static void stack(Context ctx) {
      *         // 
      *         final var my-file = ArtifactoryFunctions.getFileinfo(GetFileinfoArgs.builder()
-     *             .repository(&#34;repo-key&#34;)
-     *             .path(&#34;/path/to/the/artifact.zip&#34;)
+     *             .repository("repo-key")
+     *             .path("/path/to/the/artifact.zip")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6140,7 +6424,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6163,13 +6448,14 @@ public final class ArtifactoryFunctions {
      *     public static void stack(Context ctx) {
      *         // 
      *         final var my-file = ArtifactoryFunctions.getFileinfo(GetFileinfoArgs.builder()
-     *             .repository(&#34;repo-key&#34;)
-     *             .path(&#34;/path/to/the/artifact.zip&#34;)
+     *             .repository("repo-key")
+     *             .path("/path/to/the/artifact.zip")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6184,7 +6470,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6207,13 +6494,14 @@ public final class ArtifactoryFunctions {
      *     public static void stack(Context ctx) {
      *         // 
      *         final var my-file = ArtifactoryFunctions.getFileinfo(GetFileinfoArgs.builder()
-     *             .repository(&#34;repo-key&#34;)
-     *             .path(&#34;/path/to/the/artifact.zip&#34;)
+     *             .repository("repo-key")
+     *             .path("/path/to/the/artifact.zip")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6228,7 +6516,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6251,13 +6540,14 @@ public final class ArtifactoryFunctions {
      *     public static void stack(Context ctx) {
      *         //
      *         final var myGroup = ArtifactoryFunctions.getGroup(GetGroupArgs.builder()
-     *             .name(&#34;my_group&#34;)
+     *             .name("my_group")
      *             .includeUsers(true)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6272,7 +6562,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6295,13 +6586,14 @@ public final class ArtifactoryFunctions {
      *     public static void stack(Context ctx) {
      *         //
      *         final var myGroup = ArtifactoryFunctions.getGroup(GetGroupArgs.builder()
-     *             .name(&#34;my_group&#34;)
+     *             .name("my_group")
      *             .includeUsers(true)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6316,7 +6608,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6339,13 +6632,14 @@ public final class ArtifactoryFunctions {
      *     public static void stack(Context ctx) {
      *         //
      *         final var myGroup = ArtifactoryFunctions.getGroup(GetGroupArgs.builder()
-     *             .name(&#34;my_group&#34;)
+     *             .name("my_group")
      *             .includeUsers(true)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6360,7 +6654,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6383,13 +6678,14 @@ public final class ArtifactoryFunctions {
      *     public static void stack(Context ctx) {
      *         //
      *         final var myGroup = ArtifactoryFunctions.getGroup(GetGroupArgs.builder()
-     *             .name(&#34;my_group&#34;)
+     *             .name("my_group")
      *             .includeUsers(true)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6402,7 +6698,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6424,12 +6721,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-alpine-repo-basic = ArtifactoryFunctions.getLocalAlpineRepository(GetLocalAlpineRepositoryArgs.builder()
-     *             .key(&#34;local-test-alpine-repo-basic&#34;)
+     *             .key("local-test-alpine-repo-basic")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6442,7 +6740,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6464,12 +6763,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-alpine-repo-basic = ArtifactoryFunctions.getLocalAlpineRepository(GetLocalAlpineRepositoryArgs.builder()
-     *             .key(&#34;local-test-alpine-repo-basic&#34;)
+     *             .key("local-test-alpine-repo-basic")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6482,7 +6782,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6504,12 +6805,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-alpine-repo-basic = ArtifactoryFunctions.getLocalAlpineRepository(GetLocalAlpineRepositoryArgs.builder()
-     *             .key(&#34;local-test-alpine-repo-basic&#34;)
+     *             .key("local-test-alpine-repo-basic")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6522,7 +6824,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6544,12 +6847,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-alpine-repo-basic = ArtifactoryFunctions.getLocalAlpineRepository(GetLocalAlpineRepositoryArgs.builder()
-     *             .key(&#34;local-test-alpine-repo-basic&#34;)
+     *             .key("local-test-alpine-repo-basic")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6562,7 +6866,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6584,12 +6889,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-bower-repo = ArtifactoryFunctions.getLocalBowerRepository(GetLocalBowerRepositoryArgs.builder()
-     *             .key(&#34;local-test-bower-repo&#34;)
+     *             .key("local-test-bower-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6602,7 +6908,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6624,12 +6931,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-bower-repo = ArtifactoryFunctions.getLocalBowerRepository(GetLocalBowerRepositoryArgs.builder()
-     *             .key(&#34;local-test-bower-repo&#34;)
+     *             .key("local-test-bower-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6642,7 +6950,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6664,12 +6973,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-bower-repo = ArtifactoryFunctions.getLocalBowerRepository(GetLocalBowerRepositoryArgs.builder()
-     *             .key(&#34;local-test-bower-repo&#34;)
+     *             .key("local-test-bower-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6682,7 +6992,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6704,12 +7015,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-bower-repo = ArtifactoryFunctions.getLocalBowerRepository(GetLocalBowerRepositoryArgs.builder()
-     *             .key(&#34;local-test-bower-repo&#34;)
+     *             .key("local-test-bower-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6722,7 +7034,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6744,12 +7057,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-cargo-repo-basic = ArtifactoryFunctions.getLocalCargoRepository(GetLocalCargoRepositoryArgs.builder()
-     *             .key(&#34;local-test-cargo-repo-basic&#34;)
+     *             .key("local-test-cargo-repo-basic")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6762,7 +7076,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6784,12 +7099,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-cargo-repo-basic = ArtifactoryFunctions.getLocalCargoRepository(GetLocalCargoRepositoryArgs.builder()
-     *             .key(&#34;local-test-cargo-repo-basic&#34;)
+     *             .key("local-test-cargo-repo-basic")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6802,7 +7118,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6824,12 +7141,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-cargo-repo-basic = ArtifactoryFunctions.getLocalCargoRepository(GetLocalCargoRepositoryArgs.builder()
-     *             .key(&#34;local-test-cargo-repo-basic&#34;)
+     *             .key("local-test-cargo-repo-basic")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6842,7 +7160,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6864,12 +7183,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-cargo-repo-basic = ArtifactoryFunctions.getLocalCargoRepository(GetLocalCargoRepositoryArgs.builder()
-     *             .key(&#34;local-test-cargo-repo-basic&#34;)
+     *             .key("local-test-cargo-repo-basic")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6882,7 +7202,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6904,12 +7225,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-chef-repo = ArtifactoryFunctions.getLocalChefRepository(GetLocalChefRepositoryArgs.builder()
-     *             .key(&#34;local-test-chef-repo&#34;)
+     *             .key("local-test-chef-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6922,7 +7244,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6944,12 +7267,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-chef-repo = ArtifactoryFunctions.getLocalChefRepository(GetLocalChefRepositoryArgs.builder()
-     *             .key(&#34;local-test-chef-repo&#34;)
+     *             .key("local-test-chef-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6962,7 +7286,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6984,12 +7309,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-chef-repo = ArtifactoryFunctions.getLocalChefRepository(GetLocalChefRepositoryArgs.builder()
-     *             .key(&#34;local-test-chef-repo&#34;)
+     *             .key("local-test-chef-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7002,7 +7328,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7024,12 +7351,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-chef-repo = ArtifactoryFunctions.getLocalChefRepository(GetLocalChefRepositoryArgs.builder()
-     *             .key(&#34;local-test-chef-repo&#34;)
+     *             .key("local-test-chef-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7042,7 +7370,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7064,12 +7393,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-cocoapods-repo = ArtifactoryFunctions.getLocalCocoapodsRepository(GetLocalCocoapodsRepositoryArgs.builder()
-     *             .key(&#34;local-test-cocoapods-repo&#34;)
+     *             .key("local-test-cocoapods-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7082,7 +7412,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7104,12 +7435,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-cocoapods-repo = ArtifactoryFunctions.getLocalCocoapodsRepository(GetLocalCocoapodsRepositoryArgs.builder()
-     *             .key(&#34;local-test-cocoapods-repo&#34;)
+     *             .key("local-test-cocoapods-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7122,7 +7454,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7144,12 +7477,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-cocoapods-repo = ArtifactoryFunctions.getLocalCocoapodsRepository(GetLocalCocoapodsRepositoryArgs.builder()
-     *             .key(&#34;local-test-cocoapods-repo&#34;)
+     *             .key("local-test-cocoapods-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7162,7 +7496,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7184,12 +7519,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-cocoapods-repo = ArtifactoryFunctions.getLocalCocoapodsRepository(GetLocalCocoapodsRepositoryArgs.builder()
-     *             .key(&#34;local-test-cocoapods-repo&#34;)
+     *             .key("local-test-cocoapods-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7202,7 +7538,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7224,12 +7561,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-composer-repo = ArtifactoryFunctions.getLocalComposerRepository(GetLocalComposerRepositoryArgs.builder()
-     *             .key(&#34;local-test-composer-repo&#34;)
+     *             .key("local-test-composer-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7242,7 +7580,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7264,12 +7603,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-composer-repo = ArtifactoryFunctions.getLocalComposerRepository(GetLocalComposerRepositoryArgs.builder()
-     *             .key(&#34;local-test-composer-repo&#34;)
+     *             .key("local-test-composer-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7282,7 +7622,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7304,12 +7645,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-composer-repo = ArtifactoryFunctions.getLocalComposerRepository(GetLocalComposerRepositoryArgs.builder()
-     *             .key(&#34;local-test-composer-repo&#34;)
+     *             .key("local-test-composer-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7322,7 +7664,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7344,12 +7687,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-composer-repo = ArtifactoryFunctions.getLocalComposerRepository(GetLocalComposerRepositoryArgs.builder()
-     *             .key(&#34;local-test-composer-repo&#34;)
+     *             .key("local-test-composer-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7362,7 +7706,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7384,12 +7729,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-conan-repo = ArtifactoryFunctions.getLocalConanRepository(GetLocalConanRepositoryArgs.builder()
-     *             .key(&#34;local-test-conan-repo&#34;)
+     *             .key("local-test-conan-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7402,7 +7748,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7424,12 +7771,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-conan-repo = ArtifactoryFunctions.getLocalConanRepository(GetLocalConanRepositoryArgs.builder()
-     *             .key(&#34;local-test-conan-repo&#34;)
+     *             .key("local-test-conan-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7442,7 +7790,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7464,12 +7813,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-conan-repo = ArtifactoryFunctions.getLocalConanRepository(GetLocalConanRepositoryArgs.builder()
-     *             .key(&#34;local-test-conan-repo&#34;)
+     *             .key("local-test-conan-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7482,7 +7832,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7504,12 +7855,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-conan-repo = ArtifactoryFunctions.getLocalConanRepository(GetLocalConanRepositoryArgs.builder()
-     *             .key(&#34;local-test-conan-repo&#34;)
+     *             .key("local-test-conan-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7522,7 +7874,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7544,12 +7897,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-conda-repo = ArtifactoryFunctions.getLocalCondaRepository(GetLocalCondaRepositoryArgs.builder()
-     *             .key(&#34;local-test-conda-repo&#34;)
+     *             .key("local-test-conda-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7562,7 +7916,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7584,12 +7939,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-conda-repo = ArtifactoryFunctions.getLocalCondaRepository(GetLocalCondaRepositoryArgs.builder()
-     *             .key(&#34;local-test-conda-repo&#34;)
+     *             .key("local-test-conda-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7602,7 +7958,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7624,12 +7981,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-conda-repo = ArtifactoryFunctions.getLocalCondaRepository(GetLocalCondaRepositoryArgs.builder()
-     *             .key(&#34;local-test-conda-repo&#34;)
+     *             .key("local-test-conda-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7642,7 +8000,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7664,12 +8023,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-conda-repo = ArtifactoryFunctions.getLocalCondaRepository(GetLocalCondaRepositoryArgs.builder()
-     *             .key(&#34;local-test-conda-repo&#34;)
+     *             .key("local-test-conda-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7682,7 +8042,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7704,12 +8065,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-cran-repo = ArtifactoryFunctions.getLocalCranRepository(GetLocalCranRepositoryArgs.builder()
-     *             .key(&#34;local-test-cran-repo&#34;)
+     *             .key("local-test-cran-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7722,7 +8084,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7744,12 +8107,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-cran-repo = ArtifactoryFunctions.getLocalCranRepository(GetLocalCranRepositoryArgs.builder()
-     *             .key(&#34;local-test-cran-repo&#34;)
+     *             .key("local-test-cran-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7762,7 +8126,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7784,12 +8149,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-cran-repo = ArtifactoryFunctions.getLocalCranRepository(GetLocalCranRepositoryArgs.builder()
-     *             .key(&#34;local-test-cran-repo&#34;)
+     *             .key("local-test-cran-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7802,7 +8168,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7824,12 +8191,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-cran-repo = ArtifactoryFunctions.getLocalCranRepository(GetLocalCranRepositoryArgs.builder()
-     *             .key(&#34;local-test-cran-repo&#34;)
+     *             .key("local-test-cran-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7842,7 +8210,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7864,12 +8233,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-debian-repo-basic = ArtifactoryFunctions.getLocalDebianRepository(GetLocalDebianRepositoryArgs.builder()
-     *             .key(&#34;local-test-debian-repo-basic&#34;)
+     *             .key("local-test-debian-repo-basic")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7882,7 +8252,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7904,12 +8275,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-debian-repo-basic = ArtifactoryFunctions.getLocalDebianRepository(GetLocalDebianRepositoryArgs.builder()
-     *             .key(&#34;local-test-debian-repo-basic&#34;)
+     *             .key("local-test-debian-repo-basic")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7922,7 +8294,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7944,12 +8317,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-debian-repo-basic = ArtifactoryFunctions.getLocalDebianRepository(GetLocalDebianRepositoryArgs.builder()
-     *             .key(&#34;local-test-debian-repo-basic&#34;)
+     *             .key("local-test-debian-repo-basic")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7962,7 +8336,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7984,12 +8359,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-debian-repo-basic = ArtifactoryFunctions.getLocalDebianRepository(GetLocalDebianRepositoryArgs.builder()
-     *             .key(&#34;local-test-debian-repo-basic&#34;)
+     *             .key("local-test-debian-repo-basic")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -8002,7 +8378,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8023,13 +8400,14 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var artifactoryLocalTestDockerV1Repository = new DockerV1Repository(&#34;artifactoryLocalTestDockerV1Repository&#34;, DockerV1RepositoryArgs.builder()        
-     *             .key(&#34;artifactory_local_test_docker_v1_repository&#34;)
+     *         var artifactoryLocalTestDockerV1Repository = new DockerV1Repository("artifactoryLocalTestDockerV1Repository", DockerV1RepositoryArgs.builder()        
+     *             .key("artifactory_local_test_docker_v1_repository")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -8042,7 +8420,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8063,13 +8442,14 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var artifactoryLocalTestDockerV1Repository = new DockerV1Repository(&#34;artifactoryLocalTestDockerV1Repository&#34;, DockerV1RepositoryArgs.builder()        
-     *             .key(&#34;artifactory_local_test_docker_v1_repository&#34;)
+     *         var artifactoryLocalTestDockerV1Repository = new DockerV1Repository("artifactoryLocalTestDockerV1Repository", DockerV1RepositoryArgs.builder()        
+     *             .key("artifactory_local_test_docker_v1_repository")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -8082,7 +8462,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8103,13 +8484,14 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var artifactoryLocalTestDockerV1Repository = new DockerV1Repository(&#34;artifactoryLocalTestDockerV1Repository&#34;, DockerV1RepositoryArgs.builder()        
-     *             .key(&#34;artifactory_local_test_docker_v1_repository&#34;)
+     *         var artifactoryLocalTestDockerV1Repository = new DockerV1Repository("artifactoryLocalTestDockerV1Repository", DockerV1RepositoryArgs.builder()        
+     *             .key("artifactory_local_test_docker_v1_repository")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -8122,7 +8504,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8143,13 +8526,14 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var artifactoryLocalTestDockerV1Repository = new DockerV1Repository(&#34;artifactoryLocalTestDockerV1Repository&#34;, DockerV1RepositoryArgs.builder()        
-     *             .key(&#34;artifactory_local_test_docker_v1_repository&#34;)
+     *         var artifactoryLocalTestDockerV1Repository = new DockerV1Repository("artifactoryLocalTestDockerV1Repository", DockerV1RepositoryArgs.builder()        
+     *             .key("artifactory_local_test_docker_v1_repository")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -8162,7 +8546,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8183,13 +8568,14 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var artifactoryLocalTestDockerV2Repository = new DockerV2Repository(&#34;artifactoryLocalTestDockerV2Repository&#34;, DockerV2RepositoryArgs.builder()        
-     *             .key(&#34;artifactory_local_test_docker_v2_repository&#34;)
+     *         var artifactoryLocalTestDockerV2Repository = new DockerV2Repository("artifactoryLocalTestDockerV2Repository", DockerV2RepositoryArgs.builder()        
+     *             .key("artifactory_local_test_docker_v2_repository")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -8202,7 +8588,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8223,13 +8610,14 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var artifactoryLocalTestDockerV2Repository = new DockerV2Repository(&#34;artifactoryLocalTestDockerV2Repository&#34;, DockerV2RepositoryArgs.builder()        
-     *             .key(&#34;artifactory_local_test_docker_v2_repository&#34;)
+     *         var artifactoryLocalTestDockerV2Repository = new DockerV2Repository("artifactoryLocalTestDockerV2Repository", DockerV2RepositoryArgs.builder()        
+     *             .key("artifactory_local_test_docker_v2_repository")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -8242,7 +8630,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8263,13 +8652,14 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var artifactoryLocalTestDockerV2Repository = new DockerV2Repository(&#34;artifactoryLocalTestDockerV2Repository&#34;, DockerV2RepositoryArgs.builder()        
-     *             .key(&#34;artifactory_local_test_docker_v2_repository&#34;)
+     *         var artifactoryLocalTestDockerV2Repository = new DockerV2Repository("artifactoryLocalTestDockerV2Repository", DockerV2RepositoryArgs.builder()        
+     *             .key("artifactory_local_test_docker_v2_repository")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -8282,7 +8672,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8303,13 +8694,14 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var artifactoryLocalTestDockerV2Repository = new DockerV2Repository(&#34;artifactoryLocalTestDockerV2Repository&#34;, DockerV2RepositoryArgs.builder()        
-     *             .key(&#34;artifactory_local_test_docker_v2_repository&#34;)
+     *         var artifactoryLocalTestDockerV2Repository = new DockerV2Repository("artifactoryLocalTestDockerV2Repository", DockerV2RepositoryArgs.builder()        
+     *             .key("artifactory_local_test_docker_v2_repository")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -8322,7 +8714,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8344,12 +8737,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-gems-repo = ArtifactoryFunctions.getLocalGemsRepository(GetLocalGemsRepositoryArgs.builder()
-     *             .key(&#34;local-test-gems-repo&#34;)
+     *             .key("local-test-gems-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -8362,7 +8756,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8384,12 +8779,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-gems-repo = ArtifactoryFunctions.getLocalGemsRepository(GetLocalGemsRepositoryArgs.builder()
-     *             .key(&#34;local-test-gems-repo&#34;)
+     *             .key("local-test-gems-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -8402,7 +8798,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8424,12 +8821,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-gems-repo = ArtifactoryFunctions.getLocalGemsRepository(GetLocalGemsRepositoryArgs.builder()
-     *             .key(&#34;local-test-gems-repo&#34;)
+     *             .key("local-test-gems-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -8442,7 +8840,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8464,12 +8863,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-gems-repo = ArtifactoryFunctions.getLocalGemsRepository(GetLocalGemsRepositoryArgs.builder()
-     *             .key(&#34;local-test-gems-repo&#34;)
+     *             .key("local-test-gems-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -8482,7 +8882,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8504,12 +8905,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-generic-repo = ArtifactoryFunctions.getLocalGenericRepository(GetLocalGenericRepositoryArgs.builder()
-     *             .key(&#34;local-test-generic-repo&#34;)
+     *             .key("local-test-generic-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -8522,7 +8924,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8544,12 +8947,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-generic-repo = ArtifactoryFunctions.getLocalGenericRepository(GetLocalGenericRepositoryArgs.builder()
-     *             .key(&#34;local-test-generic-repo&#34;)
+     *             .key("local-test-generic-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -8562,7 +8966,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8584,12 +8989,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-generic-repo = ArtifactoryFunctions.getLocalGenericRepository(GetLocalGenericRepositoryArgs.builder()
-     *             .key(&#34;local-test-generic-repo&#34;)
+     *             .key("local-test-generic-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -8602,7 +9008,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8624,12 +9031,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-generic-repo = ArtifactoryFunctions.getLocalGenericRepository(GetLocalGenericRepositoryArgs.builder()
-     *             .key(&#34;local-test-generic-repo&#34;)
+     *             .key("local-test-generic-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -8642,7 +9050,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8664,12 +9073,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-gitlfs-repo = ArtifactoryFunctions.getLocalGitlfsRepository(GetLocalGitlfsRepositoryArgs.builder()
-     *             .key(&#34;local-test-gitlfs-repo&#34;)
+     *             .key("local-test-gitlfs-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -8682,7 +9092,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8704,12 +9115,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-gitlfs-repo = ArtifactoryFunctions.getLocalGitlfsRepository(GetLocalGitlfsRepositoryArgs.builder()
-     *             .key(&#34;local-test-gitlfs-repo&#34;)
+     *             .key("local-test-gitlfs-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -8722,7 +9134,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8744,12 +9157,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-gitlfs-repo = ArtifactoryFunctions.getLocalGitlfsRepository(GetLocalGitlfsRepositoryArgs.builder()
-     *             .key(&#34;local-test-gitlfs-repo&#34;)
+     *             .key("local-test-gitlfs-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -8762,7 +9176,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8784,12 +9199,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-gitlfs-repo = ArtifactoryFunctions.getLocalGitlfsRepository(GetLocalGitlfsRepositoryArgs.builder()
-     *             .key(&#34;local-test-gitlfs-repo&#34;)
+     *             .key("local-test-gitlfs-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -8802,7 +9218,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8824,12 +9241,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-go-repo = ArtifactoryFunctions.getLocalGoRepository(GetLocalGoRepositoryArgs.builder()
-     *             .key(&#34;local-test-go-repo&#34;)
+     *             .key("local-test-go-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -8842,7 +9260,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8864,12 +9283,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-go-repo = ArtifactoryFunctions.getLocalGoRepository(GetLocalGoRepositoryArgs.builder()
-     *             .key(&#34;local-test-go-repo&#34;)
+     *             .key("local-test-go-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -8882,7 +9302,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8904,12 +9325,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-go-repo = ArtifactoryFunctions.getLocalGoRepository(GetLocalGoRepositoryArgs.builder()
-     *             .key(&#34;local-test-go-repo&#34;)
+     *             .key("local-test-go-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -8922,7 +9344,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8944,12 +9367,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-go-repo = ArtifactoryFunctions.getLocalGoRepository(GetLocalGoRepositoryArgs.builder()
-     *             .key(&#34;local-test-go-repo&#34;)
+     *             .key("local-test-go-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -8962,7 +9386,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -8984,12 +9409,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-gradle-repo-basic = ArtifactoryFunctions.getLocalGradleRepository(GetLocalGradleRepositoryArgs.builder()
-     *             .key(&#34;local-test-gradle-repo-basic&#34;)
+     *             .key("local-test-gradle-repo-basic")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -9002,7 +9428,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -9024,12 +9451,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-gradle-repo-basic = ArtifactoryFunctions.getLocalGradleRepository(GetLocalGradleRepositoryArgs.builder()
-     *             .key(&#34;local-test-gradle-repo-basic&#34;)
+     *             .key("local-test-gradle-repo-basic")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -9042,7 +9470,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -9064,12 +9493,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-gradle-repo-basic = ArtifactoryFunctions.getLocalGradleRepository(GetLocalGradleRepositoryArgs.builder()
-     *             .key(&#34;local-test-gradle-repo-basic&#34;)
+     *             .key("local-test-gradle-repo-basic")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -9082,7 +9512,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -9104,12 +9535,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-gradle-repo-basic = ArtifactoryFunctions.getLocalGradleRepository(GetLocalGradleRepositoryArgs.builder()
-     *             .key(&#34;local-test-gradle-repo-basic&#34;)
+     *             .key("local-test-gradle-repo-basic")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -9122,7 +9554,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -9144,12 +9577,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-helm-repo = ArtifactoryFunctions.getLocalHelmRepository(GetLocalHelmRepositoryArgs.builder()
-     *             .key(&#34;local-test-helm-repo&#34;)
+     *             .key("local-test-helm-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -9162,7 +9596,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -9184,12 +9619,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-helm-repo = ArtifactoryFunctions.getLocalHelmRepository(GetLocalHelmRepositoryArgs.builder()
-     *             .key(&#34;local-test-helm-repo&#34;)
+     *             .key("local-test-helm-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -9202,7 +9638,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -9224,12 +9661,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-helm-repo = ArtifactoryFunctions.getLocalHelmRepository(GetLocalHelmRepositoryArgs.builder()
-     *             .key(&#34;local-test-helm-repo&#34;)
+     *             .key("local-test-helm-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -9242,7 +9680,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -9264,12 +9703,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-helm-repo = ArtifactoryFunctions.getLocalHelmRepository(GetLocalHelmRepositoryArgs.builder()
-     *             .key(&#34;local-test-helm-repo&#34;)
+     *             .key("local-test-helm-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -9282,7 +9722,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -9303,13 +9744,14 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var my_helmoci_local = new LocalHelmociRepository(&#34;my-helmoci-local&#34;, LocalHelmociRepositoryArgs.builder()        
-     *             .key(&#34;my-helmoci-local&#34;)
+     *         var my_helmoci_local = new LocalHelmociRepository("my-helmoci-local", LocalHelmociRepositoryArgs.builder()        
+     *             .key("my-helmoci-local")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -9322,7 +9764,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -9343,13 +9786,14 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var my_helmoci_local = new LocalHelmociRepository(&#34;my-helmoci-local&#34;, LocalHelmociRepositoryArgs.builder()        
-     *             .key(&#34;my-helmoci-local&#34;)
+     *         var my_helmoci_local = new LocalHelmociRepository("my-helmoci-local", LocalHelmociRepositoryArgs.builder()        
+     *             .key("my-helmoci-local")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -9362,7 +9806,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -9383,13 +9828,14 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var my_helmoci_local = new LocalHelmociRepository(&#34;my-helmoci-local&#34;, LocalHelmociRepositoryArgs.builder()        
-     *             .key(&#34;my-helmoci-local&#34;)
+     *         var my_helmoci_local = new LocalHelmociRepository("my-helmoci-local", LocalHelmociRepositoryArgs.builder()        
+     *             .key("my-helmoci-local")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -9402,7 +9848,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -9423,13 +9870,14 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var my_helmoci_local = new LocalHelmociRepository(&#34;my-helmoci-local&#34;, LocalHelmociRepositoryArgs.builder()        
-     *             .key(&#34;my-helmoci-local&#34;)
+     *         var my_helmoci_local = new LocalHelmociRepository("my-helmoci-local", LocalHelmociRepositoryArgs.builder()        
+     *             .key("my-helmoci-local")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -9470,7 +9918,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -9492,12 +9941,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-ivy-repo = ArtifactoryFunctions.getLocalIvyRepository(GetLocalIvyRepositoryArgs.builder()
-     *             .key(&#34;local-test-ivy-repo&#34;)
+     *             .key("local-test-ivy-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -9510,7 +9960,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -9532,12 +9983,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-ivy-repo = ArtifactoryFunctions.getLocalIvyRepository(GetLocalIvyRepositoryArgs.builder()
-     *             .key(&#34;local-test-ivy-repo&#34;)
+     *             .key("local-test-ivy-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -9550,7 +10002,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -9572,12 +10025,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-ivy-repo = ArtifactoryFunctions.getLocalIvyRepository(GetLocalIvyRepositoryArgs.builder()
-     *             .key(&#34;local-test-ivy-repo&#34;)
+     *             .key("local-test-ivy-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -9590,7 +10044,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -9612,12 +10067,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-ivy-repo = ArtifactoryFunctions.getLocalIvyRepository(GetLocalIvyRepositoryArgs.builder()
-     *             .key(&#34;local-test-ivy-repo&#34;)
+     *             .key("local-test-ivy-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -9630,7 +10086,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -9651,13 +10108,14 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var local_test_maven_repo_basic = new LocalMavenRepository(&#34;local-test-maven-repo-basic&#34;, LocalMavenRepositoryArgs.builder()        
-     *             .key(&#34;local-test-maven-repo-basic&#34;)
+     *         var local_test_maven_repo_basic = new LocalMavenRepository("local-test-maven-repo-basic", LocalMavenRepositoryArgs.builder()        
+     *             .key("local-test-maven-repo-basic")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -9670,7 +10128,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -9691,13 +10150,14 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var local_test_maven_repo_basic = new LocalMavenRepository(&#34;local-test-maven-repo-basic&#34;, LocalMavenRepositoryArgs.builder()        
-     *             .key(&#34;local-test-maven-repo-basic&#34;)
+     *         var local_test_maven_repo_basic = new LocalMavenRepository("local-test-maven-repo-basic", LocalMavenRepositoryArgs.builder()        
+     *             .key("local-test-maven-repo-basic")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -9710,7 +10170,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -9731,13 +10192,14 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var local_test_maven_repo_basic = new LocalMavenRepository(&#34;local-test-maven-repo-basic&#34;, LocalMavenRepositoryArgs.builder()        
-     *             .key(&#34;local-test-maven-repo-basic&#34;)
+     *         var local_test_maven_repo_basic = new LocalMavenRepository("local-test-maven-repo-basic", LocalMavenRepositoryArgs.builder()        
+     *             .key("local-test-maven-repo-basic")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -9750,7 +10212,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -9771,13 +10234,14 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var local_test_maven_repo_basic = new LocalMavenRepository(&#34;local-test-maven-repo-basic&#34;, LocalMavenRepositoryArgs.builder()        
-     *             .key(&#34;local-test-maven-repo-basic&#34;)
+     *         var local_test_maven_repo_basic = new LocalMavenRepository("local-test-maven-repo-basic", LocalMavenRepositoryArgs.builder()        
+     *             .key("local-test-maven-repo-basic")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -9790,7 +10254,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -9812,12 +10277,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-npm-repo = ArtifactoryFunctions.getLocalNpmRepository(GetLocalNpmRepositoryArgs.builder()
-     *             .key(&#34;local-test-npm-repo&#34;)
+     *             .key("local-test-npm-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -9830,7 +10296,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -9852,12 +10319,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-npm-repo = ArtifactoryFunctions.getLocalNpmRepository(GetLocalNpmRepositoryArgs.builder()
-     *             .key(&#34;local-test-npm-repo&#34;)
+     *             .key("local-test-npm-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -9870,7 +10338,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -9892,12 +10361,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-npm-repo = ArtifactoryFunctions.getLocalNpmRepository(GetLocalNpmRepositoryArgs.builder()
-     *             .key(&#34;local-test-npm-repo&#34;)
+     *             .key("local-test-npm-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -9910,7 +10380,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -9932,12 +10403,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-npm-repo = ArtifactoryFunctions.getLocalNpmRepository(GetLocalNpmRepositoryArgs.builder()
-     *             .key(&#34;local-test-npm-repo&#34;)
+     *             .key("local-test-npm-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -9950,7 +10422,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -9972,12 +10445,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-nuget-repo-basic = ArtifactoryFunctions.getLocalNugetRepository(GetLocalNugetRepositoryArgs.builder()
-     *             .key(&#34;local-test-nuget-repo-basic&#34;)
+     *             .key("local-test-nuget-repo-basic")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -9990,7 +10464,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -10012,12 +10487,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-nuget-repo-basic = ArtifactoryFunctions.getLocalNugetRepository(GetLocalNugetRepositoryArgs.builder()
-     *             .key(&#34;local-test-nuget-repo-basic&#34;)
+     *             .key("local-test-nuget-repo-basic")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -10030,7 +10506,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -10052,12 +10529,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-nuget-repo-basic = ArtifactoryFunctions.getLocalNugetRepository(GetLocalNugetRepositoryArgs.builder()
-     *             .key(&#34;local-test-nuget-repo-basic&#34;)
+     *             .key("local-test-nuget-repo-basic")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -10070,7 +10548,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -10092,12 +10571,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-nuget-repo-basic = ArtifactoryFunctions.getLocalNugetRepository(GetLocalNugetRepositoryArgs.builder()
-     *             .key(&#34;local-test-nuget-repo-basic&#34;)
+     *             .key("local-test-nuget-repo-basic")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -10110,7 +10590,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -10131,13 +10612,14 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var my_oci_local = new LocalOciRepository(&#34;my-oci-local&#34;, LocalOciRepositoryArgs.builder()        
-     *             .key(&#34;my-oci-local&#34;)
+     *         var my_oci_local = new LocalOciRepository("my-oci-local", LocalOciRepositoryArgs.builder()        
+     *             .key("my-oci-local")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -10150,7 +10632,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -10171,13 +10654,14 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var my_oci_local = new LocalOciRepository(&#34;my-oci-local&#34;, LocalOciRepositoryArgs.builder()        
-     *             .key(&#34;my-oci-local&#34;)
+     *         var my_oci_local = new LocalOciRepository("my-oci-local", LocalOciRepositoryArgs.builder()        
+     *             .key("my-oci-local")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -10190,7 +10674,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -10211,13 +10696,14 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var my_oci_local = new LocalOciRepository(&#34;my-oci-local&#34;, LocalOciRepositoryArgs.builder()        
-     *             .key(&#34;my-oci-local&#34;)
+     *         var my_oci_local = new LocalOciRepository("my-oci-local", LocalOciRepositoryArgs.builder()        
+     *             .key("my-oci-local")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -10230,7 +10716,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -10251,13 +10738,14 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var my_oci_local = new LocalOciRepository(&#34;my-oci-local&#34;, LocalOciRepositoryArgs.builder()        
-     *             .key(&#34;my-oci-local&#34;)
+     *         var my_oci_local = new LocalOciRepository("my-oci-local", LocalOciRepositoryArgs.builder()        
+     *             .key("my-oci-local")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -10270,7 +10758,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -10292,12 +10781,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-opkg-repo = ArtifactoryFunctions.getLocalOpkgRepository(GetLocalOpkgRepositoryArgs.builder()
-     *             .key(&#34;local-test-opkg-repo&#34;)
+     *             .key("local-test-opkg-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -10310,7 +10800,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -10332,12 +10823,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-opkg-repo = ArtifactoryFunctions.getLocalOpkgRepository(GetLocalOpkgRepositoryArgs.builder()
-     *             .key(&#34;local-test-opkg-repo&#34;)
+     *             .key("local-test-opkg-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -10350,7 +10842,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -10372,12 +10865,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-opkg-repo = ArtifactoryFunctions.getLocalOpkgRepository(GetLocalOpkgRepositoryArgs.builder()
-     *             .key(&#34;local-test-opkg-repo&#34;)
+     *             .key("local-test-opkg-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -10390,7 +10884,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -10412,12 +10907,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-opkg-repo = ArtifactoryFunctions.getLocalOpkgRepository(GetLocalOpkgRepositoryArgs.builder()
-     *             .key(&#34;local-test-opkg-repo&#34;)
+     *             .key("local-test-opkg-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -10430,7 +10926,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -10452,12 +10949,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-pub-repo = ArtifactoryFunctions.getLocalPubRepository(GetLocalPubRepositoryArgs.builder()
-     *             .key(&#34;local-test-pub-repo&#34;)
+     *             .key("local-test-pub-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -10470,7 +10968,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -10492,12 +10991,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-pub-repo = ArtifactoryFunctions.getLocalPubRepository(GetLocalPubRepositoryArgs.builder()
-     *             .key(&#34;local-test-pub-repo&#34;)
+     *             .key("local-test-pub-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -10510,7 +11010,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -10532,12 +11033,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-pub-repo = ArtifactoryFunctions.getLocalPubRepository(GetLocalPubRepositoryArgs.builder()
-     *             .key(&#34;local-test-pub-repo&#34;)
+     *             .key("local-test-pub-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -10550,7 +11052,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -10572,12 +11075,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-pub-repo = ArtifactoryFunctions.getLocalPubRepository(GetLocalPubRepositoryArgs.builder()
-     *             .key(&#34;local-test-pub-repo&#34;)
+     *             .key("local-test-pub-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -10590,7 +11094,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -10612,12 +11117,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-puppet-repo = ArtifactoryFunctions.getLocalPuppetRepository(GetLocalPuppetRepositoryArgs.builder()
-     *             .key(&#34;local-test-puppet-repo&#34;)
+     *             .key("local-test-puppet-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -10630,7 +11136,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -10652,12 +11159,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-puppet-repo = ArtifactoryFunctions.getLocalPuppetRepository(GetLocalPuppetRepositoryArgs.builder()
-     *             .key(&#34;local-test-puppet-repo&#34;)
+     *             .key("local-test-puppet-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -10670,7 +11178,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -10692,12 +11201,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-puppet-repo = ArtifactoryFunctions.getLocalPuppetRepository(GetLocalPuppetRepositoryArgs.builder()
-     *             .key(&#34;local-test-puppet-repo&#34;)
+     *             .key("local-test-puppet-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -10710,7 +11220,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -10732,12 +11243,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-puppet-repo = ArtifactoryFunctions.getLocalPuppetRepository(GetLocalPuppetRepositoryArgs.builder()
-     *             .key(&#34;local-test-puppet-repo&#34;)
+     *             .key("local-test-puppet-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -10750,7 +11262,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -10772,12 +11285,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-pypi-repo = ArtifactoryFunctions.getLocalPypiRepository(GetLocalPypiRepositoryArgs.builder()
-     *             .key(&#34;local-test-pypi-repo&#34;)
+     *             .key("local-test-pypi-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -10790,7 +11304,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -10812,12 +11327,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-pypi-repo = ArtifactoryFunctions.getLocalPypiRepository(GetLocalPypiRepositoryArgs.builder()
-     *             .key(&#34;local-test-pypi-repo&#34;)
+     *             .key("local-test-pypi-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -10830,7 +11346,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -10852,12 +11369,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-pypi-repo = ArtifactoryFunctions.getLocalPypiRepository(GetLocalPypiRepositoryArgs.builder()
-     *             .key(&#34;local-test-pypi-repo&#34;)
+     *             .key("local-test-pypi-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -10870,7 +11388,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -10892,12 +11411,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-pypi-repo = ArtifactoryFunctions.getLocalPypiRepository(GetLocalPypiRepositoryArgs.builder()
-     *             .key(&#34;local-test-pypi-repo&#34;)
+     *             .key("local-test-pypi-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -10910,7 +11430,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -10932,12 +11453,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-rpm-repo-basic = ArtifactoryFunctions.getLocalRpmRepository(GetLocalRpmRepositoryArgs.builder()
-     *             .key(&#34;local-test-rpm-repo-basic&#34;)
+     *             .key("local-test-rpm-repo-basic")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -10950,7 +11472,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -10972,12 +11495,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-rpm-repo-basic = ArtifactoryFunctions.getLocalRpmRepository(GetLocalRpmRepositoryArgs.builder()
-     *             .key(&#34;local-test-rpm-repo-basic&#34;)
+     *             .key("local-test-rpm-repo-basic")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -10990,7 +11514,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -11012,12 +11537,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-rpm-repo-basic = ArtifactoryFunctions.getLocalRpmRepository(GetLocalRpmRepositoryArgs.builder()
-     *             .key(&#34;local-test-rpm-repo-basic&#34;)
+     *             .key("local-test-rpm-repo-basic")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -11030,7 +11556,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -11052,12 +11579,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-rpm-repo-basic = ArtifactoryFunctions.getLocalRpmRepository(GetLocalRpmRepositoryArgs.builder()
-     *             .key(&#34;local-test-rpm-repo-basic&#34;)
+     *             .key("local-test-rpm-repo-basic")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -11070,7 +11598,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -11092,12 +11621,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-sbt-repo = ArtifactoryFunctions.getLocalSbtRepository(GetLocalSbtRepositoryArgs.builder()
-     *             .key(&#34;local-test-sbt-repo&#34;)
+     *             .key("local-test-sbt-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -11110,7 +11640,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -11132,12 +11663,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-sbt-repo = ArtifactoryFunctions.getLocalSbtRepository(GetLocalSbtRepositoryArgs.builder()
-     *             .key(&#34;local-test-sbt-repo&#34;)
+     *             .key("local-test-sbt-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -11150,7 +11682,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -11172,12 +11705,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-sbt-repo = ArtifactoryFunctions.getLocalSbtRepository(GetLocalSbtRepositoryArgs.builder()
-     *             .key(&#34;local-test-sbt-repo&#34;)
+     *             .key("local-test-sbt-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -11190,7 +11724,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -11212,12 +11747,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-sbt-repo = ArtifactoryFunctions.getLocalSbtRepository(GetLocalSbtRepositoryArgs.builder()
-     *             .key(&#34;local-test-sbt-repo&#34;)
+     *             .key("local-test-sbt-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -11230,7 +11766,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -11252,12 +11789,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-swift-repo = ArtifactoryFunctions.getLocalSwiftRepository(GetLocalSwiftRepositoryArgs.builder()
-     *             .key(&#34;local-test-swift-repo&#34;)
+     *             .key("local-test-swift-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -11270,7 +11808,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -11292,12 +11831,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-swift-repo = ArtifactoryFunctions.getLocalSwiftRepository(GetLocalSwiftRepositoryArgs.builder()
-     *             .key(&#34;local-test-swift-repo&#34;)
+     *             .key("local-test-swift-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -11310,7 +11850,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -11332,12 +11873,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-swift-repo = ArtifactoryFunctions.getLocalSwiftRepository(GetLocalSwiftRepositoryArgs.builder()
-     *             .key(&#34;local-test-swift-repo&#34;)
+     *             .key("local-test-swift-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -11350,7 +11892,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -11372,12 +11915,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-swift-repo = ArtifactoryFunctions.getLocalSwiftRepository(GetLocalSwiftRepositoryArgs.builder()
-     *             .key(&#34;local-test-swift-repo&#34;)
+     *             .key("local-test-swift-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -11388,7 +11932,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -11409,13 +11954,14 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var terraform_local_test_terraform_module_repo = new LocalTerraformModuleRepository(&#34;terraform-local-test-terraform-module-repo&#34;, LocalTerraformModuleRepositoryArgs.builder()        
-     *             .key(&#34;terraform-local-test-terraform-module-repo&#34;)
+     *         var terraform_local_test_terraform_module_repo = new LocalTerraformModuleRepository("terraform-local-test-terraform-module-repo", LocalTerraformModuleRepositoryArgs.builder()        
+     *             .key("terraform-local-test-terraform-module-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -11426,7 +11972,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -11447,13 +11994,14 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var terraform_local_test_terraform_module_repo = new LocalTerraformModuleRepository(&#34;terraform-local-test-terraform-module-repo&#34;, LocalTerraformModuleRepositoryArgs.builder()        
-     *             .key(&#34;terraform-local-test-terraform-module-repo&#34;)
+     *         var terraform_local_test_terraform_module_repo = new LocalTerraformModuleRepository("terraform-local-test-terraform-module-repo", LocalTerraformModuleRepositoryArgs.builder()        
+     *             .key("terraform-local-test-terraform-module-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -11464,7 +12012,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -11485,13 +12034,14 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var terraform_local_test_terraform_module_repo = new LocalTerraformModuleRepository(&#34;terraform-local-test-terraform-module-repo&#34;, LocalTerraformModuleRepositoryArgs.builder()        
-     *             .key(&#34;terraform-local-test-terraform-module-repo&#34;)
+     *         var terraform_local_test_terraform_module_repo = new LocalTerraformModuleRepository("terraform-local-test-terraform-module-repo", LocalTerraformModuleRepositoryArgs.builder()        
+     *             .key("terraform-local-test-terraform-module-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -11502,7 +12052,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -11523,13 +12074,14 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var terraform_local_test_terraform_module_repo = new LocalTerraformModuleRepository(&#34;terraform-local-test-terraform-module-repo&#34;, LocalTerraformModuleRepositoryArgs.builder()        
-     *             .key(&#34;terraform-local-test-terraform-module-repo&#34;)
+     *         var terraform_local_test_terraform_module_repo = new LocalTerraformModuleRepository("terraform-local-test-terraform-module-repo", LocalTerraformModuleRepositoryArgs.builder()        
+     *             .key("terraform-local-test-terraform-module-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -11540,7 +12092,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -11562,12 +12115,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-terraform-provider-repo = ArtifactoryFunctions.getLocalTerraformProviderRepository(GetLocalTerraformProviderRepositoryArgs.builder()
-     *             .key(&#34;local-test-terraform-provider-repo&#34;)
+     *             .key("local-test-terraform-provider-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -11578,7 +12132,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -11600,12 +12155,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-terraform-provider-repo = ArtifactoryFunctions.getLocalTerraformProviderRepository(GetLocalTerraformProviderRepositoryArgs.builder()
-     *             .key(&#34;local-test-terraform-provider-repo&#34;)
+     *             .key("local-test-terraform-provider-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -11616,7 +12172,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -11638,12 +12195,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-terraform-provider-repo = ArtifactoryFunctions.getLocalTerraformProviderRepository(GetLocalTerraformProviderRepositoryArgs.builder()
-     *             .key(&#34;local-test-terraform-provider-repo&#34;)
+     *             .key("local-test-terraform-provider-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -11654,7 +12212,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -11676,12 +12235,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-terraform-provider-repo = ArtifactoryFunctions.getLocalTerraformProviderRepository(GetLocalTerraformProviderRepositoryArgs.builder()
-     *             .key(&#34;local-test-terraform-provider-repo&#34;)
+     *             .key("local-test-terraform-provider-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -11692,7 +12252,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -11714,12 +12275,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-terraformbackend-repo = ArtifactoryFunctions.getLocalTerraformbackendRepository(GetLocalTerraformbackendRepositoryArgs.builder()
-     *             .key(&#34;local-test-terraformbackend-repo&#34;)
+     *             .key("local-test-terraformbackend-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -11730,7 +12292,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -11752,12 +12315,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-terraformbackend-repo = ArtifactoryFunctions.getLocalTerraformbackendRepository(GetLocalTerraformbackendRepositoryArgs.builder()
-     *             .key(&#34;local-test-terraformbackend-repo&#34;)
+     *             .key("local-test-terraformbackend-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -11768,7 +12332,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -11790,12 +12355,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-terraformbackend-repo = ArtifactoryFunctions.getLocalTerraformbackendRepository(GetLocalTerraformbackendRepositoryArgs.builder()
-     *             .key(&#34;local-test-terraformbackend-repo&#34;)
+     *             .key("local-test-terraformbackend-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -11806,7 +12372,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -11828,12 +12395,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-terraformbackend-repo = ArtifactoryFunctions.getLocalTerraformbackendRepository(GetLocalTerraformbackendRepositoryArgs.builder()
-     *             .key(&#34;local-test-terraformbackend-repo&#34;)
+     *             .key("local-test-terraformbackend-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -11846,7 +12414,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -11868,12 +12437,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-vagrant-repo = ArtifactoryFunctions.getLocalVagrantRepository(GetLocalVagrantRepositoryArgs.builder()
-     *             .key(&#34;local-test-vagrant-repo&#34;)
+     *             .key("local-test-vagrant-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -11886,7 +12456,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -11908,12 +12479,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-vagrant-repo = ArtifactoryFunctions.getLocalVagrantRepository(GetLocalVagrantRepositoryArgs.builder()
-     *             .key(&#34;local-test-vagrant-repo&#34;)
+     *             .key("local-test-vagrant-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -11926,7 +12498,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -11948,12 +12521,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-vagrant-repo = ArtifactoryFunctions.getLocalVagrantRepository(GetLocalVagrantRepositoryArgs.builder()
-     *             .key(&#34;local-test-vagrant-repo&#34;)
+     *             .key("local-test-vagrant-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -11966,7 +12540,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -11988,12 +12563,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var local-test-vagrant-repo = ArtifactoryFunctions.getLocalVagrantRepository(GetLocalVagrantRepositoryArgs.builder()
-     *             .key(&#34;local-test-vagrant-repo&#34;)
+     *             .key("local-test-vagrant-repo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -12008,7 +12584,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -12031,12 +12608,13 @@ public final class ArtifactoryFunctions {
      *     public static void stack(Context ctx) {
      *         //
      *         final var target1 = ArtifactoryFunctions.getPermissionTarget(GetPermissionTargetArgs.builder()
-     *             .name(&#34;my_permission&#34;)
+     *             .name("my_permission")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -12051,7 +12629,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -12074,12 +12653,13 @@ public final class ArtifactoryFunctions {
      *     public static void stack(Context ctx) {
      *         //
      *         final var target1 = ArtifactoryFunctions.getPermissionTarget(GetPermissionTargetArgs.builder()
-     *             .name(&#34;my_permission&#34;)
+     *             .name("my_permission")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -12094,7 +12674,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -12117,12 +12698,13 @@ public final class ArtifactoryFunctions {
      *     public static void stack(Context ctx) {
      *         //
      *         final var target1 = ArtifactoryFunctions.getPermissionTarget(GetPermissionTargetArgs.builder()
-     *             .name(&#34;my_permission&#34;)
+     *             .name("my_permission")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -12137,7 +12719,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -12160,12 +12743,13 @@ public final class ArtifactoryFunctions {
      *     public static void stack(Context ctx) {
      *         //
      *         final var target1 = ArtifactoryFunctions.getPermissionTarget(GetPermissionTargetArgs.builder()
-     *             .name(&#34;my_permission&#34;)
+     *             .name("my_permission")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -12178,7 +12762,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -12200,12 +12785,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-alpine = ArtifactoryFunctions.getRemoteAlpineRepository(GetRemoteAlpineRepositoryArgs.builder()
-     *             .key(&#34;remote-alpine&#34;)
+     *             .key("remote-alpine")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -12218,7 +12804,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -12240,12 +12827,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-alpine = ArtifactoryFunctions.getRemoteAlpineRepository(GetRemoteAlpineRepositoryArgs.builder()
-     *             .key(&#34;remote-alpine&#34;)
+     *             .key("remote-alpine")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -12258,7 +12846,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -12280,12 +12869,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-alpine = ArtifactoryFunctions.getRemoteAlpineRepository(GetRemoteAlpineRepositoryArgs.builder()
-     *             .key(&#34;remote-alpine&#34;)
+     *             .key("remote-alpine")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -12298,7 +12888,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -12320,12 +12911,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-alpine = ArtifactoryFunctions.getRemoteAlpineRepository(GetRemoteAlpineRepositoryArgs.builder()
-     *             .key(&#34;remote-alpine&#34;)
+     *             .key("remote-alpine")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -12338,7 +12930,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -12360,12 +12953,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-bower = ArtifactoryFunctions.getRemoteBowerRepository(GetRemoteBowerRepositoryArgs.builder()
-     *             .key(&#34;remote-bower&#34;)
+     *             .key("remote-bower")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -12378,7 +12972,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -12400,12 +12995,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-bower = ArtifactoryFunctions.getRemoteBowerRepository(GetRemoteBowerRepositoryArgs.builder()
-     *             .key(&#34;remote-bower&#34;)
+     *             .key("remote-bower")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -12418,7 +13014,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -12440,12 +13037,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-bower = ArtifactoryFunctions.getRemoteBowerRepository(GetRemoteBowerRepositoryArgs.builder()
-     *             .key(&#34;remote-bower&#34;)
+     *             .key("remote-bower")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -12458,7 +13056,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -12480,12 +13079,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-bower = ArtifactoryFunctions.getRemoteBowerRepository(GetRemoteBowerRepositoryArgs.builder()
-     *             .key(&#34;remote-bower&#34;)
+     *             .key("remote-bower")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -12498,7 +13098,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -12520,12 +13121,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-cargo = ArtifactoryFunctions.getRemoteCargoRepository(GetRemoteCargoRepositoryArgs.builder()
-     *             .key(&#34;remote-cargo&#34;)
+     *             .key("remote-cargo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -12538,7 +13140,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -12560,12 +13163,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-cargo = ArtifactoryFunctions.getRemoteCargoRepository(GetRemoteCargoRepositoryArgs.builder()
-     *             .key(&#34;remote-cargo&#34;)
+     *             .key("remote-cargo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -12578,7 +13182,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -12600,12 +13205,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-cargo = ArtifactoryFunctions.getRemoteCargoRepository(GetRemoteCargoRepositoryArgs.builder()
-     *             .key(&#34;remote-cargo&#34;)
+     *             .key("remote-cargo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -12618,7 +13224,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -12640,12 +13247,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-cargo = ArtifactoryFunctions.getRemoteCargoRepository(GetRemoteCargoRepositoryArgs.builder()
-     *             .key(&#34;remote-cargo&#34;)
+     *             .key("remote-cargo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -12658,7 +13266,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -12680,12 +13289,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-chef = ArtifactoryFunctions.getRemoteChefRepository(GetRemoteChefRepositoryArgs.builder()
-     *             .key(&#34;remote-chef&#34;)
+     *             .key("remote-chef")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -12698,7 +13308,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -12720,12 +13331,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-chef = ArtifactoryFunctions.getRemoteChefRepository(GetRemoteChefRepositoryArgs.builder()
-     *             .key(&#34;remote-chef&#34;)
+     *             .key("remote-chef")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -12738,7 +13350,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -12760,12 +13373,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-chef = ArtifactoryFunctions.getRemoteChefRepository(GetRemoteChefRepositoryArgs.builder()
-     *             .key(&#34;remote-chef&#34;)
+     *             .key("remote-chef")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -12778,7 +13392,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -12800,12 +13415,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-chef = ArtifactoryFunctions.getRemoteChefRepository(GetRemoteChefRepositoryArgs.builder()
-     *             .key(&#34;remote-chef&#34;)
+     *             .key("remote-chef")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -12818,7 +13434,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -12840,12 +13457,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-cocoapods = ArtifactoryFunctions.getRemoteCocoapodsRepository(GetRemoteCocoapodsRepositoryArgs.builder()
-     *             .key(&#34;remote-cocoapods&#34;)
+     *             .key("remote-cocoapods")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -12858,7 +13476,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -12880,12 +13499,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-cocoapods = ArtifactoryFunctions.getRemoteCocoapodsRepository(GetRemoteCocoapodsRepositoryArgs.builder()
-     *             .key(&#34;remote-cocoapods&#34;)
+     *             .key("remote-cocoapods")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -12898,7 +13518,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -12920,12 +13541,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-cocoapods = ArtifactoryFunctions.getRemoteCocoapodsRepository(GetRemoteCocoapodsRepositoryArgs.builder()
-     *             .key(&#34;remote-cocoapods&#34;)
+     *             .key("remote-cocoapods")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -12938,7 +13560,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -12960,12 +13583,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-cocoapods = ArtifactoryFunctions.getRemoteCocoapodsRepository(GetRemoteCocoapodsRepositoryArgs.builder()
-     *             .key(&#34;remote-cocoapods&#34;)
+     *             .key("remote-cocoapods")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -12978,7 +13602,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -13000,12 +13625,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-composer = ArtifactoryFunctions.getRemoteComposerRepository(GetRemoteComposerRepositoryArgs.builder()
-     *             .key(&#34;remote-composer&#34;)
+     *             .key("remote-composer")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -13018,7 +13644,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -13040,12 +13667,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-composer = ArtifactoryFunctions.getRemoteComposerRepository(GetRemoteComposerRepositoryArgs.builder()
-     *             .key(&#34;remote-composer&#34;)
+     *             .key("remote-composer")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -13058,7 +13686,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -13080,12 +13709,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-composer = ArtifactoryFunctions.getRemoteComposerRepository(GetRemoteComposerRepositoryArgs.builder()
-     *             .key(&#34;remote-composer&#34;)
+     *             .key("remote-composer")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -13098,7 +13728,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -13120,12 +13751,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-composer = ArtifactoryFunctions.getRemoteComposerRepository(GetRemoteComposerRepositoryArgs.builder()
-     *             .key(&#34;remote-composer&#34;)
+     *             .key("remote-composer")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -13138,7 +13770,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -13160,12 +13793,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-conan = ArtifactoryFunctions.getRemoteConanRepository(GetRemoteConanRepositoryArgs.builder()
-     *             .key(&#34;remote-conan&#34;)
+     *             .key("remote-conan")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -13178,7 +13812,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -13200,12 +13835,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-conan = ArtifactoryFunctions.getRemoteConanRepository(GetRemoteConanRepositoryArgs.builder()
-     *             .key(&#34;remote-conan&#34;)
+     *             .key("remote-conan")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -13218,7 +13854,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -13240,12 +13877,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-conan = ArtifactoryFunctions.getRemoteConanRepository(GetRemoteConanRepositoryArgs.builder()
-     *             .key(&#34;remote-conan&#34;)
+     *             .key("remote-conan")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -13258,7 +13896,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -13280,12 +13919,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-conan = ArtifactoryFunctions.getRemoteConanRepository(GetRemoteConanRepositoryArgs.builder()
-     *             .key(&#34;remote-conan&#34;)
+     *             .key("remote-conan")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -13298,7 +13938,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -13320,12 +13961,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-conda = ArtifactoryFunctions.getRemoteCondaRepository(GetRemoteCondaRepositoryArgs.builder()
-     *             .key(&#34;remote-conda&#34;)
+     *             .key("remote-conda")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -13338,7 +13980,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -13360,12 +14003,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-conda = ArtifactoryFunctions.getRemoteCondaRepository(GetRemoteCondaRepositoryArgs.builder()
-     *             .key(&#34;remote-conda&#34;)
+     *             .key("remote-conda")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -13378,7 +14022,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -13400,12 +14045,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-conda = ArtifactoryFunctions.getRemoteCondaRepository(GetRemoteCondaRepositoryArgs.builder()
-     *             .key(&#34;remote-conda&#34;)
+     *             .key("remote-conda")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -13418,7 +14064,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -13440,12 +14087,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-conda = ArtifactoryFunctions.getRemoteCondaRepository(GetRemoteCondaRepositoryArgs.builder()
-     *             .key(&#34;remote-conda&#34;)
+     *             .key("remote-conda")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -13458,7 +14106,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -13480,12 +14129,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-cran = ArtifactoryFunctions.getRemoteCranRepository(GetRemoteCranRepositoryArgs.builder()
-     *             .key(&#34;remote-cran&#34;)
+     *             .key("remote-cran")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -13498,7 +14148,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -13520,12 +14171,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-cran = ArtifactoryFunctions.getRemoteCranRepository(GetRemoteCranRepositoryArgs.builder()
-     *             .key(&#34;remote-cran&#34;)
+     *             .key("remote-cran")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -13538,7 +14190,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -13560,12 +14213,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-cran = ArtifactoryFunctions.getRemoteCranRepository(GetRemoteCranRepositoryArgs.builder()
-     *             .key(&#34;remote-cran&#34;)
+     *             .key("remote-cran")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -13578,7 +14232,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -13600,12 +14255,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-cran = ArtifactoryFunctions.getRemoteCranRepository(GetRemoteCranRepositoryArgs.builder()
-     *             .key(&#34;remote-cran&#34;)
+     *             .key("remote-cran")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -13618,7 +14274,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -13640,12 +14297,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-debian = ArtifactoryFunctions.getRemoteDebianRepository(GetRemoteDebianRepositoryArgs.builder()
-     *             .key(&#34;remote-debian&#34;)
+     *             .key("remote-debian")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -13658,7 +14316,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -13680,12 +14339,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-debian = ArtifactoryFunctions.getRemoteDebianRepository(GetRemoteDebianRepositoryArgs.builder()
-     *             .key(&#34;remote-debian&#34;)
+     *             .key("remote-debian")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -13698,7 +14358,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -13720,12 +14381,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-debian = ArtifactoryFunctions.getRemoteDebianRepository(GetRemoteDebianRepositoryArgs.builder()
-     *             .key(&#34;remote-debian&#34;)
+     *             .key("remote-debian")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -13738,7 +14400,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -13760,12 +14423,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-debian = ArtifactoryFunctions.getRemoteDebianRepository(GetRemoteDebianRepositoryArgs.builder()
-     *             .key(&#34;remote-debian&#34;)
+     *             .key("remote-debian")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -13778,7 +14442,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -13800,12 +14465,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-docker = ArtifactoryFunctions.getRemoteDockerRepository(GetRemoteDockerRepositoryArgs.builder()
-     *             .key(&#34;remote-docker&#34;)
+     *             .key("remote-docker")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -13818,7 +14484,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -13840,12 +14507,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-docker = ArtifactoryFunctions.getRemoteDockerRepository(GetRemoteDockerRepositoryArgs.builder()
-     *             .key(&#34;remote-docker&#34;)
+     *             .key("remote-docker")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -13858,7 +14526,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -13880,12 +14549,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-docker = ArtifactoryFunctions.getRemoteDockerRepository(GetRemoteDockerRepositoryArgs.builder()
-     *             .key(&#34;remote-docker&#34;)
+     *             .key("remote-docker")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -13898,7 +14568,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -13920,12 +14591,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-docker = ArtifactoryFunctions.getRemoteDockerRepository(GetRemoteDockerRepositoryArgs.builder()
-     *             .key(&#34;remote-docker&#34;)
+     *             .key("remote-docker")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -13938,7 +14610,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -13960,12 +14633,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-gems = ArtifactoryFunctions.getRemoteGemsRepository(GetRemoteGemsRepositoryArgs.builder()
-     *             .key(&#34;remote-gems&#34;)
+     *             .key("remote-gems")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -13978,7 +14652,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -14000,12 +14675,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-gems = ArtifactoryFunctions.getRemoteGemsRepository(GetRemoteGemsRepositoryArgs.builder()
-     *             .key(&#34;remote-gems&#34;)
+     *             .key("remote-gems")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -14018,7 +14694,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -14040,12 +14717,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-gems = ArtifactoryFunctions.getRemoteGemsRepository(GetRemoteGemsRepositoryArgs.builder()
-     *             .key(&#34;remote-gems&#34;)
+     *             .key("remote-gems")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -14058,7 +14736,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -14080,12 +14759,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-gems = ArtifactoryFunctions.getRemoteGemsRepository(GetRemoteGemsRepositoryArgs.builder()
-     *             .key(&#34;remote-gems&#34;)
+     *             .key("remote-gems")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -14098,7 +14778,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -14120,12 +14801,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-generic = ArtifactoryFunctions.getRemoteGenericRepository(GetRemoteGenericRepositoryArgs.builder()
-     *             .key(&#34;remote-generic&#34;)
+     *             .key("remote-generic")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -14138,7 +14820,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -14160,12 +14843,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-generic = ArtifactoryFunctions.getRemoteGenericRepository(GetRemoteGenericRepositoryArgs.builder()
-     *             .key(&#34;remote-generic&#34;)
+     *             .key("remote-generic")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -14178,7 +14862,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -14200,12 +14885,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-generic = ArtifactoryFunctions.getRemoteGenericRepository(GetRemoteGenericRepositoryArgs.builder()
-     *             .key(&#34;remote-generic&#34;)
+     *             .key("remote-generic")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -14218,7 +14904,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -14240,12 +14927,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-generic = ArtifactoryFunctions.getRemoteGenericRepository(GetRemoteGenericRepositoryArgs.builder()
-     *             .key(&#34;remote-generic&#34;)
+     *             .key("remote-generic")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -14258,7 +14946,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -14280,12 +14969,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-gitlfs = ArtifactoryFunctions.getRemoteGitlfsRepository(GetRemoteGitlfsRepositoryArgs.builder()
-     *             .key(&#34;remote-gitlfs&#34;)
+     *             .key("remote-gitlfs")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -14298,7 +14988,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -14320,12 +15011,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-gitlfs = ArtifactoryFunctions.getRemoteGitlfsRepository(GetRemoteGitlfsRepositoryArgs.builder()
-     *             .key(&#34;remote-gitlfs&#34;)
+     *             .key("remote-gitlfs")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -14338,7 +15030,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -14360,12 +15053,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-gitlfs = ArtifactoryFunctions.getRemoteGitlfsRepository(GetRemoteGitlfsRepositoryArgs.builder()
-     *             .key(&#34;remote-gitlfs&#34;)
+     *             .key("remote-gitlfs")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -14378,7 +15072,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -14400,12 +15095,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-gitlfs = ArtifactoryFunctions.getRemoteGitlfsRepository(GetRemoteGitlfsRepositoryArgs.builder()
-     *             .key(&#34;remote-gitlfs&#34;)
+     *             .key("remote-gitlfs")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -14418,7 +15114,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -14440,12 +15137,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-go = ArtifactoryFunctions.getRemoteGoRepository(GetRemoteGoRepositoryArgs.builder()
-     *             .key(&#34;remote-go&#34;)
+     *             .key("remote-go")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -14458,7 +15156,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -14480,12 +15179,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-go = ArtifactoryFunctions.getRemoteGoRepository(GetRemoteGoRepositoryArgs.builder()
-     *             .key(&#34;remote-go&#34;)
+     *             .key("remote-go")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -14498,7 +15198,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -14520,12 +15221,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-go = ArtifactoryFunctions.getRemoteGoRepository(GetRemoteGoRepositoryArgs.builder()
-     *             .key(&#34;remote-go&#34;)
+     *             .key("remote-go")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -14538,7 +15240,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -14560,12 +15263,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-go = ArtifactoryFunctions.getRemoteGoRepository(GetRemoteGoRepositoryArgs.builder()
-     *             .key(&#34;remote-go&#34;)
+     *             .key("remote-go")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -14578,7 +15282,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -14600,12 +15305,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-gradle = ArtifactoryFunctions.getRemoteGradleRepository(GetRemoteGradleRepositoryArgs.builder()
-     *             .key(&#34;remote-gradle&#34;)
+     *             .key("remote-gradle")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -14618,7 +15324,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -14640,12 +15347,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-gradle = ArtifactoryFunctions.getRemoteGradleRepository(GetRemoteGradleRepositoryArgs.builder()
-     *             .key(&#34;remote-gradle&#34;)
+     *             .key("remote-gradle")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -14658,7 +15366,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -14680,12 +15389,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-gradle = ArtifactoryFunctions.getRemoteGradleRepository(GetRemoteGradleRepositoryArgs.builder()
-     *             .key(&#34;remote-gradle&#34;)
+     *             .key("remote-gradle")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -14698,7 +15408,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -14720,12 +15431,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-gradle = ArtifactoryFunctions.getRemoteGradleRepository(GetRemoteGradleRepositoryArgs.builder()
-     *             .key(&#34;remote-gradle&#34;)
+     *             .key("remote-gradle")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -14738,7 +15450,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -14760,12 +15473,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-helm = ArtifactoryFunctions.getRemoteHelmRepository(GetRemoteHelmRepositoryArgs.builder()
-     *             .key(&#34;remote-helm&#34;)
+     *             .key("remote-helm")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -14778,7 +15492,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -14800,12 +15515,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-helm = ArtifactoryFunctions.getRemoteHelmRepository(GetRemoteHelmRepositoryArgs.builder()
-     *             .key(&#34;remote-helm&#34;)
+     *             .key("remote-helm")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -14818,7 +15534,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -14840,12 +15557,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-helm = ArtifactoryFunctions.getRemoteHelmRepository(GetRemoteHelmRepositoryArgs.builder()
-     *             .key(&#34;remote-helm&#34;)
+     *             .key("remote-helm")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -14858,7 +15576,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -14880,12 +15599,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-helm = ArtifactoryFunctions.getRemoteHelmRepository(GetRemoteHelmRepositoryArgs.builder()
-     *             .key(&#34;remote-helm&#34;)
+     *             .key("remote-helm")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -14898,7 +15618,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -14920,12 +15641,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var my-helmoci-remote = ArtifactoryFunctions.getRemoteHelmociRepository(GetRemoteHelmociRepositoryArgs.builder()
-     *             .key(&#34;my-helmoci-remote&#34;)
+     *             .key("my-helmoci-remote")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -14938,7 +15660,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -14960,12 +15683,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var my-helmoci-remote = ArtifactoryFunctions.getRemoteHelmociRepository(GetRemoteHelmociRepositoryArgs.builder()
-     *             .key(&#34;my-helmoci-remote&#34;)
+     *             .key("my-helmoci-remote")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -14978,7 +15702,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -15000,12 +15725,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var my-helmoci-remote = ArtifactoryFunctions.getRemoteHelmociRepository(GetRemoteHelmociRepositoryArgs.builder()
-     *             .key(&#34;my-helmoci-remote&#34;)
+     *             .key("my-helmoci-remote")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -15018,7 +15744,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -15040,12 +15767,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var my-helmoci-remote = ArtifactoryFunctions.getRemoteHelmociRepository(GetRemoteHelmociRepositoryArgs.builder()
-     *             .key(&#34;my-helmoci-remote&#34;)
+     *             .key("my-helmoci-remote")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -15058,7 +15786,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -15080,12 +15809,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-ivy = ArtifactoryFunctions.getRemoteIvyRepository(GetRemoteIvyRepositoryArgs.builder()
-     *             .key(&#34;remote-ivy&#34;)
+     *             .key("remote-ivy")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -15098,7 +15828,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -15120,12 +15851,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-ivy = ArtifactoryFunctions.getRemoteIvyRepository(GetRemoteIvyRepositoryArgs.builder()
-     *             .key(&#34;remote-ivy&#34;)
+     *             .key("remote-ivy")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -15138,7 +15870,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -15160,12 +15893,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-ivy = ArtifactoryFunctions.getRemoteIvyRepository(GetRemoteIvyRepositoryArgs.builder()
-     *             .key(&#34;remote-ivy&#34;)
+     *             .key("remote-ivy")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -15178,7 +15912,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -15200,12 +15935,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-ivy = ArtifactoryFunctions.getRemoteIvyRepository(GetRemoteIvyRepositoryArgs.builder()
-     *             .key(&#34;remote-ivy&#34;)
+     *             .key("remote-ivy")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -15218,7 +15954,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -15240,12 +15977,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-maven = ArtifactoryFunctions.getRemoteMavenRepository(GetRemoteMavenRepositoryArgs.builder()
-     *             .key(&#34;remote-maven&#34;)
+     *             .key("remote-maven")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -15258,7 +15996,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -15280,12 +16019,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-maven = ArtifactoryFunctions.getRemoteMavenRepository(GetRemoteMavenRepositoryArgs.builder()
-     *             .key(&#34;remote-maven&#34;)
+     *             .key("remote-maven")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -15298,7 +16038,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -15320,12 +16061,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-maven = ArtifactoryFunctions.getRemoteMavenRepository(GetRemoteMavenRepositoryArgs.builder()
-     *             .key(&#34;remote-maven&#34;)
+     *             .key("remote-maven")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -15338,7 +16080,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -15360,12 +16103,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-maven = ArtifactoryFunctions.getRemoteMavenRepository(GetRemoteMavenRepositoryArgs.builder()
-     *             .key(&#34;remote-maven&#34;)
+     *             .key("remote-maven")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -15378,7 +16122,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -15400,12 +16145,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-npm = ArtifactoryFunctions.getRemoteNpmRepository(GetRemoteNpmRepositoryArgs.builder()
-     *             .key(&#34;remote-npm&#34;)
+     *             .key("remote-npm")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -15418,7 +16164,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -15440,12 +16187,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-npm = ArtifactoryFunctions.getRemoteNpmRepository(GetRemoteNpmRepositoryArgs.builder()
-     *             .key(&#34;remote-npm&#34;)
+     *             .key("remote-npm")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -15458,7 +16206,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -15480,12 +16229,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-npm = ArtifactoryFunctions.getRemoteNpmRepository(GetRemoteNpmRepositoryArgs.builder()
-     *             .key(&#34;remote-npm&#34;)
+     *             .key("remote-npm")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -15498,7 +16248,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -15520,12 +16271,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-npm = ArtifactoryFunctions.getRemoteNpmRepository(GetRemoteNpmRepositoryArgs.builder()
-     *             .key(&#34;remote-npm&#34;)
+     *             .key("remote-npm")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -15538,7 +16290,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -15560,12 +16313,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-nuget = ArtifactoryFunctions.getRemoteNugetRepository(GetRemoteNugetRepositoryArgs.builder()
-     *             .key(&#34;remote-nuget&#34;)
+     *             .key("remote-nuget")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -15578,7 +16332,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -15600,12 +16355,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-nuget = ArtifactoryFunctions.getRemoteNugetRepository(GetRemoteNugetRepositoryArgs.builder()
-     *             .key(&#34;remote-nuget&#34;)
+     *             .key("remote-nuget")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -15618,7 +16374,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -15640,12 +16397,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-nuget = ArtifactoryFunctions.getRemoteNugetRepository(GetRemoteNugetRepositoryArgs.builder()
-     *             .key(&#34;remote-nuget&#34;)
+     *             .key("remote-nuget")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -15658,7 +16416,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -15680,12 +16439,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-nuget = ArtifactoryFunctions.getRemoteNugetRepository(GetRemoteNugetRepositoryArgs.builder()
-     *             .key(&#34;remote-nuget&#34;)
+     *             .key("remote-nuget")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -15698,7 +16458,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -15720,12 +16481,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var my-oci-remote = ArtifactoryFunctions.getRemoteOciRepository(GetRemoteOciRepositoryArgs.builder()
-     *             .key(&#34;my-oci-remote&#34;)
+     *             .key("my-oci-remote")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -15738,7 +16500,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -15760,12 +16523,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var my-oci-remote = ArtifactoryFunctions.getRemoteOciRepository(GetRemoteOciRepositoryArgs.builder()
-     *             .key(&#34;my-oci-remote&#34;)
+     *             .key("my-oci-remote")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -15778,7 +16542,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -15800,12 +16565,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var my-oci-remote = ArtifactoryFunctions.getRemoteOciRepository(GetRemoteOciRepositoryArgs.builder()
-     *             .key(&#34;my-oci-remote&#34;)
+     *             .key("my-oci-remote")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -15818,7 +16584,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -15840,12 +16607,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var my-oci-remote = ArtifactoryFunctions.getRemoteOciRepository(GetRemoteOciRepositoryArgs.builder()
-     *             .key(&#34;my-oci-remote&#34;)
+     *             .key("my-oci-remote")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -15858,7 +16626,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -15880,12 +16649,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-opkg = ArtifactoryFunctions.getRemoteOpkgRepository(GetRemoteOpkgRepositoryArgs.builder()
-     *             .key(&#34;remote-opkg&#34;)
+     *             .key("remote-opkg")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -15898,7 +16668,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -15920,12 +16691,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-opkg = ArtifactoryFunctions.getRemoteOpkgRepository(GetRemoteOpkgRepositoryArgs.builder()
-     *             .key(&#34;remote-opkg&#34;)
+     *             .key("remote-opkg")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -15938,7 +16710,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -15960,12 +16733,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-opkg = ArtifactoryFunctions.getRemoteOpkgRepository(GetRemoteOpkgRepositoryArgs.builder()
-     *             .key(&#34;remote-opkg&#34;)
+     *             .key("remote-opkg")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -15978,7 +16752,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -16000,12 +16775,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-opkg = ArtifactoryFunctions.getRemoteOpkgRepository(GetRemoteOpkgRepositoryArgs.builder()
-     *             .key(&#34;remote-opkg&#34;)
+     *             .key("remote-opkg")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -16018,7 +16794,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -16040,12 +16817,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-p2 = ArtifactoryFunctions.getRemoteP2Repository(GetRemoteP2RepositoryArgs.builder()
-     *             .key(&#34;remote-p2&#34;)
+     *             .key("remote-p2")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -16058,7 +16836,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -16080,12 +16859,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-p2 = ArtifactoryFunctions.getRemoteP2Repository(GetRemoteP2RepositoryArgs.builder()
-     *             .key(&#34;remote-p2&#34;)
+     *             .key("remote-p2")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -16098,7 +16878,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -16120,12 +16901,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-p2 = ArtifactoryFunctions.getRemoteP2Repository(GetRemoteP2RepositoryArgs.builder()
-     *             .key(&#34;remote-p2&#34;)
+     *             .key("remote-p2")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -16138,7 +16920,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -16160,12 +16943,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-p2 = ArtifactoryFunctions.getRemoteP2Repository(GetRemoteP2RepositoryArgs.builder()
-     *             .key(&#34;remote-p2&#34;)
+     *             .key("remote-p2")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -16178,7 +16962,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -16200,12 +16985,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-pub = ArtifactoryFunctions.getRemotePubRepository(GetRemotePubRepositoryArgs.builder()
-     *             .key(&#34;remote-pub&#34;)
+     *             .key("remote-pub")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -16218,7 +17004,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -16240,12 +17027,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-pub = ArtifactoryFunctions.getRemotePubRepository(GetRemotePubRepositoryArgs.builder()
-     *             .key(&#34;remote-pub&#34;)
+     *             .key("remote-pub")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -16258,7 +17046,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -16280,12 +17069,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-pub = ArtifactoryFunctions.getRemotePubRepository(GetRemotePubRepositoryArgs.builder()
-     *             .key(&#34;remote-pub&#34;)
+     *             .key("remote-pub")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -16298,7 +17088,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -16320,12 +17111,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-pub = ArtifactoryFunctions.getRemotePubRepository(GetRemotePubRepositoryArgs.builder()
-     *             .key(&#34;remote-pub&#34;)
+     *             .key("remote-pub")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -16366,7 +17158,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -16388,12 +17181,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-pypi = ArtifactoryFunctions.getRemotePypiRepository(GetRemotePypiRepositoryArgs.builder()
-     *             .key(&#34;remote-pypi&#34;)
+     *             .key("remote-pypi")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -16406,7 +17200,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -16428,12 +17223,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-pypi = ArtifactoryFunctions.getRemotePypiRepository(GetRemotePypiRepositoryArgs.builder()
-     *             .key(&#34;remote-pypi&#34;)
+     *             .key("remote-pypi")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -16446,7 +17242,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -16468,12 +17265,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-pypi = ArtifactoryFunctions.getRemotePypiRepository(GetRemotePypiRepositoryArgs.builder()
-     *             .key(&#34;remote-pypi&#34;)
+     *             .key("remote-pypi")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -16486,7 +17284,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -16508,12 +17307,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-pypi = ArtifactoryFunctions.getRemotePypiRepository(GetRemotePypiRepositoryArgs.builder()
-     *             .key(&#34;remote-pypi&#34;)
+     *             .key("remote-pypi")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -16526,7 +17326,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -16548,12 +17349,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-rpm = ArtifactoryFunctions.getRemoteRpmRepository(GetRemoteRpmRepositoryArgs.builder()
-     *             .key(&#34;remote-rpm&#34;)
+     *             .key("remote-rpm")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -16566,7 +17368,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -16588,12 +17391,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-rpm = ArtifactoryFunctions.getRemoteRpmRepository(GetRemoteRpmRepositoryArgs.builder()
-     *             .key(&#34;remote-rpm&#34;)
+     *             .key("remote-rpm")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -16606,7 +17410,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -16628,12 +17433,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-rpm = ArtifactoryFunctions.getRemoteRpmRepository(GetRemoteRpmRepositoryArgs.builder()
-     *             .key(&#34;remote-rpm&#34;)
+     *             .key("remote-rpm")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -16646,7 +17452,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -16668,12 +17475,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-rpm = ArtifactoryFunctions.getRemoteRpmRepository(GetRemoteRpmRepositoryArgs.builder()
-     *             .key(&#34;remote-rpm&#34;)
+     *             .key("remote-rpm")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -16686,7 +17494,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -16708,12 +17517,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-sbt = ArtifactoryFunctions.getRemoteSbtRepository(GetRemoteSbtRepositoryArgs.builder()
-     *             .key(&#34;remote-sbt&#34;)
+     *             .key("remote-sbt")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -16726,7 +17536,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -16748,12 +17559,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-sbt = ArtifactoryFunctions.getRemoteSbtRepository(GetRemoteSbtRepositoryArgs.builder()
-     *             .key(&#34;remote-sbt&#34;)
+     *             .key("remote-sbt")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -16766,7 +17578,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -16788,12 +17601,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-sbt = ArtifactoryFunctions.getRemoteSbtRepository(GetRemoteSbtRepositoryArgs.builder()
-     *             .key(&#34;remote-sbt&#34;)
+     *             .key("remote-sbt")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -16806,7 +17620,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -16828,12 +17643,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-sbt = ArtifactoryFunctions.getRemoteSbtRepository(GetRemoteSbtRepositoryArgs.builder()
-     *             .key(&#34;remote-sbt&#34;)
+     *             .key("remote-sbt")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -16846,7 +17662,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -16868,12 +17685,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-swift = ArtifactoryFunctions.getRemoteSwiftRepository(GetRemoteSwiftRepositoryArgs.builder()
-     *             .key(&#34;remote-swift&#34;)
+     *             .key("remote-swift")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -16886,7 +17704,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -16908,12 +17727,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-swift = ArtifactoryFunctions.getRemoteSwiftRepository(GetRemoteSwiftRepositoryArgs.builder()
-     *             .key(&#34;remote-swift&#34;)
+     *             .key("remote-swift")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -16926,7 +17746,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -16948,12 +17769,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-swift = ArtifactoryFunctions.getRemoteSwiftRepository(GetRemoteSwiftRepositoryArgs.builder()
-     *             .key(&#34;remote-swift&#34;)
+     *             .key("remote-swift")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -16966,7 +17788,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -16988,12 +17811,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-swift = ArtifactoryFunctions.getRemoteSwiftRepository(GetRemoteSwiftRepositoryArgs.builder()
-     *             .key(&#34;remote-swift&#34;)
+     *             .key("remote-swift")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -17004,7 +17828,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -17026,12 +17851,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-terraform = ArtifactoryFunctions.getRemoteTerraformRepository(GetRemoteTerraformRepositoryArgs.builder()
-     *             .key(&#34;remote-terraform&#34;)
+     *             .key("remote-terraform")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -17042,7 +17868,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -17064,12 +17891,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-terraform = ArtifactoryFunctions.getRemoteTerraformRepository(GetRemoteTerraformRepositoryArgs.builder()
-     *             .key(&#34;remote-terraform&#34;)
+     *             .key("remote-terraform")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -17080,7 +17908,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -17102,12 +17931,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-terraform = ArtifactoryFunctions.getRemoteTerraformRepository(GetRemoteTerraformRepositoryArgs.builder()
-     *             .key(&#34;remote-terraform&#34;)
+     *             .key("remote-terraform")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -17118,7 +17948,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -17140,12 +17971,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-terraform = ArtifactoryFunctions.getRemoteTerraformRepository(GetRemoteTerraformRepositoryArgs.builder()
-     *             .key(&#34;remote-terraform&#34;)
+     *             .key("remote-terraform")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -17158,7 +17990,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -17180,12 +18013,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-vcs = ArtifactoryFunctions.getRemoteVcsRepository(GetRemoteVcsRepositoryArgs.builder()
-     *             .key(&#34;remote-vcs&#34;)
+     *             .key("remote-vcs")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -17198,7 +18032,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -17220,12 +18055,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-vcs = ArtifactoryFunctions.getRemoteVcsRepository(GetRemoteVcsRepositoryArgs.builder()
-     *             .key(&#34;remote-vcs&#34;)
+     *             .key("remote-vcs")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -17238,7 +18074,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -17260,12 +18097,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-vcs = ArtifactoryFunctions.getRemoteVcsRepository(GetRemoteVcsRepositoryArgs.builder()
-     *             .key(&#34;remote-vcs&#34;)
+     *             .key("remote-vcs")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -17278,7 +18116,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -17300,12 +18139,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var remote-vcs = ArtifactoryFunctions.getRemoteVcsRepository(GetRemoteVcsRepositoryArgs.builder()
-     *             .key(&#34;remote-vcs&#34;)
+     *             .key("remote-vcs")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -17318,7 +18158,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -17340,13 +18181,14 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var all-alpine-local = ArtifactoryFunctions.getRepositories(GetRepositoriesArgs.builder()
-     *             .repositoryType(&#34;local&#34;)
-     *             .packageType(&#34;alpine&#34;)
+     *             .repositoryType("local")
+     *             .packageType("alpine")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -17359,7 +18201,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -17381,13 +18224,14 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var all-alpine-local = ArtifactoryFunctions.getRepositories(GetRepositoriesArgs.builder()
-     *             .repositoryType(&#34;local&#34;)
-     *             .packageType(&#34;alpine&#34;)
+     *             .repositoryType("local")
+     *             .packageType("alpine")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -17400,7 +18244,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -17422,13 +18267,14 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var all-alpine-local = ArtifactoryFunctions.getRepositories(GetRepositoriesArgs.builder()
-     *             .repositoryType(&#34;local&#34;)
-     *             .packageType(&#34;alpine&#34;)
+     *             .repositoryType("local")
+     *             .packageType("alpine")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -17441,7 +18287,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -17463,13 +18310,14 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var all-alpine-local = ArtifactoryFunctions.getRepositories(GetRepositoriesArgs.builder()
-     *             .repositoryType(&#34;local&#34;)
-     *             .packageType(&#34;alpine&#34;)
+     *             .repositoryType("local")
+     *             .packageType("alpine")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -17482,7 +18330,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -17504,13 +18353,14 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var all-alpine-local = ArtifactoryFunctions.getRepositories(GetRepositoriesArgs.builder()
-     *             .repositoryType(&#34;local&#34;)
-     *             .packageType(&#34;alpine&#34;)
+     *             .repositoryType("local")
+     *             .packageType("alpine")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -17523,7 +18373,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -17545,13 +18396,14 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var all-alpine-local = ArtifactoryFunctions.getRepositories(GetRepositoriesArgs.builder()
-     *             .repositoryType(&#34;local&#34;)
-     *             .packageType(&#34;alpine&#34;)
+     *             .repositoryType("local")
+     *             .packageType("alpine")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -17566,7 +18418,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -17589,12 +18442,13 @@ public final class ArtifactoryFunctions {
      *     public static void stack(Context ctx) {
      *         //
      *         final var user1 = ArtifactoryFunctions.getUser(GetUserArgs.builder()
-     *             .name(&#34;user1&#34;)
+     *             .name("user1")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -17609,7 +18463,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -17632,12 +18487,13 @@ public final class ArtifactoryFunctions {
      *     public static void stack(Context ctx) {
      *         //
      *         final var user1 = ArtifactoryFunctions.getUser(GetUserArgs.builder()
-     *             .name(&#34;user1&#34;)
+     *             .name("user1")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -17652,7 +18508,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -17675,12 +18532,13 @@ public final class ArtifactoryFunctions {
      *     public static void stack(Context ctx) {
      *         //
      *         final var user1 = ArtifactoryFunctions.getUser(GetUserArgs.builder()
-     *             .name(&#34;user1&#34;)
+     *             .name("user1")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -17695,7 +18553,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -17718,12 +18577,13 @@ public final class ArtifactoryFunctions {
      *     public static void stack(Context ctx) {
      *         //
      *         final var user1 = ArtifactoryFunctions.getUser(GetUserArgs.builder()
-     *             .name(&#34;user1&#34;)
+     *             .name("user1")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -17736,7 +18596,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -17758,12 +18619,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-alpine = ArtifactoryFunctions.getVirtualAlpineRepository(GetVirtualAlpineRepositoryArgs.builder()
-     *             .key(&#34;virtual-alpine&#34;)
+     *             .key("virtual-alpine")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -17776,7 +18638,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -17798,12 +18661,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-alpine = ArtifactoryFunctions.getVirtualAlpineRepository(GetVirtualAlpineRepositoryArgs.builder()
-     *             .key(&#34;virtual-alpine&#34;)
+     *             .key("virtual-alpine")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -17816,7 +18680,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -17838,12 +18703,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-alpine = ArtifactoryFunctions.getVirtualAlpineRepository(GetVirtualAlpineRepositoryArgs.builder()
-     *             .key(&#34;virtual-alpine&#34;)
+     *             .key("virtual-alpine")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -17856,7 +18722,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -17878,12 +18745,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-alpine = ArtifactoryFunctions.getVirtualAlpineRepository(GetVirtualAlpineRepositoryArgs.builder()
-     *             .key(&#34;virtual-alpine&#34;)
+     *             .key("virtual-alpine")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -17896,7 +18764,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -17918,12 +18787,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-alpine = ArtifactoryFunctions.getVirtualBowerRepository(GetVirtualBowerRepositoryArgs.builder()
-     *             .key(&#34;virtual-alpine&#34;)
+     *             .key("virtual-alpine")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -17936,7 +18806,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -17958,12 +18829,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-alpine = ArtifactoryFunctions.getVirtualBowerRepository(GetVirtualBowerRepositoryArgs.builder()
-     *             .key(&#34;virtual-alpine&#34;)
+     *             .key("virtual-alpine")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -17976,7 +18848,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -17998,12 +18871,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-alpine = ArtifactoryFunctions.getVirtualBowerRepository(GetVirtualBowerRepositoryArgs.builder()
-     *             .key(&#34;virtual-alpine&#34;)
+     *             .key("virtual-alpine")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -18016,7 +18890,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -18038,12 +18913,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-alpine = ArtifactoryFunctions.getVirtualBowerRepository(GetVirtualBowerRepositoryArgs.builder()
-     *             .key(&#34;virtual-alpine&#34;)
+     *             .key("virtual-alpine")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -18056,7 +18932,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -18078,12 +18955,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-chef = ArtifactoryFunctions.getVirtualChefRepository(GetVirtualChefRepositoryArgs.builder()
-     *             .key(&#34;virtual-chef&#34;)
+     *             .key("virtual-chef")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -18096,7 +18974,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -18118,12 +18997,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-chef = ArtifactoryFunctions.getVirtualChefRepository(GetVirtualChefRepositoryArgs.builder()
-     *             .key(&#34;virtual-chef&#34;)
+     *             .key("virtual-chef")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -18136,7 +19016,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -18158,12 +19039,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-chef = ArtifactoryFunctions.getVirtualChefRepository(GetVirtualChefRepositoryArgs.builder()
-     *             .key(&#34;virtual-chef&#34;)
+     *             .key("virtual-chef")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -18176,7 +19058,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -18198,12 +19081,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-chef = ArtifactoryFunctions.getVirtualChefRepository(GetVirtualChefRepositoryArgs.builder()
-     *             .key(&#34;virtual-chef&#34;)
+     *             .key("virtual-chef")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -18216,7 +19100,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -18238,12 +19123,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-composer = ArtifactoryFunctions.getVirtualComposerRepository(GetVirtualComposerRepositoryArgs.builder()
-     *             .key(&#34;virtual-composer&#34;)
+     *             .key("virtual-composer")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -18256,7 +19142,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -18278,12 +19165,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-composer = ArtifactoryFunctions.getVirtualComposerRepository(GetVirtualComposerRepositoryArgs.builder()
-     *             .key(&#34;virtual-composer&#34;)
+     *             .key("virtual-composer")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -18296,7 +19184,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -18318,12 +19207,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-composer = ArtifactoryFunctions.getVirtualComposerRepository(GetVirtualComposerRepositoryArgs.builder()
-     *             .key(&#34;virtual-composer&#34;)
+     *             .key("virtual-composer")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -18336,7 +19226,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -18358,12 +19249,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-composer = ArtifactoryFunctions.getVirtualComposerRepository(GetVirtualComposerRepositoryArgs.builder()
-     *             .key(&#34;virtual-composer&#34;)
+     *             .key("virtual-composer")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -18376,7 +19268,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -18398,12 +19291,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-conan = ArtifactoryFunctions.getVirtualConanRepository(GetVirtualConanRepositoryArgs.builder()
-     *             .key(&#34;virtual-conan&#34;)
+     *             .key("virtual-conan")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -18416,7 +19310,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -18438,12 +19333,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-conan = ArtifactoryFunctions.getVirtualConanRepository(GetVirtualConanRepositoryArgs.builder()
-     *             .key(&#34;virtual-conan&#34;)
+     *             .key("virtual-conan")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -18456,7 +19352,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -18478,12 +19375,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-conan = ArtifactoryFunctions.getVirtualConanRepository(GetVirtualConanRepositoryArgs.builder()
-     *             .key(&#34;virtual-conan&#34;)
+     *             .key("virtual-conan")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -18496,7 +19394,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -18518,12 +19417,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-conan = ArtifactoryFunctions.getVirtualConanRepository(GetVirtualConanRepositoryArgs.builder()
-     *             .key(&#34;virtual-conan&#34;)
+     *             .key("virtual-conan")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -18536,7 +19436,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -18558,12 +19459,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-conda = ArtifactoryFunctions.getVirtualCondaRepository(GetVirtualCondaRepositoryArgs.builder()
-     *             .key(&#34;virtual-conda&#34;)
+     *             .key("virtual-conda")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -18576,7 +19478,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -18598,12 +19501,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-conda = ArtifactoryFunctions.getVirtualCondaRepository(GetVirtualCondaRepositoryArgs.builder()
-     *             .key(&#34;virtual-conda&#34;)
+     *             .key("virtual-conda")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -18616,7 +19520,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -18638,12 +19543,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-conda = ArtifactoryFunctions.getVirtualCondaRepository(GetVirtualCondaRepositoryArgs.builder()
-     *             .key(&#34;virtual-conda&#34;)
+     *             .key("virtual-conda")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -18656,7 +19562,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -18678,12 +19585,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-conda = ArtifactoryFunctions.getVirtualCondaRepository(GetVirtualCondaRepositoryArgs.builder()
-     *             .key(&#34;virtual-conda&#34;)
+     *             .key("virtual-conda")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -18696,7 +19604,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -18718,12 +19627,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-cran = ArtifactoryFunctions.getVirtualCranRepository(GetVirtualCranRepositoryArgs.builder()
-     *             .key(&#34;virtual-cran&#34;)
+     *             .key("virtual-cran")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -18736,7 +19646,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -18758,12 +19669,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-cran = ArtifactoryFunctions.getVirtualCranRepository(GetVirtualCranRepositoryArgs.builder()
-     *             .key(&#34;virtual-cran&#34;)
+     *             .key("virtual-cran")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -18776,7 +19688,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -18798,12 +19711,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-cran = ArtifactoryFunctions.getVirtualCranRepository(GetVirtualCranRepositoryArgs.builder()
-     *             .key(&#34;virtual-cran&#34;)
+     *             .key("virtual-cran")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -18816,7 +19730,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -18838,12 +19753,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-cran = ArtifactoryFunctions.getVirtualCranRepository(GetVirtualCranRepositoryArgs.builder()
-     *             .key(&#34;virtual-cran&#34;)
+     *             .key("virtual-cran")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -18856,7 +19772,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -18878,12 +19795,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-debian = ArtifactoryFunctions.getVirtualDebianRepository(GetVirtualDebianRepositoryArgs.builder()
-     *             .key(&#34;virtual-debian&#34;)
+     *             .key("virtual-debian")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -18896,7 +19814,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -18918,12 +19837,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-debian = ArtifactoryFunctions.getVirtualDebianRepository(GetVirtualDebianRepositoryArgs.builder()
-     *             .key(&#34;virtual-debian&#34;)
+     *             .key("virtual-debian")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -18936,7 +19856,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -18958,12 +19879,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-debian = ArtifactoryFunctions.getVirtualDebianRepository(GetVirtualDebianRepositoryArgs.builder()
-     *             .key(&#34;virtual-debian&#34;)
+     *             .key("virtual-debian")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -18976,7 +19898,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -18998,12 +19921,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-debian = ArtifactoryFunctions.getVirtualDebianRepository(GetVirtualDebianRepositoryArgs.builder()
-     *             .key(&#34;virtual-debian&#34;)
+     *             .key("virtual-debian")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -19016,7 +19940,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -19038,12 +19963,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-docker = ArtifactoryFunctions.getVirtualDockerRepository(GetVirtualDockerRepositoryArgs.builder()
-     *             .key(&#34;virtual-docker&#34;)
+     *             .key("virtual-docker")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -19056,7 +19982,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -19078,12 +20005,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-docker = ArtifactoryFunctions.getVirtualDockerRepository(GetVirtualDockerRepositoryArgs.builder()
-     *             .key(&#34;virtual-docker&#34;)
+     *             .key("virtual-docker")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -19096,7 +20024,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -19118,12 +20047,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-docker = ArtifactoryFunctions.getVirtualDockerRepository(GetVirtualDockerRepositoryArgs.builder()
-     *             .key(&#34;virtual-docker&#34;)
+     *             .key("virtual-docker")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -19136,7 +20066,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -19158,12 +20089,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-docker = ArtifactoryFunctions.getVirtualDockerRepository(GetVirtualDockerRepositoryArgs.builder()
-     *             .key(&#34;virtual-docker&#34;)
+     *             .key("virtual-docker")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -19176,7 +20108,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -19198,12 +20131,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-gems = ArtifactoryFunctions.getVirtualGemsRepository(GetVirtualGemsRepositoryArgs.builder()
-     *             .key(&#34;virtual-gems&#34;)
+     *             .key("virtual-gems")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -19216,7 +20150,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -19238,12 +20173,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-gems = ArtifactoryFunctions.getVirtualGemsRepository(GetVirtualGemsRepositoryArgs.builder()
-     *             .key(&#34;virtual-gems&#34;)
+     *             .key("virtual-gems")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -19256,7 +20192,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -19278,12 +20215,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-gems = ArtifactoryFunctions.getVirtualGemsRepository(GetVirtualGemsRepositoryArgs.builder()
-     *             .key(&#34;virtual-gems&#34;)
+     *             .key("virtual-gems")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -19296,7 +20234,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -19318,12 +20257,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-gems = ArtifactoryFunctions.getVirtualGemsRepository(GetVirtualGemsRepositoryArgs.builder()
-     *             .key(&#34;virtual-gems&#34;)
+     *             .key("virtual-gems")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -19336,7 +20276,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -19358,12 +20299,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-generic = ArtifactoryFunctions.getVirtualGenericRepository(GetVirtualGenericRepositoryArgs.builder()
-     *             .key(&#34;virtual-generic&#34;)
+     *             .key("virtual-generic")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -19376,7 +20318,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -19398,12 +20341,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-generic = ArtifactoryFunctions.getVirtualGenericRepository(GetVirtualGenericRepositoryArgs.builder()
-     *             .key(&#34;virtual-generic&#34;)
+     *             .key("virtual-generic")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -19416,7 +20360,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -19438,12 +20383,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-generic = ArtifactoryFunctions.getVirtualGenericRepository(GetVirtualGenericRepositoryArgs.builder()
-     *             .key(&#34;virtual-generic&#34;)
+     *             .key("virtual-generic")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -19456,7 +20402,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -19478,12 +20425,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-generic = ArtifactoryFunctions.getVirtualGenericRepository(GetVirtualGenericRepositoryArgs.builder()
-     *             .key(&#34;virtual-generic&#34;)
+     *             .key("virtual-generic")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -19496,7 +20444,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -19518,12 +20467,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-gitlfs = ArtifactoryFunctions.getVirtualGitlfsRepository(GetVirtualGitlfsRepositoryArgs.builder()
-     *             .key(&#34;virtual-gitlfs&#34;)
+     *             .key("virtual-gitlfs")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -19536,7 +20486,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -19558,12 +20509,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-gitlfs = ArtifactoryFunctions.getVirtualGitlfsRepository(GetVirtualGitlfsRepositoryArgs.builder()
-     *             .key(&#34;virtual-gitlfs&#34;)
+     *             .key("virtual-gitlfs")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -19576,7 +20528,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -19598,12 +20551,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-gitlfs = ArtifactoryFunctions.getVirtualGitlfsRepository(GetVirtualGitlfsRepositoryArgs.builder()
-     *             .key(&#34;virtual-gitlfs&#34;)
+     *             .key("virtual-gitlfs")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -19616,7 +20570,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -19638,12 +20593,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-gitlfs = ArtifactoryFunctions.getVirtualGitlfsRepository(GetVirtualGitlfsRepositoryArgs.builder()
-     *             .key(&#34;virtual-gitlfs&#34;)
+     *             .key("virtual-gitlfs")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -19656,7 +20612,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -19678,12 +20635,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-go = ArtifactoryFunctions.getVirtualGoRepository(GetVirtualGoRepositoryArgs.builder()
-     *             .key(&#34;virtual-go&#34;)
+     *             .key("virtual-go")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -19696,7 +20654,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -19718,12 +20677,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-go = ArtifactoryFunctions.getVirtualGoRepository(GetVirtualGoRepositoryArgs.builder()
-     *             .key(&#34;virtual-go&#34;)
+     *             .key("virtual-go")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -19736,7 +20696,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -19758,12 +20719,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-go = ArtifactoryFunctions.getVirtualGoRepository(GetVirtualGoRepositoryArgs.builder()
-     *             .key(&#34;virtual-go&#34;)
+     *             .key("virtual-go")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -19776,7 +20738,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -19798,12 +20761,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-go = ArtifactoryFunctions.getVirtualGoRepository(GetVirtualGoRepositoryArgs.builder()
-     *             .key(&#34;virtual-go&#34;)
+     *             .key("virtual-go")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -19816,7 +20780,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -19838,12 +20803,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-gradle = ArtifactoryFunctions.getVirtualGradleRepository(GetVirtualGradleRepositoryArgs.builder()
-     *             .key(&#34;virtual-gradle&#34;)
+     *             .key("virtual-gradle")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -19856,7 +20822,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -19878,12 +20845,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-gradle = ArtifactoryFunctions.getVirtualGradleRepository(GetVirtualGradleRepositoryArgs.builder()
-     *             .key(&#34;virtual-gradle&#34;)
+     *             .key("virtual-gradle")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -19896,7 +20864,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -19918,12 +20887,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-gradle = ArtifactoryFunctions.getVirtualGradleRepository(GetVirtualGradleRepositoryArgs.builder()
-     *             .key(&#34;virtual-gradle&#34;)
+     *             .key("virtual-gradle")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -19936,7 +20906,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -19958,12 +20929,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-gradle = ArtifactoryFunctions.getVirtualGradleRepository(GetVirtualGradleRepositoryArgs.builder()
-     *             .key(&#34;virtual-gradle&#34;)
+     *             .key("virtual-gradle")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -19976,7 +20948,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -19998,12 +20971,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-helm = ArtifactoryFunctions.getVirtualHelmRepository(GetVirtualHelmRepositoryArgs.builder()
-     *             .key(&#34;virtual-helm&#34;)
+     *             .key("virtual-helm")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -20016,7 +20990,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -20038,12 +21013,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-helm = ArtifactoryFunctions.getVirtualHelmRepository(GetVirtualHelmRepositoryArgs.builder()
-     *             .key(&#34;virtual-helm&#34;)
+     *             .key("virtual-helm")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -20056,7 +21032,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -20078,12 +21055,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-helm = ArtifactoryFunctions.getVirtualHelmRepository(GetVirtualHelmRepositoryArgs.builder()
-     *             .key(&#34;virtual-helm&#34;)
+     *             .key("virtual-helm")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -20096,7 +21074,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -20118,12 +21097,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-helm = ArtifactoryFunctions.getVirtualHelmRepository(GetVirtualHelmRepositoryArgs.builder()
-     *             .key(&#34;virtual-helm&#34;)
+     *             .key("virtual-helm")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -20136,7 +21116,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -20158,12 +21139,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var my-helmoci-virtual = ArtifactoryFunctions.getVirtualHelmociRepository(GetVirtualHelmociRepositoryArgs.builder()
-     *             .key(&#34;my-helmoci-virtual&#34;)
+     *             .key("my-helmoci-virtual")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -20176,7 +21158,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -20198,12 +21181,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var my-helmoci-virtual = ArtifactoryFunctions.getVirtualHelmociRepository(GetVirtualHelmociRepositoryArgs.builder()
-     *             .key(&#34;my-helmoci-virtual&#34;)
+     *             .key("my-helmoci-virtual")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -20216,7 +21200,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -20238,12 +21223,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var my-helmoci-virtual = ArtifactoryFunctions.getVirtualHelmociRepository(GetVirtualHelmociRepositoryArgs.builder()
-     *             .key(&#34;my-helmoci-virtual&#34;)
+     *             .key("my-helmoci-virtual")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -20256,7 +21242,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -20278,12 +21265,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var my-helmoci-virtual = ArtifactoryFunctions.getVirtualHelmociRepository(GetVirtualHelmociRepositoryArgs.builder()
-     *             .key(&#34;my-helmoci-virtual&#34;)
+     *             .key("my-helmoci-virtual")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -20296,7 +21284,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -20318,12 +21307,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-ivy = ArtifactoryFunctions.getVirtualIvyRepository(GetVirtualIvyRepositoryArgs.builder()
-     *             .key(&#34;virtual-ivy&#34;)
+     *             .key("virtual-ivy")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -20336,7 +21326,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -20358,12 +21349,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-ivy = ArtifactoryFunctions.getVirtualIvyRepository(GetVirtualIvyRepositoryArgs.builder()
-     *             .key(&#34;virtual-ivy&#34;)
+     *             .key("virtual-ivy")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -20376,7 +21368,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -20398,12 +21391,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-ivy = ArtifactoryFunctions.getVirtualIvyRepository(GetVirtualIvyRepositoryArgs.builder()
-     *             .key(&#34;virtual-ivy&#34;)
+     *             .key("virtual-ivy")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -20416,7 +21410,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -20438,12 +21433,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-ivy = ArtifactoryFunctions.getVirtualIvyRepository(GetVirtualIvyRepositoryArgs.builder()
-     *             .key(&#34;virtual-ivy&#34;)
+     *             .key("virtual-ivy")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -20456,7 +21452,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -20478,12 +21475,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-maven = ArtifactoryFunctions.getVirtualMavenRepository(GetVirtualMavenRepositoryArgs.builder()
-     *             .key(&#34;virtual-maven&#34;)
+     *             .key("virtual-maven")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -20496,7 +21494,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -20518,12 +21517,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-maven = ArtifactoryFunctions.getVirtualMavenRepository(GetVirtualMavenRepositoryArgs.builder()
-     *             .key(&#34;virtual-maven&#34;)
+     *             .key("virtual-maven")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -20536,7 +21536,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -20558,12 +21559,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-maven = ArtifactoryFunctions.getVirtualMavenRepository(GetVirtualMavenRepositoryArgs.builder()
-     *             .key(&#34;virtual-maven&#34;)
+     *             .key("virtual-maven")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -20576,7 +21578,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -20598,12 +21601,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-maven = ArtifactoryFunctions.getVirtualMavenRepository(GetVirtualMavenRepositoryArgs.builder()
-     *             .key(&#34;virtual-maven&#34;)
+     *             .key("virtual-maven")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -20616,7 +21620,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -20638,12 +21643,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-npm = ArtifactoryFunctions.getVirtualNpmRepository(GetVirtualNpmRepositoryArgs.builder()
-     *             .key(&#34;virtual-npm&#34;)
+     *             .key("virtual-npm")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -20656,7 +21662,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -20678,12 +21685,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-npm = ArtifactoryFunctions.getVirtualNpmRepository(GetVirtualNpmRepositoryArgs.builder()
-     *             .key(&#34;virtual-npm&#34;)
+     *             .key("virtual-npm")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -20696,7 +21704,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -20718,12 +21727,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-npm = ArtifactoryFunctions.getVirtualNpmRepository(GetVirtualNpmRepositoryArgs.builder()
-     *             .key(&#34;virtual-npm&#34;)
+     *             .key("virtual-npm")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -20736,7 +21746,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -20758,12 +21769,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-npm = ArtifactoryFunctions.getVirtualNpmRepository(GetVirtualNpmRepositoryArgs.builder()
-     *             .key(&#34;virtual-npm&#34;)
+     *             .key("virtual-npm")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -20776,7 +21788,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -20798,12 +21811,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-npm = ArtifactoryFunctions.getVirtualNpmRepository(GetVirtualNpmRepositoryArgs.builder()
-     *             .key(&#34;virtual-npm&#34;)
+     *             .key("virtual-npm")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -20816,7 +21830,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -20838,12 +21853,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-npm = ArtifactoryFunctions.getVirtualNpmRepository(GetVirtualNpmRepositoryArgs.builder()
-     *             .key(&#34;virtual-npm&#34;)
+     *             .key("virtual-npm")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -20856,7 +21872,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -20878,12 +21895,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-npm = ArtifactoryFunctions.getVirtualNpmRepository(GetVirtualNpmRepositoryArgs.builder()
-     *             .key(&#34;virtual-npm&#34;)
+     *             .key("virtual-npm")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -20896,7 +21914,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -20918,12 +21937,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-npm = ArtifactoryFunctions.getVirtualNpmRepository(GetVirtualNpmRepositoryArgs.builder()
-     *             .key(&#34;virtual-npm&#34;)
+     *             .key("virtual-npm")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -20936,7 +21956,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -20958,12 +21979,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var my-oci-virtual = ArtifactoryFunctions.getVirtualOciRepository(GetVirtualOciRepositoryArgs.builder()
-     *             .key(&#34;my-oci-virtual&#34;)
+     *             .key("my-oci-virtual")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -20976,7 +21998,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -20998,12 +22021,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var my-oci-virtual = ArtifactoryFunctions.getVirtualOciRepository(GetVirtualOciRepositoryArgs.builder()
-     *             .key(&#34;my-oci-virtual&#34;)
+     *             .key("my-oci-virtual")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -21016,7 +22040,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -21038,12 +22063,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var my-oci-virtual = ArtifactoryFunctions.getVirtualOciRepository(GetVirtualOciRepositoryArgs.builder()
-     *             .key(&#34;my-oci-virtual&#34;)
+     *             .key("my-oci-virtual")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -21056,7 +22082,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -21078,12 +22105,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var my-oci-virtual = ArtifactoryFunctions.getVirtualOciRepository(GetVirtualOciRepositoryArgs.builder()
-     *             .key(&#34;my-oci-virtual&#34;)
+     *             .key("my-oci-virtual")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -21096,7 +22124,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -21118,12 +22147,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-p2 = ArtifactoryFunctions.getVirtualP2Repository(GetVirtualP2RepositoryArgs.builder()
-     *             .key(&#34;virtual-p2&#34;)
+     *             .key("virtual-p2")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -21136,7 +22166,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -21158,12 +22189,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-p2 = ArtifactoryFunctions.getVirtualP2Repository(GetVirtualP2RepositoryArgs.builder()
-     *             .key(&#34;virtual-p2&#34;)
+     *             .key("virtual-p2")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -21176,7 +22208,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -21198,12 +22231,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-p2 = ArtifactoryFunctions.getVirtualP2Repository(GetVirtualP2RepositoryArgs.builder()
-     *             .key(&#34;virtual-p2&#34;)
+     *             .key("virtual-p2")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -21216,7 +22250,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -21238,12 +22273,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-p2 = ArtifactoryFunctions.getVirtualP2Repository(GetVirtualP2RepositoryArgs.builder()
-     *             .key(&#34;virtual-p2&#34;)
+     *             .key("virtual-p2")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -21256,7 +22292,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -21278,12 +22315,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-pub = ArtifactoryFunctions.getVirtualPubRepository(GetVirtualPubRepositoryArgs.builder()
-     *             .key(&#34;virtual-pub&#34;)
+     *             .key("virtual-pub")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -21296,7 +22334,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -21318,12 +22357,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-pub = ArtifactoryFunctions.getVirtualPubRepository(GetVirtualPubRepositoryArgs.builder()
-     *             .key(&#34;virtual-pub&#34;)
+     *             .key("virtual-pub")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -21336,7 +22376,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -21358,12 +22399,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-pub = ArtifactoryFunctions.getVirtualPubRepository(GetVirtualPubRepositoryArgs.builder()
-     *             .key(&#34;virtual-pub&#34;)
+     *             .key("virtual-pub")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -21376,7 +22418,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -21398,12 +22441,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-pub = ArtifactoryFunctions.getVirtualPubRepository(GetVirtualPubRepositoryArgs.builder()
-     *             .key(&#34;virtual-pub&#34;)
+     *             .key("virtual-pub")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -21416,7 +22460,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -21438,12 +22483,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-puppet = ArtifactoryFunctions.getVirtualPuppetRepository(GetVirtualPuppetRepositoryArgs.builder()
-     *             .key(&#34;virtual-puppet&#34;)
+     *             .key("virtual-puppet")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -21456,7 +22502,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -21478,12 +22525,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-puppet = ArtifactoryFunctions.getVirtualPuppetRepository(GetVirtualPuppetRepositoryArgs.builder()
-     *             .key(&#34;virtual-puppet&#34;)
+     *             .key("virtual-puppet")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -21496,7 +22544,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -21518,12 +22567,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-puppet = ArtifactoryFunctions.getVirtualPuppetRepository(GetVirtualPuppetRepositoryArgs.builder()
-     *             .key(&#34;virtual-puppet&#34;)
+     *             .key("virtual-puppet")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -21536,7 +22586,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -21558,12 +22609,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-puppet = ArtifactoryFunctions.getVirtualPuppetRepository(GetVirtualPuppetRepositoryArgs.builder()
-     *             .key(&#34;virtual-puppet&#34;)
+     *             .key("virtual-puppet")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -21576,7 +22628,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -21598,12 +22651,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-pypi = ArtifactoryFunctions.getVirtualPypiRepository(GetVirtualPypiRepositoryArgs.builder()
-     *             .key(&#34;virtual-pypi&#34;)
+     *             .key("virtual-pypi")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -21616,7 +22670,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -21638,12 +22693,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-pypi = ArtifactoryFunctions.getVirtualPypiRepository(GetVirtualPypiRepositoryArgs.builder()
-     *             .key(&#34;virtual-pypi&#34;)
+     *             .key("virtual-pypi")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -21656,7 +22712,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -21678,12 +22735,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-pypi = ArtifactoryFunctions.getVirtualPypiRepository(GetVirtualPypiRepositoryArgs.builder()
-     *             .key(&#34;virtual-pypi&#34;)
+     *             .key("virtual-pypi")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -21696,7 +22754,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -21718,12 +22777,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-pypi = ArtifactoryFunctions.getVirtualPypiRepository(GetVirtualPypiRepositoryArgs.builder()
-     *             .key(&#34;virtual-pypi&#34;)
+     *             .key("virtual-pypi")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -21736,7 +22796,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -21758,12 +22819,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-rpm = ArtifactoryFunctions.getVirtualRpmRepository(GetVirtualRpmRepositoryArgs.builder()
-     *             .key(&#34;virtual-rpm&#34;)
+     *             .key("virtual-rpm")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -21776,7 +22838,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -21798,12 +22861,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-rpm = ArtifactoryFunctions.getVirtualRpmRepository(GetVirtualRpmRepositoryArgs.builder()
-     *             .key(&#34;virtual-rpm&#34;)
+     *             .key("virtual-rpm")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -21816,7 +22880,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -21838,12 +22903,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-rpm = ArtifactoryFunctions.getVirtualRpmRepository(GetVirtualRpmRepositoryArgs.builder()
-     *             .key(&#34;virtual-rpm&#34;)
+     *             .key("virtual-rpm")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -21856,7 +22922,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -21878,12 +22945,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-rpm = ArtifactoryFunctions.getVirtualRpmRepository(GetVirtualRpmRepositoryArgs.builder()
-     *             .key(&#34;virtual-rpm&#34;)
+     *             .key("virtual-rpm")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -21896,7 +22964,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -21918,12 +22987,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-sbt = ArtifactoryFunctions.getVirtualSbtRepository(GetVirtualSbtRepositoryArgs.builder()
-     *             .key(&#34;virtual-sbt&#34;)
+     *             .key("virtual-sbt")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -21936,7 +23006,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -21958,12 +23029,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-sbt = ArtifactoryFunctions.getVirtualSbtRepository(GetVirtualSbtRepositoryArgs.builder()
-     *             .key(&#34;virtual-sbt&#34;)
+     *             .key("virtual-sbt")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -21976,7 +23048,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -21998,12 +23071,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-sbt = ArtifactoryFunctions.getVirtualSbtRepository(GetVirtualSbtRepositoryArgs.builder()
-     *             .key(&#34;virtual-sbt&#34;)
+     *             .key("virtual-sbt")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -22016,7 +23090,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -22038,12 +23113,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-sbt = ArtifactoryFunctions.getVirtualSbtRepository(GetVirtualSbtRepositoryArgs.builder()
-     *             .key(&#34;virtual-sbt&#34;)
+     *             .key("virtual-sbt")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -22056,7 +23132,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -22078,12 +23155,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-swift = ArtifactoryFunctions.getVirtualSwiftRepository(GetVirtualSwiftRepositoryArgs.builder()
-     *             .key(&#34;virtual-swift&#34;)
+     *             .key("virtual-swift")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -22096,7 +23174,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -22118,12 +23197,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-swift = ArtifactoryFunctions.getVirtualSwiftRepository(GetVirtualSwiftRepositoryArgs.builder()
-     *             .key(&#34;virtual-swift&#34;)
+     *             .key("virtual-swift")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -22136,7 +23216,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -22158,12 +23239,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-swift = ArtifactoryFunctions.getVirtualSwiftRepository(GetVirtualSwiftRepositoryArgs.builder()
-     *             .key(&#34;virtual-swift&#34;)
+     *             .key("virtual-swift")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -22176,7 +23258,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -22198,12 +23281,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-swift = ArtifactoryFunctions.getVirtualSwiftRepository(GetVirtualSwiftRepositoryArgs.builder()
-     *             .key(&#34;virtual-swift&#34;)
+     *             .key("virtual-swift")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -22214,7 +23298,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -22236,12 +23321,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-terraform = ArtifactoryFunctions.getVirtualTerraformRepository(GetVirtualTerraformRepositoryArgs.builder()
-     *             .key(&#34;virtual-terraform&#34;)
+     *             .key("virtual-terraform")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -22252,7 +23338,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -22274,12 +23361,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-terraform = ArtifactoryFunctions.getVirtualTerraformRepository(GetVirtualTerraformRepositoryArgs.builder()
-     *             .key(&#34;virtual-terraform&#34;)
+     *             .key("virtual-terraform")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -22290,7 +23378,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -22312,12 +23401,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-terraform = ArtifactoryFunctions.getVirtualTerraformRepository(GetVirtualTerraformRepositoryArgs.builder()
-     *             .key(&#34;virtual-terraform&#34;)
+     *             .key("virtual-terraform")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -22328,7 +23418,8 @@ public final class ArtifactoryFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -22350,12 +23441,13 @@ public final class ArtifactoryFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var virtual-terraform = ArtifactoryFunctions.getVirtualTerraformRepository(GetVirtualTerraformRepositoryArgs.builder()
-     *             .key(&#34;virtual-terraform&#34;)
+     *             .key("virtual-terraform")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

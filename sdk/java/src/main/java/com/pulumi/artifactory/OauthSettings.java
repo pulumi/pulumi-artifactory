@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,25 +50,26 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Configure Artifactory OAuth SSO settings
- *         var oauth = new OauthSettings(&#34;oauth&#34;, OauthSettingsArgs.builder()        
+ *         var oauth = new OauthSettings("oauth", OauthSettingsArgs.builder()        
  *             .enable(true)
  *             .persistUsers(true)
  *             .allowUserToAccessProfile(true)
  *             .oauthProviders(OauthSettingsOauthProviderArgs.builder()
- *                 .name(&#34;okta&#34;)
+ *                 .name("okta")
  *                 .enabled(false)
- *                 .type(&#34;openId&#34;)
- *                 .clientId(&#34;foo&#34;)
- *                 .clientSecret(&#34;bar&#34;)
- *                 .apiUrl(&#34;https://organization.okta.com/oauth2/v1/userinfo&#34;)
- *                 .authUrl(&#34;https://organization.okta.com/oauth2/v1/authorize&#34;)
- *                 .tokenUrl(&#34;https://organization.okta.com/oauth2/v1/token&#34;)
+ *                 .type("openId")
+ *                 .clientId("foo")
+ *                 .clientSecret("bar")
+ *                 .apiUrl("https://organization.okta.com/oauth2/v1/userinfo")
+ *                 .authUrl("https://organization.okta.com/oauth2/v1/authorize")
+ *                 .tokenUrl("https://organization.okta.com/oauth2/v1/token")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

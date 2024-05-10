@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,21 +46,22 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Create a new Artifactory certificate called my-cert
- *         var my_cert = new Certificate(&#34;my-cert&#34;, CertificateArgs.builder()        
- *             .alias(&#34;my-cert&#34;)
+ *         var my_cert = new Certificate("my-cert", CertificateArgs.builder()        
+ *             .alias("my-cert")
  *             .content(StdFunctions.file(FileArgs.builder()
- *                 .input(&#34;/path/to/bundle.pem&#34;)
+ *                 .input("/path/to/bundle.pem")
  *                 .build()).result())
  *             .build());
  * 
  *         // This can then be used by a remote repository
- *         var my_remote = new RemoteMavenRepository(&#34;my-remote&#34;, RemoteMavenRepositoryArgs.builder()        
+ *         var my_remote = new RemoteMavenRepository("my-remote", RemoteMavenRepositoryArgs.builder()        
  *             .clientTlsCertificate(my_cert.alias())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

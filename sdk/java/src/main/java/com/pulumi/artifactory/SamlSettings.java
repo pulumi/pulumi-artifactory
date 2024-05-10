@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,14 +48,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Configure Artifactory SAML SSO settings
- *         var saml = new SamlSettings(&#34;saml&#34;, SamlSettingsArgs.builder()        
+ *         var saml = new SamlSettings("saml", SamlSettingsArgs.builder()        
  *             .enable(true)
- *             .serviceProviderName(&#34;okta&#34;)
- *             .loginUrl(&#34;test-login-url&#34;)
- *             .logoutUrl(&#34;test-logout-url&#34;)
- *             .certificate(&#34;test-certificate&#34;)
- *             .emailAttribute(&#34;email&#34;)
- *             .groupAttribute(&#34;groups&#34;)
+ *             .serviceProviderName("okta")
+ *             .loginUrl("test-login-url")
+ *             .logoutUrl("test-logout-url")
+ *             .certificate("test-certificate")
+ *             .emailAttribute("email")
+ *             .groupAttribute("groups")
  *             .noAutoUserCreation(false)
  *             .allowUserToAccessProfile(true)
  *             .autoRedirect(true)
@@ -65,7 +66,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
