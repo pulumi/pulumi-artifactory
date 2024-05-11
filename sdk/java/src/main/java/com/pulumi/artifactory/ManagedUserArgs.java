@@ -109,14 +109,14 @@ public final class ManagedUserArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters
+     * (Optional, Sensitive) Password for the user.
      * 
      */
     @Import(name="password", required=true)
     private Output<String> password;
 
     /**
-     * @return (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters
+     * @return (Optional, Sensitive) Password for the user.
      * 
      */
     public Output<String> password() {
@@ -306,7 +306,7 @@ public final class ManagedUserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param password (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters
+         * @param password (Optional, Sensitive) Password for the user.
          * 
          * @return builder
          * 
@@ -317,7 +317,7 @@ public final class ManagedUserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param password (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters
+         * @param password (Optional, Sensitive) Password for the user.
          * 
          * @return builder
          * 

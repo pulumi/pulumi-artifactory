@@ -185,7 +185,7 @@ class GeneralSecurity(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableAnonymousAccess")
-    def enable_anonymous_access(self) -> pulumi.Output[Optional[bool]]:
+    def enable_anonymous_access(self) -> pulumi.Output[bool]:
         """
         Enable anonymous access.  Default value is `false`.
         """

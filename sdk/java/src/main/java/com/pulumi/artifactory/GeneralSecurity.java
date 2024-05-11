@@ -11,7 +11,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
-import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -75,14 +74,14 @@ public class GeneralSecurity extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="enableAnonymousAccess", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> enableAnonymousAccess;
+    private Output<Boolean> enableAnonymousAccess;
 
     /**
      * @return Enable anonymous access.  Default value is `false`.
      * 
      */
-    public Output<Optional<Boolean>> enableAnonymousAccess() {
-        return Codegen.optional(this.enableAnonymousAccess);
+    public Output<Boolean> enableAnonymousAccess() {
+        return this.enableAnonymousAccess;
     }
 
     /**
