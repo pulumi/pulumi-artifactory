@@ -4657,7 +4657,7 @@
             "artifactory:index/federatedTerraformModuleRepository:FederatedTerraformModuleRepository": 0,
             "artifactory:index/federatedTerraformProviderRepository:FederatedTerraformProviderRepository": 0,
             "artifactory:index/federatedVagrantRepository:FederatedVagrantRepository": 0,
-            "artifactory:index/generalSecurity:GeneralSecurity": 0,
+            "artifactory:index/generalSecurity:GeneralSecurity": 1,
             "artifactory:index/globalEnvironment:GlobalEnvironment": 1,
             "artifactory:index/goRepository:GoRepository": 0,
             "artifactory:index/group:Group": 1,

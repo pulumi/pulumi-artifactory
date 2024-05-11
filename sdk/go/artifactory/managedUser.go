@@ -64,7 +64,7 @@ type ManagedUser struct {
 	InternalPasswordDisabled pulumi.BoolOutput `pulumi:"internalPasswordDisabled"`
 	// Username for user. May contain lowercase letters, numbers and symbols: '.-_@'
 	Name pulumi.StringOutput `pulumi:"name"`
-	// (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters
+	// (Optional, Sensitive) Password for the user.
 	Password pulumi.StringOutput `pulumi:"password"`
 	// (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an administrator can update the password). There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.
 	ProfileUpdatable pulumi.BoolOutput `pulumi:"profileUpdatable"`
@@ -125,7 +125,7 @@ type managedUserState struct {
 	InternalPasswordDisabled *bool `pulumi:"internalPasswordDisabled"`
 	// Username for user. May contain lowercase letters, numbers and symbols: '.-_@'
 	Name *string `pulumi:"name"`
-	// (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters
+	// (Optional, Sensitive) Password for the user.
 	Password *string `pulumi:"password"`
 	// (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an administrator can update the password). There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.
 	ProfileUpdatable *bool `pulumi:"profileUpdatable"`
@@ -144,7 +144,7 @@ type ManagedUserState struct {
 	InternalPasswordDisabled pulumi.BoolPtrInput
 	// Username for user. May contain lowercase letters, numbers and symbols: '.-_@'
 	Name pulumi.StringPtrInput
-	// (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters
+	// (Optional, Sensitive) Password for the user.
 	Password pulumi.StringPtrInput
 	// (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an administrator can update the password). There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.
 	ProfileUpdatable pulumi.BoolPtrInput
@@ -167,7 +167,7 @@ type managedUserArgs struct {
 	InternalPasswordDisabled *bool `pulumi:"internalPasswordDisabled"`
 	// Username for user. May contain lowercase letters, numbers and symbols: '.-_@'
 	Name *string `pulumi:"name"`
-	// (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters
+	// (Optional, Sensitive) Password for the user.
 	Password string `pulumi:"password"`
 	// (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an administrator can update the password). There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.
 	ProfileUpdatable *bool `pulumi:"profileUpdatable"`
@@ -187,7 +187,7 @@ type ManagedUserArgs struct {
 	InternalPasswordDisabled pulumi.BoolPtrInput
 	// Username for user. May contain lowercase letters, numbers and symbols: '.-_@'
 	Name pulumi.StringPtrInput
-	// (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters
+	// (Optional, Sensitive) Password for the user.
 	Password pulumi.StringInput
 	// (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an administrator can update the password). There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.
 	ProfileUpdatable pulumi.BoolPtrInput
@@ -310,7 +310,7 @@ func (o ManagedUserOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedUser) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters
+// (Optional, Sensitive) Password for the user.
 func (o ManagedUserOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedUser) pulumi.StringOutput { return v.Password }).(pulumi.StringOutput)
 }

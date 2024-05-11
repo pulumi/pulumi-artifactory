@@ -81,7 +81,7 @@ export class ManagedUser extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters
+     * (Optional, Sensitive) Password for the user.
      */
     public readonly password!: pulumi.Output<string>;
     /**
@@ -163,7 +163,7 @@ export interface ManagedUserState {
      */
     name?: pulumi.Input<string>;
     /**
-     * (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters
+     * (Optional, Sensitive) Password for the user.
      */
     password?: pulumi.Input<string>;
     /**
@@ -201,7 +201,7 @@ export interface ManagedUserArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters
+     * (Optional, Sensitive) Password for the user.
      */
     password: pulumi.Input<string>;
     /**

@@ -57,7 +57,7 @@ type GeneralSecurity struct {
 	pulumi.CustomResourceState
 
 	// Enable anonymous access.  Default value is `false`.
-	EnableAnonymousAccess pulumi.BoolPtrOutput `pulumi:"enableAnonymousAccess"`
+	EnableAnonymousAccess pulumi.BoolOutput `pulumi:"enableAnonymousAccess"`
 }
 
 // NewGeneralSecurity registers a new resource with the given unique name, arguments, and options.
@@ -202,8 +202,8 @@ func (o GeneralSecurityOutput) ToGeneralSecurityOutputWithContext(ctx context.Co
 }
 
 // Enable anonymous access.  Default value is `false`.
-func (o GeneralSecurityOutput) EnableAnonymousAccess() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *GeneralSecurity) pulumi.BoolPtrOutput { return v.EnableAnonymousAccess }).(pulumi.BoolPtrOutput)
+func (o GeneralSecurityOutput) EnableAnonymousAccess() pulumi.BoolOutput {
+	return o.ApplyT(func(v *GeneralSecurity) pulumi.BoolOutput { return v.EnableAnonymousAccess }).(pulumi.BoolOutput)
 }
 
 type GeneralSecurityArrayOutput struct{ *pulumi.OutputState }

@@ -62,7 +62,7 @@ export class GeneralSecurity extends pulumi.CustomResource {
     /**
      * Enable anonymous access.  Default value is `false`.
      */
-    public readonly enableAnonymousAccess!: pulumi.Output<boolean | undefined>;
+    public readonly enableAnonymousAccess!: pulumi.Output<boolean>;
 
     /**
      * Create a GeneralSecurity resource with the given unique name, arguments, and options.

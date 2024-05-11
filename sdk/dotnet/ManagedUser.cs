@@ -81,7 +81,7 @@ namespace Pulumi.Artifactory
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters
+        /// (Optional, Sensitive) Password for the user.
         /// </summary>
         [Output("password")]
         public Output<string> Password { get; private set; } = null!;
@@ -188,7 +188,7 @@ namespace Pulumi.Artifactory
         private Input<string>? _password;
 
         /// <summary>
-        /// (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters
+        /// (Optional, Sensitive) Password for the user.
         /// </summary>
         public Input<string>? Password
         {
@@ -260,7 +260,7 @@ namespace Pulumi.Artifactory
         private Input<string>? _password;
 
         /// <summary>
-        /// (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters
+        /// (Optional, Sensitive) Password for the user.
         /// </summary>
         public Input<string>? Password
         {

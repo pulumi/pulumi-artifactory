@@ -52,7 +52,7 @@ namespace Pulumi.Artifactory
         /// Enable anonymous access.  Default value is `false`.
         /// </summary>
         [Output("enableAnonymousAccess")]
-        public Output<bool?> EnableAnonymousAccess { get; private set; } = null!;
+        public Output<bool> EnableAnonymousAccess { get; private set; } = null!;
 
 
         /// <summary>
