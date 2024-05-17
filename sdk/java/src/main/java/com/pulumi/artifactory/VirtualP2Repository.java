@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo_p2 = new VirtualP2Repository("foo-p2", VirtualP2RepositoryArgs.builder()        
+ *         var foo_p2 = new VirtualP2Repository("foo-p2", VirtualP2RepositoryArgs.builder()
  *             .key("foo-p2")
  *             .repositories()
  *             .description("A test virtual repo")

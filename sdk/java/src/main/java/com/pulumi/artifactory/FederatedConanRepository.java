@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var terraform_federated_test_conan_repo = new FederatedConanRepository("terraform-federated-test-conan-repo", FederatedConanRepositoryArgs.builder()        
+ *         var terraform_federated_test_conan_repo = new FederatedConanRepository("terraform-federated-test-conan-repo", FederatedConanRepositoryArgs.builder()
  *             .key("terraform-federated-test-conan-repo")
  *             .members(            
  *                 FederatedConanRepositoryMemberArgs.builder()

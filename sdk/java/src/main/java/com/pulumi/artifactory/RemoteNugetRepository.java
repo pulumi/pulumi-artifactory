@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var my_remote_nuget = new RemoteNugetRepository("my-remote-nuget", RemoteNugetRepositoryArgs.builder()        
+ *         var my_remote_nuget = new RemoteNugetRepository("my-remote-nuget", RemoteNugetRepositoryArgs.builder()
  *             .key("my-remote-nuget")
  *             .url("https://www.nuget.org/")
  *             .downloadContextPath("api/v2/package")

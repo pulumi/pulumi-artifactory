@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var local_huggingfaceml_repo = new LocalHuggingfacemlRepository("local-huggingfaceml-repo", LocalHuggingfacemlRepositoryArgs.builder()        
+ *         var local_huggingfaceml_repo = new LocalHuggingfacemlRepository("local-huggingfaceml-repo", LocalHuggingfacemlRepositoryArgs.builder()
  *             .key("local-huggingfaceml-repo")
  *             .build());
  * 

@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var terraform_local_test_chef_repo = new LocalChefRepository("terraform-local-test-chef-repo", LocalChefRepositoryArgs.builder()        
+ *         var terraform_local_test_chef_repo = new LocalChefRepository("terraform-local-test-chef-repo", LocalChefRepositoryArgs.builder()
  *             .key("terraform-local-test-chef-repo")
  *             .build());
  * 

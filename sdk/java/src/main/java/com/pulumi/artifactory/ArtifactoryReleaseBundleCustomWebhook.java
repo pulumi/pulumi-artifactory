@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var artifactory_release_bundle_custom_webhook = new ArtifactoryReleaseBundleCustomWebhook("artifactory-release-bundle-custom-webhook", ArtifactoryReleaseBundleCustomWebhookArgs.builder()        
+ *         var artifactory_release_bundle_custom_webhook = new ArtifactoryReleaseBundleCustomWebhook("artifactory-release-bundle-custom-webhook", ArtifactoryReleaseBundleCustomWebhookArgs.builder()
  *             .key("artifactory-release-bundle-custom-webhook")
  *             .eventTypes(            
  *                 "received",

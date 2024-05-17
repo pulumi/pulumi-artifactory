@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var my_remote_cargo = new RemoteCargoRepository("my-remote-cargo", RemoteCargoRepositoryArgs.builder()        
+ *         var my_remote_cargo = new RemoteCargoRepository("my-remote-cargo", RemoteCargoRepositoryArgs.builder()
  *             .key("my-remote-cargo")
  *             .anonymousAccess(true)
  *             .enableSparseIndex(true)

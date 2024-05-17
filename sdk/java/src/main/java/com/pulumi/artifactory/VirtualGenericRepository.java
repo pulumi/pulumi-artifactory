@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo_generic = new VirtualGenericRepository("foo-generic", VirtualGenericRepositoryArgs.builder()        
+ *         var foo_generic = new VirtualGenericRepository("foo-generic", VirtualGenericRepositoryArgs.builder()
  *             .key("foo-generic")
  *             .repoLayoutRef("simple-default")
  *             .repositories()

@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var maven_remote = new RemoteMavenRepository("maven-remote", RemoteMavenRepositoryArgs.builder()        
+ *         var maven_remote = new RemoteMavenRepository("maven-remote", RemoteMavenRepositoryArgs.builder()
  *             .key("maven-remote-foo")
  *             .url("https://repo1.maven.org/maven2/")
  *             .fetchJarsEagerly(true)

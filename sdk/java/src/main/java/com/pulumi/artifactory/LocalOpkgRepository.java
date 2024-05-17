@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var terraform_local_test_opkg_repo = new LocalOpkgRepository("terraform-local-test-opkg-repo", LocalOpkgRepositoryArgs.builder()        
+ *         var terraform_local_test_opkg_repo = new LocalOpkgRepository("terraform-local-test-opkg-repo", LocalOpkgRepositoryArgs.builder()
  *             .key("terraform-local-test-opkg-repo")
  *             .build());
  * 

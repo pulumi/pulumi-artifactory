@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var terraform_federated_test_ivy_repo = new FederatedIvyRepository("terraform-federated-test-ivy-repo", FederatedIvyRepositoryArgs.builder()        
+ *         var terraform_federated_test_ivy_repo = new FederatedIvyRepository("terraform-federated-test-ivy-repo", FederatedIvyRepositoryArgs.builder()
  *             .key("terraform-federated-test-ivy-repo")
  *             .members(            
  *                 FederatedIvyRepositoryMemberArgs.builder()

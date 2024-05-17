@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo_conda = new VirtualCondaRepository("foo-conda", VirtualCondaRepositoryArgs.builder()        
+ *         var foo_conda = new VirtualCondaRepository("foo-conda", VirtualCondaRepositoryArgs.builder()
  *             .key("foo-conda")
  *             .repositories()
  *             .description("A test virtual repo")

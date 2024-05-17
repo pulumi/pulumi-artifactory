@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var sbt_remote = new RemoteSbtRepository("sbt-remote", RemoteSbtRepositoryArgs.builder()        
+ *         var sbt_remote = new RemoteSbtRepository("sbt-remote", RemoteSbtRepositoryArgs.builder()
  *             .key("sbt-remote-foo")
  *             .url("https://repo1.maven.org/maven2/")
  *             .fetchJarsEagerly(true)

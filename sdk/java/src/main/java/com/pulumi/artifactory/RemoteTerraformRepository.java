@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var terraform_remote = new RemoteTerraformRepository("terraform-remote", RemoteTerraformRepositoryArgs.builder()        
+ *         var terraform_remote = new RemoteTerraformRepository("terraform-remote", RemoteTerraformRepositoryArgs.builder()
  *             .key("terraform-remote")
  *             .url("https://github.com/")
  *             .terraformRegistryUrl("https://registry.terraform.io")

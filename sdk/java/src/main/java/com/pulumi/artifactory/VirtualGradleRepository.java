@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo_gradle = new VirtualGradleRepository("foo-gradle", VirtualGradleRepositoryArgs.builder()        
+ *         var foo_gradle = new VirtualGradleRepository("foo-gradle", VirtualGradleRepositoryArgs.builder()
  *             .key("foo-gradle")
  *             .repositories()
  *             .description("A test virtual repo")

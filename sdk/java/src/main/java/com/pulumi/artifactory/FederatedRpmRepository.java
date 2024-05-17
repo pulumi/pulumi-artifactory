@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var terraform_federated_test_rpm_repo = new FederatedRpmRepository("terraform-federated-test-rpm-repo", FederatedRpmRepositoryArgs.builder()        
+ *         var terraform_federated_test_rpm_repo = new FederatedRpmRepository("terraform-federated-test-rpm-repo", FederatedRpmRepositoryArgs.builder()
  *             .key("terraform-federated-test-rpm-repo")
  *             .members(            
  *                 FederatedRpmRepositoryMemberArgs.builder()

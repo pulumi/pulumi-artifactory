@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var terraform_federated_test_gems_repo = new FederatedGemsRepository("terraform-federated-test-gems-repo", FederatedGemsRepositoryArgs.builder()        
+ *         var terraform_federated_test_gems_repo = new FederatedGemsRepository("terraform-federated-test-gems-repo", FederatedGemsRepositoryArgs.builder()
  *             .key("terraform-federated-test-gems-repo")
  *             .members(            
  *                 FederatedGemsRepositoryMemberArgs.builder()

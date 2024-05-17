@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var release_bundle_webhook = new ReleaseBundleWebhook("release-bundle-webhook", ReleaseBundleWebhookArgs.builder()        
+ *         var release_bundle_webhook = new ReleaseBundleWebhook("release-bundle-webhook", ReleaseBundleWebhookArgs.builder()
  *             .key("release-bundle-webhook")
  *             .eventTypes(            
  *                 "created",

@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var distribution_custom_webhook = new DistributionCustomWebhook("distribution-custom-webhook", DistributionCustomWebhookArgs.builder()        
+ *         var distribution_custom_webhook = new DistributionCustomWebhook("distribution-custom-webhook", DistributionCustomWebhookArgs.builder()
  *             .key("distribution-custom-webhook")
  *             .eventTypes(            
  *                 "distribute_started",

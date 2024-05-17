@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo_bower = new VirtualBowerRepository("foo-bower", VirtualBowerRepositoryArgs.builder()        
+ *         var foo_bower = new VirtualBowerRepository("foo-bower", VirtualBowerRepositoryArgs.builder()
  *             .key("foo-bower")
  *             .repositories()
  *             .description("A test virtual repo")

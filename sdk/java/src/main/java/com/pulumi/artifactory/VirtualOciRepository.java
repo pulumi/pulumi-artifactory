@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var my_oci_virtual = new VirtualOciRepository("my-oci-virtual", VirtualOciRepositoryArgs.builder()        
+ *         var my_oci_virtual = new VirtualOciRepository("my-oci-virtual", VirtualOciRepositoryArgs.builder()
  *             .key("my-oci-virtual")
  *             .repositories(            
  *                 "my-oci-local",

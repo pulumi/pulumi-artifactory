@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo_docker = new VirtualDockerRepository("foo-docker", VirtualDockerRepositoryArgs.builder()        
+ *         var foo_docker = new VirtualDockerRepository("foo-docker", VirtualDockerRepositoryArgs.builder()
  *             .key("foo-docker")
  *             .repositories()
  *             .description("A test virtual repo")

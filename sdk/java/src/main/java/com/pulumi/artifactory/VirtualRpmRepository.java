@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var primary_keypair = new Keypair("primary-keypair", KeypairArgs.builder()        
+ *         var primary_keypair = new Keypair("primary-keypair", KeypairArgs.builder()
  *             .pairName("primary-keypair")
  *             .pairType("GPG")
  *             .alias("foo-alias-1")
@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  *                 .build()).result())
  *             .build());
  * 
- *         var secondary_keypair = new Keypair("secondary-keypair", KeypairArgs.builder()        
+ *         var secondary_keypair = new Keypair("secondary-keypair", KeypairArgs.builder()
  *             .pairName("secondary-keypair")
  *             .pairType("GPG")
  *             .alias("foo-alias-2")
@@ -72,7 +72,7 @@ import javax.annotation.Nullable;
  *                 .build()).result())
  *             .build());
  * 
- *         var foo_rpm_virtual = new VirtualRpmRepository("foo-rpm-virtual", VirtualRpmRepositoryArgs.builder()        
+ *         var foo_rpm_virtual = new VirtualRpmRepository("foo-rpm-virtual", VirtualRpmRepositoryArgs.builder()
  *             .key("foo-rpm-virtual")
  *             .primaryKeypairRef(primary_keypair.pairName())
  *             .secondaryKeypairRef(secondary_keypair.pairName())

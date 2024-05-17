@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var mymailserver = new MailServer("mymailserver", MailServerArgs.builder()        
+ *         var mymailserver = new MailServer("mymailserver", MailServerArgs.builder()
  *             .enabled(true)
  *             .artifactoryUrl("http://tempurl.org")
  *             .from("test{@literal @}jfrog.com")

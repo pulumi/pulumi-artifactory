@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var terraform_federated_test_gitlfs_repo = new FederatedGitltfsRepository("terraform-federated-test-gitlfs-repo", FederatedGitltfsRepositoryArgs.builder()        
+ *         var terraform_federated_test_gitlfs_repo = new FederatedGitltfsRepository("terraform-federated-test-gitlfs-repo", FederatedGitltfsRepositoryArgs.builder()
  *             .key("terraform-federated-test-gitlfs-repo")
  *             .members(            
  *                 FederatedGitltfsRepositoryMemberArgs.builder()

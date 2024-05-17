@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var my_helmoci_remote = new RemoteHelmociRepository("my-helmoci-remote", RemoteHelmociRepositoryArgs.builder()        
+ *         var my_helmoci_remote = new RemoteHelmociRepository("my-helmoci-remote", RemoteHelmociRepositoryArgs.builder()
  *             .key("my-helmoci-remote")
  *             .externalDependenciesEnabled(true)
  *             .externalDependenciesPatterns("**{@literal /}registry-1.docker.io/**")

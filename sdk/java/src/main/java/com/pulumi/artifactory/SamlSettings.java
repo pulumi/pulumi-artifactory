@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Configure Artifactory SAML SSO settings
- *         var saml = new SamlSettings("saml", SamlSettingsArgs.builder()        
+ *         var saml = new SamlSettings("saml", SamlSettingsArgs.builder()
  *             .enable(true)
  *             .serviceProviderName("okta")
  *             .loginUrl("test-login-url")

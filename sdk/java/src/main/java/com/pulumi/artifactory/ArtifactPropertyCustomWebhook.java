@@ -51,11 +51,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var my_generic_local = new LocalGenericRepository("my-generic-local", LocalGenericRepositoryArgs.builder()        
+ *         var my_generic_local = new LocalGenericRepository("my-generic-local", LocalGenericRepositoryArgs.builder()
  *             .key("my-generic-local")
  *             .build());
  * 
- *         var artifact_custom_webhook = new ArtifactPropertyCustomWebhook("artifact-custom-webhook", ArtifactPropertyCustomWebhookArgs.builder()        
+ *         var artifact_custom_webhook = new ArtifactPropertyCustomWebhook("artifact-custom-webhook", ArtifactPropertyCustomWebhookArgs.builder()
  *             .key("artifact-property-custom-webhook")
  *             .eventTypes(            
  *                 "added",

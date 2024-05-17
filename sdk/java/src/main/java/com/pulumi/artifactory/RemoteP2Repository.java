@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var my_remote_p2 = new RemoteP2Repository("my-remote-p2", RemoteP2RepositoryArgs.builder()        
+ *         var my_remote_p2 = new RemoteP2Repository("my-remote-p2", RemoteP2RepositoryArgs.builder()
  *             .key("my-remote-p2")
  *             .url("http://testartifactory.io/artifactory/example-p2/")
  *             .build());

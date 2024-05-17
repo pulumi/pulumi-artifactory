@@ -62,15 +62,15 @@ import javax.annotation.Nullable;
  *         final var artifactoryUsername = config.get("artifactoryUsername");
  *         final var artifactoryPassword = config.get("artifactoryPassword");
  *         // Create a replication between two artifactory local repositories
- *         var providerTestSource = new LocalMavenRepository("providerTestSource", LocalMavenRepositoryArgs.builder()        
+ *         var providerTestSource = new LocalMavenRepository("providerTestSource", LocalMavenRepositoryArgs.builder()
  *             .key("provider_test_source")
  *             .build());
  * 
- *         var providerTestDest = new LocalMavenRepository("providerTestDest", LocalMavenRepositoryArgs.builder()        
+ *         var providerTestDest = new LocalMavenRepository("providerTestDest", LocalMavenRepositoryArgs.builder()
  *             .key("provider_test_dest")
  *             .build());
  * 
- *         var foo_rep = new PushReplication("foo-rep", PushReplicationArgs.builder()        
+ *         var foo_rep = new PushReplication("foo-rep", PushReplicationArgs.builder()
  *             .repoKey(providerTestSource.key())
  *             .cronExp("0 0 * * * ?")
  *             .enableEventReplication(true)

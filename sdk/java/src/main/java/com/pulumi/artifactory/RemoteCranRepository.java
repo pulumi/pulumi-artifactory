@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var my_remote_cran = new RemoteCranRepository("my-remote-cran", RemoteCranRepositoryArgs.builder()        
+ *         var my_remote_cran = new RemoteCranRepository("my-remote-cran", RemoteCranRepositoryArgs.builder()
  *             .key("my-remote-cran")
  *             .url("https://cran.r-project.org/")
  *             .build());
