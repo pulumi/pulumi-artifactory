@@ -10,7 +10,7 @@ replace (
 )
 
 require (
-	github.com/jfrog/terraform-provider-artifactory/v10 v10.7.6
+	github.com/jfrog/terraform-provider-artifactory/v10 v10.7.7
 	github.com/pulumi/providertest v0.0.11
 	github.com/pulumi/pulumi-terraform-bridge/pf v0.35.0
 	github.com/pulumi/pulumi-terraform-bridge/v3 v3.82.0
@@ -91,7 +91,7 @@ require (
 	github.com/go-git/go-git/v5 v5.12.0 // indirect
 	github.com/go-logr/logr v1.4.1 // indirect
 	github.com/go-logr/stdr v1.2.2 // indirect
-	github.com/go-resty/resty/v2 v2.13.0 // indirect
+	github.com/go-resty/resty/v2 v2.13.1 // indirect
 	github.com/gofrs/uuid v4.2.0+incompatible // indirect
 	github.com/gogo/protobuf v1.3.2 // indirect
 	github.com/golang-jwt/jwt/v5 v5.2.1 // indirect
