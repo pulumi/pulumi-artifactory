@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var terraform_federated_test_opkg_repo = new FederatedOpkgRepository("terraform-federated-test-opkg-repo", FederatedOpkgRepositoryArgs.builder()        
+ *         var terraform_federated_test_opkg_repo = new FederatedOpkgRepository("terraform-federated-test-opkg-repo", FederatedOpkgRepositoryArgs.builder()
  *             .key("terraform-federated-test-opkg-repo")
  *             .members(            
  *                 FederatedOpkgRepositoryMemberArgs.builder()

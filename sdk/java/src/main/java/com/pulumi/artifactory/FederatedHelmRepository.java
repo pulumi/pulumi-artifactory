@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var terraform_federated_test_helm_repo = new FederatedHelmRepository("terraform-federated-test-helm-repo", FederatedHelmRepositoryArgs.builder()        
+ *         var terraform_federated_test_helm_repo = new FederatedHelmRepository("terraform-federated-test-helm-repo", FederatedHelmRepositoryArgs.builder()
  *             .key("terraform-federated-test-helm-repo")
  *             .members(            
  *                 FederatedHelmRepositoryMemberArgs.builder()

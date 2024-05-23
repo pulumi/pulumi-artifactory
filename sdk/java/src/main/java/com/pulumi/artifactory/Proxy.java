@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var my_proxy = new Proxy("my-proxy", ProxyArgs.builder()        
+ *         var my_proxy = new Proxy("my-proxy", ProxyArgs.builder()
  *             .key("my-proxy")
  *             .host("my-proxy.mycompany.com")
  *             .port(8888)

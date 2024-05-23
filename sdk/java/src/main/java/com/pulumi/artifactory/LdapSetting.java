@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Configure Artifactory LDAP setting
- *         var ldapName = new LdapSetting("ldapName", LdapSettingArgs.builder()        
+ *         var ldapName = new LdapSetting("ldapName", LdapSettingArgs.builder()
  *             .key("ldap_name")
  *             .enabled(true)
  *             .ldapUrl("ldap://ldap_server_url")

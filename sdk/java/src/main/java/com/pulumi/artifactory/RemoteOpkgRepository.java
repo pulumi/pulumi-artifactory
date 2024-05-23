@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var my_remote_opkg = new RemoteOpkgRepository("my-remote-opkg", RemoteOpkgRepositoryArgs.builder()        
+ *         var my_remote_opkg = new RemoteOpkgRepository("my-remote-opkg", RemoteOpkgRepositoryArgs.builder()
  *             .key("my-remote-opkg")
  *             .url("http://testartifactory.io/artifactory/example-opkg/")
  *             .build());

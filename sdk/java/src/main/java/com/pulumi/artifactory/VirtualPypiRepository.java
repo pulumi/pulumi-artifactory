@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo_pypi = new VirtualPypiRepository("foo-pypi", VirtualPypiRepositoryArgs.builder()        
+ *         var foo_pypi = new VirtualPypiRepository("foo-pypi", VirtualPypiRepositoryArgs.builder()
  *             .key("foo-pypi")
  *             .repositories()
  *             .description("A test virtual repo")

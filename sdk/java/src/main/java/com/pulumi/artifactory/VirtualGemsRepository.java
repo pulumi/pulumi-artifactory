@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo_gems = new VirtualGemsRepository("foo-gems", VirtualGemsRepositoryArgs.builder()        
+ *         var foo_gems = new VirtualGemsRepository("foo-gems", VirtualGemsRepositoryArgs.builder()
  *             .key("foo-gems")
  *             .repositories()
  *             .description("A test virtual repo")

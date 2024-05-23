@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var terraform_local_test_gradle_repo_basic = new LocalGradleRepository("terraform-local-test-gradle-repo-basic", LocalGradleRepositoryArgs.builder()        
+ *         var terraform_local_test_gradle_repo_basic = new LocalGradleRepository("terraform-local-test-gradle-repo-basic", LocalGradleRepositoryArgs.builder()
  *             .key("terraform-local-test-gradle-repo-basic")
  *             .checksumPolicyType("client-checksums")
  *             .snapshotVersionBehavior("unique")

@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var my_oci_remote = new RemoteOciRepository("my-oci-remote", RemoteOciRepositoryArgs.builder()        
+ *         var my_oci_remote = new RemoteOciRepository("my-oci-remote", RemoteOciRepositoryArgs.builder()
  *             .key("my-oci-remote")
  *             .url("https://registry-1.docker.io/")
  *             .externalDependenciesEnabled(true)

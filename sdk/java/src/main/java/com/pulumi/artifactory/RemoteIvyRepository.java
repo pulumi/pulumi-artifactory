@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var ivy_remote = new RemoteIvyRepository("ivy-remote", RemoteIvyRepositoryArgs.builder()        
+ *         var ivy_remote = new RemoteIvyRepository("ivy-remote", RemoteIvyRepositoryArgs.builder()
  *             .key("ivy-remote-foo")
  *             .url("https://repo1.maven.org/maven2/")
  *             .fetchJarsEagerly(true)

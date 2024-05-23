@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo_helm_virtual = new VirtualHelmRepository("foo-helm-virtual", VirtualHelmRepositoryArgs.builder()        
+ *         var foo_helm_virtual = new VirtualHelmRepository("foo-helm-virtual", VirtualHelmRepositoryArgs.builder()
  *             .key("foo-helm-virtual")
  *             .useNamespaces(true)
  *             .build());

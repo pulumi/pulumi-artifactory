@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo_sbt = new VirtualSbtRepository("foo-sbt", VirtualSbtRepositoryArgs.builder()        
+ *         var foo_sbt = new VirtualSbtRepository("foo-sbt", VirtualSbtRepositoryArgs.builder()
  *             .key("foo-sbt")
  *             .repositories()
  *             .description("A test virtual repo")

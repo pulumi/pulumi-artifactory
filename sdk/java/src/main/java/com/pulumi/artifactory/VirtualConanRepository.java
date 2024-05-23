@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo_conan = new VirtualConanRepository("foo-conan", VirtualConanRepositoryArgs.builder()        
+ *         var foo_conan = new VirtualConanRepository("foo-conan", VirtualConanRepositoryArgs.builder()
  *             .key("foo-conan")
  *             .repoLayoutRef("conan-default")
  *             .repositories()

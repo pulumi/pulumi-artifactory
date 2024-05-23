@@ -41,7 +41,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test_user = new ManagedUser("test-user", ManagedUserArgs.builder()        
+ *         var test_user = new ManagedUser("test-user", ManagedUserArgs.builder()
  *             .name("terraform")
  *             .password("my super secret password")
  *             .email("test-user{@literal @}artifactory-terraform.com")

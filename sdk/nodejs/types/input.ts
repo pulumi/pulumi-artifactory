@@ -3487,7 +3487,13 @@ export interface PermissionTargetRepo {
 }
 
 export interface PermissionTargetRepoActions {
+    /**
+     * Groups this permission applies for.
+     */
     groups?: pulumi.Input<pulumi.Input<inputs.PermissionTargetRepoActionsGroup>[]>;
+    /**
+     * Users this permission target applies for.
+     */
     users?: pulumi.Input<pulumi.Input<inputs.PermissionTargetRepoActionsUser>[]>;
 }
 
@@ -3517,7 +3523,7 @@ export interface PropertySetProperty {
      */
     multipleChoice?: pulumi.Input<boolean>;
     /**
-     * Predefined property name.
+     * The name pf the property.
      */
     name: pulumi.Input<string>;
     /**

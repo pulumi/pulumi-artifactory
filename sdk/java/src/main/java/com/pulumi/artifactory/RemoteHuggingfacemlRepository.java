@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var huggingfaceml_remote = new RemoteHuggingfacemlRepository("huggingfaceml-remote", RemoteHuggingfacemlRepositoryArgs.builder()        
+ *         var huggingfaceml_remote = new RemoteHuggingfacemlRepository("huggingfaceml-remote", RemoteHuggingfacemlRepositoryArgs.builder()
  *             .key("huggingfaceml-remote-foo25")
  *             .build());
  * 

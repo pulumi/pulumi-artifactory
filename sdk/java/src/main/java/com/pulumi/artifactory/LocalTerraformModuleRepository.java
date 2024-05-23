@@ -42,7 +42,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var terraform_local_test_terraform_module_repo = new LocalTerraformModuleRepository("terraform-local-test-terraform-module-repo", LocalTerraformModuleRepositoryArgs.builder()        
+ *         var terraform_local_test_terraform_module_repo = new LocalTerraformModuleRepository("terraform-local-test-terraform-module-repo", LocalTerraformModuleRepositoryArgs.builder()
  *             .key("terraform-local-test-terraform-module-repo")
  *             .build());
  * 

@@ -29,52 +29,6 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.artifactory.LocalMavenRepository;
- * import com.pulumi.artifactory.LocalMavenRepositoryArgs;
- * import com.pulumi.artifactory.SingleReplicationConfig;
- * import com.pulumi.artifactory.SingleReplicationConfigArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         // Create a replication between two artifactory local repositories
- *         var providerTestSource = new LocalMavenRepository("providerTestSource", LocalMavenRepositoryArgs.builder()        
- *             .key("provider_test_source")
- *             .build());
- * 
- *         var providerTestDest = new LocalMavenRepository("providerTestDest", LocalMavenRepositoryArgs.builder()        
- *             .key("provider_test_dest")
- *             .build());
- * 
- *         var foo_rep = new SingleReplicationConfig("foo-rep", SingleReplicationConfigArgs.builder()        
- *             .repoKey(providerTestSource.key())
- *             .cronExp("0 0 * * * ?")
- *             .enableEventReplication(true)
- *             .url(artifactoryUrl)
- *             .username(artifactoryUsername)
- *             .password(artifactoryPassword)
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

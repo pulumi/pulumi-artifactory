@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var some_keypairGPG1 = new Keypair("some-keypairGPG1", KeypairArgs.builder()        
+ *         var some_keypairGPG1 = new Keypair("some-keypairGPG1", KeypairArgs.builder()
  *             .pairName(String.format("some-keypair%s", randid.id()))
  *             .pairType("GPG")
  *             .alias("foo-alias1")
@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  *                 .build()).result())
  *             .build());
  * 
- *         var some_keypairGPG2 = new Keypair("some-keypairGPG2", KeypairArgs.builder()        
+ *         var some_keypairGPG2 = new Keypair("some-keypairGPG2", KeypairArgs.builder()
  *             .pairName(String.format("some-keypair4%s", randid.id()))
  *             .pairType("GPG")
  *             .alias("foo-alias2")
@@ -71,7 +71,7 @@ import javax.annotation.Nullable;
  *                 .build()).result())
  *             .build());
  * 
- *         var my_debian_repo = new DebianRepository("my-debian-repo", DebianRepositoryArgs.builder()        
+ *         var my_debian_repo = new DebianRepository("my-debian-repo", DebianRepositoryArgs.builder()
  *             .key("my-debian-repo")
  *             .primaryKeypairRef(some_keypairGPG1.pairName())
  *             .secondaryKeypairRef(some_keypairGPG2.pairName())

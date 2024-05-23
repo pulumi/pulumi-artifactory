@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var my_remote_alpine = new RemoteAlpineRepository("my-remote-alpine", RemoteAlpineRepositoryArgs.builder()        
+ *         var my_remote_alpine = new RemoteAlpineRepository("my-remote-alpine", RemoteAlpineRepositoryArgs.builder()
  *             .key("my-remote-alpine")
  *             .url("http://dl-cdn.alpinelinux.org/alpine")
  *             .build());

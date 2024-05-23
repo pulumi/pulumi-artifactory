@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var my_remote_generic = new RemoteGenericRepository("my-remote-generic", RemoteGenericRepositoryArgs.builder()        
+ *         var my_remote_generic = new RemoteGenericRepository("my-remote-generic", RemoteGenericRepositoryArgs.builder()
  *             .key("my-remote-generic")
  *             .url("http://testartifactory.io/artifactory/example-generic/")
  *             .build());

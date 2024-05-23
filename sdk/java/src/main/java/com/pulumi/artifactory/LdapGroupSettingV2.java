@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var ldapGroupName = new LdapGroupSettingV2("ldapGroupName", LdapGroupSettingV2Args.builder()        
+ *         var ldapGroupName = new LdapGroupSettingV2("ldapGroupName", LdapGroupSettingV2Args.builder()
  *             .name("ldap_group_name")
  *             .enabledLdap("ldap_name")
  *             .groupBaseDn("CN=Users,DC=MyDomain,DC=com")

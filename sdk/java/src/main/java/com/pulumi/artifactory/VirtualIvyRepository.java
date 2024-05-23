@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo_ivy = new VirtualIvyRepository("foo-ivy", VirtualIvyRepositoryArgs.builder()        
+ *         var foo_ivy = new VirtualIvyRepository("foo-ivy", VirtualIvyRepositoryArgs.builder()
  *             .key("foo-ivy")
  *             .repositories()
  *             .description("A test virtual repo")

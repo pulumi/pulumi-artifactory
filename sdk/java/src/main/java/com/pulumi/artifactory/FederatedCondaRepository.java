@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var terraform_federated_test_conda_repo = new FederatedCondaRepository("terraform-federated-test-conda-repo", FederatedCondaRepositoryArgs.builder()        
+ *         var terraform_federated_test_conda_repo = new FederatedCondaRepository("terraform-federated-test-conda-repo", FederatedCondaRepositoryArgs.builder()
  *             .key("terraform-federated-test-conda-repo")
  *             .members(            
  *                 FederatedCondaRepositoryMemberArgs.builder()

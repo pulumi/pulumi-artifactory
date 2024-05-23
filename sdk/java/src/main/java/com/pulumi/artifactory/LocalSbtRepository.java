@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var terraform_local_test_sbt_repo = new LocalSbtRepository("terraform-local-test-sbt-repo", LocalSbtRepositoryArgs.builder()        
+ *         var terraform_local_test_sbt_repo = new LocalSbtRepository("terraform-local-test-sbt-repo", LocalSbtRepositoryArgs.builder()
  *             .key("terraform-local-test-sbt-repo")
  *             .build());
  * 
