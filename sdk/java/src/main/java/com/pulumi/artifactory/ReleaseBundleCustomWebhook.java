@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var release_bundle_custom_webhook = new ReleaseBundleCustomWebhook("release-bundle-custom-webhook", ReleaseBundleCustomWebhookArgs.builder()        
+ *         var release_bundle_custom_webhook = new ReleaseBundleCustomWebhook("release-bundle-custom-webhook", ReleaseBundleCustomWebhookArgs.builder()
  *             .key("release-bundle-custom-webhook")
  *             .eventTypes(            
  *                 "created",

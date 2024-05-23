@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var terraform_federated_test_generic_repo = new FederatedGenericRepository("terraform-federated-test-generic-repo", FederatedGenericRepositoryArgs.builder()        
+ *         var terraform_federated_test_generic_repo = new FederatedGenericRepository("terraform-federated-test-generic-repo", FederatedGenericRepositoryArgs.builder()
  *             .key("terraform-federated-test-generic-repo")
  *             .members(            
  *                 FederatedGenericRepositoryMemberArgs.builder()

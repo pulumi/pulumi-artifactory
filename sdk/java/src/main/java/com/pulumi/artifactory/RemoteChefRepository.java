@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var my_remote_chef = new RemoteChefRepository("my-remote-chef", RemoteChefRepositoryArgs.builder()        
+ *         var my_remote_chef = new RemoteChefRepository("my-remote-chef", RemoteChefRepositoryArgs.builder()
  *             .key("my-remote-chef")
  *             .url("https://supermarket.chef.io")
  *             .build());

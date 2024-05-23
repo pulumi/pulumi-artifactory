@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var terraform_federated_test_composer_repo = new FederatedComposerRepository("terraform-federated-test-composer-repo", FederatedComposerRepositoryArgs.builder()        
+ *         var terraform_federated_test_composer_repo = new FederatedComposerRepository("terraform-federated-test-composer-repo", FederatedComposerRepositoryArgs.builder()
  *             .key("terraform-federated-test-composer-repo")
  *             .members(            
  *                 FederatedComposerRepositoryMemberArgs.builder()

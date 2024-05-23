@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var terraform_local_test_helm_repo = new LocalHelmRepository("terraform-local-test-helm-repo", LocalHelmRepositoryArgs.builder()        
+ *         var terraform_local_test_helm_repo = new LocalHelmRepository("terraform-local-test-helm-repo", LocalHelmRepositoryArgs.builder()
  *             .key("terraform-local-test-helm-repo")
  *             .build());
  * 

@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var terraform_federated_test_bower_repo = new FederatedBowerRepository("terraform-federated-test-bower-repo", FederatedBowerRepositoryArgs.builder()        
+ *         var terraform_federated_test_bower_repo = new FederatedBowerRepository("terraform-federated-test-bower-repo", FederatedBowerRepositoryArgs.builder()
  *             .key("terraform-federated-test-bower-repo")
  *             .members(            
  *                 FederatedBowerRepositoryMemberArgs.builder()

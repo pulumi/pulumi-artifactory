@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var terraform_local_test_bower_repo = new LocalBowerRepository("terraform-local-test-bower-repo", LocalBowerRepositoryArgs.builder()        
+ *         var terraform_local_test_bower_repo = new LocalBowerRepository("terraform-local-test-bower-repo", LocalBowerRepositoryArgs.builder()
  *             .key("terraform-local-test-bower-repo")
  *             .build());
  * 

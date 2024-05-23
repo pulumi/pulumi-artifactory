@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var terraform_local_test_composer_repo = new LocalComposerRepository("terraform-local-test-composer-repo", LocalComposerRepositoryArgs.builder()        
+ *         var terraform_local_test_composer_repo = new LocalComposerRepository("terraform-local-test-composer-repo", LocalComposerRepositoryArgs.builder()
  *             .key("terraform-local-test-composer-repo")
  *             .build());
  * 

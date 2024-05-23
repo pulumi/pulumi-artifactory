@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var terraform_local_test_gitlfs_repo = new LocalGitltfsRepository("terraform-local-test-gitlfs-repo", LocalGitltfsRepositoryArgs.builder()        
+ *         var terraform_local_test_gitlfs_repo = new LocalGitltfsRepository("terraform-local-test-gitlfs-repo", LocalGitltfsRepositoryArgs.builder()
  *             .key("terraform-local-test-gitlfs-repo")
  *             .build());
  * 

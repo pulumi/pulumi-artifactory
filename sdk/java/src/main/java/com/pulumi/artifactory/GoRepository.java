@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var baz_go = new GoRepository("baz-go", GoRepositoryArgs.builder()        
+ *         var baz_go = new GoRepository("baz-go", GoRepositoryArgs.builder()
  *             .key("baz-go")
  *             .repoLayoutRef("go-default")
  *             .repositories()

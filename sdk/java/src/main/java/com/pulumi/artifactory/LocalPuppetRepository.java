@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var terraform_local_test_puppet_repo = new LocalPuppetRepository("terraform-local-test-puppet-repo", LocalPuppetRepositoryArgs.builder()        
+ *         var terraform_local_test_puppet_repo = new LocalPuppetRepository("terraform-local-test-puppet-repo", LocalPuppetRepositoryArgs.builder()
  *             .key("terraform-local-test-puppet-repo")
  *             .build());
  * 

@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var terraform_local_test_conan_repo = new LocalConanRepository("terraform-local-test-conan-repo", LocalConanRepositoryArgs.builder()        
+ *         var terraform_local_test_conan_repo = new LocalConanRepository("terraform-local-test-conan-repo", LocalConanRepositoryArgs.builder()
  *             .key("terraform-local-test-conan-repo")
  *             .build());
  * 

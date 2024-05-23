@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var terraform_federated_test_go_repo = new FederatedGoRepository("terraform-federated-test-go-repo", FederatedGoRepositoryArgs.builder()        
+ *         var terraform_federated_test_go_repo = new FederatedGoRepository("terraform-federated-test-go-repo", FederatedGoRepositoryArgs.builder()
  *             .key("terraform-federated-test-go-repo")
  *             .members(            
  *                 FederatedGoRepositoryMemberArgs.builder()

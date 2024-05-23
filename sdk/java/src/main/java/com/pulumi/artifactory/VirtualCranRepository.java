@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo_cran = new VirtualCranRepository("foo-cran", VirtualCranRepositoryArgs.builder()        
+ *         var foo_cran = new VirtualCranRepository("foo-cran", VirtualCranRepositoryArgs.builder()
  *             .key("foo-cran")
  *             .repositories()
  *             .description("A test virtual repo")

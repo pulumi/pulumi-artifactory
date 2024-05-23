@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var my_remote_gitlfs = new RemoteGitlfsRepository("my-remote-gitlfs", RemoteGitlfsRepositoryArgs.builder()        
+ *         var my_remote_gitlfs = new RemoteGitlfsRepository("my-remote-gitlfs", RemoteGitlfsRepositoryArgs.builder()
  *             .key("my-remote-gitlfs")
  *             .url("http://testartifactory.io/artifactory/example-gitlfs/")
  *             .build());

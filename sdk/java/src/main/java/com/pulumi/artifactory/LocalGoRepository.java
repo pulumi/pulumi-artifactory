@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var terraform_local_test_go_repo = new LocalGoRepository("terraform-local-test-go-repo", LocalGoRepositoryArgs.builder()        
+ *         var terraform_local_test_go_repo = new LocalGoRepository("terraform-local-test-go-repo", LocalGoRepositoryArgs.builder()
  *             .key("terraform-local-test-go-repo")
  *             .build());
  * 

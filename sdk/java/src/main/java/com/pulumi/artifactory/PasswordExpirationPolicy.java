@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var my_password_expiration_policy = new PasswordExpirationPolicy("my-password-expiration-policy", PasswordExpirationPolicyArgs.builder()        
+ *         var my_password_expiration_policy = new PasswordExpirationPolicy("my-password-expiration-policy", PasswordExpirationPolicyArgs.builder()
  *             .name("my-password-expiration-policy")
  *             .enabled(true)
  *             .passwordMaxAge(120)

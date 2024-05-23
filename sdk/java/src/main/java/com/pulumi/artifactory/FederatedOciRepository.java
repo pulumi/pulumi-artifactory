@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var my_oci_federated = new FederatedOciRepository("my-oci-federated", FederatedOciRepositoryArgs.builder()        
+ *         var my_oci_federated = new FederatedOciRepository("my-oci-federated", FederatedOciRepositoryArgs.builder()
  *             .key("my-oci-federated")
  *             .members(            
  *                 FederatedOciRepositoryMemberArgs.builder()

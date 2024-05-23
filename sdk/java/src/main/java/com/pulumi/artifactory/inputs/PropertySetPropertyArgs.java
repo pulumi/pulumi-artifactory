@@ -50,14 +50,14 @@ public final class PropertySetPropertyArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Predefined property name.
+     * The name pf the property.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Predefined property name.
+     * @return The name pf the property.
      * 
      */
     public Output<String> name() {
@@ -149,7 +149,7 @@ public final class PropertySetPropertyArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param name Predefined property name.
+         * @param name The name pf the property.
          * 
          * @return builder
          * 
@@ -160,7 +160,7 @@ public final class PropertySetPropertyArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param name Predefined property name.
+         * @param name The name pf the property.
          * 
          * @return builder
          * 

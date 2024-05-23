@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exisingUser = new AccessToken("exisingUser", AccessTokenArgs.builder()        
+ *         var exisingUser = new AccessToken("exisingUser", AccessTokenArgs.builder()
  *             .username("existing-user")
  *             .endDateRelative("5m")
  *             .build());
@@ -92,13 +92,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var newUser = new User("newUser", UserArgs.builder()        
+ *         var newUser = new User("newUser", UserArgs.builder()
  *             .name("new_user")
  *             .email("new_user{@literal @}somewhere.com")
  *             .groups("readers")
  *             .build());
  * 
- *         var newUserAccessToken = new AccessToken("newUserAccessToken", AccessTokenArgs.builder()        
+ *         var newUserAccessToken = new AccessToken("newUserAccessToken", AccessTokenArgs.builder()
  *             .username(newUser.name())
  *             .endDateRelative("5m")
  *             .build());
@@ -134,7 +134,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var temporaryUser = new AccessToken("temporaryUser", AccessTokenArgs.builder()        
+ *         var temporaryUser = new AccessToken("temporaryUser", AccessTokenArgs.builder()
  *             .username("temporary-user")
  *             .endDateRelative("1h")
  *             .groups("readers")
@@ -170,7 +170,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var noExpiry = new AccessToken("noExpiry", AccessTokenArgs.builder()        
+ *         var noExpiry = new AccessToken("noExpiry", AccessTokenArgs.builder()
  *             .username("existing-user")
  *             .endDateRelative("0s")
  *             .build());
@@ -205,7 +205,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var refreshable = new AccessToken("refreshable", AccessTokenArgs.builder()        
+ *         var refreshable = new AccessToken("refreshable", AccessTokenArgs.builder()
  *             .username("refreshable")
  *             .endDateRelative("1m")
  *             .refreshable(true)
@@ -243,7 +243,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var admin = new AccessToken("admin", AccessTokenArgs.builder()        
+ *         var admin = new AccessToken("admin", AccessTokenArgs.builder()
  *             .username("admin")
  *             .endDateRelative("1m")
  *             .adminToken(AccessTokenAdminTokenArgs.builder()
@@ -281,7 +281,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var audience = new AccessToken("audience", AccessTokenArgs.builder()        
+ *         var audience = new AccessToken("audience", AccessTokenArgs.builder()
  *             .username("audience")
  *             .endDateRelative("1m")
  *             .audience("jfrt{@literal @}*")
@@ -318,7 +318,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var fixeddate = new AccessToken("fixeddate", AccessTokenArgs.builder()        
+ *         var fixeddate = new AccessToken("fixeddate", AccessTokenArgs.builder()
  *             .username("fixeddate")
  *             .endDate("2018-01-01T01:02:03Z")
  *             .groups("readers")
@@ -361,11 +361,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var nowPlus1Hours = new Rotating("nowPlus1Hours", RotatingArgs.builder()        
+ *         var nowPlus1Hours = new Rotating("nowPlus1Hours", RotatingArgs.builder()
  *             .rotationHours("1")
  *             .build());
  * 
- *         var rotating = new AccessToken("rotating", AccessTokenArgs.builder()        
+ *         var rotating = new AccessToken("rotating", AccessTokenArgs.builder()
  *             .username("rotating")
  *             .endDate(nowPlus1Hour.rotationRfc3339())
  *             .groups("readers")
@@ -407,12 +407,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var nowPlus1Hours = new Rotating("nowPlus1Hours", RotatingArgs.builder()        
+ *         var nowPlus1Hours = new Rotating("nowPlus1Hours", RotatingArgs.builder()
  *             .triggers(Map.of("key", StdFunctions.timestamp().result()))
  *             .rotationHours("1")
  *             .build());
  * 
- *         var rotating = new AccessToken("rotating", AccessTokenArgs.builder()        
+ *         var rotating = new AccessToken("rotating", AccessTokenArgs.builder()
  *             .username("rotating")
  *             .endDate(nowPlus1Hour.rotationRfc3339())
  *             .groups("readers")

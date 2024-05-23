@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var terraform_local_test_ivy_repo = new LocalIvyRepository("terraform-local-test-ivy-repo", LocalIvyRepositoryArgs.builder()        
+ *         var terraform_local_test_ivy_repo = new LocalIvyRepository("terraform-local-test-ivy-repo", LocalIvyRepositoryArgs.builder()
  *             .key("terraform-local-test-ivy-repo")
  *             .build());
  * 

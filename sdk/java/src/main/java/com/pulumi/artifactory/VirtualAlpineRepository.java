@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo_alpine = new VirtualAlpineRepository("foo-alpine", VirtualAlpineRepositoryArgs.builder()        
+ *         var foo_alpine = new VirtualAlpineRepository("foo-alpine", VirtualAlpineRepositoryArgs.builder()
  *             .key("foo-alpine")
  *             .repositories()
  *             .description("A test virtual repo")

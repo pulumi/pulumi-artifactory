@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var helm_remote = new RemoteHelmRepository("helm-remote", RemoteHelmRepositoryArgs.builder()        
+ *         var helm_remote = new RemoteHelmRepository("helm-remote", RemoteHelmRepositoryArgs.builder()
  *             .key("helm-remote-foo25")
  *             .url("https://repo.chartcenter.io/")
  *             .helmChartsBaseUrl("https://foo.com")

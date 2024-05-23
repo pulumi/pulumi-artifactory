@@ -792,7 +792,7 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var federated_test_cargo_repo = new FederatedCargoRepository("federated-test-cargo-repo", FederatedCargoRepositoryArgs.builder()        
+     *         var federated_test_cargo_repo = new FederatedCargoRepository("federated-test-cargo-repo", FederatedCargoRepositoryArgs.builder()
      *             .key("federated-test-cargo-repo")
      *             .build());
      * 
@@ -834,7 +834,7 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var federated_test_cargo_repo = new FederatedCargoRepository("federated-test-cargo-repo", FederatedCargoRepositoryArgs.builder()        
+     *         var federated_test_cargo_repo = new FederatedCargoRepository("federated-test-cargo-repo", FederatedCargoRepositoryArgs.builder()
      *             .key("federated-test-cargo-repo")
      *             .build());
      * 
@@ -876,7 +876,7 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var federated_test_cargo_repo = new FederatedCargoRepository("federated-test-cargo-repo", FederatedCargoRepositoryArgs.builder()        
+     *         var federated_test_cargo_repo = new FederatedCargoRepository("federated-test-cargo-repo", FederatedCargoRepositoryArgs.builder()
      *             .key("federated-test-cargo-repo")
      *             .build());
      * 
@@ -918,7 +918,7 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var federated_test_cargo_repo = new FederatedCargoRepository("federated-test-cargo-repo", FederatedCargoRepositoryArgs.builder()        
+     *         var federated_test_cargo_repo = new FederatedCargoRepository("federated-test-cargo-repo", FederatedCargoRepositoryArgs.builder()
      *             .key("federated-test-cargo-repo")
      *             .build());
      * 
@@ -8400,7 +8400,7 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var artifactoryLocalTestDockerV1Repository = new DockerV1Repository("artifactoryLocalTestDockerV1Repository", DockerV1RepositoryArgs.builder()        
+     *         var artifactoryLocalTestDockerV1Repository = new DockerV1Repository("artifactoryLocalTestDockerV1Repository", DockerV1RepositoryArgs.builder()
      *             .key("artifactory_local_test_docker_v1_repository")
      *             .build());
      * 
@@ -8442,7 +8442,7 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var artifactoryLocalTestDockerV1Repository = new DockerV1Repository("artifactoryLocalTestDockerV1Repository", DockerV1RepositoryArgs.builder()        
+     *         var artifactoryLocalTestDockerV1Repository = new DockerV1Repository("artifactoryLocalTestDockerV1Repository", DockerV1RepositoryArgs.builder()
      *             .key("artifactory_local_test_docker_v1_repository")
      *             .build());
      * 
@@ -8484,7 +8484,7 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var artifactoryLocalTestDockerV1Repository = new DockerV1Repository("artifactoryLocalTestDockerV1Repository", DockerV1RepositoryArgs.builder()        
+     *         var artifactoryLocalTestDockerV1Repository = new DockerV1Repository("artifactoryLocalTestDockerV1Repository", DockerV1RepositoryArgs.builder()
      *             .key("artifactory_local_test_docker_v1_repository")
      *             .build());
      * 
@@ -8526,7 +8526,7 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var artifactoryLocalTestDockerV1Repository = new DockerV1Repository("artifactoryLocalTestDockerV1Repository", DockerV1RepositoryArgs.builder()        
+     *         var artifactoryLocalTestDockerV1Repository = new DockerV1Repository("artifactoryLocalTestDockerV1Repository", DockerV1RepositoryArgs.builder()
      *             .key("artifactory_local_test_docker_v1_repository")
      *             .build());
      * 
@@ -8568,7 +8568,7 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var artifactoryLocalTestDockerV2Repository = new DockerV2Repository("artifactoryLocalTestDockerV2Repository", DockerV2RepositoryArgs.builder()        
+     *         var artifactoryLocalTestDockerV2Repository = new DockerV2Repository("artifactoryLocalTestDockerV2Repository", DockerV2RepositoryArgs.builder()
      *             .key("artifactory_local_test_docker_v2_repository")
      *             .build());
      * 
@@ -8610,7 +8610,7 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var artifactoryLocalTestDockerV2Repository = new DockerV2Repository("artifactoryLocalTestDockerV2Repository", DockerV2RepositoryArgs.builder()        
+     *         var artifactoryLocalTestDockerV2Repository = new DockerV2Repository("artifactoryLocalTestDockerV2Repository", DockerV2RepositoryArgs.builder()
      *             .key("artifactory_local_test_docker_v2_repository")
      *             .build());
      * 
@@ -8652,7 +8652,7 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var artifactoryLocalTestDockerV2Repository = new DockerV2Repository("artifactoryLocalTestDockerV2Repository", DockerV2RepositoryArgs.builder()        
+     *         var artifactoryLocalTestDockerV2Repository = new DockerV2Repository("artifactoryLocalTestDockerV2Repository", DockerV2RepositoryArgs.builder()
      *             .key("artifactory_local_test_docker_v2_repository")
      *             .build());
      * 
@@ -8694,7 +8694,7 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var artifactoryLocalTestDockerV2Repository = new DockerV2Repository("artifactoryLocalTestDockerV2Repository", DockerV2RepositoryArgs.builder()        
+     *         var artifactoryLocalTestDockerV2Repository = new DockerV2Repository("artifactoryLocalTestDockerV2Repository", DockerV2RepositoryArgs.builder()
      *             .key("artifactory_local_test_docker_v2_repository")
      *             .build());
      * 
@@ -9744,7 +9744,7 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var my_helmoci_local = new LocalHelmociRepository("my-helmoci-local", LocalHelmociRepositoryArgs.builder()        
+     *         var my_helmoci_local = new LocalHelmociRepository("my-helmoci-local", LocalHelmociRepositoryArgs.builder()
      *             .key("my-helmoci-local")
      *             .build());
      * 
@@ -9786,7 +9786,7 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var my_helmoci_local = new LocalHelmociRepository("my-helmoci-local", LocalHelmociRepositoryArgs.builder()        
+     *         var my_helmoci_local = new LocalHelmociRepository("my-helmoci-local", LocalHelmociRepositoryArgs.builder()
      *             .key("my-helmoci-local")
      *             .build());
      * 
@@ -9828,7 +9828,7 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var my_helmoci_local = new LocalHelmociRepository("my-helmoci-local", LocalHelmociRepositoryArgs.builder()        
+     *         var my_helmoci_local = new LocalHelmociRepository("my-helmoci-local", LocalHelmociRepositoryArgs.builder()
      *             .key("my-helmoci-local")
      *             .build());
      * 
@@ -9870,7 +9870,7 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var my_helmoci_local = new LocalHelmociRepository("my-helmoci-local", LocalHelmociRepositoryArgs.builder()        
+     *         var my_helmoci_local = new LocalHelmociRepository("my-helmoci-local", LocalHelmociRepositoryArgs.builder()
      *             .key("my-helmoci-local")
      *             .build());
      * 
@@ -10108,7 +10108,7 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var local_test_maven_repo_basic = new LocalMavenRepository("local-test-maven-repo-basic", LocalMavenRepositoryArgs.builder()        
+     *         var local_test_maven_repo_basic = new LocalMavenRepository("local-test-maven-repo-basic", LocalMavenRepositoryArgs.builder()
      *             .key("local-test-maven-repo-basic")
      *             .build());
      * 
@@ -10150,7 +10150,7 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var local_test_maven_repo_basic = new LocalMavenRepository("local-test-maven-repo-basic", LocalMavenRepositoryArgs.builder()        
+     *         var local_test_maven_repo_basic = new LocalMavenRepository("local-test-maven-repo-basic", LocalMavenRepositoryArgs.builder()
      *             .key("local-test-maven-repo-basic")
      *             .build());
      * 
@@ -10192,7 +10192,7 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var local_test_maven_repo_basic = new LocalMavenRepository("local-test-maven-repo-basic", LocalMavenRepositoryArgs.builder()        
+     *         var local_test_maven_repo_basic = new LocalMavenRepository("local-test-maven-repo-basic", LocalMavenRepositoryArgs.builder()
      *             .key("local-test-maven-repo-basic")
      *             .build());
      * 
@@ -10234,7 +10234,7 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var local_test_maven_repo_basic = new LocalMavenRepository("local-test-maven-repo-basic", LocalMavenRepositoryArgs.builder()        
+     *         var local_test_maven_repo_basic = new LocalMavenRepository("local-test-maven-repo-basic", LocalMavenRepositoryArgs.builder()
      *             .key("local-test-maven-repo-basic")
      *             .build());
      * 
@@ -10612,7 +10612,7 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var my_oci_local = new LocalOciRepository("my-oci-local", LocalOciRepositoryArgs.builder()        
+     *         var my_oci_local = new LocalOciRepository("my-oci-local", LocalOciRepositoryArgs.builder()
      *             .key("my-oci-local")
      *             .build());
      * 
@@ -10654,7 +10654,7 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var my_oci_local = new LocalOciRepository("my-oci-local", LocalOciRepositoryArgs.builder()        
+     *         var my_oci_local = new LocalOciRepository("my-oci-local", LocalOciRepositoryArgs.builder()
      *             .key("my-oci-local")
      *             .build());
      * 
@@ -10696,7 +10696,7 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var my_oci_local = new LocalOciRepository("my-oci-local", LocalOciRepositoryArgs.builder()        
+     *         var my_oci_local = new LocalOciRepository("my-oci-local", LocalOciRepositoryArgs.builder()
      *             .key("my-oci-local")
      *             .build());
      * 
@@ -10738,7 +10738,7 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var my_oci_local = new LocalOciRepository("my-oci-local", LocalOciRepositoryArgs.builder()        
+     *         var my_oci_local = new LocalOciRepository("my-oci-local", LocalOciRepositoryArgs.builder()
      *             .key("my-oci-local")
      *             .build());
      * 
@@ -11954,7 +11954,7 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var terraform_local_test_terraform_module_repo = new LocalTerraformModuleRepository("terraform-local-test-terraform-module-repo", LocalTerraformModuleRepositoryArgs.builder()        
+     *         var terraform_local_test_terraform_module_repo = new LocalTerraformModuleRepository("terraform-local-test-terraform-module-repo", LocalTerraformModuleRepositoryArgs.builder()
      *             .key("terraform-local-test-terraform-module-repo")
      *             .build());
      * 
@@ -11994,7 +11994,7 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var terraform_local_test_terraform_module_repo = new LocalTerraformModuleRepository("terraform-local-test-terraform-module-repo", LocalTerraformModuleRepositoryArgs.builder()        
+     *         var terraform_local_test_terraform_module_repo = new LocalTerraformModuleRepository("terraform-local-test-terraform-module-repo", LocalTerraformModuleRepositoryArgs.builder()
      *             .key("terraform-local-test-terraform-module-repo")
      *             .build());
      * 
@@ -12034,7 +12034,7 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var terraform_local_test_terraform_module_repo = new LocalTerraformModuleRepository("terraform-local-test-terraform-module-repo", LocalTerraformModuleRepositoryArgs.builder()        
+     *         var terraform_local_test_terraform_module_repo = new LocalTerraformModuleRepository("terraform-local-test-terraform-module-repo", LocalTerraformModuleRepositoryArgs.builder()
      *             .key("terraform-local-test-terraform-module-repo")
      *             .build());
      * 
@@ -12074,7 +12074,7 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var terraform_local_test_terraform_module_repo = new LocalTerraformModuleRepository("terraform-local-test-terraform-module-repo", LocalTerraformModuleRepositoryArgs.builder()        
+     *         var terraform_local_test_terraform_module_repo = new LocalTerraformModuleRepository("terraform-local-test-terraform-module-repo", LocalTerraformModuleRepositoryArgs.builder()
      *             .key("terraform-local-test-terraform-module-repo")
      *             .build());
      * 

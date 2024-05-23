@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var terraform_federated_test_swift_repo = new FederatedSwiftRepository("terraform-federated-test-swift-repo", FederatedSwiftRepositoryArgs.builder()        
+ *         var terraform_federated_test_swift_repo = new FederatedSwiftRepository("terraform-federated-test-swift-repo", FederatedSwiftRepositoryArgs.builder()
  *             .key("terraform-federated-test-swift-repo")
  *             .members(            
  *                 FederatedSwiftRepositoryMemberArgs.builder()

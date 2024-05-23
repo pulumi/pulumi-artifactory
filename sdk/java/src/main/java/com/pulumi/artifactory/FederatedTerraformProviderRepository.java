@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var terraform_federated_test_terraformProvider_repo = new FederatedTerraformProviderRepository("terraform-federated-test-terraformProvider-repo", FederatedTerraformProviderRepositoryArgs.builder()        
+ *         var terraform_federated_test_terraformProvider_repo = new FederatedTerraformProviderRepository("terraform-federated-test-terraformProvider-repo", FederatedTerraformProviderRepositoryArgs.builder()
  *             .key("terraform-federated-test-terraform-provider-repo")
  *             .members(            
  *                 FederatedTerraformProviderRepositoryMemberArgs.builder()

@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var terraform_federated_test_alpine_repo = new FederatedAlpineRepository("terraform-federated-test-alpine-repo", FederatedAlpineRepositoryArgs.builder()        
+ *         var terraform_federated_test_alpine_repo = new FederatedAlpineRepository("terraform-federated-test-alpine-repo", FederatedAlpineRepositoryArgs.builder()
  *             .key("terraform-federated-test-alpine-repo")
  *             .members(            
  *                 FederatedAlpineRepositoryMemberArgs.builder()

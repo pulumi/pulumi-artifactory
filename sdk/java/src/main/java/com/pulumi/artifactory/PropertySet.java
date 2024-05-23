@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new PropertySet("foo", PropertySetArgs.builder()        
+ *         var foo = new PropertySet("foo", PropertySetArgs.builder()
  *             .name("property-set1")
  *             .visible(true)
  *             .properties(            

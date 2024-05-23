@@ -2364,7 +2364,13 @@ export interface PermissionTargetRepo {
 }
 
 export interface PermissionTargetRepoActions {
+    /**
+     * Groups this permission applies for.
+     */
     groups?: outputs.PermissionTargetRepoActionsGroup[];
+    /**
+     * Users this permission target applies for.
+     */
     users?: outputs.PermissionTargetRepoActionsUser[];
 }
 
@@ -2394,7 +2400,7 @@ export interface PropertySetProperty {
      */
     multipleChoice: boolean;
     /**
-     * Predefined property name.
+     * The name pf the property.
      */
     name: string;
     /**

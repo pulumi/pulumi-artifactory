@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var my_remote_rpm = new RemoteRpmRepository("my-remote-rpm", RemoteRpmRepositoryArgs.builder()        
+ *         var my_remote_rpm = new RemoteRpmRepository("my-remote-rpm", RemoteRpmRepositoryArgs.builder()
  *             .key("my-remote-rpm")
  *             .url("http://mirror.centos.org/centos/")
  *             .build());

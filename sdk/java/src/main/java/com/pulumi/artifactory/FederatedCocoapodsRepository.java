@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var terraform_federated_test_cocoapods_repo = new FederatedCocoapodsRepository("terraform-federated-test-cocoapods-repo", FederatedCocoapodsRepositoryArgs.builder()        
+ *         var terraform_federated_test_cocoapods_repo = new FederatedCocoapodsRepository("terraform-federated-test-cocoapods-repo", FederatedCocoapodsRepositoryArgs.builder()
  *             .key("terraform-federated-test-cocoapods-repo")
  *             .members(            
  *                 FederatedCocoapodsRepositoryMemberArgs.builder()

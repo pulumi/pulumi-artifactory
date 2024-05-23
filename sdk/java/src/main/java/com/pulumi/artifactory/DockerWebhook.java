@@ -52,11 +52,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var my_docker_local = new DockerV2Repository("my-docker-local", DockerV2RepositoryArgs.builder()        
+ *         var my_docker_local = new DockerV2Repository("my-docker-local", DockerV2RepositoryArgs.builder()
  *             .key("my-docker-local")
  *             .build());
  * 
- *         var docker_webhook = new DockerWebhook("docker-webhook", DockerWebhookArgs.builder()        
+ *         var docker_webhook = new DockerWebhook("docker-webhook", DockerWebhookArgs.builder()
  *             .key("docker-webhook")
  *             .eventTypes(            
  *                 "pushed",

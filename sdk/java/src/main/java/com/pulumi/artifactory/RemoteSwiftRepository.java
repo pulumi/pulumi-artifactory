@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var my_remote_swift = new RemoteSwiftRepository("my-remote-swift", RemoteSwiftRepositoryArgs.builder()        
+ *         var my_remote_swift = new RemoteSwiftRepository("my-remote-swift", RemoteSwiftRepositoryArgs.builder()
  *             .key("my-remote-swift")
  *             .url("https://swift.org/")
  *             .build());

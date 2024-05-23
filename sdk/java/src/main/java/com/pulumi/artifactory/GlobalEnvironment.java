@@ -41,7 +41,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test_env = new GlobalEnvironment("test-env", GlobalEnvironmentArgs.builder()        
+ *         var test_env = new GlobalEnvironment("test-env", GlobalEnvironmentArgs.builder()
  *             .name("test-env")
  *             .build());
  * 
