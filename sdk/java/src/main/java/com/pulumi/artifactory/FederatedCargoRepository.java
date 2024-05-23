@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var terraform_federated_test_cargo_repo = new FederatedCargoRepository("terraform-federated-test-cargo-repo", FederatedCargoRepositoryArgs.builder()        
+ *         var terraform_federated_test_cargo_repo = new FederatedCargoRepository("terraform-federated-test-cargo-repo", FederatedCargoRepositoryArgs.builder()
  *             .key("terraform-federated-test-cargo-repo")
  *             .members(            
  *                 FederatedCargoRepositoryMemberArgs.builder()

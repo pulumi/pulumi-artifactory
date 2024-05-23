@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo_npm = new VirtualNpmRepository("foo-npm", VirtualNpmRepositoryArgs.builder()        
+ *         var foo_npm = new VirtualNpmRepository("foo-npm", VirtualNpmRepositoryArgs.builder()
  *             .key("foo-npm")
  *             .repositories()
  *             .description("A test virtual repo")

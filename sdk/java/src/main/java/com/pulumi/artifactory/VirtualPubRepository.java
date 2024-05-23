@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo_pub = new VirtualPubRepository("foo-pub", VirtualPubRepositoryArgs.builder()        
+ *         var foo_pub = new VirtualPubRepository("foo-pub", VirtualPubRepositoryArgs.builder()
  *             .key("foo-pub")
  *             .repositories()
  *             .description("A test virtual repo")

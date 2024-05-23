@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var npm_remote = new RemoteNpmRepository("npm-remote", RemoteNpmRepositoryArgs.builder()        
+ *         var npm_remote = new RemoteNpmRepository("npm-remote", RemoteNpmRepositoryArgs.builder()
  *             .key("npm-remote")
  *             .url("https://registry.npmjs.org")
  *             .listRemoteFolderItems(true)

@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var terraform_federated_test_chef_repo = new FederatedChefRepository("terraform-federated-test-chef-repo", FederatedChefRepositoryArgs.builder()        
+ *         var terraform_federated_test_chef_repo = new FederatedChefRepository("terraform-federated-test-chef-repo", FederatedChefRepositoryArgs.builder()
  *             .key("terraform-federated-test-chef-repo")
  *             .members(            
  *                 FederatedChefRepositoryMemberArgs.builder()

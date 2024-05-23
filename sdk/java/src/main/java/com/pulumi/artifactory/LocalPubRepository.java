@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var terraform_local_test_pub_repo = new LocalPubRepository("terraform-local-test-pub-repo", LocalPubRepositoryArgs.builder()        
+ *         var terraform_local_test_pub_repo = new LocalPubRepository("terraform-local-test-pub-repo", LocalPubRepositoryArgs.builder()
  *             .key("terraform-local-test-pub-repo")
  *             .build());
  * 

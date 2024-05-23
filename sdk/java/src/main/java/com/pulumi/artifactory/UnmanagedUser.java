@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Create a new Artifactory user called terraform
- *         var test_user = new UnmanagedUser("test-user", UnmanagedUserArgs.builder()        
+ *         var test_user = new UnmanagedUser("test-user", UnmanagedUserArgs.builder()
  *             .name("terraform")
  *             .email("test-user{@literal @}artifactory-terraform.com")
  *             .groups("logged-in-users")

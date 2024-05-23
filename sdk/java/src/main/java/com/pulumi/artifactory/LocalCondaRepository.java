@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var terraform_local_test_conda_repo = new LocalCondaRepository("terraform-local-test-conda-repo", LocalCondaRepositoryArgs.builder()        
+ *         var terraform_local_test_conda_repo = new LocalCondaRepository("terraform-local-test-conda-repo", LocalCondaRepositoryArgs.builder()
  *             .key("terraform-local-test-conda-repo")
  *             .build());
  * 

@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo_chef = new VirtualChefRepository("foo-chef", VirtualChefRepositoryArgs.builder()        
+ *         var foo_chef = new VirtualChefRepository("foo-chef", VirtualChefRepositoryArgs.builder()
  *             .key("foo-chef")
  *             .repositories()
  *             .description("A test virtual repo")

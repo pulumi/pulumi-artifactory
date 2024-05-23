@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var my_remote_gems = new RemoteGemsRepository("my-remote-gems", RemoteGemsRepositoryArgs.builder()        
+ *         var my_remote_gems = new RemoteGemsRepository("my-remote-gems", RemoteGemsRepositoryArgs.builder()
  *             .key("my-remote-gems")
  *             .url("https://rubygems.org/")
  *             .build());

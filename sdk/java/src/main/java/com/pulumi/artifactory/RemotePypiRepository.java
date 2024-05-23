@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var pypi_remote = new RemotePypiRepository("pypi-remote", RemotePypiRepositoryArgs.builder()        
+ *         var pypi_remote = new RemotePypiRepository("pypi-remote", RemotePypiRepositoryArgs.builder()
  *             .key("pypi-remote-foo")
  *             .url("https://files.pythonhosted.org")
  *             .pypiRegistryUrl("https://pypi.org")

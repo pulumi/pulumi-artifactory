@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var terraform_local_test_generic_repo = new LocalGenericRepository("terraform-local-test-generic-repo", LocalGenericRepositoryArgs.builder()        
+ *         var terraform_local_test_generic_repo = new LocalGenericRepository("terraform-local-test-generic-repo", LocalGenericRepositoryArgs.builder()
  *             .key("terraform-local-test-generic-repo")
  *             .build());
  * 

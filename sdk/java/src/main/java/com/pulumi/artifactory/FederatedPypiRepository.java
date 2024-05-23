@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var terraform_federated_test_pypi_repo = new FederatedPypiRepository("terraform-federated-test-pypi-repo", FederatedPypiRepositoryArgs.builder()        
+ *         var terraform_federated_test_pypi_repo = new FederatedPypiRepository("terraform-federated-test-pypi-repo", FederatedPypiRepositoryArgs.builder()
  *             .key("terraform-federated-test-pypi-repo")
  *             .members(            
  *                 FederatedPypiRepositoryMemberArgs.builder()

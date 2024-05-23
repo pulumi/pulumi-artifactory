@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var terraform_federated_test_vagrant_repo = new FederatedVagrantRepository("terraform-federated-test-vagrant-repo", FederatedVagrantRepositoryArgs.builder()        
+ *         var terraform_federated_test_vagrant_repo = new FederatedVagrantRepository("terraform-federated-test-vagrant-repo", FederatedVagrantRepositoryArgs.builder()
  *             .key("terraform-federated-test-vagrant-repo")
  *             .members(            
  *                 FederatedVagrantRepositoryMemberArgs.builder()

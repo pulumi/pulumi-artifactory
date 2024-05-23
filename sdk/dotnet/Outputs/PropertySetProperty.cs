@@ -22,7 +22,7 @@ namespace Pulumi.Artifactory.Outputs
         /// </summary>
         public readonly bool? MultipleChoice;
         /// <summary>
-        /// Predefined property name.
+        /// The name pf the property.
         /// </summary>
         public readonly string Name;
         /// <summary>

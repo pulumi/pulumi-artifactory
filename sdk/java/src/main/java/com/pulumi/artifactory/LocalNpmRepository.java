@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var terraform_local_test_npm_repo = new LocalNpmRepository("terraform-local-test-npm-repo", LocalNpmRepositoryArgs.builder()        
+ *         var terraform_local_test_npm_repo = new LocalNpmRepository("terraform-local-test-npm-repo", LocalNpmRepositoryArgs.builder()
  *             .key("terraform-local-test-npm-repo")
  *             .build());
  * 

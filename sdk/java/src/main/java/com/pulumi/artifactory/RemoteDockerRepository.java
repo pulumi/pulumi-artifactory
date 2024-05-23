@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var my_remote_docker = new RemoteDockerRepository("my-remote-docker", RemoteDockerRepositoryArgs.builder()        
+ *         var my_remote_docker = new RemoteDockerRepository("my-remote-docker", RemoteDockerRepositoryArgs.builder()
  *             .key("my-remote-docker")
  *             .externalDependenciesEnabled(true)
  *             .externalDependenciesPatterns("**{@literal /}registry-1.docker.io/**")

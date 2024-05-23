@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var terraform_federated_test_puppet_repo = new FederatedPuppetRepository("terraform-federated-test-puppet-repo", FederatedPuppetRepositoryArgs.builder()        
+ *         var terraform_federated_test_puppet_repo = new FederatedPuppetRepository("terraform-federated-test-puppet-repo", FederatedPuppetRepositoryArgs.builder()
  *             .key("terraform-federated-test-puppet-repo")
  *             .members(            
  *                 FederatedPuppetRepositoryMemberArgs.builder()

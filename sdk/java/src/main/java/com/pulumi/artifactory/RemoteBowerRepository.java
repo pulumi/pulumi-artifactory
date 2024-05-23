@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var my_remote_bower = new RemoteBowerRepository("my-remote-bower", RemoteBowerRepositoryArgs.builder()        
+ *         var my_remote_bower = new RemoteBowerRepository("my-remote-bower", RemoteBowerRepositoryArgs.builder()
  *             .key("my-remote-bower")
  *             .url("https://github.com/")
  *             .vcsGitProvider("GITHUB")

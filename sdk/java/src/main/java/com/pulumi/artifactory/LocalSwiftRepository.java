@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var terraform_local_test_swift_repo = new LocalSwiftRepository("terraform-local-test-swift-repo", LocalSwiftRepositoryArgs.builder()        
+ *         var terraform_local_test_swift_repo = new LocalSwiftRepository("terraform-local-test-swift-repo", LocalSwiftRepositoryArgs.builder()
  *             .key("terraform-local-test-swift-repo")
  *             .build());
  * 

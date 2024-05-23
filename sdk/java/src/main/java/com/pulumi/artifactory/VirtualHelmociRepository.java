@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var my_helmoci_virtual = new VirtualHelmociRepository("my-helmoci-virtual", VirtualHelmociRepositoryArgs.builder()        
+ *         var my_helmoci_virtual = new VirtualHelmociRepository("my-helmoci-virtual", VirtualHelmociRepositoryArgs.builder()
  *             .key("my-helmoci-virtual")
  *             .repositories()
  *             .description("A test virtual repo")

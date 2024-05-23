@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var terraform_federated_test_maven_repo = new FederatedMavenRepository("terraform-federated-test-maven-repo", FederatedMavenRepositoryArgs.builder()        
+ *         var terraform_federated_test_maven_repo = new FederatedMavenRepository("terraform-federated-test-maven-repo", FederatedMavenRepositoryArgs.builder()
  *             .key("terraform-federated-test-maven-repo")
  *             .members(            
  *                 FederatedMavenRepositoryMemberArgs.builder()

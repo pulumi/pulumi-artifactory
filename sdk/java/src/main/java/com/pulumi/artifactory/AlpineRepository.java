@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var some_keypairRSA = new Keypair("some-keypairRSA", KeypairArgs.builder()        
+ *         var some_keypairRSA = new Keypair("some-keypairRSA", KeypairArgs.builder()
  *             .pairName("some-keypair")
  *             .pairType("RSA")
  *             .alias("foo-alias")
@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  *                 .build()).result())
  *             .build());
  * 
- *         var terraform_local_test_alpine_repo_basic = new AlpineRepository("terraform-local-test-alpine-repo-basic", AlpineRepositoryArgs.builder()        
+ *         var terraform_local_test_alpine_repo_basic = new AlpineRepository("terraform-local-test-alpine-repo-basic", AlpineRepositoryArgs.builder()
  *             .key("terraform-local-test-alpine-repo-basic")
  *             .primaryKeypairRef(some_keypairRSA.pairName())
  *             .build(), CustomResourceOptions.builder()

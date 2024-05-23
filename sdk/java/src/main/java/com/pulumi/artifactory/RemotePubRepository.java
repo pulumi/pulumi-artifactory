@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var my_remote_pub = new RemotePubRepository("my-remote-pub", RemotePubRepositoryArgs.builder()        
+ *         var my_remote_pub = new RemotePubRepository("my-remote-pub", RemotePubRepositoryArgs.builder()
  *             .key("my-remote-pub")
  *             .url("https://pub.dartlang.org")
  *             .build());

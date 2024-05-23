@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo_gitlfs = new VirtualGitlfsRepository("foo-gitlfs", VirtualGitlfsRepositoryArgs.builder()        
+ *         var foo_gitlfs = new VirtualGitlfsRepository("foo-gitlfs", VirtualGitlfsRepositoryArgs.builder()
  *             .key("foo-gitlfs")
  *             .repositories()
  *             .description("A test virtual repo")

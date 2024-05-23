@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var my_key = new DistributionPublicKey("my-key", DistributionPublicKeyArgs.builder()        
+ *         var my_key = new DistributionPublicKey("my-key", DistributionPublicKeyArgs.builder()
  *             .alias("my-key")
  *             .publicKey(StdFunctions.file(FileArgs.builder()
  *                 .input("samples/rsa.pub")

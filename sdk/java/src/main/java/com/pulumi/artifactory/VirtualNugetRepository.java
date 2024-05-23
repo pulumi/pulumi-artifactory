@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo_nuget = new VirtualNugetRepository("foo-nuget", VirtualNugetRepositoryArgs.builder()        
+ *         var foo_nuget = new VirtualNugetRepository("foo-nuget", VirtualNugetRepositoryArgs.builder()
  *             .key("foo-nuget")
  *             .repositories()
  *             .description("A test virtual repo")

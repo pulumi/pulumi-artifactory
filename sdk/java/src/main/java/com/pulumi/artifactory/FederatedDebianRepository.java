@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var terraform_federated_test_debian_repo = new FederatedDebianRepository("terraform-federated-test-debian-repo", FederatedDebianRepositoryArgs.builder()        
+ *         var terraform_federated_test_debian_repo = new FederatedDebianRepository("terraform-federated-test-debian-repo", FederatedDebianRepositoryArgs.builder()
  *             .key("terraform-federated-test-debian-repo")
  *             .members(            
  *                 FederatedDebianRepositoryMemberArgs.builder()

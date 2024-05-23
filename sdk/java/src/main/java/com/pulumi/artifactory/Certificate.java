@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Create a new Artifactory certificate called my-cert
- *         var my_cert = new Certificate("my-cert", CertificateArgs.builder()        
+ *         var my_cert = new Certificate("my-cert", CertificateArgs.builder()
  *             .alias("my-cert")
  *             .content(StdFunctions.file(FileArgs.builder()
  *                 .input("/path/to/bundle.pem")
@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         // This can then be used by a remote repository
- *         var my_remote = new RemoteMavenRepository("my-remote", RemoteMavenRepositoryArgs.builder()        
+ *         var my_remote = new RemoteMavenRepository("my-remote", RemoteMavenRepositoryArgs.builder()
  *             .clientTlsCertificate(my_cert.alias())
  *             .build());
  * 

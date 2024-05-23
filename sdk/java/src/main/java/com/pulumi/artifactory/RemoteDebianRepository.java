@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var my_remote_debian = new RemoteDebianRepository("my-remote-debian", RemoteDebianRepositoryArgs.builder()        
+ *         var my_remote_debian = new RemoteDebianRepository("my-remote-debian", RemoteDebianRepositoryArgs.builder()
  *             .key("my-remote-Debian")
  *             .url("http://archive.ubuntu.com/ubuntu/")
  *             .build());

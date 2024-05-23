@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var build_webhook = new BuildWebhook("build-webhook", BuildWebhookArgs.builder()        
+ *         var build_webhook = new BuildWebhook("build-webhook", BuildWebhookArgs.builder()
  *             .key("build-webhook")
  *             .eventTypes(            
  *                 "uploaded",

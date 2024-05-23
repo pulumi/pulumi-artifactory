@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var some_keypair_6543461672124900137 = new Keypair("some-keypair-6543461672124900137", KeypairArgs.builder()        
+ *         var some_keypair_6543461672124900137 = new Keypair("some-keypair-6543461672124900137", KeypairArgs.builder()
  *             .pairName("some-keypair-6543461672124900137")
  *             .pairType("RSA")
  *             .alias("some-alias-6543461672124900137")

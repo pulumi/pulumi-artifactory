@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new DockerV1Repository("foo", DockerV1RepositoryArgs.builder()        
+ *         var foo = new DockerV1Repository("foo", DockerV1RepositoryArgs.builder()
  *             .key("foo")
  *             .build());
  * 

@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var custom_layout = new RepositoryLayout("custom-layout", RepositoryLayoutArgs.builder()        
+ *         var custom_layout = new RepositoryLayout("custom-layout", RepositoryLayoutArgs.builder()
  *             .name("custom-layout")
  *             .artifactPathPattern("[orgPath]/[module]/[baseRev](-[folderItegRev])/[module]-[baseRev](-[fileItegRev])(-[classifier]).[ext]")
  *             .distinctiveDescriptorPathPattern(true)
