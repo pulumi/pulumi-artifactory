@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var my_remote_go = new RemoteGoRepository("my-remote-go", RemoteGoRepositoryArgs.builder()        
+ *         var my_remote_go = new RemoteGoRepository("my-remote-go", RemoteGoRepositoryArgs.builder()
  *             .key("my-remote-go")
  *             .url("https://proxy.golang.org/")
  *             .vcsGitProvider("ARTIFACTORY")

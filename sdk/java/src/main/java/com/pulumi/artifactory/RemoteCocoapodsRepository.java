@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var my_remote_cocoapods = new RemoteCocoapodsRepository("my-remote-cocoapods", RemoteCocoapodsRepositoryArgs.builder()        
+ *         var my_remote_cocoapods = new RemoteCocoapodsRepository("my-remote-cocoapods", RemoteCocoapodsRepositoryArgs.builder()
  *             .key("my-remote-cocoapods")
  *             .url("https://github.com/")
  *             .vcsGitProvider("GITHUB")

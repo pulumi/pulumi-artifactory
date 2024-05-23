@@ -9649,8 +9649,10 @@ func (o PermissionTargetRepoPtrOutput) Repositories() pulumi.StringArrayOutput {
 }
 
 type PermissionTargetRepoActions struct {
+	// Groups this permission applies for.
 	Groups []PermissionTargetRepoActionsGroup `pulumi:"groups"`
-	Users  []PermissionTargetRepoActionsUser  `pulumi:"users"`
+	// Users this permission target applies for.
+	Users []PermissionTargetRepoActionsUser `pulumi:"users"`
 }
 
 // PermissionTargetRepoActionsInput is an input type that accepts PermissionTargetRepoActionsArgs and PermissionTargetRepoActionsOutput values.
@@ -9665,8 +9667,10 @@ type PermissionTargetRepoActionsInput interface {
 }
 
 type PermissionTargetRepoActionsArgs struct {
+	// Groups this permission applies for.
 	Groups PermissionTargetRepoActionsGroupArrayInput `pulumi:"groups"`
-	Users  PermissionTargetRepoActionsUserArrayInput  `pulumi:"users"`
+	// Users this permission target applies for.
+	Users PermissionTargetRepoActionsUserArrayInput `pulumi:"users"`
 }
 
 func (PermissionTargetRepoActionsArgs) ElementType() reflect.Type {
@@ -9746,10 +9750,12 @@ func (o PermissionTargetRepoActionsOutput) ToPermissionTargetRepoActionsPtrOutpu
 	}).(PermissionTargetRepoActionsPtrOutput)
 }
 
+// Groups this permission applies for.
 func (o PermissionTargetRepoActionsOutput) Groups() PermissionTargetRepoActionsGroupArrayOutput {
 	return o.ApplyT(func(v PermissionTargetRepoActions) []PermissionTargetRepoActionsGroup { return v.Groups }).(PermissionTargetRepoActionsGroupArrayOutput)
 }
 
+// Users this permission target applies for.
 func (o PermissionTargetRepoActionsOutput) Users() PermissionTargetRepoActionsUserArrayOutput {
 	return o.ApplyT(func(v PermissionTargetRepoActions) []PermissionTargetRepoActionsUser { return v.Users }).(PermissionTargetRepoActionsUserArrayOutput)
 }
@@ -9778,6 +9784,7 @@ func (o PermissionTargetRepoActionsPtrOutput) Elem() PermissionTargetRepoActions
 	}).(PermissionTargetRepoActionsOutput)
 }
 
+// Groups this permission applies for.
 func (o PermissionTargetRepoActionsPtrOutput) Groups() PermissionTargetRepoActionsGroupArrayOutput {
 	return o.ApplyT(func(v *PermissionTargetRepoActions) []PermissionTargetRepoActionsGroup {
 		if v == nil {
@@ -9787,6 +9794,7 @@ func (o PermissionTargetRepoActionsPtrOutput) Groups() PermissionTargetRepoActio
 	}).(PermissionTargetRepoActionsGroupArrayOutput)
 }
 
+// Users this permission target applies for.
 func (o PermissionTargetRepoActionsPtrOutput) Users() PermissionTargetRepoActionsUserArrayOutput {
 	return o.ApplyT(func(v *PermissionTargetRepoActions) []PermissionTargetRepoActionsUser {
 		if v == nil {
@@ -10007,7 +10015,7 @@ type PropertySetProperty struct {
 	ClosedPredefinedValues *bool `pulumi:"closedPredefinedValues"`
 	// Defines if user can select multiple values. `closedPredefinedValues` should be set to `true`. Default value is `false`.
 	MultipleChoice *bool `pulumi:"multipleChoice"`
-	// Predefined property name.
+	// The name pf the property.
 	Name string `pulumi:"name"`
 	// Properties in the property set.
 	PredefinedValues []PropertySetPropertyPredefinedValue `pulumi:"predefinedValues"`
@@ -10029,7 +10037,7 @@ type PropertySetPropertyArgs struct {
 	ClosedPredefinedValues pulumi.BoolPtrInput `pulumi:"closedPredefinedValues"`
 	// Defines if user can select multiple values. `closedPredefinedValues` should be set to `true`. Default value is `false`.
 	MultipleChoice pulumi.BoolPtrInput `pulumi:"multipleChoice"`
-	// Predefined property name.
+	// The name pf the property.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Properties in the property set.
 	PredefinedValues PropertySetPropertyPredefinedValueArrayInput `pulumi:"predefinedValues"`
@@ -10096,7 +10104,7 @@ func (o PropertySetPropertyOutput) MultipleChoice() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PropertySetProperty) *bool { return v.MultipleChoice }).(pulumi.BoolPtrOutput)
 }
 
-// Predefined property name.
+// The name pf the property.
 func (o PropertySetPropertyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PropertySetProperty) string { return v.Name }).(pulumi.StringOutput)
 }

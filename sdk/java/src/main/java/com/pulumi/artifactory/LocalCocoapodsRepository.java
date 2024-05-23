@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var terraform_local_test_cocoapods_repo = new LocalCocoapodsRepository("terraform-local-test-cocoapods-repo", LocalCocoapodsRepositoryArgs.builder()        
+ *         var terraform_local_test_cocoapods_repo = new LocalCocoapodsRepository("terraform-local-test-cocoapods-repo", LocalCocoapodsRepositoryArgs.builder()
  *             .key("terraform-local-test-cocoapods-repo")
  *             .build());
  * 

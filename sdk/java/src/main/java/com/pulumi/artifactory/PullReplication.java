@@ -54,18 +54,18 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Create a replication between two artifactory local repositories
- *         var providerTestSource = new LocalMavenRepository("providerTestSource", LocalMavenRepositoryArgs.builder()        
+ *         var providerTestSource = new LocalMavenRepository("providerTestSource", LocalMavenRepositoryArgs.builder()
  *             .key("provider_test_source")
  *             .build());
  * 
- *         var providerTestDest = new RemoteMavenRepository("providerTestDest", RemoteMavenRepositoryArgs.builder()        
+ *         var providerTestDest = new RemoteMavenRepository("providerTestDest", RemoteMavenRepositoryArgs.builder()
  *             .key("provider_test_dest")
  *             .url(String.format("https://example.com/artifactory/%s", artifactoryLocalMavenRepository.key()))
  *             .username("foo")
  *             .password("bar")
  *             .build());
  * 
- *         var remote_rep = new PullReplication("remote-rep", PullReplicationArgs.builder()        
+ *         var remote_rep = new PullReplication("remote-rep", PullReplicationArgs.builder()
  *             .repoKey(providerTestDest.key())
  *             .cronExp("0 0 * * * ?")
  *             .enableEventReplication(true)

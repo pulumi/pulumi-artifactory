@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var distribution_webhook = new DistributionWebhook("distribution-webhook", DistributionWebhookArgs.builder()        
+ *         var distribution_webhook = new DistributionWebhook("distribution-webhook", DistributionWebhookArgs.builder()
  *             .key("distribution-webhook")
  *             .eventTypes(            
  *                 "distribute_started",

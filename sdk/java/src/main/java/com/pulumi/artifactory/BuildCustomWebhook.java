@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var build_custom_webhook = new BuildCustomWebhook("build-custom-webhook", BuildCustomWebhookArgs.builder()        
+ *         var build_custom_webhook = new BuildCustomWebhook("build-custom-webhook", BuildCustomWebhookArgs.builder()
  *             .key("build-custom-webhook")
  *             .eventTypes(            
  *                 "uploaded",

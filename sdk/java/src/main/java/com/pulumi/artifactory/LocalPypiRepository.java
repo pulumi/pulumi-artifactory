@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var terraform_local_test_pypi_repo = new LocalPypiRepository("terraform-local-test-pypi-repo", LocalPypiRepositoryArgs.builder()        
+ *         var terraform_local_test_pypi_repo = new LocalPypiRepository("terraform-local-test-pypi-repo", LocalPypiRepositoryArgs.builder()
  *             .key("terraform-local-test-pypi-repo")
  *             .build());
  * 

@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var gradle_remote = new RemoteGradleRepository("gradle-remote", RemoteGradleRepositoryArgs.builder()        
+ *         var gradle_remote = new RemoteGradleRepository("gradle-remote", RemoteGradleRepositoryArgs.builder()
  *             .key("gradle-remote-foo")
  *             .url("https://repo1.maven.org/maven2/")
  *             .fetchJarsEagerly(true)

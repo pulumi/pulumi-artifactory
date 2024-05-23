@@ -42,7 +42,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var terraform_virtual = new VirtualTerraformRepository("terraform-virtual", VirtualTerraformRepositoryArgs.builder()        
+ *         var terraform_virtual = new VirtualTerraformRepository("terraform-virtual", VirtualTerraformRepositoryArgs.builder()
  *             .key("terraform-remote")
  *             .repositories()
  *             .description("A test virtual repo")

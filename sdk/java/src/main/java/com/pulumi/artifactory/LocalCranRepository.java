@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var terraform_local_test_cran_repo = new LocalCranRepository("terraform-local-test-cran-repo", LocalCranRepositoryArgs.builder()        
+ *         var terraform_local_test_cran_repo = new LocalCranRepository("terraform-local-test-cran-repo", LocalCranRepositoryArgs.builder()
  *             .key("terraform-local-test-cran-repo")
  *             .build());
  * 

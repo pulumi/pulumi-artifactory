@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var terraform_federated_test_cran_repo = new FederatedCranRepository("terraform-federated-test-cran-repo", FederatedCranRepositoryArgs.builder()        
+ *         var terraform_federated_test_cran_repo = new FederatedCranRepository("terraform-federated-test-cran-repo", FederatedCranRepositoryArgs.builder()
  *             .key("terraform-federated-test-cran-repo")
  *             .members(            
  *                 FederatedCranRepositoryMemberArgs.builder()

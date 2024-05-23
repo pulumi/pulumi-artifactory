@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var my_helmoci_federated = new FederatedHelmociRepository("my-helmoci-federated", FederatedHelmociRepositoryArgs.builder()        
+ *         var my_helmoci_federated = new FederatedHelmociRepository("my-helmoci-federated", FederatedHelmociRepositoryArgs.builder()
  *             .key("my-helmoci-federated")
  *             .members(            
  *                 FederatedHelmociRepositoryMemberArgs.builder()

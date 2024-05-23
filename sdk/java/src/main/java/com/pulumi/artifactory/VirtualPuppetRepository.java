@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo_puppet = new VirtualPuppetRepository("foo-puppet", VirtualPuppetRepositoryArgs.builder()        
+ *         var foo_puppet = new VirtualPuppetRepository("foo-puppet", VirtualPuppetRepositoryArgs.builder()
  *             .key("foo-puppet")
  *             .repositories()
  *             .description("A test virtual repo")

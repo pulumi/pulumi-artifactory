@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var terraform_local_test_nuget_repo_basic = new LocalNugetRepository("terraform-local-test-nuget-repo-basic", LocalNugetRepositoryArgs.builder()        
+ *         var terraform_local_test_nuget_repo_basic = new LocalNugetRepository("terraform-local-test-nuget-repo-basic", LocalNugetRepositoryArgs.builder()
  *             .key("terraform-local-test-nuget-repo-basic")
  *             .maxUniqueSnapshots(5)
  *             .forceNugetAuthentication(true)

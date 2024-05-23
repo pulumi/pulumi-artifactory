@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var ldapName = new LdapSettingV2("ldapName", LdapSettingV2Args.builder()        
+ *         var ldapName = new LdapSettingV2("ldapName", LdapSettingV2Args.builder()
  *             .key("ldap_name")
  *             .enabled(true)
  *             .ldapUrl("ldap://ldap_server_url")

@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var my_remote_composer = new RemoteComposerRepository("my-remote-composer", RemoteComposerRepositoryArgs.builder()        
+ *         var my_remote_composer = new RemoteComposerRepository("my-remote-composer", RemoteComposerRepositoryArgs.builder()
  *             .key("my-remote-composer")
  *             .url("https://github.com/")
  *             .vcsGitProvider("GITHUB")

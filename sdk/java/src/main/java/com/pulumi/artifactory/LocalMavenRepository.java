@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var terraform_local_test_maven_repo_basic = new LocalMavenRepository("terraform-local-test-maven-repo-basic", LocalMavenRepositoryArgs.builder()        
+ *         var terraform_local_test_maven_repo_basic = new LocalMavenRepository("terraform-local-test-maven-repo-basic", LocalMavenRepositoryArgs.builder()
  *             .key("terraform-local-test-maven-repo-basic")
  *             .checksumPolicyType("client-checksums")
  *             .snapshotVersionBehavior("unique")

@@ -49,18 +49,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var bar = new LocalMavenRepository("bar", LocalMavenRepositoryArgs.builder()        
+ *         var bar = new LocalMavenRepository("bar", LocalMavenRepositoryArgs.builder()
  *             .key("bar")
  *             .repoLayoutRef("maven-2-default")
  *             .build());
  * 
- *         var baz = new RemoteMavenRepository("baz", RemoteMavenRepositoryArgs.builder()        
+ *         var baz = new RemoteMavenRepository("baz", RemoteMavenRepositoryArgs.builder()
  *             .key("baz")
  *             .url("https://search.maven.com/")
  *             .repoLayoutRef("maven-2-default")
  *             .build());
  * 
- *         var maven_virt_repo = new MavenRepository("maven-virt-repo", MavenRepositoryArgs.builder()        
+ *         var maven_virt_repo = new MavenRepository("maven-virt-repo", MavenRepositoryArgs.builder()
  *             .key("maven-virt-repo")
  *             .repoLayoutRef("maven-2-default")
  *             .repositories(            

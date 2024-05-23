@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var my_remote_puppet = new RemotePuppetRepository("my-remote-puppet", RemotePuppetRepositoryArgs.builder()        
+ *         var my_remote_puppet = new RemotePuppetRepository("my-remote-puppet", RemotePuppetRepositoryArgs.builder()
  *             .key("my-remote-puppet")
  *             .url("https://forgeapi.puppetlabs.com/")
  *             .build());

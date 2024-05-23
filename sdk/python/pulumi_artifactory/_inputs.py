@@ -4320,6 +4320,10 @@ class PermissionTargetRepoActionsArgs:
     def __init__(__self__, *,
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input['PermissionTargetRepoActionsGroupArgs']]]] = None,
                  users: Optional[pulumi.Input[Sequence[pulumi.Input['PermissionTargetRepoActionsUserArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['PermissionTargetRepoActionsGroupArgs']]] groups: Groups this permission applies for.
+        :param pulumi.Input[Sequence[pulumi.Input['PermissionTargetRepoActionsUserArgs']]] users: Users this permission target applies for.
+        """
         if groups is not None:
             pulumi.set(__self__, "groups", groups)
         if users is not None:
@@ -4328,6 +4332,9 @@ class PermissionTargetRepoActionsArgs:
     @property
     @pulumi.getter
     def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PermissionTargetRepoActionsGroupArgs']]]]:
+        """
+        Groups this permission applies for.
+        """
         return pulumi.get(self, "groups")
 
     @groups.setter
@@ -4337,6 +4344,9 @@ class PermissionTargetRepoActionsArgs:
     @property
     @pulumi.getter
     def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PermissionTargetRepoActionsUserArgs']]]]:
+        """
+        Users this permission target applies for.
+        """
         return pulumi.get(self, "users")
 
     @users.setter
@@ -4418,7 +4428,7 @@ class PropertySetPropertyArgs:
                  multiple_choice: Optional[pulumi.Input[bool]] = None,
                  predefined_values: Optional[pulumi.Input[Sequence[pulumi.Input['PropertySetPropertyPredefinedValueArgs']]]] = None):
         """
-        :param pulumi.Input[str] name: Predefined property name.
+        :param pulumi.Input[str] name: The name pf the property.
         :param pulumi.Input[bool] closed_predefined_values: Disables `multiple_choice` if set to `false` at the same time with multiple_choice set to `true`. Default value is `false`
         :param pulumi.Input[bool] multiple_choice: Defines if user can select multiple values. `closed_predefined_values` should be set to `true`. Default value is `false`.
         :param pulumi.Input[Sequence[pulumi.Input['PropertySetPropertyPredefinedValueArgs']]] predefined_values: Properties in the property set.
@@ -4435,7 +4445,7 @@ class PropertySetPropertyArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Predefined property name.
+        The name pf the property.
         """
         return pulumi.get(self, "name")
 

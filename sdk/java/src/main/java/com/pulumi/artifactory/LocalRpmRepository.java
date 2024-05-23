@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var some_keypair_gpg_1 = new Keypair("some-keypair-gpg-1", KeypairArgs.builder()        
+ *         var some_keypair_gpg_1 = new Keypair("some-keypair-gpg-1", KeypairArgs.builder()
  *             .pairName(String.format("some-keypair%s", randid.id()))
  *             .pairType("GPG")
  *             .alias("foo-alias1")
@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  *                 .build()).result())
  *             .build());
  * 
- *         var some_keypair_gpg_2 = new Keypair("some-keypair-gpg-2", KeypairArgs.builder()        
+ *         var some_keypair_gpg_2 = new Keypair("some-keypair-gpg-2", KeypairArgs.builder()
  *             .pairName(String.format("some-keypair%s", randid.id()))
  *             .pairType("GPG")
  *             .alias("foo-alias2")
@@ -72,7 +72,7 @@ import javax.annotation.Nullable;
  *                 .build()).result())
  *             .build());
  * 
- *         var terraform_local_test_rpm_repo_basic = new LocalRpmRepository("terraform-local-test-rpm-repo-basic", LocalRpmRepositoryArgs.builder()        
+ *         var terraform_local_test_rpm_repo_basic = new LocalRpmRepository("terraform-local-test-rpm-repo-basic", LocalRpmRepositoryArgs.builder()
  *             .key("terraform-local-test-rpm-repo-basic")
  *             .yumRootDepth(5)
  *             .calculateYumMetadata(true)

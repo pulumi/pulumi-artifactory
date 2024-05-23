@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var my_remote_conda = new RemoteCondaRepository("my-remote-conda", RemoteCondaRepositoryArgs.builder()        
+ *         var my_remote_conda = new RemoteCondaRepository("my-remote-conda", RemoteCondaRepositoryArgs.builder()
  *             .key("my-remote-conda")
  *             .url("https://repo.anaconda.com/pkgs/main")
  *             .build());

@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var terraform_local_test_gems_repo = new LocalGemsRepository("terraform-local-test-gems-repo", LocalGemsRepositoryArgs.builder()        
+ *         var terraform_local_test_gems_repo = new LocalGemsRepository("terraform-local-test-gems-repo", LocalGemsRepositoryArgs.builder()
  *             .key("terraform-local-test-gems-repo")
  *             .build());
  * 

@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var terraform_local_test_vagrant_repo = new LocalVagrantRepository("terraform-local-test-vagrant-repo", LocalVagrantRepositoryArgs.builder()        
+ *         var terraform_local_test_vagrant_repo = new LocalVagrantRepository("terraform-local-test-vagrant-repo", LocalVagrantRepositoryArgs.builder()
  *             .key("terraform-local-test-vagrant-repo")
  *             .build());
  * 

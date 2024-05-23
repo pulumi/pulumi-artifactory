@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo_composer = new VirtualComposerRepository("foo-composer", VirtualComposerRepositoryArgs.builder()        
+ *         var foo_composer = new VirtualComposerRepository("foo-composer", VirtualComposerRepositoryArgs.builder()
  *             .key("foo-composer")
  *             .repositories()
  *             .description("A test virtual repo")

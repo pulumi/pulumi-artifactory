@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Configure Artifactory Backup system config
- *         var backupConfigName = new Backup("backupConfigName", BackupArgs.builder()        
+ *         var backupConfigName = new Backup("backupConfigName", BackupArgs.builder()
  *             .key("backup_config_name")
  *             .enabled(true)
  *             .cronExp("0 0 12 * * ? *")

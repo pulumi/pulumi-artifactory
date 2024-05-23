@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var terraform_federated_test_npm_repo = new FederatedNpmRepository("terraform-federated-test-npm-repo", FederatedNpmRepositoryArgs.builder()        
+ *         var terraform_federated_test_npm_repo = new FederatedNpmRepository("terraform-federated-test-npm-repo", FederatedNpmRepositoryArgs.builder()
  *             .key("terraform-federated-test-npm-repo")
  *             .members(            
  *                 FederatedNpmRepositoryMemberArgs.builder()

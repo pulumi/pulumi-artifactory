@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var terraform_federated_test_docker_repo = new FederatedDockerRepository("terraform-federated-test-docker-repo", FederatedDockerRepositoryArgs.builder()        
+ *         var terraform_federated_test_docker_repo = new FederatedDockerRepository("terraform-federated-test-docker-repo", FederatedDockerRepositoryArgs.builder()
  *             .key("terraform-federated-test-docker-repo")
  *             .members(            
  *                 FederatedDockerRepositoryMemberArgs.builder()

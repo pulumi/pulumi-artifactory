@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo_debian = new VirtualDebianRepository("foo-debian", VirtualDebianRepositoryArgs.builder()        
+ *         var foo_debian = new VirtualDebianRepository("foo-debian", VirtualDebianRepositoryArgs.builder()
  *             .key("foo-debian")
  *             .repositories()
  *             .description("A test virtual repo")
