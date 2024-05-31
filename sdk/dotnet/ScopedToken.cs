@@ -15,7 +15,7 @@ namespace Pulumi.Artifactory
     /// !&gt;Scoped Tokens will be stored in the raw state as plain-text. Read more about sensitive data in
     /// state.
     /// 
-    /// ~&gt;Token would not be saved by Artifactory if `expires_in` is less than the persistency threshold value (default to 10800 seconds) set in Access configuration. See [Persistency Threshold](https://jfrog.com/help/r/jfrog-platform-administration-documentation/using-the-revocable-and-persistency-thresholds) for details.
+    /// ~&gt;Token would not be saved by Artifactory if `expires_in` is less than the persistency threshold value (default to 10800 seconds) set in Access configuration. See [Persistency Threshold](https://jfrog.com/help/r/jfrog-platform-administration-documentation/persistency-threshold) for details.
     /// 
     /// ## Example Usage
     /// 
@@ -142,8 +142,7 @@ namespace Pulumi.Artifactory
         /// documentation](https://jfrog.com/help/r/jfrog-rest-apis/revoke-token-by-id) for details. Access Token would not be saved
         /// by Artifactory if this is less than the persistence threshold value (default to 10800 seconds) set in Access
         /// configuration. See [official
-        /// documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/using-the-revocable-and-persistency-thresholds)
-        /// for details.
+        /// documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/persistency-threshold) for details.
         /// </summary>
         [Output("expiresIn")]
         public Output<int> ExpiresIn { get; private set; } = null!;
@@ -329,8 +328,7 @@ namespace Pulumi.Artifactory
         /// documentation](https://jfrog.com/help/r/jfrog-rest-apis/revoke-token-by-id) for details. Access Token would not be saved
         /// by Artifactory if this is less than the persistence threshold value (default to 10800 seconds) set in Access
         /// configuration. See [official
-        /// documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/using-the-revocable-and-persistency-thresholds)
-        /// for details.
+        /// documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/persistency-threshold) for details.
         /// </summary>
         [Input("expiresIn")]
         public Input<int>? ExpiresIn { get; set; }
@@ -452,8 +450,7 @@ namespace Pulumi.Artifactory
         /// documentation](https://jfrog.com/help/r/jfrog-rest-apis/revoke-token-by-id) for details. Access Token would not be saved
         /// by Artifactory if this is less than the persistence threshold value (default to 10800 seconds) set in Access
         /// configuration. See [official
-        /// documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/using-the-revocable-and-persistency-thresholds)
-        /// for details.
+        /// documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/persistency-threshold) for details.
         /// </summary>
         [Input("expiresIn")]
         public Input<int>? ExpiresIn { get; set; }

@@ -16,7 +16,7 @@ import (
 // !>Scoped Tokens will be stored in the raw state as plain-text. Read more about sensitive data in
 // state.
 //
-// ~>Token would not be saved by Artifactory if `expiresIn` is less than the persistency threshold value (default to 10800 seconds) set in Access configuration. See [Persistency Threshold](https://jfrog.com/help/r/jfrog-platform-administration-documentation/using-the-revocable-and-persistency-thresholds) for details.
+// ~>Token would not be saved by Artifactory if `expiresIn` is less than the persistency threshold value (default to 10800 seconds) set in Access configuration. See [Persistency Threshold](https://jfrog.com/help/r/jfrog-platform-administration-documentation/persistency-threshold) for details.
 //
 // ## Example Usage
 //
@@ -138,8 +138,7 @@ type ScopedToken struct {
 	// documentation](https://jfrog.com/help/r/jfrog-rest-apis/revoke-token-by-id) for details. Access Token would not be saved
 	// by Artifactory if this is less than the persistence threshold value (default to 10800 seconds) set in Access
 	// configuration. See [official
-	// documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/using-the-revocable-and-persistency-thresholds)
-	// for details.
+	// documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/persistency-threshold) for details.
 	ExpiresIn pulumi.IntOutput `pulumi:"expiresIn"`
 	// Returns the token expiry.
 	Expiry pulumi.IntOutput `pulumi:"expiry"`
@@ -243,8 +242,7 @@ type scopedTokenState struct {
 	// documentation](https://jfrog.com/help/r/jfrog-rest-apis/revoke-token-by-id) for details. Access Token would not be saved
 	// by Artifactory if this is less than the persistence threshold value (default to 10800 seconds) set in Access
 	// configuration. See [official
-	// documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/using-the-revocable-and-persistency-thresholds)
-	// for details.
+	// documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/persistency-threshold) for details.
 	ExpiresIn *int `pulumi:"expiresIn"`
 	// Returns the token expiry.
 	Expiry *int `pulumi:"expiry"`
@@ -313,8 +311,7 @@ type ScopedTokenState struct {
 	// documentation](https://jfrog.com/help/r/jfrog-rest-apis/revoke-token-by-id) for details. Access Token would not be saved
 	// by Artifactory if this is less than the persistence threshold value (default to 10800 seconds) set in Access
 	// configuration. See [official
-	// documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/using-the-revocable-and-persistency-thresholds)
-	// for details.
+	// documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/persistency-threshold) for details.
 	ExpiresIn pulumi.IntPtrInput
 	// Returns the token expiry.
 	Expiry pulumi.IntPtrInput
@@ -385,8 +382,7 @@ type scopedTokenArgs struct {
 	// documentation](https://jfrog.com/help/r/jfrog-rest-apis/revoke-token-by-id) for details. Access Token would not be saved
 	// by Artifactory if this is less than the persistence threshold value (default to 10800 seconds) set in Access
 	// configuration. See [official
-	// documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/using-the-revocable-and-persistency-thresholds)
-	// for details.
+	// documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/persistency-threshold) for details.
 	ExpiresIn *int `pulumi:"expiresIn"`
 	// The grant type used to authenticate the request. In this case, the only value supported is `clientCredentials` which is
 	// also the default value if this parameter is not specified.
@@ -440,8 +436,7 @@ type ScopedTokenArgs struct {
 	// documentation](https://jfrog.com/help/r/jfrog-rest-apis/revoke-token-by-id) for details. Access Token would not be saved
 	// by Artifactory if this is less than the persistence threshold value (default to 10800 seconds) set in Access
 	// configuration. See [official
-	// documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/using-the-revocable-and-persistency-thresholds)
-	// for details.
+	// documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/persistency-threshold) for details.
 	ExpiresIn pulumi.IntPtrInput
 	// The grant type used to authenticate the request. In this case, the only value supported is `clientCredentials` which is
 	// also the default value if this parameter is not specified.
@@ -591,8 +586,7 @@ func (o ScopedTokenOutput) Description() pulumi.StringOutput {
 // documentation](https://jfrog.com/help/r/jfrog-rest-apis/revoke-token-by-id) for details. Access Token would not be saved
 // by Artifactory if this is less than the persistence threshold value (default to 10800 seconds) set in Access
 // configuration. See [official
-// documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/using-the-revocable-and-persistency-thresholds)
-// for details.
+// documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/persistency-threshold) for details.
 func (o ScopedTokenOutput) ExpiresIn() pulumi.IntOutput {
 	return o.ApplyT(func(v *ScopedToken) pulumi.IntOutput { return v.ExpiresIn }).(pulumi.IntOutput)
 }
