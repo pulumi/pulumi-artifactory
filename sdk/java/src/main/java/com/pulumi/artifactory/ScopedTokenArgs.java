@@ -61,8 +61,7 @@ public final class ScopedTokenArgs extends com.pulumi.resources.ResourceArgs {
      * documentation](https://jfrog.com/help/r/jfrog-rest-apis/revoke-token-by-id) for details. Access Token would not be saved
      * by Artifactory if this is less than the persistence threshold value (default to 10800 seconds) set in Access
      * configuration. See [official
-     * documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/using-the-revocable-and-persistency-thresholds)
-     * for details.
+     * documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/persistency-threshold) for details.
      * 
      */
     @Import(name="expiresIn")
@@ -75,8 +74,7 @@ public final class ScopedTokenArgs extends com.pulumi.resources.ResourceArgs {
      * documentation](https://jfrog.com/help/r/jfrog-rest-apis/revoke-token-by-id) for details. Access Token would not be saved
      * by Artifactory if this is less than the persistence threshold value (default to 10800 seconds) set in Access
      * configuration. See [official
-     * documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/using-the-revocable-and-persistency-thresholds)
-     * for details.
+     * documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/persistency-threshold) for details.
      * 
      */
     public Optional<Output<Integer>> expiresIn() {
@@ -319,8 +317,7 @@ public final class ScopedTokenArgs extends com.pulumi.resources.ResourceArgs {
          * documentation](https://jfrog.com/help/r/jfrog-rest-apis/revoke-token-by-id) for details. Access Token would not be saved
          * by Artifactory if this is less than the persistence threshold value (default to 10800 seconds) set in Access
          * configuration. See [official
-         * documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/using-the-revocable-and-persistency-thresholds)
-         * for details.
+         * documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/persistency-threshold) for details.
          * 
          * @return builder
          * 
@@ -337,8 +334,7 @@ public final class ScopedTokenArgs extends com.pulumi.resources.ResourceArgs {
          * documentation](https://jfrog.com/help/r/jfrog-rest-apis/revoke-token-by-id) for details. Access Token would not be saved
          * by Artifactory if this is less than the persistence threshold value (default to 10800 seconds) set in Access
          * configuration. See [official
-         * documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/using-the-revocable-and-persistency-thresholds)
-         * for details.
+         * documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/persistency-threshold) for details.
          * 
          * @return builder
          * 

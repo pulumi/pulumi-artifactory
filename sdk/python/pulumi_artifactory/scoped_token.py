@@ -36,8 +36,7 @@ class ScopedTokenArgs:
                documentation](https://jfrog.com/help/r/jfrog-rest-apis/revoke-token-by-id) for details. Access Token would not be saved
                by Artifactory if this is less than the persistence threshold value (default to 10800 seconds) set in Access
                configuration. See [official
-               documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/using-the-revocable-and-persistency-thresholds)
-               for details.
+               documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/persistency-threshold) for details.
         :param pulumi.Input[str] grant_type: The grant type used to authenticate the request. In this case, the only value supported is `client_credentials` which is
                also the default value if this parameter is not specified.
         :param pulumi.Input[bool] include_reference_token: Also create a reference token which can be used like an API key. Default is `false`.
@@ -124,8 +123,7 @@ class ScopedTokenArgs:
         documentation](https://jfrog.com/help/r/jfrog-rest-apis/revoke-token-by-id) for details. Access Token would not be saved
         by Artifactory if this is less than the persistence threshold value (default to 10800 seconds) set in Access
         configuration. See [official
-        documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/using-the-revocable-and-persistency-thresholds)
-        for details.
+        documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/persistency-threshold) for details.
         """
         return pulumi.get(self, "expires_in")
 
@@ -263,8 +261,7 @@ class _ScopedTokenState:
                documentation](https://jfrog.com/help/r/jfrog-rest-apis/revoke-token-by-id) for details. Access Token would not be saved
                by Artifactory if this is less than the persistence threshold value (default to 10800 seconds) set in Access
                configuration. See [official
-               documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/using-the-revocable-and-persistency-thresholds)
-               for details.
+               documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/persistency-threshold) for details.
         :param pulumi.Input[int] expiry: Returns the token expiry.
         :param pulumi.Input[str] grant_type: The grant type used to authenticate the request. In this case, the only value supported is `client_credentials` which is
                also the default value if this parameter is not specified.
@@ -386,8 +383,7 @@ class _ScopedTokenState:
         documentation](https://jfrog.com/help/r/jfrog-rest-apis/revoke-token-by-id) for details. Access Token would not be saved
         by Artifactory if this is less than the persistence threshold value (default to 10800 seconds) set in Access
         configuration. See [official
-        documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/using-the-revocable-and-persistency-thresholds)
-        for details.
+        documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/persistency-threshold) for details.
         """
         return pulumi.get(self, "expires_in")
 
@@ -596,7 +592,7 @@ class ScopedToken(pulumi.CustomResource):
         !>Scoped Tokens will be stored in the raw state as plain-text. Read more about sensitive data in
         state.
 
-        ~>Token would not be saved by Artifactory if `expires_in` is less than the persistency threshold value (default to 10800 seconds) set in Access configuration. See [Persistency Threshold](https://jfrog.com/help/r/jfrog-platform-administration-documentation/using-the-revocable-and-persistency-thresholds) for details.
+        ~>Token would not be saved by Artifactory if `expires_in` is less than the persistency threshold value (default to 10800 seconds) set in Access configuration. See [Persistency Threshold](https://jfrog.com/help/r/jfrog-platform-administration-documentation/persistency-threshold) for details.
 
         ## Example Usage
 
@@ -658,8 +654,7 @@ class ScopedToken(pulumi.CustomResource):
                documentation](https://jfrog.com/help/r/jfrog-rest-apis/revoke-token-by-id) for details. Access Token would not be saved
                by Artifactory if this is less than the persistence threshold value (default to 10800 seconds) set in Access
                configuration. See [official
-               documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/using-the-revocable-and-persistency-thresholds)
-               for details.
+               documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/persistency-threshold) for details.
         :param pulumi.Input[str] grant_type: The grant type used to authenticate the request. In this case, the only value supported is `client_credentials` which is
                also the default value if this parameter is not specified.
         :param pulumi.Input[bool] include_reference_token: Also create a reference token which can be used like an API key. Default is `false`.
@@ -702,7 +697,7 @@ class ScopedToken(pulumi.CustomResource):
         !>Scoped Tokens will be stored in the raw state as plain-text. Read more about sensitive data in
         state.
 
-        ~>Token would not be saved by Artifactory if `expires_in` is less than the persistency threshold value (default to 10800 seconds) set in Access configuration. See [Persistency Threshold](https://jfrog.com/help/r/jfrog-platform-administration-documentation/using-the-revocable-and-persistency-thresholds) for details.
+        ~>Token would not be saved by Artifactory if `expires_in` is less than the persistency threshold value (default to 10800 seconds) set in Access configuration. See [Persistency Threshold](https://jfrog.com/help/r/jfrog-platform-administration-documentation/persistency-threshold) for details.
 
         ## Example Usage
 
@@ -849,8 +844,7 @@ class ScopedToken(pulumi.CustomResource):
                documentation](https://jfrog.com/help/r/jfrog-rest-apis/revoke-token-by-id) for details. Access Token would not be saved
                by Artifactory if this is less than the persistence threshold value (default to 10800 seconds) set in Access
                configuration. See [official
-               documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/using-the-revocable-and-persistency-thresholds)
-               for details.
+               documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/persistency-threshold) for details.
         :param pulumi.Input[int] expiry: Returns the token expiry.
         :param pulumi.Input[str] grant_type: The grant type used to authenticate the request. In this case, the only value supported is `client_credentials` which is
                also the default value if this parameter is not specified.
@@ -948,8 +942,7 @@ class ScopedToken(pulumi.CustomResource):
         documentation](https://jfrog.com/help/r/jfrog-rest-apis/revoke-token-by-id) for details. Access Token would not be saved
         by Artifactory if this is less than the persistence threshold value (default to 10800 seconds) set in Access
         configuration. See [official
-        documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/using-the-revocable-and-persistency-thresholds)
-        for details.
+        documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/persistency-threshold) for details.
         """
         return pulumi.get(self, "expires_in")
 
