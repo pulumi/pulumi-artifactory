@@ -18,6 +18,7 @@ import (
 	"context"
 	"fmt"
 	"path/filepath"
+	"strconv"
 
 	// embed is used to store bridge-metadata.json in the compiled binary
 	_ "embed"
@@ -46,35 +47,8 @@ const (
 //go:embed cmd/pulumi-resource-artifactory/bridge-metadata.json
 var bridgeMetadata []byte
 
-type computeIDFunc = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error)
-
-func computeIDField(field resource.PropertyKey) computeIDFunc {
-	return func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
-		fieldValue, ok := state[field]
-		if !ok {
-			return "", fmt.Errorf("id: could not find required property '%s'", field)
-		}
-
-		// ComputeID is only called during when preview=false, so we don't need to
-		// deal with computed properties.
-
-		if fieldValue.IsSecret() || (fieldValue.IsOutput() && fieldValue.OutputValue().Secret) {
-			msg := fmt.Sprintf("Setting non-secret resource ID as '%s' (which is secret)", field)
-			tfbridge.GetLogger(ctx).Warn(msg)
-			if fieldValue.IsSecret() {
-				fieldValue = fieldValue.SecretValue().Element
-			} else {
-				fieldValue = fieldValue.OutputValue().Element
-			}
-		}
-
-		if !fieldValue.IsString() {
-			return "", fmt.Errorf("expected '%s' to be of type string, found %s",
-				field, fieldValue.TypeString())
-		}
-
-		return resource.ID(fieldValue.StringValue()), nil
-	}
+func computeIDField(field resource.PropertyKey) tfbridge.ComputeID {
+	return tfbridge.DelegateIDField(field, "artifactory", "https://github.com/pulumi/pulumi-artifactory")
 }
 
 // Provider returns additional overlaid schema and metadata associated with the provider..
@@ -118,7 +92,39 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 
-			"artifactory_backup": {ComputeID: computeIDField("key")},
+			"artifactory_backup":                  {ComputeID: computeIDField("key")},
+			"artifactory_property_set":            {ComputeID: computeIDField("name")},
+			"artifactory_proxy":                   {ComputeID: computeIDField("key")},
+			"artifactory_distribution_public_key": {ComputeID: computeIDField("keyId")},
+			"artifactory_mail_server": {ComputeID: func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
+				host, err := computeIDField("host")(ctx, state)
+				if err != nil {
+					return "", err
+				}
+				if state["port"].IsNumber() {
+					return resource.ID(host.String() + ":" + strconv.FormatFloat(state["port"].NumberValue(), 'f', -1, 64)), nil
+				}
+				return host, nil
+			}},
+			"artifactory_repository_layout": {
+				ComputeID: computeIDField("name"),
+				Docs:      &tfbridge.DocInfo{AllowMissing: true},
+			},
+			"artifactory_user_lock_policy":           {ComputeID: computeIDField("name")},
+			"artifactory_certificate":                {ComputeID: computeIDField("alias")},
+			"artifactory_keypair":                    {ComputeID: computeIDField("pairName")},
+			"artifactory_password_expiration_policy": {ComputeID: computeIDField("name")},
+			"artifactory_artifact": {ComputeID: func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
+				path, err := computeIDField("path")(ctx, state)
+				if err != nil {
+					return "", err
+				}
+				repository, err := computeIDField("repository")(ctx, state)
+				if err != nil {
+					return "", err
+				}
+				return resource.ID(path.String() + "@" + repository.String()), nil
+			}},
 
 			// Old Manual Mappings.
 			//
@@ -133,8 +139,6 @@ func Provider() tfbridge.ProviderInfo {
 			"artifactory_virtual_go_repository":             {Tok: makeResource("GoRepository")},
 			"artifactory_virtual_maven_repository":          {Tok: makeResource("MavenRepository")},
 			"artifactory_local_terraformbackend_repository": {Tok: makeResource("LocalTerraformBackendRepository")},
-
-			"artifactory_repository_layout": {Docs: &tfbridge.DocInfo{AllowMissing: true}},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			// List any npm dependencies and their versions
