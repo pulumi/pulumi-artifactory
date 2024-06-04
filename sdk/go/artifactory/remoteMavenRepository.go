@@ -121,7 +121,8 @@ type RemoteMavenRepository struct {
 	// The local address to be used when creating connections. Useful for specifying the interface to use on systems with
 	// multiple network interfaces.
 	LocalAddress pulumi.StringPtrOutput `pulumi:"localAddress"`
-	// This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrievalCachePeriodSeconds` attribute.
+	// Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
+	// the remote before serving locally cached artifact or fail the request.
 	MetadataRetrievalTimeoutSecs pulumi.IntPtrOutput `pulumi:"metadataRetrievalTimeoutSecs"`
 	// The set of mime types that should override the blockMismatchingMimeTypes setting. Eg:
 	// 'application/json,application/xml'. Default value is empty.
@@ -153,6 +154,7 @@ type RemoteMavenRepository struct {
 	// Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive portal".
 	RejectInvalidJars pulumi.BoolPtrOutput `pulumi:"rejectInvalidJars"`
 	// Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
+	// `retrievalCachePeriodSeconds` attribute.
 	RemoteRepoChecksumPolicyType pulumi.StringPtrOutput `pulumi:"remoteRepoChecksumPolicyType"`
 	// Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an
 	// empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be
@@ -294,7 +296,8 @@ type remoteMavenRepositoryState struct {
 	// The local address to be used when creating connections. Useful for specifying the interface to use on systems with
 	// multiple network interfaces.
 	LocalAddress *string `pulumi:"localAddress"`
-	// This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrievalCachePeriodSeconds` attribute.
+	// Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
+	// the remote before serving locally cached artifact or fail the request.
 	MetadataRetrievalTimeoutSecs *int `pulumi:"metadataRetrievalTimeoutSecs"`
 	// The set of mime types that should override the blockMismatchingMimeTypes setting. Eg:
 	// 'application/json,application/xml'. Default value is empty.
@@ -326,6 +329,7 @@ type remoteMavenRepositoryState struct {
 	// Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive portal".
 	RejectInvalidJars *bool `pulumi:"rejectInvalidJars"`
 	// Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
+	// `retrievalCachePeriodSeconds` attribute.
 	RemoteRepoChecksumPolicyType *string `pulumi:"remoteRepoChecksumPolicyType"`
 	// Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an
 	// empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be
@@ -425,7 +429,8 @@ type RemoteMavenRepositoryState struct {
 	// The local address to be used when creating connections. Useful for specifying the interface to use on systems with
 	// multiple network interfaces.
 	LocalAddress pulumi.StringPtrInput
-	// This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrievalCachePeriodSeconds` attribute.
+	// Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
+	// the remote before serving locally cached artifact or fail the request.
 	MetadataRetrievalTimeoutSecs pulumi.IntPtrInput
 	// The set of mime types that should override the blockMismatchingMimeTypes setting. Eg:
 	// 'application/json,application/xml'. Default value is empty.
@@ -457,6 +462,7 @@ type RemoteMavenRepositoryState struct {
 	// Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive portal".
 	RejectInvalidJars pulumi.BoolPtrInput
 	// Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
+	// `retrievalCachePeriodSeconds` attribute.
 	RemoteRepoChecksumPolicyType pulumi.StringPtrInput
 	// Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an
 	// empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be
@@ -560,7 +566,8 @@ type remoteMavenRepositoryArgs struct {
 	// The local address to be used when creating connections. Useful for specifying the interface to use on systems with
 	// multiple network interfaces.
 	LocalAddress *string `pulumi:"localAddress"`
-	// This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrievalCachePeriodSeconds` attribute.
+	// Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
+	// the remote before serving locally cached artifact or fail the request.
 	MetadataRetrievalTimeoutSecs *int `pulumi:"metadataRetrievalTimeoutSecs"`
 	// The set of mime types that should override the blockMismatchingMimeTypes setting. Eg:
 	// 'application/json,application/xml'. Default value is empty.
@@ -591,6 +598,7 @@ type remoteMavenRepositoryArgs struct {
 	// Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive portal".
 	RejectInvalidJars *bool `pulumi:"rejectInvalidJars"`
 	// Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
+	// `retrievalCachePeriodSeconds` attribute.
 	RemoteRepoChecksumPolicyType *string `pulumi:"remoteRepoChecksumPolicyType"`
 	// Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an
 	// empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be
@@ -691,7 +699,8 @@ type RemoteMavenRepositoryArgs struct {
 	// The local address to be used when creating connections. Useful for specifying the interface to use on systems with
 	// multiple network interfaces.
 	LocalAddress pulumi.StringPtrInput
-	// This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrievalCachePeriodSeconds` attribute.
+	// Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
+	// the remote before serving locally cached artifact or fail the request.
 	MetadataRetrievalTimeoutSecs pulumi.IntPtrInput
 	// The set of mime types that should override the blockMismatchingMimeTypes setting. Eg:
 	// 'application/json,application/xml'. Default value is empty.
@@ -722,6 +731,7 @@ type RemoteMavenRepositoryArgs struct {
 	// Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive portal".
 	RejectInvalidJars pulumi.BoolPtrInput
 	// Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
+	// `retrievalCachePeriodSeconds` attribute.
 	RemoteRepoChecksumPolicyType pulumi.StringPtrInput
 	// Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an
 	// empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be
@@ -981,7 +991,8 @@ func (o RemoteMavenRepositoryOutput) LocalAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemoteMavenRepository) pulumi.StringPtrOutput { return v.LocalAddress }).(pulumi.StringPtrOutput)
 }
 
-// This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrievalCachePeriodSeconds` attribute.
+// Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
+// the remote before serving locally cached artifact or fail the request.
 func (o RemoteMavenRepositoryOutput) MetadataRetrievalTimeoutSecs() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RemoteMavenRepository) pulumi.IntPtrOutput { return v.MetadataRetrievalTimeoutSecs }).(pulumi.IntPtrOutput)
 }
@@ -1055,6 +1066,7 @@ func (o RemoteMavenRepositoryOutput) RejectInvalidJars() pulumi.BoolPtrOutput {
 }
 
 // Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
+// `retrievalCachePeriodSeconds` attribute.
 func (o RemoteMavenRepositoryOutput) RemoteRepoChecksumPolicyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemoteMavenRepository) pulumi.StringPtrOutput { return v.RemoteRepoChecksumPolicyType }).(pulumi.StringPtrOutput)
 }

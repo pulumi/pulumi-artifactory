@@ -109,7 +109,8 @@ class RemoteMavenRepositoryArgs:
                the 'Retrieval Cache Period'. Default value is 'true'.
         :param pulumi.Input[str] local_address: The local address to be used when creating connections. Useful for specifying the interface to use on systems with
                multiple network interfaces.
-        :param pulumi.Input[int] metadata_retrieval_timeout_secs: This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrieval_cache_period_seconds` attribute.
+        :param pulumi.Input[int] metadata_retrieval_timeout_secs: Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
+               the remote before serving locally cached artifact or fail the request.
         :param pulumi.Input[str] mismatching_mime_types_override_list: The set of mime types that should override the block_mismatching_mime_types setting. Eg:
                'application/json,application/xml'. Default value is empty.
         :param pulumi.Input[int] missed_cache_period_seconds: Missed Retrieval Cache Period (Sec) in the UI. The number of seconds to cache artifact retrieval misses (artifact not
@@ -127,6 +128,7 @@ class RemoteMavenRepositoryArgs:
                `param1=val1&param2=val2&param3=val3`
         :param pulumi.Input[bool] reject_invalid_jars: Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive portal".
         :param pulumi.Input[str] remote_repo_checksum_policy_type: Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
+               `retrieval_cache_period_seconds` attribute.
         :param pulumi.Input[str] remote_repo_layout_ref: Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an
                empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be
                ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
@@ -563,7 +565,8 @@ class RemoteMavenRepositoryArgs:
     @pulumi.getter(name="metadataRetrievalTimeoutSecs")
     def metadata_retrieval_timeout_secs(self) -> Optional[pulumi.Input[int]]:
         """
-        This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrieval_cache_period_seconds` attribute.
+        Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
+        the remote before serving locally cached artifact or fail the request.
         """
         return pulumi.get(self, "metadata_retrieval_timeout_secs")
 
@@ -720,6 +723,7 @@ class RemoteMavenRepositoryArgs:
     def remote_repo_checksum_policy_type(self) -> Optional[pulumi.Input[str]]:
         """
         Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
+        `retrieval_cache_period_seconds` attribute.
         """
         return pulumi.get(self, "remote_repo_checksum_policy_type")
 
@@ -959,7 +963,8 @@ class _RemoteMavenRepositoryState:
                the 'Retrieval Cache Period'. Default value is 'true'.
         :param pulumi.Input[str] local_address: The local address to be used when creating connections. Useful for specifying the interface to use on systems with
                multiple network interfaces.
-        :param pulumi.Input[int] metadata_retrieval_timeout_secs: This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrieval_cache_period_seconds` attribute.
+        :param pulumi.Input[int] metadata_retrieval_timeout_secs: Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
+               the remote before serving locally cached artifact or fail the request.
         :param pulumi.Input[str] mismatching_mime_types_override_list: The set of mime types that should override the block_mismatching_mime_types setting. Eg:
                'application/json,application/xml'. Default value is empty.
         :param pulumi.Input[int] missed_cache_period_seconds: Missed Retrieval Cache Period (Sec) in the UI. The number of seconds to cache artifact retrieval misses (artifact not
@@ -977,6 +982,7 @@ class _RemoteMavenRepositoryState:
                `param1=val1&param2=val2&param3=val3`
         :param pulumi.Input[bool] reject_invalid_jars: Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive portal".
         :param pulumi.Input[str] remote_repo_checksum_policy_type: Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
+               `retrieval_cache_period_seconds` attribute.
         :param pulumi.Input[str] remote_repo_layout_ref: Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an
                empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be
                ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
@@ -1406,7 +1412,8 @@ class _RemoteMavenRepositoryState:
     @pulumi.getter(name="metadataRetrievalTimeoutSecs")
     def metadata_retrieval_timeout_secs(self) -> Optional[pulumi.Input[int]]:
         """
-        This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrieval_cache_period_seconds` attribute.
+        Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
+        the remote before serving locally cached artifact or fail the request.
         """
         return pulumi.get(self, "metadata_retrieval_timeout_secs")
 
@@ -1572,6 +1579,7 @@ class _RemoteMavenRepositoryState:
     def remote_repo_checksum_policy_type(self) -> Optional[pulumi.Input[str]]:
         """
         Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
+        `retrieval_cache_period_seconds` attribute.
         """
         return pulumi.get(self, "remote_repo_checksum_policy_type")
 
@@ -1853,7 +1861,8 @@ class RemoteMavenRepository(pulumi.CustomResource):
                the 'Retrieval Cache Period'. Default value is 'true'.
         :param pulumi.Input[str] local_address: The local address to be used when creating connections. Useful for specifying the interface to use on systems with
                multiple network interfaces.
-        :param pulumi.Input[int] metadata_retrieval_timeout_secs: This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrieval_cache_period_seconds` attribute.
+        :param pulumi.Input[int] metadata_retrieval_timeout_secs: Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
+               the remote before serving locally cached artifact or fail the request.
         :param pulumi.Input[str] mismatching_mime_types_override_list: The set of mime types that should override the block_mismatching_mime_types setting. Eg:
                'application/json,application/xml'. Default value is empty.
         :param pulumi.Input[int] missed_cache_period_seconds: Missed Retrieval Cache Period (Sec) in the UI. The number of seconds to cache artifact retrieval misses (artifact not
@@ -1871,6 +1880,7 @@ class RemoteMavenRepository(pulumi.CustomResource):
                `param1=val1&param2=val2&param3=val3`
         :param pulumi.Input[bool] reject_invalid_jars: Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive portal".
         :param pulumi.Input[str] remote_repo_checksum_policy_type: Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
+               `retrieval_cache_period_seconds` attribute.
         :param pulumi.Input[str] remote_repo_layout_ref: Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an
                empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be
                ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
@@ -2164,7 +2174,8 @@ class RemoteMavenRepository(pulumi.CustomResource):
                the 'Retrieval Cache Period'. Default value is 'true'.
         :param pulumi.Input[str] local_address: The local address to be used when creating connections. Useful for specifying the interface to use on systems with
                multiple network interfaces.
-        :param pulumi.Input[int] metadata_retrieval_timeout_secs: This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrieval_cache_period_seconds` attribute.
+        :param pulumi.Input[int] metadata_retrieval_timeout_secs: Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
+               the remote before serving locally cached artifact or fail the request.
         :param pulumi.Input[str] mismatching_mime_types_override_list: The set of mime types that should override the block_mismatching_mime_types setting. Eg:
                'application/json,application/xml'. Default value is empty.
         :param pulumi.Input[int] missed_cache_period_seconds: Missed Retrieval Cache Period (Sec) in the UI. The number of seconds to cache artifact retrieval misses (artifact not
@@ -2182,6 +2193,7 @@ class RemoteMavenRepository(pulumi.CustomResource):
                `param1=val1&param2=val2&param3=val3`
         :param pulumi.Input[bool] reject_invalid_jars: Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive portal".
         :param pulumi.Input[str] remote_repo_checksum_policy_type: Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
+               `retrieval_cache_period_seconds` attribute.
         :param pulumi.Input[str] remote_repo_layout_ref: Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an
                empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be
                ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
@@ -2469,7 +2481,8 @@ class RemoteMavenRepository(pulumi.CustomResource):
     @pulumi.getter(name="metadataRetrievalTimeoutSecs")
     def metadata_retrieval_timeout_secs(self) -> pulumi.Output[Optional[int]]:
         """
-        This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrieval_cache_period_seconds` attribute.
+        Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
+        the remote before serving locally cached artifact or fail the request.
         """
         return pulumi.get(self, "metadata_retrieval_timeout_secs")
 
@@ -2579,6 +2592,7 @@ class RemoteMavenRepository(pulumi.CustomResource):
     def remote_repo_checksum_policy_type(self) -> pulumi.Output[Optional[str]]:
         """
         Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
+        `retrieval_cache_period_seconds` attribute.
         """
         return pulumi.get(self, "remote_repo_checksum_policy_type")
 

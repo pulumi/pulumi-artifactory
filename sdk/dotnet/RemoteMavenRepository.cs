@@ -207,7 +207,8 @@ namespace Pulumi.Artifactory
         public Output<string?> LocalAddress { get; private set; } = null!;
 
         /// <summary>
-        /// This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrieval_cache_period_seconds` attribute.
+        /// Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
+        /// the remote before serving locally cached artifact or fail the request.
         /// </summary>
         [Output("metadataRetrievalTimeoutSecs")]
         public Output<int?> MetadataRetrievalTimeoutSecs { get; private set; } = null!;
@@ -289,6 +290,7 @@ namespace Pulumi.Artifactory
 
         /// <summary>
         /// Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
+        /// `retrieval_cache_period_seconds` attribute.
         /// </summary>
         [Output("remoteRepoChecksumPolicyType")]
         public Output<string?> RemoteRepoChecksumPolicyType { get; private set; } = null!;
@@ -577,7 +579,8 @@ namespace Pulumi.Artifactory
         public Input<string>? LocalAddress { get; set; }
 
         /// <summary>
-        /// This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrieval_cache_period_seconds` attribute.
+        /// Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
+        /// the remote before serving locally cached artifact or fail the request.
         /// </summary>
         [Input("metadataRetrievalTimeoutSecs")]
         public Input<int>? MetadataRetrievalTimeoutSecs { get; set; }
@@ -676,6 +679,7 @@ namespace Pulumi.Artifactory
 
         /// <summary>
         /// Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
+        /// `retrieval_cache_period_seconds` attribute.
         /// </summary>
         [Input("remoteRepoChecksumPolicyType")]
         public Input<string>? RemoteRepoChecksumPolicyType { get; set; }
@@ -922,7 +926,8 @@ namespace Pulumi.Artifactory
         public Input<string>? LocalAddress { get; set; }
 
         /// <summary>
-        /// This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrieval_cache_period_seconds` attribute.
+        /// Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
+        /// the remote before serving locally cached artifact or fail the request.
         /// </summary>
         [Input("metadataRetrievalTimeoutSecs")]
         public Input<int>? MetadataRetrievalTimeoutSecs { get; set; }
@@ -1024,6 +1029,7 @@ namespace Pulumi.Artifactory
 
         /// <summary>
         /// Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
+        /// `retrieval_cache_period_seconds` attribute.
         /// </summary>
         [Input("remoteRepoChecksumPolicyType")]
         public Input<string>? RemoteRepoChecksumPolicyType { get; set; }

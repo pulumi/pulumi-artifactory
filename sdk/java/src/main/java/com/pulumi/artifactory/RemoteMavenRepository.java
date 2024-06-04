@@ -437,14 +437,16 @@ public class RemoteMavenRepository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.localAddress);
     }
     /**
-     * This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrieval_cache_period_seconds` attribute.
+     * Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
+     * the remote before serving locally cached artifact or fail the request.
      * 
      */
     @Export(name="metadataRetrievalTimeoutSecs", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> metadataRetrievalTimeoutSecs;
 
     /**
-     * @return This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrieval_cache_period_seconds` attribute.
+     * @return Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
+     * the remote before serving locally cached artifact or fail the request.
      * 
      */
     public Output<Optional<Integer>> metadataRetrievalTimeoutSecs() {
@@ -622,6 +624,7 @@ public class RemoteMavenRepository extends com.pulumi.resources.CustomResource {
     }
     /**
      * Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
+     * `retrieval_cache_period_seconds` attribute.
      * 
      */
     @Export(name="remoteRepoChecksumPolicyType", refs={String.class}, tree="[0]")
@@ -629,6 +632,7 @@ public class RemoteMavenRepository extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
+     * `retrieval_cache_period_seconds` attribute.
      * 
      */
     public Output<Optional<String>> remoteRepoChecksumPolicyType() {

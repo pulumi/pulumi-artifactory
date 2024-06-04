@@ -174,7 +174,8 @@ export class RemoteMavenRepository extends pulumi.CustomResource {
      */
     public readonly localAddress!: pulumi.Output<string | undefined>;
     /**
-     * This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrievalCachePeriodSeconds` attribute.
+     * Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
+     * the remote before serving locally cached artifact or fail the request.
      */
     public readonly metadataRetrievalTimeoutSecs!: pulumi.Output<number | undefined>;
     /**
@@ -228,6 +229,7 @@ export class RemoteMavenRepository extends pulumi.CustomResource {
     public readonly rejectInvalidJars!: pulumi.Output<boolean | undefined>;
     /**
      * Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
+     * `retrievalCachePeriodSeconds` attribute.
      */
     public readonly remoteRepoChecksumPolicyType!: pulumi.Output<string | undefined>;
     /**
@@ -528,7 +530,8 @@ export interface RemoteMavenRepositoryState {
      */
     localAddress?: pulumi.Input<string>;
     /**
-     * This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrievalCachePeriodSeconds` attribute.
+     * Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
+     * the remote before serving locally cached artifact or fail the request.
      */
     metadataRetrievalTimeoutSecs?: pulumi.Input<number>;
     /**
@@ -582,6 +585,7 @@ export interface RemoteMavenRepositoryState {
     rejectInvalidJars?: pulumi.Input<boolean>;
     /**
      * Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
+     * `retrievalCachePeriodSeconds` attribute.
      */
     remoteRepoChecksumPolicyType?: pulumi.Input<string>;
     /**
@@ -752,7 +756,8 @@ export interface RemoteMavenRepositoryArgs {
      */
     localAddress?: pulumi.Input<string>;
     /**
-     * This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrievalCachePeriodSeconds` attribute.
+     * Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
+     * the remote before serving locally cached artifact or fail the request.
      */
     metadataRetrievalTimeoutSecs?: pulumi.Input<number>;
     /**
@@ -805,6 +810,7 @@ export interface RemoteMavenRepositoryArgs {
     rejectInvalidJars?: pulumi.Input<boolean>;
     /**
      * Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
+     * `retrievalCachePeriodSeconds` attribute.
      */
     remoteRepoChecksumPolicyType?: pulumi.Input<string>;
     /**
