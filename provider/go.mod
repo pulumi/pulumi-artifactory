@@ -10,7 +10,7 @@ replace (
 )
 
 require (
-	github.com/jfrog/terraform-provider-artifactory/v10 v10.8.2
+	github.com/jfrog/terraform-provider-artifactory/v10 v10.8.3
 	github.com/pulumi/providertest v0.0.11
 	github.com/pulumi/pulumi-terraform-bridge/pf v0.36.0
 	github.com/pulumi/pulumi-terraform-bridge/v3 v3.83.0
