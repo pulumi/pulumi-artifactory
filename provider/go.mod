@@ -1,4 +1,4 @@
-module github.com/pulumi/pulumi-artifactory/provider/v6
+module github.com/pulumi/pulumi-artifactory/provider/v7
 
 go 1.22
 
@@ -10,7 +10,7 @@ replace (
 )
 
 require (
-	github.com/jfrog/terraform-provider-artifactory/v10 v10.8.4
+	github.com/jfrog/terraform-provider-artifactory/v11 v11.0.0
 	github.com/pulumi/providertest v0.0.11
 	github.com/pulumi/pulumi-terraform-bridge/pf v0.37.0
 	github.com/pulumi/pulumi-terraform-bridge/v3 v3.84.0
