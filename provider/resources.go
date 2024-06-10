@@ -23,7 +23,7 @@ import (
 	// embed is used to store bridge-metadata.json in the compiled binary
 	_ "embed"
 
-	artifactoryProvider "github.com/jfrog/terraform-provider-artifactory/v10/pkg/artifactory/provider"
+	artifactoryProvider "github.com/jfrog/terraform-provider-artifactory/v11/pkg/artifactory/provider"
 
 	pfbridge "github.com/pulumi/pulumi-terraform-bridge/pf/tfbridge"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
@@ -32,7 +32,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
 
-	"github.com/pulumi/pulumi-artifactory/provider/v6/pkg/version"
+	"github.com/pulumi/pulumi-artifactory/provider/v7/pkg/version"
 )
 
 // all of the token components used below.
@@ -71,7 +71,7 @@ func Provider() tfbridge.ProviderInfo {
 		Homepage:                "https://pulumi.io",
 		Repository:              "https://github.com/pulumi/pulumi-artifactory",
 		GitHubOrg:               "jfrog",
-		TFProviderModuleVersion: "v10",
+		TFProviderModuleVersion: "v11",
 		Version:                 version.Version,
 		Config: map[string]*tfbridge.SchemaInfo{
 			"check_license": {
