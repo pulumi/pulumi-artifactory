@@ -112,11 +112,10 @@ jobs:
     - id: version
       uses: pulumi/provider-version-action@v1
     - name: Publish SDKs
-      uses: pulumi/pulumi-package-publisher@a5ab3e9e8359eed802a8ebaaa181616ab8ae993a
+      uses: pulumi/pulumi-package-publisher@v0.0.17
       with:
         sdk: all
         version: ${{ steps.version.outputs.version }}
-        assertPrerelease: true
         dotnet-version: "6.0.x"
         java-version: "11"
         node-version: "20.x"
