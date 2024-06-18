@@ -112,7 +112,7 @@ jobs:
     - id: version
       uses: pulumi/provider-version-action@v1
     - name: Publish SDKs
-      uses: pulumi/pulumi-package-publisher@197fc36e672baad45f34db0ceee1d944a30c4091
+      uses: pulumi/pulumi-package-publisher@f7f4c41f1c766d1d01e15836c6420ee9d78341a5
       with:
         sdk: all
         version: ${{ steps.version.outputs.version }}
