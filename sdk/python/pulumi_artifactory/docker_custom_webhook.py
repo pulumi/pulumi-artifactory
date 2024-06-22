@@ -265,7 +265,7 @@ class DockerCustomWebhook(pulumi.CustomResource):
                 },
                 payload="{ \\"ref\\": \\"main\\" , \\"inputs\\": { \\"artifact_path\\": \\"test-repo/repo-path\\" } }",
             )],
-            opts=pulumi.ResourceOptions(depends_on=[my_docker_local]))
+            opts = pulumi.ResourceOptions(depends_on=[my_docker_local]))
         ```
 
         :param str resource_name: The name of the resource.
@@ -319,7 +319,7 @@ class DockerCustomWebhook(pulumi.CustomResource):
                 },
                 payload="{ \\"ref\\": \\"main\\" , \\"inputs\\": { \\"artifact_path\\": \\"test-repo/repo-path\\" } }",
             )],
-            opts=pulumi.ResourceOptions(depends_on=[my_docker_local]))
+            opts = pulumi.ResourceOptions(depends_on=[my_docker_local]))
         ```
 
         :param str resource_name: The name of the resource.

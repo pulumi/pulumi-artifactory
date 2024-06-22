@@ -196,13 +196,11 @@ class GetLocalDebianRepositoryResult:
 
     @property
     @pulumi.getter(name="trivialLayout")
+    @_utilities.deprecated("""You shouldn't be using this""")
     def trivial_layout(self) -> Optional[bool]:
         """
         When set, the repository will use the deprecated trivial layout.
         """
-        warnings.warn("""You shouldn't be using this""", DeprecationWarning)
-        pulumi.log.warn("""trivial_layout is deprecated: You shouldn't be using this""")
-
         return pulumi.get(self, "trivial_layout")
 
     @property

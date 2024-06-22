@@ -315,13 +315,11 @@ class DebianRepositoryArgs:
 
     @property
     @pulumi.getter(name="trivialLayout")
+    @_utilities.deprecated("""You shouldn't be using this""")
     def trivial_layout(self) -> Optional[pulumi.Input[bool]]:
         """
         When set, the repository will use the deprecated trivial layout.
         """
-        warnings.warn("""You shouldn't be using this""", DeprecationWarning)
-        pulumi.log.warn("""trivial_layout is deprecated: You shouldn't be using this""")
-
         return pulumi.get(self, "trivial_layout")
 
     @trivial_layout.setter
@@ -659,13 +657,11 @@ class _DebianRepositoryState:
 
     @property
     @pulumi.getter(name="trivialLayout")
+    @_utilities.deprecated("""You shouldn't be using this""")
     def trivial_layout(self) -> Optional[pulumi.Input[bool]]:
         """
         When set, the repository will use the deprecated trivial layout.
         """
-        warnings.warn("""You shouldn't be using this""", DeprecationWarning)
-        pulumi.log.warn("""trivial_layout is deprecated: You shouldn't be using this""")
-
         return pulumi.get(self, "trivial_layout")
 
     @trivial_layout.setter
@@ -743,7 +739,7 @@ class DebianRepository(pulumi.CustomResource):
                 "xz",
             ],
             trivial_layout=True,
-            opts=pulumi.ResourceOptions(depends_on=[
+            opts = pulumi.ResourceOptions(depends_on=[
                     some_keypair_gpg1,
                     some_keypair_gpg2,
                 ]))
@@ -825,7 +821,7 @@ class DebianRepository(pulumi.CustomResource):
                 "xz",
             ],
             trivial_layout=True,
-            opts=pulumi.ResourceOptions(depends_on=[
+            opts = pulumi.ResourceOptions(depends_on=[
                     some_keypair_gpg1,
                     some_keypair_gpg2,
                 ]))
@@ -1143,13 +1139,11 @@ class DebianRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="trivialLayout")
+    @_utilities.deprecated("""You shouldn't be using this""")
     def trivial_layout(self) -> pulumi.Output[Optional[bool]]:
         """
         When set, the repository will use the deprecated trivial layout.
         """
-        warnings.warn("""You shouldn't be using this""", DeprecationWarning)
-        pulumi.log.warn("""trivial_layout is deprecated: You shouldn't be using this""")
-
         return pulumi.get(self, "trivial_layout")
 
     @property

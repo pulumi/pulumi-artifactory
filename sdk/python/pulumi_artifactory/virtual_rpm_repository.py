@@ -512,7 +512,7 @@ class VirtualRpmRepository(pulumi.CustomResource):
             key="foo-rpm-virtual",
             primary_keypair_ref=primary_keypair.pair_name,
             secondary_keypair_ref=secondary_keypair.pair_name,
-            opts=pulumi.ResourceOptions(depends_on=[
+            opts = pulumi.ResourceOptions(depends_on=[
                     primary_keypair,
                     secondary_keypair,
                 ]))
@@ -579,7 +579,7 @@ class VirtualRpmRepository(pulumi.CustomResource):
             key="foo-rpm-virtual",
             primary_keypair_ref=primary_keypair.pair_name,
             secondary_keypair_ref=secondary_keypair.pair_name,
-            opts=pulumi.ResourceOptions(depends_on=[
+            opts = pulumi.ResourceOptions(depends_on=[
                     primary_keypair,
                     secondary_keypair,
                 ]))

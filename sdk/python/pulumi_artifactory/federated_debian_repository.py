@@ -376,13 +376,11 @@ class FederatedDebianRepositoryArgs:
 
     @property
     @pulumi.getter(name="trivialLayout")
+    @_utilities.deprecated("""You shouldn't be using this""")
     def trivial_layout(self) -> Optional[pulumi.Input[bool]]:
         """
         When set, the repository will use the deprecated trivial layout.
         """
-        warnings.warn("""You shouldn't be using this""", DeprecationWarning)
-        pulumi.log.warn("""trivial_layout is deprecated: You shouldn't be using this""")
-
         return pulumi.get(self, "trivial_layout")
 
     @trivial_layout.setter
@@ -780,13 +778,11 @@ class _FederatedDebianRepositoryState:
 
     @property
     @pulumi.getter(name="trivialLayout")
+    @_utilities.deprecated("""You shouldn't be using this""")
     def trivial_layout(self) -> Optional[pulumi.Input[bool]]:
         """
         When set, the repository will use the deprecated trivial layout.
         """
-        warnings.warn("""You shouldn't be using this""", DeprecationWarning)
-        pulumi.log.warn("""trivial_layout is deprecated: You shouldn't be using this""")
-
         return pulumi.get(self, "trivial_layout")
 
     @trivial_layout.setter
@@ -1292,13 +1288,11 @@ class FederatedDebianRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="trivialLayout")
+    @_utilities.deprecated("""You shouldn't be using this""")
     def trivial_layout(self) -> pulumi.Output[Optional[bool]]:
         """
         When set, the repository will use the deprecated trivial layout.
         """
-        warnings.warn("""You shouldn't be using this""", DeprecationWarning)
-        pulumi.log.warn("""trivial_layout is deprecated: You shouldn't be using this""")
-
         return pulumi.get(self, "trivial_layout")
 
     @property

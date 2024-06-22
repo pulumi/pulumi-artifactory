@@ -644,7 +644,7 @@ class AlpineRepository(pulumi.CustomResource):
         terraform_local_test_alpine_repo_basic = artifactory.AlpineRepository("terraform-local-test-alpine-repo-basic",
             key="terraform-local-test-alpine-repo-basic",
             primary_keypair_ref=some_keypair_rsa.pair_name,
-            opts=pulumi.ResourceOptions(depends_on=[some_keypair_rsa]))
+            opts = pulumi.ResourceOptions(depends_on=[some_keypair_rsa]))
         ```
 
         ## Import
@@ -707,7 +707,7 @@ class AlpineRepository(pulumi.CustomResource):
         terraform_local_test_alpine_repo_basic = artifactory.AlpineRepository("terraform-local-test-alpine-repo-basic",
             key="terraform-local-test-alpine-repo-basic",
             primary_keypair_ref=some_keypair_rsa.pair_name,
-            opts=pulumi.ResourceOptions(depends_on=[some_keypair_rsa]))
+            opts = pulumi.ResourceOptions(depends_on=[some_keypair_rsa]))
         ```
 
         ## Import
