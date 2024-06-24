@@ -232,10 +232,8 @@ class GetFederatedDebianRepositoryResult:
 
     @property
     @pulumi.getter(name="trivialLayout")
+    @_utilities.deprecated("""You shouldn't be using this""")
     def trivial_layout(self) -> Optional[bool]:
-        warnings.warn("""You shouldn't be using this""", DeprecationWarning)
-        pulumi.log.warn("""trivial_layout is deprecated: You shouldn't be using this""")
-
         return pulumi.get(self, "trivial_layout")
 
     @property

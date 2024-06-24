@@ -66,18 +66,14 @@ By end of Q4 2024, API Keys will be deprecated all together and the option to us
 
     @property
     @pulumi.getter(name="apiKey")
+    @_utilities.deprecated("""An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
+In a future version (scheduled for end of Q3, 2023), the option to disable the usage/creation of API Keys will be available and set to disabled by default. Admins will be able to enable the usage/creation of API Keys.
+By end of Q4 2024, API Keys will be deprecated all together and the option to use them will no longer be available. See [JFrog API deprecation process](https://jfrog.com/help/r/jfrog-platform-administration-documentation/jfrog-api-key-deprecation-process) for more details.""")
     def api_key(self) -> Optional[pulumi.Input[str]]:
         """
         API key. If `access_token` attribute, `JFROG_ACCESS_TOKEN` or `ARTIFACTORY_ACCESS_TOKEN` environment variable is set,
         the provider will ignore this attribute.
         """
-        warnings.warn("""An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
-In a future version (scheduled for end of Q3, 2023), the option to disable the usage/creation of API Keys will be available and set to disabled by default. Admins will be able to enable the usage/creation of API Keys.
-By end of Q4 2024, API Keys will be deprecated all together and the option to use them will no longer be available. See [JFrog API deprecation process](https://jfrog.com/help/r/jfrog-platform-administration-documentation/jfrog-api-key-deprecation-process) for more details.""", DeprecationWarning)
-        pulumi.log.warn("""api_key is deprecated: An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
-In a future version (scheduled for end of Q3, 2023), the option to disable the usage/creation of API Keys will be available and set to disabled by default. Admins will be able to enable the usage/creation of API Keys.
-By end of Q4 2024, API Keys will be deprecated all together and the option to use them will no longer be available. See [JFrog API deprecation process](https://jfrog.com/help/r/jfrog-platform-administration-documentation/jfrog-api-key-deprecation-process) for more details.""")
-
         return pulumi.get(self, "api_key")
 
     @api_key.setter
@@ -219,18 +215,14 @@ class Provider(pulumi.ProviderResource):
 
     @property
     @pulumi.getter(name="apiKey")
+    @_utilities.deprecated("""An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
+In a future version (scheduled for end of Q3, 2023), the option to disable the usage/creation of API Keys will be available and set to disabled by default. Admins will be able to enable the usage/creation of API Keys.
+By end of Q4 2024, API Keys will be deprecated all together and the option to use them will no longer be available. See [JFrog API deprecation process](https://jfrog.com/help/r/jfrog-platform-administration-documentation/jfrog-api-key-deprecation-process) for more details.""")
     def api_key(self) -> pulumi.Output[Optional[str]]:
         """
         API key. If `access_token` attribute, `JFROG_ACCESS_TOKEN` or `ARTIFACTORY_ACCESS_TOKEN` environment variable is set,
         the provider will ignore this attribute.
         """
-        warnings.warn("""An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
-In a future version (scheduled for end of Q3, 2023), the option to disable the usage/creation of API Keys will be available and set to disabled by default. Admins will be able to enable the usage/creation of API Keys.
-By end of Q4 2024, API Keys will be deprecated all together and the option to use them will no longer be available. See [JFrog API deprecation process](https://jfrog.com/help/r/jfrog-platform-administration-documentation/jfrog-api-key-deprecation-process) for more details.""", DeprecationWarning)
-        pulumi.log.warn("""api_key is deprecated: An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
-In a future version (scheduled for end of Q3, 2023), the option to disable the usage/creation of API Keys will be available and set to disabled by default. Admins will be able to enable the usage/creation of API Keys.
-By end of Q4 2024, API Keys will be deprecated all together and the option to use them will no longer be available. See [JFrog API deprecation process](https://jfrog.com/help/r/jfrog-platform-administration-documentation/jfrog-api-key-deprecation-process) for more details.""")
-
         return pulumi.get(self, "api_key")
 
     @property
