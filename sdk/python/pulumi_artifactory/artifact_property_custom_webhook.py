@@ -264,7 +264,7 @@ class ArtifactPropertyCustomWebhook(pulumi.CustomResource):
                 },
                 payload="{ \\"ref\\": \\"main\\" , \\"inputs\\": { \\"artifact_path\\": \\"test-repo/repo-path\\" } }",
             )],
-            opts=pulumi.ResourceOptions(depends_on=[my_generic_local]))
+            opts = pulumi.ResourceOptions(depends_on=[my_generic_local]))
         ```
 
         :param str resource_name: The name of the resource.
@@ -317,7 +317,7 @@ class ArtifactPropertyCustomWebhook(pulumi.CustomResource):
                 },
                 payload="{ \\"ref\\": \\"main\\" , \\"inputs\\": { \\"artifact_path\\": \\"test-repo/repo-path\\" } }",
             )],
-            opts=pulumi.ResourceOptions(depends_on=[my_generic_local]))
+            opts = pulumi.ResourceOptions(depends_on=[my_generic_local]))
         ```
 
         :param str resource_name: The name of the resource.

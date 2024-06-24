@@ -263,7 +263,7 @@ class ArtifactPropertyWebhook(pulumi.CustomResource):
                     "header-2": "value-2",
                 },
             )],
-            opts=pulumi.ResourceOptions(depends_on=[my_generic_local]))
+            opts = pulumi.ResourceOptions(depends_on=[my_generic_local]))
         ```
 
         :param str resource_name: The name of the resource.
@@ -315,7 +315,7 @@ class ArtifactPropertyWebhook(pulumi.CustomResource):
                     "header-2": "value-2",
                 },
             )],
-            opts=pulumi.ResourceOptions(depends_on=[my_generic_local]))
+            opts = pulumi.ResourceOptions(depends_on=[my_generic_local]))
         ```
 
         :param str resource_name: The name of the resource.

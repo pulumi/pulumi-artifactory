@@ -815,7 +815,7 @@ class LocalRpmRepository(pulumi.CustomResource):
             yum_group_file_names="file-1.xml,file-2.xml",
             primary_keypair_ref=some_keypair_gpg1["pairName"],
             secondary_keypair_ref=some_keypair_gpg2["pairName"],
-            opts=pulumi.ResourceOptions(depends_on=[
+            opts = pulumi.ResourceOptions(depends_on=[
                     some_keypair_gpg_1,
                     some_keypair_gpg_2,
                 ]))
@@ -902,7 +902,7 @@ class LocalRpmRepository(pulumi.CustomResource):
             yum_group_file_names="file-1.xml,file-2.xml",
             primary_keypair_ref=some_keypair_gpg1["pairName"],
             secondary_keypair_ref=some_keypair_gpg2["pairName"],
-            opts=pulumi.ResourceOptions(depends_on=[
+            opts = pulumi.ResourceOptions(depends_on=[
                     some_keypair_gpg_1,
                     some_keypair_gpg_2,
                 ]))

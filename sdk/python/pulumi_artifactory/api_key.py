@@ -36,13 +36,11 @@ class _ApiKeyState:
 
     @property
     @pulumi.getter(name="apiKey")
+    @_utilities.deprecated("""Deprecated in favor of \"ScopedToken\".""")
     def api_key(self) -> Optional[pulumi.Input[str]]:
         """
         The API key. Deprecated.
         """
-        warnings.warn("""Deprecated in favor of \"ScopedToken\".""", DeprecationWarning)
-        pulumi.log.warn("""api_key is deprecated: Deprecated in favor of \"ScopedToken\".""")
-
         return pulumi.get(self, "api_key")
 
     @api_key.setter
@@ -171,12 +169,10 @@ class ApiKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="apiKey")
+    @_utilities.deprecated("""Deprecated in favor of \"ScopedToken\".""")
     def api_key(self) -> pulumi.Output[str]:
         """
         The API key. Deprecated.
         """
-        warnings.warn("""Deprecated in favor of \"ScopedToken\".""", DeprecationWarning)
-        pulumi.log.warn("""api_key is deprecated: Deprecated in favor of \"ScopedToken\".""")
-
         return pulumi.get(self, "api_key")
 
