@@ -125,6 +125,7 @@ func Provider() tfbridge.ProviderInfo {
 				}
 				return resource.ID(path.String() + "@" + repository.String()), nil
 			}},
+			"artifactory_vault_configuration": {ComputeID: computeIDField("id")},
 
 			// Old Manual Mappings.
 			//
