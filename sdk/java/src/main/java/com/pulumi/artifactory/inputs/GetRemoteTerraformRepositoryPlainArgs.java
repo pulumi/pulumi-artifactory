@@ -26,6 +26,13 @@ public final class GetRemoteTerraformRepositoryPlainArgs extends com.pulumi.reso
         return Optional.ofNullable(this.allowAnyHostAuth);
     }
 
+    @Import(name="archiveBrowsingEnabled")
+    private @Nullable Boolean archiveBrowsingEnabled;
+
+    public Optional<Boolean> archiveBrowsingEnabled() {
+        return Optional.ofNullable(this.archiveBrowsingEnabled);
+    }
+
     @Import(name="assumedOfflinePeriodSecs")
     private @Nullable Integer assumedOfflinePeriodSecs;
 
@@ -339,6 +346,7 @@ public final class GetRemoteTerraformRepositoryPlainArgs extends com.pulumi.reso
 
     private GetRemoteTerraformRepositoryPlainArgs(GetRemoteTerraformRepositoryPlainArgs $) {
         this.allowAnyHostAuth = $.allowAnyHostAuth;
+        this.archiveBrowsingEnabled = $.archiveBrowsingEnabled;
         this.assumedOfflinePeriodSecs = $.assumedOfflinePeriodSecs;
         this.blackedOut = $.blackedOut;
         this.blockMismatchingMimeTypes = $.blockMismatchingMimeTypes;
@@ -404,6 +412,11 @@ public final class GetRemoteTerraformRepositoryPlainArgs extends com.pulumi.reso
 
         public Builder allowAnyHostAuth(@Nullable Boolean allowAnyHostAuth) {
             $.allowAnyHostAuth = allowAnyHostAuth;
+            return this;
+        }
+
+        public Builder archiveBrowsingEnabled(@Nullable Boolean archiveBrowsingEnabled) {
+            $.archiveBrowsingEnabled = archiveBrowsingEnabled;
             return this;
         }
 

@@ -1480,6 +1480,11 @@ export type UserLockPolicy = import("./userLockPolicy").UserLockPolicy;
 export const UserLockPolicy: typeof import("./userLockPolicy").UserLockPolicy = null as any;
 utilities.lazyLoad(exports, ["UserLockPolicy"], () => require("./userLockPolicy"));
 
+export { VaultConfigurationArgs, VaultConfigurationState } from "./vaultConfiguration";
+export type VaultConfiguration = import("./vaultConfiguration").VaultConfiguration;
+export const VaultConfiguration: typeof import("./vaultConfiguration").VaultConfiguration = null as any;
+utilities.lazyLoad(exports, ["VaultConfiguration"], () => require("./vaultConfiguration"));
+
 export { VirtualAlpineRepositoryArgs, VirtualAlpineRepositoryState } from "./virtualAlpineRepository";
 export type VirtualAlpineRepository = import("./virtualAlpineRepository").VirtualAlpineRepository;
 export const VirtualAlpineRepository: typeof import("./virtualAlpineRepository").VirtualAlpineRepository = null as any;
@@ -1939,6 +1944,8 @@ const _module = {
                 return new User(name, <any>undefined, { urn })
             case "artifactory:index/userLockPolicy:UserLockPolicy":
                 return new UserLockPolicy(name, <any>undefined, { urn })
+            case "artifactory:index/vaultConfiguration:VaultConfiguration":
+                return new VaultConfiguration(name, <any>undefined, { urn })
             case "artifactory:index/virtualAlpineRepository:VirtualAlpineRepository":
                 return new VirtualAlpineRepository(name, <any>undefined, { urn })
             case "artifactory:index/virtualBowerRepository:VirtualBowerRepository":
@@ -2153,6 +2160,7 @@ pulumi.runtime.registerResourceModule("artifactory", "index/singleReplicationCon
 pulumi.runtime.registerResourceModule("artifactory", "index/unmanagedUser", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/user", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/userLockPolicy", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/vaultConfiguration", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/virtualAlpineRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/virtualBowerRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/virtualChefRepository", _module)

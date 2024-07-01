@@ -27,9 +27,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.NewLocalMavenRepository(ctx, "local-test-maven-repo-basic", &artifactory.LocalMavenRepositoryArgs{
-//				Key: pulumi.String("local-test-maven-repo-basic"),
-//			})
+//			_, err := artifactory.LookupLocalMavenRepository(ctx, &artifactory.LookupLocalMavenRepositoryArgs{
+//				Key: "local-test-maven-repo-basic",
+//			}, nil)
 //			if err != nil {
 //				return err
 //			}

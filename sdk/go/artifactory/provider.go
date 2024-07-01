@@ -78,6 +78,8 @@ type providerArgs struct {
 	// By end of Q4 2024, API Keys will be deprecated all together and the option to use them will no longer be available. See [JFrog API deprecation process](https://jfrog.com/help/r/jfrog-platform-administration-documentation/jfrog-api-key-deprecation-process) for more details.
 	ApiKey *string `pulumi:"apiKey"`
 	// Toggle for pre-flight checking of Artifactory Pro and Enterprise license. Default to `true`.
+	//
+	// Deprecated: Remove this attribute from your provider configuration as it is no longer used and the attribute will be removed in the next major version of the provider.
 	CheckLicense *bool `pulumi:"checkLicense"`
 	// OIDC provider name. See [Configure an OIDC
 	// Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-an-oidc-integration) for
@@ -100,6 +102,8 @@ type ProviderArgs struct {
 	// By end of Q4 2024, API Keys will be deprecated all together and the option to use them will no longer be available. See [JFrog API deprecation process](https://jfrog.com/help/r/jfrog-platform-administration-documentation/jfrog-api-key-deprecation-process) for more details.
 	ApiKey pulumi.StringPtrInput
 	// Toggle for pre-flight checking of Artifactory Pro and Enterprise license. Default to `true`.
+	//
+	// Deprecated: Remove this attribute from your provider configuration as it is no longer used and the attribute will be removed in the next major version of the provider.
 	CheckLicense pulumi.BoolPtrInput
 	// OIDC provider name. See [Configure an OIDC
 	// Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-an-oidc-integration) for

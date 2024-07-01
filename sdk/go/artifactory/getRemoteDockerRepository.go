@@ -51,6 +51,7 @@ func LookupRemoteDockerRepository(ctx *pulumi.Context, args *LookupRemoteDockerR
 // A collection of arguments for invoking getRemoteDockerRepository.
 type LookupRemoteDockerRepositoryArgs struct {
 	AllowAnyHostAuth          *bool `pulumi:"allowAnyHostAuth"`
+	ArchiveBrowsingEnabled    *bool `pulumi:"archiveBrowsingEnabled"`
 	AssumedOfflinePeriodSecs  *int  `pulumi:"assumedOfflinePeriodSecs"`
 	BlackedOut                *bool `pulumi:"blackedOut"`
 	BlockMismatchingMimeTypes *bool `pulumi:"blockMismatchingMimeTypes"`
@@ -109,6 +110,7 @@ type LookupRemoteDockerRepositoryArgs struct {
 // A collection of values returned by getRemoteDockerRepository.
 type LookupRemoteDockerRepositoryResult struct {
 	AllowAnyHostAuth          *bool `pulumi:"allowAnyHostAuth"`
+	ArchiveBrowsingEnabled    *bool `pulumi:"archiveBrowsingEnabled"`
 	AssumedOfflinePeriodSecs  *int  `pulumi:"assumedOfflinePeriodSecs"`
 	BlackedOut                *bool `pulumi:"blackedOut"`
 	BlockMismatchingMimeTypes *bool `pulumi:"blockMismatchingMimeTypes"`
@@ -182,6 +184,7 @@ func LookupRemoteDockerRepositoryOutput(ctx *pulumi.Context, args LookupRemoteDo
 // A collection of arguments for invoking getRemoteDockerRepository.
 type LookupRemoteDockerRepositoryOutputArgs struct {
 	AllowAnyHostAuth          pulumi.BoolPtrInput `pulumi:"allowAnyHostAuth"`
+	ArchiveBrowsingEnabled    pulumi.BoolPtrInput `pulumi:"archiveBrowsingEnabled"`
 	AssumedOfflinePeriodSecs  pulumi.IntPtrInput  `pulumi:"assumedOfflinePeriodSecs"`
 	BlackedOut                pulumi.BoolPtrInput `pulumi:"blackedOut"`
 	BlockMismatchingMimeTypes pulumi.BoolPtrInput `pulumi:"blockMismatchingMimeTypes"`
@@ -258,6 +261,10 @@ func (o LookupRemoteDockerRepositoryResultOutput) ToLookupRemoteDockerRepository
 
 func (o LookupRemoteDockerRepositoryResultOutput) AllowAnyHostAuth() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupRemoteDockerRepositoryResult) *bool { return v.AllowAnyHostAuth }).(pulumi.BoolPtrOutput)
+}
+
+func (o LookupRemoteDockerRepositoryResultOutput) ArchiveBrowsingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupRemoteDockerRepositoryResult) *bool { return v.ArchiveBrowsingEnabled }).(pulumi.BoolPtrOutput)
 }
 
 func (o LookupRemoteDockerRepositoryResultOutput) AssumedOfflinePeriodSecs() pulumi.IntPtrOutput {

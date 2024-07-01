@@ -25,6 +25,7 @@ export function getRemoteOpkgRepository(args: GetRemoteOpkgRepositoryArgs, opts?
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("artifactory:index/getRemoteOpkgRepository:getRemoteOpkgRepository", {
         "allowAnyHostAuth": args.allowAnyHostAuth,
+        "archiveBrowsingEnabled": args.archiveBrowsingEnabled,
         "assumedOfflinePeriodSecs": args.assumedOfflinePeriodSecs,
         "blackedOut": args.blackedOut,
         "blockMismatchingMimeTypes": args.blockMismatchingMimeTypes,
@@ -74,6 +75,7 @@ export function getRemoteOpkgRepository(args: GetRemoteOpkgRepositoryArgs, opts?
  */
 export interface GetRemoteOpkgRepositoryArgs {
     allowAnyHostAuth?: boolean;
+    archiveBrowsingEnabled?: boolean;
     assumedOfflinePeriodSecs?: number;
     blackedOut?: boolean;
     blockMismatchingMimeTypes?: boolean;
@@ -125,6 +127,7 @@ export interface GetRemoteOpkgRepositoryArgs {
  */
 export interface GetRemoteOpkgRepositoryResult {
     readonly allowAnyHostAuth?: boolean;
+    readonly archiveBrowsingEnabled?: boolean;
     readonly assumedOfflinePeriodSecs?: number;
     readonly blackedOut?: boolean;
     readonly blockMismatchingMimeTypes?: boolean;
@@ -195,6 +198,7 @@ export function getRemoteOpkgRepositoryOutput(args: GetRemoteOpkgRepositoryOutpu
  */
 export interface GetRemoteOpkgRepositoryOutputArgs {
     allowAnyHostAuth?: pulumi.Input<boolean>;
+    archiveBrowsingEnabled?: pulumi.Input<boolean>;
     assumedOfflinePeriodSecs?: pulumi.Input<number>;
     blackedOut?: pulumi.Input<boolean>;
     blockMismatchingMimeTypes?: pulumi.Input<boolean>;

@@ -66,6 +66,9 @@ namespace Pulumi.Artifactory
         [Input("allowAnyHostAuth")]
         public bool? AllowAnyHostAuth { get; set; }
 
+        [Input("archiveBrowsingEnabled")]
+        public bool? ArchiveBrowsingEnabled { get; set; }
+
         [Input("assumedOfflinePeriodSecs")]
         public int? AssumedOfflinePeriodSecs { get; set; }
 
@@ -265,6 +268,9 @@ namespace Pulumi.Artifactory
     {
         [Input("allowAnyHostAuth")]
         public Input<bool>? AllowAnyHostAuth { get; set; }
+
+        [Input("archiveBrowsingEnabled")]
+        public Input<bool>? ArchiveBrowsingEnabled { get; set; }
 
         [Input("assumedOfflinePeriodSecs")]
         public Input<int>? AssumedOfflinePeriodSecs { get; set; }
@@ -470,6 +476,7 @@ namespace Pulumi.Artifactory
     public sealed class GetRemoteMavenRepositoryResult
     {
         public readonly bool? AllowAnyHostAuth;
+        public readonly bool? ArchiveBrowsingEnabled;
         public readonly int? AssumedOfflinePeriodSecs;
         public readonly bool? BlackedOut;
         public readonly bool? BlockMismatchingMimeTypes;
@@ -552,6 +559,8 @@ namespace Pulumi.Artifactory
         [OutputConstructor]
         private GetRemoteMavenRepositoryResult(
             bool? allowAnyHostAuth,
+
+            bool? archiveBrowsingEnabled,
 
             int? assumedOfflinePeriodSecs,
 
@@ -656,6 +665,7 @@ namespace Pulumi.Artifactory
             bool? xrayIndex)
         {
             AllowAnyHostAuth = allowAnyHostAuth;
+            ArchiveBrowsingEnabled = archiveBrowsingEnabled;
             AssumedOfflinePeriodSecs = assumedOfflinePeriodSecs;
             BlackedOut = blackedOut;
             BlockMismatchingMimeTypes = blockMismatchingMimeTypes;

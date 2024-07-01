@@ -51,6 +51,7 @@ func LookupRemoteSbtRepository(ctx *pulumi.Context, args *LookupRemoteSbtReposit
 // A collection of arguments for invoking getRemoteSbtRepository.
 type LookupRemoteSbtRepositoryArgs struct {
 	AllowAnyHostAuth          *bool                                         `pulumi:"allowAnyHostAuth"`
+	ArchiveBrowsingEnabled    *bool                                         `pulumi:"archiveBrowsingEnabled"`
 	AssumedOfflinePeriodSecs  *int                                          `pulumi:"assumedOfflinePeriodSecs"`
 	BlackedOut                *bool                                         `pulumi:"blackedOut"`
 	BlockMismatchingMimeTypes *bool                                         `pulumi:"blockMismatchingMimeTypes"`
@@ -112,6 +113,7 @@ type LookupRemoteSbtRepositoryArgs struct {
 // A collection of values returned by getRemoteSbtRepository.
 type LookupRemoteSbtRepositoryResult struct {
 	AllowAnyHostAuth          *bool                                        `pulumi:"allowAnyHostAuth"`
+	ArchiveBrowsingEnabled    *bool                                        `pulumi:"archiveBrowsingEnabled"`
 	AssumedOfflinePeriodSecs  *int                                         `pulumi:"assumedOfflinePeriodSecs"`
 	BlackedOut                *bool                                        `pulumi:"blackedOut"`
 	BlockMismatchingMimeTypes *bool                                        `pulumi:"blockMismatchingMimeTypes"`
@@ -188,6 +190,7 @@ func LookupRemoteSbtRepositoryOutput(ctx *pulumi.Context, args LookupRemoteSbtRe
 // A collection of arguments for invoking getRemoteSbtRepository.
 type LookupRemoteSbtRepositoryOutputArgs struct {
 	AllowAnyHostAuth          pulumi.BoolPtrInput                                  `pulumi:"allowAnyHostAuth"`
+	ArchiveBrowsingEnabled    pulumi.BoolPtrInput                                  `pulumi:"archiveBrowsingEnabled"`
 	AssumedOfflinePeriodSecs  pulumi.IntPtrInput                                   `pulumi:"assumedOfflinePeriodSecs"`
 	BlackedOut                pulumi.BoolPtrInput                                  `pulumi:"blackedOut"`
 	BlockMismatchingMimeTypes pulumi.BoolPtrInput                                  `pulumi:"blockMismatchingMimeTypes"`
@@ -267,6 +270,10 @@ func (o LookupRemoteSbtRepositoryResultOutput) ToLookupRemoteSbtRepositoryResult
 
 func (o LookupRemoteSbtRepositoryResultOutput) AllowAnyHostAuth() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupRemoteSbtRepositoryResult) *bool { return v.AllowAnyHostAuth }).(pulumi.BoolPtrOutput)
+}
+
+func (o LookupRemoteSbtRepositoryResultOutput) ArchiveBrowsingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupRemoteSbtRepositoryResult) *bool { return v.ArchiveBrowsingEnabled }).(pulumi.BoolPtrOutput)
 }
 
 func (o LookupRemoteSbtRepositoryResultOutput) AssumedOfflinePeriodSecs() pulumi.IntPtrOutput {

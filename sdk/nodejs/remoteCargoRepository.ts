@@ -75,6 +75,12 @@ export class RemoteCargoRepository extends pulumi.CustomResource {
      */
     public readonly anonymousAccess!: pulumi.Output<boolean | undefined>;
     /**
+     * When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
+     * therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
+     * security (e.g., cross-site scripting attacks).
+     */
+    public readonly archiveBrowsingEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
      * an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
      * offline.
@@ -280,6 +286,7 @@ export class RemoteCargoRepository extends pulumi.CustomResource {
             const state = argsOrState as RemoteCargoRepositoryState | undefined;
             resourceInputs["allowAnyHostAuth"] = state ? state.allowAnyHostAuth : undefined;
             resourceInputs["anonymousAccess"] = state ? state.anonymousAccess : undefined;
+            resourceInputs["archiveBrowsingEnabled"] = state ? state.archiveBrowsingEnabled : undefined;
             resourceInputs["assumedOfflinePeriodSecs"] = state ? state.assumedOfflinePeriodSecs : undefined;
             resourceInputs["blackedOut"] = state ? state.blackedOut : undefined;
             resourceInputs["blockMismatchingMimeTypes"] = state ? state.blockMismatchingMimeTypes : undefined;
@@ -337,6 +344,7 @@ export class RemoteCargoRepository extends pulumi.CustomResource {
             }
             resourceInputs["allowAnyHostAuth"] = args ? args.allowAnyHostAuth : undefined;
             resourceInputs["anonymousAccess"] = args ? args.anonymousAccess : undefined;
+            resourceInputs["archiveBrowsingEnabled"] = args ? args.archiveBrowsingEnabled : undefined;
             resourceInputs["assumedOfflinePeriodSecs"] = args ? args.assumedOfflinePeriodSecs : undefined;
             resourceInputs["blackedOut"] = args ? args.blackedOut : undefined;
             resourceInputs["blockMismatchingMimeTypes"] = args ? args.blockMismatchingMimeTypes : undefined;
@@ -402,6 +410,12 @@ export interface RemoteCargoRepositoryState {
      * Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
      */
     anonymousAccess?: pulumi.Input<boolean>;
+    /**
+     * When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
+     * therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
+     * security (e.g., cross-site scripting attacks).
+     */
+    archiveBrowsingEnabled?: pulumi.Input<boolean>;
     /**
      * The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
      * an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
@@ -607,6 +621,12 @@ export interface RemoteCargoRepositoryArgs {
      * Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
      */
     anonymousAccess?: pulumi.Input<boolean>;
+    /**
+     * When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
+     * therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
+     * security (e.g., cross-site scripting attacks).
+     */
+    archiveBrowsingEnabled?: pulumi.Input<boolean>;
     /**
      * The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
      * an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed

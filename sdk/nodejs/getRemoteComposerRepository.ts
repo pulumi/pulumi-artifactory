@@ -25,6 +25,7 @@ export function getRemoteComposerRepository(args: GetRemoteComposerRepositoryArg
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("artifactory:index/getRemoteComposerRepository:getRemoteComposerRepository", {
         "allowAnyHostAuth": args.allowAnyHostAuth,
+        "archiveBrowsingEnabled": args.archiveBrowsingEnabled,
         "assumedOfflinePeriodSecs": args.assumedOfflinePeriodSecs,
         "blackedOut": args.blackedOut,
         "blockMismatchingMimeTypes": args.blockMismatchingMimeTypes,
@@ -77,6 +78,7 @@ export function getRemoteComposerRepository(args: GetRemoteComposerRepositoryArg
  */
 export interface GetRemoteComposerRepositoryArgs {
     allowAnyHostAuth?: boolean;
+    archiveBrowsingEnabled?: boolean;
     assumedOfflinePeriodSecs?: number;
     blackedOut?: boolean;
     blockMismatchingMimeTypes?: boolean;
@@ -140,6 +142,7 @@ export interface GetRemoteComposerRepositoryArgs {
  */
 export interface GetRemoteComposerRepositoryResult {
     readonly allowAnyHostAuth?: boolean;
+    readonly archiveBrowsingEnabled?: boolean;
     readonly assumedOfflinePeriodSecs?: number;
     readonly blackedOut?: boolean;
     readonly blockMismatchingMimeTypes?: boolean;
@@ -222,6 +225,7 @@ export function getRemoteComposerRepositoryOutput(args: GetRemoteComposerReposit
  */
 export interface GetRemoteComposerRepositoryOutputArgs {
     allowAnyHostAuth?: pulumi.Input<boolean>;
+    archiveBrowsingEnabled?: pulumi.Input<boolean>;
     assumedOfflinePeriodSecs?: pulumi.Input<number>;
     blackedOut?: pulumi.Input<boolean>;
     blockMismatchingMimeTypes?: pulumi.Input<boolean>;

@@ -25,6 +25,7 @@ export function getRemoteChefRepository(args: GetRemoteChefRepositoryArgs, opts?
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("artifactory:index/getRemoteChefRepository:getRemoteChefRepository", {
         "allowAnyHostAuth": args.allowAnyHostAuth,
+        "archiveBrowsingEnabled": args.archiveBrowsingEnabled,
         "assumedOfflinePeriodSecs": args.assumedOfflinePeriodSecs,
         "blackedOut": args.blackedOut,
         "blockMismatchingMimeTypes": args.blockMismatchingMimeTypes,
@@ -74,6 +75,7 @@ export function getRemoteChefRepository(args: GetRemoteChefRepositoryArgs, opts?
  */
 export interface GetRemoteChefRepositoryArgs {
     allowAnyHostAuth?: boolean;
+    archiveBrowsingEnabled?: boolean;
     assumedOfflinePeriodSecs?: number;
     blackedOut?: boolean;
     blockMismatchingMimeTypes?: boolean;
@@ -125,6 +127,7 @@ export interface GetRemoteChefRepositoryArgs {
  */
 export interface GetRemoteChefRepositoryResult {
     readonly allowAnyHostAuth?: boolean;
+    readonly archiveBrowsingEnabled?: boolean;
     readonly assumedOfflinePeriodSecs?: number;
     readonly blackedOut?: boolean;
     readonly blockMismatchingMimeTypes?: boolean;
@@ -195,6 +198,7 @@ export function getRemoteChefRepositoryOutput(args: GetRemoteChefRepositoryOutpu
  */
 export interface GetRemoteChefRepositoryOutputArgs {
     allowAnyHostAuth?: pulumi.Input<boolean>;
+    archiveBrowsingEnabled?: pulumi.Input<boolean>;
     assumedOfflinePeriodSecs?: pulumi.Input<number>;
     blackedOut?: pulumi.Input<boolean>;
     blockMismatchingMimeTypes?: pulumi.Input<boolean>;

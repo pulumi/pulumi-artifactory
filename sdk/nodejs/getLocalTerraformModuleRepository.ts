@@ -11,7 +11,9 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const terraform_local_test_terraform_module_repo = new artifactory.LocalTerraformModuleRepository("terraform-local-test-terraform-module-repo", {key: "terraform-local-test-terraform-module-repo"});
+ * const terraform-local-test-terraform-module-repo = artifactory.getLocalTerraformModuleRepository({
+ *     key: "terraform-local-test-terraform-module-repo",
+ * });
  * ```
  */
 export function getLocalTerraformModuleRepository(args: GetLocalTerraformModuleRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalTerraformModuleRepositoryResult> {
@@ -92,7 +94,9 @@ export interface GetLocalTerraformModuleRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const terraform_local_test_terraform_module_repo = new artifactory.LocalTerraformModuleRepository("terraform-local-test-terraform-module-repo", {key: "terraform-local-test-terraform-module-repo"});
+ * const terraform-local-test-terraform-module-repo = artifactory.getLocalTerraformModuleRepository({
+ *     key: "terraform-local-test-terraform-module-repo",
+ * });
  * ```
  */
 export function getLocalTerraformModuleRepositoryOutput(args: GetLocalTerraformModuleRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalTerraformModuleRepositoryResult> {

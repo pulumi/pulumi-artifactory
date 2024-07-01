@@ -72,6 +72,9 @@ namespace Pulumi.Artifactory
         [Input("anonymousAccess")]
         public bool? AnonymousAccess { get; set; }
 
+        [Input("archiveBrowsingEnabled")]
+        public bool? ArchiveBrowsingEnabled { get; set; }
+
         [Input("assumedOfflinePeriodSecs")]
         public int? AssumedOfflinePeriodSecs { get; set; }
 
@@ -241,6 +244,9 @@ namespace Pulumi.Artifactory
         /// </summary>
         [Input("anonymousAccess")]
         public Input<bool>? AnonymousAccess { get; set; }
+
+        [Input("archiveBrowsingEnabled")]
+        public Input<bool>? ArchiveBrowsingEnabled { get; set; }
 
         [Input("assumedOfflinePeriodSecs")]
         public Input<int>? AssumedOfflinePeriodSecs { get; set; }
@@ -414,6 +420,7 @@ namespace Pulumi.Artifactory
         /// (Required) Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
         /// </summary>
         public readonly bool? AnonymousAccess;
+        public readonly bool? ArchiveBrowsingEnabled;
         public readonly int? AssumedOfflinePeriodSecs;
         public readonly bool? BlackedOut;
         public readonly bool? BlockMismatchingMimeTypes;
@@ -474,6 +481,8 @@ namespace Pulumi.Artifactory
             bool? allowAnyHostAuth,
 
             bool? anonymousAccess,
+
+            bool? archiveBrowsingEnabled,
 
             int? assumedOfflinePeriodSecs,
 
@@ -567,6 +576,7 @@ namespace Pulumi.Artifactory
         {
             AllowAnyHostAuth = allowAnyHostAuth;
             AnonymousAccess = anonymousAccess;
+            ArchiveBrowsingEnabled = archiveBrowsingEnabled;
             AssumedOfflinePeriodSecs = assumedOfflinePeriodSecs;
             BlackedOut = blackedOut;
             BlockMismatchingMimeTypes = blockMismatchingMimeTypes;

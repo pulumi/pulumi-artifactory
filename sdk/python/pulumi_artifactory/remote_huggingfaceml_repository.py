@@ -18,6 +18,7 @@ class RemoteHuggingfacemlRepositoryArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  allow_any_host_auth: Optional[pulumi.Input[bool]] = None,
+                 archive_browsing_enabled: Optional[pulumi.Input[bool]] = None,
                  assumed_offline_period_secs: Optional[pulumi.Input[int]] = None,
                  blacked_out: Optional[pulumi.Input[bool]] = None,
                  block_mismatching_mime_types: Optional[pulumi.Input[bool]] = None,
@@ -64,6 +65,9 @@ class RemoteHuggingfacemlRepositoryArgs:
                contain spaces or special characters.
         :param pulumi.Input[bool] allow_any_host_auth: 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any
                other host.
+        :param pulumi.Input[bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
+               therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
+               security (e.g., cross-site scripting attacks).
         :param pulumi.Input[int] assumed_offline_period_secs: The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
                an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
                offline.
@@ -134,6 +138,8 @@ class RemoteHuggingfacemlRepositoryArgs:
         pulumi.set(__self__, "key", key)
         if allow_any_host_auth is not None:
             pulumi.set(__self__, "allow_any_host_auth", allow_any_host_auth)
+        if archive_browsing_enabled is not None:
+            pulumi.set(__self__, "archive_browsing_enabled", archive_browsing_enabled)
         if assumed_offline_period_secs is not None:
             pulumi.set(__self__, "assumed_offline_period_secs", assumed_offline_period_secs)
         if blacked_out is not None:
@@ -240,6 +246,20 @@ class RemoteHuggingfacemlRepositoryArgs:
     @allow_any_host_auth.setter
     def allow_any_host_auth(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "allow_any_host_auth", value)
+
+    @property
+    @pulumi.getter(name="archiveBrowsingEnabled")
+    def archive_browsing_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
+        therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
+        security (e.g., cross-site scripting attacks).
+        """
+        return pulumi.get(self, "archive_browsing_enabled")
+
+    @archive_browsing_enabled.setter
+    def archive_browsing_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "archive_browsing_enabled", value)
 
     @property
     @pulumi.getter(name="assumedOfflinePeriodSecs")
@@ -742,6 +762,7 @@ class RemoteHuggingfacemlRepositoryArgs:
 class _RemoteHuggingfacemlRepositoryState:
     def __init__(__self__, *,
                  allow_any_host_auth: Optional[pulumi.Input[bool]] = None,
+                 archive_browsing_enabled: Optional[pulumi.Input[bool]] = None,
                  assumed_offline_period_secs: Optional[pulumi.Input[int]] = None,
                  blacked_out: Optional[pulumi.Input[bool]] = None,
                  block_mismatching_mime_types: Optional[pulumi.Input[bool]] = None,
@@ -788,6 +809,9 @@ class _RemoteHuggingfacemlRepositoryState:
         Input properties used for looking up and filtering RemoteHuggingfacemlRepository resources.
         :param pulumi.Input[bool] allow_any_host_auth: 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any
                other host.
+        :param pulumi.Input[bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
+               therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
+               security (e.g., cross-site scripting attacks).
         :param pulumi.Input[int] assumed_offline_period_secs: The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
                an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
                offline.
@@ -859,6 +883,8 @@ class _RemoteHuggingfacemlRepositoryState:
         """
         if allow_any_host_auth is not None:
             pulumi.set(__self__, "allow_any_host_auth", allow_any_host_auth)
+        if archive_browsing_enabled is not None:
+            pulumi.set(__self__, "archive_browsing_enabled", archive_browsing_enabled)
         if assumed_offline_period_secs is not None:
             pulumi.set(__self__, "assumed_offline_period_secs", assumed_offline_period_secs)
         if blacked_out is not None:
@@ -956,6 +982,20 @@ class _RemoteHuggingfacemlRepositoryState:
     @allow_any_host_auth.setter
     def allow_any_host_auth(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "allow_any_host_auth", value)
+
+    @property
+    @pulumi.getter(name="archiveBrowsingEnabled")
+    def archive_browsing_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
+        therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
+        security (e.g., cross-site scripting attacks).
+        """
+        return pulumi.get(self, "archive_browsing_enabled")
+
+    @archive_browsing_enabled.setter
+    def archive_browsing_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "archive_browsing_enabled", value)
 
     @property
     @pulumi.getter(name="assumedOfflinePeriodSecs")
@@ -1482,6 +1522,7 @@ class RemoteHuggingfacemlRepository(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allow_any_host_auth: Optional[pulumi.Input[bool]] = None,
+                 archive_browsing_enabled: Optional[pulumi.Input[bool]] = None,
                  assumed_offline_period_secs: Optional[pulumi.Input[int]] = None,
                  blacked_out: Optional[pulumi.Input[bool]] = None,
                  block_mismatching_mime_types: Optional[pulumi.Input[bool]] = None,
@@ -1550,6 +1591,9 @@ class RemoteHuggingfacemlRepository(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_any_host_auth: 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any
                other host.
+        :param pulumi.Input[bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
+               therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
+               security (e.g., cross-site scripting attacks).
         :param pulumi.Input[int] assumed_offline_period_secs: The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
                an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
                offline.
@@ -1663,6 +1707,7 @@ class RemoteHuggingfacemlRepository(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allow_any_host_auth: Optional[pulumi.Input[bool]] = None,
+                 archive_browsing_enabled: Optional[pulumi.Input[bool]] = None,
                  assumed_offline_period_secs: Optional[pulumi.Input[int]] = None,
                  blacked_out: Optional[pulumi.Input[bool]] = None,
                  block_mismatching_mime_types: Optional[pulumi.Input[bool]] = None,
@@ -1714,6 +1759,7 @@ class RemoteHuggingfacemlRepository(pulumi.CustomResource):
             __props__ = RemoteHuggingfacemlRepositoryArgs.__new__(RemoteHuggingfacemlRepositoryArgs)
 
             __props__.__dict__["allow_any_host_auth"] = allow_any_host_auth
+            __props__.__dict__["archive_browsing_enabled"] = archive_browsing_enabled
             __props__.__dict__["assumed_offline_period_secs"] = assumed_offline_period_secs
             __props__.__dict__["blacked_out"] = blacked_out
             __props__.__dict__["block_mismatching_mime_types"] = block_mismatching_mime_types
@@ -1771,6 +1817,7 @@ class RemoteHuggingfacemlRepository(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             allow_any_host_auth: Optional[pulumi.Input[bool]] = None,
+            archive_browsing_enabled: Optional[pulumi.Input[bool]] = None,
             assumed_offline_period_secs: Optional[pulumi.Input[int]] = None,
             blacked_out: Optional[pulumi.Input[bool]] = None,
             block_mismatching_mime_types: Optional[pulumi.Input[bool]] = None,
@@ -1822,6 +1869,9 @@ class RemoteHuggingfacemlRepository(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_any_host_auth: 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any
                other host.
+        :param pulumi.Input[bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
+               therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
+               security (e.g., cross-site scripting attacks).
         :param pulumi.Input[int] assumed_offline_period_secs: The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
                an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
                offline.
@@ -1896,6 +1946,7 @@ class RemoteHuggingfacemlRepository(pulumi.CustomResource):
         __props__ = _RemoteHuggingfacemlRepositoryState.__new__(_RemoteHuggingfacemlRepositoryState)
 
         __props__.__dict__["allow_any_host_auth"] = allow_any_host_auth
+        __props__.__dict__["archive_browsing_enabled"] = archive_browsing_enabled
         __props__.__dict__["assumed_offline_period_secs"] = assumed_offline_period_secs
         __props__.__dict__["blacked_out"] = blacked_out
         __props__.__dict__["block_mismatching_mime_types"] = block_mismatching_mime_types
@@ -1948,6 +1999,16 @@ class RemoteHuggingfacemlRepository(pulumi.CustomResource):
         other host.
         """
         return pulumi.get(self, "allow_any_host_auth")
+
+    @property
+    @pulumi.getter(name="archiveBrowsingEnabled")
+    def archive_browsing_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
+        therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
+        security (e.g., cross-site scripting attacks).
+        """
+        return pulumi.get(self, "archive_browsing_enabled")
 
     @property
     @pulumi.getter(name="assumedOfflinePeriodSecs")

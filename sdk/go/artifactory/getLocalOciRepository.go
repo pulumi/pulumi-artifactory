@@ -27,9 +27,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.NewLocalOciRepository(ctx, "my-oci-local", &artifactory.LocalOciRepositoryArgs{
-//				Key: pulumi.String("my-oci-local"),
-//			})
+//			_, err := artifactory.LookupLocalOciRepository(ctx, &artifactory.LookupLocalOciRepositoryArgs{
+//				Key: "my-oci-local",
+//			}, nil)
 //			if err != nil {
 //				return err
 //			}

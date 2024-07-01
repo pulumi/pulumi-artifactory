@@ -17839,6 +17839,488 @@ func (o ReplicationConfigReplicationArrayOutput) Index(i pulumi.IntInput) Replic
 	}).(ReplicationConfigReplicationOutput)
 }
 
+type VaultConfigurationConfig struct {
+	Auth   VaultConfigurationConfigAuth    `pulumi:"auth"`
+	Mounts []VaultConfigurationConfigMount `pulumi:"mounts"`
+	// The base URL of the Vault server.
+	Url string `pulumi:"url"`
+}
+
+// VaultConfigurationConfigInput is an input type that accepts VaultConfigurationConfigArgs and VaultConfigurationConfigOutput values.
+// You can construct a concrete instance of `VaultConfigurationConfigInput` via:
+//
+//	VaultConfigurationConfigArgs{...}
+type VaultConfigurationConfigInput interface {
+	pulumi.Input
+
+	ToVaultConfigurationConfigOutput() VaultConfigurationConfigOutput
+	ToVaultConfigurationConfigOutputWithContext(context.Context) VaultConfigurationConfigOutput
+}
+
+type VaultConfigurationConfigArgs struct {
+	Auth   VaultConfigurationConfigAuthInput       `pulumi:"auth"`
+	Mounts VaultConfigurationConfigMountArrayInput `pulumi:"mounts"`
+	// The base URL of the Vault server.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (VaultConfigurationConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VaultConfigurationConfig)(nil)).Elem()
+}
+
+func (i VaultConfigurationConfigArgs) ToVaultConfigurationConfigOutput() VaultConfigurationConfigOutput {
+	return i.ToVaultConfigurationConfigOutputWithContext(context.Background())
+}
+
+func (i VaultConfigurationConfigArgs) ToVaultConfigurationConfigOutputWithContext(ctx context.Context) VaultConfigurationConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VaultConfigurationConfigOutput)
+}
+
+func (i VaultConfigurationConfigArgs) ToVaultConfigurationConfigPtrOutput() VaultConfigurationConfigPtrOutput {
+	return i.ToVaultConfigurationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i VaultConfigurationConfigArgs) ToVaultConfigurationConfigPtrOutputWithContext(ctx context.Context) VaultConfigurationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VaultConfigurationConfigOutput).ToVaultConfigurationConfigPtrOutputWithContext(ctx)
+}
+
+// VaultConfigurationConfigPtrInput is an input type that accepts VaultConfigurationConfigArgs, VaultConfigurationConfigPtr and VaultConfigurationConfigPtrOutput values.
+// You can construct a concrete instance of `VaultConfigurationConfigPtrInput` via:
+//
+//	        VaultConfigurationConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type VaultConfigurationConfigPtrInput interface {
+	pulumi.Input
+
+	ToVaultConfigurationConfigPtrOutput() VaultConfigurationConfigPtrOutput
+	ToVaultConfigurationConfigPtrOutputWithContext(context.Context) VaultConfigurationConfigPtrOutput
+}
+
+type vaultConfigurationConfigPtrType VaultConfigurationConfigArgs
+
+func VaultConfigurationConfigPtr(v *VaultConfigurationConfigArgs) VaultConfigurationConfigPtrInput {
+	return (*vaultConfigurationConfigPtrType)(v)
+}
+
+func (*vaultConfigurationConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VaultConfigurationConfig)(nil)).Elem()
+}
+
+func (i *vaultConfigurationConfigPtrType) ToVaultConfigurationConfigPtrOutput() VaultConfigurationConfigPtrOutput {
+	return i.ToVaultConfigurationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *vaultConfigurationConfigPtrType) ToVaultConfigurationConfigPtrOutputWithContext(ctx context.Context) VaultConfigurationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VaultConfigurationConfigPtrOutput)
+}
+
+type VaultConfigurationConfigOutput struct{ *pulumi.OutputState }
+
+func (VaultConfigurationConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VaultConfigurationConfig)(nil)).Elem()
+}
+
+func (o VaultConfigurationConfigOutput) ToVaultConfigurationConfigOutput() VaultConfigurationConfigOutput {
+	return o
+}
+
+func (o VaultConfigurationConfigOutput) ToVaultConfigurationConfigOutputWithContext(ctx context.Context) VaultConfigurationConfigOutput {
+	return o
+}
+
+func (o VaultConfigurationConfigOutput) ToVaultConfigurationConfigPtrOutput() VaultConfigurationConfigPtrOutput {
+	return o.ToVaultConfigurationConfigPtrOutputWithContext(context.Background())
+}
+
+func (o VaultConfigurationConfigOutput) ToVaultConfigurationConfigPtrOutputWithContext(ctx context.Context) VaultConfigurationConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VaultConfigurationConfig) *VaultConfigurationConfig {
+		return &v
+	}).(VaultConfigurationConfigPtrOutput)
+}
+
+func (o VaultConfigurationConfigOutput) Auth() VaultConfigurationConfigAuthOutput {
+	return o.ApplyT(func(v VaultConfigurationConfig) VaultConfigurationConfigAuth { return v.Auth }).(VaultConfigurationConfigAuthOutput)
+}
+
+func (o VaultConfigurationConfigOutput) Mounts() VaultConfigurationConfigMountArrayOutput {
+	return o.ApplyT(func(v VaultConfigurationConfig) []VaultConfigurationConfigMount { return v.Mounts }).(VaultConfigurationConfigMountArrayOutput)
+}
+
+// The base URL of the Vault server.
+func (o VaultConfigurationConfigOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v VaultConfigurationConfig) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type VaultConfigurationConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (VaultConfigurationConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VaultConfigurationConfig)(nil)).Elem()
+}
+
+func (o VaultConfigurationConfigPtrOutput) ToVaultConfigurationConfigPtrOutput() VaultConfigurationConfigPtrOutput {
+	return o
+}
+
+func (o VaultConfigurationConfigPtrOutput) ToVaultConfigurationConfigPtrOutputWithContext(ctx context.Context) VaultConfigurationConfigPtrOutput {
+	return o
+}
+
+func (o VaultConfigurationConfigPtrOutput) Elem() VaultConfigurationConfigOutput {
+	return o.ApplyT(func(v *VaultConfigurationConfig) VaultConfigurationConfig {
+		if v != nil {
+			return *v
+		}
+		var ret VaultConfigurationConfig
+		return ret
+	}).(VaultConfigurationConfigOutput)
+}
+
+func (o VaultConfigurationConfigPtrOutput) Auth() VaultConfigurationConfigAuthPtrOutput {
+	return o.ApplyT(func(v *VaultConfigurationConfig) *VaultConfigurationConfigAuth {
+		if v == nil {
+			return nil
+		}
+		return &v.Auth
+	}).(VaultConfigurationConfigAuthPtrOutput)
+}
+
+func (o VaultConfigurationConfigPtrOutput) Mounts() VaultConfigurationConfigMountArrayOutput {
+	return o.ApplyT(func(v *VaultConfigurationConfig) []VaultConfigurationConfigMount {
+		if v == nil {
+			return nil
+		}
+		return v.Mounts
+	}).(VaultConfigurationConfigMountArrayOutput)
+}
+
+// The base URL of the Vault server.
+func (o VaultConfigurationConfigPtrOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VaultConfigurationConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Url
+	}).(pulumi.StringPtrOutput)
+}
+
+type VaultConfigurationConfigAuth struct {
+	// Client certificate (in PEM format) for `Certificate` type.
+	Certificate *string `pulumi:"certificate"`
+	// Private key (in PEM format) for `Certificate` type.
+	CertificateKey *string `pulumi:"certificateKey"`
+	// Role ID for `AppRole` type
+	RoleId *string `pulumi:"roleId"`
+	// Secret ID for `AppRole` type
+	SecretId *string `pulumi:"secretId"`
+	Type     string  `pulumi:"type"`
+}
+
+// VaultConfigurationConfigAuthInput is an input type that accepts VaultConfigurationConfigAuthArgs and VaultConfigurationConfigAuthOutput values.
+// You can construct a concrete instance of `VaultConfigurationConfigAuthInput` via:
+//
+//	VaultConfigurationConfigAuthArgs{...}
+type VaultConfigurationConfigAuthInput interface {
+	pulumi.Input
+
+	ToVaultConfigurationConfigAuthOutput() VaultConfigurationConfigAuthOutput
+	ToVaultConfigurationConfigAuthOutputWithContext(context.Context) VaultConfigurationConfigAuthOutput
+}
+
+type VaultConfigurationConfigAuthArgs struct {
+	// Client certificate (in PEM format) for `Certificate` type.
+	Certificate pulumi.StringPtrInput `pulumi:"certificate"`
+	// Private key (in PEM format) for `Certificate` type.
+	CertificateKey pulumi.StringPtrInput `pulumi:"certificateKey"`
+	// Role ID for `AppRole` type
+	RoleId pulumi.StringPtrInput `pulumi:"roleId"`
+	// Secret ID for `AppRole` type
+	SecretId pulumi.StringPtrInput `pulumi:"secretId"`
+	Type     pulumi.StringInput    `pulumi:"type"`
+}
+
+func (VaultConfigurationConfigAuthArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VaultConfigurationConfigAuth)(nil)).Elem()
+}
+
+func (i VaultConfigurationConfigAuthArgs) ToVaultConfigurationConfigAuthOutput() VaultConfigurationConfigAuthOutput {
+	return i.ToVaultConfigurationConfigAuthOutputWithContext(context.Background())
+}
+
+func (i VaultConfigurationConfigAuthArgs) ToVaultConfigurationConfigAuthOutputWithContext(ctx context.Context) VaultConfigurationConfigAuthOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VaultConfigurationConfigAuthOutput)
+}
+
+func (i VaultConfigurationConfigAuthArgs) ToVaultConfigurationConfigAuthPtrOutput() VaultConfigurationConfigAuthPtrOutput {
+	return i.ToVaultConfigurationConfigAuthPtrOutputWithContext(context.Background())
+}
+
+func (i VaultConfigurationConfigAuthArgs) ToVaultConfigurationConfigAuthPtrOutputWithContext(ctx context.Context) VaultConfigurationConfigAuthPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VaultConfigurationConfigAuthOutput).ToVaultConfigurationConfigAuthPtrOutputWithContext(ctx)
+}
+
+// VaultConfigurationConfigAuthPtrInput is an input type that accepts VaultConfigurationConfigAuthArgs, VaultConfigurationConfigAuthPtr and VaultConfigurationConfigAuthPtrOutput values.
+// You can construct a concrete instance of `VaultConfigurationConfigAuthPtrInput` via:
+//
+//	        VaultConfigurationConfigAuthArgs{...}
+//
+//	or:
+//
+//	        nil
+type VaultConfigurationConfigAuthPtrInput interface {
+	pulumi.Input
+
+	ToVaultConfigurationConfigAuthPtrOutput() VaultConfigurationConfigAuthPtrOutput
+	ToVaultConfigurationConfigAuthPtrOutputWithContext(context.Context) VaultConfigurationConfigAuthPtrOutput
+}
+
+type vaultConfigurationConfigAuthPtrType VaultConfigurationConfigAuthArgs
+
+func VaultConfigurationConfigAuthPtr(v *VaultConfigurationConfigAuthArgs) VaultConfigurationConfigAuthPtrInput {
+	return (*vaultConfigurationConfigAuthPtrType)(v)
+}
+
+func (*vaultConfigurationConfigAuthPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VaultConfigurationConfigAuth)(nil)).Elem()
+}
+
+func (i *vaultConfigurationConfigAuthPtrType) ToVaultConfigurationConfigAuthPtrOutput() VaultConfigurationConfigAuthPtrOutput {
+	return i.ToVaultConfigurationConfigAuthPtrOutputWithContext(context.Background())
+}
+
+func (i *vaultConfigurationConfigAuthPtrType) ToVaultConfigurationConfigAuthPtrOutputWithContext(ctx context.Context) VaultConfigurationConfigAuthPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VaultConfigurationConfigAuthPtrOutput)
+}
+
+type VaultConfigurationConfigAuthOutput struct{ *pulumi.OutputState }
+
+func (VaultConfigurationConfigAuthOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VaultConfigurationConfigAuth)(nil)).Elem()
+}
+
+func (o VaultConfigurationConfigAuthOutput) ToVaultConfigurationConfigAuthOutput() VaultConfigurationConfigAuthOutput {
+	return o
+}
+
+func (o VaultConfigurationConfigAuthOutput) ToVaultConfigurationConfigAuthOutputWithContext(ctx context.Context) VaultConfigurationConfigAuthOutput {
+	return o
+}
+
+func (o VaultConfigurationConfigAuthOutput) ToVaultConfigurationConfigAuthPtrOutput() VaultConfigurationConfigAuthPtrOutput {
+	return o.ToVaultConfigurationConfigAuthPtrOutputWithContext(context.Background())
+}
+
+func (o VaultConfigurationConfigAuthOutput) ToVaultConfigurationConfigAuthPtrOutputWithContext(ctx context.Context) VaultConfigurationConfigAuthPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VaultConfigurationConfigAuth) *VaultConfigurationConfigAuth {
+		return &v
+	}).(VaultConfigurationConfigAuthPtrOutput)
+}
+
+// Client certificate (in PEM format) for `Certificate` type.
+func (o VaultConfigurationConfigAuthOutput) Certificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VaultConfigurationConfigAuth) *string { return v.Certificate }).(pulumi.StringPtrOutput)
+}
+
+// Private key (in PEM format) for `Certificate` type.
+func (o VaultConfigurationConfigAuthOutput) CertificateKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VaultConfigurationConfigAuth) *string { return v.CertificateKey }).(pulumi.StringPtrOutput)
+}
+
+// Role ID for `AppRole` type
+func (o VaultConfigurationConfigAuthOutput) RoleId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VaultConfigurationConfigAuth) *string { return v.RoleId }).(pulumi.StringPtrOutput)
+}
+
+// Secret ID for `AppRole` type
+func (o VaultConfigurationConfigAuthOutput) SecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VaultConfigurationConfigAuth) *string { return v.SecretId }).(pulumi.StringPtrOutput)
+}
+
+func (o VaultConfigurationConfigAuthOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v VaultConfigurationConfigAuth) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type VaultConfigurationConfigAuthPtrOutput struct{ *pulumi.OutputState }
+
+func (VaultConfigurationConfigAuthPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VaultConfigurationConfigAuth)(nil)).Elem()
+}
+
+func (o VaultConfigurationConfigAuthPtrOutput) ToVaultConfigurationConfigAuthPtrOutput() VaultConfigurationConfigAuthPtrOutput {
+	return o
+}
+
+func (o VaultConfigurationConfigAuthPtrOutput) ToVaultConfigurationConfigAuthPtrOutputWithContext(ctx context.Context) VaultConfigurationConfigAuthPtrOutput {
+	return o
+}
+
+func (o VaultConfigurationConfigAuthPtrOutput) Elem() VaultConfigurationConfigAuthOutput {
+	return o.ApplyT(func(v *VaultConfigurationConfigAuth) VaultConfigurationConfigAuth {
+		if v != nil {
+			return *v
+		}
+		var ret VaultConfigurationConfigAuth
+		return ret
+	}).(VaultConfigurationConfigAuthOutput)
+}
+
+// Client certificate (in PEM format) for `Certificate` type.
+func (o VaultConfigurationConfigAuthPtrOutput) Certificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VaultConfigurationConfigAuth) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Certificate
+	}).(pulumi.StringPtrOutput)
+}
+
+// Private key (in PEM format) for `Certificate` type.
+func (o VaultConfigurationConfigAuthPtrOutput) CertificateKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VaultConfigurationConfigAuth) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CertificateKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// Role ID for `AppRole` type
+func (o VaultConfigurationConfigAuthPtrOutput) RoleId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VaultConfigurationConfigAuth) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RoleId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Secret ID for `AppRole` type
+func (o VaultConfigurationConfigAuthPtrOutput) SecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VaultConfigurationConfigAuth) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecretId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o VaultConfigurationConfigAuthPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VaultConfigurationConfigAuth) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type VaultConfigurationConfigMount struct {
+	// Vault secret engine path
+	Path string `pulumi:"path"`
+	// Vault supports several secret engines, each one has different capabilities. The supported secret engine types are: `KV1` and `KV2`.
+	Type string `pulumi:"type"`
+}
+
+// VaultConfigurationConfigMountInput is an input type that accepts VaultConfigurationConfigMountArgs and VaultConfigurationConfigMountOutput values.
+// You can construct a concrete instance of `VaultConfigurationConfigMountInput` via:
+//
+//	VaultConfigurationConfigMountArgs{...}
+type VaultConfigurationConfigMountInput interface {
+	pulumi.Input
+
+	ToVaultConfigurationConfigMountOutput() VaultConfigurationConfigMountOutput
+	ToVaultConfigurationConfigMountOutputWithContext(context.Context) VaultConfigurationConfigMountOutput
+}
+
+type VaultConfigurationConfigMountArgs struct {
+	// Vault secret engine path
+	Path pulumi.StringInput `pulumi:"path"`
+	// Vault supports several secret engines, each one has different capabilities. The supported secret engine types are: `KV1` and `KV2`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (VaultConfigurationConfigMountArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VaultConfigurationConfigMount)(nil)).Elem()
+}
+
+func (i VaultConfigurationConfigMountArgs) ToVaultConfigurationConfigMountOutput() VaultConfigurationConfigMountOutput {
+	return i.ToVaultConfigurationConfigMountOutputWithContext(context.Background())
+}
+
+func (i VaultConfigurationConfigMountArgs) ToVaultConfigurationConfigMountOutputWithContext(ctx context.Context) VaultConfigurationConfigMountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VaultConfigurationConfigMountOutput)
+}
+
+// VaultConfigurationConfigMountArrayInput is an input type that accepts VaultConfigurationConfigMountArray and VaultConfigurationConfigMountArrayOutput values.
+// You can construct a concrete instance of `VaultConfigurationConfigMountArrayInput` via:
+//
+//	VaultConfigurationConfigMountArray{ VaultConfigurationConfigMountArgs{...} }
+type VaultConfigurationConfigMountArrayInput interface {
+	pulumi.Input
+
+	ToVaultConfigurationConfigMountArrayOutput() VaultConfigurationConfigMountArrayOutput
+	ToVaultConfigurationConfigMountArrayOutputWithContext(context.Context) VaultConfigurationConfigMountArrayOutput
+}
+
+type VaultConfigurationConfigMountArray []VaultConfigurationConfigMountInput
+
+func (VaultConfigurationConfigMountArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VaultConfigurationConfigMount)(nil)).Elem()
+}
+
+func (i VaultConfigurationConfigMountArray) ToVaultConfigurationConfigMountArrayOutput() VaultConfigurationConfigMountArrayOutput {
+	return i.ToVaultConfigurationConfigMountArrayOutputWithContext(context.Background())
+}
+
+func (i VaultConfigurationConfigMountArray) ToVaultConfigurationConfigMountArrayOutputWithContext(ctx context.Context) VaultConfigurationConfigMountArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VaultConfigurationConfigMountArrayOutput)
+}
+
+type VaultConfigurationConfigMountOutput struct{ *pulumi.OutputState }
+
+func (VaultConfigurationConfigMountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VaultConfigurationConfigMount)(nil)).Elem()
+}
+
+func (o VaultConfigurationConfigMountOutput) ToVaultConfigurationConfigMountOutput() VaultConfigurationConfigMountOutput {
+	return o
+}
+
+func (o VaultConfigurationConfigMountOutput) ToVaultConfigurationConfigMountOutputWithContext(ctx context.Context) VaultConfigurationConfigMountOutput {
+	return o
+}
+
+// Vault secret engine path
+func (o VaultConfigurationConfigMountOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v VaultConfigurationConfigMount) string { return v.Path }).(pulumi.StringOutput)
+}
+
+// Vault supports several secret engines, each one has different capabilities. The supported secret engine types are: `KV1` and `KV2`.
+func (o VaultConfigurationConfigMountOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v VaultConfigurationConfigMount) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type VaultConfigurationConfigMountArrayOutput struct{ *pulumi.OutputState }
+
+func (VaultConfigurationConfigMountArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VaultConfigurationConfigMount)(nil)).Elem()
+}
+
+func (o VaultConfigurationConfigMountArrayOutput) ToVaultConfigurationConfigMountArrayOutput() VaultConfigurationConfigMountArrayOutput {
+	return o
+}
+
+func (o VaultConfigurationConfigMountArrayOutput) ToVaultConfigurationConfigMountArrayOutputWithContext(ctx context.Context) VaultConfigurationConfigMountArrayOutput {
+	return o
+}
+
+func (o VaultConfigurationConfigMountArrayOutput) Index(i pulumi.IntInput) VaultConfigurationConfigMountOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VaultConfigurationConfigMount {
+		return vs[0].([]VaultConfigurationConfigMount)[vs[1].(int)]
+	}).(VaultConfigurationConfigMountOutput)
+}
+
 type GetFederatedAlpineRepositoryMember struct {
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
@@ -30184,6 +30666,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteVcsRepositoryContentSynchronisationPtrInput)(nil)).Elem(), RemoteVcsRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigReplicationInput)(nil)).Elem(), ReplicationConfigReplicationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigReplicationArrayInput)(nil)).Elem(), ReplicationConfigReplicationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VaultConfigurationConfigInput)(nil)).Elem(), VaultConfigurationConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VaultConfigurationConfigPtrInput)(nil)).Elem(), VaultConfigurationConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VaultConfigurationConfigAuthInput)(nil)).Elem(), VaultConfigurationConfigAuthArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VaultConfigurationConfigAuthPtrInput)(nil)).Elem(), VaultConfigurationConfigAuthArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VaultConfigurationConfigMountInput)(nil)).Elem(), VaultConfigurationConfigMountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VaultConfigurationConfigMountArrayInput)(nil)).Elem(), VaultConfigurationConfigMountArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedAlpineRepositoryMemberInput)(nil)).Elem(), GetFederatedAlpineRepositoryMemberArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedAlpineRepositoryMemberArrayInput)(nil)).Elem(), GetFederatedAlpineRepositoryMemberArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedBowerRepositoryMemberInput)(nil)).Elem(), GetFederatedBowerRepositoryMemberArgs{})
@@ -30577,6 +31065,12 @@ func init() {
 	pulumi.RegisterOutputType(RemoteVcsRepositoryContentSynchronisationPtrOutput{})
 	pulumi.RegisterOutputType(ReplicationConfigReplicationOutput{})
 	pulumi.RegisterOutputType(ReplicationConfigReplicationArrayOutput{})
+	pulumi.RegisterOutputType(VaultConfigurationConfigOutput{})
+	pulumi.RegisterOutputType(VaultConfigurationConfigPtrOutput{})
+	pulumi.RegisterOutputType(VaultConfigurationConfigAuthOutput{})
+	pulumi.RegisterOutputType(VaultConfigurationConfigAuthPtrOutput{})
+	pulumi.RegisterOutputType(VaultConfigurationConfigMountOutput{})
+	pulumi.RegisterOutputType(VaultConfigurationConfigMountArrayOutput{})
 	pulumi.RegisterOutputType(GetFederatedAlpineRepositoryMemberOutput{})
 	pulumi.RegisterOutputType(GetFederatedAlpineRepositoryMemberArrayOutput{})
 	pulumi.RegisterOutputType(GetFederatedBowerRepositoryMemberOutput{})

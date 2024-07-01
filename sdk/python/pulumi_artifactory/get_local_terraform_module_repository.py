@@ -211,7 +211,7 @@ def get_local_terraform_module_repository(archive_browsing_enabled: Optional[boo
     import pulumi
     import pulumi_artifactory as artifactory
 
-    terraform_local_test_terraform_module_repo = artifactory.LocalTerraformModuleRepository("terraform-local-test-terraform-module-repo", key="terraform-local-test-terraform-module-repo")
+    terraform_local_test_terraform_module_repo = artifactory.get_local_terraform_module_repository(key="terraform-local-test-terraform-module-repo")
     ```
 
 
@@ -280,7 +280,7 @@ def get_local_terraform_module_repository_output(archive_browsing_enabled: Optio
     import pulumi
     import pulumi_artifactory as artifactory
 
-    terraform_local_test_terraform_module_repo = artifactory.LocalTerraformModuleRepository("terraform-local-test-terraform-module-repo", key="terraform-local-test-terraform-module-repo")
+    terraform_local_test_terraform_module_repo = artifactory.get_local_terraform_module_repository(key="terraform-local-test-terraform-module-repo")
     ```
 
 

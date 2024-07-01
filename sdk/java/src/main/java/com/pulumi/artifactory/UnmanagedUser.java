@@ -78,28 +78,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="artifactory:index/unmanagedUser:UnmanagedUser")
 public class UnmanagedUser extends com.pulumi.resources.CustomResource {
     /**
-     * When enabled, this user is an administrator with all the ensuing privileges. Default value is `false`.
+     * (Optional, Default: false) When enabled, this user is an administrator with all the ensuing privileges.
      * 
      */
     @Export(name="admin", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> admin;
 
     /**
-     * @return When enabled, this user is an administrator with all the ensuing privileges. Default value is `false`.
+     * @return (Optional, Default: false) When enabled, this user is an administrator with all the ensuing privileges.
      * 
      */
     public Output<Boolean> admin() {
         return this.admin;
     }
     /**
-     * When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges. Default value is `true`.
+     * (Optional, Default: true) When enabled, this user can only access the system through the REST API. This option cannot be set if the user has Admin privileges.
      * 
      */
     @Export(name="disableUiAccess", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> disableUiAccess;
 
     /**
-     * @return When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges. Default value is `true`.
+     * @return (Optional, Default: true) When enabled, this user can only access the system through the REST API. This option cannot be set if the user has Admin privileges.
      * 
      */
     public Output<Boolean> disableUiAccess() {
@@ -134,56 +134,56 @@ public class UnmanagedUser extends com.pulumi.resources.CustomResource {
         return this.groups;
     }
     /**
-     * When set, disables the fallback of using an internal password when external authentication (such as LDAP) is enabled.
+     * (Optional, Default: false) When enabled, disables the fallback mechanism for using an internal password when external authentication (such as LDAP) is enabled.
      * 
      */
     @Export(name="internalPasswordDisabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> internalPasswordDisabled;
 
     /**
-     * @return When set, disables the fallback of using an internal password when external authentication (such as LDAP) is enabled.
+     * @return (Optional, Default: false) When enabled, disables the fallback mechanism for using an internal password when external authentication (such as LDAP) is enabled.
      * 
      */
     public Output<Boolean> internalPasswordDisabled() {
         return this.internalPasswordDisabled;
     }
     /**
-     * Username for user. May contain lowercase letters, numbers and symbols: &#39;.-_{@literal @}&#39;
+     * Username for user. May contain lowercase letters, numbers and symbols: `.-_{@literal @}` for self-hosted. For SaaS, `+` is also allowed.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Username for user. May contain lowercase letters, numbers and symbols: &#39;.-_{@literal @}&#39;
+     * @return Username for user. May contain lowercase letters, numbers and symbols: `.-_{@literal @}` for self-hosted. For SaaS, `+` is also allowed.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters.
+     * (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters.
      * 
      */
     @Export(name="password", refs={String.class}, tree="[0]")
     private Output<String> password;
 
     /**
-     * @return Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters.
+     * @return (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters.
      * 
      */
     public Output<String> password() {
         return this.password;
     }
     /**
-     * When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
+     * (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an administrator can update the password). There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.
      * 
      */
     @Export(name="profileUpdatable", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> profileUpdatable;
 
     /**
-     * @return When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
+     * @return (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an administrator can update the password). There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.
      * 
      */
     public Output<Boolean> profileUpdatable() {

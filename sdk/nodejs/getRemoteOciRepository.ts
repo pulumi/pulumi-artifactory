@@ -25,6 +25,7 @@ export function getRemoteOciRepository(args: GetRemoteOciRepositoryArgs, opts?: 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("artifactory:index/getRemoteOciRepository:getRemoteOciRepository", {
         "allowAnyHostAuth": args.allowAnyHostAuth,
+        "archiveBrowsingEnabled": args.archiveBrowsingEnabled,
         "assumedOfflinePeriodSecs": args.assumedOfflinePeriodSecs,
         "blackedOut": args.blackedOut,
         "blockMismatchingMimeTypes": args.blockMismatchingMimeTypes,
@@ -78,6 +79,7 @@ export function getRemoteOciRepository(args: GetRemoteOciRepositoryArgs, opts?: 
  */
 export interface GetRemoteOciRepositoryArgs {
     allowAnyHostAuth?: boolean;
+    archiveBrowsingEnabled?: boolean;
     assumedOfflinePeriodSecs?: number;
     blackedOut?: boolean;
     blockMismatchingMimeTypes?: boolean;
@@ -145,6 +147,7 @@ export interface GetRemoteOciRepositoryArgs {
  */
 export interface GetRemoteOciRepositoryResult {
     readonly allowAnyHostAuth?: boolean;
+    readonly archiveBrowsingEnabled?: boolean;
     readonly assumedOfflinePeriodSecs?: number;
     readonly blackedOut?: boolean;
     readonly blockMismatchingMimeTypes?: boolean;
@@ -231,6 +234,7 @@ export function getRemoteOciRepositoryOutput(args: GetRemoteOciRepositoryOutputA
  */
 export interface GetRemoteOciRepositoryOutputArgs {
     allowAnyHostAuth?: pulumi.Input<boolean>;
+    archiveBrowsingEnabled?: pulumi.Input<boolean>;
     assumedOfflinePeriodSecs?: pulumi.Input<number>;
     blackedOut?: pulumi.Input<boolean>;
     blockMismatchingMimeTypes?: pulumi.Input<boolean>;

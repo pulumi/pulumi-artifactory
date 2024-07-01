@@ -3218,3 +3218,43 @@ export interface ReplicationConfigReplication {
     username?: string;
 }
 
+export interface VaultConfigurationConfig {
+    auth: outputs.VaultConfigurationConfigAuth;
+    mounts: outputs.VaultConfigurationConfigMount[];
+    /**
+     * The base URL of the Vault server.
+     */
+    url: string;
+}
+
+export interface VaultConfigurationConfigAuth {
+    /**
+     * Client certificate (in PEM format) for `Certificate` type.
+     */
+    certificate?: string;
+    /**
+     * Private key (in PEM format) for `Certificate` type.
+     */
+    certificateKey?: string;
+    /**
+     * Role ID for `AppRole` type
+     */
+    roleId?: string;
+    /**
+     * Secret ID for `AppRole` type
+     */
+    secretId?: string;
+    type: string;
+}
+
+export interface VaultConfigurationConfigMount {
+    /**
+     * Vault secret engine path
+     */
+    path: string;
+    /**
+     * Vault supports several secret engines, each one has different capabilities. The supported secret engine types are: `KV1` and `KV2`.
+     */
+    type: string;
+}
+

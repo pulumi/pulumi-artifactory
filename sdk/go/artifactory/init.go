@@ -331,6 +331,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &User{}
 	case "artifactory:index/userLockPolicy:UserLockPolicy":
 		r = &UserLockPolicy{}
+	case "artifactory:index/vaultConfiguration:VaultConfiguration":
+		r = &VaultConfiguration{}
 	case "artifactory:index/virtualAlpineRepository:VirtualAlpineRepository":
 		r = &VirtualAlpineRepository{}
 	case "artifactory:index/virtualBowerRepository:VirtualBowerRepository":
@@ -1189,6 +1191,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"artifactory",
 		"index/userLockPolicy",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/vaultConfiguration",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

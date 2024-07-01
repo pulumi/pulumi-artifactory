@@ -13,7 +13,9 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const local_test_maven_repo_basic = new artifactory.LocalMavenRepository("local-test-maven-repo-basic", {key: "local-test-maven-repo-basic"});
+ * const local-test-maven-repo-basic = artifactory.getLocalMavenRepository({
+ *     key: "local-test-maven-repo-basic",
+ * });
  * ```
  */
 export function getLocalMavenRepository(args: GetLocalMavenRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalMavenRepositoryResult> {
@@ -176,7 +178,9 @@ export interface GetLocalMavenRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const local_test_maven_repo_basic = new artifactory.LocalMavenRepository("local-test-maven-repo-basic", {key: "local-test-maven-repo-basic"});
+ * const local-test-maven-repo-basic = artifactory.getLocalMavenRepository({
+ *     key: "local-test-maven-repo-basic",
+ * });
  * ```
  */
 export function getLocalMavenRepositoryOutput(args: GetLocalMavenRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalMavenRepositoryResult> {

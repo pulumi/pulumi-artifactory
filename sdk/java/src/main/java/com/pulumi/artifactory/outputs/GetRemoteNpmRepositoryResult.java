@@ -17,6 +17,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetRemoteNpmRepositoryResult {
     private @Nullable Boolean allowAnyHostAuth;
+    private @Nullable Boolean archiveBrowsingEnabled;
     private @Nullable Integer assumedOfflinePeriodSecs;
     private @Nullable Boolean blackedOut;
     private @Nullable Boolean blockMismatchingMimeTypes;
@@ -69,6 +70,9 @@ public final class GetRemoteNpmRepositoryResult {
     private GetRemoteNpmRepositoryResult() {}
     public Optional<Boolean> allowAnyHostAuth() {
         return Optional.ofNullable(this.allowAnyHostAuth);
+    }
+    public Optional<Boolean> archiveBrowsingEnabled() {
+        return Optional.ofNullable(this.archiveBrowsingEnabled);
     }
     public Optional<Integer> assumedOfflinePeriodSecs() {
         return Optional.ofNullable(this.assumedOfflinePeriodSecs);
@@ -217,6 +221,7 @@ public final class GetRemoteNpmRepositoryResult {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean allowAnyHostAuth;
+        private @Nullable Boolean archiveBrowsingEnabled;
         private @Nullable Integer assumedOfflinePeriodSecs;
         private @Nullable Boolean blackedOut;
         private @Nullable Boolean blockMismatchingMimeTypes;
@@ -265,6 +270,7 @@ public final class GetRemoteNpmRepositoryResult {
         public Builder(GetRemoteNpmRepositoryResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.allowAnyHostAuth = defaults.allowAnyHostAuth;
+    	      this.archiveBrowsingEnabled = defaults.archiveBrowsingEnabled;
     	      this.assumedOfflinePeriodSecs = defaults.assumedOfflinePeriodSecs;
     	      this.blackedOut = defaults.blackedOut;
     	      this.blockMismatchingMimeTypes = defaults.blockMismatchingMimeTypes;
@@ -315,6 +321,12 @@ public final class GetRemoteNpmRepositoryResult {
         public Builder allowAnyHostAuth(@Nullable Boolean allowAnyHostAuth) {
 
             this.allowAnyHostAuth = allowAnyHostAuth;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder archiveBrowsingEnabled(@Nullable Boolean archiveBrowsingEnabled) {
+
+            this.archiveBrowsingEnabled = archiveBrowsingEnabled;
             return this;
         }
         @CustomType.Setter
@@ -604,6 +616,7 @@ public final class GetRemoteNpmRepositoryResult {
         public GetRemoteNpmRepositoryResult build() {
             final var _resultValue = new GetRemoteNpmRepositoryResult();
             _resultValue.allowAnyHostAuth = allowAnyHostAuth;
+            _resultValue.archiveBrowsingEnabled = archiveBrowsingEnabled;
             _resultValue.assumedOfflinePeriodSecs = assumedOfflinePeriodSecs;
             _resultValue.blackedOut = blackedOut;
             _resultValue.blockMismatchingMimeTypes = blockMismatchingMimeTypes;

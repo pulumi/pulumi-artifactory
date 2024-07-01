@@ -42,6 +42,9 @@ In a future version (scheduled for end of Q3, 2023), the option to disable the u
 By end of Q4 2024, API Keys will be deprecated all together and the option to use them will no longer be available. See [JFrog API deprecation process](https://jfrog.com/help/r/jfrog-platform-administration-documentation/jfrog-api-key-deprecation-process) for more details.""")
         if api_key is not None:
             pulumi.set(__self__, "api_key", api_key)
+        if check_license is not None:
+            warnings.warn("""Remove this attribute from your provider configuration as it is no longer used and the attribute will be removed in the next major version of the provider.""", DeprecationWarning)
+            pulumi.log.warn("""check_license is deprecated: Remove this attribute from your provider configuration as it is no longer used and the attribute will be removed in the next major version of the provider.""")
         if check_license is None:
             check_license = False
         if check_license is not None:
@@ -82,6 +85,7 @@ By end of Q4 2024, API Keys will be deprecated all together and the option to us
 
     @property
     @pulumi.getter(name="checkLicense")
+    @_utilities.deprecated("""Remove this attribute from your provider configuration as it is no longer used and the attribute will be removed in the next major version of the provider.""")
     def check_license(self) -> Optional[pulumi.Input[bool]]:
         """
         Toggle for pre-flight checking of Artifactory Pro and Enterprise license. Default to `true`.

@@ -57,6 +57,10 @@ type RemotePypiRepository struct {
 	// 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any
 	// other host.
 	AllowAnyHostAuth pulumi.BoolPtrOutput `pulumi:"allowAnyHostAuth"`
+	// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
+	// therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
+	// security (e.g., cross-site scripting attacks).
+	ArchiveBrowsingEnabled pulumi.BoolPtrOutput `pulumi:"archiveBrowsingEnabled"`
 	// The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
 	// an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
 	// offline.
@@ -221,6 +225,10 @@ type remotePypiRepositoryState struct {
 	// 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any
 	// other host.
 	AllowAnyHostAuth *bool `pulumi:"allowAnyHostAuth"`
+	// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
+	// therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
+	// security (e.g., cross-site scripting attacks).
+	ArchiveBrowsingEnabled *bool `pulumi:"archiveBrowsingEnabled"`
 	// The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
 	// an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
 	// offline.
@@ -343,6 +351,10 @@ type RemotePypiRepositoryState struct {
 	// 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any
 	// other host.
 	AllowAnyHostAuth pulumi.BoolPtrInput
+	// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
+	// therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
+	// security (e.g., cross-site scripting attacks).
+	ArchiveBrowsingEnabled pulumi.BoolPtrInput
 	// The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
 	// an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
 	// offline.
@@ -469,6 +481,10 @@ type remotePypiRepositoryArgs struct {
 	// 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any
 	// other host.
 	AllowAnyHostAuth *bool `pulumi:"allowAnyHostAuth"`
+	// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
+	// therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
+	// security (e.g., cross-site scripting attacks).
+	ArchiveBrowsingEnabled *bool `pulumi:"archiveBrowsingEnabled"`
 	// The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
 	// an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
 	// offline.
@@ -591,6 +607,10 @@ type RemotePypiRepositoryArgs struct {
 	// 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any
 	// other host.
 	AllowAnyHostAuth pulumi.BoolPtrInput
+	// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
+	// therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
+	// security (e.g., cross-site scripting attacks).
+	ArchiveBrowsingEnabled pulumi.BoolPtrInput
 	// The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
 	// an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
 	// offline.
@@ -799,6 +819,13 @@ func (o RemotePypiRepositoryOutput) ToRemotePypiRepositoryOutputWithContext(ctx 
 // other host.
 func (o RemotePypiRepositoryOutput) AllowAnyHostAuth() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemotePypiRepository) pulumi.BoolPtrOutput { return v.AllowAnyHostAuth }).(pulumi.BoolPtrOutput)
+}
+
+// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
+// therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
+// security (e.g., cross-site scripting attacks).
+func (o RemotePypiRepositoryOutput) ArchiveBrowsingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RemotePypiRepository) pulumi.BoolPtrOutput { return v.ArchiveBrowsingEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,

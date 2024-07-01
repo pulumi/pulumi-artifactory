@@ -51,6 +51,7 @@ func LookupRemoteComposerRepository(ctx *pulumi.Context, args *LookupRemoteCompo
 // A collection of arguments for invoking getRemoteComposerRepository.
 type LookupRemoteComposerRepositoryArgs struct {
 	AllowAnyHostAuth          *bool   `pulumi:"allowAnyHostAuth"`
+	ArchiveBrowsingEnabled    *bool   `pulumi:"archiveBrowsingEnabled"`
 	AssumedOfflinePeriodSecs  *int    `pulumi:"assumedOfflinePeriodSecs"`
 	BlackedOut                *bool   `pulumi:"blackedOut"`
 	BlockMismatchingMimeTypes *bool   `pulumi:"blockMismatchingMimeTypes"`
@@ -104,6 +105,7 @@ type LookupRemoteComposerRepositoryArgs struct {
 // A collection of values returned by getRemoteComposerRepository.
 type LookupRemoteComposerRepositoryResult struct {
 	AllowAnyHostAuth          *bool  `pulumi:"allowAnyHostAuth"`
+	ArchiveBrowsingEnabled    *bool  `pulumi:"archiveBrowsingEnabled"`
 	AssumedOfflinePeriodSecs  *int   `pulumi:"assumedOfflinePeriodSecs"`
 	BlackedOut                *bool  `pulumi:"blackedOut"`
 	BlockMismatchingMimeTypes *bool  `pulumi:"blockMismatchingMimeTypes"`
@@ -172,6 +174,7 @@ func LookupRemoteComposerRepositoryOutput(ctx *pulumi.Context, args LookupRemote
 // A collection of arguments for invoking getRemoteComposerRepository.
 type LookupRemoteComposerRepositoryOutputArgs struct {
 	AllowAnyHostAuth          pulumi.BoolPtrInput   `pulumi:"allowAnyHostAuth"`
+	ArchiveBrowsingEnabled    pulumi.BoolPtrInput   `pulumi:"archiveBrowsingEnabled"`
 	AssumedOfflinePeriodSecs  pulumi.IntPtrInput    `pulumi:"assumedOfflinePeriodSecs"`
 	BlackedOut                pulumi.BoolPtrInput   `pulumi:"blackedOut"`
 	BlockMismatchingMimeTypes pulumi.BoolPtrInput   `pulumi:"blockMismatchingMimeTypes"`
@@ -243,6 +246,10 @@ func (o LookupRemoteComposerRepositoryResultOutput) ToLookupRemoteComposerReposi
 
 func (o LookupRemoteComposerRepositoryResultOutput) AllowAnyHostAuth() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupRemoteComposerRepositoryResult) *bool { return v.AllowAnyHostAuth }).(pulumi.BoolPtrOutput)
+}
+
+func (o LookupRemoteComposerRepositoryResultOutput) ArchiveBrowsingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupRemoteComposerRepositoryResult) *bool { return v.ArchiveBrowsingEnabled }).(pulumi.BoolPtrOutput)
 }
 
 func (o LookupRemoteComposerRepositoryResultOutput) AssumedOfflinePeriodSecs() pulumi.IntPtrOutput {

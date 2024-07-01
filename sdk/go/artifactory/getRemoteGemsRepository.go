@@ -51,6 +51,7 @@ func LookupRemoteGemsRepository(ctx *pulumi.Context, args *LookupRemoteGemsRepos
 // A collection of arguments for invoking getRemoteGemsRepository.
 type LookupRemoteGemsRepositoryArgs struct {
 	AllowAnyHostAuth          *bool                                          `pulumi:"allowAnyHostAuth"`
+	ArchiveBrowsingEnabled    *bool                                          `pulumi:"archiveBrowsingEnabled"`
 	AssumedOfflinePeriodSecs  *int                                           `pulumi:"assumedOfflinePeriodSecs"`
 	BlackedOut                *bool                                          `pulumi:"blackedOut"`
 	BlockMismatchingMimeTypes *bool                                          `pulumi:"blockMismatchingMimeTypes"`
@@ -98,6 +99,7 @@ type LookupRemoteGemsRepositoryArgs struct {
 // A collection of values returned by getRemoteGemsRepository.
 type LookupRemoteGemsRepositoryResult struct {
 	AllowAnyHostAuth          *bool                                         `pulumi:"allowAnyHostAuth"`
+	ArchiveBrowsingEnabled    *bool                                         `pulumi:"archiveBrowsingEnabled"`
 	AssumedOfflinePeriodSecs  *int                                          `pulumi:"assumedOfflinePeriodSecs"`
 	BlackedOut                *bool                                         `pulumi:"blackedOut"`
 	BlockMismatchingMimeTypes *bool                                         `pulumi:"blockMismatchingMimeTypes"`
@@ -160,6 +162,7 @@ func LookupRemoteGemsRepositoryOutput(ctx *pulumi.Context, args LookupRemoteGems
 // A collection of arguments for invoking getRemoteGemsRepository.
 type LookupRemoteGemsRepositoryOutputArgs struct {
 	AllowAnyHostAuth          pulumi.BoolPtrInput                                   `pulumi:"allowAnyHostAuth"`
+	ArchiveBrowsingEnabled    pulumi.BoolPtrInput                                   `pulumi:"archiveBrowsingEnabled"`
 	AssumedOfflinePeriodSecs  pulumi.IntPtrInput                                    `pulumi:"assumedOfflinePeriodSecs"`
 	BlackedOut                pulumi.BoolPtrInput                                   `pulumi:"blackedOut"`
 	BlockMismatchingMimeTypes pulumi.BoolPtrInput                                   `pulumi:"blockMismatchingMimeTypes"`
@@ -225,6 +228,10 @@ func (o LookupRemoteGemsRepositoryResultOutput) ToLookupRemoteGemsRepositoryResu
 
 func (o LookupRemoteGemsRepositoryResultOutput) AllowAnyHostAuth() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupRemoteGemsRepositoryResult) *bool { return v.AllowAnyHostAuth }).(pulumi.BoolPtrOutput)
+}
+
+func (o LookupRemoteGemsRepositoryResultOutput) ArchiveBrowsingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupRemoteGemsRepositoryResult) *bool { return v.ArchiveBrowsingEnabled }).(pulumi.BoolPtrOutput)
 }
 
 func (o LookupRemoteGemsRepositoryResultOutput) AssumedOfflinePeriodSecs() pulumi.IntPtrOutput {

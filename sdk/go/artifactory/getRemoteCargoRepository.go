@@ -53,6 +53,7 @@ type LookupRemoteCargoRepositoryArgs struct {
 	AllowAnyHostAuth *bool `pulumi:"allowAnyHostAuth"`
 	// (Required) Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
 	AnonymousAccess           *bool                                           `pulumi:"anonymousAccess"`
+	ArchiveBrowsingEnabled    *bool                                           `pulumi:"archiveBrowsingEnabled"`
 	AssumedOfflinePeriodSecs  *int                                            `pulumi:"assumedOfflinePeriodSecs"`
 	BlackedOut                *bool                                           `pulumi:"blackedOut"`
 	BlockMismatchingMimeTypes *bool                                           `pulumi:"blockMismatchingMimeTypes"`
@@ -106,6 +107,7 @@ type LookupRemoteCargoRepositoryResult struct {
 	AllowAnyHostAuth *bool `pulumi:"allowAnyHostAuth"`
 	// (Required) Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
 	AnonymousAccess           *bool                                          `pulumi:"anonymousAccess"`
+	ArchiveBrowsingEnabled    *bool                                          `pulumi:"archiveBrowsingEnabled"`
 	AssumedOfflinePeriodSecs  *int                                           `pulumi:"assumedOfflinePeriodSecs"`
 	BlackedOut                *bool                                          `pulumi:"blackedOut"`
 	BlockMismatchingMimeTypes *bool                                          `pulumi:"blockMismatchingMimeTypes"`
@@ -174,6 +176,7 @@ type LookupRemoteCargoRepositoryOutputArgs struct {
 	AllowAnyHostAuth pulumi.BoolPtrInput `pulumi:"allowAnyHostAuth"`
 	// (Required) Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
 	AnonymousAccess           pulumi.BoolPtrInput                                    `pulumi:"anonymousAccess"`
+	ArchiveBrowsingEnabled    pulumi.BoolPtrInput                                    `pulumi:"archiveBrowsingEnabled"`
 	AssumedOfflinePeriodSecs  pulumi.IntPtrInput                                     `pulumi:"assumedOfflinePeriodSecs"`
 	BlackedOut                pulumi.BoolPtrInput                                    `pulumi:"blackedOut"`
 	BlockMismatchingMimeTypes pulumi.BoolPtrInput                                    `pulumi:"blockMismatchingMimeTypes"`
@@ -248,6 +251,10 @@ func (o LookupRemoteCargoRepositoryResultOutput) AllowAnyHostAuth() pulumi.BoolP
 // (Required) Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
 func (o LookupRemoteCargoRepositoryResultOutput) AnonymousAccess() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupRemoteCargoRepositoryResult) *bool { return v.AnonymousAccess }).(pulumi.BoolPtrOutput)
+}
+
+func (o LookupRemoteCargoRepositoryResultOutput) ArchiveBrowsingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupRemoteCargoRepositoryResult) *bool { return v.ArchiveBrowsingEnabled }).(pulumi.BoolPtrOutput)
 }
 
 func (o LookupRemoteCargoRepositoryResultOutput) AssumedOfflinePeriodSecs() pulumi.IntPtrOutput {

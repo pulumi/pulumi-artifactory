@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var federated_test_cargo_repo = new Artifactory.FederatedCargoRepository("federated-test-cargo-repo", new()
+        ///     var federated_test_cargo_repo = Artifactory.GetFederatedCargoRepository.Invoke(new()
         ///     {
         ///         Key = "federated-test-cargo-repo",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var federated_test_cargo_repo = new Artifactory.FederatedCargoRepository("federated-test-cargo-repo", new()
+        ///     var federated_test_cargo_repo = Artifactory.GetFederatedCargoRepository.Invoke(new()
         ///     {
         ///         Key = "federated-test-cargo-repo",
         ///     });

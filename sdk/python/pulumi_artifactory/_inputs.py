@@ -125,6 +125,9 @@ __all__ = [
     'RemoteTerraformRepositoryContentSynchronisationArgs',
     'RemoteVcsRepositoryContentSynchronisationArgs',
     'ReplicationConfigReplicationArgs',
+    'VaultConfigurationConfigArgs',
+    'VaultConfigurationConfigAuthArgs',
+    'VaultConfigurationConfigMountArgs',
     'GetFederatedAlpineRepositoryMemberArgs',
     'GetFederatedBowerRepositoryMemberArgs',
     'GetFederatedCargoRepositoryMemberArgs',
@@ -7568,6 +7571,169 @@ class ReplicationConfigReplicationArgs:
     @username.setter
     def username(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "username", value)
+
+
+@pulumi.input_type
+class VaultConfigurationConfigArgs:
+    def __init__(__self__, *,
+                 auth: pulumi.Input['VaultConfigurationConfigAuthArgs'],
+                 mounts: pulumi.Input[Sequence[pulumi.Input['VaultConfigurationConfigMountArgs']]],
+                 url: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] url: The base URL of the Vault server.
+        """
+        pulumi.set(__self__, "auth", auth)
+        pulumi.set(__self__, "mounts", mounts)
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def auth(self) -> pulumi.Input['VaultConfigurationConfigAuthArgs']:
+        return pulumi.get(self, "auth")
+
+    @auth.setter
+    def auth(self, value: pulumi.Input['VaultConfigurationConfigAuthArgs']):
+        pulumi.set(self, "auth", value)
+
+    @property
+    @pulumi.getter
+    def mounts(self) -> pulumi.Input[Sequence[pulumi.Input['VaultConfigurationConfigMountArgs']]]:
+        return pulumi.get(self, "mounts")
+
+    @mounts.setter
+    def mounts(self, value: pulumi.Input[Sequence[pulumi.Input['VaultConfigurationConfigMountArgs']]]):
+        pulumi.set(self, "mounts", value)
+
+    @property
+    @pulumi.getter
+    def url(self) -> pulumi.Input[str]:
+        """
+        The base URL of the Vault server.
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "url", value)
+
+
+@pulumi.input_type
+class VaultConfigurationConfigAuthArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 certificate: Optional[pulumi.Input[str]] = None,
+                 certificate_key: Optional[pulumi.Input[str]] = None,
+                 role_id: Optional[pulumi.Input[str]] = None,
+                 secret_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] certificate: Client certificate (in PEM format) for `Certificate` type.
+        :param pulumi.Input[str] certificate_key: Private key (in PEM format) for `Certificate` type.
+        :param pulumi.Input[str] role_id: Role ID for `AppRole` type
+        :param pulumi.Input[str] secret_id: Secret ID for `AppRole` type
+        """
+        pulumi.set(__self__, "type", type)
+        if certificate is not None:
+            pulumi.set(__self__, "certificate", certificate)
+        if certificate_key is not None:
+            pulumi.set(__self__, "certificate_key", certificate_key)
+        if role_id is not None:
+            pulumi.set(__self__, "role_id", role_id)
+        if secret_id is not None:
+            pulumi.set(__self__, "secret_id", secret_id)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def certificate(self) -> Optional[pulumi.Input[str]]:
+        """
+        Client certificate (in PEM format) for `Certificate` type.
+        """
+        return pulumi.get(self, "certificate")
+
+    @certificate.setter
+    def certificate(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate", value)
+
+    @property
+    @pulumi.getter(name="certificateKey")
+    def certificate_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Private key (in PEM format) for `Certificate` type.
+        """
+        return pulumi.get(self, "certificate_key")
+
+    @certificate_key.setter
+    def certificate_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate_key", value)
+
+    @property
+    @pulumi.getter(name="roleId")
+    def role_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Role ID for `AppRole` type
+        """
+        return pulumi.get(self, "role_id")
+
+    @role_id.setter
+    def role_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "role_id", value)
+
+    @property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Secret ID for `AppRole` type
+        """
+        return pulumi.get(self, "secret_id")
+
+    @secret_id.setter
+    def secret_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secret_id", value)
+
+
+@pulumi.input_type
+class VaultConfigurationConfigMountArgs:
+    def __init__(__self__, *,
+                 path: pulumi.Input[str],
+                 type: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] path: Vault secret engine path
+        :param pulumi.Input[str] type: Vault supports several secret engines, each one has different capabilities. The supported secret engine types are: `KV1` and `KV2`.
+        """
+        pulumi.set(__self__, "path", path)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def path(self) -> pulumi.Input[str]:
+        """
+        Vault secret engine path
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Vault supports several secret engines, each one has different capabilities. The supported secret engine types are: `KV1` and `KV2`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
 
 
 @pulumi.input_type

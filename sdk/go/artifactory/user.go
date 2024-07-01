@@ -74,7 +74,7 @@ type User struct {
 	Groups pulumi.StringArrayOutput `pulumi:"groups"`
 	// (Optional, Default: false) When enabled, disables the fallback mechanism for using an internal password when external authentication (such as LDAP) is enabled.
 	InternalPasswordDisabled pulumi.BoolOutput `pulumi:"internalPasswordDisabled"`
-	// Username for user. May contain lowercase letters, numbers and symbols: '.-_@'
+	// Username for user. May contain lowercase letters, numbers and symbols: `.-_@` for self-hosted. For SaaS, `+` is also allowed.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters
 	Password pulumi.StringOutput `pulumi:"password"`
@@ -132,7 +132,7 @@ type userState struct {
 	Groups []string `pulumi:"groups"`
 	// (Optional, Default: false) When enabled, disables the fallback mechanism for using an internal password when external authentication (such as LDAP) is enabled.
 	InternalPasswordDisabled *bool `pulumi:"internalPasswordDisabled"`
-	// Username for user. May contain lowercase letters, numbers and symbols: '.-_@'
+	// Username for user. May contain lowercase letters, numbers and symbols: `.-_@` for self-hosted. For SaaS, `+` is also allowed.
 	Name *string `pulumi:"name"`
 	// (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters
 	Password *string `pulumi:"password"`
@@ -151,7 +151,7 @@ type UserState struct {
 	Groups pulumi.StringArrayInput
 	// (Optional, Default: false) When enabled, disables the fallback mechanism for using an internal password when external authentication (such as LDAP) is enabled.
 	InternalPasswordDisabled pulumi.BoolPtrInput
-	// Username for user. May contain lowercase letters, numbers and symbols: '.-_@'
+	// Username for user. May contain lowercase letters, numbers and symbols: `.-_@` for self-hosted. For SaaS, `+` is also allowed.
 	Name pulumi.StringPtrInput
 	// (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters
 	Password pulumi.StringPtrInput
@@ -174,7 +174,7 @@ type userArgs struct {
 	Groups []string `pulumi:"groups"`
 	// (Optional, Default: false) When enabled, disables the fallback mechanism for using an internal password when external authentication (such as LDAP) is enabled.
 	InternalPasswordDisabled *bool `pulumi:"internalPasswordDisabled"`
-	// Username for user. May contain lowercase letters, numbers and symbols: '.-_@'
+	// Username for user. May contain lowercase letters, numbers and symbols: `.-_@` for self-hosted. For SaaS, `+` is also allowed.
 	Name *string `pulumi:"name"`
 	// (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters
 	Password *string `pulumi:"password"`
@@ -194,7 +194,7 @@ type UserArgs struct {
 	Groups pulumi.StringArrayInput
 	// (Optional, Default: false) When enabled, disables the fallback mechanism for using an internal password when external authentication (such as LDAP) is enabled.
 	InternalPasswordDisabled pulumi.BoolPtrInput
-	// Username for user. May contain lowercase letters, numbers and symbols: '.-_@'
+	// Username for user. May contain lowercase letters, numbers and symbols: `.-_@` for self-hosted. For SaaS, `+` is also allowed.
 	Name pulumi.StringPtrInput
 	// (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters
 	Password pulumi.StringPtrInput
@@ -314,7 +314,7 @@ func (o UserOutput) InternalPasswordDisabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *User) pulumi.BoolOutput { return v.InternalPasswordDisabled }).(pulumi.BoolOutput)
 }
 
-// Username for user. May contain lowercase letters, numbers and symbols: '.-_@'
+// Username for user. May contain lowercase letters, numbers and symbols: `.-_@` for self-hosted. For SaaS, `+` is also allowed.
 func (o UserOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

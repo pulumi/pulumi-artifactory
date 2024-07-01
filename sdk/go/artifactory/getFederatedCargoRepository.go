@@ -27,9 +27,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.NewFederatedCargoRepository(ctx, "federated-test-cargo-repo", &artifactory.FederatedCargoRepositoryArgs{
-//				Key: pulumi.String("federated-test-cargo-repo"),
-//			})
+//			_, err := artifactory.LookupFederatedCargoRepository(ctx, &artifactory.LookupFederatedCargoRepositoryArgs{
+//				Key: "federated-test-cargo-repo",
+//			}, nil)
 //			if err != nil {
 //				return err
 //			}

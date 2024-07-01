@@ -304,7 +304,7 @@ def get_local_maven_repository(archive_browsing_enabled: Optional[bool] = None,
     import pulumi
     import pulumi_artifactory as artifactory
 
-    local_test_maven_repo_basic = artifactory.LocalMavenRepository("local-test-maven-repo-basic", key="local-test-maven-repo-basic")
+    local_test_maven_repo_basic = artifactory.get_local_maven_repository(key="local-test-maven-repo-basic")
     ```
 
 
@@ -412,7 +412,7 @@ def get_local_maven_repository_output(archive_browsing_enabled: Optional[pulumi.
     import pulumi
     import pulumi_artifactory as artifactory
 
-    local_test_maven_repo_basic = artifactory.LocalMavenRepository("local-test-maven-repo-basic", key="local-test-maven-repo-basic")
+    local_test_maven_repo_basic = artifactory.get_local_maven_repository(key="local-test-maven-repo-basic")
     ```
 
 

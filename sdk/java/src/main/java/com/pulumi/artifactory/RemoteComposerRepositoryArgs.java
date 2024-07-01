@@ -38,6 +38,25 @@ public final class RemoteComposerRepositoryArgs extends com.pulumi.resources.Res
     }
 
     /**
+     * When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
+     * therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
+     * security (e.g., cross-site scripting attacks).
+     * 
+     */
+    @Import(name="archiveBrowsingEnabled")
+    private @Nullable Output<Boolean> archiveBrowsingEnabled;
+
+    /**
+     * @return When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
+     * therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
+     * security (e.g., cross-site scripting attacks).
+     * 
+     */
+    public Optional<Output<Boolean>> archiveBrowsingEnabled() {
+        return Optional.ofNullable(this.archiveBrowsingEnabled);
+    }
+
+    /**
      * The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
      * an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
      * offline.
@@ -725,6 +744,7 @@ public final class RemoteComposerRepositoryArgs extends com.pulumi.resources.Res
 
     private RemoteComposerRepositoryArgs(RemoteComposerRepositoryArgs $) {
         this.allowAnyHostAuth = $.allowAnyHostAuth;
+        this.archiveBrowsingEnabled = $.archiveBrowsingEnabled;
         this.assumedOfflinePeriodSecs = $.assumedOfflinePeriodSecs;
         this.blackedOut = $.blackedOut;
         this.blockMismatchingMimeTypes = $.blockMismatchingMimeTypes;
@@ -810,6 +830,31 @@ public final class RemoteComposerRepositoryArgs extends com.pulumi.resources.Res
          */
         public Builder allowAnyHostAuth(Boolean allowAnyHostAuth) {
             return allowAnyHostAuth(Output.of(allowAnyHostAuth));
+        }
+
+        /**
+         * @param archiveBrowsingEnabled When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
+         * therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
+         * security (e.g., cross-site scripting attacks).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder archiveBrowsingEnabled(@Nullable Output<Boolean> archiveBrowsingEnabled) {
+            $.archiveBrowsingEnabled = archiveBrowsingEnabled;
+            return this;
+        }
+
+        /**
+         * @param archiveBrowsingEnabled When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
+         * therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
+         * security (e.g., cross-site scripting attacks).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder archiveBrowsingEnabled(Boolean archiveBrowsingEnabled) {
+            return archiveBrowsingEnabled(Output.of(archiveBrowsingEnabled));
         }
 
         /**
