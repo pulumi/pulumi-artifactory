@@ -21,6 +21,7 @@ class RemoteCargoRepositoryArgs:
                  url: pulumi.Input[str],
                  allow_any_host_auth: Optional[pulumi.Input[bool]] = None,
                  anonymous_access: Optional[pulumi.Input[bool]] = None,
+                 archive_browsing_enabled: Optional[pulumi.Input[bool]] = None,
                  assumed_offline_period_secs: Optional[pulumi.Input[int]] = None,
                  blacked_out: Optional[pulumi.Input[bool]] = None,
                  block_mismatching_mime_types: Optional[pulumi.Input[bool]] = None,
@@ -70,6 +71,9 @@ class RemoteCargoRepositoryArgs:
         :param pulumi.Input[bool] allow_any_host_auth: 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any
                other host.
         :param pulumi.Input[bool] anonymous_access: Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
+        :param pulumi.Input[bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
+               therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
+               security (e.g., cross-site scripting attacks).
         :param pulumi.Input[int] assumed_offline_period_secs: The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
                an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
                offline.
@@ -144,6 +148,8 @@ class RemoteCargoRepositoryArgs:
             pulumi.set(__self__, "allow_any_host_auth", allow_any_host_auth)
         if anonymous_access is not None:
             pulumi.set(__self__, "anonymous_access", anonymous_access)
+        if archive_browsing_enabled is not None:
+            pulumi.set(__self__, "archive_browsing_enabled", archive_browsing_enabled)
         if assumed_offline_period_secs is not None:
             pulumi.set(__self__, "assumed_offline_period_secs", assumed_offline_period_secs)
         if blacked_out is not None:
@@ -286,6 +292,20 @@ class RemoteCargoRepositoryArgs:
     @anonymous_access.setter
     def anonymous_access(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "anonymous_access", value)
+
+    @property
+    @pulumi.getter(name="archiveBrowsingEnabled")
+    def archive_browsing_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
+        therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
+        security (e.g., cross-site scripting attacks).
+        """
+        return pulumi.get(self, "archive_browsing_enabled")
+
+    @archive_browsing_enabled.setter
+    def archive_browsing_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "archive_browsing_enabled", value)
 
     @property
     @pulumi.getter(name="assumedOfflinePeriodSecs")
@@ -789,6 +809,7 @@ class _RemoteCargoRepositoryState:
     def __init__(__self__, *,
                  allow_any_host_auth: Optional[pulumi.Input[bool]] = None,
                  anonymous_access: Optional[pulumi.Input[bool]] = None,
+                 archive_browsing_enabled: Optional[pulumi.Input[bool]] = None,
                  assumed_offline_period_secs: Optional[pulumi.Input[int]] = None,
                  blacked_out: Optional[pulumi.Input[bool]] = None,
                  block_mismatching_mime_types: Optional[pulumi.Input[bool]] = None,
@@ -838,6 +859,9 @@ class _RemoteCargoRepositoryState:
         :param pulumi.Input[bool] allow_any_host_auth: 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any
                other host.
         :param pulumi.Input[bool] anonymous_access: Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
+        :param pulumi.Input[bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
+               therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
+               security (e.g., cross-site scripting attacks).
         :param pulumi.Input[int] assumed_offline_period_secs: The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
                an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
                offline.
@@ -913,6 +937,8 @@ class _RemoteCargoRepositoryState:
             pulumi.set(__self__, "allow_any_host_auth", allow_any_host_auth)
         if anonymous_access is not None:
             pulumi.set(__self__, "anonymous_access", anonymous_access)
+        if archive_browsing_enabled is not None:
+            pulumi.set(__self__, "archive_browsing_enabled", archive_browsing_enabled)
         if assumed_offline_period_secs is not None:
             pulumi.set(__self__, "assumed_offline_period_secs", assumed_offline_period_secs)
         if blacked_out is not None:
@@ -1026,6 +1052,20 @@ class _RemoteCargoRepositoryState:
     @anonymous_access.setter
     def anonymous_access(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "anonymous_access", value)
+
+    @property
+    @pulumi.getter(name="archiveBrowsingEnabled")
+    def archive_browsing_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
+        therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
+        security (e.g., cross-site scripting attacks).
+        """
+        return pulumi.get(self, "archive_browsing_enabled")
+
+    @archive_browsing_enabled.setter
+    def archive_browsing_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "archive_browsing_enabled", value)
 
     @property
     @pulumi.getter(name="assumedOfflinePeriodSecs")
@@ -1577,6 +1617,7 @@ class RemoteCargoRepository(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allow_any_host_auth: Optional[pulumi.Input[bool]] = None,
                  anonymous_access: Optional[pulumi.Input[bool]] = None,
+                 archive_browsing_enabled: Optional[pulumi.Input[bool]] = None,
                  assumed_offline_period_secs: Optional[pulumi.Input[int]] = None,
                  blacked_out: Optional[pulumi.Input[bool]] = None,
                  block_mismatching_mime_types: Optional[pulumi.Input[bool]] = None,
@@ -1656,6 +1697,9 @@ class RemoteCargoRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] allow_any_host_auth: 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any
                other host.
         :param pulumi.Input[bool] anonymous_access: Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
+        :param pulumi.Input[bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
+               therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
+               security (e.g., cross-site scripting attacks).
         :param pulumi.Input[int] assumed_offline_period_secs: The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
                an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
                offline.
@@ -1780,6 +1824,7 @@ class RemoteCargoRepository(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allow_any_host_auth: Optional[pulumi.Input[bool]] = None,
                  anonymous_access: Optional[pulumi.Input[bool]] = None,
+                 archive_browsing_enabled: Optional[pulumi.Input[bool]] = None,
                  assumed_offline_period_secs: Optional[pulumi.Input[int]] = None,
                  blacked_out: Optional[pulumi.Input[bool]] = None,
                  block_mismatching_mime_types: Optional[pulumi.Input[bool]] = None,
@@ -1834,6 +1879,7 @@ class RemoteCargoRepository(pulumi.CustomResource):
 
             __props__.__dict__["allow_any_host_auth"] = allow_any_host_auth
             __props__.__dict__["anonymous_access"] = anonymous_access
+            __props__.__dict__["archive_browsing_enabled"] = archive_browsing_enabled
             __props__.__dict__["assumed_offline_period_secs"] = assumed_offline_period_secs
             __props__.__dict__["blacked_out"] = blacked_out
             __props__.__dict__["block_mismatching_mime_types"] = block_mismatching_mime_types
@@ -1898,6 +1944,7 @@ class RemoteCargoRepository(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             allow_any_host_auth: Optional[pulumi.Input[bool]] = None,
             anonymous_access: Optional[pulumi.Input[bool]] = None,
+            archive_browsing_enabled: Optional[pulumi.Input[bool]] = None,
             assumed_offline_period_secs: Optional[pulumi.Input[int]] = None,
             blacked_out: Optional[pulumi.Input[bool]] = None,
             block_mismatching_mime_types: Optional[pulumi.Input[bool]] = None,
@@ -1952,6 +1999,9 @@ class RemoteCargoRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] allow_any_host_auth: 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any
                other host.
         :param pulumi.Input[bool] anonymous_access: Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
+        :param pulumi.Input[bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
+               therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
+               security (e.g., cross-site scripting attacks).
         :param pulumi.Input[int] assumed_offline_period_secs: The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
                an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
                offline.
@@ -2029,6 +2079,7 @@ class RemoteCargoRepository(pulumi.CustomResource):
 
         __props__.__dict__["allow_any_host_auth"] = allow_any_host_auth
         __props__.__dict__["anonymous_access"] = anonymous_access
+        __props__.__dict__["archive_browsing_enabled"] = archive_browsing_enabled
         __props__.__dict__["assumed_offline_period_secs"] = assumed_offline_period_secs
         __props__.__dict__["blacked_out"] = blacked_out
         __props__.__dict__["block_mismatching_mime_types"] = block_mismatching_mime_types
@@ -2091,6 +2142,16 @@ class RemoteCargoRepository(pulumi.CustomResource):
         Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
         """
         return pulumi.get(self, "anonymous_access")
+
+    @property
+    @pulumi.getter(name="archiveBrowsingEnabled")
+    def archive_browsing_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
+        therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
+        security (e.g., cross-site scripting attacks).
+        """
+        return pulumi.get(self, "archive_browsing_enabled")
 
     @property
     @pulumi.getter(name="assumedOfflinePeriodSecs")

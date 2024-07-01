@@ -777,8 +777,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.artifactory.FederatedCargoRepository;
-     * import com.pulumi.artifactory.FederatedCargoRepositoryArgs;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetFederatedCargoRepositoryArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -792,7 +792,7 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var federated_test_cargo_repo = new FederatedCargoRepository("federated-test-cargo-repo", FederatedCargoRepositoryArgs.builder()
+     *         final var federated-test-cargo-repo = ArtifactoryFunctions.getFederatedCargoRepository(GetFederatedCargoRepositoryArgs.builder()
      *             .key("federated-test-cargo-repo")
      *             .build());
      * 
@@ -819,8 +819,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.artifactory.FederatedCargoRepository;
-     * import com.pulumi.artifactory.FederatedCargoRepositoryArgs;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetFederatedCargoRepositoryArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -834,7 +834,7 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var federated_test_cargo_repo = new FederatedCargoRepository("federated-test-cargo-repo", FederatedCargoRepositoryArgs.builder()
+     *         final var federated-test-cargo-repo = ArtifactoryFunctions.getFederatedCargoRepository(GetFederatedCargoRepositoryArgs.builder()
      *             .key("federated-test-cargo-repo")
      *             .build());
      * 
@@ -861,8 +861,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.artifactory.FederatedCargoRepository;
-     * import com.pulumi.artifactory.FederatedCargoRepositoryArgs;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetFederatedCargoRepositoryArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -876,7 +876,7 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var federated_test_cargo_repo = new FederatedCargoRepository("federated-test-cargo-repo", FederatedCargoRepositoryArgs.builder()
+     *         final var federated-test-cargo-repo = ArtifactoryFunctions.getFederatedCargoRepository(GetFederatedCargoRepositoryArgs.builder()
      *             .key("federated-test-cargo-repo")
      *             .build());
      * 
@@ -903,8 +903,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.artifactory.FederatedCargoRepository;
-     * import com.pulumi.artifactory.FederatedCargoRepositoryArgs;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetFederatedCargoRepositoryArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -918,7 +918,7 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var federated_test_cargo_repo = new FederatedCargoRepository("federated-test-cargo-repo", FederatedCargoRepositoryArgs.builder()
+     *         final var federated-test-cargo-repo = ArtifactoryFunctions.getFederatedCargoRepository(GetFederatedCargoRepositoryArgs.builder()
      *             .key("federated-test-cargo-repo")
      *             .build());
      * 
@@ -8385,8 +8385,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.artifactory.DockerV1Repository;
-     * import com.pulumi.artifactory.DockerV1RepositoryArgs;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalDockerV1RepositoryArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -8400,7 +8400,7 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var artifactoryLocalTestDockerV1Repository = new DockerV1Repository("artifactoryLocalTestDockerV1Repository", DockerV1RepositoryArgs.builder()
+     *         final var artifactoryLocalTestDockerV1Repository = ArtifactoryFunctions.getLocalDockerV1Repository(GetLocalDockerV1RepositoryArgs.builder()
      *             .key("artifactory_local_test_docker_v1_repository")
      *             .build());
      * 
@@ -8427,8 +8427,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.artifactory.DockerV1Repository;
-     * import com.pulumi.artifactory.DockerV1RepositoryArgs;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalDockerV1RepositoryArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -8442,7 +8442,7 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var artifactoryLocalTestDockerV1Repository = new DockerV1Repository("artifactoryLocalTestDockerV1Repository", DockerV1RepositoryArgs.builder()
+     *         final var artifactoryLocalTestDockerV1Repository = ArtifactoryFunctions.getLocalDockerV1Repository(GetLocalDockerV1RepositoryArgs.builder()
      *             .key("artifactory_local_test_docker_v1_repository")
      *             .build());
      * 
@@ -8469,8 +8469,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.artifactory.DockerV1Repository;
-     * import com.pulumi.artifactory.DockerV1RepositoryArgs;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalDockerV1RepositoryArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -8484,7 +8484,7 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var artifactoryLocalTestDockerV1Repository = new DockerV1Repository("artifactoryLocalTestDockerV1Repository", DockerV1RepositoryArgs.builder()
+     *         final var artifactoryLocalTestDockerV1Repository = ArtifactoryFunctions.getLocalDockerV1Repository(GetLocalDockerV1RepositoryArgs.builder()
      *             .key("artifactory_local_test_docker_v1_repository")
      *             .build());
      * 
@@ -8511,8 +8511,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.artifactory.DockerV1Repository;
-     * import com.pulumi.artifactory.DockerV1RepositoryArgs;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalDockerV1RepositoryArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -8526,7 +8526,7 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var artifactoryLocalTestDockerV1Repository = new DockerV1Repository("artifactoryLocalTestDockerV1Repository", DockerV1RepositoryArgs.builder()
+     *         final var artifactoryLocalTestDockerV1Repository = ArtifactoryFunctions.getLocalDockerV1Repository(GetLocalDockerV1RepositoryArgs.builder()
      *             .key("artifactory_local_test_docker_v1_repository")
      *             .build());
      * 
@@ -8553,8 +8553,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.artifactory.DockerV2Repository;
-     * import com.pulumi.artifactory.DockerV2RepositoryArgs;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalDockerV2RepositoryArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -8568,7 +8568,7 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var artifactoryLocalTestDockerV2Repository = new DockerV2Repository("artifactoryLocalTestDockerV2Repository", DockerV2RepositoryArgs.builder()
+     *         final var artifactoryLocalTestDockerV2Repository = ArtifactoryFunctions.getLocalDockerV2Repository(GetLocalDockerV2RepositoryArgs.builder()
      *             .key("artifactory_local_test_docker_v2_repository")
      *             .build());
      * 
@@ -8595,8 +8595,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.artifactory.DockerV2Repository;
-     * import com.pulumi.artifactory.DockerV2RepositoryArgs;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalDockerV2RepositoryArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -8610,7 +8610,7 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var artifactoryLocalTestDockerV2Repository = new DockerV2Repository("artifactoryLocalTestDockerV2Repository", DockerV2RepositoryArgs.builder()
+     *         final var artifactoryLocalTestDockerV2Repository = ArtifactoryFunctions.getLocalDockerV2Repository(GetLocalDockerV2RepositoryArgs.builder()
      *             .key("artifactory_local_test_docker_v2_repository")
      *             .build());
      * 
@@ -8637,8 +8637,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.artifactory.DockerV2Repository;
-     * import com.pulumi.artifactory.DockerV2RepositoryArgs;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalDockerV2RepositoryArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -8652,7 +8652,7 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var artifactoryLocalTestDockerV2Repository = new DockerV2Repository("artifactoryLocalTestDockerV2Repository", DockerV2RepositoryArgs.builder()
+     *         final var artifactoryLocalTestDockerV2Repository = ArtifactoryFunctions.getLocalDockerV2Repository(GetLocalDockerV2RepositoryArgs.builder()
      *             .key("artifactory_local_test_docker_v2_repository")
      *             .build());
      * 
@@ -8679,8 +8679,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.artifactory.DockerV2Repository;
-     * import com.pulumi.artifactory.DockerV2RepositoryArgs;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalDockerV2RepositoryArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -8694,7 +8694,7 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var artifactoryLocalTestDockerV2Repository = new DockerV2Repository("artifactoryLocalTestDockerV2Repository", DockerV2RepositoryArgs.builder()
+     *         final var artifactoryLocalTestDockerV2Repository = ArtifactoryFunctions.getLocalDockerV2Repository(GetLocalDockerV2RepositoryArgs.builder()
      *             .key("artifactory_local_test_docker_v2_repository")
      *             .build());
      * 
@@ -9729,8 +9729,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.artifactory.LocalHelmociRepository;
-     * import com.pulumi.artifactory.LocalHelmociRepositoryArgs;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalHelmociRepositoryArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -9744,7 +9744,7 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var my_helmoci_local = new LocalHelmociRepository("my-helmoci-local", LocalHelmociRepositoryArgs.builder()
+     *         final var my-helmoci-local = ArtifactoryFunctions.getLocalHelmociRepository(GetLocalHelmociRepositoryArgs.builder()
      *             .key("my-helmoci-local")
      *             .build());
      * 
@@ -9771,8 +9771,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.artifactory.LocalHelmociRepository;
-     * import com.pulumi.artifactory.LocalHelmociRepositoryArgs;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalHelmociRepositoryArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -9786,7 +9786,7 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var my_helmoci_local = new LocalHelmociRepository("my-helmoci-local", LocalHelmociRepositoryArgs.builder()
+     *         final var my-helmoci-local = ArtifactoryFunctions.getLocalHelmociRepository(GetLocalHelmociRepositoryArgs.builder()
      *             .key("my-helmoci-local")
      *             .build());
      * 
@@ -9813,8 +9813,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.artifactory.LocalHelmociRepository;
-     * import com.pulumi.artifactory.LocalHelmociRepositoryArgs;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalHelmociRepositoryArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -9828,7 +9828,7 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var my_helmoci_local = new LocalHelmociRepository("my-helmoci-local", LocalHelmociRepositoryArgs.builder()
+     *         final var my-helmoci-local = ArtifactoryFunctions.getLocalHelmociRepository(GetLocalHelmociRepositoryArgs.builder()
      *             .key("my-helmoci-local")
      *             .build());
      * 
@@ -9855,8 +9855,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.artifactory.LocalHelmociRepository;
-     * import com.pulumi.artifactory.LocalHelmociRepositoryArgs;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalHelmociRepositoryArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -9870,7 +9870,7 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var my_helmoci_local = new LocalHelmociRepository("my-helmoci-local", LocalHelmociRepositoryArgs.builder()
+     *         final var my-helmoci-local = ArtifactoryFunctions.getLocalHelmociRepository(GetLocalHelmociRepositoryArgs.builder()
      *             .key("my-helmoci-local")
      *             .build());
      * 
@@ -10093,8 +10093,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.artifactory.LocalMavenRepository;
-     * import com.pulumi.artifactory.LocalMavenRepositoryArgs;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalMavenRepositoryArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -10108,7 +10108,7 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var local_test_maven_repo_basic = new LocalMavenRepository("local-test-maven-repo-basic", LocalMavenRepositoryArgs.builder()
+     *         final var local-test-maven-repo-basic = ArtifactoryFunctions.getLocalMavenRepository(GetLocalMavenRepositoryArgs.builder()
      *             .key("local-test-maven-repo-basic")
      *             .build());
      * 
@@ -10135,8 +10135,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.artifactory.LocalMavenRepository;
-     * import com.pulumi.artifactory.LocalMavenRepositoryArgs;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalMavenRepositoryArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -10150,7 +10150,7 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var local_test_maven_repo_basic = new LocalMavenRepository("local-test-maven-repo-basic", LocalMavenRepositoryArgs.builder()
+     *         final var local-test-maven-repo-basic = ArtifactoryFunctions.getLocalMavenRepository(GetLocalMavenRepositoryArgs.builder()
      *             .key("local-test-maven-repo-basic")
      *             .build());
      * 
@@ -10177,8 +10177,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.artifactory.LocalMavenRepository;
-     * import com.pulumi.artifactory.LocalMavenRepositoryArgs;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalMavenRepositoryArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -10192,7 +10192,7 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var local_test_maven_repo_basic = new LocalMavenRepository("local-test-maven-repo-basic", LocalMavenRepositoryArgs.builder()
+     *         final var local-test-maven-repo-basic = ArtifactoryFunctions.getLocalMavenRepository(GetLocalMavenRepositoryArgs.builder()
      *             .key("local-test-maven-repo-basic")
      *             .build());
      * 
@@ -10219,8 +10219,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.artifactory.LocalMavenRepository;
-     * import com.pulumi.artifactory.LocalMavenRepositoryArgs;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalMavenRepositoryArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -10234,7 +10234,7 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var local_test_maven_repo_basic = new LocalMavenRepository("local-test-maven-repo-basic", LocalMavenRepositoryArgs.builder()
+     *         final var local-test-maven-repo-basic = ArtifactoryFunctions.getLocalMavenRepository(GetLocalMavenRepositoryArgs.builder()
      *             .key("local-test-maven-repo-basic")
      *             .build());
      * 
@@ -10597,8 +10597,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.artifactory.LocalOciRepository;
-     * import com.pulumi.artifactory.LocalOciRepositoryArgs;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalOciRepositoryArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -10612,7 +10612,7 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var my_oci_local = new LocalOciRepository("my-oci-local", LocalOciRepositoryArgs.builder()
+     *         final var my-oci-local = ArtifactoryFunctions.getLocalOciRepository(GetLocalOciRepositoryArgs.builder()
      *             .key("my-oci-local")
      *             .build());
      * 
@@ -10639,8 +10639,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.artifactory.LocalOciRepository;
-     * import com.pulumi.artifactory.LocalOciRepositoryArgs;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalOciRepositoryArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -10654,7 +10654,7 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var my_oci_local = new LocalOciRepository("my-oci-local", LocalOciRepositoryArgs.builder()
+     *         final var my-oci-local = ArtifactoryFunctions.getLocalOciRepository(GetLocalOciRepositoryArgs.builder()
      *             .key("my-oci-local")
      *             .build());
      * 
@@ -10681,8 +10681,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.artifactory.LocalOciRepository;
-     * import com.pulumi.artifactory.LocalOciRepositoryArgs;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalOciRepositoryArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -10696,7 +10696,7 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var my_oci_local = new LocalOciRepository("my-oci-local", LocalOciRepositoryArgs.builder()
+     *         final var my-oci-local = ArtifactoryFunctions.getLocalOciRepository(GetLocalOciRepositoryArgs.builder()
      *             .key("my-oci-local")
      *             .build());
      * 
@@ -10723,8 +10723,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.artifactory.LocalOciRepository;
-     * import com.pulumi.artifactory.LocalOciRepositoryArgs;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalOciRepositoryArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -10738,7 +10738,7 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var my_oci_local = new LocalOciRepository("my-oci-local", LocalOciRepositoryArgs.builder()
+     *         final var my-oci-local = ArtifactoryFunctions.getLocalOciRepository(GetLocalOciRepositoryArgs.builder()
      *             .key("my-oci-local")
      *             .build());
      * 
@@ -11939,8 +11939,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.artifactory.LocalTerraformModuleRepository;
-     * import com.pulumi.artifactory.LocalTerraformModuleRepositoryArgs;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalTerraformModuleRepositoryArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -11954,7 +11954,7 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var terraform_local_test_terraform_module_repo = new LocalTerraformModuleRepository("terraform-local-test-terraform-module-repo", LocalTerraformModuleRepositoryArgs.builder()
+     *         final var terraform-local-test-terraform-module-repo = ArtifactoryFunctions.getLocalTerraformModuleRepository(GetLocalTerraformModuleRepositoryArgs.builder()
      *             .key("terraform-local-test-terraform-module-repo")
      *             .build());
      * 
@@ -11979,8 +11979,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.artifactory.LocalTerraformModuleRepository;
-     * import com.pulumi.artifactory.LocalTerraformModuleRepositoryArgs;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalTerraformModuleRepositoryArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -11994,7 +11994,7 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var terraform_local_test_terraform_module_repo = new LocalTerraformModuleRepository("terraform-local-test-terraform-module-repo", LocalTerraformModuleRepositoryArgs.builder()
+     *         final var terraform-local-test-terraform-module-repo = ArtifactoryFunctions.getLocalTerraformModuleRepository(GetLocalTerraformModuleRepositoryArgs.builder()
      *             .key("terraform-local-test-terraform-module-repo")
      *             .build());
      * 
@@ -12019,8 +12019,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.artifactory.LocalTerraformModuleRepository;
-     * import com.pulumi.artifactory.LocalTerraformModuleRepositoryArgs;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalTerraformModuleRepositoryArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -12034,7 +12034,7 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var terraform_local_test_terraform_module_repo = new LocalTerraformModuleRepository("terraform-local-test-terraform-module-repo", LocalTerraformModuleRepositoryArgs.builder()
+     *         final var terraform-local-test-terraform-module-repo = ArtifactoryFunctions.getLocalTerraformModuleRepository(GetLocalTerraformModuleRepositoryArgs.builder()
      *             .key("terraform-local-test-terraform-module-repo")
      *             .build());
      * 
@@ -12059,8 +12059,8 @@ public final class ArtifactoryFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.artifactory.LocalTerraformModuleRepository;
-     * import com.pulumi.artifactory.LocalTerraformModuleRepositoryArgs;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalTerraformModuleRepositoryArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -12074,7 +12074,7 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var terraform_local_test_terraform_module_repo = new LocalTerraformModuleRepository("terraform-local-test-terraform-module-repo", LocalTerraformModuleRepositoryArgs.builder()
+     *         final var terraform-local-test-terraform-module-repo = ArtifactoryFunctions.getLocalTerraformModuleRepository(GetLocalTerraformModuleRepositoryArgs.builder()
      *             .key("terraform-local-test-terraform-module-repo")
      *             .build());
      * 

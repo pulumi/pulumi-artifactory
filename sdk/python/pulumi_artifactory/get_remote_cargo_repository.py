@@ -23,13 +23,16 @@ class GetRemoteCargoRepositoryResult:
     """
     A collection of values returned by getRemoteCargoRepository.
     """
-    def __init__(__self__, allow_any_host_auth=None, anonymous_access=None, assumed_offline_period_secs=None, blacked_out=None, block_mismatching_mime_types=None, bypass_head_requests=None, cdn_redirect=None, client_tls_certificate=None, content_synchronisation=None, description=None, disable_proxy=None, disable_url_normalization=None, download_direct=None, enable_cookie_management=None, enable_sparse_index=None, excludes_pattern=None, git_registry_url=None, hard_fail=None, id=None, includes_pattern=None, key=None, list_remote_folder_items=None, local_address=None, metadata_retrieval_timeout_secs=None, mismatching_mime_types_override_list=None, missed_cache_period_seconds=None, notes=None, offline=None, package_type=None, password=None, priority_resolution=None, project_environments=None, project_key=None, property_sets=None, proxy=None, query_params=None, remote_repo_layout_ref=None, repo_layout_ref=None, retrieval_cache_period_seconds=None, share_configuration=None, socket_timeout_millis=None, store_artifacts_locally=None, synchronize_properties=None, unused_artifacts_cleanup_period_hours=None, url=None, username=None, xray_index=None):
+    def __init__(__self__, allow_any_host_auth=None, anonymous_access=None, archive_browsing_enabled=None, assumed_offline_period_secs=None, blacked_out=None, block_mismatching_mime_types=None, bypass_head_requests=None, cdn_redirect=None, client_tls_certificate=None, content_synchronisation=None, description=None, disable_proxy=None, disable_url_normalization=None, download_direct=None, enable_cookie_management=None, enable_sparse_index=None, excludes_pattern=None, git_registry_url=None, hard_fail=None, id=None, includes_pattern=None, key=None, list_remote_folder_items=None, local_address=None, metadata_retrieval_timeout_secs=None, mismatching_mime_types_override_list=None, missed_cache_period_seconds=None, notes=None, offline=None, package_type=None, password=None, priority_resolution=None, project_environments=None, project_key=None, property_sets=None, proxy=None, query_params=None, remote_repo_layout_ref=None, repo_layout_ref=None, retrieval_cache_period_seconds=None, share_configuration=None, socket_timeout_millis=None, store_artifacts_locally=None, synchronize_properties=None, unused_artifacts_cleanup_period_hours=None, url=None, username=None, xray_index=None):
         if allow_any_host_auth and not isinstance(allow_any_host_auth, bool):
             raise TypeError("Expected argument 'allow_any_host_auth' to be a bool")
         pulumi.set(__self__, "allow_any_host_auth", allow_any_host_auth)
         if anonymous_access and not isinstance(anonymous_access, bool):
             raise TypeError("Expected argument 'anonymous_access' to be a bool")
         pulumi.set(__self__, "anonymous_access", anonymous_access)
+        if archive_browsing_enabled and not isinstance(archive_browsing_enabled, bool):
+            raise TypeError("Expected argument 'archive_browsing_enabled' to be a bool")
+        pulumi.set(__self__, "archive_browsing_enabled", archive_browsing_enabled)
         if assumed_offline_period_secs and not isinstance(assumed_offline_period_secs, int):
             raise TypeError("Expected argument 'assumed_offline_period_secs' to be a int")
         pulumi.set(__self__, "assumed_offline_period_secs", assumed_offline_period_secs)
@@ -178,6 +181,11 @@ class GetRemoteCargoRepositoryResult:
         (Required) Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
         """
         return pulumi.get(self, "anonymous_access")
+
+    @property
+    @pulumi.getter(name="archiveBrowsingEnabled")
+    def archive_browsing_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "archive_browsing_enabled")
 
     @property
     @pulumi.getter(name="assumedOfflinePeriodSecs")
@@ -422,6 +430,7 @@ class AwaitableGetRemoteCargoRepositoryResult(GetRemoteCargoRepositoryResult):
         return GetRemoteCargoRepositoryResult(
             allow_any_host_auth=self.allow_any_host_auth,
             anonymous_access=self.anonymous_access,
+            archive_browsing_enabled=self.archive_browsing_enabled,
             assumed_offline_period_secs=self.assumed_offline_period_secs,
             blacked_out=self.blacked_out,
             block_mismatching_mime_types=self.block_mismatching_mime_types,
@@ -471,6 +480,7 @@ class AwaitableGetRemoteCargoRepositoryResult(GetRemoteCargoRepositoryResult):
 
 def get_remote_cargo_repository(allow_any_host_auth: Optional[bool] = None,
                                 anonymous_access: Optional[bool] = None,
+                                archive_browsing_enabled: Optional[bool] = None,
                                 assumed_offline_period_secs: Optional[int] = None,
                                 blacked_out: Optional[bool] = None,
                                 block_mismatching_mime_types: Optional[bool] = None,
@@ -536,6 +546,7 @@ def get_remote_cargo_repository(allow_any_host_auth: Optional[bool] = None,
     __args__ = dict()
     __args__['allowAnyHostAuth'] = allow_any_host_auth
     __args__['anonymousAccess'] = anonymous_access
+    __args__['archiveBrowsingEnabled'] = archive_browsing_enabled
     __args__['assumedOfflinePeriodSecs'] = assumed_offline_period_secs
     __args__['blackedOut'] = blacked_out
     __args__['blockMismatchingMimeTypes'] = block_mismatching_mime_types
@@ -585,6 +596,7 @@ def get_remote_cargo_repository(allow_any_host_auth: Optional[bool] = None,
     return AwaitableGetRemoteCargoRepositoryResult(
         allow_any_host_auth=pulumi.get(__ret__, 'allow_any_host_auth'),
         anonymous_access=pulumi.get(__ret__, 'anonymous_access'),
+        archive_browsing_enabled=pulumi.get(__ret__, 'archive_browsing_enabled'),
         assumed_offline_period_secs=pulumi.get(__ret__, 'assumed_offline_period_secs'),
         blacked_out=pulumi.get(__ret__, 'blacked_out'),
         block_mismatching_mime_types=pulumi.get(__ret__, 'block_mismatching_mime_types'),
@@ -635,6 +647,7 @@ def get_remote_cargo_repository(allow_any_host_auth: Optional[bool] = None,
 @_utilities.lift_output_func(get_remote_cargo_repository)
 def get_remote_cargo_repository_output(allow_any_host_auth: Optional[pulumi.Input[Optional[bool]]] = None,
                                        anonymous_access: Optional[pulumi.Input[Optional[bool]]] = None,
+                                       archive_browsing_enabled: Optional[pulumi.Input[Optional[bool]]] = None,
                                        assumed_offline_period_secs: Optional[pulumi.Input[Optional[int]]] = None,
                                        blacked_out: Optional[pulumi.Input[Optional[bool]]] = None,
                                        block_mismatching_mime_types: Optional[pulumi.Input[Optional[bool]]] = None,

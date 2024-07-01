@@ -13,7 +13,9 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const my_oci_local = new artifactory.LocalOciRepository("my-oci-local", {key: "my-oci-local"});
+ * const my-oci-local = artifactory.getLocalOciRepository({
+ *     key: "my-oci-local",
+ * });
  * ```
  */
 export function getLocalOciRepository(args: GetLocalOciRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalOciRepositoryResult> {
@@ -114,7 +116,9 @@ export interface GetLocalOciRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const my_oci_local = new artifactory.LocalOciRepository("my-oci-local", {key: "my-oci-local"});
+ * const my-oci-local = artifactory.getLocalOciRepository({
+ *     key: "my-oci-local",
+ * });
  * ```
  */
 export function getLocalOciRepositoryOutput(args: GetLocalOciRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalOciRepositoryResult> {

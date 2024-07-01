@@ -28,6 +28,8 @@ func GetApiKey(ctx *pulumi.Context) string {
 }
 
 // Toggle for pre-flight checking of Artifactory Pro and Enterprise license. Default to `true`.
+//
+// Deprecated: Remove this attribute from your provider configuration as it is no longer used and the attribute will be removed in the next major version of the provider.
 func GetCheckLicense(ctx *pulumi.Context) bool {
 	v, err := config.TryBool(ctx, "artifactory:checkLicense")
 	if err == nil {

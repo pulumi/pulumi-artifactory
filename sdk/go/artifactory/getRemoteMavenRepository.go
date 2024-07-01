@@ -51,6 +51,7 @@ func LookupRemoteMavenRepository(ctx *pulumi.Context, args *LookupRemoteMavenRep
 // A collection of arguments for invoking getRemoteMavenRepository.
 type LookupRemoteMavenRepositoryArgs struct {
 	AllowAnyHostAuth          *bool                                           `pulumi:"allowAnyHostAuth"`
+	ArchiveBrowsingEnabled    *bool                                           `pulumi:"archiveBrowsingEnabled"`
 	AssumedOfflinePeriodSecs  *int                                            `pulumi:"assumedOfflinePeriodSecs"`
 	BlackedOut                *bool                                           `pulumi:"blackedOut"`
 	BlockMismatchingMimeTypes *bool                                           `pulumi:"blockMismatchingMimeTypes"`
@@ -114,6 +115,7 @@ type LookupRemoteMavenRepositoryArgs struct {
 // A collection of values returned by getRemoteMavenRepository.
 type LookupRemoteMavenRepositoryResult struct {
 	AllowAnyHostAuth          *bool                                          `pulumi:"allowAnyHostAuth"`
+	ArchiveBrowsingEnabled    *bool                                          `pulumi:"archiveBrowsingEnabled"`
 	AssumedOfflinePeriodSecs  *int                                           `pulumi:"assumedOfflinePeriodSecs"`
 	BlackedOut                *bool                                          `pulumi:"blackedOut"`
 	BlockMismatchingMimeTypes *bool                                          `pulumi:"blockMismatchingMimeTypes"`
@@ -192,6 +194,7 @@ func LookupRemoteMavenRepositoryOutput(ctx *pulumi.Context, args LookupRemoteMav
 // A collection of arguments for invoking getRemoteMavenRepository.
 type LookupRemoteMavenRepositoryOutputArgs struct {
 	AllowAnyHostAuth          pulumi.BoolPtrInput                                    `pulumi:"allowAnyHostAuth"`
+	ArchiveBrowsingEnabled    pulumi.BoolPtrInput                                    `pulumi:"archiveBrowsingEnabled"`
 	AssumedOfflinePeriodSecs  pulumi.IntPtrInput                                     `pulumi:"assumedOfflinePeriodSecs"`
 	BlackedOut                pulumi.BoolPtrInput                                    `pulumi:"blackedOut"`
 	BlockMismatchingMimeTypes pulumi.BoolPtrInput                                    `pulumi:"blockMismatchingMimeTypes"`
@@ -273,6 +276,10 @@ func (o LookupRemoteMavenRepositoryResultOutput) ToLookupRemoteMavenRepositoryRe
 
 func (o LookupRemoteMavenRepositoryResultOutput) AllowAnyHostAuth() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupRemoteMavenRepositoryResult) *bool { return v.AllowAnyHostAuth }).(pulumi.BoolPtrOutput)
+}
+
+func (o LookupRemoteMavenRepositoryResultOutput) ArchiveBrowsingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupRemoteMavenRepositoryResult) *bool { return v.ArchiveBrowsingEnabled }).(pulumi.BoolPtrOutput)
 }
 
 func (o LookupRemoteMavenRepositoryResultOutput) AssumedOfflinePeriodSecs() pulumi.IntPtrOutput {

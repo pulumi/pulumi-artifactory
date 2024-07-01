@@ -27,6 +27,13 @@ public final class GetRemoteNpmRepositoryArgs extends com.pulumi.resources.Invok
         return Optional.ofNullable(this.allowAnyHostAuth);
     }
 
+    @Import(name="archiveBrowsingEnabled")
+    private @Nullable Output<Boolean> archiveBrowsingEnabled;
+
+    public Optional<Output<Boolean>> archiveBrowsingEnabled() {
+        return Optional.ofNullable(this.archiveBrowsingEnabled);
+    }
+
     @Import(name="assumedOfflinePeriodSecs")
     private @Nullable Output<Integer> assumedOfflinePeriodSecs;
 
@@ -333,6 +340,7 @@ public final class GetRemoteNpmRepositoryArgs extends com.pulumi.resources.Invok
 
     private GetRemoteNpmRepositoryArgs(GetRemoteNpmRepositoryArgs $) {
         this.allowAnyHostAuth = $.allowAnyHostAuth;
+        this.archiveBrowsingEnabled = $.archiveBrowsingEnabled;
         this.assumedOfflinePeriodSecs = $.assumedOfflinePeriodSecs;
         this.blackedOut = $.blackedOut;
         this.blockMismatchingMimeTypes = $.blockMismatchingMimeTypes;
@@ -402,6 +410,15 @@ public final class GetRemoteNpmRepositoryArgs extends com.pulumi.resources.Invok
 
         public Builder allowAnyHostAuth(Boolean allowAnyHostAuth) {
             return allowAnyHostAuth(Output.of(allowAnyHostAuth));
+        }
+
+        public Builder archiveBrowsingEnabled(@Nullable Output<Boolean> archiveBrowsingEnabled) {
+            $.archiveBrowsingEnabled = archiveBrowsingEnabled;
+            return this;
+        }
+
+        public Builder archiveBrowsingEnabled(Boolean archiveBrowsingEnabled) {
+            return archiveBrowsingEnabled(Output.of(archiveBrowsingEnabled));
         }
 
         public Builder assumedOfflinePeriodSecs(@Nullable Output<Integer> assumedOfflinePeriodSecs) {

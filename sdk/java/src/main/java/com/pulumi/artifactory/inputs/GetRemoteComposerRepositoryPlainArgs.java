@@ -26,6 +26,13 @@ public final class GetRemoteComposerRepositoryPlainArgs extends com.pulumi.resou
         return Optional.ofNullable(this.allowAnyHostAuth);
     }
 
+    @Import(name="archiveBrowsingEnabled")
+    private @Nullable Boolean archiveBrowsingEnabled;
+
+    public Optional<Boolean> archiveBrowsingEnabled() {
+        return Optional.ofNullable(this.archiveBrowsingEnabled);
+    }
+
     @Import(name="assumedOfflinePeriodSecs")
     private @Nullable Integer assumedOfflinePeriodSecs;
 
@@ -370,6 +377,7 @@ public final class GetRemoteComposerRepositoryPlainArgs extends com.pulumi.resou
 
     private GetRemoteComposerRepositoryPlainArgs(GetRemoteComposerRepositoryPlainArgs $) {
         this.allowAnyHostAuth = $.allowAnyHostAuth;
+        this.archiveBrowsingEnabled = $.archiveBrowsingEnabled;
         this.assumedOfflinePeriodSecs = $.assumedOfflinePeriodSecs;
         this.blackedOut = $.blackedOut;
         this.blockMismatchingMimeTypes = $.blockMismatchingMimeTypes;
@@ -436,6 +444,11 @@ public final class GetRemoteComposerRepositoryPlainArgs extends com.pulumi.resou
 
         public Builder allowAnyHostAuth(@Nullable Boolean allowAnyHostAuth) {
             $.allowAnyHostAuth = allowAnyHostAuth;
+            return this;
+        }
+
+        public Builder archiveBrowsingEnabled(@Nullable Boolean archiveBrowsingEnabled) {
+            $.archiveBrowsingEnabled = archiveBrowsingEnabled;
             return this;
         }
 

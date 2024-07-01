@@ -66,6 +66,12 @@ export class RemoteNpmRepository extends pulumi.CustomResource {
      */
     public readonly allowAnyHostAuth!: pulumi.Output<boolean | undefined>;
     /**
+     * When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
+     * therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
+     * security (e.g., cross-site scripting attacks).
+     */
+    public readonly archiveBrowsingEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
      * an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
      * offline.
@@ -266,6 +272,7 @@ export class RemoteNpmRepository extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as RemoteNpmRepositoryState | undefined;
             resourceInputs["allowAnyHostAuth"] = state ? state.allowAnyHostAuth : undefined;
+            resourceInputs["archiveBrowsingEnabled"] = state ? state.archiveBrowsingEnabled : undefined;
             resourceInputs["assumedOfflinePeriodSecs"] = state ? state.assumedOfflinePeriodSecs : undefined;
             resourceInputs["blackedOut"] = state ? state.blackedOut : undefined;
             resourceInputs["blockMismatchingMimeTypes"] = state ? state.blockMismatchingMimeTypes : undefined;
@@ -318,6 +325,7 @@ export class RemoteNpmRepository extends pulumi.CustomResource {
                 throw new Error("Missing required property 'url'");
             }
             resourceInputs["allowAnyHostAuth"] = args ? args.allowAnyHostAuth : undefined;
+            resourceInputs["archiveBrowsingEnabled"] = args ? args.archiveBrowsingEnabled : undefined;
             resourceInputs["assumedOfflinePeriodSecs"] = args ? args.assumedOfflinePeriodSecs : undefined;
             resourceInputs["blackedOut"] = args ? args.blackedOut : undefined;
             resourceInputs["blockMismatchingMimeTypes"] = args ? args.blockMismatchingMimeTypes : undefined;
@@ -378,6 +386,12 @@ export interface RemoteNpmRepositoryState {
      * other host.
      */
     allowAnyHostAuth?: pulumi.Input<boolean>;
+    /**
+     * When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
+     * therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
+     * security (e.g., cross-site scripting attacks).
+     */
+    archiveBrowsingEnabled?: pulumi.Input<boolean>;
     /**
      * The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
      * an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
@@ -575,6 +589,12 @@ export interface RemoteNpmRepositoryArgs {
      * other host.
      */
     allowAnyHostAuth?: pulumi.Input<boolean>;
+    /**
+     * When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
+     * therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
+     * security (e.g., cross-site scripting attacks).
+     */
+    archiveBrowsingEnabled?: pulumi.Input<boolean>;
     /**
      * The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
      * an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed

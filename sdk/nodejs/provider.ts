@@ -94,6 +94,8 @@ By end of Q4 2024, API Keys will be deprecated all together and the option to us
     apiKey?: pulumi.Input<string>;
     /**
      * Toggle for pre-flight checking of Artifactory Pro and Enterprise license. Default to `true`.
+     *
+     * @deprecated Remove this attribute from your provider configuration as it is no longer used and the attribute will be removed in the next major version of the provider.
      */
     checkLicense?: pulumi.Input<boolean>;
     /**

@@ -2227,6 +2227,19 @@
                 "current": "artifactory:index/userLockPolicy:UserLockPolicy",
                 "majorVersion": 7
             },
+            "artifactory_vault_configuration": {
+                "current": "artifactory:index/vaultConfiguration:VaultConfiguration",
+                "majorVersion": 7,
+                "fields": {
+                    "config": {
+                        "fields": {
+                            "mounts": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    }
+                }
+            },
             "artifactory_virtual_alpine_repository": {
                 "current": "artifactory:index/virtualAlpineRepository:VirtualAlpineRepository",
                 "majorVersion": 7,
@@ -4755,6 +4768,7 @@
             "artifactory:index/unmanagedUser:UnmanagedUser": 1,
             "artifactory:index/user:User": 1,
             "artifactory:index/userLockPolicy:UserLockPolicy": 1,
+            "artifactory:index/vaultConfiguration:VaultConfiguration": 1,
             "artifactory:index/virtualAlpineRepository:VirtualAlpineRepository": 0,
             "artifactory:index/virtualBowerRepository:VirtualBowerRepository": 0,
             "artifactory:index/virtualChefRepository:VirtualChefRepository": 0,

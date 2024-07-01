@@ -126,6 +126,9 @@ __all__ = [
     'RemoteTerraformRepositoryContentSynchronisation',
     'RemoteVcsRepositoryContentSynchronisation',
     'ReplicationConfigReplication',
+    'VaultConfigurationConfig',
+    'VaultConfigurationConfigAuth',
+    'VaultConfigurationConfigMount',
     'GetFederatedAlpineRepositoryMemberResult',
     'GetFederatedBowerRepositoryMemberResult',
     'GetFederatedCargoRepositoryMemberResult',
@@ -7420,6 +7423,150 @@ class ReplicationConfigReplication(dict):
     @pulumi.getter
     def username(self) -> Optional[str]:
         return pulumi.get(self, "username")
+
+
+@pulumi.output_type
+class VaultConfigurationConfig(dict):
+    def __init__(__self__, *,
+                 auth: 'outputs.VaultConfigurationConfigAuth',
+                 mounts: Sequence['outputs.VaultConfigurationConfigMount'],
+                 url: str):
+        """
+        :param str url: The base URL of the Vault server.
+        """
+        pulumi.set(__self__, "auth", auth)
+        pulumi.set(__self__, "mounts", mounts)
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def auth(self) -> 'outputs.VaultConfigurationConfigAuth':
+        return pulumi.get(self, "auth")
+
+    @property
+    @pulumi.getter
+    def mounts(self) -> Sequence['outputs.VaultConfigurationConfigMount']:
+        return pulumi.get(self, "mounts")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        The base URL of the Vault server.
+        """
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class VaultConfigurationConfigAuth(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateKey":
+            suggest = "certificate_key"
+        elif key == "roleId":
+            suggest = "role_id"
+        elif key == "secretId":
+            suggest = "secret_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VaultConfigurationConfigAuth. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VaultConfigurationConfigAuth.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VaultConfigurationConfigAuth.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 certificate: Optional[str] = None,
+                 certificate_key: Optional[str] = None,
+                 role_id: Optional[str] = None,
+                 secret_id: Optional[str] = None):
+        """
+        :param str certificate: Client certificate (in PEM format) for `Certificate` type.
+        :param str certificate_key: Private key (in PEM format) for `Certificate` type.
+        :param str role_id: Role ID for `AppRole` type
+        :param str secret_id: Secret ID for `AppRole` type
+        """
+        pulumi.set(__self__, "type", type)
+        if certificate is not None:
+            pulumi.set(__self__, "certificate", certificate)
+        if certificate_key is not None:
+            pulumi.set(__self__, "certificate_key", certificate_key)
+        if role_id is not None:
+            pulumi.set(__self__, "role_id", role_id)
+        if secret_id is not None:
+            pulumi.set(__self__, "secret_id", secret_id)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def certificate(self) -> Optional[str]:
+        """
+        Client certificate (in PEM format) for `Certificate` type.
+        """
+        return pulumi.get(self, "certificate")
+
+    @property
+    @pulumi.getter(name="certificateKey")
+    def certificate_key(self) -> Optional[str]:
+        """
+        Private key (in PEM format) for `Certificate` type.
+        """
+        return pulumi.get(self, "certificate_key")
+
+    @property
+    @pulumi.getter(name="roleId")
+    def role_id(self) -> Optional[str]:
+        """
+        Role ID for `AppRole` type
+        """
+        return pulumi.get(self, "role_id")
+
+    @property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> Optional[str]:
+        """
+        Secret ID for `AppRole` type
+        """
+        return pulumi.get(self, "secret_id")
+
+
+@pulumi.output_type
+class VaultConfigurationConfigMount(dict):
+    def __init__(__self__, *,
+                 path: str,
+                 type: str):
+        """
+        :param str path: Vault secret engine path
+        :param str type: Vault supports several secret engines, each one has different capabilities. The supported secret engine types are: `KV1` and `KV2`.
+        """
+        pulumi.set(__self__, "path", path)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def path(self) -> str:
+        """
+        Vault secret engine path
+        """
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Vault supports several secret engines, each one has different capabilities. The supported secret engine types are: `KV1` and `KV2`.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

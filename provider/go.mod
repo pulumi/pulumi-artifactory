@@ -1,6 +1,6 @@
 module github.com/pulumi/pulumi-artifactory/provider/v7
 
-go 1.22
+go 1.22.2
 
 toolchain go1.22.3
 
@@ -10,7 +10,7 @@ replace (
 )
 
 require (
-	github.com/jfrog/terraform-provider-artifactory/v11 v11.0.0
+	github.com/jfrog/terraform-provider-artifactory/v11 v11.1.0
 	github.com/pulumi/providertest v0.0.11
 	github.com/pulumi/pulumi-terraform-bridge/pf v0.38.0
 	github.com/pulumi/pulumi-terraform-bridge/v3 v3.85.0
@@ -146,7 +146,7 @@ require (
 	github.com/imdario/mergo v0.3.15 // indirect
 	github.com/inconshreveable/mousetrap v1.1.0 // indirect
 	github.com/jbenet/go-context v0.0.0-20150711004518-d14ea06fba99 // indirect
-	github.com/jfrog/terraform-provider-shared v1.25.4 // indirect
+	github.com/jfrog/terraform-provider-shared v1.25.5 // indirect
 	github.com/jmespath/go-jmespath v0.4.0 // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
 	github.com/kevinburke/ssh_config v1.2.0 // indirect
@@ -204,7 +204,7 @@ require (
 	github.com/segmentio/asm v1.1.3 // indirect
 	github.com/segmentio/encoding v0.3.5 // indirect
 	github.com/sergi/go-diff v1.3.2-0.20230802210424-5b0b94c5c0d3 // indirect
-	github.com/sethvargo/go-password v0.3.0 // indirect
+	github.com/sethvargo/go-password v0.3.1 // indirect
 	github.com/shopspring/decimal v1.3.1 // indirect
 	github.com/skeema/knownhosts v1.2.2 // indirect
 	github.com/spf13/afero v1.9.5 // indirect

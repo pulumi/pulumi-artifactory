@@ -86,6 +86,24 @@ public class RemoteAlpineRepository extends com.pulumi.resources.CustomResource 
         return Codegen.optional(this.allowAnyHostAuth);
     }
     /**
+     * When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
+     * therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
+     * security (e.g., cross-site scripting attacks).
+     * 
+     */
+    @Export(name="archiveBrowsingEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> archiveBrowsingEnabled;
+
+    /**
+     * @return When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
+     * therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
+     * security (e.g., cross-site scripting attacks).
+     * 
+     */
+    public Output<Optional<Boolean>> archiveBrowsingEnabled() {
+        return Codegen.optional(this.archiveBrowsingEnabled);
+    }
+    /**
      * The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
      * an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
      * offline.

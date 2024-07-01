@@ -70,14 +70,22 @@ By end of Q4 2024, API Keys will be deprecated all together and the option to us
     /**
      * Toggle for pre-flight checking of Artifactory Pro and Enterprise license. Default to `true`.
      * 
+     * @deprecated
+     * Remove this attribute from your provider configuration as it is no longer used and the attribute will be removed in the next major version of the provider.
+     * 
      */
+    @Deprecated /* Remove this attribute from your provider configuration as it is no longer used and the attribute will be removed in the next major version of the provider. */
     @Import(name="checkLicense", json=true)
     private @Nullable Output<Boolean> checkLicense;
 
     /**
      * @return Toggle for pre-flight checking of Artifactory Pro and Enterprise license. Default to `true`.
      * 
+     * @deprecated
+     * Remove this attribute from your provider configuration as it is no longer used and the attribute will be removed in the next major version of the provider.
+     * 
      */
+    @Deprecated /* Remove this attribute from your provider configuration as it is no longer used and the attribute will be removed in the next major version of the provider. */
     public Optional<Output<Boolean>> checkLicense() {
         return Optional.ofNullable(this.checkLicense);
     }
@@ -211,7 +219,11 @@ By end of Q4 2024, API Keys will be deprecated all together and the option to us
          * 
          * @return builder
          * 
+         * @deprecated
+         * Remove this attribute from your provider configuration as it is no longer used and the attribute will be removed in the next major version of the provider.
+         * 
          */
+        @Deprecated /* Remove this attribute from your provider configuration as it is no longer used and the attribute will be removed in the next major version of the provider. */
         public Builder checkLicense(@Nullable Output<Boolean> checkLicense) {
             $.checkLicense = checkLicense;
             return this;
@@ -222,7 +234,11 @@ By end of Q4 2024, API Keys will be deprecated all together and the option to us
          * 
          * @return builder
          * 
+         * @deprecated
+         * Remove this attribute from your provider configuration as it is no longer used and the attribute will be removed in the next major version of the provider.
+         * 
          */
+        @Deprecated /* Remove this attribute from your provider configuration as it is no longer used and the attribute will be removed in the next major version of the provider. */
         public Builder checkLicense(Boolean checkLicense) {
             return checkLicense(Output.of(checkLicense));
         }

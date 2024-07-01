@@ -51,6 +51,7 @@ func LookupRemoteConanRepository(ctx *pulumi.Context, args *LookupRemoteConanRep
 // A collection of arguments for invoking getRemoteConanRepository.
 type LookupRemoteConanRepositoryArgs struct {
 	AllowAnyHostAuth          *bool                                           `pulumi:"allowAnyHostAuth"`
+	ArchiveBrowsingEnabled    *bool                                           `pulumi:"archiveBrowsingEnabled"`
 	AssumedOfflinePeriodSecs  *int                                            `pulumi:"assumedOfflinePeriodSecs"`
 	BlackedOut                *bool                                           `pulumi:"blackedOut"`
 	BlockMismatchingMimeTypes *bool                                           `pulumi:"blockMismatchingMimeTypes"`
@@ -100,6 +101,7 @@ type LookupRemoteConanRepositoryArgs struct {
 // A collection of values returned by getRemoteConanRepository.
 type LookupRemoteConanRepositoryResult struct {
 	AllowAnyHostAuth          *bool                                          `pulumi:"allowAnyHostAuth"`
+	ArchiveBrowsingEnabled    *bool                                          `pulumi:"archiveBrowsingEnabled"`
 	AssumedOfflinePeriodSecs  *int                                           `pulumi:"assumedOfflinePeriodSecs"`
 	BlackedOut                *bool                                          `pulumi:"blackedOut"`
 	BlockMismatchingMimeTypes *bool                                          `pulumi:"blockMismatchingMimeTypes"`
@@ -164,6 +166,7 @@ func LookupRemoteConanRepositoryOutput(ctx *pulumi.Context, args LookupRemoteCon
 // A collection of arguments for invoking getRemoteConanRepository.
 type LookupRemoteConanRepositoryOutputArgs struct {
 	AllowAnyHostAuth          pulumi.BoolPtrInput                                    `pulumi:"allowAnyHostAuth"`
+	ArchiveBrowsingEnabled    pulumi.BoolPtrInput                                    `pulumi:"archiveBrowsingEnabled"`
 	AssumedOfflinePeriodSecs  pulumi.IntPtrInput                                     `pulumi:"assumedOfflinePeriodSecs"`
 	BlackedOut                pulumi.BoolPtrInput                                    `pulumi:"blackedOut"`
 	BlockMismatchingMimeTypes pulumi.BoolPtrInput                                    `pulumi:"blockMismatchingMimeTypes"`
@@ -231,6 +234,10 @@ func (o LookupRemoteConanRepositoryResultOutput) ToLookupRemoteConanRepositoryRe
 
 func (o LookupRemoteConanRepositoryResultOutput) AllowAnyHostAuth() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupRemoteConanRepositoryResult) *bool { return v.AllowAnyHostAuth }).(pulumi.BoolPtrOutput)
+}
+
+func (o LookupRemoteConanRepositoryResultOutput) ArchiveBrowsingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupRemoteConanRepositoryResult) *bool { return v.ArchiveBrowsingEnabled }).(pulumi.BoolPtrOutput)
 }
 
 func (o LookupRemoteConanRepositoryResultOutput) AssumedOfflinePeriodSecs() pulumi.IntPtrOutput {

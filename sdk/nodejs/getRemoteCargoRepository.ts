@@ -26,6 +26,7 @@ export function getRemoteCargoRepository(args: GetRemoteCargoRepositoryArgs, opt
     return pulumi.runtime.invoke("artifactory:index/getRemoteCargoRepository:getRemoteCargoRepository", {
         "allowAnyHostAuth": args.allowAnyHostAuth,
         "anonymousAccess": args.anonymousAccess,
+        "archiveBrowsingEnabled": args.archiveBrowsingEnabled,
         "assumedOfflinePeriodSecs": args.assumedOfflinePeriodSecs,
         "blackedOut": args.blackedOut,
         "blockMismatchingMimeTypes": args.blockMismatchingMimeTypes,
@@ -81,6 +82,7 @@ export interface GetRemoteCargoRepositoryArgs {
      * (Required) Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
      */
     anonymousAccess?: boolean;
+    archiveBrowsingEnabled?: boolean;
     assumedOfflinePeriodSecs?: number;
     blackedOut?: boolean;
     blockMismatchingMimeTypes?: boolean;
@@ -144,6 +146,7 @@ export interface GetRemoteCargoRepositoryResult {
      * (Required) Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
      */
     readonly anonymousAccess?: boolean;
+    readonly archiveBrowsingEnabled?: boolean;
     readonly assumedOfflinePeriodSecs?: number;
     readonly blackedOut?: boolean;
     readonly blockMismatchingMimeTypes?: boolean;
@@ -226,6 +229,7 @@ export interface GetRemoteCargoRepositoryOutputArgs {
      * (Required) Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
      */
     anonymousAccess?: pulumi.Input<boolean>;
+    archiveBrowsingEnabled?: pulumi.Input<boolean>;
     assumedOfflinePeriodSecs?: pulumi.Input<number>;
     blackedOut?: pulumi.Input<boolean>;
     blockMismatchingMimeTypes?: pulumi.Input<boolean>;

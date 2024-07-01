@@ -27,9 +27,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.NewDockerV1Repository(ctx, "artifactory_local_test_docker_v1_repository", &artifactory.DockerV1RepositoryArgs{
-//				Key: pulumi.String("artifactory_local_test_docker_v1_repository"),
-//			})
+//			_, err := artifactory.GetLocalDockerV1Repository(ctx, &artifactory.GetLocalDockerV1RepositoryArgs{
+//				Key: "artifactory_local_test_docker_v1_repository",
+//			}, nil)
 //			if err != nil {
 //				return err
 //			}

@@ -315,6 +315,7 @@
         "user.ts",
         "userLockPolicy.ts",
         "utilities.ts",
+        "vaultConfiguration.ts",
         "virtualAlpineRepository.ts",
         "virtualBowerRepository.ts",
         "virtualChefRepository.ts",

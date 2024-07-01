@@ -239,7 +239,7 @@ def get_local_oci_repository(archive_browsing_enabled: Optional[bool] = None,
     import pulumi
     import pulumi_artifactory as artifactory
 
-    my_oci_local = artifactory.LocalOciRepository("my-oci-local", key="my-oci-local")
+    my_oci_local = artifactory.get_local_oci_repository(key="my-oci-local")
     ```
 
 
@@ -318,7 +318,7 @@ def get_local_oci_repository_output(archive_browsing_enabled: Optional[pulumi.In
     import pulumi
     import pulumi_artifactory as artifactory
 
-    my_oci_local = artifactory.LocalOciRepository("my-oci-local", key="my-oci-local")
+    my_oci_local = artifactory.get_local_oci_repository(key="my-oci-local")
     ```
 
 

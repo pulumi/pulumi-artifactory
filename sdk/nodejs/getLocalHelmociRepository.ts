@@ -13,7 +13,9 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const my_helmoci_local = new artifactory.LocalHelmociRepository("my-helmoci-local", {key: "my-helmoci-local"});
+ * const my-helmoci-local = artifactory.getLocalHelmociRepository({
+ *     key: "my-helmoci-local",
+ * });
  * ```
  */
 export function getLocalHelmociRepository(args: GetLocalHelmociRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalHelmociRepositoryResult> {
@@ -114,7 +116,9 @@ export interface GetLocalHelmociRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const my_helmoci_local = new artifactory.LocalHelmociRepository("my-helmoci-local", {key: "my-helmoci-local"});
+ * const my-helmoci-local = artifactory.getLocalHelmociRepository({
+ *     key: "my-helmoci-local",
+ * });
  * ```
  */
 export function getLocalHelmociRepositoryOutput(args: GetLocalHelmociRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalHelmociRepositoryResult> {

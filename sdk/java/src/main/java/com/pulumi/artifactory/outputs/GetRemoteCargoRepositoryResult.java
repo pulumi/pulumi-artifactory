@@ -22,6 +22,7 @@ public final class GetRemoteCargoRepositoryResult {
      * 
      */
     private @Nullable Boolean anonymousAccess;
+    private @Nullable Boolean archiveBrowsingEnabled;
     private @Nullable Integer assumedOfflinePeriodSecs;
     private @Nullable Boolean blackedOut;
     private @Nullable Boolean blockMismatchingMimeTypes;
@@ -90,6 +91,9 @@ public final class GetRemoteCargoRepositoryResult {
      */
     public Optional<Boolean> anonymousAccess() {
         return Optional.ofNullable(this.anonymousAccess);
+    }
+    public Optional<Boolean> archiveBrowsingEnabled() {
+        return Optional.ofNullable(this.archiveBrowsingEnabled);
     }
     public Optional<Integer> assumedOfflinePeriodSecs() {
         return Optional.ofNullable(this.assumedOfflinePeriodSecs);
@@ -250,6 +254,7 @@ public final class GetRemoteCargoRepositoryResult {
     public static final class Builder {
         private @Nullable Boolean allowAnyHostAuth;
         private @Nullable Boolean anonymousAccess;
+        private @Nullable Boolean archiveBrowsingEnabled;
         private @Nullable Integer assumedOfflinePeriodSecs;
         private @Nullable Boolean blackedOut;
         private @Nullable Boolean blockMismatchingMimeTypes;
@@ -300,6 +305,7 @@ public final class GetRemoteCargoRepositoryResult {
     	      Objects.requireNonNull(defaults);
     	      this.allowAnyHostAuth = defaults.allowAnyHostAuth;
     	      this.anonymousAccess = defaults.anonymousAccess;
+    	      this.archiveBrowsingEnabled = defaults.archiveBrowsingEnabled;
     	      this.assumedOfflinePeriodSecs = defaults.assumedOfflinePeriodSecs;
     	      this.blackedOut = defaults.blackedOut;
     	      this.blockMismatchingMimeTypes = defaults.blockMismatchingMimeTypes;
@@ -357,6 +363,12 @@ public final class GetRemoteCargoRepositoryResult {
         public Builder anonymousAccess(@Nullable Boolean anonymousAccess) {
 
             this.anonymousAccess = anonymousAccess;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder archiveBrowsingEnabled(@Nullable Boolean archiveBrowsingEnabled) {
+
+            this.archiveBrowsingEnabled = archiveBrowsingEnabled;
             return this;
         }
         @CustomType.Setter
@@ -653,6 +665,7 @@ public final class GetRemoteCargoRepositoryResult {
             final var _resultValue = new GetRemoteCargoRepositoryResult();
             _resultValue.allowAnyHostAuth = allowAnyHostAuth;
             _resultValue.anonymousAccess = anonymousAccess;
+            _resultValue.archiveBrowsingEnabled = archiveBrowsingEnabled;
             _resultValue.assumedOfflinePeriodSecs = assumedOfflinePeriodSecs;
             _resultValue.blackedOut = blackedOut;
             _resultValue.blockMismatchingMimeTypes = blockMismatchingMimeTypes;

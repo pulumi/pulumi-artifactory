@@ -15,7 +15,9 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const federated_test_cargo_repo = new artifactory.FederatedCargoRepository("federated-test-cargo-repo", {key: "federated-test-cargo-repo"});
+ * const federated-test-cargo-repo = artifactory.getFederatedCargoRepository({
+ *     key: "federated-test-cargo-repo",
+ * });
  * ```
  */
 export function getFederatedCargoRepository(args: GetFederatedCargoRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetFederatedCargoRepositoryResult> {
@@ -143,7 +145,9 @@ export interface GetFederatedCargoRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const federated_test_cargo_repo = new artifactory.FederatedCargoRepository("federated-test-cargo-repo", {key: "federated-test-cargo-repo"});
+ * const federated-test-cargo-repo = artifactory.getFederatedCargoRepository({
+ *     key: "federated-test-cargo-repo",
+ * });
  * ```
  */
 export function getFederatedCargoRepositoryOutput(args: GetFederatedCargoRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedCargoRepositoryResult> {

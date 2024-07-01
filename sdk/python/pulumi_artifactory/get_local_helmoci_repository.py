@@ -239,7 +239,7 @@ def get_local_helmoci_repository(archive_browsing_enabled: Optional[bool] = None
     import pulumi
     import pulumi_artifactory as artifactory
 
-    my_helmoci_local = artifactory.LocalHelmociRepository("my-helmoci-local", key="my-helmoci-local")
+    my_helmoci_local = artifactory.get_local_helmoci_repository(key="my-helmoci-local")
     ```
 
 
@@ -318,7 +318,7 @@ def get_local_helmoci_repository_output(archive_browsing_enabled: Optional[pulum
     import pulumi
     import pulumi_artifactory as artifactory
 
-    my_helmoci_local = artifactory.LocalHelmociRepository("my-helmoci-local", key="my-helmoci-local")
+    my_helmoci_local = artifactory.get_local_helmoci_repository(key="my-helmoci-local")
     ```
 
 

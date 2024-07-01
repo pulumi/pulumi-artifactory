@@ -4340,3 +4340,43 @@ export interface ReplicationConfigReplication {
     url?: pulumi.Input<string>;
     username?: pulumi.Input<string>;
 }
+
+export interface VaultConfigurationConfig {
+    auth: pulumi.Input<inputs.VaultConfigurationConfigAuth>;
+    mounts: pulumi.Input<pulumi.Input<inputs.VaultConfigurationConfigMount>[]>;
+    /**
+     * The base URL of the Vault server.
+     */
+    url: pulumi.Input<string>;
+}
+
+export interface VaultConfigurationConfigAuth {
+    /**
+     * Client certificate (in PEM format) for `Certificate` type.
+     */
+    certificate?: pulumi.Input<string>;
+    /**
+     * Private key (in PEM format) for `Certificate` type.
+     */
+    certificateKey?: pulumi.Input<string>;
+    /**
+     * Role ID for `AppRole` type
+     */
+    roleId?: pulumi.Input<string>;
+    /**
+     * Secret ID for `AppRole` type
+     */
+    secretId?: pulumi.Input<string>;
+    type: pulumi.Input<string>;
+}
+
+export interface VaultConfigurationConfigMount {
+    /**
+     * Vault secret engine path
+     */
+    path: pulumi.Input<string>;
+    /**
+     * Vault supports several secret engines, each one has different capabilities. The supported secret engine types are: `KV1` and `KV2`.
+     */
+    type: pulumi.Input<string>;
+}

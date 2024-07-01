@@ -87,7 +87,7 @@ export class User extends pulumi.CustomResource {
      */
     public readonly internalPasswordDisabled!: pulumi.Output<boolean>;
     /**
-     * Username for user. May contain lowercase letters, numbers and symbols: '.-_@'
+     * Username for user. May contain lowercase letters, numbers and symbols: `.-_@` for self-hosted. For SaaS, `+` is also allowed.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -166,7 +166,7 @@ export interface UserState {
      */
     internalPasswordDisabled?: pulumi.Input<boolean>;
     /**
-     * Username for user. May contain lowercase letters, numbers and symbols: '.-_@'
+     * Username for user. May contain lowercase letters, numbers and symbols: `.-_@` for self-hosted. For SaaS, `+` is also allowed.
      */
     name?: pulumi.Input<string>;
     /**
@@ -204,7 +204,7 @@ export interface UserArgs {
      */
     internalPasswordDisabled?: pulumi.Input<boolean>;
     /**
-     * Username for user. May contain lowercase letters, numbers and symbols: '.-_@'
+     * Username for user. May contain lowercase letters, numbers and symbols: `.-_@` for self-hosted. For SaaS, `+` is also allowed.
      */
     name?: pulumi.Input<string>;
     /**

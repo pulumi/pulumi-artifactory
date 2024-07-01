@@ -65,21 +65,21 @@ import (
 type UnmanagedUser struct {
 	pulumi.CustomResourceState
 
-	// When enabled, this user is an administrator with all the ensuing privileges. Default value is `false`.
+	// (Optional, Default: false) When enabled, this user is an administrator with all the ensuing privileges.
 	Admin pulumi.BoolOutput `pulumi:"admin"`
-	// When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges. Default value is `true`.
+	// (Optional, Default: true) When enabled, this user can only access the system through the REST API. This option cannot be set if the user has Admin privileges.
 	DisableUiAccess pulumi.BoolOutput `pulumi:"disableUiAccess"`
 	// Email for user.
 	Email pulumi.StringOutput `pulumi:"email"`
 	// List of groups this user is a part of. **Notes:** If this attribute is not specified then user's group membership is set to empty. User will not be part of default "readers" group automatically.
 	Groups pulumi.StringArrayOutput `pulumi:"groups"`
-	// When set, disables the fallback of using an internal password when external authentication (such as LDAP) is enabled.
+	// (Optional, Default: false) When enabled, disables the fallback mechanism for using an internal password when external authentication (such as LDAP) is enabled.
 	InternalPasswordDisabled pulumi.BoolOutput `pulumi:"internalPasswordDisabled"`
-	// Username for user. May contain lowercase letters, numbers and symbols: '.-_@'
+	// Username for user. May contain lowercase letters, numbers and symbols: `.-_@` for self-hosted. For SaaS, `+` is also allowed.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters.
+	// (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters.
 	Password pulumi.StringOutput `pulumi:"password"`
-	// When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
+	// (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an administrator can update the password). There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.
 	ProfileUpdatable pulumi.BoolOutput `pulumi:"profileUpdatable"`
 }
 
@@ -123,40 +123,40 @@ func GetUnmanagedUser(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering UnmanagedUser resources.
 type unmanagedUserState struct {
-	// When enabled, this user is an administrator with all the ensuing privileges. Default value is `false`.
+	// (Optional, Default: false) When enabled, this user is an administrator with all the ensuing privileges.
 	Admin *bool `pulumi:"admin"`
-	// When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges. Default value is `true`.
+	// (Optional, Default: true) When enabled, this user can only access the system through the REST API. This option cannot be set if the user has Admin privileges.
 	DisableUiAccess *bool `pulumi:"disableUiAccess"`
 	// Email for user.
 	Email *string `pulumi:"email"`
 	// List of groups this user is a part of. **Notes:** If this attribute is not specified then user's group membership is set to empty. User will not be part of default "readers" group automatically.
 	Groups []string `pulumi:"groups"`
-	// When set, disables the fallback of using an internal password when external authentication (such as LDAP) is enabled.
+	// (Optional, Default: false) When enabled, disables the fallback mechanism for using an internal password when external authentication (such as LDAP) is enabled.
 	InternalPasswordDisabled *bool `pulumi:"internalPasswordDisabled"`
-	// Username for user. May contain lowercase letters, numbers and symbols: '.-_@'
+	// Username for user. May contain lowercase letters, numbers and symbols: `.-_@` for self-hosted. For SaaS, `+` is also allowed.
 	Name *string `pulumi:"name"`
-	// Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters.
+	// (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters.
 	Password *string `pulumi:"password"`
-	// When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
+	// (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an administrator can update the password). There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.
 	ProfileUpdatable *bool `pulumi:"profileUpdatable"`
 }
 
 type UnmanagedUserState struct {
-	// When enabled, this user is an administrator with all the ensuing privileges. Default value is `false`.
+	// (Optional, Default: false) When enabled, this user is an administrator with all the ensuing privileges.
 	Admin pulumi.BoolPtrInput
-	// When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges. Default value is `true`.
+	// (Optional, Default: true) When enabled, this user can only access the system through the REST API. This option cannot be set if the user has Admin privileges.
 	DisableUiAccess pulumi.BoolPtrInput
 	// Email for user.
 	Email pulumi.StringPtrInput
 	// List of groups this user is a part of. **Notes:** If this attribute is not specified then user's group membership is set to empty. User will not be part of default "readers" group automatically.
 	Groups pulumi.StringArrayInput
-	// When set, disables the fallback of using an internal password when external authentication (such as LDAP) is enabled.
+	// (Optional, Default: false) When enabled, disables the fallback mechanism for using an internal password when external authentication (such as LDAP) is enabled.
 	InternalPasswordDisabled pulumi.BoolPtrInput
-	// Username for user. May contain lowercase letters, numbers and symbols: '.-_@'
+	// Username for user. May contain lowercase letters, numbers and symbols: `.-_@` for self-hosted. For SaaS, `+` is also allowed.
 	Name pulumi.StringPtrInput
-	// Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters.
+	// (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters.
 	Password pulumi.StringPtrInput
-	// When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
+	// (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an administrator can update the password). There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.
 	ProfileUpdatable pulumi.BoolPtrInput
 }
 
@@ -165,41 +165,41 @@ func (UnmanagedUserState) ElementType() reflect.Type {
 }
 
 type unmanagedUserArgs struct {
-	// When enabled, this user is an administrator with all the ensuing privileges. Default value is `false`.
+	// (Optional, Default: false) When enabled, this user is an administrator with all the ensuing privileges.
 	Admin *bool `pulumi:"admin"`
-	// When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges. Default value is `true`.
+	// (Optional, Default: true) When enabled, this user can only access the system through the REST API. This option cannot be set if the user has Admin privileges.
 	DisableUiAccess *bool `pulumi:"disableUiAccess"`
 	// Email for user.
 	Email string `pulumi:"email"`
 	// List of groups this user is a part of. **Notes:** If this attribute is not specified then user's group membership is set to empty. User will not be part of default "readers" group automatically.
 	Groups []string `pulumi:"groups"`
-	// When set, disables the fallback of using an internal password when external authentication (such as LDAP) is enabled.
+	// (Optional, Default: false) When enabled, disables the fallback mechanism for using an internal password when external authentication (such as LDAP) is enabled.
 	InternalPasswordDisabled *bool `pulumi:"internalPasswordDisabled"`
-	// Username for user. May contain lowercase letters, numbers and symbols: '.-_@'
+	// Username for user. May contain lowercase letters, numbers and symbols: `.-_@` for self-hosted. For SaaS, `+` is also allowed.
 	Name *string `pulumi:"name"`
-	// Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters.
+	// (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters.
 	Password *string `pulumi:"password"`
-	// When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
+	// (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an administrator can update the password). There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.
 	ProfileUpdatable *bool `pulumi:"profileUpdatable"`
 }
 
 // The set of arguments for constructing a UnmanagedUser resource.
 type UnmanagedUserArgs struct {
-	// When enabled, this user is an administrator with all the ensuing privileges. Default value is `false`.
+	// (Optional, Default: false) When enabled, this user is an administrator with all the ensuing privileges.
 	Admin pulumi.BoolPtrInput
-	// When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges. Default value is `true`.
+	// (Optional, Default: true) When enabled, this user can only access the system through the REST API. This option cannot be set if the user has Admin privileges.
 	DisableUiAccess pulumi.BoolPtrInput
 	// Email for user.
 	Email pulumi.StringInput
 	// List of groups this user is a part of. **Notes:** If this attribute is not specified then user's group membership is set to empty. User will not be part of default "readers" group automatically.
 	Groups pulumi.StringArrayInput
-	// When set, disables the fallback of using an internal password when external authentication (such as LDAP) is enabled.
+	// (Optional, Default: false) When enabled, disables the fallback mechanism for using an internal password when external authentication (such as LDAP) is enabled.
 	InternalPasswordDisabled pulumi.BoolPtrInput
-	// Username for user. May contain lowercase letters, numbers and symbols: '.-_@'
+	// Username for user. May contain lowercase letters, numbers and symbols: `.-_@` for self-hosted. For SaaS, `+` is also allowed.
 	Name pulumi.StringPtrInput
-	// Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters.
+	// (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters.
 	Password pulumi.StringPtrInput
-	// When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
+	// (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an administrator can update the password). There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.
 	ProfileUpdatable pulumi.BoolPtrInput
 }
 
@@ -290,12 +290,12 @@ func (o UnmanagedUserOutput) ToUnmanagedUserOutputWithContext(ctx context.Contex
 	return o
 }
 
-// When enabled, this user is an administrator with all the ensuing privileges. Default value is `false`.
+// (Optional, Default: false) When enabled, this user is an administrator with all the ensuing privileges.
 func (o UnmanagedUserOutput) Admin() pulumi.BoolOutput {
 	return o.ApplyT(func(v *UnmanagedUser) pulumi.BoolOutput { return v.Admin }).(pulumi.BoolOutput)
 }
 
-// When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges. Default value is `true`.
+// (Optional, Default: true) When enabled, this user can only access the system through the REST API. This option cannot be set if the user has Admin privileges.
 func (o UnmanagedUserOutput) DisableUiAccess() pulumi.BoolOutput {
 	return o.ApplyT(func(v *UnmanagedUser) pulumi.BoolOutput { return v.DisableUiAccess }).(pulumi.BoolOutput)
 }
@@ -310,22 +310,22 @@ func (o UnmanagedUserOutput) Groups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *UnmanagedUser) pulumi.StringArrayOutput { return v.Groups }).(pulumi.StringArrayOutput)
 }
 
-// When set, disables the fallback of using an internal password when external authentication (such as LDAP) is enabled.
+// (Optional, Default: false) When enabled, disables the fallback mechanism for using an internal password when external authentication (such as LDAP) is enabled.
 func (o UnmanagedUserOutput) InternalPasswordDisabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *UnmanagedUser) pulumi.BoolOutput { return v.InternalPasswordDisabled }).(pulumi.BoolOutput)
 }
 
-// Username for user. May contain lowercase letters, numbers and symbols: '.-_@'
+// Username for user. May contain lowercase letters, numbers and symbols: `.-_@` for self-hosted. For SaaS, `+` is also allowed.
 func (o UnmanagedUserOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *UnmanagedUser) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters.
+// (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters.
 func (o UnmanagedUserOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v *UnmanagedUser) pulumi.StringOutput { return v.Password }).(pulumi.StringOutput)
 }
 
-// When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
+// (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an administrator can update the password). There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.
 func (o UnmanagedUserOutput) ProfileUpdatable() pulumi.BoolOutput {
 	return o.ApplyT(func(v *UnmanagedUser) pulumi.BoolOutput { return v.ProfileUpdatable }).(pulumi.BoolOutput)
 }

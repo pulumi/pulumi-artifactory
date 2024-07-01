@@ -300,6 +300,7 @@ from .single_replication_config import *
 from .unmanaged_user import *
 from .user import *
 from .user_lock_policy import *
+from .vault_configuration import *
 from .virtual_alpine_repository import *
 from .virtual_bower_repository import *
 from .virtual_chef_repository import *
@@ -1578,6 +1579,14 @@ _utilities.register(
   "fqn": "pulumi_artifactory",
   "classes": {
    "artifactory:index/userLockPolicy:UserLockPolicy": "UserLockPolicy"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/vaultConfiguration",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/vaultConfiguration:VaultConfiguration": "VaultConfiguration"
   }
  },
  {
