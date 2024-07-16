@@ -3413,7 +3413,13 @@ export interface PermissionTargetBuild {
 }
 
 export interface PermissionTargetBuildActions {
+    /**
+     * Groups this permission applies for.
+     */
     groups?: pulumi.Input<pulumi.Input<inputs.PermissionTargetBuildActionsGroup>[]>;
+    /**
+     * Users this permission target applies for.
+     */
     users?: pulumi.Input<pulumi.Input<inputs.PermissionTargetBuildActionsUser>[]>;
 }
 
@@ -3450,7 +3456,13 @@ export interface PermissionTargetReleaseBundle {
 }
 
 export interface PermissionTargetReleaseBundleActions {
+    /**
+     * Groups this permission applies for.
+     */
     groups?: pulumi.Input<pulumi.Input<inputs.PermissionTargetReleaseBundleActionsGroup>[]>;
+    /**
+     * Users this permission target applies for.
+     */
     users?: pulumi.Input<pulumi.Input<inputs.PermissionTargetReleaseBundleActionsUser>[]>;
 }
 

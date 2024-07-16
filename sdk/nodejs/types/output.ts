@@ -2290,7 +2290,13 @@ export interface PermissionTargetBuild {
 }
 
 export interface PermissionTargetBuildActions {
+    /**
+     * Groups this permission applies for.
+     */
     groups?: outputs.PermissionTargetBuildActionsGroup[];
+    /**
+     * Users this permission target applies for.
+     */
     users?: outputs.PermissionTargetBuildActionsUser[];
 }
 
@@ -2327,7 +2333,13 @@ export interface PermissionTargetReleaseBundle {
 }
 
 export interface PermissionTargetReleaseBundleActions {
+    /**
+     * Groups this permission applies for.
+     */
     groups?: outputs.PermissionTargetReleaseBundleActionsGroup[];
+    /**
+     * Users this permission target applies for.
+     */
     users?: outputs.PermissionTargetReleaseBundleActionsUser[];
 }
 
