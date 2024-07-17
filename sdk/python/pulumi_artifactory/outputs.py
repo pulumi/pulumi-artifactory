@@ -3757,6 +3757,10 @@ class PermissionTargetBuildActions(dict):
     def __init__(__self__, *,
                  groups: Optional[Sequence['outputs.PermissionTargetBuildActionsGroup']] = None,
                  users: Optional[Sequence['outputs.PermissionTargetBuildActionsUser']] = None):
+        """
+        :param Sequence['PermissionTargetBuildActionsGroupArgs'] groups: Groups this permission applies for.
+        :param Sequence['PermissionTargetBuildActionsUserArgs'] users: Users this permission target applies for.
+        """
         if groups is not None:
             pulumi.set(__self__, "groups", groups)
         if users is not None:
@@ -3765,11 +3769,17 @@ class PermissionTargetBuildActions(dict):
     @property
     @pulumi.getter
     def groups(self) -> Optional[Sequence['outputs.PermissionTargetBuildActionsGroup']]:
+        """
+        Groups this permission applies for.
+        """
         return pulumi.get(self, "groups")
 
     @property
     @pulumi.getter
     def users(self) -> Optional[Sequence['outputs.PermissionTargetBuildActionsUser']]:
+        """
+        Users this permission target applies for.
+        """
         return pulumi.get(self, "users")
 
 
@@ -3897,6 +3907,10 @@ class PermissionTargetReleaseBundleActions(dict):
     def __init__(__self__, *,
                  groups: Optional[Sequence['outputs.PermissionTargetReleaseBundleActionsGroup']] = None,
                  users: Optional[Sequence['outputs.PermissionTargetReleaseBundleActionsUser']] = None):
+        """
+        :param Sequence['PermissionTargetReleaseBundleActionsGroupArgs'] groups: Groups this permission applies for.
+        :param Sequence['PermissionTargetReleaseBundleActionsUserArgs'] users: Users this permission target applies for.
+        """
         if groups is not None:
             pulumi.set(__self__, "groups", groups)
         if users is not None:
@@ -3905,11 +3919,17 @@ class PermissionTargetReleaseBundleActions(dict):
     @property
     @pulumi.getter
     def groups(self) -> Optional[Sequence['outputs.PermissionTargetReleaseBundleActionsGroup']]:
+        """
+        Groups this permission applies for.
+        """
         return pulumi.get(self, "groups")
 
     @property
     @pulumi.getter
     def users(self) -> Optional[Sequence['outputs.PermissionTargetReleaseBundleActionsUser']]:
+        """
+        Users this permission target applies for.
+        """
         return pulumi.get(self, "users")
 
 

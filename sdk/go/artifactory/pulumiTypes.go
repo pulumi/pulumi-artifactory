@@ -8557,8 +8557,10 @@ func (o PermissionTargetBuildPtrOutput) Repositories() pulumi.StringArrayOutput 
 }
 
 type PermissionTargetBuildActions struct {
+	// Groups this permission applies for.
 	Groups []PermissionTargetBuildActionsGroup `pulumi:"groups"`
-	Users  []PermissionTargetBuildActionsUser  `pulumi:"users"`
+	// Users this permission target applies for.
+	Users []PermissionTargetBuildActionsUser `pulumi:"users"`
 }
 
 // PermissionTargetBuildActionsInput is an input type that accepts PermissionTargetBuildActionsArgs and PermissionTargetBuildActionsOutput values.
@@ -8573,8 +8575,10 @@ type PermissionTargetBuildActionsInput interface {
 }
 
 type PermissionTargetBuildActionsArgs struct {
+	// Groups this permission applies for.
 	Groups PermissionTargetBuildActionsGroupArrayInput `pulumi:"groups"`
-	Users  PermissionTargetBuildActionsUserArrayInput  `pulumi:"users"`
+	// Users this permission target applies for.
+	Users PermissionTargetBuildActionsUserArrayInput `pulumi:"users"`
 }
 
 func (PermissionTargetBuildActionsArgs) ElementType() reflect.Type {
@@ -8654,10 +8658,12 @@ func (o PermissionTargetBuildActionsOutput) ToPermissionTargetBuildActionsPtrOut
 	}).(PermissionTargetBuildActionsPtrOutput)
 }
 
+// Groups this permission applies for.
 func (o PermissionTargetBuildActionsOutput) Groups() PermissionTargetBuildActionsGroupArrayOutput {
 	return o.ApplyT(func(v PermissionTargetBuildActions) []PermissionTargetBuildActionsGroup { return v.Groups }).(PermissionTargetBuildActionsGroupArrayOutput)
 }
 
+// Users this permission target applies for.
 func (o PermissionTargetBuildActionsOutput) Users() PermissionTargetBuildActionsUserArrayOutput {
 	return o.ApplyT(func(v PermissionTargetBuildActions) []PermissionTargetBuildActionsUser { return v.Users }).(PermissionTargetBuildActionsUserArrayOutput)
 }
@@ -8686,6 +8692,7 @@ func (o PermissionTargetBuildActionsPtrOutput) Elem() PermissionTargetBuildActio
 	}).(PermissionTargetBuildActionsOutput)
 }
 
+// Groups this permission applies for.
 func (o PermissionTargetBuildActionsPtrOutput) Groups() PermissionTargetBuildActionsGroupArrayOutput {
 	return o.ApplyT(func(v *PermissionTargetBuildActions) []PermissionTargetBuildActionsGroup {
 		if v == nil {
@@ -8695,6 +8702,7 @@ func (o PermissionTargetBuildActionsPtrOutput) Groups() PermissionTargetBuildAct
 	}).(PermissionTargetBuildActionsGroupArrayOutput)
 }
 
+// Users this permission target applies for.
 func (o PermissionTargetBuildActionsPtrOutput) Users() PermissionTargetBuildActionsUserArrayOutput {
 	return o.ApplyT(func(v *PermissionTargetBuildActions) []PermissionTargetBuildActionsUser {
 		if v == nil {
@@ -9101,8 +9109,10 @@ func (o PermissionTargetReleaseBundlePtrOutput) Repositories() pulumi.StringArra
 }
 
 type PermissionTargetReleaseBundleActions struct {
+	// Groups this permission applies for.
 	Groups []PermissionTargetReleaseBundleActionsGroup `pulumi:"groups"`
-	Users  []PermissionTargetReleaseBundleActionsUser  `pulumi:"users"`
+	// Users this permission target applies for.
+	Users []PermissionTargetReleaseBundleActionsUser `pulumi:"users"`
 }
 
 // PermissionTargetReleaseBundleActionsInput is an input type that accepts PermissionTargetReleaseBundleActionsArgs and PermissionTargetReleaseBundleActionsOutput values.
@@ -9117,8 +9127,10 @@ type PermissionTargetReleaseBundleActionsInput interface {
 }
 
 type PermissionTargetReleaseBundleActionsArgs struct {
+	// Groups this permission applies for.
 	Groups PermissionTargetReleaseBundleActionsGroupArrayInput `pulumi:"groups"`
-	Users  PermissionTargetReleaseBundleActionsUserArrayInput  `pulumi:"users"`
+	// Users this permission target applies for.
+	Users PermissionTargetReleaseBundleActionsUserArrayInput `pulumi:"users"`
 }
 
 func (PermissionTargetReleaseBundleActionsArgs) ElementType() reflect.Type {
@@ -9198,12 +9210,14 @@ func (o PermissionTargetReleaseBundleActionsOutput) ToPermissionTargetReleaseBun
 	}).(PermissionTargetReleaseBundleActionsPtrOutput)
 }
 
+// Groups this permission applies for.
 func (o PermissionTargetReleaseBundleActionsOutput) Groups() PermissionTargetReleaseBundleActionsGroupArrayOutput {
 	return o.ApplyT(func(v PermissionTargetReleaseBundleActions) []PermissionTargetReleaseBundleActionsGroup {
 		return v.Groups
 	}).(PermissionTargetReleaseBundleActionsGroupArrayOutput)
 }
 
+// Users this permission target applies for.
 func (o PermissionTargetReleaseBundleActionsOutput) Users() PermissionTargetReleaseBundleActionsUserArrayOutput {
 	return o.ApplyT(func(v PermissionTargetReleaseBundleActions) []PermissionTargetReleaseBundleActionsUser {
 		return v.Users
@@ -9234,6 +9248,7 @@ func (o PermissionTargetReleaseBundleActionsPtrOutput) Elem() PermissionTargetRe
 	}).(PermissionTargetReleaseBundleActionsOutput)
 }
 
+// Groups this permission applies for.
 func (o PermissionTargetReleaseBundleActionsPtrOutput) Groups() PermissionTargetReleaseBundleActionsGroupArrayOutput {
 	return o.ApplyT(func(v *PermissionTargetReleaseBundleActions) []PermissionTargetReleaseBundleActionsGroup {
 		if v == nil {
@@ -9243,6 +9258,7 @@ func (o PermissionTargetReleaseBundleActionsPtrOutput) Groups() PermissionTarget
 	}).(PermissionTargetReleaseBundleActionsGroupArrayOutput)
 }
 
+// Users this permission target applies for.
 func (o PermissionTargetReleaseBundleActionsPtrOutput) Users() PermissionTargetReleaseBundleActionsUserArrayOutput {
 	return o.ApplyT(func(v *PermissionTargetReleaseBundleActions) []PermissionTargetReleaseBundleActionsUser {
 		if v == nil {
