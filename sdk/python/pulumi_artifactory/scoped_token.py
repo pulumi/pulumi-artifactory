@@ -18,6 +18,7 @@ class ScopedTokenArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  expires_in: Optional[pulumi.Input[int]] = None,
                  grant_type: Optional[pulumi.Input[str]] = None,
+                 ignore_missing_token_warning: Optional[pulumi.Input[bool]] = None,
                  include_reference_token: Optional[pulumi.Input[bool]] = None,
                  project_key: Optional[pulumi.Input[str]] = None,
                  refreshable: Optional[pulumi.Input[bool]] = None,
@@ -39,30 +40,32 @@ class ScopedTokenArgs:
                documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/persistency-threshold) for details.
         :param pulumi.Input[str] grant_type: The grant type used to authenticate the request. In this case, the only value supported is `client_credentials` which is
                also the default value if this parameter is not specified.
+        :param pulumi.Input[bool] ignore_missing_token_warning: Toggle to ignore warning message when token was missing or not created and stored by Artifactory. Default is `false`.
         :param pulumi.Input[bool] include_reference_token: Also create a reference token which can be used like an API key. Default is `false`.
         :param pulumi.Input[str] project_key: The project for which this token is created. Enter the project name on which you want to apply this token.
         :param pulumi.Input[bool] refreshable: Is this token refreshable? Default is `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: The scope of access that the token provides. Access to the REST API is always provided by default. Administrators can
                set any scope, while non-admin users can only set the scope to a subset of the groups to which they belong. The
-               supported scopes include: * `applied-permissions/user` - provides user access. If left at the default setting, the token
+               supported scopes include: - `applied-permissions/user` - provides user access. If left at the default setting, the token
                will be created with the user-identity scope, which allows users to identify themselves in the Platform but does not
-               grant any specific access permissions.* `applied-permissions/admin` - the scope assigned to admin users.*
+               grant any specific access permissions. - `applied-permissions/admin` - the scope assigned to admin users. -
                `applied-permissions/groups` - this scope assigns permissions to groups using the following format:
-               applied-permissions/groups:<group-name>[,<group-name>...]* `system:metrics:r` - for getting the service metrics*
-               `system:livelogs:r` - for getting the service livelogsr.Resource Permissions: From Artifactory 7.38.x, resource
+               `applied-permissions/groups:<group-name>[,<group-name>...]` - `system:metrics:r` - for getting the service metrics -
+               `system:livelogs:r` - for getting the service livelogs - Resource Permissions: From Artifactory 7.38.x, resource
                permissions scoped tokens are also supported in the REST API. A permission can be represented as a scope token string in
-               the following format: `<resource-type>:<target>[/<sub-resource>]:<actions>` Where: `<resource-type>` - one of the
+               the following format: `<resource-type>:<target>[/<sub-resource>]:<actions>` - Where: - `<resource-type>` - one of the
                permission resource types, from a predefined closed list. Currently, the only resource type that is supported is the
-               artifact resource type. `<target>` - the target resource, can be exact name or a pattern `<sub-resource>` - optional,
-               the target sub-resource, can be exact name or a pattern `<actions>` - comma-separated list of action acronyms.The
-               actions allowed are `r`, `w`, `d`, `a`, `m`, `x`, `s`, or any combination of these actions. To allow all actions - use
-               `*` Examples: `["applied-permissions/user", "artifact:generic-local:r"]` `["applied-permissions/group",
-               "artifact:generic-local/path:*"]` `["applied-permissions/admin", "system:metrics:r", "artifact:generic-local:*"]` *
-               `applied-permissions/roles:project-key` - provides access to elements associated with the project based on the project
-               role. For example, `applied-permissions/roles:project-type:developer,qa`.The scope to assign to the token should be
-               provided as a list of scope tokens, limited to 500 characters in total. From Artifactory 7.84.3, project admins
-               (https://jfrog.com/help/r/jfrog-platform-administration-documentation/access-token-creation-by-project-admins) can
-               create access tokens that are tied to the projects in which they hold administrative privileges.
+               artifact resource type. - `<target>` - the target resource, can be exact name or a pattern - `<sub-resource>` -
+               optional, the target sub-resource, can be exact name or a pattern - `<actions>` - comma-separated list of action
+               acronyms. The actions allowed are `r`, `w`, `d`, `a`, `m`, `x`, `s`, or any combination of these actions. To allow all
+               actions - use `*` - Examples: - `["applied-permissions/user", "artifact:generic-local:r"]` -
+               `["applied-permissions/group", "artifact:generic-local/path:*"]` - `["applied-permissions/admin", "system:metrics:r",
+               "artifact:generic-local:*"]` - `applied-permissions/roles:project-key` - provides access to elements associated with the
+               project based on the project role. For example, `applied-permissions/roles:project-type:developer,qa`. ->The scope to
+               assign to the token should be provided as a list of scope tokens, limited to 500 characters in total. From Artifactory
+               7.84.3, [project
+               admins](https://jfrog.com/help/r/jfrog-platform-administration-documentation/access-token-creation-by-project-admins)
+               can create access tokens that are tied to the projects in which they hold administrative privileges.
         :param pulumi.Input[str] username: The user name for which this token is created. The username is based on the authenticated user - either from the user of
                the authenticated token or based on the username (if basic auth was used). The username is then used to set the subject
                of the token: <service-id>/users/<username>. Limited to 255 characters.
@@ -75,6 +78,8 @@ class ScopedTokenArgs:
             pulumi.set(__self__, "expires_in", expires_in)
         if grant_type is not None:
             pulumi.set(__self__, "grant_type", grant_type)
+        if ignore_missing_token_warning is not None:
+            pulumi.set(__self__, "ignore_missing_token_warning", ignore_missing_token_warning)
         if include_reference_token is not None:
             pulumi.set(__self__, "include_reference_token", include_reference_token)
         if project_key is not None:
@@ -145,6 +150,18 @@ class ScopedTokenArgs:
         pulumi.set(self, "grant_type", value)
 
     @property
+    @pulumi.getter(name="ignoreMissingTokenWarning")
+    def ignore_missing_token_warning(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Toggle to ignore warning message when token was missing or not created and stored by Artifactory. Default is `false`.
+        """
+        return pulumi.get(self, "ignore_missing_token_warning")
+
+    @ignore_missing_token_warning.setter
+    def ignore_missing_token_warning(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ignore_missing_token_warning", value)
+
+    @property
     @pulumi.getter(name="includeReferenceToken")
     def include_reference_token(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -186,25 +203,26 @@ class ScopedTokenArgs:
         """
         The scope of access that the token provides. Access to the REST API is always provided by default. Administrators can
         set any scope, while non-admin users can only set the scope to a subset of the groups to which they belong. The
-        supported scopes include: * `applied-permissions/user` - provides user access. If left at the default setting, the token
+        supported scopes include: - `applied-permissions/user` - provides user access. If left at the default setting, the token
         will be created with the user-identity scope, which allows users to identify themselves in the Platform but does not
-        grant any specific access permissions.* `applied-permissions/admin` - the scope assigned to admin users.*
+        grant any specific access permissions. - `applied-permissions/admin` - the scope assigned to admin users. -
         `applied-permissions/groups` - this scope assigns permissions to groups using the following format:
-        applied-permissions/groups:<group-name>[,<group-name>...]* `system:metrics:r` - for getting the service metrics*
-        `system:livelogs:r` - for getting the service livelogsr.Resource Permissions: From Artifactory 7.38.x, resource
+        `applied-permissions/groups:<group-name>[,<group-name>...]` - `system:metrics:r` - for getting the service metrics -
+        `system:livelogs:r` - for getting the service livelogs - Resource Permissions: From Artifactory 7.38.x, resource
         permissions scoped tokens are also supported in the REST API. A permission can be represented as a scope token string in
-        the following format: `<resource-type>:<target>[/<sub-resource>]:<actions>` Where: `<resource-type>` - one of the
+        the following format: `<resource-type>:<target>[/<sub-resource>]:<actions>` - Where: - `<resource-type>` - one of the
         permission resource types, from a predefined closed list. Currently, the only resource type that is supported is the
-        artifact resource type. `<target>` - the target resource, can be exact name or a pattern `<sub-resource>` - optional,
-        the target sub-resource, can be exact name or a pattern `<actions>` - comma-separated list of action acronyms.The
-        actions allowed are `r`, `w`, `d`, `a`, `m`, `x`, `s`, or any combination of these actions. To allow all actions - use
-        `*` Examples: `["applied-permissions/user", "artifact:generic-local:r"]` `["applied-permissions/group",
-        "artifact:generic-local/path:*"]` `["applied-permissions/admin", "system:metrics:r", "artifact:generic-local:*"]` *
-        `applied-permissions/roles:project-key` - provides access to elements associated with the project based on the project
-        role. For example, `applied-permissions/roles:project-type:developer,qa`.The scope to assign to the token should be
-        provided as a list of scope tokens, limited to 500 characters in total. From Artifactory 7.84.3, project admins
-        (https://jfrog.com/help/r/jfrog-platform-administration-documentation/access-token-creation-by-project-admins) can
-        create access tokens that are tied to the projects in which they hold administrative privileges.
+        artifact resource type. - `<target>` - the target resource, can be exact name or a pattern - `<sub-resource>` -
+        optional, the target sub-resource, can be exact name or a pattern - `<actions>` - comma-separated list of action
+        acronyms. The actions allowed are `r`, `w`, `d`, `a`, `m`, `x`, `s`, or any combination of these actions. To allow all
+        actions - use `*` - Examples: - `["applied-permissions/user", "artifact:generic-local:r"]` -
+        `["applied-permissions/group", "artifact:generic-local/path:*"]` - `["applied-permissions/admin", "system:metrics:r",
+        "artifact:generic-local:*"]` - `applied-permissions/roles:project-key` - provides access to elements associated with the
+        project based on the project role. For example, `applied-permissions/roles:project-type:developer,qa`. ->The scope to
+        assign to the token should be provided as a list of scope tokens, limited to 500 characters in total. From Artifactory
+        7.84.3, [project
+        admins](https://jfrog.com/help/r/jfrog-platform-administration-documentation/access-token-creation-by-project-admins)
+        can create access tokens that are tied to the projects in which they hold administrative privileges.
         """
         return pulumi.get(self, "scopes")
 
@@ -236,6 +254,7 @@ class _ScopedTokenState:
                  expires_in: Optional[pulumi.Input[int]] = None,
                  expiry: Optional[pulumi.Input[int]] = None,
                  grant_type: Optional[pulumi.Input[str]] = None,
+                 ignore_missing_token_warning: Optional[pulumi.Input[bool]] = None,
                  include_reference_token: Optional[pulumi.Input[bool]] = None,
                  issued_at: Optional[pulumi.Input[int]] = None,
                  issuer: Optional[pulumi.Input[str]] = None,
@@ -265,6 +284,7 @@ class _ScopedTokenState:
         :param pulumi.Input[int] expiry: Returns the token expiry.
         :param pulumi.Input[str] grant_type: The grant type used to authenticate the request. In this case, the only value supported is `client_credentials` which is
                also the default value if this parameter is not specified.
+        :param pulumi.Input[bool] ignore_missing_token_warning: Toggle to ignore warning message when token was missing or not created and stored by Artifactory. Default is `false`.
         :param pulumi.Input[bool] include_reference_token: Also create a reference token which can be used like an API key. Default is `false`.
         :param pulumi.Input[int] issued_at: Returns the token issued at date/time.
         :param pulumi.Input[str] issuer: Returns the token issuer.
@@ -274,25 +294,26 @@ class _ScopedTokenState:
         :param pulumi.Input[bool] refreshable: Is this token refreshable? Default is `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: The scope of access that the token provides. Access to the REST API is always provided by default. Administrators can
                set any scope, while non-admin users can only set the scope to a subset of the groups to which they belong. The
-               supported scopes include: * `applied-permissions/user` - provides user access. If left at the default setting, the token
+               supported scopes include: - `applied-permissions/user` - provides user access. If left at the default setting, the token
                will be created with the user-identity scope, which allows users to identify themselves in the Platform but does not
-               grant any specific access permissions.* `applied-permissions/admin` - the scope assigned to admin users.*
+               grant any specific access permissions. - `applied-permissions/admin` - the scope assigned to admin users. -
                `applied-permissions/groups` - this scope assigns permissions to groups using the following format:
-               applied-permissions/groups:<group-name>[,<group-name>...]* `system:metrics:r` - for getting the service metrics*
-               `system:livelogs:r` - for getting the service livelogsr.Resource Permissions: From Artifactory 7.38.x, resource
+               `applied-permissions/groups:<group-name>[,<group-name>...]` - `system:metrics:r` - for getting the service metrics -
+               `system:livelogs:r` - for getting the service livelogs - Resource Permissions: From Artifactory 7.38.x, resource
                permissions scoped tokens are also supported in the REST API. A permission can be represented as a scope token string in
-               the following format: `<resource-type>:<target>[/<sub-resource>]:<actions>` Where: `<resource-type>` - one of the
+               the following format: `<resource-type>:<target>[/<sub-resource>]:<actions>` - Where: - `<resource-type>` - one of the
                permission resource types, from a predefined closed list. Currently, the only resource type that is supported is the
-               artifact resource type. `<target>` - the target resource, can be exact name or a pattern `<sub-resource>` - optional,
-               the target sub-resource, can be exact name or a pattern `<actions>` - comma-separated list of action acronyms.The
-               actions allowed are `r`, `w`, `d`, `a`, `m`, `x`, `s`, or any combination of these actions. To allow all actions - use
-               `*` Examples: `["applied-permissions/user", "artifact:generic-local:r"]` `["applied-permissions/group",
-               "artifact:generic-local/path:*"]` `["applied-permissions/admin", "system:metrics:r", "artifact:generic-local:*"]` *
-               `applied-permissions/roles:project-key` - provides access to elements associated with the project based on the project
-               role. For example, `applied-permissions/roles:project-type:developer,qa`.The scope to assign to the token should be
-               provided as a list of scope tokens, limited to 500 characters in total. From Artifactory 7.84.3, project admins
-               (https://jfrog.com/help/r/jfrog-platform-administration-documentation/access-token-creation-by-project-admins) can
-               create access tokens that are tied to the projects in which they hold administrative privileges.
+               artifact resource type. - `<target>` - the target resource, can be exact name or a pattern - `<sub-resource>` -
+               optional, the target sub-resource, can be exact name or a pattern - `<actions>` - comma-separated list of action
+               acronyms. The actions allowed are `r`, `w`, `d`, `a`, `m`, `x`, `s`, or any combination of these actions. To allow all
+               actions - use `*` - Examples: - `["applied-permissions/user", "artifact:generic-local:r"]` -
+               `["applied-permissions/group", "artifact:generic-local/path:*"]` - `["applied-permissions/admin", "system:metrics:r",
+               "artifact:generic-local:*"]` - `applied-permissions/roles:project-key` - provides access to elements associated with the
+               project based on the project role. For example, `applied-permissions/roles:project-type:developer,qa`. ->The scope to
+               assign to the token should be provided as a list of scope tokens, limited to 500 characters in total. From Artifactory
+               7.84.3, [project
+               admins](https://jfrog.com/help/r/jfrog-platform-administration-documentation/access-token-creation-by-project-admins)
+               can create access tokens that are tied to the projects in which they hold administrative privileges.
         :param pulumi.Input[str] subject: Returns the token type.
         :param pulumi.Input[str] token_type: Returns the token type.
         :param pulumi.Input[str] username: The user name for which this token is created. The username is based on the authenticated user - either from the user of
@@ -311,6 +332,8 @@ class _ScopedTokenState:
             pulumi.set(__self__, "expiry", expiry)
         if grant_type is not None:
             pulumi.set(__self__, "grant_type", grant_type)
+        if ignore_missing_token_warning is not None:
+            pulumi.set(__self__, "ignore_missing_token_warning", ignore_missing_token_warning)
         if include_reference_token is not None:
             pulumi.set(__self__, "include_reference_token", include_reference_token)
         if issued_at is not None:
@@ -417,6 +440,18 @@ class _ScopedTokenState:
         pulumi.set(self, "grant_type", value)
 
     @property
+    @pulumi.getter(name="ignoreMissingTokenWarning")
+    def ignore_missing_token_warning(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Toggle to ignore warning message when token was missing or not created and stored by Artifactory. Default is `false`.
+        """
+        return pulumi.get(self, "ignore_missing_token_warning")
+
+    @ignore_missing_token_warning.setter
+    def ignore_missing_token_warning(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ignore_missing_token_warning", value)
+
+    @property
     @pulumi.getter(name="includeReferenceToken")
     def include_reference_token(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -506,25 +541,26 @@ class _ScopedTokenState:
         """
         The scope of access that the token provides. Access to the REST API is always provided by default. Administrators can
         set any scope, while non-admin users can only set the scope to a subset of the groups to which they belong. The
-        supported scopes include: * `applied-permissions/user` - provides user access. If left at the default setting, the token
+        supported scopes include: - `applied-permissions/user` - provides user access. If left at the default setting, the token
         will be created with the user-identity scope, which allows users to identify themselves in the Platform but does not
-        grant any specific access permissions.* `applied-permissions/admin` - the scope assigned to admin users.*
+        grant any specific access permissions. - `applied-permissions/admin` - the scope assigned to admin users. -
         `applied-permissions/groups` - this scope assigns permissions to groups using the following format:
-        applied-permissions/groups:<group-name>[,<group-name>...]* `system:metrics:r` - for getting the service metrics*
-        `system:livelogs:r` - for getting the service livelogsr.Resource Permissions: From Artifactory 7.38.x, resource
+        `applied-permissions/groups:<group-name>[,<group-name>...]` - `system:metrics:r` - for getting the service metrics -
+        `system:livelogs:r` - for getting the service livelogs - Resource Permissions: From Artifactory 7.38.x, resource
         permissions scoped tokens are also supported in the REST API. A permission can be represented as a scope token string in
-        the following format: `<resource-type>:<target>[/<sub-resource>]:<actions>` Where: `<resource-type>` - one of the
+        the following format: `<resource-type>:<target>[/<sub-resource>]:<actions>` - Where: - `<resource-type>` - one of the
         permission resource types, from a predefined closed list. Currently, the only resource type that is supported is the
-        artifact resource type. `<target>` - the target resource, can be exact name or a pattern `<sub-resource>` - optional,
-        the target sub-resource, can be exact name or a pattern `<actions>` - comma-separated list of action acronyms.The
-        actions allowed are `r`, `w`, `d`, `a`, `m`, `x`, `s`, or any combination of these actions. To allow all actions - use
-        `*` Examples: `["applied-permissions/user", "artifact:generic-local:r"]` `["applied-permissions/group",
-        "artifact:generic-local/path:*"]` `["applied-permissions/admin", "system:metrics:r", "artifact:generic-local:*"]` *
-        `applied-permissions/roles:project-key` - provides access to elements associated with the project based on the project
-        role. For example, `applied-permissions/roles:project-type:developer,qa`.The scope to assign to the token should be
-        provided as a list of scope tokens, limited to 500 characters in total. From Artifactory 7.84.3, project admins
-        (https://jfrog.com/help/r/jfrog-platform-administration-documentation/access-token-creation-by-project-admins) can
-        create access tokens that are tied to the projects in which they hold administrative privileges.
+        artifact resource type. - `<target>` - the target resource, can be exact name or a pattern - `<sub-resource>` -
+        optional, the target sub-resource, can be exact name or a pattern - `<actions>` - comma-separated list of action
+        acronyms. The actions allowed are `r`, `w`, `d`, `a`, `m`, `x`, `s`, or any combination of these actions. To allow all
+        actions - use `*` - Examples: - `["applied-permissions/user", "artifact:generic-local:r"]` -
+        `["applied-permissions/group", "artifact:generic-local/path:*"]` - `["applied-permissions/admin", "system:metrics:r",
+        "artifact:generic-local:*"]` - `applied-permissions/roles:project-key` - provides access to elements associated with the
+        project based on the project role. For example, `applied-permissions/roles:project-type:developer,qa`. ->The scope to
+        assign to the token should be provided as a list of scope tokens, limited to 500 characters in total. From Artifactory
+        7.84.3, [project
+        admins](https://jfrog.com/help/r/jfrog-platform-administration-documentation/access-token-creation-by-project-admins)
+        can create access tokens that are tied to the projects in which they hold administrative privileges.
         """
         return pulumi.get(self, "scopes")
 
@@ -580,6 +616,7 @@ class ScopedToken(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  expires_in: Optional[pulumi.Input[int]] = None,
                  grant_type: Optional[pulumi.Input[str]] = None,
+                 ignore_missing_token_warning: Optional[pulumi.Input[bool]] = None,
                  include_reference_token: Optional[pulumi.Input[bool]] = None,
                  project_key: Optional[pulumi.Input[str]] = None,
                  refreshable: Optional[pulumi.Input[bool]] = None,
@@ -592,7 +629,7 @@ class ScopedToken(pulumi.CustomResource):
         !>Scoped Tokens will be stored in the raw state as plain-text. Read more about sensitive data in
         state.
 
-        ~>Token would not be saved by Artifactory if `expires_in` is less than the persistency threshold value (default to 10800 seconds) set in Access configuration. See [Persistency Threshold](https://jfrog.com/help/r/jfrog-platform-administration-documentation/persistency-threshold) for details.
+        ~>Token would not be saved by Artifactory if `expires_in` is less than the persistency threshold value (default to 10800 seconds) set in Access configuration. See [Persistency Threshold](https://jfrog.com/help/r/jfrog-platform-administration-documentation/using-the-revocable-and-persistency-thresholds) for details.
 
         ## Example Usage
 
@@ -657,30 +694,32 @@ class ScopedToken(pulumi.CustomResource):
                documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/persistency-threshold) for details.
         :param pulumi.Input[str] grant_type: The grant type used to authenticate the request. In this case, the only value supported is `client_credentials` which is
                also the default value if this parameter is not specified.
+        :param pulumi.Input[bool] ignore_missing_token_warning: Toggle to ignore warning message when token was missing or not created and stored by Artifactory. Default is `false`.
         :param pulumi.Input[bool] include_reference_token: Also create a reference token which can be used like an API key. Default is `false`.
         :param pulumi.Input[str] project_key: The project for which this token is created. Enter the project name on which you want to apply this token.
         :param pulumi.Input[bool] refreshable: Is this token refreshable? Default is `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: The scope of access that the token provides. Access to the REST API is always provided by default. Administrators can
                set any scope, while non-admin users can only set the scope to a subset of the groups to which they belong. The
-               supported scopes include: * `applied-permissions/user` - provides user access. If left at the default setting, the token
+               supported scopes include: - `applied-permissions/user` - provides user access. If left at the default setting, the token
                will be created with the user-identity scope, which allows users to identify themselves in the Platform but does not
-               grant any specific access permissions.* `applied-permissions/admin` - the scope assigned to admin users.*
+               grant any specific access permissions. - `applied-permissions/admin` - the scope assigned to admin users. -
                `applied-permissions/groups` - this scope assigns permissions to groups using the following format:
-               applied-permissions/groups:<group-name>[,<group-name>...]* `system:metrics:r` - for getting the service metrics*
-               `system:livelogs:r` - for getting the service livelogsr.Resource Permissions: From Artifactory 7.38.x, resource
+               `applied-permissions/groups:<group-name>[,<group-name>...]` - `system:metrics:r` - for getting the service metrics -
+               `system:livelogs:r` - for getting the service livelogs - Resource Permissions: From Artifactory 7.38.x, resource
                permissions scoped tokens are also supported in the REST API. A permission can be represented as a scope token string in
-               the following format: `<resource-type>:<target>[/<sub-resource>]:<actions>` Where: `<resource-type>` - one of the
+               the following format: `<resource-type>:<target>[/<sub-resource>]:<actions>` - Where: - `<resource-type>` - one of the
                permission resource types, from a predefined closed list. Currently, the only resource type that is supported is the
-               artifact resource type. `<target>` - the target resource, can be exact name or a pattern `<sub-resource>` - optional,
-               the target sub-resource, can be exact name or a pattern `<actions>` - comma-separated list of action acronyms.The
-               actions allowed are `r`, `w`, `d`, `a`, `m`, `x`, `s`, or any combination of these actions. To allow all actions - use
-               `*` Examples: `["applied-permissions/user", "artifact:generic-local:r"]` `["applied-permissions/group",
-               "artifact:generic-local/path:*"]` `["applied-permissions/admin", "system:metrics:r", "artifact:generic-local:*"]` *
-               `applied-permissions/roles:project-key` - provides access to elements associated with the project based on the project
-               role. For example, `applied-permissions/roles:project-type:developer,qa`.The scope to assign to the token should be
-               provided as a list of scope tokens, limited to 500 characters in total. From Artifactory 7.84.3, project admins
-               (https://jfrog.com/help/r/jfrog-platform-administration-documentation/access-token-creation-by-project-admins) can
-               create access tokens that are tied to the projects in which they hold administrative privileges.
+               artifact resource type. - `<target>` - the target resource, can be exact name or a pattern - `<sub-resource>` -
+               optional, the target sub-resource, can be exact name or a pattern - `<actions>` - comma-separated list of action
+               acronyms. The actions allowed are `r`, `w`, `d`, `a`, `m`, `x`, `s`, or any combination of these actions. To allow all
+               actions - use `*` - Examples: - `["applied-permissions/user", "artifact:generic-local:r"]` -
+               `["applied-permissions/group", "artifact:generic-local/path:*"]` - `["applied-permissions/admin", "system:metrics:r",
+               "artifact:generic-local:*"]` - `applied-permissions/roles:project-key` - provides access to elements associated with the
+               project based on the project role. For example, `applied-permissions/roles:project-type:developer,qa`. ->The scope to
+               assign to the token should be provided as a list of scope tokens, limited to 500 characters in total. From Artifactory
+               7.84.3, [project
+               admins](https://jfrog.com/help/r/jfrog-platform-administration-documentation/access-token-creation-by-project-admins)
+               can create access tokens that are tied to the projects in which they hold administrative privileges.
         :param pulumi.Input[str] username: The user name for which this token is created. The username is based on the authenticated user - either from the user of
                the authenticated token or based on the username (if basic auth was used). The username is then used to set the subject
                of the token: <service-id>/users/<username>. Limited to 255 characters.
@@ -697,7 +736,7 @@ class ScopedToken(pulumi.CustomResource):
         !>Scoped Tokens will be stored in the raw state as plain-text. Read more about sensitive data in
         state.
 
-        ~>Token would not be saved by Artifactory if `expires_in` is less than the persistency threshold value (default to 10800 seconds) set in Access configuration. See [Persistency Threshold](https://jfrog.com/help/r/jfrog-platform-administration-documentation/persistency-threshold) for details.
+        ~>Token would not be saved by Artifactory if `expires_in` is less than the persistency threshold value (default to 10800 seconds) set in Access configuration. See [Persistency Threshold](https://jfrog.com/help/r/jfrog-platform-administration-documentation/using-the-revocable-and-persistency-thresholds) for details.
 
         ## Example Usage
 
@@ -765,6 +804,7 @@ class ScopedToken(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  expires_in: Optional[pulumi.Input[int]] = None,
                  grant_type: Optional[pulumi.Input[str]] = None,
+                 ignore_missing_token_warning: Optional[pulumi.Input[bool]] = None,
                  include_reference_token: Optional[pulumi.Input[bool]] = None,
                  project_key: Optional[pulumi.Input[str]] = None,
                  refreshable: Optional[pulumi.Input[bool]] = None,
@@ -783,6 +823,7 @@ class ScopedToken(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["expires_in"] = expires_in
             __props__.__dict__["grant_type"] = grant_type
+            __props__.__dict__["ignore_missing_token_warning"] = ignore_missing_token_warning
             __props__.__dict__["include_reference_token"] = include_reference_token
             __props__.__dict__["project_key"] = project_key
             __props__.__dict__["refreshable"] = refreshable
@@ -814,6 +855,7 @@ class ScopedToken(pulumi.CustomResource):
             expires_in: Optional[pulumi.Input[int]] = None,
             expiry: Optional[pulumi.Input[int]] = None,
             grant_type: Optional[pulumi.Input[str]] = None,
+            ignore_missing_token_warning: Optional[pulumi.Input[bool]] = None,
             include_reference_token: Optional[pulumi.Input[bool]] = None,
             issued_at: Optional[pulumi.Input[int]] = None,
             issuer: Optional[pulumi.Input[str]] = None,
@@ -848,6 +890,7 @@ class ScopedToken(pulumi.CustomResource):
         :param pulumi.Input[int] expiry: Returns the token expiry.
         :param pulumi.Input[str] grant_type: The grant type used to authenticate the request. In this case, the only value supported is `client_credentials` which is
                also the default value if this parameter is not specified.
+        :param pulumi.Input[bool] ignore_missing_token_warning: Toggle to ignore warning message when token was missing or not created and stored by Artifactory. Default is `false`.
         :param pulumi.Input[bool] include_reference_token: Also create a reference token which can be used like an API key. Default is `false`.
         :param pulumi.Input[int] issued_at: Returns the token issued at date/time.
         :param pulumi.Input[str] issuer: Returns the token issuer.
@@ -857,25 +900,26 @@ class ScopedToken(pulumi.CustomResource):
         :param pulumi.Input[bool] refreshable: Is this token refreshable? Default is `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: The scope of access that the token provides. Access to the REST API is always provided by default. Administrators can
                set any scope, while non-admin users can only set the scope to a subset of the groups to which they belong. The
-               supported scopes include: * `applied-permissions/user` - provides user access. If left at the default setting, the token
+               supported scopes include: - `applied-permissions/user` - provides user access. If left at the default setting, the token
                will be created with the user-identity scope, which allows users to identify themselves in the Platform but does not
-               grant any specific access permissions.* `applied-permissions/admin` - the scope assigned to admin users.*
+               grant any specific access permissions. - `applied-permissions/admin` - the scope assigned to admin users. -
                `applied-permissions/groups` - this scope assigns permissions to groups using the following format:
-               applied-permissions/groups:<group-name>[,<group-name>...]* `system:metrics:r` - for getting the service metrics*
-               `system:livelogs:r` - for getting the service livelogsr.Resource Permissions: From Artifactory 7.38.x, resource
+               `applied-permissions/groups:<group-name>[,<group-name>...]` - `system:metrics:r` - for getting the service metrics -
+               `system:livelogs:r` - for getting the service livelogs - Resource Permissions: From Artifactory 7.38.x, resource
                permissions scoped tokens are also supported in the REST API. A permission can be represented as a scope token string in
-               the following format: `<resource-type>:<target>[/<sub-resource>]:<actions>` Where: `<resource-type>` - one of the
+               the following format: `<resource-type>:<target>[/<sub-resource>]:<actions>` - Where: - `<resource-type>` - one of the
                permission resource types, from a predefined closed list. Currently, the only resource type that is supported is the
-               artifact resource type. `<target>` - the target resource, can be exact name or a pattern `<sub-resource>` - optional,
-               the target sub-resource, can be exact name or a pattern `<actions>` - comma-separated list of action acronyms.The
-               actions allowed are `r`, `w`, `d`, `a`, `m`, `x`, `s`, or any combination of these actions. To allow all actions - use
-               `*` Examples: `["applied-permissions/user", "artifact:generic-local:r"]` `["applied-permissions/group",
-               "artifact:generic-local/path:*"]` `["applied-permissions/admin", "system:metrics:r", "artifact:generic-local:*"]` *
-               `applied-permissions/roles:project-key` - provides access to elements associated with the project based on the project
-               role. For example, `applied-permissions/roles:project-type:developer,qa`.The scope to assign to the token should be
-               provided as a list of scope tokens, limited to 500 characters in total. From Artifactory 7.84.3, project admins
-               (https://jfrog.com/help/r/jfrog-platform-administration-documentation/access-token-creation-by-project-admins) can
-               create access tokens that are tied to the projects in which they hold administrative privileges.
+               artifact resource type. - `<target>` - the target resource, can be exact name or a pattern - `<sub-resource>` -
+               optional, the target sub-resource, can be exact name or a pattern - `<actions>` - comma-separated list of action
+               acronyms. The actions allowed are `r`, `w`, `d`, `a`, `m`, `x`, `s`, or any combination of these actions. To allow all
+               actions - use `*` - Examples: - `["applied-permissions/user", "artifact:generic-local:r"]` -
+               `["applied-permissions/group", "artifact:generic-local/path:*"]` - `["applied-permissions/admin", "system:metrics:r",
+               "artifact:generic-local:*"]` - `applied-permissions/roles:project-key` - provides access to elements associated with the
+               project based on the project role. For example, `applied-permissions/roles:project-type:developer,qa`. ->The scope to
+               assign to the token should be provided as a list of scope tokens, limited to 500 characters in total. From Artifactory
+               7.84.3, [project
+               admins](https://jfrog.com/help/r/jfrog-platform-administration-documentation/access-token-creation-by-project-admins)
+               can create access tokens that are tied to the projects in which they hold administrative privileges.
         :param pulumi.Input[str] subject: Returns the token type.
         :param pulumi.Input[str] token_type: Returns the token type.
         :param pulumi.Input[str] username: The user name for which this token is created. The username is based on the authenticated user - either from the user of
@@ -892,6 +936,7 @@ class ScopedToken(pulumi.CustomResource):
         __props__.__dict__["expires_in"] = expires_in
         __props__.__dict__["expiry"] = expiry
         __props__.__dict__["grant_type"] = grant_type
+        __props__.__dict__["ignore_missing_token_warning"] = ignore_missing_token_warning
         __props__.__dict__["include_reference_token"] = include_reference_token
         __props__.__dict__["issued_at"] = issued_at
         __props__.__dict__["issuer"] = issuer
@@ -964,6 +1009,14 @@ class ScopedToken(pulumi.CustomResource):
         return pulumi.get(self, "grant_type")
 
     @property
+    @pulumi.getter(name="ignoreMissingTokenWarning")
+    def ignore_missing_token_warning(self) -> pulumi.Output[bool]:
+        """
+        Toggle to ignore warning message when token was missing or not created and stored by Artifactory. Default is `false`.
+        """
+        return pulumi.get(self, "ignore_missing_token_warning")
+
+    @property
     @pulumi.getter(name="includeReferenceToken")
     def include_reference_token(self) -> pulumi.Output[bool]:
         """
@@ -1025,25 +1078,26 @@ class ScopedToken(pulumi.CustomResource):
         """
         The scope of access that the token provides. Access to the REST API is always provided by default. Administrators can
         set any scope, while non-admin users can only set the scope to a subset of the groups to which they belong. The
-        supported scopes include: * `applied-permissions/user` - provides user access. If left at the default setting, the token
+        supported scopes include: - `applied-permissions/user` - provides user access. If left at the default setting, the token
         will be created with the user-identity scope, which allows users to identify themselves in the Platform but does not
-        grant any specific access permissions.* `applied-permissions/admin` - the scope assigned to admin users.*
+        grant any specific access permissions. - `applied-permissions/admin` - the scope assigned to admin users. -
         `applied-permissions/groups` - this scope assigns permissions to groups using the following format:
-        applied-permissions/groups:<group-name>[,<group-name>...]* `system:metrics:r` - for getting the service metrics*
-        `system:livelogs:r` - for getting the service livelogsr.Resource Permissions: From Artifactory 7.38.x, resource
+        `applied-permissions/groups:<group-name>[,<group-name>...]` - `system:metrics:r` - for getting the service metrics -
+        `system:livelogs:r` - for getting the service livelogs - Resource Permissions: From Artifactory 7.38.x, resource
         permissions scoped tokens are also supported in the REST API. A permission can be represented as a scope token string in
-        the following format: `<resource-type>:<target>[/<sub-resource>]:<actions>` Where: `<resource-type>` - one of the
+        the following format: `<resource-type>:<target>[/<sub-resource>]:<actions>` - Where: - `<resource-type>` - one of the
         permission resource types, from a predefined closed list. Currently, the only resource type that is supported is the
-        artifact resource type. `<target>` - the target resource, can be exact name or a pattern `<sub-resource>` - optional,
-        the target sub-resource, can be exact name or a pattern `<actions>` - comma-separated list of action acronyms.The
-        actions allowed are `r`, `w`, `d`, `a`, `m`, `x`, `s`, or any combination of these actions. To allow all actions - use
-        `*` Examples: `["applied-permissions/user", "artifact:generic-local:r"]` `["applied-permissions/group",
-        "artifact:generic-local/path:*"]` `["applied-permissions/admin", "system:metrics:r", "artifact:generic-local:*"]` *
-        `applied-permissions/roles:project-key` - provides access to elements associated with the project based on the project
-        role. For example, `applied-permissions/roles:project-type:developer,qa`.The scope to assign to the token should be
-        provided as a list of scope tokens, limited to 500 characters in total. From Artifactory 7.84.3, project admins
-        (https://jfrog.com/help/r/jfrog-platform-administration-documentation/access-token-creation-by-project-admins) can
-        create access tokens that are tied to the projects in which they hold administrative privileges.
+        artifact resource type. - `<target>` - the target resource, can be exact name or a pattern - `<sub-resource>` -
+        optional, the target sub-resource, can be exact name or a pattern - `<actions>` - comma-separated list of action
+        acronyms. The actions allowed are `r`, `w`, `d`, `a`, `m`, `x`, `s`, or any combination of these actions. To allow all
+        actions - use `*` - Examples: - `["applied-permissions/user", "artifact:generic-local:r"]` -
+        `["applied-permissions/group", "artifact:generic-local/path:*"]` - `["applied-permissions/admin", "system:metrics:r",
+        "artifact:generic-local:*"]` - `applied-permissions/roles:project-key` - provides access to elements associated with the
+        project based on the project role. For example, `applied-permissions/roles:project-type:developer,qa`. ->The scope to
+        assign to the token should be provided as a list of scope tokens, limited to 500 characters in total. From Artifactory
+        7.84.3, [project
+        admins](https://jfrog.com/help/r/jfrog-platform-administration-documentation/access-token-creation-by-project-admins)
+        can create access tokens that are tied to the projects in which they hold administrative privileges.
         """
         return pulumi.get(self, "scopes")
 

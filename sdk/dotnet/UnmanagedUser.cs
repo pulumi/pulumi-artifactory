@@ -100,6 +100,15 @@ namespace Pulumi.Artifactory
         public Output<string> Password { get; private set; } = null!;
 
         /// <summary>
+        /// Password policy to match JFrog Access to provide pre-apply validation. Default values: `uppercase=1`, `lowercase=1`,
+        /// `special_char=0`, `digit=1`, `length=8`. Also see [Supported Access
+        /// Configurations](https://jfrog.com/help/r/jfrog-installation-setup-documentation/supported-access-configurations) for
+        /// more details
+        /// </summary>
+        [Output("passwordPolicy")]
+        public Output<Outputs.UnmanagedUserPasswordPolicy?> PasswordPolicy { get; private set; } = null!;
+
+        /// <summary>
         /// (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an administrator can update the password). There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.
         /// </summary>
         [Output("profileUpdatable")]
@@ -214,6 +223,15 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
+        /// Password policy to match JFrog Access to provide pre-apply validation. Default values: `uppercase=1`, `lowercase=1`,
+        /// `special_char=0`, `digit=1`, `length=8`. Also see [Supported Access
+        /// Configurations](https://jfrog.com/help/r/jfrog-installation-setup-documentation/supported-access-configurations) for
+        /// more details
+        /// </summary>
+        [Input("passwordPolicy")]
+        public Input<Inputs.UnmanagedUserPasswordPolicyArgs>? PasswordPolicy { get; set; }
+
+        /// <summary>
         /// (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an administrator can update the password). There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.
         /// </summary>
         [Input("profileUpdatable")]
@@ -284,6 +302,15 @@ namespace Pulumi.Artifactory
                 _password = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
+
+        /// <summary>
+        /// Password policy to match JFrog Access to provide pre-apply validation. Default values: `uppercase=1`, `lowercase=1`,
+        /// `special_char=0`, `digit=1`, `length=8`. Also see [Supported Access
+        /// Configurations](https://jfrog.com/help/r/jfrog-installation-setup-documentation/supported-access-configurations) for
+        /// more details
+        /// </summary>
+        [Input("passwordPolicy")]
+        public Input<Inputs.UnmanagedUserPasswordPolicyGetArgs>? PasswordPolicy { get; set; }
 
         /// <summary>
         /// (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an administrator can update the password). There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.

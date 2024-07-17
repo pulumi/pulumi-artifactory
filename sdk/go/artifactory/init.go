@@ -33,6 +33,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Artifact{}
 	case "artifactory:index/artifactCustomWebhook:ArtifactCustomWebhook":
 		r = &ArtifactCustomWebhook{}
+	case "artifactory:index/artifactLifecycleCustomWebhook:ArtifactLifecycleCustomWebhook":
+		r = &ArtifactLifecycleCustomWebhook{}
+	case "artifactory:index/artifactLifecycleWebhook:ArtifactLifecycleWebhook":
+		r = &ArtifactLifecycleWebhook{}
 	case "artifactory:index/artifactPropertyCustomWebhook:ArtifactPropertyCustomWebhook":
 		r = &ArtifactPropertyCustomWebhook{}
 	case "artifactory:index/artifactPropertyWebhook:ArtifactPropertyWebhook":
@@ -53,6 +57,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Certificate{}
 	case "artifactory:index/debianRepository:DebianRepository":
 		r = &DebianRepository{}
+	case "artifactory:index/destinationCustomWebhook:DestinationCustomWebhook":
+		r = &DestinationCustomWebhook{}
+	case "artifactory:index/destinationWebhook:DestinationWebhook":
+		r = &DestinationWebhook{}
 	case "artifactory:index/distributionCustomWebhook:DistributionCustomWebhook":
 		r = &DistributionCustomWebhook{}
 	case "artifactory:index/distributionPublicKey:DistributionPublicKey":
@@ -243,6 +251,14 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &PushReplication{}
 	case "artifactory:index/releaseBundleCustomWebhook:ReleaseBundleCustomWebhook":
 		r = &ReleaseBundleCustomWebhook{}
+	case "artifactory:index/releaseBundleV2CustomWebhook:ReleaseBundleV2CustomWebhook":
+		r = &ReleaseBundleV2CustomWebhook{}
+	case "artifactory:index/releaseBundleV2PromotionCustomWebhook:ReleaseBundleV2PromotionCustomWebhook":
+		r = &ReleaseBundleV2PromotionCustomWebhook{}
+	case "artifactory:index/releaseBundleV2PromotionWebhook:ReleaseBundleV2PromotionWebhook":
+		r = &ReleaseBundleV2PromotionWebhook{}
+	case "artifactory:index/releaseBundleV2Webhook:ReleaseBundleV2Webhook":
+		r = &ReleaseBundleV2Webhook{}
 	case "artifactory:index/releaseBundleWebhook:ReleaseBundleWebhook":
 		r = &ReleaseBundleWebhook{}
 	case "artifactory:index/remoteAlpineRepository:RemoteAlpineRepository":
@@ -329,8 +345,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &UnmanagedUser{}
 	case "artifactory:index/user:User":
 		r = &User{}
+	case "artifactory:index/userCustomWebhook:UserCustomWebhook":
+		r = &UserCustomWebhook{}
 	case "artifactory:index/userLockPolicy:UserLockPolicy":
 		r = &UserLockPolicy{}
+	case "artifactory:index/userWebhook:UserWebhook":
+		r = &UserWebhook{}
 	case "artifactory:index/vaultConfiguration:VaultConfiguration":
 		r = &VaultConfiguration{}
 	case "artifactory:index/virtualAlpineRepository:VirtualAlpineRepository":
@@ -450,6 +470,16 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"artifactory",
+		"index/artifactLifecycleCustomWebhook",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/artifactLifecycleWebhook",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
 		"index/artifactPropertyCustomWebhook",
 		&module{version},
 	)
@@ -496,6 +526,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"artifactory",
 		"index/debianRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/destinationCustomWebhook",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/destinationWebhook",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -975,6 +1015,26 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"artifactory",
+		"index/releaseBundleV2CustomWebhook",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/releaseBundleV2PromotionCustomWebhook",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/releaseBundleV2PromotionWebhook",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/releaseBundleV2Webhook",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
 		"index/releaseBundleWebhook",
 		&module{version},
 	)
@@ -1190,7 +1250,17 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"artifactory",
+		"index/userCustomWebhook",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
 		"index/userLockPolicy",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/userWebhook",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

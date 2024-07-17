@@ -8,6 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['UnmanagedUserArgs', 'UnmanagedUser']
 
@@ -21,6 +23,7 @@ class UnmanagedUserArgs:
                  internal_password_disabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
+                 password_policy: Optional[pulumi.Input['UnmanagedUserPasswordPolicyArgs']] = None,
                  profile_updatable: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a UnmanagedUser resource.
@@ -31,6 +34,10 @@ class UnmanagedUserArgs:
         :param pulumi.Input[bool] internal_password_disabled: (Optional, Default: false) When enabled, disables the fallback mechanism for using an internal password when external authentication (such as LDAP) is enabled.
         :param pulumi.Input[str] name: Username for user. May contain lowercase letters, numbers and symbols: `.-_@` for self-hosted. For SaaS, `+` is also allowed.
         :param pulumi.Input[str] password: (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters.
+        :param pulumi.Input['UnmanagedUserPasswordPolicyArgs'] password_policy: Password policy to match JFrog Access to provide pre-apply validation. Default values: `uppercase=1`, `lowercase=1`,
+               `special_char=0`, `digit=1`, `length=8`. Also see [Supported Access
+               Configurations](https://jfrog.com/help/r/jfrog-installation-setup-documentation/supported-access-configurations) for
+               more details
         :param pulumi.Input[bool] profile_updatable: (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an administrator can update the password). There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.
         """
         pulumi.set(__self__, "email", email)
@@ -46,6 +53,8 @@ class UnmanagedUserArgs:
             pulumi.set(__self__, "name", name)
         if password is not None:
             pulumi.set(__self__, "password", password)
+        if password_policy is not None:
+            pulumi.set(__self__, "password_policy", password_policy)
         if profile_updatable is not None:
             pulumi.set(__self__, "profile_updatable", profile_updatable)
 
@@ -134,6 +143,21 @@ class UnmanagedUserArgs:
         pulumi.set(self, "password", value)
 
     @property
+    @pulumi.getter(name="passwordPolicy")
+    def password_policy(self) -> Optional[pulumi.Input['UnmanagedUserPasswordPolicyArgs']]:
+        """
+        Password policy to match JFrog Access to provide pre-apply validation. Default values: `uppercase=1`, `lowercase=1`,
+        `special_char=0`, `digit=1`, `length=8`. Also see [Supported Access
+        Configurations](https://jfrog.com/help/r/jfrog-installation-setup-documentation/supported-access-configurations) for
+        more details
+        """
+        return pulumi.get(self, "password_policy")
+
+    @password_policy.setter
+    def password_policy(self, value: Optional[pulumi.Input['UnmanagedUserPasswordPolicyArgs']]):
+        pulumi.set(self, "password_policy", value)
+
+    @property
     @pulumi.getter(name="profileUpdatable")
     def profile_updatable(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -156,6 +180,7 @@ class _UnmanagedUserState:
                  internal_password_disabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
+                 password_policy: Optional[pulumi.Input['UnmanagedUserPasswordPolicyArgs']] = None,
                  profile_updatable: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering UnmanagedUser resources.
@@ -166,6 +191,10 @@ class _UnmanagedUserState:
         :param pulumi.Input[bool] internal_password_disabled: (Optional, Default: false) When enabled, disables the fallback mechanism for using an internal password when external authentication (such as LDAP) is enabled.
         :param pulumi.Input[str] name: Username for user. May contain lowercase letters, numbers and symbols: `.-_@` for self-hosted. For SaaS, `+` is also allowed.
         :param pulumi.Input[str] password: (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters.
+        :param pulumi.Input['UnmanagedUserPasswordPolicyArgs'] password_policy: Password policy to match JFrog Access to provide pre-apply validation. Default values: `uppercase=1`, `lowercase=1`,
+               `special_char=0`, `digit=1`, `length=8`. Also see [Supported Access
+               Configurations](https://jfrog.com/help/r/jfrog-installation-setup-documentation/supported-access-configurations) for
+               more details
         :param pulumi.Input[bool] profile_updatable: (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an administrator can update the password). There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.
         """
         if admin is not None:
@@ -182,6 +211,8 @@ class _UnmanagedUserState:
             pulumi.set(__self__, "name", name)
         if password is not None:
             pulumi.set(__self__, "password", password)
+        if password_policy is not None:
+            pulumi.set(__self__, "password_policy", password_policy)
         if profile_updatable is not None:
             pulumi.set(__self__, "profile_updatable", profile_updatable)
 
@@ -270,6 +301,21 @@ class _UnmanagedUserState:
         pulumi.set(self, "password", value)
 
     @property
+    @pulumi.getter(name="passwordPolicy")
+    def password_policy(self) -> Optional[pulumi.Input['UnmanagedUserPasswordPolicyArgs']]:
+        """
+        Password policy to match JFrog Access to provide pre-apply validation. Default values: `uppercase=1`, `lowercase=1`,
+        `special_char=0`, `digit=1`, `length=8`. Also see [Supported Access
+        Configurations](https://jfrog.com/help/r/jfrog-installation-setup-documentation/supported-access-configurations) for
+        more details
+        """
+        return pulumi.get(self, "password_policy")
+
+    @password_policy.setter
+    def password_policy(self, value: Optional[pulumi.Input['UnmanagedUserPasswordPolicyArgs']]):
+        pulumi.set(self, "password_policy", value)
+
+    @property
     @pulumi.getter(name="profileUpdatable")
     def profile_updatable(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -294,6 +340,7 @@ class UnmanagedUser(pulumi.CustomResource):
                  internal_password_disabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
+                 password_policy: Optional[pulumi.Input[pulumi.InputType['UnmanagedUserPasswordPolicyArgs']]] = None,
                  profile_updatable: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
@@ -339,6 +386,10 @@ class UnmanagedUser(pulumi.CustomResource):
         :param pulumi.Input[bool] internal_password_disabled: (Optional, Default: false) When enabled, disables the fallback mechanism for using an internal password when external authentication (such as LDAP) is enabled.
         :param pulumi.Input[str] name: Username for user. May contain lowercase letters, numbers and symbols: `.-_@` for self-hosted. For SaaS, `+` is also allowed.
         :param pulumi.Input[str] password: (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters.
+        :param pulumi.Input[pulumi.InputType['UnmanagedUserPasswordPolicyArgs']] password_policy: Password policy to match JFrog Access to provide pre-apply validation. Default values: `uppercase=1`, `lowercase=1`,
+               `special_char=0`, `digit=1`, `length=8`. Also see [Supported Access
+               Configurations](https://jfrog.com/help/r/jfrog-installation-setup-documentation/supported-access-configurations) for
+               more details
         :param pulumi.Input[bool] profile_updatable: (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an administrator can update the password). There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.
         """
         ...
@@ -403,6 +454,7 @@ class UnmanagedUser(pulumi.CustomResource):
                  internal_password_disabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
+                 password_policy: Optional[pulumi.Input[pulumi.InputType['UnmanagedUserPasswordPolicyArgs']]] = None,
                  profile_updatable: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -422,6 +474,7 @@ class UnmanagedUser(pulumi.CustomResource):
             __props__.__dict__["internal_password_disabled"] = internal_password_disabled
             __props__.__dict__["name"] = name
             __props__.__dict__["password"] = None if password is None else pulumi.Output.secret(password)
+            __props__.__dict__["password_policy"] = password_policy
             __props__.__dict__["profile_updatable"] = profile_updatable
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["password"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
@@ -442,6 +495,7 @@ class UnmanagedUser(pulumi.CustomResource):
             internal_password_disabled: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
             password: Optional[pulumi.Input[str]] = None,
+            password_policy: Optional[pulumi.Input[pulumi.InputType['UnmanagedUserPasswordPolicyArgs']]] = None,
             profile_updatable: Optional[pulumi.Input[bool]] = None) -> 'UnmanagedUser':
         """
         Get an existing UnmanagedUser resource's state with the given name, id, and optional extra
@@ -457,6 +511,10 @@ class UnmanagedUser(pulumi.CustomResource):
         :param pulumi.Input[bool] internal_password_disabled: (Optional, Default: false) When enabled, disables the fallback mechanism for using an internal password when external authentication (such as LDAP) is enabled.
         :param pulumi.Input[str] name: Username for user. May contain lowercase letters, numbers and symbols: `.-_@` for self-hosted. For SaaS, `+` is also allowed.
         :param pulumi.Input[str] password: (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters.
+        :param pulumi.Input[pulumi.InputType['UnmanagedUserPasswordPolicyArgs']] password_policy: Password policy to match JFrog Access to provide pre-apply validation. Default values: `uppercase=1`, `lowercase=1`,
+               `special_char=0`, `digit=1`, `length=8`. Also see [Supported Access
+               Configurations](https://jfrog.com/help/r/jfrog-installation-setup-documentation/supported-access-configurations) for
+               more details
         :param pulumi.Input[bool] profile_updatable: (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an administrator can update the password). There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -470,6 +528,7 @@ class UnmanagedUser(pulumi.CustomResource):
         __props__.__dict__["internal_password_disabled"] = internal_password_disabled
         __props__.__dict__["name"] = name
         __props__.__dict__["password"] = password
+        __props__.__dict__["password_policy"] = password_policy
         __props__.__dict__["profile_updatable"] = profile_updatable
         return UnmanagedUser(resource_name, opts=opts, __props__=__props__)
 
@@ -528,6 +587,17 @@ class UnmanagedUser(pulumi.CustomResource):
         (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters.
         """
         return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter(name="passwordPolicy")
+    def password_policy(self) -> pulumi.Output[Optional['outputs.UnmanagedUserPasswordPolicy']]:
+        """
+        Password policy to match JFrog Access to provide pre-apply validation. Default values: `uppercase=1`, `lowercase=1`,
+        `special_char=0`, `digit=1`, `length=8`. Also see [Supported Access
+        Configurations](https://jfrog.com/help/r/jfrog-installation-setup-documentation/supported-access-configurations) for
+        more details
+        """
+        return pulumi.get(self, "password_policy")
 
     @property
     @pulumi.getter(name="profileUpdatable")

@@ -6,6 +6,7 @@ package com.pulumi.artifactory;
 import com.pulumi.artifactory.UnmanagedUserArgs;
 import com.pulumi.artifactory.Utilities;
 import com.pulumi.artifactory.inputs.UnmanagedUserState;
+import com.pulumi.artifactory.outputs.UnmanagedUserPasswordPolicy;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -13,6 +14,7 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -174,6 +176,26 @@ public class UnmanagedUser extends com.pulumi.resources.CustomResource {
      */
     public Output<String> password() {
         return this.password;
+    }
+    /**
+     * Password policy to match JFrog Access to provide pre-apply validation. Default values: `uppercase=1`, `lowercase=1`,
+     * `special_char=0`, `digit=1`, `length=8`. Also see [Supported Access
+     * Configurations](https://jfrog.com/help/r/jfrog-installation-setup-documentation/supported-access-configurations) for
+     * more details
+     * 
+     */
+    @Export(name="passwordPolicy", refs={UnmanagedUserPasswordPolicy.class}, tree="[0]")
+    private Output</* @Nullable */ UnmanagedUserPasswordPolicy> passwordPolicy;
+
+    /**
+     * @return Password policy to match JFrog Access to provide pre-apply validation. Default values: `uppercase=1`, `lowercase=1`,
+     * `special_char=0`, `digit=1`, `length=8`. Also see [Supported Access
+     * Configurations](https://jfrog.com/help/r/jfrog-installation-setup-documentation/supported-access-configurations) for
+     * more details
+     * 
+     */
+    public Output<Optional<UnmanagedUserPasswordPolicy>> passwordPolicy() {
+        return Codegen.optional(this.passwordPolicy);
     }
     /**
      * (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an administrator can update the password). There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.

@@ -511,6 +511,272 @@ func (o ArtifactCustomWebhookHandlerArrayOutput) Index(i pulumi.IntInput) Artifa
 	}).(ArtifactCustomWebhookHandlerOutput)
 }
 
+type ArtifactLifecycleCustomWebhookHandler struct {
+	// HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
+	HttpHeaders map[string]string `pulumi:"httpHeaders"`
+	// This attribute is used to build the request body. Used in custom webhooks
+	Payload *string `pulumi:"payload"`
+	// Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+	Proxy *string `pulumi:"proxy"`
+	// Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
+	Secrets map[string]string `pulumi:"secrets"`
+	// Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+	Url string `pulumi:"url"`
+}
+
+// ArtifactLifecycleCustomWebhookHandlerInput is an input type that accepts ArtifactLifecycleCustomWebhookHandlerArgs and ArtifactLifecycleCustomWebhookHandlerOutput values.
+// You can construct a concrete instance of `ArtifactLifecycleCustomWebhookHandlerInput` via:
+//
+//	ArtifactLifecycleCustomWebhookHandlerArgs{...}
+type ArtifactLifecycleCustomWebhookHandlerInput interface {
+	pulumi.Input
+
+	ToArtifactLifecycleCustomWebhookHandlerOutput() ArtifactLifecycleCustomWebhookHandlerOutput
+	ToArtifactLifecycleCustomWebhookHandlerOutputWithContext(context.Context) ArtifactLifecycleCustomWebhookHandlerOutput
+}
+
+type ArtifactLifecycleCustomWebhookHandlerArgs struct {
+	// HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
+	HttpHeaders pulumi.StringMapInput `pulumi:"httpHeaders"`
+	// This attribute is used to build the request body. Used in custom webhooks
+	Payload pulumi.StringPtrInput `pulumi:"payload"`
+	// Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+	Proxy pulumi.StringPtrInput `pulumi:"proxy"`
+	// Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
+	Secrets pulumi.StringMapInput `pulumi:"secrets"`
+	// Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (ArtifactLifecycleCustomWebhookHandlerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ArtifactLifecycleCustomWebhookHandler)(nil)).Elem()
+}
+
+func (i ArtifactLifecycleCustomWebhookHandlerArgs) ToArtifactLifecycleCustomWebhookHandlerOutput() ArtifactLifecycleCustomWebhookHandlerOutput {
+	return i.ToArtifactLifecycleCustomWebhookHandlerOutputWithContext(context.Background())
+}
+
+func (i ArtifactLifecycleCustomWebhookHandlerArgs) ToArtifactLifecycleCustomWebhookHandlerOutputWithContext(ctx context.Context) ArtifactLifecycleCustomWebhookHandlerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ArtifactLifecycleCustomWebhookHandlerOutput)
+}
+
+// ArtifactLifecycleCustomWebhookHandlerArrayInput is an input type that accepts ArtifactLifecycleCustomWebhookHandlerArray and ArtifactLifecycleCustomWebhookHandlerArrayOutput values.
+// You can construct a concrete instance of `ArtifactLifecycleCustomWebhookHandlerArrayInput` via:
+//
+//	ArtifactLifecycleCustomWebhookHandlerArray{ ArtifactLifecycleCustomWebhookHandlerArgs{...} }
+type ArtifactLifecycleCustomWebhookHandlerArrayInput interface {
+	pulumi.Input
+
+	ToArtifactLifecycleCustomWebhookHandlerArrayOutput() ArtifactLifecycleCustomWebhookHandlerArrayOutput
+	ToArtifactLifecycleCustomWebhookHandlerArrayOutputWithContext(context.Context) ArtifactLifecycleCustomWebhookHandlerArrayOutput
+}
+
+type ArtifactLifecycleCustomWebhookHandlerArray []ArtifactLifecycleCustomWebhookHandlerInput
+
+func (ArtifactLifecycleCustomWebhookHandlerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ArtifactLifecycleCustomWebhookHandler)(nil)).Elem()
+}
+
+func (i ArtifactLifecycleCustomWebhookHandlerArray) ToArtifactLifecycleCustomWebhookHandlerArrayOutput() ArtifactLifecycleCustomWebhookHandlerArrayOutput {
+	return i.ToArtifactLifecycleCustomWebhookHandlerArrayOutputWithContext(context.Background())
+}
+
+func (i ArtifactLifecycleCustomWebhookHandlerArray) ToArtifactLifecycleCustomWebhookHandlerArrayOutputWithContext(ctx context.Context) ArtifactLifecycleCustomWebhookHandlerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ArtifactLifecycleCustomWebhookHandlerArrayOutput)
+}
+
+type ArtifactLifecycleCustomWebhookHandlerOutput struct{ *pulumi.OutputState }
+
+func (ArtifactLifecycleCustomWebhookHandlerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ArtifactLifecycleCustomWebhookHandler)(nil)).Elem()
+}
+
+func (o ArtifactLifecycleCustomWebhookHandlerOutput) ToArtifactLifecycleCustomWebhookHandlerOutput() ArtifactLifecycleCustomWebhookHandlerOutput {
+	return o
+}
+
+func (o ArtifactLifecycleCustomWebhookHandlerOutput) ToArtifactLifecycleCustomWebhookHandlerOutputWithContext(ctx context.Context) ArtifactLifecycleCustomWebhookHandlerOutput {
+	return o
+}
+
+// HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
+func (o ArtifactLifecycleCustomWebhookHandlerOutput) HttpHeaders() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ArtifactLifecycleCustomWebhookHandler) map[string]string { return v.HttpHeaders }).(pulumi.StringMapOutput)
+}
+
+// This attribute is used to build the request body. Used in custom webhooks
+func (o ArtifactLifecycleCustomWebhookHandlerOutput) Payload() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ArtifactLifecycleCustomWebhookHandler) *string { return v.Payload }).(pulumi.StringPtrOutput)
+}
+
+// Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+func (o ArtifactLifecycleCustomWebhookHandlerOutput) Proxy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ArtifactLifecycleCustomWebhookHandler) *string { return v.Proxy }).(pulumi.StringPtrOutput)
+}
+
+// Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
+func (o ArtifactLifecycleCustomWebhookHandlerOutput) Secrets() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ArtifactLifecycleCustomWebhookHandler) map[string]string { return v.Secrets }).(pulumi.StringMapOutput)
+}
+
+// Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+func (o ArtifactLifecycleCustomWebhookHandlerOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v ArtifactLifecycleCustomWebhookHandler) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type ArtifactLifecycleCustomWebhookHandlerArrayOutput struct{ *pulumi.OutputState }
+
+func (ArtifactLifecycleCustomWebhookHandlerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ArtifactLifecycleCustomWebhookHandler)(nil)).Elem()
+}
+
+func (o ArtifactLifecycleCustomWebhookHandlerArrayOutput) ToArtifactLifecycleCustomWebhookHandlerArrayOutput() ArtifactLifecycleCustomWebhookHandlerArrayOutput {
+	return o
+}
+
+func (o ArtifactLifecycleCustomWebhookHandlerArrayOutput) ToArtifactLifecycleCustomWebhookHandlerArrayOutputWithContext(ctx context.Context) ArtifactLifecycleCustomWebhookHandlerArrayOutput {
+	return o
+}
+
+func (o ArtifactLifecycleCustomWebhookHandlerArrayOutput) Index(i pulumi.IntInput) ArtifactLifecycleCustomWebhookHandlerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ArtifactLifecycleCustomWebhookHandler {
+		return vs[0].([]ArtifactLifecycleCustomWebhookHandler)[vs[1].(int)]
+	}).(ArtifactLifecycleCustomWebhookHandlerOutput)
+}
+
+type ArtifactLifecycleWebhookHandler struct {
+	// Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
+	CustomHttpHeaders map[string]string `pulumi:"customHttpHeaders"`
+	// Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+	Proxy *string `pulumi:"proxy"`
+	// Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
+	Secret *string `pulumi:"secret"`
+	// Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+	Url string `pulumi:"url"`
+	// When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
+	UseSecretForSigning *bool `pulumi:"useSecretForSigning"`
+}
+
+// ArtifactLifecycleWebhookHandlerInput is an input type that accepts ArtifactLifecycleWebhookHandlerArgs and ArtifactLifecycleWebhookHandlerOutput values.
+// You can construct a concrete instance of `ArtifactLifecycleWebhookHandlerInput` via:
+//
+//	ArtifactLifecycleWebhookHandlerArgs{...}
+type ArtifactLifecycleWebhookHandlerInput interface {
+	pulumi.Input
+
+	ToArtifactLifecycleWebhookHandlerOutput() ArtifactLifecycleWebhookHandlerOutput
+	ToArtifactLifecycleWebhookHandlerOutputWithContext(context.Context) ArtifactLifecycleWebhookHandlerOutput
+}
+
+type ArtifactLifecycleWebhookHandlerArgs struct {
+	// Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
+	CustomHttpHeaders pulumi.StringMapInput `pulumi:"customHttpHeaders"`
+	// Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+	Proxy pulumi.StringPtrInput `pulumi:"proxy"`
+	// Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
+	Secret pulumi.StringPtrInput `pulumi:"secret"`
+	// Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+	Url pulumi.StringInput `pulumi:"url"`
+	// When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
+	UseSecretForSigning pulumi.BoolPtrInput `pulumi:"useSecretForSigning"`
+}
+
+func (ArtifactLifecycleWebhookHandlerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ArtifactLifecycleWebhookHandler)(nil)).Elem()
+}
+
+func (i ArtifactLifecycleWebhookHandlerArgs) ToArtifactLifecycleWebhookHandlerOutput() ArtifactLifecycleWebhookHandlerOutput {
+	return i.ToArtifactLifecycleWebhookHandlerOutputWithContext(context.Background())
+}
+
+func (i ArtifactLifecycleWebhookHandlerArgs) ToArtifactLifecycleWebhookHandlerOutputWithContext(ctx context.Context) ArtifactLifecycleWebhookHandlerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ArtifactLifecycleWebhookHandlerOutput)
+}
+
+// ArtifactLifecycleWebhookHandlerArrayInput is an input type that accepts ArtifactLifecycleWebhookHandlerArray and ArtifactLifecycleWebhookHandlerArrayOutput values.
+// You can construct a concrete instance of `ArtifactLifecycleWebhookHandlerArrayInput` via:
+//
+//	ArtifactLifecycleWebhookHandlerArray{ ArtifactLifecycleWebhookHandlerArgs{...} }
+type ArtifactLifecycleWebhookHandlerArrayInput interface {
+	pulumi.Input
+
+	ToArtifactLifecycleWebhookHandlerArrayOutput() ArtifactLifecycleWebhookHandlerArrayOutput
+	ToArtifactLifecycleWebhookHandlerArrayOutputWithContext(context.Context) ArtifactLifecycleWebhookHandlerArrayOutput
+}
+
+type ArtifactLifecycleWebhookHandlerArray []ArtifactLifecycleWebhookHandlerInput
+
+func (ArtifactLifecycleWebhookHandlerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ArtifactLifecycleWebhookHandler)(nil)).Elem()
+}
+
+func (i ArtifactLifecycleWebhookHandlerArray) ToArtifactLifecycleWebhookHandlerArrayOutput() ArtifactLifecycleWebhookHandlerArrayOutput {
+	return i.ToArtifactLifecycleWebhookHandlerArrayOutputWithContext(context.Background())
+}
+
+func (i ArtifactLifecycleWebhookHandlerArray) ToArtifactLifecycleWebhookHandlerArrayOutputWithContext(ctx context.Context) ArtifactLifecycleWebhookHandlerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ArtifactLifecycleWebhookHandlerArrayOutput)
+}
+
+type ArtifactLifecycleWebhookHandlerOutput struct{ *pulumi.OutputState }
+
+func (ArtifactLifecycleWebhookHandlerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ArtifactLifecycleWebhookHandler)(nil)).Elem()
+}
+
+func (o ArtifactLifecycleWebhookHandlerOutput) ToArtifactLifecycleWebhookHandlerOutput() ArtifactLifecycleWebhookHandlerOutput {
+	return o
+}
+
+func (o ArtifactLifecycleWebhookHandlerOutput) ToArtifactLifecycleWebhookHandlerOutputWithContext(ctx context.Context) ArtifactLifecycleWebhookHandlerOutput {
+	return o
+}
+
+// Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
+func (o ArtifactLifecycleWebhookHandlerOutput) CustomHttpHeaders() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ArtifactLifecycleWebhookHandler) map[string]string { return v.CustomHttpHeaders }).(pulumi.StringMapOutput)
+}
+
+// Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+func (o ArtifactLifecycleWebhookHandlerOutput) Proxy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ArtifactLifecycleWebhookHandler) *string { return v.Proxy }).(pulumi.StringPtrOutput)
+}
+
+// Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
+func (o ArtifactLifecycleWebhookHandlerOutput) Secret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ArtifactLifecycleWebhookHandler) *string { return v.Secret }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+func (o ArtifactLifecycleWebhookHandlerOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v ArtifactLifecycleWebhookHandler) string { return v.Url }).(pulumi.StringOutput)
+}
+
+// When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
+func (o ArtifactLifecycleWebhookHandlerOutput) UseSecretForSigning() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ArtifactLifecycleWebhookHandler) *bool { return v.UseSecretForSigning }).(pulumi.BoolPtrOutput)
+}
+
+type ArtifactLifecycleWebhookHandlerArrayOutput struct{ *pulumi.OutputState }
+
+func (ArtifactLifecycleWebhookHandlerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ArtifactLifecycleWebhookHandler)(nil)).Elem()
+}
+
+func (o ArtifactLifecycleWebhookHandlerArrayOutput) ToArtifactLifecycleWebhookHandlerArrayOutput() ArtifactLifecycleWebhookHandlerArrayOutput {
+	return o
+}
+
+func (o ArtifactLifecycleWebhookHandlerArrayOutput) ToArtifactLifecycleWebhookHandlerArrayOutputWithContext(ctx context.Context) ArtifactLifecycleWebhookHandlerArrayOutput {
+	return o
+}
+
+func (o ArtifactLifecycleWebhookHandlerArrayOutput) Index(i pulumi.IntInput) ArtifactLifecycleWebhookHandlerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ArtifactLifecycleWebhookHandler {
+		return vs[0].([]ArtifactLifecycleWebhookHandler)[vs[1].(int)]
+	}).(ArtifactLifecycleWebhookHandlerOutput)
+}
+
 type ArtifactPropertyCustomWebhookCriteria struct {
 	// Trigger on any federated repositories
 	AnyFederated bool `pulumi:"anyFederated"`
@@ -2912,6 +3178,660 @@ func (o BuildWebhookHandlerArrayOutput) Index(i pulumi.IntInput) BuildWebhookHan
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BuildWebhookHandler {
 		return vs[0].([]BuildWebhookHandler)[vs[1].(int)]
 	}).(BuildWebhookHandlerOutput)
+}
+
+type DestinationCustomWebhookCriteria struct {
+	// Trigger on any release bundle
+	AnyReleaseBundle bool `pulumi:"anyReleaseBundle"`
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`
+	ExcludePatterns []string `pulumi:"excludePatterns"`
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`
+	IncludePatterns []string `pulumi:"includePatterns"`
+	// Trigger on this list of release bundle names
+	RegisteredReleaseBundleNames []string `pulumi:"registeredReleaseBundleNames"`
+}
+
+// DestinationCustomWebhookCriteriaInput is an input type that accepts DestinationCustomWebhookCriteriaArgs and DestinationCustomWebhookCriteriaOutput values.
+// You can construct a concrete instance of `DestinationCustomWebhookCriteriaInput` via:
+//
+//	DestinationCustomWebhookCriteriaArgs{...}
+type DestinationCustomWebhookCriteriaInput interface {
+	pulumi.Input
+
+	ToDestinationCustomWebhookCriteriaOutput() DestinationCustomWebhookCriteriaOutput
+	ToDestinationCustomWebhookCriteriaOutputWithContext(context.Context) DestinationCustomWebhookCriteriaOutput
+}
+
+type DestinationCustomWebhookCriteriaArgs struct {
+	// Trigger on any release bundle
+	AnyReleaseBundle pulumi.BoolInput `pulumi:"anyReleaseBundle"`
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`
+	ExcludePatterns pulumi.StringArrayInput `pulumi:"excludePatterns"`
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`
+	IncludePatterns pulumi.StringArrayInput `pulumi:"includePatterns"`
+	// Trigger on this list of release bundle names
+	RegisteredReleaseBundleNames pulumi.StringArrayInput `pulumi:"registeredReleaseBundleNames"`
+}
+
+func (DestinationCustomWebhookCriteriaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DestinationCustomWebhookCriteria)(nil)).Elem()
+}
+
+func (i DestinationCustomWebhookCriteriaArgs) ToDestinationCustomWebhookCriteriaOutput() DestinationCustomWebhookCriteriaOutput {
+	return i.ToDestinationCustomWebhookCriteriaOutputWithContext(context.Background())
+}
+
+func (i DestinationCustomWebhookCriteriaArgs) ToDestinationCustomWebhookCriteriaOutputWithContext(ctx context.Context) DestinationCustomWebhookCriteriaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DestinationCustomWebhookCriteriaOutput)
+}
+
+func (i DestinationCustomWebhookCriteriaArgs) ToDestinationCustomWebhookCriteriaPtrOutput() DestinationCustomWebhookCriteriaPtrOutput {
+	return i.ToDestinationCustomWebhookCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (i DestinationCustomWebhookCriteriaArgs) ToDestinationCustomWebhookCriteriaPtrOutputWithContext(ctx context.Context) DestinationCustomWebhookCriteriaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DestinationCustomWebhookCriteriaOutput).ToDestinationCustomWebhookCriteriaPtrOutputWithContext(ctx)
+}
+
+// DestinationCustomWebhookCriteriaPtrInput is an input type that accepts DestinationCustomWebhookCriteriaArgs, DestinationCustomWebhookCriteriaPtr and DestinationCustomWebhookCriteriaPtrOutput values.
+// You can construct a concrete instance of `DestinationCustomWebhookCriteriaPtrInput` via:
+//
+//	        DestinationCustomWebhookCriteriaArgs{...}
+//
+//	or:
+//
+//	        nil
+type DestinationCustomWebhookCriteriaPtrInput interface {
+	pulumi.Input
+
+	ToDestinationCustomWebhookCriteriaPtrOutput() DestinationCustomWebhookCriteriaPtrOutput
+	ToDestinationCustomWebhookCriteriaPtrOutputWithContext(context.Context) DestinationCustomWebhookCriteriaPtrOutput
+}
+
+type destinationCustomWebhookCriteriaPtrType DestinationCustomWebhookCriteriaArgs
+
+func DestinationCustomWebhookCriteriaPtr(v *DestinationCustomWebhookCriteriaArgs) DestinationCustomWebhookCriteriaPtrInput {
+	return (*destinationCustomWebhookCriteriaPtrType)(v)
+}
+
+func (*destinationCustomWebhookCriteriaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DestinationCustomWebhookCriteria)(nil)).Elem()
+}
+
+func (i *destinationCustomWebhookCriteriaPtrType) ToDestinationCustomWebhookCriteriaPtrOutput() DestinationCustomWebhookCriteriaPtrOutput {
+	return i.ToDestinationCustomWebhookCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (i *destinationCustomWebhookCriteriaPtrType) ToDestinationCustomWebhookCriteriaPtrOutputWithContext(ctx context.Context) DestinationCustomWebhookCriteriaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DestinationCustomWebhookCriteriaPtrOutput)
+}
+
+type DestinationCustomWebhookCriteriaOutput struct{ *pulumi.OutputState }
+
+func (DestinationCustomWebhookCriteriaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DestinationCustomWebhookCriteria)(nil)).Elem()
+}
+
+func (o DestinationCustomWebhookCriteriaOutput) ToDestinationCustomWebhookCriteriaOutput() DestinationCustomWebhookCriteriaOutput {
+	return o
+}
+
+func (o DestinationCustomWebhookCriteriaOutput) ToDestinationCustomWebhookCriteriaOutputWithContext(ctx context.Context) DestinationCustomWebhookCriteriaOutput {
+	return o
+}
+
+func (o DestinationCustomWebhookCriteriaOutput) ToDestinationCustomWebhookCriteriaPtrOutput() DestinationCustomWebhookCriteriaPtrOutput {
+	return o.ToDestinationCustomWebhookCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (o DestinationCustomWebhookCriteriaOutput) ToDestinationCustomWebhookCriteriaPtrOutputWithContext(ctx context.Context) DestinationCustomWebhookCriteriaPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DestinationCustomWebhookCriteria) *DestinationCustomWebhookCriteria {
+		return &v
+	}).(DestinationCustomWebhookCriteriaPtrOutput)
+}
+
+// Trigger on any release bundle
+func (o DestinationCustomWebhookCriteriaOutput) AnyReleaseBundle() pulumi.BoolOutput {
+	return o.ApplyT(func(v DestinationCustomWebhookCriteria) bool { return v.AnyReleaseBundle }).(pulumi.BoolOutput)
+}
+
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`
+func (o DestinationCustomWebhookCriteriaOutput) ExcludePatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DestinationCustomWebhookCriteria) []string { return v.ExcludePatterns }).(pulumi.StringArrayOutput)
+}
+
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`
+func (o DestinationCustomWebhookCriteriaOutput) IncludePatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DestinationCustomWebhookCriteria) []string { return v.IncludePatterns }).(pulumi.StringArrayOutput)
+}
+
+// Trigger on this list of release bundle names
+func (o DestinationCustomWebhookCriteriaOutput) RegisteredReleaseBundleNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DestinationCustomWebhookCriteria) []string { return v.RegisteredReleaseBundleNames }).(pulumi.StringArrayOutput)
+}
+
+type DestinationCustomWebhookCriteriaPtrOutput struct{ *pulumi.OutputState }
+
+func (DestinationCustomWebhookCriteriaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DestinationCustomWebhookCriteria)(nil)).Elem()
+}
+
+func (o DestinationCustomWebhookCriteriaPtrOutput) ToDestinationCustomWebhookCriteriaPtrOutput() DestinationCustomWebhookCriteriaPtrOutput {
+	return o
+}
+
+func (o DestinationCustomWebhookCriteriaPtrOutput) ToDestinationCustomWebhookCriteriaPtrOutputWithContext(ctx context.Context) DestinationCustomWebhookCriteriaPtrOutput {
+	return o
+}
+
+func (o DestinationCustomWebhookCriteriaPtrOutput) Elem() DestinationCustomWebhookCriteriaOutput {
+	return o.ApplyT(func(v *DestinationCustomWebhookCriteria) DestinationCustomWebhookCriteria {
+		if v != nil {
+			return *v
+		}
+		var ret DestinationCustomWebhookCriteria
+		return ret
+	}).(DestinationCustomWebhookCriteriaOutput)
+}
+
+// Trigger on any release bundle
+func (o DestinationCustomWebhookCriteriaPtrOutput) AnyReleaseBundle() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DestinationCustomWebhookCriteria) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.AnyReleaseBundle
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`
+func (o DestinationCustomWebhookCriteriaPtrOutput) ExcludePatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DestinationCustomWebhookCriteria) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludePatterns
+	}).(pulumi.StringArrayOutput)
+}
+
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`
+func (o DestinationCustomWebhookCriteriaPtrOutput) IncludePatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DestinationCustomWebhookCriteria) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IncludePatterns
+	}).(pulumi.StringArrayOutput)
+}
+
+// Trigger on this list of release bundle names
+func (o DestinationCustomWebhookCriteriaPtrOutput) RegisteredReleaseBundleNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DestinationCustomWebhookCriteria) []string {
+		if v == nil {
+			return nil
+		}
+		return v.RegisteredReleaseBundleNames
+	}).(pulumi.StringArrayOutput)
+}
+
+type DestinationCustomWebhookHandler struct {
+	// HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
+	HttpHeaders map[string]string `pulumi:"httpHeaders"`
+	// This attribute is used to build the request body. Used in custom webhooks
+	Payload *string `pulumi:"payload"`
+	// Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+	Proxy *string `pulumi:"proxy"`
+	// Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
+	Secrets map[string]string `pulumi:"secrets"`
+	// Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+	Url string `pulumi:"url"`
+}
+
+// DestinationCustomWebhookHandlerInput is an input type that accepts DestinationCustomWebhookHandlerArgs and DestinationCustomWebhookHandlerOutput values.
+// You can construct a concrete instance of `DestinationCustomWebhookHandlerInput` via:
+//
+//	DestinationCustomWebhookHandlerArgs{...}
+type DestinationCustomWebhookHandlerInput interface {
+	pulumi.Input
+
+	ToDestinationCustomWebhookHandlerOutput() DestinationCustomWebhookHandlerOutput
+	ToDestinationCustomWebhookHandlerOutputWithContext(context.Context) DestinationCustomWebhookHandlerOutput
+}
+
+type DestinationCustomWebhookHandlerArgs struct {
+	// HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
+	HttpHeaders pulumi.StringMapInput `pulumi:"httpHeaders"`
+	// This attribute is used to build the request body. Used in custom webhooks
+	Payload pulumi.StringPtrInput `pulumi:"payload"`
+	// Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+	Proxy pulumi.StringPtrInput `pulumi:"proxy"`
+	// Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
+	Secrets pulumi.StringMapInput `pulumi:"secrets"`
+	// Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (DestinationCustomWebhookHandlerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DestinationCustomWebhookHandler)(nil)).Elem()
+}
+
+func (i DestinationCustomWebhookHandlerArgs) ToDestinationCustomWebhookHandlerOutput() DestinationCustomWebhookHandlerOutput {
+	return i.ToDestinationCustomWebhookHandlerOutputWithContext(context.Background())
+}
+
+func (i DestinationCustomWebhookHandlerArgs) ToDestinationCustomWebhookHandlerOutputWithContext(ctx context.Context) DestinationCustomWebhookHandlerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DestinationCustomWebhookHandlerOutput)
+}
+
+// DestinationCustomWebhookHandlerArrayInput is an input type that accepts DestinationCustomWebhookHandlerArray and DestinationCustomWebhookHandlerArrayOutput values.
+// You can construct a concrete instance of `DestinationCustomWebhookHandlerArrayInput` via:
+//
+//	DestinationCustomWebhookHandlerArray{ DestinationCustomWebhookHandlerArgs{...} }
+type DestinationCustomWebhookHandlerArrayInput interface {
+	pulumi.Input
+
+	ToDestinationCustomWebhookHandlerArrayOutput() DestinationCustomWebhookHandlerArrayOutput
+	ToDestinationCustomWebhookHandlerArrayOutputWithContext(context.Context) DestinationCustomWebhookHandlerArrayOutput
+}
+
+type DestinationCustomWebhookHandlerArray []DestinationCustomWebhookHandlerInput
+
+func (DestinationCustomWebhookHandlerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DestinationCustomWebhookHandler)(nil)).Elem()
+}
+
+func (i DestinationCustomWebhookHandlerArray) ToDestinationCustomWebhookHandlerArrayOutput() DestinationCustomWebhookHandlerArrayOutput {
+	return i.ToDestinationCustomWebhookHandlerArrayOutputWithContext(context.Background())
+}
+
+func (i DestinationCustomWebhookHandlerArray) ToDestinationCustomWebhookHandlerArrayOutputWithContext(ctx context.Context) DestinationCustomWebhookHandlerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DestinationCustomWebhookHandlerArrayOutput)
+}
+
+type DestinationCustomWebhookHandlerOutput struct{ *pulumi.OutputState }
+
+func (DestinationCustomWebhookHandlerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DestinationCustomWebhookHandler)(nil)).Elem()
+}
+
+func (o DestinationCustomWebhookHandlerOutput) ToDestinationCustomWebhookHandlerOutput() DestinationCustomWebhookHandlerOutput {
+	return o
+}
+
+func (o DestinationCustomWebhookHandlerOutput) ToDestinationCustomWebhookHandlerOutputWithContext(ctx context.Context) DestinationCustomWebhookHandlerOutput {
+	return o
+}
+
+// HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
+func (o DestinationCustomWebhookHandlerOutput) HttpHeaders() pulumi.StringMapOutput {
+	return o.ApplyT(func(v DestinationCustomWebhookHandler) map[string]string { return v.HttpHeaders }).(pulumi.StringMapOutput)
+}
+
+// This attribute is used to build the request body. Used in custom webhooks
+func (o DestinationCustomWebhookHandlerOutput) Payload() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DestinationCustomWebhookHandler) *string { return v.Payload }).(pulumi.StringPtrOutput)
+}
+
+// Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+func (o DestinationCustomWebhookHandlerOutput) Proxy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DestinationCustomWebhookHandler) *string { return v.Proxy }).(pulumi.StringPtrOutput)
+}
+
+// Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
+func (o DestinationCustomWebhookHandlerOutput) Secrets() pulumi.StringMapOutput {
+	return o.ApplyT(func(v DestinationCustomWebhookHandler) map[string]string { return v.Secrets }).(pulumi.StringMapOutput)
+}
+
+// Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+func (o DestinationCustomWebhookHandlerOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v DestinationCustomWebhookHandler) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type DestinationCustomWebhookHandlerArrayOutput struct{ *pulumi.OutputState }
+
+func (DestinationCustomWebhookHandlerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DestinationCustomWebhookHandler)(nil)).Elem()
+}
+
+func (o DestinationCustomWebhookHandlerArrayOutput) ToDestinationCustomWebhookHandlerArrayOutput() DestinationCustomWebhookHandlerArrayOutput {
+	return o
+}
+
+func (o DestinationCustomWebhookHandlerArrayOutput) ToDestinationCustomWebhookHandlerArrayOutputWithContext(ctx context.Context) DestinationCustomWebhookHandlerArrayOutput {
+	return o
+}
+
+func (o DestinationCustomWebhookHandlerArrayOutput) Index(i pulumi.IntInput) DestinationCustomWebhookHandlerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DestinationCustomWebhookHandler {
+		return vs[0].([]DestinationCustomWebhookHandler)[vs[1].(int)]
+	}).(DestinationCustomWebhookHandlerOutput)
+}
+
+type DestinationWebhookCriteria struct {
+	// Trigger on any release bundle
+	AnyReleaseBundle bool `pulumi:"anyReleaseBundle"`
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`
+	ExcludePatterns []string `pulumi:"excludePatterns"`
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`
+	IncludePatterns []string `pulumi:"includePatterns"`
+	// Trigger on this list of release bundle names
+	RegisteredReleaseBundleNames []string `pulumi:"registeredReleaseBundleNames"`
+}
+
+// DestinationWebhookCriteriaInput is an input type that accepts DestinationWebhookCriteriaArgs and DestinationWebhookCriteriaOutput values.
+// You can construct a concrete instance of `DestinationWebhookCriteriaInput` via:
+//
+//	DestinationWebhookCriteriaArgs{...}
+type DestinationWebhookCriteriaInput interface {
+	pulumi.Input
+
+	ToDestinationWebhookCriteriaOutput() DestinationWebhookCriteriaOutput
+	ToDestinationWebhookCriteriaOutputWithContext(context.Context) DestinationWebhookCriteriaOutput
+}
+
+type DestinationWebhookCriteriaArgs struct {
+	// Trigger on any release bundle
+	AnyReleaseBundle pulumi.BoolInput `pulumi:"anyReleaseBundle"`
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`
+	ExcludePatterns pulumi.StringArrayInput `pulumi:"excludePatterns"`
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`
+	IncludePatterns pulumi.StringArrayInput `pulumi:"includePatterns"`
+	// Trigger on this list of release bundle names
+	RegisteredReleaseBundleNames pulumi.StringArrayInput `pulumi:"registeredReleaseBundleNames"`
+}
+
+func (DestinationWebhookCriteriaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DestinationWebhookCriteria)(nil)).Elem()
+}
+
+func (i DestinationWebhookCriteriaArgs) ToDestinationWebhookCriteriaOutput() DestinationWebhookCriteriaOutput {
+	return i.ToDestinationWebhookCriteriaOutputWithContext(context.Background())
+}
+
+func (i DestinationWebhookCriteriaArgs) ToDestinationWebhookCriteriaOutputWithContext(ctx context.Context) DestinationWebhookCriteriaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DestinationWebhookCriteriaOutput)
+}
+
+func (i DestinationWebhookCriteriaArgs) ToDestinationWebhookCriteriaPtrOutput() DestinationWebhookCriteriaPtrOutput {
+	return i.ToDestinationWebhookCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (i DestinationWebhookCriteriaArgs) ToDestinationWebhookCriteriaPtrOutputWithContext(ctx context.Context) DestinationWebhookCriteriaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DestinationWebhookCriteriaOutput).ToDestinationWebhookCriteriaPtrOutputWithContext(ctx)
+}
+
+// DestinationWebhookCriteriaPtrInput is an input type that accepts DestinationWebhookCriteriaArgs, DestinationWebhookCriteriaPtr and DestinationWebhookCriteriaPtrOutput values.
+// You can construct a concrete instance of `DestinationWebhookCriteriaPtrInput` via:
+//
+//	        DestinationWebhookCriteriaArgs{...}
+//
+//	or:
+//
+//	        nil
+type DestinationWebhookCriteriaPtrInput interface {
+	pulumi.Input
+
+	ToDestinationWebhookCriteriaPtrOutput() DestinationWebhookCriteriaPtrOutput
+	ToDestinationWebhookCriteriaPtrOutputWithContext(context.Context) DestinationWebhookCriteriaPtrOutput
+}
+
+type destinationWebhookCriteriaPtrType DestinationWebhookCriteriaArgs
+
+func DestinationWebhookCriteriaPtr(v *DestinationWebhookCriteriaArgs) DestinationWebhookCriteriaPtrInput {
+	return (*destinationWebhookCriteriaPtrType)(v)
+}
+
+func (*destinationWebhookCriteriaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DestinationWebhookCriteria)(nil)).Elem()
+}
+
+func (i *destinationWebhookCriteriaPtrType) ToDestinationWebhookCriteriaPtrOutput() DestinationWebhookCriteriaPtrOutput {
+	return i.ToDestinationWebhookCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (i *destinationWebhookCriteriaPtrType) ToDestinationWebhookCriteriaPtrOutputWithContext(ctx context.Context) DestinationWebhookCriteriaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DestinationWebhookCriteriaPtrOutput)
+}
+
+type DestinationWebhookCriteriaOutput struct{ *pulumi.OutputState }
+
+func (DestinationWebhookCriteriaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DestinationWebhookCriteria)(nil)).Elem()
+}
+
+func (o DestinationWebhookCriteriaOutput) ToDestinationWebhookCriteriaOutput() DestinationWebhookCriteriaOutput {
+	return o
+}
+
+func (o DestinationWebhookCriteriaOutput) ToDestinationWebhookCriteriaOutputWithContext(ctx context.Context) DestinationWebhookCriteriaOutput {
+	return o
+}
+
+func (o DestinationWebhookCriteriaOutput) ToDestinationWebhookCriteriaPtrOutput() DestinationWebhookCriteriaPtrOutput {
+	return o.ToDestinationWebhookCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (o DestinationWebhookCriteriaOutput) ToDestinationWebhookCriteriaPtrOutputWithContext(ctx context.Context) DestinationWebhookCriteriaPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DestinationWebhookCriteria) *DestinationWebhookCriteria {
+		return &v
+	}).(DestinationWebhookCriteriaPtrOutput)
+}
+
+// Trigger on any release bundle
+func (o DestinationWebhookCriteriaOutput) AnyReleaseBundle() pulumi.BoolOutput {
+	return o.ApplyT(func(v DestinationWebhookCriteria) bool { return v.AnyReleaseBundle }).(pulumi.BoolOutput)
+}
+
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`
+func (o DestinationWebhookCriteriaOutput) ExcludePatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DestinationWebhookCriteria) []string { return v.ExcludePatterns }).(pulumi.StringArrayOutput)
+}
+
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`
+func (o DestinationWebhookCriteriaOutput) IncludePatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DestinationWebhookCriteria) []string { return v.IncludePatterns }).(pulumi.StringArrayOutput)
+}
+
+// Trigger on this list of release bundle names
+func (o DestinationWebhookCriteriaOutput) RegisteredReleaseBundleNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DestinationWebhookCriteria) []string { return v.RegisteredReleaseBundleNames }).(pulumi.StringArrayOutput)
+}
+
+type DestinationWebhookCriteriaPtrOutput struct{ *pulumi.OutputState }
+
+func (DestinationWebhookCriteriaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DestinationWebhookCriteria)(nil)).Elem()
+}
+
+func (o DestinationWebhookCriteriaPtrOutput) ToDestinationWebhookCriteriaPtrOutput() DestinationWebhookCriteriaPtrOutput {
+	return o
+}
+
+func (o DestinationWebhookCriteriaPtrOutput) ToDestinationWebhookCriteriaPtrOutputWithContext(ctx context.Context) DestinationWebhookCriteriaPtrOutput {
+	return o
+}
+
+func (o DestinationWebhookCriteriaPtrOutput) Elem() DestinationWebhookCriteriaOutput {
+	return o.ApplyT(func(v *DestinationWebhookCriteria) DestinationWebhookCriteria {
+		if v != nil {
+			return *v
+		}
+		var ret DestinationWebhookCriteria
+		return ret
+	}).(DestinationWebhookCriteriaOutput)
+}
+
+// Trigger on any release bundle
+func (o DestinationWebhookCriteriaPtrOutput) AnyReleaseBundle() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DestinationWebhookCriteria) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.AnyReleaseBundle
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`
+func (o DestinationWebhookCriteriaPtrOutput) ExcludePatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DestinationWebhookCriteria) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludePatterns
+	}).(pulumi.StringArrayOutput)
+}
+
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`
+func (o DestinationWebhookCriteriaPtrOutput) IncludePatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DestinationWebhookCriteria) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IncludePatterns
+	}).(pulumi.StringArrayOutput)
+}
+
+// Trigger on this list of release bundle names
+func (o DestinationWebhookCriteriaPtrOutput) RegisteredReleaseBundleNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DestinationWebhookCriteria) []string {
+		if v == nil {
+			return nil
+		}
+		return v.RegisteredReleaseBundleNames
+	}).(pulumi.StringArrayOutput)
+}
+
+type DestinationWebhookHandler struct {
+	// Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
+	CustomHttpHeaders map[string]string `pulumi:"customHttpHeaders"`
+	// Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+	Proxy *string `pulumi:"proxy"`
+	// Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
+	Secret *string `pulumi:"secret"`
+	// Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+	Url string `pulumi:"url"`
+	// When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
+	UseSecretForSigning *bool `pulumi:"useSecretForSigning"`
+}
+
+// DestinationWebhookHandlerInput is an input type that accepts DestinationWebhookHandlerArgs and DestinationWebhookHandlerOutput values.
+// You can construct a concrete instance of `DestinationWebhookHandlerInput` via:
+//
+//	DestinationWebhookHandlerArgs{...}
+type DestinationWebhookHandlerInput interface {
+	pulumi.Input
+
+	ToDestinationWebhookHandlerOutput() DestinationWebhookHandlerOutput
+	ToDestinationWebhookHandlerOutputWithContext(context.Context) DestinationWebhookHandlerOutput
+}
+
+type DestinationWebhookHandlerArgs struct {
+	// Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
+	CustomHttpHeaders pulumi.StringMapInput `pulumi:"customHttpHeaders"`
+	// Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+	Proxy pulumi.StringPtrInput `pulumi:"proxy"`
+	// Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
+	Secret pulumi.StringPtrInput `pulumi:"secret"`
+	// Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+	Url pulumi.StringInput `pulumi:"url"`
+	// When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
+	UseSecretForSigning pulumi.BoolPtrInput `pulumi:"useSecretForSigning"`
+}
+
+func (DestinationWebhookHandlerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DestinationWebhookHandler)(nil)).Elem()
+}
+
+func (i DestinationWebhookHandlerArgs) ToDestinationWebhookHandlerOutput() DestinationWebhookHandlerOutput {
+	return i.ToDestinationWebhookHandlerOutputWithContext(context.Background())
+}
+
+func (i DestinationWebhookHandlerArgs) ToDestinationWebhookHandlerOutputWithContext(ctx context.Context) DestinationWebhookHandlerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DestinationWebhookHandlerOutput)
+}
+
+// DestinationWebhookHandlerArrayInput is an input type that accepts DestinationWebhookHandlerArray and DestinationWebhookHandlerArrayOutput values.
+// You can construct a concrete instance of `DestinationWebhookHandlerArrayInput` via:
+//
+//	DestinationWebhookHandlerArray{ DestinationWebhookHandlerArgs{...} }
+type DestinationWebhookHandlerArrayInput interface {
+	pulumi.Input
+
+	ToDestinationWebhookHandlerArrayOutput() DestinationWebhookHandlerArrayOutput
+	ToDestinationWebhookHandlerArrayOutputWithContext(context.Context) DestinationWebhookHandlerArrayOutput
+}
+
+type DestinationWebhookHandlerArray []DestinationWebhookHandlerInput
+
+func (DestinationWebhookHandlerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DestinationWebhookHandler)(nil)).Elem()
+}
+
+func (i DestinationWebhookHandlerArray) ToDestinationWebhookHandlerArrayOutput() DestinationWebhookHandlerArrayOutput {
+	return i.ToDestinationWebhookHandlerArrayOutputWithContext(context.Background())
+}
+
+func (i DestinationWebhookHandlerArray) ToDestinationWebhookHandlerArrayOutputWithContext(ctx context.Context) DestinationWebhookHandlerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DestinationWebhookHandlerArrayOutput)
+}
+
+type DestinationWebhookHandlerOutput struct{ *pulumi.OutputState }
+
+func (DestinationWebhookHandlerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DestinationWebhookHandler)(nil)).Elem()
+}
+
+func (o DestinationWebhookHandlerOutput) ToDestinationWebhookHandlerOutput() DestinationWebhookHandlerOutput {
+	return o
+}
+
+func (o DestinationWebhookHandlerOutput) ToDestinationWebhookHandlerOutputWithContext(ctx context.Context) DestinationWebhookHandlerOutput {
+	return o
+}
+
+// Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
+func (o DestinationWebhookHandlerOutput) CustomHttpHeaders() pulumi.StringMapOutput {
+	return o.ApplyT(func(v DestinationWebhookHandler) map[string]string { return v.CustomHttpHeaders }).(pulumi.StringMapOutput)
+}
+
+// Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+func (o DestinationWebhookHandlerOutput) Proxy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DestinationWebhookHandler) *string { return v.Proxy }).(pulumi.StringPtrOutput)
+}
+
+// Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
+func (o DestinationWebhookHandlerOutput) Secret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DestinationWebhookHandler) *string { return v.Secret }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+func (o DestinationWebhookHandlerOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v DestinationWebhookHandler) string { return v.Url }).(pulumi.StringOutput)
+}
+
+// When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
+func (o DestinationWebhookHandlerOutput) UseSecretForSigning() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DestinationWebhookHandler) *bool { return v.UseSecretForSigning }).(pulumi.BoolPtrOutput)
+}
+
+type DestinationWebhookHandlerArrayOutput struct{ *pulumi.OutputState }
+
+func (DestinationWebhookHandlerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DestinationWebhookHandler)(nil)).Elem()
+}
+
+func (o DestinationWebhookHandlerArrayOutput) ToDestinationWebhookHandlerArrayOutput() DestinationWebhookHandlerArrayOutput {
+	return o
+}
+
+func (o DestinationWebhookHandlerArrayOutput) ToDestinationWebhookHandlerArrayOutputWithContext(ctx context.Context) DestinationWebhookHandlerArrayOutput {
+	return o
+}
+
+func (o DestinationWebhookHandlerArrayOutput) Index(i pulumi.IntInput) DestinationWebhookHandlerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DestinationWebhookHandler {
+		return vs[0].([]DestinationWebhookHandler)[vs[1].(int)]
+	}).(DestinationWebhookHandlerOutput)
 }
 
 type DistributionCustomWebhookCriteria struct {
@@ -8206,6 +9126,219 @@ func (o LocalRepositoryMultiReplicationReplicationArrayOutput) Index(i pulumi.In
 	}).(LocalRepositoryMultiReplicationReplicationOutput)
 }
 
+type ManagedUserPasswordPolicy struct {
+	// Minimum number of digits that the password must contain
+	Digit *int `pulumi:"digit"`
+	// Minimum length of the password
+	Length *int `pulumi:"length"`
+	// Minimum number of lowercase letters that the password must contain
+	Lowercase *int `pulumi:"lowercase"`
+	// Minimum number of special char that the password must contain. Special chars list: `!"#$%&'()*+,-./:;<=>?@[\]^_``{|}~`
+	SpecialChar *int `pulumi:"specialChar"`
+	// Minimum number of uppercase letters that the password must contain
+	Uppercase *int `pulumi:"uppercase"`
+}
+
+// ManagedUserPasswordPolicyInput is an input type that accepts ManagedUserPasswordPolicyArgs and ManagedUserPasswordPolicyOutput values.
+// You can construct a concrete instance of `ManagedUserPasswordPolicyInput` via:
+//
+//	ManagedUserPasswordPolicyArgs{...}
+type ManagedUserPasswordPolicyInput interface {
+	pulumi.Input
+
+	ToManagedUserPasswordPolicyOutput() ManagedUserPasswordPolicyOutput
+	ToManagedUserPasswordPolicyOutputWithContext(context.Context) ManagedUserPasswordPolicyOutput
+}
+
+type ManagedUserPasswordPolicyArgs struct {
+	// Minimum number of digits that the password must contain
+	Digit pulumi.IntPtrInput `pulumi:"digit"`
+	// Minimum length of the password
+	Length pulumi.IntPtrInput `pulumi:"length"`
+	// Minimum number of lowercase letters that the password must contain
+	Lowercase pulumi.IntPtrInput `pulumi:"lowercase"`
+	// Minimum number of special char that the password must contain. Special chars list: `!"#$%&'()*+,-./:;<=>?@[\]^_``{|}~`
+	SpecialChar pulumi.IntPtrInput `pulumi:"specialChar"`
+	// Minimum number of uppercase letters that the password must contain
+	Uppercase pulumi.IntPtrInput `pulumi:"uppercase"`
+}
+
+func (ManagedUserPasswordPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedUserPasswordPolicy)(nil)).Elem()
+}
+
+func (i ManagedUserPasswordPolicyArgs) ToManagedUserPasswordPolicyOutput() ManagedUserPasswordPolicyOutput {
+	return i.ToManagedUserPasswordPolicyOutputWithContext(context.Background())
+}
+
+func (i ManagedUserPasswordPolicyArgs) ToManagedUserPasswordPolicyOutputWithContext(ctx context.Context) ManagedUserPasswordPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedUserPasswordPolicyOutput)
+}
+
+func (i ManagedUserPasswordPolicyArgs) ToManagedUserPasswordPolicyPtrOutput() ManagedUserPasswordPolicyPtrOutput {
+	return i.ToManagedUserPasswordPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i ManagedUserPasswordPolicyArgs) ToManagedUserPasswordPolicyPtrOutputWithContext(ctx context.Context) ManagedUserPasswordPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedUserPasswordPolicyOutput).ToManagedUserPasswordPolicyPtrOutputWithContext(ctx)
+}
+
+// ManagedUserPasswordPolicyPtrInput is an input type that accepts ManagedUserPasswordPolicyArgs, ManagedUserPasswordPolicyPtr and ManagedUserPasswordPolicyPtrOutput values.
+// You can construct a concrete instance of `ManagedUserPasswordPolicyPtrInput` via:
+//
+//	        ManagedUserPasswordPolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type ManagedUserPasswordPolicyPtrInput interface {
+	pulumi.Input
+
+	ToManagedUserPasswordPolicyPtrOutput() ManagedUserPasswordPolicyPtrOutput
+	ToManagedUserPasswordPolicyPtrOutputWithContext(context.Context) ManagedUserPasswordPolicyPtrOutput
+}
+
+type managedUserPasswordPolicyPtrType ManagedUserPasswordPolicyArgs
+
+func ManagedUserPasswordPolicyPtr(v *ManagedUserPasswordPolicyArgs) ManagedUserPasswordPolicyPtrInput {
+	return (*managedUserPasswordPolicyPtrType)(v)
+}
+
+func (*managedUserPasswordPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedUserPasswordPolicy)(nil)).Elem()
+}
+
+func (i *managedUserPasswordPolicyPtrType) ToManagedUserPasswordPolicyPtrOutput() ManagedUserPasswordPolicyPtrOutput {
+	return i.ToManagedUserPasswordPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *managedUserPasswordPolicyPtrType) ToManagedUserPasswordPolicyPtrOutputWithContext(ctx context.Context) ManagedUserPasswordPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedUserPasswordPolicyPtrOutput)
+}
+
+type ManagedUserPasswordPolicyOutput struct{ *pulumi.OutputState }
+
+func (ManagedUserPasswordPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedUserPasswordPolicy)(nil)).Elem()
+}
+
+func (o ManagedUserPasswordPolicyOutput) ToManagedUserPasswordPolicyOutput() ManagedUserPasswordPolicyOutput {
+	return o
+}
+
+func (o ManagedUserPasswordPolicyOutput) ToManagedUserPasswordPolicyOutputWithContext(ctx context.Context) ManagedUserPasswordPolicyOutput {
+	return o
+}
+
+func (o ManagedUserPasswordPolicyOutput) ToManagedUserPasswordPolicyPtrOutput() ManagedUserPasswordPolicyPtrOutput {
+	return o.ToManagedUserPasswordPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o ManagedUserPasswordPolicyOutput) ToManagedUserPasswordPolicyPtrOutputWithContext(ctx context.Context) ManagedUserPasswordPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedUserPasswordPolicy) *ManagedUserPasswordPolicy {
+		return &v
+	}).(ManagedUserPasswordPolicyPtrOutput)
+}
+
+// Minimum number of digits that the password must contain
+func (o ManagedUserPasswordPolicyOutput) Digit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ManagedUserPasswordPolicy) *int { return v.Digit }).(pulumi.IntPtrOutput)
+}
+
+// Minimum length of the password
+func (o ManagedUserPasswordPolicyOutput) Length() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ManagedUserPasswordPolicy) *int { return v.Length }).(pulumi.IntPtrOutput)
+}
+
+// Minimum number of lowercase letters that the password must contain
+func (o ManagedUserPasswordPolicyOutput) Lowercase() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ManagedUserPasswordPolicy) *int { return v.Lowercase }).(pulumi.IntPtrOutput)
+}
+
+// Minimum number of special char that the password must contain. Special chars list: `!"#$%&'()*+,-./:;<=>?@[\]^_“{|}~`
+func (o ManagedUserPasswordPolicyOutput) SpecialChar() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ManagedUserPasswordPolicy) *int { return v.SpecialChar }).(pulumi.IntPtrOutput)
+}
+
+// Minimum number of uppercase letters that the password must contain
+func (o ManagedUserPasswordPolicyOutput) Uppercase() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ManagedUserPasswordPolicy) *int { return v.Uppercase }).(pulumi.IntPtrOutput)
+}
+
+type ManagedUserPasswordPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedUserPasswordPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedUserPasswordPolicy)(nil)).Elem()
+}
+
+func (o ManagedUserPasswordPolicyPtrOutput) ToManagedUserPasswordPolicyPtrOutput() ManagedUserPasswordPolicyPtrOutput {
+	return o
+}
+
+func (o ManagedUserPasswordPolicyPtrOutput) ToManagedUserPasswordPolicyPtrOutputWithContext(ctx context.Context) ManagedUserPasswordPolicyPtrOutput {
+	return o
+}
+
+func (o ManagedUserPasswordPolicyPtrOutput) Elem() ManagedUserPasswordPolicyOutput {
+	return o.ApplyT(func(v *ManagedUserPasswordPolicy) ManagedUserPasswordPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedUserPasswordPolicy
+		return ret
+	}).(ManagedUserPasswordPolicyOutput)
+}
+
+// Minimum number of digits that the password must contain
+func (o ManagedUserPasswordPolicyPtrOutput) Digit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ManagedUserPasswordPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Digit
+	}).(pulumi.IntPtrOutput)
+}
+
+// Minimum length of the password
+func (o ManagedUserPasswordPolicyPtrOutput) Length() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ManagedUserPasswordPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Length
+	}).(pulumi.IntPtrOutput)
+}
+
+// Minimum number of lowercase letters that the password must contain
+func (o ManagedUserPasswordPolicyPtrOutput) Lowercase() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ManagedUserPasswordPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Lowercase
+	}).(pulumi.IntPtrOutput)
+}
+
+// Minimum number of special char that the password must contain. Special chars list: `!"#$%&'()*+,-./:;<=>?@[\]^_“{|}~`
+func (o ManagedUserPasswordPolicyPtrOutput) SpecialChar() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ManagedUserPasswordPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SpecialChar
+	}).(pulumi.IntPtrOutput)
+}
+
+// Minimum number of uppercase letters that the password must contain
+func (o ManagedUserPasswordPolicyPtrOutput) Uppercase() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ManagedUserPasswordPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Uppercase
+	}).(pulumi.IntPtrOutput)
+}
+
 type OauthSettingsOauthProvider struct {
 	// OAuth user info endpoint for the IdP.
 	ApiUrl string `pulumi:"apiUrl"`
@@ -10758,6 +11891,1276 @@ func (o ReleaseBundleCustomWebhookHandlerArrayOutput) Index(i pulumi.IntInput) R
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReleaseBundleCustomWebhookHandler {
 		return vs[0].([]ReleaseBundleCustomWebhookHandler)[vs[1].(int)]
 	}).(ReleaseBundleCustomWebhookHandlerOutput)
+}
+
+type ReleaseBundleV2CustomWebhookCriteria struct {
+	// Trigger on any release bundle.
+	AnyReleaseBundle bool `pulumi:"anyReleaseBundle"`
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**".
+	ExcludePatterns []string `pulumi:"excludePatterns"`
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**".
+	IncludePatterns []string `pulumi:"includePatterns"`
+	// Trigger on this list of release bundle names.
+	SelectedReleaseBundles []string `pulumi:"selectedReleaseBundles"`
+}
+
+// ReleaseBundleV2CustomWebhookCriteriaInput is an input type that accepts ReleaseBundleV2CustomWebhookCriteriaArgs and ReleaseBundleV2CustomWebhookCriteriaOutput values.
+// You can construct a concrete instance of `ReleaseBundleV2CustomWebhookCriteriaInput` via:
+//
+//	ReleaseBundleV2CustomWebhookCriteriaArgs{...}
+type ReleaseBundleV2CustomWebhookCriteriaInput interface {
+	pulumi.Input
+
+	ToReleaseBundleV2CustomWebhookCriteriaOutput() ReleaseBundleV2CustomWebhookCriteriaOutput
+	ToReleaseBundleV2CustomWebhookCriteriaOutputWithContext(context.Context) ReleaseBundleV2CustomWebhookCriteriaOutput
+}
+
+type ReleaseBundleV2CustomWebhookCriteriaArgs struct {
+	// Trigger on any release bundle.
+	AnyReleaseBundle pulumi.BoolInput `pulumi:"anyReleaseBundle"`
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**".
+	ExcludePatterns pulumi.StringArrayInput `pulumi:"excludePatterns"`
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**".
+	IncludePatterns pulumi.StringArrayInput `pulumi:"includePatterns"`
+	// Trigger on this list of release bundle names.
+	SelectedReleaseBundles pulumi.StringArrayInput `pulumi:"selectedReleaseBundles"`
+}
+
+func (ReleaseBundleV2CustomWebhookCriteriaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReleaseBundleV2CustomWebhookCriteria)(nil)).Elem()
+}
+
+func (i ReleaseBundleV2CustomWebhookCriteriaArgs) ToReleaseBundleV2CustomWebhookCriteriaOutput() ReleaseBundleV2CustomWebhookCriteriaOutput {
+	return i.ToReleaseBundleV2CustomWebhookCriteriaOutputWithContext(context.Background())
+}
+
+func (i ReleaseBundleV2CustomWebhookCriteriaArgs) ToReleaseBundleV2CustomWebhookCriteriaOutputWithContext(ctx context.Context) ReleaseBundleV2CustomWebhookCriteriaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReleaseBundleV2CustomWebhookCriteriaOutput)
+}
+
+func (i ReleaseBundleV2CustomWebhookCriteriaArgs) ToReleaseBundleV2CustomWebhookCriteriaPtrOutput() ReleaseBundleV2CustomWebhookCriteriaPtrOutput {
+	return i.ToReleaseBundleV2CustomWebhookCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (i ReleaseBundleV2CustomWebhookCriteriaArgs) ToReleaseBundleV2CustomWebhookCriteriaPtrOutputWithContext(ctx context.Context) ReleaseBundleV2CustomWebhookCriteriaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReleaseBundleV2CustomWebhookCriteriaOutput).ToReleaseBundleV2CustomWebhookCriteriaPtrOutputWithContext(ctx)
+}
+
+// ReleaseBundleV2CustomWebhookCriteriaPtrInput is an input type that accepts ReleaseBundleV2CustomWebhookCriteriaArgs, ReleaseBundleV2CustomWebhookCriteriaPtr and ReleaseBundleV2CustomWebhookCriteriaPtrOutput values.
+// You can construct a concrete instance of `ReleaseBundleV2CustomWebhookCriteriaPtrInput` via:
+//
+//	        ReleaseBundleV2CustomWebhookCriteriaArgs{...}
+//
+//	or:
+//
+//	        nil
+type ReleaseBundleV2CustomWebhookCriteriaPtrInput interface {
+	pulumi.Input
+
+	ToReleaseBundleV2CustomWebhookCriteriaPtrOutput() ReleaseBundleV2CustomWebhookCriteriaPtrOutput
+	ToReleaseBundleV2CustomWebhookCriteriaPtrOutputWithContext(context.Context) ReleaseBundleV2CustomWebhookCriteriaPtrOutput
+}
+
+type releaseBundleV2CustomWebhookCriteriaPtrType ReleaseBundleV2CustomWebhookCriteriaArgs
+
+func ReleaseBundleV2CustomWebhookCriteriaPtr(v *ReleaseBundleV2CustomWebhookCriteriaArgs) ReleaseBundleV2CustomWebhookCriteriaPtrInput {
+	return (*releaseBundleV2CustomWebhookCriteriaPtrType)(v)
+}
+
+func (*releaseBundleV2CustomWebhookCriteriaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReleaseBundleV2CustomWebhookCriteria)(nil)).Elem()
+}
+
+func (i *releaseBundleV2CustomWebhookCriteriaPtrType) ToReleaseBundleV2CustomWebhookCriteriaPtrOutput() ReleaseBundleV2CustomWebhookCriteriaPtrOutput {
+	return i.ToReleaseBundleV2CustomWebhookCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (i *releaseBundleV2CustomWebhookCriteriaPtrType) ToReleaseBundleV2CustomWebhookCriteriaPtrOutputWithContext(ctx context.Context) ReleaseBundleV2CustomWebhookCriteriaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReleaseBundleV2CustomWebhookCriteriaPtrOutput)
+}
+
+type ReleaseBundleV2CustomWebhookCriteriaOutput struct{ *pulumi.OutputState }
+
+func (ReleaseBundleV2CustomWebhookCriteriaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReleaseBundleV2CustomWebhookCriteria)(nil)).Elem()
+}
+
+func (o ReleaseBundleV2CustomWebhookCriteriaOutput) ToReleaseBundleV2CustomWebhookCriteriaOutput() ReleaseBundleV2CustomWebhookCriteriaOutput {
+	return o
+}
+
+func (o ReleaseBundleV2CustomWebhookCriteriaOutput) ToReleaseBundleV2CustomWebhookCriteriaOutputWithContext(ctx context.Context) ReleaseBundleV2CustomWebhookCriteriaOutput {
+	return o
+}
+
+func (o ReleaseBundleV2CustomWebhookCriteriaOutput) ToReleaseBundleV2CustomWebhookCriteriaPtrOutput() ReleaseBundleV2CustomWebhookCriteriaPtrOutput {
+	return o.ToReleaseBundleV2CustomWebhookCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (o ReleaseBundleV2CustomWebhookCriteriaOutput) ToReleaseBundleV2CustomWebhookCriteriaPtrOutputWithContext(ctx context.Context) ReleaseBundleV2CustomWebhookCriteriaPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReleaseBundleV2CustomWebhookCriteria) *ReleaseBundleV2CustomWebhookCriteria {
+		return &v
+	}).(ReleaseBundleV2CustomWebhookCriteriaPtrOutput)
+}
+
+// Trigger on any release bundle.
+func (o ReleaseBundleV2CustomWebhookCriteriaOutput) AnyReleaseBundle() pulumi.BoolOutput {
+	return o.ApplyT(func(v ReleaseBundleV2CustomWebhookCriteria) bool { return v.AnyReleaseBundle }).(pulumi.BoolOutput)
+}
+
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**".
+func (o ReleaseBundleV2CustomWebhookCriteriaOutput) ExcludePatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ReleaseBundleV2CustomWebhookCriteria) []string { return v.ExcludePatterns }).(pulumi.StringArrayOutput)
+}
+
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**".
+func (o ReleaseBundleV2CustomWebhookCriteriaOutput) IncludePatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ReleaseBundleV2CustomWebhookCriteria) []string { return v.IncludePatterns }).(pulumi.StringArrayOutput)
+}
+
+// Trigger on this list of release bundle names.
+func (o ReleaseBundleV2CustomWebhookCriteriaOutput) SelectedReleaseBundles() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ReleaseBundleV2CustomWebhookCriteria) []string { return v.SelectedReleaseBundles }).(pulumi.StringArrayOutput)
+}
+
+type ReleaseBundleV2CustomWebhookCriteriaPtrOutput struct{ *pulumi.OutputState }
+
+func (ReleaseBundleV2CustomWebhookCriteriaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReleaseBundleV2CustomWebhookCriteria)(nil)).Elem()
+}
+
+func (o ReleaseBundleV2CustomWebhookCriteriaPtrOutput) ToReleaseBundleV2CustomWebhookCriteriaPtrOutput() ReleaseBundleV2CustomWebhookCriteriaPtrOutput {
+	return o
+}
+
+func (o ReleaseBundleV2CustomWebhookCriteriaPtrOutput) ToReleaseBundleV2CustomWebhookCriteriaPtrOutputWithContext(ctx context.Context) ReleaseBundleV2CustomWebhookCriteriaPtrOutput {
+	return o
+}
+
+func (o ReleaseBundleV2CustomWebhookCriteriaPtrOutput) Elem() ReleaseBundleV2CustomWebhookCriteriaOutput {
+	return o.ApplyT(func(v *ReleaseBundleV2CustomWebhookCriteria) ReleaseBundleV2CustomWebhookCriteria {
+		if v != nil {
+			return *v
+		}
+		var ret ReleaseBundleV2CustomWebhookCriteria
+		return ret
+	}).(ReleaseBundleV2CustomWebhookCriteriaOutput)
+}
+
+// Trigger on any release bundle.
+func (o ReleaseBundleV2CustomWebhookCriteriaPtrOutput) AnyReleaseBundle() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ReleaseBundleV2CustomWebhookCriteria) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.AnyReleaseBundle
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**".
+func (o ReleaseBundleV2CustomWebhookCriteriaPtrOutput) ExcludePatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ReleaseBundleV2CustomWebhookCriteria) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludePatterns
+	}).(pulumi.StringArrayOutput)
+}
+
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**".
+func (o ReleaseBundleV2CustomWebhookCriteriaPtrOutput) IncludePatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ReleaseBundleV2CustomWebhookCriteria) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IncludePatterns
+	}).(pulumi.StringArrayOutput)
+}
+
+// Trigger on this list of release bundle names.
+func (o ReleaseBundleV2CustomWebhookCriteriaPtrOutput) SelectedReleaseBundles() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ReleaseBundleV2CustomWebhookCriteria) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SelectedReleaseBundles
+	}).(pulumi.StringArrayOutput)
+}
+
+type ReleaseBundleV2CustomWebhookHandler struct {
+	// HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
+	HttpHeaders map[string]string `pulumi:"httpHeaders"`
+	// This attribute is used to build the request body. Used in custom webhooks
+	Payload *string `pulumi:"payload"`
+	// Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+	Proxy *string `pulumi:"proxy"`
+	// Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
+	Secrets map[string]string `pulumi:"secrets"`
+	// Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+	Url string `pulumi:"url"`
+}
+
+// ReleaseBundleV2CustomWebhookHandlerInput is an input type that accepts ReleaseBundleV2CustomWebhookHandlerArgs and ReleaseBundleV2CustomWebhookHandlerOutput values.
+// You can construct a concrete instance of `ReleaseBundleV2CustomWebhookHandlerInput` via:
+//
+//	ReleaseBundleV2CustomWebhookHandlerArgs{...}
+type ReleaseBundleV2CustomWebhookHandlerInput interface {
+	pulumi.Input
+
+	ToReleaseBundleV2CustomWebhookHandlerOutput() ReleaseBundleV2CustomWebhookHandlerOutput
+	ToReleaseBundleV2CustomWebhookHandlerOutputWithContext(context.Context) ReleaseBundleV2CustomWebhookHandlerOutput
+}
+
+type ReleaseBundleV2CustomWebhookHandlerArgs struct {
+	// HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
+	HttpHeaders pulumi.StringMapInput `pulumi:"httpHeaders"`
+	// This attribute is used to build the request body. Used in custom webhooks
+	Payload pulumi.StringPtrInput `pulumi:"payload"`
+	// Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+	Proxy pulumi.StringPtrInput `pulumi:"proxy"`
+	// Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
+	Secrets pulumi.StringMapInput `pulumi:"secrets"`
+	// Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (ReleaseBundleV2CustomWebhookHandlerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReleaseBundleV2CustomWebhookHandler)(nil)).Elem()
+}
+
+func (i ReleaseBundleV2CustomWebhookHandlerArgs) ToReleaseBundleV2CustomWebhookHandlerOutput() ReleaseBundleV2CustomWebhookHandlerOutput {
+	return i.ToReleaseBundleV2CustomWebhookHandlerOutputWithContext(context.Background())
+}
+
+func (i ReleaseBundleV2CustomWebhookHandlerArgs) ToReleaseBundleV2CustomWebhookHandlerOutputWithContext(ctx context.Context) ReleaseBundleV2CustomWebhookHandlerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReleaseBundleV2CustomWebhookHandlerOutput)
+}
+
+// ReleaseBundleV2CustomWebhookHandlerArrayInput is an input type that accepts ReleaseBundleV2CustomWebhookHandlerArray and ReleaseBundleV2CustomWebhookHandlerArrayOutput values.
+// You can construct a concrete instance of `ReleaseBundleV2CustomWebhookHandlerArrayInput` via:
+//
+//	ReleaseBundleV2CustomWebhookHandlerArray{ ReleaseBundleV2CustomWebhookHandlerArgs{...} }
+type ReleaseBundleV2CustomWebhookHandlerArrayInput interface {
+	pulumi.Input
+
+	ToReleaseBundleV2CustomWebhookHandlerArrayOutput() ReleaseBundleV2CustomWebhookHandlerArrayOutput
+	ToReleaseBundleV2CustomWebhookHandlerArrayOutputWithContext(context.Context) ReleaseBundleV2CustomWebhookHandlerArrayOutput
+}
+
+type ReleaseBundleV2CustomWebhookHandlerArray []ReleaseBundleV2CustomWebhookHandlerInput
+
+func (ReleaseBundleV2CustomWebhookHandlerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReleaseBundleV2CustomWebhookHandler)(nil)).Elem()
+}
+
+func (i ReleaseBundleV2CustomWebhookHandlerArray) ToReleaseBundleV2CustomWebhookHandlerArrayOutput() ReleaseBundleV2CustomWebhookHandlerArrayOutput {
+	return i.ToReleaseBundleV2CustomWebhookHandlerArrayOutputWithContext(context.Background())
+}
+
+func (i ReleaseBundleV2CustomWebhookHandlerArray) ToReleaseBundleV2CustomWebhookHandlerArrayOutputWithContext(ctx context.Context) ReleaseBundleV2CustomWebhookHandlerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReleaseBundleV2CustomWebhookHandlerArrayOutput)
+}
+
+type ReleaseBundleV2CustomWebhookHandlerOutput struct{ *pulumi.OutputState }
+
+func (ReleaseBundleV2CustomWebhookHandlerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReleaseBundleV2CustomWebhookHandler)(nil)).Elem()
+}
+
+func (o ReleaseBundleV2CustomWebhookHandlerOutput) ToReleaseBundleV2CustomWebhookHandlerOutput() ReleaseBundleV2CustomWebhookHandlerOutput {
+	return o
+}
+
+func (o ReleaseBundleV2CustomWebhookHandlerOutput) ToReleaseBundleV2CustomWebhookHandlerOutputWithContext(ctx context.Context) ReleaseBundleV2CustomWebhookHandlerOutput {
+	return o
+}
+
+// HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
+func (o ReleaseBundleV2CustomWebhookHandlerOutput) HttpHeaders() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ReleaseBundleV2CustomWebhookHandler) map[string]string { return v.HttpHeaders }).(pulumi.StringMapOutput)
+}
+
+// This attribute is used to build the request body. Used in custom webhooks
+func (o ReleaseBundleV2CustomWebhookHandlerOutput) Payload() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReleaseBundleV2CustomWebhookHandler) *string { return v.Payload }).(pulumi.StringPtrOutput)
+}
+
+// Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+func (o ReleaseBundleV2CustomWebhookHandlerOutput) Proxy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReleaseBundleV2CustomWebhookHandler) *string { return v.Proxy }).(pulumi.StringPtrOutput)
+}
+
+// Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
+func (o ReleaseBundleV2CustomWebhookHandlerOutput) Secrets() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ReleaseBundleV2CustomWebhookHandler) map[string]string { return v.Secrets }).(pulumi.StringMapOutput)
+}
+
+// Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+func (o ReleaseBundleV2CustomWebhookHandlerOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v ReleaseBundleV2CustomWebhookHandler) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type ReleaseBundleV2CustomWebhookHandlerArrayOutput struct{ *pulumi.OutputState }
+
+func (ReleaseBundleV2CustomWebhookHandlerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReleaseBundleV2CustomWebhookHandler)(nil)).Elem()
+}
+
+func (o ReleaseBundleV2CustomWebhookHandlerArrayOutput) ToReleaseBundleV2CustomWebhookHandlerArrayOutput() ReleaseBundleV2CustomWebhookHandlerArrayOutput {
+	return o
+}
+
+func (o ReleaseBundleV2CustomWebhookHandlerArrayOutput) ToReleaseBundleV2CustomWebhookHandlerArrayOutputWithContext(ctx context.Context) ReleaseBundleV2CustomWebhookHandlerArrayOutput {
+	return o
+}
+
+func (o ReleaseBundleV2CustomWebhookHandlerArrayOutput) Index(i pulumi.IntInput) ReleaseBundleV2CustomWebhookHandlerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReleaseBundleV2CustomWebhookHandler {
+		return vs[0].([]ReleaseBundleV2CustomWebhookHandler)[vs[1].(int)]
+	}).(ReleaseBundleV2CustomWebhookHandlerOutput)
+}
+
+type ReleaseBundleV2PromotionCustomWebhookCriteria struct {
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\nAnt-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+	ExcludePatterns []string `pulumi:"excludePatterns"`
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\nAnt-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+	IncludePatterns []string `pulumi:"includePatterns"`
+	// Trigger on this list of environment names.
+	SelectedEnvironments []string `pulumi:"selectedEnvironments"`
+}
+
+// ReleaseBundleV2PromotionCustomWebhookCriteriaInput is an input type that accepts ReleaseBundleV2PromotionCustomWebhookCriteriaArgs and ReleaseBundleV2PromotionCustomWebhookCriteriaOutput values.
+// You can construct a concrete instance of `ReleaseBundleV2PromotionCustomWebhookCriteriaInput` via:
+//
+//	ReleaseBundleV2PromotionCustomWebhookCriteriaArgs{...}
+type ReleaseBundleV2PromotionCustomWebhookCriteriaInput interface {
+	pulumi.Input
+
+	ToReleaseBundleV2PromotionCustomWebhookCriteriaOutput() ReleaseBundleV2PromotionCustomWebhookCriteriaOutput
+	ToReleaseBundleV2PromotionCustomWebhookCriteriaOutputWithContext(context.Context) ReleaseBundleV2PromotionCustomWebhookCriteriaOutput
+}
+
+type ReleaseBundleV2PromotionCustomWebhookCriteriaArgs struct {
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\nAnt-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+	ExcludePatterns pulumi.StringArrayInput `pulumi:"excludePatterns"`
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\nAnt-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+	IncludePatterns pulumi.StringArrayInput `pulumi:"includePatterns"`
+	// Trigger on this list of environment names.
+	SelectedEnvironments pulumi.StringArrayInput `pulumi:"selectedEnvironments"`
+}
+
+func (ReleaseBundleV2PromotionCustomWebhookCriteriaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReleaseBundleV2PromotionCustomWebhookCriteria)(nil)).Elem()
+}
+
+func (i ReleaseBundleV2PromotionCustomWebhookCriteriaArgs) ToReleaseBundleV2PromotionCustomWebhookCriteriaOutput() ReleaseBundleV2PromotionCustomWebhookCriteriaOutput {
+	return i.ToReleaseBundleV2PromotionCustomWebhookCriteriaOutputWithContext(context.Background())
+}
+
+func (i ReleaseBundleV2PromotionCustomWebhookCriteriaArgs) ToReleaseBundleV2PromotionCustomWebhookCriteriaOutputWithContext(ctx context.Context) ReleaseBundleV2PromotionCustomWebhookCriteriaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReleaseBundleV2PromotionCustomWebhookCriteriaOutput)
+}
+
+func (i ReleaseBundleV2PromotionCustomWebhookCriteriaArgs) ToReleaseBundleV2PromotionCustomWebhookCriteriaPtrOutput() ReleaseBundleV2PromotionCustomWebhookCriteriaPtrOutput {
+	return i.ToReleaseBundleV2PromotionCustomWebhookCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (i ReleaseBundleV2PromotionCustomWebhookCriteriaArgs) ToReleaseBundleV2PromotionCustomWebhookCriteriaPtrOutputWithContext(ctx context.Context) ReleaseBundleV2PromotionCustomWebhookCriteriaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReleaseBundleV2PromotionCustomWebhookCriteriaOutput).ToReleaseBundleV2PromotionCustomWebhookCriteriaPtrOutputWithContext(ctx)
+}
+
+// ReleaseBundleV2PromotionCustomWebhookCriteriaPtrInput is an input type that accepts ReleaseBundleV2PromotionCustomWebhookCriteriaArgs, ReleaseBundleV2PromotionCustomWebhookCriteriaPtr and ReleaseBundleV2PromotionCustomWebhookCriteriaPtrOutput values.
+// You can construct a concrete instance of `ReleaseBundleV2PromotionCustomWebhookCriteriaPtrInput` via:
+//
+//	        ReleaseBundleV2PromotionCustomWebhookCriteriaArgs{...}
+//
+//	or:
+//
+//	        nil
+type ReleaseBundleV2PromotionCustomWebhookCriteriaPtrInput interface {
+	pulumi.Input
+
+	ToReleaseBundleV2PromotionCustomWebhookCriteriaPtrOutput() ReleaseBundleV2PromotionCustomWebhookCriteriaPtrOutput
+	ToReleaseBundleV2PromotionCustomWebhookCriteriaPtrOutputWithContext(context.Context) ReleaseBundleV2PromotionCustomWebhookCriteriaPtrOutput
+}
+
+type releaseBundleV2PromotionCustomWebhookCriteriaPtrType ReleaseBundleV2PromotionCustomWebhookCriteriaArgs
+
+func ReleaseBundleV2PromotionCustomWebhookCriteriaPtr(v *ReleaseBundleV2PromotionCustomWebhookCriteriaArgs) ReleaseBundleV2PromotionCustomWebhookCriteriaPtrInput {
+	return (*releaseBundleV2PromotionCustomWebhookCriteriaPtrType)(v)
+}
+
+func (*releaseBundleV2PromotionCustomWebhookCriteriaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReleaseBundleV2PromotionCustomWebhookCriteria)(nil)).Elem()
+}
+
+func (i *releaseBundleV2PromotionCustomWebhookCriteriaPtrType) ToReleaseBundleV2PromotionCustomWebhookCriteriaPtrOutput() ReleaseBundleV2PromotionCustomWebhookCriteriaPtrOutput {
+	return i.ToReleaseBundleV2PromotionCustomWebhookCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (i *releaseBundleV2PromotionCustomWebhookCriteriaPtrType) ToReleaseBundleV2PromotionCustomWebhookCriteriaPtrOutputWithContext(ctx context.Context) ReleaseBundleV2PromotionCustomWebhookCriteriaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReleaseBundleV2PromotionCustomWebhookCriteriaPtrOutput)
+}
+
+type ReleaseBundleV2PromotionCustomWebhookCriteriaOutput struct{ *pulumi.OutputState }
+
+func (ReleaseBundleV2PromotionCustomWebhookCriteriaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReleaseBundleV2PromotionCustomWebhookCriteria)(nil)).Elem()
+}
+
+func (o ReleaseBundleV2PromotionCustomWebhookCriteriaOutput) ToReleaseBundleV2PromotionCustomWebhookCriteriaOutput() ReleaseBundleV2PromotionCustomWebhookCriteriaOutput {
+	return o
+}
+
+func (o ReleaseBundleV2PromotionCustomWebhookCriteriaOutput) ToReleaseBundleV2PromotionCustomWebhookCriteriaOutputWithContext(ctx context.Context) ReleaseBundleV2PromotionCustomWebhookCriteriaOutput {
+	return o
+}
+
+func (o ReleaseBundleV2PromotionCustomWebhookCriteriaOutput) ToReleaseBundleV2PromotionCustomWebhookCriteriaPtrOutput() ReleaseBundleV2PromotionCustomWebhookCriteriaPtrOutput {
+	return o.ToReleaseBundleV2PromotionCustomWebhookCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (o ReleaseBundleV2PromotionCustomWebhookCriteriaOutput) ToReleaseBundleV2PromotionCustomWebhookCriteriaPtrOutputWithContext(ctx context.Context) ReleaseBundleV2PromotionCustomWebhookCriteriaPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReleaseBundleV2PromotionCustomWebhookCriteria) *ReleaseBundleV2PromotionCustomWebhookCriteria {
+		return &v
+	}).(ReleaseBundleV2PromotionCustomWebhookCriteriaPtrOutput)
+}
+
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\nAnt-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+func (o ReleaseBundleV2PromotionCustomWebhookCriteriaOutput) ExcludePatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ReleaseBundleV2PromotionCustomWebhookCriteria) []string { return v.ExcludePatterns }).(pulumi.StringArrayOutput)
+}
+
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\nAnt-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+func (o ReleaseBundleV2PromotionCustomWebhookCriteriaOutput) IncludePatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ReleaseBundleV2PromotionCustomWebhookCriteria) []string { return v.IncludePatterns }).(pulumi.StringArrayOutput)
+}
+
+// Trigger on this list of environment names.
+func (o ReleaseBundleV2PromotionCustomWebhookCriteriaOutput) SelectedEnvironments() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ReleaseBundleV2PromotionCustomWebhookCriteria) []string { return v.SelectedEnvironments }).(pulumi.StringArrayOutput)
+}
+
+type ReleaseBundleV2PromotionCustomWebhookCriteriaPtrOutput struct{ *pulumi.OutputState }
+
+func (ReleaseBundleV2PromotionCustomWebhookCriteriaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReleaseBundleV2PromotionCustomWebhookCriteria)(nil)).Elem()
+}
+
+func (o ReleaseBundleV2PromotionCustomWebhookCriteriaPtrOutput) ToReleaseBundleV2PromotionCustomWebhookCriteriaPtrOutput() ReleaseBundleV2PromotionCustomWebhookCriteriaPtrOutput {
+	return o
+}
+
+func (o ReleaseBundleV2PromotionCustomWebhookCriteriaPtrOutput) ToReleaseBundleV2PromotionCustomWebhookCriteriaPtrOutputWithContext(ctx context.Context) ReleaseBundleV2PromotionCustomWebhookCriteriaPtrOutput {
+	return o
+}
+
+func (o ReleaseBundleV2PromotionCustomWebhookCriteriaPtrOutput) Elem() ReleaseBundleV2PromotionCustomWebhookCriteriaOutput {
+	return o.ApplyT(func(v *ReleaseBundleV2PromotionCustomWebhookCriteria) ReleaseBundleV2PromotionCustomWebhookCriteria {
+		if v != nil {
+			return *v
+		}
+		var ret ReleaseBundleV2PromotionCustomWebhookCriteria
+		return ret
+	}).(ReleaseBundleV2PromotionCustomWebhookCriteriaOutput)
+}
+
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\nAnt-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+func (o ReleaseBundleV2PromotionCustomWebhookCriteriaPtrOutput) ExcludePatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ReleaseBundleV2PromotionCustomWebhookCriteria) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludePatterns
+	}).(pulumi.StringArrayOutput)
+}
+
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\nAnt-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+func (o ReleaseBundleV2PromotionCustomWebhookCriteriaPtrOutput) IncludePatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ReleaseBundleV2PromotionCustomWebhookCriteria) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IncludePatterns
+	}).(pulumi.StringArrayOutput)
+}
+
+// Trigger on this list of environment names.
+func (o ReleaseBundleV2PromotionCustomWebhookCriteriaPtrOutput) SelectedEnvironments() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ReleaseBundleV2PromotionCustomWebhookCriteria) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SelectedEnvironments
+	}).(pulumi.StringArrayOutput)
+}
+
+type ReleaseBundleV2PromotionCustomWebhookHandler struct {
+	// HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
+	HttpHeaders map[string]string `pulumi:"httpHeaders"`
+	// This attribute is used to build the request body. Used in custom webhooks
+	Payload *string `pulumi:"payload"`
+	// Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+	Proxy *string `pulumi:"proxy"`
+	// Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
+	Secrets map[string]string `pulumi:"secrets"`
+	// Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+	Url string `pulumi:"url"`
+}
+
+// ReleaseBundleV2PromotionCustomWebhookHandlerInput is an input type that accepts ReleaseBundleV2PromotionCustomWebhookHandlerArgs and ReleaseBundleV2PromotionCustomWebhookHandlerOutput values.
+// You can construct a concrete instance of `ReleaseBundleV2PromotionCustomWebhookHandlerInput` via:
+//
+//	ReleaseBundleV2PromotionCustomWebhookHandlerArgs{...}
+type ReleaseBundleV2PromotionCustomWebhookHandlerInput interface {
+	pulumi.Input
+
+	ToReleaseBundleV2PromotionCustomWebhookHandlerOutput() ReleaseBundleV2PromotionCustomWebhookHandlerOutput
+	ToReleaseBundleV2PromotionCustomWebhookHandlerOutputWithContext(context.Context) ReleaseBundleV2PromotionCustomWebhookHandlerOutput
+}
+
+type ReleaseBundleV2PromotionCustomWebhookHandlerArgs struct {
+	// HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
+	HttpHeaders pulumi.StringMapInput `pulumi:"httpHeaders"`
+	// This attribute is used to build the request body. Used in custom webhooks
+	Payload pulumi.StringPtrInput `pulumi:"payload"`
+	// Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+	Proxy pulumi.StringPtrInput `pulumi:"proxy"`
+	// Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
+	Secrets pulumi.StringMapInput `pulumi:"secrets"`
+	// Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (ReleaseBundleV2PromotionCustomWebhookHandlerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReleaseBundleV2PromotionCustomWebhookHandler)(nil)).Elem()
+}
+
+func (i ReleaseBundleV2PromotionCustomWebhookHandlerArgs) ToReleaseBundleV2PromotionCustomWebhookHandlerOutput() ReleaseBundleV2PromotionCustomWebhookHandlerOutput {
+	return i.ToReleaseBundleV2PromotionCustomWebhookHandlerOutputWithContext(context.Background())
+}
+
+func (i ReleaseBundleV2PromotionCustomWebhookHandlerArgs) ToReleaseBundleV2PromotionCustomWebhookHandlerOutputWithContext(ctx context.Context) ReleaseBundleV2PromotionCustomWebhookHandlerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReleaseBundleV2PromotionCustomWebhookHandlerOutput)
+}
+
+// ReleaseBundleV2PromotionCustomWebhookHandlerArrayInput is an input type that accepts ReleaseBundleV2PromotionCustomWebhookHandlerArray and ReleaseBundleV2PromotionCustomWebhookHandlerArrayOutput values.
+// You can construct a concrete instance of `ReleaseBundleV2PromotionCustomWebhookHandlerArrayInput` via:
+//
+//	ReleaseBundleV2PromotionCustomWebhookHandlerArray{ ReleaseBundleV2PromotionCustomWebhookHandlerArgs{...} }
+type ReleaseBundleV2PromotionCustomWebhookHandlerArrayInput interface {
+	pulumi.Input
+
+	ToReleaseBundleV2PromotionCustomWebhookHandlerArrayOutput() ReleaseBundleV2PromotionCustomWebhookHandlerArrayOutput
+	ToReleaseBundleV2PromotionCustomWebhookHandlerArrayOutputWithContext(context.Context) ReleaseBundleV2PromotionCustomWebhookHandlerArrayOutput
+}
+
+type ReleaseBundleV2PromotionCustomWebhookHandlerArray []ReleaseBundleV2PromotionCustomWebhookHandlerInput
+
+func (ReleaseBundleV2PromotionCustomWebhookHandlerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReleaseBundleV2PromotionCustomWebhookHandler)(nil)).Elem()
+}
+
+func (i ReleaseBundleV2PromotionCustomWebhookHandlerArray) ToReleaseBundleV2PromotionCustomWebhookHandlerArrayOutput() ReleaseBundleV2PromotionCustomWebhookHandlerArrayOutput {
+	return i.ToReleaseBundleV2PromotionCustomWebhookHandlerArrayOutputWithContext(context.Background())
+}
+
+func (i ReleaseBundleV2PromotionCustomWebhookHandlerArray) ToReleaseBundleV2PromotionCustomWebhookHandlerArrayOutputWithContext(ctx context.Context) ReleaseBundleV2PromotionCustomWebhookHandlerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReleaseBundleV2PromotionCustomWebhookHandlerArrayOutput)
+}
+
+type ReleaseBundleV2PromotionCustomWebhookHandlerOutput struct{ *pulumi.OutputState }
+
+func (ReleaseBundleV2PromotionCustomWebhookHandlerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReleaseBundleV2PromotionCustomWebhookHandler)(nil)).Elem()
+}
+
+func (o ReleaseBundleV2PromotionCustomWebhookHandlerOutput) ToReleaseBundleV2PromotionCustomWebhookHandlerOutput() ReleaseBundleV2PromotionCustomWebhookHandlerOutput {
+	return o
+}
+
+func (o ReleaseBundleV2PromotionCustomWebhookHandlerOutput) ToReleaseBundleV2PromotionCustomWebhookHandlerOutputWithContext(ctx context.Context) ReleaseBundleV2PromotionCustomWebhookHandlerOutput {
+	return o
+}
+
+// HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
+func (o ReleaseBundleV2PromotionCustomWebhookHandlerOutput) HttpHeaders() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ReleaseBundleV2PromotionCustomWebhookHandler) map[string]string { return v.HttpHeaders }).(pulumi.StringMapOutput)
+}
+
+// This attribute is used to build the request body. Used in custom webhooks
+func (o ReleaseBundleV2PromotionCustomWebhookHandlerOutput) Payload() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReleaseBundleV2PromotionCustomWebhookHandler) *string { return v.Payload }).(pulumi.StringPtrOutput)
+}
+
+// Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+func (o ReleaseBundleV2PromotionCustomWebhookHandlerOutput) Proxy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReleaseBundleV2PromotionCustomWebhookHandler) *string { return v.Proxy }).(pulumi.StringPtrOutput)
+}
+
+// Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
+func (o ReleaseBundleV2PromotionCustomWebhookHandlerOutput) Secrets() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ReleaseBundleV2PromotionCustomWebhookHandler) map[string]string { return v.Secrets }).(pulumi.StringMapOutput)
+}
+
+// Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+func (o ReleaseBundleV2PromotionCustomWebhookHandlerOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v ReleaseBundleV2PromotionCustomWebhookHandler) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type ReleaseBundleV2PromotionCustomWebhookHandlerArrayOutput struct{ *pulumi.OutputState }
+
+func (ReleaseBundleV2PromotionCustomWebhookHandlerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReleaseBundleV2PromotionCustomWebhookHandler)(nil)).Elem()
+}
+
+func (o ReleaseBundleV2PromotionCustomWebhookHandlerArrayOutput) ToReleaseBundleV2PromotionCustomWebhookHandlerArrayOutput() ReleaseBundleV2PromotionCustomWebhookHandlerArrayOutput {
+	return o
+}
+
+func (o ReleaseBundleV2PromotionCustomWebhookHandlerArrayOutput) ToReleaseBundleV2PromotionCustomWebhookHandlerArrayOutputWithContext(ctx context.Context) ReleaseBundleV2PromotionCustomWebhookHandlerArrayOutput {
+	return o
+}
+
+func (o ReleaseBundleV2PromotionCustomWebhookHandlerArrayOutput) Index(i pulumi.IntInput) ReleaseBundleV2PromotionCustomWebhookHandlerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReleaseBundleV2PromotionCustomWebhookHandler {
+		return vs[0].([]ReleaseBundleV2PromotionCustomWebhookHandler)[vs[1].(int)]
+	}).(ReleaseBundleV2PromotionCustomWebhookHandlerOutput)
+}
+
+type ReleaseBundleV2PromotionWebhookCriteria struct {
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\nAnt-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+	ExcludePatterns []string `pulumi:"excludePatterns"`
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\nAnt-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+	IncludePatterns []string `pulumi:"includePatterns"`
+	// Trigger on this list of environment names.
+	SelectedEnvironments []string `pulumi:"selectedEnvironments"`
+}
+
+// ReleaseBundleV2PromotionWebhookCriteriaInput is an input type that accepts ReleaseBundleV2PromotionWebhookCriteriaArgs and ReleaseBundleV2PromotionWebhookCriteriaOutput values.
+// You can construct a concrete instance of `ReleaseBundleV2PromotionWebhookCriteriaInput` via:
+//
+//	ReleaseBundleV2PromotionWebhookCriteriaArgs{...}
+type ReleaseBundleV2PromotionWebhookCriteriaInput interface {
+	pulumi.Input
+
+	ToReleaseBundleV2PromotionWebhookCriteriaOutput() ReleaseBundleV2PromotionWebhookCriteriaOutput
+	ToReleaseBundleV2PromotionWebhookCriteriaOutputWithContext(context.Context) ReleaseBundleV2PromotionWebhookCriteriaOutput
+}
+
+type ReleaseBundleV2PromotionWebhookCriteriaArgs struct {
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\nAnt-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+	ExcludePatterns pulumi.StringArrayInput `pulumi:"excludePatterns"`
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\nAnt-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+	IncludePatterns pulumi.StringArrayInput `pulumi:"includePatterns"`
+	// Trigger on this list of environment names.
+	SelectedEnvironments pulumi.StringArrayInput `pulumi:"selectedEnvironments"`
+}
+
+func (ReleaseBundleV2PromotionWebhookCriteriaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReleaseBundleV2PromotionWebhookCriteria)(nil)).Elem()
+}
+
+func (i ReleaseBundleV2PromotionWebhookCriteriaArgs) ToReleaseBundleV2PromotionWebhookCriteriaOutput() ReleaseBundleV2PromotionWebhookCriteriaOutput {
+	return i.ToReleaseBundleV2PromotionWebhookCriteriaOutputWithContext(context.Background())
+}
+
+func (i ReleaseBundleV2PromotionWebhookCriteriaArgs) ToReleaseBundleV2PromotionWebhookCriteriaOutputWithContext(ctx context.Context) ReleaseBundleV2PromotionWebhookCriteriaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReleaseBundleV2PromotionWebhookCriteriaOutput)
+}
+
+func (i ReleaseBundleV2PromotionWebhookCriteriaArgs) ToReleaseBundleV2PromotionWebhookCriteriaPtrOutput() ReleaseBundleV2PromotionWebhookCriteriaPtrOutput {
+	return i.ToReleaseBundleV2PromotionWebhookCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (i ReleaseBundleV2PromotionWebhookCriteriaArgs) ToReleaseBundleV2PromotionWebhookCriteriaPtrOutputWithContext(ctx context.Context) ReleaseBundleV2PromotionWebhookCriteriaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReleaseBundleV2PromotionWebhookCriteriaOutput).ToReleaseBundleV2PromotionWebhookCriteriaPtrOutputWithContext(ctx)
+}
+
+// ReleaseBundleV2PromotionWebhookCriteriaPtrInput is an input type that accepts ReleaseBundleV2PromotionWebhookCriteriaArgs, ReleaseBundleV2PromotionWebhookCriteriaPtr and ReleaseBundleV2PromotionWebhookCriteriaPtrOutput values.
+// You can construct a concrete instance of `ReleaseBundleV2PromotionWebhookCriteriaPtrInput` via:
+//
+//	        ReleaseBundleV2PromotionWebhookCriteriaArgs{...}
+//
+//	or:
+//
+//	        nil
+type ReleaseBundleV2PromotionWebhookCriteriaPtrInput interface {
+	pulumi.Input
+
+	ToReleaseBundleV2PromotionWebhookCriteriaPtrOutput() ReleaseBundleV2PromotionWebhookCriteriaPtrOutput
+	ToReleaseBundleV2PromotionWebhookCriteriaPtrOutputWithContext(context.Context) ReleaseBundleV2PromotionWebhookCriteriaPtrOutput
+}
+
+type releaseBundleV2PromotionWebhookCriteriaPtrType ReleaseBundleV2PromotionWebhookCriteriaArgs
+
+func ReleaseBundleV2PromotionWebhookCriteriaPtr(v *ReleaseBundleV2PromotionWebhookCriteriaArgs) ReleaseBundleV2PromotionWebhookCriteriaPtrInput {
+	return (*releaseBundleV2PromotionWebhookCriteriaPtrType)(v)
+}
+
+func (*releaseBundleV2PromotionWebhookCriteriaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReleaseBundleV2PromotionWebhookCriteria)(nil)).Elem()
+}
+
+func (i *releaseBundleV2PromotionWebhookCriteriaPtrType) ToReleaseBundleV2PromotionWebhookCriteriaPtrOutput() ReleaseBundleV2PromotionWebhookCriteriaPtrOutput {
+	return i.ToReleaseBundleV2PromotionWebhookCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (i *releaseBundleV2PromotionWebhookCriteriaPtrType) ToReleaseBundleV2PromotionWebhookCriteriaPtrOutputWithContext(ctx context.Context) ReleaseBundleV2PromotionWebhookCriteriaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReleaseBundleV2PromotionWebhookCriteriaPtrOutput)
+}
+
+type ReleaseBundleV2PromotionWebhookCriteriaOutput struct{ *pulumi.OutputState }
+
+func (ReleaseBundleV2PromotionWebhookCriteriaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReleaseBundleV2PromotionWebhookCriteria)(nil)).Elem()
+}
+
+func (o ReleaseBundleV2PromotionWebhookCriteriaOutput) ToReleaseBundleV2PromotionWebhookCriteriaOutput() ReleaseBundleV2PromotionWebhookCriteriaOutput {
+	return o
+}
+
+func (o ReleaseBundleV2PromotionWebhookCriteriaOutput) ToReleaseBundleV2PromotionWebhookCriteriaOutputWithContext(ctx context.Context) ReleaseBundleV2PromotionWebhookCriteriaOutput {
+	return o
+}
+
+func (o ReleaseBundleV2PromotionWebhookCriteriaOutput) ToReleaseBundleV2PromotionWebhookCriteriaPtrOutput() ReleaseBundleV2PromotionWebhookCriteriaPtrOutput {
+	return o.ToReleaseBundleV2PromotionWebhookCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (o ReleaseBundleV2PromotionWebhookCriteriaOutput) ToReleaseBundleV2PromotionWebhookCriteriaPtrOutputWithContext(ctx context.Context) ReleaseBundleV2PromotionWebhookCriteriaPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReleaseBundleV2PromotionWebhookCriteria) *ReleaseBundleV2PromotionWebhookCriteria {
+		return &v
+	}).(ReleaseBundleV2PromotionWebhookCriteriaPtrOutput)
+}
+
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\nAnt-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+func (o ReleaseBundleV2PromotionWebhookCriteriaOutput) ExcludePatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ReleaseBundleV2PromotionWebhookCriteria) []string { return v.ExcludePatterns }).(pulumi.StringArrayOutput)
+}
+
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\nAnt-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+func (o ReleaseBundleV2PromotionWebhookCriteriaOutput) IncludePatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ReleaseBundleV2PromotionWebhookCriteria) []string { return v.IncludePatterns }).(pulumi.StringArrayOutput)
+}
+
+// Trigger on this list of environment names.
+func (o ReleaseBundleV2PromotionWebhookCriteriaOutput) SelectedEnvironments() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ReleaseBundleV2PromotionWebhookCriteria) []string { return v.SelectedEnvironments }).(pulumi.StringArrayOutput)
+}
+
+type ReleaseBundleV2PromotionWebhookCriteriaPtrOutput struct{ *pulumi.OutputState }
+
+func (ReleaseBundleV2PromotionWebhookCriteriaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReleaseBundleV2PromotionWebhookCriteria)(nil)).Elem()
+}
+
+func (o ReleaseBundleV2PromotionWebhookCriteriaPtrOutput) ToReleaseBundleV2PromotionWebhookCriteriaPtrOutput() ReleaseBundleV2PromotionWebhookCriteriaPtrOutput {
+	return o
+}
+
+func (o ReleaseBundleV2PromotionWebhookCriteriaPtrOutput) ToReleaseBundleV2PromotionWebhookCriteriaPtrOutputWithContext(ctx context.Context) ReleaseBundleV2PromotionWebhookCriteriaPtrOutput {
+	return o
+}
+
+func (o ReleaseBundleV2PromotionWebhookCriteriaPtrOutput) Elem() ReleaseBundleV2PromotionWebhookCriteriaOutput {
+	return o.ApplyT(func(v *ReleaseBundleV2PromotionWebhookCriteria) ReleaseBundleV2PromotionWebhookCriteria {
+		if v != nil {
+			return *v
+		}
+		var ret ReleaseBundleV2PromotionWebhookCriteria
+		return ret
+	}).(ReleaseBundleV2PromotionWebhookCriteriaOutput)
+}
+
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\nAnt-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+func (o ReleaseBundleV2PromotionWebhookCriteriaPtrOutput) ExcludePatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ReleaseBundleV2PromotionWebhookCriteria) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludePatterns
+	}).(pulumi.StringArrayOutput)
+}
+
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\nAnt-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+func (o ReleaseBundleV2PromotionWebhookCriteriaPtrOutput) IncludePatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ReleaseBundleV2PromotionWebhookCriteria) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IncludePatterns
+	}).(pulumi.StringArrayOutput)
+}
+
+// Trigger on this list of environment names.
+func (o ReleaseBundleV2PromotionWebhookCriteriaPtrOutput) SelectedEnvironments() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ReleaseBundleV2PromotionWebhookCriteria) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SelectedEnvironments
+	}).(pulumi.StringArrayOutput)
+}
+
+type ReleaseBundleV2PromotionWebhookHandler struct {
+	// Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
+	CustomHttpHeaders map[string]string `pulumi:"customHttpHeaders"`
+	// Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+	Proxy *string `pulumi:"proxy"`
+	// Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
+	Secret *string `pulumi:"secret"`
+	// Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+	Url string `pulumi:"url"`
+	// When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
+	UseSecretForSigning *bool `pulumi:"useSecretForSigning"`
+}
+
+// ReleaseBundleV2PromotionWebhookHandlerInput is an input type that accepts ReleaseBundleV2PromotionWebhookHandlerArgs and ReleaseBundleV2PromotionWebhookHandlerOutput values.
+// You can construct a concrete instance of `ReleaseBundleV2PromotionWebhookHandlerInput` via:
+//
+//	ReleaseBundleV2PromotionWebhookHandlerArgs{...}
+type ReleaseBundleV2PromotionWebhookHandlerInput interface {
+	pulumi.Input
+
+	ToReleaseBundleV2PromotionWebhookHandlerOutput() ReleaseBundleV2PromotionWebhookHandlerOutput
+	ToReleaseBundleV2PromotionWebhookHandlerOutputWithContext(context.Context) ReleaseBundleV2PromotionWebhookHandlerOutput
+}
+
+type ReleaseBundleV2PromotionWebhookHandlerArgs struct {
+	// Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
+	CustomHttpHeaders pulumi.StringMapInput `pulumi:"customHttpHeaders"`
+	// Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+	Proxy pulumi.StringPtrInput `pulumi:"proxy"`
+	// Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
+	Secret pulumi.StringPtrInput `pulumi:"secret"`
+	// Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+	Url pulumi.StringInput `pulumi:"url"`
+	// When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
+	UseSecretForSigning pulumi.BoolPtrInput `pulumi:"useSecretForSigning"`
+}
+
+func (ReleaseBundleV2PromotionWebhookHandlerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReleaseBundleV2PromotionWebhookHandler)(nil)).Elem()
+}
+
+func (i ReleaseBundleV2PromotionWebhookHandlerArgs) ToReleaseBundleV2PromotionWebhookHandlerOutput() ReleaseBundleV2PromotionWebhookHandlerOutput {
+	return i.ToReleaseBundleV2PromotionWebhookHandlerOutputWithContext(context.Background())
+}
+
+func (i ReleaseBundleV2PromotionWebhookHandlerArgs) ToReleaseBundleV2PromotionWebhookHandlerOutputWithContext(ctx context.Context) ReleaseBundleV2PromotionWebhookHandlerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReleaseBundleV2PromotionWebhookHandlerOutput)
+}
+
+// ReleaseBundleV2PromotionWebhookHandlerArrayInput is an input type that accepts ReleaseBundleV2PromotionWebhookHandlerArray and ReleaseBundleV2PromotionWebhookHandlerArrayOutput values.
+// You can construct a concrete instance of `ReleaseBundleV2PromotionWebhookHandlerArrayInput` via:
+//
+//	ReleaseBundleV2PromotionWebhookHandlerArray{ ReleaseBundleV2PromotionWebhookHandlerArgs{...} }
+type ReleaseBundleV2PromotionWebhookHandlerArrayInput interface {
+	pulumi.Input
+
+	ToReleaseBundleV2PromotionWebhookHandlerArrayOutput() ReleaseBundleV2PromotionWebhookHandlerArrayOutput
+	ToReleaseBundleV2PromotionWebhookHandlerArrayOutputWithContext(context.Context) ReleaseBundleV2PromotionWebhookHandlerArrayOutput
+}
+
+type ReleaseBundleV2PromotionWebhookHandlerArray []ReleaseBundleV2PromotionWebhookHandlerInput
+
+func (ReleaseBundleV2PromotionWebhookHandlerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReleaseBundleV2PromotionWebhookHandler)(nil)).Elem()
+}
+
+func (i ReleaseBundleV2PromotionWebhookHandlerArray) ToReleaseBundleV2PromotionWebhookHandlerArrayOutput() ReleaseBundleV2PromotionWebhookHandlerArrayOutput {
+	return i.ToReleaseBundleV2PromotionWebhookHandlerArrayOutputWithContext(context.Background())
+}
+
+func (i ReleaseBundleV2PromotionWebhookHandlerArray) ToReleaseBundleV2PromotionWebhookHandlerArrayOutputWithContext(ctx context.Context) ReleaseBundleV2PromotionWebhookHandlerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReleaseBundleV2PromotionWebhookHandlerArrayOutput)
+}
+
+type ReleaseBundleV2PromotionWebhookHandlerOutput struct{ *pulumi.OutputState }
+
+func (ReleaseBundleV2PromotionWebhookHandlerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReleaseBundleV2PromotionWebhookHandler)(nil)).Elem()
+}
+
+func (o ReleaseBundleV2PromotionWebhookHandlerOutput) ToReleaseBundleV2PromotionWebhookHandlerOutput() ReleaseBundleV2PromotionWebhookHandlerOutput {
+	return o
+}
+
+func (o ReleaseBundleV2PromotionWebhookHandlerOutput) ToReleaseBundleV2PromotionWebhookHandlerOutputWithContext(ctx context.Context) ReleaseBundleV2PromotionWebhookHandlerOutput {
+	return o
+}
+
+// Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
+func (o ReleaseBundleV2PromotionWebhookHandlerOutput) CustomHttpHeaders() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ReleaseBundleV2PromotionWebhookHandler) map[string]string { return v.CustomHttpHeaders }).(pulumi.StringMapOutput)
+}
+
+// Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+func (o ReleaseBundleV2PromotionWebhookHandlerOutput) Proxy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReleaseBundleV2PromotionWebhookHandler) *string { return v.Proxy }).(pulumi.StringPtrOutput)
+}
+
+// Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
+func (o ReleaseBundleV2PromotionWebhookHandlerOutput) Secret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReleaseBundleV2PromotionWebhookHandler) *string { return v.Secret }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+func (o ReleaseBundleV2PromotionWebhookHandlerOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v ReleaseBundleV2PromotionWebhookHandler) string { return v.Url }).(pulumi.StringOutput)
+}
+
+// When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
+func (o ReleaseBundleV2PromotionWebhookHandlerOutput) UseSecretForSigning() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ReleaseBundleV2PromotionWebhookHandler) *bool { return v.UseSecretForSigning }).(pulumi.BoolPtrOutput)
+}
+
+type ReleaseBundleV2PromotionWebhookHandlerArrayOutput struct{ *pulumi.OutputState }
+
+func (ReleaseBundleV2PromotionWebhookHandlerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReleaseBundleV2PromotionWebhookHandler)(nil)).Elem()
+}
+
+func (o ReleaseBundleV2PromotionWebhookHandlerArrayOutput) ToReleaseBundleV2PromotionWebhookHandlerArrayOutput() ReleaseBundleV2PromotionWebhookHandlerArrayOutput {
+	return o
+}
+
+func (o ReleaseBundleV2PromotionWebhookHandlerArrayOutput) ToReleaseBundleV2PromotionWebhookHandlerArrayOutputWithContext(ctx context.Context) ReleaseBundleV2PromotionWebhookHandlerArrayOutput {
+	return o
+}
+
+func (o ReleaseBundleV2PromotionWebhookHandlerArrayOutput) Index(i pulumi.IntInput) ReleaseBundleV2PromotionWebhookHandlerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReleaseBundleV2PromotionWebhookHandler {
+		return vs[0].([]ReleaseBundleV2PromotionWebhookHandler)[vs[1].(int)]
+	}).(ReleaseBundleV2PromotionWebhookHandlerOutput)
+}
+
+type ReleaseBundleV2WebhookCriteria struct {
+	// Trigger on any release bundle.
+	AnyReleaseBundle bool `pulumi:"anyReleaseBundle"`
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**".
+	ExcludePatterns []string `pulumi:"excludePatterns"`
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**".
+	IncludePatterns []string `pulumi:"includePatterns"`
+	// Trigger on this list of release bundle names.
+	SelectedReleaseBundles []string `pulumi:"selectedReleaseBundles"`
+}
+
+// ReleaseBundleV2WebhookCriteriaInput is an input type that accepts ReleaseBundleV2WebhookCriteriaArgs and ReleaseBundleV2WebhookCriteriaOutput values.
+// You can construct a concrete instance of `ReleaseBundleV2WebhookCriteriaInput` via:
+//
+//	ReleaseBundleV2WebhookCriteriaArgs{...}
+type ReleaseBundleV2WebhookCriteriaInput interface {
+	pulumi.Input
+
+	ToReleaseBundleV2WebhookCriteriaOutput() ReleaseBundleV2WebhookCriteriaOutput
+	ToReleaseBundleV2WebhookCriteriaOutputWithContext(context.Context) ReleaseBundleV2WebhookCriteriaOutput
+}
+
+type ReleaseBundleV2WebhookCriteriaArgs struct {
+	// Trigger on any release bundle.
+	AnyReleaseBundle pulumi.BoolInput `pulumi:"anyReleaseBundle"`
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**".
+	ExcludePatterns pulumi.StringArrayInput `pulumi:"excludePatterns"`
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**".
+	IncludePatterns pulumi.StringArrayInput `pulumi:"includePatterns"`
+	// Trigger on this list of release bundle names.
+	SelectedReleaseBundles pulumi.StringArrayInput `pulumi:"selectedReleaseBundles"`
+}
+
+func (ReleaseBundleV2WebhookCriteriaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReleaseBundleV2WebhookCriteria)(nil)).Elem()
+}
+
+func (i ReleaseBundleV2WebhookCriteriaArgs) ToReleaseBundleV2WebhookCriteriaOutput() ReleaseBundleV2WebhookCriteriaOutput {
+	return i.ToReleaseBundleV2WebhookCriteriaOutputWithContext(context.Background())
+}
+
+func (i ReleaseBundleV2WebhookCriteriaArgs) ToReleaseBundleV2WebhookCriteriaOutputWithContext(ctx context.Context) ReleaseBundleV2WebhookCriteriaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReleaseBundleV2WebhookCriteriaOutput)
+}
+
+func (i ReleaseBundleV2WebhookCriteriaArgs) ToReleaseBundleV2WebhookCriteriaPtrOutput() ReleaseBundleV2WebhookCriteriaPtrOutput {
+	return i.ToReleaseBundleV2WebhookCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (i ReleaseBundleV2WebhookCriteriaArgs) ToReleaseBundleV2WebhookCriteriaPtrOutputWithContext(ctx context.Context) ReleaseBundleV2WebhookCriteriaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReleaseBundleV2WebhookCriteriaOutput).ToReleaseBundleV2WebhookCriteriaPtrOutputWithContext(ctx)
+}
+
+// ReleaseBundleV2WebhookCriteriaPtrInput is an input type that accepts ReleaseBundleV2WebhookCriteriaArgs, ReleaseBundleV2WebhookCriteriaPtr and ReleaseBundleV2WebhookCriteriaPtrOutput values.
+// You can construct a concrete instance of `ReleaseBundleV2WebhookCriteriaPtrInput` via:
+//
+//	        ReleaseBundleV2WebhookCriteriaArgs{...}
+//
+//	or:
+//
+//	        nil
+type ReleaseBundleV2WebhookCriteriaPtrInput interface {
+	pulumi.Input
+
+	ToReleaseBundleV2WebhookCriteriaPtrOutput() ReleaseBundleV2WebhookCriteriaPtrOutput
+	ToReleaseBundleV2WebhookCriteriaPtrOutputWithContext(context.Context) ReleaseBundleV2WebhookCriteriaPtrOutput
+}
+
+type releaseBundleV2WebhookCriteriaPtrType ReleaseBundleV2WebhookCriteriaArgs
+
+func ReleaseBundleV2WebhookCriteriaPtr(v *ReleaseBundleV2WebhookCriteriaArgs) ReleaseBundleV2WebhookCriteriaPtrInput {
+	return (*releaseBundleV2WebhookCriteriaPtrType)(v)
+}
+
+func (*releaseBundleV2WebhookCriteriaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReleaseBundleV2WebhookCriteria)(nil)).Elem()
+}
+
+func (i *releaseBundleV2WebhookCriteriaPtrType) ToReleaseBundleV2WebhookCriteriaPtrOutput() ReleaseBundleV2WebhookCriteriaPtrOutput {
+	return i.ToReleaseBundleV2WebhookCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (i *releaseBundleV2WebhookCriteriaPtrType) ToReleaseBundleV2WebhookCriteriaPtrOutputWithContext(ctx context.Context) ReleaseBundleV2WebhookCriteriaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReleaseBundleV2WebhookCriteriaPtrOutput)
+}
+
+type ReleaseBundleV2WebhookCriteriaOutput struct{ *pulumi.OutputState }
+
+func (ReleaseBundleV2WebhookCriteriaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReleaseBundleV2WebhookCriteria)(nil)).Elem()
+}
+
+func (o ReleaseBundleV2WebhookCriteriaOutput) ToReleaseBundleV2WebhookCriteriaOutput() ReleaseBundleV2WebhookCriteriaOutput {
+	return o
+}
+
+func (o ReleaseBundleV2WebhookCriteriaOutput) ToReleaseBundleV2WebhookCriteriaOutputWithContext(ctx context.Context) ReleaseBundleV2WebhookCriteriaOutput {
+	return o
+}
+
+func (o ReleaseBundleV2WebhookCriteriaOutput) ToReleaseBundleV2WebhookCriteriaPtrOutput() ReleaseBundleV2WebhookCriteriaPtrOutput {
+	return o.ToReleaseBundleV2WebhookCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (o ReleaseBundleV2WebhookCriteriaOutput) ToReleaseBundleV2WebhookCriteriaPtrOutputWithContext(ctx context.Context) ReleaseBundleV2WebhookCriteriaPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReleaseBundleV2WebhookCriteria) *ReleaseBundleV2WebhookCriteria {
+		return &v
+	}).(ReleaseBundleV2WebhookCriteriaPtrOutput)
+}
+
+// Trigger on any release bundle.
+func (o ReleaseBundleV2WebhookCriteriaOutput) AnyReleaseBundle() pulumi.BoolOutput {
+	return o.ApplyT(func(v ReleaseBundleV2WebhookCriteria) bool { return v.AnyReleaseBundle }).(pulumi.BoolOutput)
+}
+
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**".
+func (o ReleaseBundleV2WebhookCriteriaOutput) ExcludePatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ReleaseBundleV2WebhookCriteria) []string { return v.ExcludePatterns }).(pulumi.StringArrayOutput)
+}
+
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**".
+func (o ReleaseBundleV2WebhookCriteriaOutput) IncludePatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ReleaseBundleV2WebhookCriteria) []string { return v.IncludePatterns }).(pulumi.StringArrayOutput)
+}
+
+// Trigger on this list of release bundle names.
+func (o ReleaseBundleV2WebhookCriteriaOutput) SelectedReleaseBundles() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ReleaseBundleV2WebhookCriteria) []string { return v.SelectedReleaseBundles }).(pulumi.StringArrayOutput)
+}
+
+type ReleaseBundleV2WebhookCriteriaPtrOutput struct{ *pulumi.OutputState }
+
+func (ReleaseBundleV2WebhookCriteriaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReleaseBundleV2WebhookCriteria)(nil)).Elem()
+}
+
+func (o ReleaseBundleV2WebhookCriteriaPtrOutput) ToReleaseBundleV2WebhookCriteriaPtrOutput() ReleaseBundleV2WebhookCriteriaPtrOutput {
+	return o
+}
+
+func (o ReleaseBundleV2WebhookCriteriaPtrOutput) ToReleaseBundleV2WebhookCriteriaPtrOutputWithContext(ctx context.Context) ReleaseBundleV2WebhookCriteriaPtrOutput {
+	return o
+}
+
+func (o ReleaseBundleV2WebhookCriteriaPtrOutput) Elem() ReleaseBundleV2WebhookCriteriaOutput {
+	return o.ApplyT(func(v *ReleaseBundleV2WebhookCriteria) ReleaseBundleV2WebhookCriteria {
+		if v != nil {
+			return *v
+		}
+		var ret ReleaseBundleV2WebhookCriteria
+		return ret
+	}).(ReleaseBundleV2WebhookCriteriaOutput)
+}
+
+// Trigger on any release bundle.
+func (o ReleaseBundleV2WebhookCriteriaPtrOutput) AnyReleaseBundle() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ReleaseBundleV2WebhookCriteria) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.AnyReleaseBundle
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**".
+func (o ReleaseBundleV2WebhookCriteriaPtrOutput) ExcludePatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ReleaseBundleV2WebhookCriteria) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludePatterns
+	}).(pulumi.StringArrayOutput)
+}
+
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**".
+func (o ReleaseBundleV2WebhookCriteriaPtrOutput) IncludePatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ReleaseBundleV2WebhookCriteria) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IncludePatterns
+	}).(pulumi.StringArrayOutput)
+}
+
+// Trigger on this list of release bundle names.
+func (o ReleaseBundleV2WebhookCriteriaPtrOutput) SelectedReleaseBundles() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ReleaseBundleV2WebhookCriteria) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SelectedReleaseBundles
+	}).(pulumi.StringArrayOutput)
+}
+
+type ReleaseBundleV2WebhookHandler struct {
+	// Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
+	CustomHttpHeaders map[string]string `pulumi:"customHttpHeaders"`
+	// Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+	Proxy *string `pulumi:"proxy"`
+	// Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
+	Secret *string `pulumi:"secret"`
+	// Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+	Url string `pulumi:"url"`
+	// When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
+	UseSecretForSigning *bool `pulumi:"useSecretForSigning"`
+}
+
+// ReleaseBundleV2WebhookHandlerInput is an input type that accepts ReleaseBundleV2WebhookHandlerArgs and ReleaseBundleV2WebhookHandlerOutput values.
+// You can construct a concrete instance of `ReleaseBundleV2WebhookHandlerInput` via:
+//
+//	ReleaseBundleV2WebhookHandlerArgs{...}
+type ReleaseBundleV2WebhookHandlerInput interface {
+	pulumi.Input
+
+	ToReleaseBundleV2WebhookHandlerOutput() ReleaseBundleV2WebhookHandlerOutput
+	ToReleaseBundleV2WebhookHandlerOutputWithContext(context.Context) ReleaseBundleV2WebhookHandlerOutput
+}
+
+type ReleaseBundleV2WebhookHandlerArgs struct {
+	// Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
+	CustomHttpHeaders pulumi.StringMapInput `pulumi:"customHttpHeaders"`
+	// Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+	Proxy pulumi.StringPtrInput `pulumi:"proxy"`
+	// Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
+	Secret pulumi.StringPtrInput `pulumi:"secret"`
+	// Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+	Url pulumi.StringInput `pulumi:"url"`
+	// When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
+	UseSecretForSigning pulumi.BoolPtrInput `pulumi:"useSecretForSigning"`
+}
+
+func (ReleaseBundleV2WebhookHandlerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReleaseBundleV2WebhookHandler)(nil)).Elem()
+}
+
+func (i ReleaseBundleV2WebhookHandlerArgs) ToReleaseBundleV2WebhookHandlerOutput() ReleaseBundleV2WebhookHandlerOutput {
+	return i.ToReleaseBundleV2WebhookHandlerOutputWithContext(context.Background())
+}
+
+func (i ReleaseBundleV2WebhookHandlerArgs) ToReleaseBundleV2WebhookHandlerOutputWithContext(ctx context.Context) ReleaseBundleV2WebhookHandlerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReleaseBundleV2WebhookHandlerOutput)
+}
+
+// ReleaseBundleV2WebhookHandlerArrayInput is an input type that accepts ReleaseBundleV2WebhookHandlerArray and ReleaseBundleV2WebhookHandlerArrayOutput values.
+// You can construct a concrete instance of `ReleaseBundleV2WebhookHandlerArrayInput` via:
+//
+//	ReleaseBundleV2WebhookHandlerArray{ ReleaseBundleV2WebhookHandlerArgs{...} }
+type ReleaseBundleV2WebhookHandlerArrayInput interface {
+	pulumi.Input
+
+	ToReleaseBundleV2WebhookHandlerArrayOutput() ReleaseBundleV2WebhookHandlerArrayOutput
+	ToReleaseBundleV2WebhookHandlerArrayOutputWithContext(context.Context) ReleaseBundleV2WebhookHandlerArrayOutput
+}
+
+type ReleaseBundleV2WebhookHandlerArray []ReleaseBundleV2WebhookHandlerInput
+
+func (ReleaseBundleV2WebhookHandlerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReleaseBundleV2WebhookHandler)(nil)).Elem()
+}
+
+func (i ReleaseBundleV2WebhookHandlerArray) ToReleaseBundleV2WebhookHandlerArrayOutput() ReleaseBundleV2WebhookHandlerArrayOutput {
+	return i.ToReleaseBundleV2WebhookHandlerArrayOutputWithContext(context.Background())
+}
+
+func (i ReleaseBundleV2WebhookHandlerArray) ToReleaseBundleV2WebhookHandlerArrayOutputWithContext(ctx context.Context) ReleaseBundleV2WebhookHandlerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReleaseBundleV2WebhookHandlerArrayOutput)
+}
+
+type ReleaseBundleV2WebhookHandlerOutput struct{ *pulumi.OutputState }
+
+func (ReleaseBundleV2WebhookHandlerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReleaseBundleV2WebhookHandler)(nil)).Elem()
+}
+
+func (o ReleaseBundleV2WebhookHandlerOutput) ToReleaseBundleV2WebhookHandlerOutput() ReleaseBundleV2WebhookHandlerOutput {
+	return o
+}
+
+func (o ReleaseBundleV2WebhookHandlerOutput) ToReleaseBundleV2WebhookHandlerOutputWithContext(ctx context.Context) ReleaseBundleV2WebhookHandlerOutput {
+	return o
+}
+
+// Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
+func (o ReleaseBundleV2WebhookHandlerOutput) CustomHttpHeaders() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ReleaseBundleV2WebhookHandler) map[string]string { return v.CustomHttpHeaders }).(pulumi.StringMapOutput)
+}
+
+// Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+func (o ReleaseBundleV2WebhookHandlerOutput) Proxy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReleaseBundleV2WebhookHandler) *string { return v.Proxy }).(pulumi.StringPtrOutput)
+}
+
+// Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
+func (o ReleaseBundleV2WebhookHandlerOutput) Secret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReleaseBundleV2WebhookHandler) *string { return v.Secret }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+func (o ReleaseBundleV2WebhookHandlerOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v ReleaseBundleV2WebhookHandler) string { return v.Url }).(pulumi.StringOutput)
+}
+
+// When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
+func (o ReleaseBundleV2WebhookHandlerOutput) UseSecretForSigning() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ReleaseBundleV2WebhookHandler) *bool { return v.UseSecretForSigning }).(pulumi.BoolPtrOutput)
+}
+
+type ReleaseBundleV2WebhookHandlerArrayOutput struct{ *pulumi.OutputState }
+
+func (ReleaseBundleV2WebhookHandlerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReleaseBundleV2WebhookHandler)(nil)).Elem()
+}
+
+func (o ReleaseBundleV2WebhookHandlerArrayOutput) ToReleaseBundleV2WebhookHandlerArrayOutput() ReleaseBundleV2WebhookHandlerArrayOutput {
+	return o
+}
+
+func (o ReleaseBundleV2WebhookHandlerArrayOutput) ToReleaseBundleV2WebhookHandlerArrayOutputWithContext(ctx context.Context) ReleaseBundleV2WebhookHandlerArrayOutput {
+	return o
+}
+
+func (o ReleaseBundleV2WebhookHandlerArrayOutput) Index(i pulumi.IntInput) ReleaseBundleV2WebhookHandlerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReleaseBundleV2WebhookHandler {
+		return vs[0].([]ReleaseBundleV2WebhookHandler)[vs[1].(int)]
+	}).(ReleaseBundleV2WebhookHandlerOutput)
 }
 
 type ReleaseBundleWebhookCriteria struct {
@@ -17837,6 +20240,698 @@ func (o ReplicationConfigReplicationArrayOutput) Index(i pulumi.IntInput) Replic
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReplicationConfigReplication {
 		return vs[0].([]ReplicationConfigReplication)[vs[1].(int)]
 	}).(ReplicationConfigReplicationOutput)
+}
+
+type UnmanagedUserPasswordPolicy struct {
+	// Minimum number of digits that the password must contain
+	Digit *int `pulumi:"digit"`
+	// Minimum length of the password
+	Length *int `pulumi:"length"`
+	// Minimum number of lowercase letters that the password must contain
+	Lowercase *int `pulumi:"lowercase"`
+	// Minimum number of special char that the password must contain. Special chars list: `!"#$%&'()*+,-./:;<=>?@[\]^_``{|}~`
+	SpecialChar *int `pulumi:"specialChar"`
+	// Minimum number of uppercase letters that the password must contain
+	Uppercase *int `pulumi:"uppercase"`
+}
+
+// UnmanagedUserPasswordPolicyInput is an input type that accepts UnmanagedUserPasswordPolicyArgs and UnmanagedUserPasswordPolicyOutput values.
+// You can construct a concrete instance of `UnmanagedUserPasswordPolicyInput` via:
+//
+//	UnmanagedUserPasswordPolicyArgs{...}
+type UnmanagedUserPasswordPolicyInput interface {
+	pulumi.Input
+
+	ToUnmanagedUserPasswordPolicyOutput() UnmanagedUserPasswordPolicyOutput
+	ToUnmanagedUserPasswordPolicyOutputWithContext(context.Context) UnmanagedUserPasswordPolicyOutput
+}
+
+type UnmanagedUserPasswordPolicyArgs struct {
+	// Minimum number of digits that the password must contain
+	Digit pulumi.IntPtrInput `pulumi:"digit"`
+	// Minimum length of the password
+	Length pulumi.IntPtrInput `pulumi:"length"`
+	// Minimum number of lowercase letters that the password must contain
+	Lowercase pulumi.IntPtrInput `pulumi:"lowercase"`
+	// Minimum number of special char that the password must contain. Special chars list: `!"#$%&'()*+,-./:;<=>?@[\]^_``{|}~`
+	SpecialChar pulumi.IntPtrInput `pulumi:"specialChar"`
+	// Minimum number of uppercase letters that the password must contain
+	Uppercase pulumi.IntPtrInput `pulumi:"uppercase"`
+}
+
+func (UnmanagedUserPasswordPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UnmanagedUserPasswordPolicy)(nil)).Elem()
+}
+
+func (i UnmanagedUserPasswordPolicyArgs) ToUnmanagedUserPasswordPolicyOutput() UnmanagedUserPasswordPolicyOutput {
+	return i.ToUnmanagedUserPasswordPolicyOutputWithContext(context.Background())
+}
+
+func (i UnmanagedUserPasswordPolicyArgs) ToUnmanagedUserPasswordPolicyOutputWithContext(ctx context.Context) UnmanagedUserPasswordPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UnmanagedUserPasswordPolicyOutput)
+}
+
+func (i UnmanagedUserPasswordPolicyArgs) ToUnmanagedUserPasswordPolicyPtrOutput() UnmanagedUserPasswordPolicyPtrOutput {
+	return i.ToUnmanagedUserPasswordPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i UnmanagedUserPasswordPolicyArgs) ToUnmanagedUserPasswordPolicyPtrOutputWithContext(ctx context.Context) UnmanagedUserPasswordPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UnmanagedUserPasswordPolicyOutput).ToUnmanagedUserPasswordPolicyPtrOutputWithContext(ctx)
+}
+
+// UnmanagedUserPasswordPolicyPtrInput is an input type that accepts UnmanagedUserPasswordPolicyArgs, UnmanagedUserPasswordPolicyPtr and UnmanagedUserPasswordPolicyPtrOutput values.
+// You can construct a concrete instance of `UnmanagedUserPasswordPolicyPtrInput` via:
+//
+//	        UnmanagedUserPasswordPolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type UnmanagedUserPasswordPolicyPtrInput interface {
+	pulumi.Input
+
+	ToUnmanagedUserPasswordPolicyPtrOutput() UnmanagedUserPasswordPolicyPtrOutput
+	ToUnmanagedUserPasswordPolicyPtrOutputWithContext(context.Context) UnmanagedUserPasswordPolicyPtrOutput
+}
+
+type unmanagedUserPasswordPolicyPtrType UnmanagedUserPasswordPolicyArgs
+
+func UnmanagedUserPasswordPolicyPtr(v *UnmanagedUserPasswordPolicyArgs) UnmanagedUserPasswordPolicyPtrInput {
+	return (*unmanagedUserPasswordPolicyPtrType)(v)
+}
+
+func (*unmanagedUserPasswordPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UnmanagedUserPasswordPolicy)(nil)).Elem()
+}
+
+func (i *unmanagedUserPasswordPolicyPtrType) ToUnmanagedUserPasswordPolicyPtrOutput() UnmanagedUserPasswordPolicyPtrOutput {
+	return i.ToUnmanagedUserPasswordPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *unmanagedUserPasswordPolicyPtrType) ToUnmanagedUserPasswordPolicyPtrOutputWithContext(ctx context.Context) UnmanagedUserPasswordPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UnmanagedUserPasswordPolicyPtrOutput)
+}
+
+type UnmanagedUserPasswordPolicyOutput struct{ *pulumi.OutputState }
+
+func (UnmanagedUserPasswordPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UnmanagedUserPasswordPolicy)(nil)).Elem()
+}
+
+func (o UnmanagedUserPasswordPolicyOutput) ToUnmanagedUserPasswordPolicyOutput() UnmanagedUserPasswordPolicyOutput {
+	return o
+}
+
+func (o UnmanagedUserPasswordPolicyOutput) ToUnmanagedUserPasswordPolicyOutputWithContext(ctx context.Context) UnmanagedUserPasswordPolicyOutput {
+	return o
+}
+
+func (o UnmanagedUserPasswordPolicyOutput) ToUnmanagedUserPasswordPolicyPtrOutput() UnmanagedUserPasswordPolicyPtrOutput {
+	return o.ToUnmanagedUserPasswordPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o UnmanagedUserPasswordPolicyOutput) ToUnmanagedUserPasswordPolicyPtrOutputWithContext(ctx context.Context) UnmanagedUserPasswordPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UnmanagedUserPasswordPolicy) *UnmanagedUserPasswordPolicy {
+		return &v
+	}).(UnmanagedUserPasswordPolicyPtrOutput)
+}
+
+// Minimum number of digits that the password must contain
+func (o UnmanagedUserPasswordPolicyOutput) Digit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v UnmanagedUserPasswordPolicy) *int { return v.Digit }).(pulumi.IntPtrOutput)
+}
+
+// Minimum length of the password
+func (o UnmanagedUserPasswordPolicyOutput) Length() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v UnmanagedUserPasswordPolicy) *int { return v.Length }).(pulumi.IntPtrOutput)
+}
+
+// Minimum number of lowercase letters that the password must contain
+func (o UnmanagedUserPasswordPolicyOutput) Lowercase() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v UnmanagedUserPasswordPolicy) *int { return v.Lowercase }).(pulumi.IntPtrOutput)
+}
+
+// Minimum number of special char that the password must contain. Special chars list: `!"#$%&'()*+,-./:;<=>?@[\]^_“{|}~`
+func (o UnmanagedUserPasswordPolicyOutput) SpecialChar() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v UnmanagedUserPasswordPolicy) *int { return v.SpecialChar }).(pulumi.IntPtrOutput)
+}
+
+// Minimum number of uppercase letters that the password must contain
+func (o UnmanagedUserPasswordPolicyOutput) Uppercase() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v UnmanagedUserPasswordPolicy) *int { return v.Uppercase }).(pulumi.IntPtrOutput)
+}
+
+type UnmanagedUserPasswordPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (UnmanagedUserPasswordPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UnmanagedUserPasswordPolicy)(nil)).Elem()
+}
+
+func (o UnmanagedUserPasswordPolicyPtrOutput) ToUnmanagedUserPasswordPolicyPtrOutput() UnmanagedUserPasswordPolicyPtrOutput {
+	return o
+}
+
+func (o UnmanagedUserPasswordPolicyPtrOutput) ToUnmanagedUserPasswordPolicyPtrOutputWithContext(ctx context.Context) UnmanagedUserPasswordPolicyPtrOutput {
+	return o
+}
+
+func (o UnmanagedUserPasswordPolicyPtrOutput) Elem() UnmanagedUserPasswordPolicyOutput {
+	return o.ApplyT(func(v *UnmanagedUserPasswordPolicy) UnmanagedUserPasswordPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret UnmanagedUserPasswordPolicy
+		return ret
+	}).(UnmanagedUserPasswordPolicyOutput)
+}
+
+// Minimum number of digits that the password must contain
+func (o UnmanagedUserPasswordPolicyPtrOutput) Digit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *UnmanagedUserPasswordPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Digit
+	}).(pulumi.IntPtrOutput)
+}
+
+// Minimum length of the password
+func (o UnmanagedUserPasswordPolicyPtrOutput) Length() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *UnmanagedUserPasswordPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Length
+	}).(pulumi.IntPtrOutput)
+}
+
+// Minimum number of lowercase letters that the password must contain
+func (o UnmanagedUserPasswordPolicyPtrOutput) Lowercase() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *UnmanagedUserPasswordPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Lowercase
+	}).(pulumi.IntPtrOutput)
+}
+
+// Minimum number of special char that the password must contain. Special chars list: `!"#$%&'()*+,-./:;<=>?@[\]^_“{|}~`
+func (o UnmanagedUserPasswordPolicyPtrOutput) SpecialChar() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *UnmanagedUserPasswordPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SpecialChar
+	}).(pulumi.IntPtrOutput)
+}
+
+// Minimum number of uppercase letters that the password must contain
+func (o UnmanagedUserPasswordPolicyPtrOutput) Uppercase() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *UnmanagedUserPasswordPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Uppercase
+	}).(pulumi.IntPtrOutput)
+}
+
+type UserCustomWebhookHandler struct {
+	// HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
+	HttpHeaders map[string]string `pulumi:"httpHeaders"`
+	// This attribute is used to build the request body. Used in custom webhooks
+	Payload *string `pulumi:"payload"`
+	// Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+	Proxy *string `pulumi:"proxy"`
+	// Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
+	Secrets map[string]string `pulumi:"secrets"`
+	// Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+	Url string `pulumi:"url"`
+}
+
+// UserCustomWebhookHandlerInput is an input type that accepts UserCustomWebhookHandlerArgs and UserCustomWebhookHandlerOutput values.
+// You can construct a concrete instance of `UserCustomWebhookHandlerInput` via:
+//
+//	UserCustomWebhookHandlerArgs{...}
+type UserCustomWebhookHandlerInput interface {
+	pulumi.Input
+
+	ToUserCustomWebhookHandlerOutput() UserCustomWebhookHandlerOutput
+	ToUserCustomWebhookHandlerOutputWithContext(context.Context) UserCustomWebhookHandlerOutput
+}
+
+type UserCustomWebhookHandlerArgs struct {
+	// HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
+	HttpHeaders pulumi.StringMapInput `pulumi:"httpHeaders"`
+	// This attribute is used to build the request body. Used in custom webhooks
+	Payload pulumi.StringPtrInput `pulumi:"payload"`
+	// Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+	Proxy pulumi.StringPtrInput `pulumi:"proxy"`
+	// Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
+	Secrets pulumi.StringMapInput `pulumi:"secrets"`
+	// Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (UserCustomWebhookHandlerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserCustomWebhookHandler)(nil)).Elem()
+}
+
+func (i UserCustomWebhookHandlerArgs) ToUserCustomWebhookHandlerOutput() UserCustomWebhookHandlerOutput {
+	return i.ToUserCustomWebhookHandlerOutputWithContext(context.Background())
+}
+
+func (i UserCustomWebhookHandlerArgs) ToUserCustomWebhookHandlerOutputWithContext(ctx context.Context) UserCustomWebhookHandlerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserCustomWebhookHandlerOutput)
+}
+
+// UserCustomWebhookHandlerArrayInput is an input type that accepts UserCustomWebhookHandlerArray and UserCustomWebhookHandlerArrayOutput values.
+// You can construct a concrete instance of `UserCustomWebhookHandlerArrayInput` via:
+//
+//	UserCustomWebhookHandlerArray{ UserCustomWebhookHandlerArgs{...} }
+type UserCustomWebhookHandlerArrayInput interface {
+	pulumi.Input
+
+	ToUserCustomWebhookHandlerArrayOutput() UserCustomWebhookHandlerArrayOutput
+	ToUserCustomWebhookHandlerArrayOutputWithContext(context.Context) UserCustomWebhookHandlerArrayOutput
+}
+
+type UserCustomWebhookHandlerArray []UserCustomWebhookHandlerInput
+
+func (UserCustomWebhookHandlerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserCustomWebhookHandler)(nil)).Elem()
+}
+
+func (i UserCustomWebhookHandlerArray) ToUserCustomWebhookHandlerArrayOutput() UserCustomWebhookHandlerArrayOutput {
+	return i.ToUserCustomWebhookHandlerArrayOutputWithContext(context.Background())
+}
+
+func (i UserCustomWebhookHandlerArray) ToUserCustomWebhookHandlerArrayOutputWithContext(ctx context.Context) UserCustomWebhookHandlerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserCustomWebhookHandlerArrayOutput)
+}
+
+type UserCustomWebhookHandlerOutput struct{ *pulumi.OutputState }
+
+func (UserCustomWebhookHandlerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserCustomWebhookHandler)(nil)).Elem()
+}
+
+func (o UserCustomWebhookHandlerOutput) ToUserCustomWebhookHandlerOutput() UserCustomWebhookHandlerOutput {
+	return o
+}
+
+func (o UserCustomWebhookHandlerOutput) ToUserCustomWebhookHandlerOutputWithContext(ctx context.Context) UserCustomWebhookHandlerOutput {
+	return o
+}
+
+// HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
+func (o UserCustomWebhookHandlerOutput) HttpHeaders() pulumi.StringMapOutput {
+	return o.ApplyT(func(v UserCustomWebhookHandler) map[string]string { return v.HttpHeaders }).(pulumi.StringMapOutput)
+}
+
+// This attribute is used to build the request body. Used in custom webhooks
+func (o UserCustomWebhookHandlerOutput) Payload() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserCustomWebhookHandler) *string { return v.Payload }).(pulumi.StringPtrOutput)
+}
+
+// Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+func (o UserCustomWebhookHandlerOutput) Proxy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserCustomWebhookHandler) *string { return v.Proxy }).(pulumi.StringPtrOutput)
+}
+
+// Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
+func (o UserCustomWebhookHandlerOutput) Secrets() pulumi.StringMapOutput {
+	return o.ApplyT(func(v UserCustomWebhookHandler) map[string]string { return v.Secrets }).(pulumi.StringMapOutput)
+}
+
+// Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+func (o UserCustomWebhookHandlerOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v UserCustomWebhookHandler) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type UserCustomWebhookHandlerArrayOutput struct{ *pulumi.OutputState }
+
+func (UserCustomWebhookHandlerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserCustomWebhookHandler)(nil)).Elem()
+}
+
+func (o UserCustomWebhookHandlerArrayOutput) ToUserCustomWebhookHandlerArrayOutput() UserCustomWebhookHandlerArrayOutput {
+	return o
+}
+
+func (o UserCustomWebhookHandlerArrayOutput) ToUserCustomWebhookHandlerArrayOutputWithContext(ctx context.Context) UserCustomWebhookHandlerArrayOutput {
+	return o
+}
+
+func (o UserCustomWebhookHandlerArrayOutput) Index(i pulumi.IntInput) UserCustomWebhookHandlerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserCustomWebhookHandler {
+		return vs[0].([]UserCustomWebhookHandler)[vs[1].(int)]
+	}).(UserCustomWebhookHandlerOutput)
+}
+
+type UserPasswordPolicy struct {
+	// Minimum number of digits that the password must contain
+	Digit *int `pulumi:"digit"`
+	// Minimum length of the password
+	Length *int `pulumi:"length"`
+	// Minimum number of lowercase letters that the password must contain
+	Lowercase *int `pulumi:"lowercase"`
+	// Minimum number of special char that the password must contain. Special chars list: `!"#$%&'()*+,-./:;<=>?@[\]^_``{|}~`
+	SpecialChar *int `pulumi:"specialChar"`
+	// Minimum number of uppercase letters that the password must contain
+	Uppercase *int `pulumi:"uppercase"`
+}
+
+// UserPasswordPolicyInput is an input type that accepts UserPasswordPolicyArgs and UserPasswordPolicyOutput values.
+// You can construct a concrete instance of `UserPasswordPolicyInput` via:
+//
+//	UserPasswordPolicyArgs{...}
+type UserPasswordPolicyInput interface {
+	pulumi.Input
+
+	ToUserPasswordPolicyOutput() UserPasswordPolicyOutput
+	ToUserPasswordPolicyOutputWithContext(context.Context) UserPasswordPolicyOutput
+}
+
+type UserPasswordPolicyArgs struct {
+	// Minimum number of digits that the password must contain
+	Digit pulumi.IntPtrInput `pulumi:"digit"`
+	// Minimum length of the password
+	Length pulumi.IntPtrInput `pulumi:"length"`
+	// Minimum number of lowercase letters that the password must contain
+	Lowercase pulumi.IntPtrInput `pulumi:"lowercase"`
+	// Minimum number of special char that the password must contain. Special chars list: `!"#$%&'()*+,-./:;<=>?@[\]^_``{|}~`
+	SpecialChar pulumi.IntPtrInput `pulumi:"specialChar"`
+	// Minimum number of uppercase letters that the password must contain
+	Uppercase pulumi.IntPtrInput `pulumi:"uppercase"`
+}
+
+func (UserPasswordPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPasswordPolicy)(nil)).Elem()
+}
+
+func (i UserPasswordPolicyArgs) ToUserPasswordPolicyOutput() UserPasswordPolicyOutput {
+	return i.ToUserPasswordPolicyOutputWithContext(context.Background())
+}
+
+func (i UserPasswordPolicyArgs) ToUserPasswordPolicyOutputWithContext(ctx context.Context) UserPasswordPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPasswordPolicyOutput)
+}
+
+func (i UserPasswordPolicyArgs) ToUserPasswordPolicyPtrOutput() UserPasswordPolicyPtrOutput {
+	return i.ToUserPasswordPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i UserPasswordPolicyArgs) ToUserPasswordPolicyPtrOutputWithContext(ctx context.Context) UserPasswordPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPasswordPolicyOutput).ToUserPasswordPolicyPtrOutputWithContext(ctx)
+}
+
+// UserPasswordPolicyPtrInput is an input type that accepts UserPasswordPolicyArgs, UserPasswordPolicyPtr and UserPasswordPolicyPtrOutput values.
+// You can construct a concrete instance of `UserPasswordPolicyPtrInput` via:
+//
+//	        UserPasswordPolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type UserPasswordPolicyPtrInput interface {
+	pulumi.Input
+
+	ToUserPasswordPolicyPtrOutput() UserPasswordPolicyPtrOutput
+	ToUserPasswordPolicyPtrOutputWithContext(context.Context) UserPasswordPolicyPtrOutput
+}
+
+type userPasswordPolicyPtrType UserPasswordPolicyArgs
+
+func UserPasswordPolicyPtr(v *UserPasswordPolicyArgs) UserPasswordPolicyPtrInput {
+	return (*userPasswordPolicyPtrType)(v)
+}
+
+func (*userPasswordPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPasswordPolicy)(nil)).Elem()
+}
+
+func (i *userPasswordPolicyPtrType) ToUserPasswordPolicyPtrOutput() UserPasswordPolicyPtrOutput {
+	return i.ToUserPasswordPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *userPasswordPolicyPtrType) ToUserPasswordPolicyPtrOutputWithContext(ctx context.Context) UserPasswordPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPasswordPolicyPtrOutput)
+}
+
+type UserPasswordPolicyOutput struct{ *pulumi.OutputState }
+
+func (UserPasswordPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPasswordPolicy)(nil)).Elem()
+}
+
+func (o UserPasswordPolicyOutput) ToUserPasswordPolicyOutput() UserPasswordPolicyOutput {
+	return o
+}
+
+func (o UserPasswordPolicyOutput) ToUserPasswordPolicyOutputWithContext(ctx context.Context) UserPasswordPolicyOutput {
+	return o
+}
+
+func (o UserPasswordPolicyOutput) ToUserPasswordPolicyPtrOutput() UserPasswordPolicyPtrOutput {
+	return o.ToUserPasswordPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o UserPasswordPolicyOutput) ToUserPasswordPolicyPtrOutputWithContext(ctx context.Context) UserPasswordPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPasswordPolicy) *UserPasswordPolicy {
+		return &v
+	}).(UserPasswordPolicyPtrOutput)
+}
+
+// Minimum number of digits that the password must contain
+func (o UserPasswordPolicyOutput) Digit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v UserPasswordPolicy) *int { return v.Digit }).(pulumi.IntPtrOutput)
+}
+
+// Minimum length of the password
+func (o UserPasswordPolicyOutput) Length() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v UserPasswordPolicy) *int { return v.Length }).(pulumi.IntPtrOutput)
+}
+
+// Minimum number of lowercase letters that the password must contain
+func (o UserPasswordPolicyOutput) Lowercase() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v UserPasswordPolicy) *int { return v.Lowercase }).(pulumi.IntPtrOutput)
+}
+
+// Minimum number of special char that the password must contain. Special chars list: `!"#$%&'()*+,-./:;<=>?@[\]^_“{|}~`
+func (o UserPasswordPolicyOutput) SpecialChar() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v UserPasswordPolicy) *int { return v.SpecialChar }).(pulumi.IntPtrOutput)
+}
+
+// Minimum number of uppercase letters that the password must contain
+func (o UserPasswordPolicyOutput) Uppercase() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v UserPasswordPolicy) *int { return v.Uppercase }).(pulumi.IntPtrOutput)
+}
+
+type UserPasswordPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (UserPasswordPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPasswordPolicy)(nil)).Elem()
+}
+
+func (o UserPasswordPolicyPtrOutput) ToUserPasswordPolicyPtrOutput() UserPasswordPolicyPtrOutput {
+	return o
+}
+
+func (o UserPasswordPolicyPtrOutput) ToUserPasswordPolicyPtrOutputWithContext(ctx context.Context) UserPasswordPolicyPtrOutput {
+	return o
+}
+
+func (o UserPasswordPolicyPtrOutput) Elem() UserPasswordPolicyOutput {
+	return o.ApplyT(func(v *UserPasswordPolicy) UserPasswordPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret UserPasswordPolicy
+		return ret
+	}).(UserPasswordPolicyOutput)
+}
+
+// Minimum number of digits that the password must contain
+func (o UserPasswordPolicyPtrOutput) Digit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *UserPasswordPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Digit
+	}).(pulumi.IntPtrOutput)
+}
+
+// Minimum length of the password
+func (o UserPasswordPolicyPtrOutput) Length() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *UserPasswordPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Length
+	}).(pulumi.IntPtrOutput)
+}
+
+// Minimum number of lowercase letters that the password must contain
+func (o UserPasswordPolicyPtrOutput) Lowercase() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *UserPasswordPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Lowercase
+	}).(pulumi.IntPtrOutput)
+}
+
+// Minimum number of special char that the password must contain. Special chars list: `!"#$%&'()*+,-./:;<=>?@[\]^_“{|}~`
+func (o UserPasswordPolicyPtrOutput) SpecialChar() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *UserPasswordPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SpecialChar
+	}).(pulumi.IntPtrOutput)
+}
+
+// Minimum number of uppercase letters that the password must contain
+func (o UserPasswordPolicyPtrOutput) Uppercase() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *UserPasswordPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Uppercase
+	}).(pulumi.IntPtrOutput)
+}
+
+type UserWebhookHandler struct {
+	// Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
+	CustomHttpHeaders map[string]string `pulumi:"customHttpHeaders"`
+	// Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+	Proxy *string `pulumi:"proxy"`
+	// Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
+	Secret *string `pulumi:"secret"`
+	// Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+	Url string `pulumi:"url"`
+	// When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
+	UseSecretForSigning *bool `pulumi:"useSecretForSigning"`
+}
+
+// UserWebhookHandlerInput is an input type that accepts UserWebhookHandlerArgs and UserWebhookHandlerOutput values.
+// You can construct a concrete instance of `UserWebhookHandlerInput` via:
+//
+//	UserWebhookHandlerArgs{...}
+type UserWebhookHandlerInput interface {
+	pulumi.Input
+
+	ToUserWebhookHandlerOutput() UserWebhookHandlerOutput
+	ToUserWebhookHandlerOutputWithContext(context.Context) UserWebhookHandlerOutput
+}
+
+type UserWebhookHandlerArgs struct {
+	// Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
+	CustomHttpHeaders pulumi.StringMapInput `pulumi:"customHttpHeaders"`
+	// Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+	Proxy pulumi.StringPtrInput `pulumi:"proxy"`
+	// Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
+	Secret pulumi.StringPtrInput `pulumi:"secret"`
+	// Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+	Url pulumi.StringInput `pulumi:"url"`
+	// When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
+	UseSecretForSigning pulumi.BoolPtrInput `pulumi:"useSecretForSigning"`
+}
+
+func (UserWebhookHandlerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserWebhookHandler)(nil)).Elem()
+}
+
+func (i UserWebhookHandlerArgs) ToUserWebhookHandlerOutput() UserWebhookHandlerOutput {
+	return i.ToUserWebhookHandlerOutputWithContext(context.Background())
+}
+
+func (i UserWebhookHandlerArgs) ToUserWebhookHandlerOutputWithContext(ctx context.Context) UserWebhookHandlerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserWebhookHandlerOutput)
+}
+
+// UserWebhookHandlerArrayInput is an input type that accepts UserWebhookHandlerArray and UserWebhookHandlerArrayOutput values.
+// You can construct a concrete instance of `UserWebhookHandlerArrayInput` via:
+//
+//	UserWebhookHandlerArray{ UserWebhookHandlerArgs{...} }
+type UserWebhookHandlerArrayInput interface {
+	pulumi.Input
+
+	ToUserWebhookHandlerArrayOutput() UserWebhookHandlerArrayOutput
+	ToUserWebhookHandlerArrayOutputWithContext(context.Context) UserWebhookHandlerArrayOutput
+}
+
+type UserWebhookHandlerArray []UserWebhookHandlerInput
+
+func (UserWebhookHandlerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserWebhookHandler)(nil)).Elem()
+}
+
+func (i UserWebhookHandlerArray) ToUserWebhookHandlerArrayOutput() UserWebhookHandlerArrayOutput {
+	return i.ToUserWebhookHandlerArrayOutputWithContext(context.Background())
+}
+
+func (i UserWebhookHandlerArray) ToUserWebhookHandlerArrayOutputWithContext(ctx context.Context) UserWebhookHandlerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserWebhookHandlerArrayOutput)
+}
+
+type UserWebhookHandlerOutput struct{ *pulumi.OutputState }
+
+func (UserWebhookHandlerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserWebhookHandler)(nil)).Elem()
+}
+
+func (o UserWebhookHandlerOutput) ToUserWebhookHandlerOutput() UserWebhookHandlerOutput {
+	return o
+}
+
+func (o UserWebhookHandlerOutput) ToUserWebhookHandlerOutputWithContext(ctx context.Context) UserWebhookHandlerOutput {
+	return o
+}
+
+// Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
+func (o UserWebhookHandlerOutput) CustomHttpHeaders() pulumi.StringMapOutput {
+	return o.ApplyT(func(v UserWebhookHandler) map[string]string { return v.CustomHttpHeaders }).(pulumi.StringMapOutput)
+}
+
+// Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+func (o UserWebhookHandlerOutput) Proxy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserWebhookHandler) *string { return v.Proxy }).(pulumi.StringPtrOutput)
+}
+
+// Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
+func (o UserWebhookHandlerOutput) Secret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserWebhookHandler) *string { return v.Secret }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+func (o UserWebhookHandlerOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v UserWebhookHandler) string { return v.Url }).(pulumi.StringOutput)
+}
+
+// When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
+func (o UserWebhookHandlerOutput) UseSecretForSigning() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v UserWebhookHandler) *bool { return v.UseSecretForSigning }).(pulumi.BoolPtrOutput)
+}
+
+type UserWebhookHandlerArrayOutput struct{ *pulumi.OutputState }
+
+func (UserWebhookHandlerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserWebhookHandler)(nil)).Elem()
+}
+
+func (o UserWebhookHandlerArrayOutput) ToUserWebhookHandlerArrayOutput() UserWebhookHandlerArrayOutput {
+	return o
+}
+
+func (o UserWebhookHandlerArrayOutput) ToUserWebhookHandlerArrayOutputWithContext(ctx context.Context) UserWebhookHandlerArrayOutput {
+	return o
+}
+
+func (o UserWebhookHandlerArrayOutput) Index(i pulumi.IntInput) UserWebhookHandlerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserWebhookHandler {
+		return vs[0].([]UserWebhookHandler)[vs[1].(int)]
+	}).(UserWebhookHandlerOutput)
 }
 
 type VaultConfigurationConfig struct {
@@ -30442,6 +33537,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ArtifactCustomWebhookCriteriaPtrInput)(nil)).Elem(), ArtifactCustomWebhookCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ArtifactCustomWebhookHandlerInput)(nil)).Elem(), ArtifactCustomWebhookHandlerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ArtifactCustomWebhookHandlerArrayInput)(nil)).Elem(), ArtifactCustomWebhookHandlerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ArtifactLifecycleCustomWebhookHandlerInput)(nil)).Elem(), ArtifactLifecycleCustomWebhookHandlerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ArtifactLifecycleCustomWebhookHandlerArrayInput)(nil)).Elem(), ArtifactLifecycleCustomWebhookHandlerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ArtifactLifecycleWebhookHandlerInput)(nil)).Elem(), ArtifactLifecycleWebhookHandlerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ArtifactLifecycleWebhookHandlerArrayInput)(nil)).Elem(), ArtifactLifecycleWebhookHandlerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ArtifactPropertyCustomWebhookCriteriaInput)(nil)).Elem(), ArtifactPropertyCustomWebhookCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ArtifactPropertyCustomWebhookCriteriaPtrInput)(nil)).Elem(), ArtifactPropertyCustomWebhookCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ArtifactPropertyCustomWebhookHandlerInput)(nil)).Elem(), ArtifactPropertyCustomWebhookHandlerArgs{})
@@ -30470,6 +33569,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BuildWebhookCriteriaPtrInput)(nil)).Elem(), BuildWebhookCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BuildWebhookHandlerInput)(nil)).Elem(), BuildWebhookHandlerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BuildWebhookHandlerArrayInput)(nil)).Elem(), BuildWebhookHandlerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DestinationCustomWebhookCriteriaInput)(nil)).Elem(), DestinationCustomWebhookCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DestinationCustomWebhookCriteriaPtrInput)(nil)).Elem(), DestinationCustomWebhookCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DestinationCustomWebhookHandlerInput)(nil)).Elem(), DestinationCustomWebhookHandlerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DestinationCustomWebhookHandlerArrayInput)(nil)).Elem(), DestinationCustomWebhookHandlerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DestinationWebhookCriteriaInput)(nil)).Elem(), DestinationWebhookCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DestinationWebhookCriteriaPtrInput)(nil)).Elem(), DestinationWebhookCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DestinationWebhookHandlerInput)(nil)).Elem(), DestinationWebhookHandlerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DestinationWebhookHandlerArrayInput)(nil)).Elem(), DestinationWebhookHandlerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionCustomWebhookCriteriaInput)(nil)).Elem(), DistributionCustomWebhookCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionCustomWebhookCriteriaPtrInput)(nil)).Elem(), DistributionCustomWebhookCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionCustomWebhookHandlerInput)(nil)).Elem(), DistributionCustomWebhookHandlerArgs{})
@@ -30556,6 +33663,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedVagrantRepositoryMemberArrayInput)(nil)).Elem(), FederatedVagrantRepositoryMemberArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocalRepositoryMultiReplicationReplicationInput)(nil)).Elem(), LocalRepositoryMultiReplicationReplicationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocalRepositoryMultiReplicationReplicationArrayInput)(nil)).Elem(), LocalRepositoryMultiReplicationReplicationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedUserPasswordPolicyInput)(nil)).Elem(), ManagedUserPasswordPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedUserPasswordPolicyPtrInput)(nil)).Elem(), ManagedUserPasswordPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OauthSettingsOauthProviderInput)(nil)).Elem(), OauthSettingsOauthProviderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OauthSettingsOauthProviderArrayInput)(nil)).Elem(), OauthSettingsOauthProviderArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PermissionTargetBuildInput)(nil)).Elem(), PermissionTargetBuildArgs{})
@@ -30592,6 +33701,22 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ReleaseBundleCustomWebhookCriteriaPtrInput)(nil)).Elem(), ReleaseBundleCustomWebhookCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReleaseBundleCustomWebhookHandlerInput)(nil)).Elem(), ReleaseBundleCustomWebhookHandlerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReleaseBundleCustomWebhookHandlerArrayInput)(nil)).Elem(), ReleaseBundleCustomWebhookHandlerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReleaseBundleV2CustomWebhookCriteriaInput)(nil)).Elem(), ReleaseBundleV2CustomWebhookCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReleaseBundleV2CustomWebhookCriteriaPtrInput)(nil)).Elem(), ReleaseBundleV2CustomWebhookCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReleaseBundleV2CustomWebhookHandlerInput)(nil)).Elem(), ReleaseBundleV2CustomWebhookHandlerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReleaseBundleV2CustomWebhookHandlerArrayInput)(nil)).Elem(), ReleaseBundleV2CustomWebhookHandlerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReleaseBundleV2PromotionCustomWebhookCriteriaInput)(nil)).Elem(), ReleaseBundleV2PromotionCustomWebhookCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReleaseBundleV2PromotionCustomWebhookCriteriaPtrInput)(nil)).Elem(), ReleaseBundleV2PromotionCustomWebhookCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReleaseBundleV2PromotionCustomWebhookHandlerInput)(nil)).Elem(), ReleaseBundleV2PromotionCustomWebhookHandlerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReleaseBundleV2PromotionCustomWebhookHandlerArrayInput)(nil)).Elem(), ReleaseBundleV2PromotionCustomWebhookHandlerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReleaseBundleV2PromotionWebhookCriteriaInput)(nil)).Elem(), ReleaseBundleV2PromotionWebhookCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReleaseBundleV2PromotionWebhookCriteriaPtrInput)(nil)).Elem(), ReleaseBundleV2PromotionWebhookCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReleaseBundleV2PromotionWebhookHandlerInput)(nil)).Elem(), ReleaseBundleV2PromotionWebhookHandlerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReleaseBundleV2PromotionWebhookHandlerArrayInput)(nil)).Elem(), ReleaseBundleV2PromotionWebhookHandlerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReleaseBundleV2WebhookCriteriaInput)(nil)).Elem(), ReleaseBundleV2WebhookCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReleaseBundleV2WebhookCriteriaPtrInput)(nil)).Elem(), ReleaseBundleV2WebhookCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReleaseBundleV2WebhookHandlerInput)(nil)).Elem(), ReleaseBundleV2WebhookHandlerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReleaseBundleV2WebhookHandlerArrayInput)(nil)).Elem(), ReleaseBundleV2WebhookHandlerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReleaseBundleWebhookCriteriaInput)(nil)).Elem(), ReleaseBundleWebhookCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReleaseBundleWebhookCriteriaPtrInput)(nil)).Elem(), ReleaseBundleWebhookCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReleaseBundleWebhookHandlerInput)(nil)).Elem(), ReleaseBundleWebhookHandlerArgs{})
@@ -30666,6 +33791,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteVcsRepositoryContentSynchronisationPtrInput)(nil)).Elem(), RemoteVcsRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigReplicationInput)(nil)).Elem(), ReplicationConfigReplicationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigReplicationArrayInput)(nil)).Elem(), ReplicationConfigReplicationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UnmanagedUserPasswordPolicyInput)(nil)).Elem(), UnmanagedUserPasswordPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UnmanagedUserPasswordPolicyPtrInput)(nil)).Elem(), UnmanagedUserPasswordPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserCustomWebhookHandlerInput)(nil)).Elem(), UserCustomWebhookHandlerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserCustomWebhookHandlerArrayInput)(nil)).Elem(), UserCustomWebhookHandlerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPasswordPolicyInput)(nil)).Elem(), UserPasswordPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPasswordPolicyPtrInput)(nil)).Elem(), UserPasswordPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserWebhookHandlerInput)(nil)).Elem(), UserWebhookHandlerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserWebhookHandlerArrayInput)(nil)).Elem(), UserWebhookHandlerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VaultConfigurationConfigInput)(nil)).Elem(), VaultConfigurationConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VaultConfigurationConfigPtrInput)(nil)).Elem(), VaultConfigurationConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VaultConfigurationConfigAuthInput)(nil)).Elem(), VaultConfigurationConfigAuthArgs{})
@@ -30841,6 +33974,10 @@ func init() {
 	pulumi.RegisterOutputType(ArtifactCustomWebhookCriteriaPtrOutput{})
 	pulumi.RegisterOutputType(ArtifactCustomWebhookHandlerOutput{})
 	pulumi.RegisterOutputType(ArtifactCustomWebhookHandlerArrayOutput{})
+	pulumi.RegisterOutputType(ArtifactLifecycleCustomWebhookHandlerOutput{})
+	pulumi.RegisterOutputType(ArtifactLifecycleCustomWebhookHandlerArrayOutput{})
+	pulumi.RegisterOutputType(ArtifactLifecycleWebhookHandlerOutput{})
+	pulumi.RegisterOutputType(ArtifactLifecycleWebhookHandlerArrayOutput{})
 	pulumi.RegisterOutputType(ArtifactPropertyCustomWebhookCriteriaOutput{})
 	pulumi.RegisterOutputType(ArtifactPropertyCustomWebhookCriteriaPtrOutput{})
 	pulumi.RegisterOutputType(ArtifactPropertyCustomWebhookHandlerOutput{})
@@ -30869,6 +34006,14 @@ func init() {
 	pulumi.RegisterOutputType(BuildWebhookCriteriaPtrOutput{})
 	pulumi.RegisterOutputType(BuildWebhookHandlerOutput{})
 	pulumi.RegisterOutputType(BuildWebhookHandlerArrayOutput{})
+	pulumi.RegisterOutputType(DestinationCustomWebhookCriteriaOutput{})
+	pulumi.RegisterOutputType(DestinationCustomWebhookCriteriaPtrOutput{})
+	pulumi.RegisterOutputType(DestinationCustomWebhookHandlerOutput{})
+	pulumi.RegisterOutputType(DestinationCustomWebhookHandlerArrayOutput{})
+	pulumi.RegisterOutputType(DestinationWebhookCriteriaOutput{})
+	pulumi.RegisterOutputType(DestinationWebhookCriteriaPtrOutput{})
+	pulumi.RegisterOutputType(DestinationWebhookHandlerOutput{})
+	pulumi.RegisterOutputType(DestinationWebhookHandlerArrayOutput{})
 	pulumi.RegisterOutputType(DistributionCustomWebhookCriteriaOutput{})
 	pulumi.RegisterOutputType(DistributionCustomWebhookCriteriaPtrOutput{})
 	pulumi.RegisterOutputType(DistributionCustomWebhookHandlerOutput{})
@@ -30955,6 +34100,8 @@ func init() {
 	pulumi.RegisterOutputType(FederatedVagrantRepositoryMemberArrayOutput{})
 	pulumi.RegisterOutputType(LocalRepositoryMultiReplicationReplicationOutput{})
 	pulumi.RegisterOutputType(LocalRepositoryMultiReplicationReplicationArrayOutput{})
+	pulumi.RegisterOutputType(ManagedUserPasswordPolicyOutput{})
+	pulumi.RegisterOutputType(ManagedUserPasswordPolicyPtrOutput{})
 	pulumi.RegisterOutputType(OauthSettingsOauthProviderOutput{})
 	pulumi.RegisterOutputType(OauthSettingsOauthProviderArrayOutput{})
 	pulumi.RegisterOutputType(PermissionTargetBuildOutput{})
@@ -30991,6 +34138,22 @@ func init() {
 	pulumi.RegisterOutputType(ReleaseBundleCustomWebhookCriteriaPtrOutput{})
 	pulumi.RegisterOutputType(ReleaseBundleCustomWebhookHandlerOutput{})
 	pulumi.RegisterOutputType(ReleaseBundleCustomWebhookHandlerArrayOutput{})
+	pulumi.RegisterOutputType(ReleaseBundleV2CustomWebhookCriteriaOutput{})
+	pulumi.RegisterOutputType(ReleaseBundleV2CustomWebhookCriteriaPtrOutput{})
+	pulumi.RegisterOutputType(ReleaseBundleV2CustomWebhookHandlerOutput{})
+	pulumi.RegisterOutputType(ReleaseBundleV2CustomWebhookHandlerArrayOutput{})
+	pulumi.RegisterOutputType(ReleaseBundleV2PromotionCustomWebhookCriteriaOutput{})
+	pulumi.RegisterOutputType(ReleaseBundleV2PromotionCustomWebhookCriteriaPtrOutput{})
+	pulumi.RegisterOutputType(ReleaseBundleV2PromotionCustomWebhookHandlerOutput{})
+	pulumi.RegisterOutputType(ReleaseBundleV2PromotionCustomWebhookHandlerArrayOutput{})
+	pulumi.RegisterOutputType(ReleaseBundleV2PromotionWebhookCriteriaOutput{})
+	pulumi.RegisterOutputType(ReleaseBundleV2PromotionWebhookCriteriaPtrOutput{})
+	pulumi.RegisterOutputType(ReleaseBundleV2PromotionWebhookHandlerOutput{})
+	pulumi.RegisterOutputType(ReleaseBundleV2PromotionWebhookHandlerArrayOutput{})
+	pulumi.RegisterOutputType(ReleaseBundleV2WebhookCriteriaOutput{})
+	pulumi.RegisterOutputType(ReleaseBundleV2WebhookCriteriaPtrOutput{})
+	pulumi.RegisterOutputType(ReleaseBundleV2WebhookHandlerOutput{})
+	pulumi.RegisterOutputType(ReleaseBundleV2WebhookHandlerArrayOutput{})
 	pulumi.RegisterOutputType(ReleaseBundleWebhookCriteriaOutput{})
 	pulumi.RegisterOutputType(ReleaseBundleWebhookCriteriaPtrOutput{})
 	pulumi.RegisterOutputType(ReleaseBundleWebhookHandlerOutput{})
@@ -31065,6 +34228,14 @@ func init() {
 	pulumi.RegisterOutputType(RemoteVcsRepositoryContentSynchronisationPtrOutput{})
 	pulumi.RegisterOutputType(ReplicationConfigReplicationOutput{})
 	pulumi.RegisterOutputType(ReplicationConfigReplicationArrayOutput{})
+	pulumi.RegisterOutputType(UnmanagedUserPasswordPolicyOutput{})
+	pulumi.RegisterOutputType(UnmanagedUserPasswordPolicyPtrOutput{})
+	pulumi.RegisterOutputType(UserCustomWebhookHandlerOutput{})
+	pulumi.RegisterOutputType(UserCustomWebhookHandlerArrayOutput{})
+	pulumi.RegisterOutputType(UserPasswordPolicyOutput{})
+	pulumi.RegisterOutputType(UserPasswordPolicyPtrOutput{})
+	pulumi.RegisterOutputType(UserWebhookHandlerOutput{})
+	pulumi.RegisterOutputType(UserWebhookHandlerArrayOutput{})
 	pulumi.RegisterOutputType(VaultConfigurationConfigOutput{})
 	pulumi.RegisterOutputType(VaultConfigurationConfigPtrOutput{})
 	pulumi.RegisterOutputType(VaultConfigurationConfigAuthOutput{})

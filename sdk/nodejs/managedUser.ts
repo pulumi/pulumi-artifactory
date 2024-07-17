@@ -2,25 +2,12 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
  * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const test_user = new artifactory.ManagedUser("test-user", {
- *     name: "terraform",
- *     password: "my super secret password",
- *     email: "test-user@artifactory-terraform.com",
- *     groups: [
- *         "readers",
- *         "logged-in-users",
- *     ],
- * });
- * ```
  *
  * ## Import
  *
@@ -77,13 +64,17 @@ export class ManagedUser extends pulumi.CustomResource {
      */
     public readonly internalPasswordDisabled!: pulumi.Output<boolean>;
     /**
-     * Username for user. May contain lowercase letters, numbers and symbols: `.-_@` for self-hosted. For SaaS, `+` is also allowed.
+     * Username for user. May contain lowercase letters, numbers and symbols: '.-_@' for self-hosted. For SaaS, '+' is also allowed.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * (Optional, Sensitive) Password for the user.
+     * Password for the user.
      */
     public readonly password!: pulumi.Output<string>;
+    /**
+     * Password policy to match JFrog Access to provide pre-apply validation. Default values: `uppercase=1`, `lowercase=1`, `special_char=0`, `digit=1`, `length=8`. Also see [Supported Access Configurations](https://jfrog.com/help/r/jfrog-installation-setup-documentation/supported-access-configurations) for more details
+     */
+    public readonly passwordPolicy!: pulumi.Output<outputs.ManagedUserPasswordPolicy | undefined>;
     /**
      * (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an administrator can update the password). There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.
      */
@@ -109,6 +100,7 @@ export class ManagedUser extends pulumi.CustomResource {
             resourceInputs["internalPasswordDisabled"] = state ? state.internalPasswordDisabled : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["password"] = state ? state.password : undefined;
+            resourceInputs["passwordPolicy"] = state ? state.passwordPolicy : undefined;
             resourceInputs["profileUpdatable"] = state ? state.profileUpdatable : undefined;
         } else {
             const args = argsOrState as ManagedUserArgs | undefined;
@@ -125,6 +117,7 @@ export class ManagedUser extends pulumi.CustomResource {
             resourceInputs["internalPasswordDisabled"] = args ? args.internalPasswordDisabled : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
+            resourceInputs["passwordPolicy"] = args ? args.passwordPolicy : undefined;
             resourceInputs["profileUpdatable"] = args ? args.profileUpdatable : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -159,13 +152,17 @@ export interface ManagedUserState {
      */
     internalPasswordDisabled?: pulumi.Input<boolean>;
     /**
-     * Username for user. May contain lowercase letters, numbers and symbols: `.-_@` for self-hosted. For SaaS, `+` is also allowed.
+     * Username for user. May contain lowercase letters, numbers and symbols: '.-_@' for self-hosted. For SaaS, '+' is also allowed.
      */
     name?: pulumi.Input<string>;
     /**
-     * (Optional, Sensitive) Password for the user.
+     * Password for the user.
      */
     password?: pulumi.Input<string>;
+    /**
+     * Password policy to match JFrog Access to provide pre-apply validation. Default values: `uppercase=1`, `lowercase=1`, `special_char=0`, `digit=1`, `length=8`. Also see [Supported Access Configurations](https://jfrog.com/help/r/jfrog-installation-setup-documentation/supported-access-configurations) for more details
+     */
+    passwordPolicy?: pulumi.Input<inputs.ManagedUserPasswordPolicy>;
     /**
      * (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an administrator can update the password). There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.
      */
@@ -197,13 +194,17 @@ export interface ManagedUserArgs {
      */
     internalPasswordDisabled?: pulumi.Input<boolean>;
     /**
-     * Username for user. May contain lowercase letters, numbers and symbols: `.-_@` for self-hosted. For SaaS, `+` is also allowed.
+     * Username for user. May contain lowercase letters, numbers and symbols: '.-_@' for self-hosted. For SaaS, '+' is also allowed.
      */
     name?: pulumi.Input<string>;
     /**
-     * (Optional, Sensitive) Password for the user.
+     * Password for the user.
      */
     password: pulumi.Input<string>;
+    /**
+     * Password policy to match JFrog Access to provide pre-apply validation. Default values: `uppercase=1`, `lowercase=1`, `special_char=0`, `digit=1`, `length=8`. Also see [Supported Access Configurations](https://jfrog.com/help/r/jfrog-installation-setup-documentation/supported-access-configurations) for more details
+     */
+    passwordPolicy?: pulumi.Input<inputs.ManagedUserPasswordPolicy>;
     /**
      * (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an administrator can update the password). There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.
      */

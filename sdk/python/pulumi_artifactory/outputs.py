@@ -14,6 +14,8 @@ __all__ = [
     'AccessTokenAdminToken',
     'ArtifactCustomWebhookCriteria',
     'ArtifactCustomWebhookHandler',
+    'ArtifactLifecycleCustomWebhookHandler',
+    'ArtifactLifecycleWebhookHandler',
     'ArtifactPropertyCustomWebhookCriteria',
     'ArtifactPropertyCustomWebhookHandler',
     'ArtifactPropertyWebhookCriteria',
@@ -28,6 +30,10 @@ __all__ = [
     'BuildCustomWebhookHandler',
     'BuildWebhookCriteria',
     'BuildWebhookHandler',
+    'DestinationCustomWebhookCriteria',
+    'DestinationCustomWebhookHandler',
+    'DestinationWebhookCriteria',
+    'DestinationWebhookHandler',
     'DistributionCustomWebhookCriteria',
     'DistributionCustomWebhookHandler',
     'DistributionWebhookCriteria',
@@ -71,6 +77,7 @@ __all__ = [
     'FederatedTerraformProviderRepositoryMember',
     'FederatedVagrantRepositoryMember',
     'LocalRepositoryMultiReplicationReplication',
+    'ManagedUserPasswordPolicy',
     'OauthSettingsOauthProvider',
     'PermissionTargetBuild',
     'PermissionTargetBuildActions',
@@ -89,6 +96,14 @@ __all__ = [
     'PushReplicationReplication',
     'ReleaseBundleCustomWebhookCriteria',
     'ReleaseBundleCustomWebhookHandler',
+    'ReleaseBundleV2CustomWebhookCriteria',
+    'ReleaseBundleV2CustomWebhookHandler',
+    'ReleaseBundleV2PromotionCustomWebhookCriteria',
+    'ReleaseBundleV2PromotionCustomWebhookHandler',
+    'ReleaseBundleV2PromotionWebhookCriteria',
+    'ReleaseBundleV2PromotionWebhookHandler',
+    'ReleaseBundleV2WebhookCriteria',
+    'ReleaseBundleV2WebhookHandler',
     'ReleaseBundleWebhookCriteria',
     'ReleaseBundleWebhookHandler',
     'RemoteAlpineRepositoryContentSynchronisation',
@@ -126,6 +141,10 @@ __all__ = [
     'RemoteTerraformRepositoryContentSynchronisation',
     'RemoteVcsRepositoryContentSynchronisation',
     'ReplicationConfigReplication',
+    'UnmanagedUserPasswordPolicy',
+    'UserCustomWebhookHandler',
+    'UserPasswordPolicy',
+    'UserWebhookHandler',
     'VaultConfigurationConfig',
     'VaultConfigurationConfigAuth',
     'VaultConfigurationConfigMount',
@@ -425,6 +444,174 @@ class ArtifactCustomWebhookHandler(dict):
         Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example: 
         """
         return pulumi.get(self, "secrets")
+
+
+@pulumi.output_type
+class ArtifactLifecycleCustomWebhookHandler(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "httpHeaders":
+            suggest = "http_headers"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ArtifactLifecycleCustomWebhookHandler. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ArtifactLifecycleCustomWebhookHandler.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ArtifactLifecycleCustomWebhookHandler.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 url: str,
+                 http_headers: Optional[Mapping[str, str]] = None,
+                 payload: Optional[str] = None,
+                 proxy: Optional[str] = None,
+                 secrets: Optional[Mapping[str, str]] = None):
+        """
+        :param str url: Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+        :param Mapping[str, str] http_headers: HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
+        :param str payload: This attribute is used to build the request body. Used in custom webhooks
+        :param str proxy: Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+        :param Mapping[str, str] secrets: Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
+        """
+        pulumi.set(__self__, "url", url)
+        if http_headers is not None:
+            pulumi.set(__self__, "http_headers", http_headers)
+        if payload is not None:
+            pulumi.set(__self__, "payload", payload)
+        if proxy is not None:
+            pulumi.set(__self__, "proxy", proxy)
+        if secrets is not None:
+            pulumi.set(__self__, "secrets", secrets)
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+        """
+        return pulumi.get(self, "url")
+
+    @property
+    @pulumi.getter(name="httpHeaders")
+    def http_headers(self) -> Optional[Mapping[str, str]]:
+        """
+        HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
+        """
+        return pulumi.get(self, "http_headers")
+
+    @property
+    @pulumi.getter
+    def payload(self) -> Optional[str]:
+        """
+        This attribute is used to build the request body. Used in custom webhooks
+        """
+        return pulumi.get(self, "payload")
+
+    @property
+    @pulumi.getter
+    def proxy(self) -> Optional[str]:
+        """
+        Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+        """
+        return pulumi.get(self, "proxy")
+
+    @property
+    @pulumi.getter
+    def secrets(self) -> Optional[Mapping[str, str]]:
+        """
+        Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
+        """
+        return pulumi.get(self, "secrets")
+
+
+@pulumi.output_type
+class ArtifactLifecycleWebhookHandler(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customHttpHeaders":
+            suggest = "custom_http_headers"
+        elif key == "useSecretForSigning":
+            suggest = "use_secret_for_signing"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ArtifactLifecycleWebhookHandler. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ArtifactLifecycleWebhookHandler.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ArtifactLifecycleWebhookHandler.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 url: str,
+                 custom_http_headers: Optional[Mapping[str, str]] = None,
+                 proxy: Optional[str] = None,
+                 secret: Optional[str] = None,
+                 use_secret_for_signing: Optional[bool] = None):
+        """
+        :param str url: Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+        :param Mapping[str, str] custom_http_headers: Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
+        :param str proxy: Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+        :param str secret: Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
+        :param bool use_secret_for_signing: When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
+        """
+        pulumi.set(__self__, "url", url)
+        if custom_http_headers is not None:
+            pulumi.set(__self__, "custom_http_headers", custom_http_headers)
+        if proxy is not None:
+            pulumi.set(__self__, "proxy", proxy)
+        if secret is not None:
+            pulumi.set(__self__, "secret", secret)
+        if use_secret_for_signing is not None:
+            pulumi.set(__self__, "use_secret_for_signing", use_secret_for_signing)
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+        """
+        return pulumi.get(self, "url")
+
+    @property
+    @pulumi.getter(name="customHttpHeaders")
+    def custom_http_headers(self) -> Optional[Mapping[str, str]]:
+        """
+        Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
+        """
+        return pulumi.get(self, "custom_http_headers")
+
+    @property
+    @pulumi.getter
+    def proxy(self) -> Optional[str]:
+        """
+        Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+        """
+        return pulumi.get(self, "proxy")
+
+    @property
+    @pulumi.getter
+    def secret(self) -> Optional[str]:
+        """
+        Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
+        """
+        return pulumi.get(self, "secret")
+
+    @property
+    @pulumi.getter(name="useSecretForSigning")
+    def use_secret_for_signing(self) -> Optional[bool]:
+        """
+        When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
+        """
+        return pulumi.get(self, "use_secret_for_signing")
 
 
 @pulumi.output_type
@@ -1560,6 +1747,326 @@ class BuildWebhookHandler(dict):
 
     def get(self, key: str, default = None) -> Any:
         BuildWebhookHandler.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 url: str,
+                 custom_http_headers: Optional[Mapping[str, str]] = None,
+                 proxy: Optional[str] = None,
+                 secret: Optional[str] = None,
+                 use_secret_for_signing: Optional[bool] = None):
+        """
+        :param str url: Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+        :param Mapping[str, str] custom_http_headers: Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
+        :param str proxy: Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+        :param str secret: Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
+        :param bool use_secret_for_signing: When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
+        """
+        pulumi.set(__self__, "url", url)
+        if custom_http_headers is not None:
+            pulumi.set(__self__, "custom_http_headers", custom_http_headers)
+        if proxy is not None:
+            pulumi.set(__self__, "proxy", proxy)
+        if secret is not None:
+            pulumi.set(__self__, "secret", secret)
+        if use_secret_for_signing is not None:
+            pulumi.set(__self__, "use_secret_for_signing", use_secret_for_signing)
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+        """
+        return pulumi.get(self, "url")
+
+    @property
+    @pulumi.getter(name="customHttpHeaders")
+    def custom_http_headers(self) -> Optional[Mapping[str, str]]:
+        """
+        Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
+        """
+        return pulumi.get(self, "custom_http_headers")
+
+    @property
+    @pulumi.getter
+    def proxy(self) -> Optional[str]:
+        """
+        Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+        """
+        return pulumi.get(self, "proxy")
+
+    @property
+    @pulumi.getter
+    def secret(self) -> Optional[str]:
+        """
+        Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
+        """
+        return pulumi.get(self, "secret")
+
+    @property
+    @pulumi.getter(name="useSecretForSigning")
+    def use_secret_for_signing(self) -> Optional[bool]:
+        """
+        When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
+        """
+        return pulumi.get(self, "use_secret_for_signing")
+
+
+@pulumi.output_type
+class DestinationCustomWebhookCriteria(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "anyReleaseBundle":
+            suggest = "any_release_bundle"
+        elif key == "registeredReleaseBundleNames":
+            suggest = "registered_release_bundle_names"
+        elif key == "excludePatterns":
+            suggest = "exclude_patterns"
+        elif key == "includePatterns":
+            suggest = "include_patterns"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DestinationCustomWebhookCriteria. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DestinationCustomWebhookCriteria.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DestinationCustomWebhookCriteria.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 any_release_bundle: bool,
+                 registered_release_bundle_names: Sequence[str],
+                 exclude_patterns: Optional[Sequence[str]] = None,
+                 include_patterns: Optional[Sequence[str]] = None):
+        """
+        :param bool any_release_bundle: Trigger on any release bundle
+        :param Sequence[str] registered_release_bundle_names: Trigger on this list of release bundle names
+        :param Sequence[str] exclude_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`
+        :param Sequence[str] include_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`
+        """
+        pulumi.set(__self__, "any_release_bundle", any_release_bundle)
+        pulumi.set(__self__, "registered_release_bundle_names", registered_release_bundle_names)
+        if exclude_patterns is not None:
+            pulumi.set(__self__, "exclude_patterns", exclude_patterns)
+        if include_patterns is not None:
+            pulumi.set(__self__, "include_patterns", include_patterns)
+
+    @property
+    @pulumi.getter(name="anyReleaseBundle")
+    def any_release_bundle(self) -> bool:
+        """
+        Trigger on any release bundle
+        """
+        return pulumi.get(self, "any_release_bundle")
+
+    @property
+    @pulumi.getter(name="registeredReleaseBundleNames")
+    def registered_release_bundle_names(self) -> Sequence[str]:
+        """
+        Trigger on this list of release bundle names
+        """
+        return pulumi.get(self, "registered_release_bundle_names")
+
+    @property
+    @pulumi.getter(name="excludePatterns")
+    def exclude_patterns(self) -> Optional[Sequence[str]]:
+        """
+        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`
+        """
+        return pulumi.get(self, "exclude_patterns")
+
+    @property
+    @pulumi.getter(name="includePatterns")
+    def include_patterns(self) -> Optional[Sequence[str]]:
+        """
+        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`
+        """
+        return pulumi.get(self, "include_patterns")
+
+
+@pulumi.output_type
+class DestinationCustomWebhookHandler(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "httpHeaders":
+            suggest = "http_headers"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DestinationCustomWebhookHandler. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DestinationCustomWebhookHandler.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DestinationCustomWebhookHandler.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 url: str,
+                 http_headers: Optional[Mapping[str, str]] = None,
+                 payload: Optional[str] = None,
+                 proxy: Optional[str] = None,
+                 secrets: Optional[Mapping[str, str]] = None):
+        """
+        :param str url: Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+        :param Mapping[str, str] http_headers: HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
+        :param str payload: This attribute is used to build the request body. Used in custom webhooks
+        :param str proxy: Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+        :param Mapping[str, str] secrets: Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
+        """
+        pulumi.set(__self__, "url", url)
+        if http_headers is not None:
+            pulumi.set(__self__, "http_headers", http_headers)
+        if payload is not None:
+            pulumi.set(__self__, "payload", payload)
+        if proxy is not None:
+            pulumi.set(__self__, "proxy", proxy)
+        if secrets is not None:
+            pulumi.set(__self__, "secrets", secrets)
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+        """
+        return pulumi.get(self, "url")
+
+    @property
+    @pulumi.getter(name="httpHeaders")
+    def http_headers(self) -> Optional[Mapping[str, str]]:
+        """
+        HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
+        """
+        return pulumi.get(self, "http_headers")
+
+    @property
+    @pulumi.getter
+    def payload(self) -> Optional[str]:
+        """
+        This attribute is used to build the request body. Used in custom webhooks
+        """
+        return pulumi.get(self, "payload")
+
+    @property
+    @pulumi.getter
+    def proxy(self) -> Optional[str]:
+        """
+        Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+        """
+        return pulumi.get(self, "proxy")
+
+    @property
+    @pulumi.getter
+    def secrets(self) -> Optional[Mapping[str, str]]:
+        """
+        Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
+        """
+        return pulumi.get(self, "secrets")
+
+
+@pulumi.output_type
+class DestinationWebhookCriteria(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "anyReleaseBundle":
+            suggest = "any_release_bundle"
+        elif key == "registeredReleaseBundleNames":
+            suggest = "registered_release_bundle_names"
+        elif key == "excludePatterns":
+            suggest = "exclude_patterns"
+        elif key == "includePatterns":
+            suggest = "include_patterns"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DestinationWebhookCriteria. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DestinationWebhookCriteria.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DestinationWebhookCriteria.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 any_release_bundle: bool,
+                 registered_release_bundle_names: Sequence[str],
+                 exclude_patterns: Optional[Sequence[str]] = None,
+                 include_patterns: Optional[Sequence[str]] = None):
+        """
+        :param bool any_release_bundle: Trigger on any release bundle
+        :param Sequence[str] registered_release_bundle_names: Trigger on this list of release bundle names
+        :param Sequence[str] exclude_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`
+        :param Sequence[str] include_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`
+        """
+        pulumi.set(__self__, "any_release_bundle", any_release_bundle)
+        pulumi.set(__self__, "registered_release_bundle_names", registered_release_bundle_names)
+        if exclude_patterns is not None:
+            pulumi.set(__self__, "exclude_patterns", exclude_patterns)
+        if include_patterns is not None:
+            pulumi.set(__self__, "include_patterns", include_patterns)
+
+    @property
+    @pulumi.getter(name="anyReleaseBundle")
+    def any_release_bundle(self) -> bool:
+        """
+        Trigger on any release bundle
+        """
+        return pulumi.get(self, "any_release_bundle")
+
+    @property
+    @pulumi.getter(name="registeredReleaseBundleNames")
+    def registered_release_bundle_names(self) -> Sequence[str]:
+        """
+        Trigger on this list of release bundle names
+        """
+        return pulumi.get(self, "registered_release_bundle_names")
+
+    @property
+    @pulumi.getter(name="excludePatterns")
+    def exclude_patterns(self) -> Optional[Sequence[str]]:
+        """
+        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`
+        """
+        return pulumi.get(self, "exclude_patterns")
+
+    @property
+    @pulumi.getter(name="includePatterns")
+    def include_patterns(self) -> Optional[Sequence[str]]:
+        """
+        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`
+        """
+        return pulumi.get(self, "include_patterns")
+
+
+@pulumi.output_type
+class DestinationWebhookHandler(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customHttpHeaders":
+            suggest = "custom_http_headers"
+        elif key == "useSecretForSigning":
+            suggest = "use_secret_for_signing"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DestinationWebhookHandler. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DestinationWebhookHandler.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DestinationWebhookHandler.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -3563,6 +4070,90 @@ class LocalRepositoryMultiReplicationReplication(dict):
 
 
 @pulumi.output_type
+class ManagedUserPasswordPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "specialChar":
+            suggest = "special_char"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedUserPasswordPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedUserPasswordPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedUserPasswordPolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 digit: Optional[int] = None,
+                 length: Optional[int] = None,
+                 lowercase: Optional[int] = None,
+                 special_char: Optional[int] = None,
+                 uppercase: Optional[int] = None):
+        """
+        :param int digit: Minimum number of digits that the password must contain
+        :param int length: Minimum length of the password
+        :param int lowercase: Minimum number of lowercase letters that the password must contain
+        :param int special_char: Minimum number of special char that the password must contain. Special chars list: `!"#$%&'()*+,-./:;<=>?@[\\]^_``{|}~`
+        :param int uppercase: Minimum number of uppercase letters that the password must contain
+        """
+        if digit is not None:
+            pulumi.set(__self__, "digit", digit)
+        if length is not None:
+            pulumi.set(__self__, "length", length)
+        if lowercase is not None:
+            pulumi.set(__self__, "lowercase", lowercase)
+        if special_char is not None:
+            pulumi.set(__self__, "special_char", special_char)
+        if uppercase is not None:
+            pulumi.set(__self__, "uppercase", uppercase)
+
+    @property
+    @pulumi.getter
+    def digit(self) -> Optional[int]:
+        """
+        Minimum number of digits that the password must contain
+        """
+        return pulumi.get(self, "digit")
+
+    @property
+    @pulumi.getter
+    def length(self) -> Optional[int]:
+        """
+        Minimum length of the password
+        """
+        return pulumi.get(self, "length")
+
+    @property
+    @pulumi.getter
+    def lowercase(self) -> Optional[int]:
+        """
+        Minimum number of lowercase letters that the password must contain
+        """
+        return pulumi.get(self, "lowercase")
+
+    @property
+    @pulumi.getter(name="specialChar")
+    def special_char(self) -> Optional[int]:
+        """
+        Minimum number of special char that the password must contain. Special chars list: `!"#$%&'()*+,-./:;<=>?@[\\]^_``{|}~`
+        """
+        return pulumi.get(self, "special_char")
+
+    @property
+    @pulumi.getter
+    def uppercase(self) -> Optional[int]:
+        """
+        Minimum number of uppercase letters that the password must contain
+        """
+        return pulumi.get(self, "uppercase")
+
+
+@pulumi.output_type
 class OauthSettingsOauthProvider(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -4558,6 +5149,620 @@ class ReleaseBundleCustomWebhookHandler(dict):
         Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
         """
         return pulumi.get(self, "secrets")
+
+
+@pulumi.output_type
+class ReleaseBundleV2CustomWebhookCriteria(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "anyReleaseBundle":
+            suggest = "any_release_bundle"
+        elif key == "selectedReleaseBundles":
+            suggest = "selected_release_bundles"
+        elif key == "excludePatterns":
+            suggest = "exclude_patterns"
+        elif key == "includePatterns":
+            suggest = "include_patterns"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReleaseBundleV2CustomWebhookCriteria. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReleaseBundleV2CustomWebhookCriteria.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReleaseBundleV2CustomWebhookCriteria.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 any_release_bundle: bool,
+                 selected_release_bundles: Sequence[str],
+                 exclude_patterns: Optional[Sequence[str]] = None,
+                 include_patterns: Optional[Sequence[str]] = None):
+        """
+        :param bool any_release_bundle: Trigger on any release bundle.
+        :param Sequence[str] selected_release_bundles: Trigger on this list of release bundle names.
+        :param Sequence[str] exclude_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: "org/apache/**".
+        :param Sequence[str] include_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: "org/apache/**".
+        """
+        pulumi.set(__self__, "any_release_bundle", any_release_bundle)
+        pulumi.set(__self__, "selected_release_bundles", selected_release_bundles)
+        if exclude_patterns is not None:
+            pulumi.set(__self__, "exclude_patterns", exclude_patterns)
+        if include_patterns is not None:
+            pulumi.set(__self__, "include_patterns", include_patterns)
+
+    @property
+    @pulumi.getter(name="anyReleaseBundle")
+    def any_release_bundle(self) -> bool:
+        """
+        Trigger on any release bundle.
+        """
+        return pulumi.get(self, "any_release_bundle")
+
+    @property
+    @pulumi.getter(name="selectedReleaseBundles")
+    def selected_release_bundles(self) -> Sequence[str]:
+        """
+        Trigger on this list of release bundle names.
+        """
+        return pulumi.get(self, "selected_release_bundles")
+
+    @property
+    @pulumi.getter(name="excludePatterns")
+    def exclude_patterns(self) -> Optional[Sequence[str]]:
+        """
+        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: "org/apache/**".
+        """
+        return pulumi.get(self, "exclude_patterns")
+
+    @property
+    @pulumi.getter(name="includePatterns")
+    def include_patterns(self) -> Optional[Sequence[str]]:
+        """
+        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: "org/apache/**".
+        """
+        return pulumi.get(self, "include_patterns")
+
+
+@pulumi.output_type
+class ReleaseBundleV2CustomWebhookHandler(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "httpHeaders":
+            suggest = "http_headers"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReleaseBundleV2CustomWebhookHandler. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReleaseBundleV2CustomWebhookHandler.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReleaseBundleV2CustomWebhookHandler.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 url: str,
+                 http_headers: Optional[Mapping[str, str]] = None,
+                 payload: Optional[str] = None,
+                 proxy: Optional[str] = None,
+                 secrets: Optional[Mapping[str, str]] = None):
+        """
+        :param str url: Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+        :param Mapping[str, str] http_headers: HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
+        :param str payload: This attribute is used to build the request body. Used in custom webhooks
+        :param str proxy: Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+        :param Mapping[str, str] secrets: Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
+        """
+        pulumi.set(__self__, "url", url)
+        if http_headers is not None:
+            pulumi.set(__self__, "http_headers", http_headers)
+        if payload is not None:
+            pulumi.set(__self__, "payload", payload)
+        if proxy is not None:
+            pulumi.set(__self__, "proxy", proxy)
+        if secrets is not None:
+            pulumi.set(__self__, "secrets", secrets)
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+        """
+        return pulumi.get(self, "url")
+
+    @property
+    @pulumi.getter(name="httpHeaders")
+    def http_headers(self) -> Optional[Mapping[str, str]]:
+        """
+        HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
+        """
+        return pulumi.get(self, "http_headers")
+
+    @property
+    @pulumi.getter
+    def payload(self) -> Optional[str]:
+        """
+        This attribute is used to build the request body. Used in custom webhooks
+        """
+        return pulumi.get(self, "payload")
+
+    @property
+    @pulumi.getter
+    def proxy(self) -> Optional[str]:
+        """
+        Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+        """
+        return pulumi.get(self, "proxy")
+
+    @property
+    @pulumi.getter
+    def secrets(self) -> Optional[Mapping[str, str]]:
+        """
+        Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
+        """
+        return pulumi.get(self, "secrets")
+
+
+@pulumi.output_type
+class ReleaseBundleV2PromotionCustomWebhookCriteria(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "selectedEnvironments":
+            suggest = "selected_environments"
+        elif key == "excludePatterns":
+            suggest = "exclude_patterns"
+        elif key == "includePatterns":
+            suggest = "include_patterns"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReleaseBundleV2PromotionCustomWebhookCriteria. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReleaseBundleV2PromotionCustomWebhookCriteria.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReleaseBundleV2PromotionCustomWebhookCriteria.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 selected_environments: Sequence[str],
+                 exclude_patterns: Optional[Sequence[str]] = None,
+                 include_patterns: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] selected_environments: Trigger on this list of environment names.
+        :param Sequence[str] exclude_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\\nAnt-style path expressions are supported (*, **, ?).\\nFor example: "org/apache/**"
+        :param Sequence[str] include_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\\nAnt-style path expressions are supported (*, **, ?).\\nFor example: "org/apache/**"
+        """
+        pulumi.set(__self__, "selected_environments", selected_environments)
+        if exclude_patterns is not None:
+            pulumi.set(__self__, "exclude_patterns", exclude_patterns)
+        if include_patterns is not None:
+            pulumi.set(__self__, "include_patterns", include_patterns)
+
+    @property
+    @pulumi.getter(name="selectedEnvironments")
+    def selected_environments(self) -> Sequence[str]:
+        """
+        Trigger on this list of environment names.
+        """
+        return pulumi.get(self, "selected_environments")
+
+    @property
+    @pulumi.getter(name="excludePatterns")
+    def exclude_patterns(self) -> Optional[Sequence[str]]:
+        """
+        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\\nAnt-style path expressions are supported (*, **, ?).\\nFor example: "org/apache/**"
+        """
+        return pulumi.get(self, "exclude_patterns")
+
+    @property
+    @pulumi.getter(name="includePatterns")
+    def include_patterns(self) -> Optional[Sequence[str]]:
+        """
+        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\\nAnt-style path expressions are supported (*, **, ?).\\nFor example: "org/apache/**"
+        """
+        return pulumi.get(self, "include_patterns")
+
+
+@pulumi.output_type
+class ReleaseBundleV2PromotionCustomWebhookHandler(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "httpHeaders":
+            suggest = "http_headers"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReleaseBundleV2PromotionCustomWebhookHandler. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReleaseBundleV2PromotionCustomWebhookHandler.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReleaseBundleV2PromotionCustomWebhookHandler.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 url: str,
+                 http_headers: Optional[Mapping[str, str]] = None,
+                 payload: Optional[str] = None,
+                 proxy: Optional[str] = None,
+                 secrets: Optional[Mapping[str, str]] = None):
+        """
+        :param str url: Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+        :param Mapping[str, str] http_headers: HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
+        :param str payload: This attribute is used to build the request body. Used in custom webhooks
+        :param str proxy: Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+        :param Mapping[str, str] secrets: Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
+        """
+        pulumi.set(__self__, "url", url)
+        if http_headers is not None:
+            pulumi.set(__self__, "http_headers", http_headers)
+        if payload is not None:
+            pulumi.set(__self__, "payload", payload)
+        if proxy is not None:
+            pulumi.set(__self__, "proxy", proxy)
+        if secrets is not None:
+            pulumi.set(__self__, "secrets", secrets)
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+        """
+        return pulumi.get(self, "url")
+
+    @property
+    @pulumi.getter(name="httpHeaders")
+    def http_headers(self) -> Optional[Mapping[str, str]]:
+        """
+        HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
+        """
+        return pulumi.get(self, "http_headers")
+
+    @property
+    @pulumi.getter
+    def payload(self) -> Optional[str]:
+        """
+        This attribute is used to build the request body. Used in custom webhooks
+        """
+        return pulumi.get(self, "payload")
+
+    @property
+    @pulumi.getter
+    def proxy(self) -> Optional[str]:
+        """
+        Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+        """
+        return pulumi.get(self, "proxy")
+
+    @property
+    @pulumi.getter
+    def secrets(self) -> Optional[Mapping[str, str]]:
+        """
+        Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
+        """
+        return pulumi.get(self, "secrets")
+
+
+@pulumi.output_type
+class ReleaseBundleV2PromotionWebhookCriteria(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "selectedEnvironments":
+            suggest = "selected_environments"
+        elif key == "excludePatterns":
+            suggest = "exclude_patterns"
+        elif key == "includePatterns":
+            suggest = "include_patterns"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReleaseBundleV2PromotionWebhookCriteria. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReleaseBundleV2PromotionWebhookCriteria.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReleaseBundleV2PromotionWebhookCriteria.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 selected_environments: Sequence[str],
+                 exclude_patterns: Optional[Sequence[str]] = None,
+                 include_patterns: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] selected_environments: Trigger on this list of environment names.
+        :param Sequence[str] exclude_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\\nAnt-style path expressions are supported (*, **, ?).\\nFor example: "org/apache/**"
+        :param Sequence[str] include_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\\nAnt-style path expressions are supported (*, **, ?).\\nFor example: "org/apache/**"
+        """
+        pulumi.set(__self__, "selected_environments", selected_environments)
+        if exclude_patterns is not None:
+            pulumi.set(__self__, "exclude_patterns", exclude_patterns)
+        if include_patterns is not None:
+            pulumi.set(__self__, "include_patterns", include_patterns)
+
+    @property
+    @pulumi.getter(name="selectedEnvironments")
+    def selected_environments(self) -> Sequence[str]:
+        """
+        Trigger on this list of environment names.
+        """
+        return pulumi.get(self, "selected_environments")
+
+    @property
+    @pulumi.getter(name="excludePatterns")
+    def exclude_patterns(self) -> Optional[Sequence[str]]:
+        """
+        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\\nAnt-style path expressions are supported (*, **, ?).\\nFor example: "org/apache/**"
+        """
+        return pulumi.get(self, "exclude_patterns")
+
+    @property
+    @pulumi.getter(name="includePatterns")
+    def include_patterns(self) -> Optional[Sequence[str]]:
+        """
+        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\\nAnt-style path expressions are supported (*, **, ?).\\nFor example: "org/apache/**"
+        """
+        return pulumi.get(self, "include_patterns")
+
+
+@pulumi.output_type
+class ReleaseBundleV2PromotionWebhookHandler(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customHttpHeaders":
+            suggest = "custom_http_headers"
+        elif key == "useSecretForSigning":
+            suggest = "use_secret_for_signing"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReleaseBundleV2PromotionWebhookHandler. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReleaseBundleV2PromotionWebhookHandler.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReleaseBundleV2PromotionWebhookHandler.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 url: str,
+                 custom_http_headers: Optional[Mapping[str, str]] = None,
+                 proxy: Optional[str] = None,
+                 secret: Optional[str] = None,
+                 use_secret_for_signing: Optional[bool] = None):
+        """
+        :param str url: Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+        :param Mapping[str, str] custom_http_headers: Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
+        :param str proxy: Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+        :param str secret: Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
+        :param bool use_secret_for_signing: When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
+        """
+        pulumi.set(__self__, "url", url)
+        if custom_http_headers is not None:
+            pulumi.set(__self__, "custom_http_headers", custom_http_headers)
+        if proxy is not None:
+            pulumi.set(__self__, "proxy", proxy)
+        if secret is not None:
+            pulumi.set(__self__, "secret", secret)
+        if use_secret_for_signing is not None:
+            pulumi.set(__self__, "use_secret_for_signing", use_secret_for_signing)
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+        """
+        return pulumi.get(self, "url")
+
+    @property
+    @pulumi.getter(name="customHttpHeaders")
+    def custom_http_headers(self) -> Optional[Mapping[str, str]]:
+        """
+        Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
+        """
+        return pulumi.get(self, "custom_http_headers")
+
+    @property
+    @pulumi.getter
+    def proxy(self) -> Optional[str]:
+        """
+        Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+        """
+        return pulumi.get(self, "proxy")
+
+    @property
+    @pulumi.getter
+    def secret(self) -> Optional[str]:
+        """
+        Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
+        """
+        return pulumi.get(self, "secret")
+
+    @property
+    @pulumi.getter(name="useSecretForSigning")
+    def use_secret_for_signing(self) -> Optional[bool]:
+        """
+        When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
+        """
+        return pulumi.get(self, "use_secret_for_signing")
+
+
+@pulumi.output_type
+class ReleaseBundleV2WebhookCriteria(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "anyReleaseBundle":
+            suggest = "any_release_bundle"
+        elif key == "selectedReleaseBundles":
+            suggest = "selected_release_bundles"
+        elif key == "excludePatterns":
+            suggest = "exclude_patterns"
+        elif key == "includePatterns":
+            suggest = "include_patterns"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReleaseBundleV2WebhookCriteria. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReleaseBundleV2WebhookCriteria.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReleaseBundleV2WebhookCriteria.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 any_release_bundle: bool,
+                 selected_release_bundles: Sequence[str],
+                 exclude_patterns: Optional[Sequence[str]] = None,
+                 include_patterns: Optional[Sequence[str]] = None):
+        """
+        :param bool any_release_bundle: Trigger on any release bundle.
+        :param Sequence[str] selected_release_bundles: Trigger on this list of release bundle names.
+        :param Sequence[str] exclude_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: "org/apache/**".
+        :param Sequence[str] include_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: "org/apache/**".
+        """
+        pulumi.set(__self__, "any_release_bundle", any_release_bundle)
+        pulumi.set(__self__, "selected_release_bundles", selected_release_bundles)
+        if exclude_patterns is not None:
+            pulumi.set(__self__, "exclude_patterns", exclude_patterns)
+        if include_patterns is not None:
+            pulumi.set(__self__, "include_patterns", include_patterns)
+
+    @property
+    @pulumi.getter(name="anyReleaseBundle")
+    def any_release_bundle(self) -> bool:
+        """
+        Trigger on any release bundle.
+        """
+        return pulumi.get(self, "any_release_bundle")
+
+    @property
+    @pulumi.getter(name="selectedReleaseBundles")
+    def selected_release_bundles(self) -> Sequence[str]:
+        """
+        Trigger on this list of release bundle names.
+        """
+        return pulumi.get(self, "selected_release_bundles")
+
+    @property
+    @pulumi.getter(name="excludePatterns")
+    def exclude_patterns(self) -> Optional[Sequence[str]]:
+        """
+        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: "org/apache/**".
+        """
+        return pulumi.get(self, "exclude_patterns")
+
+    @property
+    @pulumi.getter(name="includePatterns")
+    def include_patterns(self) -> Optional[Sequence[str]]:
+        """
+        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: "org/apache/**".
+        """
+        return pulumi.get(self, "include_patterns")
+
+
+@pulumi.output_type
+class ReleaseBundleV2WebhookHandler(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customHttpHeaders":
+            suggest = "custom_http_headers"
+        elif key == "useSecretForSigning":
+            suggest = "use_secret_for_signing"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReleaseBundleV2WebhookHandler. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReleaseBundleV2WebhookHandler.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReleaseBundleV2WebhookHandler.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 url: str,
+                 custom_http_headers: Optional[Mapping[str, str]] = None,
+                 proxy: Optional[str] = None,
+                 secret: Optional[str] = None,
+                 use_secret_for_signing: Optional[bool] = None):
+        """
+        :param str url: Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+        :param Mapping[str, str] custom_http_headers: Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
+        :param str proxy: Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+        :param str secret: Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
+        :param bool use_secret_for_signing: When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
+        """
+        pulumi.set(__self__, "url", url)
+        if custom_http_headers is not None:
+            pulumi.set(__self__, "custom_http_headers", custom_http_headers)
+        if proxy is not None:
+            pulumi.set(__self__, "proxy", proxy)
+        if secret is not None:
+            pulumi.set(__self__, "secret", secret)
+        if use_secret_for_signing is not None:
+            pulumi.set(__self__, "use_secret_for_signing", use_secret_for_signing)
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+        """
+        return pulumi.get(self, "url")
+
+    @property
+    @pulumi.getter(name="customHttpHeaders")
+    def custom_http_headers(self) -> Optional[Mapping[str, str]]:
+        """
+        Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
+        """
+        return pulumi.get(self, "custom_http_headers")
+
+    @property
+    @pulumi.getter
+    def proxy(self) -> Optional[str]:
+        """
+        Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+        """
+        return pulumi.get(self, "proxy")
+
+    @property
+    @pulumi.getter
+    def secret(self) -> Optional[str]:
+        """
+        Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
+        """
+        return pulumi.get(self, "secret")
+
+    @property
+    @pulumi.getter(name="useSecretForSigning")
+    def use_secret_for_signing(self) -> Optional[bool]:
+        """
+        When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
+        """
+        return pulumi.get(self, "use_secret_for_signing")
 
 
 @pulumi.output_type
@@ -7423,6 +8628,342 @@ class ReplicationConfigReplication(dict):
     @pulumi.getter
     def username(self) -> Optional[str]:
         return pulumi.get(self, "username")
+
+
+@pulumi.output_type
+class UnmanagedUserPasswordPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "specialChar":
+            suggest = "special_char"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UnmanagedUserPasswordPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UnmanagedUserPasswordPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UnmanagedUserPasswordPolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 digit: Optional[int] = None,
+                 length: Optional[int] = None,
+                 lowercase: Optional[int] = None,
+                 special_char: Optional[int] = None,
+                 uppercase: Optional[int] = None):
+        """
+        :param int digit: Minimum number of digits that the password must contain
+        :param int length: Minimum length of the password
+        :param int lowercase: Minimum number of lowercase letters that the password must contain
+        :param int special_char: Minimum number of special char that the password must contain. Special chars list: `!"#$%&'()*+,-./:;<=>?@[\\]^_``{|}~`
+        :param int uppercase: Minimum number of uppercase letters that the password must contain
+        """
+        if digit is not None:
+            pulumi.set(__self__, "digit", digit)
+        if length is not None:
+            pulumi.set(__self__, "length", length)
+        if lowercase is not None:
+            pulumi.set(__self__, "lowercase", lowercase)
+        if special_char is not None:
+            pulumi.set(__self__, "special_char", special_char)
+        if uppercase is not None:
+            pulumi.set(__self__, "uppercase", uppercase)
+
+    @property
+    @pulumi.getter
+    def digit(self) -> Optional[int]:
+        """
+        Minimum number of digits that the password must contain
+        """
+        return pulumi.get(self, "digit")
+
+    @property
+    @pulumi.getter
+    def length(self) -> Optional[int]:
+        """
+        Minimum length of the password
+        """
+        return pulumi.get(self, "length")
+
+    @property
+    @pulumi.getter
+    def lowercase(self) -> Optional[int]:
+        """
+        Minimum number of lowercase letters that the password must contain
+        """
+        return pulumi.get(self, "lowercase")
+
+    @property
+    @pulumi.getter(name="specialChar")
+    def special_char(self) -> Optional[int]:
+        """
+        Minimum number of special char that the password must contain. Special chars list: `!"#$%&'()*+,-./:;<=>?@[\\]^_``{|}~`
+        """
+        return pulumi.get(self, "special_char")
+
+    @property
+    @pulumi.getter
+    def uppercase(self) -> Optional[int]:
+        """
+        Minimum number of uppercase letters that the password must contain
+        """
+        return pulumi.get(self, "uppercase")
+
+
+@pulumi.output_type
+class UserCustomWebhookHandler(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "httpHeaders":
+            suggest = "http_headers"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserCustomWebhookHandler. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserCustomWebhookHandler.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserCustomWebhookHandler.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 url: str,
+                 http_headers: Optional[Mapping[str, str]] = None,
+                 payload: Optional[str] = None,
+                 proxy: Optional[str] = None,
+                 secrets: Optional[Mapping[str, str]] = None):
+        """
+        :param str url: Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+        :param Mapping[str, str] http_headers: HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
+        :param str payload: This attribute is used to build the request body. Used in custom webhooks
+        :param str proxy: Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+        :param Mapping[str, str] secrets: Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
+        """
+        pulumi.set(__self__, "url", url)
+        if http_headers is not None:
+            pulumi.set(__self__, "http_headers", http_headers)
+        if payload is not None:
+            pulumi.set(__self__, "payload", payload)
+        if proxy is not None:
+            pulumi.set(__self__, "proxy", proxy)
+        if secrets is not None:
+            pulumi.set(__self__, "secrets", secrets)
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+        """
+        return pulumi.get(self, "url")
+
+    @property
+    @pulumi.getter(name="httpHeaders")
+    def http_headers(self) -> Optional[Mapping[str, str]]:
+        """
+        HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
+        """
+        return pulumi.get(self, "http_headers")
+
+    @property
+    @pulumi.getter
+    def payload(self) -> Optional[str]:
+        """
+        This attribute is used to build the request body. Used in custom webhooks
+        """
+        return pulumi.get(self, "payload")
+
+    @property
+    @pulumi.getter
+    def proxy(self) -> Optional[str]:
+        """
+        Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+        """
+        return pulumi.get(self, "proxy")
+
+    @property
+    @pulumi.getter
+    def secrets(self) -> Optional[Mapping[str, str]]:
+        """
+        Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
+        """
+        return pulumi.get(self, "secrets")
+
+
+@pulumi.output_type
+class UserPasswordPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "specialChar":
+            suggest = "special_char"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserPasswordPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserPasswordPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserPasswordPolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 digit: Optional[int] = None,
+                 length: Optional[int] = None,
+                 lowercase: Optional[int] = None,
+                 special_char: Optional[int] = None,
+                 uppercase: Optional[int] = None):
+        """
+        :param int digit: Minimum number of digits that the password must contain
+        :param int length: Minimum length of the password
+        :param int lowercase: Minimum number of lowercase letters that the password must contain
+        :param int special_char: Minimum number of special char that the password must contain. Special chars list: `!"#$%&'()*+,-./:;<=>?@[\\]^_``{|}~`
+        :param int uppercase: Minimum number of uppercase letters that the password must contain
+        """
+        if digit is not None:
+            pulumi.set(__self__, "digit", digit)
+        if length is not None:
+            pulumi.set(__self__, "length", length)
+        if lowercase is not None:
+            pulumi.set(__self__, "lowercase", lowercase)
+        if special_char is not None:
+            pulumi.set(__self__, "special_char", special_char)
+        if uppercase is not None:
+            pulumi.set(__self__, "uppercase", uppercase)
+
+    @property
+    @pulumi.getter
+    def digit(self) -> Optional[int]:
+        """
+        Minimum number of digits that the password must contain
+        """
+        return pulumi.get(self, "digit")
+
+    @property
+    @pulumi.getter
+    def length(self) -> Optional[int]:
+        """
+        Minimum length of the password
+        """
+        return pulumi.get(self, "length")
+
+    @property
+    @pulumi.getter
+    def lowercase(self) -> Optional[int]:
+        """
+        Minimum number of lowercase letters that the password must contain
+        """
+        return pulumi.get(self, "lowercase")
+
+    @property
+    @pulumi.getter(name="specialChar")
+    def special_char(self) -> Optional[int]:
+        """
+        Minimum number of special char that the password must contain. Special chars list: `!"#$%&'()*+,-./:;<=>?@[\\]^_``{|}~`
+        """
+        return pulumi.get(self, "special_char")
+
+    @property
+    @pulumi.getter
+    def uppercase(self) -> Optional[int]:
+        """
+        Minimum number of uppercase letters that the password must contain
+        """
+        return pulumi.get(self, "uppercase")
+
+
+@pulumi.output_type
+class UserWebhookHandler(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customHttpHeaders":
+            suggest = "custom_http_headers"
+        elif key == "useSecretForSigning":
+            suggest = "use_secret_for_signing"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserWebhookHandler. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserWebhookHandler.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserWebhookHandler.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 url: str,
+                 custom_http_headers: Optional[Mapping[str, str]] = None,
+                 proxy: Optional[str] = None,
+                 secret: Optional[str] = None,
+                 use_secret_for_signing: Optional[bool] = None):
+        """
+        :param str url: Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+        :param Mapping[str, str] custom_http_headers: Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
+        :param str proxy: Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+        :param str secret: Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
+        :param bool use_secret_for_signing: When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
+        """
+        pulumi.set(__self__, "url", url)
+        if custom_http_headers is not None:
+            pulumi.set(__self__, "custom_http_headers", custom_http_headers)
+        if proxy is not None:
+            pulumi.set(__self__, "proxy", proxy)
+        if secret is not None:
+            pulumi.set(__self__, "secret", secret)
+        if use_secret_for_signing is not None:
+            pulumi.set(__self__, "use_secret_for_signing", use_secret_for_signing)
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+        """
+        return pulumi.get(self, "url")
+
+    @property
+    @pulumi.getter(name="customHttpHeaders")
+    def custom_http_headers(self) -> Optional[Mapping[str, str]]:
+        """
+        Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
+        """
+        return pulumi.get(self, "custom_http_headers")
+
+    @property
+    @pulumi.getter
+    def proxy(self) -> Optional[str]:
+        """
+        Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+        """
+        return pulumi.get(self, "proxy")
+
+    @property
+    @pulumi.getter
+    def secret(self) -> Optional[str]:
+        """
+        Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
+        """
+        return pulumi.get(self, "secret")
+
+    @property
+    @pulumi.getter(name="useSecretForSigning")
+    def use_secret_for_signing(self) -> Optional[bool]:
+        """
+        When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
+        """
+        return pulumi.get(self, "use_secret_for_signing")
 
 
 @pulumi.output_type

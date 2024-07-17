@@ -12,29 +12,6 @@ namespace Pulumi.Artifactory
     /// <summary>
     /// ## Example Usage
     /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Artifactory = Pulumi.Artifactory;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test_user = new Artifactory.ManagedUser("test-user", new()
-    ///     {
-    ///         Name = "terraform",
-    ///         Password = "my super secret password",
-    ///         Email = "test-user@artifactory-terraform.com",
-    ///         Groups = new[]
-    ///         {
-    ///             "readers",
-    ///             "logged-in-users",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// ```sh
@@ -75,16 +52,22 @@ namespace Pulumi.Artifactory
         public Output<bool> InternalPasswordDisabled { get; private set; } = null!;
 
         /// <summary>
-        /// Username for user. May contain lowercase letters, numbers and symbols: `.-_@` for self-hosted. For SaaS, `+` is also allowed.
+        /// Username for user. May contain lowercase letters, numbers and symbols: '.-_@' for self-hosted. For SaaS, '+' is also allowed.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// (Optional, Sensitive) Password for the user.
+        /// Password for the user.
         /// </summary>
         [Output("password")]
         public Output<string> Password { get; private set; } = null!;
+
+        /// <summary>
+        /// Password policy to match JFrog Access to provide pre-apply validation. Default values: `uppercase=1`, `lowercase=1`, `special_char=0`, `digit=1`, `length=8`. Also see [Supported Access Configurations](https://jfrog.com/help/r/jfrog-installation-setup-documentation/supported-access-configurations) for more details
+        /// </summary>
+        [Output("passwordPolicy")]
+        public Output<Outputs.ManagedUserPasswordPolicy?> PasswordPolicy { get; private set; } = null!;
 
         /// <summary>
         /// (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an administrator can update the password). There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.
@@ -179,7 +162,7 @@ namespace Pulumi.Artifactory
         public Input<bool>? InternalPasswordDisabled { get; set; }
 
         /// <summary>
-        /// Username for user. May contain lowercase letters, numbers and symbols: `.-_@` for self-hosted. For SaaS, `+` is also allowed.
+        /// Username for user. May contain lowercase letters, numbers and symbols: '.-_@' for self-hosted. For SaaS, '+' is also allowed.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -188,7 +171,7 @@ namespace Pulumi.Artifactory
         private Input<string>? _password;
 
         /// <summary>
-        /// (Optional, Sensitive) Password for the user.
+        /// Password for the user.
         /// </summary>
         public Input<string>? Password
         {
@@ -199,6 +182,12 @@ namespace Pulumi.Artifactory
                 _password = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
+
+        /// <summary>
+        /// Password policy to match JFrog Access to provide pre-apply validation. Default values: `uppercase=1`, `lowercase=1`, `special_char=0`, `digit=1`, `length=8`. Also see [Supported Access Configurations](https://jfrog.com/help/r/jfrog-installation-setup-documentation/supported-access-configurations) for more details
+        /// </summary>
+        [Input("passwordPolicy")]
+        public Input<Inputs.ManagedUserPasswordPolicyArgs>? PasswordPolicy { get; set; }
 
         /// <summary>
         /// (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an administrator can update the password). There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.
@@ -251,7 +240,7 @@ namespace Pulumi.Artifactory
         public Input<bool>? InternalPasswordDisabled { get; set; }
 
         /// <summary>
-        /// Username for user. May contain lowercase letters, numbers and symbols: `.-_@` for self-hosted. For SaaS, `+` is also allowed.
+        /// Username for user. May contain lowercase letters, numbers and symbols: '.-_@' for self-hosted. For SaaS, '+' is also allowed.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -260,7 +249,7 @@ namespace Pulumi.Artifactory
         private Input<string>? _password;
 
         /// <summary>
-        /// (Optional, Sensitive) Password for the user.
+        /// Password for the user.
         /// </summary>
         public Input<string>? Password
         {
@@ -271,6 +260,12 @@ namespace Pulumi.Artifactory
                 _password = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
+
+        /// <summary>
+        /// Password policy to match JFrog Access to provide pre-apply validation. Default values: `uppercase=1`, `lowercase=1`, `special_char=0`, `digit=1`, `length=8`. Also see [Supported Access Configurations](https://jfrog.com/help/r/jfrog-installation-setup-documentation/supported-access-configurations) for more details
+        /// </summary>
+        [Input("passwordPolicy")]
+        public Input<Inputs.ManagedUserPasswordPolicyGetArgs>? PasswordPolicy { get; set; }
 
         /// <summary>
         /// (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an administrator can update the password). There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.
