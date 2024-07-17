@@ -59,6 +59,52 @@ export interface ArtifactCustomWebhookHandler {
     url: string;
 }
 
+export interface ArtifactLifecycleCustomWebhookHandler {
+    /**
+     * HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
+     */
+    httpHeaders?: {[key: string]: string};
+    /**
+     * This attribute is used to build the request body. Used in custom webhooks
+     */
+    payload?: string;
+    /**
+     * Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+     */
+    proxy?: string;
+    /**
+     * Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
+     */
+    secrets?: {[key: string]: string};
+    /**
+     * Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+     */
+    url: string;
+}
+
+export interface ArtifactLifecycleWebhookHandler {
+    /**
+     * Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
+     */
+    customHttpHeaders?: {[key: string]: string};
+    /**
+     * Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+     */
+    proxy?: string;
+    /**
+     * Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
+     */
+    secret?: string;
+    /**
+     * Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+     */
+    url: string;
+    /**
+     * When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
+     */
+    useSecretForSigning?: boolean;
+}
+
 export interface ArtifactPropertyCustomWebhookCriteria {
     /**
      * Trigger on any federated repositories
@@ -355,6 +401,90 @@ export interface BuildWebhookCriteria {
 }
 
 export interface BuildWebhookHandler {
+    /**
+     * Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
+     */
+    customHttpHeaders?: {[key: string]: string};
+    /**
+     * Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+     */
+    proxy?: string;
+    /**
+     * Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
+     */
+    secret?: string;
+    /**
+     * Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+     */
+    url: string;
+    /**
+     * When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
+     */
+    useSecretForSigning?: boolean;
+}
+
+export interface DestinationCustomWebhookCriteria {
+    /**
+     * Trigger on any release bundle
+     */
+    anyReleaseBundle: boolean;
+    /**
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`
+     */
+    excludePatterns?: string[];
+    /**
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`
+     */
+    includePatterns?: string[];
+    /**
+     * Trigger on this list of release bundle names
+     */
+    registeredReleaseBundleNames: string[];
+}
+
+export interface DestinationCustomWebhookHandler {
+    /**
+     * HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
+     */
+    httpHeaders?: {[key: string]: string};
+    /**
+     * This attribute is used to build the request body. Used in custom webhooks
+     */
+    payload?: string;
+    /**
+     * Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+     */
+    proxy?: string;
+    /**
+     * Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
+     */
+    secrets?: {[key: string]: string};
+    /**
+     * Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+     */
+    url: string;
+}
+
+export interface DestinationWebhookCriteria {
+    /**
+     * Trigger on any release bundle
+     */
+    anyReleaseBundle: boolean;
+    /**
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`
+     */
+    excludePatterns?: string[];
+    /**
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`
+     */
+    includePatterns?: string[];
+    /**
+     * Trigger on this list of release bundle names
+     */
+    registeredReleaseBundleNames: string[];
+}
+
+export interface DestinationWebhookHandler {
     /**
      * Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
      */
@@ -2238,6 +2368,29 @@ export interface LocalRepositoryMultiReplicationReplication {
     username: string;
 }
 
+export interface ManagedUserPasswordPolicy {
+    /**
+     * Minimum number of digits that the password must contain
+     */
+    digit?: number;
+    /**
+     * Minimum length of the password
+     */
+    length?: number;
+    /**
+     * Minimum number of lowercase letters that the password must contain
+     */
+    lowercase?: number;
+    /**
+     * Minimum number of special char that the password must contain. Special chars list: `!"#$%&'()*+,-./:;<=>?@[\]^_``{|}~`
+     */
+    specialChar?: number;
+    /**
+     * Minimum number of uppercase letters that the password must contain
+     */
+    uppercase?: number;
+}
+
 export interface OauthSettingsOauthProvider {
     /**
      * OAuth user info endpoint for the IdP.
@@ -2509,6 +2662,166 @@ export interface ReleaseBundleCustomWebhookHandler {
      * Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
      */
     url: string;
+}
+
+export interface ReleaseBundleV2CustomWebhookCriteria {
+    /**
+     * Trigger on any release bundle.
+     */
+    anyReleaseBundle: boolean;
+    /**
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**".
+     */
+    excludePatterns?: string[];
+    /**
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**".
+     */
+    includePatterns?: string[];
+    /**
+     * Trigger on this list of release bundle names.
+     */
+    selectedReleaseBundles: string[];
+}
+
+export interface ReleaseBundleV2CustomWebhookHandler {
+    /**
+     * HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
+     */
+    httpHeaders?: {[key: string]: string};
+    /**
+     * This attribute is used to build the request body. Used in custom webhooks
+     */
+    payload?: string;
+    /**
+     * Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+     */
+    proxy?: string;
+    /**
+     * Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
+     */
+    secrets?: {[key: string]: string};
+    /**
+     * Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+     */
+    url: string;
+}
+
+export interface ReleaseBundleV2PromotionCustomWebhookCriteria {
+    /**
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\nAnt-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+     */
+    excludePatterns?: string[];
+    /**
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\nAnt-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+     */
+    includePatterns?: string[];
+    /**
+     * Trigger on this list of environment names.
+     */
+    selectedEnvironments: string[];
+}
+
+export interface ReleaseBundleV2PromotionCustomWebhookHandler {
+    /**
+     * HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
+     */
+    httpHeaders?: {[key: string]: string};
+    /**
+     * This attribute is used to build the request body. Used in custom webhooks
+     */
+    payload?: string;
+    /**
+     * Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+     */
+    proxy?: string;
+    /**
+     * Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
+     */
+    secrets?: {[key: string]: string};
+    /**
+     * Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+     */
+    url: string;
+}
+
+export interface ReleaseBundleV2PromotionWebhookCriteria {
+    /**
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\nAnt-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+     */
+    excludePatterns?: string[];
+    /**
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\nAnt-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+     */
+    includePatterns?: string[];
+    /**
+     * Trigger on this list of environment names.
+     */
+    selectedEnvironments: string[];
+}
+
+export interface ReleaseBundleV2PromotionWebhookHandler {
+    /**
+     * Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
+     */
+    customHttpHeaders?: {[key: string]: string};
+    /**
+     * Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+     */
+    proxy?: string;
+    /**
+     * Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
+     */
+    secret?: string;
+    /**
+     * Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+     */
+    url: string;
+    /**
+     * When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
+     */
+    useSecretForSigning?: boolean;
+}
+
+export interface ReleaseBundleV2WebhookCriteria {
+    /**
+     * Trigger on any release bundle.
+     */
+    anyReleaseBundle: boolean;
+    /**
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**".
+     */
+    excludePatterns?: string[];
+    /**
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**".
+     */
+    includePatterns?: string[];
+    /**
+     * Trigger on this list of release bundle names.
+     */
+    selectedReleaseBundles: string[];
+}
+
+export interface ReleaseBundleV2WebhookHandler {
+    /**
+     * Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
+     */
+    customHttpHeaders?: {[key: string]: string};
+    /**
+     * Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+     */
+    proxy?: string;
+    /**
+     * Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
+     */
+    secret?: string;
+    /**
+     * Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+     */
+    url: string;
+    /**
+     * When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
+     */
+    useSecretForSigning?: boolean;
 }
 
 export interface ReleaseBundleWebhookCriteria {
@@ -3216,6 +3529,98 @@ export interface ReplicationConfigReplication {
     syncStatistics: boolean;
     url?: string;
     username?: string;
+}
+
+export interface UnmanagedUserPasswordPolicy {
+    /**
+     * Minimum number of digits that the password must contain
+     */
+    digit?: number;
+    /**
+     * Minimum length of the password
+     */
+    length?: number;
+    /**
+     * Minimum number of lowercase letters that the password must contain
+     */
+    lowercase?: number;
+    /**
+     * Minimum number of special char that the password must contain. Special chars list: `!"#$%&'()*+,-./:;<=>?@[\]^_``{|}~`
+     */
+    specialChar?: number;
+    /**
+     * Minimum number of uppercase letters that the password must contain
+     */
+    uppercase?: number;
+}
+
+export interface UserCustomWebhookHandler {
+    /**
+     * HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
+     */
+    httpHeaders?: {[key: string]: string};
+    /**
+     * This attribute is used to build the request body. Used in custom webhooks
+     */
+    payload?: string;
+    /**
+     * Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+     */
+    proxy?: string;
+    /**
+     * Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
+     */
+    secrets?: {[key: string]: string};
+    /**
+     * Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+     */
+    url: string;
+}
+
+export interface UserPasswordPolicy {
+    /**
+     * Minimum number of digits that the password must contain
+     */
+    digit?: number;
+    /**
+     * Minimum length of the password
+     */
+    length?: number;
+    /**
+     * Minimum number of lowercase letters that the password must contain
+     */
+    lowercase?: number;
+    /**
+     * Minimum number of special char that the password must contain. Special chars list: `!"#$%&'()*+,-./:;<=>?@[\]^_``{|}~`
+     */
+    specialChar?: number;
+    /**
+     * Minimum number of uppercase letters that the password must contain
+     */
+    uppercase?: number;
+}
+
+export interface UserWebhookHandler {
+    /**
+     * Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
+     */
+    customHttpHeaders?: {[key: string]: string};
+    /**
+     * Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+     */
+    proxy?: string;
+    /**
+     * Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
+     */
+    secret?: string;
+    /**
+     * Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+     */
+    url: string;
+    /**
+     * When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
+     */
+    useSecretForSigning?: boolean;
 }
 
 export interface VaultConfigurationConfig {

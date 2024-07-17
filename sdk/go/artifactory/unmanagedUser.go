@@ -79,6 +79,11 @@ type UnmanagedUser struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters.
 	Password pulumi.StringOutput `pulumi:"password"`
+	// Password policy to match JFrog Access to provide pre-apply validation. Default values: `uppercase=1`, `lowercase=1`,
+	// `special_char=0`, `digit=1`, `length=8`. Also see [Supported Access
+	// Configurations](https://jfrog.com/help/r/jfrog-installation-setup-documentation/supported-access-configurations) for
+	// more details
+	PasswordPolicy UnmanagedUserPasswordPolicyPtrOutput `pulumi:"passwordPolicy"`
 	// (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an administrator can update the password). There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.
 	ProfileUpdatable pulumi.BoolOutput `pulumi:"profileUpdatable"`
 }
@@ -137,6 +142,11 @@ type unmanagedUserState struct {
 	Name *string `pulumi:"name"`
 	// (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters.
 	Password *string `pulumi:"password"`
+	// Password policy to match JFrog Access to provide pre-apply validation. Default values: `uppercase=1`, `lowercase=1`,
+	// `special_char=0`, `digit=1`, `length=8`. Also see [Supported Access
+	// Configurations](https://jfrog.com/help/r/jfrog-installation-setup-documentation/supported-access-configurations) for
+	// more details
+	PasswordPolicy *UnmanagedUserPasswordPolicy `pulumi:"passwordPolicy"`
 	// (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an administrator can update the password). There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.
 	ProfileUpdatable *bool `pulumi:"profileUpdatable"`
 }
@@ -156,6 +166,11 @@ type UnmanagedUserState struct {
 	Name pulumi.StringPtrInput
 	// (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters.
 	Password pulumi.StringPtrInput
+	// Password policy to match JFrog Access to provide pre-apply validation. Default values: `uppercase=1`, `lowercase=1`,
+	// `special_char=0`, `digit=1`, `length=8`. Also see [Supported Access
+	// Configurations](https://jfrog.com/help/r/jfrog-installation-setup-documentation/supported-access-configurations) for
+	// more details
+	PasswordPolicy UnmanagedUserPasswordPolicyPtrInput
 	// (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an administrator can update the password). There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.
 	ProfileUpdatable pulumi.BoolPtrInput
 }
@@ -179,6 +194,11 @@ type unmanagedUserArgs struct {
 	Name *string `pulumi:"name"`
 	// (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters.
 	Password *string `pulumi:"password"`
+	// Password policy to match JFrog Access to provide pre-apply validation. Default values: `uppercase=1`, `lowercase=1`,
+	// `special_char=0`, `digit=1`, `length=8`. Also see [Supported Access
+	// Configurations](https://jfrog.com/help/r/jfrog-installation-setup-documentation/supported-access-configurations) for
+	// more details
+	PasswordPolicy *UnmanagedUserPasswordPolicy `pulumi:"passwordPolicy"`
 	// (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an administrator can update the password). There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.
 	ProfileUpdatable *bool `pulumi:"profileUpdatable"`
 }
@@ -199,6 +219,11 @@ type UnmanagedUserArgs struct {
 	Name pulumi.StringPtrInput
 	// (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters.
 	Password pulumi.StringPtrInput
+	// Password policy to match JFrog Access to provide pre-apply validation. Default values: `uppercase=1`, `lowercase=1`,
+	// `special_char=0`, `digit=1`, `length=8`. Also see [Supported Access
+	// Configurations](https://jfrog.com/help/r/jfrog-installation-setup-documentation/supported-access-configurations) for
+	// more details
+	PasswordPolicy UnmanagedUserPasswordPolicyPtrInput
 	// (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an administrator can update the password). There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.
 	ProfileUpdatable pulumi.BoolPtrInput
 }
@@ -323,6 +348,14 @@ func (o UnmanagedUserOutput) Name() pulumi.StringOutput {
 // (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters.
 func (o UnmanagedUserOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v *UnmanagedUser) pulumi.StringOutput { return v.Password }).(pulumi.StringOutput)
+}
+
+// Password policy to match JFrog Access to provide pre-apply validation. Default values: `uppercase=1`, `lowercase=1`,
+// `special_char=0`, `digit=1`, `length=8`. Also see [Supported Access
+// Configurations](https://jfrog.com/help/r/jfrog-installation-setup-documentation/supported-access-configurations) for
+// more details
+func (o UnmanagedUserOutput) PasswordPolicy() UnmanagedUserPasswordPolicyPtrOutput {
+	return o.ApplyT(func(v *UnmanagedUser) UnmanagedUserPasswordPolicyPtrOutput { return v.PasswordPolicy }).(UnmanagedUserPasswordPolicyPtrOutput)
 }
 
 // (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an administrator can update the password). There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.

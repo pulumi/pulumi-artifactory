@@ -232,6 +232,8 @@ class ArtifactoryReleaseBundleCustomWebhook(pulumi.CustomResource):
         """
         Provides an Artifactory custom webhook resource. This can be used to register and manage Artifactory webhook subscription which enables you to be notified or notify other users when such events take place in Artifactory.
 
+        ~>This resource is being deprecated. Use `DestinationCustomWebhook` instead.
+
         ## Example Usage
 
         .
@@ -284,6 +286,8 @@ class ArtifactoryReleaseBundleCustomWebhook(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an Artifactory custom webhook resource. This can be used to register and manage Artifactory webhook subscription which enables you to be notified or notify other users when such events take place in Artifactory.
+
+        ~>This resource is being deprecated. Use `DestinationCustomWebhook` instead.
 
         ## Example Usage
 

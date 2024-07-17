@@ -35,6 +35,16 @@ export type ArtifactCustomWebhook = import("./artifactCustomWebhook").ArtifactCu
 export const ArtifactCustomWebhook: typeof import("./artifactCustomWebhook").ArtifactCustomWebhook = null as any;
 utilities.lazyLoad(exports, ["ArtifactCustomWebhook"], () => require("./artifactCustomWebhook"));
 
+export { ArtifactLifecycleCustomWebhookArgs, ArtifactLifecycleCustomWebhookState } from "./artifactLifecycleCustomWebhook";
+export type ArtifactLifecycleCustomWebhook = import("./artifactLifecycleCustomWebhook").ArtifactLifecycleCustomWebhook;
+export const ArtifactLifecycleCustomWebhook: typeof import("./artifactLifecycleCustomWebhook").ArtifactLifecycleCustomWebhook = null as any;
+utilities.lazyLoad(exports, ["ArtifactLifecycleCustomWebhook"], () => require("./artifactLifecycleCustomWebhook"));
+
+export { ArtifactLifecycleWebhookArgs, ArtifactLifecycleWebhookState } from "./artifactLifecycleWebhook";
+export type ArtifactLifecycleWebhook = import("./artifactLifecycleWebhook").ArtifactLifecycleWebhook;
+export const ArtifactLifecycleWebhook: typeof import("./artifactLifecycleWebhook").ArtifactLifecycleWebhook = null as any;
+utilities.lazyLoad(exports, ["ArtifactLifecycleWebhook"], () => require("./artifactLifecycleWebhook"));
+
 export { ArtifactPropertyCustomWebhookArgs, ArtifactPropertyCustomWebhookState } from "./artifactPropertyCustomWebhook";
 export type ArtifactPropertyCustomWebhook = import("./artifactPropertyCustomWebhook").ArtifactPropertyCustomWebhook;
 export const ArtifactPropertyCustomWebhook: typeof import("./artifactPropertyCustomWebhook").ArtifactPropertyCustomWebhook = null as any;
@@ -84,6 +94,16 @@ export { DebianRepositoryArgs, DebianRepositoryState } from "./debianRepository"
 export type DebianRepository = import("./debianRepository").DebianRepository;
 export const DebianRepository: typeof import("./debianRepository").DebianRepository = null as any;
 utilities.lazyLoad(exports, ["DebianRepository"], () => require("./debianRepository"));
+
+export { DestinationCustomWebhookArgs, DestinationCustomWebhookState } from "./destinationCustomWebhook";
+export type DestinationCustomWebhook = import("./destinationCustomWebhook").DestinationCustomWebhook;
+export const DestinationCustomWebhook: typeof import("./destinationCustomWebhook").DestinationCustomWebhook = null as any;
+utilities.lazyLoad(exports, ["DestinationCustomWebhook"], () => require("./destinationCustomWebhook"));
+
+export { DestinationWebhookArgs, DestinationWebhookState } from "./destinationWebhook";
+export type DestinationWebhook = import("./destinationWebhook").DestinationWebhook;
+export const DestinationWebhook: typeof import("./destinationWebhook").DestinationWebhook = null as any;
+utilities.lazyLoad(exports, ["DestinationWebhook"], () => require("./destinationWebhook"));
 
 export { DistributionCustomWebhookArgs, DistributionCustomWebhookState } from "./distributionCustomWebhook";
 export type DistributionCustomWebhook = import("./distributionCustomWebhook").DistributionCustomWebhook;
@@ -1260,6 +1280,26 @@ export type ReleaseBundleCustomWebhook = import("./releaseBundleCustomWebhook").
 export const ReleaseBundleCustomWebhook: typeof import("./releaseBundleCustomWebhook").ReleaseBundleCustomWebhook = null as any;
 utilities.lazyLoad(exports, ["ReleaseBundleCustomWebhook"], () => require("./releaseBundleCustomWebhook"));
 
+export { ReleaseBundleV2CustomWebhookArgs, ReleaseBundleV2CustomWebhookState } from "./releaseBundleV2CustomWebhook";
+export type ReleaseBundleV2CustomWebhook = import("./releaseBundleV2CustomWebhook").ReleaseBundleV2CustomWebhook;
+export const ReleaseBundleV2CustomWebhook: typeof import("./releaseBundleV2CustomWebhook").ReleaseBundleV2CustomWebhook = null as any;
+utilities.lazyLoad(exports, ["ReleaseBundleV2CustomWebhook"], () => require("./releaseBundleV2CustomWebhook"));
+
+export { ReleaseBundleV2PromotionCustomWebhookArgs, ReleaseBundleV2PromotionCustomWebhookState } from "./releaseBundleV2PromotionCustomWebhook";
+export type ReleaseBundleV2PromotionCustomWebhook = import("./releaseBundleV2PromotionCustomWebhook").ReleaseBundleV2PromotionCustomWebhook;
+export const ReleaseBundleV2PromotionCustomWebhook: typeof import("./releaseBundleV2PromotionCustomWebhook").ReleaseBundleV2PromotionCustomWebhook = null as any;
+utilities.lazyLoad(exports, ["ReleaseBundleV2PromotionCustomWebhook"], () => require("./releaseBundleV2PromotionCustomWebhook"));
+
+export { ReleaseBundleV2PromotionWebhookArgs, ReleaseBundleV2PromotionWebhookState } from "./releaseBundleV2PromotionWebhook";
+export type ReleaseBundleV2PromotionWebhook = import("./releaseBundleV2PromotionWebhook").ReleaseBundleV2PromotionWebhook;
+export const ReleaseBundleV2PromotionWebhook: typeof import("./releaseBundleV2PromotionWebhook").ReleaseBundleV2PromotionWebhook = null as any;
+utilities.lazyLoad(exports, ["ReleaseBundleV2PromotionWebhook"], () => require("./releaseBundleV2PromotionWebhook"));
+
+export { ReleaseBundleV2WebhookArgs, ReleaseBundleV2WebhookState } from "./releaseBundleV2Webhook";
+export type ReleaseBundleV2Webhook = import("./releaseBundleV2Webhook").ReleaseBundleV2Webhook;
+export const ReleaseBundleV2Webhook: typeof import("./releaseBundleV2Webhook").ReleaseBundleV2Webhook = null as any;
+utilities.lazyLoad(exports, ["ReleaseBundleV2Webhook"], () => require("./releaseBundleV2Webhook"));
+
 export { ReleaseBundleWebhookArgs, ReleaseBundleWebhookState } from "./releaseBundleWebhook";
 export type ReleaseBundleWebhook = import("./releaseBundleWebhook").ReleaseBundleWebhook;
 export const ReleaseBundleWebhook: typeof import("./releaseBundleWebhook").ReleaseBundleWebhook = null as any;
@@ -1475,10 +1515,20 @@ export type User = import("./user").User;
 export const User: typeof import("./user").User = null as any;
 utilities.lazyLoad(exports, ["User"], () => require("./user"));
 
+export { UserCustomWebhookArgs, UserCustomWebhookState } from "./userCustomWebhook";
+export type UserCustomWebhook = import("./userCustomWebhook").UserCustomWebhook;
+export const UserCustomWebhook: typeof import("./userCustomWebhook").UserCustomWebhook = null as any;
+utilities.lazyLoad(exports, ["UserCustomWebhook"], () => require("./userCustomWebhook"));
+
 export { UserLockPolicyArgs, UserLockPolicyState } from "./userLockPolicy";
 export type UserLockPolicy = import("./userLockPolicy").UserLockPolicy;
 export const UserLockPolicy: typeof import("./userLockPolicy").UserLockPolicy = null as any;
 utilities.lazyLoad(exports, ["UserLockPolicy"], () => require("./userLockPolicy"));
+
+export { UserWebhookArgs, UserWebhookState } from "./userWebhook";
+export type UserWebhook = import("./userWebhook").UserWebhook;
+export const UserWebhook: typeof import("./userWebhook").UserWebhook = null as any;
+utilities.lazyLoad(exports, ["UserWebhook"], () => require("./userWebhook"));
 
 export { VaultConfigurationArgs, VaultConfigurationState } from "./vaultConfiguration";
 export type VaultConfiguration = import("./vaultConfiguration").VaultConfiguration;
@@ -1646,6 +1696,10 @@ const _module = {
                 return new Artifact(name, <any>undefined, { urn })
             case "artifactory:index/artifactCustomWebhook:ArtifactCustomWebhook":
                 return new ArtifactCustomWebhook(name, <any>undefined, { urn })
+            case "artifactory:index/artifactLifecycleCustomWebhook:ArtifactLifecycleCustomWebhook":
+                return new ArtifactLifecycleCustomWebhook(name, <any>undefined, { urn })
+            case "artifactory:index/artifactLifecycleWebhook:ArtifactLifecycleWebhook":
+                return new ArtifactLifecycleWebhook(name, <any>undefined, { urn })
             case "artifactory:index/artifactPropertyCustomWebhook:ArtifactPropertyCustomWebhook":
                 return new ArtifactPropertyCustomWebhook(name, <any>undefined, { urn })
             case "artifactory:index/artifactPropertyWebhook:ArtifactPropertyWebhook":
@@ -1666,6 +1720,10 @@ const _module = {
                 return new Certificate(name, <any>undefined, { urn })
             case "artifactory:index/debianRepository:DebianRepository":
                 return new DebianRepository(name, <any>undefined, { urn })
+            case "artifactory:index/destinationCustomWebhook:DestinationCustomWebhook":
+                return new DestinationCustomWebhook(name, <any>undefined, { urn })
+            case "artifactory:index/destinationWebhook:DestinationWebhook":
+                return new DestinationWebhook(name, <any>undefined, { urn })
             case "artifactory:index/distributionCustomWebhook:DistributionCustomWebhook":
                 return new DistributionCustomWebhook(name, <any>undefined, { urn })
             case "artifactory:index/distributionPublicKey:DistributionPublicKey":
@@ -1856,6 +1914,14 @@ const _module = {
                 return new PushReplication(name, <any>undefined, { urn })
             case "artifactory:index/releaseBundleCustomWebhook:ReleaseBundleCustomWebhook":
                 return new ReleaseBundleCustomWebhook(name, <any>undefined, { urn })
+            case "artifactory:index/releaseBundleV2CustomWebhook:ReleaseBundleV2CustomWebhook":
+                return new ReleaseBundleV2CustomWebhook(name, <any>undefined, { urn })
+            case "artifactory:index/releaseBundleV2PromotionCustomWebhook:ReleaseBundleV2PromotionCustomWebhook":
+                return new ReleaseBundleV2PromotionCustomWebhook(name, <any>undefined, { urn })
+            case "artifactory:index/releaseBundleV2PromotionWebhook:ReleaseBundleV2PromotionWebhook":
+                return new ReleaseBundleV2PromotionWebhook(name, <any>undefined, { urn })
+            case "artifactory:index/releaseBundleV2Webhook:ReleaseBundleV2Webhook":
+                return new ReleaseBundleV2Webhook(name, <any>undefined, { urn })
             case "artifactory:index/releaseBundleWebhook:ReleaseBundleWebhook":
                 return new ReleaseBundleWebhook(name, <any>undefined, { urn })
             case "artifactory:index/remoteAlpineRepository:RemoteAlpineRepository":
@@ -1942,8 +2008,12 @@ const _module = {
                 return new UnmanagedUser(name, <any>undefined, { urn })
             case "artifactory:index/user:User":
                 return new User(name, <any>undefined, { urn })
+            case "artifactory:index/userCustomWebhook:UserCustomWebhook":
+                return new UserCustomWebhook(name, <any>undefined, { urn })
             case "artifactory:index/userLockPolicy:UserLockPolicy":
                 return new UserLockPolicy(name, <any>undefined, { urn })
+            case "artifactory:index/userWebhook:UserWebhook":
+                return new UserWebhook(name, <any>undefined, { urn })
             case "artifactory:index/vaultConfiguration:VaultConfiguration":
                 return new VaultConfiguration(name, <any>undefined, { urn })
             case "artifactory:index/virtualAlpineRepository:VirtualAlpineRepository":
@@ -2011,6 +2081,8 @@ pulumi.runtime.registerResourceModule("artifactory", "index/anonymousUser", _mod
 pulumi.runtime.registerResourceModule("artifactory", "index/apiKey", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/artifact", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/artifactCustomWebhook", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/artifactLifecycleCustomWebhook", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/artifactLifecycleWebhook", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/artifactPropertyCustomWebhook", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/artifactPropertyWebhook", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/artifactWebhook", _module)
@@ -2021,6 +2093,8 @@ pulumi.runtime.registerResourceModule("artifactory", "index/buildCustomWebhook",
 pulumi.runtime.registerResourceModule("artifactory", "index/buildWebhook", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/certificate", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/debianRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/destinationCustomWebhook", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/destinationWebhook", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/distributionCustomWebhook", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/distributionPublicKey", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/distributionWebhook", _module)
@@ -2116,6 +2190,10 @@ pulumi.runtime.registerResourceModule("artifactory", "index/proxy", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/pullReplication", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/pushReplication", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/releaseBundleCustomWebhook", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/releaseBundleV2CustomWebhook", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/releaseBundleV2PromotionCustomWebhook", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/releaseBundleV2PromotionWebhook", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/releaseBundleV2Webhook", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/releaseBundleWebhook", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteAlpineRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteBowerRepository", _module)
@@ -2159,7 +2237,9 @@ pulumi.runtime.registerResourceModule("artifactory", "index/scopedToken", _modul
 pulumi.runtime.registerResourceModule("artifactory", "index/singleReplicationConfig", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/unmanagedUser", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/user", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/userCustomWebhook", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/userLockPolicy", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/userWebhook", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/vaultConfiguration", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/virtualAlpineRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/virtualBowerRepository", _module)

@@ -6,6 +6,7 @@ package com.pulumi.artifactory;
 import com.pulumi.artifactory.ManagedUserArgs;
 import com.pulumi.artifactory.Utilities;
 import com.pulumi.artifactory.inputs.ManagedUserState;
+import com.pulumi.artifactory.outputs.ManagedUserPasswordPolicy;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -13,6 +14,7 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -28,6 +30,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.artifactory.ManagedUser;
  * import com.pulumi.artifactory.ManagedUserArgs;
+ * import com.pulumi.artifactory.inputs.ManagedUserPasswordPolicyArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -44,6 +47,13 @@ import javax.annotation.Nullable;
  *         var test_user = new ManagedUser("test-user", ManagedUserArgs.builder()
  *             .name("terraform")
  *             .password("my super secret password")
+ *             .passwordPolicy(ManagedUserPasswordPolicyArgs.builder()
+ *                 .uppercase(1)
+ *                 .lowercase(1)
+ *                 .special_char(1)
+ *                 .digit(1)
+ *                 .length(10)
+ *                 .build())
  *             .email("test-user{@literal @}artifactory-terraform.com")
  *             .groups(            
  *                 "readers",
@@ -136,32 +146,46 @@ public class ManagedUser extends com.pulumi.resources.CustomResource {
         return this.internalPasswordDisabled;
     }
     /**
-     * Username for user. May contain lowercase letters, numbers and symbols: `.-_{@literal @}` for self-hosted. For SaaS, `+` is also allowed.
+     * Username for user. May contain lowercase letters, numbers and symbols: &#39;.-_{@literal @}&#39; for self-hosted. For SaaS, &#39;+&#39; is also allowed.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Username for user. May contain lowercase letters, numbers and symbols: `.-_{@literal @}` for self-hosted. For SaaS, `+` is also allowed.
+     * @return Username for user. May contain lowercase letters, numbers and symbols: &#39;.-_{@literal @}&#39; for self-hosted. For SaaS, &#39;+&#39; is also allowed.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * (Optional, Sensitive) Password for the user.
+     * Password for the user.
      * 
      */
     @Export(name="password", refs={String.class}, tree="[0]")
     private Output<String> password;
 
     /**
-     * @return (Optional, Sensitive) Password for the user.
+     * @return Password for the user.
      * 
      */
     public Output<String> password() {
         return this.password;
+    }
+    /**
+     * Password policy to match JFrog Access to provide pre-apply validation. Default values: `uppercase=1`, `lowercase=1`, `special_char=0`, `digit=1`, `length=8`. Also see [Supported Access Configurations](https://jfrog.com/help/r/jfrog-installation-setup-documentation/supported-access-configurations) for more details
+     * 
+     */
+    @Export(name="passwordPolicy", refs={ManagedUserPasswordPolicy.class}, tree="[0]")
+    private Output</* @Nullable */ ManagedUserPasswordPolicy> passwordPolicy;
+
+    /**
+     * @return Password policy to match JFrog Access to provide pre-apply validation. Default values: `uppercase=1`, `lowercase=1`, `special_char=0`, `digit=1`, `length=8`. Also see [Supported Access Configurations](https://jfrog.com/help/r/jfrog-installation-setup-documentation/supported-access-configurations) for more details
+     * 
+     */
+    public Output<Optional<ManagedUserPasswordPolicy>> passwordPolicy() {
+        return Codegen.optional(this.passwordPolicy);
     }
     /**
      * (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an administrator can update the password). There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.

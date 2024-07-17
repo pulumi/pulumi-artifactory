@@ -6,6 +6,7 @@ package com.pulumi.artifactory;
 import com.pulumi.artifactory.UserArgs;
 import com.pulumi.artifactory.Utilities;
 import com.pulumi.artifactory.inputs.UserState;
+import com.pulumi.artifactory.outputs.UserPasswordPolicy;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -13,11 +14,13 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
  * Provides an Artifactory user resource. This can be used to create and manage Artifactory users.
- * The password is a required field by the [Artifactory API](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-CreateorReplaceUser), but we made it optional in this resource to accommodate the scenario where the password is not needed and will be reset by the actual user later. When the optional attribute `password` is omitted, a random password is generated according to current Artifactory password policy.
+ * The password is a required field by the [Artifactory API](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-CreateorReplaceUser), but we made it optional in this resource to accommodate the scenario where the password is not needed and will be reset by the actual user later.\
+ * When the optional attribute `password` is omitted, a random password is generated according to current Artifactory password policy.
  * 
  * &gt; The generated password won&#39;t be stored in the TF state and can not be recovered. The user must reset the password to be able to log in. An admin can always generate the access key for the user as well. The password change won&#39;t trigger state drift. We don&#39;t recommend to use this resource unless there is a specific use case for it. Recommended resource is `artifactory.ManagedUser`.
  * 
@@ -33,6 +36,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.artifactory.User;
  * import com.pulumi.artifactory.UserArgs;
+ * import com.pulumi.artifactory.inputs.UserPasswordPolicyArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -49,12 +53,21 @@ import javax.annotation.Nullable;
  *         var test_user = new User("test-user", UserArgs.builder()
  *             .name("terraform")
  *             .password("my super secret password")
+ *             .passwordPolicy(UserPasswordPolicyArgs.builder()
+ *                 .uppercase(1)
+ *                 .lowercase(1)
+ *                 .special_char(1)
+ *                 .digit(1)
+ *                 .length(10)
+ *                 .build())
  *             .email("test-user{@literal @}artifactory-terraform.com")
  *             .admin(false)
  *             .profileUpdatable(true)
  *             .disableUiAccess(false)
  *             .internalPasswordDisabled(false)
- *             .groups("logged-in-users")
+ *             .groups(            
+ *                 "readers",
+ *                 "logged-in-users")
  *             .build());
  * 
  *     }
@@ -147,14 +160,14 @@ public class User extends com.pulumi.resources.CustomResource {
         return this.internalPasswordDisabled;
     }
     /**
-     * Username for user. May contain lowercase letters, numbers and symbols: `.-_{@literal @}` for self-hosted. For SaaS, `+` is also allowed.
+     * Username for user. May contain lowercase letters, numbers and symbols: &#39;.-_{@literal @}&#39; for self-hosted. For SaaS, &#39;+&#39; is also allowed.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Username for user. May contain lowercase letters, numbers and symbols: `.-_{@literal @}` for self-hosted. For SaaS, `+` is also allowed.
+     * @return Username for user. May contain lowercase letters, numbers and symbols: &#39;.-_{@literal @}&#39; for self-hosted. For SaaS, &#39;+&#39; is also allowed.
      * 
      */
     public Output<String> name() {
@@ -173,6 +186,20 @@ public class User extends com.pulumi.resources.CustomResource {
      */
     public Output<String> password() {
         return this.password;
+    }
+    /**
+     * Password policy to match JFrog Access to provide pre-apply validation. Default values: `uppercase=1`, `lowercase=1`, `special_char=0`, `digit=1`, `length=8`. Also see [Supported Access Configurations](https://jfrog.com/help/r/jfrog-installation-setup-documentation/supported-access-configurations) for more details
+     * 
+     */
+    @Export(name="passwordPolicy", refs={UserPasswordPolicy.class}, tree="[0]")
+    private Output</* @Nullable */ UserPasswordPolicy> passwordPolicy;
+
+    /**
+     * @return Password policy to match JFrog Access to provide pre-apply validation. Default values: `uppercase=1`, `lowercase=1`, `special_char=0`, `digit=1`, `length=8`. Also see [Supported Access Configurations](https://jfrog.com/help/r/jfrog-installation-setup-documentation/supported-access-configurations) for more details
+     * 
+     */
+    public Output<Optional<UserPasswordPolicy>> passwordPolicy() {
+        return Codegen.optional(this.passwordPolicy);
     }
     /**
      * (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an administrator can update the password). There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.

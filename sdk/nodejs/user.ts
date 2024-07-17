@@ -2,35 +2,16 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
  * Provides an Artifactory user resource. This can be used to create and manage Artifactory users.
- * The password is a required field by the [Artifactory API](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-CreateorReplaceUser), but we made it optional in this resource to accommodate the scenario where the password is not needed and will be reset by the actual user later. When the optional attribute `password` is omitted, a random password is generated according to current Artifactory password policy.
+ * The password is a required field by the [Artifactory API](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-CreateorReplaceUser), but we made it optional in this resource to accommodate the scenario where the password is not needed and will be reset by the actual user later.\
+ * When the optional attribute `password` is omitted, a random password is generated according to current Artifactory password policy.
  *
  * > The generated password won't be stored in the TF state and can not be recovered. The user must reset the password to be able to log in. An admin can always generate the access key for the user as well. The password change won't trigger state drift. We don't recommend to use this resource unless there is a specific use case for it. Recommended resource is `artifactory.ManagedUser`.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const test_user = new artifactory.User("test-user", {
- *     name: "terraform",
- *     password: "my super secret password",
- *     email: "test-user@artifactory-terraform.com",
- *     admin: false,
- *     profileUpdatable: true,
- *     disableUiAccess: false,
- *     internalPasswordDisabled: false,
- *     groups: ["logged-in-users"],
- * });
- * ```
- *
- * ## Managing groups relationship
- *
- * See our recommendation on how to manage user-group relationship.
  *
  * ## Import
  *
@@ -87,13 +68,17 @@ export class User extends pulumi.CustomResource {
      */
     public readonly internalPasswordDisabled!: pulumi.Output<boolean>;
     /**
-     * Username for user. May contain lowercase letters, numbers and symbols: `.-_@` for self-hosted. For SaaS, `+` is also allowed.
+     * Username for user. May contain lowercase letters, numbers and symbols: '.-_@' for self-hosted. For SaaS, '+' is also allowed.
      */
     public readonly name!: pulumi.Output<string>;
     /**
      * (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters
      */
     public readonly password!: pulumi.Output<string>;
+    /**
+     * Password policy to match JFrog Access to provide pre-apply validation. Default values: `uppercase=1`, `lowercase=1`, `special_char=0`, `digit=1`, `length=8`. Also see [Supported Access Configurations](https://jfrog.com/help/r/jfrog-installation-setup-documentation/supported-access-configurations) for more details
+     */
+    public readonly passwordPolicy!: pulumi.Output<outputs.UserPasswordPolicy | undefined>;
     /**
      * (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an administrator can update the password). There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.
      */
@@ -119,6 +104,7 @@ export class User extends pulumi.CustomResource {
             resourceInputs["internalPasswordDisabled"] = state ? state.internalPasswordDisabled : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["password"] = state ? state.password : undefined;
+            resourceInputs["passwordPolicy"] = state ? state.passwordPolicy : undefined;
             resourceInputs["profileUpdatable"] = state ? state.profileUpdatable : undefined;
         } else {
             const args = argsOrState as UserArgs | undefined;
@@ -132,6 +118,7 @@ export class User extends pulumi.CustomResource {
             resourceInputs["internalPasswordDisabled"] = args ? args.internalPasswordDisabled : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
+            resourceInputs["passwordPolicy"] = args ? args.passwordPolicy : undefined;
             resourceInputs["profileUpdatable"] = args ? args.profileUpdatable : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -166,13 +153,17 @@ export interface UserState {
      */
     internalPasswordDisabled?: pulumi.Input<boolean>;
     /**
-     * Username for user. May contain lowercase letters, numbers and symbols: `.-_@` for self-hosted. For SaaS, `+` is also allowed.
+     * Username for user. May contain lowercase letters, numbers and symbols: '.-_@' for self-hosted. For SaaS, '+' is also allowed.
      */
     name?: pulumi.Input<string>;
     /**
      * (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters
      */
     password?: pulumi.Input<string>;
+    /**
+     * Password policy to match JFrog Access to provide pre-apply validation. Default values: `uppercase=1`, `lowercase=1`, `special_char=0`, `digit=1`, `length=8`. Also see [Supported Access Configurations](https://jfrog.com/help/r/jfrog-installation-setup-documentation/supported-access-configurations) for more details
+     */
+    passwordPolicy?: pulumi.Input<inputs.UserPasswordPolicy>;
     /**
      * (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an administrator can update the password). There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.
      */
@@ -204,13 +195,17 @@ export interface UserArgs {
      */
     internalPasswordDisabled?: pulumi.Input<boolean>;
     /**
-     * Username for user. May contain lowercase letters, numbers and symbols: `.-_@` for self-hosted. For SaaS, `+` is also allowed.
+     * Username for user. May contain lowercase letters, numbers and symbols: '.-_@' for self-hosted. For SaaS, '+' is also allowed.
      */
     name?: pulumi.Input<string>;
     /**
      * (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters
      */
     password?: pulumi.Input<string>;
+    /**
+     * Password policy to match JFrog Access to provide pre-apply validation. Default values: `uppercase=1`, `lowercase=1`, `special_char=0`, `digit=1`, `length=8`. Also see [Supported Access Configurations](https://jfrog.com/help/r/jfrog-installation-setup-documentation/supported-access-configurations) for more details
+     */
+    passwordPolicy?: pulumi.Input<inputs.UserPasswordPolicy>;
     /**
      * (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an administrator can update the password). There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.
      */

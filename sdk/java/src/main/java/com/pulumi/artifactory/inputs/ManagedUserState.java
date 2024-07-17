@@ -3,6 +3,7 @@
 
 package com.pulumi.artifactory.inputs;
 
+import com.pulumi.artifactory.inputs.ManagedUserPasswordPolicyArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -93,14 +94,14 @@ public final class ManagedUserState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Username for user. May contain lowercase letters, numbers and symbols: `.-_{@literal @}` for self-hosted. For SaaS, `+` is also allowed.
+     * Username for user. May contain lowercase letters, numbers and symbols: &#39;.-_{@literal @}&#39; for self-hosted. For SaaS, &#39;+&#39; is also allowed.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Username for user. May contain lowercase letters, numbers and symbols: `.-_{@literal @}` for self-hosted. For SaaS, `+` is also allowed.
+     * @return Username for user. May contain lowercase letters, numbers and symbols: &#39;.-_{@literal @}&#39; for self-hosted. For SaaS, &#39;+&#39; is also allowed.
      * 
      */
     public Optional<Output<String>> name() {
@@ -108,18 +109,33 @@ public final class ManagedUserState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * (Optional, Sensitive) Password for the user.
+     * Password for the user.
      * 
      */
     @Import(name="password")
     private @Nullable Output<String> password;
 
     /**
-     * @return (Optional, Sensitive) Password for the user.
+     * @return Password for the user.
      * 
      */
     public Optional<Output<String>> password() {
         return Optional.ofNullable(this.password);
+    }
+
+    /**
+     * Password policy to match JFrog Access to provide pre-apply validation. Default values: `uppercase=1`, `lowercase=1`, `special_char=0`, `digit=1`, `length=8`. Also see [Supported Access Configurations](https://jfrog.com/help/r/jfrog-installation-setup-documentation/supported-access-configurations) for more details
+     * 
+     */
+    @Import(name="passwordPolicy")
+    private @Nullable Output<ManagedUserPasswordPolicyArgs> passwordPolicy;
+
+    /**
+     * @return Password policy to match JFrog Access to provide pre-apply validation. Default values: `uppercase=1`, `lowercase=1`, `special_char=0`, `digit=1`, `length=8`. Also see [Supported Access Configurations](https://jfrog.com/help/r/jfrog-installation-setup-documentation/supported-access-configurations) for more details
+     * 
+     */
+    public Optional<Output<ManagedUserPasswordPolicyArgs>> passwordPolicy() {
+        return Optional.ofNullable(this.passwordPolicy);
     }
 
     /**
@@ -147,6 +163,7 @@ public final class ManagedUserState extends com.pulumi.resources.ResourceArgs {
         this.internalPasswordDisabled = $.internalPasswordDisabled;
         this.name = $.name;
         this.password = $.password;
+        this.passwordPolicy = $.passwordPolicy;
         this.profileUpdatable = $.profileUpdatable;
     }
 
@@ -284,7 +301,7 @@ public final class ManagedUserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Username for user. May contain lowercase letters, numbers and symbols: `.-_{@literal @}` for self-hosted. For SaaS, `+` is also allowed.
+         * @param name Username for user. May contain lowercase letters, numbers and symbols: &#39;.-_{@literal @}&#39; for self-hosted. For SaaS, &#39;+&#39; is also allowed.
          * 
          * @return builder
          * 
@@ -295,7 +312,7 @@ public final class ManagedUserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Username for user. May contain lowercase letters, numbers and symbols: `.-_{@literal @}` for self-hosted. For SaaS, `+` is also allowed.
+         * @param name Username for user. May contain lowercase letters, numbers and symbols: &#39;.-_{@literal @}&#39; for self-hosted. For SaaS, &#39;+&#39; is also allowed.
          * 
          * @return builder
          * 
@@ -305,7 +322,7 @@ public final class ManagedUserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param password (Optional, Sensitive) Password for the user.
+         * @param password Password for the user.
          * 
          * @return builder
          * 
@@ -316,13 +333,34 @@ public final class ManagedUserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param password (Optional, Sensitive) Password for the user.
+         * @param password Password for the user.
          * 
          * @return builder
          * 
          */
         public Builder password(String password) {
             return password(Output.of(password));
+        }
+
+        /**
+         * @param passwordPolicy Password policy to match JFrog Access to provide pre-apply validation. Default values: `uppercase=1`, `lowercase=1`, `special_char=0`, `digit=1`, `length=8`. Also see [Supported Access Configurations](https://jfrog.com/help/r/jfrog-installation-setup-documentation/supported-access-configurations) for more details
+         * 
+         * @return builder
+         * 
+         */
+        public Builder passwordPolicy(@Nullable Output<ManagedUserPasswordPolicyArgs> passwordPolicy) {
+            $.passwordPolicy = passwordPolicy;
+            return this;
+        }
+
+        /**
+         * @param passwordPolicy Password policy to match JFrog Access to provide pre-apply validation. Default values: `uppercase=1`, `lowercase=1`, `special_char=0`, `digit=1`, `length=8`. Also see [Supported Access Configurations](https://jfrog.com/help/r/jfrog-installation-setup-documentation/supported-access-configurations) for more details
+         * 
+         * @return builder
+         * 
+         */
+        public Builder passwordPolicy(ManagedUserPasswordPolicyArgs passwordPolicy) {
+            return passwordPolicy(Output.of(passwordPolicy));
         }
 
         /**

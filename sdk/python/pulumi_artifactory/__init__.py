@@ -11,6 +11,8 @@ from .anonymous_user import *
 from .api_key import *
 from .artifact import *
 from .artifact_custom_webhook import *
+from .artifact_lifecycle_custom_webhook import *
+from .artifact_lifecycle_webhook import *
 from .artifact_property_custom_webhook import *
 from .artifact_property_webhook import *
 from .artifact_webhook import *
@@ -21,6 +23,8 @@ from .build_custom_webhook import *
 from .build_webhook import *
 from .certificate import *
 from .debian_repository import *
+from .destination_custom_webhook import *
+from .destination_webhook import *
 from .distribution_custom_webhook import *
 from .distribution_public_key import *
 from .distribution_webhook import *
@@ -256,6 +260,10 @@ from .proxy import *
 from .pull_replication import *
 from .push_replication import *
 from .release_bundle_custom_webhook import *
+from .release_bundle_v2_custom_webhook import *
+from .release_bundle_v2_promotion_custom_webhook import *
+from .release_bundle_v2_promotion_webhook import *
+from .release_bundle_v2_webhook import *
 from .release_bundle_webhook import *
 from .remote_alpine_repository import *
 from .remote_bower_repository import *
@@ -299,7 +307,9 @@ from .scoped_token import *
 from .single_replication_config import *
 from .unmanaged_user import *
 from .user import *
+from .user_custom_webhook import *
 from .user_lock_policy import *
+from .user_webhook import *
 from .vault_configuration import *
 from .virtual_alpine_repository import *
 from .virtual_bower_repository import *
@@ -391,6 +401,22 @@ _utilities.register(
  },
  {
   "pkg": "artifactory",
+  "mod": "index/artifactLifecycleCustomWebhook",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/artifactLifecycleCustomWebhook:ArtifactLifecycleCustomWebhook": "ArtifactLifecycleCustomWebhook"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/artifactLifecycleWebhook",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/artifactLifecycleWebhook:ArtifactLifecycleWebhook": "ArtifactLifecycleWebhook"
+  }
+ },
+ {
+  "pkg": "artifactory",
   "mod": "index/artifactPropertyCustomWebhook",
   "fqn": "pulumi_artifactory",
   "classes": {
@@ -467,6 +493,22 @@ _utilities.register(
   "fqn": "pulumi_artifactory",
   "classes": {
    "artifactory:index/debianRepository:DebianRepository": "DebianRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/destinationCustomWebhook",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/destinationCustomWebhook:DestinationCustomWebhook": "DestinationCustomWebhook"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/destinationWebhook",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/destinationWebhook:DestinationWebhook": "DestinationWebhook"
   }
  },
  {
@@ -1231,6 +1273,38 @@ _utilities.register(
  },
  {
   "pkg": "artifactory",
+  "mod": "index/releaseBundleV2CustomWebhook",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/releaseBundleV2CustomWebhook:ReleaseBundleV2CustomWebhook": "ReleaseBundleV2CustomWebhook"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/releaseBundleV2PromotionCustomWebhook",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/releaseBundleV2PromotionCustomWebhook:ReleaseBundleV2PromotionCustomWebhook": "ReleaseBundleV2PromotionCustomWebhook"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/releaseBundleV2PromotionWebhook",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/releaseBundleV2PromotionWebhook:ReleaseBundleV2PromotionWebhook": "ReleaseBundleV2PromotionWebhook"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/releaseBundleV2Webhook",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/releaseBundleV2Webhook:ReleaseBundleV2Webhook": "ReleaseBundleV2Webhook"
+  }
+ },
+ {
+  "pkg": "artifactory",
   "mod": "index/releaseBundleWebhook",
   "fqn": "pulumi_artifactory",
   "classes": {
@@ -1575,10 +1649,26 @@ _utilities.register(
  },
  {
   "pkg": "artifactory",
+  "mod": "index/userCustomWebhook",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/userCustomWebhook:UserCustomWebhook": "UserCustomWebhook"
+  }
+ },
+ {
+  "pkg": "artifactory",
   "mod": "index/userLockPolicy",
   "fqn": "pulumi_artifactory",
   "classes": {
    "artifactory:index/userLockPolicy:UserLockPolicy": "UserLockPolicy"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/userWebhook",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/userWebhook:UserWebhook": "UserWebhook"
   }
  },
  {

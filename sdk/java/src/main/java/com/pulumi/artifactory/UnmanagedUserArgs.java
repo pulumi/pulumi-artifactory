@@ -3,6 +3,7 @@
 
 package com.pulumi.artifactory;
 
+import com.pulumi.artifactory.inputs.UnmanagedUserPasswordPolicyArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -124,6 +125,27 @@ public final class UnmanagedUserArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Password policy to match JFrog Access to provide pre-apply validation. Default values: `uppercase=1`, `lowercase=1`,
+     * `special_char=0`, `digit=1`, `length=8`. Also see [Supported Access
+     * Configurations](https://jfrog.com/help/r/jfrog-installation-setup-documentation/supported-access-configurations) for
+     * more details
+     * 
+     */
+    @Import(name="passwordPolicy")
+    private @Nullable Output<UnmanagedUserPasswordPolicyArgs> passwordPolicy;
+
+    /**
+     * @return Password policy to match JFrog Access to provide pre-apply validation. Default values: `uppercase=1`, `lowercase=1`,
+     * `special_char=0`, `digit=1`, `length=8`. Also see [Supported Access
+     * Configurations](https://jfrog.com/help/r/jfrog-installation-setup-documentation/supported-access-configurations) for
+     * more details
+     * 
+     */
+    public Optional<Output<UnmanagedUserPasswordPolicyArgs>> passwordPolicy() {
+        return Optional.ofNullable(this.passwordPolicy);
+    }
+
+    /**
      * (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an administrator can update the password). There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.
      * 
      */
@@ -148,6 +170,7 @@ public final class UnmanagedUserArgs extends com.pulumi.resources.ResourceArgs {
         this.internalPasswordDisabled = $.internalPasswordDisabled;
         this.name = $.name;
         this.password = $.password;
+        this.passwordPolicy = $.passwordPolicy;
         this.profileUpdatable = $.profileUpdatable;
     }
 
@@ -324,6 +347,33 @@ public final class UnmanagedUserArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder password(String password) {
             return password(Output.of(password));
+        }
+
+        /**
+         * @param passwordPolicy Password policy to match JFrog Access to provide pre-apply validation. Default values: `uppercase=1`, `lowercase=1`,
+         * `special_char=0`, `digit=1`, `length=8`. Also see [Supported Access
+         * Configurations](https://jfrog.com/help/r/jfrog-installation-setup-documentation/supported-access-configurations) for
+         * more details
+         * 
+         * @return builder
+         * 
+         */
+        public Builder passwordPolicy(@Nullable Output<UnmanagedUserPasswordPolicyArgs> passwordPolicy) {
+            $.passwordPolicy = passwordPolicy;
+            return this;
+        }
+
+        /**
+         * @param passwordPolicy Password policy to match JFrog Access to provide pre-apply validation. Default values: `uppercase=1`, `lowercase=1`,
+         * `special_char=0`, `digit=1`, `length=8`. Also see [Supported Access
+         * Configurations](https://jfrog.com/help/r/jfrog-installation-setup-documentation/supported-access-configurations) for
+         * more details
+         * 
+         * @return builder
+         * 
+         */
+        public Builder passwordPolicy(UnmanagedUserPasswordPolicyArgs passwordPolicy) {
+            return passwordPolicy(Output.of(passwordPolicy));
         }
 
         /**
