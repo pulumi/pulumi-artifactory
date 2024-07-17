@@ -53,6 +53,30 @@
                     }
                 }
             },
+            "artifactory_artifact_lifecycle_custom_webhook": {
+                "current": "artifactory:index/artifactLifecycleCustomWebhook:ArtifactLifecycleCustomWebhook",
+                "majorVersion": 7,
+                "fields": {
+                    "event_types": {
+                        "maxItemsOne": false
+                    },
+                    "handler": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "artifactory_artifact_lifecycle_webhook": {
+                "current": "artifactory:index/artifactLifecycleWebhook:ArtifactLifecycleWebhook",
+                "majorVersion": 7,
+                "fields": {
+                    "event_types": {
+                        "maxItemsOne": false
+                    },
+                    "handler": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "artifactory_artifact_property_custom_webhook": {
                 "current": "artifactory:index/artifactPropertyCustomWebhook:ArtifactPropertyCustomWebhook",
                 "majorVersion": 7,
@@ -261,6 +285,62 @@
             "artifactory_certificate": {
                 "current": "artifactory:index/certificate:Certificate",
                 "majorVersion": 7
+            },
+            "artifactory_destination_custom_webhook": {
+                "current": "artifactory:index/destinationCustomWebhook:DestinationCustomWebhook",
+                "majorVersion": 7,
+                "fields": {
+                    "criteria": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "exclude_patterns": {
+                                    "maxItemsOne": false
+                                },
+                                "include_patterns": {
+                                    "maxItemsOne": false
+                                },
+                                "registered_release_bundle_names": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "event_types": {
+                        "maxItemsOne": false
+                    },
+                    "handler": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "artifactory_destination_webhook": {
+                "current": "artifactory:index/destinationWebhook:DestinationWebhook",
+                "majorVersion": 7,
+                "fields": {
+                    "criteria": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "exclude_patterns": {
+                                    "maxItemsOne": false
+                                },
+                                "include_patterns": {
+                                    "maxItemsOne": false
+                                },
+                                "registered_release_bundle_names": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "event_types": {
+                        "maxItemsOne": false
+                    },
+                    "handler": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "artifactory_distribution_custom_webhook": {
                 "current": "artifactory:index/distributionCustomWebhook:DistributionCustomWebhook",
@@ -1618,6 +1698,118 @@
                     }
                 }
             },
+            "artifactory_release_bundle_v2_custom_webhook": {
+                "current": "artifactory:index/releaseBundleV2CustomWebhook:ReleaseBundleV2CustomWebhook",
+                "majorVersion": 7,
+                "fields": {
+                    "criteria": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "exclude_patterns": {
+                                    "maxItemsOne": false
+                                },
+                                "include_patterns": {
+                                    "maxItemsOne": false
+                                },
+                                "selected_release_bundles": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "event_types": {
+                        "maxItemsOne": false
+                    },
+                    "handler": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "artifactory_release_bundle_v2_promotion_custom_webhook": {
+                "current": "artifactory:index/releaseBundleV2PromotionCustomWebhook:ReleaseBundleV2PromotionCustomWebhook",
+                "majorVersion": 7,
+                "fields": {
+                    "criteria": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "exclude_patterns": {
+                                    "maxItemsOne": false
+                                },
+                                "include_patterns": {
+                                    "maxItemsOne": false
+                                },
+                                "selected_environments": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "event_types": {
+                        "maxItemsOne": false
+                    },
+                    "handler": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "artifactory_release_bundle_v2_promotion_webhook": {
+                "current": "artifactory:index/releaseBundleV2PromotionWebhook:ReleaseBundleV2PromotionWebhook",
+                "majorVersion": 7,
+                "fields": {
+                    "criteria": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "exclude_patterns": {
+                                    "maxItemsOne": false
+                                },
+                                "include_patterns": {
+                                    "maxItemsOne": false
+                                },
+                                "selected_environments": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "event_types": {
+                        "maxItemsOne": false
+                    },
+                    "handler": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "artifactory_release_bundle_v2_webhook": {
+                "current": "artifactory:index/releaseBundleV2Webhook:ReleaseBundleV2Webhook",
+                "majorVersion": 7,
+                "fields": {
+                    "criteria": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "exclude_patterns": {
+                                    "maxItemsOne": false
+                                },
+                                "include_patterns": {
+                                    "maxItemsOne": false
+                                },
+                                "selected_release_bundles": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "event_types": {
+                        "maxItemsOne": false
+                    },
+                    "handler": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "artifactory_release_bundle_webhook": {
                 "current": "artifactory:index/releaseBundleWebhook:ReleaseBundleWebhook",
                 "majorVersion": 7,
@@ -2223,9 +2415,33 @@
                     }
                 }
             },
+            "artifactory_user_custom_webhook": {
+                "current": "artifactory:index/userCustomWebhook:UserCustomWebhook",
+                "majorVersion": 7,
+                "fields": {
+                    "event_types": {
+                        "maxItemsOne": false
+                    },
+                    "handler": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "artifactory_user_lock_policy": {
                 "current": "artifactory:index/userLockPolicy:UserLockPolicy",
                 "majorVersion": 7
+            },
+            "artifactory_user_webhook": {
+                "current": "artifactory:index/userWebhook:UserWebhook",
+                "majorVersion": 7,
+                "fields": {
+                    "event_types": {
+                        "maxItemsOne": false
+                    },
+                    "handler": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "artifactory_vault_configuration": {
                 "current": "artifactory:index/vaultConfiguration:VaultConfiguration",
@@ -4619,6 +4835,8 @@
             "artifactory:index/apiKey:ApiKey": 0,
             "artifactory:index/artifact:Artifact": 1,
             "artifactory:index/artifactCustomWebhook:ArtifactCustomWebhook": 0,
+            "artifactory:index/artifactLifecycleCustomWebhook:ArtifactLifecycleCustomWebhook": 0,
+            "artifactory:index/artifactLifecycleWebhook:ArtifactLifecycleWebhook": 0,
             "artifactory:index/artifactPropertyCustomWebhook:ArtifactPropertyCustomWebhook": 0,
             "artifactory:index/artifactPropertyWebhook:ArtifactPropertyWebhook": 0,
             "artifactory:index/artifactWebhook:ArtifactWebhook": 0,
@@ -4629,6 +4847,8 @@
             "artifactory:index/buildWebhook:BuildWebhook": 0,
             "artifactory:index/certificate:Certificate": 1,
             "artifactory:index/debianRepository:DebianRepository": 0,
+            "artifactory:index/destinationCustomWebhook:DestinationCustomWebhook": 0,
+            "artifactory:index/destinationWebhook:DestinationWebhook": 0,
             "artifactory:index/distributionCustomWebhook:DistributionCustomWebhook": 0,
             "artifactory:index/distributionPublicKey:DistributionPublicKey": 1,
             "artifactory:index/distributionWebhook:DistributionWebhook": 0,
@@ -4724,6 +4944,10 @@
             "artifactory:index/pullReplication:PullReplication": 0,
             "artifactory:index/pushReplication:PushReplication": 0,
             "artifactory:index/releaseBundleCustomWebhook:ReleaseBundleCustomWebhook": 0,
+            "artifactory:index/releaseBundleV2CustomWebhook:ReleaseBundleV2CustomWebhook": 0,
+            "artifactory:index/releaseBundleV2PromotionCustomWebhook:ReleaseBundleV2PromotionCustomWebhook": 0,
+            "artifactory:index/releaseBundleV2PromotionWebhook:ReleaseBundleV2PromotionWebhook": 0,
+            "artifactory:index/releaseBundleV2Webhook:ReleaseBundleV2Webhook": 0,
             "artifactory:index/releaseBundleWebhook:ReleaseBundleWebhook": 0,
             "artifactory:index/remoteAlpineRepository:RemoteAlpineRepository": 0,
             "artifactory:index/remoteBowerRepository:RemoteBowerRepository": 0,
@@ -4767,7 +4991,9 @@
             "artifactory:index/singleReplicationConfig:SingleReplicationConfig": 0,
             "artifactory:index/unmanagedUser:UnmanagedUser": 1,
             "artifactory:index/user:User": 1,
+            "artifactory:index/userCustomWebhook:UserCustomWebhook": 0,
             "artifactory:index/userLockPolicy:UserLockPolicy": 1,
+            "artifactory:index/userWebhook:UserWebhook": 0,
             "artifactory:index/vaultConfiguration:VaultConfiguration": 1,
             "artifactory:index/virtualAlpineRepository:VirtualAlpineRepository": 0,
             "artifactory:index/virtualBowerRepository:VirtualBowerRepository": 0,
