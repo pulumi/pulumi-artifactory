@@ -177,23 +177,9 @@ public class UnmanagedUser extends com.pulumi.resources.CustomResource {
     public Output<String> password() {
         return this.password;
     }
-    /**
-     * Password policy to match JFrog Access to provide pre-apply validation. Default values: `uppercase=1`, `lowercase=1`,
-     * `special_char=0`, `digit=1`, `length=8`. Also see [Supported Access
-     * Configurations](https://jfrog.com/help/r/jfrog-installation-setup-documentation/supported-access-configurations) for
-     * more details
-     * 
-     */
     @Export(name="passwordPolicy", refs={UnmanagedUserPasswordPolicy.class}, tree="[0]")
     private Output</* @Nullable */ UnmanagedUserPasswordPolicy> passwordPolicy;
 
-    /**
-     * @return Password policy to match JFrog Access to provide pre-apply validation. Default values: `uppercase=1`, `lowercase=1`,
-     * `special_char=0`, `digit=1`, `length=8`. Also see [Supported Access
-     * Configurations](https://jfrog.com/help/r/jfrog-installation-setup-documentation/supported-access-configurations) for
-     * more details
-     * 
-     */
     public Output<Optional<UnmanagedUserPasswordPolicy>> passwordPolicy() {
         return Codegen.optional(this.passwordPolicy);
     }

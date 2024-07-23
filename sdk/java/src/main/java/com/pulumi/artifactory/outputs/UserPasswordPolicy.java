@@ -27,7 +27,7 @@ public final class UserPasswordPolicy {
      */
     private @Nullable Integer lowercase;
     /**
-     * @return Minimum number of special char that the password must contain. Special chars list: `!&#34;#$%&amp;&#39;()*+,-./:;&lt;=&gt;?{@literal @}[\]^_``{|}~`
+     * @return Minimum number of special char that the password must contain. Special chars list: `!&#34;#$%&amp;&#39;()*+,-./:;&lt;=&gt;?{@literal @}[\]^_`{|}~`
      * 
      */
     private @Nullable Integer specialChar;
@@ -60,7 +60,7 @@ public final class UserPasswordPolicy {
         return Optional.ofNullable(this.lowercase);
     }
     /**
-     * @return Minimum number of special char that the password must contain. Special chars list: `!&#34;#$%&amp;&#39;()*+,-./:;&lt;=&gt;?{@literal @}[\]^_``{|}~`
+     * @return Minimum number of special char that the password must contain. Special chars list: `!&#34;#$%&amp;&#39;()*+,-./:;&lt;=&gt;?{@literal @}[\]^_`{|}~`
      * 
      */
     public Optional<Integer> specialChar() {
