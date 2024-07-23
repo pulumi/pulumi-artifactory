@@ -31,7 +31,7 @@ namespace Pulumi.Artifactory.Inputs
         public Input<int>? Lowercase { get; set; }
 
         /// <summary>
-        /// Minimum number of special char that the password must contain. Special chars list: `!"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\]^_``{|}~`
+        /// Minimum number of special char that the password must contain. Special chars list: ``!"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\]^_`{|}~``
         /// </summary>
         [Input("specialChar")]
         public Input<int>? SpecialChar { get; set; }

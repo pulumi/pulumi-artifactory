@@ -61,14 +61,14 @@ public final class UserPasswordPolicyArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Minimum number of special char that the password must contain. Special chars list: `!&#34;#$%&amp;&#39;()*+,-./:;&lt;=&gt;?{@literal @}[\]^_``{|}~`
+     * Minimum number of special char that the password must contain. Special chars list: `!&#34;#$%&amp;&#39;()*+,-./:;&lt;=&gt;?{@literal @}[\]^_`{|}~`
      * 
      */
     @Import(name="specialChar")
     private @Nullable Output<Integer> specialChar;
 
     /**
-     * @return Minimum number of special char that the password must contain. Special chars list: `!&#34;#$%&amp;&#39;()*+,-./:;&lt;=&gt;?{@literal @}[\]^_``{|}~`
+     * @return Minimum number of special char that the password must contain. Special chars list: `!&#34;#$%&amp;&#39;()*+,-./:;&lt;=&gt;?{@literal @}[\]^_`{|}~`
      * 
      */
     public Optional<Output<Integer>> specialChar() {
@@ -182,7 +182,7 @@ public final class UserPasswordPolicyArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param specialChar Minimum number of special char that the password must contain. Special chars list: `!&#34;#$%&amp;&#39;()*+,-./:;&lt;=&gt;?{@literal @}[\]^_``{|}~`
+         * @param specialChar Minimum number of special char that the password must contain. Special chars list: `!&#34;#$%&amp;&#39;()*+,-./:;&lt;=&gt;?{@literal @}[\]^_`{|}~`
          * 
          * @return builder
          * 
@@ -193,7 +193,7 @@ public final class UserPasswordPolicyArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param specialChar Minimum number of special char that the password must contain. Special chars list: `!&#34;#$%&amp;&#39;()*+,-./:;&lt;=&gt;?{@literal @}[\]^_``{|}~`
+         * @param specialChar Minimum number of special char that the password must contain. Special chars list: `!&#34;#$%&amp;&#39;()*+,-./:;&lt;=&gt;?{@literal @}[\]^_`{|}~`
          * 
          * @return builder
          * 

@@ -9133,7 +9133,7 @@ type ManagedUserPasswordPolicy struct {
 	Length *int `pulumi:"length"`
 	// Minimum number of lowercase letters that the password must contain
 	Lowercase *int `pulumi:"lowercase"`
-	// Minimum number of special char that the password must contain. Special chars list: `!"#$%&'()*+,-./:;<=>?@[\]^_``{|}~`
+	// Minimum number of special char that the password must contain. Special chars list: `!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~`
 	SpecialChar *int `pulumi:"specialChar"`
 	// Minimum number of uppercase letters that the password must contain
 	Uppercase *int `pulumi:"uppercase"`
@@ -9157,7 +9157,7 @@ type ManagedUserPasswordPolicyArgs struct {
 	Length pulumi.IntPtrInput `pulumi:"length"`
 	// Minimum number of lowercase letters that the password must contain
 	Lowercase pulumi.IntPtrInput `pulumi:"lowercase"`
-	// Minimum number of special char that the password must contain. Special chars list: `!"#$%&'()*+,-./:;<=>?@[\]^_``{|}~`
+	// Minimum number of special char that the password must contain. Special chars list: `!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~`
 	SpecialChar pulumi.IntPtrInput `pulumi:"specialChar"`
 	// Minimum number of uppercase letters that the password must contain
 	Uppercase pulumi.IntPtrInput `pulumi:"uppercase"`
@@ -9255,7 +9255,7 @@ func (o ManagedUserPasswordPolicyOutput) Lowercase() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ManagedUserPasswordPolicy) *int { return v.Lowercase }).(pulumi.IntPtrOutput)
 }
 
-// Minimum number of special char that the password must contain. Special chars list: `!"#$%&'()*+,-./:;<=>?@[\]^_“{|}~`
+// Minimum number of special char that the password must contain. Special chars list: `!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~`
 func (o ManagedUserPasswordPolicyOutput) SpecialChar() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ManagedUserPasswordPolicy) *int { return v.SpecialChar }).(pulumi.IntPtrOutput)
 }
@@ -9319,7 +9319,7 @@ func (o ManagedUserPasswordPolicyPtrOutput) Lowercase() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Minimum number of special char that the password must contain. Special chars list: `!"#$%&'()*+,-./:;<=>?@[\]^_“{|}~`
+// Minimum number of special char that the password must contain. Special chars list: `!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~`
 func (o ManagedUserPasswordPolicyPtrOutput) SpecialChar() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ManagedUserPasswordPolicy) *int {
 		if v == nil {
@@ -9690,8 +9690,10 @@ func (o PermissionTargetBuildPtrOutput) Repositories() pulumi.StringArrayOutput 
 }
 
 type PermissionTargetBuildActions struct {
+	// Groups this permission applies for.
 	Groups []PermissionTargetBuildActionsGroup `pulumi:"groups"`
-	Users  []PermissionTargetBuildActionsUser  `pulumi:"users"`
+	// Users this permission target applies for.
+	Users []PermissionTargetBuildActionsUser `pulumi:"users"`
 }
 
 // PermissionTargetBuildActionsInput is an input type that accepts PermissionTargetBuildActionsArgs and PermissionTargetBuildActionsOutput values.
@@ -9706,8 +9708,10 @@ type PermissionTargetBuildActionsInput interface {
 }
 
 type PermissionTargetBuildActionsArgs struct {
+	// Groups this permission applies for.
 	Groups PermissionTargetBuildActionsGroupArrayInput `pulumi:"groups"`
-	Users  PermissionTargetBuildActionsUserArrayInput  `pulumi:"users"`
+	// Users this permission target applies for.
+	Users PermissionTargetBuildActionsUserArrayInput `pulumi:"users"`
 }
 
 func (PermissionTargetBuildActionsArgs) ElementType() reflect.Type {
@@ -9787,10 +9791,12 @@ func (o PermissionTargetBuildActionsOutput) ToPermissionTargetBuildActionsPtrOut
 	}).(PermissionTargetBuildActionsPtrOutput)
 }
 
+// Groups this permission applies for.
 func (o PermissionTargetBuildActionsOutput) Groups() PermissionTargetBuildActionsGroupArrayOutput {
 	return o.ApplyT(func(v PermissionTargetBuildActions) []PermissionTargetBuildActionsGroup { return v.Groups }).(PermissionTargetBuildActionsGroupArrayOutput)
 }
 
+// Users this permission target applies for.
 func (o PermissionTargetBuildActionsOutput) Users() PermissionTargetBuildActionsUserArrayOutput {
 	return o.ApplyT(func(v PermissionTargetBuildActions) []PermissionTargetBuildActionsUser { return v.Users }).(PermissionTargetBuildActionsUserArrayOutput)
 }
@@ -9819,6 +9825,7 @@ func (o PermissionTargetBuildActionsPtrOutput) Elem() PermissionTargetBuildActio
 	}).(PermissionTargetBuildActionsOutput)
 }
 
+// Groups this permission applies for.
 func (o PermissionTargetBuildActionsPtrOutput) Groups() PermissionTargetBuildActionsGroupArrayOutput {
 	return o.ApplyT(func(v *PermissionTargetBuildActions) []PermissionTargetBuildActionsGroup {
 		if v == nil {
@@ -9828,6 +9835,7 @@ func (o PermissionTargetBuildActionsPtrOutput) Groups() PermissionTargetBuildAct
 	}).(PermissionTargetBuildActionsGroupArrayOutput)
 }
 
+// Users this permission target applies for.
 func (o PermissionTargetBuildActionsPtrOutput) Users() PermissionTargetBuildActionsUserArrayOutput {
 	return o.ApplyT(func(v *PermissionTargetBuildActions) []PermissionTargetBuildActionsUser {
 		if v == nil {
@@ -10234,8 +10242,10 @@ func (o PermissionTargetReleaseBundlePtrOutput) Repositories() pulumi.StringArra
 }
 
 type PermissionTargetReleaseBundleActions struct {
+	// Groups this permission applies for.
 	Groups []PermissionTargetReleaseBundleActionsGroup `pulumi:"groups"`
-	Users  []PermissionTargetReleaseBundleActionsUser  `pulumi:"users"`
+	// Users this permission target applies for.
+	Users []PermissionTargetReleaseBundleActionsUser `pulumi:"users"`
 }
 
 // PermissionTargetReleaseBundleActionsInput is an input type that accepts PermissionTargetReleaseBundleActionsArgs and PermissionTargetReleaseBundleActionsOutput values.
@@ -10250,8 +10260,10 @@ type PermissionTargetReleaseBundleActionsInput interface {
 }
 
 type PermissionTargetReleaseBundleActionsArgs struct {
+	// Groups this permission applies for.
 	Groups PermissionTargetReleaseBundleActionsGroupArrayInput `pulumi:"groups"`
-	Users  PermissionTargetReleaseBundleActionsUserArrayInput  `pulumi:"users"`
+	// Users this permission target applies for.
+	Users PermissionTargetReleaseBundleActionsUserArrayInput `pulumi:"users"`
 }
 
 func (PermissionTargetReleaseBundleActionsArgs) ElementType() reflect.Type {
@@ -10331,12 +10343,14 @@ func (o PermissionTargetReleaseBundleActionsOutput) ToPermissionTargetReleaseBun
 	}).(PermissionTargetReleaseBundleActionsPtrOutput)
 }
 
+// Groups this permission applies for.
 func (o PermissionTargetReleaseBundleActionsOutput) Groups() PermissionTargetReleaseBundleActionsGroupArrayOutput {
 	return o.ApplyT(func(v PermissionTargetReleaseBundleActions) []PermissionTargetReleaseBundleActionsGroup {
 		return v.Groups
 	}).(PermissionTargetReleaseBundleActionsGroupArrayOutput)
 }
 
+// Users this permission target applies for.
 func (o PermissionTargetReleaseBundleActionsOutput) Users() PermissionTargetReleaseBundleActionsUserArrayOutput {
 	return o.ApplyT(func(v PermissionTargetReleaseBundleActions) []PermissionTargetReleaseBundleActionsUser {
 		return v.Users
@@ -10367,6 +10381,7 @@ func (o PermissionTargetReleaseBundleActionsPtrOutput) Elem() PermissionTargetRe
 	}).(PermissionTargetReleaseBundleActionsOutput)
 }
 
+// Groups this permission applies for.
 func (o PermissionTargetReleaseBundleActionsPtrOutput) Groups() PermissionTargetReleaseBundleActionsGroupArrayOutput {
 	return o.ApplyT(func(v *PermissionTargetReleaseBundleActions) []PermissionTargetReleaseBundleActionsGroup {
 		if v == nil {
@@ -10376,6 +10391,7 @@ func (o PermissionTargetReleaseBundleActionsPtrOutput) Groups() PermissionTarget
 	}).(PermissionTargetReleaseBundleActionsGroupArrayOutput)
 }
 
+// Users this permission target applies for.
 func (o PermissionTargetReleaseBundleActionsPtrOutput) Users() PermissionTargetReleaseBundleActionsUserArrayOutput {
 	return o.ApplyT(func(v *PermissionTargetReleaseBundleActions) []PermissionTargetReleaseBundleActionsUser {
 		if v == nil {
@@ -20249,7 +20265,7 @@ type UnmanagedUserPasswordPolicy struct {
 	Length *int `pulumi:"length"`
 	// Minimum number of lowercase letters that the password must contain
 	Lowercase *int `pulumi:"lowercase"`
-	// Minimum number of special char that the password must contain. Special chars list: `!"#$%&'()*+,-./:;<=>?@[\]^_``{|}~`
+	// Minimum number of special char that the password must contain. Special chars list: ``!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~``
 	SpecialChar *int `pulumi:"specialChar"`
 	// Minimum number of uppercase letters that the password must contain
 	Uppercase *int `pulumi:"uppercase"`
@@ -20273,7 +20289,7 @@ type UnmanagedUserPasswordPolicyArgs struct {
 	Length pulumi.IntPtrInput `pulumi:"length"`
 	// Minimum number of lowercase letters that the password must contain
 	Lowercase pulumi.IntPtrInput `pulumi:"lowercase"`
-	// Minimum number of special char that the password must contain. Special chars list: `!"#$%&'()*+,-./:;<=>?@[\]^_``{|}~`
+	// Minimum number of special char that the password must contain. Special chars list: ``!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~``
 	SpecialChar pulumi.IntPtrInput `pulumi:"specialChar"`
 	// Minimum number of uppercase letters that the password must contain
 	Uppercase pulumi.IntPtrInput `pulumi:"uppercase"`
@@ -20371,7 +20387,7 @@ func (o UnmanagedUserPasswordPolicyOutput) Lowercase() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v UnmanagedUserPasswordPolicy) *int { return v.Lowercase }).(pulumi.IntPtrOutput)
 }
 
-// Minimum number of special char that the password must contain. Special chars list: `!"#$%&'()*+,-./:;<=>?@[\]^_“{|}~`
+// Minimum number of special char that the password must contain. Special chars list: “!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~“
 func (o UnmanagedUserPasswordPolicyOutput) SpecialChar() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v UnmanagedUserPasswordPolicy) *int { return v.SpecialChar }).(pulumi.IntPtrOutput)
 }
@@ -20435,7 +20451,7 @@ func (o UnmanagedUserPasswordPolicyPtrOutput) Lowercase() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Minimum number of special char that the password must contain. Special chars list: `!"#$%&'()*+,-./:;<=>?@[\]^_“{|}~`
+// Minimum number of special char that the password must contain. Special chars list: “!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~“
 func (o UnmanagedUserPasswordPolicyPtrOutput) SpecialChar() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *UnmanagedUserPasswordPolicy) *int {
 		if v == nil {
@@ -20595,7 +20611,7 @@ type UserPasswordPolicy struct {
 	Length *int `pulumi:"length"`
 	// Minimum number of lowercase letters that the password must contain
 	Lowercase *int `pulumi:"lowercase"`
-	// Minimum number of special char that the password must contain. Special chars list: `!"#$%&'()*+,-./:;<=>?@[\]^_``{|}~`
+	// Minimum number of special char that the password must contain. Special chars list: `!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~`
 	SpecialChar *int `pulumi:"specialChar"`
 	// Minimum number of uppercase letters that the password must contain
 	Uppercase *int `pulumi:"uppercase"`
@@ -20619,7 +20635,7 @@ type UserPasswordPolicyArgs struct {
 	Length pulumi.IntPtrInput `pulumi:"length"`
 	// Minimum number of lowercase letters that the password must contain
 	Lowercase pulumi.IntPtrInput `pulumi:"lowercase"`
-	// Minimum number of special char that the password must contain. Special chars list: `!"#$%&'()*+,-./:;<=>?@[\]^_``{|}~`
+	// Minimum number of special char that the password must contain. Special chars list: `!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~`
 	SpecialChar pulumi.IntPtrInput `pulumi:"specialChar"`
 	// Minimum number of uppercase letters that the password must contain
 	Uppercase pulumi.IntPtrInput `pulumi:"uppercase"`
@@ -20717,7 +20733,7 @@ func (o UserPasswordPolicyOutput) Lowercase() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v UserPasswordPolicy) *int { return v.Lowercase }).(pulumi.IntPtrOutput)
 }
 
-// Minimum number of special char that the password must contain. Special chars list: `!"#$%&'()*+,-./:;<=>?@[\]^_“{|}~`
+// Minimum number of special char that the password must contain. Special chars list: `!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~`
 func (o UserPasswordPolicyOutput) SpecialChar() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v UserPasswordPolicy) *int { return v.SpecialChar }).(pulumi.IntPtrOutput)
 }
@@ -20781,7 +20797,7 @@ func (o UserPasswordPolicyPtrOutput) Lowercase() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Minimum number of special char that the password must contain. Special chars list: `!"#$%&'()*+,-./:;<=>?@[\]^_“{|}~`
+// Minimum number of special char that the password must contain. Special chars list: `!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~`
 func (o UserPasswordPolicyPtrOutput) SpecialChar() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *UserPasswordPolicy) *int {
 		if v == nil {

@@ -4315,7 +4315,7 @@ class ManagedUserPasswordPolicyArgs:
         :param pulumi.Input[int] digit: Minimum number of digits that the password must contain
         :param pulumi.Input[int] length: Minimum length of the password
         :param pulumi.Input[int] lowercase: Minimum number of lowercase letters that the password must contain
-        :param pulumi.Input[int] special_char: Minimum number of special char that the password must contain. Special chars list: `!"#$%&'()*+,-./:;<=>?@[\\]^_``{|}~`
+        :param pulumi.Input[int] special_char: Minimum number of special char that the password must contain. Special chars list: `!"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~`
         :param pulumi.Input[int] uppercase: Minimum number of uppercase letters that the password must contain
         """
         if digit is not None:
@@ -4369,7 +4369,7 @@ class ManagedUserPasswordPolicyArgs:
     @pulumi.getter(name="specialChar")
     def special_char(self) -> Optional[pulumi.Input[int]]:
         """
-        Minimum number of special char that the password must contain. Special chars list: `!"#$%&'()*+,-./:;<=>?@[\\]^_``{|}~`
+        Minimum number of special char that the password must contain. Special chars list: `!"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~`
         """
         return pulumi.get(self, "special_char")
 
@@ -4589,6 +4589,10 @@ class PermissionTargetBuildActionsArgs:
     def __init__(__self__, *,
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input['PermissionTargetBuildActionsGroupArgs']]]] = None,
                  users: Optional[pulumi.Input[Sequence[pulumi.Input['PermissionTargetBuildActionsUserArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['PermissionTargetBuildActionsGroupArgs']]] groups: Groups this permission applies for.
+        :param pulumi.Input[Sequence[pulumi.Input['PermissionTargetBuildActionsUserArgs']]] users: Users this permission target applies for.
+        """
         if groups is not None:
             pulumi.set(__self__, "groups", groups)
         if users is not None:
@@ -4597,6 +4601,9 @@ class PermissionTargetBuildActionsArgs:
     @property
     @pulumi.getter
     def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PermissionTargetBuildActionsGroupArgs']]]]:
+        """
+        Groups this permission applies for.
+        """
         return pulumi.get(self, "groups")
 
     @groups.setter
@@ -4606,6 +4613,9 @@ class PermissionTargetBuildActionsArgs:
     @property
     @pulumi.getter
     def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PermissionTargetBuildActionsUserArgs']]]]:
+        """
+        Users this permission target applies for.
+        """
         return pulumi.get(self, "users")
 
     @users.setter
@@ -4750,6 +4760,10 @@ class PermissionTargetReleaseBundleActionsArgs:
     def __init__(__self__, *,
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input['PermissionTargetReleaseBundleActionsGroupArgs']]]] = None,
                  users: Optional[pulumi.Input[Sequence[pulumi.Input['PermissionTargetReleaseBundleActionsUserArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['PermissionTargetReleaseBundleActionsGroupArgs']]] groups: Groups this permission applies for.
+        :param pulumi.Input[Sequence[pulumi.Input['PermissionTargetReleaseBundleActionsUserArgs']]] users: Users this permission target applies for.
+        """
         if groups is not None:
             pulumi.set(__self__, "groups", groups)
         if users is not None:
@@ -4758,6 +4772,9 @@ class PermissionTargetReleaseBundleActionsArgs:
     @property
     @pulumi.getter
     def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PermissionTargetReleaseBundleActionsGroupArgs']]]]:
+        """
+        Groups this permission applies for.
+        """
         return pulumi.get(self, "groups")
 
     @groups.setter
@@ -4767,6 +4784,9 @@ class PermissionTargetReleaseBundleActionsArgs:
     @property
     @pulumi.getter
     def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PermissionTargetReleaseBundleActionsUserArgs']]]]:
+        """
+        Users this permission target applies for.
+        """
         return pulumi.get(self, "users")
 
     @users.setter
@@ -8763,7 +8783,7 @@ class UnmanagedUserPasswordPolicyArgs:
         :param pulumi.Input[int] digit: Minimum number of digits that the password must contain
         :param pulumi.Input[int] length: Minimum length of the password
         :param pulumi.Input[int] lowercase: Minimum number of lowercase letters that the password must contain
-        :param pulumi.Input[int] special_char: Minimum number of special char that the password must contain. Special chars list: `!"#$%&'()*+,-./:;<=>?@[\\]^_``{|}~`
+        :param pulumi.Input[int] special_char: Minimum number of special char that the password must contain. Special chars list: ``!"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~``
         :param pulumi.Input[int] uppercase: Minimum number of uppercase letters that the password must contain
         """
         if digit is not None:
@@ -8817,7 +8837,7 @@ class UnmanagedUserPasswordPolicyArgs:
     @pulumi.getter(name="specialChar")
     def special_char(self) -> Optional[pulumi.Input[int]]:
         """
-        Minimum number of special char that the password must contain. Special chars list: `!"#$%&'()*+,-./:;<=>?@[\\]^_``{|}~`
+        Minimum number of special char that the password must contain. Special chars list: ``!"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~``
         """
         return pulumi.get(self, "special_char")
 
@@ -8936,7 +8956,7 @@ class UserPasswordPolicyArgs:
         :param pulumi.Input[int] digit: Minimum number of digits that the password must contain
         :param pulumi.Input[int] length: Minimum length of the password
         :param pulumi.Input[int] lowercase: Minimum number of lowercase letters that the password must contain
-        :param pulumi.Input[int] special_char: Minimum number of special char that the password must contain. Special chars list: `!"#$%&'()*+,-./:;<=>?@[\\]^_``{|}~`
+        :param pulumi.Input[int] special_char: Minimum number of special char that the password must contain. Special chars list: `!"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~`
         :param pulumi.Input[int] uppercase: Minimum number of uppercase letters that the password must contain
         """
         if digit is not None:
@@ -8990,7 +9010,7 @@ class UserPasswordPolicyArgs:
     @pulumi.getter(name="specialChar")
     def special_char(self) -> Optional[pulumi.Input[int]]:
         """
-        Minimum number of special char that the password must contain. Special chars list: `!"#$%&'()*+,-./:;<=>?@[\\]^_``{|}~`
+        Minimum number of special char that the password must contain. Special chars list: `!"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~`
         """
         return pulumi.get(self, "special_char")
 

@@ -124,23 +124,9 @@ public final class UnmanagedUserArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.password);
     }
 
-    /**
-     * Password policy to match JFrog Access to provide pre-apply validation. Default values: `uppercase=1`, `lowercase=1`,
-     * `special_char=0`, `digit=1`, `length=8`. Also see [Supported Access
-     * Configurations](https://jfrog.com/help/r/jfrog-installation-setup-documentation/supported-access-configurations) for
-     * more details
-     * 
-     */
     @Import(name="passwordPolicy")
     private @Nullable Output<UnmanagedUserPasswordPolicyArgs> passwordPolicy;
 
-    /**
-     * @return Password policy to match JFrog Access to provide pre-apply validation. Default values: `uppercase=1`, `lowercase=1`,
-     * `special_char=0`, `digit=1`, `length=8`. Also see [Supported Access
-     * Configurations](https://jfrog.com/help/r/jfrog-installation-setup-documentation/supported-access-configurations) for
-     * more details
-     * 
-     */
     public Optional<Output<UnmanagedUserPasswordPolicyArgs>> passwordPolicy() {
         return Optional.ofNullable(this.passwordPolicy);
     }
@@ -349,29 +335,11 @@ public final class UnmanagedUserArgs extends com.pulumi.resources.ResourceArgs {
             return password(Output.of(password));
         }
 
-        /**
-         * @param passwordPolicy Password policy to match JFrog Access to provide pre-apply validation. Default values: `uppercase=1`, `lowercase=1`,
-         * `special_char=0`, `digit=1`, `length=8`. Also see [Supported Access
-         * Configurations](https://jfrog.com/help/r/jfrog-installation-setup-documentation/supported-access-configurations) for
-         * more details
-         * 
-         * @return builder
-         * 
-         */
         public Builder passwordPolicy(@Nullable Output<UnmanagedUserPasswordPolicyArgs> passwordPolicy) {
             $.passwordPolicy = passwordPolicy;
             return this;
         }
 
-        /**
-         * @param passwordPolicy Password policy to match JFrog Access to provide pre-apply validation. Default values: `uppercase=1`, `lowercase=1`,
-         * `special_char=0`, `digit=1`, `length=8`. Also see [Supported Access
-         * Configurations](https://jfrog.com/help/r/jfrog-installation-setup-documentation/supported-access-configurations) for
-         * more details
-         * 
-         * @return builder
-         * 
-         */
         public Builder passwordPolicy(UnmanagedUserPasswordPolicyArgs passwordPolicy) {
             return passwordPolicy(Output.of(passwordPolicy));
         }
