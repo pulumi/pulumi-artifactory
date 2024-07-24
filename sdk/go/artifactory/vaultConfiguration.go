@@ -68,8 +68,8 @@ import (
 //					Url: pulumi.String("http://127.0.0.1:8200"),
 //					Auth: &artifactory.VaultConfigurationConfigAuthArgs{
 //						Type:           pulumi.String("Certificate"),
-//						Certificate:    invokeFile.Result,
-//						CertificateKey: invokeFile1.Result,
+//						Certificate:    pulumi.String(invokeFile.Result),
+//						CertificateKey: pulumi.String(invokeFile1.Result),
 //					},
 //					Mounts: artifactory.VaultConfigurationConfigMountArray{
 //						&artifactory.VaultConfigurationConfigMountArgs{

@@ -47,8 +47,8 @@ import (
 //				PairName:   pulumi.String(fmt.Sprintf("some-keypair%v", randid.Id)),
 //				PairType:   pulumi.String("GPG"),
 //				Alias:      pulumi.String("foo-alias1"),
-//				PrivateKey: invokeFile.Result,
-//				PublicKey:  invokeFile1.Result,
+//				PrivateKey: pulumi.String(invokeFile.Result),
+//				PublicKey:  pulumi.String(invokeFile1.Result),
 //			})
 //			if err != nil {
 //				return err
@@ -69,8 +69,8 @@ import (
 //				PairName:   pulumi.String(fmt.Sprintf("some-keypair4%v", randid.Id)),
 //				PairType:   pulumi.String("GPG"),
 //				Alias:      pulumi.String("foo-alias2"),
-//				PrivateKey: invokeFile2.Result,
-//				PublicKey:  invokeFile3.Result,
+//				PrivateKey: pulumi.String(invokeFile2.Result),
+//				PublicKey:  pulumi.String(invokeFile3.Result),
 //			})
 //			if err != nil {
 //				return err

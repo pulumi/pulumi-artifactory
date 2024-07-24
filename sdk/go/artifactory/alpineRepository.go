@@ -45,8 +45,8 @@ import (
 //				PairName:   pulumi.String("some-keypair"),
 //				PairType:   pulumi.String("RSA"),
 //				Alias:      pulumi.String("foo-alias"),
-//				PrivateKey: invokeFile.Result,
-//				PublicKey:  invokeFile1.Result,
+//				PrivateKey: pulumi.String(invokeFile.Result),
+//				PublicKey:  pulumi.String(invokeFile1.Result),
 //			})
 //			if err != nil {
 //				return err
