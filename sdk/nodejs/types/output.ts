@@ -2382,7 +2382,7 @@ export interface ManagedUserPasswordPolicy {
      */
     lowercase?: number;
     /**
-     * Minimum number of special char that the password must contain. Special chars list: `!"#$%&'()*+,-./:;<=>?@[\]^_``{|}~`
+     * Minimum number of special char that the password must contain. Special chars list: `!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~`
      */
     specialChar?: number;
     /**
@@ -2443,7 +2443,13 @@ export interface PermissionTargetBuild {
 }
 
 export interface PermissionTargetBuildActions {
+    /**
+     * Groups this permission applies for.
+     */
     groups?: outputs.PermissionTargetBuildActionsGroup[];
+    /**
+     * Users this permission target applies for.
+     */
     users?: outputs.PermissionTargetBuildActionsUser[];
 }
 
@@ -2480,7 +2486,13 @@ export interface PermissionTargetReleaseBundle {
 }
 
 export interface PermissionTargetReleaseBundleActions {
+    /**
+     * Groups this permission applies for.
+     */
     groups?: outputs.PermissionTargetReleaseBundleActionsGroup[];
+    /**
+     * Users this permission target applies for.
+     */
     users?: outputs.PermissionTargetReleaseBundleActionsUser[];
 }
 
@@ -3545,7 +3557,7 @@ export interface UnmanagedUserPasswordPolicy {
      */
     lowercase?: number;
     /**
-     * Minimum number of special char that the password must contain. Special chars list: `!"#$%&'()*+,-./:;<=>?@[\]^_``{|}~`
+     * Minimum number of special char that the password must contain. Special chars list: ``!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~``
      */
     specialChar?: number;
     /**
@@ -3591,7 +3603,7 @@ export interface UserPasswordPolicy {
      */
     lowercase?: number;
     /**
-     * Minimum number of special char that the password must contain. Special chars list: `!"#$%&'()*+,-./:;<=>?@[\]^_``{|}~`
+     * Minimum number of special char that the password must contain. Special chars list: `!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~`
      */
     specialChar?: number;
     /**

@@ -26,7 +26,7 @@ namespace Pulumi.Artifactory.Outputs
         /// </summary>
         public readonly int? Lowercase;
         /// <summary>
-        /// Minimum number of special char that the password must contain. Special chars list: `!"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\]^_``{|}~`
+        /// Minimum number of special char that the password must contain. Special chars list: ``!"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\]^_`{|}~``
         /// </summary>
         public readonly int? SpecialChar;
         /// <summary>

@@ -3505,7 +3505,7 @@ export interface ManagedUserPasswordPolicy {
      */
     lowercase?: pulumi.Input<number>;
     /**
-     * Minimum number of special char that the password must contain. Special chars list: `!"#$%&'()*+,-./:;<=>?@[\]^_``{|}~`
+     * Minimum number of special char that the password must contain. Special chars list: `!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~`
      */
     specialChar?: pulumi.Input<number>;
     /**
@@ -3566,7 +3566,13 @@ export interface PermissionTargetBuild {
 }
 
 export interface PermissionTargetBuildActions {
+    /**
+     * Groups this permission applies for.
+     */
     groups?: pulumi.Input<pulumi.Input<inputs.PermissionTargetBuildActionsGroup>[]>;
+    /**
+     * Users this permission target applies for.
+     */
     users?: pulumi.Input<pulumi.Input<inputs.PermissionTargetBuildActionsUser>[]>;
 }
 
@@ -3603,7 +3609,13 @@ export interface PermissionTargetReleaseBundle {
 }
 
 export interface PermissionTargetReleaseBundleActions {
+    /**
+     * Groups this permission applies for.
+     */
     groups?: pulumi.Input<pulumi.Input<inputs.PermissionTargetReleaseBundleActionsGroup>[]>;
+    /**
+     * Users this permission target applies for.
+     */
     users?: pulumi.Input<pulumi.Input<inputs.PermissionTargetReleaseBundleActionsUser>[]>;
 }
 
@@ -4668,7 +4680,7 @@ export interface UnmanagedUserPasswordPolicy {
      */
     lowercase?: pulumi.Input<number>;
     /**
-     * Minimum number of special char that the password must contain. Special chars list: `!"#$%&'()*+,-./:;<=>?@[\]^_``{|}~`
+     * Minimum number of special char that the password must contain. Special chars list: ``!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~``
      */
     specialChar?: pulumi.Input<number>;
     /**
@@ -4714,7 +4726,7 @@ export interface UserPasswordPolicy {
      */
     lowercase?: pulumi.Input<number>;
     /**
-     * Minimum number of special char that the password must contain. Special chars list: `!"#$%&'()*+,-./:;<=>?@[\]^_``{|}~`
+     * Minimum number of special char that the password must contain. Special chars list: `!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~`
      */
     specialChar?: pulumi.Input<number>;
     /**
