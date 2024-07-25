@@ -325,7 +325,7 @@ import (
 //			}
 //			_, err = time.NewRotating(ctx, "now_plus_1_hours", &time.RotatingArgs{
 //				Triggers: pulumi.StringMap{
-//					"key": invokeTimestamp.Result,
+//					"key": pulumi.String(invokeTimestamp.Result),
 //				},
 //				RotationHours: pulumi.Int(1),
 //			})

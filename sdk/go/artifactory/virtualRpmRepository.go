@@ -46,8 +46,8 @@ import (
 //				PairName:   pulumi.String("primary-keypair"),
 //				PairType:   pulumi.String("GPG"),
 //				Alias:      pulumi.String("foo-alias-1"),
-//				PrivateKey: invokeFile.Result,
-//				PublicKey:  invokeFile1.Result,
+//				PrivateKey: pulumi.String(invokeFile.Result),
+//				PublicKey:  pulumi.String(invokeFile1.Result),
 //			})
 //			if err != nil {
 //				return err
@@ -68,8 +68,8 @@ import (
 //				PairName:   pulumi.String("secondary-keypair"),
 //				PairType:   pulumi.String("GPG"),
 //				Alias:      pulumi.String("foo-alias-2"),
-//				PrivateKey: invokeFile2.Result,
-//				PublicKey:  invokeFile3.Result,
+//				PrivateKey: pulumi.String(invokeFile2.Result),
+//				PublicKey:  pulumi.String(invokeFile3.Result),
 //			})
 //			if err != nil {
 //				return err
