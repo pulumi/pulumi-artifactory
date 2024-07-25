@@ -39,7 +39,7 @@ import (
 //			}
 //			_, err = artifactory.NewDistributionPublicKey(ctx, "my-key", &artifactory.DistributionPublicKeyArgs{
 //				Alias:     pulumi.String("my-key"),
-//				PublicKey: invokeFile.Result,
+//				PublicKey: pulumi.String(invokeFile.Result),
 //			})
 //			if err != nil {
 //				return err

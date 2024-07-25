@@ -46,8 +46,8 @@ import (
 //				PairName:   pulumi.String("some-keypair-6543461672124900137"),
 //				PairType:   pulumi.String("RSA"),
 //				Alias:      pulumi.String("some-alias-6543461672124900137"),
-//				PrivateKey: invokeFile.Result,
-//				PublicKey:  invokeFile1.Result,
+//				PrivateKey: pulumi.String(invokeFile.Result),
+//				PublicKey:  pulumi.String(invokeFile1.Result),
 //				Passphrase: pulumi.String("PASSPHRASE"),
 //			})
 //			if err != nil {
