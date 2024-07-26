@@ -1721,8 +1721,8 @@ github.com/inconshreveable/mousetrap v1.1.0 h1:wN+x4NVGpMsO7ErUn/mUI3vEoE6Jt13X2
 github.com/inconshreveable/mousetrap v1.1.0/go.mod h1:vpF70FUmC8bwa3OWnCshd2FqLfsEA9PFc4w1p2J65bw=
 github.com/jbenet/go-context v0.0.0-20150711004518-d14ea06fba99 h1:BQSFePA1RWJOlocH6Fxy8MmwDt+yVQYULKfN0RoTN8A=
 github.com/jbenet/go-context v0.0.0-20150711004518-d14ea06fba99/go.mod h1:1lJo3i6rXxKeerYnT8Nvf0QmHCRC1n8sfWVwXF2Frvo=
-github.com/jfrog/terraform-provider-artifactory/v11 v11.2.1 h1:9lUwJpcehXlak3657xXhfcUfSXQQKsJ+v5Cw77z1LWs=
-github.com/jfrog/terraform-provider-artifactory/v11 v11.2.1/go.mod h1:3KchAYpG01yeytfZ/Laf+9Ppyd96GzZf8LVYtGQrTdY=
+github.com/jfrog/terraform-provider-artifactory/v11 v11.2.2 h1:liyCcnqXK42Y3jQwZlX6z6Nen6rPWKF0NjI4zg/l7Pk=
+github.com/jfrog/terraform-provider-artifactory/v11 v11.2.2/go.mod h1:3KchAYpG01yeytfZ/Laf+9Ppyd96GzZf8LVYtGQrTdY=
 github.com/jfrog/terraform-provider-shared v1.25.5 h1:+hal/9yDAIt2mZljDR8Ymie28yAHr8CAkfthwQ3O3bM=
 github.com/jfrog/terraform-provider-shared v1.25.5/go.mod h1:QthwPRUALElMt2RTGqoeB/3Vztx626YPBzIAoqEp0w0=
 github.com/jhump/gopoet v0.0.0-20190322174617-17282ff210b3/go.mod h1:me9yfT6IJSlOL3FCfrg+L6yzUEZ+5jW6WHt4Sk+UPUI=
