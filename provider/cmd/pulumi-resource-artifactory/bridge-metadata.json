@@ -476,6 +476,21 @@
                     }
                 }
             },
+            "artifactory_federated_ansible_repository": {
+                "current": "artifactory:index/federatedAnsibleRepository:FederatedAnsibleRepository",
+                "majorVersion": 7,
+                "fields": {
+                    "member": {
+                        "maxItemsOne": false
+                    },
+                    "project_environments": {
+                        "maxItemsOne": false
+                    },
+                    "property_sets": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "artifactory_federated_bower_repository": {
                 "current": "artifactory:index/federatedBowerRepository:FederatedBowerRepository",
                 "majorVersion": 7,
@@ -1021,6 +1036,18 @@
                     "index_compression_formats": {
                         "maxItemsOne": false
                     },
+                    "project_environments": {
+                        "maxItemsOne": false
+                    },
+                    "property_sets": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "artifactory_local_ansible_repository": {
+                "current": "artifactory:index/localAnsibleRepository:LocalAnsibleRepository",
+                "majorVersion": 7,
+                "fields": {
                     "project_environments": {
                         "maxItemsOne": false
                     },
@@ -1853,6 +1880,21 @@
                     }
                 }
             },
+            "artifactory_remote_ansible_repository": {
+                "current": "artifactory:index/remoteAnsibleRepository:RemoteAnsibleRepository",
+                "majorVersion": 7,
+                "fields": {
+                    "content_synchronisation": {
+                        "maxItemsOne": true
+                    },
+                    "project_environments": {
+                        "maxItemsOne": false
+                    },
+                    "property_sets": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "artifactory_remote_bower_repository": {
                 "current": "artifactory:index/remoteBowerRepository:RemoteBowerRepository",
                 "majorVersion": 7,
@@ -2468,6 +2510,18 @@
                     }
                 }
             },
+            "artifactory_virtual_ansible_repository": {
+                "current": "artifactory:index/virtualAnsibleRepository:VirtualAnsibleRepository",
+                "majorVersion": 7,
+                "fields": {
+                    "project_environments": {
+                        "maxItemsOne": false
+                    },
+                    "repositories": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "artifactory_virtual_bower_repository": {
                 "current": "artifactory:index/virtualBowerRepository:VirtualBowerRepository",
                 "majorVersion": 7,
@@ -2825,6 +2879,21 @@
                     "index_compression_formats": {
                         "maxItemsOne": false
                     },
+                    "member": {
+                        "maxItemsOne": false
+                    },
+                    "project_environments": {
+                        "maxItemsOne": false
+                    },
+                    "property_sets": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "artifactory_federated_ansible_repository": {
+                "current": "artifactory:index/getFederatedAnsibleRepository:getFederatedAnsibleRepository",
+                "majorVersion": 7,
+                "fields": {
                     "member": {
                         "maxItemsOne": false
                     },
@@ -3370,6 +3439,18 @@
                     "index_compression_formats": {
                         "maxItemsOne": false
                     },
+                    "project_environments": {
+                        "maxItemsOne": false
+                    },
+                    "property_sets": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "artifactory_local_ansible_repository": {
+                "current": "artifactory:index/getLocalAnsibleRepository:getLocalAnsibleRepository",
+                "majorVersion": 7,
+                "fields": {
                     "project_environments": {
                         "maxItemsOne": false
                     },
@@ -3954,6 +4035,21 @@
                     }
                 }
             },
+            "artifactory_remote_ansible_repository": {
+                "current": "artifactory:index/getRemoteAnsibleRepository:getRemoteAnsibleRepository",
+                "majorVersion": 7,
+                "fields": {
+                    "content_synchronisation": {
+                        "maxItemsOne": true
+                    },
+                    "project_environments": {
+                        "maxItemsOne": false
+                    },
+                    "property_sets": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "artifactory_remote_bower_repository": {
                 "current": "artifactory:index/getRemoteBowerRepository:getRemoteBowerRepository",
                 "majorVersion": 7,
@@ -4476,6 +4572,18 @@
                     }
                 }
             },
+            "artifactory_virtual_ansible_repository": {
+                "current": "artifactory:index/getVirtualAnsibleRepository:getVirtualAnsibleRepository",
+                "majorVersion": 7,
+                "fields": {
+                    "project_environments": {
+                        "maxItemsOne": false
+                    },
+                    "repositories": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "artifactory_virtual_bower_repository": {
                 "current": "artifactory:index/getVirtualBowerRepository:getVirtualBowerRepository",
                 "majorVersion": 7,
@@ -4857,6 +4965,7 @@
             "artifactory:index/dockerV2Repository:DockerV2Repository": 0,
             "artifactory:index/dockerWebhook:DockerWebhook": 0,
             "artifactory:index/federatedAlpineRepository:FederatedAlpineRepository": 0,
+            "artifactory:index/federatedAnsibleRepository:FederatedAnsibleRepository": 0,
             "artifactory:index/federatedBowerRepository:FederatedBowerRepository": 0,
             "artifactory:index/federatedCargoRepository:FederatedCargoRepository": 0,
             "artifactory:index/federatedChefRepository:FederatedChefRepository": 0,
@@ -4899,6 +5008,7 @@
             "artifactory:index/ldapGroupSettingV2:LdapGroupSettingV2": 1,
             "artifactory:index/ldapSetting:LdapSetting": 0,
             "artifactory:index/ldapSettingV2:LdapSettingV2": 1,
+            "artifactory:index/localAnsibleRepository:LocalAnsibleRepository": 0,
             "artifactory:index/localBowerRepository:LocalBowerRepository": 0,
             "artifactory:index/localCargoRepository:LocalCargoRepository": 0,
             "artifactory:index/localChefRepository:LocalChefRepository": 0,
@@ -4950,6 +5060,7 @@
             "artifactory:index/releaseBundleV2Webhook:ReleaseBundleV2Webhook": 0,
             "artifactory:index/releaseBundleWebhook:ReleaseBundleWebhook": 0,
             "artifactory:index/remoteAlpineRepository:RemoteAlpineRepository": 0,
+            "artifactory:index/remoteAnsibleRepository:RemoteAnsibleRepository": 0,
             "artifactory:index/remoteBowerRepository:RemoteBowerRepository": 0,
             "artifactory:index/remoteCargoRepository:RemoteCargoRepository": 0,
             "artifactory:index/remoteChefRepository:RemoteChefRepository": 0,
@@ -4996,6 +5107,7 @@
             "artifactory:index/userWebhook:UserWebhook": 0,
             "artifactory:index/vaultConfiguration:VaultConfiguration": 1,
             "artifactory:index/virtualAlpineRepository:VirtualAlpineRepository": 0,
+            "artifactory:index/virtualAnsibleRepository:VirtualAnsibleRepository": 0,
             "artifactory:index/virtualBowerRepository:VirtualBowerRepository": 0,
             "artifactory:index/virtualChefRepository:VirtualChefRepository": 0,
             "artifactory:index/virtualComposerRepository:VirtualComposerRepository": 0,
@@ -5025,6 +5137,7 @@
         },
         "functions": {
             "artifactory:index/getFederatedAlpineRepository:getFederatedAlpineRepository": 0,
+            "artifactory:index/getFederatedAnsibleRepository:getFederatedAnsibleRepository": 0,
             "artifactory:index/getFederatedBowerRepository:getFederatedBowerRepository": 0,
             "artifactory:index/getFederatedCargoRepository:getFederatedCargoRepository": 0,
             "artifactory:index/getFederatedChefRepository:getFederatedChefRepository": 0,
@@ -5063,6 +5176,7 @@
             "artifactory:index/getFileinfo:getFileinfo": 0,
             "artifactory:index/getGroup:getGroup": 0,
             "artifactory:index/getLocalAlpineRepository:getLocalAlpineRepository": 0,
+            "artifactory:index/getLocalAnsibleRepository:getLocalAnsibleRepository": 0,
             "artifactory:index/getLocalBowerRepository:getLocalBowerRepository": 0,
             "artifactory:index/getLocalCargoRepository:getLocalCargoRepository": 0,
             "artifactory:index/getLocalChefRepository:getLocalChefRepository": 0,
@@ -5100,6 +5214,7 @@
             "artifactory:index/getLocalVagrantRepository:getLocalVagrantRepository": 0,
             "artifactory:index/getPermissionTarget:getPermissionTarget": 0,
             "artifactory:index/getRemoteAlpineRepository:getRemoteAlpineRepository": 0,
+            "artifactory:index/getRemoteAnsibleRepository:getRemoteAnsibleRepository": 0,
             "artifactory:index/getRemoteBowerRepository:getRemoteBowerRepository": 0,
             "artifactory:index/getRemoteCargoRepository:getRemoteCargoRepository": 0,
             "artifactory:index/getRemoteChefRepository:getRemoteChefRepository": 0,
@@ -5135,6 +5250,7 @@
             "artifactory:index/getRepositories:getRepositories": 1,
             "artifactory:index/getUser:getUser": 0,
             "artifactory:index/getVirtualAlpineRepository:getVirtualAlpineRepository": 0,
+            "artifactory:index/getVirtualAnsibleRepository:getVirtualAnsibleRepository": 0,
             "artifactory:index/getVirtualBowerRepository:getVirtualBowerRepository": 0,
             "artifactory:index/getVirtualChefRepository:getVirtualChefRepository": 0,
             "artifactory:index/getVirtualComposerRepository:getVirtualComposerRepository": 0,
