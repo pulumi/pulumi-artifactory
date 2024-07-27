@@ -77,6 +77,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DockerWebhook{}
 	case "artifactory:index/federatedAlpineRepository:FederatedAlpineRepository":
 		r = &FederatedAlpineRepository{}
+	case "artifactory:index/federatedAnsibleRepository:FederatedAnsibleRepository":
+		r = &FederatedAnsibleRepository{}
 	case "artifactory:index/federatedBowerRepository:FederatedBowerRepository":
 		r = &FederatedBowerRepository{}
 	case "artifactory:index/federatedCargoRepository:FederatedCargoRepository":
@@ -161,6 +163,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &LdapSetting{}
 	case "artifactory:index/ldapSettingV2:LdapSettingV2":
 		r = &LdapSettingV2{}
+	case "artifactory:index/localAnsibleRepository:LocalAnsibleRepository":
+		r = &LocalAnsibleRepository{}
 	case "artifactory:index/localBowerRepository:LocalBowerRepository":
 		r = &LocalBowerRepository{}
 	case "artifactory:index/localCargoRepository:LocalCargoRepository":
@@ -263,6 +267,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ReleaseBundleWebhook{}
 	case "artifactory:index/remoteAlpineRepository:RemoteAlpineRepository":
 		r = &RemoteAlpineRepository{}
+	case "artifactory:index/remoteAnsibleRepository:RemoteAnsibleRepository":
+		r = &RemoteAnsibleRepository{}
 	case "artifactory:index/remoteBowerRepository:RemoteBowerRepository":
 		r = &RemoteBowerRepository{}
 	case "artifactory:index/remoteCargoRepository:RemoteCargoRepository":
@@ -355,6 +361,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &VaultConfiguration{}
 	case "artifactory:index/virtualAlpineRepository:VirtualAlpineRepository":
 		r = &VirtualAlpineRepository{}
+	case "artifactory:index/virtualAnsibleRepository:VirtualAnsibleRepository":
+		r = &VirtualAnsibleRepository{}
 	case "artifactory:index/virtualBowerRepository:VirtualBowerRepository":
 		r = &VirtualBowerRepository{}
 	case "artifactory:index/virtualChefRepository:VirtualChefRepository":
@@ -580,6 +588,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"artifactory",
+		"index/federatedAnsibleRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
 		"index/federatedBowerRepository",
 		&module{version},
 	)
@@ -786,6 +799,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"artifactory",
 		"index/ldapSettingV2",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/localAnsibleRepository",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -1045,6 +1063,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"artifactory",
+		"index/remoteAnsibleRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
 		"index/remoteBowerRepository",
 		&module{version},
 	)
@@ -1271,6 +1294,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"artifactory",
 		"index/virtualAlpineRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/virtualAnsibleRepository",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

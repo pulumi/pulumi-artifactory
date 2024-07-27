@@ -274,14 +274,14 @@ public class FederatedRpmRepository extends com.pulumi.resources.CustomResource 
         return this.packageType;
     }
     /**
-     * Primary keypair used to sign artifacts.
+     * Primary keypair used to sign artifacts. Default value is empty.
      * 
      */
     @Export(name="primaryKeypairRef", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> primaryKeypairRef;
 
     /**
-     * @return Primary keypair used to sign artifacts.
+     * @return Primary keypair used to sign artifacts. Default value is empty.
      * 
      */
     public Output<Optional<String>> primaryKeypairRef() {

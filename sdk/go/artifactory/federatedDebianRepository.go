@@ -94,7 +94,7 @@ type FederatedDebianRepository struct {
 	// Internal description.
 	Notes       pulumi.StringPtrOutput `pulumi:"notes"`
 	PackageType pulumi.StringOutput    `pulumi:"packageType"`
-	// Used to sign index files in Debian artifacts.
+	// Primary keypair used to sign artifacts. Default value is empty.
 	PrimaryKeypairRef pulumi.StringPtrOutput `pulumi:"primaryKeypairRef"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution  pulumi.BoolPtrOutput     `pulumi:"priorityResolution"`
@@ -108,7 +108,7 @@ type FederatedDebianRepository struct {
 	Proxy pulumi.StringPtrOutput `pulumi:"proxy"`
 	// Repository layout key for the federated repository
 	RepoLayoutRef pulumi.StringPtrOutput `pulumi:"repoLayoutRef"`
-	// Used to sign index files in Debian artifacts.
+	// Secondary keypair used to sign artifacts.
 	SecondaryKeypairRef pulumi.StringPtrOutput `pulumi:"secondaryKeypairRef"`
 	// When set, the repository will use the deprecated trivial layout.
 	//
@@ -189,7 +189,7 @@ type federatedDebianRepositoryState struct {
 	// Internal description.
 	Notes       *string `pulumi:"notes"`
 	PackageType *string `pulumi:"packageType"`
-	// Used to sign index files in Debian artifacts.
+	// Primary keypair used to sign artifacts. Default value is empty.
 	PrimaryKeypairRef *string `pulumi:"primaryKeypairRef"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution  *bool    `pulumi:"priorityResolution"`
@@ -203,7 +203,7 @@ type federatedDebianRepositoryState struct {
 	Proxy *string `pulumi:"proxy"`
 	// Repository layout key for the federated repository
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
-	// Used to sign index files in Debian artifacts.
+	// Secondary keypair used to sign artifacts.
 	SecondaryKeypairRef *string `pulumi:"secondaryKeypairRef"`
 	// When set, the repository will use the deprecated trivial layout.
 	//
@@ -249,7 +249,7 @@ type FederatedDebianRepositoryState struct {
 	// Internal description.
 	Notes       pulumi.StringPtrInput
 	PackageType pulumi.StringPtrInput
-	// Used to sign index files in Debian artifacts.
+	// Primary keypair used to sign artifacts. Default value is empty.
 	PrimaryKeypairRef pulumi.StringPtrInput
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution  pulumi.BoolPtrInput
@@ -263,7 +263,7 @@ type FederatedDebianRepositoryState struct {
 	Proxy pulumi.StringPtrInput
 	// Repository layout key for the federated repository
 	RepoLayoutRef pulumi.StringPtrInput
-	// Used to sign index files in Debian artifacts.
+	// Secondary keypair used to sign artifacts.
 	SecondaryKeypairRef pulumi.StringPtrInput
 	// When set, the repository will use the deprecated trivial layout.
 	//
@@ -312,7 +312,7 @@ type federatedDebianRepositoryArgs struct {
 	Members []FederatedDebianRepositoryMember `pulumi:"members"`
 	// Internal description.
 	Notes *string `pulumi:"notes"`
-	// Used to sign index files in Debian artifacts.
+	// Primary keypair used to sign artifacts. Default value is empty.
 	PrimaryKeypairRef *string `pulumi:"primaryKeypairRef"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution  *bool    `pulumi:"priorityResolution"`
@@ -326,7 +326,7 @@ type federatedDebianRepositoryArgs struct {
 	Proxy *string `pulumi:"proxy"`
 	// Repository layout key for the federated repository
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
-	// Used to sign index files in Debian artifacts.
+	// Secondary keypair used to sign artifacts.
 	SecondaryKeypairRef *string `pulumi:"secondaryKeypairRef"`
 	// When set, the repository will use the deprecated trivial layout.
 	//
@@ -372,7 +372,7 @@ type FederatedDebianRepositoryArgs struct {
 	Members FederatedDebianRepositoryMemberArrayInput
 	// Internal description.
 	Notes pulumi.StringPtrInput
-	// Used to sign index files in Debian artifacts.
+	// Primary keypair used to sign artifacts. Default value is empty.
 	PrimaryKeypairRef pulumi.StringPtrInput
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution  pulumi.BoolPtrInput
@@ -386,7 +386,7 @@ type FederatedDebianRepositoryArgs struct {
 	Proxy pulumi.StringPtrInput
 	// Repository layout key for the federated repository
 	RepoLayoutRef pulumi.StringPtrInput
-	// Used to sign index files in Debian artifacts.
+	// Secondary keypair used to sign artifacts.
 	SecondaryKeypairRef pulumi.StringPtrInput
 	// When set, the repository will use the deprecated trivial layout.
 	//
@@ -560,7 +560,7 @@ func (o FederatedDebianRepositoryOutput) PackageType() pulumi.StringOutput {
 	return o.ApplyT(func(v *FederatedDebianRepository) pulumi.StringOutput { return v.PackageType }).(pulumi.StringOutput)
 }
 
-// Used to sign index files in Debian artifacts.
+// Primary keypair used to sign artifacts. Default value is empty.
 func (o FederatedDebianRepositoryOutput) PrimaryKeypairRef() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FederatedDebianRepository) pulumi.StringPtrOutput { return v.PrimaryKeypairRef }).(pulumi.StringPtrOutput)
 }
@@ -595,7 +595,7 @@ func (o FederatedDebianRepositoryOutput) RepoLayoutRef() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v *FederatedDebianRepository) pulumi.StringPtrOutput { return v.RepoLayoutRef }).(pulumi.StringPtrOutput)
 }
 
-// Used to sign index files in Debian artifacts.
+// Secondary keypair used to sign artifacts.
 func (o FederatedDebianRepositoryOutput) SecondaryKeypairRef() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FederatedDebianRepository) pulumi.StringPtrOutput { return v.SecondaryKeypairRef }).(pulumi.StringPtrOutput)
 }

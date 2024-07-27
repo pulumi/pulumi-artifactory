@@ -5327,6 +5327,115 @@ func (o FederatedAlpineRepositoryMemberArrayOutput) Index(i pulumi.IntInput) Fed
 	}).(FederatedAlpineRepositoryMemberOutput)
 }
 
+type FederatedAnsibleRepositoryMember struct {
+	// Represents the active state of the federated member. It is supported to change the enabled
+	// status of my own member. The config will be updated on the other federated members automatically.
+	Enabled bool `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url string `pulumi:"url"`
+}
+
+// FederatedAnsibleRepositoryMemberInput is an input type that accepts FederatedAnsibleRepositoryMemberArgs and FederatedAnsibleRepositoryMemberOutput values.
+// You can construct a concrete instance of `FederatedAnsibleRepositoryMemberInput` via:
+//
+//	FederatedAnsibleRepositoryMemberArgs{...}
+type FederatedAnsibleRepositoryMemberInput interface {
+	pulumi.Input
+
+	ToFederatedAnsibleRepositoryMemberOutput() FederatedAnsibleRepositoryMemberOutput
+	ToFederatedAnsibleRepositoryMemberOutputWithContext(context.Context) FederatedAnsibleRepositoryMemberOutput
+}
+
+type FederatedAnsibleRepositoryMemberArgs struct {
+	// Represents the active state of the federated member. It is supported to change the enabled
+	// status of my own member. The config will be updated on the other federated members automatically.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (FederatedAnsibleRepositoryMemberArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FederatedAnsibleRepositoryMember)(nil)).Elem()
+}
+
+func (i FederatedAnsibleRepositoryMemberArgs) ToFederatedAnsibleRepositoryMemberOutput() FederatedAnsibleRepositoryMemberOutput {
+	return i.ToFederatedAnsibleRepositoryMemberOutputWithContext(context.Background())
+}
+
+func (i FederatedAnsibleRepositoryMemberArgs) ToFederatedAnsibleRepositoryMemberOutputWithContext(ctx context.Context) FederatedAnsibleRepositoryMemberOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FederatedAnsibleRepositoryMemberOutput)
+}
+
+// FederatedAnsibleRepositoryMemberArrayInput is an input type that accepts FederatedAnsibleRepositoryMemberArray and FederatedAnsibleRepositoryMemberArrayOutput values.
+// You can construct a concrete instance of `FederatedAnsibleRepositoryMemberArrayInput` via:
+//
+//	FederatedAnsibleRepositoryMemberArray{ FederatedAnsibleRepositoryMemberArgs{...} }
+type FederatedAnsibleRepositoryMemberArrayInput interface {
+	pulumi.Input
+
+	ToFederatedAnsibleRepositoryMemberArrayOutput() FederatedAnsibleRepositoryMemberArrayOutput
+	ToFederatedAnsibleRepositoryMemberArrayOutputWithContext(context.Context) FederatedAnsibleRepositoryMemberArrayOutput
+}
+
+type FederatedAnsibleRepositoryMemberArray []FederatedAnsibleRepositoryMemberInput
+
+func (FederatedAnsibleRepositoryMemberArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FederatedAnsibleRepositoryMember)(nil)).Elem()
+}
+
+func (i FederatedAnsibleRepositoryMemberArray) ToFederatedAnsibleRepositoryMemberArrayOutput() FederatedAnsibleRepositoryMemberArrayOutput {
+	return i.ToFederatedAnsibleRepositoryMemberArrayOutputWithContext(context.Background())
+}
+
+func (i FederatedAnsibleRepositoryMemberArray) ToFederatedAnsibleRepositoryMemberArrayOutputWithContext(ctx context.Context) FederatedAnsibleRepositoryMemberArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FederatedAnsibleRepositoryMemberArrayOutput)
+}
+
+type FederatedAnsibleRepositoryMemberOutput struct{ *pulumi.OutputState }
+
+func (FederatedAnsibleRepositoryMemberOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FederatedAnsibleRepositoryMember)(nil)).Elem()
+}
+
+func (o FederatedAnsibleRepositoryMemberOutput) ToFederatedAnsibleRepositoryMemberOutput() FederatedAnsibleRepositoryMemberOutput {
+	return o
+}
+
+func (o FederatedAnsibleRepositoryMemberOutput) ToFederatedAnsibleRepositoryMemberOutputWithContext(ctx context.Context) FederatedAnsibleRepositoryMemberOutput {
+	return o
+}
+
+// Represents the active state of the federated member. It is supported to change the enabled
+// status of my own member. The config will be updated on the other federated members automatically.
+func (o FederatedAnsibleRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v FederatedAnsibleRepositoryMember) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Full URL to ending with the repository name.
+func (o FederatedAnsibleRepositoryMemberOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v FederatedAnsibleRepositoryMember) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type FederatedAnsibleRepositoryMemberArrayOutput struct{ *pulumi.OutputState }
+
+func (FederatedAnsibleRepositoryMemberArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FederatedAnsibleRepositoryMember)(nil)).Elem()
+}
+
+func (o FederatedAnsibleRepositoryMemberArrayOutput) ToFederatedAnsibleRepositoryMemberArrayOutput() FederatedAnsibleRepositoryMemberArrayOutput {
+	return o
+}
+
+func (o FederatedAnsibleRepositoryMemberArrayOutput) ToFederatedAnsibleRepositoryMemberArrayOutputWithContext(ctx context.Context) FederatedAnsibleRepositoryMemberArrayOutput {
+	return o
+}
+
+func (o FederatedAnsibleRepositoryMemberArrayOutput) Index(i pulumi.IntInput) FederatedAnsibleRepositoryMemberOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FederatedAnsibleRepositoryMember {
+		return vs[0].([]FederatedAnsibleRepositoryMember)[vs[1].(int)]
+	}).(FederatedAnsibleRepositoryMemberOutput)
+}
+
 type FederatedBowerRepositoryMember struct {
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
@@ -13700,6 +13809,200 @@ func (o RemoteAlpineRepositoryContentSynchronisationPtrOutput) StatisticsEnabled
 	}).(pulumi.BoolPtrOutput)
 }
 
+type RemoteAnsibleRepositoryContentSynchronisation struct {
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled *bool `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
+}
+
+// RemoteAnsibleRepositoryContentSynchronisationInput is an input type that accepts RemoteAnsibleRepositoryContentSynchronisationArgs and RemoteAnsibleRepositoryContentSynchronisationOutput values.
+// You can construct a concrete instance of `RemoteAnsibleRepositoryContentSynchronisationInput` via:
+//
+//	RemoteAnsibleRepositoryContentSynchronisationArgs{...}
+type RemoteAnsibleRepositoryContentSynchronisationInput interface {
+	pulumi.Input
+
+	ToRemoteAnsibleRepositoryContentSynchronisationOutput() RemoteAnsibleRepositoryContentSynchronisationOutput
+	ToRemoteAnsibleRepositoryContentSynchronisationOutputWithContext(context.Context) RemoteAnsibleRepositoryContentSynchronisationOutput
+}
+
+type RemoteAnsibleRepositoryContentSynchronisationArgs struct {
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+}
+
+func (RemoteAnsibleRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemoteAnsibleRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i RemoteAnsibleRepositoryContentSynchronisationArgs) ToRemoteAnsibleRepositoryContentSynchronisationOutput() RemoteAnsibleRepositoryContentSynchronisationOutput {
+	return i.ToRemoteAnsibleRepositoryContentSynchronisationOutputWithContext(context.Background())
+}
+
+func (i RemoteAnsibleRepositoryContentSynchronisationArgs) ToRemoteAnsibleRepositoryContentSynchronisationOutputWithContext(ctx context.Context) RemoteAnsibleRepositoryContentSynchronisationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemoteAnsibleRepositoryContentSynchronisationOutput)
+}
+
+func (i RemoteAnsibleRepositoryContentSynchronisationArgs) ToRemoteAnsibleRepositoryContentSynchronisationPtrOutput() RemoteAnsibleRepositoryContentSynchronisationPtrOutput {
+	return i.ToRemoteAnsibleRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i RemoteAnsibleRepositoryContentSynchronisationArgs) ToRemoteAnsibleRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) RemoteAnsibleRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemoteAnsibleRepositoryContentSynchronisationOutput).ToRemoteAnsibleRepositoryContentSynchronisationPtrOutputWithContext(ctx)
+}
+
+// RemoteAnsibleRepositoryContentSynchronisationPtrInput is an input type that accepts RemoteAnsibleRepositoryContentSynchronisationArgs, RemoteAnsibleRepositoryContentSynchronisationPtr and RemoteAnsibleRepositoryContentSynchronisationPtrOutput values.
+// You can construct a concrete instance of `RemoteAnsibleRepositoryContentSynchronisationPtrInput` via:
+//
+//	        RemoteAnsibleRepositoryContentSynchronisationArgs{...}
+//
+//	or:
+//
+//	        nil
+type RemoteAnsibleRepositoryContentSynchronisationPtrInput interface {
+	pulumi.Input
+
+	ToRemoteAnsibleRepositoryContentSynchronisationPtrOutput() RemoteAnsibleRepositoryContentSynchronisationPtrOutput
+	ToRemoteAnsibleRepositoryContentSynchronisationPtrOutputWithContext(context.Context) RemoteAnsibleRepositoryContentSynchronisationPtrOutput
+}
+
+type remoteAnsibleRepositoryContentSynchronisationPtrType RemoteAnsibleRepositoryContentSynchronisationArgs
+
+func RemoteAnsibleRepositoryContentSynchronisationPtr(v *RemoteAnsibleRepositoryContentSynchronisationArgs) RemoteAnsibleRepositoryContentSynchronisationPtrInput {
+	return (*remoteAnsibleRepositoryContentSynchronisationPtrType)(v)
+}
+
+func (*remoteAnsibleRepositoryContentSynchronisationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RemoteAnsibleRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i *remoteAnsibleRepositoryContentSynchronisationPtrType) ToRemoteAnsibleRepositoryContentSynchronisationPtrOutput() RemoteAnsibleRepositoryContentSynchronisationPtrOutput {
+	return i.ToRemoteAnsibleRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i *remoteAnsibleRepositoryContentSynchronisationPtrType) ToRemoteAnsibleRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) RemoteAnsibleRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemoteAnsibleRepositoryContentSynchronisationPtrOutput)
+}
+
+type RemoteAnsibleRepositoryContentSynchronisationOutput struct{ *pulumi.OutputState }
+
+func (RemoteAnsibleRepositoryContentSynchronisationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemoteAnsibleRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o RemoteAnsibleRepositoryContentSynchronisationOutput) ToRemoteAnsibleRepositoryContentSynchronisationOutput() RemoteAnsibleRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o RemoteAnsibleRepositoryContentSynchronisationOutput) ToRemoteAnsibleRepositoryContentSynchronisationOutputWithContext(ctx context.Context) RemoteAnsibleRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o RemoteAnsibleRepositoryContentSynchronisationOutput) ToRemoteAnsibleRepositoryContentSynchronisationPtrOutput() RemoteAnsibleRepositoryContentSynchronisationPtrOutput {
+	return o.ToRemoteAnsibleRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (o RemoteAnsibleRepositoryContentSynchronisationOutput) ToRemoteAnsibleRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) RemoteAnsibleRepositoryContentSynchronisationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RemoteAnsibleRepositoryContentSynchronisation) *RemoteAnsibleRepositoryContentSynchronisation {
+		return &v
+	}).(RemoteAnsibleRepositoryContentSynchronisationPtrOutput)
+}
+
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+func (o RemoteAnsibleRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RemoteAnsibleRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+func (o RemoteAnsibleRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RemoteAnsibleRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+func (o RemoteAnsibleRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RemoteAnsibleRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
+}
+
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+func (o RemoteAnsibleRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RemoteAnsibleRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type RemoteAnsibleRepositoryContentSynchronisationPtrOutput struct{ *pulumi.OutputState }
+
+func (RemoteAnsibleRepositoryContentSynchronisationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RemoteAnsibleRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o RemoteAnsibleRepositoryContentSynchronisationPtrOutput) ToRemoteAnsibleRepositoryContentSynchronisationPtrOutput() RemoteAnsibleRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o RemoteAnsibleRepositoryContentSynchronisationPtrOutput) ToRemoteAnsibleRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) RemoteAnsibleRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o RemoteAnsibleRepositoryContentSynchronisationPtrOutput) Elem() RemoteAnsibleRepositoryContentSynchronisationOutput {
+	return o.ApplyT(func(v *RemoteAnsibleRepositoryContentSynchronisation) RemoteAnsibleRepositoryContentSynchronisation {
+		if v != nil {
+			return *v
+		}
+		var ret RemoteAnsibleRepositoryContentSynchronisation
+		return ret
+	}).(RemoteAnsibleRepositoryContentSynchronisationOutput)
+}
+
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+func (o RemoteAnsibleRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RemoteAnsibleRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+func (o RemoteAnsibleRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RemoteAnsibleRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PropertiesEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+func (o RemoteAnsibleRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RemoteAnsibleRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SourceOriginAbsenceDetection
+	}).(pulumi.BoolPtrOutput)
+}
+
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+func (o RemoteAnsibleRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RemoteAnsibleRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.StatisticsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 type RemoteBowerRepositoryContentSynchronisation struct {
 	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 	Enabled *bool `pulumi:"enabled"`
@@ -21541,6 +21844,115 @@ func (o GetFederatedAlpineRepositoryMemberArrayOutput) Index(i pulumi.IntInput) 
 	}).(GetFederatedAlpineRepositoryMemberOutput)
 }
 
+type GetFederatedAnsibleRepositoryMember struct {
+	// Represents the active state of the federated member. It is supported to change the enabled
+	// status of my own member. The config will be updated on the other federated members automatically.
+	Enabled bool `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url string `pulumi:"url"`
+}
+
+// GetFederatedAnsibleRepositoryMemberInput is an input type that accepts GetFederatedAnsibleRepositoryMemberArgs and GetFederatedAnsibleRepositoryMemberOutput values.
+// You can construct a concrete instance of `GetFederatedAnsibleRepositoryMemberInput` via:
+//
+//	GetFederatedAnsibleRepositoryMemberArgs{...}
+type GetFederatedAnsibleRepositoryMemberInput interface {
+	pulumi.Input
+
+	ToGetFederatedAnsibleRepositoryMemberOutput() GetFederatedAnsibleRepositoryMemberOutput
+	ToGetFederatedAnsibleRepositoryMemberOutputWithContext(context.Context) GetFederatedAnsibleRepositoryMemberOutput
+}
+
+type GetFederatedAnsibleRepositoryMemberArgs struct {
+	// Represents the active state of the federated member. It is supported to change the enabled
+	// status of my own member. The config will be updated on the other federated members automatically.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (GetFederatedAnsibleRepositoryMemberArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFederatedAnsibleRepositoryMember)(nil)).Elem()
+}
+
+func (i GetFederatedAnsibleRepositoryMemberArgs) ToGetFederatedAnsibleRepositoryMemberOutput() GetFederatedAnsibleRepositoryMemberOutput {
+	return i.ToGetFederatedAnsibleRepositoryMemberOutputWithContext(context.Background())
+}
+
+func (i GetFederatedAnsibleRepositoryMemberArgs) ToGetFederatedAnsibleRepositoryMemberOutputWithContext(ctx context.Context) GetFederatedAnsibleRepositoryMemberOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFederatedAnsibleRepositoryMemberOutput)
+}
+
+// GetFederatedAnsibleRepositoryMemberArrayInput is an input type that accepts GetFederatedAnsibleRepositoryMemberArray and GetFederatedAnsibleRepositoryMemberArrayOutput values.
+// You can construct a concrete instance of `GetFederatedAnsibleRepositoryMemberArrayInput` via:
+//
+//	GetFederatedAnsibleRepositoryMemberArray{ GetFederatedAnsibleRepositoryMemberArgs{...} }
+type GetFederatedAnsibleRepositoryMemberArrayInput interface {
+	pulumi.Input
+
+	ToGetFederatedAnsibleRepositoryMemberArrayOutput() GetFederatedAnsibleRepositoryMemberArrayOutput
+	ToGetFederatedAnsibleRepositoryMemberArrayOutputWithContext(context.Context) GetFederatedAnsibleRepositoryMemberArrayOutput
+}
+
+type GetFederatedAnsibleRepositoryMemberArray []GetFederatedAnsibleRepositoryMemberInput
+
+func (GetFederatedAnsibleRepositoryMemberArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFederatedAnsibleRepositoryMember)(nil)).Elem()
+}
+
+func (i GetFederatedAnsibleRepositoryMemberArray) ToGetFederatedAnsibleRepositoryMemberArrayOutput() GetFederatedAnsibleRepositoryMemberArrayOutput {
+	return i.ToGetFederatedAnsibleRepositoryMemberArrayOutputWithContext(context.Background())
+}
+
+func (i GetFederatedAnsibleRepositoryMemberArray) ToGetFederatedAnsibleRepositoryMemberArrayOutputWithContext(ctx context.Context) GetFederatedAnsibleRepositoryMemberArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFederatedAnsibleRepositoryMemberArrayOutput)
+}
+
+type GetFederatedAnsibleRepositoryMemberOutput struct{ *pulumi.OutputState }
+
+func (GetFederatedAnsibleRepositoryMemberOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFederatedAnsibleRepositoryMember)(nil)).Elem()
+}
+
+func (o GetFederatedAnsibleRepositoryMemberOutput) ToGetFederatedAnsibleRepositoryMemberOutput() GetFederatedAnsibleRepositoryMemberOutput {
+	return o
+}
+
+func (o GetFederatedAnsibleRepositoryMemberOutput) ToGetFederatedAnsibleRepositoryMemberOutputWithContext(ctx context.Context) GetFederatedAnsibleRepositoryMemberOutput {
+	return o
+}
+
+// Represents the active state of the federated member. It is supported to change the enabled
+// status of my own member. The config will be updated on the other federated members automatically.
+func (o GetFederatedAnsibleRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetFederatedAnsibleRepositoryMember) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Full URL to ending with the repository name.
+func (o GetFederatedAnsibleRepositoryMemberOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFederatedAnsibleRepositoryMember) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type GetFederatedAnsibleRepositoryMemberArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFederatedAnsibleRepositoryMemberArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFederatedAnsibleRepositoryMember)(nil)).Elem()
+}
+
+func (o GetFederatedAnsibleRepositoryMemberArrayOutput) ToGetFederatedAnsibleRepositoryMemberArrayOutput() GetFederatedAnsibleRepositoryMemberArrayOutput {
+	return o
+}
+
+func (o GetFederatedAnsibleRepositoryMemberArrayOutput) ToGetFederatedAnsibleRepositoryMemberArrayOutputWithContext(ctx context.Context) GetFederatedAnsibleRepositoryMemberArrayOutput {
+	return o
+}
+
+func (o GetFederatedAnsibleRepositoryMemberArrayOutput) Index(i pulumi.IntInput) GetFederatedAnsibleRepositoryMemberOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFederatedAnsibleRepositoryMember {
+		return vs[0].([]GetFederatedAnsibleRepositoryMember)[vs[1].(int)]
+	}).(GetFederatedAnsibleRepositoryMemberOutput)
+}
+
 type GetFederatedBowerRepositoryMember struct {
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
@@ -27209,6 +27621,200 @@ func (o GetRemoteAlpineRepositoryContentSynchronisationPtrOutput) SourceOriginAb
 // If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o GetRemoteAlpineRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetRemoteAlpineRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.StatisticsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type GetRemoteAnsibleRepositoryContentSynchronisation struct {
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled *bool `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
+}
+
+// GetRemoteAnsibleRepositoryContentSynchronisationInput is an input type that accepts GetRemoteAnsibleRepositoryContentSynchronisationArgs and GetRemoteAnsibleRepositoryContentSynchronisationOutput values.
+// You can construct a concrete instance of `GetRemoteAnsibleRepositoryContentSynchronisationInput` via:
+//
+//	GetRemoteAnsibleRepositoryContentSynchronisationArgs{...}
+type GetRemoteAnsibleRepositoryContentSynchronisationInput interface {
+	pulumi.Input
+
+	ToGetRemoteAnsibleRepositoryContentSynchronisationOutput() GetRemoteAnsibleRepositoryContentSynchronisationOutput
+	ToGetRemoteAnsibleRepositoryContentSynchronisationOutputWithContext(context.Context) GetRemoteAnsibleRepositoryContentSynchronisationOutput
+}
+
+type GetRemoteAnsibleRepositoryContentSynchronisationArgs struct {
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+}
+
+func (GetRemoteAnsibleRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRemoteAnsibleRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i GetRemoteAnsibleRepositoryContentSynchronisationArgs) ToGetRemoteAnsibleRepositoryContentSynchronisationOutput() GetRemoteAnsibleRepositoryContentSynchronisationOutput {
+	return i.ToGetRemoteAnsibleRepositoryContentSynchronisationOutputWithContext(context.Background())
+}
+
+func (i GetRemoteAnsibleRepositoryContentSynchronisationArgs) ToGetRemoteAnsibleRepositoryContentSynchronisationOutputWithContext(ctx context.Context) GetRemoteAnsibleRepositoryContentSynchronisationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteAnsibleRepositoryContentSynchronisationOutput)
+}
+
+func (i GetRemoteAnsibleRepositoryContentSynchronisationArgs) ToGetRemoteAnsibleRepositoryContentSynchronisationPtrOutput() GetRemoteAnsibleRepositoryContentSynchronisationPtrOutput {
+	return i.ToGetRemoteAnsibleRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i GetRemoteAnsibleRepositoryContentSynchronisationArgs) ToGetRemoteAnsibleRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteAnsibleRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteAnsibleRepositoryContentSynchronisationOutput).ToGetRemoteAnsibleRepositoryContentSynchronisationPtrOutputWithContext(ctx)
+}
+
+// GetRemoteAnsibleRepositoryContentSynchronisationPtrInput is an input type that accepts GetRemoteAnsibleRepositoryContentSynchronisationArgs, GetRemoteAnsibleRepositoryContentSynchronisationPtr and GetRemoteAnsibleRepositoryContentSynchronisationPtrOutput values.
+// You can construct a concrete instance of `GetRemoteAnsibleRepositoryContentSynchronisationPtrInput` via:
+//
+//	        GetRemoteAnsibleRepositoryContentSynchronisationArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetRemoteAnsibleRepositoryContentSynchronisationPtrInput interface {
+	pulumi.Input
+
+	ToGetRemoteAnsibleRepositoryContentSynchronisationPtrOutput() GetRemoteAnsibleRepositoryContentSynchronisationPtrOutput
+	ToGetRemoteAnsibleRepositoryContentSynchronisationPtrOutputWithContext(context.Context) GetRemoteAnsibleRepositoryContentSynchronisationPtrOutput
+}
+
+type getRemoteAnsibleRepositoryContentSynchronisationPtrType GetRemoteAnsibleRepositoryContentSynchronisationArgs
+
+func GetRemoteAnsibleRepositoryContentSynchronisationPtr(v *GetRemoteAnsibleRepositoryContentSynchronisationArgs) GetRemoteAnsibleRepositoryContentSynchronisationPtrInput {
+	return (*getRemoteAnsibleRepositoryContentSynchronisationPtrType)(v)
+}
+
+func (*getRemoteAnsibleRepositoryContentSynchronisationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRemoteAnsibleRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i *getRemoteAnsibleRepositoryContentSynchronisationPtrType) ToGetRemoteAnsibleRepositoryContentSynchronisationPtrOutput() GetRemoteAnsibleRepositoryContentSynchronisationPtrOutput {
+	return i.ToGetRemoteAnsibleRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i *getRemoteAnsibleRepositoryContentSynchronisationPtrType) ToGetRemoteAnsibleRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteAnsibleRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteAnsibleRepositoryContentSynchronisationPtrOutput)
+}
+
+type GetRemoteAnsibleRepositoryContentSynchronisationOutput struct{ *pulumi.OutputState }
+
+func (GetRemoteAnsibleRepositoryContentSynchronisationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRemoteAnsibleRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o GetRemoteAnsibleRepositoryContentSynchronisationOutput) ToGetRemoteAnsibleRepositoryContentSynchronisationOutput() GetRemoteAnsibleRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o GetRemoteAnsibleRepositoryContentSynchronisationOutput) ToGetRemoteAnsibleRepositoryContentSynchronisationOutputWithContext(ctx context.Context) GetRemoteAnsibleRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o GetRemoteAnsibleRepositoryContentSynchronisationOutput) ToGetRemoteAnsibleRepositoryContentSynchronisationPtrOutput() GetRemoteAnsibleRepositoryContentSynchronisationPtrOutput {
+	return o.ToGetRemoteAnsibleRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (o GetRemoteAnsibleRepositoryContentSynchronisationOutput) ToGetRemoteAnsibleRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteAnsibleRepositoryContentSynchronisationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetRemoteAnsibleRepositoryContentSynchronisation) *GetRemoteAnsibleRepositoryContentSynchronisation {
+		return &v
+	}).(GetRemoteAnsibleRepositoryContentSynchronisationPtrOutput)
+}
+
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+func (o GetRemoteAnsibleRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteAnsibleRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+func (o GetRemoteAnsibleRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteAnsibleRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+func (o GetRemoteAnsibleRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteAnsibleRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
+}
+
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+func (o GetRemoteAnsibleRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteAnsibleRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type GetRemoteAnsibleRepositoryContentSynchronisationPtrOutput struct{ *pulumi.OutputState }
+
+func (GetRemoteAnsibleRepositoryContentSynchronisationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRemoteAnsibleRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o GetRemoteAnsibleRepositoryContentSynchronisationPtrOutput) ToGetRemoteAnsibleRepositoryContentSynchronisationPtrOutput() GetRemoteAnsibleRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o GetRemoteAnsibleRepositoryContentSynchronisationPtrOutput) ToGetRemoteAnsibleRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteAnsibleRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o GetRemoteAnsibleRepositoryContentSynchronisationPtrOutput) Elem() GetRemoteAnsibleRepositoryContentSynchronisationOutput {
+	return o.ApplyT(func(v *GetRemoteAnsibleRepositoryContentSynchronisation) GetRemoteAnsibleRepositoryContentSynchronisation {
+		if v != nil {
+			return *v
+		}
+		var ret GetRemoteAnsibleRepositoryContentSynchronisation
+		return ret
+	}).(GetRemoteAnsibleRepositoryContentSynchronisationOutput)
+}
+
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+func (o GetRemoteAnsibleRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteAnsibleRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+func (o GetRemoteAnsibleRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteAnsibleRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PropertiesEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+func (o GetRemoteAnsibleRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteAnsibleRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SourceOriginAbsenceDetection
+	}).(pulumi.BoolPtrOutput)
+}
+
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+func (o GetRemoteAnsibleRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteAnsibleRepositoryContentSynchronisation) *bool {
 		if v == nil {
 			return nil
 		}
@@ -33611,6 +34217,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DockerWebhookHandlerArrayInput)(nil)).Elem(), DockerWebhookHandlerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedAlpineRepositoryMemberInput)(nil)).Elem(), FederatedAlpineRepositoryMemberArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedAlpineRepositoryMemberArrayInput)(nil)).Elem(), FederatedAlpineRepositoryMemberArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FederatedAnsibleRepositoryMemberInput)(nil)).Elem(), FederatedAnsibleRepositoryMemberArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FederatedAnsibleRepositoryMemberArrayInput)(nil)).Elem(), FederatedAnsibleRepositoryMemberArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedBowerRepositoryMemberInput)(nil)).Elem(), FederatedBowerRepositoryMemberArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedBowerRepositoryMemberArrayInput)(nil)).Elem(), FederatedBowerRepositoryMemberArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedCargoRepositoryMemberInput)(nil)).Elem(), FederatedCargoRepositoryMemberArgs{})
@@ -33739,6 +34347,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ReleaseBundleWebhookHandlerArrayInput)(nil)).Elem(), ReleaseBundleWebhookHandlerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteAlpineRepositoryContentSynchronisationInput)(nil)).Elem(), RemoteAlpineRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteAlpineRepositoryContentSynchronisationPtrInput)(nil)).Elem(), RemoteAlpineRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RemoteAnsibleRepositoryContentSynchronisationInput)(nil)).Elem(), RemoteAnsibleRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RemoteAnsibleRepositoryContentSynchronisationPtrInput)(nil)).Elem(), RemoteAnsibleRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteBowerRepositoryContentSynchronisationInput)(nil)).Elem(), RemoteBowerRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteBowerRepositoryContentSynchronisationPtrInput)(nil)).Elem(), RemoteBowerRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteCargoRepositoryContentSynchronisationInput)(nil)).Elem(), RemoteCargoRepositoryContentSynchronisationArgs{})
@@ -33823,6 +34433,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VaultConfigurationConfigMountArrayInput)(nil)).Elem(), VaultConfigurationConfigMountArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedAlpineRepositoryMemberInput)(nil)).Elem(), GetFederatedAlpineRepositoryMemberArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedAlpineRepositoryMemberArrayInput)(nil)).Elem(), GetFederatedAlpineRepositoryMemberArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedAnsibleRepositoryMemberInput)(nil)).Elem(), GetFederatedAnsibleRepositoryMemberArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedAnsibleRepositoryMemberArrayInput)(nil)).Elem(), GetFederatedAnsibleRepositoryMemberArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedBowerRepositoryMemberInput)(nil)).Elem(), GetFederatedBowerRepositoryMemberArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedBowerRepositoryMemberArrayInput)(nil)).Elem(), GetFederatedBowerRepositoryMemberArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedCargoRepositoryMemberInput)(nil)).Elem(), GetFederatedCargoRepositoryMemberArgs{})
@@ -33918,6 +34530,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPermissionTargetRepoActionsUserArrayInput)(nil)).Elem(), GetPermissionTargetRepoActionsUserArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteAlpineRepositoryContentSynchronisationInput)(nil)).Elem(), GetRemoteAlpineRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteAlpineRepositoryContentSynchronisationPtrInput)(nil)).Elem(), GetRemoteAlpineRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteAnsibleRepositoryContentSynchronisationInput)(nil)).Elem(), GetRemoteAnsibleRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteAnsibleRepositoryContentSynchronisationPtrInput)(nil)).Elem(), GetRemoteAnsibleRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteBowerRepositoryContentSynchronisationInput)(nil)).Elem(), GetRemoteBowerRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteBowerRepositoryContentSynchronisationPtrInput)(nil)).Elem(), GetRemoteBowerRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteCargoRepositoryContentSynchronisationInput)(nil)).Elem(), GetRemoteCargoRepositoryContentSynchronisationArgs{})
@@ -34048,6 +34662,8 @@ func init() {
 	pulumi.RegisterOutputType(DockerWebhookHandlerArrayOutput{})
 	pulumi.RegisterOutputType(FederatedAlpineRepositoryMemberOutput{})
 	pulumi.RegisterOutputType(FederatedAlpineRepositoryMemberArrayOutput{})
+	pulumi.RegisterOutputType(FederatedAnsibleRepositoryMemberOutput{})
+	pulumi.RegisterOutputType(FederatedAnsibleRepositoryMemberArrayOutput{})
 	pulumi.RegisterOutputType(FederatedBowerRepositoryMemberOutput{})
 	pulumi.RegisterOutputType(FederatedBowerRepositoryMemberArrayOutput{})
 	pulumi.RegisterOutputType(FederatedCargoRepositoryMemberOutput{})
@@ -34176,6 +34792,8 @@ func init() {
 	pulumi.RegisterOutputType(ReleaseBundleWebhookHandlerArrayOutput{})
 	pulumi.RegisterOutputType(RemoteAlpineRepositoryContentSynchronisationOutput{})
 	pulumi.RegisterOutputType(RemoteAlpineRepositoryContentSynchronisationPtrOutput{})
+	pulumi.RegisterOutputType(RemoteAnsibleRepositoryContentSynchronisationOutput{})
+	pulumi.RegisterOutputType(RemoteAnsibleRepositoryContentSynchronisationPtrOutput{})
 	pulumi.RegisterOutputType(RemoteBowerRepositoryContentSynchronisationOutput{})
 	pulumi.RegisterOutputType(RemoteBowerRepositoryContentSynchronisationPtrOutput{})
 	pulumi.RegisterOutputType(RemoteCargoRepositoryContentSynchronisationOutput{})
@@ -34260,6 +34878,8 @@ func init() {
 	pulumi.RegisterOutputType(VaultConfigurationConfigMountArrayOutput{})
 	pulumi.RegisterOutputType(GetFederatedAlpineRepositoryMemberOutput{})
 	pulumi.RegisterOutputType(GetFederatedAlpineRepositoryMemberArrayOutput{})
+	pulumi.RegisterOutputType(GetFederatedAnsibleRepositoryMemberOutput{})
+	pulumi.RegisterOutputType(GetFederatedAnsibleRepositoryMemberArrayOutput{})
 	pulumi.RegisterOutputType(GetFederatedBowerRepositoryMemberOutput{})
 	pulumi.RegisterOutputType(GetFederatedBowerRepositoryMemberArrayOutput{})
 	pulumi.RegisterOutputType(GetFederatedCargoRepositoryMemberOutput{})
@@ -34355,6 +34975,8 @@ func init() {
 	pulumi.RegisterOutputType(GetPermissionTargetRepoActionsUserArrayOutput{})
 	pulumi.RegisterOutputType(GetRemoteAlpineRepositoryContentSynchronisationOutput{})
 	pulumi.RegisterOutputType(GetRemoteAlpineRepositoryContentSynchronisationPtrOutput{})
+	pulumi.RegisterOutputType(GetRemoteAnsibleRepositoryContentSynchronisationOutput{})
+	pulumi.RegisterOutputType(GetRemoteAnsibleRepositoryContentSynchronisationPtrOutput{})
 	pulumi.RegisterOutputType(GetRemoteBowerRepositoryContentSynchronisationOutput{})
 	pulumi.RegisterOutputType(GetRemoteBowerRepositoryContentSynchronisationPtrOutput{})
 	pulumi.RegisterOutputType(GetRemoteCargoRepositoryContentSynchronisationOutput{})

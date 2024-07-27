@@ -124,7 +124,7 @@ export class FederatedRpmRepository extends pulumi.CustomResource {
     public readonly notes!: pulumi.Output<string | undefined>;
     public /*out*/ readonly packageType!: pulumi.Output<string>;
     /**
-     * Primary keypair used to sign artifacts.
+     * Primary keypair used to sign artifacts. Default value is empty.
      */
     public readonly primaryKeypairRef!: pulumi.Output<string | undefined>;
     /**
@@ -312,7 +312,7 @@ export interface FederatedRpmRepositoryState {
     notes?: pulumi.Input<string>;
     packageType?: pulumi.Input<string>;
     /**
-     * Primary keypair used to sign artifacts.
+     * Primary keypair used to sign artifacts. Default value is empty.
      */
     primaryKeypairRef?: pulumi.Input<string>;
     /**
@@ -421,7 +421,7 @@ export interface FederatedRpmRepositoryArgs {
      */
     notes?: pulumi.Input<string>;
     /**
-     * Primary keypair used to sign artifacts.
+     * Primary keypair used to sign artifacts. Default value is empty.
      */
     primaryKeypairRef?: pulumi.Input<string>;
     /**

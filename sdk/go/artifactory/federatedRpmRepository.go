@@ -95,7 +95,7 @@ type FederatedRpmRepository struct {
 	// Internal description.
 	Notes       pulumi.StringPtrOutput `pulumi:"notes"`
 	PackageType pulumi.StringOutput    `pulumi:"packageType"`
-	// Primary keypair used to sign artifacts.
+	// Primary keypair used to sign artifacts. Default value is empty.
 	PrimaryKeypairRef pulumi.StringPtrOutput `pulumi:"primaryKeypairRef"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution  pulumi.BoolPtrOutput     `pulumi:"priorityResolution"`
@@ -195,7 +195,7 @@ type federatedRpmRepositoryState struct {
 	// Internal description.
 	Notes       *string `pulumi:"notes"`
 	PackageType *string `pulumi:"packageType"`
-	// Primary keypair used to sign artifacts.
+	// Primary keypair used to sign artifacts. Default value is empty.
 	PrimaryKeypairRef *string `pulumi:"primaryKeypairRef"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution  *bool    `pulumi:"priorityResolution"`
@@ -260,7 +260,7 @@ type FederatedRpmRepositoryState struct {
 	// Internal description.
 	Notes       pulumi.StringPtrInput
 	PackageType pulumi.StringPtrInput
-	// Primary keypair used to sign artifacts.
+	// Primary keypair used to sign artifacts. Default value is empty.
 	PrimaryKeypairRef pulumi.StringPtrInput
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution  pulumi.BoolPtrInput
@@ -328,7 +328,7 @@ type federatedRpmRepositoryArgs struct {
 	Members []FederatedRpmRepositoryMember `pulumi:"members"`
 	// Internal description.
 	Notes *string `pulumi:"notes"`
-	// Primary keypair used to sign artifacts.
+	// Primary keypair used to sign artifacts. Default value is empty.
 	PrimaryKeypairRef *string `pulumi:"primaryKeypairRef"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution  *bool    `pulumi:"priorityResolution"`
@@ -393,7 +393,7 @@ type FederatedRpmRepositoryArgs struct {
 	Members FederatedRpmRepositoryMemberArrayInput
 	// Internal description.
 	Notes pulumi.StringPtrInput
-	// Primary keypair used to sign artifacts.
+	// Primary keypair used to sign artifacts. Default value is empty.
 	PrimaryKeypairRef pulumi.StringPtrInput
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution  pulumi.BoolPtrInput
@@ -589,7 +589,7 @@ func (o FederatedRpmRepositoryOutput) PackageType() pulumi.StringOutput {
 	return o.ApplyT(func(v *FederatedRpmRepository) pulumi.StringOutput { return v.PackageType }).(pulumi.StringOutput)
 }
 
-// Primary keypair used to sign artifacts.
+// Primary keypair used to sign artifacts. Default value is empty.
 func (o FederatedRpmRepositoryOutput) PrimaryKeypairRef() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FederatedRpmRepository) pulumi.StringPtrOutput { return v.PrimaryKeypairRef }).(pulumi.StringPtrOutput)
 }

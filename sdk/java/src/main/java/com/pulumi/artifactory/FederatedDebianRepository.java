@@ -267,14 +267,14 @@ public class FederatedDebianRepository extends com.pulumi.resources.CustomResour
         return this.packageType;
     }
     /**
-     * Used to sign index files in Debian artifacts.
+     * Primary keypair used to sign artifacts. Default value is empty.
      * 
      */
     @Export(name="primaryKeypairRef", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> primaryKeypairRef;
 
     /**
-     * @return Used to sign index files in Debian artifacts.
+     * @return Primary keypair used to sign artifacts. Default value is empty.
      * 
      */
     public Output<Optional<String>> primaryKeypairRef() {
@@ -359,14 +359,14 @@ public class FederatedDebianRepository extends com.pulumi.resources.CustomResour
         return Codegen.optional(this.repoLayoutRef);
     }
     /**
-     * Used to sign index files in Debian artifacts.
+     * Secondary keypair used to sign artifacts.
      * 
      */
     @Export(name="secondaryKeypairRef", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> secondaryKeypairRef;
 
     /**
-     * @return Used to sign index files in Debian artifacts.
+     * @return Secondary keypair used to sign artifacts.
      * 
      */
     public Output<Optional<String>> secondaryKeypairRef() {
