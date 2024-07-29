@@ -6,6 +6,8 @@ package com.pulumi.artifactory;
 import com.pulumi.artifactory.Utilities;
 import com.pulumi.artifactory.inputs.GetFederatedAlpineRepositoryArgs;
 import com.pulumi.artifactory.inputs.GetFederatedAlpineRepositoryPlainArgs;
+import com.pulumi.artifactory.inputs.GetFederatedAnsibleRepositoryArgs;
+import com.pulumi.artifactory.inputs.GetFederatedAnsibleRepositoryPlainArgs;
 import com.pulumi.artifactory.inputs.GetFederatedBowerRepositoryArgs;
 import com.pulumi.artifactory.inputs.GetFederatedBowerRepositoryPlainArgs;
 import com.pulumi.artifactory.inputs.GetFederatedCargoRepositoryArgs;
@@ -82,6 +84,8 @@ import com.pulumi.artifactory.inputs.GetGroupArgs;
 import com.pulumi.artifactory.inputs.GetGroupPlainArgs;
 import com.pulumi.artifactory.inputs.GetLocalAlpineRepositoryArgs;
 import com.pulumi.artifactory.inputs.GetLocalAlpineRepositoryPlainArgs;
+import com.pulumi.artifactory.inputs.GetLocalAnsibleRepositoryArgs;
+import com.pulumi.artifactory.inputs.GetLocalAnsibleRepositoryPlainArgs;
 import com.pulumi.artifactory.inputs.GetLocalBowerRepositoryArgs;
 import com.pulumi.artifactory.inputs.GetLocalBowerRepositoryPlainArgs;
 import com.pulumi.artifactory.inputs.GetLocalCargoRepositoryArgs;
@@ -156,6 +160,8 @@ import com.pulumi.artifactory.inputs.GetPermissionTargetArgs;
 import com.pulumi.artifactory.inputs.GetPermissionTargetPlainArgs;
 import com.pulumi.artifactory.inputs.GetRemoteAlpineRepositoryArgs;
 import com.pulumi.artifactory.inputs.GetRemoteAlpineRepositoryPlainArgs;
+import com.pulumi.artifactory.inputs.GetRemoteAnsibleRepositoryArgs;
+import com.pulumi.artifactory.inputs.GetRemoteAnsibleRepositoryPlainArgs;
 import com.pulumi.artifactory.inputs.GetRemoteBowerRepositoryArgs;
 import com.pulumi.artifactory.inputs.GetRemoteBowerRepositoryPlainArgs;
 import com.pulumi.artifactory.inputs.GetRemoteCargoRepositoryArgs;
@@ -226,6 +232,8 @@ import com.pulumi.artifactory.inputs.GetUserArgs;
 import com.pulumi.artifactory.inputs.GetUserPlainArgs;
 import com.pulumi.artifactory.inputs.GetVirtualAlpineRepositoryArgs;
 import com.pulumi.artifactory.inputs.GetVirtualAlpineRepositoryPlainArgs;
+import com.pulumi.artifactory.inputs.GetVirtualAnsibleRepositoryArgs;
+import com.pulumi.artifactory.inputs.GetVirtualAnsibleRepositoryPlainArgs;
 import com.pulumi.artifactory.inputs.GetVirtualBowerRepositoryArgs;
 import com.pulumi.artifactory.inputs.GetVirtualBowerRepositoryPlainArgs;
 import com.pulumi.artifactory.inputs.GetVirtualChefRepositoryArgs;
@@ -283,6 +291,7 @@ import com.pulumi.artifactory.inputs.GetVirtualSwiftRepositoryPlainArgs;
 import com.pulumi.artifactory.inputs.GetVirtualTerraformRepositoryArgs;
 import com.pulumi.artifactory.inputs.GetVirtualTerraformRepositoryPlainArgs;
 import com.pulumi.artifactory.outputs.GetFederatedAlpineRepositoryResult;
+import com.pulumi.artifactory.outputs.GetFederatedAnsibleRepositoryResult;
 import com.pulumi.artifactory.outputs.GetFederatedBowerRepositoryResult;
 import com.pulumi.artifactory.outputs.GetFederatedCargoRepositoryResult;
 import com.pulumi.artifactory.outputs.GetFederatedChefRepositoryResult;
@@ -321,6 +330,7 @@ import com.pulumi.artifactory.outputs.GetFileResult;
 import com.pulumi.artifactory.outputs.GetFileinfoResult;
 import com.pulumi.artifactory.outputs.GetGroupResult;
 import com.pulumi.artifactory.outputs.GetLocalAlpineRepositoryResult;
+import com.pulumi.artifactory.outputs.GetLocalAnsibleRepositoryResult;
 import com.pulumi.artifactory.outputs.GetLocalBowerRepositoryResult;
 import com.pulumi.artifactory.outputs.GetLocalCargoRepositoryResult;
 import com.pulumi.artifactory.outputs.GetLocalChefRepositoryResult;
@@ -358,6 +368,7 @@ import com.pulumi.artifactory.outputs.GetLocalTerraformbackendRepositoryResult;
 import com.pulumi.artifactory.outputs.GetLocalVagrantRepositoryResult;
 import com.pulumi.artifactory.outputs.GetPermissionTargetResult;
 import com.pulumi.artifactory.outputs.GetRemoteAlpineRepositoryResult;
+import com.pulumi.artifactory.outputs.GetRemoteAnsibleRepositoryResult;
 import com.pulumi.artifactory.outputs.GetRemoteBowerRepositoryResult;
 import com.pulumi.artifactory.outputs.GetRemoteCargoRepositoryResult;
 import com.pulumi.artifactory.outputs.GetRemoteChefRepositoryResult;
@@ -393,6 +404,7 @@ import com.pulumi.artifactory.outputs.GetRemoteVcsRepositoryResult;
 import com.pulumi.artifactory.outputs.GetRepositoriesResult;
 import com.pulumi.artifactory.outputs.GetUserResult;
 import com.pulumi.artifactory.outputs.GetVirtualAlpineRepositoryResult;
+import com.pulumi.artifactory.outputs.GetVirtualAnsibleRepositoryResult;
 import com.pulumi.artifactory.outputs.GetVirtualBowerRepositoryResult;
 import com.pulumi.artifactory.outputs.GetVirtualChefRepositoryResult;
 import com.pulumi.artifactory.outputs.GetVirtualComposerRepositoryResult;
@@ -595,6 +607,174 @@ public final class ArtifactoryFunctions {
      */
     public static CompletableFuture<GetFederatedAlpineRepositoryResult> getFederatedAlpineRepositoryPlain(GetFederatedAlpineRepositoryPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("artifactory:index/getFederatedAlpineRepository:getFederatedAlpineRepository", TypeShape.of(GetFederatedAlpineRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves a federated Ansible repository.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetFederatedAnsibleRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var federated-test-ansible-repo = ArtifactoryFunctions.getFederatedAnsibleRepository(GetFederatedAnsibleRepositoryArgs.builder()
+     *             .key("federated-test-ansible-repo")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetFederatedAnsibleRepositoryResult> getFederatedAnsibleRepository(GetFederatedAnsibleRepositoryArgs args) {
+        return getFederatedAnsibleRepository(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves a federated Ansible repository.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetFederatedAnsibleRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var federated-test-ansible-repo = ArtifactoryFunctions.getFederatedAnsibleRepository(GetFederatedAnsibleRepositoryArgs.builder()
+     *             .key("federated-test-ansible-repo")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetFederatedAnsibleRepositoryResult> getFederatedAnsibleRepositoryPlain(GetFederatedAnsibleRepositoryPlainArgs args) {
+        return getFederatedAnsibleRepositoryPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves a federated Ansible repository.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetFederatedAnsibleRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var federated-test-ansible-repo = ArtifactoryFunctions.getFederatedAnsibleRepository(GetFederatedAnsibleRepositoryArgs.builder()
+     *             .key("federated-test-ansible-repo")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetFederatedAnsibleRepositoryResult> getFederatedAnsibleRepository(GetFederatedAnsibleRepositoryArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("artifactory:index/getFederatedAnsibleRepository:getFederatedAnsibleRepository", TypeShape.of(GetFederatedAnsibleRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves a federated Ansible repository.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetFederatedAnsibleRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var federated-test-ansible-repo = ArtifactoryFunctions.getFederatedAnsibleRepository(GetFederatedAnsibleRepositoryArgs.builder()
+     *             .key("federated-test-ansible-repo")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetFederatedAnsibleRepositoryResult> getFederatedAnsibleRepositoryPlain(GetFederatedAnsibleRepositoryPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("artifactory:index/getFederatedAnsibleRepository:getFederatedAnsibleRepository", TypeShape.of(GetFederatedAnsibleRepositoryResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Retrieves a federated Bower repository.
@@ -6861,6 +7041,174 @@ public final class ArtifactoryFunctions {
         return Deployment.getInstance().invokeAsync("artifactory:index/getLocalAlpineRepository:getLocalAlpineRepository", TypeShape.of(GetLocalAlpineRepositoryResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Retrieves a local Ansible repository.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalAnsibleRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-ansible-repo-basic = ArtifactoryFunctions.getLocalAnsibleRepository(GetLocalAnsibleRepositoryArgs.builder()
+     *             .key("local-test-ansible-repo-basic")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetLocalAnsibleRepositoryResult> getLocalAnsibleRepository(GetLocalAnsibleRepositoryArgs args) {
+        return getLocalAnsibleRepository(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves a local Ansible repository.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalAnsibleRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-ansible-repo-basic = ArtifactoryFunctions.getLocalAnsibleRepository(GetLocalAnsibleRepositoryArgs.builder()
+     *             .key("local-test-ansible-repo-basic")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetLocalAnsibleRepositoryResult> getLocalAnsibleRepositoryPlain(GetLocalAnsibleRepositoryPlainArgs args) {
+        return getLocalAnsibleRepositoryPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves a local Ansible repository.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalAnsibleRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-ansible-repo-basic = ArtifactoryFunctions.getLocalAnsibleRepository(GetLocalAnsibleRepositoryArgs.builder()
+     *             .key("local-test-ansible-repo-basic")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetLocalAnsibleRepositoryResult> getLocalAnsibleRepository(GetLocalAnsibleRepositoryArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("artifactory:index/getLocalAnsibleRepository:getLocalAnsibleRepository", TypeShape.of(GetLocalAnsibleRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves a local Ansible repository.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalAnsibleRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-ansible-repo-basic = ArtifactoryFunctions.getLocalAnsibleRepository(GetLocalAnsibleRepositoryArgs.builder()
+     *             .key("local-test-ansible-repo-basic")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetLocalAnsibleRepositoryResult> getLocalAnsibleRepositoryPlain(GetLocalAnsibleRepositoryPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("artifactory:index/getLocalAnsibleRepository:getLocalAnsibleRepository", TypeShape.of(GetLocalAnsibleRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    /**
      * Retrieves a local Bower repository.
      * 
      * ## Example Usage
@@ -12925,6 +13273,174 @@ public final class ArtifactoryFunctions {
         return Deployment.getInstance().invokeAsync("artifactory:index/getRemoteAlpineRepository:getRemoteAlpineRepository", TypeShape.of(GetRemoteAlpineRepositoryResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Retrieves a remote Ansible repository.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetRemoteAnsibleRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var remote-ansible = ArtifactoryFunctions.getRemoteAnsibleRepository(GetRemoteAnsibleRepositoryArgs.builder()
+     *             .key("remote-ansible")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetRemoteAnsibleRepositoryResult> getRemoteAnsibleRepository(GetRemoteAnsibleRepositoryArgs args) {
+        return getRemoteAnsibleRepository(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves a remote Ansible repository.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetRemoteAnsibleRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var remote-ansible = ArtifactoryFunctions.getRemoteAnsibleRepository(GetRemoteAnsibleRepositoryArgs.builder()
+     *             .key("remote-ansible")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetRemoteAnsibleRepositoryResult> getRemoteAnsibleRepositoryPlain(GetRemoteAnsibleRepositoryPlainArgs args) {
+        return getRemoteAnsibleRepositoryPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves a remote Ansible repository.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetRemoteAnsibleRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var remote-ansible = ArtifactoryFunctions.getRemoteAnsibleRepository(GetRemoteAnsibleRepositoryArgs.builder()
+     *             .key("remote-ansible")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetRemoteAnsibleRepositoryResult> getRemoteAnsibleRepository(GetRemoteAnsibleRepositoryArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("artifactory:index/getRemoteAnsibleRepository:getRemoteAnsibleRepository", TypeShape.of(GetRemoteAnsibleRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves a remote Ansible repository.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetRemoteAnsibleRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var remote-ansible = ArtifactoryFunctions.getRemoteAnsibleRepository(GetRemoteAnsibleRepositoryArgs.builder()
+     *             .key("remote-ansible")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetRemoteAnsibleRepositoryResult> getRemoteAnsibleRepositoryPlain(GetRemoteAnsibleRepositoryPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("artifactory:index/getRemoteAnsibleRepository:getRemoteAnsibleRepository", TypeShape.of(GetRemoteAnsibleRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    /**
      * Retrieves a remote Bower repository.
      * 
      * ## Example Usage
@@ -18757,6 +19273,174 @@ public final class ArtifactoryFunctions {
      */
     public static CompletableFuture<GetVirtualAlpineRepositoryResult> getVirtualAlpineRepositoryPlain(GetVirtualAlpineRepositoryPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("artifactory:index/getVirtualAlpineRepository:getVirtualAlpineRepository", TypeShape.of(GetVirtualAlpineRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves a virtual Ansible repository.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetVirtualAnsibleRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var virtual-ansible = ArtifactoryFunctions.getVirtualAnsibleRepository(GetVirtualAnsibleRepositoryArgs.builder()
+     *             .key("virtual-ansible")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetVirtualAnsibleRepositoryResult> getVirtualAnsibleRepository(GetVirtualAnsibleRepositoryArgs args) {
+        return getVirtualAnsibleRepository(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves a virtual Ansible repository.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetVirtualAnsibleRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var virtual-ansible = ArtifactoryFunctions.getVirtualAnsibleRepository(GetVirtualAnsibleRepositoryArgs.builder()
+     *             .key("virtual-ansible")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetVirtualAnsibleRepositoryResult> getVirtualAnsibleRepositoryPlain(GetVirtualAnsibleRepositoryPlainArgs args) {
+        return getVirtualAnsibleRepositoryPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves a virtual Ansible repository.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetVirtualAnsibleRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var virtual-ansible = ArtifactoryFunctions.getVirtualAnsibleRepository(GetVirtualAnsibleRepositoryArgs.builder()
+     *             .key("virtual-ansible")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetVirtualAnsibleRepositoryResult> getVirtualAnsibleRepository(GetVirtualAnsibleRepositoryArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("artifactory:index/getVirtualAnsibleRepository:getVirtualAnsibleRepository", TypeShape.of(GetVirtualAnsibleRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves a virtual Ansible repository.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetVirtualAnsibleRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var virtual-ansible = ArtifactoryFunctions.getVirtualAnsibleRepository(GetVirtualAnsibleRepositoryArgs.builder()
+     *             .key("virtual-ansible")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetVirtualAnsibleRepositoryResult> getVirtualAnsibleRepositoryPlain(GetVirtualAnsibleRepositoryPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("artifactory:index/getVirtualAnsibleRepository:getVirtualAnsibleRepository", TypeShape.of(GetVirtualAnsibleRepositoryResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Retrieves a virtual Bower repository.

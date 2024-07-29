@@ -139,7 +139,7 @@ namespace Pulumi.Artifactory
         public Output<string> PackageType { get; private set; } = null!;
 
         /// <summary>
-        /// Used to sign index files in Debian artifacts.
+        /// Primary keypair used to sign artifacts. Default value is empty.
         /// </summary>
         [Output("primaryKeypairRef")]
         public Output<string?> PrimaryKeypairRef { get; private set; } = null!;
@@ -179,7 +179,7 @@ namespace Pulumi.Artifactory
         public Output<string?> RepoLayoutRef { get; private set; } = null!;
 
         /// <summary>
-        /// Used to sign index files in Debian artifacts.
+        /// Secondary keypair used to sign artifacts.
         /// </summary>
         [Output("secondaryKeypairRef")]
         public Output<string?> SecondaryKeypairRef { get; private set; } = null!;
@@ -336,7 +336,7 @@ namespace Pulumi.Artifactory
         public Input<string>? Notes { get; set; }
 
         /// <summary>
-        /// Used to sign index files in Debian artifacts.
+        /// Primary keypair used to sign artifacts. Default value is empty.
         /// </summary>
         [Input("primaryKeypairRef")]
         public Input<string>? PrimaryKeypairRef { get; set; }
@@ -387,7 +387,7 @@ namespace Pulumi.Artifactory
         public Input<string>? RepoLayoutRef { get; set; }
 
         /// <summary>
-        /// Used to sign index files in Debian artifacts.
+        /// Secondary keypair used to sign artifacts.
         /// </summary>
         [Input("secondaryKeypairRef")]
         public Input<string>? SecondaryKeypairRef { get; set; }
@@ -509,7 +509,7 @@ namespace Pulumi.Artifactory
         public Input<string>? PackageType { get; set; }
 
         /// <summary>
-        /// Used to sign index files in Debian artifacts.
+        /// Primary keypair used to sign artifacts. Default value is empty.
         /// </summary>
         [Input("primaryKeypairRef")]
         public Input<string>? PrimaryKeypairRef { get; set; }
@@ -560,7 +560,7 @@ namespace Pulumi.Artifactory
         public Input<string>? RepoLayoutRef { get; set; }
 
         /// <summary>
-        /// Used to sign index files in Debian artifacts.
+        /// Secondary keypair used to sign artifacts.
         /// </summary>
         [Input("secondaryKeypairRef")]
         public Input<string>? SecondaryKeypairRef { get; set; }

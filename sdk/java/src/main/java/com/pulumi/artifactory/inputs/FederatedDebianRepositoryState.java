@@ -223,14 +223,14 @@ public final class FederatedDebianRepositoryState extends com.pulumi.resources.R
     }
 
     /**
-     * Used to sign index files in Debian artifacts.
+     * Primary keypair used to sign artifacts. Default value is empty.
      * 
      */
     @Import(name="primaryKeypairRef")
     private @Nullable Output<String> primaryKeypairRef;
 
     /**
-     * @return Used to sign index files in Debian artifacts.
+     * @return Primary keypair used to sign artifacts. Default value is empty.
      * 
      */
     public Optional<Output<String>> primaryKeypairRef() {
@@ -322,14 +322,14 @@ public final class FederatedDebianRepositoryState extends com.pulumi.resources.R
     }
 
     /**
-     * Used to sign index files in Debian artifacts.
+     * Secondary keypair used to sign artifacts.
      * 
      */
     @Import(name="secondaryKeypairRef")
     private @Nullable Output<String> secondaryKeypairRef;
 
     /**
-     * @return Used to sign index files in Debian artifacts.
+     * @return Secondary keypair used to sign artifacts.
      * 
      */
     public Optional<Output<String>> secondaryKeypairRef() {
@@ -717,7 +717,7 @@ public final class FederatedDebianRepositoryState extends com.pulumi.resources.R
         }
 
         /**
-         * @param primaryKeypairRef Used to sign index files in Debian artifacts.
+         * @param primaryKeypairRef Primary keypair used to sign artifacts. Default value is empty.
          * 
          * @return builder
          * 
@@ -728,7 +728,7 @@ public final class FederatedDebianRepositoryState extends com.pulumi.resources.R
         }
 
         /**
-         * @param primaryKeypairRef Used to sign index files in Debian artifacts.
+         * @param primaryKeypairRef Primary keypair used to sign artifacts. Default value is empty.
          * 
          * @return builder
          * 
@@ -868,7 +868,7 @@ public final class FederatedDebianRepositoryState extends com.pulumi.resources.R
         }
 
         /**
-         * @param secondaryKeypairRef Used to sign index files in Debian artifacts.
+         * @param secondaryKeypairRef Secondary keypair used to sign artifacts.
          * 
          * @return builder
          * 
@@ -879,7 +879,7 @@ public final class FederatedDebianRepositoryState extends com.pulumi.resources.R
         }
 
         /**
-         * @param secondaryKeypairRef Used to sign index files in Debian artifacts.
+         * @param secondaryKeypairRef Secondary keypair used to sign artifacts.
          * 
          * @return builder
          * 

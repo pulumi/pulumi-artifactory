@@ -231,14 +231,14 @@ public final class FederatedRpmRepositoryState extends com.pulumi.resources.Reso
     }
 
     /**
-     * Primary keypair used to sign artifacts.
+     * Primary keypair used to sign artifacts. Default value is empty.
      * 
      */
     @Import(name="primaryKeypairRef")
     private @Nullable Output<String> primaryKeypairRef;
 
     /**
-     * @return Primary keypair used to sign artifacts.
+     * @return Primary keypair used to sign artifacts. Default value is empty.
      * 
      */
     public Optional<Output<String>> primaryKeypairRef() {
@@ -747,7 +747,7 @@ public final class FederatedRpmRepositoryState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param primaryKeypairRef Primary keypair used to sign artifacts.
+         * @param primaryKeypairRef Primary keypair used to sign artifacts. Default value is empty.
          * 
          * @return builder
          * 
@@ -758,7 +758,7 @@ public final class FederatedRpmRepositoryState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param primaryKeypairRef Primary keypair used to sign artifacts.
+         * @param primaryKeypairRef Primary keypair used to sign artifacts. Default value is empty.
          * 
          * @return builder
          * 

@@ -123,7 +123,7 @@ export class FederatedDebianRepository extends pulumi.CustomResource {
     public readonly notes!: pulumi.Output<string | undefined>;
     public /*out*/ readonly packageType!: pulumi.Output<string>;
     /**
-     * Used to sign index files in Debian artifacts.
+     * Primary keypair used to sign artifacts. Default value is empty.
      */
     public readonly primaryKeypairRef!: pulumi.Output<string | undefined>;
     /**
@@ -149,7 +149,7 @@ export class FederatedDebianRepository extends pulumi.CustomResource {
      */
     public readonly repoLayoutRef!: pulumi.Output<string | undefined>;
     /**
-     * Used to sign index files in Debian artifacts.
+     * Secondary keypair used to sign artifacts.
      */
     public readonly secondaryKeypairRef!: pulumi.Output<string | undefined>;
     /**
@@ -300,7 +300,7 @@ export interface FederatedDebianRepositoryState {
     notes?: pulumi.Input<string>;
     packageType?: pulumi.Input<string>;
     /**
-     * Used to sign index files in Debian artifacts.
+     * Primary keypair used to sign artifacts. Default value is empty.
      */
     primaryKeypairRef?: pulumi.Input<string>;
     /**
@@ -326,7 +326,7 @@ export interface FederatedDebianRepositoryState {
      */
     repoLayoutRef?: pulumi.Input<string>;
     /**
-     * Used to sign index files in Debian artifacts.
+     * Secondary keypair used to sign artifacts.
      */
     secondaryKeypairRef?: pulumi.Input<string>;
     /**
@@ -402,7 +402,7 @@ export interface FederatedDebianRepositoryArgs {
      */
     notes?: pulumi.Input<string>;
     /**
-     * Used to sign index files in Debian artifacts.
+     * Primary keypair used to sign artifacts. Default value is empty.
      */
     primaryKeypairRef?: pulumi.Input<string>;
     /**
@@ -428,7 +428,7 @@ export interface FederatedDebianRepositoryArgs {
      */
     repoLayoutRef?: pulumi.Input<string>;
     /**
-     * Used to sign index files in Debian artifacts.
+     * Secondary keypair used to sign artifacts.
      */
     secondaryKeypairRef?: pulumi.Input<string>;
     /**

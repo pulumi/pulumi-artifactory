@@ -33,6 +33,7 @@ from .docker_v1_repository import *
 from .docker_v2_repository import *
 from .docker_webhook import *
 from .federated_alpine_repository import *
+from .federated_ansible_repository import *
 from .federated_bower_repository import *
 from .federated_cargo_repository import *
 from .federated_chef_repository import *
@@ -68,6 +69,7 @@ from .federated_terraform_provider_repository import *
 from .federated_vagrant_repository import *
 from .general_security import *
 from .get_federated_alpine_repository import *
+from .get_federated_ansible_repository import *
 from .get_federated_bower_repository import *
 from .get_federated_cargo_repository import *
 from .get_federated_chef_repository import *
@@ -106,6 +108,7 @@ from .get_file_list import *
 from .get_fileinfo import *
 from .get_group import *
 from .get_local_alpine_repository import *
+from .get_local_ansible_repository import *
 from .get_local_bower_repository import *
 from .get_local_cargo_repository import *
 from .get_local_chef_repository import *
@@ -143,6 +146,7 @@ from .get_local_terraformbackend_repository import *
 from .get_local_vagrant_repository import *
 from .get_permission_target import *
 from .get_remote_alpine_repository import *
+from .get_remote_ansible_repository import *
 from .get_remote_bower_repository import *
 from .get_remote_cargo_repository import *
 from .get_remote_chef_repository import *
@@ -178,6 +182,7 @@ from .get_remote_vcs_repository import *
 from .get_repositories import *
 from .get_user import *
 from .get_virtual_alpine_repository import *
+from .get_virtual_ansible_repository import *
 from .get_virtual_bower_repository import *
 from .get_virtual_chef_repository import *
 from .get_virtual_composer_repository import *
@@ -214,6 +219,7 @@ from .ldap_group_setting import *
 from .ldap_group_setting_v2 import *
 from .ldap_setting import *
 from .ldap_setting_v2 import *
+from .local_ansible_repository import *
 from .local_bower_repository import *
 from .local_cargo_repository import *
 from .local_chef_repository import *
@@ -266,6 +272,7 @@ from .release_bundle_v2_promotion_webhook import *
 from .release_bundle_v2_webhook import *
 from .release_bundle_webhook import *
 from .remote_alpine_repository import *
+from .remote_ansible_repository import *
 from .remote_bower_repository import *
 from .remote_cargo_repository import *
 from .remote_chef_repository import *
@@ -312,6 +319,7 @@ from .user_lock_policy import *
 from .user_webhook import *
 from .vault_configuration import *
 from .virtual_alpine_repository import *
+from .virtual_ansible_repository import *
 from .virtual_bower_repository import *
 from .virtual_chef_repository import *
 from .virtual_composer_repository import *
@@ -573,6 +581,14 @@ _utilities.register(
   "fqn": "pulumi_artifactory",
   "classes": {
    "artifactory:index/federatedAlpineRepository:FederatedAlpineRepository": "FederatedAlpineRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/federatedAnsibleRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/federatedAnsibleRepository:FederatedAnsibleRepository": "FederatedAnsibleRepository"
   }
  },
  {
@@ -909,6 +925,14 @@ _utilities.register(
   "fqn": "pulumi_artifactory",
   "classes": {
    "artifactory:index/ldapSettingV2:LdapSettingV2": "LdapSettingV2"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/localAnsibleRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/localAnsibleRepository:LocalAnsibleRepository": "LocalAnsibleRepository"
   }
  },
  {
@@ -1321,6 +1345,14 @@ _utilities.register(
  },
  {
   "pkg": "artifactory",
+  "mod": "index/remoteAnsibleRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/remoteAnsibleRepository:RemoteAnsibleRepository": "RemoteAnsibleRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
   "mod": "index/remoteBowerRepository",
   "fqn": "pulumi_artifactory",
   "classes": {
@@ -1685,6 +1717,14 @@ _utilities.register(
   "fqn": "pulumi_artifactory",
   "classes": {
    "artifactory:index/virtualAlpineRepository:VirtualAlpineRepository": "VirtualAlpineRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/virtualAnsibleRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/virtualAnsibleRepository:VirtualAnsibleRepository": "VirtualAnsibleRepository"
   }
  },
  {

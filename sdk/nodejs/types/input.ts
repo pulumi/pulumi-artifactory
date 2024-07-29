@@ -703,6 +703,18 @@ export interface FederatedAlpineRepositoryMember {
     url: pulumi.Input<string>;
 }
 
+export interface FederatedAnsibleRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
+    enabled: pulumi.Input<boolean>;
+    /**
+     * Full URL to ending with the repository name.
+     */
+    url: pulumi.Input<string>;
+}
+
 export interface FederatedBowerRepositoryMember {
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
@@ -1111,6 +1123,30 @@ export interface GetFederatedAlpineRepositoryMember {
 }
 
 export interface GetFederatedAlpineRepositoryMemberArgs {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
+    enabled: pulumi.Input<boolean>;
+    /**
+     * Full URL to ending with the repository name.
+     */
+    url: pulumi.Input<string>;
+}
+
+export interface GetFederatedAnsibleRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
+    enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
+    url: string;
+}
+
+export interface GetFederatedAnsibleRepositoryMemberArgs {
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -2202,6 +2238,44 @@ export interface GetRemoteAlpineRepositoryContentSynchronisation {
 }
 
 export interface GetRemoteAlpineRepositoryContentSynchronisationArgs {
+    /**
+     * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+     */
+    enabled?: pulumi.Input<boolean>;
+    /**
+     * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+     */
+    propertiesEnabled?: pulumi.Input<boolean>;
+    /**
+     * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+     */
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    /**
+     * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+     */
+    statisticsEnabled?: pulumi.Input<boolean>;
+}
+
+export interface GetRemoteAnsibleRepositoryContentSynchronisation {
+    /**
+     * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+     */
+    enabled?: boolean;
+    /**
+     * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+     */
+    propertiesEnabled?: boolean;
+    /**
+     * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+     */
+    sourceOriginAbsenceDetection?: boolean;
+    /**
+     * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+     */
+    statisticsEnabled?: boolean;
+}
+
+export interface GetRemoteAnsibleRepositoryContentSynchronisationArgs {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
@@ -4002,6 +4076,25 @@ export interface ReleaseBundleWebhookHandler {
 }
 
 export interface RemoteAlpineRepositoryContentSynchronisation {
+    /**
+     * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+     */
+    enabled?: pulumi.Input<boolean>;
+    /**
+     * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+     */
+    propertiesEnabled?: pulumi.Input<boolean>;
+    /**
+     * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+     */
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    /**
+     * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+     */
+    statisticsEnabled?: pulumi.Input<boolean>;
+}
+
+export interface RemoteAnsibleRepositoryContentSynchronisation {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */

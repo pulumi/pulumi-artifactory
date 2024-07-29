@@ -61,14 +61,14 @@ class FederatedDebianRepositoryArgs:
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
                used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[str] notes: Internal description.
-        :param pulumi.Input[str] primary_keypair_ref: Used to sign index files in Debian artifacts.
+        :param pulumi.Input[str] primary_keypair_ref: Primary keypair used to sign artifacts. Default value is empty.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
         :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies settings. Default is empty field. Can't be set if `disable_proxy = true`.
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the federated repository
-        :param pulumi.Input[str] secondary_keypair_ref: Used to sign index files in Debian artifacts.
+        :param pulumi.Input[str] secondary_keypair_ref: Secondary keypair used to sign artifacts.
         :param pulumi.Input[bool] trivial_layout: When set, the repository will use the deprecated trivial layout.
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
                Xray settings.
@@ -284,7 +284,7 @@ class FederatedDebianRepositoryArgs:
     @pulumi.getter(name="primaryKeypairRef")
     def primary_keypair_ref(self) -> Optional[pulumi.Input[str]]:
         """
-        Used to sign index files in Debian artifacts.
+        Primary keypair used to sign artifacts. Default value is empty.
         """
         return pulumi.get(self, "primary_keypair_ref")
 
@@ -366,7 +366,7 @@ class FederatedDebianRepositoryArgs:
     @pulumi.getter(name="secondaryKeypairRef")
     def secondary_keypair_ref(self) -> Optional[pulumi.Input[str]]:
         """
-        Used to sign index files in Debian artifacts.
+        Secondary keypair used to sign artifacts.
         """
         return pulumi.get(self, "secondary_keypair_ref")
 
@@ -450,14 +450,14 @@ class _FederatedDebianRepositoryState:
                Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
                to set up Federated repositories correctly.
         :param pulumi.Input[str] notes: Internal description.
-        :param pulumi.Input[str] primary_keypair_ref: Used to sign index files in Debian artifacts.
+        :param pulumi.Input[str] primary_keypair_ref: Primary keypair used to sign artifacts. Default value is empty.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
         :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies settings. Default is empty field. Can't be set if `disable_proxy = true`.
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the federated repository
-        :param pulumi.Input[str] secondary_keypair_ref: Used to sign index files in Debian artifacts.
+        :param pulumi.Input[str] secondary_keypair_ref: Secondary keypair used to sign artifacts.
         :param pulumi.Input[bool] trivial_layout: When set, the repository will use the deprecated trivial layout.
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
                Xray settings.
@@ -686,7 +686,7 @@ class _FederatedDebianRepositoryState:
     @pulumi.getter(name="primaryKeypairRef")
     def primary_keypair_ref(self) -> Optional[pulumi.Input[str]]:
         """
-        Used to sign index files in Debian artifacts.
+        Primary keypair used to sign artifacts. Default value is empty.
         """
         return pulumi.get(self, "primary_keypair_ref")
 
@@ -768,7 +768,7 @@ class _FederatedDebianRepositoryState:
     @pulumi.getter(name="secondaryKeypairRef")
     def secondary_keypair_ref(self) -> Optional[pulumi.Input[str]]:
         """
-        Used to sign index files in Debian artifacts.
+        Secondary keypair used to sign artifacts.
         """
         return pulumi.get(self, "secondary_keypair_ref")
 
@@ -885,14 +885,14 @@ class FederatedDebianRepository(pulumi.CustomResource):
                Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
                to set up Federated repositories correctly.
         :param pulumi.Input[str] notes: Internal description.
-        :param pulumi.Input[str] primary_keypair_ref: Used to sign index files in Debian artifacts.
+        :param pulumi.Input[str] primary_keypair_ref: Primary keypair used to sign artifacts. Default value is empty.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
         :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies settings. Default is empty field. Can't be set if `disable_proxy = true`.
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the federated repository
-        :param pulumi.Input[str] secondary_keypair_ref: Used to sign index files in Debian artifacts.
+        :param pulumi.Input[str] secondary_keypair_ref: Secondary keypair used to sign artifacts.
         :param pulumi.Input[bool] trivial_layout: When set, the repository will use the deprecated trivial layout.
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
                Xray settings.
@@ -1070,14 +1070,14 @@ class FederatedDebianRepository(pulumi.CustomResource):
                Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
                to set up Federated repositories correctly.
         :param pulumi.Input[str] notes: Internal description.
-        :param pulumi.Input[str] primary_keypair_ref: Used to sign index files in Debian artifacts.
+        :param pulumi.Input[str] primary_keypair_ref: Primary keypair used to sign artifacts. Default value is empty.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
         :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies settings. Default is empty field. Can't be set if `disable_proxy = true`.
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the federated repository
-        :param pulumi.Input[str] secondary_keypair_ref: Used to sign index files in Debian artifacts.
+        :param pulumi.Input[str] secondary_keypair_ref: Secondary keypair used to sign artifacts.
         :param pulumi.Input[bool] trivial_layout: When set, the repository will use the deprecated trivial layout.
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
                Xray settings.
@@ -1228,7 +1228,7 @@ class FederatedDebianRepository(pulumi.CustomResource):
     @pulumi.getter(name="primaryKeypairRef")
     def primary_keypair_ref(self) -> pulumi.Output[Optional[str]]:
         """
-        Used to sign index files in Debian artifacts.
+        Primary keypair used to sign artifacts. Default value is empty.
         """
         return pulumi.get(self, "primary_keypair_ref")
 
@@ -1282,7 +1282,7 @@ class FederatedDebianRepository(pulumi.CustomResource):
     @pulumi.getter(name="secondaryKeypairRef")
     def secondary_keypair_ref(self) -> pulumi.Output[Optional[str]]:
         """
-        Used to sign index files in Debian artifacts.
+        Secondary keypair used to sign artifacts.
         """
         return pulumi.get(self, "secondary_keypair_ref")
 

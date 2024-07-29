@@ -145,6 +145,11 @@ export type FederatedAlpineRepository = import("./federatedAlpineRepository").Fe
 export const FederatedAlpineRepository: typeof import("./federatedAlpineRepository").FederatedAlpineRepository = null as any;
 utilities.lazyLoad(exports, ["FederatedAlpineRepository"], () => require("./federatedAlpineRepository"));
 
+export { FederatedAnsibleRepositoryArgs, FederatedAnsibleRepositoryState } from "./federatedAnsibleRepository";
+export type FederatedAnsibleRepository = import("./federatedAnsibleRepository").FederatedAnsibleRepository;
+export const FederatedAnsibleRepository: typeof import("./federatedAnsibleRepository").FederatedAnsibleRepository = null as any;
+utilities.lazyLoad(exports, ["FederatedAnsibleRepository"], () => require("./federatedAnsibleRepository"));
+
 export { FederatedBowerRepositoryArgs, FederatedBowerRepositoryState } from "./federatedBowerRepository";
 export type FederatedBowerRepository = import("./federatedBowerRepository").FederatedBowerRepository;
 export const FederatedBowerRepository: typeof import("./federatedBowerRepository").FederatedBowerRepository = null as any;
@@ -319,6 +324,11 @@ export { GetFederatedAlpineRepositoryArgs, GetFederatedAlpineRepositoryResult, G
 export const getFederatedAlpineRepository: typeof import("./getFederatedAlpineRepository").getFederatedAlpineRepository = null as any;
 export const getFederatedAlpineRepositoryOutput: typeof import("./getFederatedAlpineRepository").getFederatedAlpineRepositoryOutput = null as any;
 utilities.lazyLoad(exports, ["getFederatedAlpineRepository","getFederatedAlpineRepositoryOutput"], () => require("./getFederatedAlpineRepository"));
+
+export { GetFederatedAnsibleRepositoryArgs, GetFederatedAnsibleRepositoryResult, GetFederatedAnsibleRepositoryOutputArgs } from "./getFederatedAnsibleRepository";
+export const getFederatedAnsibleRepository: typeof import("./getFederatedAnsibleRepository").getFederatedAnsibleRepository = null as any;
+export const getFederatedAnsibleRepositoryOutput: typeof import("./getFederatedAnsibleRepository").getFederatedAnsibleRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getFederatedAnsibleRepository","getFederatedAnsibleRepositoryOutput"], () => require("./getFederatedAnsibleRepository"));
 
 export { GetFederatedBowerRepositoryArgs, GetFederatedBowerRepositoryResult, GetFederatedBowerRepositoryOutputArgs } from "./getFederatedBowerRepository";
 export const getFederatedBowerRepository: typeof import("./getFederatedBowerRepository").getFederatedBowerRepository = null as any;
@@ -510,6 +520,11 @@ export const getLocalAlpineRepository: typeof import("./getLocalAlpineRepository
 export const getLocalAlpineRepositoryOutput: typeof import("./getLocalAlpineRepository").getLocalAlpineRepositoryOutput = null as any;
 utilities.lazyLoad(exports, ["getLocalAlpineRepository","getLocalAlpineRepositoryOutput"], () => require("./getLocalAlpineRepository"));
 
+export { GetLocalAnsibleRepositoryArgs, GetLocalAnsibleRepositoryResult, GetLocalAnsibleRepositoryOutputArgs } from "./getLocalAnsibleRepository";
+export const getLocalAnsibleRepository: typeof import("./getLocalAnsibleRepository").getLocalAnsibleRepository = null as any;
+export const getLocalAnsibleRepositoryOutput: typeof import("./getLocalAnsibleRepository").getLocalAnsibleRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getLocalAnsibleRepository","getLocalAnsibleRepositoryOutput"], () => require("./getLocalAnsibleRepository"));
+
 export { GetLocalBowerRepositoryArgs, GetLocalBowerRepositoryResult, GetLocalBowerRepositoryOutputArgs } from "./getLocalBowerRepository";
 export const getLocalBowerRepository: typeof import("./getLocalBowerRepository").getLocalBowerRepository = null as any;
 export const getLocalBowerRepositoryOutput: typeof import("./getLocalBowerRepository").getLocalBowerRepositoryOutput = null as any;
@@ -695,6 +710,11 @@ export const getRemoteAlpineRepository: typeof import("./getRemoteAlpineReposito
 export const getRemoteAlpineRepositoryOutput: typeof import("./getRemoteAlpineRepository").getRemoteAlpineRepositoryOutput = null as any;
 utilities.lazyLoad(exports, ["getRemoteAlpineRepository","getRemoteAlpineRepositoryOutput"], () => require("./getRemoteAlpineRepository"));
 
+export { GetRemoteAnsibleRepositoryArgs, GetRemoteAnsibleRepositoryResult, GetRemoteAnsibleRepositoryOutputArgs } from "./getRemoteAnsibleRepository";
+export const getRemoteAnsibleRepository: typeof import("./getRemoteAnsibleRepository").getRemoteAnsibleRepository = null as any;
+export const getRemoteAnsibleRepositoryOutput: typeof import("./getRemoteAnsibleRepository").getRemoteAnsibleRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getRemoteAnsibleRepository","getRemoteAnsibleRepositoryOutput"], () => require("./getRemoteAnsibleRepository"));
+
 export { GetRemoteBowerRepositoryArgs, GetRemoteBowerRepositoryResult, GetRemoteBowerRepositoryOutputArgs } from "./getRemoteBowerRepository";
 export const getRemoteBowerRepository: typeof import("./getRemoteBowerRepository").getRemoteBowerRepository = null as any;
 export const getRemoteBowerRepositoryOutput: typeof import("./getRemoteBowerRepository").getRemoteBowerRepositoryOutput = null as any;
@@ -869,6 +889,11 @@ export { GetVirtualAlpineRepositoryArgs, GetVirtualAlpineRepositoryResult, GetVi
 export const getVirtualAlpineRepository: typeof import("./getVirtualAlpineRepository").getVirtualAlpineRepository = null as any;
 export const getVirtualAlpineRepositoryOutput: typeof import("./getVirtualAlpineRepository").getVirtualAlpineRepositoryOutput = null as any;
 utilities.lazyLoad(exports, ["getVirtualAlpineRepository","getVirtualAlpineRepositoryOutput"], () => require("./getVirtualAlpineRepository"));
+
+export { GetVirtualAnsibleRepositoryArgs, GetVirtualAnsibleRepositoryResult, GetVirtualAnsibleRepositoryOutputArgs } from "./getVirtualAnsibleRepository";
+export const getVirtualAnsibleRepository: typeof import("./getVirtualAnsibleRepository").getVirtualAnsibleRepository = null as any;
+export const getVirtualAnsibleRepositoryOutput: typeof import("./getVirtualAnsibleRepository").getVirtualAnsibleRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getVirtualAnsibleRepository","getVirtualAnsibleRepositoryOutput"], () => require("./getVirtualAnsibleRepository"));
 
 export { GetVirtualBowerRepositoryArgs, GetVirtualBowerRepositoryResult, GetVirtualBowerRepositoryOutputArgs } from "./getVirtualBowerRepository";
 export const getVirtualBowerRepository: typeof import("./getVirtualBowerRepository").getVirtualBowerRepository = null as any;
@@ -1049,6 +1074,11 @@ export { LdapSettingV2Args, LdapSettingV2State } from "./ldapSettingV2";
 export type LdapSettingV2 = import("./ldapSettingV2").LdapSettingV2;
 export const LdapSettingV2: typeof import("./ldapSettingV2").LdapSettingV2 = null as any;
 utilities.lazyLoad(exports, ["LdapSettingV2"], () => require("./ldapSettingV2"));
+
+export { LocalAnsibleRepositoryArgs, LocalAnsibleRepositoryState } from "./localAnsibleRepository";
+export type LocalAnsibleRepository = import("./localAnsibleRepository").LocalAnsibleRepository;
+export const LocalAnsibleRepository: typeof import("./localAnsibleRepository").LocalAnsibleRepository = null as any;
+utilities.lazyLoad(exports, ["LocalAnsibleRepository"], () => require("./localAnsibleRepository"));
 
 export { LocalBowerRepositoryArgs, LocalBowerRepositoryState } from "./localBowerRepository";
 export type LocalBowerRepository = import("./localBowerRepository").LocalBowerRepository;
@@ -1310,6 +1340,11 @@ export type RemoteAlpineRepository = import("./remoteAlpineRepository").RemoteAl
 export const RemoteAlpineRepository: typeof import("./remoteAlpineRepository").RemoteAlpineRepository = null as any;
 utilities.lazyLoad(exports, ["RemoteAlpineRepository"], () => require("./remoteAlpineRepository"));
 
+export { RemoteAnsibleRepositoryArgs, RemoteAnsibleRepositoryState } from "./remoteAnsibleRepository";
+export type RemoteAnsibleRepository = import("./remoteAnsibleRepository").RemoteAnsibleRepository;
+export const RemoteAnsibleRepository: typeof import("./remoteAnsibleRepository").RemoteAnsibleRepository = null as any;
+utilities.lazyLoad(exports, ["RemoteAnsibleRepository"], () => require("./remoteAnsibleRepository"));
+
 export { RemoteBowerRepositoryArgs, RemoteBowerRepositoryState } from "./remoteBowerRepository";
 export type RemoteBowerRepository = import("./remoteBowerRepository").RemoteBowerRepository;
 export const RemoteBowerRepository: typeof import("./remoteBowerRepository").RemoteBowerRepository = null as any;
@@ -1540,6 +1575,11 @@ export type VirtualAlpineRepository = import("./virtualAlpineRepository").Virtua
 export const VirtualAlpineRepository: typeof import("./virtualAlpineRepository").VirtualAlpineRepository = null as any;
 utilities.lazyLoad(exports, ["VirtualAlpineRepository"], () => require("./virtualAlpineRepository"));
 
+export { VirtualAnsibleRepositoryArgs, VirtualAnsibleRepositoryState } from "./virtualAnsibleRepository";
+export type VirtualAnsibleRepository = import("./virtualAnsibleRepository").VirtualAnsibleRepository;
+export const VirtualAnsibleRepository: typeof import("./virtualAnsibleRepository").VirtualAnsibleRepository = null as any;
+utilities.lazyLoad(exports, ["VirtualAnsibleRepository"], () => require("./virtualAnsibleRepository"));
+
 export { VirtualBowerRepositoryArgs, VirtualBowerRepositoryState } from "./virtualBowerRepository";
 export type VirtualBowerRepository = import("./virtualBowerRepository").VirtualBowerRepository;
 export const VirtualBowerRepository: typeof import("./virtualBowerRepository").VirtualBowerRepository = null as any;
@@ -1740,6 +1780,8 @@ const _module = {
                 return new DockerWebhook(name, <any>undefined, { urn })
             case "artifactory:index/federatedAlpineRepository:FederatedAlpineRepository":
                 return new FederatedAlpineRepository(name, <any>undefined, { urn })
+            case "artifactory:index/federatedAnsibleRepository:FederatedAnsibleRepository":
+                return new FederatedAnsibleRepository(name, <any>undefined, { urn })
             case "artifactory:index/federatedBowerRepository:FederatedBowerRepository":
                 return new FederatedBowerRepository(name, <any>undefined, { urn })
             case "artifactory:index/federatedCargoRepository:FederatedCargoRepository":
@@ -1824,6 +1866,8 @@ const _module = {
                 return new LdapSetting(name, <any>undefined, { urn })
             case "artifactory:index/ldapSettingV2:LdapSettingV2":
                 return new LdapSettingV2(name, <any>undefined, { urn })
+            case "artifactory:index/localAnsibleRepository:LocalAnsibleRepository":
+                return new LocalAnsibleRepository(name, <any>undefined, { urn })
             case "artifactory:index/localBowerRepository:LocalBowerRepository":
                 return new LocalBowerRepository(name, <any>undefined, { urn })
             case "artifactory:index/localCargoRepository:LocalCargoRepository":
@@ -1926,6 +1970,8 @@ const _module = {
                 return new ReleaseBundleWebhook(name, <any>undefined, { urn })
             case "artifactory:index/remoteAlpineRepository:RemoteAlpineRepository":
                 return new RemoteAlpineRepository(name, <any>undefined, { urn })
+            case "artifactory:index/remoteAnsibleRepository:RemoteAnsibleRepository":
+                return new RemoteAnsibleRepository(name, <any>undefined, { urn })
             case "artifactory:index/remoteBowerRepository:RemoteBowerRepository":
                 return new RemoteBowerRepository(name, <any>undefined, { urn })
             case "artifactory:index/remoteCargoRepository:RemoteCargoRepository":
@@ -2018,6 +2064,8 @@ const _module = {
                 return new VaultConfiguration(name, <any>undefined, { urn })
             case "artifactory:index/virtualAlpineRepository:VirtualAlpineRepository":
                 return new VirtualAlpineRepository(name, <any>undefined, { urn })
+            case "artifactory:index/virtualAnsibleRepository:VirtualAnsibleRepository":
+                return new VirtualAnsibleRepository(name, <any>undefined, { urn })
             case "artifactory:index/virtualBowerRepository:VirtualBowerRepository":
                 return new VirtualBowerRepository(name, <any>undefined, { urn })
             case "artifactory:index/virtualChefRepository:VirtualChefRepository":
@@ -2103,6 +2151,7 @@ pulumi.runtime.registerResourceModule("artifactory", "index/dockerV1Repository",
 pulumi.runtime.registerResourceModule("artifactory", "index/dockerV2Repository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/dockerWebhook", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/federatedAlpineRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/federatedAnsibleRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/federatedBowerRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/federatedCargoRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/federatedChefRepository", _module)
@@ -2145,6 +2194,7 @@ pulumi.runtime.registerResourceModule("artifactory", "index/ldapGroupSetting", _
 pulumi.runtime.registerResourceModule("artifactory", "index/ldapGroupSettingV2", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/ldapSetting", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/ldapSettingV2", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/localAnsibleRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/localBowerRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/localCargoRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/localChefRepository", _module)
@@ -2196,6 +2246,7 @@ pulumi.runtime.registerResourceModule("artifactory", "index/releaseBundleV2Promo
 pulumi.runtime.registerResourceModule("artifactory", "index/releaseBundleV2Webhook", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/releaseBundleWebhook", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteAlpineRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/remoteAnsibleRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteBowerRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteCargoRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteChefRepository", _module)
@@ -2242,6 +2293,7 @@ pulumi.runtime.registerResourceModule("artifactory", "index/userLockPolicy", _mo
 pulumi.runtime.registerResourceModule("artifactory", "index/userWebhook", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/vaultConfiguration", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/virtualAlpineRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/virtualAnsibleRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/virtualBowerRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/virtualChefRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/virtualComposerRepository", _module)
