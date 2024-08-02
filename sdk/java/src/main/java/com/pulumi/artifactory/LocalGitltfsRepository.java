@@ -312,11 +312,18 @@ public class LocalGitltfsRepository extends com.pulumi.resources.CustomResource 
      * @param options A bag of options that control this resource's behavior.
      */
     public LocalGitltfsRepository(String name, LocalGitltfsRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/localGitltfsRepository:LocalGitltfsRepository", name, args == null ? LocalGitltfsRepositoryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("artifactory:index/localGitltfsRepository:LocalGitltfsRepository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private LocalGitltfsRepository(String name, Output<String> id, @Nullable LocalGitltfsRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("artifactory:index/localGitltfsRepository:LocalGitltfsRepository", name, state, makeResourceOptions(options, id));
+    }
+
+    private static LocalGitltfsRepositoryArgs makeArgs(LocalGitltfsRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LocalGitltfsRepositoryArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

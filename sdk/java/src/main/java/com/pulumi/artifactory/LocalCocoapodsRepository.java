@@ -312,11 +312,18 @@ public class LocalCocoapodsRepository extends com.pulumi.resources.CustomResourc
      * @param options A bag of options that control this resource's behavior.
      */
     public LocalCocoapodsRepository(String name, LocalCocoapodsRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/localCocoapodsRepository:LocalCocoapodsRepository", name, args == null ? LocalCocoapodsRepositoryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("artifactory:index/localCocoapodsRepository:LocalCocoapodsRepository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private LocalCocoapodsRepository(String name, Output<String> id, @Nullable LocalCocoapodsRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("artifactory:index/localCocoapodsRepository:LocalCocoapodsRepository", name, state, makeResourceOptions(options, id));
+    }
+
+    private static LocalCocoapodsRepositoryArgs makeArgs(LocalCocoapodsRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LocalCocoapodsRepositoryArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -391,11 +391,18 @@ public class FederatedConanRepository extends com.pulumi.resources.CustomResourc
      * @param options A bag of options that control this resource's behavior.
      */
     public FederatedConanRepository(String name, FederatedConanRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/federatedConanRepository:FederatedConanRepository", name, args == null ? FederatedConanRepositoryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("artifactory:index/federatedConanRepository:FederatedConanRepository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private FederatedConanRepository(String name, Output<String> id, @Nullable FederatedConanRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("artifactory:index/federatedConanRepository:FederatedConanRepository", name, state, makeResourceOptions(options, id));
+    }
+
+    private static FederatedConanRepositoryArgs makeArgs(FederatedConanRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? FederatedConanRepositoryArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

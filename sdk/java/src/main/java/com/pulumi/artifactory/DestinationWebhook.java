@@ -189,11 +189,18 @@ public class DestinationWebhook extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public DestinationWebhook(String name, DestinationWebhookArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/destinationWebhook:DestinationWebhook", name, args == null ? DestinationWebhookArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("artifactory:index/destinationWebhook:DestinationWebhook", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private DestinationWebhook(String name, Output<String> id, @Nullable DestinationWebhookState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("artifactory:index/destinationWebhook:DestinationWebhook", name, state, makeResourceOptions(options, id));
+    }
+
+    private static DestinationWebhookArgs makeArgs(DestinationWebhookArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DestinationWebhookArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

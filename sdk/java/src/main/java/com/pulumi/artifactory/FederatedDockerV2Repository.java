@@ -440,11 +440,18 @@ public class FederatedDockerV2Repository extends com.pulumi.resources.CustomReso
      * @param options A bag of options that control this resource's behavior.
      */
     public FederatedDockerV2Repository(String name, FederatedDockerV2RepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/federatedDockerV2Repository:FederatedDockerV2Repository", name, args == null ? FederatedDockerV2RepositoryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("artifactory:index/federatedDockerV2Repository:FederatedDockerV2Repository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private FederatedDockerV2Repository(String name, Output<String> id, @Nullable FederatedDockerV2RepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("artifactory:index/federatedDockerV2Repository:FederatedDockerV2Repository", name, state, makeResourceOptions(options, id));
+    }
+
+    private static FederatedDockerV2RepositoryArgs makeArgs(FederatedDockerV2RepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? FederatedDockerV2RepositoryArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

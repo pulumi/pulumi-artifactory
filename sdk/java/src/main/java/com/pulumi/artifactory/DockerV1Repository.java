@@ -337,11 +337,18 @@ public class DockerV1Repository extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public DockerV1Repository(String name, DockerV1RepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/dockerV1Repository:DockerV1Repository", name, args == null ? DockerV1RepositoryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("artifactory:index/dockerV1Repository:DockerV1Repository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private DockerV1Repository(String name, Output<String> id, @Nullable DockerV1RepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("artifactory:index/dockerV1Repository:DockerV1Repository", name, state, makeResourceOptions(options, id));
+    }
+
+    private static DockerV1RepositoryArgs makeArgs(DockerV1RepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DockerV1RepositoryArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

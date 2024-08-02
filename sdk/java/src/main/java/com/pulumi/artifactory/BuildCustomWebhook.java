@@ -190,11 +190,18 @@ public class BuildCustomWebhook extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public BuildCustomWebhook(String name, BuildCustomWebhookArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/buildCustomWebhook:BuildCustomWebhook", name, args == null ? BuildCustomWebhookArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("artifactory:index/buildCustomWebhook:BuildCustomWebhook", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private BuildCustomWebhook(String name, Output<String> id, @Nullable BuildCustomWebhookState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("artifactory:index/buildCustomWebhook:BuildCustomWebhook", name, state, makeResourceOptions(options, id));
+    }
+
+    private static BuildCustomWebhookArgs makeArgs(BuildCustomWebhookArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? BuildCustomWebhookArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

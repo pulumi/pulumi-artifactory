@@ -746,11 +746,18 @@ public class RemoteNpmRepository extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public RemoteNpmRepository(String name, RemoteNpmRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/remoteNpmRepository:RemoteNpmRepository", name, args == null ? RemoteNpmRepositoryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("artifactory:index/remoteNpmRepository:RemoteNpmRepository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private RemoteNpmRepository(String name, Output<String> id, @Nullable RemoteNpmRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("artifactory:index/remoteNpmRepository:RemoteNpmRepository", name, state, makeResourceOptions(options, id));
+    }
+
+    private static RemoteNpmRepositoryArgs makeArgs(RemoteNpmRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RemoteNpmRepositoryArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

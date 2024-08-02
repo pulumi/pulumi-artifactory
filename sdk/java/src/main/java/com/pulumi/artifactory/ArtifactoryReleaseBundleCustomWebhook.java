@@ -194,11 +194,18 @@ public class ArtifactoryReleaseBundleCustomWebhook extends com.pulumi.resources.
      * @param options A bag of options that control this resource's behavior.
      */
     public ArtifactoryReleaseBundleCustomWebhook(String name, ArtifactoryReleaseBundleCustomWebhookArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/artifactoryReleaseBundleCustomWebhook:ArtifactoryReleaseBundleCustomWebhook", name, args == null ? ArtifactoryReleaseBundleCustomWebhookArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("artifactory:index/artifactoryReleaseBundleCustomWebhook:ArtifactoryReleaseBundleCustomWebhook", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ArtifactoryReleaseBundleCustomWebhook(String name, Output<String> id, @Nullable ArtifactoryReleaseBundleCustomWebhookState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("artifactory:index/artifactoryReleaseBundleCustomWebhook:ArtifactoryReleaseBundleCustomWebhook", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ArtifactoryReleaseBundleCustomWebhookArgs makeArgs(ArtifactoryReleaseBundleCustomWebhookArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ArtifactoryReleaseBundleCustomWebhookArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

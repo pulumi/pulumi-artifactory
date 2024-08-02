@@ -1310,10 +1310,20 @@ export type ReleaseBundleCustomWebhook = import("./releaseBundleCustomWebhook").
 export const ReleaseBundleCustomWebhook: typeof import("./releaseBundleCustomWebhook").ReleaseBundleCustomWebhook = null as any;
 utilities.lazyLoad(exports, ["ReleaseBundleCustomWebhook"], () => require("./releaseBundleCustomWebhook"));
 
+export { ReleaseBundleV2Args, ReleaseBundleV2State } from "./releaseBundleV2";
+export type ReleaseBundleV2 = import("./releaseBundleV2").ReleaseBundleV2;
+export const ReleaseBundleV2: typeof import("./releaseBundleV2").ReleaseBundleV2 = null as any;
+utilities.lazyLoad(exports, ["ReleaseBundleV2"], () => require("./releaseBundleV2"));
+
 export { ReleaseBundleV2CustomWebhookArgs, ReleaseBundleV2CustomWebhookState } from "./releaseBundleV2CustomWebhook";
 export type ReleaseBundleV2CustomWebhook = import("./releaseBundleV2CustomWebhook").ReleaseBundleV2CustomWebhook;
 export const ReleaseBundleV2CustomWebhook: typeof import("./releaseBundleV2CustomWebhook").ReleaseBundleV2CustomWebhook = null as any;
 utilities.lazyLoad(exports, ["ReleaseBundleV2CustomWebhook"], () => require("./releaseBundleV2CustomWebhook"));
+
+export { ReleaseBundleV2PromotionArgs, ReleaseBundleV2PromotionState } from "./releaseBundleV2Promotion";
+export type ReleaseBundleV2Promotion = import("./releaseBundleV2Promotion").ReleaseBundleV2Promotion;
+export const ReleaseBundleV2Promotion: typeof import("./releaseBundleV2Promotion").ReleaseBundleV2Promotion = null as any;
+utilities.lazyLoad(exports, ["ReleaseBundleV2Promotion"], () => require("./releaseBundleV2Promotion"));
 
 export { ReleaseBundleV2PromotionCustomWebhookArgs, ReleaseBundleV2PromotionCustomWebhookState } from "./releaseBundleV2PromotionCustomWebhook";
 export type ReleaseBundleV2PromotionCustomWebhook = import("./releaseBundleV2PromotionCustomWebhook").ReleaseBundleV2PromotionCustomWebhook;
@@ -1958,8 +1968,12 @@ const _module = {
                 return new PushReplication(name, <any>undefined, { urn })
             case "artifactory:index/releaseBundleCustomWebhook:ReleaseBundleCustomWebhook":
                 return new ReleaseBundleCustomWebhook(name, <any>undefined, { urn })
+            case "artifactory:index/releaseBundleV2:ReleaseBundleV2":
+                return new ReleaseBundleV2(name, <any>undefined, { urn })
             case "artifactory:index/releaseBundleV2CustomWebhook:ReleaseBundleV2CustomWebhook":
                 return new ReleaseBundleV2CustomWebhook(name, <any>undefined, { urn })
+            case "artifactory:index/releaseBundleV2Promotion:ReleaseBundleV2Promotion":
+                return new ReleaseBundleV2Promotion(name, <any>undefined, { urn })
             case "artifactory:index/releaseBundleV2PromotionCustomWebhook:ReleaseBundleV2PromotionCustomWebhook":
                 return new ReleaseBundleV2PromotionCustomWebhook(name, <any>undefined, { urn })
             case "artifactory:index/releaseBundleV2PromotionWebhook:ReleaseBundleV2PromotionWebhook":
@@ -2240,7 +2254,9 @@ pulumi.runtime.registerResourceModule("artifactory", "index/proxy", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/pullReplication", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/pushReplication", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/releaseBundleCustomWebhook", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/releaseBundleV2", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/releaseBundleV2CustomWebhook", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/releaseBundleV2Promotion", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/releaseBundleV2PromotionCustomWebhook", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/releaseBundleV2PromotionWebhook", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/releaseBundleV2Webhook", _module)

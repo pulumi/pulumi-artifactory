@@ -200,11 +200,18 @@ public class ArtifactWebhook extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ArtifactWebhook(String name, ArtifactWebhookArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/artifactWebhook:ArtifactWebhook", name, args == null ? ArtifactWebhookArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("artifactory:index/artifactWebhook:ArtifactWebhook", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ArtifactWebhook(String name, Output<String> id, @Nullable ArtifactWebhookState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("artifactory:index/artifactWebhook:ArtifactWebhook", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ArtifactWebhookArgs makeArgs(ArtifactWebhookArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ArtifactWebhookArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

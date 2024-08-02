@@ -730,11 +730,18 @@ public class RemoteP2Repository extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public RemoteP2Repository(String name, RemoteP2RepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/remoteP2Repository:RemoteP2Repository", name, args == null ? RemoteP2RepositoryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("artifactory:index/remoteP2Repository:RemoteP2Repository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private RemoteP2Repository(String name, Output<String> id, @Nullable RemoteP2RepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("artifactory:index/remoteP2Repository:RemoteP2Repository", name, state, makeResourceOptions(options, id));
+    }
+
+    private static RemoteP2RepositoryArgs makeArgs(RemoteP2RepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RemoteP2RepositoryArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

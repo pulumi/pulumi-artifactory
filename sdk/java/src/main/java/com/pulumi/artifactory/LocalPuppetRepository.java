@@ -312,11 +312,18 @@ public class LocalPuppetRepository extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public LocalPuppetRepository(String name, LocalPuppetRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/localPuppetRepository:LocalPuppetRepository", name, args == null ? LocalPuppetRepositoryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("artifactory:index/localPuppetRepository:LocalPuppetRepository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private LocalPuppetRepository(String name, Output<String> id, @Nullable LocalPuppetRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("artifactory:index/localPuppetRepository:LocalPuppetRepository", name, state, makeResourceOptions(options, id));
+    }
+
+    private static LocalPuppetRepositoryArgs makeArgs(LocalPuppetRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LocalPuppetRepositoryArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -480,11 +480,18 @@ public class FederatedMavenRepository extends com.pulumi.resources.CustomResourc
      * @param options A bag of options that control this resource's behavior.
      */
     public FederatedMavenRepository(String name, FederatedMavenRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/federatedMavenRepository:FederatedMavenRepository", name, args == null ? FederatedMavenRepositoryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("artifactory:index/federatedMavenRepository:FederatedMavenRepository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private FederatedMavenRepository(String name, Output<String> id, @Nullable FederatedMavenRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("artifactory:index/federatedMavenRepository:FederatedMavenRepository", name, state, makeResourceOptions(options, id));
+    }
+
+    private static FederatedMavenRepositoryArgs makeArgs(FederatedMavenRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? FederatedMavenRepositoryArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

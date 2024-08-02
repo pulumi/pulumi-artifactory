@@ -255,8 +255,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &PushReplication{}
 	case "artifactory:index/releaseBundleCustomWebhook:ReleaseBundleCustomWebhook":
 		r = &ReleaseBundleCustomWebhook{}
+	case "artifactory:index/releaseBundleV2:ReleaseBundleV2":
+		r = &ReleaseBundleV2{}
 	case "artifactory:index/releaseBundleV2CustomWebhook:ReleaseBundleV2CustomWebhook":
 		r = &ReleaseBundleV2CustomWebhook{}
+	case "artifactory:index/releaseBundleV2Promotion:ReleaseBundleV2Promotion":
+		r = &ReleaseBundleV2Promotion{}
 	case "artifactory:index/releaseBundleV2PromotionCustomWebhook:ReleaseBundleV2PromotionCustomWebhook":
 		r = &ReleaseBundleV2PromotionCustomWebhook{}
 	case "artifactory:index/releaseBundleV2PromotionWebhook:ReleaseBundleV2PromotionWebhook":
@@ -1033,7 +1037,17 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"artifactory",
+		"index/releaseBundleV2",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
 		"index/releaseBundleV2CustomWebhook",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/releaseBundleV2Promotion",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

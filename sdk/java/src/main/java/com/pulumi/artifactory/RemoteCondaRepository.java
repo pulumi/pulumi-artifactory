@@ -730,11 +730,18 @@ public class RemoteCondaRepository extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public RemoteCondaRepository(String name, RemoteCondaRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/remoteCondaRepository:RemoteCondaRepository", name, args == null ? RemoteCondaRepositoryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("artifactory:index/remoteCondaRepository:RemoteCondaRepository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private RemoteCondaRepository(String name, Output<String> id, @Nullable RemoteCondaRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("artifactory:index/remoteCondaRepository:RemoteCondaRepository", name, state, makeResourceOptions(options, id));
+    }
+
+    private static RemoteCondaRepositoryArgs makeArgs(RemoteCondaRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RemoteCondaRepositoryArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

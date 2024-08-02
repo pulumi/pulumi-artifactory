@@ -377,11 +377,18 @@ public class FederatedCondaRepository extends com.pulumi.resources.CustomResourc
      * @param options A bag of options that control this resource's behavior.
      */
     public FederatedCondaRepository(String name, FederatedCondaRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/federatedCondaRepository:FederatedCondaRepository", name, args == null ? FederatedCondaRepositoryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("artifactory:index/federatedCondaRepository:FederatedCondaRepository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private FederatedCondaRepository(String name, Output<String> id, @Nullable FederatedCondaRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("artifactory:index/federatedCondaRepository:FederatedCondaRepository", name, state, makeResourceOptions(options, id));
+    }
+
+    private static FederatedCondaRepositoryArgs makeArgs(FederatedCondaRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? FederatedCondaRepositoryArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

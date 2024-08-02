@@ -256,11 +256,18 @@ public class VirtualGitlfsRepository extends com.pulumi.resources.CustomResource
      * @param options A bag of options that control this resource's behavior.
      */
     public VirtualGitlfsRepository(String name, VirtualGitlfsRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/virtualGitlfsRepository:VirtualGitlfsRepository", name, args == null ? VirtualGitlfsRepositoryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("artifactory:index/virtualGitlfsRepository:VirtualGitlfsRepository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private VirtualGitlfsRepository(String name, Output<String> id, @Nullable VirtualGitlfsRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("artifactory:index/virtualGitlfsRepository:VirtualGitlfsRepository", name, state, makeResourceOptions(options, id));
+    }
+
+    private static VirtualGitlfsRepositoryArgs makeArgs(VirtualGitlfsRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VirtualGitlfsRepositoryArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

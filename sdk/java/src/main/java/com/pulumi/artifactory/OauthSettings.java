@@ -165,11 +165,18 @@ public class OauthSettings extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public OauthSettings(String name, OauthSettingsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/oauthSettings:OauthSettings", name, args == null ? OauthSettingsArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("artifactory:index/oauthSettings:OauthSettings", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private OauthSettings(String name, Output<String> id, @Nullable OauthSettingsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("artifactory:index/oauthSettings:OauthSettings", name, state, makeResourceOptions(options, id));
+    }
+
+    private static OauthSettingsArgs makeArgs(OauthSettingsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? OauthSettingsArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

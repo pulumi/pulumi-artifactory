@@ -377,11 +377,18 @@ public class FederatedVagrantRepository extends com.pulumi.resources.CustomResou
      * @param options A bag of options that control this resource's behavior.
      */
     public FederatedVagrantRepository(String name, FederatedVagrantRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/federatedVagrantRepository:FederatedVagrantRepository", name, args == null ? FederatedVagrantRepositoryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("artifactory:index/federatedVagrantRepository:FederatedVagrantRepository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private FederatedVagrantRepository(String name, Output<String> id, @Nullable FederatedVagrantRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("artifactory:index/federatedVagrantRepository:FederatedVagrantRepository", name, state, makeResourceOptions(options, id));
+    }
+
+    private static FederatedVagrantRepositoryArgs makeArgs(FederatedVagrantRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? FederatedVagrantRepositoryArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

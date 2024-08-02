@@ -271,11 +271,18 @@ public class VirtualDockerRepository extends com.pulumi.resources.CustomResource
      * @param options A bag of options that control this resource's behavior.
      */
     public VirtualDockerRepository(String name, VirtualDockerRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/virtualDockerRepository:VirtualDockerRepository", name, args == null ? VirtualDockerRepositoryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("artifactory:index/virtualDockerRepository:VirtualDockerRepository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private VirtualDockerRepository(String name, Output<String> id, @Nullable VirtualDockerRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("artifactory:index/virtualDockerRepository:VirtualDockerRepository", name, state, makeResourceOptions(options, id));
+    }
+
+    private static VirtualDockerRepositoryArgs makeArgs(VirtualDockerRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VirtualDockerRepositoryArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

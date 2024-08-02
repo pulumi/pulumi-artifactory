@@ -216,11 +216,18 @@ public class VirtualSwiftRepository extends com.pulumi.resources.CustomResource 
      * @param options A bag of options that control this resource's behavior.
      */
     public VirtualSwiftRepository(String name, VirtualSwiftRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/virtualSwiftRepository:VirtualSwiftRepository", name, args == null ? VirtualSwiftRepositoryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("artifactory:index/virtualSwiftRepository:VirtualSwiftRepository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private VirtualSwiftRepository(String name, Output<String> id, @Nullable VirtualSwiftRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("artifactory:index/virtualSwiftRepository:VirtualSwiftRepository", name, state, makeResourceOptions(options, id));
+    }
+
+    private static VirtualSwiftRepositoryArgs makeArgs(VirtualSwiftRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VirtualSwiftRepositoryArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

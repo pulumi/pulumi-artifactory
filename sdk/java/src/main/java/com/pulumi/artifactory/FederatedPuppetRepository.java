@@ -377,11 +377,18 @@ public class FederatedPuppetRepository extends com.pulumi.resources.CustomResour
      * @param options A bag of options that control this resource's behavior.
      */
     public FederatedPuppetRepository(String name, FederatedPuppetRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/federatedPuppetRepository:FederatedPuppetRepository", name, args == null ? FederatedPuppetRepositoryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("artifactory:index/federatedPuppetRepository:FederatedPuppetRepository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private FederatedPuppetRepository(String name, Output<String> id, @Nullable FederatedPuppetRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("artifactory:index/federatedPuppetRepository:FederatedPuppetRepository", name, state, makeResourceOptions(options, id));
+    }
+
+    private static FederatedPuppetRepositoryArgs makeArgs(FederatedPuppetRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? FederatedPuppetRepositoryArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

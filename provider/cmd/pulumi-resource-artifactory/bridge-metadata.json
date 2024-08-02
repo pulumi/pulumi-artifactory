@@ -1725,6 +1725,25 @@
                     }
                 }
             },
+            "artifactory_release_bundle_v2": {
+                "current": "artifactory:index/releaseBundleV2:ReleaseBundleV2",
+                "majorVersion": 7,
+                "fields": {
+                    "source": {
+                        "fields": {
+                            "artifacts": {
+                                "maxItemsOne": false
+                            },
+                            "builds": {
+                                "maxItemsOne": false
+                            },
+                            "release_bundles": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    }
+                }
+            },
             "artifactory_release_bundle_v2_custom_webhook": {
                 "current": "artifactory:index/releaseBundleV2CustomWebhook:ReleaseBundleV2CustomWebhook",
                 "majorVersion": 7,
@@ -1749,6 +1768,18 @@
                         "maxItemsOne": false
                     },
                     "handler": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "artifactory_release_bundle_v2_promotion": {
+                "current": "artifactory:index/releaseBundleV2Promotion:ReleaseBundleV2Promotion",
+                "majorVersion": 7,
+                "fields": {
+                    "excluded_repository_keys": {
+                        "maxItemsOne": false
+                    },
+                    "included_repository_keys": {
                         "maxItemsOne": false
                     }
                 }
@@ -5054,7 +5085,9 @@
             "artifactory:index/pullReplication:PullReplication": 0,
             "artifactory:index/pushReplication:PushReplication": 0,
             "artifactory:index/releaseBundleCustomWebhook:ReleaseBundleCustomWebhook": 0,
+            "artifactory:index/releaseBundleV2:ReleaseBundleV2": 1,
             "artifactory:index/releaseBundleV2CustomWebhook:ReleaseBundleV2CustomWebhook": 0,
+            "artifactory:index/releaseBundleV2Promotion:ReleaseBundleV2Promotion": 1,
             "artifactory:index/releaseBundleV2PromotionCustomWebhook:ReleaseBundleV2PromotionCustomWebhook": 0,
             "artifactory:index/releaseBundleV2PromotionWebhook:ReleaseBundleV2PromotionWebhook": 0,
             "artifactory:index/releaseBundleV2Webhook:ReleaseBundleV2Webhook": 0,

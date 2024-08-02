@@ -480,11 +480,18 @@ public class FederatedGradleRepository extends com.pulumi.resources.CustomResour
      * @param options A bag of options that control this resource's behavior.
      */
     public FederatedGradleRepository(String name, FederatedGradleRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/federatedGradleRepository:FederatedGradleRepository", name, args == null ? FederatedGradleRepositoryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("artifactory:index/federatedGradleRepository:FederatedGradleRepository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private FederatedGradleRepository(String name, Output<String> id, @Nullable FederatedGradleRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("artifactory:index/federatedGradleRepository:FederatedGradleRepository", name, state, makeResourceOptions(options, id));
+    }
+
+    private static FederatedGradleRepositoryArgs makeArgs(FederatedGradleRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? FederatedGradleRepositoryArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

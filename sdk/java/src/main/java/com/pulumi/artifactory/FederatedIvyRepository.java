@@ -480,11 +480,18 @@ public class FederatedIvyRepository extends com.pulumi.resources.CustomResource 
      * @param options A bag of options that control this resource's behavior.
      */
     public FederatedIvyRepository(String name, FederatedIvyRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/federatedIvyRepository:FederatedIvyRepository", name, args == null ? FederatedIvyRepositoryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("artifactory:index/federatedIvyRepository:FederatedIvyRepository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private FederatedIvyRepository(String name, Output<String> id, @Nullable FederatedIvyRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("artifactory:index/federatedIvyRepository:FederatedIvyRepository", name, state, makeResourceOptions(options, id));
+    }
+
+    private static FederatedIvyRepositoryArgs makeArgs(FederatedIvyRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? FederatedIvyRepositoryArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

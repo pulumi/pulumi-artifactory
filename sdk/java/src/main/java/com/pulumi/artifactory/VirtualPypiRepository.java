@@ -256,11 +256,18 @@ public class VirtualPypiRepository extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public VirtualPypiRepository(String name, VirtualPypiRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/virtualPypiRepository:VirtualPypiRepository", name, args == null ? VirtualPypiRepositoryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("artifactory:index/virtualPypiRepository:VirtualPypiRepository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private VirtualPypiRepository(String name, Output<String> id, @Nullable VirtualPypiRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("artifactory:index/virtualPypiRepository:VirtualPypiRepository", name, state, makeResourceOptions(options, id));
+    }
+
+    private static VirtualPypiRepositoryArgs makeArgs(VirtualPypiRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VirtualPypiRepositoryArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

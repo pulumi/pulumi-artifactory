@@ -849,11 +849,18 @@ public class RemoteMavenRepository extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public RemoteMavenRepository(String name, RemoteMavenRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/remoteMavenRepository:RemoteMavenRepository", name, args == null ? RemoteMavenRepositoryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("artifactory:index/remoteMavenRepository:RemoteMavenRepository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private RemoteMavenRepository(String name, Output<String> id, @Nullable RemoteMavenRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("artifactory:index/remoteMavenRepository:RemoteMavenRepository", name, state, makeResourceOptions(options, id));
+    }
+
+    private static RemoteMavenRepositoryArgs makeArgs(RemoteMavenRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RemoteMavenRepositoryArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

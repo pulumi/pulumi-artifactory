@@ -377,11 +377,18 @@ public class FederatedTerraformProviderRepository extends com.pulumi.resources.C
      * @param options A bag of options that control this resource's behavior.
      */
     public FederatedTerraformProviderRepository(String name, FederatedTerraformProviderRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/federatedTerraformProviderRepository:FederatedTerraformProviderRepository", name, args == null ? FederatedTerraformProviderRepositoryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("artifactory:index/federatedTerraformProviderRepository:FederatedTerraformProviderRepository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private FederatedTerraformProviderRepository(String name, Output<String> id, @Nullable FederatedTerraformProviderRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("artifactory:index/federatedTerraformProviderRepository:FederatedTerraformProviderRepository", name, state, makeResourceOptions(options, id));
+    }
+
+    private static FederatedTerraformProviderRepositoryArgs makeArgs(FederatedTerraformProviderRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? FederatedTerraformProviderRepositoryArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

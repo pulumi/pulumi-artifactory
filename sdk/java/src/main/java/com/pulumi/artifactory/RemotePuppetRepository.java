@@ -730,11 +730,18 @@ public class RemotePuppetRepository extends com.pulumi.resources.CustomResource 
      * @param options A bag of options that control this resource's behavior.
      */
     public RemotePuppetRepository(String name, RemotePuppetRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/remotePuppetRepository:RemotePuppetRepository", name, args == null ? RemotePuppetRepositoryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("artifactory:index/remotePuppetRepository:RemotePuppetRepository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private RemotePuppetRepository(String name, Output<String> id, @Nullable RemotePuppetRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("artifactory:index/remotePuppetRepository:RemotePuppetRepository", name, state, makeResourceOptions(options, id));
+    }
+
+    private static RemotePuppetRepositoryArgs makeArgs(RemotePuppetRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RemotePuppetRepositoryArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

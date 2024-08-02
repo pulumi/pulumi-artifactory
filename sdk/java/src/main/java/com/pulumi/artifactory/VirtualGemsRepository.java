@@ -256,11 +256,18 @@ public class VirtualGemsRepository extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public VirtualGemsRepository(String name, VirtualGemsRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/virtualGemsRepository:VirtualGemsRepository", name, args == null ? VirtualGemsRepositoryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("artifactory:index/virtualGemsRepository:VirtualGemsRepository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private VirtualGemsRepository(String name, Output<String> id, @Nullable VirtualGemsRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("artifactory:index/virtualGemsRepository:VirtualGemsRepository", name, state, makeResourceOptions(options, id));
+    }
+
+    private static VirtualGemsRepositoryArgs makeArgs(VirtualGemsRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VirtualGemsRepositoryArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

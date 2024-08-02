@@ -312,11 +312,18 @@ public class LocalBowerRepository extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public LocalBowerRepository(String name, LocalBowerRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/localBowerRepository:LocalBowerRepository", name, args == null ? LocalBowerRepositoryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("artifactory:index/localBowerRepository:LocalBowerRepository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private LocalBowerRepository(String name, Output<String> id, @Nullable LocalBowerRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("artifactory:index/localBowerRepository:LocalBowerRepository", name, state, makeResourceOptions(options, id));
+    }
+
+    private static LocalBowerRepositoryArgs makeArgs(LocalBowerRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LocalBowerRepositoryArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

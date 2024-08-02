@@ -314,11 +314,18 @@ public class LocalHuggingfacemlRepository extends com.pulumi.resources.CustomRes
      * @param options A bag of options that control this resource's behavior.
      */
     public LocalHuggingfacemlRepository(String name, LocalHuggingfacemlRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/localHuggingfacemlRepository:LocalHuggingfacemlRepository", name, args == null ? LocalHuggingfacemlRepositoryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("artifactory:index/localHuggingfacemlRepository:LocalHuggingfacemlRepository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private LocalHuggingfacemlRepository(String name, Output<String> id, @Nullable LocalHuggingfacemlRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("artifactory:index/localHuggingfacemlRepository:LocalHuggingfacemlRepository", name, state, makeResourceOptions(options, id));
+    }
+
+    private static LocalHuggingfacemlRepositoryArgs makeArgs(LocalHuggingfacemlRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LocalHuggingfacemlRepositoryArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

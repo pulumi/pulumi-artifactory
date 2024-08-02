@@ -773,11 +773,18 @@ public class RemoteBowerRepository extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public RemoteBowerRepository(String name, RemoteBowerRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/remoteBowerRepository:RemoteBowerRepository", name, args == null ? RemoteBowerRepositoryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("artifactory:index/remoteBowerRepository:RemoteBowerRepository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private RemoteBowerRepository(String name, Output<String> id, @Nullable RemoteBowerRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("artifactory:index/remoteBowerRepository:RemoteBowerRepository", name, state, makeResourceOptions(options, id));
+    }
+
+    private static RemoteBowerRepositoryArgs makeArgs(RemoteBowerRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RemoteBowerRepositoryArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -192,11 +192,18 @@ public class DistributionPublicKey extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public DistributionPublicKey(String name, DistributionPublicKeyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/distributionPublicKey:DistributionPublicKey", name, args == null ? DistributionPublicKeyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("artifactory:index/distributionPublicKey:DistributionPublicKey", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private DistributionPublicKey(String name, Output<String> id, @Nullable DistributionPublicKeyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("artifactory:index/distributionPublicKey:DistributionPublicKey", name, state, makeResourceOptions(options, id));
+    }
+
+    private static DistributionPublicKeyArgs makeArgs(DistributionPublicKeyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DistributionPublicKeyArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

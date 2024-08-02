@@ -377,11 +377,18 @@ public class FederatedComposerRepository extends com.pulumi.resources.CustomReso
      * @param options A bag of options that control this resource's behavior.
      */
     public FederatedComposerRepository(String name, FederatedComposerRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/federatedComposerRepository:FederatedComposerRepository", name, args == null ? FederatedComposerRepositoryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("artifactory:index/federatedComposerRepository:FederatedComposerRepository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private FederatedComposerRepository(String name, Output<String> id, @Nullable FederatedComposerRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("artifactory:index/federatedComposerRepository:FederatedComposerRepository", name, state, makeResourceOptions(options, id));
+    }
+
+    private static FederatedComposerRepositoryArgs makeArgs(FederatedComposerRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? FederatedComposerRepositoryArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

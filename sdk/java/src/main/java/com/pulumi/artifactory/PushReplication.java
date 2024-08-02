@@ -170,11 +170,18 @@ public class PushReplication extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public PushReplication(String name, PushReplicationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/pushReplication:PushReplication", name, args == null ? PushReplicationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("artifactory:index/pushReplication:PushReplication", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private PushReplication(String name, Output<String> id, @Nullable PushReplicationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("artifactory:index/pushReplication:PushReplication", name, state, makeResourceOptions(options, id));
+    }
+
+    private static PushReplicationArgs makeArgs(PushReplicationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? PushReplicationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

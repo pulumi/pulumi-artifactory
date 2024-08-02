@@ -377,11 +377,18 @@ public class FederatedSwiftRepository extends com.pulumi.resources.CustomResourc
      * @param options A bag of options that control this resource's behavior.
      */
     public FederatedSwiftRepository(String name, FederatedSwiftRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/federatedSwiftRepository:FederatedSwiftRepository", name, args == null ? FederatedSwiftRepositoryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("artifactory:index/federatedSwiftRepository:FederatedSwiftRepository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private FederatedSwiftRepository(String name, Output<String> id, @Nullable FederatedSwiftRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("artifactory:index/federatedSwiftRepository:FederatedSwiftRepository", name, state, makeResourceOptions(options, id));
+    }
+
+    private static FederatedSwiftRepositoryArgs makeArgs(FederatedSwiftRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? FederatedSwiftRepositoryArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
