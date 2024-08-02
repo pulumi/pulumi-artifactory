@@ -730,11 +730,18 @@ public class RemotePubRepository extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public RemotePubRepository(String name, RemotePubRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/remotePubRepository:RemotePubRepository", name, args == null ? RemotePubRepositoryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("artifactory:index/remotePubRepository:RemotePubRepository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private RemotePubRepository(String name, Output<String> id, @Nullable RemotePubRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("artifactory:index/remotePubRepository:RemotePubRepository", name, state, makeResourceOptions(options, id));
+    }
+
+    private static RemotePubRepositoryArgs makeArgs(RemotePubRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RemotePubRepositoryArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

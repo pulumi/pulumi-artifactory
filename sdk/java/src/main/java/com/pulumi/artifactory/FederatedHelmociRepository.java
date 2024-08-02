@@ -412,11 +412,18 @@ public class FederatedHelmociRepository extends com.pulumi.resources.CustomResou
      * @param options A bag of options that control this resource's behavior.
      */
     public FederatedHelmociRepository(String name, FederatedHelmociRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/federatedHelmociRepository:FederatedHelmociRepository", name, args == null ? FederatedHelmociRepositoryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("artifactory:index/federatedHelmociRepository:FederatedHelmociRepository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private FederatedHelmociRepository(String name, Output<String> id, @Nullable FederatedHelmociRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("artifactory:index/federatedHelmociRepository:FederatedHelmociRepository", name, state, makeResourceOptions(options, id));
+    }
+
+    private static FederatedHelmociRepositoryArgs makeArgs(FederatedHelmociRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? FederatedHelmociRepositoryArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

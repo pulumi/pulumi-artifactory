@@ -305,11 +305,18 @@ public class VirtualIvyRepository extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public VirtualIvyRepository(String name, VirtualIvyRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/virtualIvyRepository:VirtualIvyRepository", name, args == null ? VirtualIvyRepositoryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("artifactory:index/virtualIvyRepository:VirtualIvyRepository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private VirtualIvyRepository(String name, Output<String> id, @Nullable VirtualIvyRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("artifactory:index/virtualIvyRepository:VirtualIvyRepository", name, state, makeResourceOptions(options, id));
+    }
+
+    private static VirtualIvyRepositoryArgs makeArgs(VirtualIvyRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VirtualIvyRepositoryArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

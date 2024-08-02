@@ -239,11 +239,18 @@ public class MailServer extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public MailServer(String name, MailServerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/mailServer:MailServer", name, args == null ? MailServerArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("artifactory:index/mailServer:MailServer", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private MailServer(String name, Output<String> id, @Nullable MailServerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("artifactory:index/mailServer:MailServer", name, state, makeResourceOptions(options, id));
+    }
+
+    private static MailServerArgs makeArgs(MailServerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? MailServerArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

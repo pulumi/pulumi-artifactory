@@ -312,11 +312,18 @@ public class LocalCondaRepository extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public LocalCondaRepository(String name, LocalCondaRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/localCondaRepository:LocalCondaRepository", name, args == null ? LocalCondaRepositoryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("artifactory:index/localCondaRepository:LocalCondaRepository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private LocalCondaRepository(String name, Output<String> id, @Nullable LocalCondaRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("artifactory:index/localCondaRepository:LocalCondaRepository", name, state, makeResourceOptions(options, id));
+    }
+
+    private static LocalCondaRepositoryArgs makeArgs(LocalCondaRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LocalCondaRepositoryArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

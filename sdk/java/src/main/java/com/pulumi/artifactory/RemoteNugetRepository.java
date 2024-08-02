@@ -808,11 +808,18 @@ public class RemoteNugetRepository extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public RemoteNugetRepository(String name, RemoteNugetRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/remoteNugetRepository:RemoteNugetRepository", name, args == null ? RemoteNugetRepositoryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("artifactory:index/remoteNugetRepository:RemoteNugetRepository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private RemoteNugetRepository(String name, Output<String> id, @Nullable RemoteNugetRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("artifactory:index/remoteNugetRepository:RemoteNugetRepository", name, state, makeResourceOptions(options, id));
+    }
+
+    private static RemoteNugetRepositoryArgs makeArgs(RemoteNugetRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RemoteNugetRepositoryArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

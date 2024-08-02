@@ -352,11 +352,18 @@ public class AlpineRepository extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public AlpineRepository(String name, AlpineRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/alpineRepository:AlpineRepository", name, args == null ? AlpineRepositoryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("artifactory:index/alpineRepository:AlpineRepository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private AlpineRepository(String name, Output<String> id, @Nullable AlpineRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("artifactory:index/alpineRepository:AlpineRepository", name, state, makeResourceOptions(options, id));
+    }
+
+    private static AlpineRepositoryArgs makeArgs(AlpineRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AlpineRepositoryArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

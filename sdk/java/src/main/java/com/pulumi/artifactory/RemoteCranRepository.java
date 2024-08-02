@@ -730,11 +730,18 @@ public class RemoteCranRepository extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public RemoteCranRepository(String name, RemoteCranRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/remoteCranRepository:RemoteCranRepository", name, args == null ? RemoteCranRepositoryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("artifactory:index/remoteCranRepository:RemoteCranRepository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private RemoteCranRepository(String name, Output<String> id, @Nullable RemoteCranRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("artifactory:index/remoteCranRepository:RemoteCranRepository", name, state, makeResourceOptions(options, id));
+    }
+
+    private static RemoteCranRepositoryArgs makeArgs(RemoteCranRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RemoteCranRepositoryArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

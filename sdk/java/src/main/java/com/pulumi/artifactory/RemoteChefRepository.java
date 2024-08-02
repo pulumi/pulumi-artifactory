@@ -730,11 +730,18 @@ public class RemoteChefRepository extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public RemoteChefRepository(String name, RemoteChefRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/remoteChefRepository:RemoteChefRepository", name, args == null ? RemoteChefRepositoryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("artifactory:index/remoteChefRepository:RemoteChefRepository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private RemoteChefRepository(String name, Output<String> id, @Nullable RemoteChefRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("artifactory:index/remoteChefRepository:RemoteChefRepository", name, state, makeResourceOptions(options, id));
+    }
+
+    private static RemoteChefRepositoryArgs makeArgs(RemoteChefRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RemoteChefRepositoryArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

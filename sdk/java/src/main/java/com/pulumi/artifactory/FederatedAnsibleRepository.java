@@ -393,11 +393,18 @@ public class FederatedAnsibleRepository extends com.pulumi.resources.CustomResou
      * @param options A bag of options that control this resource's behavior.
      */
     public FederatedAnsibleRepository(String name, FederatedAnsibleRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/federatedAnsibleRepository:FederatedAnsibleRepository", name, args == null ? FederatedAnsibleRepositoryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("artifactory:index/federatedAnsibleRepository:FederatedAnsibleRepository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private FederatedAnsibleRepository(String name, Output<String> id, @Nullable FederatedAnsibleRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("artifactory:index/federatedAnsibleRepository:FederatedAnsibleRepository", name, state, makeResourceOptions(options, id));
+    }
+
+    private static FederatedAnsibleRepositoryArgs makeArgs(FederatedAnsibleRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? FederatedAnsibleRepositoryArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

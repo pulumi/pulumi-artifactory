@@ -310,11 +310,18 @@ public class LocalTerraformProviderRepository extends com.pulumi.resources.Custo
      * @param options A bag of options that control this resource's behavior.
      */
     public LocalTerraformProviderRepository(String name, LocalTerraformProviderRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/localTerraformProviderRepository:LocalTerraformProviderRepository", name, args == null ? LocalTerraformProviderRepositoryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("artifactory:index/localTerraformProviderRepository:LocalTerraformProviderRepository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private LocalTerraformProviderRepository(String name, Output<String> id, @Nullable LocalTerraformProviderRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("artifactory:index/localTerraformProviderRepository:LocalTerraformProviderRepository", name, state, makeResourceOptions(options, id));
+    }
+
+    private static LocalTerraformProviderRepositoryArgs makeArgs(LocalTerraformProviderRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LocalTerraformProviderRepositoryArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

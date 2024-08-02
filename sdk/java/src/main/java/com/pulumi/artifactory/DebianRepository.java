@@ -412,11 +412,18 @@ public class DebianRepository extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public DebianRepository(String name, DebianRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/debianRepository:DebianRepository", name, args == null ? DebianRepositoryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("artifactory:index/debianRepository:DebianRepository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private DebianRepository(String name, Output<String> id, @Nullable DebianRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("artifactory:index/debianRepository:DebianRepository", name, state, makeResourceOptions(options, id));
+    }
+
+    private static DebianRepositoryArgs makeArgs(DebianRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DebianRepositoryArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

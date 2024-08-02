@@ -743,11 +743,18 @@ public class RemoteGenericRepository extends com.pulumi.resources.CustomResource
      * @param options A bag of options that control this resource's behavior.
      */
     public RemoteGenericRepository(String name, RemoteGenericRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/remoteGenericRepository:RemoteGenericRepository", name, args == null ? RemoteGenericRepositoryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("artifactory:index/remoteGenericRepository:RemoteGenericRepository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private RemoteGenericRepository(String name, Output<String> id, @Nullable RemoteGenericRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("artifactory:index/remoteGenericRepository:RemoteGenericRepository", name, state, makeResourceOptions(options, id));
+    }
+
+    private static RemoteGenericRepositoryArgs makeArgs(RemoteGenericRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RemoteGenericRepositoryArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

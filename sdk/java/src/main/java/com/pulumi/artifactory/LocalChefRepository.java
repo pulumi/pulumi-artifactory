@@ -312,11 +312,18 @@ public class LocalChefRepository extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public LocalChefRepository(String name, LocalChefRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/localChefRepository:LocalChefRepository", name, args == null ? LocalChefRepositoryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("artifactory:index/localChefRepository:LocalChefRepository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private LocalChefRepository(String name, Output<String> id, @Nullable LocalChefRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("artifactory:index/localChefRepository:LocalChefRepository", name, state, makeResourceOptions(options, id));
+    }
+
+    private static LocalChefRepositoryArgs makeArgs(LocalChefRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LocalChefRepositoryArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

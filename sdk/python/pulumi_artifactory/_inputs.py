@@ -102,6 +102,10 @@ __all__ = [
     'ReleaseBundleV2PromotionCustomWebhookHandlerArgs',
     'ReleaseBundleV2PromotionWebhookCriteriaArgs',
     'ReleaseBundleV2PromotionWebhookHandlerArgs',
+    'ReleaseBundleV2SourceArgs',
+    'ReleaseBundleV2SourceArtifactArgs',
+    'ReleaseBundleV2SourceBuildArgs',
+    'ReleaseBundleV2SourceReleaseBundleArgs',
     'ReleaseBundleV2WebhookCriteriaArgs',
     'ReleaseBundleV2WebhookHandlerArgs',
     'ReleaseBundleWebhookCriteriaArgs',
@@ -5953,6 +5957,269 @@ class ReleaseBundleV2PromotionWebhookHandlerArgs:
     @use_secret_for_signing.setter
     def use_secret_for_signing(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "use_secret_for_signing", value)
+
+
+@pulumi.input_type
+class ReleaseBundleV2SourceArgs:
+    def __init__(__self__, *,
+                 aql: Optional[pulumi.Input[str]] = None,
+                 artifacts: Optional[pulumi.Input[Sequence[pulumi.Input['ReleaseBundleV2SourceArtifactArgs']]]] = None,
+                 builds: Optional[pulumi.Input[Sequence[pulumi.Input['ReleaseBundleV2SourceBuildArgs']]]] = None,
+                 release_bundles: Optional[pulumi.Input[Sequence[pulumi.Input['ReleaseBundleV2SourceReleaseBundleArgs']]]] = None):
+        """
+        :param pulumi.Input[str] aql: The contents of the AQL query.
+        :param pulumi.Input[Sequence[pulumi.Input['ReleaseBundleV2SourceArtifactArgs']]] artifacts: Source type to create a Release Bundle v2 version by collecting source artifacts from a list of path/checksum pairs.
+        :param pulumi.Input[Sequence[pulumi.Input['ReleaseBundleV2SourceBuildArgs']]] builds: Source type to create a Release Bundle v2 version by collecting source artifacts from one or multiple builds (also known as build-info).
+        :param pulumi.Input[Sequence[pulumi.Input['ReleaseBundleV2SourceReleaseBundleArgs']]] release_bundles: Source type to create a Release Bundle v2 version by collecting source artifacts from existing Release Bundle versions. Must match `source_type` attribute value.
+        """
+        if aql is not None:
+            pulumi.set(__self__, "aql", aql)
+        if artifacts is not None:
+            pulumi.set(__self__, "artifacts", artifacts)
+        if builds is not None:
+            pulumi.set(__self__, "builds", builds)
+        if release_bundles is not None:
+            pulumi.set(__self__, "release_bundles", release_bundles)
+
+    @property
+    @pulumi.getter
+    def aql(self) -> Optional[pulumi.Input[str]]:
+        """
+        The contents of the AQL query.
+        """
+        return pulumi.get(self, "aql")
+
+    @aql.setter
+    def aql(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "aql", value)
+
+    @property
+    @pulumi.getter
+    def artifacts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReleaseBundleV2SourceArtifactArgs']]]]:
+        """
+        Source type to create a Release Bundle v2 version by collecting source artifacts from a list of path/checksum pairs.
+        """
+        return pulumi.get(self, "artifacts")
+
+    @artifacts.setter
+    def artifacts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReleaseBundleV2SourceArtifactArgs']]]]):
+        pulumi.set(self, "artifacts", value)
+
+    @property
+    @pulumi.getter
+    def builds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReleaseBundleV2SourceBuildArgs']]]]:
+        """
+        Source type to create a Release Bundle v2 version by collecting source artifacts from one or multiple builds (also known as build-info).
+        """
+        return pulumi.get(self, "builds")
+
+    @builds.setter
+    def builds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReleaseBundleV2SourceBuildArgs']]]]):
+        pulumi.set(self, "builds", value)
+
+    @property
+    @pulumi.getter(name="releaseBundles")
+    def release_bundles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReleaseBundleV2SourceReleaseBundleArgs']]]]:
+        """
+        Source type to create a Release Bundle v2 version by collecting source artifacts from existing Release Bundle versions. Must match `source_type` attribute value.
+        """
+        return pulumi.get(self, "release_bundles")
+
+    @release_bundles.setter
+    def release_bundles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReleaseBundleV2SourceReleaseBundleArgs']]]]):
+        pulumi.set(self, "release_bundles", value)
+
+
+@pulumi.input_type
+class ReleaseBundleV2SourceArtifactArgs:
+    def __init__(__self__, *,
+                 path: pulumi.Input[str],
+                 sha256: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] path: The path for the artifact
+        :param pulumi.Input[str] sha256: The SHA256 for the artifact
+        """
+        pulumi.set(__self__, "path", path)
+        if sha256 is not None:
+            pulumi.set(__self__, "sha256", sha256)
+
+    @property
+    @pulumi.getter
+    def path(self) -> pulumi.Input[str]:
+        """
+        The path for the artifact
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter
+    def sha256(self) -> Optional[pulumi.Input[str]]:
+        """
+        The SHA256 for the artifact
+        """
+        return pulumi.get(self, "sha256")
+
+    @sha256.setter
+    def sha256(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sha256", value)
+
+
+@pulumi.input_type
+class ReleaseBundleV2SourceBuildArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 number: pulumi.Input[str],
+                 include_dependencies: Optional[pulumi.Input[bool]] = None,
+                 repository: Optional[pulumi.Input[str]] = None,
+                 started: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: Name of the build.
+        :param pulumi.Input[str] number: Number (run) of the build.
+        :param pulumi.Input[bool] include_dependencies: Determines whether to include build dependencies in the Release Bundle. The default value is `false`.
+        :param pulumi.Input[str] repository: The repository key of the build. If omitted, the system uses the default built-in repository, `artifactory-build-info`.
+        :param pulumi.Input[str] started: Timestamp when the build was created. If omitted, the system uses the latest build run, as identified by the `name` and `number` combination. The timestamp is provided according to the ISO 8601 standard.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "number", number)
+        if include_dependencies is not None:
+            pulumi.set(__self__, "include_dependencies", include_dependencies)
+        if repository is not None:
+            pulumi.set(__self__, "repository", repository)
+        if started is not None:
+            pulumi.set(__self__, "started", started)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Name of the build.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def number(self) -> pulumi.Input[str]:
+        """
+        Number (run) of the build.
+        """
+        return pulumi.get(self, "number")
+
+    @number.setter
+    def number(self, value: pulumi.Input[str]):
+        pulumi.set(self, "number", value)
+
+    @property
+    @pulumi.getter(name="includeDependencies")
+    def include_dependencies(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Determines whether to include build dependencies in the Release Bundle. The default value is `false`.
+        """
+        return pulumi.get(self, "include_dependencies")
+
+    @include_dependencies.setter
+    def include_dependencies(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "include_dependencies", value)
+
+    @property
+    @pulumi.getter
+    def repository(self) -> Optional[pulumi.Input[str]]:
+        """
+        The repository key of the build. If omitted, the system uses the default built-in repository, `artifactory-build-info`.
+        """
+        return pulumi.get(self, "repository")
+
+    @repository.setter
+    def repository(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "repository", value)
+
+    @property
+    @pulumi.getter
+    def started(self) -> Optional[pulumi.Input[str]]:
+        """
+        Timestamp when the build was created. If omitted, the system uses the latest build run, as identified by the `name` and `number` combination. The timestamp is provided according to the ISO 8601 standard.
+        """
+        return pulumi.get(self, "started")
+
+    @started.setter
+    def started(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "started", value)
+
+
+@pulumi.input_type
+class ReleaseBundleV2SourceReleaseBundleArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 version: pulumi.Input[str],
+                 project_key: Optional[pulumi.Input[str]] = None,
+                 repository_key: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: The name of the release bundle.
+        :param pulumi.Input[str] version: The version of the release bundle.
+        :param pulumi.Input[str] project_key: Project key of the release bundle.
+        :param pulumi.Input[str] repository_key: The key of the release bundle repository.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "version", version)
+        if project_key is not None:
+            pulumi.set(__self__, "project_key", project_key)
+        if repository_key is not None:
+            pulumi.set(__self__, "repository_key", repository_key)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the release bundle.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> pulumi.Input[str]:
+        """
+        The version of the release bundle.
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: pulumi.Input[str]):
+        pulumi.set(self, "version", value)
+
+    @property
+    @pulumi.getter(name="projectKey")
+    def project_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Project key of the release bundle.
+        """
+        return pulumi.get(self, "project_key")
+
+    @project_key.setter
+    def project_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "project_key", value)
+
+    @property
+    @pulumi.getter(name="repositoryKey")
+    def repository_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The key of the release bundle repository.
+        """
+        return pulumi.get(self, "repository_key")
+
+    @repository_key.setter
+    def repository_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "repository_key", value)
 
 
 @pulumi.input_type

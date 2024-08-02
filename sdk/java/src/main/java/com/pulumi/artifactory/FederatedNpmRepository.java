@@ -377,11 +377,18 @@ public class FederatedNpmRepository extends com.pulumi.resources.CustomResource 
      * @param options A bag of options that control this resource's behavior.
      */
     public FederatedNpmRepository(String name, FederatedNpmRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/federatedNpmRepository:FederatedNpmRepository", name, args == null ? FederatedNpmRepositoryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("artifactory:index/federatedNpmRepository:FederatedNpmRepository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private FederatedNpmRepository(String name, Output<String> id, @Nullable FederatedNpmRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("artifactory:index/federatedNpmRepository:FederatedNpmRepository", name, state, makeResourceOptions(options, id));
+    }
+
+    private static FederatedNpmRepositoryArgs makeArgs(FederatedNpmRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? FederatedNpmRepositoryArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

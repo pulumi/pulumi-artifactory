@@ -730,11 +730,18 @@ public class RemoteHuggingfacemlRepository extends com.pulumi.resources.CustomRe
      * @param options A bag of options that control this resource's behavior.
      */
     public RemoteHuggingfacemlRepository(String name, RemoteHuggingfacemlRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/remoteHuggingfacemlRepository:RemoteHuggingfacemlRepository", name, args == null ? RemoteHuggingfacemlRepositoryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("artifactory:index/remoteHuggingfacemlRepository:RemoteHuggingfacemlRepository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private RemoteHuggingfacemlRepository(String name, Output<String> id, @Nullable RemoteHuggingfacemlRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("artifactory:index/remoteHuggingfacemlRepository:RemoteHuggingfacemlRepository", name, state, makeResourceOptions(options, id));
+    }
+
+    private static RemoteHuggingfacemlRepositoryArgs makeArgs(RemoteHuggingfacemlRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RemoteHuggingfacemlRepositoryArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

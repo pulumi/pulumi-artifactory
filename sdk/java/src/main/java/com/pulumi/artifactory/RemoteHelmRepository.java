@@ -787,11 +787,18 @@ public class RemoteHelmRepository extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public RemoteHelmRepository(String name, RemoteHelmRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/remoteHelmRepository:RemoteHelmRepository", name, args == null ? RemoteHelmRepositoryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("artifactory:index/remoteHelmRepository:RemoteHelmRepository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private RemoteHelmRepository(String name, Output<String> id, @Nullable RemoteHelmRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("artifactory:index/remoteHelmRepository:RemoteHelmRepository", name, state, makeResourceOptions(options, id));
+    }
+
+    private static RemoteHelmRepositoryArgs makeArgs(RemoteHelmRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RemoteHelmRepositoryArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

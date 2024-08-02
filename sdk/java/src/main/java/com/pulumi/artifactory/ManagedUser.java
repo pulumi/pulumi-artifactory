@@ -224,11 +224,18 @@ public class ManagedUser extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ManagedUser(String name, ManagedUserArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/managedUser:ManagedUser", name, args == null ? ManagedUserArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("artifactory:index/managedUser:ManagedUser", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ManagedUser(String name, Output<String> id, @Nullable ManagedUserState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("artifactory:index/managedUser:ManagedUser", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ManagedUserArgs makeArgs(ManagedUserArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ManagedUserArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

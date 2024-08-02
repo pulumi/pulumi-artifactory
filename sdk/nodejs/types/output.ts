@@ -2837,6 +2837,78 @@ export interface ReleaseBundleV2PromotionWebhookHandler {
     useSecretForSigning?: boolean;
 }
 
+export interface ReleaseBundleV2Source {
+    /**
+     * The contents of the AQL query.
+     */
+    aql?: string;
+    /**
+     * Source type to create a Release Bundle v2 version by collecting source artifacts from a list of path/checksum pairs.
+     */
+    artifacts?: outputs.ReleaseBundleV2SourceArtifact[];
+    /**
+     * Source type to create a Release Bundle v2 version by collecting source artifacts from one or multiple builds (also known as build-info).
+     */
+    builds?: outputs.ReleaseBundleV2SourceBuild[];
+    /**
+     * Source type to create a Release Bundle v2 version by collecting source artifacts from existing Release Bundle versions. Must match `sourceType` attribute value.
+     */
+    releaseBundles?: outputs.ReleaseBundleV2SourceReleaseBundle[];
+}
+
+export interface ReleaseBundleV2SourceArtifact {
+    /**
+     * The path for the artifact
+     */
+    path: string;
+    /**
+     * The SHA256 for the artifact
+     */
+    sha256?: string;
+}
+
+export interface ReleaseBundleV2SourceBuild {
+    /**
+     * Determines whether to include build dependencies in the Release Bundle. The default value is `false`.
+     */
+    includeDependencies: boolean;
+    /**
+     * Name of the build.
+     */
+    name: string;
+    /**
+     * Number (run) of the build.
+     */
+    number: string;
+    /**
+     * The repository key of the build. If omitted, the system uses the default built-in repository, `artifactory-build-info`.
+     */
+    repository?: string;
+    /**
+     * Timestamp when the build was created. If omitted, the system uses the latest build run, as identified by the `name` and `number` combination. The timestamp is provided according to the ISO 8601 standard.
+     */
+    started?: string;
+}
+
+export interface ReleaseBundleV2SourceReleaseBundle {
+    /**
+     * The name of the release bundle.
+     */
+    name: string;
+    /**
+     * Project key of the release bundle.
+     */
+    projectKey?: string;
+    /**
+     * The key of the release bundle repository.
+     */
+    repositoryKey?: string;
+    /**
+     * The version of the release bundle.
+     */
+    version: string;
+}
+
 export interface ReleaseBundleV2WebhookCriteria {
     /**
      * Trigger on any release bundle.

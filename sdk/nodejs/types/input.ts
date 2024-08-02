@@ -3991,6 +3991,78 @@ export interface ReleaseBundleV2PromotionWebhookHandler {
     useSecretForSigning?: pulumi.Input<boolean>;
 }
 
+export interface ReleaseBundleV2Source {
+    /**
+     * The contents of the AQL query.
+     */
+    aql?: pulumi.Input<string>;
+    /**
+     * Source type to create a Release Bundle v2 version by collecting source artifacts from a list of path/checksum pairs.
+     */
+    artifacts?: pulumi.Input<pulumi.Input<inputs.ReleaseBundleV2SourceArtifact>[]>;
+    /**
+     * Source type to create a Release Bundle v2 version by collecting source artifacts from one or multiple builds (also known as build-info).
+     */
+    builds?: pulumi.Input<pulumi.Input<inputs.ReleaseBundleV2SourceBuild>[]>;
+    /**
+     * Source type to create a Release Bundle v2 version by collecting source artifacts from existing Release Bundle versions. Must match `sourceType` attribute value.
+     */
+    releaseBundles?: pulumi.Input<pulumi.Input<inputs.ReleaseBundleV2SourceReleaseBundle>[]>;
+}
+
+export interface ReleaseBundleV2SourceArtifact {
+    /**
+     * The path for the artifact
+     */
+    path: pulumi.Input<string>;
+    /**
+     * The SHA256 for the artifact
+     */
+    sha256?: pulumi.Input<string>;
+}
+
+export interface ReleaseBundleV2SourceBuild {
+    /**
+     * Determines whether to include build dependencies in the Release Bundle. The default value is `false`.
+     */
+    includeDependencies?: pulumi.Input<boolean>;
+    /**
+     * Name of the build.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Number (run) of the build.
+     */
+    number: pulumi.Input<string>;
+    /**
+     * The repository key of the build. If omitted, the system uses the default built-in repository, `artifactory-build-info`.
+     */
+    repository?: pulumi.Input<string>;
+    /**
+     * Timestamp when the build was created. If omitted, the system uses the latest build run, as identified by the `name` and `number` combination. The timestamp is provided according to the ISO 8601 standard.
+     */
+    started?: pulumi.Input<string>;
+}
+
+export interface ReleaseBundleV2SourceReleaseBundle {
+    /**
+     * The name of the release bundle.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Project key of the release bundle.
+     */
+    projectKey?: pulumi.Input<string>;
+    /**
+     * The key of the release bundle repository.
+     */
+    repositoryKey?: pulumi.Input<string>;
+    /**
+     * The version of the release bundle.
+     */
+    version: pulumi.Input<string>;
+}
+
 export interface ReleaseBundleV2WebhookCriteria {
     /**
      * Trigger on any release bundle.

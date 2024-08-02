@@ -730,11 +730,18 @@ public class RemoteDebianRepository extends com.pulumi.resources.CustomResource 
      * @param options A bag of options that control this resource's behavior.
      */
     public RemoteDebianRepository(String name, RemoteDebianRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/remoteDebianRepository:RemoteDebianRepository", name, args == null ? RemoteDebianRepositoryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("artifactory:index/remoteDebianRepository:RemoteDebianRepository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private RemoteDebianRepository(String name, Output<String> id, @Nullable RemoteDebianRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("artifactory:index/remoteDebianRepository:RemoteDebianRepository", name, state, makeResourceOptions(options, id));
+    }
+
+    private static RemoteDebianRepositoryArgs makeArgs(RemoteDebianRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RemoteDebianRepositoryArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -730,11 +730,18 @@ public class RemoteGitlfsRepository extends com.pulumi.resources.CustomResource 
      * @param options A bag of options that control this resource's behavior.
      */
     public RemoteGitlfsRepository(String name, RemoteGitlfsRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/remoteGitlfsRepository:RemoteGitlfsRepository", name, args == null ? RemoteGitlfsRepositoryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("artifactory:index/remoteGitlfsRepository:RemoteGitlfsRepository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private RemoteGitlfsRepository(String name, Output<String> id, @Nullable RemoteGitlfsRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("artifactory:index/remoteGitlfsRepository:RemoteGitlfsRepository", name, state, makeResourceOptions(options, id));
+    }
+
+    private static RemoteGitlfsRepositoryArgs makeArgs(RemoteGitlfsRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RemoteGitlfsRepositoryArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

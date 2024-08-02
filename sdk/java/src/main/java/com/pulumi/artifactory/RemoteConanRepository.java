@@ -745,11 +745,18 @@ public class RemoteConanRepository extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public RemoteConanRepository(String name, RemoteConanRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/remoteConanRepository:RemoteConanRepository", name, args == null ? RemoteConanRepositoryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("artifactory:index/remoteConanRepository:RemoteConanRepository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private RemoteConanRepository(String name, Output<String> id, @Nullable RemoteConanRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("artifactory:index/remoteConanRepository:RemoteConanRepository", name, state, makeResourceOptions(options, id));
+    }
+
+    private static RemoteConanRepositoryArgs makeArgs(RemoteConanRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RemoteConanRepositoryArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

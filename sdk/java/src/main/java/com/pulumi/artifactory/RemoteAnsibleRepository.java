@@ -731,11 +731,18 @@ public class RemoteAnsibleRepository extends com.pulumi.resources.CustomResource
      * @param options A bag of options that control this resource's behavior.
      */
     public RemoteAnsibleRepository(String name, RemoteAnsibleRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/remoteAnsibleRepository:RemoteAnsibleRepository", name, args == null ? RemoteAnsibleRepositoryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("artifactory:index/remoteAnsibleRepository:RemoteAnsibleRepository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private RemoteAnsibleRepository(String name, Output<String> id, @Nullable RemoteAnsibleRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("artifactory:index/remoteAnsibleRepository:RemoteAnsibleRepository", name, state, makeResourceOptions(options, id));
+    }
+
+    private static RemoteAnsibleRepositoryArgs makeArgs(RemoteAnsibleRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RemoteAnsibleRepositoryArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

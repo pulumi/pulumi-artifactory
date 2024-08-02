@@ -408,11 +408,18 @@ public class FederatedOciRepository extends com.pulumi.resources.CustomResource 
      * @param options A bag of options that control this resource's behavior.
      */
     public FederatedOciRepository(String name, FederatedOciRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/federatedOciRepository:FederatedOciRepository", name, args == null ? FederatedOciRepositoryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("artifactory:index/federatedOciRepository:FederatedOciRepository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private FederatedOciRepository(String name, Output<String> id, @Nullable FederatedOciRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("artifactory:index/federatedOciRepository:FederatedOciRepository", name, state, makeResourceOptions(options, id));
+    }
+
+    private static FederatedOciRepositoryArgs makeArgs(FederatedOciRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? FederatedOciRepositoryArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

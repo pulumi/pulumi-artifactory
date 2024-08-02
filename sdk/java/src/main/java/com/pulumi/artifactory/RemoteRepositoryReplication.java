@@ -255,11 +255,18 @@ public class RemoteRepositoryReplication extends com.pulumi.resources.CustomReso
      * @param options A bag of options that control this resource's behavior.
      */
     public RemoteRepositoryReplication(String name, RemoteRepositoryReplicationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/remoteRepositoryReplication:RemoteRepositoryReplication", name, args == null ? RemoteRepositoryReplicationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("artifactory:index/remoteRepositoryReplication:RemoteRepositoryReplication", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private RemoteRepositoryReplication(String name, Output<String> id, @Nullable RemoteRepositoryReplicationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("artifactory:index/remoteRepositoryReplication:RemoteRepositoryReplication", name, state, makeResourceOptions(options, id));
+    }
+
+    private static RemoteRepositoryReplicationArgs makeArgs(RemoteRepositoryReplicationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RemoteRepositoryReplicationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

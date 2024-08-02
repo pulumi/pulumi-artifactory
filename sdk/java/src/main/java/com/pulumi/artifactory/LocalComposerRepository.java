@@ -312,11 +312,18 @@ public class LocalComposerRepository extends com.pulumi.resources.CustomResource
      * @param options A bag of options that control this resource's behavior.
      */
     public LocalComposerRepository(String name, LocalComposerRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/localComposerRepository:LocalComposerRepository", name, args == null ? LocalComposerRepositoryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("artifactory:index/localComposerRepository:LocalComposerRepository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private LocalComposerRepository(String name, Output<String> id, @Nullable LocalComposerRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("artifactory:index/localComposerRepository:LocalComposerRepository", name, state, makeResourceOptions(options, id));
+    }
+
+    private static LocalComposerRepositoryArgs makeArgs(LocalComposerRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LocalComposerRepositoryArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

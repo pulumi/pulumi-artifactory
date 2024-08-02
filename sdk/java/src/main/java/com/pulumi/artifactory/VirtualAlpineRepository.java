@@ -285,11 +285,18 @@ public class VirtualAlpineRepository extends com.pulumi.resources.CustomResource
      * @param options A bag of options that control this resource's behavior.
      */
     public VirtualAlpineRepository(String name, VirtualAlpineRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/virtualAlpineRepository:VirtualAlpineRepository", name, args == null ? VirtualAlpineRepositoryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("artifactory:index/virtualAlpineRepository:VirtualAlpineRepository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private VirtualAlpineRepository(String name, Output<String> id, @Nullable VirtualAlpineRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("artifactory:index/virtualAlpineRepository:VirtualAlpineRepository", name, state, makeResourceOptions(options, id));
+    }
+
+    private static VirtualAlpineRepositoryArgs makeArgs(VirtualAlpineRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VirtualAlpineRepositoryArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

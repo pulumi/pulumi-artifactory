@@ -305,11 +305,18 @@ public class VirtualGradleRepository extends com.pulumi.resources.CustomResource
      * @param options A bag of options that control this resource's behavior.
      */
     public VirtualGradleRepository(String name, VirtualGradleRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/virtualGradleRepository:VirtualGradleRepository", name, args == null ? VirtualGradleRepositoryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("artifactory:index/virtualGradleRepository:VirtualGradleRepository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private VirtualGradleRepository(String name, Output<String> id, @Nullable VirtualGradleRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("artifactory:index/virtualGradleRepository:VirtualGradleRepository", name, state, makeResourceOptions(options, id));
+    }
+
+    private static VirtualGradleRepositoryArgs makeArgs(VirtualGradleRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VirtualGradleRepositoryArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -298,11 +298,18 @@ public class VirtualBowerRepository extends com.pulumi.resources.CustomResource 
      * @param options A bag of options that control this resource's behavior.
      */
     public VirtualBowerRepository(String name, VirtualBowerRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/virtualBowerRepository:VirtualBowerRepository", name, args == null ? VirtualBowerRepositoryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("artifactory:index/virtualBowerRepository:VirtualBowerRepository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private VirtualBowerRepository(String name, Output<String> id, @Nullable VirtualBowerRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("artifactory:index/virtualBowerRepository:VirtualBowerRepository", name, state, makeResourceOptions(options, id));
+    }
+
+    private static VirtualBowerRepositoryArgs makeArgs(VirtualBowerRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VirtualBowerRepositoryArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -163,11 +163,18 @@ public class UserWebhook extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public UserWebhook(String name, UserWebhookArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/userWebhook:UserWebhook", name, args == null ? UserWebhookArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("artifactory:index/userWebhook:UserWebhook", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private UserWebhook(String name, Output<String> id, @Nullable UserWebhookState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("artifactory:index/userWebhook:UserWebhook", name, state, makeResourceOptions(options, id));
+    }
+
+    private static UserWebhookArgs makeArgs(UserWebhookArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? UserWebhookArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

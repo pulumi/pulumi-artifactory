@@ -103,6 +103,10 @@ __all__ = [
     'ReleaseBundleV2PromotionCustomWebhookHandler',
     'ReleaseBundleV2PromotionWebhookCriteria',
     'ReleaseBundleV2PromotionWebhookHandler',
+    'ReleaseBundleV2Source',
+    'ReleaseBundleV2SourceArtifact',
+    'ReleaseBundleV2SourceBuild',
+    'ReleaseBundleV2SourceReleaseBundle',
     'ReleaseBundleV2WebhookCriteria',
     'ReleaseBundleV2WebhookHandler',
     'ReleaseBundleWebhookCriteria',
@@ -5657,6 +5661,262 @@ class ReleaseBundleV2PromotionWebhookHandler(dict):
         When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
         """
         return pulumi.get(self, "use_secret_for_signing")
+
+
+@pulumi.output_type
+class ReleaseBundleV2Source(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "releaseBundles":
+            suggest = "release_bundles"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReleaseBundleV2Source. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReleaseBundleV2Source.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReleaseBundleV2Source.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 aql: Optional[str] = None,
+                 artifacts: Optional[Sequence['outputs.ReleaseBundleV2SourceArtifact']] = None,
+                 builds: Optional[Sequence['outputs.ReleaseBundleV2SourceBuild']] = None,
+                 release_bundles: Optional[Sequence['outputs.ReleaseBundleV2SourceReleaseBundle']] = None):
+        """
+        :param str aql: The contents of the AQL query.
+        :param Sequence['ReleaseBundleV2SourceArtifactArgs'] artifacts: Source type to create a Release Bundle v2 version by collecting source artifacts from a list of path/checksum pairs.
+        :param Sequence['ReleaseBundleV2SourceBuildArgs'] builds: Source type to create a Release Bundle v2 version by collecting source artifacts from one or multiple builds (also known as build-info).
+        :param Sequence['ReleaseBundleV2SourceReleaseBundleArgs'] release_bundles: Source type to create a Release Bundle v2 version by collecting source artifacts from existing Release Bundle versions. Must match `source_type` attribute value.
+        """
+        if aql is not None:
+            pulumi.set(__self__, "aql", aql)
+        if artifacts is not None:
+            pulumi.set(__self__, "artifacts", artifacts)
+        if builds is not None:
+            pulumi.set(__self__, "builds", builds)
+        if release_bundles is not None:
+            pulumi.set(__self__, "release_bundles", release_bundles)
+
+    @property
+    @pulumi.getter
+    def aql(self) -> Optional[str]:
+        """
+        The contents of the AQL query.
+        """
+        return pulumi.get(self, "aql")
+
+    @property
+    @pulumi.getter
+    def artifacts(self) -> Optional[Sequence['outputs.ReleaseBundleV2SourceArtifact']]:
+        """
+        Source type to create a Release Bundle v2 version by collecting source artifacts from a list of path/checksum pairs.
+        """
+        return pulumi.get(self, "artifacts")
+
+    @property
+    @pulumi.getter
+    def builds(self) -> Optional[Sequence['outputs.ReleaseBundleV2SourceBuild']]:
+        """
+        Source type to create a Release Bundle v2 version by collecting source artifacts from one or multiple builds (also known as build-info).
+        """
+        return pulumi.get(self, "builds")
+
+    @property
+    @pulumi.getter(name="releaseBundles")
+    def release_bundles(self) -> Optional[Sequence['outputs.ReleaseBundleV2SourceReleaseBundle']]:
+        """
+        Source type to create a Release Bundle v2 version by collecting source artifacts from existing Release Bundle versions. Must match `source_type` attribute value.
+        """
+        return pulumi.get(self, "release_bundles")
+
+
+@pulumi.output_type
+class ReleaseBundleV2SourceArtifact(dict):
+    def __init__(__self__, *,
+                 path: str,
+                 sha256: Optional[str] = None):
+        """
+        :param str path: The path for the artifact
+        :param str sha256: The SHA256 for the artifact
+        """
+        pulumi.set(__self__, "path", path)
+        if sha256 is not None:
+            pulumi.set(__self__, "sha256", sha256)
+
+    @property
+    @pulumi.getter
+    def path(self) -> str:
+        """
+        The path for the artifact
+        """
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter
+    def sha256(self) -> Optional[str]:
+        """
+        The SHA256 for the artifact
+        """
+        return pulumi.get(self, "sha256")
+
+
+@pulumi.output_type
+class ReleaseBundleV2SourceBuild(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "includeDependencies":
+            suggest = "include_dependencies"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReleaseBundleV2SourceBuild. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReleaseBundleV2SourceBuild.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReleaseBundleV2SourceBuild.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 number: str,
+                 include_dependencies: Optional[bool] = None,
+                 repository: Optional[str] = None,
+                 started: Optional[str] = None):
+        """
+        :param str name: Name of the build.
+        :param str number: Number (run) of the build.
+        :param bool include_dependencies: Determines whether to include build dependencies in the Release Bundle. The default value is `false`.
+        :param str repository: The repository key of the build. If omitted, the system uses the default built-in repository, `artifactory-build-info`.
+        :param str started: Timestamp when the build was created. If omitted, the system uses the latest build run, as identified by the `name` and `number` combination. The timestamp is provided according to the ISO 8601 standard.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "number", number)
+        if include_dependencies is not None:
+            pulumi.set(__self__, "include_dependencies", include_dependencies)
+        if repository is not None:
+            pulumi.set(__self__, "repository", repository)
+        if started is not None:
+            pulumi.set(__self__, "started", started)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the build.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def number(self) -> str:
+        """
+        Number (run) of the build.
+        """
+        return pulumi.get(self, "number")
+
+    @property
+    @pulumi.getter(name="includeDependencies")
+    def include_dependencies(self) -> Optional[bool]:
+        """
+        Determines whether to include build dependencies in the Release Bundle. The default value is `false`.
+        """
+        return pulumi.get(self, "include_dependencies")
+
+    @property
+    @pulumi.getter
+    def repository(self) -> Optional[str]:
+        """
+        The repository key of the build. If omitted, the system uses the default built-in repository, `artifactory-build-info`.
+        """
+        return pulumi.get(self, "repository")
+
+    @property
+    @pulumi.getter
+    def started(self) -> Optional[str]:
+        """
+        Timestamp when the build was created. If omitted, the system uses the latest build run, as identified by the `name` and `number` combination. The timestamp is provided according to the ISO 8601 standard.
+        """
+        return pulumi.get(self, "started")
+
+
+@pulumi.output_type
+class ReleaseBundleV2SourceReleaseBundle(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "projectKey":
+            suggest = "project_key"
+        elif key == "repositoryKey":
+            suggest = "repository_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReleaseBundleV2SourceReleaseBundle. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReleaseBundleV2SourceReleaseBundle.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReleaseBundleV2SourceReleaseBundle.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 version: str,
+                 project_key: Optional[str] = None,
+                 repository_key: Optional[str] = None):
+        """
+        :param str name: The name of the release bundle.
+        :param str version: The version of the release bundle.
+        :param str project_key: Project key of the release bundle.
+        :param str repository_key: The key of the release bundle repository.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "version", version)
+        if project_key is not None:
+            pulumi.set(__self__, "project_key", project_key)
+        if repository_key is not None:
+            pulumi.set(__self__, "repository_key", repository_key)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the release bundle.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def version(self) -> str:
+        """
+        The version of the release bundle.
+        """
+        return pulumi.get(self, "version")
+
+    @property
+    @pulumi.getter(name="projectKey")
+    def project_key(self) -> Optional[str]:
+        """
+        Project key of the release bundle.
+        """
+        return pulumi.get(self, "project_key")
+
+    @property
+    @pulumi.getter(name="repositoryKey")
+    def repository_key(self) -> Optional[str]:
+        """
+        The key of the release bundle repository.
+        """
+        return pulumi.get(self, "repository_key")
 
 
 @pulumi.output_type

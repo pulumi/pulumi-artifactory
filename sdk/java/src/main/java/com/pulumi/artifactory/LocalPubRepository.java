@@ -312,11 +312,18 @@ public class LocalPubRepository extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public LocalPubRepository(String name, LocalPubRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/localPubRepository:LocalPubRepository", name, args == null ? LocalPubRepositoryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("artifactory:index/localPubRepository:LocalPubRepository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private LocalPubRepository(String name, Output<String> id, @Nullable LocalPubRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("artifactory:index/localPubRepository:LocalPubRepository", name, state, makeResourceOptions(options, id));
+    }
+
+    private static LocalPubRepositoryArgs makeArgs(LocalPubRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LocalPubRepositoryArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

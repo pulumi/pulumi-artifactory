@@ -344,11 +344,18 @@ public class LocalRepositorySingleReplication extends com.pulumi.resources.Custo
      * @param options A bag of options that control this resource's behavior.
      */
     public LocalRepositorySingleReplication(String name, LocalRepositorySingleReplicationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/localRepositorySingleReplication:LocalRepositorySingleReplication", name, args == null ? LocalRepositorySingleReplicationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("artifactory:index/localRepositorySingleReplication:LocalRepositorySingleReplication", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private LocalRepositorySingleReplication(String name, Output<String> id, @Nullable LocalRepositorySingleReplicationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("artifactory:index/localRepositorySingleReplication:LocalRepositorySingleReplication", name, state, makeResourceOptions(options, id));
+    }
+
+    private static LocalRepositorySingleReplicationArgs makeArgs(LocalRepositorySingleReplicationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LocalRepositorySingleReplicationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

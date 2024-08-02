@@ -377,11 +377,18 @@ public class FederatedGenericRepository extends com.pulumi.resources.CustomResou
      * @param options A bag of options that control this resource's behavior.
      */
     public FederatedGenericRepository(String name, FederatedGenericRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/federatedGenericRepository:FederatedGenericRepository", name, args == null ? FederatedGenericRepositoryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("artifactory:index/federatedGenericRepository:FederatedGenericRepository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private FederatedGenericRepository(String name, Output<String> id, @Nullable FederatedGenericRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("artifactory:index/federatedGenericRepository:FederatedGenericRepository", name, state, makeResourceOptions(options, id));
+    }
+
+    private static FederatedGenericRepositoryArgs makeArgs(FederatedGenericRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? FederatedGenericRepositoryArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

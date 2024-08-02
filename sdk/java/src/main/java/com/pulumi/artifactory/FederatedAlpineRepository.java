@@ -399,11 +399,18 @@ public class FederatedAlpineRepository extends com.pulumi.resources.CustomResour
      * @param options A bag of options that control this resource's behavior.
      */
     public FederatedAlpineRepository(String name, FederatedAlpineRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/federatedAlpineRepository:FederatedAlpineRepository", name, args == null ? FederatedAlpineRepositoryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("artifactory:index/federatedAlpineRepository:FederatedAlpineRepository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private FederatedAlpineRepository(String name, Output<String> id, @Nullable FederatedAlpineRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("artifactory:index/federatedAlpineRepository:FederatedAlpineRepository", name, state, makeResourceOptions(options, id));
+    }
+
+    private static FederatedAlpineRepositoryArgs makeArgs(FederatedAlpineRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? FederatedAlpineRepositoryArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

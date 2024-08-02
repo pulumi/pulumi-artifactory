@@ -311,11 +311,18 @@ public class LdapSetting extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public LdapSetting(String name, LdapSettingArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/ldapSetting:LdapSetting", name, args == null ? LdapSettingArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("artifactory:index/ldapSetting:LdapSetting", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private LdapSetting(String name, Output<String> id, @Nullable LdapSettingState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("artifactory:index/ldapSetting:LdapSetting", name, state, makeResourceOptions(options, id));
+    }
+
+    private static LdapSettingArgs makeArgs(LdapSettingArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LdapSettingArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

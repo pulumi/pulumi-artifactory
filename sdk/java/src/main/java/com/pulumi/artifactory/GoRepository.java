@@ -291,11 +291,18 @@ public class GoRepository extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public GoRepository(String name, GoRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/goRepository:GoRepository", name, args == null ? GoRepositoryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("artifactory:index/goRepository:GoRepository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private GoRepository(String name, Output<String> id, @Nullable GoRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("artifactory:index/goRepository:GoRepository", name, state, makeResourceOptions(options, id));
+    }
+
+    private static GoRepositoryArgs makeArgs(GoRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? GoRepositoryArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

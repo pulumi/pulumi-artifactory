@@ -305,11 +305,18 @@ public class PullReplication extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public PullReplication(String name, PullReplicationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/pullReplication:PullReplication", name, args == null ? PullReplicationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("artifactory:index/pullReplication:PullReplication", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private PullReplication(String name, Output<String> id, @Nullable PullReplicationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("artifactory:index/pullReplication:PullReplication", name, state, makeResourceOptions(options, id));
+    }
+
+    private static PullReplicationArgs makeArgs(PullReplicationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? PullReplicationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

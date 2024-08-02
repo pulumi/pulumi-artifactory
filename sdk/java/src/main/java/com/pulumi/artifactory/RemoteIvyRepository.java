@@ -832,11 +832,18 @@ public class RemoteIvyRepository extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public RemoteIvyRepository(String name, RemoteIvyRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/remoteIvyRepository:RemoteIvyRepository", name, args == null ? RemoteIvyRepositoryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("artifactory:index/remoteIvyRepository:RemoteIvyRepository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private RemoteIvyRepository(String name, Output<String> id, @Nullable RemoteIvyRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("artifactory:index/remoteIvyRepository:RemoteIvyRepository", name, state, makeResourceOptions(options, id));
+    }
+
+    private static RemoteIvyRepositoryArgs makeArgs(RemoteIvyRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RemoteIvyRepositoryArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

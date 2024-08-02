@@ -730,11 +730,18 @@ public class RemoteSwiftRepository extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public RemoteSwiftRepository(String name, RemoteSwiftRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/remoteSwiftRepository:RemoteSwiftRepository", name, args == null ? RemoteSwiftRepositoryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("artifactory:index/remoteSwiftRepository:RemoteSwiftRepository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private RemoteSwiftRepository(String name, Output<String> id, @Nullable RemoteSwiftRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("artifactory:index/remoteSwiftRepository:RemoteSwiftRepository", name, state, makeResourceOptions(options, id));
+    }
+
+    private static RemoteSwiftRepositoryArgs makeArgs(RemoteSwiftRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RemoteSwiftRepositoryArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

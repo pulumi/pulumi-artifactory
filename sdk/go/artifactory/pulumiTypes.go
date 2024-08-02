@@ -12961,6 +12961,563 @@ func (o ReleaseBundleV2PromotionWebhookHandlerArrayOutput) Index(i pulumi.IntInp
 	}).(ReleaseBundleV2PromotionWebhookHandlerOutput)
 }
 
+type ReleaseBundleV2Source struct {
+	// The contents of the AQL query.
+	Aql *string `pulumi:"aql"`
+	// Source type to create a Release Bundle v2 version by collecting source artifacts from a list of path/checksum pairs.
+	Artifacts []ReleaseBundleV2SourceArtifact `pulumi:"artifacts"`
+	// Source type to create a Release Bundle v2 version by collecting source artifacts from one or multiple builds (also known as build-info).
+	Builds []ReleaseBundleV2SourceBuild `pulumi:"builds"`
+	// Source type to create a Release Bundle v2 version by collecting source artifacts from existing Release Bundle versions. Must match `sourceType` attribute value.
+	ReleaseBundles []ReleaseBundleV2SourceReleaseBundle `pulumi:"releaseBundles"`
+}
+
+// ReleaseBundleV2SourceInput is an input type that accepts ReleaseBundleV2SourceArgs and ReleaseBundleV2SourceOutput values.
+// You can construct a concrete instance of `ReleaseBundleV2SourceInput` via:
+//
+//	ReleaseBundleV2SourceArgs{...}
+type ReleaseBundleV2SourceInput interface {
+	pulumi.Input
+
+	ToReleaseBundleV2SourceOutput() ReleaseBundleV2SourceOutput
+	ToReleaseBundleV2SourceOutputWithContext(context.Context) ReleaseBundleV2SourceOutput
+}
+
+type ReleaseBundleV2SourceArgs struct {
+	// The contents of the AQL query.
+	Aql pulumi.StringPtrInput `pulumi:"aql"`
+	// Source type to create a Release Bundle v2 version by collecting source artifacts from a list of path/checksum pairs.
+	Artifacts ReleaseBundleV2SourceArtifactArrayInput `pulumi:"artifacts"`
+	// Source type to create a Release Bundle v2 version by collecting source artifacts from one or multiple builds (also known as build-info).
+	Builds ReleaseBundleV2SourceBuildArrayInput `pulumi:"builds"`
+	// Source type to create a Release Bundle v2 version by collecting source artifacts from existing Release Bundle versions. Must match `sourceType` attribute value.
+	ReleaseBundles ReleaseBundleV2SourceReleaseBundleArrayInput `pulumi:"releaseBundles"`
+}
+
+func (ReleaseBundleV2SourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReleaseBundleV2Source)(nil)).Elem()
+}
+
+func (i ReleaseBundleV2SourceArgs) ToReleaseBundleV2SourceOutput() ReleaseBundleV2SourceOutput {
+	return i.ToReleaseBundleV2SourceOutputWithContext(context.Background())
+}
+
+func (i ReleaseBundleV2SourceArgs) ToReleaseBundleV2SourceOutputWithContext(ctx context.Context) ReleaseBundleV2SourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReleaseBundleV2SourceOutput)
+}
+
+func (i ReleaseBundleV2SourceArgs) ToReleaseBundleV2SourcePtrOutput() ReleaseBundleV2SourcePtrOutput {
+	return i.ToReleaseBundleV2SourcePtrOutputWithContext(context.Background())
+}
+
+func (i ReleaseBundleV2SourceArgs) ToReleaseBundleV2SourcePtrOutputWithContext(ctx context.Context) ReleaseBundleV2SourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReleaseBundleV2SourceOutput).ToReleaseBundleV2SourcePtrOutputWithContext(ctx)
+}
+
+// ReleaseBundleV2SourcePtrInput is an input type that accepts ReleaseBundleV2SourceArgs, ReleaseBundleV2SourcePtr and ReleaseBundleV2SourcePtrOutput values.
+// You can construct a concrete instance of `ReleaseBundleV2SourcePtrInput` via:
+//
+//	        ReleaseBundleV2SourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type ReleaseBundleV2SourcePtrInput interface {
+	pulumi.Input
+
+	ToReleaseBundleV2SourcePtrOutput() ReleaseBundleV2SourcePtrOutput
+	ToReleaseBundleV2SourcePtrOutputWithContext(context.Context) ReleaseBundleV2SourcePtrOutput
+}
+
+type releaseBundleV2SourcePtrType ReleaseBundleV2SourceArgs
+
+func ReleaseBundleV2SourcePtr(v *ReleaseBundleV2SourceArgs) ReleaseBundleV2SourcePtrInput {
+	return (*releaseBundleV2SourcePtrType)(v)
+}
+
+func (*releaseBundleV2SourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReleaseBundleV2Source)(nil)).Elem()
+}
+
+func (i *releaseBundleV2SourcePtrType) ToReleaseBundleV2SourcePtrOutput() ReleaseBundleV2SourcePtrOutput {
+	return i.ToReleaseBundleV2SourcePtrOutputWithContext(context.Background())
+}
+
+func (i *releaseBundleV2SourcePtrType) ToReleaseBundleV2SourcePtrOutputWithContext(ctx context.Context) ReleaseBundleV2SourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReleaseBundleV2SourcePtrOutput)
+}
+
+type ReleaseBundleV2SourceOutput struct{ *pulumi.OutputState }
+
+func (ReleaseBundleV2SourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReleaseBundleV2Source)(nil)).Elem()
+}
+
+func (o ReleaseBundleV2SourceOutput) ToReleaseBundleV2SourceOutput() ReleaseBundleV2SourceOutput {
+	return o
+}
+
+func (o ReleaseBundleV2SourceOutput) ToReleaseBundleV2SourceOutputWithContext(ctx context.Context) ReleaseBundleV2SourceOutput {
+	return o
+}
+
+func (o ReleaseBundleV2SourceOutput) ToReleaseBundleV2SourcePtrOutput() ReleaseBundleV2SourcePtrOutput {
+	return o.ToReleaseBundleV2SourcePtrOutputWithContext(context.Background())
+}
+
+func (o ReleaseBundleV2SourceOutput) ToReleaseBundleV2SourcePtrOutputWithContext(ctx context.Context) ReleaseBundleV2SourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReleaseBundleV2Source) *ReleaseBundleV2Source {
+		return &v
+	}).(ReleaseBundleV2SourcePtrOutput)
+}
+
+// The contents of the AQL query.
+func (o ReleaseBundleV2SourceOutput) Aql() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReleaseBundleV2Source) *string { return v.Aql }).(pulumi.StringPtrOutput)
+}
+
+// Source type to create a Release Bundle v2 version by collecting source artifacts from a list of path/checksum pairs.
+func (o ReleaseBundleV2SourceOutput) Artifacts() ReleaseBundleV2SourceArtifactArrayOutput {
+	return o.ApplyT(func(v ReleaseBundleV2Source) []ReleaseBundleV2SourceArtifact { return v.Artifacts }).(ReleaseBundleV2SourceArtifactArrayOutput)
+}
+
+// Source type to create a Release Bundle v2 version by collecting source artifacts from one or multiple builds (also known as build-info).
+func (o ReleaseBundleV2SourceOutput) Builds() ReleaseBundleV2SourceBuildArrayOutput {
+	return o.ApplyT(func(v ReleaseBundleV2Source) []ReleaseBundleV2SourceBuild { return v.Builds }).(ReleaseBundleV2SourceBuildArrayOutput)
+}
+
+// Source type to create a Release Bundle v2 version by collecting source artifacts from existing Release Bundle versions. Must match `sourceType` attribute value.
+func (o ReleaseBundleV2SourceOutput) ReleaseBundles() ReleaseBundleV2SourceReleaseBundleArrayOutput {
+	return o.ApplyT(func(v ReleaseBundleV2Source) []ReleaseBundleV2SourceReleaseBundle { return v.ReleaseBundles }).(ReleaseBundleV2SourceReleaseBundleArrayOutput)
+}
+
+type ReleaseBundleV2SourcePtrOutput struct{ *pulumi.OutputState }
+
+func (ReleaseBundleV2SourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReleaseBundleV2Source)(nil)).Elem()
+}
+
+func (o ReleaseBundleV2SourcePtrOutput) ToReleaseBundleV2SourcePtrOutput() ReleaseBundleV2SourcePtrOutput {
+	return o
+}
+
+func (o ReleaseBundleV2SourcePtrOutput) ToReleaseBundleV2SourcePtrOutputWithContext(ctx context.Context) ReleaseBundleV2SourcePtrOutput {
+	return o
+}
+
+func (o ReleaseBundleV2SourcePtrOutput) Elem() ReleaseBundleV2SourceOutput {
+	return o.ApplyT(func(v *ReleaseBundleV2Source) ReleaseBundleV2Source {
+		if v != nil {
+			return *v
+		}
+		var ret ReleaseBundleV2Source
+		return ret
+	}).(ReleaseBundleV2SourceOutput)
+}
+
+// The contents of the AQL query.
+func (o ReleaseBundleV2SourcePtrOutput) Aql() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReleaseBundleV2Source) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Aql
+	}).(pulumi.StringPtrOutput)
+}
+
+// Source type to create a Release Bundle v2 version by collecting source artifacts from a list of path/checksum pairs.
+func (o ReleaseBundleV2SourcePtrOutput) Artifacts() ReleaseBundleV2SourceArtifactArrayOutput {
+	return o.ApplyT(func(v *ReleaseBundleV2Source) []ReleaseBundleV2SourceArtifact {
+		if v == nil {
+			return nil
+		}
+		return v.Artifacts
+	}).(ReleaseBundleV2SourceArtifactArrayOutput)
+}
+
+// Source type to create a Release Bundle v2 version by collecting source artifacts from one or multiple builds (also known as build-info).
+func (o ReleaseBundleV2SourcePtrOutput) Builds() ReleaseBundleV2SourceBuildArrayOutput {
+	return o.ApplyT(func(v *ReleaseBundleV2Source) []ReleaseBundleV2SourceBuild {
+		if v == nil {
+			return nil
+		}
+		return v.Builds
+	}).(ReleaseBundleV2SourceBuildArrayOutput)
+}
+
+// Source type to create a Release Bundle v2 version by collecting source artifacts from existing Release Bundle versions. Must match `sourceType` attribute value.
+func (o ReleaseBundleV2SourcePtrOutput) ReleaseBundles() ReleaseBundleV2SourceReleaseBundleArrayOutput {
+	return o.ApplyT(func(v *ReleaseBundleV2Source) []ReleaseBundleV2SourceReleaseBundle {
+		if v == nil {
+			return nil
+		}
+		return v.ReleaseBundles
+	}).(ReleaseBundleV2SourceReleaseBundleArrayOutput)
+}
+
+type ReleaseBundleV2SourceArtifact struct {
+	// The path for the artifact
+	Path string `pulumi:"path"`
+	// The SHA256 for the artifact
+	Sha256 *string `pulumi:"sha256"`
+}
+
+// ReleaseBundleV2SourceArtifactInput is an input type that accepts ReleaseBundleV2SourceArtifactArgs and ReleaseBundleV2SourceArtifactOutput values.
+// You can construct a concrete instance of `ReleaseBundleV2SourceArtifactInput` via:
+//
+//	ReleaseBundleV2SourceArtifactArgs{...}
+type ReleaseBundleV2SourceArtifactInput interface {
+	pulumi.Input
+
+	ToReleaseBundleV2SourceArtifactOutput() ReleaseBundleV2SourceArtifactOutput
+	ToReleaseBundleV2SourceArtifactOutputWithContext(context.Context) ReleaseBundleV2SourceArtifactOutput
+}
+
+type ReleaseBundleV2SourceArtifactArgs struct {
+	// The path for the artifact
+	Path pulumi.StringInput `pulumi:"path"`
+	// The SHA256 for the artifact
+	Sha256 pulumi.StringPtrInput `pulumi:"sha256"`
+}
+
+func (ReleaseBundleV2SourceArtifactArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReleaseBundleV2SourceArtifact)(nil)).Elem()
+}
+
+func (i ReleaseBundleV2SourceArtifactArgs) ToReleaseBundleV2SourceArtifactOutput() ReleaseBundleV2SourceArtifactOutput {
+	return i.ToReleaseBundleV2SourceArtifactOutputWithContext(context.Background())
+}
+
+func (i ReleaseBundleV2SourceArtifactArgs) ToReleaseBundleV2SourceArtifactOutputWithContext(ctx context.Context) ReleaseBundleV2SourceArtifactOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReleaseBundleV2SourceArtifactOutput)
+}
+
+// ReleaseBundleV2SourceArtifactArrayInput is an input type that accepts ReleaseBundleV2SourceArtifactArray and ReleaseBundleV2SourceArtifactArrayOutput values.
+// You can construct a concrete instance of `ReleaseBundleV2SourceArtifactArrayInput` via:
+//
+//	ReleaseBundleV2SourceArtifactArray{ ReleaseBundleV2SourceArtifactArgs{...} }
+type ReleaseBundleV2SourceArtifactArrayInput interface {
+	pulumi.Input
+
+	ToReleaseBundleV2SourceArtifactArrayOutput() ReleaseBundleV2SourceArtifactArrayOutput
+	ToReleaseBundleV2SourceArtifactArrayOutputWithContext(context.Context) ReleaseBundleV2SourceArtifactArrayOutput
+}
+
+type ReleaseBundleV2SourceArtifactArray []ReleaseBundleV2SourceArtifactInput
+
+func (ReleaseBundleV2SourceArtifactArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReleaseBundleV2SourceArtifact)(nil)).Elem()
+}
+
+func (i ReleaseBundleV2SourceArtifactArray) ToReleaseBundleV2SourceArtifactArrayOutput() ReleaseBundleV2SourceArtifactArrayOutput {
+	return i.ToReleaseBundleV2SourceArtifactArrayOutputWithContext(context.Background())
+}
+
+func (i ReleaseBundleV2SourceArtifactArray) ToReleaseBundleV2SourceArtifactArrayOutputWithContext(ctx context.Context) ReleaseBundleV2SourceArtifactArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReleaseBundleV2SourceArtifactArrayOutput)
+}
+
+type ReleaseBundleV2SourceArtifactOutput struct{ *pulumi.OutputState }
+
+func (ReleaseBundleV2SourceArtifactOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReleaseBundleV2SourceArtifact)(nil)).Elem()
+}
+
+func (o ReleaseBundleV2SourceArtifactOutput) ToReleaseBundleV2SourceArtifactOutput() ReleaseBundleV2SourceArtifactOutput {
+	return o
+}
+
+func (o ReleaseBundleV2SourceArtifactOutput) ToReleaseBundleV2SourceArtifactOutputWithContext(ctx context.Context) ReleaseBundleV2SourceArtifactOutput {
+	return o
+}
+
+// The path for the artifact
+func (o ReleaseBundleV2SourceArtifactOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v ReleaseBundleV2SourceArtifact) string { return v.Path }).(pulumi.StringOutput)
+}
+
+// The SHA256 for the artifact
+func (o ReleaseBundleV2SourceArtifactOutput) Sha256() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReleaseBundleV2SourceArtifact) *string { return v.Sha256 }).(pulumi.StringPtrOutput)
+}
+
+type ReleaseBundleV2SourceArtifactArrayOutput struct{ *pulumi.OutputState }
+
+func (ReleaseBundleV2SourceArtifactArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReleaseBundleV2SourceArtifact)(nil)).Elem()
+}
+
+func (o ReleaseBundleV2SourceArtifactArrayOutput) ToReleaseBundleV2SourceArtifactArrayOutput() ReleaseBundleV2SourceArtifactArrayOutput {
+	return o
+}
+
+func (o ReleaseBundleV2SourceArtifactArrayOutput) ToReleaseBundleV2SourceArtifactArrayOutputWithContext(ctx context.Context) ReleaseBundleV2SourceArtifactArrayOutput {
+	return o
+}
+
+func (o ReleaseBundleV2SourceArtifactArrayOutput) Index(i pulumi.IntInput) ReleaseBundleV2SourceArtifactOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReleaseBundleV2SourceArtifact {
+		return vs[0].([]ReleaseBundleV2SourceArtifact)[vs[1].(int)]
+	}).(ReleaseBundleV2SourceArtifactOutput)
+}
+
+type ReleaseBundleV2SourceBuild struct {
+	// Determines whether to include build dependencies in the Release Bundle. The default value is `false`.
+	IncludeDependencies *bool `pulumi:"includeDependencies"`
+	// Name of the build.
+	Name string `pulumi:"name"`
+	// Number (run) of the build.
+	Number string `pulumi:"number"`
+	// The repository key of the build. If omitted, the system uses the default built-in repository, `artifactory-build-info`.
+	Repository *string `pulumi:"repository"`
+	// Timestamp when the build was created. If omitted, the system uses the latest build run, as identified by the `name` and `number` combination. The timestamp is provided according to the ISO 8601 standard.
+	Started *string `pulumi:"started"`
+}
+
+// ReleaseBundleV2SourceBuildInput is an input type that accepts ReleaseBundleV2SourceBuildArgs and ReleaseBundleV2SourceBuildOutput values.
+// You can construct a concrete instance of `ReleaseBundleV2SourceBuildInput` via:
+//
+//	ReleaseBundleV2SourceBuildArgs{...}
+type ReleaseBundleV2SourceBuildInput interface {
+	pulumi.Input
+
+	ToReleaseBundleV2SourceBuildOutput() ReleaseBundleV2SourceBuildOutput
+	ToReleaseBundleV2SourceBuildOutputWithContext(context.Context) ReleaseBundleV2SourceBuildOutput
+}
+
+type ReleaseBundleV2SourceBuildArgs struct {
+	// Determines whether to include build dependencies in the Release Bundle. The default value is `false`.
+	IncludeDependencies pulumi.BoolPtrInput `pulumi:"includeDependencies"`
+	// Name of the build.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Number (run) of the build.
+	Number pulumi.StringInput `pulumi:"number"`
+	// The repository key of the build. If omitted, the system uses the default built-in repository, `artifactory-build-info`.
+	Repository pulumi.StringPtrInput `pulumi:"repository"`
+	// Timestamp when the build was created. If omitted, the system uses the latest build run, as identified by the `name` and `number` combination. The timestamp is provided according to the ISO 8601 standard.
+	Started pulumi.StringPtrInput `pulumi:"started"`
+}
+
+func (ReleaseBundleV2SourceBuildArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReleaseBundleV2SourceBuild)(nil)).Elem()
+}
+
+func (i ReleaseBundleV2SourceBuildArgs) ToReleaseBundleV2SourceBuildOutput() ReleaseBundleV2SourceBuildOutput {
+	return i.ToReleaseBundleV2SourceBuildOutputWithContext(context.Background())
+}
+
+func (i ReleaseBundleV2SourceBuildArgs) ToReleaseBundleV2SourceBuildOutputWithContext(ctx context.Context) ReleaseBundleV2SourceBuildOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReleaseBundleV2SourceBuildOutput)
+}
+
+// ReleaseBundleV2SourceBuildArrayInput is an input type that accepts ReleaseBundleV2SourceBuildArray and ReleaseBundleV2SourceBuildArrayOutput values.
+// You can construct a concrete instance of `ReleaseBundleV2SourceBuildArrayInput` via:
+//
+//	ReleaseBundleV2SourceBuildArray{ ReleaseBundleV2SourceBuildArgs{...} }
+type ReleaseBundleV2SourceBuildArrayInput interface {
+	pulumi.Input
+
+	ToReleaseBundleV2SourceBuildArrayOutput() ReleaseBundleV2SourceBuildArrayOutput
+	ToReleaseBundleV2SourceBuildArrayOutputWithContext(context.Context) ReleaseBundleV2SourceBuildArrayOutput
+}
+
+type ReleaseBundleV2SourceBuildArray []ReleaseBundleV2SourceBuildInput
+
+func (ReleaseBundleV2SourceBuildArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReleaseBundleV2SourceBuild)(nil)).Elem()
+}
+
+func (i ReleaseBundleV2SourceBuildArray) ToReleaseBundleV2SourceBuildArrayOutput() ReleaseBundleV2SourceBuildArrayOutput {
+	return i.ToReleaseBundleV2SourceBuildArrayOutputWithContext(context.Background())
+}
+
+func (i ReleaseBundleV2SourceBuildArray) ToReleaseBundleV2SourceBuildArrayOutputWithContext(ctx context.Context) ReleaseBundleV2SourceBuildArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReleaseBundleV2SourceBuildArrayOutput)
+}
+
+type ReleaseBundleV2SourceBuildOutput struct{ *pulumi.OutputState }
+
+func (ReleaseBundleV2SourceBuildOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReleaseBundleV2SourceBuild)(nil)).Elem()
+}
+
+func (o ReleaseBundleV2SourceBuildOutput) ToReleaseBundleV2SourceBuildOutput() ReleaseBundleV2SourceBuildOutput {
+	return o
+}
+
+func (o ReleaseBundleV2SourceBuildOutput) ToReleaseBundleV2SourceBuildOutputWithContext(ctx context.Context) ReleaseBundleV2SourceBuildOutput {
+	return o
+}
+
+// Determines whether to include build dependencies in the Release Bundle. The default value is `false`.
+func (o ReleaseBundleV2SourceBuildOutput) IncludeDependencies() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ReleaseBundleV2SourceBuild) *bool { return v.IncludeDependencies }).(pulumi.BoolPtrOutput)
+}
+
+// Name of the build.
+func (o ReleaseBundleV2SourceBuildOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ReleaseBundleV2SourceBuild) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Number (run) of the build.
+func (o ReleaseBundleV2SourceBuildOutput) Number() pulumi.StringOutput {
+	return o.ApplyT(func(v ReleaseBundleV2SourceBuild) string { return v.Number }).(pulumi.StringOutput)
+}
+
+// The repository key of the build. If omitted, the system uses the default built-in repository, `artifactory-build-info`.
+func (o ReleaseBundleV2SourceBuildOutput) Repository() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReleaseBundleV2SourceBuild) *string { return v.Repository }).(pulumi.StringPtrOutput)
+}
+
+// Timestamp when the build was created. If omitted, the system uses the latest build run, as identified by the `name` and `number` combination. The timestamp is provided according to the ISO 8601 standard.
+func (o ReleaseBundleV2SourceBuildOutput) Started() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReleaseBundleV2SourceBuild) *string { return v.Started }).(pulumi.StringPtrOutput)
+}
+
+type ReleaseBundleV2SourceBuildArrayOutput struct{ *pulumi.OutputState }
+
+func (ReleaseBundleV2SourceBuildArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReleaseBundleV2SourceBuild)(nil)).Elem()
+}
+
+func (o ReleaseBundleV2SourceBuildArrayOutput) ToReleaseBundleV2SourceBuildArrayOutput() ReleaseBundleV2SourceBuildArrayOutput {
+	return o
+}
+
+func (o ReleaseBundleV2SourceBuildArrayOutput) ToReleaseBundleV2SourceBuildArrayOutputWithContext(ctx context.Context) ReleaseBundleV2SourceBuildArrayOutput {
+	return o
+}
+
+func (o ReleaseBundleV2SourceBuildArrayOutput) Index(i pulumi.IntInput) ReleaseBundleV2SourceBuildOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReleaseBundleV2SourceBuild {
+		return vs[0].([]ReleaseBundleV2SourceBuild)[vs[1].(int)]
+	}).(ReleaseBundleV2SourceBuildOutput)
+}
+
+type ReleaseBundleV2SourceReleaseBundle struct {
+	// The name of the release bundle.
+	Name string `pulumi:"name"`
+	// Project key of the release bundle.
+	ProjectKey *string `pulumi:"projectKey"`
+	// The key of the release bundle repository.
+	RepositoryKey *string `pulumi:"repositoryKey"`
+	// The version of the release bundle.
+	Version string `pulumi:"version"`
+}
+
+// ReleaseBundleV2SourceReleaseBundleInput is an input type that accepts ReleaseBundleV2SourceReleaseBundleArgs and ReleaseBundleV2SourceReleaseBundleOutput values.
+// You can construct a concrete instance of `ReleaseBundleV2SourceReleaseBundleInput` via:
+//
+//	ReleaseBundleV2SourceReleaseBundleArgs{...}
+type ReleaseBundleV2SourceReleaseBundleInput interface {
+	pulumi.Input
+
+	ToReleaseBundleV2SourceReleaseBundleOutput() ReleaseBundleV2SourceReleaseBundleOutput
+	ToReleaseBundleV2SourceReleaseBundleOutputWithContext(context.Context) ReleaseBundleV2SourceReleaseBundleOutput
+}
+
+type ReleaseBundleV2SourceReleaseBundleArgs struct {
+	// The name of the release bundle.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Project key of the release bundle.
+	ProjectKey pulumi.StringPtrInput `pulumi:"projectKey"`
+	// The key of the release bundle repository.
+	RepositoryKey pulumi.StringPtrInput `pulumi:"repositoryKey"`
+	// The version of the release bundle.
+	Version pulumi.StringInput `pulumi:"version"`
+}
+
+func (ReleaseBundleV2SourceReleaseBundleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReleaseBundleV2SourceReleaseBundle)(nil)).Elem()
+}
+
+func (i ReleaseBundleV2SourceReleaseBundleArgs) ToReleaseBundleV2SourceReleaseBundleOutput() ReleaseBundleV2SourceReleaseBundleOutput {
+	return i.ToReleaseBundleV2SourceReleaseBundleOutputWithContext(context.Background())
+}
+
+func (i ReleaseBundleV2SourceReleaseBundleArgs) ToReleaseBundleV2SourceReleaseBundleOutputWithContext(ctx context.Context) ReleaseBundleV2SourceReleaseBundleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReleaseBundleV2SourceReleaseBundleOutput)
+}
+
+// ReleaseBundleV2SourceReleaseBundleArrayInput is an input type that accepts ReleaseBundleV2SourceReleaseBundleArray and ReleaseBundleV2SourceReleaseBundleArrayOutput values.
+// You can construct a concrete instance of `ReleaseBundleV2SourceReleaseBundleArrayInput` via:
+//
+//	ReleaseBundleV2SourceReleaseBundleArray{ ReleaseBundleV2SourceReleaseBundleArgs{...} }
+type ReleaseBundleV2SourceReleaseBundleArrayInput interface {
+	pulumi.Input
+
+	ToReleaseBundleV2SourceReleaseBundleArrayOutput() ReleaseBundleV2SourceReleaseBundleArrayOutput
+	ToReleaseBundleV2SourceReleaseBundleArrayOutputWithContext(context.Context) ReleaseBundleV2SourceReleaseBundleArrayOutput
+}
+
+type ReleaseBundleV2SourceReleaseBundleArray []ReleaseBundleV2SourceReleaseBundleInput
+
+func (ReleaseBundleV2SourceReleaseBundleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReleaseBundleV2SourceReleaseBundle)(nil)).Elem()
+}
+
+func (i ReleaseBundleV2SourceReleaseBundleArray) ToReleaseBundleV2SourceReleaseBundleArrayOutput() ReleaseBundleV2SourceReleaseBundleArrayOutput {
+	return i.ToReleaseBundleV2SourceReleaseBundleArrayOutputWithContext(context.Background())
+}
+
+func (i ReleaseBundleV2SourceReleaseBundleArray) ToReleaseBundleV2SourceReleaseBundleArrayOutputWithContext(ctx context.Context) ReleaseBundleV2SourceReleaseBundleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReleaseBundleV2SourceReleaseBundleArrayOutput)
+}
+
+type ReleaseBundleV2SourceReleaseBundleOutput struct{ *pulumi.OutputState }
+
+func (ReleaseBundleV2SourceReleaseBundleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReleaseBundleV2SourceReleaseBundle)(nil)).Elem()
+}
+
+func (o ReleaseBundleV2SourceReleaseBundleOutput) ToReleaseBundleV2SourceReleaseBundleOutput() ReleaseBundleV2SourceReleaseBundleOutput {
+	return o
+}
+
+func (o ReleaseBundleV2SourceReleaseBundleOutput) ToReleaseBundleV2SourceReleaseBundleOutputWithContext(ctx context.Context) ReleaseBundleV2SourceReleaseBundleOutput {
+	return o
+}
+
+// The name of the release bundle.
+func (o ReleaseBundleV2SourceReleaseBundleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ReleaseBundleV2SourceReleaseBundle) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Project key of the release bundle.
+func (o ReleaseBundleV2SourceReleaseBundleOutput) ProjectKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReleaseBundleV2SourceReleaseBundle) *string { return v.ProjectKey }).(pulumi.StringPtrOutput)
+}
+
+// The key of the release bundle repository.
+func (o ReleaseBundleV2SourceReleaseBundleOutput) RepositoryKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReleaseBundleV2SourceReleaseBundle) *string { return v.RepositoryKey }).(pulumi.StringPtrOutput)
+}
+
+// The version of the release bundle.
+func (o ReleaseBundleV2SourceReleaseBundleOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v ReleaseBundleV2SourceReleaseBundle) string { return v.Version }).(pulumi.StringOutput)
+}
+
+type ReleaseBundleV2SourceReleaseBundleArrayOutput struct{ *pulumi.OutputState }
+
+func (ReleaseBundleV2SourceReleaseBundleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReleaseBundleV2SourceReleaseBundle)(nil)).Elem()
+}
+
+func (o ReleaseBundleV2SourceReleaseBundleArrayOutput) ToReleaseBundleV2SourceReleaseBundleArrayOutput() ReleaseBundleV2SourceReleaseBundleArrayOutput {
+	return o
+}
+
+func (o ReleaseBundleV2SourceReleaseBundleArrayOutput) ToReleaseBundleV2SourceReleaseBundleArrayOutputWithContext(ctx context.Context) ReleaseBundleV2SourceReleaseBundleArrayOutput {
+	return o
+}
+
+func (o ReleaseBundleV2SourceReleaseBundleArrayOutput) Index(i pulumi.IntInput) ReleaseBundleV2SourceReleaseBundleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReleaseBundleV2SourceReleaseBundle {
+		return vs[0].([]ReleaseBundleV2SourceReleaseBundle)[vs[1].(int)]
+	}).(ReleaseBundleV2SourceReleaseBundleOutput)
+}
+
 type ReleaseBundleV2WebhookCriteria struct {
 	// Trigger on any release bundle.
 	AnyReleaseBundle bool `pulumi:"anyReleaseBundle"`
@@ -34337,6 +34894,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ReleaseBundleV2PromotionWebhookCriteriaPtrInput)(nil)).Elem(), ReleaseBundleV2PromotionWebhookCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReleaseBundleV2PromotionWebhookHandlerInput)(nil)).Elem(), ReleaseBundleV2PromotionWebhookHandlerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReleaseBundleV2PromotionWebhookHandlerArrayInput)(nil)).Elem(), ReleaseBundleV2PromotionWebhookHandlerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReleaseBundleV2SourceInput)(nil)).Elem(), ReleaseBundleV2SourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReleaseBundleV2SourcePtrInput)(nil)).Elem(), ReleaseBundleV2SourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReleaseBundleV2SourceArtifactInput)(nil)).Elem(), ReleaseBundleV2SourceArtifactArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReleaseBundleV2SourceArtifactArrayInput)(nil)).Elem(), ReleaseBundleV2SourceArtifactArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReleaseBundleV2SourceBuildInput)(nil)).Elem(), ReleaseBundleV2SourceBuildArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReleaseBundleV2SourceBuildArrayInput)(nil)).Elem(), ReleaseBundleV2SourceBuildArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReleaseBundleV2SourceReleaseBundleInput)(nil)).Elem(), ReleaseBundleV2SourceReleaseBundleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReleaseBundleV2SourceReleaseBundleArrayInput)(nil)).Elem(), ReleaseBundleV2SourceReleaseBundleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReleaseBundleV2WebhookCriteriaInput)(nil)).Elem(), ReleaseBundleV2WebhookCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReleaseBundleV2WebhookCriteriaPtrInput)(nil)).Elem(), ReleaseBundleV2WebhookCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReleaseBundleV2WebhookHandlerInput)(nil)).Elem(), ReleaseBundleV2WebhookHandlerArgs{})
@@ -34782,6 +35347,14 @@ func init() {
 	pulumi.RegisterOutputType(ReleaseBundleV2PromotionWebhookCriteriaPtrOutput{})
 	pulumi.RegisterOutputType(ReleaseBundleV2PromotionWebhookHandlerOutput{})
 	pulumi.RegisterOutputType(ReleaseBundleV2PromotionWebhookHandlerArrayOutput{})
+	pulumi.RegisterOutputType(ReleaseBundleV2SourceOutput{})
+	pulumi.RegisterOutputType(ReleaseBundleV2SourcePtrOutput{})
+	pulumi.RegisterOutputType(ReleaseBundleV2SourceArtifactOutput{})
+	pulumi.RegisterOutputType(ReleaseBundleV2SourceArtifactArrayOutput{})
+	pulumi.RegisterOutputType(ReleaseBundleV2SourceBuildOutput{})
+	pulumi.RegisterOutputType(ReleaseBundleV2SourceBuildArrayOutput{})
+	pulumi.RegisterOutputType(ReleaseBundleV2SourceReleaseBundleOutput{})
+	pulumi.RegisterOutputType(ReleaseBundleV2SourceReleaseBundleArrayOutput{})
 	pulumi.RegisterOutputType(ReleaseBundleV2WebhookCriteriaOutput{})
 	pulumi.RegisterOutputType(ReleaseBundleV2WebhookCriteriaPtrOutput{})
 	pulumi.RegisterOutputType(ReleaseBundleV2WebhookHandlerOutput{})

@@ -349,11 +349,18 @@ public class LocalHelmociRepository extends com.pulumi.resources.CustomResource 
      * @param options A bag of options that control this resource's behavior.
      */
     public LocalHelmociRepository(String name, LocalHelmociRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/localHelmociRepository:LocalHelmociRepository", name, args == null ? LocalHelmociRepositoryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("artifactory:index/localHelmociRepository:LocalHelmociRepository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private LocalHelmociRepository(String name, Output<String> id, @Nullable LocalHelmociRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("artifactory:index/localHelmociRepository:LocalHelmociRepository", name, state, makeResourceOptions(options, id));
+    }
+
+    private static LocalHelmociRepositoryArgs makeArgs(LocalHelmociRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LocalHelmociRepositoryArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

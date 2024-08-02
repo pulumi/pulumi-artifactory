@@ -377,11 +377,18 @@ public class FederatedBowerRepository extends com.pulumi.resources.CustomResourc
      * @param options A bag of options that control this resource's behavior.
      */
     public FederatedBowerRepository(String name, FederatedBowerRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/federatedBowerRepository:FederatedBowerRepository", name, args == null ? FederatedBowerRepositoryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("artifactory:index/federatedBowerRepository:FederatedBowerRepository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private FederatedBowerRepository(String name, Output<String> id, @Nullable FederatedBowerRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("artifactory:index/federatedBowerRepository:FederatedBowerRepository", name, state, makeResourceOptions(options, id));
+    }
+
+    private static FederatedBowerRepositoryArgs makeArgs(FederatedBowerRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? FederatedBowerRepositoryArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

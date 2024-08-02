@@ -415,11 +415,18 @@ public class LocalSbtRepository extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public LocalSbtRepository(String name, LocalSbtRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/localSbtRepository:LocalSbtRepository", name, args == null ? LocalSbtRepositoryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("artifactory:index/localSbtRepository:LocalSbtRepository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private LocalSbtRepository(String name, Output<String> id, @Nullable LocalSbtRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("artifactory:index/localSbtRepository:LocalSbtRepository", name, state, makeResourceOptions(options, id));
+    }
+
+    private static LocalSbtRepositoryArgs makeArgs(LocalSbtRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LocalSbtRepositoryArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -272,11 +272,18 @@ public class VirtualAnsibleRepository extends com.pulumi.resources.CustomResourc
      * @param options A bag of options that control this resource's behavior.
      */
     public VirtualAnsibleRepository(String name, VirtualAnsibleRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/virtualAnsibleRepository:VirtualAnsibleRepository", name, args == null ? VirtualAnsibleRepositoryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("artifactory:index/virtualAnsibleRepository:VirtualAnsibleRepository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private VirtualAnsibleRepository(String name, Output<String> id, @Nullable VirtualAnsibleRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("artifactory:index/virtualAnsibleRepository:VirtualAnsibleRepository", name, state, makeResourceOptions(options, id));
+    }
+
+    private static VirtualAnsibleRepositoryArgs makeArgs(VirtualAnsibleRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VirtualAnsibleRepositoryArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

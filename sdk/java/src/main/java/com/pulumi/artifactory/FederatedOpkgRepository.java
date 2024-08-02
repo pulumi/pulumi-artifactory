@@ -377,11 +377,18 @@ public class FederatedOpkgRepository extends com.pulumi.resources.CustomResource
      * @param options A bag of options that control this resource's behavior.
      */
     public FederatedOpkgRepository(String name, FederatedOpkgRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/federatedOpkgRepository:FederatedOpkgRepository", name, args == null ? FederatedOpkgRepositoryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("artifactory:index/federatedOpkgRepository:FederatedOpkgRepository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private FederatedOpkgRepository(String name, Output<String> id, @Nullable FederatedOpkgRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("artifactory:index/federatedOpkgRepository:FederatedOpkgRepository", name, state, makeResourceOptions(options, id));
+    }
+
+    private static FederatedOpkgRepositoryArgs makeArgs(FederatedOpkgRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? FederatedOpkgRepositoryArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

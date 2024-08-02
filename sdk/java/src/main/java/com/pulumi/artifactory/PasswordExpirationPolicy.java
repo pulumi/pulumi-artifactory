@@ -144,11 +144,18 @@ public class PasswordExpirationPolicy extends com.pulumi.resources.CustomResourc
      * @param options A bag of options that control this resource's behavior.
      */
     public PasswordExpirationPolicy(String name, PasswordExpirationPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/passwordExpirationPolicy:PasswordExpirationPolicy", name, args == null ? PasswordExpirationPolicyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("artifactory:index/passwordExpirationPolicy:PasswordExpirationPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private PasswordExpirationPolicy(String name, Output<String> id, @Nullable PasswordExpirationPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("artifactory:index/passwordExpirationPolicy:PasswordExpirationPolicy", name, state, makeResourceOptions(options, id));
+    }
+
+    private static PasswordExpirationPolicyArgs makeArgs(PasswordExpirationPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? PasswordExpirationPolicyArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

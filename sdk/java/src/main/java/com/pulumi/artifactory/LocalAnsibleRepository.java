@@ -343,11 +343,18 @@ public class LocalAnsibleRepository extends com.pulumi.resources.CustomResource 
      * @param options A bag of options that control this resource's behavior.
      */
     public LocalAnsibleRepository(String name, LocalAnsibleRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/localAnsibleRepository:LocalAnsibleRepository", name, args == null ? LocalAnsibleRepositoryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("artifactory:index/localAnsibleRepository:LocalAnsibleRepository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private LocalAnsibleRepository(String name, Output<String> id, @Nullable LocalAnsibleRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("artifactory:index/localAnsibleRepository:LocalAnsibleRepository", name, state, makeResourceOptions(options, id));
+    }
+
+    private static LocalAnsibleRepositoryArgs makeArgs(LocalAnsibleRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LocalAnsibleRepositoryArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
