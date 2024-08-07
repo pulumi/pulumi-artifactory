@@ -227,6 +227,13 @@ public final class GetRemoteGradleRepositoryPlainArgs extends com.pulumi.resourc
         return Optional.ofNullable(this.localAddress);
     }
 
+    @Import(name="maxUniqueSnapshots")
+    private @Nullable Integer maxUniqueSnapshots;
+
+    public Optional<Integer> maxUniqueSnapshots() {
+        return Optional.ofNullable(this.maxUniqueSnapshots);
+    }
+
     @Import(name="metadataRetrievalTimeoutSecs")
     private @Nullable Integer metadataRetrievalTimeoutSecs;
 
@@ -460,6 +467,7 @@ public final class GetRemoteGradleRepositoryPlainArgs extends com.pulumi.resourc
         this.key = $.key;
         this.listRemoteFolderItems = $.listRemoteFolderItems;
         this.localAddress = $.localAddress;
+        this.maxUniqueSnapshots = $.maxUniqueSnapshots;
         this.metadataRetrievalTimeoutSecs = $.metadataRetrievalTimeoutSecs;
         this.mismatchingMimeTypesOverrideList = $.mismatchingMimeTypesOverrideList;
         this.missedCachePeriodSeconds = $.missedCachePeriodSeconds;
@@ -653,6 +661,11 @@ public final class GetRemoteGradleRepositoryPlainArgs extends com.pulumi.resourc
 
         public Builder localAddress(@Nullable String localAddress) {
             $.localAddress = localAddress;
+            return this;
+        }
+
+        public Builder maxUniqueSnapshots(@Nullable Integer maxUniqueSnapshots) {
+            $.maxUniqueSnapshots = maxUniqueSnapshots;
             return this;
         }
 

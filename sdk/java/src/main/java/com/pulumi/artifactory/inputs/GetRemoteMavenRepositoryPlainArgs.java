@@ -234,6 +234,13 @@ public final class GetRemoteMavenRepositoryPlainArgs extends com.pulumi.resource
         return Optional.ofNullable(this.localAddress);
     }
 
+    @Import(name="maxUniqueSnapshots")
+    private @Nullable Integer maxUniqueSnapshots;
+
+    public Optional<Integer> maxUniqueSnapshots() {
+        return Optional.ofNullable(this.maxUniqueSnapshots);
+    }
+
     /**
      * (Optional, Default: 60) This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrieval_cache_period_seconds` attribute.
      * 
@@ -476,6 +483,7 @@ public final class GetRemoteMavenRepositoryPlainArgs extends com.pulumi.resource
         this.key = $.key;
         this.listRemoteFolderItems = $.listRemoteFolderItems;
         this.localAddress = $.localAddress;
+        this.maxUniqueSnapshots = $.maxUniqueSnapshots;
         this.metadataRetrievalTimeoutSecs = $.metadataRetrievalTimeoutSecs;
         this.mismatchingMimeTypesOverrideList = $.mismatchingMimeTypesOverrideList;
         this.missedCachePeriodSeconds = $.missedCachePeriodSeconds;
@@ -674,6 +682,11 @@ public final class GetRemoteMavenRepositoryPlainArgs extends com.pulumi.resource
 
         public Builder localAddress(@Nullable String localAddress) {
             $.localAddress = localAddress;
+            return this;
+        }
+
+        public Builder maxUniqueSnapshots(@Nullable Integer maxUniqueSnapshots) {
+            $.maxUniqueSnapshots = maxUniqueSnapshots;
             return this;
         }
 

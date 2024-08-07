@@ -153,6 +153,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &GoRepository{}
 	case "artifactory:index/group:Group":
 		r = &Group{}
+	case "artifactory:index/itemProperties:ItemProperties":
+		r = &ItemProperties{}
 	case "artifactory:index/keypair:Keypair":
 		r = &Keypair{}
 	case "artifactory:index/ldapGroupSetting:LdapGroupSetting":
@@ -778,6 +780,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"artifactory",
 		"index/group",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/itemProperties",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

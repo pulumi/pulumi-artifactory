@@ -42,6 +42,7 @@ class RemoteMavenRepositoryArgs:
                  includes_pattern: Optional[pulumi.Input[str]] = None,
                  list_remote_folder_items: Optional[pulumi.Input[bool]] = None,
                  local_address: Optional[pulumi.Input[str]] = None,
+                 max_unique_snapshots: Optional[pulumi.Input[int]] = None,
                  metadata_retrieval_timeout_secs: Optional[pulumi.Input[int]] = None,
                  mismatching_mime_types_override_list: Optional[pulumi.Input[str]] = None,
                  missed_cache_period_seconds: Optional[pulumi.Input[int]] = None,
@@ -113,6 +114,7 @@ class RemoteMavenRepositoryArgs:
                the 'Retrieval Cache Period'. Default value is 'true'.
         :param pulumi.Input[str] local_address: The local address to be used when creating connections. Useful for specifying the interface to use on systems with
                multiple network interfaces.
+        :param pulumi.Input[int] max_unique_snapshots: The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
         :param pulumi.Input[int] metadata_retrieval_timeout_secs: Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
                the remote before serving locally cached artifact or fail the request.
         :param pulumi.Input[str] mismatching_mime_types_override_list: The set of mime types that should override the block_mismatching_mime_types setting. Eg:
@@ -202,6 +204,8 @@ class RemoteMavenRepositoryArgs:
             pulumi.set(__self__, "list_remote_folder_items", list_remote_folder_items)
         if local_address is not None:
             pulumi.set(__self__, "local_address", local_address)
+        if max_unique_snapshots is not None:
+            pulumi.set(__self__, "max_unique_snapshots", max_unique_snapshots)
         if metadata_retrieval_timeout_secs is not None:
             pulumi.set(__self__, "metadata_retrieval_timeout_secs", metadata_retrieval_timeout_secs)
         if mismatching_mime_types_override_list is not None:
@@ -582,6 +586,18 @@ class RemoteMavenRepositoryArgs:
         pulumi.set(self, "local_address", value)
 
     @property
+    @pulumi.getter(name="maxUniqueSnapshots")
+    def max_unique_snapshots(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+        """
+        return pulumi.get(self, "max_unique_snapshots")
+
+    @max_unique_snapshots.setter
+    def max_unique_snapshots(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_unique_snapshots", value)
+
+    @property
     @pulumi.getter(name="metadataRetrievalTimeoutSecs")
     def metadata_retrieval_timeout_secs(self) -> Optional[pulumi.Input[int]]:
         """
@@ -915,6 +931,7 @@ class _RemoteMavenRepositoryState:
                  key: Optional[pulumi.Input[str]] = None,
                  list_remote_folder_items: Optional[pulumi.Input[bool]] = None,
                  local_address: Optional[pulumi.Input[str]] = None,
+                 max_unique_snapshots: Optional[pulumi.Input[int]] = None,
                  metadata_retrieval_timeout_secs: Optional[pulumi.Input[int]] = None,
                  mismatching_mime_types_override_list: Optional[pulumi.Input[str]] = None,
                  missed_cache_period_seconds: Optional[pulumi.Input[int]] = None,
@@ -987,6 +1004,7 @@ class _RemoteMavenRepositoryState:
                the 'Retrieval Cache Period'. Default value is 'true'.
         :param pulumi.Input[str] local_address: The local address to be used when creating connections. Useful for specifying the interface to use on systems with
                multiple network interfaces.
+        :param pulumi.Input[int] max_unique_snapshots: The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
         :param pulumi.Input[int] metadata_retrieval_timeout_secs: Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
                the remote before serving locally cached artifact or fail the request.
         :param pulumi.Input[str] mismatching_mime_types_override_list: The set of mime types that should override the block_mismatching_mime_types setting. Eg:
@@ -1077,6 +1095,8 @@ class _RemoteMavenRepositoryState:
             pulumi.set(__self__, "list_remote_folder_items", list_remote_folder_items)
         if local_address is not None:
             pulumi.set(__self__, "local_address", local_address)
+        if max_unique_snapshots is not None:
+            pulumi.set(__self__, "max_unique_snapshots", max_unique_snapshots)
         if metadata_retrieval_timeout_secs is not None:
             pulumi.set(__self__, "metadata_retrieval_timeout_secs", metadata_retrieval_timeout_secs)
         if mismatching_mime_types_override_list is not None:
@@ -1449,6 +1469,18 @@ class _RemoteMavenRepositoryState:
         pulumi.set(self, "local_address", value)
 
     @property
+    @pulumi.getter(name="maxUniqueSnapshots")
+    def max_unique_snapshots(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+        """
+        return pulumi.get(self, "max_unique_snapshots")
+
+    @max_unique_snapshots.setter
+    def max_unique_snapshots(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_unique_snapshots", value)
+
+    @property
     @pulumi.getter(name="metadataRetrievalTimeoutSecs")
     def metadata_retrieval_timeout_secs(self) -> Optional[pulumi.Input[int]]:
         """
@@ -1805,6 +1837,7 @@ class RemoteMavenRepository(pulumi.CustomResource):
                  key: Optional[pulumi.Input[str]] = None,
                  list_remote_folder_items: Optional[pulumi.Input[bool]] = None,
                  local_address: Optional[pulumi.Input[str]] = None,
+                 max_unique_snapshots: Optional[pulumi.Input[int]] = None,
                  metadata_retrieval_timeout_secs: Optional[pulumi.Input[int]] = None,
                  mismatching_mime_types_override_list: Optional[pulumi.Input[str]] = None,
                  missed_cache_period_seconds: Optional[pulumi.Input[int]] = None,
@@ -1849,7 +1882,8 @@ class RemoteMavenRepository(pulumi.CustomResource):
             fetch_sources_eagerly=False,
             suppress_pom_consistency_checks=False,
             reject_invalid_jars=True,
-            metadata_retrieval_timeout_secs=120)
+            metadata_retrieval_timeout_secs=120,
+            max_unique_snapshots=10)
         ```
 
         ## Import
@@ -1905,6 +1939,7 @@ class RemoteMavenRepository(pulumi.CustomResource):
                the 'Retrieval Cache Period'. Default value is 'true'.
         :param pulumi.Input[str] local_address: The local address to be used when creating connections. Useful for specifying the interface to use on systems with
                multiple network interfaces.
+        :param pulumi.Input[int] max_unique_snapshots: The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
         :param pulumi.Input[int] metadata_retrieval_timeout_secs: Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
                the remote before serving locally cached artifact or fail the request.
         :param pulumi.Input[str] mismatching_mime_types_override_list: The set of mime types that should override the block_mismatching_mime_types setting. Eg:
@@ -1968,7 +2003,8 @@ class RemoteMavenRepository(pulumi.CustomResource):
             fetch_sources_eagerly=False,
             suppress_pom_consistency_checks=False,
             reject_invalid_jars=True,
-            metadata_retrieval_timeout_secs=120)
+            metadata_retrieval_timeout_secs=120,
+            max_unique_snapshots=10)
         ```
 
         ## Import
@@ -2019,6 +2055,7 @@ class RemoteMavenRepository(pulumi.CustomResource):
                  key: Optional[pulumi.Input[str]] = None,
                  list_remote_folder_items: Optional[pulumi.Input[bool]] = None,
                  local_address: Optional[pulumi.Input[str]] = None,
+                 max_unique_snapshots: Optional[pulumi.Input[int]] = None,
                  metadata_retrieval_timeout_secs: Optional[pulumi.Input[int]] = None,
                  mismatching_mime_types_override_list: Optional[pulumi.Input[str]] = None,
                  missed_cache_period_seconds: Optional[pulumi.Input[int]] = None,
@@ -2081,6 +2118,7 @@ class RemoteMavenRepository(pulumi.CustomResource):
             __props__.__dict__["key"] = key
             __props__.__dict__["list_remote_folder_items"] = list_remote_folder_items
             __props__.__dict__["local_address"] = local_address
+            __props__.__dict__["max_unique_snapshots"] = max_unique_snapshots
             __props__.__dict__["metadata_retrieval_timeout_secs"] = metadata_retrieval_timeout_secs
             __props__.__dict__["mismatching_mime_types_override_list"] = mismatching_mime_types_override_list
             __props__.__dict__["missed_cache_period_seconds"] = missed_cache_period_seconds
@@ -2147,6 +2185,7 @@ class RemoteMavenRepository(pulumi.CustomResource):
             key: Optional[pulumi.Input[str]] = None,
             list_remote_folder_items: Optional[pulumi.Input[bool]] = None,
             local_address: Optional[pulumi.Input[str]] = None,
+            max_unique_snapshots: Optional[pulumi.Input[int]] = None,
             metadata_retrieval_timeout_secs: Optional[pulumi.Input[int]] = None,
             mismatching_mime_types_override_list: Optional[pulumi.Input[str]] = None,
             missed_cache_period_seconds: Optional[pulumi.Input[int]] = None,
@@ -2224,6 +2263,7 @@ class RemoteMavenRepository(pulumi.CustomResource):
                the 'Retrieval Cache Period'. Default value is 'true'.
         :param pulumi.Input[str] local_address: The local address to be used when creating connections. Useful for specifying the interface to use on systems with
                multiple network interfaces.
+        :param pulumi.Input[int] max_unique_snapshots: The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
         :param pulumi.Input[int] metadata_retrieval_timeout_secs: Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
                the remote before serving locally cached artifact or fail the request.
         :param pulumi.Input[str] mismatching_mime_types_override_list: The set of mime types that should override the block_mismatching_mime_types setting. Eg:
@@ -2293,6 +2333,7 @@ class RemoteMavenRepository(pulumi.CustomResource):
         __props__.__dict__["key"] = key
         __props__.__dict__["list_remote_folder_items"] = list_remote_folder_items
         __props__.__dict__["local_address"] = local_address
+        __props__.__dict__["max_unique_snapshots"] = max_unique_snapshots
         __props__.__dict__["metadata_retrieval_timeout_secs"] = metadata_retrieval_timeout_secs
         __props__.__dict__["mismatching_mime_types_override_list"] = mismatching_mime_types_override_list
         __props__.__dict__["missed_cache_period_seconds"] = missed_cache_period_seconds
@@ -2537,6 +2578,14 @@ class RemoteMavenRepository(pulumi.CustomResource):
         multiple network interfaces.
         """
         return pulumi.get(self, "local_address")
+
+    @property
+    @pulumi.getter(name="maxUniqueSnapshots")
+    def max_unique_snapshots(self) -> pulumi.Output[Optional[int]]:
+        """
+        The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+        """
+        return pulumi.get(self, "max_unique_snapshots")
 
     @property
     @pulumi.getter(name="metadataRetrievalTimeoutSecs")

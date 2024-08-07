@@ -425,6 +425,21 @@ public final class RemoteMavenRepositoryState extends com.pulumi.resources.Resou
     }
 
     /**
+     * The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+     * 
+     */
+    @Import(name="maxUniqueSnapshots")
+    private @Nullable Output<Integer> maxUniqueSnapshots;
+
+    /**
+     * @return The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+     * 
+     */
+    public Optional<Output<Integer>> maxUniqueSnapshots() {
+        return Optional.ofNullable(this.maxUniqueSnapshots);
+    }
+
+    /**
      * Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
      * the remote before serving locally cached artifact or fail the request.
      * 
@@ -851,6 +866,7 @@ public final class RemoteMavenRepositoryState extends com.pulumi.resources.Resou
         this.key = $.key;
         this.listRemoteFolderItems = $.listRemoteFolderItems;
         this.localAddress = $.localAddress;
+        this.maxUniqueSnapshots = $.maxUniqueSnapshots;
         this.metadataRetrievalTimeoutSecs = $.metadataRetrievalTimeoutSecs;
         this.mismatchingMimeTypesOverrideList = $.mismatchingMimeTypesOverrideList;
         this.missedCachePeriodSeconds = $.missedCachePeriodSeconds;
@@ -1447,6 +1463,27 @@ public final class RemoteMavenRepositoryState extends com.pulumi.resources.Resou
          */
         public Builder localAddress(String localAddress) {
             return localAddress(Output.of(localAddress));
+        }
+
+        /**
+         * @param maxUniqueSnapshots The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder maxUniqueSnapshots(@Nullable Output<Integer> maxUniqueSnapshots) {
+            $.maxUniqueSnapshots = maxUniqueSnapshots;
+            return this;
+        }
+
+        /**
+         * @param maxUniqueSnapshots The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder maxUniqueSnapshots(Integer maxUniqueSnapshots) {
+            return maxUniqueSnapshots(Output.of(maxUniqueSnapshots));
         }
 
         /**

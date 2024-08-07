@@ -153,6 +153,9 @@ namespace Pulumi.Artifactory
         [Input("localAddress")]
         public string? LocalAddress { get; set; }
 
+        [Input("maxUniqueSnapshots")]
+        public int? MaxUniqueSnapshots { get; set; }
+
         /// <summary>
         /// (Optional, Default: 60) This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrieval_cache_period_seconds` attribute.
         /// </summary>
@@ -356,6 +359,9 @@ namespace Pulumi.Artifactory
         [Input("localAddress")]
         public Input<string>? LocalAddress { get; set; }
 
+        [Input("maxUniqueSnapshots")]
+        public Input<int>? MaxUniqueSnapshots { get; set; }
+
         /// <summary>
         /// (Optional, Default: 60) This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrieval_cache_period_seconds` attribute.
         /// </summary>
@@ -516,6 +522,7 @@ namespace Pulumi.Artifactory
         public readonly string Key;
         public readonly bool? ListRemoteFolderItems;
         public readonly string? LocalAddress;
+        public readonly int? MaxUniqueSnapshots;
         /// <summary>
         /// (Optional, Default: 60) This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrieval_cache_period_seconds` attribute.
         /// </summary>
@@ -610,6 +617,8 @@ namespace Pulumi.Artifactory
 
             string? localAddress,
 
+            int? maxUniqueSnapshots,
+
             int? metadataRetrievalTimeoutSecs,
 
             string? mismatchingMimeTypesOverrideList,
@@ -690,6 +699,7 @@ namespace Pulumi.Artifactory
             Key = key;
             ListRemoteFolderItems = listRemoteFolderItems;
             LocalAddress = localAddress;
+            MaxUniqueSnapshots = maxUniqueSnapshots;
             MetadataRetrievalTimeoutSecs = metadataRetrievalTimeoutSecs;
             MismatchingMimeTypesOverrideList = mismatchingMimeTypesOverrideList;
             MissedCachePeriodSeconds = missedCachePeriodSeconds;
