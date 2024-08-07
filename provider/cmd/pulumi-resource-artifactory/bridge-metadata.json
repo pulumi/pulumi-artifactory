@@ -1009,6 +1009,17 @@
                     }
                 }
             },
+            "artifactory_item_properties": {
+                "current": "artifactory:index/itemProperties:ItemProperties",
+                "majorVersion": 7,
+                "fields": {
+                    "properties": {
+                        "elem": {
+                            "maxItemsOne": false
+                        }
+                    }
+                }
+            },
             "artifactory_keypair": {
                 "current": "artifactory:index/keypair:Keypair",
                 "majorVersion": 7
@@ -5034,6 +5045,7 @@
             "artifactory:index/globalEnvironment:GlobalEnvironment": 1,
             "artifactory:index/goRepository:GoRepository": 0,
             "artifactory:index/group:Group": 1,
+            "artifactory:index/itemProperties:ItemProperties": 1,
             "artifactory:index/keypair:Keypair": 1,
             "artifactory:index/ldapGroupSetting:LdapGroupSetting": 0,
             "artifactory:index/ldapGroupSettingV2:LdapGroupSettingV2": 1,
