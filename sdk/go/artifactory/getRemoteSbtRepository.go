@@ -79,6 +79,7 @@ type LookupRemoteSbtRepositoryArgs struct {
 	Key                              string   `pulumi:"key"`
 	ListRemoteFolderItems            *bool    `pulumi:"listRemoteFolderItems"`
 	LocalAddress                     *string  `pulumi:"localAddress"`
+	MaxUniqueSnapshots               *int     `pulumi:"maxUniqueSnapshots"`
 	MetadataRetrievalTimeoutSecs     *int     `pulumi:"metadataRetrievalTimeoutSecs"`
 	MismatchingMimeTypesOverrideList *string  `pulumi:"mismatchingMimeTypesOverrideList"`
 	MissedCachePeriodSeconds         *int     `pulumi:"missedCachePeriodSeconds"`
@@ -142,6 +143,7 @@ type LookupRemoteSbtRepositoryResult struct {
 	Key                              string   `pulumi:"key"`
 	ListRemoteFolderItems            *bool    `pulumi:"listRemoteFolderItems"`
 	LocalAddress                     *string  `pulumi:"localAddress"`
+	MaxUniqueSnapshots               *int     `pulumi:"maxUniqueSnapshots"`
 	MetadataRetrievalTimeoutSecs     *int     `pulumi:"metadataRetrievalTimeoutSecs"`
 	MismatchingMimeTypesOverrideList *string  `pulumi:"mismatchingMimeTypesOverrideList"`
 	MissedCachePeriodSeconds         *int     `pulumi:"missedCachePeriodSeconds"`
@@ -218,6 +220,7 @@ type LookupRemoteSbtRepositoryOutputArgs struct {
 	Key                              pulumi.StringInput      `pulumi:"key"`
 	ListRemoteFolderItems            pulumi.BoolPtrInput     `pulumi:"listRemoteFolderItems"`
 	LocalAddress                     pulumi.StringPtrInput   `pulumi:"localAddress"`
+	MaxUniqueSnapshots               pulumi.IntPtrInput      `pulumi:"maxUniqueSnapshots"`
 	MetadataRetrievalTimeoutSecs     pulumi.IntPtrInput      `pulumi:"metadataRetrievalTimeoutSecs"`
 	MismatchingMimeTypesOverrideList pulumi.StringPtrInput   `pulumi:"mismatchingMimeTypesOverrideList"`
 	MissedCachePeriodSeconds         pulumi.IntPtrInput      `pulumi:"missedCachePeriodSeconds"`
@@ -373,6 +376,10 @@ func (o LookupRemoteSbtRepositoryResultOutput) ListRemoteFolderItems() pulumi.Bo
 
 func (o LookupRemoteSbtRepositoryResultOutput) LocalAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRemoteSbtRepositoryResult) *string { return v.LocalAddress }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupRemoteSbtRepositoryResultOutput) MaxUniqueSnapshots() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupRemoteSbtRepositoryResult) *int { return v.MaxUniqueSnapshots }).(pulumi.IntPtrOutput)
 }
 
 func (o LookupRemoteSbtRepositoryResultOutput) MetadataRetrievalTimeoutSecs() pulumi.IntPtrOutput {

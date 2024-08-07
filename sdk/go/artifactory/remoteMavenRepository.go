@@ -37,6 +37,7 @@ import (
 //				SuppressPomConsistencyChecks: pulumi.Bool(false),
 //				RejectInvalidJars:            pulumi.Bool(true),
 //				MetadataRetrievalTimeoutSecs: pulumi.Int(120),
+//				MaxUniqueSnapshots:           pulumi.Int(10),
 //			})
 //			if err != nil {
 //				return err
@@ -125,6 +126,8 @@ type RemoteMavenRepository struct {
 	// The local address to be used when creating connections. Useful for specifying the interface to use on systems with
 	// multiple network interfaces.
 	LocalAddress pulumi.StringPtrOutput `pulumi:"localAddress"`
+	// The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+	MaxUniqueSnapshots pulumi.IntPtrOutput `pulumi:"maxUniqueSnapshots"`
 	// Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
 	// the remote before serving locally cached artifact or fail the request.
 	MetadataRetrievalTimeoutSecs pulumi.IntPtrOutput `pulumi:"metadataRetrievalTimeoutSecs"`
@@ -304,6 +307,8 @@ type remoteMavenRepositoryState struct {
 	// The local address to be used when creating connections. Useful for specifying the interface to use on systems with
 	// multiple network interfaces.
 	LocalAddress *string `pulumi:"localAddress"`
+	// The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+	MaxUniqueSnapshots *int `pulumi:"maxUniqueSnapshots"`
 	// Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
 	// the remote before serving locally cached artifact or fail the request.
 	MetadataRetrievalTimeoutSecs *int `pulumi:"metadataRetrievalTimeoutSecs"`
@@ -441,6 +446,8 @@ type RemoteMavenRepositoryState struct {
 	// The local address to be used when creating connections. Useful for specifying the interface to use on systems with
 	// multiple network interfaces.
 	LocalAddress pulumi.StringPtrInput
+	// The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+	MaxUniqueSnapshots pulumi.IntPtrInput
 	// Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
 	// the remote before serving locally cached artifact or fail the request.
 	MetadataRetrievalTimeoutSecs pulumi.IntPtrInput
@@ -582,6 +589,8 @@ type remoteMavenRepositoryArgs struct {
 	// The local address to be used when creating connections. Useful for specifying the interface to use on systems with
 	// multiple network interfaces.
 	LocalAddress *string `pulumi:"localAddress"`
+	// The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+	MaxUniqueSnapshots *int `pulumi:"maxUniqueSnapshots"`
 	// Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
 	// the remote before serving locally cached artifact or fail the request.
 	MetadataRetrievalTimeoutSecs *int `pulumi:"metadataRetrievalTimeoutSecs"`
@@ -719,6 +728,8 @@ type RemoteMavenRepositoryArgs struct {
 	// The local address to be used when creating connections. Useful for specifying the interface to use on systems with
 	// multiple network interfaces.
 	LocalAddress pulumi.StringPtrInput
+	// The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+	MaxUniqueSnapshots pulumi.IntPtrInput
 	// Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
 	// the remote before serving locally cached artifact or fail the request.
 	MetadataRetrievalTimeoutSecs pulumi.IntPtrInput
@@ -1016,6 +1027,11 @@ func (o RemoteMavenRepositoryOutput) ListRemoteFolderItems() pulumi.BoolPtrOutpu
 // multiple network interfaces.
 func (o RemoteMavenRepositoryOutput) LocalAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemoteMavenRepository) pulumi.StringPtrOutput { return v.LocalAddress }).(pulumi.StringPtrOutput)
+}
+
+// The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+func (o RemoteMavenRepositoryOutput) MaxUniqueSnapshots() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RemoteMavenRepository) pulumi.IntPtrOutput { return v.MaxUniqueSnapshots }).(pulumi.IntPtrOutput)
 }
 
 // Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from

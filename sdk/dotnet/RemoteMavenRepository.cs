@@ -32,6 +32,7 @@ namespace Pulumi.Artifactory
     ///         SuppressPomConsistencyChecks = false,
     ///         RejectInvalidJars = true,
     ///         MetadataRetrievalTimeoutSecs = 120,
+    ///         MaxUniqueSnapshots = 10,
     ///     });
     /// 
     /// });
@@ -213,6 +214,12 @@ namespace Pulumi.Artifactory
         /// </summary>
         [Output("localAddress")]
         public Output<string?> LocalAddress { get; private set; } = null!;
+
+        /// <summary>
+        /// The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+        /// </summary>
+        [Output("maxUniqueSnapshots")]
+        public Output<int?> MaxUniqueSnapshots { get; private set; } = null!;
 
         /// <summary>
         /// Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
@@ -595,6 +602,12 @@ namespace Pulumi.Artifactory
         public Input<string>? LocalAddress { get; set; }
 
         /// <summary>
+        /// The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+        /// </summary>
+        [Input("maxUniqueSnapshots")]
+        public Input<int>? MaxUniqueSnapshots { get; set; }
+
+        /// <summary>
         /// Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
         /// the remote before serving locally cached artifact or fail the request.
         /// </summary>
@@ -948,6 +961,12 @@ namespace Pulumi.Artifactory
         /// </summary>
         [Input("localAddress")]
         public Input<string>? LocalAddress { get; set; }
+
+        /// <summary>
+        /// The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+        /// </summary>
+        [Input("maxUniqueSnapshots")]
+        public Input<int>? MaxUniqueSnapshots { get; set; }
 
         /// <summary>
         /// Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from

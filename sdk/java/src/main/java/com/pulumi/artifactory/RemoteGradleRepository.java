@@ -54,6 +54,7 @@ import javax.annotation.Nullable;
  *             .fetchSourcesEagerly(false)
  *             .suppressPomConsistencyChecks(true)
  *             .rejectInvalidJars(true)
+ *             .maxUniqueSnapshots(10)
  *             .build());
  * 
  *     }
@@ -438,6 +439,20 @@ public class RemoteGradleRepository extends com.pulumi.resources.CustomResource 
      */
     public Output<Optional<String>> localAddress() {
         return Codegen.optional(this.localAddress);
+    }
+    /**
+     * The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+     * 
+     */
+    @Export(name="maxUniqueSnapshots", refs={Integer.class}, tree="[0]")
+    private Output</* @Nullable */ Integer> maxUniqueSnapshots;
+
+    /**
+     * @return The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+     * 
+     */
+    public Output<Optional<Integer>> maxUniqueSnapshots() {
+        return Codegen.optional(this.maxUniqueSnapshots);
     }
     /**
      * Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from

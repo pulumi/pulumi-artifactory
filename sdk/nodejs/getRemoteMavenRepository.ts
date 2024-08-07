@@ -49,6 +49,7 @@ export function getRemoteMavenRepository(args: GetRemoteMavenRepositoryArgs, opt
         "key": args.key,
         "listRemoteFolderItems": args.listRemoteFolderItems,
         "localAddress": args.localAddress,
+        "maxUniqueSnapshots": args.maxUniqueSnapshots,
         "metadataRetrievalTimeoutSecs": args.metadataRetrievalTimeoutSecs,
         "mismatchingMimeTypesOverrideList": args.mismatchingMimeTypesOverrideList,
         "missedCachePeriodSeconds": args.missedCachePeriodSeconds,
@@ -122,6 +123,7 @@ export interface GetRemoteMavenRepositoryArgs {
     key: string;
     listRemoteFolderItems?: boolean;
     localAddress?: string;
+    maxUniqueSnapshots?: number;
     /**
      * (Optional, Default: 60) This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrievalCachePeriodSeconds` attribute.
      */
@@ -207,6 +209,7 @@ export interface GetRemoteMavenRepositoryResult {
     readonly key: string;
     readonly listRemoteFolderItems?: boolean;
     readonly localAddress?: string;
+    readonly maxUniqueSnapshots?: number;
     /**
      * (Optional, Default: 60) This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrievalCachePeriodSeconds` attribute.
      */
@@ -309,6 +312,7 @@ export interface GetRemoteMavenRepositoryOutputArgs {
     key: pulumi.Input<string>;
     listRemoteFolderItems?: pulumi.Input<boolean>;
     localAddress?: pulumi.Input<string>;
+    maxUniqueSnapshots?: pulumi.Input<number>;
     /**
      * (Optional, Default: 60) This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrievalCachePeriodSeconds` attribute.
      */

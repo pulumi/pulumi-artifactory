@@ -24,6 +24,7 @@ import * as utilities from "./utilities";
  *     suppressPomConsistencyChecks: false,
  *     rejectInvalidJars: true,
  *     metadataRetrievalTimeoutSecs: 120,
+ *     maxUniqueSnapshots: 10,
  * });
  * ```
  *
@@ -180,6 +181,10 @@ export class RemoteMavenRepository extends pulumi.CustomResource {
      */
     public readonly localAddress!: pulumi.Output<string | undefined>;
     /**
+     * The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+     */
+    public readonly maxUniqueSnapshots!: pulumi.Output<number | undefined>;
+    /**
      * Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
      * the remote before serving locally cached artifact or fail the request.
      */
@@ -328,6 +333,7 @@ export class RemoteMavenRepository extends pulumi.CustomResource {
             resourceInputs["key"] = state ? state.key : undefined;
             resourceInputs["listRemoteFolderItems"] = state ? state.listRemoteFolderItems : undefined;
             resourceInputs["localAddress"] = state ? state.localAddress : undefined;
+            resourceInputs["maxUniqueSnapshots"] = state ? state.maxUniqueSnapshots : undefined;
             resourceInputs["metadataRetrievalTimeoutSecs"] = state ? state.metadataRetrievalTimeoutSecs : undefined;
             resourceInputs["mismatchingMimeTypesOverrideList"] = state ? state.mismatchingMimeTypesOverrideList : undefined;
             resourceInputs["missedCachePeriodSeconds"] = state ? state.missedCachePeriodSeconds : undefined;
@@ -388,6 +394,7 @@ export class RemoteMavenRepository extends pulumi.CustomResource {
             resourceInputs["key"] = args ? args.key : undefined;
             resourceInputs["listRemoteFolderItems"] = args ? args.listRemoteFolderItems : undefined;
             resourceInputs["localAddress"] = args ? args.localAddress : undefined;
+            resourceInputs["maxUniqueSnapshots"] = args ? args.maxUniqueSnapshots : undefined;
             resourceInputs["metadataRetrievalTimeoutSecs"] = args ? args.metadataRetrievalTimeoutSecs : undefined;
             resourceInputs["mismatchingMimeTypesOverrideList"] = args ? args.mismatchingMimeTypesOverrideList : undefined;
             resourceInputs["missedCachePeriodSeconds"] = args ? args.missedCachePeriodSeconds : undefined;
@@ -543,6 +550,10 @@ export interface RemoteMavenRepositoryState {
      * multiple network interfaces.
      */
     localAddress?: pulumi.Input<string>;
+    /**
+     * The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+     */
+    maxUniqueSnapshots?: pulumi.Input<number>;
     /**
      * Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
      * the remote before serving locally cached artifact or fail the request.
@@ -775,6 +786,10 @@ export interface RemoteMavenRepositoryArgs {
      * multiple network interfaces.
      */
     localAddress?: pulumi.Input<string>;
+    /**
+     * The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+     */
+    maxUniqueSnapshots?: pulumi.Input<number>;
     /**
      * Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
      * the remote before serving locally cached artifact or fail the request.

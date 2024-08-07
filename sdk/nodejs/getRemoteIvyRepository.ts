@@ -48,6 +48,7 @@ export function getRemoteIvyRepository(args: GetRemoteIvyRepositoryArgs, opts?: 
         "key": args.key,
         "listRemoteFolderItems": args.listRemoteFolderItems,
         "localAddress": args.localAddress,
+        "maxUniqueSnapshots": args.maxUniqueSnapshots,
         "metadataRetrievalTimeoutSecs": args.metadataRetrievalTimeoutSecs,
         "mismatchingMimeTypesOverrideList": args.mismatchingMimeTypesOverrideList,
         "missedCachePeriodSeconds": args.missedCachePeriodSeconds,
@@ -120,6 +121,7 @@ export interface GetRemoteIvyRepositoryArgs {
     key: string;
     listRemoteFolderItems?: boolean;
     localAddress?: string;
+    maxUniqueSnapshots?: number;
     metadataRetrievalTimeoutSecs?: number;
     mismatchingMimeTypesOverrideList?: string;
     missedCachePeriodSeconds?: number;
@@ -201,6 +203,7 @@ export interface GetRemoteIvyRepositoryResult {
     readonly key: string;
     readonly listRemoteFolderItems?: boolean;
     readonly localAddress?: string;
+    readonly maxUniqueSnapshots?: number;
     readonly metadataRetrievalTimeoutSecs?: number;
     readonly mismatchingMimeTypesOverrideList?: string;
     readonly missedCachePeriodSeconds?: number;
@@ -299,6 +302,7 @@ export interface GetRemoteIvyRepositoryOutputArgs {
     key: pulumi.Input<string>;
     listRemoteFolderItems?: pulumi.Input<boolean>;
     localAddress?: pulumi.Input<string>;
+    maxUniqueSnapshots?: pulumi.Input<number>;
     metadataRetrievalTimeoutSecs?: pulumi.Input<number>;
     mismatchingMimeTypesOverrideList?: pulumi.Input<string>;
     missedCachePeriodSeconds?: pulumi.Input<number>;

@@ -214,6 +214,7 @@ from .get_virtual_terraform_repository import *
 from .global_environment import *
 from .go_repository import *
 from .group import *
+from .item_properties import *
 from .keypair import *
 from .ldap_group_setting import *
 from .ldap_group_setting_v2 import *
@@ -887,6 +888,14 @@ _utilities.register(
   "fqn": "pulumi_artifactory",
   "classes": {
    "artifactory:index/group:Group": "Group"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/itemProperties",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/itemProperties:ItemProperties": "ItemProperties"
   }
  },
  {

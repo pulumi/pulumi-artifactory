@@ -1050,6 +1050,11 @@ export type Group = import("./group").Group;
 export const Group: typeof import("./group").Group = null as any;
 utilities.lazyLoad(exports, ["Group"], () => require("./group"));
 
+export { ItemPropertiesArgs, ItemPropertiesState } from "./itemProperties";
+export type ItemProperties = import("./itemProperties").ItemProperties;
+export const ItemProperties: typeof import("./itemProperties").ItemProperties = null as any;
+utilities.lazyLoad(exports, ["ItemProperties"], () => require("./itemProperties"));
+
 export { KeypairArgs, KeypairState } from "./keypair";
 export type Keypair = import("./keypair").Keypair;
 export const Keypair: typeof import("./keypair").Keypair = null as any;
@@ -1866,6 +1871,8 @@ const _module = {
                 return new GoRepository(name, <any>undefined, { urn })
             case "artifactory:index/group:Group":
                 return new Group(name, <any>undefined, { urn })
+            case "artifactory:index/itemProperties:ItemProperties":
+                return new ItemProperties(name, <any>undefined, { urn })
             case "artifactory:index/keypair:Keypair":
                 return new Keypair(name, <any>undefined, { urn })
             case "artifactory:index/ldapGroupSetting:LdapGroupSetting":
@@ -2203,6 +2210,7 @@ pulumi.runtime.registerResourceModule("artifactory", "index/generalSecurity", _m
 pulumi.runtime.registerResourceModule("artifactory", "index/globalEnvironment", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/goRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/group", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/itemProperties", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/keypair", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/ldapGroupSetting", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/ldapGroupSettingV2", _module)

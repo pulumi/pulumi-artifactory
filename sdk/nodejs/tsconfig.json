@@ -225,6 +225,7 @@
         "goRepository.ts",
         "group.ts",
         "index.ts",
+        "itemProperties.ts",
         "keypair.ts",
         "ldapGroupSetting.ts",
         "ldapGroupSettingV2.ts",

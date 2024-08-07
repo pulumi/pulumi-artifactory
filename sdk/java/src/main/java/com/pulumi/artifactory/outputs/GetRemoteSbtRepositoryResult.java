@@ -61,6 +61,7 @@ public final class GetRemoteSbtRepositoryResult {
     private String key;
     private @Nullable Boolean listRemoteFolderItems;
     private @Nullable String localAddress;
+    private @Nullable Integer maxUniqueSnapshots;
     private @Nullable Integer metadataRetrievalTimeoutSecs;
     private @Nullable String mismatchingMimeTypesOverrideList;
     private @Nullable Integer missedCachePeriodSeconds;
@@ -197,6 +198,9 @@ public final class GetRemoteSbtRepositoryResult {
     public Optional<String> localAddress() {
         return Optional.ofNullable(this.localAddress);
     }
+    public Optional<Integer> maxUniqueSnapshots() {
+        return Optional.ofNullable(this.maxUniqueSnapshots);
+    }
     public Optional<Integer> metadataRetrievalTimeoutSecs() {
         return Optional.ofNullable(this.metadataRetrievalTimeoutSecs);
     }
@@ -325,6 +329,7 @@ public final class GetRemoteSbtRepositoryResult {
         private String key;
         private @Nullable Boolean listRemoteFolderItems;
         private @Nullable String localAddress;
+        private @Nullable Integer maxUniqueSnapshots;
         private @Nullable Integer metadataRetrievalTimeoutSecs;
         private @Nullable String mismatchingMimeTypesOverrideList;
         private @Nullable Integer missedCachePeriodSeconds;
@@ -380,6 +385,7 @@ public final class GetRemoteSbtRepositoryResult {
     	      this.key = defaults.key;
     	      this.listRemoteFolderItems = defaults.listRemoteFolderItems;
     	      this.localAddress = defaults.localAddress;
+    	      this.maxUniqueSnapshots = defaults.maxUniqueSnapshots;
     	      this.metadataRetrievalTimeoutSecs = defaults.metadataRetrievalTimeoutSecs;
     	      this.mismatchingMimeTypesOverrideList = defaults.mismatchingMimeTypesOverrideList;
     	      this.missedCachePeriodSeconds = defaults.missedCachePeriodSeconds;
@@ -565,6 +571,12 @@ public final class GetRemoteSbtRepositoryResult {
         public Builder localAddress(@Nullable String localAddress) {
 
             this.localAddress = localAddress;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder maxUniqueSnapshots(@Nullable Integer maxUniqueSnapshots) {
+
+            this.maxUniqueSnapshots = maxUniqueSnapshots;
             return this;
         }
         @CustomType.Setter
@@ -768,6 +780,7 @@ public final class GetRemoteSbtRepositoryResult {
             _resultValue.key = key;
             _resultValue.listRemoteFolderItems = listRemoteFolderItems;
             _resultValue.localAddress = localAddress;
+            _resultValue.maxUniqueSnapshots = maxUniqueSnapshots;
             _resultValue.metadataRetrievalTimeoutSecs = metadataRetrievalTimeoutSecs;
             _resultValue.mismatchingMimeTypesOverrideList = mismatchingMimeTypesOverrideList;
             _resultValue.missedCachePeriodSeconds = missedCachePeriodSeconds;

@@ -23,7 +23,7 @@ class GetRemoteMavenRepositoryResult:
     """
     A collection of values returned by getRemoteMavenRepository.
     """
-    def __init__(__self__, allow_any_host_auth=None, archive_browsing_enabled=None, assumed_offline_period_secs=None, blacked_out=None, block_mismatching_mime_types=None, bypass_head_requests=None, cdn_redirect=None, client_tls_certificate=None, content_synchronisation=None, curated=None, description=None, disable_proxy=None, disable_url_normalization=None, download_direct=None, enable_cookie_management=None, excludes_pattern=None, fetch_jars_eagerly=None, fetch_sources_eagerly=None, handle_releases=None, handle_snapshots=None, hard_fail=None, id=None, includes_pattern=None, key=None, list_remote_folder_items=None, local_address=None, metadata_retrieval_timeout_secs=None, mismatching_mime_types_override_list=None, missed_cache_period_seconds=None, notes=None, offline=None, package_type=None, password=None, priority_resolution=None, project_environments=None, project_key=None, property_sets=None, proxy=None, query_params=None, reject_invalid_jars=None, remote_repo_checksum_policy_type=None, remote_repo_layout_ref=None, repo_layout_ref=None, retrieval_cache_period_seconds=None, share_configuration=None, socket_timeout_millis=None, store_artifacts_locally=None, suppress_pom_consistency_checks=None, synchronize_properties=None, unused_artifacts_cleanup_period_hours=None, url=None, username=None, xray_index=None):
+    def __init__(__self__, allow_any_host_auth=None, archive_browsing_enabled=None, assumed_offline_period_secs=None, blacked_out=None, block_mismatching_mime_types=None, bypass_head_requests=None, cdn_redirect=None, client_tls_certificate=None, content_synchronisation=None, curated=None, description=None, disable_proxy=None, disable_url_normalization=None, download_direct=None, enable_cookie_management=None, excludes_pattern=None, fetch_jars_eagerly=None, fetch_sources_eagerly=None, handle_releases=None, handle_snapshots=None, hard_fail=None, id=None, includes_pattern=None, key=None, list_remote_folder_items=None, local_address=None, max_unique_snapshots=None, metadata_retrieval_timeout_secs=None, mismatching_mime_types_override_list=None, missed_cache_period_seconds=None, notes=None, offline=None, package_type=None, password=None, priority_resolution=None, project_environments=None, project_key=None, property_sets=None, proxy=None, query_params=None, reject_invalid_jars=None, remote_repo_checksum_policy_type=None, remote_repo_layout_ref=None, repo_layout_ref=None, retrieval_cache_period_seconds=None, share_configuration=None, socket_timeout_millis=None, store_artifacts_locally=None, suppress_pom_consistency_checks=None, synchronize_properties=None, unused_artifacts_cleanup_period_hours=None, url=None, username=None, xray_index=None):
         if allow_any_host_auth and not isinstance(allow_any_host_auth, bool):
             raise TypeError("Expected argument 'allow_any_host_auth' to be a bool")
         pulumi.set(__self__, "allow_any_host_auth", allow_any_host_auth)
@@ -102,6 +102,9 @@ class GetRemoteMavenRepositoryResult:
         if local_address and not isinstance(local_address, str):
             raise TypeError("Expected argument 'local_address' to be a str")
         pulumi.set(__self__, "local_address", local_address)
+        if max_unique_snapshots and not isinstance(max_unique_snapshots, int):
+            raise TypeError("Expected argument 'max_unique_snapshots' to be a int")
+        pulumi.set(__self__, "max_unique_snapshots", max_unique_snapshots)
         if metadata_retrieval_timeout_secs and not isinstance(metadata_retrieval_timeout_secs, int):
             raise TypeError("Expected argument 'metadata_retrieval_timeout_secs' to be a int")
         pulumi.set(__self__, "metadata_retrieval_timeout_secs", metadata_retrieval_timeout_secs)
@@ -330,6 +333,11 @@ class GetRemoteMavenRepositoryResult:
         return pulumi.get(self, "local_address")
 
     @property
+    @pulumi.getter(name="maxUniqueSnapshots")
+    def max_unique_snapshots(self) -> Optional[int]:
+        return pulumi.get(self, "max_unique_snapshots")
+
+    @property
     @pulumi.getter(name="metadataRetrievalTimeoutSecs")
     def metadata_retrieval_timeout_secs(self) -> Optional[int]:
         """
@@ -509,6 +517,7 @@ class AwaitableGetRemoteMavenRepositoryResult(GetRemoteMavenRepositoryResult):
             key=self.key,
             list_remote_folder_items=self.list_remote_folder_items,
             local_address=self.local_address,
+            max_unique_snapshots=self.max_unique_snapshots,
             metadata_retrieval_timeout_secs=self.metadata_retrieval_timeout_secs,
             mismatching_mime_types_override_list=self.mismatching_mime_types_override_list,
             missed_cache_period_seconds=self.missed_cache_period_seconds,
@@ -563,6 +572,7 @@ def get_remote_maven_repository(allow_any_host_auth: Optional[bool] = None,
                                 key: Optional[str] = None,
                                 list_remote_folder_items: Optional[bool] = None,
                                 local_address: Optional[str] = None,
+                                max_unique_snapshots: Optional[int] = None,
                                 metadata_retrieval_timeout_secs: Optional[int] = None,
                                 mismatching_mime_types_override_list: Optional[str] = None,
                                 missed_cache_period_seconds: Optional[int] = None,
@@ -639,6 +649,7 @@ def get_remote_maven_repository(allow_any_host_auth: Optional[bool] = None,
     __args__['key'] = key
     __args__['listRemoteFolderItems'] = list_remote_folder_items
     __args__['localAddress'] = local_address
+    __args__['maxUniqueSnapshots'] = max_unique_snapshots
     __args__['metadataRetrievalTimeoutSecs'] = metadata_retrieval_timeout_secs
     __args__['mismatchingMimeTypesOverrideList'] = mismatching_mime_types_override_list
     __args__['missedCachePeriodSeconds'] = missed_cache_period_seconds
@@ -695,6 +706,7 @@ def get_remote_maven_repository(allow_any_host_auth: Optional[bool] = None,
         key=pulumi.get(__ret__, 'key'),
         list_remote_folder_items=pulumi.get(__ret__, 'list_remote_folder_items'),
         local_address=pulumi.get(__ret__, 'local_address'),
+        max_unique_snapshots=pulumi.get(__ret__, 'max_unique_snapshots'),
         metadata_retrieval_timeout_secs=pulumi.get(__ret__, 'metadata_retrieval_timeout_secs'),
         mismatching_mime_types_override_list=pulumi.get(__ret__, 'mismatching_mime_types_override_list'),
         missed_cache_period_seconds=pulumi.get(__ret__, 'missed_cache_period_seconds'),
@@ -750,6 +762,7 @@ def get_remote_maven_repository_output(allow_any_host_auth: Optional[pulumi.Inpu
                                        key: Optional[pulumi.Input[str]] = None,
                                        list_remote_folder_items: Optional[pulumi.Input[Optional[bool]]] = None,
                                        local_address: Optional[pulumi.Input[Optional[str]]] = None,
+                                       max_unique_snapshots: Optional[pulumi.Input[Optional[int]]] = None,
                                        metadata_retrieval_timeout_secs: Optional[pulumi.Input[Optional[int]]] = None,
                                        mismatching_mime_types_override_list: Optional[pulumi.Input[Optional[str]]] = None,
                                        missed_cache_period_seconds: Optional[pulumi.Input[Optional[int]]] = None,

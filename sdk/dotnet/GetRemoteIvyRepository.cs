@@ -150,6 +150,9 @@ namespace Pulumi.Artifactory
         [Input("localAddress")]
         public string? LocalAddress { get; set; }
 
+        [Input("maxUniqueSnapshots")]
+        public int? MaxUniqueSnapshots { get; set; }
+
         [Input("metadataRetrievalTimeoutSecs")]
         public int? MetadataRetrievalTimeoutSecs { get; set; }
 
@@ -347,6 +350,9 @@ namespace Pulumi.Artifactory
         [Input("localAddress")]
         public Input<string>? LocalAddress { get; set; }
 
+        [Input("maxUniqueSnapshots")]
+        public Input<int>? MaxUniqueSnapshots { get; set; }
+
         [Input("metadataRetrievalTimeoutSecs")]
         public Input<int>? MetadataRetrievalTimeoutSecs { get; set; }
 
@@ -503,6 +509,7 @@ namespace Pulumi.Artifactory
         public readonly string Key;
         public readonly bool? ListRemoteFolderItems;
         public readonly string? LocalAddress;
+        public readonly int? MaxUniqueSnapshots;
         public readonly int? MetadataRetrievalTimeoutSecs;
         public readonly string? MismatchingMimeTypesOverrideList;
         public readonly int? MissedCachePeriodSeconds;
@@ -592,6 +599,8 @@ namespace Pulumi.Artifactory
 
             string? localAddress,
 
+            int? maxUniqueSnapshots,
+
             int? metadataRetrievalTimeoutSecs,
 
             string? mismatchingMimeTypesOverrideList,
@@ -671,6 +680,7 @@ namespace Pulumi.Artifactory
             Key = key;
             ListRemoteFolderItems = listRemoteFolderItems;
             LocalAddress = localAddress;
+            MaxUniqueSnapshots = maxUniqueSnapshots;
             MetadataRetrievalTimeoutSecs = metadataRetrievalTimeoutSecs;
             MismatchingMimeTypesOverrideList = mismatchingMimeTypesOverrideList;
             MissedCachePeriodSeconds = missedCachePeriodSeconds;

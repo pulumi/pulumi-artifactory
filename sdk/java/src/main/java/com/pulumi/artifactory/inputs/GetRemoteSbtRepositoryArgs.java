@@ -228,6 +228,13 @@ public final class GetRemoteSbtRepositoryArgs extends com.pulumi.resources.Invok
         return Optional.ofNullable(this.localAddress);
     }
 
+    @Import(name="maxUniqueSnapshots")
+    private @Nullable Output<Integer> maxUniqueSnapshots;
+
+    public Optional<Output<Integer>> maxUniqueSnapshots() {
+        return Optional.ofNullable(this.maxUniqueSnapshots);
+    }
+
     @Import(name="metadataRetrievalTimeoutSecs")
     private @Nullable Output<Integer> metadataRetrievalTimeoutSecs;
 
@@ -461,6 +468,7 @@ public final class GetRemoteSbtRepositoryArgs extends com.pulumi.resources.Invok
         this.key = $.key;
         this.listRemoteFolderItems = $.listRemoteFolderItems;
         this.localAddress = $.localAddress;
+        this.maxUniqueSnapshots = $.maxUniqueSnapshots;
         this.metadataRetrievalTimeoutSecs = $.metadataRetrievalTimeoutSecs;
         this.mismatchingMimeTypesOverrideList = $.mismatchingMimeTypesOverrideList;
         this.missedCachePeriodSeconds = $.missedCachePeriodSeconds;
@@ -781,6 +789,15 @@ public final class GetRemoteSbtRepositoryArgs extends com.pulumi.resources.Invok
 
         public Builder localAddress(String localAddress) {
             return localAddress(Output.of(localAddress));
+        }
+
+        public Builder maxUniqueSnapshots(@Nullable Output<Integer> maxUniqueSnapshots) {
+            $.maxUniqueSnapshots = maxUniqueSnapshots;
+            return this;
+        }
+
+        public Builder maxUniqueSnapshots(Integer maxUniqueSnapshots) {
+            return maxUniqueSnapshots(Output.of(maxUniqueSnapshots));
         }
 
         public Builder metadataRetrievalTimeoutSecs(@Nullable Output<Integer> metadataRetrievalTimeoutSecs) {

@@ -125,7 +125,10 @@ func Provider() tfbridge.ProviderInfo {
 				}
 				return resource.ID(path.String() + "@" + repository.String()), nil
 			}},
-			"artifactory_vault_configuration": {ComputeID: computeIDField("id")},
+			"artifactory_vault_configuration":         {ComputeID: computeIDField("id")},
+			"artifactory_release_bundle_v2":           {ComputeID: computeIDField("name")},
+			"artifactory_release_bundle_v2_promotion": {ComputeID: computeIDField("name")},
+			"artifactory_item_properties":             {ComputeID: computeIDField("repoKey")},
 
 			// Old Manual Mappings.
 			//
@@ -140,8 +143,6 @@ func Provider() tfbridge.ProviderInfo {
 			"artifactory_virtual_go_repository":             {Tok: makeResource("GoRepository")},
 			"artifactory_virtual_maven_repository":          {Tok: makeResource("MavenRepository")},
 			"artifactory_local_terraformbackend_repository": {Tok: makeResource("LocalTerraformBackendRepository")},
-			"artifactory_release_bundle_v2":                 {ComputeID: computeIDField("name")},
-			"artifactory_release_bundle_v2_promotion":       {ComputeID: computeIDField("name")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			// List any npm dependencies and their versions
