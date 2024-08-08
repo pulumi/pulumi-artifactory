@@ -39,12 +39,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var baz_go = new GoRepository("baz-go", GoRepositoryArgs.builder()
  *             .key("baz-go")
  *             .repoLayoutRef("go-default")
@@ -55,12 +55,12 @@ import javax.annotation.Nullable;
  *             .excludesPattern("com/google/**")
  *             .externalDependenciesEnabled(true)
  *             .externalDependenciesPatterns(            
- *                 "**{@literal /}github.com/**",
- *                 "**{@literal /}go.googlesource.com/**")
+ *                 "**}&#47;{@code github.com/**",
+ *                 "**}&#47;{@code go.googlesource.com/**")
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -121,7 +121,7 @@ public class GoRepository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**{@literal /}z/*.By default no
+     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*.By default no
      * artifacts are excluded.
      * 
      */
@@ -129,7 +129,7 @@ public class GoRepository extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ String> excludesPattern;
 
     /**
-     * @return List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**{@literal /}z/*.By default no
+     * @return List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*.By default no
      * artifacts are excluded.
      * 
      */
@@ -167,16 +167,16 @@ public class GoRepository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.externalDependenciesPatterns);
     }
     /**
-     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**{@literal /}z/*. When
-     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**{@literal /}*).
+     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When
+     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
      * 
      */
     @Export(name="includesPattern", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> includesPattern;
 
     /**
-     * @return List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**{@literal /}z/*. When
-     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**{@literal /}*).
+     * @return List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When
+     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
      * 
      */
     public Output<Optional<String>> includesPattern() {
@@ -273,7 +273,7 @@ public class GoRepository extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public GoRepository(String name) {
+    public GoRepository(java.lang.String name) {
         this(name, GoRepositoryArgs.Empty);
     }
     /**
@@ -281,7 +281,7 @@ public class GoRepository extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public GoRepository(String name, GoRepositoryArgs args) {
+    public GoRepository(java.lang.String name, GoRepositoryArgs args) {
         this(name, args, null);
     }
     /**
@@ -290,12 +290,12 @@ public class GoRepository extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public GoRepository(String name, GoRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/goRepository:GoRepository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public GoRepository(java.lang.String name, GoRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("artifactory:index/goRepository:GoRepository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private GoRepository(String name, Output<String> id, @Nullable GoRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/goRepository:GoRepository", name, state, makeResourceOptions(options, id));
+    private GoRepository(java.lang.String name, Output<java.lang.String> id, @Nullable GoRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("artifactory:index/goRepository:GoRepository", name, state, makeResourceOptions(options, id), false);
     }
 
     private static GoRepositoryArgs makeArgs(GoRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -305,7 +305,7 @@ public class GoRepository extends com.pulumi.resources.CustomResource {
         return args == null ? GoRepositoryArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -321,7 +321,7 @@ public class GoRepository extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static GoRepository get(String name, Output<String> id, @Nullable GoRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static GoRepository get(java.lang.String name, Output<java.lang.String> id, @Nullable GoRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new GoRepository(name, id, state, options);
     }
 }

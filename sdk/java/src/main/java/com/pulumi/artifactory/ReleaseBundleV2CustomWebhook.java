@@ -172,7 +172,7 @@ public class ReleaseBundleV2CustomWebhook extends com.pulumi.resources.CustomRes
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ReleaseBundleV2CustomWebhook(String name) {
+    public ReleaseBundleV2CustomWebhook(java.lang.String name) {
         this(name, ReleaseBundleV2CustomWebhookArgs.Empty);
     }
     /**
@@ -180,7 +180,7 @@ public class ReleaseBundleV2CustomWebhook extends com.pulumi.resources.CustomRes
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ReleaseBundleV2CustomWebhook(String name, ReleaseBundleV2CustomWebhookArgs args) {
+    public ReleaseBundleV2CustomWebhook(java.lang.String name, ReleaseBundleV2CustomWebhookArgs args) {
         this(name, args, null);
     }
     /**
@@ -189,12 +189,12 @@ public class ReleaseBundleV2CustomWebhook extends com.pulumi.resources.CustomRes
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ReleaseBundleV2CustomWebhook(String name, ReleaseBundleV2CustomWebhookArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/releaseBundleV2CustomWebhook:ReleaseBundleV2CustomWebhook", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public ReleaseBundleV2CustomWebhook(java.lang.String name, ReleaseBundleV2CustomWebhookArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("artifactory:index/releaseBundleV2CustomWebhook:ReleaseBundleV2CustomWebhook", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ReleaseBundleV2CustomWebhook(String name, Output<String> id, @Nullable ReleaseBundleV2CustomWebhookState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/releaseBundleV2CustomWebhook:ReleaseBundleV2CustomWebhook", name, state, makeResourceOptions(options, id));
+    private ReleaseBundleV2CustomWebhook(java.lang.String name, Output<java.lang.String> id, @Nullable ReleaseBundleV2CustomWebhookState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("artifactory:index/releaseBundleV2CustomWebhook:ReleaseBundleV2CustomWebhook", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ReleaseBundleV2CustomWebhookArgs makeArgs(ReleaseBundleV2CustomWebhookArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -204,7 +204,7 @@ public class ReleaseBundleV2CustomWebhook extends com.pulumi.resources.CustomRes
         return args == null ? ReleaseBundleV2CustomWebhookArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -220,7 +220,7 @@ public class ReleaseBundleV2CustomWebhook extends com.pulumi.resources.CustomRes
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ReleaseBundleV2CustomWebhook get(String name, Output<String> id, @Nullable ReleaseBundleV2CustomWebhookState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ReleaseBundleV2CustomWebhook get(java.lang.String name, Output<java.lang.String> id, @Nullable ReleaseBundleV2CustomWebhookState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ReleaseBundleV2CustomWebhook(name, id, state, options);
     }
 }

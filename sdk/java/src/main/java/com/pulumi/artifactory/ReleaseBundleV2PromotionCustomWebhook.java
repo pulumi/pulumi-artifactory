@@ -171,7 +171,7 @@ public class ReleaseBundleV2PromotionCustomWebhook extends com.pulumi.resources.
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ReleaseBundleV2PromotionCustomWebhook(String name) {
+    public ReleaseBundleV2PromotionCustomWebhook(java.lang.String name) {
         this(name, ReleaseBundleV2PromotionCustomWebhookArgs.Empty);
     }
     /**
@@ -179,7 +179,7 @@ public class ReleaseBundleV2PromotionCustomWebhook extends com.pulumi.resources.
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ReleaseBundleV2PromotionCustomWebhook(String name, ReleaseBundleV2PromotionCustomWebhookArgs args) {
+    public ReleaseBundleV2PromotionCustomWebhook(java.lang.String name, ReleaseBundleV2PromotionCustomWebhookArgs args) {
         this(name, args, null);
     }
     /**
@@ -188,12 +188,12 @@ public class ReleaseBundleV2PromotionCustomWebhook extends com.pulumi.resources.
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ReleaseBundleV2PromotionCustomWebhook(String name, ReleaseBundleV2PromotionCustomWebhookArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/releaseBundleV2PromotionCustomWebhook:ReleaseBundleV2PromotionCustomWebhook", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public ReleaseBundleV2PromotionCustomWebhook(java.lang.String name, ReleaseBundleV2PromotionCustomWebhookArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("artifactory:index/releaseBundleV2PromotionCustomWebhook:ReleaseBundleV2PromotionCustomWebhook", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ReleaseBundleV2PromotionCustomWebhook(String name, Output<String> id, @Nullable ReleaseBundleV2PromotionCustomWebhookState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/releaseBundleV2PromotionCustomWebhook:ReleaseBundleV2PromotionCustomWebhook", name, state, makeResourceOptions(options, id));
+    private ReleaseBundleV2PromotionCustomWebhook(java.lang.String name, Output<java.lang.String> id, @Nullable ReleaseBundleV2PromotionCustomWebhookState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("artifactory:index/releaseBundleV2PromotionCustomWebhook:ReleaseBundleV2PromotionCustomWebhook", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ReleaseBundleV2PromotionCustomWebhookArgs makeArgs(ReleaseBundleV2PromotionCustomWebhookArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -203,7 +203,7 @@ public class ReleaseBundleV2PromotionCustomWebhook extends com.pulumi.resources.
         return args == null ? ReleaseBundleV2PromotionCustomWebhookArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -219,7 +219,7 @@ public class ReleaseBundleV2PromotionCustomWebhook extends com.pulumi.resources.
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ReleaseBundleV2PromotionCustomWebhook get(String name, Output<String> id, @Nullable ReleaseBundleV2PromotionCustomWebhookState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ReleaseBundleV2PromotionCustomWebhook get(java.lang.String name, Output<java.lang.String> id, @Nullable ReleaseBundleV2PromotionCustomWebhookState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ReleaseBundleV2PromotionCustomWebhook(name, id, state, options);
     }
 }

@@ -89,7 +89,7 @@ class VaultConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 config: Optional[pulumi.Input[pulumi.InputType['VaultConfigurationConfigArgs']]] = None,
+                 config: Optional[pulumi.Input[Union['VaultConfigurationConfigArgs', 'VaultConfigurationConfigArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -105,32 +105,32 @@ class VaultConfiguration(pulumi.CustomResource):
 
         my_vault_config_app_role = artifactory.VaultConfiguration("my-vault-config-app-role",
             name="my-vault-config-app-role",
-            config=artifactory.VaultConfigurationConfigArgs(
-                url="http://127.0.0.1:8200",
-                auth=artifactory.VaultConfigurationConfigAuthArgs(
-                    type="AppRole",
-                    role_id="1b62ff05...",
-                    secret_id="acbd6657...",
-                ),
-                mounts=[artifactory.VaultConfigurationConfigMountArgs(
-                    path="secret",
-                    type="KV2",
-                )],
-            ))
+            config={
+                "url": "http://127.0.0.1:8200",
+                "auth": {
+                    "type": "AppRole",
+                    "role_id": "1b62ff05...",
+                    "secret_id": "acbd6657...",
+                },
+                "mounts": [{
+                    "path": "secret",
+                    "type": "KV2",
+                }],
+            })
         my_vault_config_cert = artifactory.VaultConfiguration("my-vault-config-cert",
             name="my-vault-config-cert",
-            config=artifactory.VaultConfigurationConfigArgs(
-                url="http://127.0.0.1:8200",
-                auth=artifactory.VaultConfigurationConfigAuthArgs(
-                    type="Certificate",
-                    certificate=std.file(input="samples/public.pem").result,
-                    certificate_key=std.file(input="samples/private.pem").result,
-                ),
-                mounts=[artifactory.VaultConfigurationConfigMountArgs(
-                    path="secret",
-                    type="KV2",
-                )],
-            ))
+            config={
+                "url": "http://127.0.0.1:8200",
+                "auth": {
+                    "type": "Certificate",
+                    "certificate": std.file(input="samples/public.pem").result,
+                    "certificate_key": std.file(input="samples/private.pem").result,
+                },
+                "mounts": [{
+                    "path": "secret",
+                    "type": "KV2",
+                }],
+            })
         ```
 
         ## Import
@@ -162,32 +162,32 @@ class VaultConfiguration(pulumi.CustomResource):
 
         my_vault_config_app_role = artifactory.VaultConfiguration("my-vault-config-app-role",
             name="my-vault-config-app-role",
-            config=artifactory.VaultConfigurationConfigArgs(
-                url="http://127.0.0.1:8200",
-                auth=artifactory.VaultConfigurationConfigAuthArgs(
-                    type="AppRole",
-                    role_id="1b62ff05...",
-                    secret_id="acbd6657...",
-                ),
-                mounts=[artifactory.VaultConfigurationConfigMountArgs(
-                    path="secret",
-                    type="KV2",
-                )],
-            ))
+            config={
+                "url": "http://127.0.0.1:8200",
+                "auth": {
+                    "type": "AppRole",
+                    "role_id": "1b62ff05...",
+                    "secret_id": "acbd6657...",
+                },
+                "mounts": [{
+                    "path": "secret",
+                    "type": "KV2",
+                }],
+            })
         my_vault_config_cert = artifactory.VaultConfiguration("my-vault-config-cert",
             name="my-vault-config-cert",
-            config=artifactory.VaultConfigurationConfigArgs(
-                url="http://127.0.0.1:8200",
-                auth=artifactory.VaultConfigurationConfigAuthArgs(
-                    type="Certificate",
-                    certificate=std.file(input="samples/public.pem").result,
-                    certificate_key=std.file(input="samples/private.pem").result,
-                ),
-                mounts=[artifactory.VaultConfigurationConfigMountArgs(
-                    path="secret",
-                    type="KV2",
-                )],
-            ))
+            config={
+                "url": "http://127.0.0.1:8200",
+                "auth": {
+                    "type": "Certificate",
+                    "certificate": std.file(input="samples/public.pem").result,
+                    "certificate_key": std.file(input="samples/private.pem").result,
+                },
+                "mounts": [{
+                    "path": "secret",
+                    "type": "KV2",
+                }],
+            })
         ```
 
         ## Import
@@ -211,7 +211,7 @@ class VaultConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 config: Optional[pulumi.Input[pulumi.InputType['VaultConfigurationConfigArgs']]] = None,
+                 config: Optional[pulumi.Input[Union['VaultConfigurationConfigArgs', 'VaultConfigurationConfigArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -236,7 +236,7 @@ class VaultConfiguration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            config: Optional[pulumi.Input[pulumi.InputType['VaultConfigurationConfigArgs']]] = None,
+            config: Optional[pulumi.Input[Union['VaultConfigurationConfigArgs', 'VaultConfigurationConfigArgsDict']]] = None,
             name: Optional[pulumi.Input[str]] = None) -> 'VaultConfiguration':
         """
         Get an existing VaultConfiguration resource's state with the given name, id, and optional extra

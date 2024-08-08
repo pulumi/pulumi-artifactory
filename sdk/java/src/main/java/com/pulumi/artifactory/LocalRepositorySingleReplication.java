@@ -154,28 +154,28 @@ public class LocalRepositorySingleReplication extends com.pulumi.resources.Custo
         return Codegen.optional(this.enabled);
     }
     /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**{@literal /}z/*`. By default, no artifacts are excluded.
+     * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`. By default, no artifacts are excluded.
      * 
      */
     @Export(name="excludePathPrefixPattern", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> excludePathPrefixPattern;
 
     /**
-     * @return List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**{@literal /}z/*`. By default, no artifacts are excluded.
+     * @return List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`. By default, no artifacts are excluded.
      * 
      */
     public Output<Optional<String>> excludePathPrefixPattern() {
         return Codegen.optional(this.excludePathPrefixPattern);
     }
     /**
-     * List of artifact patterns to include when evaluating artifact requests in the form of `x/y/**{@literal /}z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included `(**{@literal /}*)`.
+     * List of artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included `(**&#47;*)`.
      * 
      */
     @Export(name="includePathPrefixPattern", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> includePathPrefixPattern;
 
     /**
-     * @return List of artifact patterns to include when evaluating artifact requests in the form of `x/y/**{@literal /}z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included `(**{@literal /}*)`.
+     * @return List of artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included `(**&#47;*)`.
      * 
      */
     public Output<Optional<String>> includePathPrefixPattern() {
@@ -326,7 +326,7 @@ public class LocalRepositorySingleReplication extends com.pulumi.resources.Custo
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public LocalRepositorySingleReplication(String name) {
+    public LocalRepositorySingleReplication(java.lang.String name) {
         this(name, LocalRepositorySingleReplicationArgs.Empty);
     }
     /**
@@ -334,7 +334,7 @@ public class LocalRepositorySingleReplication extends com.pulumi.resources.Custo
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public LocalRepositorySingleReplication(String name, LocalRepositorySingleReplicationArgs args) {
+    public LocalRepositorySingleReplication(java.lang.String name, LocalRepositorySingleReplicationArgs args) {
         this(name, args, null);
     }
     /**
@@ -343,12 +343,12 @@ public class LocalRepositorySingleReplication extends com.pulumi.resources.Custo
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public LocalRepositorySingleReplication(String name, LocalRepositorySingleReplicationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/localRepositorySingleReplication:LocalRepositorySingleReplication", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public LocalRepositorySingleReplication(java.lang.String name, LocalRepositorySingleReplicationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("artifactory:index/localRepositorySingleReplication:LocalRepositorySingleReplication", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private LocalRepositorySingleReplication(String name, Output<String> id, @Nullable LocalRepositorySingleReplicationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/localRepositorySingleReplication:LocalRepositorySingleReplication", name, state, makeResourceOptions(options, id));
+    private LocalRepositorySingleReplication(java.lang.String name, Output<java.lang.String> id, @Nullable LocalRepositorySingleReplicationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("artifactory:index/localRepositorySingleReplication:LocalRepositorySingleReplication", name, state, makeResourceOptions(options, id), false);
     }
 
     private static LocalRepositorySingleReplicationArgs makeArgs(LocalRepositorySingleReplicationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -358,7 +358,7 @@ public class LocalRepositorySingleReplication extends com.pulumi.resources.Custo
         return args == null ? LocalRepositorySingleReplicationArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -377,7 +377,7 @@ public class LocalRepositorySingleReplication extends com.pulumi.resources.Custo
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static LocalRepositorySingleReplication get(String name, Output<String> id, @Nullable LocalRepositorySingleReplicationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static LocalRepositorySingleReplication get(java.lang.String name, Output<java.lang.String> id, @Nullable LocalRepositorySingleReplicationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new LocalRepositorySingleReplication(name, id, state, options);
     }
 }

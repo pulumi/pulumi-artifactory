@@ -111,7 +111,7 @@ public class UserLockPolicy extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public UserLockPolicy(String name) {
+    public UserLockPolicy(java.lang.String name) {
         this(name, UserLockPolicyArgs.Empty);
     }
     /**
@@ -119,7 +119,7 @@ public class UserLockPolicy extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public UserLockPolicy(String name, UserLockPolicyArgs args) {
+    public UserLockPolicy(java.lang.String name, UserLockPolicyArgs args) {
         this(name, args, null);
     }
     /**
@@ -128,12 +128,12 @@ public class UserLockPolicy extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public UserLockPolicy(String name, UserLockPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/userLockPolicy:UserLockPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public UserLockPolicy(java.lang.String name, UserLockPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("artifactory:index/userLockPolicy:UserLockPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private UserLockPolicy(String name, Output<String> id, @Nullable UserLockPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/userLockPolicy:UserLockPolicy", name, state, makeResourceOptions(options, id));
+    private UserLockPolicy(java.lang.String name, Output<java.lang.String> id, @Nullable UserLockPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("artifactory:index/userLockPolicy:UserLockPolicy", name, state, makeResourceOptions(options, id), false);
     }
 
     private static UserLockPolicyArgs makeArgs(UserLockPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -143,7 +143,7 @@ public class UserLockPolicy extends com.pulumi.resources.CustomResource {
         return args == null ? UserLockPolicyArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -159,7 +159,7 @@ public class UserLockPolicy extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static UserLockPolicy get(String name, Output<String> id, @Nullable UserLockPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static UserLockPolicy get(java.lang.String name, Output<java.lang.String> id, @Nullable UserLockPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new UserLockPolicy(name, id, state, options);
     }
 }

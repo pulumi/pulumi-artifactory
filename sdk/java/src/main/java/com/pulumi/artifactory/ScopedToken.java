@@ -48,12 +48,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         //## Create a new Artifactory scoped token for an existing user
  *         var scopedToken = new ScopedToken("scopedToken", ScopedTokenArgs.builder()
  *             .username("existing-user")
@@ -63,7 +63,7 @@ import javax.annotation.Nullable;
  *         //## Create a new Artifactory user and scoped token
  *         var newUser = new User("newUser", UserArgs.builder()
  *             .name("new_user")
- *             .email("new_user{@literal @}somewhere.com")
+ *             .email("new_user}{@literal @}{@code somewhere.com")
  *             .groups("readers")
  *             .build());
  * 
@@ -98,11 +98,11 @@ import javax.annotation.Nullable;
  *         var audience = new ScopedToken("audience", ScopedTokenArgs.builder()
  *             .username("admin-user")
  *             .scopes("applied-permissions/admin")
- *             .audiences("jfrt{@literal @}*")
+ *             .audiences("jfrt}{@literal @}{@code *")
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -442,7 +442,7 @@ public class ScopedToken extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ScopedToken(String name) {
+    public ScopedToken(java.lang.String name) {
         this(name, ScopedTokenArgs.Empty);
     }
     /**
@@ -450,7 +450,7 @@ public class ScopedToken extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ScopedToken(String name, @Nullable ScopedTokenArgs args) {
+    public ScopedToken(java.lang.String name, @Nullable ScopedTokenArgs args) {
         this(name, args, null);
     }
     /**
@@ -459,12 +459,12 @@ public class ScopedToken extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ScopedToken(String name, @Nullable ScopedTokenArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/scopedToken:ScopedToken", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public ScopedToken(java.lang.String name, @Nullable ScopedTokenArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("artifactory:index/scopedToken:ScopedToken", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ScopedToken(String name, Output<String> id, @Nullable ScopedTokenState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/scopedToken:ScopedToken", name, state, makeResourceOptions(options, id));
+    private ScopedToken(java.lang.String name, Output<java.lang.String> id, @Nullable ScopedTokenState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("artifactory:index/scopedToken:ScopedToken", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ScopedTokenArgs makeArgs(@Nullable ScopedTokenArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -474,7 +474,7 @@ public class ScopedToken extends com.pulumi.resources.CustomResource {
         return args == null ? ScopedTokenArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -495,7 +495,7 @@ public class ScopedToken extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ScopedToken get(String name, Output<String> id, @Nullable ScopedTokenState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ScopedToken get(java.lang.String name, Output<java.lang.String> id, @Nullable ScopedTokenState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ScopedToken(name, id, state, options);
     }
 }

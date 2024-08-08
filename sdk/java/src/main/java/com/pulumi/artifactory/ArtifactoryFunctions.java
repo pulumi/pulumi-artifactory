@@ -9766,6 +9766,24 @@ public final class ArtifactoryFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## * `snapshot_version_behavior` - Specifies the naming convention for Maven SNAPSHOT versions. The options are
+     * 
+     * -   
+     *   * `unique`: Version number is based on a time-stamp (default)
+     *   * `non-unique`: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type
+     *   * `deployer`: Respects the settings in the Maven client that is deploying the artifact.
+     * * `max_unique_snapshots` - The maximum number of unique snapshots of a single artifact to store. Once the
+     *   number of snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no
+     *   limit, and unique snapshots are not cleaned up.
+     * * `handle_releases` - If set, Artifactory allows you to deploy release artifacts into this repository.
+     *   Default is `true`.
+     * * `handle_snapshots` - If set, Artifactory allows you to deploy snapshot artifacts into this repository.
+     *   Default is `true`.
+     * * `suppress_pom_consistency_checks` - By default, Artifactory keeps your repositories healthy by refusing
+     *   POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match
+     *   the deployed path, Artifactory rejects the deployment with a &#34;409 Conflict&#34; error. You can disable this behavior by
+     *   setting the Suppress POM Consistency Checks checkbox. True by default for Gradle repository.
+     * 
      */
     public static Output<GetLocalGradleRepositoryResult> getLocalGradleRepository(GetLocalGradleRepositoryArgs args) {
         return getLocalGradleRepository(args, InvokeOptions.Empty);
@@ -9807,6 +9825,24 @@ public final class ArtifactoryFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## * `snapshot_version_behavior` - Specifies the naming convention for Maven SNAPSHOT versions. The options are
+     * 
+     * -   
+     *   * `unique`: Version number is based on a time-stamp (default)
+     *   * `non-unique`: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type
+     *   * `deployer`: Respects the settings in the Maven client that is deploying the artifact.
+     * * `max_unique_snapshots` - The maximum number of unique snapshots of a single artifact to store. Once the
+     *   number of snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no
+     *   limit, and unique snapshots are not cleaned up.
+     * * `handle_releases` - If set, Artifactory allows you to deploy release artifacts into this repository.
+     *   Default is `true`.
+     * * `handle_snapshots` - If set, Artifactory allows you to deploy snapshot artifacts into this repository.
+     *   Default is `true`.
+     * * `suppress_pom_consistency_checks` - By default, Artifactory keeps your repositories healthy by refusing
+     *   POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match
+     *   the deployed path, Artifactory rejects the deployment with a &#34;409 Conflict&#34; error. You can disable this behavior by
+     *   setting the Suppress POM Consistency Checks checkbox. True by default for Gradle repository.
      * 
      */
     public static CompletableFuture<GetLocalGradleRepositoryResult> getLocalGradleRepositoryPlain(GetLocalGradleRepositoryPlainArgs args) {
@@ -9850,6 +9886,24 @@ public final class ArtifactoryFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## * `snapshot_version_behavior` - Specifies the naming convention for Maven SNAPSHOT versions. The options are
+     * 
+     * -   
+     *   * `unique`: Version number is based on a time-stamp (default)
+     *   * `non-unique`: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type
+     *   * `deployer`: Respects the settings in the Maven client that is deploying the artifact.
+     * * `max_unique_snapshots` - The maximum number of unique snapshots of a single artifact to store. Once the
+     *   number of snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no
+     *   limit, and unique snapshots are not cleaned up.
+     * * `handle_releases` - If set, Artifactory allows you to deploy release artifacts into this repository.
+     *   Default is `true`.
+     * * `handle_snapshots` - If set, Artifactory allows you to deploy snapshot artifacts into this repository.
+     *   Default is `true`.
+     * * `suppress_pom_consistency_checks` - By default, Artifactory keeps your repositories healthy by refusing
+     *   POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match
+     *   the deployed path, Artifactory rejects the deployment with a &#34;409 Conflict&#34; error. You can disable this behavior by
+     *   setting the Suppress POM Consistency Checks checkbox. True by default for Gradle repository.
+     * 
      */
     public static Output<GetLocalGradleRepositoryResult> getLocalGradleRepository(GetLocalGradleRepositoryArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("artifactory:index/getLocalGradleRepository:getLocalGradleRepository", TypeShape.of(GetLocalGradleRepositoryResult.class), args, Utilities.withVersion(options));
@@ -9891,6 +9945,24 @@ public final class ArtifactoryFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## * `snapshot_version_behavior` - Specifies the naming convention for Maven SNAPSHOT versions. The options are
+     * 
+     * -   
+     *   * `unique`: Version number is based on a time-stamp (default)
+     *   * `non-unique`: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type
+     *   * `deployer`: Respects the settings in the Maven client that is deploying the artifact.
+     * * `max_unique_snapshots` - The maximum number of unique snapshots of a single artifact to store. Once the
+     *   number of snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no
+     *   limit, and unique snapshots are not cleaned up.
+     * * `handle_releases` - If set, Artifactory allows you to deploy release artifacts into this repository.
+     *   Default is `true`.
+     * * `handle_snapshots` - If set, Artifactory allows you to deploy snapshot artifacts into this repository.
+     *   Default is `true`.
+     * * `suppress_pom_consistency_checks` - By default, Artifactory keeps your repositories healthy by refusing
+     *   POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match
+     *   the deployed path, Artifactory rejects the deployment with a &#34;409 Conflict&#34; error. You can disable this behavior by
+     *   setting the Suppress POM Consistency Checks checkbox. True by default for Gradle repository.
      * 
      */
     public static CompletableFuture<GetLocalGradleRepositoryResult> getLocalGradleRepositoryPlain(GetLocalGradleRepositoryPlainArgs args, InvokeOptions options) {
@@ -10298,6 +10370,24 @@ public final class ArtifactoryFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## * `snapshot_version_behavior` - Specifies the naming convention for Maven SNAPSHOT versions. The options are
+     * 
+     * -   
+     *   * `unique`: Version number is based on a time-stamp (default)
+     *   * `non-unique`: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type
+     *   * `deployer`: Respects the settings in the Maven client that is deploying the artifact.
+     * * `max_unique_snapshots` - The maximum number of unique snapshots of a single artifact to store. Once the number of
+     *   snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and
+     *   unique snapshots are not cleaned up.
+     * * `handle_releases` - If set, Artifactory allows you to deploy release artifacts into this repository. Default is `true`
+     *   .
+     * * `handle_snapshots` - If set, Artifactory allows you to deploy snapshot artifacts into this repository. Default
+     *   is `true`.
+     * * `suppress_pom_consistency_checks` - By default, Artifactory keeps your repositories healthy by refusing POMs with
+     *   incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed
+     *   path, Artifactory rejects the deployment with a &#34;409 Conflict&#34; error. You can disable this behavior by setting the
+     *   Suppress POM Consistency Checks checkbox. True by default for Gradle repository.
+     * 
      */
     public static Output<GetLocalIvyRepositoryResult> getLocalIvyRepository(GetLocalIvyRepositoryArgs args) {
         return getLocalIvyRepository(args, InvokeOptions.Empty);
@@ -10339,6 +10429,24 @@ public final class ArtifactoryFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## * `snapshot_version_behavior` - Specifies the naming convention for Maven SNAPSHOT versions. The options are
+     * 
+     * -   
+     *   * `unique`: Version number is based on a time-stamp (default)
+     *   * `non-unique`: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type
+     *   * `deployer`: Respects the settings in the Maven client that is deploying the artifact.
+     * * `max_unique_snapshots` - The maximum number of unique snapshots of a single artifact to store. Once the number of
+     *   snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and
+     *   unique snapshots are not cleaned up.
+     * * `handle_releases` - If set, Artifactory allows you to deploy release artifacts into this repository. Default is `true`
+     *   .
+     * * `handle_snapshots` - If set, Artifactory allows you to deploy snapshot artifacts into this repository. Default
+     *   is `true`.
+     * * `suppress_pom_consistency_checks` - By default, Artifactory keeps your repositories healthy by refusing POMs with
+     *   incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed
+     *   path, Artifactory rejects the deployment with a &#34;409 Conflict&#34; error. You can disable this behavior by setting the
+     *   Suppress POM Consistency Checks checkbox. True by default for Gradle repository.
      * 
      */
     public static CompletableFuture<GetLocalIvyRepositoryResult> getLocalIvyRepositoryPlain(GetLocalIvyRepositoryPlainArgs args) {
@@ -10382,6 +10490,24 @@ public final class ArtifactoryFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## * `snapshot_version_behavior` - Specifies the naming convention for Maven SNAPSHOT versions. The options are
+     * 
+     * -   
+     *   * `unique`: Version number is based on a time-stamp (default)
+     *   * `non-unique`: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type
+     *   * `deployer`: Respects the settings in the Maven client that is deploying the artifact.
+     * * `max_unique_snapshots` - The maximum number of unique snapshots of a single artifact to store. Once the number of
+     *   snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and
+     *   unique snapshots are not cleaned up.
+     * * `handle_releases` - If set, Artifactory allows you to deploy release artifacts into this repository. Default is `true`
+     *   .
+     * * `handle_snapshots` - If set, Artifactory allows you to deploy snapshot artifacts into this repository. Default
+     *   is `true`.
+     * * `suppress_pom_consistency_checks` - By default, Artifactory keeps your repositories healthy by refusing POMs with
+     *   incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed
+     *   path, Artifactory rejects the deployment with a &#34;409 Conflict&#34; error. You can disable this behavior by setting the
+     *   Suppress POM Consistency Checks checkbox. True by default for Gradle repository.
+     * 
      */
     public static Output<GetLocalIvyRepositoryResult> getLocalIvyRepository(GetLocalIvyRepositoryArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("artifactory:index/getLocalIvyRepository:getLocalIvyRepository", TypeShape.of(GetLocalIvyRepositoryResult.class), args, Utilities.withVersion(options));
@@ -10423,6 +10549,24 @@ public final class ArtifactoryFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## * `snapshot_version_behavior` - Specifies the naming convention for Maven SNAPSHOT versions. The options are
+     * 
+     * -   
+     *   * `unique`: Version number is based on a time-stamp (default)
+     *   * `non-unique`: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type
+     *   * `deployer`: Respects the settings in the Maven client that is deploying the artifact.
+     * * `max_unique_snapshots` - The maximum number of unique snapshots of a single artifact to store. Once the number of
+     *   snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and
+     *   unique snapshots are not cleaned up.
+     * * `handle_releases` - If set, Artifactory allows you to deploy release artifacts into this repository. Default is `true`
+     *   .
+     * * `handle_snapshots` - If set, Artifactory allows you to deploy snapshot artifacts into this repository. Default
+     *   is `true`.
+     * * `suppress_pom_consistency_checks` - By default, Artifactory keeps your repositories healthy by refusing POMs with
+     *   incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed
+     *   path, Artifactory rejects the deployment with a &#34;409 Conflict&#34; error. You can disable this behavior by setting the
+     *   Suppress POM Consistency Checks checkbox. True by default for Gradle repository.
      * 
      */
     public static CompletableFuture<GetLocalIvyRepositoryResult> getLocalIvyRepositoryPlain(GetLocalIvyRepositoryPlainArgs args, InvokeOptions options) {
@@ -10466,6 +10610,24 @@ public final class ArtifactoryFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## * `snapshot_version_behavior` - Specifies the naming convention for Maven SNAPSHOT versions. The options are
+     * 
+     * -   
+     *   * `unique`: Version number is based on a time-stamp (default)
+     *   * `non-unique`: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type
+     *   * `deployer`: Respects the settings in the Maven client that is deploying the artifact.
+     * * `max_unique_snapshots` - The maximum number of unique snapshots of a single artifact to store. Once the
+     *   number of snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no
+     *   limit, and unique snapshots are not cleaned up.
+     * * `handle_releases` - If set, Artifactory allows you to deploy release artifacts into this repository.
+     *   Default is `true`.
+     * * `handle_snapshots` - If set, Artifactory allows you to deploy snapshot artifacts into this repository.
+     *   Default is `true`.
+     * * `suppress_pom_consistency_checks` - By default, Artifactory keeps your repositories healthy by refusing
+     *   POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match
+     *   the deployed path, Artifactory rejects the deployment with a &#34;409 Conflict&#34; error. You can disable this behavior by
+     *   setting the Suppress POM Consistency Checks checkbox. False by default for Maven repository.
+     * 
      */
     public static Output<GetLocalMavenRepositoryResult> getLocalMavenRepository(GetLocalMavenRepositoryArgs args) {
         return getLocalMavenRepository(args, InvokeOptions.Empty);
@@ -10507,6 +10669,24 @@ public final class ArtifactoryFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## * `snapshot_version_behavior` - Specifies the naming convention for Maven SNAPSHOT versions. The options are
+     * 
+     * -   
+     *   * `unique`: Version number is based on a time-stamp (default)
+     *   * `non-unique`: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type
+     *   * `deployer`: Respects the settings in the Maven client that is deploying the artifact.
+     * * `max_unique_snapshots` - The maximum number of unique snapshots of a single artifact to store. Once the
+     *   number of snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no
+     *   limit, and unique snapshots are not cleaned up.
+     * * `handle_releases` - If set, Artifactory allows you to deploy release artifacts into this repository.
+     *   Default is `true`.
+     * * `handle_snapshots` - If set, Artifactory allows you to deploy snapshot artifacts into this repository.
+     *   Default is `true`.
+     * * `suppress_pom_consistency_checks` - By default, Artifactory keeps your repositories healthy by refusing
+     *   POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match
+     *   the deployed path, Artifactory rejects the deployment with a &#34;409 Conflict&#34; error. You can disable this behavior by
+     *   setting the Suppress POM Consistency Checks checkbox. False by default for Maven repository.
      * 
      */
     public static CompletableFuture<GetLocalMavenRepositoryResult> getLocalMavenRepositoryPlain(GetLocalMavenRepositoryPlainArgs args) {
@@ -10550,6 +10730,24 @@ public final class ArtifactoryFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## * `snapshot_version_behavior` - Specifies the naming convention for Maven SNAPSHOT versions. The options are
+     * 
+     * -   
+     *   * `unique`: Version number is based on a time-stamp (default)
+     *   * `non-unique`: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type
+     *   * `deployer`: Respects the settings in the Maven client that is deploying the artifact.
+     * * `max_unique_snapshots` - The maximum number of unique snapshots of a single artifact to store. Once the
+     *   number of snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no
+     *   limit, and unique snapshots are not cleaned up.
+     * * `handle_releases` - If set, Artifactory allows you to deploy release artifacts into this repository.
+     *   Default is `true`.
+     * * `handle_snapshots` - If set, Artifactory allows you to deploy snapshot artifacts into this repository.
+     *   Default is `true`.
+     * * `suppress_pom_consistency_checks` - By default, Artifactory keeps your repositories healthy by refusing
+     *   POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match
+     *   the deployed path, Artifactory rejects the deployment with a &#34;409 Conflict&#34; error. You can disable this behavior by
+     *   setting the Suppress POM Consistency Checks checkbox. False by default for Maven repository.
+     * 
      */
     public static Output<GetLocalMavenRepositoryResult> getLocalMavenRepository(GetLocalMavenRepositoryArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("artifactory:index/getLocalMavenRepository:getLocalMavenRepository", TypeShape.of(GetLocalMavenRepositoryResult.class), args, Utilities.withVersion(options));
@@ -10591,6 +10789,24 @@ public final class ArtifactoryFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## * `snapshot_version_behavior` - Specifies the naming convention for Maven SNAPSHOT versions. The options are
+     * 
+     * -   
+     *   * `unique`: Version number is based on a time-stamp (default)
+     *   * `non-unique`: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type
+     *   * `deployer`: Respects the settings in the Maven client that is deploying the artifact.
+     * * `max_unique_snapshots` - The maximum number of unique snapshots of a single artifact to store. Once the
+     *   number of snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no
+     *   limit, and unique snapshots are not cleaned up.
+     * * `handle_releases` - If set, Artifactory allows you to deploy release artifacts into this repository.
+     *   Default is `true`.
+     * * `handle_snapshots` - If set, Artifactory allows you to deploy snapshot artifacts into this repository.
+     *   Default is `true`.
+     * * `suppress_pom_consistency_checks` - By default, Artifactory keeps your repositories healthy by refusing
+     *   POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match
+     *   the deployed path, Artifactory rejects the deployment with a &#34;409 Conflict&#34; error. You can disable this behavior by
+     *   setting the Suppress POM Consistency Checks checkbox. False by default for Maven repository.
      * 
      */
     public static CompletableFuture<GetLocalMavenRepositoryResult> getLocalMavenRepositoryPlain(GetLocalMavenRepositoryPlainArgs args, InvokeOptions options) {
@@ -11978,6 +12194,24 @@ public final class ArtifactoryFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## * `snapshot_version_behavior` - Specifies the naming convention for Maven SNAPSHOT versions. The options are
+     * 
+     * -   
+     *   * `unique`: Version number is based on a time-stamp (default)
+     *   * `non-unique`: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type
+     *   * `deployer`: Respects the settings in the Maven client that is deploying the artifact.
+     * * `max_unique_snapshots` - The maximum number of unique snapshots of a single artifact to store. Once the number of
+     *   snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and
+     *   unique snapshots are not cleaned up.
+     * * `handle_releases` - If set, Artifactory allows you to deploy release artifacts into this repository. Default is `true`
+     *   .
+     * * `handle_snapshots` - If set, Artifactory allows you to deploy snapshot artifacts into this repository. Default
+     *   is `true`.
+     * * `suppress_pom_consistency_checks` - By default, Artifactory keeps your repositories healthy by refusing POMs with
+     *   incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed
+     *   path, Artifactory rejects the deployment with a &#34;409 Conflict&#34; error. You can disable this behavior by setting the
+     *   Suppress POM Consistency Checks checkbox. True by default for Gradle repository.
+     * 
      */
     public static Output<GetLocalSbtRepositoryResult> getLocalSbtRepository(GetLocalSbtRepositoryArgs args) {
         return getLocalSbtRepository(args, InvokeOptions.Empty);
@@ -12019,6 +12253,24 @@ public final class ArtifactoryFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## * `snapshot_version_behavior` - Specifies the naming convention for Maven SNAPSHOT versions. The options are
+     * 
+     * -   
+     *   * `unique`: Version number is based on a time-stamp (default)
+     *   * `non-unique`: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type
+     *   * `deployer`: Respects the settings in the Maven client that is deploying the artifact.
+     * * `max_unique_snapshots` - The maximum number of unique snapshots of a single artifact to store. Once the number of
+     *   snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and
+     *   unique snapshots are not cleaned up.
+     * * `handle_releases` - If set, Artifactory allows you to deploy release artifacts into this repository. Default is `true`
+     *   .
+     * * `handle_snapshots` - If set, Artifactory allows you to deploy snapshot artifacts into this repository. Default
+     *   is `true`.
+     * * `suppress_pom_consistency_checks` - By default, Artifactory keeps your repositories healthy by refusing POMs with
+     *   incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed
+     *   path, Artifactory rejects the deployment with a &#34;409 Conflict&#34; error. You can disable this behavior by setting the
+     *   Suppress POM Consistency Checks checkbox. True by default for Gradle repository.
      * 
      */
     public static CompletableFuture<GetLocalSbtRepositoryResult> getLocalSbtRepositoryPlain(GetLocalSbtRepositoryPlainArgs args) {
@@ -12062,6 +12314,24 @@ public final class ArtifactoryFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## * `snapshot_version_behavior` - Specifies the naming convention for Maven SNAPSHOT versions. The options are
+     * 
+     * -   
+     *   * `unique`: Version number is based on a time-stamp (default)
+     *   * `non-unique`: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type
+     *   * `deployer`: Respects the settings in the Maven client that is deploying the artifact.
+     * * `max_unique_snapshots` - The maximum number of unique snapshots of a single artifact to store. Once the number of
+     *   snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and
+     *   unique snapshots are not cleaned up.
+     * * `handle_releases` - If set, Artifactory allows you to deploy release artifacts into this repository. Default is `true`
+     *   .
+     * * `handle_snapshots` - If set, Artifactory allows you to deploy snapshot artifacts into this repository. Default
+     *   is `true`.
+     * * `suppress_pom_consistency_checks` - By default, Artifactory keeps your repositories healthy by refusing POMs with
+     *   incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed
+     *   path, Artifactory rejects the deployment with a &#34;409 Conflict&#34; error. You can disable this behavior by setting the
+     *   Suppress POM Consistency Checks checkbox. True by default for Gradle repository.
+     * 
      */
     public static Output<GetLocalSbtRepositoryResult> getLocalSbtRepository(GetLocalSbtRepositoryArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("artifactory:index/getLocalSbtRepository:getLocalSbtRepository", TypeShape.of(GetLocalSbtRepositoryResult.class), args, Utilities.withVersion(options));
@@ -12103,6 +12373,24 @@ public final class ArtifactoryFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## * `snapshot_version_behavior` - Specifies the naming convention for Maven SNAPSHOT versions. The options are
+     * 
+     * -   
+     *   * `unique`: Version number is based on a time-stamp (default)
+     *   * `non-unique`: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type
+     *   * `deployer`: Respects the settings in the Maven client that is deploying the artifact.
+     * * `max_unique_snapshots` - The maximum number of unique snapshots of a single artifact to store. Once the number of
+     *   snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and
+     *   unique snapshots are not cleaned up.
+     * * `handle_releases` - If set, Artifactory allows you to deploy release artifacts into this repository. Default is `true`
+     *   .
+     * * `handle_snapshots` - If set, Artifactory allows you to deploy snapshot artifacts into this repository. Default
+     *   is `true`.
+     * * `suppress_pom_consistency_checks` - By default, Artifactory keeps your repositories healthy by refusing POMs with
+     *   incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed
+     *   path, Artifactory rejects the deployment with a &#34;409 Conflict&#34; error. You can disable this behavior by setting the
+     *   Suppress POM Consistency Checks checkbox. True by default for Gradle repository.
      * 
      */
     public static CompletableFuture<GetLocalSbtRepositoryResult> getLocalSbtRepositoryPlain(GetLocalSbtRepositoryPlainArgs args, InvokeOptions options) {

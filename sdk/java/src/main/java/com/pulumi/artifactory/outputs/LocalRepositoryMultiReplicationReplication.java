@@ -25,12 +25,12 @@ public final class LocalRepositoryMultiReplicationReplication {
      */
     private @Nullable Boolean enabled;
     /**
-     * @return List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**{@literal /}z/*`. By default, no artifacts are excluded.
+     * @return List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`. By default, no artifacts are excluded.
      * 
      */
     private @Nullable String excludePathPrefixPattern;
     /**
-     * @return List of artifact patterns to include when evaluating artifact requests in the form of `x/y/**{@literal /}z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included `(**{@literal /}*)`.
+     * @return List of artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included `(**&#47;*)`.
      * 
      */
     private @Nullable String includePathPrefixPattern;
@@ -96,14 +96,14 @@ public final class LocalRepositoryMultiReplicationReplication {
         return Optional.ofNullable(this.enabled);
     }
     /**
-     * @return List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**{@literal /}z/*`. By default, no artifacts are excluded.
+     * @return List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`. By default, no artifacts are excluded.
      * 
      */
     public Optional<String> excludePathPrefixPattern() {
         return Optional.ofNullable(this.excludePathPrefixPattern);
     }
     /**
-     * @return List of artifact patterns to include when evaluating artifact requests in the form of `x/y/**{@literal /}z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included `(**{@literal /}*)`.
+     * @return List of artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included `(**&#47;*)`.
      * 
      */
     public Optional<String> includePathPrefixPattern() {

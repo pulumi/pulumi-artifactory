@@ -250,7 +250,7 @@ public class ReleaseBundleV2 extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ReleaseBundleV2(String name) {
+    public ReleaseBundleV2(java.lang.String name) {
         this(name, ReleaseBundleV2Args.Empty);
     }
     /**
@@ -258,7 +258,7 @@ public class ReleaseBundleV2 extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ReleaseBundleV2(String name, ReleaseBundleV2Args args) {
+    public ReleaseBundleV2(java.lang.String name, ReleaseBundleV2Args args) {
         this(name, args, null);
     }
     /**
@@ -267,12 +267,12 @@ public class ReleaseBundleV2 extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ReleaseBundleV2(String name, ReleaseBundleV2Args args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/releaseBundleV2:ReleaseBundleV2", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public ReleaseBundleV2(java.lang.String name, ReleaseBundleV2Args args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("artifactory:index/releaseBundleV2:ReleaseBundleV2", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ReleaseBundleV2(String name, Output<String> id, @Nullable ReleaseBundleV2State state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/releaseBundleV2:ReleaseBundleV2", name, state, makeResourceOptions(options, id));
+    private ReleaseBundleV2(java.lang.String name, Output<java.lang.String> id, @Nullable ReleaseBundleV2State state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("artifactory:index/releaseBundleV2:ReleaseBundleV2", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ReleaseBundleV2Args makeArgs(ReleaseBundleV2Args args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -282,7 +282,7 @@ public class ReleaseBundleV2 extends com.pulumi.resources.CustomResource {
         return args == null ? ReleaseBundleV2Args.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -298,7 +298,7 @@ public class ReleaseBundleV2 extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ReleaseBundleV2 get(String name, Output<String> id, @Nullable ReleaseBundleV2State state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ReleaseBundleV2 get(java.lang.String name, Output<java.lang.String> id, @Nullable ReleaseBundleV2State state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ReleaseBundleV2(name, id, state, options);
     }
 }

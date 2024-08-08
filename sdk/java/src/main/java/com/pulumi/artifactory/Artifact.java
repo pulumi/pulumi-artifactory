@@ -230,7 +230,7 @@ public class Artifact extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Artifact(String name) {
+    public Artifact(java.lang.String name) {
         this(name, ArtifactArgs.Empty);
     }
     /**
@@ -238,7 +238,7 @@ public class Artifact extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Artifact(String name, ArtifactArgs args) {
+    public Artifact(java.lang.String name, ArtifactArgs args) {
         this(name, args, null);
     }
     /**
@@ -247,12 +247,12 @@ public class Artifact extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Artifact(String name, ArtifactArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/artifact:Artifact", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public Artifact(java.lang.String name, ArtifactArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("artifactory:index/artifact:Artifact", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Artifact(String name, Output<String> id, @Nullable ArtifactState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/artifact:Artifact", name, state, makeResourceOptions(options, id));
+    private Artifact(java.lang.String name, Output<java.lang.String> id, @Nullable ArtifactState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("artifactory:index/artifact:Artifact", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ArtifactArgs makeArgs(ArtifactArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -262,7 +262,7 @@ public class Artifact extends com.pulumi.resources.CustomResource {
         return args == null ? ArtifactArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -278,7 +278,7 @@ public class Artifact extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Artifact get(String name, Output<String> id, @Nullable ArtifactState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Artifact get(java.lang.String name, Output<java.lang.String> id, @Nullable ArtifactState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Artifact(name, id, state, options);
     }
 }

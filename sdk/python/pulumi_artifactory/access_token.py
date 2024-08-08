@@ -289,7 +289,7 @@ class AccessToken(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 admin_token: Optional[pulumi.Input[pulumi.InputType['AccessTokenAdminTokenArgs']]] = None,
+                 admin_token: Optional[pulumi.Input[Union['AccessTokenAdminTokenArgs', 'AccessTokenAdminTokenArgsDict']]] = None,
                  audience: Optional[pulumi.Input[str]] = None,
                  end_date: Optional[pulumi.Input[str]] = None,
                  end_date_relative: Optional[pulumi.Input[str]] = None,
@@ -377,9 +377,9 @@ class AccessToken(pulumi.CustomResource):
         admin = artifactory.AccessToken("admin",
             username="admin",
             end_date_relative="1m",
-            admin_token=artifactory.AccessTokenAdminTokenArgs(
-                instance_id="<instance id>",
-            ))
+            admin_token={
+                "instance_id": "<instance id>",
+            })
         ```
 
         ### Creates a token with an audience
@@ -456,7 +456,7 @@ class AccessToken(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['AccessTokenAdminTokenArgs']] admin_token: (Optional) Specify the `instance_id` in this block to grant this token admin privileges. This can only be created when the authenticated user is an admin. `admin_token` cannot be specified with `groups`.
+        :param pulumi.Input[Union['AccessTokenAdminTokenArgs', 'AccessTokenAdminTokenArgsDict']] admin_token: (Optional) Specify the `instance_id` in this block to grant this token admin privileges. This can only be created when the authenticated user is an admin. `admin_token` cannot be specified with `groups`.
         :param pulumi.Input[str] audience: (Optional) A space-separate list of the other Artifactory instances or services that should accept this token identified by their Artifactory Service IDs. You may set `"jfrt@*"` so the token to be accepted by all Artifactory instances.
         :param pulumi.Input[str] end_date: (Optional) The end date which the token is valid until, formatted as a RFC3339 date string (e.g. `2018-01-01T01:02:03Z`).
         :param pulumi.Input[str] end_date_relative: (Optional) A relative duration for which the token is valid until, for example `240h` (10 days) or `2400h30m`. Valid time units are "s", "m", "h".
@@ -550,9 +550,9 @@ class AccessToken(pulumi.CustomResource):
         admin = artifactory.AccessToken("admin",
             username="admin",
             end_date_relative="1m",
-            admin_token=artifactory.AccessTokenAdminTokenArgs(
-                instance_id="<instance id>",
-            ))
+            admin_token={
+                "instance_id": "<instance id>",
+            })
         ```
 
         ### Creates a token with an audience
@@ -642,7 +642,7 @@ class AccessToken(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 admin_token: Optional[pulumi.Input[pulumi.InputType['AccessTokenAdminTokenArgs']]] = None,
+                 admin_token: Optional[pulumi.Input[Union['AccessTokenAdminTokenArgs', 'AccessTokenAdminTokenArgsDict']]] = None,
                  audience: Optional[pulumi.Input[str]] = None,
                  end_date: Optional[pulumi.Input[str]] = None,
                  end_date_relative: Optional[pulumi.Input[str]] = None,
@@ -682,7 +682,7 @@ class AccessToken(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             access_token: Optional[pulumi.Input[str]] = None,
-            admin_token: Optional[pulumi.Input[pulumi.InputType['AccessTokenAdminTokenArgs']]] = None,
+            admin_token: Optional[pulumi.Input[Union['AccessTokenAdminTokenArgs', 'AccessTokenAdminTokenArgsDict']]] = None,
             audience: Optional[pulumi.Input[str]] = None,
             end_date: Optional[pulumi.Input[str]] = None,
             end_date_relative: Optional[pulumi.Input[str]] = None,
@@ -698,7 +698,7 @@ class AccessToken(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_token: Returns the access token to authenciate to Artifactory
-        :param pulumi.Input[pulumi.InputType['AccessTokenAdminTokenArgs']] admin_token: (Optional) Specify the `instance_id` in this block to grant this token admin privileges. This can only be created when the authenticated user is an admin. `admin_token` cannot be specified with `groups`.
+        :param pulumi.Input[Union['AccessTokenAdminTokenArgs', 'AccessTokenAdminTokenArgsDict']] admin_token: (Optional) Specify the `instance_id` in this block to grant this token admin privileges. This can only be created when the authenticated user is an admin. `admin_token` cannot be specified with `groups`.
         :param pulumi.Input[str] audience: (Optional) A space-separate list of the other Artifactory instances or services that should accept this token identified by their Artifactory Service IDs. You may set `"jfrt@*"` so the token to be accepted by all Artifactory instances.
         :param pulumi.Input[str] end_date: (Optional) The end date which the token is valid until, formatted as a RFC3339 date string (e.g. `2018-01-01T01:02:03Z`).
         :param pulumi.Input[str] end_date_relative: (Optional) A relative duration for which the token is valid until, for example `240h` (10 days) or `2400h30m`. Valid time units are "s", "m", "h".

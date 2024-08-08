@@ -88,7 +88,7 @@ public class GeneralSecurity extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public GeneralSecurity(String name) {
+    public GeneralSecurity(java.lang.String name) {
         this(name, GeneralSecurityArgs.Empty);
     }
     /**
@@ -96,7 +96,7 @@ public class GeneralSecurity extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public GeneralSecurity(String name, @Nullable GeneralSecurityArgs args) {
+    public GeneralSecurity(java.lang.String name, @Nullable GeneralSecurityArgs args) {
         this(name, args, null);
     }
     /**
@@ -105,12 +105,12 @@ public class GeneralSecurity extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public GeneralSecurity(String name, @Nullable GeneralSecurityArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/generalSecurity:GeneralSecurity", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public GeneralSecurity(java.lang.String name, @Nullable GeneralSecurityArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("artifactory:index/generalSecurity:GeneralSecurity", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private GeneralSecurity(String name, Output<String> id, @Nullable GeneralSecurityState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/generalSecurity:GeneralSecurity", name, state, makeResourceOptions(options, id));
+    private GeneralSecurity(java.lang.String name, Output<java.lang.String> id, @Nullable GeneralSecurityState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("artifactory:index/generalSecurity:GeneralSecurity", name, state, makeResourceOptions(options, id), false);
     }
 
     private static GeneralSecurityArgs makeArgs(@Nullable GeneralSecurityArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -120,7 +120,7 @@ public class GeneralSecurity extends com.pulumi.resources.CustomResource {
         return args == null ? GeneralSecurityArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -136,7 +136,7 @@ public class GeneralSecurity extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static GeneralSecurity get(String name, Output<String> id, @Nullable GeneralSecurityState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static GeneralSecurity get(java.lang.String name, Output<java.lang.String> id, @Nullable GeneralSecurityState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new GeneralSecurity(name, id, state, options);
     }
 }

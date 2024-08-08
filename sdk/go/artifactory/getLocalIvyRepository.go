@@ -38,6 +38,24 @@ import (
 //	}
 //
 // ```
+//
+// ## * `snapshotVersionBehavior` - Specifies the naming convention for Maven SNAPSHOT versions. The options are
+//
+// -
+//   - `unique`: Version number is based on a time-stamp (default)
+//   - `non-unique`: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type
+//   - `deployer`: Respects the settings in the Maven client that is deploying the artifact.
+//   - `maxUniqueSnapshots` - The maximum number of unique snapshots of a single artifact to store. Once the number of
+//     snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and
+//     unique snapshots are not cleaned up.
+//   - `handleReleases` - If set, Artifactory allows you to deploy release artifacts into this repository. Default is `true`
+//     .
+//   - `handleSnapshots` - If set, Artifactory allows you to deploy snapshot artifacts into this repository. Default
+//     is `true`.
+//   - `suppressPomConsistencyChecks` - By default, Artifactory keeps your repositories healthy by refusing POMs with
+//     incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed
+//     path, Artifactory rejects the deployment with a "409 Conflict" error. You can disable this behavior by setting the
+//     Suppress POM Consistency Checks checkbox. True by default for Gradle repository.
 func LookupLocalIvyRepository(ctx *pulumi.Context, args *LookupLocalIvyRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupLocalIvyRepositoryResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupLocalIvyRepositoryResult
@@ -62,34 +80,21 @@ type LookupLocalIvyRepositoryArgs struct {
 	Description        *string `pulumi:"description"`
 	DownloadDirect     *bool   `pulumi:"downloadDirect"`
 	ExcludesPattern    *string `pulumi:"excludesPattern"`
-	// If set, Artifactory allows you to deploy release artifacts into this repository. Default is `true`
-	// .
-	HandleReleases *bool `pulumi:"handleReleases"`
-	// If set, Artifactory allows you to deploy snapshot artifacts into this repository. Default
-	// is `true`.
-	HandleSnapshots *bool   `pulumi:"handleSnapshots"`
-	IncludesPattern *string `pulumi:"includesPattern"`
+	HandleReleases     *bool   `pulumi:"handleReleases"`
+	HandleSnapshots    *bool   `pulumi:"handleSnapshots"`
+	IncludesPattern    *string `pulumi:"includesPattern"`
 	// the identity key of the repo.
-	Key string `pulumi:"key"`
-	// The maximum number of unique snapshots of a single artifact to store. Once the number of
-	// snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and
-	// unique snapshots are not cleaned up.
-	MaxUniqueSnapshots  *int     `pulumi:"maxUniqueSnapshots"`
-	Notes               *string  `pulumi:"notes"`
-	PriorityResolution  *bool    `pulumi:"priorityResolution"`
-	ProjectEnvironments []string `pulumi:"projectEnvironments"`
-	ProjectKey          *string  `pulumi:"projectKey"`
-	PropertySets        []string `pulumi:"propertySets"`
-	RepoLayoutRef       *string  `pulumi:"repoLayoutRef"`
-	// Specifies the naming convention for Maven SNAPSHOT versions. The options are
-	// ---
-	SnapshotVersionBehavior *string `pulumi:"snapshotVersionBehavior"`
-	// By default, Artifactory keeps your repositories healthy by refusing POMs with
-	// incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed
-	// path, Artifactory rejects the deployment with a "409 Conflict" error. You can disable this behavior by setting the
-	// Suppress POM Consistency Checks checkbox. True by default for Gradle repository.
-	SuppressPomConsistencyChecks *bool `pulumi:"suppressPomConsistencyChecks"`
-	XrayIndex                    *bool `pulumi:"xrayIndex"`
+	Key                          string   `pulumi:"key"`
+	MaxUniqueSnapshots           *int     `pulumi:"maxUniqueSnapshots"`
+	Notes                        *string  `pulumi:"notes"`
+	PriorityResolution           *bool    `pulumi:"priorityResolution"`
+	ProjectEnvironments          []string `pulumi:"projectEnvironments"`
+	ProjectKey                   *string  `pulumi:"projectKey"`
+	PropertySets                 []string `pulumi:"propertySets"`
+	RepoLayoutRef                *string  `pulumi:"repoLayoutRef"`
+	SnapshotVersionBehavior      *string  `pulumi:"snapshotVersionBehavior"`
+	SuppressPomConsistencyChecks *bool    `pulumi:"suppressPomConsistencyChecks"`
+	XrayIndex                    *bool    `pulumi:"xrayIndex"`
 }
 
 // A collection of values returned by getLocalIvyRepository.
@@ -106,36 +111,23 @@ type LookupLocalIvyRepositoryResult struct {
 	Description        *string `pulumi:"description"`
 	DownloadDirect     *bool   `pulumi:"downloadDirect"`
 	ExcludesPattern    *string `pulumi:"excludesPattern"`
-	// If set, Artifactory allows you to deploy release artifacts into this repository. Default is `true`
-	// .
-	HandleReleases *bool `pulumi:"handleReleases"`
-	// If set, Artifactory allows you to deploy snapshot artifacts into this repository. Default
-	// is `true`.
-	HandleSnapshots *bool `pulumi:"handleSnapshots"`
+	HandleReleases     *bool   `pulumi:"handleReleases"`
+	HandleSnapshots    *bool   `pulumi:"handleSnapshots"`
 	// The provider-assigned unique ID for this managed resource.
-	Id              string  `pulumi:"id"`
-	IncludesPattern *string `pulumi:"includesPattern"`
-	Key             string  `pulumi:"key"`
-	// The maximum number of unique snapshots of a single artifact to store. Once the number of
-	// snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and
-	// unique snapshots are not cleaned up.
-	MaxUniqueSnapshots  *int     `pulumi:"maxUniqueSnapshots"`
-	Notes               *string  `pulumi:"notes"`
-	PackageType         string   `pulumi:"packageType"`
-	PriorityResolution  *bool    `pulumi:"priorityResolution"`
-	ProjectEnvironments []string `pulumi:"projectEnvironments"`
-	ProjectKey          *string  `pulumi:"projectKey"`
-	PropertySets        []string `pulumi:"propertySets"`
-	RepoLayoutRef       *string  `pulumi:"repoLayoutRef"`
-	// Specifies the naming convention for Maven SNAPSHOT versions. The options are
-	// ---
-	SnapshotVersionBehavior *string `pulumi:"snapshotVersionBehavior"`
-	// By default, Artifactory keeps your repositories healthy by refusing POMs with
-	// incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed
-	// path, Artifactory rejects the deployment with a "409 Conflict" error. You can disable this behavior by setting the
-	// Suppress POM Consistency Checks checkbox. True by default for Gradle repository.
-	SuppressPomConsistencyChecks *bool `pulumi:"suppressPomConsistencyChecks"`
-	XrayIndex                    *bool `pulumi:"xrayIndex"`
+	Id                           string   `pulumi:"id"`
+	IncludesPattern              *string  `pulumi:"includesPattern"`
+	Key                          string   `pulumi:"key"`
+	MaxUniqueSnapshots           *int     `pulumi:"maxUniqueSnapshots"`
+	Notes                        *string  `pulumi:"notes"`
+	PackageType                  string   `pulumi:"packageType"`
+	PriorityResolution           *bool    `pulumi:"priorityResolution"`
+	ProjectEnvironments          []string `pulumi:"projectEnvironments"`
+	ProjectKey                   *string  `pulumi:"projectKey"`
+	PropertySets                 []string `pulumi:"propertySets"`
+	RepoLayoutRef                *string  `pulumi:"repoLayoutRef"`
+	SnapshotVersionBehavior      *string  `pulumi:"snapshotVersionBehavior"`
+	SuppressPomConsistencyChecks *bool    `pulumi:"suppressPomConsistencyChecks"`
+	XrayIndex                    *bool    `pulumi:"xrayIndex"`
 }
 
 func LookupLocalIvyRepositoryOutput(ctx *pulumi.Context, args LookupLocalIvyRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupLocalIvyRepositoryResultOutput {
@@ -165,34 +157,21 @@ type LookupLocalIvyRepositoryOutputArgs struct {
 	Description        pulumi.StringPtrInput `pulumi:"description"`
 	DownloadDirect     pulumi.BoolPtrInput   `pulumi:"downloadDirect"`
 	ExcludesPattern    pulumi.StringPtrInput `pulumi:"excludesPattern"`
-	// If set, Artifactory allows you to deploy release artifacts into this repository. Default is `true`
-	// .
-	HandleReleases pulumi.BoolPtrInput `pulumi:"handleReleases"`
-	// If set, Artifactory allows you to deploy snapshot artifacts into this repository. Default
-	// is `true`.
-	HandleSnapshots pulumi.BoolPtrInput   `pulumi:"handleSnapshots"`
-	IncludesPattern pulumi.StringPtrInput `pulumi:"includesPattern"`
+	HandleReleases     pulumi.BoolPtrInput   `pulumi:"handleReleases"`
+	HandleSnapshots    pulumi.BoolPtrInput   `pulumi:"handleSnapshots"`
+	IncludesPattern    pulumi.StringPtrInput `pulumi:"includesPattern"`
 	// the identity key of the repo.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The maximum number of unique snapshots of a single artifact to store. Once the number of
-	// snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and
-	// unique snapshots are not cleaned up.
-	MaxUniqueSnapshots  pulumi.IntPtrInput      `pulumi:"maxUniqueSnapshots"`
-	Notes               pulumi.StringPtrInput   `pulumi:"notes"`
-	PriorityResolution  pulumi.BoolPtrInput     `pulumi:"priorityResolution"`
-	ProjectEnvironments pulumi.StringArrayInput `pulumi:"projectEnvironments"`
-	ProjectKey          pulumi.StringPtrInput   `pulumi:"projectKey"`
-	PropertySets        pulumi.StringArrayInput `pulumi:"propertySets"`
-	RepoLayoutRef       pulumi.StringPtrInput   `pulumi:"repoLayoutRef"`
-	// Specifies the naming convention for Maven SNAPSHOT versions. The options are
-	// ---
-	SnapshotVersionBehavior pulumi.StringPtrInput `pulumi:"snapshotVersionBehavior"`
-	// By default, Artifactory keeps your repositories healthy by refusing POMs with
-	// incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed
-	// path, Artifactory rejects the deployment with a "409 Conflict" error. You can disable this behavior by setting the
-	// Suppress POM Consistency Checks checkbox. True by default for Gradle repository.
-	SuppressPomConsistencyChecks pulumi.BoolPtrInput `pulumi:"suppressPomConsistencyChecks"`
-	XrayIndex                    pulumi.BoolPtrInput `pulumi:"xrayIndex"`
+	Key                          pulumi.StringInput      `pulumi:"key"`
+	MaxUniqueSnapshots           pulumi.IntPtrInput      `pulumi:"maxUniqueSnapshots"`
+	Notes                        pulumi.StringPtrInput   `pulumi:"notes"`
+	PriorityResolution           pulumi.BoolPtrInput     `pulumi:"priorityResolution"`
+	ProjectEnvironments          pulumi.StringArrayInput `pulumi:"projectEnvironments"`
+	ProjectKey                   pulumi.StringPtrInput   `pulumi:"projectKey"`
+	PropertySets                 pulumi.StringArrayInput `pulumi:"propertySets"`
+	RepoLayoutRef                pulumi.StringPtrInput   `pulumi:"repoLayoutRef"`
+	SnapshotVersionBehavior      pulumi.StringPtrInput   `pulumi:"snapshotVersionBehavior"`
+	SuppressPomConsistencyChecks pulumi.BoolPtrInput     `pulumi:"suppressPomConsistencyChecks"`
+	XrayIndex                    pulumi.BoolPtrInput     `pulumi:"xrayIndex"`
 }
 
 func (LookupLocalIvyRepositoryOutputArgs) ElementType() reflect.Type {
@@ -247,14 +226,10 @@ func (o LookupLocalIvyRepositoryResultOutput) ExcludesPattern() pulumi.StringPtr
 	return o.ApplyT(func(v LookupLocalIvyRepositoryResult) *string { return v.ExcludesPattern }).(pulumi.StringPtrOutput)
 }
 
-// If set, Artifactory allows you to deploy release artifacts into this repository. Default is `true`
-// .
 func (o LookupLocalIvyRepositoryResultOutput) HandleReleases() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupLocalIvyRepositoryResult) *bool { return v.HandleReleases }).(pulumi.BoolPtrOutput)
 }
 
-// If set, Artifactory allows you to deploy snapshot artifacts into this repository. Default
-// is `true`.
 func (o LookupLocalIvyRepositoryResultOutput) HandleSnapshots() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupLocalIvyRepositoryResult) *bool { return v.HandleSnapshots }).(pulumi.BoolPtrOutput)
 }
@@ -272,9 +247,6 @@ func (o LookupLocalIvyRepositoryResultOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLocalIvyRepositoryResult) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// The maximum number of unique snapshots of a single artifact to store. Once the number of
-// snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and
-// unique snapshots are not cleaned up.
 func (o LookupLocalIvyRepositoryResultOutput) MaxUniqueSnapshots() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupLocalIvyRepositoryResult) *int { return v.MaxUniqueSnapshots }).(pulumi.IntPtrOutput)
 }
@@ -307,16 +279,10 @@ func (o LookupLocalIvyRepositoryResultOutput) RepoLayoutRef() pulumi.StringPtrOu
 	return o.ApplyT(func(v LookupLocalIvyRepositoryResult) *string { return v.RepoLayoutRef }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the naming convention for Maven SNAPSHOT versions. The options are
-// ---
 func (o LookupLocalIvyRepositoryResultOutput) SnapshotVersionBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLocalIvyRepositoryResult) *string { return v.SnapshotVersionBehavior }).(pulumi.StringPtrOutput)
 }
 
-// By default, Artifactory keeps your repositories healthy by refusing POMs with
-// incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed
-// path, Artifactory rejects the deployment with a "409 Conflict" error. You can disable this behavior by setting the
-// Suppress POM Consistency Checks checkbox. True by default for Gradle repository.
 func (o LookupLocalIvyRepositoryResultOutput) SuppressPomConsistencyChecks() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupLocalIvyRepositoryResult) *bool { return v.SuppressPomConsistencyChecks }).(pulumi.BoolPtrOutput)
 }

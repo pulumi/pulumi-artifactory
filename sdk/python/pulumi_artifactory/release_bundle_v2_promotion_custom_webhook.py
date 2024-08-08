@@ -222,11 +222,11 @@ class ReleaseBundleV2PromotionCustomWebhook(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 criteria: Optional[pulumi.Input[pulumi.InputType['ReleaseBundleV2PromotionCustomWebhookCriteriaArgs']]] = None,
+                 criteria: Optional[pulumi.Input[Union['ReleaseBundleV2PromotionCustomWebhookCriteriaArgs', 'ReleaseBundleV2PromotionCustomWebhookCriteriaArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  event_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 handlers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReleaseBundleV2PromotionCustomWebhookHandlerArgs']]]]] = None,
+                 handlers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReleaseBundleV2PromotionCustomWebhookHandlerArgs', 'ReleaseBundleV2PromotionCustomWebhookHandlerArgsDict']]]]] = None,
                  key: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -245,33 +245,33 @@ class ReleaseBundleV2PromotionCustomWebhook(pulumi.CustomResource):
                 "release_bundle_v2_promotion_failed",
                 "release_bundle_v2_promotion_started",
             ],
-            criteria=artifactory.ReleaseBundleV2PromotionCustomWebhookCriteriaArgs(
-                selected_environments=[
+            criteria={
+                "selected_environments": [
                     "PROD",
                     "DEV",
                 ],
-            ),
-            handlers=[artifactory.ReleaseBundleV2PromotionCustomWebhookHandlerArgs(
-                url="https://tempurl.org",
-                secrets={
-                    "secretName1": "value1",
-                    "secretName2": "value2",
+            },
+            handlers=[{
+                "url": "https://tempurl.org",
+                "secrets": {
+                    "secret_name1": "value1",
+                    "secret_name2": "value2",
                 },
-                http_headers={
-                    "headerName1": "value1",
-                    "headerName2": "value2",
+                "http_headers": {
+                    "header_name1": "value1",
+                    "header_name2": "value2",
                 },
-                payload="{ \\"ref\\": \\"main\\" , \\"inputs\\": { \\"artifact_path\\": \\"test-repo/repo-path\\" } }",
-            )])
+                "payload": "{ \\"ref\\": \\"main\\" , \\"inputs\\": { \\"artifact_path\\": \\"test-repo/repo-path\\" } }",
+            }])
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ReleaseBundleV2PromotionCustomWebhookCriteriaArgs']] criteria: Specifies where the webhook will be applied on which enviroments.
+        :param pulumi.Input[Union['ReleaseBundleV2PromotionCustomWebhookCriteriaArgs', 'ReleaseBundleV2PromotionCustomWebhookCriteriaArgsDict']] criteria: Specifies where the webhook will be applied on which enviroments.
         :param pulumi.Input[str] description: Webhook description. Max length 1000 characters.
         :param pulumi.Input[bool] enabled: Status of webhook. Default to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] event_types: List of event triggers for the Webhook. Allow values: `release_bundle_v2_promotion_started`, `release_bundle_v2_promotion_completed`, `release_bundle_v2_promotion_failed`
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReleaseBundleV2PromotionCustomWebhookHandlerArgs']]]] handlers: At least one is required.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ReleaseBundleV2PromotionCustomWebhookHandlerArgs', 'ReleaseBundleV2PromotionCustomWebhookHandlerArgsDict']]]] handlers: At least one is required.
         :param pulumi.Input[str] key: The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
         """
         ...
@@ -296,24 +296,24 @@ class ReleaseBundleV2PromotionCustomWebhook(pulumi.CustomResource):
                 "release_bundle_v2_promotion_failed",
                 "release_bundle_v2_promotion_started",
             ],
-            criteria=artifactory.ReleaseBundleV2PromotionCustomWebhookCriteriaArgs(
-                selected_environments=[
+            criteria={
+                "selected_environments": [
                     "PROD",
                     "DEV",
                 ],
-            ),
-            handlers=[artifactory.ReleaseBundleV2PromotionCustomWebhookHandlerArgs(
-                url="https://tempurl.org",
-                secrets={
-                    "secretName1": "value1",
-                    "secretName2": "value2",
+            },
+            handlers=[{
+                "url": "https://tempurl.org",
+                "secrets": {
+                    "secret_name1": "value1",
+                    "secret_name2": "value2",
                 },
-                http_headers={
-                    "headerName1": "value1",
-                    "headerName2": "value2",
+                "http_headers": {
+                    "header_name1": "value1",
+                    "header_name2": "value2",
                 },
-                payload="{ \\"ref\\": \\"main\\" , \\"inputs\\": { \\"artifact_path\\": \\"test-repo/repo-path\\" } }",
-            )])
+                "payload": "{ \\"ref\\": \\"main\\" , \\"inputs\\": { \\"artifact_path\\": \\"test-repo/repo-path\\" } }",
+            }])
         ```
 
         :param str resource_name: The name of the resource.
@@ -331,11 +331,11 @@ class ReleaseBundleV2PromotionCustomWebhook(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 criteria: Optional[pulumi.Input[pulumi.InputType['ReleaseBundleV2PromotionCustomWebhookCriteriaArgs']]] = None,
+                 criteria: Optional[pulumi.Input[Union['ReleaseBundleV2PromotionCustomWebhookCriteriaArgs', 'ReleaseBundleV2PromotionCustomWebhookCriteriaArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  event_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 handlers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReleaseBundleV2PromotionCustomWebhookHandlerArgs']]]]] = None,
+                 handlers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReleaseBundleV2PromotionCustomWebhookHandlerArgs', 'ReleaseBundleV2PromotionCustomWebhookHandlerArgsDict']]]]] = None,
                  key: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -370,11 +370,11 @@ class ReleaseBundleV2PromotionCustomWebhook(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            criteria: Optional[pulumi.Input[pulumi.InputType['ReleaseBundleV2PromotionCustomWebhookCriteriaArgs']]] = None,
+            criteria: Optional[pulumi.Input[Union['ReleaseBundleV2PromotionCustomWebhookCriteriaArgs', 'ReleaseBundleV2PromotionCustomWebhookCriteriaArgsDict']]] = None,
             description: Optional[pulumi.Input[str]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
             event_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            handlers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReleaseBundleV2PromotionCustomWebhookHandlerArgs']]]]] = None,
+            handlers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReleaseBundleV2PromotionCustomWebhookHandlerArgs', 'ReleaseBundleV2PromotionCustomWebhookHandlerArgsDict']]]]] = None,
             key: Optional[pulumi.Input[str]] = None) -> 'ReleaseBundleV2PromotionCustomWebhook':
         """
         Get an existing ReleaseBundleV2PromotionCustomWebhook resource's state with the given name, id, and optional extra
@@ -383,11 +383,11 @@ class ReleaseBundleV2PromotionCustomWebhook(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ReleaseBundleV2PromotionCustomWebhookCriteriaArgs']] criteria: Specifies where the webhook will be applied on which enviroments.
+        :param pulumi.Input[Union['ReleaseBundleV2PromotionCustomWebhookCriteriaArgs', 'ReleaseBundleV2PromotionCustomWebhookCriteriaArgsDict']] criteria: Specifies where the webhook will be applied on which enviroments.
         :param pulumi.Input[str] description: Webhook description. Max length 1000 characters.
         :param pulumi.Input[bool] enabled: Status of webhook. Default to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] event_types: List of event triggers for the Webhook. Allow values: `release_bundle_v2_promotion_started`, `release_bundle_v2_promotion_completed`, `release_bundle_v2_promotion_failed`
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReleaseBundleV2PromotionCustomWebhookHandlerArgs']]]] handlers: At least one is required.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ReleaseBundleV2PromotionCustomWebhookHandlerArgs', 'ReleaseBundleV2PromotionCustomWebhookHandlerArgsDict']]]] handlers: At least one is required.
         :param pulumi.Input[str] key: The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
