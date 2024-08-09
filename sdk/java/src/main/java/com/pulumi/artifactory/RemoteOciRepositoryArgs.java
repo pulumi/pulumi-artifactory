@@ -264,7 +264,7 @@ public final class RemoteOciRepositoryArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**{@literal /}z/*.By default no
+     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*.By default no
      * artifacts are excluded.
      * 
      */
@@ -272,7 +272,7 @@ public final class RemoteOciRepositoryArgs extends com.pulumi.resources.Resource
     private @Nullable Output<String> excludesPattern;
 
     /**
-     * @return List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**{@literal /}z/*.By default no
+     * @return List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*.By default no
      * artifacts are excluded.
      * 
      */
@@ -296,14 +296,14 @@ public final class RemoteOciRepositoryArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Optional include patterns to match external URLs. Ant-style path expressions are supported (*, **, ?). For example, specifying `**{@literal /}github.com/**` will only allow downloading foreign layers from github.com host. By default, this is set to `[**]` in the UI, which means that foreign layers may be downloaded from any external hosts. Due to SDKv2 limitations, we can&#39;t set the default value for the list. This value `[**]` must be assigned to the attribute manually, if user don&#39;t specify any other non-default values. We don&#39;t want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns `[**]` on update if HCL doesn&#39;t have the attribute set or the list is empty.
+     * Optional include patterns to match external URLs. Ant-style path expressions are supported (*, **, ?). For example, specifying `**&#47;github.com/**` will only allow downloading foreign layers from github.com host. By default, this is set to `[**]` in the UI, which means that foreign layers may be downloaded from any external hosts. Due to SDKv2 limitations, we can&#39;t set the default value for the list. This value `[**]` must be assigned to the attribute manually, if user don&#39;t specify any other non-default values. We don&#39;t want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns `[**]` on update if HCL doesn&#39;t have the attribute set or the list is empty.
      * 
      */
     @Import(name="externalDependenciesPatterns")
     private @Nullable Output<List<String>> externalDependenciesPatterns;
 
     /**
-     * @return Optional include patterns to match external URLs. Ant-style path expressions are supported (*, **, ?). For example, specifying `**{@literal /}github.com/**` will only allow downloading foreign layers from github.com host. By default, this is set to `[**]` in the UI, which means that foreign layers may be downloaded from any external hosts. Due to SDKv2 limitations, we can&#39;t set the default value for the list. This value `[**]` must be assigned to the attribute manually, if user don&#39;t specify any other non-default values. We don&#39;t want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns `[**]` on update if HCL doesn&#39;t have the attribute set or the list is empty.
+     * @return Optional include patterns to match external URLs. Ant-style path expressions are supported (*, **, ?). For example, specifying `**&#47;github.com/**` will only allow downloading foreign layers from github.com host. By default, this is set to `[**]` in the UI, which means that foreign layers may be downloaded from any external hosts. Due to SDKv2 limitations, we can&#39;t set the default value for the list. This value `[**]` must be assigned to the attribute manually, if user don&#39;t specify any other non-default values. We don&#39;t want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns `[**]` on update if HCL doesn&#39;t have the attribute set or the list is empty.
      * 
      */
     public Optional<Output<List<String>>> externalDependenciesPatterns() {
@@ -328,16 +328,16 @@ public final class RemoteOciRepositoryArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**{@literal /}z/*. When
-     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**{@literal /}*).
+     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When
+     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
      * 
      */
     @Import(name="includesPattern")
     private @Nullable Output<String> includesPattern;
 
     /**
-     * @return List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**{@literal /}z/*. When
-     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**{@literal /}*).
+     * @return List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When
+     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
      * 
      */
     public Optional<Output<String>> includesPattern() {
@@ -1153,7 +1153,7 @@ public final class RemoteOciRepositoryArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param excludesPattern List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**{@literal /}z/*.By default no
+         * @param excludesPattern List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*.By default no
          * artifacts are excluded.
          * 
          * @return builder
@@ -1165,7 +1165,7 @@ public final class RemoteOciRepositoryArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param excludesPattern List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**{@literal /}z/*.By default no
+         * @param excludesPattern List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*.By default no
          * artifacts are excluded.
          * 
          * @return builder
@@ -1197,7 +1197,7 @@ public final class RemoteOciRepositoryArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param externalDependenciesPatterns Optional include patterns to match external URLs. Ant-style path expressions are supported (*, **, ?). For example, specifying `**{@literal /}github.com/**` will only allow downloading foreign layers from github.com host. By default, this is set to `[**]` in the UI, which means that foreign layers may be downloaded from any external hosts. Due to SDKv2 limitations, we can&#39;t set the default value for the list. This value `[**]` must be assigned to the attribute manually, if user don&#39;t specify any other non-default values. We don&#39;t want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns `[**]` on update if HCL doesn&#39;t have the attribute set or the list is empty.
+         * @param externalDependenciesPatterns Optional include patterns to match external URLs. Ant-style path expressions are supported (*, **, ?). For example, specifying `**&#47;github.com/**` will only allow downloading foreign layers from github.com host. By default, this is set to `[**]` in the UI, which means that foreign layers may be downloaded from any external hosts. Due to SDKv2 limitations, we can&#39;t set the default value for the list. This value `[**]` must be assigned to the attribute manually, if user don&#39;t specify any other non-default values. We don&#39;t want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns `[**]` on update if HCL doesn&#39;t have the attribute set or the list is empty.
          * 
          * @return builder
          * 
@@ -1208,7 +1208,7 @@ public final class RemoteOciRepositoryArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param externalDependenciesPatterns Optional include patterns to match external URLs. Ant-style path expressions are supported (*, **, ?). For example, specifying `**{@literal /}github.com/**` will only allow downloading foreign layers from github.com host. By default, this is set to `[**]` in the UI, which means that foreign layers may be downloaded from any external hosts. Due to SDKv2 limitations, we can&#39;t set the default value for the list. This value `[**]` must be assigned to the attribute manually, if user don&#39;t specify any other non-default values. We don&#39;t want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns `[**]` on update if HCL doesn&#39;t have the attribute set or the list is empty.
+         * @param externalDependenciesPatterns Optional include patterns to match external URLs. Ant-style path expressions are supported (*, **, ?). For example, specifying `**&#47;github.com/**` will only allow downloading foreign layers from github.com host. By default, this is set to `[**]` in the UI, which means that foreign layers may be downloaded from any external hosts. Due to SDKv2 limitations, we can&#39;t set the default value for the list. This value `[**]` must be assigned to the attribute manually, if user don&#39;t specify any other non-default values. We don&#39;t want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns `[**]` on update if HCL doesn&#39;t have the attribute set or the list is empty.
          * 
          * @return builder
          * 
@@ -1218,7 +1218,7 @@ public final class RemoteOciRepositoryArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param externalDependenciesPatterns Optional include patterns to match external URLs. Ant-style path expressions are supported (*, **, ?). For example, specifying `**{@literal /}github.com/**` will only allow downloading foreign layers from github.com host. By default, this is set to `[**]` in the UI, which means that foreign layers may be downloaded from any external hosts. Due to SDKv2 limitations, we can&#39;t set the default value for the list. This value `[**]` must be assigned to the attribute manually, if user don&#39;t specify any other non-default values. We don&#39;t want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns `[**]` on update if HCL doesn&#39;t have the attribute set or the list is empty.
+         * @param externalDependenciesPatterns Optional include patterns to match external URLs. Ant-style path expressions are supported (*, **, ?). For example, specifying `**&#47;github.com/**` will only allow downloading foreign layers from github.com host. By default, this is set to `[**]` in the UI, which means that foreign layers may be downloaded from any external hosts. Due to SDKv2 limitations, we can&#39;t set the default value for the list. This value `[**]` must be assigned to the attribute manually, if user don&#39;t specify any other non-default values. We don&#39;t want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns `[**]` on update if HCL doesn&#39;t have the attribute set or the list is empty.
          * 
          * @return builder
          * 
@@ -1251,8 +1251,8 @@ public final class RemoteOciRepositoryArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param includesPattern List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**{@literal /}z/*. When
-         * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**{@literal /}*).
+         * @param includesPattern List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When
+         * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
          * 
          * @return builder
          * 
@@ -1263,8 +1263,8 @@ public final class RemoteOciRepositoryArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param includesPattern List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**{@literal /}z/*. When
-         * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**{@literal /}*).
+         * @param includesPattern List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When
+         * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
          * 
          * @return builder
          * 

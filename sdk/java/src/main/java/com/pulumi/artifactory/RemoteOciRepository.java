@@ -42,22 +42,22 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var my_oci_remote = new RemoteOciRepository("my-oci-remote", RemoteOciRepositoryArgs.builder()
  *             .key("my-oci-remote")
  *             .url("https://registry-1.docker.io/")
  *             .externalDependenciesEnabled(true)
- *             .externalDependenciesPatterns("**{@literal /}registry-1.docker.io/**")
+ *             .externalDependenciesPatterns("**}&#47;{@code registry-1.docker.io/**")
  *             .enableTokenAuthentication(true)
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -302,7 +302,7 @@ public class RemoteOciRepository extends com.pulumi.resources.CustomResource {
         return this.enableTokenAuthentication;
     }
     /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**{@literal /}z/*.By default no
+     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*.By default no
      * artifacts are excluded.
      * 
      */
@@ -310,7 +310,7 @@ public class RemoteOciRepository extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ String> excludesPattern;
 
     /**
-     * @return List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**{@literal /}z/*.By default no
+     * @return List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*.By default no
      * artifacts are excluded.
      * 
      */
@@ -332,14 +332,14 @@ public class RemoteOciRepository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.externalDependenciesEnabled);
     }
     /**
-     * Optional include patterns to match external URLs. Ant-style path expressions are supported (*, **, ?). For example, specifying `**{@literal /}github.com/**` will only allow downloading foreign layers from github.com host. By default, this is set to `[**]` in the UI, which means that foreign layers may be downloaded from any external hosts. Due to SDKv2 limitations, we can&#39;t set the default value for the list. This value `[**]` must be assigned to the attribute manually, if user don&#39;t specify any other non-default values. We don&#39;t want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns `[**]` on update if HCL doesn&#39;t have the attribute set or the list is empty.
+     * Optional include patterns to match external URLs. Ant-style path expressions are supported (*, **, ?). For example, specifying `**&#47;github.com/**` will only allow downloading foreign layers from github.com host. By default, this is set to `[**]` in the UI, which means that foreign layers may be downloaded from any external hosts. Due to SDKv2 limitations, we can&#39;t set the default value for the list. This value `[**]` must be assigned to the attribute manually, if user don&#39;t specify any other non-default values. We don&#39;t want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns `[**]` on update if HCL doesn&#39;t have the attribute set or the list is empty.
      * 
      */
     @Export(name="externalDependenciesPatterns", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> externalDependenciesPatterns;
 
     /**
-     * @return Optional include patterns to match external URLs. Ant-style path expressions are supported (*, **, ?). For example, specifying `**{@literal /}github.com/**` will only allow downloading foreign layers from github.com host. By default, this is set to `[**]` in the UI, which means that foreign layers may be downloaded from any external hosts. Due to SDKv2 limitations, we can&#39;t set the default value for the list. This value `[**]` must be assigned to the attribute manually, if user don&#39;t specify any other non-default values. We don&#39;t want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns `[**]` on update if HCL doesn&#39;t have the attribute set or the list is empty.
+     * @return Optional include patterns to match external URLs. Ant-style path expressions are supported (*, **, ?). For example, specifying `**&#47;github.com/**` will only allow downloading foreign layers from github.com host. By default, this is set to `[**]` in the UI, which means that foreign layers may be downloaded from any external hosts. Due to SDKv2 limitations, we can&#39;t set the default value for the list. This value `[**]` must be assigned to the attribute manually, if user don&#39;t specify any other non-default values. We don&#39;t want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns `[**]` on update if HCL doesn&#39;t have the attribute set or the list is empty.
      * 
      */
     public Output<Optional<List<String>>> externalDependenciesPatterns() {
@@ -362,16 +362,16 @@ public class RemoteOciRepository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.hardFail);
     }
     /**
-     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**{@literal /}z/*. When
-     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**{@literal /}*).
+     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When
+     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
      * 
      */
     @Export(name="includesPattern", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> includesPattern;
 
     /**
-     * @return List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**{@literal /}z/*. When
-     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**{@literal /}*).
+     * @return List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When
+     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
      * 
      */
     public Output<Optional<String>> includesPattern() {
@@ -770,7 +770,7 @@ public class RemoteOciRepository extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public RemoteOciRepository(String name) {
+    public RemoteOciRepository(java.lang.String name) {
         this(name, RemoteOciRepositoryArgs.Empty);
     }
     /**
@@ -778,7 +778,7 @@ public class RemoteOciRepository extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public RemoteOciRepository(String name, RemoteOciRepositoryArgs args) {
+    public RemoteOciRepository(java.lang.String name, RemoteOciRepositoryArgs args) {
         this(name, args, null);
     }
     /**
@@ -787,12 +787,12 @@ public class RemoteOciRepository extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public RemoteOciRepository(String name, RemoteOciRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/remoteOciRepository:RemoteOciRepository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public RemoteOciRepository(java.lang.String name, RemoteOciRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("artifactory:index/remoteOciRepository:RemoteOciRepository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private RemoteOciRepository(String name, Output<String> id, @Nullable RemoteOciRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/remoteOciRepository:RemoteOciRepository", name, state, makeResourceOptions(options, id));
+    private RemoteOciRepository(java.lang.String name, Output<java.lang.String> id, @Nullable RemoteOciRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("artifactory:index/remoteOciRepository:RemoteOciRepository", name, state, makeResourceOptions(options, id), false);
     }
 
     private static RemoteOciRepositoryArgs makeArgs(RemoteOciRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -802,7 +802,7 @@ public class RemoteOciRepository extends com.pulumi.resources.CustomResource {
         return args == null ? RemoteOciRepositoryArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -821,7 +821,7 @@ public class RemoteOciRepository extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static RemoteOciRepository get(String name, Output<String> id, @Nullable RemoteOciRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static RemoteOciRepository get(java.lang.String name, Output<java.lang.String> id, @Nullable RemoteOciRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new RemoteOciRepository(name, id, state, options);
     }
 }

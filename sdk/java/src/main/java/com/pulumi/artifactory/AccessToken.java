@@ -86,15 +86,15 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var newUser = new User("newUser", UserArgs.builder()
  *             .name("new_user")
- *             .email("new_user{@literal @}somewhere.com")
+ *             .email("new_user}{@literal @}{@code somewhere.com")
  *             .groups("readers")
  *             .build());
  * 
@@ -103,8 +103,8 @@ import javax.annotation.Nullable;
  *             .endDateRelative("5m")
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -275,21 +275,21 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var audience = new AccessToken("audience", AccessTokenArgs.builder()
  *             .username("audience")
  *             .endDateRelative("1m")
- *             .audience("jfrt{@literal @}*")
+ *             .audience("jfrt}{@literal @}{@code *")
  *             .refreshable(true)
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -567,7 +567,7 @@ public class AccessToken extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public AccessToken(String name) {
+    public AccessToken(java.lang.String name) {
         this(name, AccessTokenArgs.Empty);
     }
     /**
@@ -575,7 +575,7 @@ public class AccessToken extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public AccessToken(String name, AccessTokenArgs args) {
+    public AccessToken(java.lang.String name, AccessTokenArgs args) {
         this(name, args, null);
     }
     /**
@@ -584,12 +584,12 @@ public class AccessToken extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public AccessToken(String name, AccessTokenArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/accessToken:AccessToken", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public AccessToken(java.lang.String name, AccessTokenArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("artifactory:index/accessToken:AccessToken", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private AccessToken(String name, Output<String> id, @Nullable AccessTokenState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/accessToken:AccessToken", name, state, makeResourceOptions(options, id));
+    private AccessToken(java.lang.String name, Output<java.lang.String> id, @Nullable AccessTokenState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("artifactory:index/accessToken:AccessToken", name, state, makeResourceOptions(options, id), false);
     }
 
     private static AccessTokenArgs makeArgs(AccessTokenArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -599,7 +599,7 @@ public class AccessToken extends com.pulumi.resources.CustomResource {
         return args == null ? AccessTokenArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -619,7 +619,7 @@ public class AccessToken extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static AccessToken get(String name, Output<String> id, @Nullable AccessTokenState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static AccessToken get(java.lang.String name, Output<java.lang.String> id, @Nullable AccessTokenState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new AccessToken(name, id, state, options);
     }
 }

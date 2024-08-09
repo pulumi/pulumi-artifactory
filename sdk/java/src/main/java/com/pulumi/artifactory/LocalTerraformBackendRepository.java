@@ -142,7 +142,7 @@ public class LocalTerraformBackendRepository extends com.pulumi.resources.Custom
         return Codegen.optional(this.downloadDirect);
     }
     /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**{@literal /}z/*.By default no
+     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*.By default no
      * artifacts are excluded.
      * 
      */
@@ -150,7 +150,7 @@ public class LocalTerraformBackendRepository extends com.pulumi.resources.Custom
     private Output</* @Nullable */ String> excludesPattern;
 
     /**
-     * @return List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**{@literal /}z/*.By default no
+     * @return List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*.By default no
      * artifacts are excluded.
      * 
      */
@@ -158,16 +158,16 @@ public class LocalTerraformBackendRepository extends com.pulumi.resources.Custom
         return Codegen.optional(this.excludesPattern);
     }
     /**
-     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**{@literal /}z/*. When
-     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**{@literal /}*).
+     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When
+     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
      * 
      */
     @Export(name="includesPattern", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> includesPattern;
 
     /**
-     * @return List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**{@literal /}z/*. When
-     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**{@literal /}*).
+     * @return List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When
+     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
      * 
      */
     public Output<Optional<String>> includesPattern() {
@@ -292,7 +292,7 @@ public class LocalTerraformBackendRepository extends com.pulumi.resources.Custom
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public LocalTerraformBackendRepository(String name) {
+    public LocalTerraformBackendRepository(java.lang.String name) {
         this(name, LocalTerraformBackendRepositoryArgs.Empty);
     }
     /**
@@ -300,7 +300,7 @@ public class LocalTerraformBackendRepository extends com.pulumi.resources.Custom
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public LocalTerraformBackendRepository(String name, LocalTerraformBackendRepositoryArgs args) {
+    public LocalTerraformBackendRepository(java.lang.String name, LocalTerraformBackendRepositoryArgs args) {
         this(name, args, null);
     }
     /**
@@ -309,12 +309,12 @@ public class LocalTerraformBackendRepository extends com.pulumi.resources.Custom
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public LocalTerraformBackendRepository(String name, LocalTerraformBackendRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/localTerraformBackendRepository:LocalTerraformBackendRepository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public LocalTerraformBackendRepository(java.lang.String name, LocalTerraformBackendRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("artifactory:index/localTerraformBackendRepository:LocalTerraformBackendRepository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private LocalTerraformBackendRepository(String name, Output<String> id, @Nullable LocalTerraformBackendRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/localTerraformBackendRepository:LocalTerraformBackendRepository", name, state, makeResourceOptions(options, id));
+    private LocalTerraformBackendRepository(java.lang.String name, Output<java.lang.String> id, @Nullable LocalTerraformBackendRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("artifactory:index/localTerraformBackendRepository:LocalTerraformBackendRepository", name, state, makeResourceOptions(options, id), false);
     }
 
     private static LocalTerraformBackendRepositoryArgs makeArgs(LocalTerraformBackendRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -324,7 +324,7 @@ public class LocalTerraformBackendRepository extends com.pulumi.resources.Custom
         return args == null ? LocalTerraformBackendRepositoryArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -340,7 +340,7 @@ public class LocalTerraformBackendRepository extends com.pulumi.resources.Custom
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static LocalTerraformBackendRepository get(String name, Output<String> id, @Nullable LocalTerraformBackendRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static LocalTerraformBackendRepository get(java.lang.String name, Output<java.lang.String> id, @Nullable LocalTerraformBackendRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new LocalTerraformBackendRepository(name, id, state, options);
     }
 }

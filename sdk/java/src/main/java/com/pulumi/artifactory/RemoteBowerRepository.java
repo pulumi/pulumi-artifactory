@@ -299,7 +299,7 @@ public class RemoteBowerRepository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enableCookieManagement);
     }
     /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**{@literal /}z/*.By default no
+     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*.By default no
      * artifacts are excluded.
      * 
      */
@@ -307,7 +307,7 @@ public class RemoteBowerRepository extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ String> excludesPattern;
 
     /**
-     * @return List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**{@literal /}z/*.By default no
+     * @return List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*.By default no
      * artifacts are excluded.
      * 
      */
@@ -331,16 +331,16 @@ public class RemoteBowerRepository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.hardFail);
     }
     /**
-     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**{@literal /}z/*. When
-     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**{@literal /}*).
+     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When
+     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
      * 
      */
     @Export(name="includesPattern", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> includesPattern;
 
     /**
-     * @return List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**{@literal /}z/*. When
-     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**{@literal /}*).
+     * @return List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When
+     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
      * 
      */
     public Output<Optional<String>> includesPattern() {
@@ -755,7 +755,7 @@ public class RemoteBowerRepository extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public RemoteBowerRepository(String name) {
+    public RemoteBowerRepository(java.lang.String name) {
         this(name, RemoteBowerRepositoryArgs.Empty);
     }
     /**
@@ -763,7 +763,7 @@ public class RemoteBowerRepository extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public RemoteBowerRepository(String name, RemoteBowerRepositoryArgs args) {
+    public RemoteBowerRepository(java.lang.String name, RemoteBowerRepositoryArgs args) {
         this(name, args, null);
     }
     /**
@@ -772,12 +772,12 @@ public class RemoteBowerRepository extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public RemoteBowerRepository(String name, RemoteBowerRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/remoteBowerRepository:RemoteBowerRepository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public RemoteBowerRepository(java.lang.String name, RemoteBowerRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("artifactory:index/remoteBowerRepository:RemoteBowerRepository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private RemoteBowerRepository(String name, Output<String> id, @Nullable RemoteBowerRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/remoteBowerRepository:RemoteBowerRepository", name, state, makeResourceOptions(options, id));
+    private RemoteBowerRepository(java.lang.String name, Output<java.lang.String> id, @Nullable RemoteBowerRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("artifactory:index/remoteBowerRepository:RemoteBowerRepository", name, state, makeResourceOptions(options, id), false);
     }
 
     private static RemoteBowerRepositoryArgs makeArgs(RemoteBowerRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -787,7 +787,7 @@ public class RemoteBowerRepository extends com.pulumi.resources.CustomResource {
         return args == null ? RemoteBowerRepositoryArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -806,7 +806,7 @@ public class RemoteBowerRepository extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static RemoteBowerRepository get(String name, Output<String> id, @Nullable RemoteBowerRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static RemoteBowerRepository get(java.lang.String name, Output<java.lang.String> id, @Nullable RemoteBowerRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new RemoteBowerRepository(name, id, state, options);
     }
 }

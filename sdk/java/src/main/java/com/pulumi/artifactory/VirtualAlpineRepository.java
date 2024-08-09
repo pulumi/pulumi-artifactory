@@ -117,7 +117,7 @@ public class VirtualAlpineRepository extends com.pulumi.resources.CustomResource
         return Codegen.optional(this.description);
     }
     /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**{@literal /}z/*.By default no
+     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*.By default no
      * artifacts are excluded.
      * 
      */
@@ -125,7 +125,7 @@ public class VirtualAlpineRepository extends com.pulumi.resources.CustomResource
     private Output</* @Nullable */ String> excludesPattern;
 
     /**
-     * @return List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**{@literal /}z/*.By default no
+     * @return List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*.By default no
      * artifacts are excluded.
      * 
      */
@@ -133,16 +133,16 @@ public class VirtualAlpineRepository extends com.pulumi.resources.CustomResource
         return Codegen.optional(this.excludesPattern);
     }
     /**
-     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**{@literal /}z/*. When
-     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**{@literal /}*).
+     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When
+     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
      * 
      */
     @Export(name="includesPattern", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> includesPattern;
 
     /**
-     * @return List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**{@literal /}z/*. When
-     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**{@literal /}*).
+     * @return List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When
+     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
      * 
      */
     public Output<Optional<String>> includesPattern() {
@@ -267,7 +267,7 @@ public class VirtualAlpineRepository extends com.pulumi.resources.CustomResource
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public VirtualAlpineRepository(String name) {
+    public VirtualAlpineRepository(java.lang.String name) {
         this(name, VirtualAlpineRepositoryArgs.Empty);
     }
     /**
@@ -275,7 +275,7 @@ public class VirtualAlpineRepository extends com.pulumi.resources.CustomResource
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public VirtualAlpineRepository(String name, VirtualAlpineRepositoryArgs args) {
+    public VirtualAlpineRepository(java.lang.String name, VirtualAlpineRepositoryArgs args) {
         this(name, args, null);
     }
     /**
@@ -284,12 +284,12 @@ public class VirtualAlpineRepository extends com.pulumi.resources.CustomResource
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public VirtualAlpineRepository(String name, VirtualAlpineRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/virtualAlpineRepository:VirtualAlpineRepository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public VirtualAlpineRepository(java.lang.String name, VirtualAlpineRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("artifactory:index/virtualAlpineRepository:VirtualAlpineRepository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private VirtualAlpineRepository(String name, Output<String> id, @Nullable VirtualAlpineRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/virtualAlpineRepository:VirtualAlpineRepository", name, state, makeResourceOptions(options, id));
+    private VirtualAlpineRepository(java.lang.String name, Output<java.lang.String> id, @Nullable VirtualAlpineRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("artifactory:index/virtualAlpineRepository:VirtualAlpineRepository", name, state, makeResourceOptions(options, id), false);
     }
 
     private static VirtualAlpineRepositoryArgs makeArgs(VirtualAlpineRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -299,7 +299,7 @@ public class VirtualAlpineRepository extends com.pulumi.resources.CustomResource
         return args == null ? VirtualAlpineRepositoryArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -315,7 +315,7 @@ public class VirtualAlpineRepository extends com.pulumi.resources.CustomResource
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static VirtualAlpineRepository get(String name, Output<String> id, @Nullable VirtualAlpineRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static VirtualAlpineRepository get(java.lang.String name, Output<java.lang.String> id, @Nullable VirtualAlpineRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new VirtualAlpineRepository(name, id, state, options);
     }
 }

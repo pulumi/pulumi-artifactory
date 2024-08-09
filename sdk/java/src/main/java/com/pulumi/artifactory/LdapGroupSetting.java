@@ -217,7 +217,7 @@ public class LdapGroupSetting extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public LdapGroupSetting(String name) {
+    public LdapGroupSetting(java.lang.String name) {
         this(name, LdapGroupSettingArgs.Empty);
     }
     /**
@@ -225,7 +225,7 @@ public class LdapGroupSetting extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public LdapGroupSetting(String name, LdapGroupSettingArgs args) {
+    public LdapGroupSetting(java.lang.String name, LdapGroupSettingArgs args) {
         this(name, args, null);
     }
     /**
@@ -234,12 +234,12 @@ public class LdapGroupSetting extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public LdapGroupSetting(String name, LdapGroupSettingArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/ldapGroupSetting:LdapGroupSetting", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public LdapGroupSetting(java.lang.String name, LdapGroupSettingArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("artifactory:index/ldapGroupSetting:LdapGroupSetting", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private LdapGroupSetting(String name, Output<String> id, @Nullable LdapGroupSettingState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/ldapGroupSetting:LdapGroupSetting", name, state, makeResourceOptions(options, id));
+    private LdapGroupSetting(java.lang.String name, Output<java.lang.String> id, @Nullable LdapGroupSettingState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("artifactory:index/ldapGroupSetting:LdapGroupSetting", name, state, makeResourceOptions(options, id), false);
     }
 
     private static LdapGroupSettingArgs makeArgs(LdapGroupSettingArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -249,7 +249,7 @@ public class LdapGroupSetting extends com.pulumi.resources.CustomResource {
         return args == null ? LdapGroupSettingArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -265,7 +265,7 @@ public class LdapGroupSetting extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static LdapGroupSetting get(String name, Output<String> id, @Nullable LdapGroupSettingState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static LdapGroupSetting get(java.lang.String name, Output<java.lang.String> id, @Nullable LdapGroupSettingState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new LdapGroupSetting(name, id, state, options);
     }
 }

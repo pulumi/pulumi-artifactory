@@ -216,7 +216,7 @@ public class PermissionTarget extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public PermissionTarget(String name) {
+    public PermissionTarget(java.lang.String name) {
         this(name, PermissionTargetArgs.Empty);
     }
     /**
@@ -224,7 +224,7 @@ public class PermissionTarget extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public PermissionTarget(String name, @Nullable PermissionTargetArgs args) {
+    public PermissionTarget(java.lang.String name, @Nullable PermissionTargetArgs args) {
         this(name, args, null);
     }
     /**
@@ -233,12 +233,12 @@ public class PermissionTarget extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public PermissionTarget(String name, @Nullable PermissionTargetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/permissionTarget:PermissionTarget", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public PermissionTarget(java.lang.String name, @Nullable PermissionTargetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("artifactory:index/permissionTarget:PermissionTarget", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private PermissionTarget(String name, Output<String> id, @Nullable PermissionTargetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/permissionTarget:PermissionTarget", name, state, makeResourceOptions(options, id));
+    private PermissionTarget(java.lang.String name, Output<java.lang.String> id, @Nullable PermissionTargetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("artifactory:index/permissionTarget:PermissionTarget", name, state, makeResourceOptions(options, id), false);
     }
 
     private static PermissionTargetArgs makeArgs(@Nullable PermissionTargetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -248,7 +248,7 @@ public class PermissionTarget extends com.pulumi.resources.CustomResource {
         return args == null ? PermissionTargetArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -264,7 +264,7 @@ public class PermissionTarget extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static PermissionTarget get(String name, Output<String> id, @Nullable PermissionTargetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static PermissionTarget get(java.lang.String name, Output<java.lang.String> id, @Nullable PermissionTargetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new PermissionTarget(name, id, state, options);
     }
 }

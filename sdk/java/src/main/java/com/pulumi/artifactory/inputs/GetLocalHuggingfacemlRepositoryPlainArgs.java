@@ -95,14 +95,14 @@ public final class GetLocalHuggingfacemlRepositoryPlainArgs extends com.pulumi.r
     }
 
     /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**{@literal /}z/*.By default no artifacts are excluded.
+     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*.By default no artifacts are excluded.
      * 
      */
     @Import(name="excludesPattern")
     private @Nullable String excludesPattern;
 
     /**
-     * @return List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**{@literal /}z/*.By default no artifacts are excluded.
+     * @return List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*.By default no artifacts are excluded.
      * 
      */
     public Optional<String> excludesPattern() {
@@ -110,14 +110,14 @@ public final class GetLocalHuggingfacemlRepositoryPlainArgs extends com.pulumi.r
     }
 
     /**
-     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**{@literal /}z/*. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**{@literal /}*).
+     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
      * 
      */
     @Import(name="includesPattern")
     private @Nullable String includesPattern;
 
     /**
-     * @return List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**{@literal /}z/*. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**{@literal /}*).
+     * @return List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
      * 
      */
     public Optional<String> includesPattern() {
@@ -331,7 +331,7 @@ public final class GetLocalHuggingfacemlRepositoryPlainArgs extends com.pulumi.r
         }
 
         /**
-         * @param excludesPattern List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**{@literal /}z/*.By default no artifacts are excluded.
+         * @param excludesPattern List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*.By default no artifacts are excluded.
          * 
          * @return builder
          * 
@@ -342,7 +342,7 @@ public final class GetLocalHuggingfacemlRepositoryPlainArgs extends com.pulumi.r
         }
 
         /**
-         * @param includesPattern List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**{@literal /}z/*. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**{@literal /}*).
+         * @param includesPattern List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
          * 
          * @return builder
          * 

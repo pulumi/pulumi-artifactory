@@ -180,7 +180,7 @@ public class ArtifactPropertyWebhook extends com.pulumi.resources.CustomResource
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ArtifactPropertyWebhook(String name) {
+    public ArtifactPropertyWebhook(java.lang.String name) {
         this(name, ArtifactPropertyWebhookArgs.Empty);
     }
     /**
@@ -188,7 +188,7 @@ public class ArtifactPropertyWebhook extends com.pulumi.resources.CustomResource
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ArtifactPropertyWebhook(String name, ArtifactPropertyWebhookArgs args) {
+    public ArtifactPropertyWebhook(java.lang.String name, ArtifactPropertyWebhookArgs args) {
         this(name, args, null);
     }
     /**
@@ -197,12 +197,12 @@ public class ArtifactPropertyWebhook extends com.pulumi.resources.CustomResource
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ArtifactPropertyWebhook(String name, ArtifactPropertyWebhookArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/artifactPropertyWebhook:ArtifactPropertyWebhook", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public ArtifactPropertyWebhook(java.lang.String name, ArtifactPropertyWebhookArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("artifactory:index/artifactPropertyWebhook:ArtifactPropertyWebhook", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ArtifactPropertyWebhook(String name, Output<String> id, @Nullable ArtifactPropertyWebhookState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/artifactPropertyWebhook:ArtifactPropertyWebhook", name, state, makeResourceOptions(options, id));
+    private ArtifactPropertyWebhook(java.lang.String name, Output<java.lang.String> id, @Nullable ArtifactPropertyWebhookState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("artifactory:index/artifactPropertyWebhook:ArtifactPropertyWebhook", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ArtifactPropertyWebhookArgs makeArgs(ArtifactPropertyWebhookArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -212,7 +212,7 @@ public class ArtifactPropertyWebhook extends com.pulumi.resources.CustomResource
         return args == null ? ArtifactPropertyWebhookArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -228,7 +228,7 @@ public class ArtifactPropertyWebhook extends com.pulumi.resources.CustomResource
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ArtifactPropertyWebhook get(String name, Output<String> id, @Nullable ArtifactPropertyWebhookState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ArtifactPropertyWebhook get(java.lang.String name, Output<java.lang.String> id, @Nullable ArtifactPropertyWebhookState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ArtifactPropertyWebhook(name, id, state, options);
     }
 }

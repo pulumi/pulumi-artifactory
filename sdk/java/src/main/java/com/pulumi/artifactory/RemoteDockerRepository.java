@@ -42,23 +42,23 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var my_remote_docker = new RemoteDockerRepository("my-remote-docker", RemoteDockerRepositoryArgs.builder()
  *             .key("my-remote-docker")
  *             .externalDependenciesEnabled(true)
- *             .externalDependenciesPatterns("**{@literal /}registry-1.docker.io/**")
+ *             .externalDependenciesPatterns("**}&#47;{@code registry-1.docker.io/**")
  *             .enableTokenAuthentication(true)
  *             .url("https://registry-1.docker.io/")
  *             .blockPushingSchema1(true)
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -335,7 +335,7 @@ public class RemoteDockerRepository extends com.pulumi.resources.CustomResource 
         return this.enableTokenAuthentication;
     }
     /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**{@literal /}z/*.By default no
+     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*.By default no
      * artifacts are excluded.
      * 
      */
@@ -343,7 +343,7 @@ public class RemoteDockerRepository extends com.pulumi.resources.CustomResource 
     private Output</* @Nullable */ String> excludesPattern;
 
     /**
-     * @return List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**{@literal /}z/*.By default no
+     * @return List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*.By default no
      * artifacts are excluded.
      * 
      */
@@ -407,16 +407,16 @@ public class RemoteDockerRepository extends com.pulumi.resources.CustomResource 
         return Codegen.optional(this.hardFail);
     }
     /**
-     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**{@literal /}z/*. When
-     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**{@literal /}*).
+     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When
+     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
      * 
      */
     @Export(name="includesPattern", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> includesPattern;
 
     /**
-     * @return List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**{@literal /}z/*. When
-     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**{@literal /}*).
+     * @return List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When
+     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
      * 
      */
     public Output<Optional<String>> includesPattern() {
@@ -817,7 +817,7 @@ public class RemoteDockerRepository extends com.pulumi.resources.CustomResource 
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public RemoteDockerRepository(String name) {
+    public RemoteDockerRepository(java.lang.String name) {
         this(name, RemoteDockerRepositoryArgs.Empty);
     }
     /**
@@ -825,7 +825,7 @@ public class RemoteDockerRepository extends com.pulumi.resources.CustomResource 
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public RemoteDockerRepository(String name, RemoteDockerRepositoryArgs args) {
+    public RemoteDockerRepository(java.lang.String name, RemoteDockerRepositoryArgs args) {
         this(name, args, null);
     }
     /**
@@ -834,12 +834,12 @@ public class RemoteDockerRepository extends com.pulumi.resources.CustomResource 
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public RemoteDockerRepository(String name, RemoteDockerRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/remoteDockerRepository:RemoteDockerRepository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public RemoteDockerRepository(java.lang.String name, RemoteDockerRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("artifactory:index/remoteDockerRepository:RemoteDockerRepository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private RemoteDockerRepository(String name, Output<String> id, @Nullable RemoteDockerRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/remoteDockerRepository:RemoteDockerRepository", name, state, makeResourceOptions(options, id));
+    private RemoteDockerRepository(java.lang.String name, Output<java.lang.String> id, @Nullable RemoteDockerRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("artifactory:index/remoteDockerRepository:RemoteDockerRepository", name, state, makeResourceOptions(options, id), false);
     }
 
     private static RemoteDockerRepositoryArgs makeArgs(RemoteDockerRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -849,7 +849,7 @@ public class RemoteDockerRepository extends com.pulumi.resources.CustomResource 
         return args == null ? RemoteDockerRepositoryArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -868,7 +868,7 @@ public class RemoteDockerRepository extends com.pulumi.resources.CustomResource 
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static RemoteDockerRepository get(String name, Output<String> id, @Nullable RemoteDockerRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static RemoteDockerRepository get(java.lang.String name, Output<java.lang.String> id, @Nullable RemoteDockerRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new RemoteDockerRepository(name, id, state, options);
     }
 }

@@ -283,7 +283,7 @@ public class LdapSettingV2 extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public LdapSettingV2(String name) {
+    public LdapSettingV2(java.lang.String name) {
         this(name, LdapSettingV2Args.Empty);
     }
     /**
@@ -291,7 +291,7 @@ public class LdapSettingV2 extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public LdapSettingV2(String name, LdapSettingV2Args args) {
+    public LdapSettingV2(java.lang.String name, LdapSettingV2Args args) {
         this(name, args, null);
     }
     /**
@@ -300,12 +300,12 @@ public class LdapSettingV2 extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public LdapSettingV2(String name, LdapSettingV2Args args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/ldapSettingV2:LdapSettingV2", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public LdapSettingV2(java.lang.String name, LdapSettingV2Args args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("artifactory:index/ldapSettingV2:LdapSettingV2", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private LdapSettingV2(String name, Output<String> id, @Nullable LdapSettingV2State state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/ldapSettingV2:LdapSettingV2", name, state, makeResourceOptions(options, id));
+    private LdapSettingV2(java.lang.String name, Output<java.lang.String> id, @Nullable LdapSettingV2State state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("artifactory:index/ldapSettingV2:LdapSettingV2", name, state, makeResourceOptions(options, id), false);
     }
 
     private static LdapSettingV2Args makeArgs(LdapSettingV2Args args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -315,7 +315,7 @@ public class LdapSettingV2 extends com.pulumi.resources.CustomResource {
         return args == null ? LdapSettingV2Args.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -334,7 +334,7 @@ public class LdapSettingV2 extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static LdapSettingV2 get(String name, Output<String> id, @Nullable LdapSettingV2State state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static LdapSettingV2 get(java.lang.String name, Output<java.lang.String> id, @Nullable LdapSettingV2State state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new LdapSettingV2(name, id, state, options);
     }
 }

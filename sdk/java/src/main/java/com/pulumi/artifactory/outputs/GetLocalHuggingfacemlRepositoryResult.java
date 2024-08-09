@@ -41,7 +41,7 @@ public final class GetLocalHuggingfacemlRepositoryResult {
      */
     private @Nullable Boolean downloadDirect;
     /**
-     * @return List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**{@literal /}z/*.By default no artifacts are excluded.
+     * @return List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*.By default no artifacts are excluded.
      * 
      */
     private @Nullable String excludesPattern;
@@ -51,7 +51,7 @@ public final class GetLocalHuggingfacemlRepositoryResult {
      */
     private String id;
     /**
-     * @return List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**{@literal /}z/*. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**{@literal /}*).
+     * @return List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
      * 
      */
     private @Nullable String includesPattern;
@@ -131,7 +131,7 @@ public final class GetLocalHuggingfacemlRepositoryResult {
         return Optional.ofNullable(this.downloadDirect);
     }
     /**
-     * @return List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**{@literal /}z/*.By default no artifacts are excluded.
+     * @return List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*.By default no artifacts are excluded.
      * 
      */
     public Optional<String> excludesPattern() {
@@ -145,7 +145,7 @@ public final class GetLocalHuggingfacemlRepositoryResult {
         return this.id;
     }
     /**
-     * @return List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**{@literal /}z/*. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**{@literal /}*).
+     * @return List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
      * 
      */
     public Optional<String> includesPattern() {

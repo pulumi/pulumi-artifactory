@@ -80,14 +80,14 @@ public final class RemoteRepositoryReplicationArgs extends com.pulumi.resources.
     }
 
     /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**{@literal /}z/*`. By default, no artifacts are excluded.
+     * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`. By default, no artifacts are excluded.
      * 
      */
     @Import(name="excludePathPrefixPattern")
     private @Nullable Output<String> excludePathPrefixPattern;
 
     /**
-     * @return List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**{@literal /}z/*`. By default, no artifacts are excluded.
+     * @return List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`. By default, no artifacts are excluded.
      * 
      */
     public Optional<Output<String>> excludePathPrefixPattern() {
@@ -95,14 +95,14 @@ public final class RemoteRepositoryReplicationArgs extends com.pulumi.resources.
     }
 
     /**
-     * List of artifact patterns to include when evaluating artifact requests in the form of `x/y/**{@literal /}z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included `(**{@literal /}*)`.
+     * List of artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included `(**&#47;*)`.
      * 
      */
     @Import(name="includePathPrefixPattern")
     private @Nullable Output<String> includePathPrefixPattern;
 
     /**
-     * @return List of artifact patterns to include when evaluating artifact requests in the form of `x/y/**{@literal /}z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included `(**{@literal /}*)`.
+     * @return List of artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included `(**&#47;*)`.
      * 
      */
     public Optional<Output<String>> includePathPrefixPattern() {
@@ -289,7 +289,7 @@ public final class RemoteRepositoryReplicationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param excludePathPrefixPattern List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**{@literal /}z/*`. By default, no artifacts are excluded.
+         * @param excludePathPrefixPattern List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`. By default, no artifacts are excluded.
          * 
          * @return builder
          * 
@@ -300,7 +300,7 @@ public final class RemoteRepositoryReplicationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param excludePathPrefixPattern List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**{@literal /}z/*`. By default, no artifacts are excluded.
+         * @param excludePathPrefixPattern List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`. By default, no artifacts are excluded.
          * 
          * @return builder
          * 
@@ -310,7 +310,7 @@ public final class RemoteRepositoryReplicationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param includePathPrefixPattern List of artifact patterns to include when evaluating artifact requests in the form of `x/y/**{@literal /}z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included `(**{@literal /}*)`.
+         * @param includePathPrefixPattern List of artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included `(**&#47;*)`.
          * 
          * @return builder
          * 
@@ -321,7 +321,7 @@ public final class RemoteRepositoryReplicationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param includePathPrefixPattern List of artifact patterns to include when evaluating artifact requests in the form of `x/y/**{@literal /}z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included `(**{@literal /}*)`.
+         * @param includePathPrefixPattern List of artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included `(**&#47;*)`.
          * 
          * @return builder
          * 

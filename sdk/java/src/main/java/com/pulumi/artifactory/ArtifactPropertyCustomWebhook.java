@@ -181,7 +181,7 @@ public class ArtifactPropertyCustomWebhook extends com.pulumi.resources.CustomRe
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ArtifactPropertyCustomWebhook(String name) {
+    public ArtifactPropertyCustomWebhook(java.lang.String name) {
         this(name, ArtifactPropertyCustomWebhookArgs.Empty);
     }
     /**
@@ -189,7 +189,7 @@ public class ArtifactPropertyCustomWebhook extends com.pulumi.resources.CustomRe
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ArtifactPropertyCustomWebhook(String name, ArtifactPropertyCustomWebhookArgs args) {
+    public ArtifactPropertyCustomWebhook(java.lang.String name, ArtifactPropertyCustomWebhookArgs args) {
         this(name, args, null);
     }
     /**
@@ -198,12 +198,12 @@ public class ArtifactPropertyCustomWebhook extends com.pulumi.resources.CustomRe
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ArtifactPropertyCustomWebhook(String name, ArtifactPropertyCustomWebhookArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/artifactPropertyCustomWebhook:ArtifactPropertyCustomWebhook", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public ArtifactPropertyCustomWebhook(java.lang.String name, ArtifactPropertyCustomWebhookArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("artifactory:index/artifactPropertyCustomWebhook:ArtifactPropertyCustomWebhook", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ArtifactPropertyCustomWebhook(String name, Output<String> id, @Nullable ArtifactPropertyCustomWebhookState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/artifactPropertyCustomWebhook:ArtifactPropertyCustomWebhook", name, state, makeResourceOptions(options, id));
+    private ArtifactPropertyCustomWebhook(java.lang.String name, Output<java.lang.String> id, @Nullable ArtifactPropertyCustomWebhookState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("artifactory:index/artifactPropertyCustomWebhook:ArtifactPropertyCustomWebhook", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ArtifactPropertyCustomWebhookArgs makeArgs(ArtifactPropertyCustomWebhookArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -213,7 +213,7 @@ public class ArtifactPropertyCustomWebhook extends com.pulumi.resources.CustomRe
         return args == null ? ArtifactPropertyCustomWebhookArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -229,7 +229,7 @@ public class ArtifactPropertyCustomWebhook extends com.pulumi.resources.CustomRe
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ArtifactPropertyCustomWebhook get(String name, Output<String> id, @Nullable ArtifactPropertyCustomWebhookState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ArtifactPropertyCustomWebhook get(java.lang.String name, Output<java.lang.String> id, @Nullable ArtifactPropertyCustomWebhookState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ArtifactPropertyCustomWebhook(name, id, state, options);
     }
 }

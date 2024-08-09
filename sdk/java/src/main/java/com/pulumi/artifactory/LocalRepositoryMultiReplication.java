@@ -167,7 +167,7 @@ public class LocalRepositoryMultiReplication extends com.pulumi.resources.Custom
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public LocalRepositoryMultiReplication(String name) {
+    public LocalRepositoryMultiReplication(java.lang.String name) {
         this(name, LocalRepositoryMultiReplicationArgs.Empty);
     }
     /**
@@ -175,7 +175,7 @@ public class LocalRepositoryMultiReplication extends com.pulumi.resources.Custom
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public LocalRepositoryMultiReplication(String name, LocalRepositoryMultiReplicationArgs args) {
+    public LocalRepositoryMultiReplication(java.lang.String name, LocalRepositoryMultiReplicationArgs args) {
         this(name, args, null);
     }
     /**
@@ -184,12 +184,12 @@ public class LocalRepositoryMultiReplication extends com.pulumi.resources.Custom
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public LocalRepositoryMultiReplication(String name, LocalRepositoryMultiReplicationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/localRepositoryMultiReplication:LocalRepositoryMultiReplication", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public LocalRepositoryMultiReplication(java.lang.String name, LocalRepositoryMultiReplicationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("artifactory:index/localRepositoryMultiReplication:LocalRepositoryMultiReplication", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private LocalRepositoryMultiReplication(String name, Output<String> id, @Nullable LocalRepositoryMultiReplicationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/localRepositoryMultiReplication:LocalRepositoryMultiReplication", name, state, makeResourceOptions(options, id));
+    private LocalRepositoryMultiReplication(java.lang.String name, Output<java.lang.String> id, @Nullable LocalRepositoryMultiReplicationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("artifactory:index/localRepositoryMultiReplication:LocalRepositoryMultiReplication", name, state, makeResourceOptions(options, id), false);
     }
 
     private static LocalRepositoryMultiReplicationArgs makeArgs(LocalRepositoryMultiReplicationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -199,7 +199,7 @@ public class LocalRepositoryMultiReplication extends com.pulumi.resources.Custom
         return args == null ? LocalRepositoryMultiReplicationArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -215,7 +215,7 @@ public class LocalRepositoryMultiReplication extends com.pulumi.resources.Custom
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static LocalRepositoryMultiReplication get(String name, Output<String> id, @Nullable LocalRepositoryMultiReplicationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static LocalRepositoryMultiReplication get(java.lang.String name, Output<java.lang.String> id, @Nullable LocalRepositoryMultiReplicationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new LocalRepositoryMultiReplication(name, id, state, options);
     }
 }
