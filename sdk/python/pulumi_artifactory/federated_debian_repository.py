@@ -819,7 +819,7 @@ class FederatedDebianRepository(pulumi.CustomResource):
                  includes_pattern: Optional[pulumi.Input[str]] = None,
                  index_compression_formats: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  key: Optional[pulumi.Input[str]] = None,
-                 members: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FederatedDebianRepositoryMemberArgs']]]]] = None,
+                 members: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FederatedDebianRepositoryMemberArgs', 'FederatedDebianRepositoryMemberArgsDict']]]]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
                  primary_keypair_ref: Optional[pulumi.Input[str]] = None,
                  priority_resolution: Optional[pulumi.Input[bool]] = None,
@@ -844,14 +844,14 @@ class FederatedDebianRepository(pulumi.CustomResource):
         terraform_federated_test_debian_repo = artifactory.FederatedDebianRepository("terraform-federated-test-debian-repo",
             key="terraform-federated-test-debian-repo",
             members=[
-                artifactory.FederatedDebianRepositoryMemberArgs(
-                    url="http://tempurl.org/artifactory/terraform-federated-test-debian-repo",
-                    enabled=True,
-                ),
-                artifactory.FederatedDebianRepositoryMemberArgs(
-                    url="http://tempurl2.org/artifactory/terraform-federated-test-debian-repo-2",
-                    enabled=True,
-                ),
+                {
+                    "url": "http://tempurl.org/artifactory/terraform-federated-test-debian-repo",
+                    "enabled": True,
+                },
+                {
+                    "url": "http://tempurl2.org/artifactory/terraform-federated-test-debian-repo-2",
+                    "enabled": True,
+                },
             ])
         ```
 
@@ -880,7 +880,7 @@ class FederatedDebianRepository(pulumi.CustomResource):
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
                used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[str] key: the identity key of the repo.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FederatedDebianRepositoryMemberArgs']]]] members: The list of Federated members and must contain this repository URL (configured base URL
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FederatedDebianRepositoryMemberArgs', 'FederatedDebianRepositoryMemberArgsDict']]]] members: The list of Federated members and must contain this repository URL (configured base URL
                `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
                Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
                to set up Federated repositories correctly.
@@ -915,14 +915,14 @@ class FederatedDebianRepository(pulumi.CustomResource):
         terraform_federated_test_debian_repo = artifactory.FederatedDebianRepository("terraform-federated-test-debian-repo",
             key="terraform-federated-test-debian-repo",
             members=[
-                artifactory.FederatedDebianRepositoryMemberArgs(
-                    url="http://tempurl.org/artifactory/terraform-federated-test-debian-repo",
-                    enabled=True,
-                ),
-                artifactory.FederatedDebianRepositoryMemberArgs(
-                    url="http://tempurl2.org/artifactory/terraform-federated-test-debian-repo-2",
-                    enabled=True,
-                ),
+                {
+                    "url": "http://tempurl.org/artifactory/terraform-federated-test-debian-repo",
+                    "enabled": True,
+                },
+                {
+                    "url": "http://tempurl2.org/artifactory/terraform-federated-test-debian-repo-2",
+                    "enabled": True,
+                },
             ])
         ```
 
@@ -960,7 +960,7 @@ class FederatedDebianRepository(pulumi.CustomResource):
                  includes_pattern: Optional[pulumi.Input[str]] = None,
                  index_compression_formats: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  key: Optional[pulumi.Input[str]] = None,
-                 members: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FederatedDebianRepositoryMemberArgs']]]]] = None,
+                 members: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FederatedDebianRepositoryMemberArgs', 'FederatedDebianRepositoryMemberArgsDict']]]]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
                  primary_keypair_ref: Optional[pulumi.Input[str]] = None,
                  priority_resolution: Optional[pulumi.Input[bool]] = None,
@@ -1030,7 +1030,7 @@ class FederatedDebianRepository(pulumi.CustomResource):
             includes_pattern: Optional[pulumi.Input[str]] = None,
             index_compression_formats: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             key: Optional[pulumi.Input[str]] = None,
-            members: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FederatedDebianRepositoryMemberArgs']]]]] = None,
+            members: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FederatedDebianRepositoryMemberArgs', 'FederatedDebianRepositoryMemberArgsDict']]]]] = None,
             notes: Optional[pulumi.Input[str]] = None,
             package_type: Optional[pulumi.Input[str]] = None,
             primary_keypair_ref: Optional[pulumi.Input[str]] = None,
@@ -1065,7 +1065,7 @@ class FederatedDebianRepository(pulumi.CustomResource):
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
                used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[str] key: the identity key of the repo.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FederatedDebianRepositoryMemberArgs']]]] members: The list of Federated members and must contain this repository URL (configured base URL
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FederatedDebianRepositoryMemberArgs', 'FederatedDebianRepositoryMemberArgsDict']]]] members: The list of Federated members and must contain this repository URL (configured base URL
                `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
                Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
                to set up Federated repositories correctly.

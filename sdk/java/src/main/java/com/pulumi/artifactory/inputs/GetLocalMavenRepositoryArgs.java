@@ -86,36 +86,16 @@ public final class GetLocalMavenRepositoryArgs extends com.pulumi.resources.Invo
         return Optional.ofNullable(this.excludesPattern);
     }
 
-    /**
-     * If set, Artifactory allows you to deploy release artifacts into this repository.
-     * Default is `true`.
-     * 
-     */
     @Import(name="handleReleases")
     private @Nullable Output<Boolean> handleReleases;
 
-    /**
-     * @return If set, Artifactory allows you to deploy release artifacts into this repository.
-     * Default is `true`.
-     * 
-     */
     public Optional<Output<Boolean>> handleReleases() {
         return Optional.ofNullable(this.handleReleases);
     }
 
-    /**
-     * If set, Artifactory allows you to deploy snapshot artifacts into this repository.
-     * Default is `true`.
-     * 
-     */
     @Import(name="handleSnapshots")
     private @Nullable Output<Boolean> handleSnapshots;
 
-    /**
-     * @return If set, Artifactory allows you to deploy snapshot artifacts into this repository.
-     * Default is `true`.
-     * 
-     */
     public Optional<Output<Boolean>> handleSnapshots() {
         return Optional.ofNullable(this.handleSnapshots);
     }
@@ -142,21 +122,9 @@ public final class GetLocalMavenRepositoryArgs extends com.pulumi.resources.Invo
         return this.key;
     }
 
-    /**
-     * The maximum number of unique snapshots of a single artifact to store. Once the
-     * number of snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no
-     * limit, and unique snapshots are not cleaned up.
-     * 
-     */
     @Import(name="maxUniqueSnapshots")
     private @Nullable Output<Integer> maxUniqueSnapshots;
 
-    /**
-     * @return The maximum number of unique snapshots of a single artifact to store. Once the
-     * number of snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no
-     * limit, and unique snapshots are not cleaned up.
-     * 
-     */
     public Optional<Output<Integer>> maxUniqueSnapshots() {
         return Optional.ofNullable(this.maxUniqueSnapshots);
     }
@@ -203,40 +171,16 @@ public final class GetLocalMavenRepositoryArgs extends com.pulumi.resources.Invo
         return Optional.ofNullable(this.repoLayoutRef);
     }
 
-    /**
-     * Specifies the naming convention for Maven SNAPSHOT versions. The options are
-     * ---
-     * 
-     */
     @Import(name="snapshotVersionBehavior")
     private @Nullable Output<String> snapshotVersionBehavior;
 
-    /**
-     * @return Specifies the naming convention for Maven SNAPSHOT versions. The options are
-     * ---
-     * 
-     */
     public Optional<Output<String>> snapshotVersionBehavior() {
         return Optional.ofNullable(this.snapshotVersionBehavior);
     }
 
-    /**
-     * By default, Artifactory keeps your repositories healthy by refusing
-     * POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match
-     * the deployed path, Artifactory rejects the deployment with a &#34;409 Conflict&#34; error. You can disable this behavior by
-     * setting the Suppress POM Consistency Checks checkbox. False by default for Maven repository.
-     * 
-     */
     @Import(name="suppressPomConsistencyChecks")
     private @Nullable Output<Boolean> suppressPomConsistencyChecks;
 
-    /**
-     * @return By default, Artifactory keeps your repositories healthy by refusing
-     * POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match
-     * the deployed path, Artifactory rejects the deployment with a &#34;409 Conflict&#34; error. You can disable this behavior by
-     * setting the Suppress POM Consistency Checks checkbox. False by default for Maven repository.
-     * 
-     */
     public Optional<Output<Boolean>> suppressPomConsistencyChecks() {
         return Optional.ofNullable(this.suppressPomConsistencyChecks);
     }
@@ -377,48 +321,20 @@ public final class GetLocalMavenRepositoryArgs extends com.pulumi.resources.Invo
             return excludesPattern(Output.of(excludesPattern));
         }
 
-        /**
-         * @param handleReleases If set, Artifactory allows you to deploy release artifacts into this repository.
-         * Default is `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder handleReleases(@Nullable Output<Boolean> handleReleases) {
             $.handleReleases = handleReleases;
             return this;
         }
 
-        /**
-         * @param handleReleases If set, Artifactory allows you to deploy release artifacts into this repository.
-         * Default is `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder handleReleases(Boolean handleReleases) {
             return handleReleases(Output.of(handleReleases));
         }
 
-        /**
-         * @param handleSnapshots If set, Artifactory allows you to deploy snapshot artifacts into this repository.
-         * Default is `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder handleSnapshots(@Nullable Output<Boolean> handleSnapshots) {
             $.handleSnapshots = handleSnapshots;
             return this;
         }
 
-        /**
-         * @param handleSnapshots If set, Artifactory allows you to deploy snapshot artifacts into this repository.
-         * Default is `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder handleSnapshots(Boolean handleSnapshots) {
             return handleSnapshots(Output.of(handleSnapshots));
         }
@@ -453,27 +369,11 @@ public final class GetLocalMavenRepositoryArgs extends com.pulumi.resources.Invo
             return key(Output.of(key));
         }
 
-        /**
-         * @param maxUniqueSnapshots The maximum number of unique snapshots of a single artifact to store. Once the
-         * number of snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no
-         * limit, and unique snapshots are not cleaned up.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxUniqueSnapshots(@Nullable Output<Integer> maxUniqueSnapshots) {
             $.maxUniqueSnapshots = maxUniqueSnapshots;
             return this;
         }
 
-        /**
-         * @param maxUniqueSnapshots The maximum number of unique snapshots of a single artifact to store. Once the
-         * number of snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no
-         * limit, and unique snapshots are not cleaned up.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxUniqueSnapshots(Integer maxUniqueSnapshots) {
             return maxUniqueSnapshots(Output.of(maxUniqueSnapshots));
         }
@@ -540,52 +440,20 @@ public final class GetLocalMavenRepositoryArgs extends com.pulumi.resources.Invo
             return repoLayoutRef(Output.of(repoLayoutRef));
         }
 
-        /**
-         * @param snapshotVersionBehavior Specifies the naming convention for Maven SNAPSHOT versions. The options are
-         * ---
-         * 
-         * @return builder
-         * 
-         */
         public Builder snapshotVersionBehavior(@Nullable Output<String> snapshotVersionBehavior) {
             $.snapshotVersionBehavior = snapshotVersionBehavior;
             return this;
         }
 
-        /**
-         * @param snapshotVersionBehavior Specifies the naming convention for Maven SNAPSHOT versions. The options are
-         * ---
-         * 
-         * @return builder
-         * 
-         */
         public Builder snapshotVersionBehavior(String snapshotVersionBehavior) {
             return snapshotVersionBehavior(Output.of(snapshotVersionBehavior));
         }
 
-        /**
-         * @param suppressPomConsistencyChecks By default, Artifactory keeps your repositories healthy by refusing
-         * POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match
-         * the deployed path, Artifactory rejects the deployment with a &#34;409 Conflict&#34; error. You can disable this behavior by
-         * setting the Suppress POM Consistency Checks checkbox. False by default for Maven repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder suppressPomConsistencyChecks(@Nullable Output<Boolean> suppressPomConsistencyChecks) {
             $.suppressPomConsistencyChecks = suppressPomConsistencyChecks;
             return this;
         }
 
-        /**
-         * @param suppressPomConsistencyChecks By default, Artifactory keeps your repositories healthy by refusing
-         * POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match
-         * the deployed path, Artifactory rejects the deployment with a &#34;409 Conflict&#34; error. You can disable this behavior by
-         * setting the Suppress POM Consistency Checks checkbox. False by default for Maven repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder suppressPomConsistencyChecks(Boolean suppressPomConsistencyChecks) {
             return suppressPomConsistencyChecks(Output.of(suppressPomConsistencyChecks));
         }
