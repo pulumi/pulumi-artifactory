@@ -31,6 +31,24 @@ namespace Pulumi.Artifactory
         /// 
         /// });
         /// ```
+        /// 
+        /// ## * `snapshot_version_behavior` - Specifies the naming convention for Maven SNAPSHOT versions. The options are
+        /// 
+        ///   -
+        ///   * `unique`: Version number is based on a time-stamp (default)
+        ///   * `non-unique`: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type
+        ///   * `deployer`: Respects the settings in the Maven client that is deploying the artifact.
+        /// * `max_unique_snapshots` - The maximum number of unique snapshots of a single artifact to store. Once the
+        ///   number of snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no
+        ///   limit, and unique snapshots are not cleaned up.
+        /// * `handle_releases` - If set, Artifactory allows you to deploy release artifacts into this repository.
+        ///   Default is `true`.
+        /// * `handle_snapshots` - If set, Artifactory allows you to deploy snapshot artifacts into this repository.
+        ///   Default is `true`.
+        /// * `suppress_pom_consistency_checks` - By default, Artifactory keeps your repositories healthy by refusing
+        ///   POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match
+        ///   the deployed path, Artifactory rejects the deployment with a "409 Conflict" error. You can disable this behavior by
+        ///   setting the Suppress POM Consistency Checks checkbox. False by default for Maven repository.
         /// </summary>
         public static Task<GetLocalMavenRepositoryResult> InvokeAsync(GetLocalMavenRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLocalMavenRepositoryResult>("artifactory:index/getLocalMavenRepository:getLocalMavenRepository", args ?? new GetLocalMavenRepositoryArgs(), options.WithDefaults());
@@ -55,6 +73,24 @@ namespace Pulumi.Artifactory
         /// 
         /// });
         /// ```
+        /// 
+        /// ## * `snapshot_version_behavior` - Specifies the naming convention for Maven SNAPSHOT versions. The options are
+        /// 
+        ///   -
+        ///   * `unique`: Version number is based on a time-stamp (default)
+        ///   * `non-unique`: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type
+        ///   * `deployer`: Respects the settings in the Maven client that is deploying the artifact.
+        /// * `max_unique_snapshots` - The maximum number of unique snapshots of a single artifact to store. Once the
+        ///   number of snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no
+        ///   limit, and unique snapshots are not cleaned up.
+        /// * `handle_releases` - If set, Artifactory allows you to deploy release artifacts into this repository.
+        ///   Default is `true`.
+        /// * `handle_snapshots` - If set, Artifactory allows you to deploy snapshot artifacts into this repository.
+        ///   Default is `true`.
+        /// * `suppress_pom_consistency_checks` - By default, Artifactory keeps your repositories healthy by refusing
+        ///   POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match
+        ///   the deployed path, Artifactory rejects the deployment with a "409 Conflict" error. You can disable this behavior by
+        ///   setting the Suppress POM Consistency Checks checkbox. False by default for Maven repository.
         /// </summary>
         public static Output<GetLocalMavenRepositoryResult> Invoke(GetLocalMavenRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalMavenRepositoryResult>("artifactory:index/getLocalMavenRepository:getLocalMavenRepository", args ?? new GetLocalMavenRepositoryInvokeArgs(), options.WithDefaults());
@@ -92,17 +128,9 @@ namespace Pulumi.Artifactory
         [Input("excludesPattern")]
         public string? ExcludesPattern { get; set; }
 
-        /// <summary>
-        /// If set, Artifactory allows you to deploy release artifacts into this repository.
-        /// Default is `true`.
-        /// </summary>
         [Input("handleReleases")]
         public bool? HandleReleases { get; set; }
 
-        /// <summary>
-        /// If set, Artifactory allows you to deploy snapshot artifacts into this repository.
-        /// Default is `true`.
-        /// </summary>
         [Input("handleSnapshots")]
         public bool? HandleSnapshots { get; set; }
 
@@ -115,11 +143,6 @@ namespace Pulumi.Artifactory
         [Input("key", required: true)]
         public string Key { get; set; } = null!;
 
-        /// <summary>
-        /// The maximum number of unique snapshots of a single artifact to store. Once the
-        /// number of snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no
-        /// limit, and unique snapshots are not cleaned up.
-        /// </summary>
         [Input("maxUniqueSnapshots")]
         public int? MaxUniqueSnapshots { get; set; }
 
@@ -151,19 +174,9 @@ namespace Pulumi.Artifactory
         [Input("repoLayoutRef")]
         public string? RepoLayoutRef { get; set; }
 
-        /// <summary>
-        /// Specifies the naming convention for Maven SNAPSHOT versions. The options are
-        /// -
-        /// </summary>
         [Input("snapshotVersionBehavior")]
         public string? SnapshotVersionBehavior { get; set; }
 
-        /// <summary>
-        /// By default, Artifactory keeps your repositories healthy by refusing
-        /// POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match
-        /// the deployed path, Artifactory rejects the deployment with a "409 Conflict" error. You can disable this behavior by
-        /// setting the Suppress POM Consistency Checks checkbox. False by default for Maven repository.
-        /// </summary>
         [Input("suppressPomConsistencyChecks")]
         public bool? SuppressPomConsistencyChecks { get; set; }
 
@@ -207,17 +220,9 @@ namespace Pulumi.Artifactory
         [Input("excludesPattern")]
         public Input<string>? ExcludesPattern { get; set; }
 
-        /// <summary>
-        /// If set, Artifactory allows you to deploy release artifacts into this repository.
-        /// Default is `true`.
-        /// </summary>
         [Input("handleReleases")]
         public Input<bool>? HandleReleases { get; set; }
 
-        /// <summary>
-        /// If set, Artifactory allows you to deploy snapshot artifacts into this repository.
-        /// Default is `true`.
-        /// </summary>
         [Input("handleSnapshots")]
         public Input<bool>? HandleSnapshots { get; set; }
 
@@ -230,11 +235,6 @@ namespace Pulumi.Artifactory
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
-        /// <summary>
-        /// The maximum number of unique snapshots of a single artifact to store. Once the
-        /// number of snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no
-        /// limit, and unique snapshots are not cleaned up.
-        /// </summary>
         [Input("maxUniqueSnapshots")]
         public Input<int>? MaxUniqueSnapshots { get; set; }
 
@@ -266,19 +266,9 @@ namespace Pulumi.Artifactory
         [Input("repoLayoutRef")]
         public Input<string>? RepoLayoutRef { get; set; }
 
-        /// <summary>
-        /// Specifies the naming convention for Maven SNAPSHOT versions. The options are
-        /// -
-        /// </summary>
         [Input("snapshotVersionBehavior")]
         public Input<string>? SnapshotVersionBehavior { get; set; }
 
-        /// <summary>
-        /// By default, Artifactory keeps your repositories healthy by refusing
-        /// POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match
-        /// the deployed path, Artifactory rejects the deployment with a "409 Conflict" error. You can disable this behavior by
-        /// setting the Suppress POM Consistency Checks checkbox. False by default for Maven repository.
-        /// </summary>
         [Input("suppressPomConsistencyChecks")]
         public Input<bool>? SuppressPomConsistencyChecks { get; set; }
 
@@ -310,15 +300,7 @@ namespace Pulumi.Artifactory
         public readonly string? Description;
         public readonly bool? DownloadDirect;
         public readonly string? ExcludesPattern;
-        /// <summary>
-        /// If set, Artifactory allows you to deploy release artifacts into this repository.
-        /// Default is `true`.
-        /// </summary>
         public readonly bool? HandleReleases;
-        /// <summary>
-        /// If set, Artifactory allows you to deploy snapshot artifacts into this repository.
-        /// Default is `true`.
-        /// </summary>
         public readonly bool? HandleSnapshots;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
@@ -326,11 +308,6 @@ namespace Pulumi.Artifactory
         public readonly string Id;
         public readonly string? IncludesPattern;
         public readonly string Key;
-        /// <summary>
-        /// The maximum number of unique snapshots of a single artifact to store. Once the
-        /// number of snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no
-        /// limit, and unique snapshots are not cleaned up.
-        /// </summary>
         public readonly int? MaxUniqueSnapshots;
         public readonly string? Notes;
         public readonly string PackageType;
@@ -339,17 +316,7 @@ namespace Pulumi.Artifactory
         public readonly string? ProjectKey;
         public readonly ImmutableArray<string> PropertySets;
         public readonly string? RepoLayoutRef;
-        /// <summary>
-        /// Specifies the naming convention for Maven SNAPSHOT versions. The options are
-        /// -
-        /// </summary>
         public readonly string? SnapshotVersionBehavior;
-        /// <summary>
-        /// By default, Artifactory keeps your repositories healthy by refusing
-        /// POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match
-        /// the deployed path, Artifactory rejects the deployment with a "409 Conflict" error. You can disable this behavior by
-        /// setting the Suppress POM Consistency Checks checkbox. False by default for Maven repository.
-        /// </summary>
         public readonly bool? SuppressPomConsistencyChecks;
         public readonly bool? XrayIndex;
 

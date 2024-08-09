@@ -306,7 +306,7 @@ class ReleaseBundleV2(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  project_key: Optional[pulumi.Input[str]] = None,
                  skip_docker_manifest_resolution: Optional[pulumi.Input[bool]] = None,
-                 source: Optional[pulumi.Input[pulumi.InputType['ReleaseBundleV2SourceArgs']]] = None,
+                 source: Optional[pulumi.Input[Union['ReleaseBundleV2SourceArgs', 'ReleaseBundleV2SourceArgsDict']]] = None,
                  source_type: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -319,7 +319,7 @@ class ReleaseBundleV2(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of Release Bundle
         :param pulumi.Input[str] project_key: Project key the Release Bundle belongs to
         :param pulumi.Input[bool] skip_docker_manifest_resolution: Determines whether to skip the resolution of the Docker manifest, which adds the image layers to the Release Bundle. The default value is `false` (the manifest is resolved and image layers are included).
-        :param pulumi.Input[pulumi.InputType['ReleaseBundleV2SourceArgs']] source: Defines specific repositories to include in the promotion. If this property is left undefined, all repositories (except those specifically excluded) are included in the promotion. Important: If one or more repositories are specifically included, all other repositories are excluded (regardless of what is defined in `excluded_repository_keys`).
+        :param pulumi.Input[Union['ReleaseBundleV2SourceArgs', 'ReleaseBundleV2SourceArgsDict']] source: Defines specific repositories to include in the promotion. If this property is left undefined, all repositories (except those specifically excluded) are included in the promotion. Important: If one or more repositories are specifically included, all other repositories are excluded (regardless of what is defined in `excluded_repository_keys`).
         :param pulumi.Input[str] source_type: Source type. Valid values: `aql`, `artifacts`, `builds`, `release_bundles`
         :param pulumi.Input[str] version: Version to promote
         """
@@ -351,7 +351,7 @@ class ReleaseBundleV2(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  project_key: Optional[pulumi.Input[str]] = None,
                  skip_docker_manifest_resolution: Optional[pulumi.Input[bool]] = None,
-                 source: Optional[pulumi.Input[pulumi.InputType['ReleaseBundleV2SourceArgs']]] = None,
+                 source: Optional[pulumi.Input[Union['ReleaseBundleV2SourceArgs', 'ReleaseBundleV2SourceArgsDict']]] = None,
                  source_type: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -398,7 +398,7 @@ class ReleaseBundleV2(pulumi.CustomResource):
             project_key: Optional[pulumi.Input[str]] = None,
             service_id: Optional[pulumi.Input[str]] = None,
             skip_docker_manifest_resolution: Optional[pulumi.Input[bool]] = None,
-            source: Optional[pulumi.Input[pulumi.InputType['ReleaseBundleV2SourceArgs']]] = None,
+            source: Optional[pulumi.Input[Union['ReleaseBundleV2SourceArgs', 'ReleaseBundleV2SourceArgsDict']]] = None,
             source_type: Optional[pulumi.Input[str]] = None,
             version: Optional[pulumi.Input[str]] = None) -> 'ReleaseBundleV2':
         """
@@ -415,7 +415,7 @@ class ReleaseBundleV2(pulumi.CustomResource):
         :param pulumi.Input[str] project_key: Project key the Release Bundle belongs to
         :param pulumi.Input[str] service_id: The unique identifier of the Artifactory instance where the Release Bundle was created.
         :param pulumi.Input[bool] skip_docker_manifest_resolution: Determines whether to skip the resolution of the Docker manifest, which adds the image layers to the Release Bundle. The default value is `false` (the manifest is resolved and image layers are included).
-        :param pulumi.Input[pulumi.InputType['ReleaseBundleV2SourceArgs']] source: Defines specific repositories to include in the promotion. If this property is left undefined, all repositories (except those specifically excluded) are included in the promotion. Important: If one or more repositories are specifically included, all other repositories are excluded (regardless of what is defined in `excluded_repository_keys`).
+        :param pulumi.Input[Union['ReleaseBundleV2SourceArgs', 'ReleaseBundleV2SourceArgsDict']] source: Defines specific repositories to include in the promotion. If this property is left undefined, all repositories (except those specifically excluded) are included in the promotion. Important: If one or more repositories are specifically included, all other repositories are excluded (regardless of what is defined in `excluded_repository_keys`).
         :param pulumi.Input[str] source_type: Source type. Valid values: `aql`, `artifacts`, `builds`, `release_bundles`
         :param pulumi.Input[str] version: Version to promote
         """

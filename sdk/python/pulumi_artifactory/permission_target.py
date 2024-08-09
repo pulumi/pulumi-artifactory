@@ -162,10 +162,10 @@ class PermissionTarget(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 build: Optional[pulumi.Input[pulumi.InputType['PermissionTargetBuildArgs']]] = None,
+                 build: Optional[pulumi.Input[Union['PermissionTargetBuildArgs', 'PermissionTargetBuildArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 release_bundle: Optional[pulumi.Input[pulumi.InputType['PermissionTargetReleaseBundleArgs']]] = None,
-                 repo: Optional[pulumi.Input[pulumi.InputType['PermissionTargetRepoArgs']]] = None,
+                 release_bundle: Optional[pulumi.Input[Union['PermissionTargetReleaseBundleArgs', 'PermissionTargetReleaseBundleArgsDict']]] = None,
+                 repo: Optional[pulumi.Input[Union['PermissionTargetRepoArgs', 'PermissionTargetRepoArgsDict']]] = None,
                  __props__=None):
         """
         Provides an Artifactory permission target resource. This can be used to create and manage Artifactory permission targets.
@@ -181,71 +181,71 @@ class PermissionTarget(pulumi.CustomResource):
         # Create a new Artifactory permission target called testpermission
         test_perm = artifactory.PermissionTarget("test-perm",
             name="test-perm",
-            repo=artifactory.PermissionTargetRepoArgs(
-                includes_patterns=["foo/**"],
-                excludes_patterns=["bar/**"],
-                repositories=["example-repo-local"],
-                actions=artifactory.PermissionTargetRepoActionsArgs(
-                    users=[
-                        artifactory.PermissionTargetRepoActionsUserArgs(
-                            name="anonymous",
-                            permissions=[
+            repo={
+                "includes_patterns": ["foo/**"],
+                "excludes_patterns": ["bar/**"],
+                "repositories": ["example-repo-local"],
+                "actions": {
+                    "users": [
+                        {
+                            "name": "anonymous",
+                            "permissions": [
                                 "read",
                                 "write",
                             ],
-                        ),
-                        artifactory.PermissionTargetRepoActionsUserArgs(
-                            name="user1",
-                            permissions=[
+                        },
+                        {
+                            "name": "user1",
+                            "permissions": [
                                 "read",
                                 "write",
                             ],
-                        ),
+                        },
                     ],
-                    groups=[
-                        artifactory.PermissionTargetRepoActionsGroupArgs(
-                            name="readers",
-                            permissions=["read"],
-                        ),
-                        artifactory.PermissionTargetRepoActionsGroupArgs(
-                            name="dev",
-                            permissions=[
+                    "groups": [
+                        {
+                            "name": "readers",
+                            "permissions": ["read"],
+                        },
+                        {
+                            "name": "dev",
+                            "permissions": [
                                 "read",
                                 "write",
                             ],
-                        ),
+                        },
                     ],
-                ),
-            ),
-            build=artifactory.PermissionTargetBuildArgs(
-                includes_patterns=["**"],
-                repositories=["artifactory-build-info"],
-                actions=artifactory.PermissionTargetBuildActionsArgs(
-                    users=[
-                        artifactory.PermissionTargetBuildActionsUserArgs(
-                            name="anonymous",
-                            permissions=["read"],
-                        ),
-                        artifactory.PermissionTargetBuildActionsUserArgs(
-                            name="user1",
-                            permissions=[
+                },
+            },
+            build={
+                "includes_patterns": ["**"],
+                "repositories": ["artifactory-build-info"],
+                "actions": {
+                    "users": [
+                        {
+                            "name": "anonymous",
+                            "permissions": ["read"],
+                        },
+                        {
+                            "name": "user1",
+                            "permissions": [
                                 "read",
                                 "write",
                             ],
-                        ),
+                        },
                     ],
-                ),
-            ),
-            release_bundle=artifactory.PermissionTargetReleaseBundleArgs(
-                includes_patterns=["**"],
-                repositories=["release-bundles"],
-                actions=artifactory.PermissionTargetReleaseBundleActionsArgs(
-                    users=[artifactory.PermissionTargetReleaseBundleActionsUserArgs(
-                        name="anonymous",
-                        permissions=["read"],
-                    )],
-                ),
-            ))
+                },
+            },
+            release_bundle={
+                "includes_patterns": ["**"],
+                "repositories": ["release-bundles"],
+                "actions": {
+                    "users": [{
+                        "name": "anonymous",
+                        "permissions": ["read"],
+                    }],
+                },
+            })
         ```
 
         ## Permissions
@@ -280,10 +280,10 @@ class PermissionTarget(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['PermissionTargetBuildArgs']] build: As for repo but for artifactory-build-info permissions.
+        :param pulumi.Input[Union['PermissionTargetBuildArgs', 'PermissionTargetBuildArgsDict']] build: As for repo but for artifactory-build-info permissions.
         :param pulumi.Input[str] name: Name of permission.
-        :param pulumi.Input[pulumi.InputType['PermissionTargetReleaseBundleArgs']] release_bundle: As for repo for for release-bundles permissions.
-        :param pulumi.Input[pulumi.InputType['PermissionTargetRepoArgs']] repo: Repository permission configuration.
+        :param pulumi.Input[Union['PermissionTargetReleaseBundleArgs', 'PermissionTargetReleaseBundleArgsDict']] release_bundle: As for repo for for release-bundles permissions.
+        :param pulumi.Input[Union['PermissionTargetRepoArgs', 'PermissionTargetRepoArgsDict']] repo: Repository permission configuration.
         """
         ...
     @overload
@@ -305,71 +305,71 @@ class PermissionTarget(pulumi.CustomResource):
         # Create a new Artifactory permission target called testpermission
         test_perm = artifactory.PermissionTarget("test-perm",
             name="test-perm",
-            repo=artifactory.PermissionTargetRepoArgs(
-                includes_patterns=["foo/**"],
-                excludes_patterns=["bar/**"],
-                repositories=["example-repo-local"],
-                actions=artifactory.PermissionTargetRepoActionsArgs(
-                    users=[
-                        artifactory.PermissionTargetRepoActionsUserArgs(
-                            name="anonymous",
-                            permissions=[
+            repo={
+                "includes_patterns": ["foo/**"],
+                "excludes_patterns": ["bar/**"],
+                "repositories": ["example-repo-local"],
+                "actions": {
+                    "users": [
+                        {
+                            "name": "anonymous",
+                            "permissions": [
                                 "read",
                                 "write",
                             ],
-                        ),
-                        artifactory.PermissionTargetRepoActionsUserArgs(
-                            name="user1",
-                            permissions=[
+                        },
+                        {
+                            "name": "user1",
+                            "permissions": [
                                 "read",
                                 "write",
                             ],
-                        ),
+                        },
                     ],
-                    groups=[
-                        artifactory.PermissionTargetRepoActionsGroupArgs(
-                            name="readers",
-                            permissions=["read"],
-                        ),
-                        artifactory.PermissionTargetRepoActionsGroupArgs(
-                            name="dev",
-                            permissions=[
+                    "groups": [
+                        {
+                            "name": "readers",
+                            "permissions": ["read"],
+                        },
+                        {
+                            "name": "dev",
+                            "permissions": [
                                 "read",
                                 "write",
                             ],
-                        ),
+                        },
                     ],
-                ),
-            ),
-            build=artifactory.PermissionTargetBuildArgs(
-                includes_patterns=["**"],
-                repositories=["artifactory-build-info"],
-                actions=artifactory.PermissionTargetBuildActionsArgs(
-                    users=[
-                        artifactory.PermissionTargetBuildActionsUserArgs(
-                            name="anonymous",
-                            permissions=["read"],
-                        ),
-                        artifactory.PermissionTargetBuildActionsUserArgs(
-                            name="user1",
-                            permissions=[
+                },
+            },
+            build={
+                "includes_patterns": ["**"],
+                "repositories": ["artifactory-build-info"],
+                "actions": {
+                    "users": [
+                        {
+                            "name": "anonymous",
+                            "permissions": ["read"],
+                        },
+                        {
+                            "name": "user1",
+                            "permissions": [
                                 "read",
                                 "write",
                             ],
-                        ),
+                        },
                     ],
-                ),
-            ),
-            release_bundle=artifactory.PermissionTargetReleaseBundleArgs(
-                includes_patterns=["**"],
-                repositories=["release-bundles"],
-                actions=artifactory.PermissionTargetReleaseBundleActionsArgs(
-                    users=[artifactory.PermissionTargetReleaseBundleActionsUserArgs(
-                        name="anonymous",
-                        permissions=["read"],
-                    )],
-                ),
-            ))
+                },
+            },
+            release_bundle={
+                "includes_patterns": ["**"],
+                "repositories": ["release-bundles"],
+                "actions": {
+                    "users": [{
+                        "name": "anonymous",
+                        "permissions": ["read"],
+                    }],
+                },
+            })
         ```
 
         ## Permissions
@@ -417,10 +417,10 @@ class PermissionTarget(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 build: Optional[pulumi.Input[pulumi.InputType['PermissionTargetBuildArgs']]] = None,
+                 build: Optional[pulumi.Input[Union['PermissionTargetBuildArgs', 'PermissionTargetBuildArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 release_bundle: Optional[pulumi.Input[pulumi.InputType['PermissionTargetReleaseBundleArgs']]] = None,
-                 repo: Optional[pulumi.Input[pulumi.InputType['PermissionTargetRepoArgs']]] = None,
+                 release_bundle: Optional[pulumi.Input[Union['PermissionTargetReleaseBundleArgs', 'PermissionTargetReleaseBundleArgsDict']]] = None,
+                 repo: Optional[pulumi.Input[Union['PermissionTargetRepoArgs', 'PermissionTargetRepoArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -444,10 +444,10 @@ class PermissionTarget(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            build: Optional[pulumi.Input[pulumi.InputType['PermissionTargetBuildArgs']]] = None,
+            build: Optional[pulumi.Input[Union['PermissionTargetBuildArgs', 'PermissionTargetBuildArgsDict']]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            release_bundle: Optional[pulumi.Input[pulumi.InputType['PermissionTargetReleaseBundleArgs']]] = None,
-            repo: Optional[pulumi.Input[pulumi.InputType['PermissionTargetRepoArgs']]] = None) -> 'PermissionTarget':
+            release_bundle: Optional[pulumi.Input[Union['PermissionTargetReleaseBundleArgs', 'PermissionTargetReleaseBundleArgsDict']]] = None,
+            repo: Optional[pulumi.Input[Union['PermissionTargetRepoArgs', 'PermissionTargetRepoArgsDict']]] = None) -> 'PermissionTarget':
         """
         Get an existing PermissionTarget resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -455,10 +455,10 @@ class PermissionTarget(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['PermissionTargetBuildArgs']] build: As for repo but for artifactory-build-info permissions.
+        :param pulumi.Input[Union['PermissionTargetBuildArgs', 'PermissionTargetBuildArgsDict']] build: As for repo but for artifactory-build-info permissions.
         :param pulumi.Input[str] name: Name of permission.
-        :param pulumi.Input[pulumi.InputType['PermissionTargetReleaseBundleArgs']] release_bundle: As for repo for for release-bundles permissions.
-        :param pulumi.Input[pulumi.InputType['PermissionTargetRepoArgs']] repo: Repository permission configuration.
+        :param pulumi.Input[Union['PermissionTargetReleaseBundleArgs', 'PermissionTargetReleaseBundleArgsDict']] release_bundle: As for repo for for release-bundles permissions.
+        :param pulumi.Input[Union['PermissionTargetRepoArgs', 'PermissionTargetRepoArgsDict']] repo: Repository permission configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

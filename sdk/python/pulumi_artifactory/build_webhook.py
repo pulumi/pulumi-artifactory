@@ -222,11 +222,11 @@ class BuildWebhook(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 criteria: Optional[pulumi.Input[pulumi.InputType['BuildWebhookCriteriaArgs']]] = None,
+                 criteria: Optional[pulumi.Input[Union['BuildWebhookCriteriaArgs', 'BuildWebhookCriteriaArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  event_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 handlers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BuildWebhookHandlerArgs']]]]] = None,
+                 handlers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BuildWebhookHandlerArgs', 'BuildWebhookHandlerArgsDict']]]]] = None,
                  key: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -246,30 +246,30 @@ class BuildWebhook(pulumi.CustomResource):
                 "deleted",
                 "promoted",
             ],
-            criteria=artifactory.BuildWebhookCriteriaArgs(
-                any_build=True,
-                selected_builds=["build-id"],
-                include_patterns=["foo/**"],
-                exclude_patterns=["bar/**"],
-            ),
-            handlers=[artifactory.BuildWebhookHandlerArgs(
-                url="http://tempurl.org/webhook",
-                secret="some-secret",
-                proxy="proxy-key",
-                custom_http_headers={
-                    "header-1": "value-1",
-                    "header-2": "value-2",
+            criteria={
+                "any_build": True,
+                "selected_builds": ["build-id"],
+                "include_patterns": ["foo/**"],
+                "exclude_patterns": ["bar/**"],
+            },
+            handlers=[{
+                "url": "http://tempurl.org/webhook",
+                "secret": "some-secret",
+                "proxy": "proxy-key",
+                "custom_http_headers": {
+                    "header_1": "value-1",
+                    "header_2": "value-2",
                 },
-            )])
+            }])
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['BuildWebhookCriteriaArgs']] criteria: Specifies where the webhook will be applied on which repositories.
+        :param pulumi.Input[Union['BuildWebhookCriteriaArgs', 'BuildWebhookCriteriaArgsDict']] criteria: Specifies where the webhook will be applied on which repositories.
         :param pulumi.Input[str] description: Webhook description. Max length 1000 characters.
         :param pulumi.Input[bool] enabled: Status of webhook. Default to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] event_types: List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `uploaded`, `deleted`, `promoted`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BuildWebhookHandlerArgs']]]] handlers: At least one is required.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BuildWebhookHandlerArgs', 'BuildWebhookHandlerArgsDict']]]] handlers: At least one is required.
         :param pulumi.Input[str] key: The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
         """
         ...
@@ -295,21 +295,21 @@ class BuildWebhook(pulumi.CustomResource):
                 "deleted",
                 "promoted",
             ],
-            criteria=artifactory.BuildWebhookCriteriaArgs(
-                any_build=True,
-                selected_builds=["build-id"],
-                include_patterns=["foo/**"],
-                exclude_patterns=["bar/**"],
-            ),
-            handlers=[artifactory.BuildWebhookHandlerArgs(
-                url="http://tempurl.org/webhook",
-                secret="some-secret",
-                proxy="proxy-key",
-                custom_http_headers={
-                    "header-1": "value-1",
-                    "header-2": "value-2",
+            criteria={
+                "any_build": True,
+                "selected_builds": ["build-id"],
+                "include_patterns": ["foo/**"],
+                "exclude_patterns": ["bar/**"],
+            },
+            handlers=[{
+                "url": "http://tempurl.org/webhook",
+                "secret": "some-secret",
+                "proxy": "proxy-key",
+                "custom_http_headers": {
+                    "header_1": "value-1",
+                    "header_2": "value-2",
                 },
-            )])
+            }])
         ```
 
         :param str resource_name: The name of the resource.
@@ -327,11 +327,11 @@ class BuildWebhook(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 criteria: Optional[pulumi.Input[pulumi.InputType['BuildWebhookCriteriaArgs']]] = None,
+                 criteria: Optional[pulumi.Input[Union['BuildWebhookCriteriaArgs', 'BuildWebhookCriteriaArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  event_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 handlers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BuildWebhookHandlerArgs']]]]] = None,
+                 handlers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BuildWebhookHandlerArgs', 'BuildWebhookHandlerArgsDict']]]]] = None,
                  key: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -366,11 +366,11 @@ class BuildWebhook(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            criteria: Optional[pulumi.Input[pulumi.InputType['BuildWebhookCriteriaArgs']]] = None,
+            criteria: Optional[pulumi.Input[Union['BuildWebhookCriteriaArgs', 'BuildWebhookCriteriaArgsDict']]] = None,
             description: Optional[pulumi.Input[str]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
             event_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            handlers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BuildWebhookHandlerArgs']]]]] = None,
+            handlers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BuildWebhookHandlerArgs', 'BuildWebhookHandlerArgsDict']]]]] = None,
             key: Optional[pulumi.Input[str]] = None) -> 'BuildWebhook':
         """
         Get an existing BuildWebhook resource's state with the given name, id, and optional extra
@@ -379,11 +379,11 @@ class BuildWebhook(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['BuildWebhookCriteriaArgs']] criteria: Specifies where the webhook will be applied on which repositories.
+        :param pulumi.Input[Union['BuildWebhookCriteriaArgs', 'BuildWebhookCriteriaArgsDict']] criteria: Specifies where the webhook will be applied on which repositories.
         :param pulumi.Input[str] description: Webhook description. Max length 1000 characters.
         :param pulumi.Input[bool] enabled: Status of webhook. Default to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] event_types: List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `uploaded`, `deleted`, `promoted`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BuildWebhookHandlerArgs']]]] handlers: At least one is required.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BuildWebhookHandlerArgs', 'BuildWebhookHandlerArgsDict']]]] handlers: At least one is required.
         :param pulumi.Input[str] key: The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

@@ -91,10 +91,10 @@ class AwaitableGetPermissionTargetResult(GetPermissionTargetResult):
             repo=self.repo)
 
 
-def get_permission_target(build: Optional[pulumi.InputType['GetPermissionTargetBuildArgs']] = None,
+def get_permission_target(build: Optional[Union['GetPermissionTargetBuildArgs', 'GetPermissionTargetBuildArgsDict']] = None,
                           name: Optional[str] = None,
-                          release_bundle: Optional[pulumi.InputType['GetPermissionTargetReleaseBundleArgs']] = None,
-                          repo: Optional[pulumi.InputType['GetPermissionTargetRepoArgs']] = None,
+                          release_bundle: Optional[Union['GetPermissionTargetReleaseBundleArgs', 'GetPermissionTargetReleaseBundleArgsDict']] = None,
+                          repo: Optional[Union['GetPermissionTargetRepoArgs', 'GetPermissionTargetRepoArgsDict']] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPermissionTargetResult:
     """
     ## # Artifactory Permission Target Data Source
@@ -112,10 +112,10 @@ def get_permission_target(build: Optional[pulumi.InputType['GetPermissionTargetB
     ```
 
 
-    :param pulumi.InputType['GetPermissionTargetBuildArgs'] build: Same as repo but for artifactory-build-info permissions.
+    :param Union['GetPermissionTargetBuildArgs', 'GetPermissionTargetBuildArgsDict'] build: Same as repo but for artifactory-build-info permissions.
     :param str name: Name of the permission target.
-    :param pulumi.InputType['GetPermissionTargetReleaseBundleArgs'] release_bundle: Same as repo but for release-bundles permissions.
-    :param pulumi.InputType['GetPermissionTargetRepoArgs'] repo: Repository permission configuration.
+    :param Union['GetPermissionTargetReleaseBundleArgs', 'GetPermissionTargetReleaseBundleArgsDict'] release_bundle: Same as repo but for release-bundles permissions.
+    :param Union['GetPermissionTargetRepoArgs', 'GetPermissionTargetRepoArgsDict'] repo: Repository permission configuration.
     """
     __args__ = dict()
     __args__['build'] = build
@@ -134,10 +134,10 @@ def get_permission_target(build: Optional[pulumi.InputType['GetPermissionTargetB
 
 
 @_utilities.lift_output_func(get_permission_target)
-def get_permission_target_output(build: Optional[pulumi.Input[Optional[pulumi.InputType['GetPermissionTargetBuildArgs']]]] = None,
+def get_permission_target_output(build: Optional[pulumi.Input[Optional[Union['GetPermissionTargetBuildArgs', 'GetPermissionTargetBuildArgsDict']]]] = None,
                                  name: Optional[pulumi.Input[str]] = None,
-                                 release_bundle: Optional[pulumi.Input[Optional[pulumi.InputType['GetPermissionTargetReleaseBundleArgs']]]] = None,
-                                 repo: Optional[pulumi.Input[Optional[pulumi.InputType['GetPermissionTargetRepoArgs']]]] = None,
+                                 release_bundle: Optional[pulumi.Input[Optional[Union['GetPermissionTargetReleaseBundleArgs', 'GetPermissionTargetReleaseBundleArgsDict']]]] = None,
+                                 repo: Optional[pulumi.Input[Optional[Union['GetPermissionTargetRepoArgs', 'GetPermissionTargetRepoArgsDict']]]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPermissionTargetResult]:
     """
     ## # Artifactory Permission Target Data Source
@@ -155,9 +155,9 @@ def get_permission_target_output(build: Optional[pulumi.Input[Optional[pulumi.In
     ```
 
 
-    :param pulumi.InputType['GetPermissionTargetBuildArgs'] build: Same as repo but for artifactory-build-info permissions.
+    :param Union['GetPermissionTargetBuildArgs', 'GetPermissionTargetBuildArgsDict'] build: Same as repo but for artifactory-build-info permissions.
     :param str name: Name of the permission target.
-    :param pulumi.InputType['GetPermissionTargetReleaseBundleArgs'] release_bundle: Same as repo but for release-bundles permissions.
-    :param pulumi.InputType['GetPermissionTargetRepoArgs'] repo: Repository permission configuration.
+    :param Union['GetPermissionTargetReleaseBundleArgs', 'GetPermissionTargetReleaseBundleArgsDict'] release_bundle: Same as repo but for release-bundles permissions.
+    :param Union['GetPermissionTargetRepoArgs', 'GetPermissionTargetRepoArgsDict'] repo: Repository permission configuration.
     """
     ...

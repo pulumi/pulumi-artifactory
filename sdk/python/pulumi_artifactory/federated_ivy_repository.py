@@ -922,7 +922,7 @@ class FederatedIvyRepository(pulumi.CustomResource):
                  includes_pattern: Optional[pulumi.Input[str]] = None,
                  key: Optional[pulumi.Input[str]] = None,
                  max_unique_snapshots: Optional[pulumi.Input[int]] = None,
-                 members: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FederatedIvyRepositoryMemberArgs']]]]] = None,
+                 members: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FederatedIvyRepositoryMemberArgs', 'FederatedIvyRepositoryMemberArgsDict']]]]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
                  priority_resolution: Optional[pulumi.Input[bool]] = None,
                  project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -946,14 +946,14 @@ class FederatedIvyRepository(pulumi.CustomResource):
         terraform_federated_test_ivy_repo = artifactory.FederatedIvyRepository("terraform-federated-test-ivy-repo",
             key="terraform-federated-test-ivy-repo",
             members=[
-                artifactory.FederatedIvyRepositoryMemberArgs(
-                    url="http://tempurl.org/artifactory/terraform-federated-test-ivy-repo",
-                    enabled=True,
-                ),
-                artifactory.FederatedIvyRepositoryMemberArgs(
-                    url="http://tempurl2.org/artifactory/terraform-federated-test-ivy-repo-2",
-                    enabled=True,
-                ),
+                {
+                    "url": "http://tempurl.org/artifactory/terraform-federated-test-ivy-repo",
+                    "enabled": True,
+                },
+                {
+                    "url": "http://tempurl2.org/artifactory/terraform-federated-test-ivy-repo-2",
+                    "enabled": True,
+                },
             ])
         ```
 
@@ -990,7 +990,7 @@ class FederatedIvyRepository(pulumi.CustomResource):
         :param pulumi.Input[str] key: the identity key of the repo.
         :param pulumi.Input[int] max_unique_snapshots: The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
                older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FederatedIvyRepositoryMemberArgs']]]] members: The list of Federated members and must contain this repository URL (configured base URL
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FederatedIvyRepositoryMemberArgs', 'FederatedIvyRepositoryMemberArgsDict']]]] members: The list of Federated members and must contain this repository URL (configured base URL
                `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
                Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
                to set up Federated repositories correctly.
@@ -1029,14 +1029,14 @@ class FederatedIvyRepository(pulumi.CustomResource):
         terraform_federated_test_ivy_repo = artifactory.FederatedIvyRepository("terraform-federated-test-ivy-repo",
             key="terraform-federated-test-ivy-repo",
             members=[
-                artifactory.FederatedIvyRepositoryMemberArgs(
-                    url="http://tempurl.org/artifactory/terraform-federated-test-ivy-repo",
-                    enabled=True,
-                ),
-                artifactory.FederatedIvyRepositoryMemberArgs(
-                    url="http://tempurl2.org/artifactory/terraform-federated-test-ivy-repo-2",
-                    enabled=True,
-                ),
+                {
+                    "url": "http://tempurl.org/artifactory/terraform-federated-test-ivy-repo",
+                    "enabled": True,
+                },
+                {
+                    "url": "http://tempurl2.org/artifactory/terraform-federated-test-ivy-repo-2",
+                    "enabled": True,
+                },
             ])
         ```
 
@@ -1077,7 +1077,7 @@ class FederatedIvyRepository(pulumi.CustomResource):
                  includes_pattern: Optional[pulumi.Input[str]] = None,
                  key: Optional[pulumi.Input[str]] = None,
                  max_unique_snapshots: Optional[pulumi.Input[int]] = None,
-                 members: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FederatedIvyRepositoryMemberArgs']]]]] = None,
+                 members: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FederatedIvyRepositoryMemberArgs', 'FederatedIvyRepositoryMemberArgsDict']]]]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
                  priority_resolution: Optional[pulumi.Input[bool]] = None,
                  project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1151,7 +1151,7 @@ class FederatedIvyRepository(pulumi.CustomResource):
             includes_pattern: Optional[pulumi.Input[str]] = None,
             key: Optional[pulumi.Input[str]] = None,
             max_unique_snapshots: Optional[pulumi.Input[int]] = None,
-            members: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FederatedIvyRepositoryMemberArgs']]]]] = None,
+            members: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FederatedIvyRepositoryMemberArgs', 'FederatedIvyRepositoryMemberArgsDict']]]]] = None,
             notes: Optional[pulumi.Input[str]] = None,
             package_type: Optional[pulumi.Input[str]] = None,
             priority_resolution: Optional[pulumi.Input[bool]] = None,
@@ -1193,7 +1193,7 @@ class FederatedIvyRepository(pulumi.CustomResource):
         :param pulumi.Input[str] key: the identity key of the repo.
         :param pulumi.Input[int] max_unique_snapshots: The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
                older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FederatedIvyRepositoryMemberArgs']]]] members: The list of Federated members and must contain this repository URL (configured base URL
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FederatedIvyRepositoryMemberArgs', 'FederatedIvyRepositoryMemberArgsDict']]]] members: The list of Federated members and must contain this repository URL (configured base URL
                `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
                Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
                to set up Federated repositories correctly.

@@ -267,7 +267,7 @@ def get_federated_alpine_repository(archive_browsing_enabled: Optional[bool] = N
                                     includes_pattern: Optional[str] = None,
                                     index_compression_formats: Optional[Sequence[str]] = None,
                                     key: Optional[str] = None,
-                                    members: Optional[Sequence[pulumi.InputType['GetFederatedAlpineRepositoryMemberArgs']]] = None,
+                                    members: Optional[Sequence[Union['GetFederatedAlpineRepositoryMemberArgs', 'GetFederatedAlpineRepositoryMemberArgsDict']]] = None,
                                     notes: Optional[str] = None,
                                     primary_keypair_ref: Optional[str] = None,
                                     priority_resolution: Optional[bool] = None,
@@ -293,7 +293,7 @@ def get_federated_alpine_repository(archive_browsing_enabled: Optional[bool] = N
 
     :param bool disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
     :param str key: the identity key of the repo.
-    :param Sequence[pulumi.InputType['GetFederatedAlpineRepositoryMemberArgs']] members: The list of Federated members and must contain this repository URL (configured base URL
+    :param Sequence[Union['GetFederatedAlpineRepositoryMemberArgs', 'GetFederatedAlpineRepositoryMemberArgsDict']] members: The list of Federated members and must contain this repository URL (configured base URL
            `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
            Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
            to set up Federated repositories correctly.
@@ -362,7 +362,7 @@ def get_federated_alpine_repository_output(archive_browsing_enabled: Optional[pu
                                            includes_pattern: Optional[pulumi.Input[Optional[str]]] = None,
                                            index_compression_formats: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                                            key: Optional[pulumi.Input[str]] = None,
-                                           members: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetFederatedAlpineRepositoryMemberArgs']]]]] = None,
+                                           members: Optional[pulumi.Input[Optional[Sequence[Union['GetFederatedAlpineRepositoryMemberArgs', 'GetFederatedAlpineRepositoryMemberArgsDict']]]]] = None,
                                            notes: Optional[pulumi.Input[Optional[str]]] = None,
                                            primary_keypair_ref: Optional[pulumi.Input[Optional[str]]] = None,
                                            priority_resolution: Optional[pulumi.Input[Optional[bool]]] = None,
@@ -388,7 +388,7 @@ def get_federated_alpine_repository_output(archive_browsing_enabled: Optional[pu
 
     :param bool disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
     :param str key: the identity key of the repo.
-    :param Sequence[pulumi.InputType['GetFederatedAlpineRepositoryMemberArgs']] members: The list of Federated members and must contain this repository URL (configured base URL
+    :param Sequence[Union['GetFederatedAlpineRepositoryMemberArgs', 'GetFederatedAlpineRepositoryMemberArgsDict']] members: The list of Federated members and must contain this repository URL (configured base URL
            `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
            Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
            to set up Federated repositories correctly.

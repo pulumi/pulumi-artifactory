@@ -816,7 +816,7 @@ class FederatedDockerV2Repository(pulumi.CustomResource):
                  includes_pattern: Optional[pulumi.Input[str]] = None,
                  key: Optional[pulumi.Input[str]] = None,
                  max_unique_tags: Optional[pulumi.Input[int]] = None,
-                 members: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FederatedDockerV2RepositoryMemberArgs']]]]] = None,
+                 members: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FederatedDockerV2RepositoryMemberArgs', 'FederatedDockerV2RepositoryMemberArgsDict']]]]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
                  priority_resolution: Optional[pulumi.Input[bool]] = None,
                  project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -839,14 +839,14 @@ class FederatedDockerV2Repository(pulumi.CustomResource):
         terraform_federated_test_docker_repo = artifactory.FederatedDockerV2Repository("terraform-federated-test-docker-repo",
             key="terraform-federated-test-docker-repo",
             members=[
-                artifactory.FederatedDockerV2RepositoryMemberArgs(
-                    url="http://tempurl.org/artifactory/terraform-federated-test-docker-repo",
-                    enabled=True,
-                ),
-                artifactory.FederatedDockerV2RepositoryMemberArgs(
-                    url="http://tempurl2.org/artifactory/terraform-federated-test-docker-repo-2",
-                    enabled=True,
-                ),
+                {
+                    "url": "http://tempurl.org/artifactory/terraform-federated-test-docker-repo",
+                    "enabled": True,
+                },
+                {
+                    "url": "http://tempurl2.org/artifactory/terraform-federated-test-docker-repo-2",
+                    "enabled": True,
+                },
             ])
         ```
 
@@ -879,7 +879,7 @@ class FederatedDockerV2Repository(pulumi.CustomResource):
         :param pulumi.Input[int] max_unique_tags: The maximum number of unique tags of a single Docker image to store in this repository. Once the number tags for an
                image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit. This only
                applies to manifest v2
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FederatedDockerV2RepositoryMemberArgs']]]] members: The list of Federated members and must contain this repository URL (configured base URL
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FederatedDockerV2RepositoryMemberArgs', 'FederatedDockerV2RepositoryMemberArgsDict']]]] members: The list of Federated members and must contain this repository URL (configured base URL
                `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
                Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
                to set up Federated repositories correctly.
@@ -913,14 +913,14 @@ class FederatedDockerV2Repository(pulumi.CustomResource):
         terraform_federated_test_docker_repo = artifactory.FederatedDockerV2Repository("terraform-federated-test-docker-repo",
             key="terraform-federated-test-docker-repo",
             members=[
-                artifactory.FederatedDockerV2RepositoryMemberArgs(
-                    url="http://tempurl.org/artifactory/terraform-federated-test-docker-repo",
-                    enabled=True,
-                ),
-                artifactory.FederatedDockerV2RepositoryMemberArgs(
-                    url="http://tempurl2.org/artifactory/terraform-federated-test-docker-repo-2",
-                    enabled=True,
-                ),
+                {
+                    "url": "http://tempurl.org/artifactory/terraform-federated-test-docker-repo",
+                    "enabled": True,
+                },
+                {
+                    "url": "http://tempurl2.org/artifactory/terraform-federated-test-docker-repo-2",
+                    "enabled": True,
+                },
             ])
         ```
 
@@ -959,7 +959,7 @@ class FederatedDockerV2Repository(pulumi.CustomResource):
                  includes_pattern: Optional[pulumi.Input[str]] = None,
                  key: Optional[pulumi.Input[str]] = None,
                  max_unique_tags: Optional[pulumi.Input[int]] = None,
-                 members: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FederatedDockerV2RepositoryMemberArgs']]]]] = None,
+                 members: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FederatedDockerV2RepositoryMemberArgs', 'FederatedDockerV2RepositoryMemberArgsDict']]]]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
                  priority_resolution: Optional[pulumi.Input[bool]] = None,
                  project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1029,7 +1029,7 @@ class FederatedDockerV2Repository(pulumi.CustomResource):
             includes_pattern: Optional[pulumi.Input[str]] = None,
             key: Optional[pulumi.Input[str]] = None,
             max_unique_tags: Optional[pulumi.Input[int]] = None,
-            members: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FederatedDockerV2RepositoryMemberArgs']]]]] = None,
+            members: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FederatedDockerV2RepositoryMemberArgs', 'FederatedDockerV2RepositoryMemberArgsDict']]]]] = None,
             notes: Optional[pulumi.Input[str]] = None,
             package_type: Optional[pulumi.Input[str]] = None,
             priority_resolution: Optional[pulumi.Input[bool]] = None,
@@ -1067,7 +1067,7 @@ class FederatedDockerV2Repository(pulumi.CustomResource):
         :param pulumi.Input[int] max_unique_tags: The maximum number of unique tags of a single Docker image to store in this repository. Once the number tags for an
                image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit. This only
                applies to manifest v2
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FederatedDockerV2RepositoryMemberArgs']]]] members: The list of Federated members and must contain this repository URL (configured base URL
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FederatedDockerV2RepositoryMemberArgs', 'FederatedDockerV2RepositoryMemberArgsDict']]]] members: The list of Federated members and must contain this repository URL (configured base URL
                `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
                Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
                to set up Federated repositories correctly.

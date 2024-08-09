@@ -131,7 +131,7 @@ class PropertySet(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PropertySetPropertyArgs']]]]] = None,
+                 properties: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PropertySetPropertyArgs', 'PropertySetPropertyArgsDict']]]]] = None,
                  visible: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
@@ -151,36 +151,36 @@ class PropertySet(pulumi.CustomResource):
             name="property-set1",
             visible=True,
             properties=[
-                artifactory.PropertySetPropertyArgs(
-                    name="set1property1",
-                    predefined_values=[
-                        artifactory.PropertySetPropertyPredefinedValueArgs(
-                            name="passed-QA",
-                            default_value=True,
-                        ),
-                        artifactory.PropertySetPropertyPredefinedValueArgs(
-                            name="failed-QA",
-                            default_value=False,
-                        ),
+                {
+                    "name": "set1property1",
+                    "predefined_values": [
+                        {
+                            "name": "passed-QA",
+                            "default_value": True,
+                        },
+                        {
+                            "name": "failed-QA",
+                            "default_value": False,
+                        },
                     ],
-                    closed_predefined_values=True,
-                    multiple_choice=True,
-                ),
-                artifactory.PropertySetPropertyArgs(
-                    name="set1property2",
-                    predefined_values=[
-                        artifactory.PropertySetPropertyPredefinedValueArgs(
-                            name="passed-QA",
-                            default_value=True,
-                        ),
-                        artifactory.PropertySetPropertyPredefinedValueArgs(
-                            name="failed-QA",
-                            default_value=False,
-                        ),
+                    "closed_predefined_values": True,
+                    "multiple_choice": True,
+                },
+                {
+                    "name": "set1property2",
+                    "predefined_values": [
+                        {
+                            "name": "passed-QA",
+                            "default_value": True,
+                        },
+                        {
+                            "name": "failed-QA",
+                            "default_value": False,
+                        },
                     ],
-                    closed_predefined_values=False,
-                    multiple_choice=False,
-                ),
+                    "closed_predefined_values": False,
+                    "multiple_choice": False,
+                },
             ])
         ```
 
@@ -195,7 +195,7 @@ class PropertySet(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: Property set name.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PropertySetPropertyArgs']]]] properties: A list of properties that will be part of the property set.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PropertySetPropertyArgs', 'PropertySetPropertyArgsDict']]]] properties: A list of properties that will be part of the property set.
         :param pulumi.Input[bool] visible: Defines if the list visible and assignable to the repository or artifact. Default value is `true`.
         """
         ...
@@ -221,36 +221,36 @@ class PropertySet(pulumi.CustomResource):
             name="property-set1",
             visible=True,
             properties=[
-                artifactory.PropertySetPropertyArgs(
-                    name="set1property1",
-                    predefined_values=[
-                        artifactory.PropertySetPropertyPredefinedValueArgs(
-                            name="passed-QA",
-                            default_value=True,
-                        ),
-                        artifactory.PropertySetPropertyPredefinedValueArgs(
-                            name="failed-QA",
-                            default_value=False,
-                        ),
+                {
+                    "name": "set1property1",
+                    "predefined_values": [
+                        {
+                            "name": "passed-QA",
+                            "default_value": True,
+                        },
+                        {
+                            "name": "failed-QA",
+                            "default_value": False,
+                        },
                     ],
-                    closed_predefined_values=True,
-                    multiple_choice=True,
-                ),
-                artifactory.PropertySetPropertyArgs(
-                    name="set1property2",
-                    predefined_values=[
-                        artifactory.PropertySetPropertyPredefinedValueArgs(
-                            name="passed-QA",
-                            default_value=True,
-                        ),
-                        artifactory.PropertySetPropertyPredefinedValueArgs(
-                            name="failed-QA",
-                            default_value=False,
-                        ),
+                    "closed_predefined_values": True,
+                    "multiple_choice": True,
+                },
+                {
+                    "name": "set1property2",
+                    "predefined_values": [
+                        {
+                            "name": "passed-QA",
+                            "default_value": True,
+                        },
+                        {
+                            "name": "failed-QA",
+                            "default_value": False,
+                        },
                     ],
-                    closed_predefined_values=False,
-                    multiple_choice=False,
-                ),
+                    "closed_predefined_values": False,
+                    "multiple_choice": False,
+                },
             ])
         ```
 
@@ -278,7 +278,7 @@ class PropertySet(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PropertySetPropertyArgs']]]]] = None,
+                 properties: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PropertySetPropertyArgs', 'PropertySetPropertyArgsDict']]]]] = None,
                  visible: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -303,7 +303,7 @@ class PropertySet(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             name: Optional[pulumi.Input[str]] = None,
-            properties: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PropertySetPropertyArgs']]]]] = None,
+            properties: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PropertySetPropertyArgs', 'PropertySetPropertyArgsDict']]]]] = None,
             visible: Optional[pulumi.Input[bool]] = None) -> 'PropertySet':
         """
         Get an existing PropertySet resource's state with the given name, id, and optional extra
@@ -313,7 +313,7 @@ class PropertySet(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: Property set name.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PropertySetPropertyArgs']]]] properties: A list of properties that will be part of the property set.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PropertySetPropertyArgs', 'PropertySetPropertyArgsDict']]]] properties: A list of properties that will be part of the property set.
         :param pulumi.Input[bool] visible: Defines if the list visible and assignable to the repository or artifact. Default value is `true`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

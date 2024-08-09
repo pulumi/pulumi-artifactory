@@ -162,7 +162,7 @@ class LocalRepositoryMultiReplication(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cron_exp: Optional[pulumi.Input[str]] = None,
                  enable_event_replication: Optional[pulumi.Input[bool]] = None,
-                 replications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocalRepositoryMultiReplicationReplicationArgs']]]]] = None,
+                 replications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LocalRepositoryMultiReplicationReplicationArgs', 'LocalRepositoryMultiReplicationReplicationArgsDict']]]]] = None,
                  repo_key: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -195,18 +195,18 @@ class LocalRepositoryMultiReplication(pulumi.CustomResource):
             cron_exp="0 0 * * * ?",
             enable_event_replication=True,
             replications=[
-                artifactory.LocalRepositoryMultiReplicationReplicationArgs(
-                    url=provider_test_dest.key.apply(lambda key: f"{artifactory_url}/artifactory/{key}"),
-                    username="$var.artifactory_username",
-                    password="$var.artifactory_password",
-                    enabled=True,
-                ),
-                artifactory.LocalRepositoryMultiReplicationReplicationArgs(
-                    url=provider_test_dest1.key.apply(lambda key: f"{artifactory_url}/artifactory/{key}"),
-                    username="$var.artifactory_username",
-                    password="$var.artifactory_password",
-                    enabled=True,
-                ),
+                {
+                    "url": provider_test_dest.key.apply(lambda key: f"{artifactory_url}/artifactory/{key}"),
+                    "username": "$var.artifactory_username",
+                    "password": "$var.artifactory_password",
+                    "enabled": True,
+                },
+                {
+                    "url": provider_test_dest1.key.apply(lambda key: f"{artifactory_url}/artifactory/{key}"),
+                    "username": "$var.artifactory_username",
+                    "password": "$var.artifactory_password",
+                    "enabled": True,
+                },
             ])
         ```
 
@@ -222,7 +222,7 @@ class LocalRepositoryMultiReplication(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cron_exp: A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
         :param pulumi.Input[bool] enable_event_replication: When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocalRepositoryMultiReplicationReplicationArgs']]]] replications: List of replications minimum 1 element.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LocalRepositoryMultiReplicationReplicationArgs', 'LocalRepositoryMultiReplicationReplicationArgsDict']]]] replications: List of replications minimum 1 element.
         :param pulumi.Input[str] repo_key: Repository name.
         """
         ...
@@ -261,18 +261,18 @@ class LocalRepositoryMultiReplication(pulumi.CustomResource):
             cron_exp="0 0 * * * ?",
             enable_event_replication=True,
             replications=[
-                artifactory.LocalRepositoryMultiReplicationReplicationArgs(
-                    url=provider_test_dest.key.apply(lambda key: f"{artifactory_url}/artifactory/{key}"),
-                    username="$var.artifactory_username",
-                    password="$var.artifactory_password",
-                    enabled=True,
-                ),
-                artifactory.LocalRepositoryMultiReplicationReplicationArgs(
-                    url=provider_test_dest1.key.apply(lambda key: f"{artifactory_url}/artifactory/{key}"),
-                    username="$var.artifactory_username",
-                    password="$var.artifactory_password",
-                    enabled=True,
-                ),
+                {
+                    "url": provider_test_dest.key.apply(lambda key: f"{artifactory_url}/artifactory/{key}"),
+                    "username": "$var.artifactory_username",
+                    "password": "$var.artifactory_password",
+                    "enabled": True,
+                },
+                {
+                    "url": provider_test_dest1.key.apply(lambda key: f"{artifactory_url}/artifactory/{key}"),
+                    "username": "$var.artifactory_username",
+                    "password": "$var.artifactory_password",
+                    "enabled": True,
+                },
             ])
         ```
 
@@ -301,7 +301,7 @@ class LocalRepositoryMultiReplication(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cron_exp: Optional[pulumi.Input[str]] = None,
                  enable_event_replication: Optional[pulumi.Input[bool]] = None,
-                 replications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocalRepositoryMultiReplicationReplicationArgs']]]]] = None,
+                 replications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LocalRepositoryMultiReplicationReplicationArgs', 'LocalRepositoryMultiReplicationReplicationArgsDict']]]]] = None,
                  repo_key: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -332,7 +332,7 @@ class LocalRepositoryMultiReplication(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             cron_exp: Optional[pulumi.Input[str]] = None,
             enable_event_replication: Optional[pulumi.Input[bool]] = None,
-            replications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocalRepositoryMultiReplicationReplicationArgs']]]]] = None,
+            replications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LocalRepositoryMultiReplicationReplicationArgs', 'LocalRepositoryMultiReplicationReplicationArgsDict']]]]] = None,
             repo_key: Optional[pulumi.Input[str]] = None) -> 'LocalRepositoryMultiReplication':
         """
         Get an existing LocalRepositoryMultiReplication resource's state with the given name, id, and optional extra
@@ -343,7 +343,7 @@ class LocalRepositoryMultiReplication(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cron_exp: A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
         :param pulumi.Input[bool] enable_event_replication: When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocalRepositoryMultiReplicationReplicationArgs']]]] replications: List of replications minimum 1 element.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LocalRepositoryMultiReplicationReplicationArgs', 'LocalRepositoryMultiReplicationReplicationArgsDict']]]] replications: List of replications minimum 1 element.
         :param pulumi.Input[str] repo_key: Repository name.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

@@ -194,7 +194,7 @@ class ArtifactLifecycleCustomWebhook(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  event_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 handlers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ArtifactLifecycleCustomWebhookHandlerArgs']]]]] = None,
+                 handlers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ArtifactLifecycleCustomWebhookHandlerArgs', 'ArtifactLifecycleCustomWebhookHandlerArgsDict']]]]] = None,
                  key: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -213,18 +213,18 @@ class ArtifactLifecycleCustomWebhook(pulumi.CustomResource):
                 "archive",
                 "restore",
             ],
-            handlers=[artifactory.ArtifactLifecycleCustomWebhookHandlerArgs(
-                url="https://tempurl.org",
-                secrets={
-                    "secretName1": "value1",
-                    "secretName2": "value2",
+            handlers=[{
+                "url": "https://tempurl.org",
+                "secrets": {
+                    "secret_name1": "value1",
+                    "secret_name2": "value2",
                 },
-                http_headers={
-                    "headerName1": "value1",
-                    "headerName2": "value2",
+                "http_headers": {
+                    "header_name1": "value1",
+                    "header_name2": "value2",
                 },
-                payload="{ \\"ref\\": \\"main\\" , \\"inputs\\": { \\"artifact_path\\": \\"test-repo/repo-path\\" } }",
-            )])
+                "payload": "{ \\"ref\\": \\"main\\" , \\"inputs\\": { \\"artifact_path\\": \\"test-repo/repo-path\\" } }",
+            }])
         ```
 
         :param str resource_name: The name of the resource.
@@ -232,7 +232,7 @@ class ArtifactLifecycleCustomWebhook(pulumi.CustomResource):
         :param pulumi.Input[str] description: Webhook description. Max length 1000 characters.
         :param pulumi.Input[bool] enabled: Status of webhook. Default to `true`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] event_types: List of event triggers for the Webhook. Allow values: `archive`, `restore`
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ArtifactLifecycleCustomWebhookHandlerArgs']]]] handlers: At least one is required.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ArtifactLifecycleCustomWebhookHandlerArgs', 'ArtifactLifecycleCustomWebhookHandlerArgsDict']]]] handlers: At least one is required.
         :param pulumi.Input[str] key: The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
         """
         ...
@@ -257,18 +257,18 @@ class ArtifactLifecycleCustomWebhook(pulumi.CustomResource):
                 "archive",
                 "restore",
             ],
-            handlers=[artifactory.ArtifactLifecycleCustomWebhookHandlerArgs(
-                url="https://tempurl.org",
-                secrets={
-                    "secretName1": "value1",
-                    "secretName2": "value2",
+            handlers=[{
+                "url": "https://tempurl.org",
+                "secrets": {
+                    "secret_name1": "value1",
+                    "secret_name2": "value2",
                 },
-                http_headers={
-                    "headerName1": "value1",
-                    "headerName2": "value2",
+                "http_headers": {
+                    "header_name1": "value1",
+                    "header_name2": "value2",
                 },
-                payload="{ \\"ref\\": \\"main\\" , \\"inputs\\": { \\"artifact_path\\": \\"test-repo/repo-path\\" } }",
-            )])
+                "payload": "{ \\"ref\\": \\"main\\" , \\"inputs\\": { \\"artifact_path\\": \\"test-repo/repo-path\\" } }",
+            }])
         ```
 
         :param str resource_name: The name of the resource.
@@ -289,7 +289,7 @@ class ArtifactLifecycleCustomWebhook(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  event_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 handlers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ArtifactLifecycleCustomWebhookHandlerArgs']]]]] = None,
+                 handlers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ArtifactLifecycleCustomWebhookHandlerArgs', 'ArtifactLifecycleCustomWebhookHandlerArgsDict']]]]] = None,
                  key: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -324,7 +324,7 @@ class ArtifactLifecycleCustomWebhook(pulumi.CustomResource):
             description: Optional[pulumi.Input[str]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
             event_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            handlers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ArtifactLifecycleCustomWebhookHandlerArgs']]]]] = None,
+            handlers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ArtifactLifecycleCustomWebhookHandlerArgs', 'ArtifactLifecycleCustomWebhookHandlerArgsDict']]]]] = None,
             key: Optional[pulumi.Input[str]] = None) -> 'ArtifactLifecycleCustomWebhook':
         """
         Get an existing ArtifactLifecycleCustomWebhook resource's state with the given name, id, and optional extra
@@ -336,7 +336,7 @@ class ArtifactLifecycleCustomWebhook(pulumi.CustomResource):
         :param pulumi.Input[str] description: Webhook description. Max length 1000 characters.
         :param pulumi.Input[bool] enabled: Status of webhook. Default to `true`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] event_types: List of event triggers for the Webhook. Allow values: `archive`, `restore`
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ArtifactLifecycleCustomWebhookHandlerArgs']]]] handlers: At least one is required.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ArtifactLifecycleCustomWebhookHandlerArgs', 'ArtifactLifecycleCustomWebhookHandlerArgsDict']]]] handlers: At least one is required.
         :param pulumi.Input[str] key: The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

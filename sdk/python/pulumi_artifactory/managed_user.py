@@ -327,7 +327,7 @@ class ManagedUser(pulumi.CustomResource):
                  internal_password_disabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
-                 password_policy: Optional[pulumi.Input[pulumi.InputType['ManagedUserPasswordPolicyArgs']]] = None,
+                 password_policy: Optional[pulumi.Input[Union['ManagedUserPasswordPolicyArgs', 'ManagedUserPasswordPolicyArgsDict']]] = None,
                  profile_updatable: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
@@ -348,7 +348,7 @@ class ManagedUser(pulumi.CustomResource):
         :param pulumi.Input[bool] internal_password_disabled: (Optional, Default: false) When enabled, disables the fallback mechanism for using an internal password when external authentication (such as LDAP) is enabled.
         :param pulumi.Input[str] name: Username for user. May contain lowercase letters, numbers and symbols: '.-_@' for self-hosted. For SaaS, '+' is also allowed.
         :param pulumi.Input[str] password: Password for the user.
-        :param pulumi.Input[pulumi.InputType['ManagedUserPasswordPolicyArgs']] password_policy: Password policy to match JFrog Access to provide pre-apply validation. Default values: `uppercase=1`, `lowercase=1`, `special_char=0`, `digit=1`, `length=8`. Also see [Supported Access Configurations](https://jfrog.com/help/r/jfrog-installation-setup-documentation/supported-access-configurations) for more details
+        :param pulumi.Input[Union['ManagedUserPasswordPolicyArgs', 'ManagedUserPasswordPolicyArgsDict']] password_policy: Password policy to match JFrog Access to provide pre-apply validation. Default values: `uppercase=1`, `lowercase=1`, `special_char=0`, `digit=1`, `length=8`. Also see [Supported Access Configurations](https://jfrog.com/help/r/jfrog-installation-setup-documentation/supported-access-configurations) for more details
         :param pulumi.Input[bool] profile_updatable: (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an administrator can update the password). There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.
         """
         ...
@@ -388,7 +388,7 @@ class ManagedUser(pulumi.CustomResource):
                  internal_password_disabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
-                 password_policy: Optional[pulumi.Input[pulumi.InputType['ManagedUserPasswordPolicyArgs']]] = None,
+                 password_policy: Optional[pulumi.Input[Union['ManagedUserPasswordPolicyArgs', 'ManagedUserPasswordPolicyArgsDict']]] = None,
                  profile_updatable: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -431,7 +431,7 @@ class ManagedUser(pulumi.CustomResource):
             internal_password_disabled: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
             password: Optional[pulumi.Input[str]] = None,
-            password_policy: Optional[pulumi.Input[pulumi.InputType['ManagedUserPasswordPolicyArgs']]] = None,
+            password_policy: Optional[pulumi.Input[Union['ManagedUserPasswordPolicyArgs', 'ManagedUserPasswordPolicyArgsDict']]] = None,
             profile_updatable: Optional[pulumi.Input[bool]] = None) -> 'ManagedUser':
         """
         Get an existing ManagedUser resource's state with the given name, id, and optional extra
@@ -447,7 +447,7 @@ class ManagedUser(pulumi.CustomResource):
         :param pulumi.Input[bool] internal_password_disabled: (Optional, Default: false) When enabled, disables the fallback mechanism for using an internal password when external authentication (such as LDAP) is enabled.
         :param pulumi.Input[str] name: Username for user. May contain lowercase letters, numbers and symbols: '.-_@' for self-hosted. For SaaS, '+' is also allowed.
         :param pulumi.Input[str] password: Password for the user.
-        :param pulumi.Input[pulumi.InputType['ManagedUserPasswordPolicyArgs']] password_policy: Password policy to match JFrog Access to provide pre-apply validation. Default values: `uppercase=1`, `lowercase=1`, `special_char=0`, `digit=1`, `length=8`. Also see [Supported Access Configurations](https://jfrog.com/help/r/jfrog-installation-setup-documentation/supported-access-configurations) for more details
+        :param pulumi.Input[Union['ManagedUserPasswordPolicyArgs', 'ManagedUserPasswordPolicyArgsDict']] password_policy: Password policy to match JFrog Access to provide pre-apply validation. Default values: `uppercase=1`, `lowercase=1`, `special_char=0`, `digit=1`, `length=8`. Also see [Supported Access Configurations](https://jfrog.com/help/r/jfrog-installation-setup-documentation/supported-access-configurations) for more details
         :param pulumi.Input[bool] profile_updatable: (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an administrator can update the password). There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
