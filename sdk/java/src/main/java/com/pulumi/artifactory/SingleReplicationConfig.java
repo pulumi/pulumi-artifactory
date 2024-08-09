@@ -149,7 +149,7 @@ public class SingleReplicationConfig extends com.pulumi.resources.CustomResource
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SingleReplicationConfig(String name) {
+    public SingleReplicationConfig(java.lang.String name) {
         this(name, SingleReplicationConfigArgs.Empty);
     }
     /**
@@ -157,7 +157,7 @@ public class SingleReplicationConfig extends com.pulumi.resources.CustomResource
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SingleReplicationConfig(String name, SingleReplicationConfigArgs args) {
+    public SingleReplicationConfig(java.lang.String name, SingleReplicationConfigArgs args) {
         this(name, args, null);
     }
     /**
@@ -166,12 +166,12 @@ public class SingleReplicationConfig extends com.pulumi.resources.CustomResource
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SingleReplicationConfig(String name, SingleReplicationConfigArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/singleReplicationConfig:SingleReplicationConfig", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public SingleReplicationConfig(java.lang.String name, SingleReplicationConfigArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("artifactory:index/singleReplicationConfig:SingleReplicationConfig", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SingleReplicationConfig(String name, Output<String> id, @Nullable SingleReplicationConfigState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/singleReplicationConfig:SingleReplicationConfig", name, state, makeResourceOptions(options, id));
+    private SingleReplicationConfig(java.lang.String name, Output<java.lang.String> id, @Nullable SingleReplicationConfigState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("artifactory:index/singleReplicationConfig:SingleReplicationConfig", name, state, makeResourceOptions(options, id), false);
     }
 
     private static SingleReplicationConfigArgs makeArgs(SingleReplicationConfigArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -181,7 +181,7 @@ public class SingleReplicationConfig extends com.pulumi.resources.CustomResource
         return args == null ? SingleReplicationConfigArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -200,7 +200,7 @@ public class SingleReplicationConfig extends com.pulumi.resources.CustomResource
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SingleReplicationConfig get(String name, Output<String> id, @Nullable SingleReplicationConfigState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SingleReplicationConfig get(java.lang.String name, Output<java.lang.String> id, @Nullable SingleReplicationConfigState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SingleReplicationConfig(name, id, state, options);
     }
 }

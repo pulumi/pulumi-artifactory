@@ -268,7 +268,7 @@ public class SamlSettings extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SamlSettings(String name) {
+    public SamlSettings(java.lang.String name) {
         this(name, SamlSettingsArgs.Empty);
     }
     /**
@@ -276,7 +276,7 @@ public class SamlSettings extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SamlSettings(String name, SamlSettingsArgs args) {
+    public SamlSettings(java.lang.String name, SamlSettingsArgs args) {
         this(name, args, null);
     }
     /**
@@ -285,12 +285,12 @@ public class SamlSettings extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SamlSettings(String name, SamlSettingsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/samlSettings:SamlSettings", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public SamlSettings(java.lang.String name, SamlSettingsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("artifactory:index/samlSettings:SamlSettings", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SamlSettings(String name, Output<String> id, @Nullable SamlSettingsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/samlSettings:SamlSettings", name, state, makeResourceOptions(options, id));
+    private SamlSettings(java.lang.String name, Output<java.lang.String> id, @Nullable SamlSettingsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("artifactory:index/samlSettings:SamlSettings", name, state, makeResourceOptions(options, id), false);
     }
 
     private static SamlSettingsArgs makeArgs(SamlSettingsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -300,7 +300,7 @@ public class SamlSettings extends com.pulumi.resources.CustomResource {
         return args == null ? SamlSettingsArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -316,7 +316,7 @@ public class SamlSettings extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SamlSettings get(String name, Output<String> id, @Nullable SamlSettingsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SamlSettings get(java.lang.String name, Output<java.lang.String> id, @Nullable SamlSettingsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SamlSettings(name, id, state, options);
     }
 }

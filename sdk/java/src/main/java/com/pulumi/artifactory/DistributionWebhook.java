@@ -174,7 +174,7 @@ public class DistributionWebhook extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public DistributionWebhook(String name) {
+    public DistributionWebhook(java.lang.String name) {
         this(name, DistributionWebhookArgs.Empty);
     }
     /**
@@ -182,7 +182,7 @@ public class DistributionWebhook extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public DistributionWebhook(String name, DistributionWebhookArgs args) {
+    public DistributionWebhook(java.lang.String name, DistributionWebhookArgs args) {
         this(name, args, null);
     }
     /**
@@ -191,12 +191,12 @@ public class DistributionWebhook extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public DistributionWebhook(String name, DistributionWebhookArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/distributionWebhook:DistributionWebhook", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public DistributionWebhook(java.lang.String name, DistributionWebhookArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("artifactory:index/distributionWebhook:DistributionWebhook", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private DistributionWebhook(String name, Output<String> id, @Nullable DistributionWebhookState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/distributionWebhook:DistributionWebhook", name, state, makeResourceOptions(options, id));
+    private DistributionWebhook(java.lang.String name, Output<java.lang.String> id, @Nullable DistributionWebhookState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("artifactory:index/distributionWebhook:DistributionWebhook", name, state, makeResourceOptions(options, id), false);
     }
 
     private static DistributionWebhookArgs makeArgs(DistributionWebhookArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -206,7 +206,7 @@ public class DistributionWebhook extends com.pulumi.resources.CustomResource {
         return args == null ? DistributionWebhookArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -222,7 +222,7 @@ public class DistributionWebhook extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static DistributionWebhook get(String name, Output<String> id, @Nullable DistributionWebhookState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static DistributionWebhook get(java.lang.String name, Output<java.lang.String> id, @Nullable DistributionWebhookState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new DistributionWebhook(name, id, state, options);
     }
 }

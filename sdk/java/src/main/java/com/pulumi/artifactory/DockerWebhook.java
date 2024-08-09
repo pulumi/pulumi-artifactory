@@ -181,7 +181,7 @@ public class DockerWebhook extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public DockerWebhook(String name) {
+    public DockerWebhook(java.lang.String name) {
         this(name, DockerWebhookArgs.Empty);
     }
     /**
@@ -189,7 +189,7 @@ public class DockerWebhook extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public DockerWebhook(String name, DockerWebhookArgs args) {
+    public DockerWebhook(java.lang.String name, DockerWebhookArgs args) {
         this(name, args, null);
     }
     /**
@@ -198,12 +198,12 @@ public class DockerWebhook extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public DockerWebhook(String name, DockerWebhookArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/dockerWebhook:DockerWebhook", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public DockerWebhook(java.lang.String name, DockerWebhookArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("artifactory:index/dockerWebhook:DockerWebhook", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private DockerWebhook(String name, Output<String> id, @Nullable DockerWebhookState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/dockerWebhook:DockerWebhook", name, state, makeResourceOptions(options, id));
+    private DockerWebhook(java.lang.String name, Output<java.lang.String> id, @Nullable DockerWebhookState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("artifactory:index/dockerWebhook:DockerWebhook", name, state, makeResourceOptions(options, id), false);
     }
 
     private static DockerWebhookArgs makeArgs(DockerWebhookArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -213,7 +213,7 @@ public class DockerWebhook extends com.pulumi.resources.CustomResource {
         return args == null ? DockerWebhookArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -229,7 +229,7 @@ public class DockerWebhook extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static DockerWebhook get(String name, Output<String> id, @Nullable DockerWebhookState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static DockerWebhook get(java.lang.String name, Output<java.lang.String> id, @Nullable DockerWebhookState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new DockerWebhook(name, id, state, options);
     }
 }

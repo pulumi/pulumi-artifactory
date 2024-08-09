@@ -175,7 +175,7 @@ public class FederatedTerraformProviderRepository extends com.pulumi.resources.C
         return Codegen.optional(this.downloadDirect);
     }
     /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**{@literal /}z/*.By default no
+     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*.By default no
      * artifacts are excluded.
      * 
      */
@@ -183,7 +183,7 @@ public class FederatedTerraformProviderRepository extends com.pulumi.resources.C
     private Output</* @Nullable */ String> excludesPattern;
 
     /**
-     * @return List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**{@literal /}z/*.By default no
+     * @return List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*.By default no
      * artifacts are excluded.
      * 
      */
@@ -191,16 +191,16 @@ public class FederatedTerraformProviderRepository extends com.pulumi.resources.C
         return Codegen.optional(this.excludesPattern);
     }
     /**
-     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**{@literal /}z/*. When
-     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**{@literal /}*).
+     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When
+     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
      * 
      */
     @Export(name="includesPattern", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> includesPattern;
 
     /**
-     * @return List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**{@literal /}z/*. When
-     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**{@literal /}*).
+     * @return List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When
+     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
      * 
      */
     public Output<Optional<String>> includesPattern() {
@@ -359,7 +359,7 @@ public class FederatedTerraformProviderRepository extends com.pulumi.resources.C
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public FederatedTerraformProviderRepository(String name) {
+    public FederatedTerraformProviderRepository(java.lang.String name) {
         this(name, FederatedTerraformProviderRepositoryArgs.Empty);
     }
     /**
@@ -367,7 +367,7 @@ public class FederatedTerraformProviderRepository extends com.pulumi.resources.C
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public FederatedTerraformProviderRepository(String name, FederatedTerraformProviderRepositoryArgs args) {
+    public FederatedTerraformProviderRepository(java.lang.String name, FederatedTerraformProviderRepositoryArgs args) {
         this(name, args, null);
     }
     /**
@@ -376,12 +376,12 @@ public class FederatedTerraformProviderRepository extends com.pulumi.resources.C
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public FederatedTerraformProviderRepository(String name, FederatedTerraformProviderRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/federatedTerraformProviderRepository:FederatedTerraformProviderRepository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public FederatedTerraformProviderRepository(java.lang.String name, FederatedTerraformProviderRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("artifactory:index/federatedTerraformProviderRepository:FederatedTerraformProviderRepository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private FederatedTerraformProviderRepository(String name, Output<String> id, @Nullable FederatedTerraformProviderRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/federatedTerraformProviderRepository:FederatedTerraformProviderRepository", name, state, makeResourceOptions(options, id));
+    private FederatedTerraformProviderRepository(java.lang.String name, Output<java.lang.String> id, @Nullable FederatedTerraformProviderRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("artifactory:index/federatedTerraformProviderRepository:FederatedTerraformProviderRepository", name, state, makeResourceOptions(options, id), false);
     }
 
     private static FederatedTerraformProviderRepositoryArgs makeArgs(FederatedTerraformProviderRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -391,7 +391,7 @@ public class FederatedTerraformProviderRepository extends com.pulumi.resources.C
         return args == null ? FederatedTerraformProviderRepositoryArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -407,7 +407,7 @@ public class FederatedTerraformProviderRepository extends com.pulumi.resources.C
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static FederatedTerraformProviderRepository get(String name, Output<String> id, @Nullable FederatedTerraformProviderRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static FederatedTerraformProviderRepository get(java.lang.String name, Output<java.lang.String> id, @Nullable FederatedTerraformProviderRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new FederatedTerraformProviderRepository(name, id, state, options);
     }
 }

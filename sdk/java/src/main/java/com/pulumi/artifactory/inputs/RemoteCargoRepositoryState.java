@@ -278,7 +278,7 @@ public final class RemoteCargoRepositoryState extends com.pulumi.resources.Resou
     }
 
     /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**{@literal /}z/*.By default no
+     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*.By default no
      * artifacts are excluded.
      * 
      */
@@ -286,7 +286,7 @@ public final class RemoteCargoRepositoryState extends com.pulumi.resources.Resou
     private @Nullable Output<String> excludesPattern;
 
     /**
-     * @return List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**{@literal /}z/*.By default no
+     * @return List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*.By default no
      * artifacts are excluded.
      * 
      */
@@ -327,16 +327,16 @@ public final class RemoteCargoRepositoryState extends com.pulumi.resources.Resou
     }
 
     /**
-     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**{@literal /}z/*. When
-     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**{@literal /}*).
+     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When
+     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
      * 
      */
     @Import(name="includesPattern")
     private @Nullable Output<String> includesPattern;
 
     /**
-     * @return List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**{@literal /}z/*. When
-     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**{@literal /}*).
+     * @return List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When
+     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
      * 
      */
     public Optional<Output<String>> includesPattern() {
@@ -1167,7 +1167,7 @@ public final class RemoteCargoRepositoryState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param excludesPattern List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**{@literal /}z/*.By default no
+         * @param excludesPattern List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*.By default no
          * artifacts are excluded.
          * 
          * @return builder
@@ -1179,7 +1179,7 @@ public final class RemoteCargoRepositoryState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param excludesPattern List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**{@literal /}z/*.By default no
+         * @param excludesPattern List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*.By default no
          * artifacts are excluded.
          * 
          * @return builder
@@ -1234,8 +1234,8 @@ public final class RemoteCargoRepositoryState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param includesPattern List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**{@literal /}z/*. When
-         * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**{@literal /}*).
+         * @param includesPattern List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When
+         * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
          * 
          * @return builder
          * 
@@ -1246,8 +1246,8 @@ public final class RemoteCargoRepositoryState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param includesPattern List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**{@literal /}z/*. When
-         * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**{@literal /}*).
+         * @param includesPattern List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When
+         * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
          * 
          * @return builder
          * 

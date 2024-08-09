@@ -38,12 +38,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var test_user = new ManagedUser("test-user", ManagedUserArgs.builder()
  *             .name("terraform")
  *             .password("my super secret password")
@@ -54,14 +54,14 @@ import javax.annotation.Nullable;
  *                 .digit(1)
  *                 .length(10)
  *                 .build())
- *             .email("test-user{@literal @}artifactory-terraform.com")
+ *             .email("test-user}{@literal @}{@code artifactory-terraform.com")
  *             .groups(            
  *                 "readers",
  *                 "logged-in-users")
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -146,14 +146,14 @@ public class ManagedUser extends com.pulumi.resources.CustomResource {
         return this.internalPasswordDisabled;
     }
     /**
-     * Username for user. May contain lowercase letters, numbers and symbols: &#39;.-_{@literal @}&#39; for self-hosted. For SaaS, &#39;+&#39; is also allowed.
+     * Username for user. May contain lowercase letters, numbers and symbols: &#39;.-_{@literal @}' for self-hosted. For SaaS, &#39;+&#39; is also allowed.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Username for user. May contain lowercase letters, numbers and symbols: &#39;.-_{@literal @}&#39; for self-hosted. For SaaS, &#39;+&#39; is also allowed.
+     * @return Username for user. May contain lowercase letters, numbers and symbols: &#39;.-_{@literal @}' for self-hosted. For SaaS, &#39;+&#39; is also allowed.
      * 
      */
     public Output<String> name() {
@@ -206,7 +206,7 @@ public class ManagedUser extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ManagedUser(String name) {
+    public ManagedUser(java.lang.String name) {
         this(name, ManagedUserArgs.Empty);
     }
     /**
@@ -214,7 +214,7 @@ public class ManagedUser extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ManagedUser(String name, ManagedUserArgs args) {
+    public ManagedUser(java.lang.String name, ManagedUserArgs args) {
         this(name, args, null);
     }
     /**
@@ -223,12 +223,12 @@ public class ManagedUser extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ManagedUser(String name, ManagedUserArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/managedUser:ManagedUser", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public ManagedUser(java.lang.String name, ManagedUserArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("artifactory:index/managedUser:ManagedUser", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ManagedUser(String name, Output<String> id, @Nullable ManagedUserState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/managedUser:ManagedUser", name, state, makeResourceOptions(options, id));
+    private ManagedUser(java.lang.String name, Output<java.lang.String> id, @Nullable ManagedUserState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("artifactory:index/managedUser:ManagedUser", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ManagedUserArgs makeArgs(ManagedUserArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -238,7 +238,7 @@ public class ManagedUser extends com.pulumi.resources.CustomResource {
         return args == null ? ManagedUserArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -257,7 +257,7 @@ public class ManagedUser extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ManagedUser get(String name, Output<String> id, @Nullable ManagedUserState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ManagedUser get(java.lang.String name, Output<java.lang.String> id, @Nullable ManagedUserState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ManagedUser(name, id, state, options);
     }
 }

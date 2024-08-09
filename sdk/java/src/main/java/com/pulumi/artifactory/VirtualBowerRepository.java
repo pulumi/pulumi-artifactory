@@ -116,7 +116,7 @@ public class VirtualBowerRepository extends com.pulumi.resources.CustomResource 
         return Codegen.optional(this.description);
     }
     /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**{@literal /}z/*.By default no
+     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*.By default no
      * artifacts are excluded.
      * 
      */
@@ -124,7 +124,7 @@ public class VirtualBowerRepository extends com.pulumi.resources.CustomResource 
     private Output</* @Nullable */ String> excludesPattern;
 
     /**
-     * @return List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**{@literal /}z/*.By default no
+     * @return List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*.By default no
      * artifacts are excluded.
      * 
      */
@@ -174,16 +174,16 @@ public class VirtualBowerRepository extends com.pulumi.resources.CustomResource 
         return Codegen.optional(this.externalDependenciesRemoteRepo);
     }
     /**
-     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**{@literal /}z/*. When
-     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**{@literal /}*).
+     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When
+     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
      * 
      */
     @Export(name="includesPattern", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> includesPattern;
 
     /**
-     * @return List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**{@literal /}z/*. When
-     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**{@literal /}*).
+     * @return List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When
+     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
      * 
      */
     public Output<Optional<String>> includesPattern() {
@@ -280,7 +280,7 @@ public class VirtualBowerRepository extends com.pulumi.resources.CustomResource 
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public VirtualBowerRepository(String name) {
+    public VirtualBowerRepository(java.lang.String name) {
         this(name, VirtualBowerRepositoryArgs.Empty);
     }
     /**
@@ -288,7 +288,7 @@ public class VirtualBowerRepository extends com.pulumi.resources.CustomResource 
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public VirtualBowerRepository(String name, VirtualBowerRepositoryArgs args) {
+    public VirtualBowerRepository(java.lang.String name, VirtualBowerRepositoryArgs args) {
         this(name, args, null);
     }
     /**
@@ -297,12 +297,12 @@ public class VirtualBowerRepository extends com.pulumi.resources.CustomResource 
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public VirtualBowerRepository(String name, VirtualBowerRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/virtualBowerRepository:VirtualBowerRepository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public VirtualBowerRepository(java.lang.String name, VirtualBowerRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("artifactory:index/virtualBowerRepository:VirtualBowerRepository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private VirtualBowerRepository(String name, Output<String> id, @Nullable VirtualBowerRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/virtualBowerRepository:VirtualBowerRepository", name, state, makeResourceOptions(options, id));
+    private VirtualBowerRepository(java.lang.String name, Output<java.lang.String> id, @Nullable VirtualBowerRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("artifactory:index/virtualBowerRepository:VirtualBowerRepository", name, state, makeResourceOptions(options, id), false);
     }
 
     private static VirtualBowerRepositoryArgs makeArgs(VirtualBowerRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -312,7 +312,7 @@ public class VirtualBowerRepository extends com.pulumi.resources.CustomResource 
         return args == null ? VirtualBowerRepositoryArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -328,7 +328,7 @@ public class VirtualBowerRepository extends com.pulumi.resources.CustomResource 
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static VirtualBowerRepository get(String name, Output<String> id, @Nullable VirtualBowerRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static VirtualBowerRepository get(java.lang.String name, Output<java.lang.String> id, @Nullable VirtualBowerRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new VirtualBowerRepository(name, id, state, options);
     }
 }

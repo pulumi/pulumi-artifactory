@@ -67,7 +67,7 @@ public class AnonymousUser extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public AnonymousUser(String name) {
+    public AnonymousUser(java.lang.String name) {
         this(name, AnonymousUserArgs.Empty);
     }
     /**
@@ -75,7 +75,7 @@ public class AnonymousUser extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public AnonymousUser(String name, @Nullable AnonymousUserArgs args) {
+    public AnonymousUser(java.lang.String name, @Nullable AnonymousUserArgs args) {
         this(name, args, null);
     }
     /**
@@ -84,12 +84,12 @@ public class AnonymousUser extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public AnonymousUser(String name, @Nullable AnonymousUserArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/anonymousUser:AnonymousUser", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public AnonymousUser(java.lang.String name, @Nullable AnonymousUserArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("artifactory:index/anonymousUser:AnonymousUser", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private AnonymousUser(String name, Output<String> id, @Nullable AnonymousUserState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/anonymousUser:AnonymousUser", name, state, makeResourceOptions(options, id));
+    private AnonymousUser(java.lang.String name, Output<java.lang.String> id, @Nullable AnonymousUserState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("artifactory:index/anonymousUser:AnonymousUser", name, state, makeResourceOptions(options, id), false);
     }
 
     private static AnonymousUserArgs makeArgs(@Nullable AnonymousUserArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -99,7 +99,7 @@ public class AnonymousUser extends com.pulumi.resources.CustomResource {
         return args == null ? AnonymousUserArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -115,7 +115,7 @@ public class AnonymousUser extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static AnonymousUser get(String name, Output<String> id, @Nullable AnonymousUserState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static AnonymousUser get(java.lang.String name, Output<java.lang.String> id, @Nullable AnonymousUserState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new AnonymousUser(name, id, state, options);
     }
 }

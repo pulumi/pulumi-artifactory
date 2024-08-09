@@ -148,7 +148,7 @@ public class ItemProperties extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ItemProperties(String name) {
+    public ItemProperties(java.lang.String name) {
         this(name, ItemPropertiesArgs.Empty);
     }
     /**
@@ -156,7 +156,7 @@ public class ItemProperties extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ItemProperties(String name, ItemPropertiesArgs args) {
+    public ItemProperties(java.lang.String name, ItemPropertiesArgs args) {
         this(name, args, null);
     }
     /**
@@ -165,12 +165,12 @@ public class ItemProperties extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ItemProperties(String name, ItemPropertiesArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/itemProperties:ItemProperties", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public ItemProperties(java.lang.String name, ItemPropertiesArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("artifactory:index/itemProperties:ItemProperties", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ItemProperties(String name, Output<String> id, @Nullable ItemPropertiesState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/itemProperties:ItemProperties", name, state, makeResourceOptions(options, id));
+    private ItemProperties(java.lang.String name, Output<java.lang.String> id, @Nullable ItemPropertiesState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("artifactory:index/itemProperties:ItemProperties", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ItemPropertiesArgs makeArgs(ItemPropertiesArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -180,7 +180,7 @@ public class ItemProperties extends com.pulumi.resources.CustomResource {
         return args == null ? ItemPropertiesArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -196,7 +196,7 @@ public class ItemProperties extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ItemProperties get(String name, Output<String> id, @Nullable ItemPropertiesState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ItemProperties get(java.lang.String name, Output<java.lang.String> id, @Nullable ItemPropertiesState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ItemProperties(name, id, state, options);
     }
 }

@@ -175,7 +175,7 @@ public class FederatedAnsibleRepository extends com.pulumi.resources.CustomResou
         return Codegen.optional(this.downloadDirect);
     }
     /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**{@literal /}z/*.By default no
+     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*.By default no
      * artifacts are excluded.
      * 
      */
@@ -183,7 +183,7 @@ public class FederatedAnsibleRepository extends com.pulumi.resources.CustomResou
     private Output</* @Nullable */ String> excludesPattern;
 
     /**
-     * @return List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**{@literal /}z/*.By default no
+     * @return List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*.By default no
      * artifacts are excluded.
      * 
      */
@@ -191,16 +191,16 @@ public class FederatedAnsibleRepository extends com.pulumi.resources.CustomResou
         return Codegen.optional(this.excludesPattern);
     }
     /**
-     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**{@literal /}z/*. When
-     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**{@literal /}*).
+     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When
+     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
      * 
      */
     @Export(name="includesPattern", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> includesPattern;
 
     /**
-     * @return List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**{@literal /}z/*. When
-     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**{@literal /}*).
+     * @return List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When
+     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
      * 
      */
     public Output<Optional<String>> includesPattern() {
@@ -375,7 +375,7 @@ public class FederatedAnsibleRepository extends com.pulumi.resources.CustomResou
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public FederatedAnsibleRepository(String name) {
+    public FederatedAnsibleRepository(java.lang.String name) {
         this(name, FederatedAnsibleRepositoryArgs.Empty);
     }
     /**
@@ -383,7 +383,7 @@ public class FederatedAnsibleRepository extends com.pulumi.resources.CustomResou
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public FederatedAnsibleRepository(String name, FederatedAnsibleRepositoryArgs args) {
+    public FederatedAnsibleRepository(java.lang.String name, FederatedAnsibleRepositoryArgs args) {
         this(name, args, null);
     }
     /**
@@ -392,12 +392,12 @@ public class FederatedAnsibleRepository extends com.pulumi.resources.CustomResou
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public FederatedAnsibleRepository(String name, FederatedAnsibleRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/federatedAnsibleRepository:FederatedAnsibleRepository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public FederatedAnsibleRepository(java.lang.String name, FederatedAnsibleRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("artifactory:index/federatedAnsibleRepository:FederatedAnsibleRepository", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private FederatedAnsibleRepository(String name, Output<String> id, @Nullable FederatedAnsibleRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/federatedAnsibleRepository:FederatedAnsibleRepository", name, state, makeResourceOptions(options, id));
+    private FederatedAnsibleRepository(java.lang.String name, Output<java.lang.String> id, @Nullable FederatedAnsibleRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("artifactory:index/federatedAnsibleRepository:FederatedAnsibleRepository", name, state, makeResourceOptions(options, id), false);
     }
 
     private static FederatedAnsibleRepositoryArgs makeArgs(FederatedAnsibleRepositoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -407,7 +407,7 @@ public class FederatedAnsibleRepository extends com.pulumi.resources.CustomResou
         return args == null ? FederatedAnsibleRepositoryArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -423,7 +423,7 @@ public class FederatedAnsibleRepository extends com.pulumi.resources.CustomResou
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static FederatedAnsibleRepository get(String name, Output<String> id, @Nullable FederatedAnsibleRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static FederatedAnsibleRepository get(java.lang.String name, Output<java.lang.String> id, @Nullable FederatedAnsibleRepositoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new FederatedAnsibleRepository(name, id, state, options);
     }
 }

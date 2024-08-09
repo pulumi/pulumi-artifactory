@@ -79,7 +79,7 @@ public class GlobalEnvironment extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public GlobalEnvironment(String name) {
+    public GlobalEnvironment(java.lang.String name) {
         this(name, GlobalEnvironmentArgs.Empty);
     }
     /**
@@ -87,7 +87,7 @@ public class GlobalEnvironment extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public GlobalEnvironment(String name, @Nullable GlobalEnvironmentArgs args) {
+    public GlobalEnvironment(java.lang.String name, @Nullable GlobalEnvironmentArgs args) {
         this(name, args, null);
     }
     /**
@@ -96,12 +96,12 @@ public class GlobalEnvironment extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public GlobalEnvironment(String name, @Nullable GlobalEnvironmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/globalEnvironment:GlobalEnvironment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public GlobalEnvironment(java.lang.String name, @Nullable GlobalEnvironmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("artifactory:index/globalEnvironment:GlobalEnvironment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private GlobalEnvironment(String name, Output<String> id, @Nullable GlobalEnvironmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/globalEnvironment:GlobalEnvironment", name, state, makeResourceOptions(options, id));
+    private GlobalEnvironment(java.lang.String name, Output<java.lang.String> id, @Nullable GlobalEnvironmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("artifactory:index/globalEnvironment:GlobalEnvironment", name, state, makeResourceOptions(options, id), false);
     }
 
     private static GlobalEnvironmentArgs makeArgs(@Nullable GlobalEnvironmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -111,7 +111,7 @@ public class GlobalEnvironment extends com.pulumi.resources.CustomResource {
         return args == null ? GlobalEnvironmentArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -127,7 +127,7 @@ public class GlobalEnvironment extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static GlobalEnvironment get(String name, Output<String> id, @Nullable GlobalEnvironmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static GlobalEnvironment get(java.lang.String name, Output<java.lang.String> id, @Nullable GlobalEnvironmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new GlobalEnvironment(name, id, state, options);
     }
 }
