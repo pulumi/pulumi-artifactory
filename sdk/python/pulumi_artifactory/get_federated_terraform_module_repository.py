@@ -248,7 +248,7 @@ def get_federated_terraform_module_repository(archive_browsing_enabled: Optional
                                               excludes_pattern: Optional[str] = None,
                                               includes_pattern: Optional[str] = None,
                                               key: Optional[str] = None,
-                                              members: Optional[Sequence[pulumi.InputType['GetFederatedTerraformModuleRepositoryMemberArgs']]] = None,
+                                              members: Optional[Sequence[Union['GetFederatedTerraformModuleRepositoryMemberArgs', 'GetFederatedTerraformModuleRepositoryMemberArgsDict']]] = None,
                                               notes: Optional[str] = None,
                                               priority_resolution: Optional[bool] = None,
                                               project_environments: Optional[Sequence[str]] = None,
@@ -271,7 +271,7 @@ def get_federated_terraform_module_repository(archive_browsing_enabled: Optional
 
     :param bool disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
     :param str key: the identity key of the repo.
-    :param Sequence[pulumi.InputType['GetFederatedTerraformModuleRepositoryMemberArgs']] members: The list of Federated members and must contain this repository URL (configured base URL
+    :param Sequence[Union['GetFederatedTerraformModuleRepositoryMemberArgs', 'GetFederatedTerraformModuleRepositoryMemberArgsDict']] members: The list of Federated members and must contain this repository URL (configured base URL
            `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
            Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
            to set up Federated repositories correctly.
@@ -335,7 +335,7 @@ def get_federated_terraform_module_repository_output(archive_browsing_enabled: O
                                                      excludes_pattern: Optional[pulumi.Input[Optional[str]]] = None,
                                                      includes_pattern: Optional[pulumi.Input[Optional[str]]] = None,
                                                      key: Optional[pulumi.Input[str]] = None,
-                                                     members: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetFederatedTerraformModuleRepositoryMemberArgs']]]]] = None,
+                                                     members: Optional[pulumi.Input[Optional[Sequence[Union['GetFederatedTerraformModuleRepositoryMemberArgs', 'GetFederatedTerraformModuleRepositoryMemberArgsDict']]]]] = None,
                                                      notes: Optional[pulumi.Input[Optional[str]]] = None,
                                                      priority_resolution: Optional[pulumi.Input[Optional[bool]]] = None,
                                                      project_environments: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
@@ -358,7 +358,7 @@ def get_federated_terraform_module_repository_output(archive_browsing_enabled: O
 
     :param bool disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
     :param str key: the identity key of the repo.
-    :param Sequence[pulumi.InputType['GetFederatedTerraformModuleRepositoryMemberArgs']] members: The list of Federated members and must contain this repository URL (configured base URL
+    :param Sequence[Union['GetFederatedTerraformModuleRepositoryMemberArgs', 'GetFederatedTerraformModuleRepositoryMemberArgsDict']] members: The list of Federated members and must contain this repository URL (configured base URL
            `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
            Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
            to set up Federated repositories correctly.

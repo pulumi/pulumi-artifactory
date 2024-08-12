@@ -138,7 +138,7 @@ class ReplicationConfig(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cron_exp: Optional[pulumi.Input[str]] = None,
                  enable_event_replication: Optional[pulumi.Input[bool]] = None,
-                 replications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicationConfigReplicationArgs']]]]] = None,
+                 replications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicationConfigReplicationArgs', 'ReplicationConfigReplicationArgsDict']]]]] = None,
                  repo_key: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -159,11 +159,11 @@ class ReplicationConfig(pulumi.CustomResource):
             repo_key=provider_test_source.key,
             cron_exp="0 0 * * * ?",
             enable_event_replication=True,
-            replications=[artifactory.ReplicationConfigReplicationArgs(
-                url="$var.artifactory_url",
-                username="$var.artifactory_username",
-                password="$var.artifactory_password",
-            )])
+            replications=[{
+                "url": "$var.artifactory_url",
+                "username": "$var.artifactory_username",
+                "password": "$var.artifactory_password",
+            }])
         ```
 
         ## Import
@@ -202,11 +202,11 @@ class ReplicationConfig(pulumi.CustomResource):
             repo_key=provider_test_source.key,
             cron_exp="0 0 * * * ?",
             enable_event_replication=True,
-            replications=[artifactory.ReplicationConfigReplicationArgs(
-                url="$var.artifactory_url",
-                username="$var.artifactory_username",
-                password="$var.artifactory_password",
-            )])
+            replications=[{
+                "url": "$var.artifactory_url",
+                "username": "$var.artifactory_username",
+                "password": "$var.artifactory_password",
+            }])
         ```
 
         ## Import
@@ -234,7 +234,7 @@ class ReplicationConfig(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cron_exp: Optional[pulumi.Input[str]] = None,
                  enable_event_replication: Optional[pulumi.Input[bool]] = None,
-                 replications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicationConfigReplicationArgs']]]]] = None,
+                 replications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicationConfigReplicationArgs', 'ReplicationConfigReplicationArgsDict']]]]] = None,
                  repo_key: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -265,7 +265,7 @@ class ReplicationConfig(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             cron_exp: Optional[pulumi.Input[str]] = None,
             enable_event_replication: Optional[pulumi.Input[bool]] = None,
-            replications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicationConfigReplicationArgs']]]]] = None,
+            replications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicationConfigReplicationArgs', 'ReplicationConfigReplicationArgsDict']]]]] = None,
             repo_key: Optional[pulumi.Input[str]] = None) -> 'ReplicationConfig':
         """
         Get an existing ReplicationConfig resource's state with the given name, id, and optional extra

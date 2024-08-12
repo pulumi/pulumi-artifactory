@@ -154,7 +154,7 @@ class PushReplication(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cron_exp: Optional[pulumi.Input[str]] = None,
                  enable_event_replication: Optional[pulumi.Input[bool]] = None,
-                 replications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PushReplicationReplicationArgs']]]]] = None,
+                 replications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PushReplicationReplicationArgs', 'PushReplicationReplicationArgsDict']]]]] = None,
                  repo_key: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -189,12 +189,12 @@ class PushReplication(pulumi.CustomResource):
             repo_key=provider_test_source.key,
             cron_exp="0 0 * * * ?",
             enable_event_replication=True,
-            replications=[artifactory.PushReplicationReplicationArgs(
-                url=provider_test_dest.key.apply(lambda key: f"{artifactory_url}/{key}"),
-                username="$var.artifactory_username",
-                password="$var.artifactory_password",
-                enabled=True,
-            )])
+            replications=[{
+                "url": provider_test_dest.key.apply(lambda key: f"{artifactory_url}/{key}"),
+                "username": "$var.artifactory_username",
+                "password": "$var.artifactory_password",
+                "enabled": True,
+            }])
         ```
 
         ## Import
@@ -249,12 +249,12 @@ class PushReplication(pulumi.CustomResource):
             repo_key=provider_test_source.key,
             cron_exp="0 0 * * * ?",
             enable_event_replication=True,
-            replications=[artifactory.PushReplicationReplicationArgs(
-                url=provider_test_dest.key.apply(lambda key: f"{artifactory_url}/{key}"),
-                username="$var.artifactory_username",
-                password="$var.artifactory_password",
-                enabled=True,
-            )])
+            replications=[{
+                "url": provider_test_dest.key.apply(lambda key: f"{artifactory_url}/{key}"),
+                "username": "$var.artifactory_username",
+                "password": "$var.artifactory_password",
+                "enabled": True,
+            }])
         ```
 
         ## Import
@@ -282,7 +282,7 @@ class PushReplication(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cron_exp: Optional[pulumi.Input[str]] = None,
                  enable_event_replication: Optional[pulumi.Input[bool]] = None,
-                 replications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PushReplicationReplicationArgs']]]]] = None,
+                 replications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PushReplicationReplicationArgs', 'PushReplicationReplicationArgsDict']]]]] = None,
                  repo_key: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -313,7 +313,7 @@ class PushReplication(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             cron_exp: Optional[pulumi.Input[str]] = None,
             enable_event_replication: Optional[pulumi.Input[bool]] = None,
-            replications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PushReplicationReplicationArgs']]]]] = None,
+            replications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PushReplicationReplicationArgs', 'PushReplicationReplicationArgsDict']]]]] = None,
             repo_key: Optional[pulumi.Input[str]] = None) -> 'PushReplication':
         """
         Get an existing PushReplication resource's state with the given name, id, and optional extra

@@ -163,7 +163,7 @@ class OauthSettings(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allow_user_to_access_profile: Optional[pulumi.Input[bool]] = None,
                  enable: Optional[pulumi.Input[bool]] = None,
-                 oauth_providers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OauthSettingsOauthProviderArgs']]]]] = None,
+                 oauth_providers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OauthSettingsOauthProviderArgs', 'OauthSettingsOauthProviderArgsDict']]]]] = None,
                  persist_users: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
@@ -184,16 +184,16 @@ class OauthSettings(pulumi.CustomResource):
             enable=True,
             persist_users=True,
             allow_user_to_access_profile=True,
-            oauth_providers=[artifactory.OauthSettingsOauthProviderArgs(
-                name="okta",
-                enabled=False,
-                type="openId",
-                client_id="foo",
-                client_secret="bar",
-                api_url="https://organization.okta.com/oauth2/v1/userinfo",
-                auth_url="https://organization.okta.com/oauth2/v1/authorize",
-                token_url="https://organization.okta.com/oauth2/v1/token",
-            )])
+            oauth_providers=[{
+                "name": "okta",
+                "enabled": False,
+                "type": "openId",
+                "client_id": "foo",
+                "client_secret": "bar",
+                "api_url": "https://organization.okta.com/oauth2/v1/userinfo",
+                "auth_url": "https://organization.okta.com/oauth2/v1/authorize",
+                "token_url": "https://organization.okta.com/oauth2/v1/token",
+            }])
         ```
 
         ## Import
@@ -211,7 +211,7 @@ class OauthSettings(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_user_to_access_profile: Allow persisted users to access their profile.  Default value is `false`.
         :param pulumi.Input[bool] enable: Enable OAuth SSO.  Default value is `true`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OauthSettingsOauthProviderArgs']]]] oauth_providers: OAuth provider settings block. Multiple blocks can be defined, at least one is required.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OauthSettingsOauthProviderArgs', 'OauthSettingsOauthProviderArgsDict']]]] oauth_providers: OAuth provider settings block. Multiple blocks can be defined, at least one is required.
         :param pulumi.Input[bool] persist_users: Enable the creation of local Artifactory users.  Default value is `false`.
         """
         ...
@@ -238,16 +238,16 @@ class OauthSettings(pulumi.CustomResource):
             enable=True,
             persist_users=True,
             allow_user_to_access_profile=True,
-            oauth_providers=[artifactory.OauthSettingsOauthProviderArgs(
-                name="okta",
-                enabled=False,
-                type="openId",
-                client_id="foo",
-                client_secret="bar",
-                api_url="https://organization.okta.com/oauth2/v1/userinfo",
-                auth_url="https://organization.okta.com/oauth2/v1/authorize",
-                token_url="https://organization.okta.com/oauth2/v1/token",
-            )])
+            oauth_providers=[{
+                "name": "okta",
+                "enabled": False,
+                "type": "openId",
+                "client_id": "foo",
+                "client_secret": "bar",
+                "api_url": "https://organization.okta.com/oauth2/v1/userinfo",
+                "auth_url": "https://organization.okta.com/oauth2/v1/authorize",
+                "token_url": "https://organization.okta.com/oauth2/v1/token",
+            }])
         ```
 
         ## Import
@@ -278,7 +278,7 @@ class OauthSettings(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allow_user_to_access_profile: Optional[pulumi.Input[bool]] = None,
                  enable: Optional[pulumi.Input[bool]] = None,
-                 oauth_providers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OauthSettingsOauthProviderArgs']]]]] = None,
+                 oauth_providers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OauthSettingsOauthProviderArgs', 'OauthSettingsOauthProviderArgsDict']]]]] = None,
                  persist_users: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -307,7 +307,7 @@ class OauthSettings(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             allow_user_to_access_profile: Optional[pulumi.Input[bool]] = None,
             enable: Optional[pulumi.Input[bool]] = None,
-            oauth_providers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OauthSettingsOauthProviderArgs']]]]] = None,
+            oauth_providers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OauthSettingsOauthProviderArgs', 'OauthSettingsOauthProviderArgsDict']]]]] = None,
             persist_users: Optional[pulumi.Input[bool]] = None) -> 'OauthSettings':
         """
         Get an existing OauthSettings resource's state with the given name, id, and optional extra
@@ -318,7 +318,7 @@ class OauthSettings(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_user_to_access_profile: Allow persisted users to access their profile.  Default value is `false`.
         :param pulumi.Input[bool] enable: Enable OAuth SSO.  Default value is `true`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OauthSettingsOauthProviderArgs']]]] oauth_providers: OAuth provider settings block. Multiple blocks can be defined, at least one is required.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OauthSettingsOauthProviderArgs', 'OauthSettingsOauthProviderArgsDict']]]] oauth_providers: OAuth provider settings block. Multiple blocks can be defined, at least one is required.
         :param pulumi.Input[bool] persist_users: Enable the creation of local Artifactory users.  Default value is `false`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

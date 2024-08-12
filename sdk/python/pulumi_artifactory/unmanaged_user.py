@@ -320,7 +320,7 @@ class UnmanagedUser(pulumi.CustomResource):
                  internal_password_disabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
-                 password_policy: Optional[pulumi.Input[pulumi.InputType['UnmanagedUserPasswordPolicyArgs']]] = None,
+                 password_policy: Optional[pulumi.Input[Union['UnmanagedUserPasswordPolicyArgs', 'UnmanagedUserPasswordPolicyArgsDict']]] = None,
                  profile_updatable: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
@@ -430,7 +430,7 @@ class UnmanagedUser(pulumi.CustomResource):
                  internal_password_disabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
-                 password_policy: Optional[pulumi.Input[pulumi.InputType['UnmanagedUserPasswordPolicyArgs']]] = None,
+                 password_policy: Optional[pulumi.Input[Union['UnmanagedUserPasswordPolicyArgs', 'UnmanagedUserPasswordPolicyArgsDict']]] = None,
                  profile_updatable: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -471,7 +471,7 @@ class UnmanagedUser(pulumi.CustomResource):
             internal_password_disabled: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
             password: Optional[pulumi.Input[str]] = None,
-            password_policy: Optional[pulumi.Input[pulumi.InputType['UnmanagedUserPasswordPolicyArgs']]] = None,
+            password_policy: Optional[pulumi.Input[Union['UnmanagedUserPasswordPolicyArgs', 'UnmanagedUserPasswordPolicyArgsDict']]] = None,
             profile_updatable: Optional[pulumi.Input[bool]] = None) -> 'UnmanagedUser':
         """
         Get an existing UnmanagedUser resource's state with the given name, id, and optional extra
