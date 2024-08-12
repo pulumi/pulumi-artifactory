@@ -690,7 +690,7 @@ class FederatedPypiRepository(pulumi.CustomResource):
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
                  includes_pattern: Optional[pulumi.Input[str]] = None,
                  key: Optional[pulumi.Input[str]] = None,
-                 members: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FederatedPypiRepositoryMemberArgs']]]]] = None,
+                 members: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FederatedPypiRepositoryMemberArgs', 'FederatedPypiRepositoryMemberArgsDict']]]]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
                  priority_resolution: Optional[pulumi.Input[bool]] = None,
                  project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -712,14 +712,14 @@ class FederatedPypiRepository(pulumi.CustomResource):
         terraform_federated_test_pypi_repo = artifactory.FederatedPypiRepository("terraform-federated-test-pypi-repo",
             key="terraform-federated-test-pypi-repo",
             members=[
-                artifactory.FederatedPypiRepositoryMemberArgs(
-                    url="http://tempurl.org/artifactory/terraform-federated-test-pypi-repo",
-                    enabled=True,
-                ),
-                artifactory.FederatedPypiRepositoryMemberArgs(
-                    url="http://tempurl2.org/artifactory/terraform-federated-test-pypi-repo-2",
-                    enabled=True,
-                ),
+                {
+                    "url": "http://tempurl.org/artifactory/terraform-federated-test-pypi-repo",
+                    "enabled": True,
+                },
+                {
+                    "url": "http://tempurl2.org/artifactory/terraform-federated-test-pypi-repo-2",
+                    "enabled": True,
+                },
             ])
         ```
 
@@ -748,7 +748,7 @@ class FederatedPypiRepository(pulumi.CustomResource):
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
                used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[str] key: the identity key of the repo.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FederatedPypiRepositoryMemberArgs']]]] members: The list of Federated members and must contain this repository URL (configured base URL
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FederatedPypiRepositoryMemberArgs', 'FederatedPypiRepositoryMemberArgsDict']]]] members: The list of Federated members and must contain this repository URL (configured base URL
                `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
                Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
                to set up Federated repositories correctly.
@@ -780,14 +780,14 @@ class FederatedPypiRepository(pulumi.CustomResource):
         terraform_federated_test_pypi_repo = artifactory.FederatedPypiRepository("terraform-federated-test-pypi-repo",
             key="terraform-federated-test-pypi-repo",
             members=[
-                artifactory.FederatedPypiRepositoryMemberArgs(
-                    url="http://tempurl.org/artifactory/terraform-federated-test-pypi-repo",
-                    enabled=True,
-                ),
-                artifactory.FederatedPypiRepositoryMemberArgs(
-                    url="http://tempurl2.org/artifactory/terraform-federated-test-pypi-repo-2",
-                    enabled=True,
-                ),
+                {
+                    "url": "http://tempurl.org/artifactory/terraform-federated-test-pypi-repo",
+                    "enabled": True,
+                },
+                {
+                    "url": "http://tempurl2.org/artifactory/terraform-federated-test-pypi-repo-2",
+                    "enabled": True,
+                },
             ])
         ```
 
@@ -824,7 +824,7 @@ class FederatedPypiRepository(pulumi.CustomResource):
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
                  includes_pattern: Optional[pulumi.Input[str]] = None,
                  key: Optional[pulumi.Input[str]] = None,
-                 members: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FederatedPypiRepositoryMemberArgs']]]]] = None,
+                 members: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FederatedPypiRepositoryMemberArgs', 'FederatedPypiRepositoryMemberArgsDict']]]]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
                  priority_resolution: Optional[pulumi.Input[bool]] = None,
                  project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -886,7 +886,7 @@ class FederatedPypiRepository(pulumi.CustomResource):
             excludes_pattern: Optional[pulumi.Input[str]] = None,
             includes_pattern: Optional[pulumi.Input[str]] = None,
             key: Optional[pulumi.Input[str]] = None,
-            members: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FederatedPypiRepositoryMemberArgs']]]]] = None,
+            members: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FederatedPypiRepositoryMemberArgs', 'FederatedPypiRepositoryMemberArgsDict']]]]] = None,
             notes: Optional[pulumi.Input[str]] = None,
             package_type: Optional[pulumi.Input[str]] = None,
             priority_resolution: Optional[pulumi.Input[bool]] = None,
@@ -918,7 +918,7 @@ class FederatedPypiRepository(pulumi.CustomResource):
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
                used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[str] key: the identity key of the repo.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FederatedPypiRepositoryMemberArgs']]]] members: The list of Federated members and must contain this repository URL (configured base URL
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FederatedPypiRepositoryMemberArgs', 'FederatedPypiRepositoryMemberArgsDict']]]] members: The list of Federated members and must contain this repository URL (configured base URL
                `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
                Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
                to set up Federated repositories correctly.

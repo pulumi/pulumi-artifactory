@@ -44,7 +44,7 @@ import (
 //				return err
 //			}
 //			_, err = artifactory.NewKeypair(ctx, "some-keypairGPG1", &artifactory.KeypairArgs{
-//				PairName:   pulumi.String(fmt.Sprintf("some-keypair%v", randid.Id)),
+//				PairName:   pulumi.Sprintf("some-keypair%v", randid.Id),
 //				PairType:   pulumi.String("GPG"),
 //				Alias:      pulumi.String("foo-alias1"),
 //				PrivateKey: pulumi.String(invokeFile.Result),
@@ -66,7 +66,7 @@ import (
 //				return err
 //			}
 //			_, err = artifactory.NewKeypair(ctx, "some-keypairGPG2", &artifactory.KeypairArgs{
-//				PairName:   pulumi.String(fmt.Sprintf("some-keypair4%v", randid.Id)),
+//				PairName:   pulumi.Sprintf("some-keypair4%v", randid.Id),
 //				PairType:   pulumi.String("GPG"),
 //				Alias:      pulumi.String("foo-alias2"),
 //				PrivateKey: pulumi.String(invokeFile2.Result),
