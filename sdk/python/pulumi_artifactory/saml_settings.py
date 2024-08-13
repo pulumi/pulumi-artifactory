@@ -466,6 +466,8 @@ class SamlSettings(pulumi.CustomResource):
 
         ~>The `SamlSettings` resource utilizes endpoints which are blocked/removed in SaaS environments (i.e. in Artifactory online), rendering this resource incompatible with Artifactory SaaS environments.
 
+        !>This resource is deprecated in favor of platform_saml_settings resource in the Platform provider.
+
         ## Example Usage
 
         ```python
@@ -525,6 +527,8 @@ class SamlSettings(pulumi.CustomResource):
         Only a single `SamlSettings` resource is meant to be defined.
 
         ~>The `SamlSettings` resource utilizes endpoints which are blocked/removed in SaaS environments (i.e. in Artifactory online), rendering this resource incompatible with Artifactory SaaS environments.
+
+        !>This resource is deprecated in favor of platform_saml_settings resource in the Platform provider.
 
         ## Example Usage
 

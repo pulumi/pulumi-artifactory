@@ -14,6 +14,8 @@ import (
 
 // Provides an Artifactory custom webhook resource. This can be used to register and manage Artifactory webhook subscription which enables you to be notified or notify other users when such events take place in Artifactory.
 //
+// !>This resource is being deprecated and replaced by `DestinationCustomWebhook` resource.
+//
 // ## Example Usage
 //
 // ```go
