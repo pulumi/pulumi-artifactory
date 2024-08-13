@@ -16,6 +16,8 @@ namespace Pulumi.Artifactory
     /// 
     /// ~&gt;The `artifactory.SamlSettings` resource utilizes endpoints which are blocked/removed in SaaS environments (i.e. in Artifactory online), rendering this resource incompatible with Artifactory SaaS environments.
     /// 
+    /// !&gt;This resource is deprecated in favor of platform_saml_settings resource in the Platform provider.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp

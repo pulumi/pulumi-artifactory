@@ -18,6 +18,8 @@ import (
 //
 // ~>The `SamlSettings` resource utilizes endpoints which are blocked/removed in SaaS environments (i.e. in Artifactory online), rendering this resource incompatible with Artifactory SaaS environments.
 //
+// !>This resource is deprecated in favor of platformSamlSettings resource in the Platform provider.
+//
 // ## Example Usage
 //
 // ```go

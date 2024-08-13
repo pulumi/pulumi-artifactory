@@ -170,7 +170,7 @@ class PermissionTarget(pulumi.CustomResource):
         """
         Provides an Artifactory permission target resource. This can be used to create and manage Artifactory permission targets.
 
-        > This resource has been deprecated in favor of platform_permission resource.
+        !>This resource has been deprecated in favor of platform_permission resource.
 
         ## Example Usage
 
@@ -294,7 +294,7 @@ class PermissionTarget(pulumi.CustomResource):
         """
         Provides an Artifactory permission target resource. This can be used to create and manage Artifactory permission targets.
 
-        > This resource has been deprecated in favor of platform_permission resource.
+        !>This resource has been deprecated in favor of platform_permission resource.
 
         ## Example Usage
 
