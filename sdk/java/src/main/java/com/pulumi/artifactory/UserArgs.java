@@ -95,14 +95,14 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Username for user. May contain lowercase letters, numbers and symbols: &#39;.-_{@literal @}' for self-hosted. For SaaS, &#39;+&#39; is also allowed.
+     * Username for user. May contain lowercase letters, numbers and symbols: &#39;.-_{@literal @}&#39; for self-hosted. For SaaS, &#39;+&#39; is also allowed.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Username for user. May contain lowercase letters, numbers and symbols: &#39;.-_{@literal @}' for self-hosted. For SaaS, &#39;+&#39; is also allowed.
+     * @return Username for user. May contain lowercase letters, numbers and symbols: &#39;.-_{@literal @}&#39; for self-hosted. For SaaS, &#39;+&#39; is also allowed.
      * 
      */
     public Optional<Output<String>> name() {
@@ -302,7 +302,7 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Username for user. May contain lowercase letters, numbers and symbols: &#39;.-_{@literal @}' for self-hosted. For SaaS, &#39;+&#39; is also allowed.
+         * @param name Username for user. May contain lowercase letters, numbers and symbols: &#39;.-_{@literal @}&#39; for self-hosted. For SaaS, &#39;+&#39; is also allowed.
          * 
          * @return builder
          * 
@@ -313,7 +313,7 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Username for user. May contain lowercase letters, numbers and symbols: &#39;.-_{@literal @}' for self-hosted. For SaaS, &#39;+&#39; is also allowed.
+         * @param name Username for user. May contain lowercase letters, numbers and symbols: &#39;.-_{@literal @}&#39; for self-hosted. For SaaS, &#39;+&#39; is also allowed.
          * 
          * @return builder
          * 
