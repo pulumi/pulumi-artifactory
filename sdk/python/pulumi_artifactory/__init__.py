@@ -259,6 +259,7 @@ from .mail_server import *
 from .managed_user import *
 from .maven_repository import *
 from .oauth_settings import *
+from .package_cleanup_policy import *
 from .password_expiration_policy import *
 from .permission_target import *
 from .property_set import *
@@ -1248,6 +1249,14 @@ _utilities.register(
   "fqn": "pulumi_artifactory",
   "classes": {
    "artifactory:index/oauthSettings:OauthSettings": "OauthSettings"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/packageCleanupPolicy",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/packageCleanupPolicy:PackageCleanupPolicy": "PackageCleanupPolicy"
   }
  },
  {

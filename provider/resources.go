@@ -110,10 +110,11 @@ func Provider() tfbridge.ProviderInfo {
 				ComputeID: computeIDField("name"),
 				Docs:      &tfbridge.DocInfo{AllowMissing: true},
 			},
-			"artifactory_user_lock_policy":           {ComputeID: computeIDField("name")},
 			"artifactory_certificate":                {ComputeID: computeIDField("alias")},
 			"artifactory_keypair":                    {ComputeID: computeIDField("pairName")},
+			"artifactory_package_cleanup_policy":     {ComputeID: computeIDField("key")},
 			"artifactory_password_expiration_policy": {ComputeID: computeIDField("name")},
+			"artifactory_user_lock_policy":           {ComputeID: computeIDField("name")},
 			"artifactory_artifact": {ComputeID: func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
 				path, err := computeIDField("path")(ctx, state)
 				if err != nil {

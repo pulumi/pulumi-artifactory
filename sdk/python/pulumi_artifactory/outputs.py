@@ -80,6 +80,7 @@ __all__ = [
     'LocalRepositoryMultiReplicationReplication',
     'ManagedUserPasswordPolicy',
     'OauthSettingsOauthProvider',
+    'PackageCleanupPolicySearchCriteria',
     'PermissionTargetBuild',
     'PermissionTargetBuildActions',
     'PermissionTargetBuildActionsGroup',
@@ -4311,6 +4312,159 @@ class OauthSettingsOauthProvider(dict):
         Enable the Artifactory OAuth provider.  Default value is `true`.
         """
         return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
+class PackageCleanupPolicySearchCriteria(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "includedPackages":
+            suggest = "included_packages"
+        elif key == "packageTypes":
+            suggest = "package_types"
+        elif key == "createdBeforeInMonths":
+            suggest = "created_before_in_months"
+        elif key == "excludedPackages":
+            suggest = "excluded_packages"
+        elif key == "excludedRepos":
+            suggest = "excluded_repos"
+        elif key == "includeAllProjects":
+            suggest = "include_all_projects"
+        elif key == "includedProjects":
+            suggest = "included_projects"
+        elif key == "keepLastNVersions":
+            suggest = "keep_last_n_versions"
+        elif key == "lastDownloadedBeforeInMonths":
+            suggest = "last_downloaded_before_in_months"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PackageCleanupPolicySearchCriteria. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PackageCleanupPolicySearchCriteria.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PackageCleanupPolicySearchCriteria.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 included_packages: Sequence[str],
+                 package_types: Sequence[str],
+                 repos: Sequence[str],
+                 created_before_in_months: Optional[int] = None,
+                 excluded_packages: Optional[Sequence[str]] = None,
+                 excluded_repos: Optional[Sequence[str]] = None,
+                 include_all_projects: Optional[bool] = None,
+                 included_projects: Optional[Sequence[str]] = None,
+                 keep_last_n_versions: Optional[int] = None,
+                 last_downloaded_before_in_months: Optional[int] = None):
+        """
+        :param Sequence[str] included_packages: Specify a pattern for a package name or an explicit package name. It accept only single element which can be specific package or pattern, and for including all packages use `**`. Example: `included_packages = ["**"]`
+        :param Sequence[str] package_types: Types of packages to be removed. Support: conan, docker, generic, gradle, maven, npm, nuget, rpm.
+        :param Sequence[str] repos: Specify patterns for repository names or explicit repository names. For including all repos use `**`. Example: `repos = ["**"]`
+        :param int created_before_in_months: Remove packages based on when they were created.
+        :param Sequence[str] excluded_packages: Specify explicit package names that you want excluded from the policy.
+        :param Sequence[str] excluded_repos: Specify patterns for repository names or explicit repository names that you want excluded from the policy. It can not accept any pattern only list of specific repositories.
+        :param Sequence[str] included_projects: List of projects name(s) to apply the policy to.
+        :param int keep_last_n_versions: Select the number of latest version to keep. The policy will remove all versions (based on creation date) prior to the selected number. Some package types may not be supported. [Learn more](https://jfrog.com/help/r/jfrog-platform-administration-documentation/retention-policies/package-types-coverage)
+        :param int last_downloaded_before_in_months: Remove packages based on when they were last downloaded.
+        """
+        pulumi.set(__self__, "included_packages", included_packages)
+        pulumi.set(__self__, "package_types", package_types)
+        pulumi.set(__self__, "repos", repos)
+        if created_before_in_months is not None:
+            pulumi.set(__self__, "created_before_in_months", created_before_in_months)
+        if excluded_packages is not None:
+            pulumi.set(__self__, "excluded_packages", excluded_packages)
+        if excluded_repos is not None:
+            pulumi.set(__self__, "excluded_repos", excluded_repos)
+        if include_all_projects is not None:
+            pulumi.set(__self__, "include_all_projects", include_all_projects)
+        if included_projects is not None:
+            pulumi.set(__self__, "included_projects", included_projects)
+        if keep_last_n_versions is not None:
+            pulumi.set(__self__, "keep_last_n_versions", keep_last_n_versions)
+        if last_downloaded_before_in_months is not None:
+            pulumi.set(__self__, "last_downloaded_before_in_months", last_downloaded_before_in_months)
+
+    @property
+    @pulumi.getter(name="includedPackages")
+    def included_packages(self) -> Sequence[str]:
+        """
+        Specify a pattern for a package name or an explicit package name. It accept only single element which can be specific package or pattern, and for including all packages use `**`. Example: `included_packages = ["**"]`
+        """
+        return pulumi.get(self, "included_packages")
+
+    @property
+    @pulumi.getter(name="packageTypes")
+    def package_types(self) -> Sequence[str]:
+        """
+        Types of packages to be removed. Support: conan, docker, generic, gradle, maven, npm, nuget, rpm.
+        """
+        return pulumi.get(self, "package_types")
+
+    @property
+    @pulumi.getter
+    def repos(self) -> Sequence[str]:
+        """
+        Specify patterns for repository names or explicit repository names. For including all repos use `**`. Example: `repos = ["**"]`
+        """
+        return pulumi.get(self, "repos")
+
+    @property
+    @pulumi.getter(name="createdBeforeInMonths")
+    def created_before_in_months(self) -> Optional[int]:
+        """
+        Remove packages based on when they were created.
+        """
+        return pulumi.get(self, "created_before_in_months")
+
+    @property
+    @pulumi.getter(name="excludedPackages")
+    def excluded_packages(self) -> Optional[Sequence[str]]:
+        """
+        Specify explicit package names that you want excluded from the policy.
+        """
+        return pulumi.get(self, "excluded_packages")
+
+    @property
+    @pulumi.getter(name="excludedRepos")
+    def excluded_repos(self) -> Optional[Sequence[str]]:
+        """
+        Specify patterns for repository names or explicit repository names that you want excluded from the policy. It can not accept any pattern only list of specific repositories.
+        """
+        return pulumi.get(self, "excluded_repos")
+
+    @property
+    @pulumi.getter(name="includeAllProjects")
+    def include_all_projects(self) -> Optional[bool]:
+        return pulumi.get(self, "include_all_projects")
+
+    @property
+    @pulumi.getter(name="includedProjects")
+    def included_projects(self) -> Optional[Sequence[str]]:
+        """
+        List of projects name(s) to apply the policy to.
+        """
+        return pulumi.get(self, "included_projects")
+
+    @property
+    @pulumi.getter(name="keepLastNVersions")
+    def keep_last_n_versions(self) -> Optional[int]:
+        """
+        Select the number of latest version to keep. The policy will remove all versions (based on creation date) prior to the selected number. Some package types may not be supported. [Learn more](https://jfrog.com/help/r/jfrog-platform-administration-documentation/retention-policies/package-types-coverage)
+        """
+        return pulumi.get(self, "keep_last_n_versions")
+
+    @property
+    @pulumi.getter(name="lastDownloadedBeforeInMonths")
+    def last_downloaded_before_in_months(self) -> Optional[int]:
+        """
+        Remove packages based on when they were last downloaded.
+        """
+        return pulumi.get(self, "last_downloaded_before_in_months")
 
 
 @pulumi.output_type

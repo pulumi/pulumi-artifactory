@@ -243,6 +243,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &MavenRepository{}
 	case "artifactory:index/oauthSettings:OauthSettings":
 		r = &OauthSettings{}
+	case "artifactory:index/packageCleanupPolicy:PackageCleanupPolicy":
+		r = &PackageCleanupPolicy{}
 	case "artifactory:index/passwordExpirationPolicy:PasswordExpirationPolicy":
 		r = &PasswordExpirationPolicy{}
 	case "artifactory:index/permissionTarget:PermissionTarget":
@@ -1005,6 +1007,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"artifactory",
 		"index/oauthSettings",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/packageCleanupPolicy",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

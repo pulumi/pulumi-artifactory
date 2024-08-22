@@ -9608,6 +9608,310 @@ func (o OauthSettingsOauthProviderArrayOutput) Index(i pulumi.IntInput) OauthSet
 	}).(OauthSettingsOauthProviderOutput)
 }
 
+type PackageCleanupPolicySearchCriteria struct {
+	// Remove packages based on when they were created.
+	CreatedBeforeInMonths *int `pulumi:"createdBeforeInMonths"`
+	// Specify explicit package names that you want excluded from the policy.
+	ExcludedPackages []string `pulumi:"excludedPackages"`
+	// Specify patterns for repository names or explicit repository names that you want excluded from the policy. It can not accept any pattern only list of specific repositories.
+	ExcludedRepos      []string `pulumi:"excludedRepos"`
+	IncludeAllProjects *bool    `pulumi:"includeAllProjects"`
+	// Specify a pattern for a package name or an explicit package name. It accept only single element which can be specific package or pattern, and for including all packages use `**`. Example: `includedPackages = ["**"]`
+	IncludedPackages []string `pulumi:"includedPackages"`
+	// List of projects name(s) to apply the policy to.
+	IncludedProjects []string `pulumi:"includedProjects"`
+	// Select the number of latest version to keep. The policy will remove all versions (based on creation date) prior to the selected number. Some package types may not be supported. [Learn more](https://jfrog.com/help/r/jfrog-platform-administration-documentation/retention-policies/package-types-coverage)
+	KeepLastNVersions *int `pulumi:"keepLastNVersions"`
+	// Remove packages based on when they were last downloaded.
+	LastDownloadedBeforeInMonths *int `pulumi:"lastDownloadedBeforeInMonths"`
+	// Types of packages to be removed. Support: conan, docker, generic, gradle, maven, npm, nuget, rpm.
+	PackageTypes []string `pulumi:"packageTypes"`
+	// Specify patterns for repository names or explicit repository names. For including all repos use `**`. Example: `repos = ["**"]`
+	Repos []string `pulumi:"repos"`
+}
+
+// PackageCleanupPolicySearchCriteriaInput is an input type that accepts PackageCleanupPolicySearchCriteriaArgs and PackageCleanupPolicySearchCriteriaOutput values.
+// You can construct a concrete instance of `PackageCleanupPolicySearchCriteriaInput` via:
+//
+//	PackageCleanupPolicySearchCriteriaArgs{...}
+type PackageCleanupPolicySearchCriteriaInput interface {
+	pulumi.Input
+
+	ToPackageCleanupPolicySearchCriteriaOutput() PackageCleanupPolicySearchCriteriaOutput
+	ToPackageCleanupPolicySearchCriteriaOutputWithContext(context.Context) PackageCleanupPolicySearchCriteriaOutput
+}
+
+type PackageCleanupPolicySearchCriteriaArgs struct {
+	// Remove packages based on when they were created.
+	CreatedBeforeInMonths pulumi.IntPtrInput `pulumi:"createdBeforeInMonths"`
+	// Specify explicit package names that you want excluded from the policy.
+	ExcludedPackages pulumi.StringArrayInput `pulumi:"excludedPackages"`
+	// Specify patterns for repository names or explicit repository names that you want excluded from the policy. It can not accept any pattern only list of specific repositories.
+	ExcludedRepos      pulumi.StringArrayInput `pulumi:"excludedRepos"`
+	IncludeAllProjects pulumi.BoolPtrInput     `pulumi:"includeAllProjects"`
+	// Specify a pattern for a package name or an explicit package name. It accept only single element which can be specific package or pattern, and for including all packages use `**`. Example: `includedPackages = ["**"]`
+	IncludedPackages pulumi.StringArrayInput `pulumi:"includedPackages"`
+	// List of projects name(s) to apply the policy to.
+	IncludedProjects pulumi.StringArrayInput `pulumi:"includedProjects"`
+	// Select the number of latest version to keep. The policy will remove all versions (based on creation date) prior to the selected number. Some package types may not be supported. [Learn more](https://jfrog.com/help/r/jfrog-platform-administration-documentation/retention-policies/package-types-coverage)
+	KeepLastNVersions pulumi.IntPtrInput `pulumi:"keepLastNVersions"`
+	// Remove packages based on when they were last downloaded.
+	LastDownloadedBeforeInMonths pulumi.IntPtrInput `pulumi:"lastDownloadedBeforeInMonths"`
+	// Types of packages to be removed. Support: conan, docker, generic, gradle, maven, npm, nuget, rpm.
+	PackageTypes pulumi.StringArrayInput `pulumi:"packageTypes"`
+	// Specify patterns for repository names or explicit repository names. For including all repos use `**`. Example: `repos = ["**"]`
+	Repos pulumi.StringArrayInput `pulumi:"repos"`
+}
+
+func (PackageCleanupPolicySearchCriteriaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PackageCleanupPolicySearchCriteria)(nil)).Elem()
+}
+
+func (i PackageCleanupPolicySearchCriteriaArgs) ToPackageCleanupPolicySearchCriteriaOutput() PackageCleanupPolicySearchCriteriaOutput {
+	return i.ToPackageCleanupPolicySearchCriteriaOutputWithContext(context.Background())
+}
+
+func (i PackageCleanupPolicySearchCriteriaArgs) ToPackageCleanupPolicySearchCriteriaOutputWithContext(ctx context.Context) PackageCleanupPolicySearchCriteriaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PackageCleanupPolicySearchCriteriaOutput)
+}
+
+func (i PackageCleanupPolicySearchCriteriaArgs) ToPackageCleanupPolicySearchCriteriaPtrOutput() PackageCleanupPolicySearchCriteriaPtrOutput {
+	return i.ToPackageCleanupPolicySearchCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (i PackageCleanupPolicySearchCriteriaArgs) ToPackageCleanupPolicySearchCriteriaPtrOutputWithContext(ctx context.Context) PackageCleanupPolicySearchCriteriaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PackageCleanupPolicySearchCriteriaOutput).ToPackageCleanupPolicySearchCriteriaPtrOutputWithContext(ctx)
+}
+
+// PackageCleanupPolicySearchCriteriaPtrInput is an input type that accepts PackageCleanupPolicySearchCriteriaArgs, PackageCleanupPolicySearchCriteriaPtr and PackageCleanupPolicySearchCriteriaPtrOutput values.
+// You can construct a concrete instance of `PackageCleanupPolicySearchCriteriaPtrInput` via:
+//
+//	        PackageCleanupPolicySearchCriteriaArgs{...}
+//
+//	or:
+//
+//	        nil
+type PackageCleanupPolicySearchCriteriaPtrInput interface {
+	pulumi.Input
+
+	ToPackageCleanupPolicySearchCriteriaPtrOutput() PackageCleanupPolicySearchCriteriaPtrOutput
+	ToPackageCleanupPolicySearchCriteriaPtrOutputWithContext(context.Context) PackageCleanupPolicySearchCriteriaPtrOutput
+}
+
+type packageCleanupPolicySearchCriteriaPtrType PackageCleanupPolicySearchCriteriaArgs
+
+func PackageCleanupPolicySearchCriteriaPtr(v *PackageCleanupPolicySearchCriteriaArgs) PackageCleanupPolicySearchCriteriaPtrInput {
+	return (*packageCleanupPolicySearchCriteriaPtrType)(v)
+}
+
+func (*packageCleanupPolicySearchCriteriaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PackageCleanupPolicySearchCriteria)(nil)).Elem()
+}
+
+func (i *packageCleanupPolicySearchCriteriaPtrType) ToPackageCleanupPolicySearchCriteriaPtrOutput() PackageCleanupPolicySearchCriteriaPtrOutput {
+	return i.ToPackageCleanupPolicySearchCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (i *packageCleanupPolicySearchCriteriaPtrType) ToPackageCleanupPolicySearchCriteriaPtrOutputWithContext(ctx context.Context) PackageCleanupPolicySearchCriteriaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PackageCleanupPolicySearchCriteriaPtrOutput)
+}
+
+type PackageCleanupPolicySearchCriteriaOutput struct{ *pulumi.OutputState }
+
+func (PackageCleanupPolicySearchCriteriaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PackageCleanupPolicySearchCriteria)(nil)).Elem()
+}
+
+func (o PackageCleanupPolicySearchCriteriaOutput) ToPackageCleanupPolicySearchCriteriaOutput() PackageCleanupPolicySearchCriteriaOutput {
+	return o
+}
+
+func (o PackageCleanupPolicySearchCriteriaOutput) ToPackageCleanupPolicySearchCriteriaOutputWithContext(ctx context.Context) PackageCleanupPolicySearchCriteriaOutput {
+	return o
+}
+
+func (o PackageCleanupPolicySearchCriteriaOutput) ToPackageCleanupPolicySearchCriteriaPtrOutput() PackageCleanupPolicySearchCriteriaPtrOutput {
+	return o.ToPackageCleanupPolicySearchCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (o PackageCleanupPolicySearchCriteriaOutput) ToPackageCleanupPolicySearchCriteriaPtrOutputWithContext(ctx context.Context) PackageCleanupPolicySearchCriteriaPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PackageCleanupPolicySearchCriteria) *PackageCleanupPolicySearchCriteria {
+		return &v
+	}).(PackageCleanupPolicySearchCriteriaPtrOutput)
+}
+
+// Remove packages based on when they were created.
+func (o PackageCleanupPolicySearchCriteriaOutput) CreatedBeforeInMonths() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PackageCleanupPolicySearchCriteria) *int { return v.CreatedBeforeInMonths }).(pulumi.IntPtrOutput)
+}
+
+// Specify explicit package names that you want excluded from the policy.
+func (o PackageCleanupPolicySearchCriteriaOutput) ExcludedPackages() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PackageCleanupPolicySearchCriteria) []string { return v.ExcludedPackages }).(pulumi.StringArrayOutput)
+}
+
+// Specify patterns for repository names or explicit repository names that you want excluded from the policy. It can not accept any pattern only list of specific repositories.
+func (o PackageCleanupPolicySearchCriteriaOutput) ExcludedRepos() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PackageCleanupPolicySearchCriteria) []string { return v.ExcludedRepos }).(pulumi.StringArrayOutput)
+}
+
+func (o PackageCleanupPolicySearchCriteriaOutput) IncludeAllProjects() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PackageCleanupPolicySearchCriteria) *bool { return v.IncludeAllProjects }).(pulumi.BoolPtrOutput)
+}
+
+// Specify a pattern for a package name or an explicit package name. It accept only single element which can be specific package or pattern, and for including all packages use `**`. Example: `includedPackages = ["**"]`
+func (o PackageCleanupPolicySearchCriteriaOutput) IncludedPackages() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PackageCleanupPolicySearchCriteria) []string { return v.IncludedPackages }).(pulumi.StringArrayOutput)
+}
+
+// List of projects name(s) to apply the policy to.
+func (o PackageCleanupPolicySearchCriteriaOutput) IncludedProjects() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PackageCleanupPolicySearchCriteria) []string { return v.IncludedProjects }).(pulumi.StringArrayOutput)
+}
+
+// Select the number of latest version to keep. The policy will remove all versions (based on creation date) prior to the selected number. Some package types may not be supported. [Learn more](https://jfrog.com/help/r/jfrog-platform-administration-documentation/retention-policies/package-types-coverage)
+func (o PackageCleanupPolicySearchCriteriaOutput) KeepLastNVersions() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PackageCleanupPolicySearchCriteria) *int { return v.KeepLastNVersions }).(pulumi.IntPtrOutput)
+}
+
+// Remove packages based on when they were last downloaded.
+func (o PackageCleanupPolicySearchCriteriaOutput) LastDownloadedBeforeInMonths() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PackageCleanupPolicySearchCriteria) *int { return v.LastDownloadedBeforeInMonths }).(pulumi.IntPtrOutput)
+}
+
+// Types of packages to be removed. Support: conan, docker, generic, gradle, maven, npm, nuget, rpm.
+func (o PackageCleanupPolicySearchCriteriaOutput) PackageTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PackageCleanupPolicySearchCriteria) []string { return v.PackageTypes }).(pulumi.StringArrayOutput)
+}
+
+// Specify patterns for repository names or explicit repository names. For including all repos use `**`. Example: `repos = ["**"]`
+func (o PackageCleanupPolicySearchCriteriaOutput) Repos() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PackageCleanupPolicySearchCriteria) []string { return v.Repos }).(pulumi.StringArrayOutput)
+}
+
+type PackageCleanupPolicySearchCriteriaPtrOutput struct{ *pulumi.OutputState }
+
+func (PackageCleanupPolicySearchCriteriaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PackageCleanupPolicySearchCriteria)(nil)).Elem()
+}
+
+func (o PackageCleanupPolicySearchCriteriaPtrOutput) ToPackageCleanupPolicySearchCriteriaPtrOutput() PackageCleanupPolicySearchCriteriaPtrOutput {
+	return o
+}
+
+func (o PackageCleanupPolicySearchCriteriaPtrOutput) ToPackageCleanupPolicySearchCriteriaPtrOutputWithContext(ctx context.Context) PackageCleanupPolicySearchCriteriaPtrOutput {
+	return o
+}
+
+func (o PackageCleanupPolicySearchCriteriaPtrOutput) Elem() PackageCleanupPolicySearchCriteriaOutput {
+	return o.ApplyT(func(v *PackageCleanupPolicySearchCriteria) PackageCleanupPolicySearchCriteria {
+		if v != nil {
+			return *v
+		}
+		var ret PackageCleanupPolicySearchCriteria
+		return ret
+	}).(PackageCleanupPolicySearchCriteriaOutput)
+}
+
+// Remove packages based on when they were created.
+func (o PackageCleanupPolicySearchCriteriaPtrOutput) CreatedBeforeInMonths() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PackageCleanupPolicySearchCriteria) *int {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedBeforeInMonths
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specify explicit package names that you want excluded from the policy.
+func (o PackageCleanupPolicySearchCriteriaPtrOutput) ExcludedPackages() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PackageCleanupPolicySearchCriteria) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludedPackages
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specify patterns for repository names or explicit repository names that you want excluded from the policy. It can not accept any pattern only list of specific repositories.
+func (o PackageCleanupPolicySearchCriteriaPtrOutput) ExcludedRepos() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PackageCleanupPolicySearchCriteria) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludedRepos
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o PackageCleanupPolicySearchCriteriaPtrOutput) IncludeAllProjects() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PackageCleanupPolicySearchCriteria) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeAllProjects
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specify a pattern for a package name or an explicit package name. It accept only single element which can be specific package or pattern, and for including all packages use `**`. Example: `includedPackages = ["**"]`
+func (o PackageCleanupPolicySearchCriteriaPtrOutput) IncludedPackages() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PackageCleanupPolicySearchCriteria) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IncludedPackages
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of projects name(s) to apply the policy to.
+func (o PackageCleanupPolicySearchCriteriaPtrOutput) IncludedProjects() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PackageCleanupPolicySearchCriteria) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IncludedProjects
+	}).(pulumi.StringArrayOutput)
+}
+
+// Select the number of latest version to keep. The policy will remove all versions (based on creation date) prior to the selected number. Some package types may not be supported. [Learn more](https://jfrog.com/help/r/jfrog-platform-administration-documentation/retention-policies/package-types-coverage)
+func (o PackageCleanupPolicySearchCriteriaPtrOutput) KeepLastNVersions() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PackageCleanupPolicySearchCriteria) *int {
+		if v == nil {
+			return nil
+		}
+		return v.KeepLastNVersions
+	}).(pulumi.IntPtrOutput)
+}
+
+// Remove packages based on when they were last downloaded.
+func (o PackageCleanupPolicySearchCriteriaPtrOutput) LastDownloadedBeforeInMonths() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PackageCleanupPolicySearchCriteria) *int {
+		if v == nil {
+			return nil
+		}
+		return v.LastDownloadedBeforeInMonths
+	}).(pulumi.IntPtrOutput)
+}
+
+// Types of packages to be removed. Support: conan, docker, generic, gradle, maven, npm, nuget, rpm.
+func (o PackageCleanupPolicySearchCriteriaPtrOutput) PackageTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PackageCleanupPolicySearchCriteria) []string {
+		if v == nil {
+			return nil
+		}
+		return v.PackageTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specify patterns for repository names or explicit repository names. For including all repos use `**`. Example: `repos = ["**"]`
+func (o PackageCleanupPolicySearchCriteriaPtrOutput) Repos() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PackageCleanupPolicySearchCriteria) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Repos
+	}).(pulumi.StringArrayOutput)
+}
+
 type PermissionTargetBuild struct {
 	Actions *PermissionTargetBuildActions `pulumi:"actions"`
 	// The default value will be [] if nothing is supplied
@@ -34848,6 +35152,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedUserPasswordPolicyPtrInput)(nil)).Elem(), ManagedUserPasswordPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OauthSettingsOauthProviderInput)(nil)).Elem(), OauthSettingsOauthProviderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OauthSettingsOauthProviderArrayInput)(nil)).Elem(), OauthSettingsOauthProviderArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PackageCleanupPolicySearchCriteriaInput)(nil)).Elem(), PackageCleanupPolicySearchCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PackageCleanupPolicySearchCriteriaPtrInput)(nil)).Elem(), PackageCleanupPolicySearchCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PermissionTargetBuildInput)(nil)).Elem(), PermissionTargetBuildArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PermissionTargetBuildPtrInput)(nil)).Elem(), PermissionTargetBuildArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PermissionTargetBuildActionsInput)(nil)).Elem(), PermissionTargetBuildActionsArgs{})
@@ -35301,6 +35607,8 @@ func init() {
 	pulumi.RegisterOutputType(ManagedUserPasswordPolicyPtrOutput{})
 	pulumi.RegisterOutputType(OauthSettingsOauthProviderOutput{})
 	pulumi.RegisterOutputType(OauthSettingsOauthProviderArrayOutput{})
+	pulumi.RegisterOutputType(PackageCleanupPolicySearchCriteriaOutput{})
+	pulumi.RegisterOutputType(PackageCleanupPolicySearchCriteriaPtrOutput{})
 	pulumi.RegisterOutputType(PermissionTargetBuildOutput{})
 	pulumi.RegisterOutputType(PermissionTargetBuildPtrOutput{})
 	pulumi.RegisterOutputType(PermissionTargetBuildActionsOutput{})

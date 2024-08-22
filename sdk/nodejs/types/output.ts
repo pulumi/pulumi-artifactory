@@ -2469,6 +2469,46 @@ export interface OauthSettingsOauthProvider {
     type: string;
 }
 
+export interface PackageCleanupPolicySearchCriteria {
+    /**
+     * Remove packages based on when they were created.
+     */
+    createdBeforeInMonths?: number;
+    /**
+     * Specify explicit package names that you want excluded from the policy.
+     */
+    excludedPackages?: string[];
+    /**
+     * Specify patterns for repository names or explicit repository names that you want excluded from the policy. It can not accept any pattern only list of specific repositories.
+     */
+    excludedRepos?: string[];
+    includeAllProjects?: boolean;
+    /**
+     * Specify a pattern for a package name or an explicit package name. It accept only single element which can be specific package or pattern, and for including all packages use `**`. Example: `includedPackages = ["**"]`
+     */
+    includedPackages: string[];
+    /**
+     * List of projects name(s) to apply the policy to.
+     */
+    includedProjects?: string[];
+    /**
+     * Select the number of latest version to keep. The policy will remove all versions (based on creation date) prior to the selected number. Some package types may not be supported. [Learn more](https://jfrog.com/help/r/jfrog-platform-administration-documentation/retention-policies/package-types-coverage)
+     */
+    keepLastNVersions?: number;
+    /**
+     * Remove packages based on when they were last downloaded.
+     */
+    lastDownloadedBeforeInMonths?: number;
+    /**
+     * Types of packages to be removed. Support: conan, docker, generic, gradle, maven, npm, nuget, rpm.
+     */
+    packageTypes: string[];
+    /**
+     * Specify patterns for repository names or explicit repository names. For including all repos use `**`. Example: `repos = ["**"]`
+     */
+    repos: string[];
+}
+
 export interface PermissionTargetBuild {
     actions?: outputs.PermissionTargetBuildActions;
     /**
