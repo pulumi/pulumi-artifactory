@@ -270,6 +270,7 @@
         "managedUser.ts",
         "mavenRepository.ts",
         "oauthSettings.ts",
+        "packageCleanupPolicy.ts",
         "passwordExpirationPolicy.ts",
         "permissionTarget.ts",
         "propertySet.ts",

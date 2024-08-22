@@ -1275,6 +1275,11 @@ export type OauthSettings = import("./oauthSettings").OauthSettings;
 export const OauthSettings: typeof import("./oauthSettings").OauthSettings = null as any;
 utilities.lazyLoad(exports, ["OauthSettings"], () => require("./oauthSettings"));
 
+export { PackageCleanupPolicyArgs, PackageCleanupPolicyState } from "./packageCleanupPolicy";
+export type PackageCleanupPolicy = import("./packageCleanupPolicy").PackageCleanupPolicy;
+export const PackageCleanupPolicy: typeof import("./packageCleanupPolicy").PackageCleanupPolicy = null as any;
+utilities.lazyLoad(exports, ["PackageCleanupPolicy"], () => require("./packageCleanupPolicy"));
+
 export { PasswordExpirationPolicyArgs, PasswordExpirationPolicyState } from "./passwordExpirationPolicy";
 export type PasswordExpirationPolicy = import("./passwordExpirationPolicy").PasswordExpirationPolicy;
 export const PasswordExpirationPolicy: typeof import("./passwordExpirationPolicy").PasswordExpirationPolicy = null as any;
@@ -1961,6 +1966,8 @@ const _module = {
                 return new MavenRepository(name, <any>undefined, { urn })
             case "artifactory:index/oauthSettings:OauthSettings":
                 return new OauthSettings(name, <any>undefined, { urn })
+            case "artifactory:index/packageCleanupPolicy:PackageCleanupPolicy":
+                return new PackageCleanupPolicy(name, <any>undefined, { urn })
             case "artifactory:index/passwordExpirationPolicy:PasswordExpirationPolicy":
                 return new PasswordExpirationPolicy(name, <any>undefined, { urn })
             case "artifactory:index/permissionTarget:PermissionTarget":
@@ -2255,6 +2262,7 @@ pulumi.runtime.registerResourceModule("artifactory", "index/mailServer", _module
 pulumi.runtime.registerResourceModule("artifactory", "index/managedUser", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/mavenRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/oauthSettings", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/packageCleanupPolicy", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/passwordExpirationPolicy", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/permissionTarget", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/propertySet", _module)

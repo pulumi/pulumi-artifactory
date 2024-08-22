@@ -3623,6 +3623,46 @@ export interface OauthSettingsOauthProvider {
     type: pulumi.Input<string>;
 }
 
+export interface PackageCleanupPolicySearchCriteria {
+    /**
+     * Remove packages based on when they were created.
+     */
+    createdBeforeInMonths?: pulumi.Input<number>;
+    /**
+     * Specify explicit package names that you want excluded from the policy.
+     */
+    excludedPackages?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Specify patterns for repository names or explicit repository names that you want excluded from the policy. It can not accept any pattern only list of specific repositories.
+     */
+    excludedRepos?: pulumi.Input<pulumi.Input<string>[]>;
+    includeAllProjects?: pulumi.Input<boolean>;
+    /**
+     * Specify a pattern for a package name or an explicit package name. It accept only single element which can be specific package or pattern, and for including all packages use `**`. Example: `includedPackages = ["**"]`
+     */
+    includedPackages: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * List of projects name(s) to apply the policy to.
+     */
+    includedProjects?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Select the number of latest version to keep. The policy will remove all versions (based on creation date) prior to the selected number. Some package types may not be supported. [Learn more](https://jfrog.com/help/r/jfrog-platform-administration-documentation/retention-policies/package-types-coverage)
+     */
+    keepLastNVersions?: pulumi.Input<number>;
+    /**
+     * Remove packages based on when they were last downloaded.
+     */
+    lastDownloadedBeforeInMonths?: pulumi.Input<number>;
+    /**
+     * Types of packages to be removed. Support: conan, docker, generic, gradle, maven, npm, nuget, rpm.
+     */
+    packageTypes: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Specify patterns for repository names or explicit repository names. For including all repos use `**`. Example: `repos = ["**"]`
+     */
+    repos: pulumi.Input<pulumi.Input<string>[]>;
+}
+
 export interface PermissionTargetBuild {
     actions?: pulumi.Input<inputs.PermissionTargetBuildActions>;
     /**

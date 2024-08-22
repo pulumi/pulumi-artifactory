@@ -79,6 +79,7 @@ __all__ = [
     'LocalRepositoryMultiReplicationReplicationArgs',
     'ManagedUserPasswordPolicyArgs',
     'OauthSettingsOauthProviderArgs',
+    'PackageCleanupPolicySearchCriteriaArgs',
     'PermissionTargetBuildArgs',
     'PermissionTargetBuildActionsArgs',
     'PermissionTargetBuildActionsGroupArgs',
@@ -4563,6 +4564,166 @@ class OauthSettingsOauthProviderArgs:
     @enabled.setter
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
+
+
+@pulumi.input_type
+class PackageCleanupPolicySearchCriteriaArgs:
+    def __init__(__self__, *,
+                 included_packages: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 package_types: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 repos: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 created_before_in_months: Optional[pulumi.Input[int]] = None,
+                 excluded_packages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 excluded_repos: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 include_all_projects: Optional[pulumi.Input[bool]] = None,
+                 included_projects: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 keep_last_n_versions: Optional[pulumi.Input[int]] = None,
+                 last_downloaded_before_in_months: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] included_packages: Specify a pattern for a package name or an explicit package name. It accept only single element which can be specific package or pattern, and for including all packages use `**`. Example: `included_packages = ["**"]`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] package_types: Types of packages to be removed. Support: conan, docker, generic, gradle, maven, npm, nuget, rpm.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] repos: Specify patterns for repository names or explicit repository names. For including all repos use `**`. Example: `repos = ["**"]`
+        :param pulumi.Input[int] created_before_in_months: Remove packages based on when they were created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_packages: Specify explicit package names that you want excluded from the policy.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_repos: Specify patterns for repository names or explicit repository names that you want excluded from the policy. It can not accept any pattern only list of specific repositories.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] included_projects: List of projects name(s) to apply the policy to.
+        :param pulumi.Input[int] keep_last_n_versions: Select the number of latest version to keep. The policy will remove all versions (based on creation date) prior to the selected number. Some package types may not be supported. [Learn more](https://jfrog.com/help/r/jfrog-platform-administration-documentation/retention-policies/package-types-coverage)
+        :param pulumi.Input[int] last_downloaded_before_in_months: Remove packages based on when they were last downloaded.
+        """
+        pulumi.set(__self__, "included_packages", included_packages)
+        pulumi.set(__self__, "package_types", package_types)
+        pulumi.set(__self__, "repos", repos)
+        if created_before_in_months is not None:
+            pulumi.set(__self__, "created_before_in_months", created_before_in_months)
+        if excluded_packages is not None:
+            pulumi.set(__self__, "excluded_packages", excluded_packages)
+        if excluded_repos is not None:
+            pulumi.set(__self__, "excluded_repos", excluded_repos)
+        if include_all_projects is not None:
+            pulumi.set(__self__, "include_all_projects", include_all_projects)
+        if included_projects is not None:
+            pulumi.set(__self__, "included_projects", included_projects)
+        if keep_last_n_versions is not None:
+            pulumi.set(__self__, "keep_last_n_versions", keep_last_n_versions)
+        if last_downloaded_before_in_months is not None:
+            pulumi.set(__self__, "last_downloaded_before_in_months", last_downloaded_before_in_months)
+
+    @property
+    @pulumi.getter(name="includedPackages")
+    def included_packages(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Specify a pattern for a package name or an explicit package name. It accept only single element which can be specific package or pattern, and for including all packages use `**`. Example: `included_packages = ["**"]`
+        """
+        return pulumi.get(self, "included_packages")
+
+    @included_packages.setter
+    def included_packages(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "included_packages", value)
+
+    @property
+    @pulumi.getter(name="packageTypes")
+    def package_types(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Types of packages to be removed. Support: conan, docker, generic, gradle, maven, npm, nuget, rpm.
+        """
+        return pulumi.get(self, "package_types")
+
+    @package_types.setter
+    def package_types(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "package_types", value)
+
+    @property
+    @pulumi.getter
+    def repos(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Specify patterns for repository names or explicit repository names. For including all repos use `**`. Example: `repos = ["**"]`
+        """
+        return pulumi.get(self, "repos")
+
+    @repos.setter
+    def repos(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "repos", value)
+
+    @property
+    @pulumi.getter(name="createdBeforeInMonths")
+    def created_before_in_months(self) -> Optional[pulumi.Input[int]]:
+        """
+        Remove packages based on when they were created.
+        """
+        return pulumi.get(self, "created_before_in_months")
+
+    @created_before_in_months.setter
+    def created_before_in_months(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "created_before_in_months", value)
+
+    @property
+    @pulumi.getter(name="excludedPackages")
+    def excluded_packages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specify explicit package names that you want excluded from the policy.
+        """
+        return pulumi.get(self, "excluded_packages")
+
+    @excluded_packages.setter
+    def excluded_packages(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "excluded_packages", value)
+
+    @property
+    @pulumi.getter(name="excludedRepos")
+    def excluded_repos(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specify patterns for repository names or explicit repository names that you want excluded from the policy. It can not accept any pattern only list of specific repositories.
+        """
+        return pulumi.get(self, "excluded_repos")
+
+    @excluded_repos.setter
+    def excluded_repos(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "excluded_repos", value)
+
+    @property
+    @pulumi.getter(name="includeAllProjects")
+    def include_all_projects(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "include_all_projects")
+
+    @include_all_projects.setter
+    def include_all_projects(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "include_all_projects", value)
+
+    @property
+    @pulumi.getter(name="includedProjects")
+    def included_projects(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of projects name(s) to apply the policy to.
+        """
+        return pulumi.get(self, "included_projects")
+
+    @included_projects.setter
+    def included_projects(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "included_projects", value)
+
+    @property
+    @pulumi.getter(name="keepLastNVersions")
+    def keep_last_n_versions(self) -> Optional[pulumi.Input[int]]:
+        """
+        Select the number of latest version to keep. The policy will remove all versions (based on creation date) prior to the selected number. Some package types may not be supported. [Learn more](https://jfrog.com/help/r/jfrog-platform-administration-documentation/retention-policies/package-types-coverage)
+        """
+        return pulumi.get(self, "keep_last_n_versions")
+
+    @keep_last_n_versions.setter
+    def keep_last_n_versions(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "keep_last_n_versions", value)
+
+    @property
+    @pulumi.getter(name="lastDownloadedBeforeInMonths")
+    def last_downloaded_before_in_months(self) -> Optional[pulumi.Input[int]]:
+        """
+        Remove packages based on when they were last downloaded.
+        """
+        return pulumi.get(self, "last_downloaded_before_in_months")
+
+    @last_downloaded_before_in_months.setter
+    def last_downloaded_before_in_months(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "last_downloaded_before_in_months", value)
 
 
 @pulumi.input_type
