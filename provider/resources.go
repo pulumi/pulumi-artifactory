@@ -18,6 +18,7 @@ import (
 	"context"
 	"fmt"
 	"path/filepath"
+	"regexp"
 	"strconv"
 
 	// embed is used to store bridge-metadata.json in the compiled binary
@@ -73,6 +74,7 @@ func Provider() tfbridge.ProviderInfo {
 		GitHubOrg:               "jfrog",
 		TFProviderModuleVersion: "v11",
 		Version:                 version.Version,
+		DocRules:                &tfbridge.DocRuleInfo{EditRules: docEditRules},
 		Config: map[string]*tfbridge.SchemaInfo{
 			"check_license": {
 				Default: &tfbridge.DefaultInfo{
@@ -233,4 +235,20 @@ func Provider() tfbridge.ProviderInfo {
 	prov.SetAutonaming(255, "-")
 
 	return prov
+}
+
+func docEditRules(defaults []tfbridge.DocsEdit) []tfbridge.DocsEdit {
+	return append(
+		defaults,
+		removeTFCloudOIDC,
+	)
+}
+
+var TFCloudOIDCRegexp = regexp.MustCompile(`\* Terraform Cloud OIDC provider`)
+var removeTFCloudOIDC = tfbridge.DocsEdit{
+	Path: "index.md",
+	Edit: func(_ string, content []byte) ([]byte, error) {
+		content = TFCloudOIDCRegexp.ReplaceAllLiteral(content, nil)
+		return content, nil
+	},
 }
