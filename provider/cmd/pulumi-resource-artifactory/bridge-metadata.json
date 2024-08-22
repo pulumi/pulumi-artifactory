@@ -1528,6 +1528,34 @@
                     }
                 }
             },
+            "artifactory_package_cleanup_policy": {
+                "current": "artifactory:index/packageCleanupPolicy:PackageCleanupPolicy",
+                "majorVersion": 7,
+                "fields": {
+                    "search_criteria": {
+                        "fields": {
+                            "excluded_packages": {
+                                "maxItemsOne": false
+                            },
+                            "excluded_repos": {
+                                "maxItemsOne": false
+                            },
+                            "included_packages": {
+                                "maxItemsOne": false
+                            },
+                            "included_projects": {
+                                "maxItemsOne": false
+                            },
+                            "package_types": {
+                                "maxItemsOne": false
+                            },
+                            "repos": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    }
+                }
+            },
             "artifactory_password_expiration_policy": {
                 "current": "artifactory:index/passwordExpirationPolicy:PasswordExpirationPolicy",
                 "majorVersion": 7
@@ -5090,6 +5118,7 @@
             "artifactory:index/managedUser:ManagedUser": 1,
             "artifactory:index/mavenRepository:MavenRepository": 0,
             "artifactory:index/oauthSettings:OauthSettings": 0,
+            "artifactory:index/packageCleanupPolicy:PackageCleanupPolicy": 1,
             "artifactory:index/passwordExpirationPolicy:PasswordExpirationPolicy": 1,
             "artifactory:index/permissionTarget:PermissionTarget": 0,
             "artifactory:index/propertySet:PropertySet": 1,
