@@ -64,7 +64,7 @@ namespace Pulumi.Artifactory
         public Output<bool?> BlackedOut { get; private set; } = null!;
 
         /// <summary>
-        /// When set, Artifactory will block the pushing of Docker images with manifest 
+        /// When set, Artifactory will block the pushing of Docker images with manifest
         /// v2 schema 1 to this repository.
         /// </summary>
         [Output("blockPushingSchema1")]
@@ -111,7 +111,7 @@ namespace Pulumi.Artifactory
         public Output<string> Key { get; private set; } = null!;
 
         /// <summary>
-        /// The maximum number of unique tags of a single Docker image to store in this 
+        /// The maximum number of unique tags of a single Docker image to store in this
         /// repository. Once the number tags for an image exceeds this setting, older tags are removed.
         /// A value of 0 (default) indicates there is no limit. This only applies to manifest v2.
         /// </summary>
@@ -156,7 +156,7 @@ namespace Pulumi.Artifactory
         public Output<string?> RepoLayoutRef { get; private set; } = null!;
 
         /// <summary>
-        /// If greater than 1, overwritten tags will be saved by their digest, up to the set up 
+        /// If greater than 1, overwritten tags will be saved by their digest, up to the set up
         /// number. This only applies to manifest V2.
         /// </summary>
         [Output("tagRetention")]
@@ -230,7 +230,7 @@ namespace Pulumi.Artifactory
         public Input<bool>? BlackedOut { get; set; }
 
         /// <summary>
-        /// When set, Artifactory will block the pushing of Docker images with manifest 
+        /// When set, Artifactory will block the pushing of Docker images with manifest
         /// v2 schema 1 to this repository.
         /// </summary>
         [Input("blockPushingSchema1")]
@@ -277,7 +277,7 @@ namespace Pulumi.Artifactory
         public Input<string> Key { get; set; } = null!;
 
         /// <summary>
-        /// The maximum number of unique tags of a single Docker image to store in this 
+        /// The maximum number of unique tags of a single Docker image to store in this
         /// repository. Once the number tags for an image exceeds this setting, older tags are removed.
         /// A value of 0 (default) indicates there is no limit. This only applies to manifest v2.
         /// </summary>
@@ -330,7 +330,7 @@ namespace Pulumi.Artifactory
         public Input<string>? RepoLayoutRef { get; set; }
 
         /// <summary>
-        /// If greater than 1, overwritten tags will be saved by their digest, up to the set up 
+        /// If greater than 1, overwritten tags will be saved by their digest, up to the set up
         /// number. This only applies to manifest V2.
         /// </summary>
         [Input("tagRetention")]
@@ -372,7 +372,7 @@ namespace Pulumi.Artifactory
         public Input<bool>? BlackedOut { get; set; }
 
         /// <summary>
-        /// When set, Artifactory will block the pushing of Docker images with manifest 
+        /// When set, Artifactory will block the pushing of Docker images with manifest
         /// v2 schema 1 to this repository.
         /// </summary>
         [Input("blockPushingSchema1")]
@@ -419,7 +419,7 @@ namespace Pulumi.Artifactory
         public Input<string>? Key { get; set; }
 
         /// <summary>
-        /// The maximum number of unique tags of a single Docker image to store in this 
+        /// The maximum number of unique tags of a single Docker image to store in this
         /// repository. Once the number tags for an image exceeds this setting, older tags are removed.
         /// A value of 0 (default) indicates there is no limit. This only applies to manifest v2.
         /// </summary>
@@ -475,7 +475,7 @@ namespace Pulumi.Artifactory
         public Input<string>? RepoLayoutRef { get; set; }
 
         /// <summary>
-        /// If greater than 1, overwritten tags will be saved by their digest, up to the set up 
+        /// If greater than 1, overwritten tags will be saved by their digest, up to the set up
         /// number. This only applies to manifest V2.
         /// </summary>
         [Input("tagRetention")]

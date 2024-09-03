@@ -228,7 +228,7 @@ def get_file(force_overwrite: Optional[bool] = None,
              repository: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFileResult:
     """
-    ## # Artifactory File Data Source
+    # Artifactory File Data Source
 
     Provides an Artifactory file datasource. This can be used to download a file from a given Artifactory repository.
 
@@ -287,7 +287,7 @@ def get_file_output(force_overwrite: Optional[pulumi.Input[Optional[bool]]] = No
                     repository: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFileResult]:
     """
-    ## # Artifactory File Data Source
+    # Artifactory File Data Source
 
     Provides an Artifactory file datasource. This can be used to download a file from a given Artifactory repository.
 

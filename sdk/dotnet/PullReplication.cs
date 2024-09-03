@@ -132,7 +132,7 @@ namespace Pulumi.Artifactory
         public Output<bool> SyncStatistics { get; private set; } = null!;
 
         /// <summary>
-        /// The URL of the target local repository on a remote Artifactory server. For some package types, you need to prefix the repository key in the URL with api/&lt;pkg&gt;. 
+        /// The URL of the target local repository on a remote Artifactory server. For some package types, you need to prefix the repository key in the URL with api/&lt;pkg&gt;.
         /// For a list of package types where this is required, see the [note](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-anchorPREFIX).
         /// Required for local repository, but not needed for remote repository.
         /// </summary>
@@ -276,7 +276,7 @@ namespace Pulumi.Artifactory
         public Input<bool>? SyncStatistics { get; set; }
 
         /// <summary>
-        /// The URL of the target local repository on a remote Artifactory server. For some package types, you need to prefix the repository key in the URL with api/&lt;pkg&gt;. 
+        /// The URL of the target local repository on a remote Artifactory server. For some package types, you need to prefix the repository key in the URL with api/&lt;pkg&gt;.
         /// For a list of package types where this is required, see the [note](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-anchorPREFIX).
         /// Required for local repository, but not needed for remote repository.
         /// </summary>
@@ -378,7 +378,7 @@ namespace Pulumi.Artifactory
         public Input<bool>? SyncStatistics { get; set; }
 
         /// <summary>
-        /// The URL of the target local repository on a remote Artifactory server. For some package types, you need to prefix the repository key in the URL with api/&lt;pkg&gt;. 
+        /// The URL of the target local repository on a remote Artifactory server. For some package types, you need to prefix the repository key in the URL with api/&lt;pkg&gt;.
         /// For a list of package types where this is required, see the [note](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-anchorPREFIX).
         /// Required for local repository, but not needed for remote repository.
         /// </summary>

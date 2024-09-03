@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## # Artifactory File Info Data Source
+// # Artifactory File Info Data Source
 //
 // Provides an Artifactory fileinfo datasource. This can be used to read metadata of files stored in Artifactory repositories.
 //

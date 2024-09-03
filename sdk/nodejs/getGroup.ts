@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * ## # Artifactory Group Data Source
+ * # Artifactory Group Data Source
  *
  * Provides an Artifactory group datasource. This can be used to read the configuration of groups in artifactory.
  *
@@ -147,7 +147,7 @@ export interface GetGroupResult {
     readonly watchManager?: boolean;
 }
 /**
- * ## # Artifactory Group Data Source
+ * # Artifactory Group Data Source
  *
  * Provides an Artifactory group datasource. This can be used to read the configuration of groups in artifactory.
  *

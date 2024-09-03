@@ -521,6 +521,7 @@ class VirtualBowerRepository(pulumi.CustomResource):
         """
         Creates a virtual Bower repository.
         Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Bower+Repositories#BowerRepositories-VirtualRepositories).
+
         ## Example Usage
 
         ```python
@@ -575,6 +576,7 @@ class VirtualBowerRepository(pulumi.CustomResource):
         """
         Creates a virtual Bower repository.
         Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Bower+Repositories#BowerRepositories-VirtualRepositories).
+
         ## Example Usage
 
         ```python

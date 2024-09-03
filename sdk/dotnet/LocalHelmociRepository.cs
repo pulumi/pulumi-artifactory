@@ -100,7 +100,7 @@ namespace Pulumi.Artifactory
         public Output<string> Key { get; private set; } = null!;
 
         /// <summary>
-        /// The maximum number of unique tags of a single OCI image to store in this 
+        /// The maximum number of unique tags of a single OCI image to store in this
         /// repository. Once the number tags for an image exceeds this setting, older tags are removed.
         /// A value of 0 (default) indicates there is no limit.
         /// </summary>
@@ -258,7 +258,7 @@ namespace Pulumi.Artifactory
         public Input<string> Key { get; set; } = null!;
 
         /// <summary>
-        /// The maximum number of unique tags of a single OCI image to store in this 
+        /// The maximum number of unique tags of a single OCI image to store in this
         /// repository. Once the number tags for an image exceeds this setting, older tags are removed.
         /// A value of 0 (default) indicates there is no limit.
         /// </summary>
@@ -386,7 +386,7 @@ namespace Pulumi.Artifactory
         public Input<string>? Key { get; set; }
 
         /// <summary>
-        /// The maximum number of unique tags of a single OCI image to store in this 
+        /// The maximum number of unique tags of a single OCI image to store in this
         /// repository. Once the number tags for an image exceeds this setting, older tags are removed.
         /// A value of 0 (default) indicates there is no limit.
         /// </summary>

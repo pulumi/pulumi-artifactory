@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## # Artifactory Permission Target Data Source
+// # Artifactory Permission Target Data Source
 //
 // Provides an Artifactory permission target data source. This can be used to read the configuration of permission targets in artifactory.
 //

@@ -14,7 +14,7 @@ namespace Pulumi.Artifactory
     /// 
     /// ## Example Usage
     /// 
-    /// ### S
+    /// ### s
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

@@ -12,6 +12,7 @@ namespace Pulumi.Artifactory
     /// <summary>
     /// Creates a virtual Bower repository.
     /// Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Bower+Repositories#BowerRepositories-VirtualRepositories).
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp

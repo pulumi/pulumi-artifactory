@@ -7,7 +7,7 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * ## # Artifactory Permission Target Data Source
+ * # Artifactory Permission Target Data Source
  *
  * Provides an Artifactory permission target data source. This can be used to read the configuration of permission targets in artifactory.
  *
@@ -79,7 +79,7 @@ export interface GetPermissionTargetResult {
     readonly repo?: outputs.GetPermissionTargetRepo;
 }
 /**
- * ## # Artifactory Permission Target Data Source
+ * # Artifactory Permission Target Data Source
  *
  * Provides an Artifactory permission target data source. This can be used to read the configuration of permission targets in artifactory.
  *

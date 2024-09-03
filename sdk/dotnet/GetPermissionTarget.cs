@@ -12,7 +12,7 @@ namespace Pulumi.Artifactory
     public static class GetPermissionTarget
     {
         /// <summary>
-        /// ## # Artifactory Permission Target Data Source
+        /// # Artifactory Permission Target Data Source
         /// 
         /// Provides an Artifactory permission target data source. This can be used to read the configuration of permission targets in artifactory.
         /// 
@@ -39,7 +39,7 @@ namespace Pulumi.Artifactory
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPermissionTargetResult>("artifactory:index/getPermissionTarget:getPermissionTarget", args ?? new GetPermissionTargetArgs(), options.WithDefaults());
 
         /// <summary>
-        /// ## # Artifactory Permission Target Data Source
+        /// # Artifactory Permission Target Data Source
         /// 
         /// Provides an Artifactory permission target data source. This can be used to read the configuration of permission targets in artifactory.
         /// 

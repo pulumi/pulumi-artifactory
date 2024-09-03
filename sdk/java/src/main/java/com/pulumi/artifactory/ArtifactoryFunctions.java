@@ -6149,7 +6149,7 @@ public final class ArtifactoryFunctions {
         return Deployment.getInstance().invokeAsync("artifactory:index/getFederatedVagrantRepository:getFederatedVagrantRepository", TypeShape.of(GetFederatedVagrantRepositoryResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * ## # Artifactory File Data Source
+     * # Artifactory File Data Source
      * 
      * Provides an Artifactory file datasource. This can be used to download a file from a given Artifactory repository.
      * 
@@ -6195,7 +6195,7 @@ public final class ArtifactoryFunctions {
         return getFile(args, InvokeOptions.Empty);
     }
     /**
-     * ## # Artifactory File Data Source
+     * # Artifactory File Data Source
      * 
      * Provides an Artifactory file datasource. This can be used to download a file from a given Artifactory repository.
      * 
@@ -6241,7 +6241,7 @@ public final class ArtifactoryFunctions {
         return getFilePlain(args, InvokeOptions.Empty);
     }
     /**
-     * ## # Artifactory File Data Source
+     * # Artifactory File Data Source
      * 
      * Provides an Artifactory file datasource. This can be used to download a file from a given Artifactory repository.
      * 
@@ -6287,7 +6287,7 @@ public final class ArtifactoryFunctions {
         return Deployment.getInstance().invoke("artifactory:index/getFile:getFile", TypeShape.of(GetFileResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * ## # Artifactory File Data Source
+     * # Artifactory File Data Source
      * 
      * Provides an Artifactory file datasource. This can be used to download a file from a given Artifactory repository.
      * 
@@ -6505,7 +6505,7 @@ public final class ArtifactoryFunctions {
         return Deployment.getInstance().invokeAsync("artifactory:index/getFileList:getFileList", TypeShape.of(GetFileListResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * ## # Artifactory File Info Data Source
+     * # Artifactory File Info Data Source
      * 
      * Provides an Artifactory fileinfo datasource. This can be used to read metadata of files stored in Artifactory repositories.
      * 
@@ -6534,7 +6534,7 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         // 
+     *         //
      *         final var my-file = ArtifactoryFunctions.getFileinfo(GetFileinfoArgs.builder()
      *             .repository("repo-key")
      *             .path("/path/to/the/artifact.zip")
@@ -6551,7 +6551,7 @@ public final class ArtifactoryFunctions {
         return getFileinfo(args, InvokeOptions.Empty);
     }
     /**
-     * ## # Artifactory File Info Data Source
+     * # Artifactory File Info Data Source
      * 
      * Provides an Artifactory fileinfo datasource. This can be used to read metadata of files stored in Artifactory repositories.
      * 
@@ -6580,7 +6580,7 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         // 
+     *         //
      *         final var my-file = ArtifactoryFunctions.getFileinfo(GetFileinfoArgs.builder()
      *             .repository("repo-key")
      *             .path("/path/to/the/artifact.zip")
@@ -6597,7 +6597,7 @@ public final class ArtifactoryFunctions {
         return getFileinfoPlain(args, InvokeOptions.Empty);
     }
     /**
-     * ## # Artifactory File Info Data Source
+     * # Artifactory File Info Data Source
      * 
      * Provides an Artifactory fileinfo datasource. This can be used to read metadata of files stored in Artifactory repositories.
      * 
@@ -6626,7 +6626,7 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         // 
+     *         //
      *         final var my-file = ArtifactoryFunctions.getFileinfo(GetFileinfoArgs.builder()
      *             .repository("repo-key")
      *             .path("/path/to/the/artifact.zip")
@@ -6643,7 +6643,7 @@ public final class ArtifactoryFunctions {
         return Deployment.getInstance().invoke("artifactory:index/getFileinfo:getFileinfo", TypeShape.of(GetFileinfoResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * ## # Artifactory File Info Data Source
+     * # Artifactory File Info Data Source
      * 
      * Provides an Artifactory fileinfo datasource. This can be used to read metadata of files stored in Artifactory repositories.
      * 
@@ -6672,7 +6672,7 @@ public final class ArtifactoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         // 
+     *         //
      *         final var my-file = ArtifactoryFunctions.getFileinfo(GetFileinfoArgs.builder()
      *             .repository("repo-key")
      *             .path("/path/to/the/artifact.zip")
@@ -6689,7 +6689,7 @@ public final class ArtifactoryFunctions {
         return Deployment.getInstance().invokeAsync("artifactory:index/getFileinfo:getFileinfo", TypeShape.of(GetFileinfoResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * ## # Artifactory Group Data Source
+     * # Artifactory Group Data Source
      * 
      * Provides an Artifactory group datasource. This can be used to read the configuration of groups in artifactory.
      * 
@@ -6735,7 +6735,7 @@ public final class ArtifactoryFunctions {
         return getGroup(args, InvokeOptions.Empty);
     }
     /**
-     * ## # Artifactory Group Data Source
+     * # Artifactory Group Data Source
      * 
      * Provides an Artifactory group datasource. This can be used to read the configuration of groups in artifactory.
      * 
@@ -6781,7 +6781,7 @@ public final class ArtifactoryFunctions {
         return getGroupPlain(args, InvokeOptions.Empty);
     }
     /**
-     * ## # Artifactory Group Data Source
+     * # Artifactory Group Data Source
      * 
      * Provides an Artifactory group datasource. This can be used to read the configuration of groups in artifactory.
      * 
@@ -6827,7 +6827,7 @@ public final class ArtifactoryFunctions {
         return Deployment.getInstance().invoke("artifactory:index/getGroup:getGroup", TypeShape.of(GetGroupResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * ## # Artifactory Group Data Source
+     * # Artifactory Group Data Source
      * 
      * Provides an Artifactory group datasource. This can be used to read the configuration of groups in artifactory.
      * 
@@ -9766,9 +9766,7 @@ public final class ArtifactoryFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
-     * ## * `snapshot_version_behavior` - Specifies the naming convention for Maven SNAPSHOT versions. The options are
-     * 
-     * -   
+     * * ## `snapshot_version_behavior` - Specifies the naming convention for Maven SNAPSHOT versions. The options are
      *   * `unique`: Version number is based on a time-stamp (default)
      *   * `non-unique`: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type
      *   * `deployer`: Respects the settings in the Maven client that is deploying the artifact.
@@ -9826,9 +9824,7 @@ public final class ArtifactoryFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
-     * ## * `snapshot_version_behavior` - Specifies the naming convention for Maven SNAPSHOT versions. The options are
-     * 
-     * -   
+     * * ## `snapshot_version_behavior` - Specifies the naming convention for Maven SNAPSHOT versions. The options are
      *   * `unique`: Version number is based on a time-stamp (default)
      *   * `non-unique`: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type
      *   * `deployer`: Respects the settings in the Maven client that is deploying the artifact.
@@ -9886,9 +9882,7 @@ public final class ArtifactoryFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
-     * ## * `snapshot_version_behavior` - Specifies the naming convention for Maven SNAPSHOT versions. The options are
-     * 
-     * -   
+     * * ## `snapshot_version_behavior` - Specifies the naming convention for Maven SNAPSHOT versions. The options are
      *   * `unique`: Version number is based on a time-stamp (default)
      *   * `non-unique`: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type
      *   * `deployer`: Respects the settings in the Maven client that is deploying the artifact.
@@ -9946,9 +9940,7 @@ public final class ArtifactoryFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
-     * ## * `snapshot_version_behavior` - Specifies the naming convention for Maven SNAPSHOT versions. The options are
-     * 
-     * -   
+     * * ## `snapshot_version_behavior` - Specifies the naming convention for Maven SNAPSHOT versions. The options are
      *   * `unique`: Version number is based on a time-stamp (default)
      *   * `non-unique`: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type
      *   * `deployer`: Respects the settings in the Maven client that is deploying the artifact.
@@ -10370,9 +10362,7 @@ public final class ArtifactoryFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
-     * ## * `snapshot_version_behavior` - Specifies the naming convention for Maven SNAPSHOT versions. The options are
-     * 
-     * -   
+     * * ## `snapshot_version_behavior` - Specifies the naming convention for Maven SNAPSHOT versions. The options are
      *   * `unique`: Version number is based on a time-stamp (default)
      *   * `non-unique`: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type
      *   * `deployer`: Respects the settings in the Maven client that is deploying the artifact.
@@ -10430,9 +10420,7 @@ public final class ArtifactoryFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
-     * ## * `snapshot_version_behavior` - Specifies the naming convention for Maven SNAPSHOT versions. The options are
-     * 
-     * -   
+     * * ## `snapshot_version_behavior` - Specifies the naming convention for Maven SNAPSHOT versions. The options are
      *   * `unique`: Version number is based on a time-stamp (default)
      *   * `non-unique`: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type
      *   * `deployer`: Respects the settings in the Maven client that is deploying the artifact.
@@ -10490,9 +10478,7 @@ public final class ArtifactoryFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
-     * ## * `snapshot_version_behavior` - Specifies the naming convention for Maven SNAPSHOT versions. The options are
-     * 
-     * -   
+     * * ## `snapshot_version_behavior` - Specifies the naming convention for Maven SNAPSHOT versions. The options are
      *   * `unique`: Version number is based on a time-stamp (default)
      *   * `non-unique`: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type
      *   * `deployer`: Respects the settings in the Maven client that is deploying the artifact.
@@ -10550,9 +10536,7 @@ public final class ArtifactoryFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
-     * ## * `snapshot_version_behavior` - Specifies the naming convention for Maven SNAPSHOT versions. The options are
-     * 
-     * -   
+     * * ## `snapshot_version_behavior` - Specifies the naming convention for Maven SNAPSHOT versions. The options are
      *   * `unique`: Version number is based on a time-stamp (default)
      *   * `non-unique`: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type
      *   * `deployer`: Respects the settings in the Maven client that is deploying the artifact.
@@ -10610,9 +10594,7 @@ public final class ArtifactoryFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
-     * ## * `snapshot_version_behavior` - Specifies the naming convention for Maven SNAPSHOT versions. The options are
-     * 
-     * -   
+     * * ## `snapshot_version_behavior` - Specifies the naming convention for Maven SNAPSHOT versions. The options are
      *   * `unique`: Version number is based on a time-stamp (default)
      *   * `non-unique`: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type
      *   * `deployer`: Respects the settings in the Maven client that is deploying the artifact.
@@ -10670,9 +10652,7 @@ public final class ArtifactoryFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
-     * ## * `snapshot_version_behavior` - Specifies the naming convention for Maven SNAPSHOT versions. The options are
-     * 
-     * -   
+     * * ## `snapshot_version_behavior` - Specifies the naming convention for Maven SNAPSHOT versions. The options are
      *   * `unique`: Version number is based on a time-stamp (default)
      *   * `non-unique`: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type
      *   * `deployer`: Respects the settings in the Maven client that is deploying the artifact.
@@ -10730,9 +10710,7 @@ public final class ArtifactoryFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
-     * ## * `snapshot_version_behavior` - Specifies the naming convention for Maven SNAPSHOT versions. The options are
-     * 
-     * -   
+     * * ## `snapshot_version_behavior` - Specifies the naming convention for Maven SNAPSHOT versions. The options are
      *   * `unique`: Version number is based on a time-stamp (default)
      *   * `non-unique`: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type
      *   * `deployer`: Respects the settings in the Maven client that is deploying the artifact.
@@ -10790,9 +10768,7 @@ public final class ArtifactoryFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
-     * ## * `snapshot_version_behavior` - Specifies the naming convention for Maven SNAPSHOT versions. The options are
-     * 
-     * -   
+     * * ## `snapshot_version_behavior` - Specifies the naming convention for Maven SNAPSHOT versions. The options are
      *   * `unique`: Version number is based on a time-stamp (default)
      *   * `non-unique`: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type
      *   * `deployer`: Respects the settings in the Maven client that is deploying the artifact.
@@ -12194,9 +12170,7 @@ public final class ArtifactoryFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
-     * ## * `snapshot_version_behavior` - Specifies the naming convention for Maven SNAPSHOT versions. The options are
-     * 
-     * -   
+     * * ## `snapshot_version_behavior` - Specifies the naming convention for Maven SNAPSHOT versions. The options are
      *   * `unique`: Version number is based on a time-stamp (default)
      *   * `non-unique`: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type
      *   * `deployer`: Respects the settings in the Maven client that is deploying the artifact.
@@ -12254,9 +12228,7 @@ public final class ArtifactoryFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
-     * ## * `snapshot_version_behavior` - Specifies the naming convention for Maven SNAPSHOT versions. The options are
-     * 
-     * -   
+     * * ## `snapshot_version_behavior` - Specifies the naming convention for Maven SNAPSHOT versions. The options are
      *   * `unique`: Version number is based on a time-stamp (default)
      *   * `non-unique`: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type
      *   * `deployer`: Respects the settings in the Maven client that is deploying the artifact.
@@ -12314,9 +12286,7 @@ public final class ArtifactoryFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
-     * ## * `snapshot_version_behavior` - Specifies the naming convention for Maven SNAPSHOT versions. The options are
-     * 
-     * -   
+     * * ## `snapshot_version_behavior` - Specifies the naming convention for Maven SNAPSHOT versions. The options are
      *   * `unique`: Version number is based on a time-stamp (default)
      *   * `non-unique`: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type
      *   * `deployer`: Respects the settings in the Maven client that is deploying the artifact.
@@ -12374,9 +12344,7 @@ public final class ArtifactoryFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
-     * ## * `snapshot_version_behavior` - Specifies the naming convention for Maven SNAPSHOT versions. The options are
-     * 
-     * -   
+     * * ## `snapshot_version_behavior` - Specifies the naming convention for Maven SNAPSHOT versions. The options are
      *   * `unique`: Version number is based on a time-stamp (default)
      *   * `non-unique`: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type
      *   * `deployer`: Respects the settings in the Maven client that is deploying the artifact.
@@ -13213,7 +13181,7 @@ public final class ArtifactoryFunctions {
         return Deployment.getInstance().invokeAsync("artifactory:index/getLocalVagrantRepository:getLocalVagrantRepository", TypeShape.of(GetLocalVagrantRepositoryResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * ## # Artifactory Permission Target Data Source
+     * # Artifactory Permission Target Data Source
      * 
      * Provides an Artifactory permission target data source. This can be used to read the configuration of permission targets in artifactory.
      * 
@@ -13258,7 +13226,7 @@ public final class ArtifactoryFunctions {
         return getPermissionTarget(args, InvokeOptions.Empty);
     }
     /**
-     * ## # Artifactory Permission Target Data Source
+     * # Artifactory Permission Target Data Source
      * 
      * Provides an Artifactory permission target data source. This can be used to read the configuration of permission targets in artifactory.
      * 
@@ -13303,7 +13271,7 @@ public final class ArtifactoryFunctions {
         return getPermissionTargetPlain(args, InvokeOptions.Empty);
     }
     /**
-     * ## # Artifactory Permission Target Data Source
+     * # Artifactory Permission Target Data Source
      * 
      * Provides an Artifactory permission target data source. This can be used to read the configuration of permission targets in artifactory.
      * 
@@ -13348,7 +13316,7 @@ public final class ArtifactoryFunctions {
         return Deployment.getInstance().invoke("artifactory:index/getPermissionTarget:getPermissionTarget", TypeShape.of(GetPermissionTargetResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * ## # Artifactory Permission Target Data Source
+     * # Artifactory Permission Target Data Source
      * 
      * Provides an Artifactory permission target data source. This can be used to read the configuration of permission targets in artifactory.
      * 
@@ -19215,7 +19183,7 @@ public final class ArtifactoryFunctions {
         return Deployment.getInstance().invokeAsync("artifactory:index/getRepositories:getRepositories", TypeShape.of(GetRepositoriesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * ## # Artifactory User Data Source
+     * # Artifactory User Data Source
      * 
      * Provides an Artifactory user data source. This can be used to read the configuration of users in artifactory.
      * 
@@ -19260,7 +19228,7 @@ public final class ArtifactoryFunctions {
         return getUser(args, InvokeOptions.Empty);
     }
     /**
-     * ## # Artifactory User Data Source
+     * # Artifactory User Data Source
      * 
      * Provides an Artifactory user data source. This can be used to read the configuration of users in artifactory.
      * 
@@ -19305,7 +19273,7 @@ public final class ArtifactoryFunctions {
         return getUserPlain(args, InvokeOptions.Empty);
     }
     /**
-     * ## # Artifactory User Data Source
+     * # Artifactory User Data Source
      * 
      * Provides an Artifactory user data source. This can be used to read the configuration of users in artifactory.
      * 
@@ -19350,7 +19318,7 @@ public final class ArtifactoryFunctions {
         return Deployment.getInstance().invoke("artifactory:index/getUser:getUser", TypeShape.of(GetUserResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * ## # Artifactory User Data Source
+     * # Artifactory User Data Source
      * 
      * Provides an Artifactory user data source. This can be used to read the configuration of users in artifactory.
      * 

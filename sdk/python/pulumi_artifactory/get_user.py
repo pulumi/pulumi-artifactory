@@ -134,7 +134,7 @@ def get_user(admin: Optional[bool] = None,
              profile_updatable: Optional[bool] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserResult:
     """
-    ## # Artifactory User Data Source
+    # Artifactory User Data Source
 
     Provides an Artifactory user data source. This can be used to read the configuration of users in artifactory.
 
@@ -189,7 +189,7 @@ def get_user_output(admin: Optional[pulumi.Input[Optional[bool]]] = None,
                     profile_updatable: Optional[pulumi.Input[Optional[bool]]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserResult]:
     """
-    ## # Artifactory User Data Source
+    # Artifactory User Data Source
 
     Provides an Artifactory user data source. This can be used to read the configuration of users in artifactory.
 

@@ -362,8 +362,7 @@ class LdapGroupSetting(pulumi.CustomResource):
             description_attribute="description",
             strategy="STATIC")
         ```
-        Note: `Name` argument has to match to the resource name.\\
-        Reference Link: [JFrog LDAP](https://www.jfrog.com/confluence/display/JFROG/LDAP)
+        Note: `Name` argument has to match to the resource name.Reference Link: [JFrog LDAP](https://www.jfrog.com/confluence/display/JFROG/LDAP)
 
         ## Import
 
@@ -420,8 +419,7 @@ class LdapGroupSetting(pulumi.CustomResource):
             description_attribute="description",
             strategy="STATIC")
         ```
-        Note: `Name` argument has to match to the resource name.\\
-        Reference Link: [JFrog LDAP](https://www.jfrog.com/confluence/display/JFROG/LDAP)
+        Note: `Name` argument has to match to the resource name.Reference Link: [JFrog LDAP](https://www.jfrog.com/confluence/display/JFROG/LDAP)
 
         ## Import
 

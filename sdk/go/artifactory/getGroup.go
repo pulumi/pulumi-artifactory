@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## # Artifactory Group Data Source
+// # Artifactory Group Data Source
 //
 // Provides an Artifactory group datasource. This can be used to read the configuration of groups in artifactory.
 //

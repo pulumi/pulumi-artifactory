@@ -97,7 +97,7 @@ def get_permission_target(build: Optional[Union['GetPermissionTargetBuildArgs', 
                           repo: Optional[Union['GetPermissionTargetRepoArgs', 'GetPermissionTargetRepoArgsDict']] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPermissionTargetResult:
     """
-    ## # Artifactory Permission Target Data Source
+    # Artifactory Permission Target Data Source
 
     Provides an Artifactory permission target data source. This can be used to read the configuration of permission targets in artifactory.
 
@@ -140,7 +140,7 @@ def get_permission_target_output(build: Optional[pulumi.Input[Optional[Union['Ge
                                  repo: Optional[pulumi.Input[Optional[Union['GetPermissionTargetRepoArgs', 'GetPermissionTargetRepoArgsDict']]]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPermissionTargetResult]:
     """
-    ## # Artifactory Permission Target Data Source
+    # Artifactory Permission Target Data Source
 
     Provides an Artifactory permission target data source. This can be used to read the configuration of permission targets in artifactory.
 

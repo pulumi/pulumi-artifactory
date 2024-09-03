@@ -85,7 +85,7 @@ export class GoRepository extends pulumi.CustomResource {
      */
     public readonly excludesPattern!: pulumi.Output<string | undefined>;
     /**
-     * Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list. 
+     * Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list.
      * When checked (default), Artifactory will automatically follow remote VCS roots in 'go-import' meta tags to download remote modules.
      */
     public readonly externalDependenciesEnabled!: pulumi.Output<boolean | undefined>;
@@ -198,7 +198,7 @@ export interface GoRepositoryState {
      */
     excludesPattern?: pulumi.Input<string>;
     /**
-     * Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list. 
+     * Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list.
      * When checked (default), Artifactory will automatically follow remote VCS roots in 'go-import' meta tags to download remote modules.
      */
     externalDependenciesEnabled?: pulumi.Input<boolean>;
@@ -260,7 +260,7 @@ export interface GoRepositoryArgs {
      */
     excludesPattern?: pulumi.Input<string>;
     /**
-     * Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list. 
+     * Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list.
      * When checked (default), Artifactory will automatically follow remote VCS roots in 'go-import' meta tags to download remote modules.
      */
     externalDependenciesEnabled?: pulumi.Input<boolean>;

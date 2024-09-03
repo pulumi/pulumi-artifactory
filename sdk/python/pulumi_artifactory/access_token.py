@@ -305,9 +305,15 @@ class AccessToken(pulumi.CustomResource):
         > **Note:** Access Tokens will be stored in the raw state as plain-text. Read more about sensitive data in
         state.
 
+        ## References
+
+        - <https://www.jfrog.com/confluence/display/ACC1X/Access+Tokens>
+        - <https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-CreateToken>
+
         ## Example Usage
 
-        ### S
+        ### s
+
         ### Create a new Artifactory Access Token for an existing user
 
         ```python
@@ -444,11 +450,6 @@ class AccessToken(pulumi.CustomResource):
             end_date=now_plus1_hour["rotationRfc3339"],
             groups=["readers"])
         ```
-
-        ## References
-
-        - https://www.jfrog.com/confluence/display/ACC1X/Access+Tokens
-        - https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-CreateToken
 
         ## Import
 
@@ -478,9 +479,15 @@ class AccessToken(pulumi.CustomResource):
         > **Note:** Access Tokens will be stored in the raw state as plain-text. Read more about sensitive data in
         state.
 
+        ## References
+
+        - <https://www.jfrog.com/confluence/display/ACC1X/Access+Tokens>
+        - <https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-CreateToken>
+
         ## Example Usage
 
-        ### S
+        ### s
+
         ### Create a new Artifactory Access Token for an existing user
 
         ```python
@@ -617,11 +624,6 @@ class AccessToken(pulumi.CustomResource):
             end_date=now_plus1_hour["rotationRfc3339"],
             groups=["readers"])
         ```
-
-        ## References
-
-        - https://www.jfrog.com/confluence/display/ACC1X/Access+Tokens
-        - https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-CreateToken
 
         ## Import
 

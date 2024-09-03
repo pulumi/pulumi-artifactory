@@ -34,6 +34,7 @@ namespace Pulumi.Artifactory
     /// 
     /// });
     /// ```
+    /// 
     /// ## Note
     /// 
     /// If you get a 400 error: `"Custom Base URL should be defined prior to creating a Cargo repository"`,

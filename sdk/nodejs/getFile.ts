@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * ## # Artifactory File Data Source
+ * # Artifactory File Data Source
  *
  * Provides an Artifactory file datasource. This can be used to download a file from a given Artifactory repository.
  *
@@ -119,7 +119,7 @@ export interface GetFileResult {
     readonly size: number;
 }
 /**
- * ## # Artifactory File Data Source
+ * # Artifactory File Data Source
  *
  * Provides an Artifactory file datasource. This can be used to download a file from a given Artifactory repository.
  *

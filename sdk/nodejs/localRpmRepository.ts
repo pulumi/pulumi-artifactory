@@ -171,13 +171,13 @@ export class LocalRpmRepository extends pulumi.CustomResource {
      */
     public readonly xrayIndex!: pulumi.Output<boolean | undefined>;
     /**
-     * A comma separated list of XML file names containing RPM group component definitions. 
+     * A comma separated list of XML file names containing RPM group component definitions.
      * Artifactory includes the group definitions as part of the calculated RPM metadata, as well as automatically
      * generating a gzipped version of the group files, if required. Default is empty string.
      */
     public readonly yumGroupFileNames!: pulumi.Output<string | undefined>;
     /**
-     * The depth, relative to the repository's root folder, where RPM metadata is created. 
+     * The depth, relative to the repository's root folder, where RPM metadata is created.
      * This is useful when your repository contains multiple RPM repositories under parallel hierarchies. For example, if
      * your RPMs are stored under 'fedora/linux/$releasever/$basearch', specify a depth of 4. Once the number of snapshots
      * exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique
@@ -340,13 +340,13 @@ export interface LocalRpmRepositoryState {
      */
     xrayIndex?: pulumi.Input<boolean>;
     /**
-     * A comma separated list of XML file names containing RPM group component definitions. 
+     * A comma separated list of XML file names containing RPM group component definitions.
      * Artifactory includes the group definitions as part of the calculated RPM metadata, as well as automatically
      * generating a gzipped version of the group files, if required. Default is empty string.
      */
     yumGroupFileNames?: pulumi.Input<string>;
     /**
-     * The depth, relative to the repository's root folder, where RPM metadata is created. 
+     * The depth, relative to the repository's root folder, where RPM metadata is created.
      * This is useful when your repository contains multiple RPM repositories under parallel hierarchies. For example, if
      * your RPMs are stored under 'fedora/linux/$releasever/$basearch', specify a depth of 4. Once the number of snapshots
      * exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique
@@ -441,13 +441,13 @@ export interface LocalRpmRepositoryArgs {
      */
     xrayIndex?: pulumi.Input<boolean>;
     /**
-     * A comma separated list of XML file names containing RPM group component definitions. 
+     * A comma separated list of XML file names containing RPM group component definitions.
      * Artifactory includes the group definitions as part of the calculated RPM metadata, as well as automatically
      * generating a gzipped version of the group files, if required. Default is empty string.
      */
     yumGroupFileNames?: pulumi.Input<string>;
     /**
-     * The depth, relative to the repository's root folder, where RPM metadata is created. 
+     * The depth, relative to the repository's root folder, where RPM metadata is created.
      * This is useful when your repository contains multiple RPM repositories under parallel hierarchies. For example, if
      * your RPMs are stored under 'fedora/linux/$releasever/$basearch', specify a depth of 4. Once the number of snapshots
      * exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique

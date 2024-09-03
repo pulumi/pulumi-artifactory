@@ -536,8 +536,7 @@ class LdapSetting(pulumi.CustomResource):
             manager_dn="mgr_dn",
             manager_password="mgr_passwd_random")
         ```
-        Note: `Key` argument has to match to the resource name.\\
-        Reference Link: [JFrog LDAP](https://www.jfrog.com/confluence/display/JFROG/LDAP)
+        Note: `Key` argument has to match to the resource name.Reference Link: [JFrog LDAP](https://www.jfrog.com/confluence/display/JFROG/LDAP)
 
         ## Import
 
@@ -604,8 +603,7 @@ class LdapSetting(pulumi.CustomResource):
             manager_dn="mgr_dn",
             manager_password="mgr_passwd_random")
         ```
-        Note: `Key` argument has to match to the resource name.\\
-        Reference Link: [JFrog LDAP](https://www.jfrog.com/confluence/display/JFROG/LDAP)
+        Note: `Key` argument has to match to the resource name.Reference Link: [JFrog LDAP](https://www.jfrog.com/confluence/display/JFROG/LDAP)
 
         ## Import
 
