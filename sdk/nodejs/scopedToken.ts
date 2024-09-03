@@ -12,9 +12,14 @@ import * as utilities from "./utilities";
  *
  * ~>Token would not be saved by Artifactory if `expiresIn` is less than the persistency threshold value (default to 10800 seconds) set in Access configuration. See [Persistency Threshold](https://jfrog.com/help/r/jfrog-platform-administration-documentation/using-the-revocable-and-persistency-thresholds) for details.
  *
+ * ## References
+ *
+ * - <https://jfrog.com/help/r/jfrog-platform-administration-documentation/access-tokens>
+ * - <https://jfrog.com/help/r/jfrog-rest-apis/access-tokens>
+ *
  * ## Example Usage
  *
- * ### S
+ * ### s
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -54,11 +59,6 @@ import * as utilities from "./utilities";
  *     audiences: ["jfrt@*"],
  * });
  * ```
- *
- * ## References
- *
- * - https://jfrog.com/help/r/jfrog-platform-administration-documentation/access-tokens
- * - https://jfrog.com/help/r/jfrog-rest-apis/access-tokens
  *
  * ## Import
  *

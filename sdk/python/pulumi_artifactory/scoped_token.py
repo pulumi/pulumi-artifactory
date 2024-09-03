@@ -631,9 +631,14 @@ class ScopedToken(pulumi.CustomResource):
 
         ~>Token would not be saved by Artifactory if `expires_in` is less than the persistency threshold value (default to 10800 seconds) set in Access configuration. See [Persistency Threshold](https://jfrog.com/help/r/jfrog-platform-administration-documentation/using-the-revocable-and-persistency-thresholds) for details.
 
+        ## References
+
+        - <https://jfrog.com/help/r/jfrog-platform-administration-documentation/access-tokens>
+        - <https://jfrog.com/help/r/jfrog-rest-apis/access-tokens>
+
         ## Example Usage
 
-        ### S
+        ### s
 
         ```python
         import pulumi
@@ -668,11 +673,6 @@ class ScopedToken(pulumi.CustomResource):
             scopes=["applied-permissions/admin"],
             audiences=["jfrt@*"])
         ```
-
-        ## References
-
-        - https://jfrog.com/help/r/jfrog-platform-administration-documentation/access-tokens
-        - https://jfrog.com/help/r/jfrog-rest-apis/access-tokens
 
         ## Import
 
@@ -738,9 +738,14 @@ class ScopedToken(pulumi.CustomResource):
 
         ~>Token would not be saved by Artifactory if `expires_in` is less than the persistency threshold value (default to 10800 seconds) set in Access configuration. See [Persistency Threshold](https://jfrog.com/help/r/jfrog-platform-administration-documentation/using-the-revocable-and-persistency-thresholds) for details.
 
+        ## References
+
+        - <https://jfrog.com/help/r/jfrog-platform-administration-documentation/access-tokens>
+        - <https://jfrog.com/help/r/jfrog-rest-apis/access-tokens>
+
         ## Example Usage
 
-        ### S
+        ### s
 
         ```python
         import pulumi
@@ -775,11 +780,6 @@ class ScopedToken(pulumi.CustomResource):
             scopes=["applied-permissions/admin"],
             audiences=["jfrt@*"])
         ```
-
-        ## References
-
-        - https://jfrog.com/help/r/jfrog-platform-administration-documentation/access-tokens
-        - https://jfrog.com/help/r/jfrog-rest-apis/access-tokens
 
         ## Import
 

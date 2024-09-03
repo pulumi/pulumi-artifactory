@@ -283,9 +283,7 @@ def get_local_sbt_repository(archive_browsing_enabled: Optional[bool] = None,
     local_test_sbt_repo = artifactory.get_local_sbt_repository(key="local-test-sbt-repo")
     ```
 
-    ## * `snapshot_version_behavior` - Specifies the naming convention for Maven SNAPSHOT versions. The options are
-
-    -   
+    * ## `snapshot_version_behavior` - Specifies the naming convention for Maven SNAPSHOT versions. The options are
       * `unique`: Version number is based on a time-stamp (default)
       * `non-unique`: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type
       * `deployer`: Respects the settings in the Maven client that is deploying the artifact.
@@ -395,9 +393,7 @@ def get_local_sbt_repository_output(archive_browsing_enabled: Optional[pulumi.In
     local_test_sbt_repo = artifactory.get_local_sbt_repository(key="local-test-sbt-repo")
     ```
 
-    ## * `snapshot_version_behavior` - Specifies the naming convention for Maven SNAPSHOT versions. The options are
-
-    -   
+    * ## `snapshot_version_behavior` - Specifies the naming convention for Maven SNAPSHOT versions. The options are
       * `unique`: Version number is based on a time-stamp (default)
       * `non-unique`: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type
       * `deployer`: Respects the settings in the Maven client that is deploying the artifact.

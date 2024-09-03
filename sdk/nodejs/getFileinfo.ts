@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * ## # Artifactory File Info Data Source
+ * # Artifactory File Info Data Source
  *
  * Provides an Artifactory fileinfo datasource. This can be used to read metadata of files stored in Artifactory repositories.
  *
@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * // 
+ * //
  * const my-file = artifactory.getFileinfo({
  *     repository: "repo-key",
  *     path: "/path/to/the/artifact.zip",
@@ -101,7 +101,7 @@ export interface GetFileinfoResult {
     readonly size: number;
 }
 /**
- * ## # Artifactory File Info Data Source
+ * # Artifactory File Info Data Source
  *
  * Provides an Artifactory fileinfo datasource. This can be used to read metadata of files stored in Artifactory repositories.
  *
@@ -111,7 +111,7 @@ export interface GetFileinfoResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * // 
+ * //
  * const my-file = artifactory.getFileinfo({
  *     repository: "repo-key",
  *     path: "/path/to/the/artifact.zip",

@@ -92,7 +92,7 @@ class GetVirtualGoRepositoryResult:
     @pulumi.getter(name="externalDependenciesEnabled")
     def external_dependencies_enabled(self) -> Optional[bool]:
         """
-        (Optional) Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list. 
+        (Optional) Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list.
         When checked (default), Artifactory will automatically follow remote VCS roots in 'go-import' meta tags to download remote modules.
         """
         return pulumi.get(self, "external_dependencies_enabled")
@@ -204,7 +204,7 @@ def get_virtual_go_repository(artifactory_requests_can_retrieve_remote_artifacts
     ```
 
 
-    :param bool external_dependencies_enabled: (Optional) Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list. 
+    :param bool external_dependencies_enabled: (Optional) Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list.
            When checked (default), Artifactory will automatically follow remote VCS roots in 'go-import' meta tags to download remote modules.
     :param Sequence[str] external_dependencies_patterns: (Optional) 'go-import' Allow List on the UI.
     :param str key: the identity key of the repo.
@@ -272,7 +272,7 @@ def get_virtual_go_repository_output(artifactory_requests_can_retrieve_remote_ar
     ```
 
 
-    :param bool external_dependencies_enabled: (Optional) Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list. 
+    :param bool external_dependencies_enabled: (Optional) Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list.
            When checked (default), Artifactory will automatically follow remote VCS roots in 'go-import' meta tags to download remote modules.
     :param Sequence[str] external_dependencies_patterns: (Optional) 'go-import' Allow List on the UI.
     :param str key: the identity key of the repo.

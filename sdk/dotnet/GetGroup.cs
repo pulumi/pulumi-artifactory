@@ -12,7 +12,7 @@ namespace Pulumi.Artifactory
     public static class GetGroup
     {
         /// <summary>
-        /// ## # Artifactory Group Data Source
+        /// # Artifactory Group Data Source
         /// 
         /// Provides an Artifactory group datasource. This can be used to read the configuration of groups in artifactory.
         /// 
@@ -40,7 +40,7 @@ namespace Pulumi.Artifactory
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGroupResult>("artifactory:index/getGroup:getGroup", args ?? new GetGroupArgs(), options.WithDefaults());
 
         /// <summary>
-        /// ## # Artifactory Group Data Source
+        /// # Artifactory Group Data Source
         /// 
         /// Provides an Artifactory group datasource. This can be used to read the configuration of groups in artifactory.
         /// 

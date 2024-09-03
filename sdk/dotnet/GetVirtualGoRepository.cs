@@ -76,7 +76,7 @@ namespace Pulumi.Artifactory
         public string? ExcludesPattern { get; set; }
 
         /// <summary>
-        /// (Optional) Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list. 
+        /// (Optional) Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list.
         /// When checked (default), Artifactory will automatically follow remote VCS roots in 'go-import' meta tags to download remote modules.
         /// </summary>
         [Input("externalDependenciesEnabled")]
@@ -149,7 +149,7 @@ namespace Pulumi.Artifactory
         public Input<string>? ExcludesPattern { get; set; }
 
         /// <summary>
-        /// (Optional) Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list. 
+        /// (Optional) Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list.
         /// When checked (default), Artifactory will automatically follow remote VCS roots in 'go-import' meta tags to download remote modules.
         /// </summary>
         [Input("externalDependenciesEnabled")]
@@ -216,7 +216,7 @@ namespace Pulumi.Artifactory
         public readonly string? Description;
         public readonly string? ExcludesPattern;
         /// <summary>
-        /// (Optional) Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list. 
+        /// (Optional) Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list.
         /// When checked (default), Artifactory will automatically follow remote VCS roots in 'go-import' meta tags to download remote modules.
         /// </summary>
         public readonly bool? ExternalDependenciesEnabled;

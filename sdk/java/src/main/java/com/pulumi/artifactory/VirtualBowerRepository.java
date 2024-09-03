@@ -19,6 +19,7 @@ import javax.annotation.Nullable;
 /**
  * Creates a virtual Bower repository.
  * Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Bower+Repositories#BowerRepositories-VirtualRepositories).
+ * 
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;

@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## # Artifactory User Data Source
+// # Artifactory User Data Source
 //
 // Provides an Artifactory user data source. This can be used to read the configuration of users in artifactory.
 //

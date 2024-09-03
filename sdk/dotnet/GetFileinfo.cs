@@ -12,7 +12,7 @@ namespace Pulumi.Artifactory
     public static class GetFileinfo
     {
         /// <summary>
-        /// ## # Artifactory File Info Data Source
+        /// # Artifactory File Info Data Source
         /// 
         /// Provides an Artifactory fileinfo datasource. This can be used to read metadata of files stored in Artifactory repositories.
         /// 
@@ -26,7 +26,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     // 
+        ///     //
         ///     var my_file = Artifactory.GetFileinfo.Invoke(new()
         ///     {
         ///         Repository = "repo-key",
@@ -40,7 +40,7 @@ namespace Pulumi.Artifactory
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFileinfoResult>("artifactory:index/getFileinfo:getFileinfo", args ?? new GetFileinfoArgs(), options.WithDefaults());
 
         /// <summary>
-        /// ## # Artifactory File Info Data Source
+        /// # Artifactory File Info Data Source
         /// 
         /// Provides an Artifactory fileinfo datasource. This can be used to read metadata of files stored in Artifactory repositories.
         /// 
@@ -54,7 +54,7 @@ namespace Pulumi.Artifactory
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     // 
+        ///     //
         ///     var my_file = Artifactory.GetFileinfo.Invoke(new()
         ///     {
         ///         Repository = "repo-key",

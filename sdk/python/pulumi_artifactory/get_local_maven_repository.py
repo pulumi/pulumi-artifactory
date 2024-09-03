@@ -284,9 +284,7 @@ def get_local_maven_repository(archive_browsing_enabled: Optional[bool] = None,
     local_test_maven_repo_basic = artifactory.get_local_maven_repository(key="local-test-maven-repo-basic")
     ```
 
-    ## * `snapshot_version_behavior` - Specifies the naming convention for Maven SNAPSHOT versions. The options are
-
-    -   
+    * ## `snapshot_version_behavior` - Specifies the naming convention for Maven SNAPSHOT versions. The options are
       * `unique`: Version number is based on a time-stamp (default)
       * `non-unique`: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type
       * `deployer`: Respects the settings in the Maven client that is deploying the artifact.
@@ -397,9 +395,7 @@ def get_local_maven_repository_output(archive_browsing_enabled: Optional[pulumi.
     local_test_maven_repo_basic = artifactory.get_local_maven_repository(key="local-test-maven-repo-basic")
     ```
 
-    ## * `snapshot_version_behavior` - Specifies the naming convention for Maven SNAPSHOT versions. The options are
-
-    -   
+    * ## `snapshot_version_behavior` - Specifies the naming convention for Maven SNAPSHOT versions. The options are
       * `unique`: Version number is based on a time-stamp (default)
       * `non-unique`: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type
       * `deployer`: Respects the settings in the Maven client that is deploying the artifact.

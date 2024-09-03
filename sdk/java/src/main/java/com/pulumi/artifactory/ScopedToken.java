@@ -25,9 +25,14 @@ import javax.annotation.Nullable;
  * 
  * ~&gt;Token would not be saved by Artifactory if `expires_in` is less than the persistency threshold value (default to 10800 seconds) set in Access configuration. See [Persistency Threshold](https://jfrog.com/help/r/jfrog-platform-administration-documentation/using-the-revocable-and-persistency-thresholds) for details.
  * 
+ * ## References
+ * 
+ * - &lt;https://jfrog.com/help/r/jfrog-platform-administration-documentation/access-tokens&gt;
+ * - &lt;https://jfrog.com/help/r/jfrog-rest-apis/access-tokens&gt;
+ * 
  * ## Example Usage
  * 
- * ### S
+ * ### s
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
@@ -106,11 +111,6 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
- * 
- * ## References
- * 
- * - https://jfrog.com/help/r/jfrog-platform-administration-documentation/access-tokens
- * - https://jfrog.com/help/r/jfrog-rest-apis/access-tokens
  * 
  * ## Import
  * 

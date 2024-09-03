@@ -14,9 +14,15 @@ import * as utilities from "./utilities";
  * > **Note:** Access Tokens will be stored in the raw state as plain-text. Read more about sensitive data in
  * state.
  *
+ * ## References
+ *
+ * - <https://www.jfrog.com/confluence/display/ACC1X/Access+Tokens>
+ * - <https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-CreateToken>
+ *
  * ## Example Usage
  *
- * ### S
+ * ### s
+ *
  * ### Create a new Artifactory Access Token for an existing user
  *
  * ```typescript
@@ -165,11 +171,6 @@ import * as utilities from "./utilities";
  *     groups: ["readers"],
  * });
  * ```
- *
- * ## References
- *
- * - https://www.jfrog.com/confluence/display/ACC1X/Access+Tokens
- * - https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-CreateToken
  *
  * ## Import
  *

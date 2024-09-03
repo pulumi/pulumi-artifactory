@@ -90,7 +90,7 @@ namespace Pulumi.Artifactory
         public Output<string?> IncludesPattern { get; private set; } = null!;
 
         /// <summary>
-        /// A mandatory identifier for the repository that must be unique. 
+        /// A mandatory identifier for the repository that must be unique.
         /// It cannot begin with a number or contain spaces or special characters.
         /// </summary>
         [Output("key")]
@@ -235,7 +235,7 @@ namespace Pulumi.Artifactory
         public Input<string>? IncludesPattern { get; set; }
 
         /// <summary>
-        /// A mandatory identifier for the repository that must be unique. 
+        /// A mandatory identifier for the repository that must be unique.
         /// It cannot begin with a number or contain spaces or special characters.
         /// </summary>
         [Input("key", required: true)]
@@ -350,7 +350,7 @@ namespace Pulumi.Artifactory
         public Input<string>? IncludesPattern { get; set; }
 
         /// <summary>
-        /// A mandatory identifier for the repository that must be unique. 
+        /// A mandatory identifier for the repository that must be unique.
         /// It cannot begin with a number or contain spaces or special characters.
         /// </summary>
         [Input("key")]

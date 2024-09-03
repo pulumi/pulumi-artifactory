@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## # Artifactory File Data Source
+// # Artifactory File Data Source
 //
 // Provides an Artifactory file datasource. This can be used to download a file from a given Artifactory repository.
 //

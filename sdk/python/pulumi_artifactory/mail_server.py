@@ -365,7 +365,7 @@ class MailServer(pulumi.CustomResource):
 
         ## Example Usage
 
-        ### S
+        ### s
 
         ```python
         import pulumi
@@ -416,7 +416,7 @@ class MailServer(pulumi.CustomResource):
 
         ## Example Usage
 
-        ### S
+        ### s
 
         ```python
         import pulumi

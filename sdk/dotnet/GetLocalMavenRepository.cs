@@ -32,9 +32,7 @@ namespace Pulumi.Artifactory
         /// });
         /// ```
         /// 
-        /// ## * `snapshot_version_behavior` - Specifies the naming convention for Maven SNAPSHOT versions. The options are
-        /// 
-        ///   -
+        /// * ## `snapshot_version_behavior` - Specifies the naming convention for Maven SNAPSHOT versions. The options are
         ///   * `unique`: Version number is based on a time-stamp (default)
         ///   * `non-unique`: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type
         ///   * `deployer`: Respects the settings in the Maven client that is deploying the artifact.
@@ -74,9 +72,7 @@ namespace Pulumi.Artifactory
         /// });
         /// ```
         /// 
-        /// ## * `snapshot_version_behavior` - Specifies the naming convention for Maven SNAPSHOT versions. The options are
-        /// 
-        ///   -
+        /// * ## `snapshot_version_behavior` - Specifies the naming convention for Maven SNAPSHOT versions. The options are
         ///   * `unique`: Version number is based on a time-stamp (default)
         ///   * `non-unique`: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type
         ///   * `deployer`: Respects the settings in the Maven client that is deploying the artifact.

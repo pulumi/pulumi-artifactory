@@ -198,7 +198,7 @@ def get_fileinfo(path: Optional[str] = None,
                  repository: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFileinfoResult:
     """
-    ## # Artifactory File Info Data Source
+    # Artifactory File Info Data Source
 
     Provides an Artifactory fileinfo datasource. This can be used to read metadata of files stored in Artifactory repositories.
 
@@ -208,7 +208,7 @@ def get_fileinfo(path: Optional[str] = None,
     import pulumi
     import pulumi_artifactory as artifactory
 
-    # 
+    #
     my_file = artifactory.get_fileinfo(repository="repo-key",
         path="/path/to/the/artifact.zip")
     ```
@@ -245,7 +245,7 @@ def get_fileinfo_output(path: Optional[pulumi.Input[str]] = None,
                         repository: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFileinfoResult]:
     """
-    ## # Artifactory File Info Data Source
+    # Artifactory File Info Data Source
 
     Provides an Artifactory fileinfo datasource. This can be used to read metadata of files stored in Artifactory repositories.
 
@@ -255,7 +255,7 @@ def get_fileinfo_output(path: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_artifactory as artifactory
 
-    # 
+    #
     my_file = artifactory.get_fileinfo(repository="repo-key",
         path="/path/to/the/artifact.zip")
     ```

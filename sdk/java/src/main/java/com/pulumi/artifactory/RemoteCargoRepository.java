@@ -60,6 +60,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Note
  * 
  * If you get a 400 error: `&#34;Custom Base URL should be defined prior to creating a Cargo repository&#34;`,

@@ -12,7 +12,7 @@ namespace Pulumi.Artifactory
     public static class GetFile
     {
         /// <summary>
-        /// ## # Artifactory File Data Source
+        /// # Artifactory File Data Source
         /// 
         /// Provides an Artifactory file datasource. This can be used to download a file from a given Artifactory repository.
         /// 
@@ -40,7 +40,7 @@ namespace Pulumi.Artifactory
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFileResult>("artifactory:index/getFile:getFile", args ?? new GetFileArgs(), options.WithDefaults());
 
         /// <summary>
-        /// ## # Artifactory File Data Source
+        /// # Artifactory File Data Source
         /// 
         /// Provides an Artifactory file datasource. This can be used to download a file from a given Artifactory repository.
         /// 

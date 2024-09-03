@@ -37,7 +37,7 @@ class GoRepositoryArgs:
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
                artifacts are excluded.
-        :param pulumi.Input[bool] external_dependencies_enabled: Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list. 
+        :param pulumi.Input[bool] external_dependencies_enabled: Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list.
                When checked (default), Artifactory will automatically follow remote VCS roots in 'go-import' meta tags to download remote modules.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] external_dependencies_patterns: 'go-import' Allow List on the UI.
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
@@ -141,7 +141,7 @@ class GoRepositoryArgs:
     @pulumi.getter(name="externalDependenciesEnabled")
     def external_dependencies_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list. 
+        Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list.
         When checked (default), Artifactory will automatically follow remote VCS roots in 'go-import' meta tags to download remote modules.
         """
         return pulumi.get(self, "external_dependencies_enabled")
@@ -259,7 +259,7 @@ class _GoRepositoryState:
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
                artifacts are excluded.
-        :param pulumi.Input[bool] external_dependencies_enabled: Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list. 
+        :param pulumi.Input[bool] external_dependencies_enabled: Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list.
                When checked (default), Artifactory will automatically follow remote VCS roots in 'go-import' meta tags to download remote modules.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] external_dependencies_patterns: 'go-import' Allow List on the UI.
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
@@ -355,7 +355,7 @@ class _GoRepositoryState:
     @pulumi.getter(name="externalDependenciesEnabled")
     def external_dependencies_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list. 
+        Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list.
         When checked (default), Artifactory will automatically follow remote VCS roots in 'go-import' meta tags to download remote modules.
         """
         return pulumi.get(self, "external_dependencies_enabled")
@@ -530,7 +530,7 @@ class GoRepository(pulumi.CustomResource):
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
                artifacts are excluded.
-        :param pulumi.Input[bool] external_dependencies_enabled: Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list. 
+        :param pulumi.Input[bool] external_dependencies_enabled: Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list.
                When checked (default), Artifactory will automatically follow remote VCS roots in 'go-import' meta tags to download remote modules.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] external_dependencies_patterns: 'go-import' Allow List on the UI.
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
@@ -672,7 +672,7 @@ class GoRepository(pulumi.CustomResource):
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
                artifacts are excluded.
-        :param pulumi.Input[bool] external_dependencies_enabled: Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list. 
+        :param pulumi.Input[bool] external_dependencies_enabled: Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list.
                When checked (default), Artifactory will automatically follow remote VCS roots in 'go-import' meta tags to download remote modules.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] external_dependencies_patterns: 'go-import' Allow List on the UI.
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
@@ -743,7 +743,7 @@ class GoRepository(pulumi.CustomResource):
     @pulumi.getter(name="externalDependenciesEnabled")
     def external_dependencies_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list. 
+        Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list.
         When checked (default), Artifactory will automatically follow remote VCS roots in 'go-import' meta tags to download remote modules.
         """
         return pulumi.get(self, "external_dependencies_enabled")

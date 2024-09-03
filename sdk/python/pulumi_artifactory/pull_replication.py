@@ -42,7 +42,7 @@ class PullReplicationArgs:
         :param pulumi.Input[bool] sync_deletes: When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata).
         :param pulumi.Input[bool] sync_properties: When set, the task also synchronizes the properties of replicated artifacts.
         :param pulumi.Input[bool] sync_statistics: When set, artifact download statistics will also be replicated. Set to avoid inadvertent cleanup at the target instance when setting up replication for disaster recovery.
-        :param pulumi.Input[str] url: The URL of the target local repository on a remote Artifactory server. For some package types, you need to prefix the repository key in the URL with api/<pkg>. 
+        :param pulumi.Input[str] url: The URL of the target local repository on a remote Artifactory server. For some package types, you need to prefix the repository key in the URL with api/<pkg>.
                For a list of package types where this is required, see the [note](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-anchorPREFIX).
                Required for local repository, but not needed for remote repository.
         :param pulumi.Input[str] username: Required for local repository, but not needed for remote repository.
@@ -221,7 +221,7 @@ class PullReplicationArgs:
     @pulumi.getter
     def url(self) -> Optional[pulumi.Input[str]]:
         """
-        The URL of the target local repository on a remote Artifactory server. For some package types, you need to prefix the repository key in the URL with api/<pkg>. 
+        The URL of the target local repository on a remote Artifactory server. For some package types, you need to prefix the repository key in the URL with api/<pkg>.
         For a list of package types where this is required, see the [note](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-anchorPREFIX).
         Required for local repository, but not needed for remote repository.
         """
@@ -275,7 +275,7 @@ class _PullReplicationState:
         :param pulumi.Input[bool] sync_deletes: When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata).
         :param pulumi.Input[bool] sync_properties: When set, the task also synchronizes the properties of replicated artifacts.
         :param pulumi.Input[bool] sync_statistics: When set, artifact download statistics will also be replicated. Set to avoid inadvertent cleanup at the target instance when setting up replication for disaster recovery.
-        :param pulumi.Input[str] url: The URL of the target local repository on a remote Artifactory server. For some package types, you need to prefix the repository key in the URL with api/<pkg>. 
+        :param pulumi.Input[str] url: The URL of the target local repository on a remote Artifactory server. For some package types, you need to prefix the repository key in the URL with api/<pkg>.
                For a list of package types where this is required, see the [note](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-anchorPREFIX).
                Required for local repository, but not needed for remote repository.
         :param pulumi.Input[str] username: Required for local repository, but not needed for remote repository.
@@ -455,7 +455,7 @@ class _PullReplicationState:
     @pulumi.getter
     def url(self) -> Optional[pulumi.Input[str]]:
         """
-        The URL of the target local repository on a remote Artifactory server. For some package types, you need to prefix the repository key in the URL with api/<pkg>. 
+        The URL of the target local repository on a remote Artifactory server. For some package types, you need to prefix the repository key in the URL with api/<pkg>.
         For a list of package types where this is required, see the [note](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-anchorPREFIX).
         Required for local repository, but not needed for remote repository.
         """
@@ -546,7 +546,7 @@ class PullReplication(pulumi.CustomResource):
         :param pulumi.Input[bool] sync_deletes: When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata).
         :param pulumi.Input[bool] sync_properties: When set, the task also synchronizes the properties of replicated artifacts.
         :param pulumi.Input[bool] sync_statistics: When set, artifact download statistics will also be replicated. Set to avoid inadvertent cleanup at the target instance when setting up replication for disaster recovery.
-        :param pulumi.Input[str] url: The URL of the target local repository on a remote Artifactory server. For some package types, you need to prefix the repository key in the URL with api/<pkg>. 
+        :param pulumi.Input[str] url: The URL of the target local repository on a remote Artifactory server. For some package types, you need to prefix the repository key in the URL with api/<pkg>.
                For a list of package types where this is required, see the [note](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-anchorPREFIX).
                Required for local repository, but not needed for remote repository.
         :param pulumi.Input[str] username: Required for local repository, but not needed for remote repository.
@@ -690,7 +690,7 @@ class PullReplication(pulumi.CustomResource):
         :param pulumi.Input[bool] sync_deletes: When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata).
         :param pulumi.Input[bool] sync_properties: When set, the task also synchronizes the properties of replicated artifacts.
         :param pulumi.Input[bool] sync_statistics: When set, artifact download statistics will also be replicated. Set to avoid inadvertent cleanup at the target instance when setting up replication for disaster recovery.
-        :param pulumi.Input[str] url: The URL of the target local repository on a remote Artifactory server. For some package types, you need to prefix the repository key in the URL with api/<pkg>. 
+        :param pulumi.Input[str] url: The URL of the target local repository on a remote Artifactory server. For some package types, you need to prefix the repository key in the URL with api/<pkg>.
                For a list of package types where this is required, see the [note](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-anchorPREFIX).
                Required for local repository, but not needed for remote repository.
         :param pulumi.Input[str] username: Required for local repository, but not needed for remote repository.
@@ -813,7 +813,7 @@ class PullReplication(pulumi.CustomResource):
     @pulumi.getter
     def url(self) -> pulumi.Output[Optional[str]]:
         """
-        The URL of the target local repository on a remote Artifactory server. For some package types, you need to prefix the repository key in the URL with api/<pkg>. 
+        The URL of the target local repository on a remote Artifactory server. For some package types, you need to prefix the repository key in the URL with api/<pkg>.
         For a list of package types where this is required, see the [note](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-anchorPREFIX).
         Required for local repository, but not needed for remote repository.
         """

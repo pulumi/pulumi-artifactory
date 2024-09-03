@@ -12,7 +12,7 @@ namespace Pulumi.Artifactory
     public static class GetUser
     {
         /// <summary>
-        /// ## # Artifactory User Data Source
+        /// # Artifactory User Data Source
         /// 
         /// Provides an Artifactory user data source. This can be used to read the configuration of users in artifactory.
         /// 
@@ -39,7 +39,7 @@ namespace Pulumi.Artifactory
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUserResult>("artifactory:index/getUser:getUser", args ?? new GetUserArgs(), options.WithDefaults());
 
         /// <summary>
-        /// ## # Artifactory User Data Source
+        /// # Artifactory User Data Source
         /// 
         /// Provides an Artifactory user data source. This can be used to read the configuration of users in artifactory.
         /// 

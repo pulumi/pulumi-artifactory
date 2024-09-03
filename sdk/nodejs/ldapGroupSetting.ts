@@ -31,8 +31,7 @@ import * as utilities from "./utilities";
  *     strategy: "STATIC",
  * });
  * ```
- * Note: `Name` argument has to match to the resource name.\
- * Reference Link: [JFrog LDAP](https://www.jfrog.com/confluence/display/JFROG/LDAP)
+ * Note: `Name` argument has to match to the resource name.Reference Link: [JFrog LDAP](https://www.jfrog.com/confluence/display/JFROG/LDAP)
  *
  * ## Import
  *

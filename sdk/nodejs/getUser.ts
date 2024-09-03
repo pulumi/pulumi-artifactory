@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * ## # Artifactory User Data Source
+ * # Artifactory User Data Source
  *
  * Provides an Artifactory user data source. This can be used to read the configuration of users in artifactory.
  *
@@ -104,7 +104,7 @@ export interface GetUserResult {
     readonly profileUpdatable?: boolean;
 }
 /**
- * ## # Artifactory User Data Source
+ * # Artifactory User Data Source
  *
  * Provides an Artifactory user data source. This can be used to read the configuration of users in artifactory.
  *

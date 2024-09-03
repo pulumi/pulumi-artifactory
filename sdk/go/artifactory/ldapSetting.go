@@ -58,8 +58,7 @@ import (
 //	}
 //
 // ```
-// Note: `Key` argument has to match to the resource name.\
-// Reference Link: [JFrog LDAP](https://www.jfrog.com/confluence/display/JFROG/LDAP)
+// Note: `Key` argument has to match to the resource name.Reference Link: [JFrog LDAP](https://www.jfrog.com/confluence/display/JFROG/LDAP)
 //
 // ## Import
 //

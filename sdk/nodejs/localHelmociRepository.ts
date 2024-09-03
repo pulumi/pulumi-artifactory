@@ -97,7 +97,7 @@ export class LocalHelmociRepository extends pulumi.CustomResource {
      */
     public readonly key!: pulumi.Output<string>;
     /**
-     * The maximum number of unique tags of a single OCI image to store in this 
+     * The maximum number of unique tags of a single OCI image to store in this
      * repository. Once the number tags for an image exceeds this setting, older tags are removed.
      * A value of 0 (default) indicates there is no limit.
      */
@@ -238,7 +238,7 @@ export interface LocalHelmociRepositoryState {
      */
     key?: pulumi.Input<string>;
     /**
-     * The maximum number of unique tags of a single OCI image to store in this 
+     * The maximum number of unique tags of a single OCI image to store in this
      * repository. Once the number tags for an image exceeds this setting, older tags are removed.
      * A value of 0 (default) indicates there is no limit.
      */
@@ -320,7 +320,7 @@ export interface LocalHelmociRepositoryArgs {
      */
     key: pulumi.Input<string>;
     /**
-     * The maximum number of unique tags of a single OCI image to store in this 
+     * The maximum number of unique tags of a single OCI image to store in this
      * repository. Once the number tags for an image exceeds this setting, older tags are removed.
      * A value of 0 (default) indicates there is no limit.
      */

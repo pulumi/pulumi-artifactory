@@ -196,7 +196,7 @@ def get_group(admin_privileges: Optional[bool] = None,
               watch_manager: Optional[bool] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGroupResult:
     """
-    ## # Artifactory Group Data Source
+    # Artifactory Group Data Source
 
     Provides an Artifactory group datasource. This can be used to read the configuration of groups in artifactory.
 
@@ -272,7 +272,7 @@ def get_group_output(admin_privileges: Optional[pulumi.Input[Optional[bool]]] = 
                      watch_manager: Optional[pulumi.Input[Optional[bool]]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGroupResult]:
     """
-    ## # Artifactory Group Data Source
+    # Artifactory Group Data Source
 
     Provides an Artifactory group datasource. This can be used to read the configuration of groups in artifactory.
 

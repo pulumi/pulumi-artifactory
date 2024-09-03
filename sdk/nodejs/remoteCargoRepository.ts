@@ -24,6 +24,7 @@ import * as utilities from "./utilities";
  *     gitRegistryUrl: "https://github.com/rust-lang/foo.index",
  * });
  * ```
+ *
  * ## Note
  *
  * If you get a 400 error: `"Custom Base URL should be defined prior to creating a Cargo repository"`,

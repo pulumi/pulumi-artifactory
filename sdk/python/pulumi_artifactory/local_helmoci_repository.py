@@ -47,7 +47,7 @@ class LocalHelmociRepositoryArgs:
                artifacts are excluded.
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
                used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[int] max_unique_tags: The maximum number of unique tags of a single OCI image to store in this 
+        :param pulumi.Input[int] max_unique_tags: The maximum number of unique tags of a single OCI image to store in this
                repository. Once the number tags for an image exceeds this setting, older tags are removed.
                A value of 0 (default) indicates there is no limit.
         :param pulumi.Input[str] notes: Internal description.
@@ -200,7 +200,7 @@ class LocalHelmociRepositoryArgs:
     @pulumi.getter(name="maxUniqueTags")
     def max_unique_tags(self) -> Optional[pulumi.Input[int]]:
         """
-        The maximum number of unique tags of a single OCI image to store in this 
+        The maximum number of unique tags of a single OCI image to store in this
         repository. Once the number tags for an image exceeds this setting, older tags are removed.
         A value of 0 (default) indicates there is no limit.
         """
@@ -343,7 +343,7 @@ class _LocalHelmociRepositoryState:
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
                used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[str] key: the identity key of the repo.
-        :param pulumi.Input[int] max_unique_tags: The maximum number of unique tags of a single OCI image to store in this 
+        :param pulumi.Input[int] max_unique_tags: The maximum number of unique tags of a single OCI image to store in this
                repository. Once the number tags for an image exceeds this setting, older tags are removed.
                A value of 0 (default) indicates there is no limit.
         :param pulumi.Input[str] notes: Internal description.
@@ -499,7 +499,7 @@ class _LocalHelmociRepositoryState:
     @pulumi.getter(name="maxUniqueTags")
     def max_unique_tags(self) -> Optional[pulumi.Input[int]]:
         """
-        The maximum number of unique tags of a single OCI image to store in this 
+        The maximum number of unique tags of a single OCI image to store in this
         repository. Once the number tags for an image exceeds this setting, older tags are removed.
         A value of 0 (default) indicates there is no limit.
         """
@@ -678,7 +678,7 @@ class LocalHelmociRepository(pulumi.CustomResource):
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
                used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[str] key: the identity key of the repo.
-        :param pulumi.Input[int] max_unique_tags: The maximum number of unique tags of a single OCI image to store in this 
+        :param pulumi.Input[int] max_unique_tags: The maximum number of unique tags of a single OCI image to store in this
                repository. Once the number tags for an image exceeds this setting, older tags are removed.
                A value of 0 (default) indicates there is no limit.
         :param pulumi.Input[str] notes: Internal description.
@@ -832,7 +832,7 @@ class LocalHelmociRepository(pulumi.CustomResource):
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
                used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[str] key: the identity key of the repo.
-        :param pulumi.Input[int] max_unique_tags: The maximum number of unique tags of a single OCI image to store in this 
+        :param pulumi.Input[int] max_unique_tags: The maximum number of unique tags of a single OCI image to store in this
                repository. Once the number tags for an image exceeds this setting, older tags are removed.
                A value of 0 (default) indicates there is no limit.
         :param pulumi.Input[str] notes: Internal description.
@@ -943,7 +943,7 @@ class LocalHelmociRepository(pulumi.CustomResource):
     @pulumi.getter(name="maxUniqueTags")
     def max_unique_tags(self) -> pulumi.Output[Optional[int]]:
         """
-        The maximum number of unique tags of a single OCI image to store in this 
+        The maximum number of unique tags of a single OCI image to store in this
         repository. Once the number tags for an image exceeds this setting, older tags are removed.
         A value of 0 (default) indicates there is no limit.
         """

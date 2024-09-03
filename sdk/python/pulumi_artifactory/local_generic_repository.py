@@ -31,7 +31,7 @@ class LocalGenericRepositoryArgs:
                  xray_index: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a LocalGenericRepository resource.
-        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. 
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique.
                It cannot begin with a number or contain spaces or special characters.
         :param pulumi.Input[bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
                therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
@@ -89,7 +89,7 @@ class LocalGenericRepositoryArgs:
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
-        A mandatory identifier for the repository that must be unique. 
+        A mandatory identifier for the repository that must be unique.
         It cannot begin with a number or contain spaces or special characters.
         """
         return pulumi.get(self, "key")
@@ -306,7 +306,7 @@ class _LocalGenericRepositoryState:
                artifacts are excluded.
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
                used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. 
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique.
                It cannot begin with a number or contain spaces or special characters.
         :param pulumi.Input[str] notes: Internal description.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
@@ -444,7 +444,7 @@ class _LocalGenericRepositoryState:
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
         """
-        A mandatory identifier for the repository that must be unique. 
+        A mandatory identifier for the repository that must be unique.
         It cannot begin with a number or contain spaces or special characters.
         """
         return pulumi.get(self, "key")
@@ -602,7 +602,7 @@ class LocalGenericRepository(pulumi.CustomResource):
                artifacts are excluded.
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
                used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. 
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique.
                It cannot begin with a number or contain spaces or special characters.
         :param pulumi.Input[str] notes: Internal description.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
@@ -742,7 +742,7 @@ class LocalGenericRepository(pulumi.CustomResource):
                artifacts are excluded.
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
                used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. 
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique.
                It cannot begin with a number or contain spaces or special characters.
         :param pulumi.Input[str] notes: Internal description.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
@@ -841,7 +841,7 @@ class LocalGenericRepository(pulumi.CustomResource):
     @pulumi.getter
     def key(self) -> pulumi.Output[str]:
         """
-        A mandatory identifier for the repository that must be unique. 
+        A mandatory identifier for the repository that must be unique.
         It cannot begin with a number or contain spaces or special characters.
         """
         return pulumi.get(self, "key")
