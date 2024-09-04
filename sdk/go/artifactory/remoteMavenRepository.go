@@ -161,7 +161,6 @@ type RemoteMavenRepository struct {
 	// Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive portal".
 	RejectInvalidJars pulumi.BoolPtrOutput `pulumi:"rejectInvalidJars"`
 	// Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
-	// `retrievalCachePeriodSeconds` attribute.
 	RemoteRepoChecksumPolicyType pulumi.StringPtrOutput `pulumi:"remoteRepoChecksumPolicyType"`
 	// Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an
 	// empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be
@@ -342,7 +341,6 @@ type remoteMavenRepositoryState struct {
 	// Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive portal".
 	RejectInvalidJars *bool `pulumi:"rejectInvalidJars"`
 	// Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
-	// `retrievalCachePeriodSeconds` attribute.
 	RemoteRepoChecksumPolicyType *string `pulumi:"remoteRepoChecksumPolicyType"`
 	// Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an
 	// empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be
@@ -481,7 +479,6 @@ type RemoteMavenRepositoryState struct {
 	// Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive portal".
 	RejectInvalidJars pulumi.BoolPtrInput
 	// Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
-	// `retrievalCachePeriodSeconds` attribute.
 	RemoteRepoChecksumPolicyType pulumi.StringPtrInput
 	// Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an
 	// empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be
@@ -623,7 +620,6 @@ type remoteMavenRepositoryArgs struct {
 	// Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive portal".
 	RejectInvalidJars *bool `pulumi:"rejectInvalidJars"`
 	// Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
-	// `retrievalCachePeriodSeconds` attribute.
 	RemoteRepoChecksumPolicyType *string `pulumi:"remoteRepoChecksumPolicyType"`
 	// Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an
 	// empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be
@@ -762,7 +758,6 @@ type RemoteMavenRepositoryArgs struct {
 	// Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive portal".
 	RejectInvalidJars pulumi.BoolPtrInput
 	// Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
-	// `retrievalCachePeriodSeconds` attribute.
 	RemoteRepoChecksumPolicyType pulumi.StringPtrInput
 	// Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an
 	// empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be
@@ -1109,7 +1104,6 @@ func (o RemoteMavenRepositoryOutput) RejectInvalidJars() pulumi.BoolPtrOutput {
 }
 
 // Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
-// `retrievalCachePeriodSeconds` attribute.
 func (o RemoteMavenRepositoryOutput) RemoteRepoChecksumPolicyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemoteMavenRepository) pulumi.StringPtrOutput { return v.RemoteRepoChecksumPolicyType }).(pulumi.StringPtrOutput)
 }

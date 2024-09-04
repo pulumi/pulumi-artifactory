@@ -13,8 +13,11 @@ import (
 )
 
 // Provides a local repository replication resource, also referred to as Artifactory push replication. This can be used to create and manage Artifactory local repository replications using [Multi-push Replication API](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-CreateorReplaceLocalMulti-pushReplication).
+//
 // Push replication is used to synchronize Local Repositories, and is implemented by the Artifactory server on the near end invoking a synchronization of artifacts to the far end.
+//
 // See the [Official Documentation](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-PushReplication).
+//
 // This resource replaces `PushReplication` and used to create a replication of one local repository to multiple repositories on the remote server.
 //
 // > This resource requires Artifactory Enterprise license. Use `LocalRepositorySingleReplication` with other licenses.
@@ -107,7 +110,7 @@ type LocalRepositoryMultiReplication struct {
 	// A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
 	CronExp pulumi.StringOutput `pulumi:"cronExp"`
 	// When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
-	EnableEventReplication pulumi.BoolPtrOutput `pulumi:"enableEventReplication"`
+	EnableEventReplication pulumi.BoolOutput `pulumi:"enableEventReplication"`
 	// List of replications minimum 1 element.
 	Replications LocalRepositoryMultiReplicationReplicationArrayOutput `pulumi:"replications"`
 	// Repository name.
@@ -291,8 +294,8 @@ func (o LocalRepositoryMultiReplicationOutput) CronExp() pulumi.StringOutput {
 }
 
 // When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
-func (o LocalRepositoryMultiReplicationOutput) EnableEventReplication() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *LocalRepositoryMultiReplication) pulumi.BoolPtrOutput { return v.EnableEventReplication }).(pulumi.BoolPtrOutput)
+func (o LocalRepositoryMultiReplicationOutput) EnableEventReplication() pulumi.BoolOutput {
+	return o.ApplyT(func(v *LocalRepositoryMultiReplication) pulumi.BoolOutput { return v.EnableEventReplication }).(pulumi.BoolOutput)
 }
 
 // List of replications minimum 1 element.

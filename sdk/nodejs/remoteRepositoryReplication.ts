@@ -76,7 +76,7 @@ export class RemoteRepositoryReplication extends pulumi.CustomResource {
     /**
      * Enabling the `checkBinaryExistenceInFilestore` flag requires an Enterprise Plus license. When true, enables distributed checksum storage. For more information, see [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
      */
-    public readonly checkBinaryExistenceInFilestore!: pulumi.Output<boolean | undefined>;
+    public readonly checkBinaryExistenceInFilestore!: pulumi.Output<boolean>;
     /**
      * A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
      */
@@ -85,19 +85,19 @@ export class RemoteRepositoryReplication extends pulumi.CustomResource {
      * When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
      * com/confluence/display/JFROG/User+Profile#UserProfile-IdentityTokenidentitytoken).
      */
-    public readonly enableEventReplication!: pulumi.Output<boolean | undefined>;
+    public readonly enableEventReplication!: pulumi.Output<boolean>;
     /**
      * When set, enables replication of this repository to the target specified in `url` attribute. Default value is `true`.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    public readonly enabled!: pulumi.Output<boolean>;
     /**
      * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`. By default, no artifacts are excluded.
      */
-    public readonly excludePathPrefixPattern!: pulumi.Output<string | undefined>;
+    public readonly excludePathPrefixPattern!: pulumi.Output<string>;
     /**
      * List of artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included `(**&#47;*)`.
      */
-    public readonly includePathPrefixPattern!: pulumi.Output<string | undefined>;
+    public readonly includePathPrefixPattern!: pulumi.Output<string>;
     /**
      * Replication ID, the value is unknown until the resource is created. Can't be set or updated.
      */
@@ -109,11 +109,11 @@ export class RemoteRepositoryReplication extends pulumi.CustomResource {
     /**
      * When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata). Note that enabling this option, will delete artifacts on the target that do not exist in the source repository. Default value is `false`.
      */
-    public readonly syncDeletes!: pulumi.Output<boolean | undefined>;
+    public readonly syncDeletes!: pulumi.Output<boolean>;
     /**
      * When set, the task also synchronizes the properties of replicated artifacts. Default value is `true`.
      */
-    public readonly syncProperties!: pulumi.Output<boolean | undefined>;
+    public readonly syncProperties!: pulumi.Output<boolean>;
 
     /**
      * Create a RemoteRepositoryReplication resource with the given unique name, arguments, and options.

@@ -125,7 +125,7 @@ export interface GetRemoteMavenRepositoryArgs {
     localAddress?: string;
     maxUniqueSnapshots?: number;
     /**
-     * (Optional, Default: 60) This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrievalCachePeriodSeconds` attribute.
+     * (Optional, Default: 60) This value refers to the number of seconds to wait for retrieval from the remote before serving locally cached artifact or fail the request. Can not set to 0 or negative.
      */
     metadataRetrievalTimeoutSecs?: number;
     mismatchingMimeTypesOverrideList?: string;
@@ -211,7 +211,7 @@ export interface GetRemoteMavenRepositoryResult {
     readonly localAddress?: string;
     readonly maxUniqueSnapshots?: number;
     /**
-     * (Optional, Default: 60) This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrievalCachePeriodSeconds` attribute.
+     * (Optional, Default: 60) This value refers to the number of seconds to wait for retrieval from the remote before serving locally cached artifact or fail the request. Can not set to 0 or negative.
      */
     readonly metadataRetrievalTimeoutSecs?: number;
     readonly mismatchingMimeTypesOverrideList?: string;
@@ -314,7 +314,7 @@ export interface GetRemoteMavenRepositoryOutputArgs {
     localAddress?: pulumi.Input<string>;
     maxUniqueSnapshots?: pulumi.Input<number>;
     /**
-     * (Optional, Default: 60) This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrievalCachePeriodSeconds` attribute.
+     * (Optional, Default: 60) This value refers to the number of seconds to wait for retrieval from the remote before serving locally cached artifact or fail the request. Can not set to 0 or negative.
      */
     metadataRetrievalTimeoutSecs?: pulumi.Input<number>;
     mismatchingMimeTypesOverrideList?: pulumi.Input<string>;

@@ -13,8 +13,10 @@ import (
 )
 
 // Provides a local repository replication resource, also referred to as Artifactory push replication. This can be used to create and manage Artifactory local repository replications using [Push Replication API](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-SetRepositoryReplicationConfiguration).
+//
 // Push replication is used to synchronize Local Repositories, and is implemented by the Artifactory server on the near end invoking a synchronization of artifacts to the far end.
 // See the [Official Documentation](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-PushReplication).
+//
 // This resource can create the replication of local repository to single repository on the remote server.
 //
 // ## Example Usage
@@ -92,33 +94,33 @@ type LocalRepositorySingleReplication struct {
 	pulumi.CustomResourceState
 
 	// Enabling the `checkBinaryExistenceInFilestore` flag requires an Enterprise Plus license. When true, enables distributed checksum storage. For more information, see [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
-	CheckBinaryExistenceInFilestore pulumi.BoolPtrOutput `pulumi:"checkBinaryExistenceInFilestore"`
+	CheckBinaryExistenceInFilestore pulumi.BoolOutput `pulumi:"checkBinaryExistenceInFilestore"`
 	// A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
-	CronExp pulumi.StringPtrOutput `pulumi:"cronExp"`
+	CronExp pulumi.StringOutput `pulumi:"cronExp"`
 	// When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
-	EnableEventReplication pulumi.BoolPtrOutput `pulumi:"enableEventReplication"`
+	EnableEventReplication pulumi.BoolOutput `pulumi:"enableEventReplication"`
 	// When set, enables replication of this repository to the target specified in `url` attribute. Default value is `true`.
-	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
+	Enabled pulumi.BoolOutput `pulumi:"enabled"`
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. By default, no artifacts are excluded.
-	ExcludePathPrefixPattern pulumi.StringPtrOutput `pulumi:"excludePathPrefixPattern"`
+	ExcludePathPrefixPattern pulumi.StringOutput `pulumi:"excludePathPrefixPattern"`
 	// List of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included `(**/*)`.
-	IncludePathPrefixPattern pulumi.StringPtrOutput `pulumi:"includePathPrefixPattern"`
+	IncludePathPrefixPattern pulumi.StringOutput `pulumi:"includePathPrefixPattern"`
 	// Use either the HTTP authentication password or [identity token](https://www.jfrog.com/confluence/display/JFROG/User+Profile#UserProfile-IdentityTokenidentitytoken).
 	Password pulumi.StringPtrOutput `pulumi:"password"`
 	// Proxy key from Artifactory Proxies settings. The proxy configuration will be used when communicating with the remote instance.
-	Proxy pulumi.StringPtrOutput `pulumi:"proxy"`
+	Proxy pulumi.StringOutput `pulumi:"proxy"`
 	// Replication ID, the value is unknown until the resource is created. Can't be set or updated.
 	ReplicationKey pulumi.StringOutput `pulumi:"replicationKey"`
 	// Repository name.
 	RepoKey pulumi.StringOutput `pulumi:"repoKey"`
 	// The network timeout in milliseconds to use for remote operations. Default value is `15000`.
-	SocketTimeoutMillis pulumi.IntPtrOutput `pulumi:"socketTimeoutMillis"`
+	SocketTimeoutMillis pulumi.IntOutput `pulumi:"socketTimeoutMillis"`
 	// When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata). Note that enabling this option, will delete artifacts on the target that do not exist in the source repository. Default value is `false`.
-	SyncDeletes pulumi.BoolPtrOutput `pulumi:"syncDeletes"`
+	SyncDeletes pulumi.BoolOutput `pulumi:"syncDeletes"`
 	// When set, the task also synchronizes the properties of replicated artifacts. Default value is `true`.
-	SyncProperties pulumi.BoolPtrOutput `pulumi:"syncProperties"`
+	SyncProperties pulumi.BoolOutput `pulumi:"syncProperties"`
 	// When set, the task also synchronizes artifact download statistics. Set to avoid inadvertent cleanup at the target instance when setting up replication for disaster recovery. Default value is `false`
-	SyncStatistics pulumi.BoolPtrOutput `pulumi:"syncStatistics"`
+	SyncStatistics pulumi.BoolOutput `pulumi:"syncStatistics"`
 	// The URL of the target local repository on a remote Artifactory server. Use the format `https://<artifactory_url>/artifactory/<repository_name>`.
 	Url pulumi.StringOutput `pulumi:"url"`
 	// Username on the remote Artifactory instance.
@@ -132,6 +134,9 @@ func NewLocalRepositorySingleReplication(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.CronExp == nil {
+		return nil, errors.New("invalid value for required argument 'CronExp'")
+	}
 	if args.RepoKey == nil {
 		return nil, errors.New("invalid value for required argument 'RepoKey'")
 	}
@@ -248,7 +253,7 @@ type localRepositorySingleReplicationArgs struct {
 	// Enabling the `checkBinaryExistenceInFilestore` flag requires an Enterprise Plus license. When true, enables distributed checksum storage. For more information, see [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
 	CheckBinaryExistenceInFilestore *bool `pulumi:"checkBinaryExistenceInFilestore"`
 	// A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
-	CronExp *string `pulumi:"cronExp"`
+	CronExp string `pulumi:"cronExp"`
 	// When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
 	EnableEventReplication *bool `pulumi:"enableEventReplication"`
 	// When set, enables replication of this repository to the target specified in `url` attribute. Default value is `true`.
@@ -261,8 +266,6 @@ type localRepositorySingleReplicationArgs struct {
 	Password *string `pulumi:"password"`
 	// Proxy key from Artifactory Proxies settings. The proxy configuration will be used when communicating with the remote instance.
 	Proxy *string `pulumi:"proxy"`
-	// Replication ID, the value is unknown until the resource is created. Can't be set or updated.
-	ReplicationKey *string `pulumi:"replicationKey"`
 	// Repository name.
 	RepoKey string `pulumi:"repoKey"`
 	// The network timeout in milliseconds to use for remote operations. Default value is `15000`.
@@ -284,7 +287,7 @@ type LocalRepositorySingleReplicationArgs struct {
 	// Enabling the `checkBinaryExistenceInFilestore` flag requires an Enterprise Plus license. When true, enables distributed checksum storage. For more information, see [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
 	CheckBinaryExistenceInFilestore pulumi.BoolPtrInput
 	// A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
-	CronExp pulumi.StringPtrInput
+	CronExp pulumi.StringInput
 	// When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
 	EnableEventReplication pulumi.BoolPtrInput
 	// When set, enables replication of this repository to the target specified in `url` attribute. Default value is `true`.
@@ -297,8 +300,6 @@ type LocalRepositorySingleReplicationArgs struct {
 	Password pulumi.StringPtrInput
 	// Proxy key from Artifactory Proxies settings. The proxy configuration will be used when communicating with the remote instance.
 	Proxy pulumi.StringPtrInput
-	// Replication ID, the value is unknown until the resource is created. Can't be set or updated.
-	ReplicationKey pulumi.StringPtrInput
 	// Repository name.
 	RepoKey pulumi.StringInput
 	// The network timeout in milliseconds to use for remote operations. Default value is `15000`.
@@ -403,35 +404,33 @@ func (o LocalRepositorySingleReplicationOutput) ToLocalRepositorySingleReplicati
 }
 
 // Enabling the `checkBinaryExistenceInFilestore` flag requires an Enterprise Plus license. When true, enables distributed checksum storage. For more information, see [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
-func (o LocalRepositorySingleReplicationOutput) CheckBinaryExistenceInFilestore() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *LocalRepositorySingleReplication) pulumi.BoolPtrOutput {
-		return v.CheckBinaryExistenceInFilestore
-	}).(pulumi.BoolPtrOutput)
+func (o LocalRepositorySingleReplicationOutput) CheckBinaryExistenceInFilestore() pulumi.BoolOutput {
+	return o.ApplyT(func(v *LocalRepositorySingleReplication) pulumi.BoolOutput { return v.CheckBinaryExistenceInFilestore }).(pulumi.BoolOutput)
 }
 
 // A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
-func (o LocalRepositorySingleReplicationOutput) CronExp() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LocalRepositorySingleReplication) pulumi.StringPtrOutput { return v.CronExp }).(pulumi.StringPtrOutput)
+func (o LocalRepositorySingleReplicationOutput) CronExp() pulumi.StringOutput {
+	return o.ApplyT(func(v *LocalRepositorySingleReplication) pulumi.StringOutput { return v.CronExp }).(pulumi.StringOutput)
 }
 
 // When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
-func (o LocalRepositorySingleReplicationOutput) EnableEventReplication() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *LocalRepositorySingleReplication) pulumi.BoolPtrOutput { return v.EnableEventReplication }).(pulumi.BoolPtrOutput)
+func (o LocalRepositorySingleReplicationOutput) EnableEventReplication() pulumi.BoolOutput {
+	return o.ApplyT(func(v *LocalRepositorySingleReplication) pulumi.BoolOutput { return v.EnableEventReplication }).(pulumi.BoolOutput)
 }
 
 // When set, enables replication of this repository to the target specified in `url` attribute. Default value is `true`.
-func (o LocalRepositorySingleReplicationOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *LocalRepositorySingleReplication) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+func (o LocalRepositorySingleReplicationOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *LocalRepositorySingleReplication) pulumi.BoolOutput { return v.Enabled }).(pulumi.BoolOutput)
 }
 
 // List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. By default, no artifacts are excluded.
-func (o LocalRepositorySingleReplicationOutput) ExcludePathPrefixPattern() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LocalRepositorySingleReplication) pulumi.StringPtrOutput { return v.ExcludePathPrefixPattern }).(pulumi.StringPtrOutput)
+func (o LocalRepositorySingleReplicationOutput) ExcludePathPrefixPattern() pulumi.StringOutput {
+	return o.ApplyT(func(v *LocalRepositorySingleReplication) pulumi.StringOutput { return v.ExcludePathPrefixPattern }).(pulumi.StringOutput)
 }
 
 // List of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included `(**/*)`.
-func (o LocalRepositorySingleReplicationOutput) IncludePathPrefixPattern() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LocalRepositorySingleReplication) pulumi.StringPtrOutput { return v.IncludePathPrefixPattern }).(pulumi.StringPtrOutput)
+func (o LocalRepositorySingleReplicationOutput) IncludePathPrefixPattern() pulumi.StringOutput {
+	return o.ApplyT(func(v *LocalRepositorySingleReplication) pulumi.StringOutput { return v.IncludePathPrefixPattern }).(pulumi.StringOutput)
 }
 
 // Use either the HTTP authentication password or [identity token](https://www.jfrog.com/confluence/display/JFROG/User+Profile#UserProfile-IdentityTokenidentitytoken).
@@ -440,8 +439,8 @@ func (o LocalRepositorySingleReplicationOutput) Password() pulumi.StringPtrOutpu
 }
 
 // Proxy key from Artifactory Proxies settings. The proxy configuration will be used when communicating with the remote instance.
-func (o LocalRepositorySingleReplicationOutput) Proxy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LocalRepositorySingleReplication) pulumi.StringPtrOutput { return v.Proxy }).(pulumi.StringPtrOutput)
+func (o LocalRepositorySingleReplicationOutput) Proxy() pulumi.StringOutput {
+	return o.ApplyT(func(v *LocalRepositorySingleReplication) pulumi.StringOutput { return v.Proxy }).(pulumi.StringOutput)
 }
 
 // Replication ID, the value is unknown until the resource is created. Can't be set or updated.
@@ -455,23 +454,23 @@ func (o LocalRepositorySingleReplicationOutput) RepoKey() pulumi.StringOutput {
 }
 
 // The network timeout in milliseconds to use for remote operations. Default value is `15000`.
-func (o LocalRepositorySingleReplicationOutput) SocketTimeoutMillis() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *LocalRepositorySingleReplication) pulumi.IntPtrOutput { return v.SocketTimeoutMillis }).(pulumi.IntPtrOutput)
+func (o LocalRepositorySingleReplicationOutput) SocketTimeoutMillis() pulumi.IntOutput {
+	return o.ApplyT(func(v *LocalRepositorySingleReplication) pulumi.IntOutput { return v.SocketTimeoutMillis }).(pulumi.IntOutput)
 }
 
 // When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata). Note that enabling this option, will delete artifacts on the target that do not exist in the source repository. Default value is `false`.
-func (o LocalRepositorySingleReplicationOutput) SyncDeletes() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *LocalRepositorySingleReplication) pulumi.BoolPtrOutput { return v.SyncDeletes }).(pulumi.BoolPtrOutput)
+func (o LocalRepositorySingleReplicationOutput) SyncDeletes() pulumi.BoolOutput {
+	return o.ApplyT(func(v *LocalRepositorySingleReplication) pulumi.BoolOutput { return v.SyncDeletes }).(pulumi.BoolOutput)
 }
 
 // When set, the task also synchronizes the properties of replicated artifacts. Default value is `true`.
-func (o LocalRepositorySingleReplicationOutput) SyncProperties() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *LocalRepositorySingleReplication) pulumi.BoolPtrOutput { return v.SyncProperties }).(pulumi.BoolPtrOutput)
+func (o LocalRepositorySingleReplicationOutput) SyncProperties() pulumi.BoolOutput {
+	return o.ApplyT(func(v *LocalRepositorySingleReplication) pulumi.BoolOutput { return v.SyncProperties }).(pulumi.BoolOutput)
 }
 
 // When set, the task also synchronizes artifact download statistics. Set to avoid inadvertent cleanup at the target instance when setting up replication for disaster recovery. Default value is `false`
-func (o LocalRepositorySingleReplicationOutput) SyncStatistics() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *LocalRepositorySingleReplication) pulumi.BoolPtrOutput { return v.SyncStatistics }).(pulumi.BoolPtrOutput)
+func (o LocalRepositorySingleReplicationOutput) SyncStatistics() pulumi.BoolOutput {
+	return o.ApplyT(func(v *LocalRepositorySingleReplication) pulumi.BoolOutput { return v.SyncStatistics }).(pulumi.BoolOutput)
 }
 
 // The URL of the target local repository on a remote Artifactory server. Use the format `https://<artifactory_url>/artifactory/<repository_name>`.

@@ -157,7 +157,7 @@ namespace Pulumi.Artifactory
         public int? MaxUniqueSnapshots { get; set; }
 
         /// <summary>
-        /// (Optional, Default: 60) This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrieval_cache_period_seconds` attribute.
+        /// (Optional, Default: 60) This value refers to the number of seconds to wait for retrieval from the remote before serving locally cached artifact or fail the request. Can not set to 0 or negative.
         /// </summary>
         [Input("metadataRetrievalTimeoutSecs")]
         public int? MetadataRetrievalTimeoutSecs { get; set; }
@@ -363,7 +363,7 @@ namespace Pulumi.Artifactory
         public Input<int>? MaxUniqueSnapshots { get; set; }
 
         /// <summary>
-        /// (Optional, Default: 60) This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrieval_cache_period_seconds` attribute.
+        /// (Optional, Default: 60) This value refers to the number of seconds to wait for retrieval from the remote before serving locally cached artifact or fail the request. Can not set to 0 or negative.
         /// </summary>
         [Input("metadataRetrievalTimeoutSecs")]
         public Input<int>? MetadataRetrievalTimeoutSecs { get; set; }
@@ -524,7 +524,7 @@ namespace Pulumi.Artifactory
         public readonly string? LocalAddress;
         public readonly int? MaxUniqueSnapshots;
         /// <summary>
-        /// (Optional, Default: 60) This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrieval_cache_period_seconds` attribute.
+        /// (Optional, Default: 60) This value refers to the number of seconds to wait for retrieval from the remote before serving locally cached artifact or fail the request. Can not set to 0 or negative.
         /// </summary>
         public readonly int? MetadataRetrievalTimeoutSecs;
         public readonly string? MismatchingMimeTypesOverrideList;

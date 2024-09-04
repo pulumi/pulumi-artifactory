@@ -12,6 +12,18 @@ namespace Pulumi.Artifactory.Inputs
 
     public sealed class GetFederatedOciRepositoryMemberArgs : global::Pulumi.InvokeArgs
     {
+        [Input("accessToken")]
+        private string? _accessToken;
+
+        /// <summary>
+        /// Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        /// </summary>
+        public string? AccessToken
+        {
+            get => _accessToken;
+            set => _accessToken = value;
+        }
+
         /// <summary>
         /// Represents the active state of the federated member. It is supported to change the enabled
         /// status of my own member. The config will be updated on the other federated members automatically.

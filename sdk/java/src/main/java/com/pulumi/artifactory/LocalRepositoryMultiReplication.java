@@ -19,8 +19,11 @@ import javax.annotation.Nullable;
 
 /**
  * Provides a local repository replication resource, also referred to as Artifactory push replication. This can be used to create and manage Artifactory local repository replications using [Multi-push Replication API](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-CreateorReplaceLocalMulti-pushReplication).
+ * 
  * Push replication is used to synchronize Local Repositories, and is implemented by the Artifactory server on the near end invoking a synchronization of artifacts to the far end.
+ * 
  * See the [Official Documentation](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-PushReplication).
+ * 
  * This resource replaces `artifactory.PushReplication` and used to create a replication of one local repository to multiple repositories on the remote server.
  * 
  * &gt; This resource requires Artifactory Enterprise license. Use `artifactory.LocalRepositorySingleReplication` with other licenses.
@@ -125,14 +128,14 @@ public class LocalRepositoryMultiReplication extends com.pulumi.resources.Custom
      * 
      */
     @Export(name="enableEventReplication", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> enableEventReplication;
+    private Output<Boolean> enableEventReplication;
 
     /**
      * @return When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
      * 
      */
-    public Output<Optional<Boolean>> enableEventReplication() {
-        return Codegen.optional(this.enableEventReplication);
+    public Output<Boolean> enableEventReplication() {
+        return this.enableEventReplication;
     }
     /**
      * List of replications minimum 1 element.

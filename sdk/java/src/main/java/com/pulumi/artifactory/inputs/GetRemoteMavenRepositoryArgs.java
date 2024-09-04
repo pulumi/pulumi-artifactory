@@ -243,14 +243,14 @@ public final class GetRemoteMavenRepositoryArgs extends com.pulumi.resources.Inv
     }
 
     /**
-     * (Optional, Default: 60) This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrieval_cache_period_seconds` attribute.
+     * (Optional, Default: 60) This value refers to the number of seconds to wait for retrieval from the remote before serving locally cached artifact or fail the request. Can not set to 0 or negative.
      * 
      */
     @Import(name="metadataRetrievalTimeoutSecs")
     private @Nullable Output<Integer> metadataRetrievalTimeoutSecs;
 
     /**
-     * @return (Optional, Default: 60) This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrieval_cache_period_seconds` attribute.
+     * @return (Optional, Default: 60) This value refers to the number of seconds to wait for retrieval from the remote before serving locally cached artifact or fail the request. Can not set to 0 or negative.
      * 
      */
     public Optional<Output<Integer>> metadataRetrievalTimeoutSecs() {
@@ -826,7 +826,7 @@ public final class GetRemoteMavenRepositoryArgs extends com.pulumi.resources.Inv
         }
 
         /**
-         * @param metadataRetrievalTimeoutSecs (Optional, Default: 60) This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrieval_cache_period_seconds` attribute.
+         * @param metadataRetrievalTimeoutSecs (Optional, Default: 60) This value refers to the number of seconds to wait for retrieval from the remote before serving locally cached artifact or fail the request. Can not set to 0 or negative.
          * 
          * @return builder
          * 
@@ -837,7 +837,7 @@ public final class GetRemoteMavenRepositoryArgs extends com.pulumi.resources.Inv
         }
 
         /**
-         * @param metadataRetrievalTimeoutSecs (Optional, Default: 60) This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrieval_cache_period_seconds` attribute.
+         * @param metadataRetrievalTimeoutSecs (Optional, Default: 60) This value refers to the number of seconds to wait for retrieval from the remote before serving locally cached artifact or fail the request. Can not set to 0 or negative.
          * 
          * @return builder
          * 

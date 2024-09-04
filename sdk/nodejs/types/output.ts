@@ -693,6 +693,10 @@ export interface DockerWebhookHandler {
 
 export interface FederatedAlpineRepositoryMember {
     /**
+     * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+     */
+    accessToken?: string;
+    /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
      */
@@ -704,6 +708,10 @@ export interface FederatedAlpineRepositoryMember {
 }
 
 export interface FederatedAnsibleRepositoryMember {
+    /**
+     * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+     */
+    accessToken?: string;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -717,6 +725,10 @@ export interface FederatedAnsibleRepositoryMember {
 
 export interface FederatedBowerRepositoryMember {
     /**
+     * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+     */
+    accessToken?: string;
+    /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
      */
@@ -728,6 +740,10 @@ export interface FederatedBowerRepositoryMember {
 }
 
 export interface FederatedCargoRepositoryMember {
+    /**
+     * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+     */
+    accessToken?: string;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -741,6 +757,10 @@ export interface FederatedCargoRepositoryMember {
 
 export interface FederatedChefRepositoryMember {
     /**
+     * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+     */
+    accessToken?: string;
+    /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
      */
@@ -752,6 +772,10 @@ export interface FederatedChefRepositoryMember {
 }
 
 export interface FederatedCocoapodsRepositoryMember {
+    /**
+     * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+     */
+    accessToken?: string;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -765,6 +789,10 @@ export interface FederatedCocoapodsRepositoryMember {
 
 export interface FederatedComposerRepositoryMember {
     /**
+     * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+     */
+    accessToken?: string;
+    /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
      */
@@ -776,6 +804,10 @@ export interface FederatedComposerRepositoryMember {
 }
 
 export interface FederatedConanRepositoryMember {
+    /**
+     * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+     */
+    accessToken?: string;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -789,6 +821,10 @@ export interface FederatedConanRepositoryMember {
 
 export interface FederatedCondaRepositoryMember {
     /**
+     * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+     */
+    accessToken?: string;
+    /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
      */
@@ -800,6 +836,10 @@ export interface FederatedCondaRepositoryMember {
 }
 
 export interface FederatedCranRepositoryMember {
+    /**
+     * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+     */
+    accessToken?: string;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -813,6 +853,10 @@ export interface FederatedCranRepositoryMember {
 
 export interface FederatedDebianRepositoryMember {
     /**
+     * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+     */
+    accessToken?: string;
+    /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
      */
@@ -824,6 +868,10 @@ export interface FederatedDebianRepositoryMember {
 }
 
 export interface FederatedDockerRepositoryMember {
+    /**
+     * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+     */
+    accessToken?: string;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -837,6 +885,10 @@ export interface FederatedDockerRepositoryMember {
 
 export interface FederatedDockerV1RepositoryMember {
     /**
+     * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+     */
+    accessToken?: string;
+    /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
      */
@@ -848,6 +900,10 @@ export interface FederatedDockerV1RepositoryMember {
 }
 
 export interface FederatedDockerV2RepositoryMember {
+    /**
+     * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+     */
+    accessToken?: string;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -861,6 +917,10 @@ export interface FederatedDockerV2RepositoryMember {
 
 export interface FederatedGemsRepositoryMember {
     /**
+     * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+     */
+    accessToken?: string;
+    /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
      */
@@ -872,6 +932,10 @@ export interface FederatedGemsRepositoryMember {
 }
 
 export interface FederatedGenericRepositoryMember {
+    /**
+     * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+     */
+    accessToken?: string;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -885,6 +949,10 @@ export interface FederatedGenericRepositoryMember {
 
 export interface FederatedGitltfsRepositoryMember {
     /**
+     * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+     */
+    accessToken?: string;
+    /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
      */
@@ -896,6 +964,10 @@ export interface FederatedGitltfsRepositoryMember {
 }
 
 export interface FederatedGoRepositoryMember {
+    /**
+     * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+     */
+    accessToken?: string;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -909,6 +981,10 @@ export interface FederatedGoRepositoryMember {
 
 export interface FederatedGradleRepositoryMember {
     /**
+     * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+     */
+    accessToken?: string;
+    /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
      */
@@ -920,6 +996,10 @@ export interface FederatedGradleRepositoryMember {
 }
 
 export interface FederatedHelmRepositoryMember {
+    /**
+     * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+     */
+    accessToken?: string;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -933,6 +1013,10 @@ export interface FederatedHelmRepositoryMember {
 
 export interface FederatedHelmociRepositoryMember {
     /**
+     * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+     */
+    accessToken?: string;
+    /**
      * Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
      */
     enabled: boolean;
@@ -943,6 +1027,10 @@ export interface FederatedHelmociRepositoryMember {
 }
 
 export interface FederatedIvyRepositoryMember {
+    /**
+     * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+     */
+    accessToken?: string;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -956,6 +1044,10 @@ export interface FederatedIvyRepositoryMember {
 
 export interface FederatedMavenRepositoryMember {
     /**
+     * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+     */
+    accessToken?: string;
+    /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
      */
@@ -967,6 +1059,10 @@ export interface FederatedMavenRepositoryMember {
 }
 
 export interface FederatedNpmRepositoryMember {
+    /**
+     * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+     */
+    accessToken?: string;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -980,6 +1076,10 @@ export interface FederatedNpmRepositoryMember {
 
 export interface FederatedNugetRepositoryMember {
     /**
+     * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+     */
+    accessToken?: string;
+    /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
      */
@@ -991,6 +1091,10 @@ export interface FederatedNugetRepositoryMember {
 }
 
 export interface FederatedOciRepositoryMember {
+    /**
+     * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+     */
+    accessToken?: string;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -1004,6 +1108,10 @@ export interface FederatedOciRepositoryMember {
 
 export interface FederatedOpkgRepositoryMember {
     /**
+     * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+     */
+    accessToken?: string;
+    /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
      */
@@ -1015,6 +1123,10 @@ export interface FederatedOpkgRepositoryMember {
 }
 
 export interface FederatedPuppetRepositoryMember {
+    /**
+     * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+     */
+    accessToken?: string;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -1028,6 +1140,10 @@ export interface FederatedPuppetRepositoryMember {
 
 export interface FederatedPypiRepositoryMember {
     /**
+     * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+     */
+    accessToken?: string;
+    /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
      */
@@ -1039,6 +1155,10 @@ export interface FederatedPypiRepositoryMember {
 }
 
 export interface FederatedRpmRepositoryMember {
+    /**
+     * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+     */
+    accessToken?: string;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -1052,6 +1172,10 @@ export interface FederatedRpmRepositoryMember {
 
 export interface FederatedSbtRepositoryMember {
     /**
+     * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+     */
+    accessToken?: string;
+    /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
      */
@@ -1063,6 +1187,10 @@ export interface FederatedSbtRepositoryMember {
 }
 
 export interface FederatedSwiftRepositoryMember {
+    /**
+     * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+     */
+    accessToken?: string;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -1076,6 +1204,10 @@ export interface FederatedSwiftRepositoryMember {
 
 export interface FederatedTerraformModuleRepositoryMember {
     /**
+     * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+     */
+    accessToken?: string;
+    /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
      */
@@ -1087,6 +1219,10 @@ export interface FederatedTerraformModuleRepositoryMember {
 }
 
 export interface FederatedTerraformProviderRepositoryMember {
+    /**
+     * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+     */
+    accessToken?: string;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -1100,6 +1236,10 @@ export interface FederatedTerraformProviderRepositoryMember {
 
 export interface FederatedVagrantRepositoryMember {
     /**
+     * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+     */
+    accessToken?: string;
+    /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
      */
@@ -1111,6 +1251,10 @@ export interface FederatedVagrantRepositoryMember {
 }
 
 export interface GetFederatedAlpineRepositoryMember {
+    /**
+     * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+     */
+    accessToken?: string;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -1124,6 +1268,10 @@ export interface GetFederatedAlpineRepositoryMember {
 
 export interface GetFederatedAnsibleRepositoryMember {
     /**
+     * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+     */
+    accessToken?: string;
+    /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
      */
@@ -1135,6 +1283,10 @@ export interface GetFederatedAnsibleRepositoryMember {
 }
 
 export interface GetFederatedBowerRepositoryMember {
+    /**
+     * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+     */
+    accessToken?: string;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -1148,6 +1300,10 @@ export interface GetFederatedBowerRepositoryMember {
 
 export interface GetFederatedCargoRepositoryMember {
     /**
+     * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+     */
+    accessToken?: string;
+    /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
      */
@@ -1159,6 +1315,10 @@ export interface GetFederatedCargoRepositoryMember {
 }
 
 export interface GetFederatedChefRepositoryMember {
+    /**
+     * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+     */
+    accessToken?: string;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -1172,6 +1332,10 @@ export interface GetFederatedChefRepositoryMember {
 
 export interface GetFederatedCocoapodsRepositoryMember {
     /**
+     * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+     */
+    accessToken?: string;
+    /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
      */
@@ -1183,6 +1347,10 @@ export interface GetFederatedCocoapodsRepositoryMember {
 }
 
 export interface GetFederatedComposerRepositoryMember {
+    /**
+     * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+     */
+    accessToken?: string;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -1196,6 +1364,10 @@ export interface GetFederatedComposerRepositoryMember {
 
 export interface GetFederatedConanRepositoryMember {
     /**
+     * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+     */
+    accessToken?: string;
+    /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
      */
@@ -1207,6 +1379,10 @@ export interface GetFederatedConanRepositoryMember {
 }
 
 export interface GetFederatedCondaRepositoryMember {
+    /**
+     * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+     */
+    accessToken?: string;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -1220,6 +1396,10 @@ export interface GetFederatedCondaRepositoryMember {
 
 export interface GetFederatedCranRepositoryMember {
     /**
+     * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+     */
+    accessToken?: string;
+    /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
      */
@@ -1231,6 +1411,10 @@ export interface GetFederatedCranRepositoryMember {
 }
 
 export interface GetFederatedDebianRepositoryMember {
+    /**
+     * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+     */
+    accessToken?: string;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -1244,6 +1428,10 @@ export interface GetFederatedDebianRepositoryMember {
 
 export interface GetFederatedDockerRepositoryMember {
     /**
+     * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+     */
+    accessToken?: string;
+    /**
      * Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
      */
     enabled: boolean;
@@ -1254,6 +1442,10 @@ export interface GetFederatedDockerRepositoryMember {
 }
 
 export interface GetFederatedDockerV1RepositoryMember {
+    /**
+     * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+     */
+    accessToken?: string;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -1267,6 +1459,10 @@ export interface GetFederatedDockerV1RepositoryMember {
 
 export interface GetFederatedDockerV2RepositoryMember {
     /**
+     * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+     */
+    accessToken?: string;
+    /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
      */
@@ -1278,6 +1474,10 @@ export interface GetFederatedDockerV2RepositoryMember {
 }
 
 export interface GetFederatedGemsRepositoryMember {
+    /**
+     * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+     */
+    accessToken?: string;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -1291,6 +1491,10 @@ export interface GetFederatedGemsRepositoryMember {
 
 export interface GetFederatedGenericRepositoryMember {
     /**
+     * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+     */
+    accessToken?: string;
+    /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
      */
@@ -1302,6 +1506,10 @@ export interface GetFederatedGenericRepositoryMember {
 }
 
 export interface GetFederatedGitlfsRepositoryMember {
+    /**
+     * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+     */
+    accessToken?: string;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -1315,6 +1523,10 @@ export interface GetFederatedGitlfsRepositoryMember {
 
 export interface GetFederatedGoRepositoryMember {
     /**
+     * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+     */
+    accessToken?: string;
+    /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
      */
@@ -1326,6 +1538,10 @@ export interface GetFederatedGoRepositoryMember {
 }
 
 export interface GetFederatedGradleRepositoryMember {
+    /**
+     * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+     */
+    accessToken?: string;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -1339,6 +1555,10 @@ export interface GetFederatedGradleRepositoryMember {
 
 export interface GetFederatedHelmRepositoryMember {
     /**
+     * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+     */
+    accessToken?: string;
+    /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
      */
@@ -1350,6 +1570,10 @@ export interface GetFederatedHelmRepositoryMember {
 }
 
 export interface GetFederatedHelmociRepositoryMember {
+    /**
+     * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+     */
+    accessToken?: string;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -1363,6 +1587,10 @@ export interface GetFederatedHelmociRepositoryMember {
 
 export interface GetFederatedIvyRepositoryMember {
     /**
+     * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+     */
+    accessToken?: string;
+    /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
      */
@@ -1374,6 +1602,10 @@ export interface GetFederatedIvyRepositoryMember {
 }
 
 export interface GetFederatedMavenRepositoryMember {
+    /**
+     * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+     */
+    accessToken?: string;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -1387,6 +1619,10 @@ export interface GetFederatedMavenRepositoryMember {
 
 export interface GetFederatedNpmRepositoryMember {
     /**
+     * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+     */
+    accessToken?: string;
+    /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
      */
@@ -1398,6 +1634,10 @@ export interface GetFederatedNpmRepositoryMember {
 }
 
 export interface GetFederatedNugetRepositoryMember {
+    /**
+     * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+     */
+    accessToken?: string;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -1411,6 +1651,10 @@ export interface GetFederatedNugetRepositoryMember {
 
 export interface GetFederatedOciRepositoryMember {
     /**
+     * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+     */
+    accessToken?: string;
+    /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
      */
@@ -1422,6 +1666,10 @@ export interface GetFederatedOciRepositoryMember {
 }
 
 export interface GetFederatedOpkgRepositoryMember {
+    /**
+     * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+     */
+    accessToken?: string;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -1435,6 +1683,10 @@ export interface GetFederatedOpkgRepositoryMember {
 
 export interface GetFederatedPuppetRepositoryMember {
     /**
+     * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+     */
+    accessToken?: string;
+    /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
      */
@@ -1446,6 +1698,10 @@ export interface GetFederatedPuppetRepositoryMember {
 }
 
 export interface GetFederatedPypiRepositoryMember {
+    /**
+     * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+     */
+    accessToken?: string;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -1459,6 +1715,10 @@ export interface GetFederatedPypiRepositoryMember {
 
 export interface GetFederatedRpmRepositoryMember {
     /**
+     * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+     */
+    accessToken?: string;
+    /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
      */
@@ -1470,6 +1730,10 @@ export interface GetFederatedRpmRepositoryMember {
 }
 
 export interface GetFederatedSbtRepositoryMember {
+    /**
+     * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+     */
+    accessToken?: string;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -1483,6 +1747,10 @@ export interface GetFederatedSbtRepositoryMember {
 
 export interface GetFederatedSwiftRepositoryMember {
     /**
+     * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+     */
+    accessToken?: string;
+    /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
      */
@@ -1494,6 +1762,10 @@ export interface GetFederatedSwiftRepositoryMember {
 }
 
 export interface GetFederatedTerraformModuleRepositoryMember {
+    /**
+     * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+     */
+    accessToken?: string;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -1507,6 +1779,10 @@ export interface GetFederatedTerraformModuleRepositoryMember {
 
 export interface GetFederatedTerraformProviderRepositoryMember {
     /**
+     * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+     */
+    accessToken?: string;
+    /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
      */
@@ -1518,6 +1794,10 @@ export interface GetFederatedTerraformProviderRepositoryMember {
 }
 
 export interface GetFederatedVagrantRepositoryMember {
+    /**
+     * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+     */
+    accessToken?: string;
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -2360,27 +2640,27 @@ export interface LocalRepositoryMultiReplicationReplication {
     /**
      * Enabling the `checkBinaryExistenceInFilestore` flag requires an Enterprise Plus license. When true, enables distributed checksum storage. For more information, see [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
      */
-    checkBinaryExistenceInFilestore?: boolean;
+    checkBinaryExistenceInFilestore: boolean;
     /**
      * When set, enables replication of this repository to the target specified in `url` attribute. Default value is `true`.
      */
-    enabled?: boolean;
+    enabled: boolean;
     /**
      * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`. By default, no artifacts are excluded.
      */
-    excludePathPrefixPattern?: string;
+    excludePathPrefixPattern: string;
     /**
      * List of artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included `(**&#47;*)`.
      */
-    includePathPrefixPattern?: string;
+    includePathPrefixPattern: string;
     /**
      * Use either the HTTP authentication password or [identity token](https://www.jfrog.com/confluence/display/JFROG/User+Profile#UserProfile-IdentityTokenidentitytoken).
      */
-    password?: string;
+    password: string;
     /**
      * Proxy key from Artifactory Proxies settings. The proxy configuration will be used when communicating with the remote instance.
      */
-    proxy?: string;
+    proxy: string;
     /**
      * Replication ID, the value is unknown until the resource is created. Can't be set or updated.
      */
@@ -2388,19 +2668,19 @@ export interface LocalRepositoryMultiReplicationReplication {
     /**
      * The network timeout in milliseconds to use for remote operations. Default value is `15000`.
      */
-    socketTimeoutMillis?: number;
+    socketTimeoutMillis: number;
     /**
      * When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata). Note that enabling this option, will delete artifacts on the target that do not exist in the source repository. Default value is `false`.
      */
-    syncDeletes?: boolean;
+    syncDeletes: boolean;
     /**
      * When set, the task also synchronizes the properties of replicated artifacts. Default value is `true`.
      */
-    syncProperties?: boolean;
+    syncProperties: boolean;
     /**
      * When set, the task also synchronizes artifact download statistics. Set to avoid inadvertent cleanup at the target instance when setting up replication for disaster recovery. Default value is `false`
      */
-    syncStatistics?: boolean;
+    syncStatistics: boolean;
     /**
      * The URL of the target local repository on a remote Artifactory server. Use the format `https://<artifactory_url>/artifactory/<repository_name>`.
      */

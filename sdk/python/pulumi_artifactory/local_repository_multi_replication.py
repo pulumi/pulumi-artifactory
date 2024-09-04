@@ -167,8 +167,11 @@ class LocalRepositoryMultiReplication(pulumi.CustomResource):
                  __props__=None):
         """
         Provides a local repository replication resource, also referred to as Artifactory push replication. This can be used to create and manage Artifactory local repository replications using [Multi-push Replication API](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-CreateorReplaceLocalMulti-pushReplication).
+
         Push replication is used to synchronize Local Repositories, and is implemented by the Artifactory server on the near end invoking a synchronization of artifacts to the far end.
+
         See the [Official Documentation](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-PushReplication).
+
         This resource replaces `PushReplication` and used to create a replication of one local repository to multiple repositories on the remote server.
 
         > This resource requires Artifactory Enterprise license. Use `LocalRepositorySingleReplication` with other licenses.
@@ -233,8 +236,11 @@ class LocalRepositoryMultiReplication(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a local repository replication resource, also referred to as Artifactory push replication. This can be used to create and manage Artifactory local repository replications using [Multi-push Replication API](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-CreateorReplaceLocalMulti-pushReplication).
+
         Push replication is used to synchronize Local Repositories, and is implemented by the Artifactory server on the near end invoking a synchronization of artifacts to the far end.
+
         See the [Official Documentation](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-PushReplication).
+
         This resource replaces `PushReplication` and used to create a replication of one local repository to multiple repositories on the remote server.
 
         > This resource requires Artifactory Enterprise license. Use `LocalRepositorySingleReplication` with other licenses.
@@ -366,7 +372,7 @@ class LocalRepositoryMultiReplication(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableEventReplication")
-    def enable_event_replication(self) -> pulumi.Output[Optional[bool]]:
+    def enable_event_replication(self) -> pulumi.Output[bool]:
         """
         When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
         """

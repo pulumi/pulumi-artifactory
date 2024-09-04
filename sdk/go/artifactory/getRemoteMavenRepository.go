@@ -81,7 +81,7 @@ type LookupRemoteMavenRepositoryArgs struct {
 	ListRemoteFolderItems *bool   `pulumi:"listRemoteFolderItems"`
 	LocalAddress          *string `pulumi:"localAddress"`
 	MaxUniqueSnapshots    *int    `pulumi:"maxUniqueSnapshots"`
-	// (Optional, Default: 60) This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrievalCachePeriodSeconds` attribute.
+	// (Optional, Default: 60) This value refers to the number of seconds to wait for retrieval from the remote before serving locally cached artifact or fail the request. Can not set to 0 or negative.
 	MetadataRetrievalTimeoutSecs     *int     `pulumi:"metadataRetrievalTimeoutSecs"`
 	MismatchingMimeTypesOverrideList *string  `pulumi:"mismatchingMimeTypesOverrideList"`
 	MissedCachePeriodSeconds         *int     `pulumi:"missedCachePeriodSeconds"`
@@ -147,7 +147,7 @@ type LookupRemoteMavenRepositoryResult struct {
 	ListRemoteFolderItems *bool   `pulumi:"listRemoteFolderItems"`
 	LocalAddress          *string `pulumi:"localAddress"`
 	MaxUniqueSnapshots    *int    `pulumi:"maxUniqueSnapshots"`
-	// (Optional, Default: 60) This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrievalCachePeriodSeconds` attribute.
+	// (Optional, Default: 60) This value refers to the number of seconds to wait for retrieval from the remote before serving locally cached artifact or fail the request. Can not set to 0 or negative.
 	MetadataRetrievalTimeoutSecs     *int     `pulumi:"metadataRetrievalTimeoutSecs"`
 	MismatchingMimeTypesOverrideList *string  `pulumi:"mismatchingMimeTypesOverrideList"`
 	MissedCachePeriodSeconds         *int     `pulumi:"missedCachePeriodSeconds"`
@@ -226,7 +226,7 @@ type LookupRemoteMavenRepositoryOutputArgs struct {
 	ListRemoteFolderItems pulumi.BoolPtrInput   `pulumi:"listRemoteFolderItems"`
 	LocalAddress          pulumi.StringPtrInput `pulumi:"localAddress"`
 	MaxUniqueSnapshots    pulumi.IntPtrInput    `pulumi:"maxUniqueSnapshots"`
-	// (Optional, Default: 60) This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrievalCachePeriodSeconds` attribute.
+	// (Optional, Default: 60) This value refers to the number of seconds to wait for retrieval from the remote before serving locally cached artifact or fail the request. Can not set to 0 or negative.
 	MetadataRetrievalTimeoutSecs     pulumi.IntPtrInput      `pulumi:"metadataRetrievalTimeoutSecs"`
 	MismatchingMimeTypesOverrideList pulumi.StringPtrInput   `pulumi:"mismatchingMimeTypesOverrideList"`
 	MissedCachePeriodSeconds         pulumi.IntPtrInput      `pulumi:"missedCachePeriodSeconds"`
@@ -392,7 +392,7 @@ func (o LookupRemoteMavenRepositoryResultOutput) MaxUniqueSnapshots() pulumi.Int
 	return o.ApplyT(func(v LookupRemoteMavenRepositoryResult) *int { return v.MaxUniqueSnapshots }).(pulumi.IntPtrOutput)
 }
 
-// (Optional, Default: 60) This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrievalCachePeriodSeconds` attribute.
+// (Optional, Default: 60) This value refers to the number of seconds to wait for retrieval from the remote before serving locally cached artifact or fail the request. Can not set to 0 or negative.
 func (o LookupRemoteMavenRepositoryResultOutput) MetadataRetrievalTimeoutSecs() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupRemoteMavenRepositoryResult) *int { return v.MetadataRetrievalTimeoutSecs }).(pulumi.IntPtrOutput)
 }

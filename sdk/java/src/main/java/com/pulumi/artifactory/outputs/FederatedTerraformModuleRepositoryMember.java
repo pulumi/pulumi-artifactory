@@ -8,9 +8,16 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class FederatedTerraformModuleRepositoryMember {
+    /**
+     * @return Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+     * 
+     */
+    private @Nullable String accessToken;
     /**
      * @return Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -24,6 +31,13 @@ public final class FederatedTerraformModuleRepositoryMember {
     private String url;
 
     private FederatedTerraformModuleRepositoryMember() {}
+    /**
+     * @return Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+     * 
+     */
+    public Optional<String> accessToken() {
+        return Optional.ofNullable(this.accessToken);
+    }
     /**
      * @return Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -49,15 +63,23 @@ public final class FederatedTerraformModuleRepositoryMember {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String accessToken;
         private Boolean enabled;
         private String url;
         public Builder() {}
         public Builder(FederatedTerraformModuleRepositoryMember defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.accessToken = defaults.accessToken;
     	      this.enabled = defaults.enabled;
     	      this.url = defaults.url;
         }
 
+        @CustomType.Setter
+        public Builder accessToken(@Nullable String accessToken) {
+
+            this.accessToken = accessToken;
+            return this;
+        }
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             if (enabled == null) {
@@ -76,6 +98,7 @@ public final class FederatedTerraformModuleRepositoryMember {
         }
         public FederatedTerraformModuleRepositoryMember build() {
             final var _resultValue = new FederatedTerraformModuleRepositoryMember();
+            _resultValue.accessToken = accessToken;
             _resultValue.enabled = enabled;
             _resultValue.url = url;
             return _resultValue;

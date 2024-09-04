@@ -5219,6 +5219,8 @@ func (o DockerWebhookHandlerArrayOutput) Index(i pulumi.IntInput) DockerWebhookH
 }
 
 type FederatedAlpineRepositoryMember struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken *string `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled bool `pulumi:"enabled"`
@@ -5238,6 +5240,8 @@ type FederatedAlpineRepositoryMemberInput interface {
 }
 
 type FederatedAlpineRepositoryMemberArgs struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -5296,6 +5300,11 @@ func (o FederatedAlpineRepositoryMemberOutput) ToFederatedAlpineRepositoryMember
 	return o
 }
 
+// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+func (o FederatedAlpineRepositoryMemberOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FederatedAlpineRepositoryMember) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
+}
+
 // Represents the active state of the federated member. It is supported to change the enabled
 // status of my own member. The config will be updated on the other federated members automatically.
 func (o FederatedAlpineRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
@@ -5328,6 +5337,8 @@ func (o FederatedAlpineRepositoryMemberArrayOutput) Index(i pulumi.IntInput) Fed
 }
 
 type FederatedAnsibleRepositoryMember struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken *string `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled bool `pulumi:"enabled"`
@@ -5347,6 +5358,8 @@ type FederatedAnsibleRepositoryMemberInput interface {
 }
 
 type FederatedAnsibleRepositoryMemberArgs struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -5405,6 +5418,11 @@ func (o FederatedAnsibleRepositoryMemberOutput) ToFederatedAnsibleRepositoryMemb
 	return o
 }
 
+// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+func (o FederatedAnsibleRepositoryMemberOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FederatedAnsibleRepositoryMember) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
+}
+
 // Represents the active state of the federated member. It is supported to change the enabled
 // status of my own member. The config will be updated on the other federated members automatically.
 func (o FederatedAnsibleRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
@@ -5437,6 +5455,8 @@ func (o FederatedAnsibleRepositoryMemberArrayOutput) Index(i pulumi.IntInput) Fe
 }
 
 type FederatedBowerRepositoryMember struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken *string `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled bool `pulumi:"enabled"`
@@ -5456,6 +5476,8 @@ type FederatedBowerRepositoryMemberInput interface {
 }
 
 type FederatedBowerRepositoryMemberArgs struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -5514,6 +5536,11 @@ func (o FederatedBowerRepositoryMemberOutput) ToFederatedBowerRepositoryMemberOu
 	return o
 }
 
+// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+func (o FederatedBowerRepositoryMemberOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FederatedBowerRepositoryMember) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
+}
+
 // Represents the active state of the federated member. It is supported to change the enabled
 // status of my own member. The config will be updated on the other federated members automatically.
 func (o FederatedBowerRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
@@ -5546,6 +5573,8 @@ func (o FederatedBowerRepositoryMemberArrayOutput) Index(i pulumi.IntInput) Fede
 }
 
 type FederatedCargoRepositoryMember struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken *string `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled bool `pulumi:"enabled"`
@@ -5565,6 +5594,8 @@ type FederatedCargoRepositoryMemberInput interface {
 }
 
 type FederatedCargoRepositoryMemberArgs struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -5623,6 +5654,11 @@ func (o FederatedCargoRepositoryMemberOutput) ToFederatedCargoRepositoryMemberOu
 	return o
 }
 
+// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+func (o FederatedCargoRepositoryMemberOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FederatedCargoRepositoryMember) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
+}
+
 // Represents the active state of the federated member. It is supported to change the enabled
 // status of my own member. The config will be updated on the other federated members automatically.
 func (o FederatedCargoRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
@@ -5655,6 +5691,8 @@ func (o FederatedCargoRepositoryMemberArrayOutput) Index(i pulumi.IntInput) Fede
 }
 
 type FederatedChefRepositoryMember struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken *string `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled bool `pulumi:"enabled"`
@@ -5674,6 +5712,8 @@ type FederatedChefRepositoryMemberInput interface {
 }
 
 type FederatedChefRepositoryMemberArgs struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -5732,6 +5772,11 @@ func (o FederatedChefRepositoryMemberOutput) ToFederatedChefRepositoryMemberOutp
 	return o
 }
 
+// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+func (o FederatedChefRepositoryMemberOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FederatedChefRepositoryMember) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
+}
+
 // Represents the active state of the federated member. It is supported to change the enabled
 // status of my own member. The config will be updated on the other federated members automatically.
 func (o FederatedChefRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
@@ -5764,6 +5809,8 @@ func (o FederatedChefRepositoryMemberArrayOutput) Index(i pulumi.IntInput) Feder
 }
 
 type FederatedCocoapodsRepositoryMember struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken *string `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled bool `pulumi:"enabled"`
@@ -5783,6 +5830,8 @@ type FederatedCocoapodsRepositoryMemberInput interface {
 }
 
 type FederatedCocoapodsRepositoryMemberArgs struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -5841,6 +5890,11 @@ func (o FederatedCocoapodsRepositoryMemberOutput) ToFederatedCocoapodsRepository
 	return o
 }
 
+// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+func (o FederatedCocoapodsRepositoryMemberOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FederatedCocoapodsRepositoryMember) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
+}
+
 // Represents the active state of the federated member. It is supported to change the enabled
 // status of my own member. The config will be updated on the other federated members automatically.
 func (o FederatedCocoapodsRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
@@ -5873,6 +5927,8 @@ func (o FederatedCocoapodsRepositoryMemberArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type FederatedComposerRepositoryMember struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken *string `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled bool `pulumi:"enabled"`
@@ -5892,6 +5948,8 @@ type FederatedComposerRepositoryMemberInput interface {
 }
 
 type FederatedComposerRepositoryMemberArgs struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -5950,6 +6008,11 @@ func (o FederatedComposerRepositoryMemberOutput) ToFederatedComposerRepositoryMe
 	return o
 }
 
+// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+func (o FederatedComposerRepositoryMemberOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FederatedComposerRepositoryMember) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
+}
+
 // Represents the active state of the federated member. It is supported to change the enabled
 // status of my own member. The config will be updated on the other federated members automatically.
 func (o FederatedComposerRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
@@ -5982,6 +6045,8 @@ func (o FederatedComposerRepositoryMemberArrayOutput) Index(i pulumi.IntInput) F
 }
 
 type FederatedConanRepositoryMember struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken *string `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled bool `pulumi:"enabled"`
@@ -6001,6 +6066,8 @@ type FederatedConanRepositoryMemberInput interface {
 }
 
 type FederatedConanRepositoryMemberArgs struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -6059,6 +6126,11 @@ func (o FederatedConanRepositoryMemberOutput) ToFederatedConanRepositoryMemberOu
 	return o
 }
 
+// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+func (o FederatedConanRepositoryMemberOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FederatedConanRepositoryMember) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
+}
+
 // Represents the active state of the federated member. It is supported to change the enabled
 // status of my own member. The config will be updated on the other federated members automatically.
 func (o FederatedConanRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
@@ -6091,6 +6163,8 @@ func (o FederatedConanRepositoryMemberArrayOutput) Index(i pulumi.IntInput) Fede
 }
 
 type FederatedCondaRepositoryMember struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken *string `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled bool `pulumi:"enabled"`
@@ -6110,6 +6184,8 @@ type FederatedCondaRepositoryMemberInput interface {
 }
 
 type FederatedCondaRepositoryMemberArgs struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -6168,6 +6244,11 @@ func (o FederatedCondaRepositoryMemberOutput) ToFederatedCondaRepositoryMemberOu
 	return o
 }
 
+// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+func (o FederatedCondaRepositoryMemberOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FederatedCondaRepositoryMember) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
+}
+
 // Represents the active state of the federated member. It is supported to change the enabled
 // status of my own member. The config will be updated on the other federated members automatically.
 func (o FederatedCondaRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
@@ -6200,6 +6281,8 @@ func (o FederatedCondaRepositoryMemberArrayOutput) Index(i pulumi.IntInput) Fede
 }
 
 type FederatedCranRepositoryMember struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken *string `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled bool `pulumi:"enabled"`
@@ -6219,6 +6302,8 @@ type FederatedCranRepositoryMemberInput interface {
 }
 
 type FederatedCranRepositoryMemberArgs struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -6277,6 +6362,11 @@ func (o FederatedCranRepositoryMemberOutput) ToFederatedCranRepositoryMemberOutp
 	return o
 }
 
+// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+func (o FederatedCranRepositoryMemberOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FederatedCranRepositoryMember) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
+}
+
 // Represents the active state of the federated member. It is supported to change the enabled
 // status of my own member. The config will be updated on the other federated members automatically.
 func (o FederatedCranRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
@@ -6309,6 +6399,8 @@ func (o FederatedCranRepositoryMemberArrayOutput) Index(i pulumi.IntInput) Feder
 }
 
 type FederatedDebianRepositoryMember struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken *string `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled bool `pulumi:"enabled"`
@@ -6328,6 +6420,8 @@ type FederatedDebianRepositoryMemberInput interface {
 }
 
 type FederatedDebianRepositoryMemberArgs struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -6386,6 +6480,11 @@ func (o FederatedDebianRepositoryMemberOutput) ToFederatedDebianRepositoryMember
 	return o
 }
 
+// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+func (o FederatedDebianRepositoryMemberOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FederatedDebianRepositoryMember) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
+}
+
 // Represents the active state of the federated member. It is supported to change the enabled
 // status of my own member. The config will be updated on the other federated members automatically.
 func (o FederatedDebianRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
@@ -6418,6 +6517,8 @@ func (o FederatedDebianRepositoryMemberArrayOutput) Index(i pulumi.IntInput) Fed
 }
 
 type FederatedDockerRepositoryMember struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken *string `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled bool `pulumi:"enabled"`
@@ -6437,6 +6538,8 @@ type FederatedDockerRepositoryMemberInput interface {
 }
 
 type FederatedDockerRepositoryMemberArgs struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -6495,6 +6598,11 @@ func (o FederatedDockerRepositoryMemberOutput) ToFederatedDockerRepositoryMember
 	return o
 }
 
+// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+func (o FederatedDockerRepositoryMemberOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FederatedDockerRepositoryMember) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
+}
+
 // Represents the active state of the federated member. It is supported to change the enabled
 // status of my own member. The config will be updated on the other federated members automatically.
 func (o FederatedDockerRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
@@ -6527,6 +6635,8 @@ func (o FederatedDockerRepositoryMemberArrayOutput) Index(i pulumi.IntInput) Fed
 }
 
 type FederatedDockerV1RepositoryMember struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken *string `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled bool `pulumi:"enabled"`
@@ -6546,6 +6656,8 @@ type FederatedDockerV1RepositoryMemberInput interface {
 }
 
 type FederatedDockerV1RepositoryMemberArgs struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -6604,6 +6716,11 @@ func (o FederatedDockerV1RepositoryMemberOutput) ToFederatedDockerV1RepositoryMe
 	return o
 }
 
+// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+func (o FederatedDockerV1RepositoryMemberOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FederatedDockerV1RepositoryMember) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
+}
+
 // Represents the active state of the federated member. It is supported to change the enabled
 // status of my own member. The config will be updated on the other federated members automatically.
 func (o FederatedDockerV1RepositoryMemberOutput) Enabled() pulumi.BoolOutput {
@@ -6636,6 +6753,8 @@ func (o FederatedDockerV1RepositoryMemberArrayOutput) Index(i pulumi.IntInput) F
 }
 
 type FederatedDockerV2RepositoryMember struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken *string `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled bool `pulumi:"enabled"`
@@ -6655,6 +6774,8 @@ type FederatedDockerV2RepositoryMemberInput interface {
 }
 
 type FederatedDockerV2RepositoryMemberArgs struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -6713,6 +6834,11 @@ func (o FederatedDockerV2RepositoryMemberOutput) ToFederatedDockerV2RepositoryMe
 	return o
 }
 
+// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+func (o FederatedDockerV2RepositoryMemberOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FederatedDockerV2RepositoryMember) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
+}
+
 // Represents the active state of the federated member. It is supported to change the enabled
 // status of my own member. The config will be updated on the other federated members automatically.
 func (o FederatedDockerV2RepositoryMemberOutput) Enabled() pulumi.BoolOutput {
@@ -6745,6 +6871,8 @@ func (o FederatedDockerV2RepositoryMemberArrayOutput) Index(i pulumi.IntInput) F
 }
 
 type FederatedGemsRepositoryMember struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken *string `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled bool `pulumi:"enabled"`
@@ -6764,6 +6892,8 @@ type FederatedGemsRepositoryMemberInput interface {
 }
 
 type FederatedGemsRepositoryMemberArgs struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -6822,6 +6952,11 @@ func (o FederatedGemsRepositoryMemberOutput) ToFederatedGemsRepositoryMemberOutp
 	return o
 }
 
+// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+func (o FederatedGemsRepositoryMemberOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FederatedGemsRepositoryMember) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
+}
+
 // Represents the active state of the federated member. It is supported to change the enabled
 // status of my own member. The config will be updated on the other federated members automatically.
 func (o FederatedGemsRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
@@ -6854,6 +6989,8 @@ func (o FederatedGemsRepositoryMemberArrayOutput) Index(i pulumi.IntInput) Feder
 }
 
 type FederatedGenericRepositoryMember struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken *string `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled bool `pulumi:"enabled"`
@@ -6873,6 +7010,8 @@ type FederatedGenericRepositoryMemberInput interface {
 }
 
 type FederatedGenericRepositoryMemberArgs struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -6931,6 +7070,11 @@ func (o FederatedGenericRepositoryMemberOutput) ToFederatedGenericRepositoryMemb
 	return o
 }
 
+// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+func (o FederatedGenericRepositoryMemberOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FederatedGenericRepositoryMember) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
+}
+
 // Represents the active state of the federated member. It is supported to change the enabled
 // status of my own member. The config will be updated on the other federated members automatically.
 func (o FederatedGenericRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
@@ -6963,6 +7107,8 @@ func (o FederatedGenericRepositoryMemberArrayOutput) Index(i pulumi.IntInput) Fe
 }
 
 type FederatedGitltfsRepositoryMember struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken *string `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled bool `pulumi:"enabled"`
@@ -6982,6 +7128,8 @@ type FederatedGitltfsRepositoryMemberInput interface {
 }
 
 type FederatedGitltfsRepositoryMemberArgs struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -7040,6 +7188,11 @@ func (o FederatedGitltfsRepositoryMemberOutput) ToFederatedGitltfsRepositoryMemb
 	return o
 }
 
+// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+func (o FederatedGitltfsRepositoryMemberOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FederatedGitltfsRepositoryMember) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
+}
+
 // Represents the active state of the federated member. It is supported to change the enabled
 // status of my own member. The config will be updated on the other federated members automatically.
 func (o FederatedGitltfsRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
@@ -7072,6 +7225,8 @@ func (o FederatedGitltfsRepositoryMemberArrayOutput) Index(i pulumi.IntInput) Fe
 }
 
 type FederatedGoRepositoryMember struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken *string `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled bool `pulumi:"enabled"`
@@ -7091,6 +7246,8 @@ type FederatedGoRepositoryMemberInput interface {
 }
 
 type FederatedGoRepositoryMemberArgs struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -7149,6 +7306,11 @@ func (o FederatedGoRepositoryMemberOutput) ToFederatedGoRepositoryMemberOutputWi
 	return o
 }
 
+// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+func (o FederatedGoRepositoryMemberOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FederatedGoRepositoryMember) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
+}
+
 // Represents the active state of the federated member. It is supported to change the enabled
 // status of my own member. The config will be updated on the other federated members automatically.
 func (o FederatedGoRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
@@ -7181,6 +7343,8 @@ func (o FederatedGoRepositoryMemberArrayOutput) Index(i pulumi.IntInput) Federat
 }
 
 type FederatedGradleRepositoryMember struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken *string `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled bool `pulumi:"enabled"`
@@ -7200,6 +7364,8 @@ type FederatedGradleRepositoryMemberInput interface {
 }
 
 type FederatedGradleRepositoryMemberArgs struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -7258,6 +7424,11 @@ func (o FederatedGradleRepositoryMemberOutput) ToFederatedGradleRepositoryMember
 	return o
 }
 
+// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+func (o FederatedGradleRepositoryMemberOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FederatedGradleRepositoryMember) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
+}
+
 // Represents the active state of the federated member. It is supported to change the enabled
 // status of my own member. The config will be updated on the other federated members automatically.
 func (o FederatedGradleRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
@@ -7290,6 +7461,8 @@ func (o FederatedGradleRepositoryMemberArrayOutput) Index(i pulumi.IntInput) Fed
 }
 
 type FederatedHelmRepositoryMember struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken *string `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled bool `pulumi:"enabled"`
@@ -7309,6 +7482,8 @@ type FederatedHelmRepositoryMemberInput interface {
 }
 
 type FederatedHelmRepositoryMemberArgs struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -7367,6 +7542,11 @@ func (o FederatedHelmRepositoryMemberOutput) ToFederatedHelmRepositoryMemberOutp
 	return o
 }
 
+// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+func (o FederatedHelmRepositoryMemberOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FederatedHelmRepositoryMember) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
+}
+
 // Represents the active state of the federated member. It is supported to change the enabled
 // status of my own member. The config will be updated on the other federated members automatically.
 func (o FederatedHelmRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
@@ -7399,6 +7579,8 @@ func (o FederatedHelmRepositoryMemberArrayOutput) Index(i pulumi.IntInput) Feder
 }
 
 type FederatedHelmociRepositoryMember struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken *string `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
 	Enabled bool `pulumi:"enabled"`
 	// Full URL to ending with the repository name.
@@ -7417,6 +7599,8 @@ type FederatedHelmociRepositoryMemberInput interface {
 }
 
 type FederatedHelmociRepositoryMemberArgs struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// Full URL to ending with the repository name.
@@ -7474,6 +7658,11 @@ func (o FederatedHelmociRepositoryMemberOutput) ToFederatedHelmociRepositoryMemb
 	return o
 }
 
+// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+func (o FederatedHelmociRepositoryMemberOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FederatedHelmociRepositoryMember) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
+}
+
 // Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
 func (o FederatedHelmociRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v FederatedHelmociRepositoryMember) bool { return v.Enabled }).(pulumi.BoolOutput)
@@ -7505,6 +7694,8 @@ func (o FederatedHelmociRepositoryMemberArrayOutput) Index(i pulumi.IntInput) Fe
 }
 
 type FederatedIvyRepositoryMember struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken *string `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled bool `pulumi:"enabled"`
@@ -7524,6 +7715,8 @@ type FederatedIvyRepositoryMemberInput interface {
 }
 
 type FederatedIvyRepositoryMemberArgs struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -7582,6 +7775,11 @@ func (o FederatedIvyRepositoryMemberOutput) ToFederatedIvyRepositoryMemberOutput
 	return o
 }
 
+// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+func (o FederatedIvyRepositoryMemberOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FederatedIvyRepositoryMember) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
+}
+
 // Represents the active state of the federated member. It is supported to change the enabled
 // status of my own member. The config will be updated on the other federated members automatically.
 func (o FederatedIvyRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
@@ -7614,6 +7812,8 @@ func (o FederatedIvyRepositoryMemberArrayOutput) Index(i pulumi.IntInput) Federa
 }
 
 type FederatedMavenRepositoryMember struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken *string `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled bool `pulumi:"enabled"`
@@ -7633,6 +7833,8 @@ type FederatedMavenRepositoryMemberInput interface {
 }
 
 type FederatedMavenRepositoryMemberArgs struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -7691,6 +7893,11 @@ func (o FederatedMavenRepositoryMemberOutput) ToFederatedMavenRepositoryMemberOu
 	return o
 }
 
+// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+func (o FederatedMavenRepositoryMemberOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FederatedMavenRepositoryMember) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
+}
+
 // Represents the active state of the federated member. It is supported to change the enabled
 // status of my own member. The config will be updated on the other federated members automatically.
 func (o FederatedMavenRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
@@ -7723,6 +7930,8 @@ func (o FederatedMavenRepositoryMemberArrayOutput) Index(i pulumi.IntInput) Fede
 }
 
 type FederatedNpmRepositoryMember struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken *string `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled bool `pulumi:"enabled"`
@@ -7742,6 +7951,8 @@ type FederatedNpmRepositoryMemberInput interface {
 }
 
 type FederatedNpmRepositoryMemberArgs struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -7800,6 +8011,11 @@ func (o FederatedNpmRepositoryMemberOutput) ToFederatedNpmRepositoryMemberOutput
 	return o
 }
 
+// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+func (o FederatedNpmRepositoryMemberOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FederatedNpmRepositoryMember) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
+}
+
 // Represents the active state of the federated member. It is supported to change the enabled
 // status of my own member. The config will be updated on the other federated members automatically.
 func (o FederatedNpmRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
@@ -7832,6 +8048,8 @@ func (o FederatedNpmRepositoryMemberArrayOutput) Index(i pulumi.IntInput) Federa
 }
 
 type FederatedNugetRepositoryMember struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken *string `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled bool `pulumi:"enabled"`
@@ -7851,6 +8069,8 @@ type FederatedNugetRepositoryMemberInput interface {
 }
 
 type FederatedNugetRepositoryMemberArgs struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -7909,6 +8129,11 @@ func (o FederatedNugetRepositoryMemberOutput) ToFederatedNugetRepositoryMemberOu
 	return o
 }
 
+// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+func (o FederatedNugetRepositoryMemberOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FederatedNugetRepositoryMember) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
+}
+
 // Represents the active state of the federated member. It is supported to change the enabled
 // status of my own member. The config will be updated on the other federated members automatically.
 func (o FederatedNugetRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
@@ -7941,6 +8166,8 @@ func (o FederatedNugetRepositoryMemberArrayOutput) Index(i pulumi.IntInput) Fede
 }
 
 type FederatedOciRepositoryMember struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken *string `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled bool `pulumi:"enabled"`
@@ -7960,6 +8187,8 @@ type FederatedOciRepositoryMemberInput interface {
 }
 
 type FederatedOciRepositoryMemberArgs struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -8018,6 +8247,11 @@ func (o FederatedOciRepositoryMemberOutput) ToFederatedOciRepositoryMemberOutput
 	return o
 }
 
+// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+func (o FederatedOciRepositoryMemberOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FederatedOciRepositoryMember) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
+}
+
 // Represents the active state of the federated member. It is supported to change the enabled
 // status of my own member. The config will be updated on the other federated members automatically.
 func (o FederatedOciRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
@@ -8050,6 +8284,8 @@ func (o FederatedOciRepositoryMemberArrayOutput) Index(i pulumi.IntInput) Federa
 }
 
 type FederatedOpkgRepositoryMember struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken *string `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled bool `pulumi:"enabled"`
@@ -8069,6 +8305,8 @@ type FederatedOpkgRepositoryMemberInput interface {
 }
 
 type FederatedOpkgRepositoryMemberArgs struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -8127,6 +8365,11 @@ func (o FederatedOpkgRepositoryMemberOutput) ToFederatedOpkgRepositoryMemberOutp
 	return o
 }
 
+// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+func (o FederatedOpkgRepositoryMemberOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FederatedOpkgRepositoryMember) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
+}
+
 // Represents the active state of the federated member. It is supported to change the enabled
 // status of my own member. The config will be updated on the other federated members automatically.
 func (o FederatedOpkgRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
@@ -8159,6 +8402,8 @@ func (o FederatedOpkgRepositoryMemberArrayOutput) Index(i pulumi.IntInput) Feder
 }
 
 type FederatedPuppetRepositoryMember struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken *string `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled bool `pulumi:"enabled"`
@@ -8178,6 +8423,8 @@ type FederatedPuppetRepositoryMemberInput interface {
 }
 
 type FederatedPuppetRepositoryMemberArgs struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -8236,6 +8483,11 @@ func (o FederatedPuppetRepositoryMemberOutput) ToFederatedPuppetRepositoryMember
 	return o
 }
 
+// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+func (o FederatedPuppetRepositoryMemberOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FederatedPuppetRepositoryMember) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
+}
+
 // Represents the active state of the federated member. It is supported to change the enabled
 // status of my own member. The config will be updated on the other federated members automatically.
 func (o FederatedPuppetRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
@@ -8268,6 +8520,8 @@ func (o FederatedPuppetRepositoryMemberArrayOutput) Index(i pulumi.IntInput) Fed
 }
 
 type FederatedPypiRepositoryMember struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken *string `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled bool `pulumi:"enabled"`
@@ -8287,6 +8541,8 @@ type FederatedPypiRepositoryMemberInput interface {
 }
 
 type FederatedPypiRepositoryMemberArgs struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -8345,6 +8601,11 @@ func (o FederatedPypiRepositoryMemberOutput) ToFederatedPypiRepositoryMemberOutp
 	return o
 }
 
+// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+func (o FederatedPypiRepositoryMemberOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FederatedPypiRepositoryMember) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
+}
+
 // Represents the active state of the federated member. It is supported to change the enabled
 // status of my own member. The config will be updated on the other federated members automatically.
 func (o FederatedPypiRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
@@ -8377,6 +8638,8 @@ func (o FederatedPypiRepositoryMemberArrayOutput) Index(i pulumi.IntInput) Feder
 }
 
 type FederatedRpmRepositoryMember struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken *string `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled bool `pulumi:"enabled"`
@@ -8396,6 +8659,8 @@ type FederatedRpmRepositoryMemberInput interface {
 }
 
 type FederatedRpmRepositoryMemberArgs struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -8454,6 +8719,11 @@ func (o FederatedRpmRepositoryMemberOutput) ToFederatedRpmRepositoryMemberOutput
 	return o
 }
 
+// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+func (o FederatedRpmRepositoryMemberOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FederatedRpmRepositoryMember) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
+}
+
 // Represents the active state of the federated member. It is supported to change the enabled
 // status of my own member. The config will be updated on the other federated members automatically.
 func (o FederatedRpmRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
@@ -8486,6 +8756,8 @@ func (o FederatedRpmRepositoryMemberArrayOutput) Index(i pulumi.IntInput) Federa
 }
 
 type FederatedSbtRepositoryMember struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken *string `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled bool `pulumi:"enabled"`
@@ -8505,6 +8777,8 @@ type FederatedSbtRepositoryMemberInput interface {
 }
 
 type FederatedSbtRepositoryMemberArgs struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -8563,6 +8837,11 @@ func (o FederatedSbtRepositoryMemberOutput) ToFederatedSbtRepositoryMemberOutput
 	return o
 }
 
+// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+func (o FederatedSbtRepositoryMemberOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FederatedSbtRepositoryMember) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
+}
+
 // Represents the active state of the federated member. It is supported to change the enabled
 // status of my own member. The config will be updated on the other federated members automatically.
 func (o FederatedSbtRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
@@ -8595,6 +8874,8 @@ func (o FederatedSbtRepositoryMemberArrayOutput) Index(i pulumi.IntInput) Federa
 }
 
 type FederatedSwiftRepositoryMember struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken *string `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled bool `pulumi:"enabled"`
@@ -8614,6 +8895,8 @@ type FederatedSwiftRepositoryMemberInput interface {
 }
 
 type FederatedSwiftRepositoryMemberArgs struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -8672,6 +8955,11 @@ func (o FederatedSwiftRepositoryMemberOutput) ToFederatedSwiftRepositoryMemberOu
 	return o
 }
 
+// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+func (o FederatedSwiftRepositoryMemberOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FederatedSwiftRepositoryMember) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
+}
+
 // Represents the active state of the federated member. It is supported to change the enabled
 // status of my own member. The config will be updated on the other federated members automatically.
 func (o FederatedSwiftRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
@@ -8704,6 +8992,8 @@ func (o FederatedSwiftRepositoryMemberArrayOutput) Index(i pulumi.IntInput) Fede
 }
 
 type FederatedTerraformModuleRepositoryMember struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken *string `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled bool `pulumi:"enabled"`
@@ -8723,6 +9013,8 @@ type FederatedTerraformModuleRepositoryMemberInput interface {
 }
 
 type FederatedTerraformModuleRepositoryMemberArgs struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -8781,6 +9073,11 @@ func (o FederatedTerraformModuleRepositoryMemberOutput) ToFederatedTerraformModu
 	return o
 }
 
+// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+func (o FederatedTerraformModuleRepositoryMemberOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FederatedTerraformModuleRepositoryMember) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
+}
+
 // Represents the active state of the federated member. It is supported to change the enabled
 // status of my own member. The config will be updated on the other federated members automatically.
 func (o FederatedTerraformModuleRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
@@ -8813,6 +9110,8 @@ func (o FederatedTerraformModuleRepositoryMemberArrayOutput) Index(i pulumi.IntI
 }
 
 type FederatedTerraformProviderRepositoryMember struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken *string `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled bool `pulumi:"enabled"`
@@ -8832,6 +9131,8 @@ type FederatedTerraformProviderRepositoryMemberInput interface {
 }
 
 type FederatedTerraformProviderRepositoryMemberArgs struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -8890,6 +9191,11 @@ func (o FederatedTerraformProviderRepositoryMemberOutput) ToFederatedTerraformPr
 	return o
 }
 
+// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+func (o FederatedTerraformProviderRepositoryMemberOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FederatedTerraformProviderRepositoryMember) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
+}
+
 // Represents the active state of the federated member. It is supported to change the enabled
 // status of my own member. The config will be updated on the other federated members automatically.
 func (o FederatedTerraformProviderRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
@@ -8922,6 +9228,8 @@ func (o FederatedTerraformProviderRepositoryMemberArrayOutput) Index(i pulumi.In
 }
 
 type FederatedVagrantRepositoryMember struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken *string `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled bool `pulumi:"enabled"`
@@ -8941,6 +9249,8 @@ type FederatedVagrantRepositoryMemberInput interface {
 }
 
 type FederatedVagrantRepositoryMemberArgs struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -8997,6 +9307,11 @@ func (o FederatedVagrantRepositoryMemberOutput) ToFederatedVagrantRepositoryMemb
 
 func (o FederatedVagrantRepositoryMemberOutput) ToFederatedVagrantRepositoryMemberOutputWithContext(ctx context.Context) FederatedVagrantRepositoryMemberOutput {
 	return o
+}
+
+// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+func (o FederatedVagrantRepositoryMemberOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FederatedVagrantRepositoryMember) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
 }
 
 // Represents the active state of the federated member. It is supported to change the enabled
@@ -22597,6 +22912,8 @@ func (o VaultConfigurationConfigMountArrayOutput) Index(i pulumi.IntInput) Vault
 }
 
 type GetFederatedAlpineRepositoryMember struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken *string `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled bool `pulumi:"enabled"`
@@ -22616,6 +22933,8 @@ type GetFederatedAlpineRepositoryMemberInput interface {
 }
 
 type GetFederatedAlpineRepositoryMemberArgs struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -22674,6 +22993,11 @@ func (o GetFederatedAlpineRepositoryMemberOutput) ToGetFederatedAlpineRepository
 	return o
 }
 
+// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+func (o GetFederatedAlpineRepositoryMemberOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetFederatedAlpineRepositoryMember) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
+}
+
 // Represents the active state of the federated member. It is supported to change the enabled
 // status of my own member. The config will be updated on the other federated members automatically.
 func (o GetFederatedAlpineRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
@@ -22706,6 +23030,8 @@ func (o GetFederatedAlpineRepositoryMemberArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type GetFederatedAnsibleRepositoryMember struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken *string `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled bool `pulumi:"enabled"`
@@ -22725,6 +23051,8 @@ type GetFederatedAnsibleRepositoryMemberInput interface {
 }
 
 type GetFederatedAnsibleRepositoryMemberArgs struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -22783,6 +23111,11 @@ func (o GetFederatedAnsibleRepositoryMemberOutput) ToGetFederatedAnsibleReposito
 	return o
 }
 
+// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+func (o GetFederatedAnsibleRepositoryMemberOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetFederatedAnsibleRepositoryMember) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
+}
+
 // Represents the active state of the federated member. It is supported to change the enabled
 // status of my own member. The config will be updated on the other federated members automatically.
 func (o GetFederatedAnsibleRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
@@ -22815,6 +23148,8 @@ func (o GetFederatedAnsibleRepositoryMemberArrayOutput) Index(i pulumi.IntInput)
 }
 
 type GetFederatedBowerRepositoryMember struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken *string `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled bool `pulumi:"enabled"`
@@ -22834,6 +23169,8 @@ type GetFederatedBowerRepositoryMemberInput interface {
 }
 
 type GetFederatedBowerRepositoryMemberArgs struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -22892,6 +23229,11 @@ func (o GetFederatedBowerRepositoryMemberOutput) ToGetFederatedBowerRepositoryMe
 	return o
 }
 
+// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+func (o GetFederatedBowerRepositoryMemberOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetFederatedBowerRepositoryMember) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
+}
+
 // Represents the active state of the federated member. It is supported to change the enabled
 // status of my own member. The config will be updated on the other federated members automatically.
 func (o GetFederatedBowerRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
@@ -22924,6 +23266,8 @@ func (o GetFederatedBowerRepositoryMemberArrayOutput) Index(i pulumi.IntInput) G
 }
 
 type GetFederatedCargoRepositoryMember struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken *string `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled bool `pulumi:"enabled"`
@@ -22943,6 +23287,8 @@ type GetFederatedCargoRepositoryMemberInput interface {
 }
 
 type GetFederatedCargoRepositoryMemberArgs struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -23001,6 +23347,11 @@ func (o GetFederatedCargoRepositoryMemberOutput) ToGetFederatedCargoRepositoryMe
 	return o
 }
 
+// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+func (o GetFederatedCargoRepositoryMemberOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetFederatedCargoRepositoryMember) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
+}
+
 // Represents the active state of the federated member. It is supported to change the enabled
 // status of my own member. The config will be updated on the other federated members automatically.
 func (o GetFederatedCargoRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
@@ -23033,6 +23384,8 @@ func (o GetFederatedCargoRepositoryMemberArrayOutput) Index(i pulumi.IntInput) G
 }
 
 type GetFederatedChefRepositoryMember struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken *string `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled bool `pulumi:"enabled"`
@@ -23052,6 +23405,8 @@ type GetFederatedChefRepositoryMemberInput interface {
 }
 
 type GetFederatedChefRepositoryMemberArgs struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -23110,6 +23465,11 @@ func (o GetFederatedChefRepositoryMemberOutput) ToGetFederatedChefRepositoryMemb
 	return o
 }
 
+// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+func (o GetFederatedChefRepositoryMemberOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetFederatedChefRepositoryMember) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
+}
+
 // Represents the active state of the federated member. It is supported to change the enabled
 // status of my own member. The config will be updated on the other federated members automatically.
 func (o GetFederatedChefRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
@@ -23142,6 +23502,8 @@ func (o GetFederatedChefRepositoryMemberArrayOutput) Index(i pulumi.IntInput) Ge
 }
 
 type GetFederatedCocoapodsRepositoryMember struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken *string `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled bool `pulumi:"enabled"`
@@ -23161,6 +23523,8 @@ type GetFederatedCocoapodsRepositoryMemberInput interface {
 }
 
 type GetFederatedCocoapodsRepositoryMemberArgs struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -23219,6 +23583,11 @@ func (o GetFederatedCocoapodsRepositoryMemberOutput) ToGetFederatedCocoapodsRepo
 	return o
 }
 
+// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+func (o GetFederatedCocoapodsRepositoryMemberOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetFederatedCocoapodsRepositoryMember) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
+}
+
 // Represents the active state of the federated member. It is supported to change the enabled
 // status of my own member. The config will be updated on the other federated members automatically.
 func (o GetFederatedCocoapodsRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
@@ -23251,6 +23620,8 @@ func (o GetFederatedCocoapodsRepositoryMemberArrayOutput) Index(i pulumi.IntInpu
 }
 
 type GetFederatedComposerRepositoryMember struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken *string `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled bool `pulumi:"enabled"`
@@ -23270,6 +23641,8 @@ type GetFederatedComposerRepositoryMemberInput interface {
 }
 
 type GetFederatedComposerRepositoryMemberArgs struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -23328,6 +23701,11 @@ func (o GetFederatedComposerRepositoryMemberOutput) ToGetFederatedComposerReposi
 	return o
 }
 
+// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+func (o GetFederatedComposerRepositoryMemberOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetFederatedComposerRepositoryMember) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
+}
+
 // Represents the active state of the federated member. It is supported to change the enabled
 // status of my own member. The config will be updated on the other federated members automatically.
 func (o GetFederatedComposerRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
@@ -23360,6 +23738,8 @@ func (o GetFederatedComposerRepositoryMemberArrayOutput) Index(i pulumi.IntInput
 }
 
 type GetFederatedConanRepositoryMember struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken *string `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled bool `pulumi:"enabled"`
@@ -23379,6 +23759,8 @@ type GetFederatedConanRepositoryMemberInput interface {
 }
 
 type GetFederatedConanRepositoryMemberArgs struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -23437,6 +23819,11 @@ func (o GetFederatedConanRepositoryMemberOutput) ToGetFederatedConanRepositoryMe
 	return o
 }
 
+// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+func (o GetFederatedConanRepositoryMemberOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetFederatedConanRepositoryMember) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
+}
+
 // Represents the active state of the federated member. It is supported to change the enabled
 // status of my own member. The config will be updated on the other federated members automatically.
 func (o GetFederatedConanRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
@@ -23469,6 +23856,8 @@ func (o GetFederatedConanRepositoryMemberArrayOutput) Index(i pulumi.IntInput) G
 }
 
 type GetFederatedCondaRepositoryMember struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken *string `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled bool `pulumi:"enabled"`
@@ -23488,6 +23877,8 @@ type GetFederatedCondaRepositoryMemberInput interface {
 }
 
 type GetFederatedCondaRepositoryMemberArgs struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -23546,6 +23937,11 @@ func (o GetFederatedCondaRepositoryMemberOutput) ToGetFederatedCondaRepositoryMe
 	return o
 }
 
+// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+func (o GetFederatedCondaRepositoryMemberOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetFederatedCondaRepositoryMember) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
+}
+
 // Represents the active state of the federated member. It is supported to change the enabled
 // status of my own member. The config will be updated on the other federated members automatically.
 func (o GetFederatedCondaRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
@@ -23578,6 +23974,8 @@ func (o GetFederatedCondaRepositoryMemberArrayOutput) Index(i pulumi.IntInput) G
 }
 
 type GetFederatedCranRepositoryMember struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken *string `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled bool `pulumi:"enabled"`
@@ -23597,6 +23995,8 @@ type GetFederatedCranRepositoryMemberInput interface {
 }
 
 type GetFederatedCranRepositoryMemberArgs struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -23655,6 +24055,11 @@ func (o GetFederatedCranRepositoryMemberOutput) ToGetFederatedCranRepositoryMemb
 	return o
 }
 
+// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+func (o GetFederatedCranRepositoryMemberOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetFederatedCranRepositoryMember) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
+}
+
 // Represents the active state of the federated member. It is supported to change the enabled
 // status of my own member. The config will be updated on the other federated members automatically.
 func (o GetFederatedCranRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
@@ -23687,6 +24092,8 @@ func (o GetFederatedCranRepositoryMemberArrayOutput) Index(i pulumi.IntInput) Ge
 }
 
 type GetFederatedDebianRepositoryMember struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken *string `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled bool `pulumi:"enabled"`
@@ -23706,6 +24113,8 @@ type GetFederatedDebianRepositoryMemberInput interface {
 }
 
 type GetFederatedDebianRepositoryMemberArgs struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -23764,6 +24173,11 @@ func (o GetFederatedDebianRepositoryMemberOutput) ToGetFederatedDebianRepository
 	return o
 }
 
+// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+func (o GetFederatedDebianRepositoryMemberOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetFederatedDebianRepositoryMember) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
+}
+
 // Represents the active state of the federated member. It is supported to change the enabled
 // status of my own member. The config will be updated on the other federated members automatically.
 func (o GetFederatedDebianRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
@@ -23796,6 +24210,8 @@ func (o GetFederatedDebianRepositoryMemberArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type GetFederatedDockerRepositoryMember struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken *string `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
 	Enabled bool `pulumi:"enabled"`
 	// Full URL to ending with the repositoryName
@@ -23814,6 +24230,8 @@ type GetFederatedDockerRepositoryMemberInput interface {
 }
 
 type GetFederatedDockerRepositoryMemberArgs struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// Full URL to ending with the repositoryName
@@ -23871,6 +24289,11 @@ func (o GetFederatedDockerRepositoryMemberOutput) ToGetFederatedDockerRepository
 	return o
 }
 
+// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+func (o GetFederatedDockerRepositoryMemberOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetFederatedDockerRepositoryMember) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
+}
+
 // Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
 func (o GetFederatedDockerRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetFederatedDockerRepositoryMember) bool { return v.Enabled }).(pulumi.BoolOutput)
@@ -23902,6 +24325,8 @@ func (o GetFederatedDockerRepositoryMemberArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type GetFederatedDockerV1RepositoryMember struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken *string `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled bool `pulumi:"enabled"`
@@ -23921,6 +24346,8 @@ type GetFederatedDockerV1RepositoryMemberInput interface {
 }
 
 type GetFederatedDockerV1RepositoryMemberArgs struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -23979,6 +24406,11 @@ func (o GetFederatedDockerV1RepositoryMemberOutput) ToGetFederatedDockerV1Reposi
 	return o
 }
 
+// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+func (o GetFederatedDockerV1RepositoryMemberOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetFederatedDockerV1RepositoryMember) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
+}
+
 // Represents the active state of the federated member. It is supported to change the enabled
 // status of my own member. The config will be updated on the other federated members automatically.
 func (o GetFederatedDockerV1RepositoryMemberOutput) Enabled() pulumi.BoolOutput {
@@ -24011,6 +24443,8 @@ func (o GetFederatedDockerV1RepositoryMemberArrayOutput) Index(i pulumi.IntInput
 }
 
 type GetFederatedDockerV2RepositoryMember struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken *string `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled bool `pulumi:"enabled"`
@@ -24030,6 +24464,8 @@ type GetFederatedDockerV2RepositoryMemberInput interface {
 }
 
 type GetFederatedDockerV2RepositoryMemberArgs struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -24088,6 +24524,11 @@ func (o GetFederatedDockerV2RepositoryMemberOutput) ToGetFederatedDockerV2Reposi
 	return o
 }
 
+// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+func (o GetFederatedDockerV2RepositoryMemberOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetFederatedDockerV2RepositoryMember) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
+}
+
 // Represents the active state of the federated member. It is supported to change the enabled
 // status of my own member. The config will be updated on the other federated members automatically.
 func (o GetFederatedDockerV2RepositoryMemberOutput) Enabled() pulumi.BoolOutput {
@@ -24120,6 +24561,8 @@ func (o GetFederatedDockerV2RepositoryMemberArrayOutput) Index(i pulumi.IntInput
 }
 
 type GetFederatedGemsRepositoryMember struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken *string `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled bool `pulumi:"enabled"`
@@ -24139,6 +24582,8 @@ type GetFederatedGemsRepositoryMemberInput interface {
 }
 
 type GetFederatedGemsRepositoryMemberArgs struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -24197,6 +24642,11 @@ func (o GetFederatedGemsRepositoryMemberOutput) ToGetFederatedGemsRepositoryMemb
 	return o
 }
 
+// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+func (o GetFederatedGemsRepositoryMemberOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetFederatedGemsRepositoryMember) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
+}
+
 // Represents the active state of the federated member. It is supported to change the enabled
 // status of my own member. The config will be updated on the other federated members automatically.
 func (o GetFederatedGemsRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
@@ -24229,6 +24679,8 @@ func (o GetFederatedGemsRepositoryMemberArrayOutput) Index(i pulumi.IntInput) Ge
 }
 
 type GetFederatedGenericRepositoryMember struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken *string `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled bool `pulumi:"enabled"`
@@ -24248,6 +24700,8 @@ type GetFederatedGenericRepositoryMemberInput interface {
 }
 
 type GetFederatedGenericRepositoryMemberArgs struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -24306,6 +24760,11 @@ func (o GetFederatedGenericRepositoryMemberOutput) ToGetFederatedGenericReposito
 	return o
 }
 
+// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+func (o GetFederatedGenericRepositoryMemberOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetFederatedGenericRepositoryMember) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
+}
+
 // Represents the active state of the federated member. It is supported to change the enabled
 // status of my own member. The config will be updated on the other federated members automatically.
 func (o GetFederatedGenericRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
@@ -24338,6 +24797,8 @@ func (o GetFederatedGenericRepositoryMemberArrayOutput) Index(i pulumi.IntInput)
 }
 
 type GetFederatedGitlfsRepositoryMember struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken *string `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled bool `pulumi:"enabled"`
@@ -24357,6 +24818,8 @@ type GetFederatedGitlfsRepositoryMemberInput interface {
 }
 
 type GetFederatedGitlfsRepositoryMemberArgs struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -24415,6 +24878,11 @@ func (o GetFederatedGitlfsRepositoryMemberOutput) ToGetFederatedGitlfsRepository
 	return o
 }
 
+// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+func (o GetFederatedGitlfsRepositoryMemberOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetFederatedGitlfsRepositoryMember) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
+}
+
 // Represents the active state of the federated member. It is supported to change the enabled
 // status of my own member. The config will be updated on the other federated members automatically.
 func (o GetFederatedGitlfsRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
@@ -24447,6 +24915,8 @@ func (o GetFederatedGitlfsRepositoryMemberArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type GetFederatedGoRepositoryMember struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken *string `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled bool `pulumi:"enabled"`
@@ -24466,6 +24936,8 @@ type GetFederatedGoRepositoryMemberInput interface {
 }
 
 type GetFederatedGoRepositoryMemberArgs struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -24524,6 +24996,11 @@ func (o GetFederatedGoRepositoryMemberOutput) ToGetFederatedGoRepositoryMemberOu
 	return o
 }
 
+// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+func (o GetFederatedGoRepositoryMemberOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetFederatedGoRepositoryMember) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
+}
+
 // Represents the active state of the federated member. It is supported to change the enabled
 // status of my own member. The config will be updated on the other federated members automatically.
 func (o GetFederatedGoRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
@@ -24556,6 +25033,8 @@ func (o GetFederatedGoRepositoryMemberArrayOutput) Index(i pulumi.IntInput) GetF
 }
 
 type GetFederatedGradleRepositoryMember struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken *string `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled bool `pulumi:"enabled"`
@@ -24575,6 +25054,8 @@ type GetFederatedGradleRepositoryMemberInput interface {
 }
 
 type GetFederatedGradleRepositoryMemberArgs struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -24633,6 +25114,11 @@ func (o GetFederatedGradleRepositoryMemberOutput) ToGetFederatedGradleRepository
 	return o
 }
 
+// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+func (o GetFederatedGradleRepositoryMemberOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetFederatedGradleRepositoryMember) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
+}
+
 // Represents the active state of the federated member. It is supported to change the enabled
 // status of my own member. The config will be updated on the other federated members automatically.
 func (o GetFederatedGradleRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
@@ -24665,6 +25151,8 @@ func (o GetFederatedGradleRepositoryMemberArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type GetFederatedHelmRepositoryMember struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken *string `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled bool `pulumi:"enabled"`
@@ -24684,6 +25172,8 @@ type GetFederatedHelmRepositoryMemberInput interface {
 }
 
 type GetFederatedHelmRepositoryMemberArgs struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -24742,6 +25232,11 @@ func (o GetFederatedHelmRepositoryMemberOutput) ToGetFederatedHelmRepositoryMemb
 	return o
 }
 
+// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+func (o GetFederatedHelmRepositoryMemberOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetFederatedHelmRepositoryMember) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
+}
+
 // Represents the active state of the federated member. It is supported to change the enabled
 // status of my own member. The config will be updated on the other federated members automatically.
 func (o GetFederatedHelmRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
@@ -24774,6 +25269,8 @@ func (o GetFederatedHelmRepositoryMemberArrayOutput) Index(i pulumi.IntInput) Ge
 }
 
 type GetFederatedHelmociRepositoryMember struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken *string `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled bool `pulumi:"enabled"`
@@ -24793,6 +25290,8 @@ type GetFederatedHelmociRepositoryMemberInput interface {
 }
 
 type GetFederatedHelmociRepositoryMemberArgs struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -24851,6 +25350,11 @@ func (o GetFederatedHelmociRepositoryMemberOutput) ToGetFederatedHelmociReposito
 	return o
 }
 
+// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+func (o GetFederatedHelmociRepositoryMemberOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetFederatedHelmociRepositoryMember) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
+}
+
 // Represents the active state of the federated member. It is supported to change the enabled
 // status of my own member. The config will be updated on the other federated members automatically.
 func (o GetFederatedHelmociRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
@@ -24883,6 +25387,8 @@ func (o GetFederatedHelmociRepositoryMemberArrayOutput) Index(i pulumi.IntInput)
 }
 
 type GetFederatedIvyRepositoryMember struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken *string `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled bool `pulumi:"enabled"`
@@ -24902,6 +25408,8 @@ type GetFederatedIvyRepositoryMemberInput interface {
 }
 
 type GetFederatedIvyRepositoryMemberArgs struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -24960,6 +25468,11 @@ func (o GetFederatedIvyRepositoryMemberOutput) ToGetFederatedIvyRepositoryMember
 	return o
 }
 
+// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+func (o GetFederatedIvyRepositoryMemberOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetFederatedIvyRepositoryMember) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
+}
+
 // Represents the active state of the federated member. It is supported to change the enabled
 // status of my own member. The config will be updated on the other federated members automatically.
 func (o GetFederatedIvyRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
@@ -24992,6 +25505,8 @@ func (o GetFederatedIvyRepositoryMemberArrayOutput) Index(i pulumi.IntInput) Get
 }
 
 type GetFederatedMavenRepositoryMember struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken *string `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled bool `pulumi:"enabled"`
@@ -25011,6 +25526,8 @@ type GetFederatedMavenRepositoryMemberInput interface {
 }
 
 type GetFederatedMavenRepositoryMemberArgs struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -25069,6 +25586,11 @@ func (o GetFederatedMavenRepositoryMemberOutput) ToGetFederatedMavenRepositoryMe
 	return o
 }
 
+// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+func (o GetFederatedMavenRepositoryMemberOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetFederatedMavenRepositoryMember) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
+}
+
 // Represents the active state of the federated member. It is supported to change the enabled
 // status of my own member. The config will be updated on the other federated members automatically.
 func (o GetFederatedMavenRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
@@ -25101,6 +25623,8 @@ func (o GetFederatedMavenRepositoryMemberArrayOutput) Index(i pulumi.IntInput) G
 }
 
 type GetFederatedNpmRepositoryMember struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken *string `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled bool `pulumi:"enabled"`
@@ -25120,6 +25644,8 @@ type GetFederatedNpmRepositoryMemberInput interface {
 }
 
 type GetFederatedNpmRepositoryMemberArgs struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -25178,6 +25704,11 @@ func (o GetFederatedNpmRepositoryMemberOutput) ToGetFederatedNpmRepositoryMember
 	return o
 }
 
+// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+func (o GetFederatedNpmRepositoryMemberOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetFederatedNpmRepositoryMember) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
+}
+
 // Represents the active state of the federated member. It is supported to change the enabled
 // status of my own member. The config will be updated on the other federated members automatically.
 func (o GetFederatedNpmRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
@@ -25210,6 +25741,8 @@ func (o GetFederatedNpmRepositoryMemberArrayOutput) Index(i pulumi.IntInput) Get
 }
 
 type GetFederatedNugetRepositoryMember struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken *string `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled bool `pulumi:"enabled"`
@@ -25229,6 +25762,8 @@ type GetFederatedNugetRepositoryMemberInput interface {
 }
 
 type GetFederatedNugetRepositoryMemberArgs struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -25287,6 +25822,11 @@ func (o GetFederatedNugetRepositoryMemberOutput) ToGetFederatedNugetRepositoryMe
 	return o
 }
 
+// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+func (o GetFederatedNugetRepositoryMemberOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetFederatedNugetRepositoryMember) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
+}
+
 // Represents the active state of the federated member. It is supported to change the enabled
 // status of my own member. The config will be updated on the other federated members automatically.
 func (o GetFederatedNugetRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
@@ -25319,6 +25859,8 @@ func (o GetFederatedNugetRepositoryMemberArrayOutput) Index(i pulumi.IntInput) G
 }
 
 type GetFederatedOciRepositoryMember struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken *string `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled bool `pulumi:"enabled"`
@@ -25338,6 +25880,8 @@ type GetFederatedOciRepositoryMemberInput interface {
 }
 
 type GetFederatedOciRepositoryMemberArgs struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -25396,6 +25940,11 @@ func (o GetFederatedOciRepositoryMemberOutput) ToGetFederatedOciRepositoryMember
 	return o
 }
 
+// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+func (o GetFederatedOciRepositoryMemberOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetFederatedOciRepositoryMember) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
+}
+
 // Represents the active state of the federated member. It is supported to change the enabled
 // status of my own member. The config will be updated on the other federated members automatically.
 func (o GetFederatedOciRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
@@ -25428,6 +25977,8 @@ func (o GetFederatedOciRepositoryMemberArrayOutput) Index(i pulumi.IntInput) Get
 }
 
 type GetFederatedOpkgRepositoryMember struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken *string `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled bool `pulumi:"enabled"`
@@ -25447,6 +25998,8 @@ type GetFederatedOpkgRepositoryMemberInput interface {
 }
 
 type GetFederatedOpkgRepositoryMemberArgs struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -25505,6 +26058,11 @@ func (o GetFederatedOpkgRepositoryMemberOutput) ToGetFederatedOpkgRepositoryMemb
 	return o
 }
 
+// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+func (o GetFederatedOpkgRepositoryMemberOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetFederatedOpkgRepositoryMember) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
+}
+
 // Represents the active state of the federated member. It is supported to change the enabled
 // status of my own member. The config will be updated on the other federated members automatically.
 func (o GetFederatedOpkgRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
@@ -25537,6 +26095,8 @@ func (o GetFederatedOpkgRepositoryMemberArrayOutput) Index(i pulumi.IntInput) Ge
 }
 
 type GetFederatedPuppetRepositoryMember struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken *string `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled bool `pulumi:"enabled"`
@@ -25556,6 +26116,8 @@ type GetFederatedPuppetRepositoryMemberInput interface {
 }
 
 type GetFederatedPuppetRepositoryMemberArgs struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -25614,6 +26176,11 @@ func (o GetFederatedPuppetRepositoryMemberOutput) ToGetFederatedPuppetRepository
 	return o
 }
 
+// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+func (o GetFederatedPuppetRepositoryMemberOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetFederatedPuppetRepositoryMember) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
+}
+
 // Represents the active state of the federated member. It is supported to change the enabled
 // status of my own member. The config will be updated on the other federated members automatically.
 func (o GetFederatedPuppetRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
@@ -25646,6 +26213,8 @@ func (o GetFederatedPuppetRepositoryMemberArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type GetFederatedPypiRepositoryMember struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken *string `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled bool `pulumi:"enabled"`
@@ -25665,6 +26234,8 @@ type GetFederatedPypiRepositoryMemberInput interface {
 }
 
 type GetFederatedPypiRepositoryMemberArgs struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -25723,6 +26294,11 @@ func (o GetFederatedPypiRepositoryMemberOutput) ToGetFederatedPypiRepositoryMemb
 	return o
 }
 
+// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+func (o GetFederatedPypiRepositoryMemberOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetFederatedPypiRepositoryMember) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
+}
+
 // Represents the active state of the federated member. It is supported to change the enabled
 // status of my own member. The config will be updated on the other federated members automatically.
 func (o GetFederatedPypiRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
@@ -25755,6 +26331,8 @@ func (o GetFederatedPypiRepositoryMemberArrayOutput) Index(i pulumi.IntInput) Ge
 }
 
 type GetFederatedRpmRepositoryMember struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken *string `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled bool `pulumi:"enabled"`
@@ -25774,6 +26352,8 @@ type GetFederatedRpmRepositoryMemberInput interface {
 }
 
 type GetFederatedRpmRepositoryMemberArgs struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -25832,6 +26412,11 @@ func (o GetFederatedRpmRepositoryMemberOutput) ToGetFederatedRpmRepositoryMember
 	return o
 }
 
+// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+func (o GetFederatedRpmRepositoryMemberOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetFederatedRpmRepositoryMember) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
+}
+
 // Represents the active state of the federated member. It is supported to change the enabled
 // status of my own member. The config will be updated on the other federated members automatically.
 func (o GetFederatedRpmRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
@@ -25864,6 +26449,8 @@ func (o GetFederatedRpmRepositoryMemberArrayOutput) Index(i pulumi.IntInput) Get
 }
 
 type GetFederatedSbtRepositoryMember struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken *string `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled bool `pulumi:"enabled"`
@@ -25883,6 +26470,8 @@ type GetFederatedSbtRepositoryMemberInput interface {
 }
 
 type GetFederatedSbtRepositoryMemberArgs struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -25941,6 +26530,11 @@ func (o GetFederatedSbtRepositoryMemberOutput) ToGetFederatedSbtRepositoryMember
 	return o
 }
 
+// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+func (o GetFederatedSbtRepositoryMemberOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetFederatedSbtRepositoryMember) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
+}
+
 // Represents the active state of the federated member. It is supported to change the enabled
 // status of my own member. The config will be updated on the other federated members automatically.
 func (o GetFederatedSbtRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
@@ -25973,6 +26567,8 @@ func (o GetFederatedSbtRepositoryMemberArrayOutput) Index(i pulumi.IntInput) Get
 }
 
 type GetFederatedSwiftRepositoryMember struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken *string `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled bool `pulumi:"enabled"`
@@ -25992,6 +26588,8 @@ type GetFederatedSwiftRepositoryMemberInput interface {
 }
 
 type GetFederatedSwiftRepositoryMemberArgs struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -26050,6 +26648,11 @@ func (o GetFederatedSwiftRepositoryMemberOutput) ToGetFederatedSwiftRepositoryMe
 	return o
 }
 
+// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+func (o GetFederatedSwiftRepositoryMemberOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetFederatedSwiftRepositoryMember) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
+}
+
 // Represents the active state of the federated member. It is supported to change the enabled
 // status of my own member. The config will be updated on the other federated members automatically.
 func (o GetFederatedSwiftRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
@@ -26082,6 +26685,8 @@ func (o GetFederatedSwiftRepositoryMemberArrayOutput) Index(i pulumi.IntInput) G
 }
 
 type GetFederatedTerraformModuleRepositoryMember struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken *string `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled bool `pulumi:"enabled"`
@@ -26101,6 +26706,8 @@ type GetFederatedTerraformModuleRepositoryMemberInput interface {
 }
 
 type GetFederatedTerraformModuleRepositoryMemberArgs struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -26159,6 +26766,11 @@ func (o GetFederatedTerraformModuleRepositoryMemberOutput) ToGetFederatedTerrafo
 	return o
 }
 
+// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+func (o GetFederatedTerraformModuleRepositoryMemberOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetFederatedTerraformModuleRepositoryMember) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
+}
+
 // Represents the active state of the federated member. It is supported to change the enabled
 // status of my own member. The config will be updated on the other federated members automatically.
 func (o GetFederatedTerraformModuleRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
@@ -26191,6 +26803,8 @@ func (o GetFederatedTerraformModuleRepositoryMemberArrayOutput) Index(i pulumi.I
 }
 
 type GetFederatedTerraformProviderRepositoryMember struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken *string `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled bool `pulumi:"enabled"`
@@ -26210,6 +26824,8 @@ type GetFederatedTerraformProviderRepositoryMemberInput interface {
 }
 
 type GetFederatedTerraformProviderRepositoryMemberArgs struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -26268,6 +26884,11 @@ func (o GetFederatedTerraformProviderRepositoryMemberOutput) ToGetFederatedTerra
 	return o
 }
 
+// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+func (o GetFederatedTerraformProviderRepositoryMemberOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetFederatedTerraformProviderRepositoryMember) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
+}
+
 // Represents the active state of the federated member. It is supported to change the enabled
 // status of my own member. The config will be updated on the other federated members automatically.
 func (o GetFederatedTerraformProviderRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
@@ -26300,6 +26921,8 @@ func (o GetFederatedTerraformProviderRepositoryMemberArrayOutput) Index(i pulumi
 }
 
 type GetFederatedVagrantRepositoryMember struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken *string `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled bool `pulumi:"enabled"`
@@ -26319,6 +26942,8 @@ type GetFederatedVagrantRepositoryMemberInput interface {
 }
 
 type GetFederatedVagrantRepositoryMemberArgs struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -26375,6 +27000,11 @@ func (o GetFederatedVagrantRepositoryMemberOutput) ToGetFederatedVagrantReposito
 
 func (o GetFederatedVagrantRepositoryMemberOutput) ToGetFederatedVagrantRepositoryMemberOutputWithContext(ctx context.Context) GetFederatedVagrantRepositoryMemberOutput {
 	return o
+}
+
+// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+func (o GetFederatedVagrantRepositoryMemberOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetFederatedVagrantRepositoryMember) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
 }
 
 // Represents the active state of the federated member. It is supported to change the enabled

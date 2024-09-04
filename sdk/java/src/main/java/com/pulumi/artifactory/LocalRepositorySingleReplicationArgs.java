@@ -37,15 +37,15 @@ public final class LocalRepositorySingleReplicationArgs extends com.pulumi.resou
      * A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
      * 
      */
-    @Import(name="cronExp")
-    private @Nullable Output<String> cronExp;
+    @Import(name="cronExp", required=true)
+    private Output<String> cronExp;
 
     /**
      * @return A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
      * 
      */
-    public Optional<Output<String>> cronExp() {
-        return Optional.ofNullable(this.cronExp);
+    public Output<String> cronExp() {
+        return this.cronExp;
     }
 
     /**
@@ -136,21 +136,6 @@ public final class LocalRepositorySingleReplicationArgs extends com.pulumi.resou
      */
     public Optional<Output<String>> proxy() {
         return Optional.ofNullable(this.proxy);
-    }
-
-    /**
-     * Replication ID, the value is unknown until the resource is created. Can&#39;t be set or updated.
-     * 
-     */
-    @Import(name="replicationKey")
-    private @Nullable Output<String> replicationKey;
-
-    /**
-     * @return Replication ID, the value is unknown until the resource is created. Can&#39;t be set or updated.
-     * 
-     */
-    public Optional<Output<String>> replicationKey() {
-        return Optional.ofNullable(this.replicationKey);
     }
 
     /**
@@ -269,7 +254,6 @@ public final class LocalRepositorySingleReplicationArgs extends com.pulumi.resou
         this.includePathPrefixPattern = $.includePathPrefixPattern;
         this.password = $.password;
         this.proxy = $.proxy;
-        this.replicationKey = $.replicationKey;
         this.repoKey = $.repoKey;
         this.socketTimeoutMillis = $.socketTimeoutMillis;
         this.syncDeletes = $.syncDeletes;
@@ -324,7 +308,7 @@ public final class LocalRepositorySingleReplicationArgs extends com.pulumi.resou
          * @return builder
          * 
          */
-        public Builder cronExp(@Nullable Output<String> cronExp) {
+        public Builder cronExp(Output<String> cronExp) {
             $.cronExp = cronExp;
             return this;
         }
@@ -463,27 +447,6 @@ public final class LocalRepositorySingleReplicationArgs extends com.pulumi.resou
          */
         public Builder proxy(String proxy) {
             return proxy(Output.of(proxy));
-        }
-
-        /**
-         * @param replicationKey Replication ID, the value is unknown until the resource is created. Can&#39;t be set or updated.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder replicationKey(@Nullable Output<String> replicationKey) {
-            $.replicationKey = replicationKey;
-            return this;
-        }
-
-        /**
-         * @param replicationKey Replication ID, the value is unknown until the resource is created. Can&#39;t be set or updated.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder replicationKey(String replicationKey) {
-            return replicationKey(Output.of(replicationKey));
         }
 
         /**
@@ -634,6 +597,9 @@ public final class LocalRepositorySingleReplicationArgs extends com.pulumi.resou
         }
 
         public LocalRepositorySingleReplicationArgs build() {
+            if ($.cronExp == null) {
+                throw new MissingRequiredPropertyException("LocalRepositorySingleReplicationArgs", "cronExp");
+            }
             if ($.repoKey == null) {
                 throw new MissingRequiredPropertyException("LocalRepositorySingleReplicationArgs", "repoKey");
             }

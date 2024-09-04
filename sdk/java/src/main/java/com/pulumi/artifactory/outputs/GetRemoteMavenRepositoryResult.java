@@ -64,7 +64,7 @@ public final class GetRemoteMavenRepositoryResult {
     private @Nullable String localAddress;
     private @Nullable Integer maxUniqueSnapshots;
     /**
-     * @return (Optional, Default: 60) This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrieval_cache_period_seconds` attribute.
+     * @return (Optional, Default: 60) This value refers to the number of seconds to wait for retrieval from the remote before serving locally cached artifact or fail the request. Can not set to 0 or negative.
      * 
      */
     private @Nullable Integer metadataRetrievalTimeoutSecs;
@@ -210,7 +210,7 @@ public final class GetRemoteMavenRepositoryResult {
         return Optional.ofNullable(this.maxUniqueSnapshots);
     }
     /**
-     * @return (Optional, Default: 60) This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrieval_cache_period_seconds` attribute.
+     * @return (Optional, Default: 60) This value refers to the number of seconds to wait for retrieval from the remote before serving locally cached artifact or fail the request. Can not set to 0 or negative.
      * 
      */
     public Optional<Integer> metadataRetrievalTimeoutSecs() {
