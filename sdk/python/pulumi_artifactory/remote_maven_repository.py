@@ -134,7 +134,6 @@ class RemoteMavenRepositoryArgs:
                `param1=val1&param2=val2&param3=val3`
         :param pulumi.Input[bool] reject_invalid_jars: Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive portal".
         :param pulumi.Input[str] remote_repo_checksum_policy_type: Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
-               `retrieval_cache_period_seconds` attribute.
         :param pulumi.Input[str] remote_repo_layout_ref: Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an
                empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be
                ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
@@ -759,7 +758,6 @@ class RemoteMavenRepositoryArgs:
     def remote_repo_checksum_policy_type(self) -> Optional[pulumi.Input[str]]:
         """
         Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
-        `retrieval_cache_period_seconds` attribute.
         """
         return pulumi.get(self, "remote_repo_checksum_policy_type")
 
@@ -1024,7 +1022,6 @@ class _RemoteMavenRepositoryState:
                `param1=val1&param2=val2&param3=val3`
         :param pulumi.Input[bool] reject_invalid_jars: Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive portal".
         :param pulumi.Input[str] remote_repo_checksum_policy_type: Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
-               `retrieval_cache_period_seconds` attribute.
         :param pulumi.Input[str] remote_repo_layout_ref: Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an
                empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be
                ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
@@ -1651,7 +1648,6 @@ class _RemoteMavenRepositoryState:
     def remote_repo_checksum_policy_type(self) -> Optional[pulumi.Input[str]]:
         """
         Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
-        `retrieval_cache_period_seconds` attribute.
         """
         return pulumi.get(self, "remote_repo_checksum_policy_type")
 
@@ -1959,7 +1955,6 @@ class RemoteMavenRepository(pulumi.CustomResource):
                `param1=val1&param2=val2&param3=val3`
         :param pulumi.Input[bool] reject_invalid_jars: Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive portal".
         :param pulumi.Input[str] remote_repo_checksum_policy_type: Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
-               `retrieval_cache_period_seconds` attribute.
         :param pulumi.Input[str] remote_repo_layout_ref: Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an
                empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be
                ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
@@ -2283,7 +2278,6 @@ class RemoteMavenRepository(pulumi.CustomResource):
                `param1=val1&param2=val2&param3=val3`
         :param pulumi.Input[bool] reject_invalid_jars: Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive portal".
         :param pulumi.Input[str] remote_repo_checksum_policy_type: Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
-               `retrieval_cache_period_seconds` attribute.
         :param pulumi.Input[str] remote_repo_layout_ref: Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an
                empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be
                ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
@@ -2702,7 +2696,6 @@ class RemoteMavenRepository(pulumi.CustomResource):
     def remote_repo_checksum_policy_type(self) -> pulumi.Output[Optional[str]]:
         """
         Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
-        `retrieval_cache_period_seconds` attribute.
         """
         return pulumi.get(self, "remote_repo_checksum_policy_type")
 

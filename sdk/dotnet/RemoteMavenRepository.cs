@@ -305,7 +305,6 @@ namespace Pulumi.Artifactory
 
         /// <summary>
         /// Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
-        /// `retrieval_cache_period_seconds` attribute.
         /// </summary>
         [Output("remoteRepoChecksumPolicyType")]
         public Output<string?> RemoteRepoChecksumPolicyType { get; private set; } = null!;
@@ -708,7 +707,6 @@ namespace Pulumi.Artifactory
 
         /// <summary>
         /// Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
-        /// `retrieval_cache_period_seconds` attribute.
         /// </summary>
         [Input("remoteRepoChecksumPolicyType")]
         public Input<string>? RemoteRepoChecksumPolicyType { get; set; }
@@ -1072,7 +1070,6 @@ namespace Pulumi.Artifactory
 
         /// <summary>
         /// Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
-        /// `retrieval_cache_period_seconds` attribute.
         /// </summary>
         [Input("remoteRepoChecksumPolicyType")]
         public Input<string>? RemoteRepoChecksumPolicyType { get; set; }

@@ -567,7 +567,7 @@ class RemoteRepositoryReplication(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="checkBinaryExistenceInFilestore")
-    def check_binary_existence_in_filestore(self) -> pulumi.Output[Optional[bool]]:
+    def check_binary_existence_in_filestore(self) -> pulumi.Output[bool]:
         """
         Enabling the `check_binary_existence_in_filestore` flag requires an Enterprise Plus license. When true, enables distributed checksum storage. For more information, see [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
         """
@@ -583,7 +583,7 @@ class RemoteRepositoryReplication(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableEventReplication")
-    def enable_event_replication(self) -> pulumi.Output[Optional[bool]]:
+    def enable_event_replication(self) -> pulumi.Output[bool]:
         """
         When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
         com/confluence/display/JFROG/User+Profile#UserProfile-IdentityTokenidentitytoken).
@@ -592,7 +592,7 @@ class RemoteRepositoryReplication(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def enabled(self) -> pulumi.Output[Optional[bool]]:
+    def enabled(self) -> pulumi.Output[bool]:
         """
         When set, enables replication of this repository to the target specified in `url` attribute. Default value is `true`.
         """
@@ -600,7 +600,7 @@ class RemoteRepositoryReplication(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="excludePathPrefixPattern")
-    def exclude_path_prefix_pattern(self) -> pulumi.Output[Optional[str]]:
+    def exclude_path_prefix_pattern(self) -> pulumi.Output[str]:
         """
         List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. By default, no artifacts are excluded.
         """
@@ -608,7 +608,7 @@ class RemoteRepositoryReplication(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="includePathPrefixPattern")
-    def include_path_prefix_pattern(self) -> pulumi.Output[Optional[str]]:
+    def include_path_prefix_pattern(self) -> pulumi.Output[str]:
         """
         List of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included `(**/*)`.
         """
@@ -632,7 +632,7 @@ class RemoteRepositoryReplication(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="syncDeletes")
-    def sync_deletes(self) -> pulumi.Output[Optional[bool]]:
+    def sync_deletes(self) -> pulumi.Output[bool]:
         """
         When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata). Note that enabling this option, will delete artifacts on the target that do not exist in the source repository. Default value is `false`.
         """
@@ -640,7 +640,7 @@ class RemoteRepositoryReplication(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="syncProperties")
-    def sync_properties(self) -> pulumi.Output[Optional[bool]]:
+    def sync_properties(self) -> pulumi.Output[bool]:
         """
         When set, the task also synchronizes the properties of replicated artifacts. Default value is `true`.
         """

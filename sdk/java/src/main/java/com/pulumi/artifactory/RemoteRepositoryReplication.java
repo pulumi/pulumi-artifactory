@@ -95,14 +95,14 @@ public class RemoteRepositoryReplication extends com.pulumi.resources.CustomReso
      * 
      */
     @Export(name="checkBinaryExistenceInFilestore", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> checkBinaryExistenceInFilestore;
+    private Output<Boolean> checkBinaryExistenceInFilestore;
 
     /**
      * @return Enabling the `check_binary_existence_in_filestore` flag requires an Enterprise Plus license. When true, enables distributed checksum storage. For more information, see [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
      * 
      */
-    public Output<Optional<Boolean>> checkBinaryExistenceInFilestore() {
-        return Codegen.optional(this.checkBinaryExistenceInFilestore);
+    public Output<Boolean> checkBinaryExistenceInFilestore() {
+        return this.checkBinaryExistenceInFilestore;
     }
     /**
      * A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
@@ -124,57 +124,57 @@ public class RemoteRepositoryReplication extends com.pulumi.resources.CustomReso
      * 
      */
     @Export(name="enableEventReplication", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> enableEventReplication;
+    private Output<Boolean> enableEventReplication;
 
     /**
      * @return When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
      * com/confluence/display/JFROG/User+Profile#UserProfile-IdentityTokenidentitytoken).
      * 
      */
-    public Output<Optional<Boolean>> enableEventReplication() {
-        return Codegen.optional(this.enableEventReplication);
+    public Output<Boolean> enableEventReplication() {
+        return this.enableEventReplication;
     }
     /**
      * When set, enables replication of this repository to the target specified in `url` attribute. Default value is `true`.
      * 
      */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> enabled;
+    private Output<Boolean> enabled;
 
     /**
      * @return When set, enables replication of this repository to the target specified in `url` attribute. Default value is `true`.
      * 
      */
-    public Output<Optional<Boolean>> enabled() {
-        return Codegen.optional(this.enabled);
+    public Output<Boolean> enabled() {
+        return this.enabled;
     }
     /**
      * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`. By default, no artifacts are excluded.
      * 
      */
     @Export(name="excludePathPrefixPattern", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> excludePathPrefixPattern;
+    private Output<String> excludePathPrefixPattern;
 
     /**
      * @return List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`. By default, no artifacts are excluded.
      * 
      */
-    public Output<Optional<String>> excludePathPrefixPattern() {
-        return Codegen.optional(this.excludePathPrefixPattern);
+    public Output<String> excludePathPrefixPattern() {
+        return this.excludePathPrefixPattern;
     }
     /**
      * List of artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included `(**&#47;*)`.
      * 
      */
     @Export(name="includePathPrefixPattern", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> includePathPrefixPattern;
+    private Output<String> includePathPrefixPattern;
 
     /**
      * @return List of artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included `(**&#47;*)`.
      * 
      */
-    public Output<Optional<String>> includePathPrefixPattern() {
-        return Codegen.optional(this.includePathPrefixPattern);
+    public Output<String> includePathPrefixPattern() {
+        return this.includePathPrefixPattern;
     }
     /**
      * Replication ID, the value is unknown until the resource is created. Can&#39;t be set or updated.
@@ -209,28 +209,28 @@ public class RemoteRepositoryReplication extends com.pulumi.resources.CustomReso
      * 
      */
     @Export(name="syncDeletes", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> syncDeletes;
+    private Output<Boolean> syncDeletes;
 
     /**
      * @return When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata). Note that enabling this option, will delete artifacts on the target that do not exist in the source repository. Default value is `false`.
      * 
      */
-    public Output<Optional<Boolean>> syncDeletes() {
-        return Codegen.optional(this.syncDeletes);
+    public Output<Boolean> syncDeletes() {
+        return this.syncDeletes;
     }
     /**
      * When set, the task also synchronizes the properties of replicated artifacts. Default value is `true`.
      * 
      */
     @Export(name="syncProperties", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> syncProperties;
+    private Output<Boolean> syncProperties;
 
     /**
      * @return When set, the task also synchronizes the properties of replicated artifacts. Default value is `true`.
      * 
      */
-    public Output<Optional<Boolean>> syncProperties() {
-        return Codegen.optional(this.syncProperties);
+    public Output<Boolean> syncProperties() {
+        return this.syncProperties;
     }
 
     /**

@@ -2779,14 +2779,18 @@ class DockerWebhookHandlerArgs:
 class FederatedAlpineRepositoryMemberArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
-                 url: pulumi.Input[str]):
+                 url: pulumi.Input[str],
+                 access_token: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[bool] enabled: Represents the active state of the federated member. It is supported to change the enabled
                status of my own member. The config will be updated on the other federated members automatically.
         :param pulumi.Input[str] url: Full URL to ending with the repository name.
+        :param pulumi.Input[str] access_token: Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
 
     @property
     @pulumi.getter
@@ -2812,20 +2816,36 @@ class FederatedAlpineRepositoryMemberArgs:
     @url.setter
     def url(self, value: pulumi.Input[str]):
         pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+        return pulumi.get(self, "access_token")
+
+    @access_token.setter
+    def access_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "access_token", value)
 
 
 @pulumi.input_type
 class FederatedAnsibleRepositoryMemberArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
-                 url: pulumi.Input[str]):
+                 url: pulumi.Input[str],
+                 access_token: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[bool] enabled: Represents the active state of the federated member. It is supported to change the enabled
                status of my own member. The config will be updated on the other federated members automatically.
         :param pulumi.Input[str] url: Full URL to ending with the repository name.
+        :param pulumi.Input[str] access_token: Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
 
     @property
     @pulumi.getter
@@ -2851,20 +2871,36 @@ class FederatedAnsibleRepositoryMemberArgs:
     @url.setter
     def url(self, value: pulumi.Input[str]):
         pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+        return pulumi.get(self, "access_token")
+
+    @access_token.setter
+    def access_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "access_token", value)
 
 
 @pulumi.input_type
 class FederatedBowerRepositoryMemberArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
-                 url: pulumi.Input[str]):
+                 url: pulumi.Input[str],
+                 access_token: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[bool] enabled: Represents the active state of the federated member. It is supported to change the enabled
                status of my own member. The config will be updated on the other federated members automatically.
         :param pulumi.Input[str] url: Full URL to ending with the repository name.
+        :param pulumi.Input[str] access_token: Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
 
     @property
     @pulumi.getter
@@ -2890,20 +2926,36 @@ class FederatedBowerRepositoryMemberArgs:
     @url.setter
     def url(self, value: pulumi.Input[str]):
         pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+        return pulumi.get(self, "access_token")
+
+    @access_token.setter
+    def access_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "access_token", value)
 
 
 @pulumi.input_type
 class FederatedCargoRepositoryMemberArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
-                 url: pulumi.Input[str]):
+                 url: pulumi.Input[str],
+                 access_token: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[bool] enabled: Represents the active state of the federated member. It is supported to change the enabled
                status of my own member. The config will be updated on the other federated members automatically.
         :param pulumi.Input[str] url: Full URL to ending with the repository name.
+        :param pulumi.Input[str] access_token: Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
 
     @property
     @pulumi.getter
@@ -2929,20 +2981,36 @@ class FederatedCargoRepositoryMemberArgs:
     @url.setter
     def url(self, value: pulumi.Input[str]):
         pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+        return pulumi.get(self, "access_token")
+
+    @access_token.setter
+    def access_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "access_token", value)
 
 
 @pulumi.input_type
 class FederatedChefRepositoryMemberArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
-                 url: pulumi.Input[str]):
+                 url: pulumi.Input[str],
+                 access_token: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[bool] enabled: Represents the active state of the federated member. It is supported to change the enabled
                status of my own member. The config will be updated on the other federated members automatically.
         :param pulumi.Input[str] url: Full URL to ending with the repository name.
+        :param pulumi.Input[str] access_token: Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
 
     @property
     @pulumi.getter
@@ -2968,20 +3036,36 @@ class FederatedChefRepositoryMemberArgs:
     @url.setter
     def url(self, value: pulumi.Input[str]):
         pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+        return pulumi.get(self, "access_token")
+
+    @access_token.setter
+    def access_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "access_token", value)
 
 
 @pulumi.input_type
 class FederatedCocoapodsRepositoryMemberArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
-                 url: pulumi.Input[str]):
+                 url: pulumi.Input[str],
+                 access_token: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[bool] enabled: Represents the active state of the federated member. It is supported to change the enabled
                status of my own member. The config will be updated on the other federated members automatically.
         :param pulumi.Input[str] url: Full URL to ending with the repository name.
+        :param pulumi.Input[str] access_token: Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
 
     @property
     @pulumi.getter
@@ -3007,20 +3091,36 @@ class FederatedCocoapodsRepositoryMemberArgs:
     @url.setter
     def url(self, value: pulumi.Input[str]):
         pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+        return pulumi.get(self, "access_token")
+
+    @access_token.setter
+    def access_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "access_token", value)
 
 
 @pulumi.input_type
 class FederatedComposerRepositoryMemberArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
-                 url: pulumi.Input[str]):
+                 url: pulumi.Input[str],
+                 access_token: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[bool] enabled: Represents the active state of the federated member. It is supported to change the enabled
                status of my own member. The config will be updated on the other federated members automatically.
         :param pulumi.Input[str] url: Full URL to ending with the repository name.
+        :param pulumi.Input[str] access_token: Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
 
     @property
     @pulumi.getter
@@ -3046,20 +3146,36 @@ class FederatedComposerRepositoryMemberArgs:
     @url.setter
     def url(self, value: pulumi.Input[str]):
         pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+        return pulumi.get(self, "access_token")
+
+    @access_token.setter
+    def access_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "access_token", value)
 
 
 @pulumi.input_type
 class FederatedConanRepositoryMemberArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
-                 url: pulumi.Input[str]):
+                 url: pulumi.Input[str],
+                 access_token: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[bool] enabled: Represents the active state of the federated member. It is supported to change the enabled
                status of my own member. The config will be updated on the other federated members automatically.
         :param pulumi.Input[str] url: Full URL to ending with the repository name.
+        :param pulumi.Input[str] access_token: Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
 
     @property
     @pulumi.getter
@@ -3085,20 +3201,36 @@ class FederatedConanRepositoryMemberArgs:
     @url.setter
     def url(self, value: pulumi.Input[str]):
         pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+        return pulumi.get(self, "access_token")
+
+    @access_token.setter
+    def access_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "access_token", value)
 
 
 @pulumi.input_type
 class FederatedCondaRepositoryMemberArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
-                 url: pulumi.Input[str]):
+                 url: pulumi.Input[str],
+                 access_token: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[bool] enabled: Represents the active state of the federated member. It is supported to change the enabled
                status of my own member. The config will be updated on the other federated members automatically.
         :param pulumi.Input[str] url: Full URL to ending with the repository name.
+        :param pulumi.Input[str] access_token: Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
 
     @property
     @pulumi.getter
@@ -3124,20 +3256,36 @@ class FederatedCondaRepositoryMemberArgs:
     @url.setter
     def url(self, value: pulumi.Input[str]):
         pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+        return pulumi.get(self, "access_token")
+
+    @access_token.setter
+    def access_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "access_token", value)
 
 
 @pulumi.input_type
 class FederatedCranRepositoryMemberArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
-                 url: pulumi.Input[str]):
+                 url: pulumi.Input[str],
+                 access_token: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[bool] enabled: Represents the active state of the federated member. It is supported to change the enabled
                status of my own member. The config will be updated on the other federated members automatically.
         :param pulumi.Input[str] url: Full URL to ending with the repository name.
+        :param pulumi.Input[str] access_token: Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
 
     @property
     @pulumi.getter
@@ -3163,20 +3311,36 @@ class FederatedCranRepositoryMemberArgs:
     @url.setter
     def url(self, value: pulumi.Input[str]):
         pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+        return pulumi.get(self, "access_token")
+
+    @access_token.setter
+    def access_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "access_token", value)
 
 
 @pulumi.input_type
 class FederatedDebianRepositoryMemberArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
-                 url: pulumi.Input[str]):
+                 url: pulumi.Input[str],
+                 access_token: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[bool] enabled: Represents the active state of the federated member. It is supported to change the enabled
                status of my own member. The config will be updated on the other federated members automatically.
         :param pulumi.Input[str] url: Full URL to ending with the repository name.
+        :param pulumi.Input[str] access_token: Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
 
     @property
     @pulumi.getter
@@ -3202,20 +3366,36 @@ class FederatedDebianRepositoryMemberArgs:
     @url.setter
     def url(self, value: pulumi.Input[str]):
         pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+        return pulumi.get(self, "access_token")
+
+    @access_token.setter
+    def access_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "access_token", value)
 
 
 @pulumi.input_type
 class FederatedDockerRepositoryMemberArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
-                 url: pulumi.Input[str]):
+                 url: pulumi.Input[str],
+                 access_token: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[bool] enabled: Represents the active state of the federated member. It is supported to change the enabled
                status of my own member. The config will be updated on the other federated members automatically.
         :param pulumi.Input[str] url: Full URL to ending with the repository name.
+        :param pulumi.Input[str] access_token: Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
 
     @property
     @pulumi.getter
@@ -3241,20 +3421,36 @@ class FederatedDockerRepositoryMemberArgs:
     @url.setter
     def url(self, value: pulumi.Input[str]):
         pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+        return pulumi.get(self, "access_token")
+
+    @access_token.setter
+    def access_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "access_token", value)
 
 
 @pulumi.input_type
 class FederatedDockerV1RepositoryMemberArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
-                 url: pulumi.Input[str]):
+                 url: pulumi.Input[str],
+                 access_token: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[bool] enabled: Represents the active state of the federated member. It is supported to change the enabled
                status of my own member. The config will be updated on the other federated members automatically.
         :param pulumi.Input[str] url: Full URL to ending with the repository name.
+        :param pulumi.Input[str] access_token: Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
 
     @property
     @pulumi.getter
@@ -3280,20 +3476,36 @@ class FederatedDockerV1RepositoryMemberArgs:
     @url.setter
     def url(self, value: pulumi.Input[str]):
         pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+        return pulumi.get(self, "access_token")
+
+    @access_token.setter
+    def access_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "access_token", value)
 
 
 @pulumi.input_type
 class FederatedDockerV2RepositoryMemberArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
-                 url: pulumi.Input[str]):
+                 url: pulumi.Input[str],
+                 access_token: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[bool] enabled: Represents the active state of the federated member. It is supported to change the enabled
                status of my own member. The config will be updated on the other federated members automatically.
         :param pulumi.Input[str] url: Full URL to ending with the repository name.
+        :param pulumi.Input[str] access_token: Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
 
     @property
     @pulumi.getter
@@ -3319,20 +3531,36 @@ class FederatedDockerV2RepositoryMemberArgs:
     @url.setter
     def url(self, value: pulumi.Input[str]):
         pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+        return pulumi.get(self, "access_token")
+
+    @access_token.setter
+    def access_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "access_token", value)
 
 
 @pulumi.input_type
 class FederatedGemsRepositoryMemberArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
-                 url: pulumi.Input[str]):
+                 url: pulumi.Input[str],
+                 access_token: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[bool] enabled: Represents the active state of the federated member. It is supported to change the enabled
                status of my own member. The config will be updated on the other federated members automatically.
         :param pulumi.Input[str] url: Full URL to ending with the repository name.
+        :param pulumi.Input[str] access_token: Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
 
     @property
     @pulumi.getter
@@ -3358,20 +3586,36 @@ class FederatedGemsRepositoryMemberArgs:
     @url.setter
     def url(self, value: pulumi.Input[str]):
         pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+        return pulumi.get(self, "access_token")
+
+    @access_token.setter
+    def access_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "access_token", value)
 
 
 @pulumi.input_type
 class FederatedGenericRepositoryMemberArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
-                 url: pulumi.Input[str]):
+                 url: pulumi.Input[str],
+                 access_token: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[bool] enabled: Represents the active state of the federated member. It is supported to change the enabled
                status of my own member. The config will be updated on the other federated members automatically.
         :param pulumi.Input[str] url: Full URL to ending with the repository name.
+        :param pulumi.Input[str] access_token: Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
 
     @property
     @pulumi.getter
@@ -3397,20 +3641,36 @@ class FederatedGenericRepositoryMemberArgs:
     @url.setter
     def url(self, value: pulumi.Input[str]):
         pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+        return pulumi.get(self, "access_token")
+
+    @access_token.setter
+    def access_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "access_token", value)
 
 
 @pulumi.input_type
 class FederatedGitltfsRepositoryMemberArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
-                 url: pulumi.Input[str]):
+                 url: pulumi.Input[str],
+                 access_token: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[bool] enabled: Represents the active state of the federated member. It is supported to change the enabled
                status of my own member. The config will be updated on the other federated members automatically.
         :param pulumi.Input[str] url: Full URL to ending with the repository name.
+        :param pulumi.Input[str] access_token: Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
 
     @property
     @pulumi.getter
@@ -3436,20 +3696,36 @@ class FederatedGitltfsRepositoryMemberArgs:
     @url.setter
     def url(self, value: pulumi.Input[str]):
         pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+        return pulumi.get(self, "access_token")
+
+    @access_token.setter
+    def access_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "access_token", value)
 
 
 @pulumi.input_type
 class FederatedGoRepositoryMemberArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
-                 url: pulumi.Input[str]):
+                 url: pulumi.Input[str],
+                 access_token: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[bool] enabled: Represents the active state of the federated member. It is supported to change the enabled
                status of my own member. The config will be updated on the other federated members automatically.
         :param pulumi.Input[str] url: Full URL to ending with the repository name.
+        :param pulumi.Input[str] access_token: Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
 
     @property
     @pulumi.getter
@@ -3475,20 +3751,36 @@ class FederatedGoRepositoryMemberArgs:
     @url.setter
     def url(self, value: pulumi.Input[str]):
         pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+        return pulumi.get(self, "access_token")
+
+    @access_token.setter
+    def access_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "access_token", value)
 
 
 @pulumi.input_type
 class FederatedGradleRepositoryMemberArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
-                 url: pulumi.Input[str]):
+                 url: pulumi.Input[str],
+                 access_token: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[bool] enabled: Represents the active state of the federated member. It is supported to change the enabled
                status of my own member. The config will be updated on the other federated members automatically.
         :param pulumi.Input[str] url: Full URL to ending with the repository name.
+        :param pulumi.Input[str] access_token: Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
 
     @property
     @pulumi.getter
@@ -3514,20 +3806,36 @@ class FederatedGradleRepositoryMemberArgs:
     @url.setter
     def url(self, value: pulumi.Input[str]):
         pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+        return pulumi.get(self, "access_token")
+
+    @access_token.setter
+    def access_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "access_token", value)
 
 
 @pulumi.input_type
 class FederatedHelmRepositoryMemberArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
-                 url: pulumi.Input[str]):
+                 url: pulumi.Input[str],
+                 access_token: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[bool] enabled: Represents the active state of the federated member. It is supported to change the enabled
                status of my own member. The config will be updated on the other federated members automatically.
         :param pulumi.Input[str] url: Full URL to ending with the repository name.
+        :param pulumi.Input[str] access_token: Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
 
     @property
     @pulumi.getter
@@ -3554,18 +3862,34 @@ class FederatedHelmRepositoryMemberArgs:
     def url(self, value: pulumi.Input[str]):
         pulumi.set(self, "url", value)
 
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+        return pulumi.get(self, "access_token")
+
+    @access_token.setter
+    def access_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "access_token", value)
+
 
 @pulumi.input_type
 class FederatedHelmociRepositoryMemberArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
-                 url: pulumi.Input[str]):
+                 url: pulumi.Input[str],
+                 access_token: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[bool] enabled: Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
         :param pulumi.Input[str] url: Full URL to ending with the repository name.
+        :param pulumi.Input[str] access_token: Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
 
     @property
     @pulumi.getter
@@ -3591,19 +3915,35 @@ class FederatedHelmociRepositoryMemberArgs:
     def url(self, value: pulumi.Input[str]):
         pulumi.set(self, "url", value)
 
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+        return pulumi.get(self, "access_token")
+
+    @access_token.setter
+    def access_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "access_token", value)
+
 
 @pulumi.input_type
 class FederatedIvyRepositoryMemberArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
-                 url: pulumi.Input[str]):
+                 url: pulumi.Input[str],
+                 access_token: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[bool] enabled: Represents the active state of the federated member. It is supported to change the enabled
                status of my own member. The config will be updated on the other federated members automatically.
         :param pulumi.Input[str] url: Full URL to ending with the repository name.
+        :param pulumi.Input[str] access_token: Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
 
     @property
     @pulumi.getter
@@ -3629,20 +3969,36 @@ class FederatedIvyRepositoryMemberArgs:
     @url.setter
     def url(self, value: pulumi.Input[str]):
         pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+        return pulumi.get(self, "access_token")
+
+    @access_token.setter
+    def access_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "access_token", value)
 
 
 @pulumi.input_type
 class FederatedMavenRepositoryMemberArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
-                 url: pulumi.Input[str]):
+                 url: pulumi.Input[str],
+                 access_token: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[bool] enabled: Represents the active state of the federated member. It is supported to change the enabled
                status of my own member. The config will be updated on the other federated members automatically.
         :param pulumi.Input[str] url: Full URL to ending with the repository name.
+        :param pulumi.Input[str] access_token: Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
 
     @property
     @pulumi.getter
@@ -3668,20 +4024,36 @@ class FederatedMavenRepositoryMemberArgs:
     @url.setter
     def url(self, value: pulumi.Input[str]):
         pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+        return pulumi.get(self, "access_token")
+
+    @access_token.setter
+    def access_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "access_token", value)
 
 
 @pulumi.input_type
 class FederatedNpmRepositoryMemberArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
-                 url: pulumi.Input[str]):
+                 url: pulumi.Input[str],
+                 access_token: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[bool] enabled: Represents the active state of the federated member. It is supported to change the enabled
                status of my own member. The config will be updated on the other federated members automatically.
         :param pulumi.Input[str] url: Full URL to ending with the repository name.
+        :param pulumi.Input[str] access_token: Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
 
     @property
     @pulumi.getter
@@ -3707,20 +4079,36 @@ class FederatedNpmRepositoryMemberArgs:
     @url.setter
     def url(self, value: pulumi.Input[str]):
         pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+        return pulumi.get(self, "access_token")
+
+    @access_token.setter
+    def access_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "access_token", value)
 
 
 @pulumi.input_type
 class FederatedNugetRepositoryMemberArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
-                 url: pulumi.Input[str]):
+                 url: pulumi.Input[str],
+                 access_token: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[bool] enabled: Represents the active state of the federated member. It is supported to change the enabled
                status of my own member. The config will be updated on the other federated members automatically.
         :param pulumi.Input[str] url: Full URL to ending with the repository name.
+        :param pulumi.Input[str] access_token: Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
 
     @property
     @pulumi.getter
@@ -3746,20 +4134,36 @@ class FederatedNugetRepositoryMemberArgs:
     @url.setter
     def url(self, value: pulumi.Input[str]):
         pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+        return pulumi.get(self, "access_token")
+
+    @access_token.setter
+    def access_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "access_token", value)
 
 
 @pulumi.input_type
 class FederatedOciRepositoryMemberArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
-                 url: pulumi.Input[str]):
+                 url: pulumi.Input[str],
+                 access_token: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[bool] enabled: Represents the active state of the federated member. It is supported to change the enabled
                status of my own member. The config will be updated on the other federated members automatically.
         :param pulumi.Input[str] url: Full URL to ending with the repository name.
+        :param pulumi.Input[str] access_token: Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
 
     @property
     @pulumi.getter
@@ -3785,20 +4189,36 @@ class FederatedOciRepositoryMemberArgs:
     @url.setter
     def url(self, value: pulumi.Input[str]):
         pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+        return pulumi.get(self, "access_token")
+
+    @access_token.setter
+    def access_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "access_token", value)
 
 
 @pulumi.input_type
 class FederatedOpkgRepositoryMemberArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
-                 url: pulumi.Input[str]):
+                 url: pulumi.Input[str],
+                 access_token: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[bool] enabled: Represents the active state of the federated member. It is supported to change the enabled
                status of my own member. The config will be updated on the other federated members automatically.
         :param pulumi.Input[str] url: Full URL to ending with the repository name.
+        :param pulumi.Input[str] access_token: Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
 
     @property
     @pulumi.getter
@@ -3824,20 +4244,36 @@ class FederatedOpkgRepositoryMemberArgs:
     @url.setter
     def url(self, value: pulumi.Input[str]):
         pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+        return pulumi.get(self, "access_token")
+
+    @access_token.setter
+    def access_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "access_token", value)
 
 
 @pulumi.input_type
 class FederatedPuppetRepositoryMemberArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
-                 url: pulumi.Input[str]):
+                 url: pulumi.Input[str],
+                 access_token: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[bool] enabled: Represents the active state of the federated member. It is supported to change the enabled
                status of my own member. The config will be updated on the other federated members automatically.
         :param pulumi.Input[str] url: Full URL to ending with the repository name.
+        :param pulumi.Input[str] access_token: Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
 
     @property
     @pulumi.getter
@@ -3863,20 +4299,36 @@ class FederatedPuppetRepositoryMemberArgs:
     @url.setter
     def url(self, value: pulumi.Input[str]):
         pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+        return pulumi.get(self, "access_token")
+
+    @access_token.setter
+    def access_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "access_token", value)
 
 
 @pulumi.input_type
 class FederatedPypiRepositoryMemberArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
-                 url: pulumi.Input[str]):
+                 url: pulumi.Input[str],
+                 access_token: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[bool] enabled: Represents the active state of the federated member. It is supported to change the enabled
                status of my own member. The config will be updated on the other federated members automatically.
         :param pulumi.Input[str] url: Full URL to ending with the repository name.
+        :param pulumi.Input[str] access_token: Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
 
     @property
     @pulumi.getter
@@ -3902,20 +4354,36 @@ class FederatedPypiRepositoryMemberArgs:
     @url.setter
     def url(self, value: pulumi.Input[str]):
         pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+        return pulumi.get(self, "access_token")
+
+    @access_token.setter
+    def access_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "access_token", value)
 
 
 @pulumi.input_type
 class FederatedRpmRepositoryMemberArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
-                 url: pulumi.Input[str]):
+                 url: pulumi.Input[str],
+                 access_token: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[bool] enabled: Represents the active state of the federated member. It is supported to change the enabled
                status of my own member. The config will be updated on the other federated members automatically.
         :param pulumi.Input[str] url: Full URL to ending with the repository name.
+        :param pulumi.Input[str] access_token: Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
 
     @property
     @pulumi.getter
@@ -3941,20 +4409,36 @@ class FederatedRpmRepositoryMemberArgs:
     @url.setter
     def url(self, value: pulumi.Input[str]):
         pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+        return pulumi.get(self, "access_token")
+
+    @access_token.setter
+    def access_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "access_token", value)
 
 
 @pulumi.input_type
 class FederatedSbtRepositoryMemberArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
-                 url: pulumi.Input[str]):
+                 url: pulumi.Input[str],
+                 access_token: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[bool] enabled: Represents the active state of the federated member. It is supported to change the enabled
                status of my own member. The config will be updated on the other federated members automatically.
         :param pulumi.Input[str] url: Full URL to ending with the repository name.
+        :param pulumi.Input[str] access_token: Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
 
     @property
     @pulumi.getter
@@ -3980,20 +4464,36 @@ class FederatedSbtRepositoryMemberArgs:
     @url.setter
     def url(self, value: pulumi.Input[str]):
         pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+        return pulumi.get(self, "access_token")
+
+    @access_token.setter
+    def access_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "access_token", value)
 
 
 @pulumi.input_type
 class FederatedSwiftRepositoryMemberArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
-                 url: pulumi.Input[str]):
+                 url: pulumi.Input[str],
+                 access_token: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[bool] enabled: Represents the active state of the federated member. It is supported to change the enabled
                status of my own member. The config will be updated on the other federated members automatically.
         :param pulumi.Input[str] url: Full URL to ending with the repository name.
+        :param pulumi.Input[str] access_token: Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
 
     @property
     @pulumi.getter
@@ -4019,20 +4519,36 @@ class FederatedSwiftRepositoryMemberArgs:
     @url.setter
     def url(self, value: pulumi.Input[str]):
         pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+        return pulumi.get(self, "access_token")
+
+    @access_token.setter
+    def access_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "access_token", value)
 
 
 @pulumi.input_type
 class FederatedTerraformModuleRepositoryMemberArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
-                 url: pulumi.Input[str]):
+                 url: pulumi.Input[str],
+                 access_token: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[bool] enabled: Represents the active state of the federated member. It is supported to change the enabled
                status of my own member. The config will be updated on the other federated members automatically.
         :param pulumi.Input[str] url: Full URL to ending with the repository name.
+        :param pulumi.Input[str] access_token: Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
 
     @property
     @pulumi.getter
@@ -4058,20 +4574,36 @@ class FederatedTerraformModuleRepositoryMemberArgs:
     @url.setter
     def url(self, value: pulumi.Input[str]):
         pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+        return pulumi.get(self, "access_token")
+
+    @access_token.setter
+    def access_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "access_token", value)
 
 
 @pulumi.input_type
 class FederatedTerraformProviderRepositoryMemberArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
-                 url: pulumi.Input[str]):
+                 url: pulumi.Input[str],
+                 access_token: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[bool] enabled: Represents the active state of the federated member. It is supported to change the enabled
                status of my own member. The config will be updated on the other federated members automatically.
         :param pulumi.Input[str] url: Full URL to ending with the repository name.
+        :param pulumi.Input[str] access_token: Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
 
     @property
     @pulumi.getter
@@ -4097,20 +4629,36 @@ class FederatedTerraformProviderRepositoryMemberArgs:
     @url.setter
     def url(self, value: pulumi.Input[str]):
         pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+        return pulumi.get(self, "access_token")
+
+    @access_token.setter
+    def access_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "access_token", value)
 
 
 @pulumi.input_type
 class FederatedVagrantRepositoryMemberArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
-                 url: pulumi.Input[str]):
+                 url: pulumi.Input[str],
+                 access_token: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[bool] enabled: Represents the active state of the federated member. It is supported to change the enabled
                status of my own member. The config will be updated on the other federated members automatically.
         :param pulumi.Input[str] url: Full URL to ending with the repository name.
+        :param pulumi.Input[str] access_token: Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
 
     @property
     @pulumi.getter
@@ -4136,6 +4684,18 @@ class FederatedVagrantRepositoryMemberArgs:
     @url.setter
     def url(self, value: pulumi.Input[str]):
         pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+        return pulumi.get(self, "access_token")
+
+    @access_token.setter
+    def access_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "access_token", value)
 
 
 @pulumi.input_type
@@ -9826,14 +10386,18 @@ class VaultConfigurationConfigMountArgs:
 class GetFederatedAlpineRepositoryMemberArgs:
     def __init__(__self__, *,
                  enabled: bool,
-                 url: str):
+                 url: str,
+                 access_token: Optional[str] = None):
         """
         :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
+        :param str access_token: Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
 
     @property
     @pulumi.getter
@@ -9859,20 +10423,36 @@ class GetFederatedAlpineRepositoryMemberArgs:
     @url.setter
     def url(self, value: str):
         pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[str]:
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+        return pulumi.get(self, "access_token")
+
+    @access_token.setter
+    def access_token(self, value: Optional[str]):
+        pulumi.set(self, "access_token", value)
 
 
 @pulumi.input_type
 class GetFederatedAnsibleRepositoryMemberArgs:
     def __init__(__self__, *,
                  enabled: bool,
-                 url: str):
+                 url: str,
+                 access_token: Optional[str] = None):
         """
         :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
+        :param str access_token: Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
 
     @property
     @pulumi.getter
@@ -9898,20 +10478,36 @@ class GetFederatedAnsibleRepositoryMemberArgs:
     @url.setter
     def url(self, value: str):
         pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[str]:
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+        return pulumi.get(self, "access_token")
+
+    @access_token.setter
+    def access_token(self, value: Optional[str]):
+        pulumi.set(self, "access_token", value)
 
 
 @pulumi.input_type
 class GetFederatedBowerRepositoryMemberArgs:
     def __init__(__self__, *,
                  enabled: bool,
-                 url: str):
+                 url: str,
+                 access_token: Optional[str] = None):
         """
         :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
+        :param str access_token: Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
 
     @property
     @pulumi.getter
@@ -9937,20 +10533,36 @@ class GetFederatedBowerRepositoryMemberArgs:
     @url.setter
     def url(self, value: str):
         pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[str]:
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+        return pulumi.get(self, "access_token")
+
+    @access_token.setter
+    def access_token(self, value: Optional[str]):
+        pulumi.set(self, "access_token", value)
 
 
 @pulumi.input_type
 class GetFederatedCargoRepositoryMemberArgs:
     def __init__(__self__, *,
                  enabled: bool,
-                 url: str):
+                 url: str,
+                 access_token: Optional[str] = None):
         """
         :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
+        :param str access_token: Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
 
     @property
     @pulumi.getter
@@ -9976,20 +10588,36 @@ class GetFederatedCargoRepositoryMemberArgs:
     @url.setter
     def url(self, value: str):
         pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[str]:
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+        return pulumi.get(self, "access_token")
+
+    @access_token.setter
+    def access_token(self, value: Optional[str]):
+        pulumi.set(self, "access_token", value)
 
 
 @pulumi.input_type
 class GetFederatedChefRepositoryMemberArgs:
     def __init__(__self__, *,
                  enabled: bool,
-                 url: str):
+                 url: str,
+                 access_token: Optional[str] = None):
         """
         :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
+        :param str access_token: Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
 
     @property
     @pulumi.getter
@@ -10015,20 +10643,36 @@ class GetFederatedChefRepositoryMemberArgs:
     @url.setter
     def url(self, value: str):
         pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[str]:
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+        return pulumi.get(self, "access_token")
+
+    @access_token.setter
+    def access_token(self, value: Optional[str]):
+        pulumi.set(self, "access_token", value)
 
 
 @pulumi.input_type
 class GetFederatedCocoapodsRepositoryMemberArgs:
     def __init__(__self__, *,
                  enabled: bool,
-                 url: str):
+                 url: str,
+                 access_token: Optional[str] = None):
         """
         :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
+        :param str access_token: Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
 
     @property
     @pulumi.getter
@@ -10054,20 +10698,36 @@ class GetFederatedCocoapodsRepositoryMemberArgs:
     @url.setter
     def url(self, value: str):
         pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[str]:
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+        return pulumi.get(self, "access_token")
+
+    @access_token.setter
+    def access_token(self, value: Optional[str]):
+        pulumi.set(self, "access_token", value)
 
 
 @pulumi.input_type
 class GetFederatedComposerRepositoryMemberArgs:
     def __init__(__self__, *,
                  enabled: bool,
-                 url: str):
+                 url: str,
+                 access_token: Optional[str] = None):
         """
         :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
+        :param str access_token: Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
 
     @property
     @pulumi.getter
@@ -10093,20 +10753,36 @@ class GetFederatedComposerRepositoryMemberArgs:
     @url.setter
     def url(self, value: str):
         pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[str]:
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+        return pulumi.get(self, "access_token")
+
+    @access_token.setter
+    def access_token(self, value: Optional[str]):
+        pulumi.set(self, "access_token", value)
 
 
 @pulumi.input_type
 class GetFederatedConanRepositoryMemberArgs:
     def __init__(__self__, *,
                  enabled: bool,
-                 url: str):
+                 url: str,
+                 access_token: Optional[str] = None):
         """
         :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
+        :param str access_token: Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
 
     @property
     @pulumi.getter
@@ -10132,20 +10808,36 @@ class GetFederatedConanRepositoryMemberArgs:
     @url.setter
     def url(self, value: str):
         pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[str]:
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+        return pulumi.get(self, "access_token")
+
+    @access_token.setter
+    def access_token(self, value: Optional[str]):
+        pulumi.set(self, "access_token", value)
 
 
 @pulumi.input_type
 class GetFederatedCondaRepositoryMemberArgs:
     def __init__(__self__, *,
                  enabled: bool,
-                 url: str):
+                 url: str,
+                 access_token: Optional[str] = None):
         """
         :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
+        :param str access_token: Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
 
     @property
     @pulumi.getter
@@ -10171,20 +10863,36 @@ class GetFederatedCondaRepositoryMemberArgs:
     @url.setter
     def url(self, value: str):
         pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[str]:
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+        return pulumi.get(self, "access_token")
+
+    @access_token.setter
+    def access_token(self, value: Optional[str]):
+        pulumi.set(self, "access_token", value)
 
 
 @pulumi.input_type
 class GetFederatedCranRepositoryMemberArgs:
     def __init__(__self__, *,
                  enabled: bool,
-                 url: str):
+                 url: str,
+                 access_token: Optional[str] = None):
         """
         :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
+        :param str access_token: Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
 
     @property
     @pulumi.getter
@@ -10210,20 +10918,36 @@ class GetFederatedCranRepositoryMemberArgs:
     @url.setter
     def url(self, value: str):
         pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[str]:
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+        return pulumi.get(self, "access_token")
+
+    @access_token.setter
+    def access_token(self, value: Optional[str]):
+        pulumi.set(self, "access_token", value)
 
 
 @pulumi.input_type
 class GetFederatedDebianRepositoryMemberArgs:
     def __init__(__self__, *,
                  enabled: bool,
-                 url: str):
+                 url: str,
+                 access_token: Optional[str] = None):
         """
         :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
+        :param str access_token: Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
 
     @property
     @pulumi.getter
@@ -10250,18 +10974,34 @@ class GetFederatedDebianRepositoryMemberArgs:
     def url(self, value: str):
         pulumi.set(self, "url", value)
 
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[str]:
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+        return pulumi.get(self, "access_token")
+
+    @access_token.setter
+    def access_token(self, value: Optional[str]):
+        pulumi.set(self, "access_token", value)
+
 
 @pulumi.input_type
 class GetFederatedDockerRepositoryMemberArgs:
     def __init__(__self__, *,
                  enabled: bool,
-                 url: str):
+                 url: str,
+                 access_token: Optional[str] = None):
         """
         :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repositoryName
+        :param str access_token: Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
 
     @property
     @pulumi.getter
@@ -10287,19 +11027,35 @@ class GetFederatedDockerRepositoryMemberArgs:
     def url(self, value: str):
         pulumi.set(self, "url", value)
 
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[str]:
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+        return pulumi.get(self, "access_token")
+
+    @access_token.setter
+    def access_token(self, value: Optional[str]):
+        pulumi.set(self, "access_token", value)
+
 
 @pulumi.input_type
 class GetFederatedDockerV1RepositoryMemberArgs:
     def __init__(__self__, *,
                  enabled: bool,
-                 url: str):
+                 url: str,
+                 access_token: Optional[str] = None):
         """
         :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
+        :param str access_token: Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
 
     @property
     @pulumi.getter
@@ -10325,20 +11081,36 @@ class GetFederatedDockerV1RepositoryMemberArgs:
     @url.setter
     def url(self, value: str):
         pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[str]:
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+        return pulumi.get(self, "access_token")
+
+    @access_token.setter
+    def access_token(self, value: Optional[str]):
+        pulumi.set(self, "access_token", value)
 
 
 @pulumi.input_type
 class GetFederatedDockerV2RepositoryMemberArgs:
     def __init__(__self__, *,
                  enabled: bool,
-                 url: str):
+                 url: str,
+                 access_token: Optional[str] = None):
         """
         :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
+        :param str access_token: Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
 
     @property
     @pulumi.getter
@@ -10364,20 +11136,36 @@ class GetFederatedDockerV2RepositoryMemberArgs:
     @url.setter
     def url(self, value: str):
         pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[str]:
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+        return pulumi.get(self, "access_token")
+
+    @access_token.setter
+    def access_token(self, value: Optional[str]):
+        pulumi.set(self, "access_token", value)
 
 
 @pulumi.input_type
 class GetFederatedGemsRepositoryMemberArgs:
     def __init__(__self__, *,
                  enabled: bool,
-                 url: str):
+                 url: str,
+                 access_token: Optional[str] = None):
         """
         :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
+        :param str access_token: Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
 
     @property
     @pulumi.getter
@@ -10403,20 +11191,36 @@ class GetFederatedGemsRepositoryMemberArgs:
     @url.setter
     def url(self, value: str):
         pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[str]:
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+        return pulumi.get(self, "access_token")
+
+    @access_token.setter
+    def access_token(self, value: Optional[str]):
+        pulumi.set(self, "access_token", value)
 
 
 @pulumi.input_type
 class GetFederatedGenericRepositoryMemberArgs:
     def __init__(__self__, *,
                  enabled: bool,
-                 url: str):
+                 url: str,
+                 access_token: Optional[str] = None):
         """
         :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
+        :param str access_token: Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
 
     @property
     @pulumi.getter
@@ -10442,20 +11246,36 @@ class GetFederatedGenericRepositoryMemberArgs:
     @url.setter
     def url(self, value: str):
         pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[str]:
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+        return pulumi.get(self, "access_token")
+
+    @access_token.setter
+    def access_token(self, value: Optional[str]):
+        pulumi.set(self, "access_token", value)
 
 
 @pulumi.input_type
 class GetFederatedGitlfsRepositoryMemberArgs:
     def __init__(__self__, *,
                  enabled: bool,
-                 url: str):
+                 url: str,
+                 access_token: Optional[str] = None):
         """
         :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
+        :param str access_token: Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
 
     @property
     @pulumi.getter
@@ -10481,20 +11301,36 @@ class GetFederatedGitlfsRepositoryMemberArgs:
     @url.setter
     def url(self, value: str):
         pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[str]:
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+        return pulumi.get(self, "access_token")
+
+    @access_token.setter
+    def access_token(self, value: Optional[str]):
+        pulumi.set(self, "access_token", value)
 
 
 @pulumi.input_type
 class GetFederatedGoRepositoryMemberArgs:
     def __init__(__self__, *,
                  enabled: bool,
-                 url: str):
+                 url: str,
+                 access_token: Optional[str] = None):
         """
         :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
+        :param str access_token: Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
 
     @property
     @pulumi.getter
@@ -10520,20 +11356,36 @@ class GetFederatedGoRepositoryMemberArgs:
     @url.setter
     def url(self, value: str):
         pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[str]:
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+        return pulumi.get(self, "access_token")
+
+    @access_token.setter
+    def access_token(self, value: Optional[str]):
+        pulumi.set(self, "access_token", value)
 
 
 @pulumi.input_type
 class GetFederatedGradleRepositoryMemberArgs:
     def __init__(__self__, *,
                  enabled: bool,
-                 url: str):
+                 url: str,
+                 access_token: Optional[str] = None):
         """
         :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
+        :param str access_token: Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
 
     @property
     @pulumi.getter
@@ -10559,20 +11411,36 @@ class GetFederatedGradleRepositoryMemberArgs:
     @url.setter
     def url(self, value: str):
         pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[str]:
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+        return pulumi.get(self, "access_token")
+
+    @access_token.setter
+    def access_token(self, value: Optional[str]):
+        pulumi.set(self, "access_token", value)
 
 
 @pulumi.input_type
 class GetFederatedHelmRepositoryMemberArgs:
     def __init__(__self__, *,
                  enabled: bool,
-                 url: str):
+                 url: str,
+                 access_token: Optional[str] = None):
         """
         :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
+        :param str access_token: Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
 
     @property
     @pulumi.getter
@@ -10598,20 +11466,36 @@ class GetFederatedHelmRepositoryMemberArgs:
     @url.setter
     def url(self, value: str):
         pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[str]:
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+        return pulumi.get(self, "access_token")
+
+    @access_token.setter
+    def access_token(self, value: Optional[str]):
+        pulumi.set(self, "access_token", value)
 
 
 @pulumi.input_type
 class GetFederatedHelmociRepositoryMemberArgs:
     def __init__(__self__, *,
                  enabled: bool,
-                 url: str):
+                 url: str,
+                 access_token: Optional[str] = None):
         """
         :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
+        :param str access_token: Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
 
     @property
     @pulumi.getter
@@ -10637,20 +11521,36 @@ class GetFederatedHelmociRepositoryMemberArgs:
     @url.setter
     def url(self, value: str):
         pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[str]:
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+        return pulumi.get(self, "access_token")
+
+    @access_token.setter
+    def access_token(self, value: Optional[str]):
+        pulumi.set(self, "access_token", value)
 
 
 @pulumi.input_type
 class GetFederatedIvyRepositoryMemberArgs:
     def __init__(__self__, *,
                  enabled: bool,
-                 url: str):
+                 url: str,
+                 access_token: Optional[str] = None):
         """
         :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
+        :param str access_token: Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
 
     @property
     @pulumi.getter
@@ -10676,20 +11576,36 @@ class GetFederatedIvyRepositoryMemberArgs:
     @url.setter
     def url(self, value: str):
         pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[str]:
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+        return pulumi.get(self, "access_token")
+
+    @access_token.setter
+    def access_token(self, value: Optional[str]):
+        pulumi.set(self, "access_token", value)
 
 
 @pulumi.input_type
 class GetFederatedMavenRepositoryMemberArgs:
     def __init__(__self__, *,
                  enabled: bool,
-                 url: str):
+                 url: str,
+                 access_token: Optional[str] = None):
         """
         :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
+        :param str access_token: Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
 
     @property
     @pulumi.getter
@@ -10715,20 +11631,36 @@ class GetFederatedMavenRepositoryMemberArgs:
     @url.setter
     def url(self, value: str):
         pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[str]:
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+        return pulumi.get(self, "access_token")
+
+    @access_token.setter
+    def access_token(self, value: Optional[str]):
+        pulumi.set(self, "access_token", value)
 
 
 @pulumi.input_type
 class GetFederatedNpmRepositoryMemberArgs:
     def __init__(__self__, *,
                  enabled: bool,
-                 url: str):
+                 url: str,
+                 access_token: Optional[str] = None):
         """
         :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
+        :param str access_token: Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
 
     @property
     @pulumi.getter
@@ -10754,20 +11686,36 @@ class GetFederatedNpmRepositoryMemberArgs:
     @url.setter
     def url(self, value: str):
         pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[str]:
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+        return pulumi.get(self, "access_token")
+
+    @access_token.setter
+    def access_token(self, value: Optional[str]):
+        pulumi.set(self, "access_token", value)
 
 
 @pulumi.input_type
 class GetFederatedNugetRepositoryMemberArgs:
     def __init__(__self__, *,
                  enabled: bool,
-                 url: str):
+                 url: str,
+                 access_token: Optional[str] = None):
         """
         :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
+        :param str access_token: Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
 
     @property
     @pulumi.getter
@@ -10793,20 +11741,36 @@ class GetFederatedNugetRepositoryMemberArgs:
     @url.setter
     def url(self, value: str):
         pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[str]:
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+        return pulumi.get(self, "access_token")
+
+    @access_token.setter
+    def access_token(self, value: Optional[str]):
+        pulumi.set(self, "access_token", value)
 
 
 @pulumi.input_type
 class GetFederatedOciRepositoryMemberArgs:
     def __init__(__self__, *,
                  enabled: bool,
-                 url: str):
+                 url: str,
+                 access_token: Optional[str] = None):
         """
         :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
+        :param str access_token: Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
 
     @property
     @pulumi.getter
@@ -10832,20 +11796,36 @@ class GetFederatedOciRepositoryMemberArgs:
     @url.setter
     def url(self, value: str):
         pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[str]:
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+        return pulumi.get(self, "access_token")
+
+    @access_token.setter
+    def access_token(self, value: Optional[str]):
+        pulumi.set(self, "access_token", value)
 
 
 @pulumi.input_type
 class GetFederatedOpkgRepositoryMemberArgs:
     def __init__(__self__, *,
                  enabled: bool,
-                 url: str):
+                 url: str,
+                 access_token: Optional[str] = None):
         """
         :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
+        :param str access_token: Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
 
     @property
     @pulumi.getter
@@ -10871,20 +11851,36 @@ class GetFederatedOpkgRepositoryMemberArgs:
     @url.setter
     def url(self, value: str):
         pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[str]:
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+        return pulumi.get(self, "access_token")
+
+    @access_token.setter
+    def access_token(self, value: Optional[str]):
+        pulumi.set(self, "access_token", value)
 
 
 @pulumi.input_type
 class GetFederatedPuppetRepositoryMemberArgs:
     def __init__(__self__, *,
                  enabled: bool,
-                 url: str):
+                 url: str,
+                 access_token: Optional[str] = None):
         """
         :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
+        :param str access_token: Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
 
     @property
     @pulumi.getter
@@ -10910,20 +11906,36 @@ class GetFederatedPuppetRepositoryMemberArgs:
     @url.setter
     def url(self, value: str):
         pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[str]:
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+        return pulumi.get(self, "access_token")
+
+    @access_token.setter
+    def access_token(self, value: Optional[str]):
+        pulumi.set(self, "access_token", value)
 
 
 @pulumi.input_type
 class GetFederatedPypiRepositoryMemberArgs:
     def __init__(__self__, *,
                  enabled: bool,
-                 url: str):
+                 url: str,
+                 access_token: Optional[str] = None):
         """
         :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
+        :param str access_token: Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
 
     @property
     @pulumi.getter
@@ -10949,20 +11961,36 @@ class GetFederatedPypiRepositoryMemberArgs:
     @url.setter
     def url(self, value: str):
         pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[str]:
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+        return pulumi.get(self, "access_token")
+
+    @access_token.setter
+    def access_token(self, value: Optional[str]):
+        pulumi.set(self, "access_token", value)
 
 
 @pulumi.input_type
 class GetFederatedRpmRepositoryMemberArgs:
     def __init__(__self__, *,
                  enabled: bool,
-                 url: str):
+                 url: str,
+                 access_token: Optional[str] = None):
         """
         :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
+        :param str access_token: Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
 
     @property
     @pulumi.getter
@@ -10988,20 +12016,36 @@ class GetFederatedRpmRepositoryMemberArgs:
     @url.setter
     def url(self, value: str):
         pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[str]:
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+        return pulumi.get(self, "access_token")
+
+    @access_token.setter
+    def access_token(self, value: Optional[str]):
+        pulumi.set(self, "access_token", value)
 
 
 @pulumi.input_type
 class GetFederatedSbtRepositoryMemberArgs:
     def __init__(__self__, *,
                  enabled: bool,
-                 url: str):
+                 url: str,
+                 access_token: Optional[str] = None):
         """
         :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
+        :param str access_token: Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
 
     @property
     @pulumi.getter
@@ -11027,20 +12071,36 @@ class GetFederatedSbtRepositoryMemberArgs:
     @url.setter
     def url(self, value: str):
         pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[str]:
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+        return pulumi.get(self, "access_token")
+
+    @access_token.setter
+    def access_token(self, value: Optional[str]):
+        pulumi.set(self, "access_token", value)
 
 
 @pulumi.input_type
 class GetFederatedSwiftRepositoryMemberArgs:
     def __init__(__self__, *,
                  enabled: bool,
-                 url: str):
+                 url: str,
+                 access_token: Optional[str] = None):
         """
         :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
+        :param str access_token: Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
 
     @property
     @pulumi.getter
@@ -11066,20 +12126,36 @@ class GetFederatedSwiftRepositoryMemberArgs:
     @url.setter
     def url(self, value: str):
         pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[str]:
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+        return pulumi.get(self, "access_token")
+
+    @access_token.setter
+    def access_token(self, value: Optional[str]):
+        pulumi.set(self, "access_token", value)
 
 
 @pulumi.input_type
 class GetFederatedTerraformModuleRepositoryMemberArgs:
     def __init__(__self__, *,
                  enabled: bool,
-                 url: str):
+                 url: str,
+                 access_token: Optional[str] = None):
         """
         :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
+        :param str access_token: Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
 
     @property
     @pulumi.getter
@@ -11105,20 +12181,36 @@ class GetFederatedTerraformModuleRepositoryMemberArgs:
     @url.setter
     def url(self, value: str):
         pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[str]:
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+        return pulumi.get(self, "access_token")
+
+    @access_token.setter
+    def access_token(self, value: Optional[str]):
+        pulumi.set(self, "access_token", value)
 
 
 @pulumi.input_type
 class GetFederatedTerraformProviderRepositoryMemberArgs:
     def __init__(__self__, *,
                  enabled: bool,
-                 url: str):
+                 url: str,
+                 access_token: Optional[str] = None):
         """
         :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
+        :param str access_token: Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
 
     @property
     @pulumi.getter
@@ -11144,20 +12236,36 @@ class GetFederatedTerraformProviderRepositoryMemberArgs:
     @url.setter
     def url(self, value: str):
         pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[str]:
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+        return pulumi.get(self, "access_token")
+
+    @access_token.setter
+    def access_token(self, value: Optional[str]):
+        pulumi.set(self, "access_token", value)
 
 
 @pulumi.input_type
 class GetFederatedVagrantRepositoryMemberArgs:
     def __init__(__self__, *,
                  enabled: bool,
-                 url: str):
+                 url: str,
+                 access_token: Optional[str] = None):
         """
         :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
+        :param str access_token: Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
 
     @property
     @pulumi.getter
@@ -11183,6 +12291,18 @@ class GetFederatedVagrantRepositoryMemberArgs:
     @url.setter
     def url(self, value: str):
         pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[str]:
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+        return pulumi.get(self, "access_token")
+
+    @access_token.setter
+    def access_token(self, value: Optional[str]):
+        pulumi.set(self, "access_token", value)
 
 
 @pulumi.input_type

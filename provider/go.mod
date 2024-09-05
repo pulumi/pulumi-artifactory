@@ -8,7 +8,7 @@ replace (
 )
 
 require (
-	github.com/jfrog/terraform-provider-artifactory/v11 v11.7.0
+	github.com/jfrog/terraform-provider-artifactory/v11 v11.8.0
 	github.com/pulumi/providertest v0.0.14
 	github.com/pulumi/pulumi-terraform-bridge/pf v0.42.1
 	github.com/pulumi/pulumi-terraform-bridge/v3 v3.89.1
@@ -122,9 +122,9 @@ require (
 	github.com/hashicorp/go-sockaddr v1.0.6 // indirect
 	github.com/hashicorp/go-uuid v1.0.3 // indirect
 	github.com/hashicorp/go-version v1.7.0 // indirect
-	github.com/hashicorp/hc-install v0.7.0 // indirect
+	github.com/hashicorp/hc-install v0.8.0 // indirect
 	github.com/hashicorp/hcl v1.0.0 // indirect
-	github.com/hashicorp/hcl/v2 v2.20.1 // indirect
+	github.com/hashicorp/hcl/v2 v2.21.0 // indirect
 	github.com/hashicorp/hil v0.0.0-20190212132231-97b3a9cdfa93 // indirect
 	github.com/hashicorp/logutils v1.0.0 // indirect
 	github.com/hashicorp/terraform-exec v0.21.0 // indirect
@@ -134,7 +134,7 @@ require (
 	github.com/hashicorp/terraform-plugin-go v0.23.0 // indirect
 	github.com/hashicorp/terraform-plugin-log v0.9.0 // indirect
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.34.0 // indirect
-	github.com/hashicorp/terraform-plugin-testing v1.5.1 // indirect
+	github.com/hashicorp/terraform-plugin-testing v1.10.0 // indirect
 	github.com/hashicorp/terraform-registry-address v0.2.3 // indirect
 	github.com/hashicorp/terraform-svchost v0.1.1 // indirect
 	github.com/hashicorp/vault/api v1.12.0 // indirect
@@ -223,7 +223,7 @@ require (
 	github.com/xeipuuv/gojsonreference v0.0.0-20180127040603-bd5ef7bd5415 // indirect
 	github.com/xeipuuv/gojsonschema v1.2.0 // indirect
 	github.com/yuin/goldmark v1.7.4 // indirect
-	github.com/zclconf/go-cty v1.14.4 // indirect
+	github.com/zclconf/go-cty v1.15.0 // indirect
 	go.opencensus.io v0.24.0 // indirect
 	go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc v0.49.0 // indirect
 	go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp v0.49.0 // indirect
@@ -235,7 +235,7 @@ require (
 	gocloud.dev/secrets/hashivault v0.37.0 // indirect
 	golang.org/x/crypto v0.26.0 // indirect
 	golang.org/x/exp v0.0.0-20240604190554-fc45aab8b7f8 // indirect
-	golang.org/x/mod v0.18.0 // indirect
+	golang.org/x/mod v0.19.0 // indirect
 	golang.org/x/net v0.28.0 // indirect
 	golang.org/x/oauth2 v0.18.0 // indirect
 	golang.org/x/sync v0.8.0 // indirect

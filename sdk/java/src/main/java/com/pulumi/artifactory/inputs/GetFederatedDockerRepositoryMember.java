@@ -8,11 +8,28 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetFederatedDockerRepositoryMember extends com.pulumi.resources.InvokeArgs {
 
     public static final GetFederatedDockerRepositoryMember Empty = new GetFederatedDockerRepositoryMember();
+
+    /**
+     * Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+     * 
+     */
+    @Import(name="accessToken")
+    private @Nullable String accessToken;
+
+    /**
+     * @return Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+     * 
+     */
+    public Optional<String> accessToken() {
+        return Optional.ofNullable(this.accessToken);
+    }
 
     /**
      * Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
@@ -47,6 +64,7 @@ public final class GetFederatedDockerRepositoryMember extends com.pulumi.resourc
     private GetFederatedDockerRepositoryMember() {}
 
     private GetFederatedDockerRepositoryMember(GetFederatedDockerRepositoryMember $) {
+        this.accessToken = $.accessToken;
         this.enabled = $.enabled;
         this.url = $.url;
     }
@@ -67,6 +85,17 @@ public final class GetFederatedDockerRepositoryMember extends com.pulumi.resourc
 
         public Builder(GetFederatedDockerRepositoryMember defaults) {
             $ = new GetFederatedDockerRepositoryMember(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param accessToken Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder accessToken(@Nullable String accessToken) {
+            $.accessToken = accessToken;
+            return this;
         }
 
         /**

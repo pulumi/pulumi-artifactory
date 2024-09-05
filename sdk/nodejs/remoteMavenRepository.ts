@@ -240,7 +240,6 @@ export class RemoteMavenRepository extends pulumi.CustomResource {
     public readonly rejectInvalidJars!: pulumi.Output<boolean | undefined>;
     /**
      * Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
-     * `retrievalCachePeriodSeconds` attribute.
      */
     public readonly remoteRepoChecksumPolicyType!: pulumi.Output<string | undefined>;
     /**
@@ -610,7 +609,6 @@ export interface RemoteMavenRepositoryState {
     rejectInvalidJars?: pulumi.Input<boolean>;
     /**
      * Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
-     * `retrievalCachePeriodSeconds` attribute.
      */
     remoteRepoChecksumPolicyType?: pulumi.Input<string>;
     /**
@@ -845,7 +843,6 @@ export interface RemoteMavenRepositoryArgs {
     rejectInvalidJars?: pulumi.Input<boolean>;
     /**
      * Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
-     * `retrievalCachePeriodSeconds` attribute.
      */
     remoteRepoChecksumPolicyType?: pulumi.Input<string>;
     /**

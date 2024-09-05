@@ -8,11 +8,28 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetFederatedComposerRepositoryMember extends com.pulumi.resources.InvokeArgs {
 
     public static final GetFederatedComposerRepositoryMember Empty = new GetFederatedComposerRepositoryMember();
+
+    /**
+     * Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+     * 
+     */
+    @Import(name="accessToken")
+    private @Nullable String accessToken;
+
+    /**
+     * @return Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+     * 
+     */
+    public Optional<String> accessToken() {
+        return Optional.ofNullable(this.accessToken);
+    }
 
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
@@ -49,6 +66,7 @@ public final class GetFederatedComposerRepositoryMember extends com.pulumi.resou
     private GetFederatedComposerRepositoryMember() {}
 
     private GetFederatedComposerRepositoryMember(GetFederatedComposerRepositoryMember $) {
+        this.accessToken = $.accessToken;
         this.enabled = $.enabled;
         this.url = $.url;
     }
@@ -69,6 +87,17 @@ public final class GetFederatedComposerRepositoryMember extends com.pulumi.resou
 
         public Builder(GetFederatedComposerRepositoryMember defaults) {
             $ = new GetFederatedComposerRepositoryMember(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param accessToken Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder accessToken(@Nullable String accessToken) {
+            $.accessToken = accessToken;
+            return this;
         }
 
         /**

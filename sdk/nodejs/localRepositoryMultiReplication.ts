@@ -8,8 +8,11 @@ import * as utilities from "./utilities";
 
 /**
  * Provides a local repository replication resource, also referred to as Artifactory push replication. This can be used to create and manage Artifactory local repository replications using [Multi-push Replication API](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-CreateorReplaceLocalMulti-pushReplication).
+ *
  * Push replication is used to synchronize Local Repositories, and is implemented by the Artifactory server on the near end invoking a synchronization of artifacts to the far end.
+ *
  * See the [Official Documentation](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-PushReplication).
+ *
  * This resource replaces `artifactory.PushReplication` and used to create a replication of one local repository to multiple repositories on the remote server.
  *
  * > This resource requires Artifactory Enterprise license. Use `artifactory.LocalRepositorySingleReplication` with other licenses.
@@ -95,7 +98,7 @@ export class LocalRepositoryMultiReplication extends pulumi.CustomResource {
     /**
      * When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
      */
-    public readonly enableEventReplication!: pulumi.Output<boolean | undefined>;
+    public readonly enableEventReplication!: pulumi.Output<boolean>;
     /**
      * List of replications minimum 1 element.
      */

@@ -341,7 +341,7 @@ class GetRemoteMavenRepositoryResult:
     @pulumi.getter(name="metadataRetrievalTimeoutSecs")
     def metadata_retrieval_timeout_secs(self) -> Optional[int]:
         """
-        (Optional, Default: 60) This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrieval_cache_period_seconds` attribute.
+        (Optional, Default: 60) This value refers to the number of seconds to wait for retrieval from the remote before serving locally cached artifact or fail the request. Can not set to 0 or negative.
         """
         return pulumi.get(self, "metadata_retrieval_timeout_secs")
 
@@ -618,7 +618,7 @@ def get_remote_maven_repository(allow_any_host_auth: Optional[bool] = None,
     :param bool handle_releases: (Optional, Default: `true`) If set, Artifactory allows you to deploy release artifacts into this repository.
     :param bool handle_snapshots: (Optional, Default: `true`) If set, Artifactory allows you to deploy snapshot artifacts into this repository.
     :param str key: the identity key of the repo.
-    :param int metadata_retrieval_timeout_secs: (Optional, Default: 60) This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrieval_cache_period_seconds` attribute.
+    :param int metadata_retrieval_timeout_secs: (Optional, Default: 60) This value refers to the number of seconds to wait for retrieval from the remote before serving locally cached artifact or fail the request. Can not set to 0 or negative.
     :param bool reject_invalid_jars: (Optional, Default: `false`) Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive portal".
     :param str remote_repo_checksum_policy_type: (Optional, Default: `generate-if-absent`) Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
     :param bool suppress_pom_consistency_checks: (Optional, Default: `true`) By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error. You can disable this behavior by setting this attribute to `true`.
@@ -808,7 +808,7 @@ def get_remote_maven_repository_output(allow_any_host_auth: Optional[pulumi.Inpu
     :param bool handle_releases: (Optional, Default: `true`) If set, Artifactory allows you to deploy release artifacts into this repository.
     :param bool handle_snapshots: (Optional, Default: `true`) If set, Artifactory allows you to deploy snapshot artifacts into this repository.
     :param str key: the identity key of the repo.
-    :param int metadata_retrieval_timeout_secs: (Optional, Default: 60) This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrieval_cache_period_seconds` attribute.
+    :param int metadata_retrieval_timeout_secs: (Optional, Default: 60) This value refers to the number of seconds to wait for retrieval from the remote before serving locally cached artifact or fail the request. Can not set to 0 or negative.
     :param bool reject_invalid_jars: (Optional, Default: `false`) Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive portal".
     :param str remote_repo_checksum_policy_type: (Optional, Default: `generate-if-absent`) Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
     :param bool suppress_pom_consistency_checks: (Optional, Default: `true`) By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error. You can disable this behavior by setting this attribute to `true`.

@@ -9,11 +9,28 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetFederatedDockerRepositoryMemberArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final GetFederatedDockerRepositoryMemberArgs Empty = new GetFederatedDockerRepositoryMemberArgs();
+
+    /**
+     * Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+     * 
+     */
+    @Import(name="accessToken")
+    private @Nullable Output<String> accessToken;
+
+    /**
+     * @return Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+     * 
+     */
+    public Optional<Output<String>> accessToken() {
+        return Optional.ofNullable(this.accessToken);
+    }
 
     /**
      * Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
@@ -48,6 +65,7 @@ public final class GetFederatedDockerRepositoryMemberArgs extends com.pulumi.res
     private GetFederatedDockerRepositoryMemberArgs() {}
 
     private GetFederatedDockerRepositoryMemberArgs(GetFederatedDockerRepositoryMemberArgs $) {
+        this.accessToken = $.accessToken;
         this.enabled = $.enabled;
         this.url = $.url;
     }
@@ -68,6 +86,27 @@ public final class GetFederatedDockerRepositoryMemberArgs extends com.pulumi.res
 
         public Builder(GetFederatedDockerRepositoryMemberArgs defaults) {
             $ = new GetFederatedDockerRepositoryMemberArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param accessToken Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder accessToken(@Nullable Output<String> accessToken) {
+            $.accessToken = accessToken;
+            return this;
+        }
+
+        /**
+         * @param accessToken Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder accessToken(String accessToken) {
+            return accessToken(Output.of(accessToken));
         }
 
         /**

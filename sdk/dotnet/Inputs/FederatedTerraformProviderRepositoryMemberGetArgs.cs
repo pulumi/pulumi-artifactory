@@ -12,6 +12,22 @@ namespace Pulumi.Artifactory.Inputs
 
     public sealed class FederatedTerraformProviderRepositoryMemberGetArgs : global::Pulumi.ResourceArgs
     {
+        [Input("accessToken")]
+        private Input<string>? _accessToken;
+
+        /// <summary>
+        /// Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        /// </summary>
+        public Input<string>? AccessToken
+        {
+            get => _accessToken;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _accessToken = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
         /// <summary>
         /// Represents the active state of the federated member. It is supported to change the enabled
         /// status of my own member. The config will be updated on the other federated members automatically.
