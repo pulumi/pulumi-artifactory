@@ -16,6 +16,10 @@ import * as utilities from "./utilities";
  * ```sh
  * $ pulumi import artifactory:index/packageCleanupPolicy:PackageCleanupPolicy my-cleanup-policy my-policy
  * ```
+ *
+ * ```sh
+ * $ pulumi import artifactory:index/packageCleanupPolicy:PackageCleanupPolicy my-cleanup-policy my-policy:myproj
+ * ```
  */
 export class PackageCleanupPolicy extends pulumi.CustomResource {
     /**
@@ -59,12 +63,16 @@ export class PackageCleanupPolicy extends pulumi.CustomResource {
      */
     public readonly enabled!: pulumi.Output<boolean>;
     /**
-     * Policy key. It has to be unique. It should not be used for other policies and configuration entities like archive policies, key pairs, repo layouts, property sets, backups, proxies, reverse proxies etc.
+     * Policy key. It has to be unique. It should not be used for other policies and configuration entities like archive policies, key pairs, repo layouts, property sets, backups, proxies, reverse proxies etc. A minimum of three characters is required and can include letters, numbers, underscore and hyphen.
      */
     public readonly key!: pulumi.Output<string>;
+    /**
+     * This attribute is used only for project-level cleanup policies, it is not used for global-level policies.
+     */
+    public readonly projectKey!: pulumi.Output<string | undefined>;
     public readonly searchCriteria!: pulumi.Output<outputs.PackageCleanupPolicySearchCriteria>;
     /**
-     * When enabled, deleted packages are permanently removed from Artifactory without an option to restore them. Defaults to `false`
+     * Enabling this setting results in packages being permanently deleted from Artifactory after the cleanup policy is executed instead of going to the Trash Can repository. Defaults to `false`.
      */
     public readonly skipTrashcan!: pulumi.Output<boolean>;
 
@@ -86,6 +94,7 @@ export class PackageCleanupPolicy extends pulumi.CustomResource {
             resourceInputs["durationInMinutes"] = state ? state.durationInMinutes : undefined;
             resourceInputs["enabled"] = state ? state.enabled : undefined;
             resourceInputs["key"] = state ? state.key : undefined;
+            resourceInputs["projectKey"] = state ? state.projectKey : undefined;
             resourceInputs["searchCriteria"] = state ? state.searchCriteria : undefined;
             resourceInputs["skipTrashcan"] = state ? state.skipTrashcan : undefined;
         } else {
@@ -101,6 +110,7 @@ export class PackageCleanupPolicy extends pulumi.CustomResource {
             resourceInputs["durationInMinutes"] = args ? args.durationInMinutes : undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
             resourceInputs["key"] = args ? args.key : undefined;
+            resourceInputs["projectKey"] = args ? args.projectKey : undefined;
             resourceInputs["searchCriteria"] = args ? args.searchCriteria : undefined;
             resourceInputs["skipTrashcan"] = args ? args.skipTrashcan : undefined;
         }
@@ -127,12 +137,16 @@ export interface PackageCleanupPolicyState {
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * Policy key. It has to be unique. It should not be used for other policies and configuration entities like archive policies, key pairs, repo layouts, property sets, backups, proxies, reverse proxies etc.
+     * Policy key. It has to be unique. It should not be used for other policies and configuration entities like archive policies, key pairs, repo layouts, property sets, backups, proxies, reverse proxies etc. A minimum of three characters is required and can include letters, numbers, underscore and hyphen.
      */
     key?: pulumi.Input<string>;
+    /**
+     * This attribute is used only for project-level cleanup policies, it is not used for global-level policies.
+     */
+    projectKey?: pulumi.Input<string>;
     searchCriteria?: pulumi.Input<inputs.PackageCleanupPolicySearchCriteria>;
     /**
-     * When enabled, deleted packages are permanently removed from Artifactory without an option to restore them. Defaults to `false`
+     * Enabling this setting results in packages being permanently deleted from Artifactory after the cleanup policy is executed instead of going to the Trash Can repository. Defaults to `false`.
      */
     skipTrashcan?: pulumi.Input<boolean>;
 }
@@ -155,12 +169,16 @@ export interface PackageCleanupPolicyArgs {
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * Policy key. It has to be unique. It should not be used for other policies and configuration entities like archive policies, key pairs, repo layouts, property sets, backups, proxies, reverse proxies etc.
+     * Policy key. It has to be unique. It should not be used for other policies and configuration entities like archive policies, key pairs, repo layouts, property sets, backups, proxies, reverse proxies etc. A minimum of three characters is required and can include letters, numbers, underscore and hyphen.
      */
     key: pulumi.Input<string>;
+    /**
+     * This attribute is used only for project-level cleanup policies, it is not used for global-level policies.
+     */
+    projectKey?: pulumi.Input<string>;
     searchCriteria: pulumi.Input<inputs.PackageCleanupPolicySearchCriteria>;
     /**
-     * When enabled, deleted packages are permanently removed from Artifactory without an option to restore them. Defaults to `false`
+     * Enabling this setting results in packages being permanently deleted from Artifactory after the cleanup policy is executed instead of going to the Trash Can repository. Defaults to `false`.
      */
     skipTrashcan?: pulumi.Input<boolean>;
 }

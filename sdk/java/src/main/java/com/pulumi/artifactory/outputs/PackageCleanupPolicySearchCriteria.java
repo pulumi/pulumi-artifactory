@@ -16,20 +16,24 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PackageCleanupPolicySearchCriteria {
     /**
-     * @return Remove packages based on when they were created.
+     * @return Remove packages based on when they were created. For example, remove packages that were created more than a year ago. The default value is to remove packages created more than 2 years ago.
      * 
      */
     private @Nullable Integer createdBeforeInMonths;
     /**
-     * @return Specify explicit package names that you want excluded from the policy.
+     * @return Specify explicit package names that you want excluded from the policy. Only Name explicit names (and not patterns) are accepted.
      * 
      */
     private @Nullable List<String> excludedPackages;
     /**
-     * @return Specify patterns for repository names or explicit repository names that you want excluded from the policy. It can not accept any pattern only list of specific repositories.
+     * @return Specify patterns for repository names or explicit repository names that you want excluded from the cleanup policy.
      * 
      */
     private @Nullable List<String> excludedRepos;
+    /**
+     * @return Set this to `true` if you want the policy to run on all projects on the platform.
+     * 
+     */
     private @Nullable Boolean includeAllProjects;
     /**
      * @return Specify a pattern for a package name or an explicit package name. It accept only single element which can be specific package or pattern, and for including all packages use `**`. Example: `included_packages = [&#34;**&#34;]`
@@ -37,17 +41,23 @@ public final class PackageCleanupPolicySearchCriteria {
      */
     private List<String> includedPackages;
     /**
-     * @return List of projects name(s) to apply the policy to.
+     * @return List of projects on which you want this policy to run. To include repositories that are not assigned to any project, enter the project key `default`.
      * 
      */
     private @Nullable List<String> includedProjects;
     /**
-     * @return Select the number of latest version to keep. The policy will remove all versions (based on creation date) prior to the selected number. Some package types may not be supported. [Learn more](https://jfrog.com/help/r/jfrog-platform-administration-documentation/retention-policies/package-types-coverage)
+     * @return Select the number of latest versions to keep. The cleanup policy will remove all versions prior to the number you select here. The latest version is always excluded. Versions are determined by creation date.
+     * 
+     * ~&gt;Not all package types support this condition. For information on which package types support this condition, [learn more](https://jfrog.com/help/r/jfrog-platform-administration-documentation/retention-policies/package-types-coverage).
      * 
      */
     private @Nullable Integer keepLastNVersions;
     /**
-     * @return Remove packages based on when they were last downloaded.
+     * @return Removes packages based on when they were last downloaded. For example, removes packages that were not downloaded in the past year. The default value is to remove packages that were downloaded more than 2 years ago.
+     * 
+     * ~&gt;If a package was never downloaded, the policy will remove it based only on the age-condition (`created_before_in_months`).
+     * 
+     * ~&gt;JFrog recommends using the `last_downloaded_before_in_months` condition to ensure that packages currently in use are not deleted.
      * 
      */
     private @Nullable Integer lastDownloadedBeforeInMonths;
@@ -64,26 +74,30 @@ public final class PackageCleanupPolicySearchCriteria {
 
     private PackageCleanupPolicySearchCriteria() {}
     /**
-     * @return Remove packages based on when they were created.
+     * @return Remove packages based on when they were created. For example, remove packages that were created more than a year ago. The default value is to remove packages created more than 2 years ago.
      * 
      */
     public Optional<Integer> createdBeforeInMonths() {
         return Optional.ofNullable(this.createdBeforeInMonths);
     }
     /**
-     * @return Specify explicit package names that you want excluded from the policy.
+     * @return Specify explicit package names that you want excluded from the policy. Only Name explicit names (and not patterns) are accepted.
      * 
      */
     public List<String> excludedPackages() {
         return this.excludedPackages == null ? List.of() : this.excludedPackages;
     }
     /**
-     * @return Specify patterns for repository names or explicit repository names that you want excluded from the policy. It can not accept any pattern only list of specific repositories.
+     * @return Specify patterns for repository names or explicit repository names that you want excluded from the cleanup policy.
      * 
      */
     public List<String> excludedRepos() {
         return this.excludedRepos == null ? List.of() : this.excludedRepos;
     }
+    /**
+     * @return Set this to `true` if you want the policy to run on all projects on the platform.
+     * 
+     */
     public Optional<Boolean> includeAllProjects() {
         return Optional.ofNullable(this.includeAllProjects);
     }
@@ -95,21 +109,27 @@ public final class PackageCleanupPolicySearchCriteria {
         return this.includedPackages;
     }
     /**
-     * @return List of projects name(s) to apply the policy to.
+     * @return List of projects on which you want this policy to run. To include repositories that are not assigned to any project, enter the project key `default`.
      * 
      */
     public List<String> includedProjects() {
         return this.includedProjects == null ? List.of() : this.includedProjects;
     }
     /**
-     * @return Select the number of latest version to keep. The policy will remove all versions (based on creation date) prior to the selected number. Some package types may not be supported. [Learn more](https://jfrog.com/help/r/jfrog-platform-administration-documentation/retention-policies/package-types-coverage)
+     * @return Select the number of latest versions to keep. The cleanup policy will remove all versions prior to the number you select here. The latest version is always excluded. Versions are determined by creation date.
+     * 
+     * ~&gt;Not all package types support this condition. For information on which package types support this condition, [learn more](https://jfrog.com/help/r/jfrog-platform-administration-documentation/retention-policies/package-types-coverage).
      * 
      */
     public Optional<Integer> keepLastNVersions() {
         return Optional.ofNullable(this.keepLastNVersions);
     }
     /**
-     * @return Remove packages based on when they were last downloaded.
+     * @return Removes packages based on when they were last downloaded. For example, removes packages that were not downloaded in the past year. The default value is to remove packages that were downloaded more than 2 years ago.
+     * 
+     * ~&gt;If a package was never downloaded, the policy will remove it based only on the age-condition (`created_before_in_months`).
+     * 
+     * ~&gt;JFrog recommends using the `last_downloaded_before_in_months` condition to ensure that packages currently in use are not deleted.
      * 
      */
     public Optional<Integer> lastDownloadedBeforeInMonths() {

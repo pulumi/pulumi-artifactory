@@ -21,6 +21,10 @@ import (
 // ```sh
 // $ pulumi import artifactory:index/packageCleanupPolicy:PackageCleanupPolicy my-cleanup-policy my-policy
 // ```
+//
+// ```sh
+// $ pulumi import artifactory:index/packageCleanupPolicy:PackageCleanupPolicy my-cleanup-policy my-policy:myproj
+// ```
 type PackageCleanupPolicy struct {
 	pulumi.CustomResourceState
 
@@ -31,10 +35,12 @@ type PackageCleanupPolicy struct {
 	DurationInMinutes pulumi.IntPtrOutput `pulumi:"durationInMinutes"`
 	// Enables or disabled the package cleanup policy. This allows the user to run the policy manually. If a policy has a valid cron expression, then it will be scheduled for execution based on it. If a policy is disabled, its future executions will be unscheduled. Defaults to `true`
 	Enabled pulumi.BoolOutput `pulumi:"enabled"`
-	// Policy key. It has to be unique. It should not be used for other policies and configuration entities like archive policies, key pairs, repo layouts, property sets, backups, proxies, reverse proxies etc.
-	Key            pulumi.StringOutput                      `pulumi:"key"`
+	// Policy key. It has to be unique. It should not be used for other policies and configuration entities like archive policies, key pairs, repo layouts, property sets, backups, proxies, reverse proxies etc. A minimum of three characters is required and can include letters, numbers, underscore and hyphen.
+	Key pulumi.StringOutput `pulumi:"key"`
+	// This attribute is used only for project-level cleanup policies, it is not used for global-level policies.
+	ProjectKey     pulumi.StringPtrOutput                   `pulumi:"projectKey"`
 	SearchCriteria PackageCleanupPolicySearchCriteriaOutput `pulumi:"searchCriteria"`
-	// When enabled, deleted packages are permanently removed from Artifactory without an option to restore them. Defaults to `false`
+	// Enabling this setting results in packages being permanently deleted from Artifactory after the cleanup policy is executed instead of going to the Trash Can repository. Defaults to `false`.
 	SkipTrashcan pulumi.BoolOutput `pulumi:"skipTrashcan"`
 }
 
@@ -81,10 +87,12 @@ type packageCleanupPolicyState struct {
 	DurationInMinutes *int `pulumi:"durationInMinutes"`
 	// Enables or disabled the package cleanup policy. This allows the user to run the policy manually. If a policy has a valid cron expression, then it will be scheduled for execution based on it. If a policy is disabled, its future executions will be unscheduled. Defaults to `true`
 	Enabled *bool `pulumi:"enabled"`
-	// Policy key. It has to be unique. It should not be used for other policies and configuration entities like archive policies, key pairs, repo layouts, property sets, backups, proxies, reverse proxies etc.
-	Key            *string                             `pulumi:"key"`
+	// Policy key. It has to be unique. It should not be used for other policies and configuration entities like archive policies, key pairs, repo layouts, property sets, backups, proxies, reverse proxies etc. A minimum of three characters is required and can include letters, numbers, underscore and hyphen.
+	Key *string `pulumi:"key"`
+	// This attribute is used only for project-level cleanup policies, it is not used for global-level policies.
+	ProjectKey     *string                             `pulumi:"projectKey"`
 	SearchCriteria *PackageCleanupPolicySearchCriteria `pulumi:"searchCriteria"`
-	// When enabled, deleted packages are permanently removed from Artifactory without an option to restore them. Defaults to `false`
+	// Enabling this setting results in packages being permanently deleted from Artifactory after the cleanup policy is executed instead of going to the Trash Can repository. Defaults to `false`.
 	SkipTrashcan *bool `pulumi:"skipTrashcan"`
 }
 
@@ -96,10 +104,12 @@ type PackageCleanupPolicyState struct {
 	DurationInMinutes pulumi.IntPtrInput
 	// Enables or disabled the package cleanup policy. This allows the user to run the policy manually. If a policy has a valid cron expression, then it will be scheduled for execution based on it. If a policy is disabled, its future executions will be unscheduled. Defaults to `true`
 	Enabled pulumi.BoolPtrInput
-	// Policy key. It has to be unique. It should not be used for other policies and configuration entities like archive policies, key pairs, repo layouts, property sets, backups, proxies, reverse proxies etc.
-	Key            pulumi.StringPtrInput
+	// Policy key. It has to be unique. It should not be used for other policies and configuration entities like archive policies, key pairs, repo layouts, property sets, backups, proxies, reverse proxies etc. A minimum of three characters is required and can include letters, numbers, underscore and hyphen.
+	Key pulumi.StringPtrInput
+	// This attribute is used only for project-level cleanup policies, it is not used for global-level policies.
+	ProjectKey     pulumi.StringPtrInput
 	SearchCriteria PackageCleanupPolicySearchCriteriaPtrInput
-	// When enabled, deleted packages are permanently removed from Artifactory without an option to restore them. Defaults to `false`
+	// Enabling this setting results in packages being permanently deleted from Artifactory after the cleanup policy is executed instead of going to the Trash Can repository. Defaults to `false`.
 	SkipTrashcan pulumi.BoolPtrInput
 }
 
@@ -115,10 +125,12 @@ type packageCleanupPolicyArgs struct {
 	DurationInMinutes *int `pulumi:"durationInMinutes"`
 	// Enables or disabled the package cleanup policy. This allows the user to run the policy manually. If a policy has a valid cron expression, then it will be scheduled for execution based on it. If a policy is disabled, its future executions will be unscheduled. Defaults to `true`
 	Enabled *bool `pulumi:"enabled"`
-	// Policy key. It has to be unique. It should not be used for other policies and configuration entities like archive policies, key pairs, repo layouts, property sets, backups, proxies, reverse proxies etc.
-	Key            string                             `pulumi:"key"`
+	// Policy key. It has to be unique. It should not be used for other policies and configuration entities like archive policies, key pairs, repo layouts, property sets, backups, proxies, reverse proxies etc. A minimum of three characters is required and can include letters, numbers, underscore and hyphen.
+	Key string `pulumi:"key"`
+	// This attribute is used only for project-level cleanup policies, it is not used for global-level policies.
+	ProjectKey     *string                            `pulumi:"projectKey"`
 	SearchCriteria PackageCleanupPolicySearchCriteria `pulumi:"searchCriteria"`
-	// When enabled, deleted packages are permanently removed from Artifactory without an option to restore them. Defaults to `false`
+	// Enabling this setting results in packages being permanently deleted from Artifactory after the cleanup policy is executed instead of going to the Trash Can repository. Defaults to `false`.
 	SkipTrashcan *bool `pulumi:"skipTrashcan"`
 }
 
@@ -131,10 +143,12 @@ type PackageCleanupPolicyArgs struct {
 	DurationInMinutes pulumi.IntPtrInput
 	// Enables or disabled the package cleanup policy. This allows the user to run the policy manually. If a policy has a valid cron expression, then it will be scheduled for execution based on it. If a policy is disabled, its future executions will be unscheduled. Defaults to `true`
 	Enabled pulumi.BoolPtrInput
-	// Policy key. It has to be unique. It should not be used for other policies and configuration entities like archive policies, key pairs, repo layouts, property sets, backups, proxies, reverse proxies etc.
-	Key            pulumi.StringInput
+	// Policy key. It has to be unique. It should not be used for other policies and configuration entities like archive policies, key pairs, repo layouts, property sets, backups, proxies, reverse proxies etc. A minimum of three characters is required and can include letters, numbers, underscore and hyphen.
+	Key pulumi.StringInput
+	// This attribute is used only for project-level cleanup policies, it is not used for global-level policies.
+	ProjectKey     pulumi.StringPtrInput
 	SearchCriteria PackageCleanupPolicySearchCriteriaInput
-	// When enabled, deleted packages are permanently removed from Artifactory without an option to restore them. Defaults to `false`
+	// Enabling this setting results in packages being permanently deleted from Artifactory after the cleanup policy is executed instead of going to the Trash Can repository. Defaults to `false`.
 	SkipTrashcan pulumi.BoolPtrInput
 }
 
@@ -244,16 +258,21 @@ func (o PackageCleanupPolicyOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *PackageCleanupPolicy) pulumi.BoolOutput { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// Policy key. It has to be unique. It should not be used for other policies and configuration entities like archive policies, key pairs, repo layouts, property sets, backups, proxies, reverse proxies etc.
+// Policy key. It has to be unique. It should not be used for other policies and configuration entities like archive policies, key pairs, repo layouts, property sets, backups, proxies, reverse proxies etc. A minimum of three characters is required and can include letters, numbers, underscore and hyphen.
 func (o PackageCleanupPolicyOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *PackageCleanupPolicy) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
+}
+
+// This attribute is used only for project-level cleanup policies, it is not used for global-level policies.
+func (o PackageCleanupPolicyOutput) ProjectKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PackageCleanupPolicy) pulumi.StringPtrOutput { return v.ProjectKey }).(pulumi.StringPtrOutput)
 }
 
 func (o PackageCleanupPolicyOutput) SearchCriteria() PackageCleanupPolicySearchCriteriaOutput {
 	return o.ApplyT(func(v *PackageCleanupPolicy) PackageCleanupPolicySearchCriteriaOutput { return v.SearchCriteria }).(PackageCleanupPolicySearchCriteriaOutput)
 }
 
-// When enabled, deleted packages are permanently removed from Artifactory without an option to restore them. Defaults to `false`
+// Enabling this setting results in packages being permanently deleted from Artifactory after the cleanup policy is executed instead of going to the Trash Can repository. Defaults to `false`.
 func (o PackageCleanupPolicyOutput) SkipTrashcan() pulumi.BoolOutput {
 	return o.ApplyT(func(v *PackageCleanupPolicy) pulumi.BoolOutput { return v.SkipTrashcan }).(pulumi.BoolOutput)
 }

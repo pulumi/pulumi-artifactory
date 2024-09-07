@@ -55,14 +55,22 @@ import javax.annotation.Nullable;
  *             .durationInMinutes(60)
  *             .enabled(true)
  *             .skipTrashcan(false)
+ *             .projectKey("myprojkey")
  *             .searchCriteria(PackageCleanupPolicySearchCriteriaArgs.builder()
- *                 .package_types("docker")
- *                 .repos("my-docker-local")
- *                 .included_projects("myproj")
- *                 .included_packages("**")
+ *                 .package_types(                
+ *                     "docker",
+ *                     "maven")
+ *                 .repos(                
+ *                     "my-docker-local",
+ *                     "my-maven-local")
+ *                 .excluded_repos("gradle-global")
+ *                 .include_all_projects(false)
+ *                 .included_projects()
+ *                 .included_packages("com/jfrog")
  *                 .excluded_packages("com/jfrog/latest")
  *                 .created_before_in_months(1)
  *                 .last_downloaded_before_in_months(6)
+ *                 .keep_last_n_versions(0)
  *                 .build())
  *             .build());
  * 
@@ -76,6 +84,10 @@ import javax.annotation.Nullable;
  * 
  * ```sh
  * $ pulumi import artifactory:index/packageCleanupPolicy:PackageCleanupPolicy my-cleanup-policy my-policy
+ * ```
+ * 
+ * ```sh
+ * $ pulumi import artifactory:index/packageCleanupPolicy:PackageCleanupPolicy my-cleanup-policy my-policy:myproj
  * ```
  * 
  */
@@ -130,18 +142,32 @@ public class PackageCleanupPolicy extends com.pulumi.resources.CustomResource {
         return this.enabled;
     }
     /**
-     * Policy key. It has to be unique. It should not be used for other policies and configuration entities like archive policies, key pairs, repo layouts, property sets, backups, proxies, reverse proxies etc.
+     * Policy key. It has to be unique. It should not be used for other policies and configuration entities like archive policies, key pairs, repo layouts, property sets, backups, proxies, reverse proxies etc. A minimum of three characters is required and can include letters, numbers, underscore and hyphen.
      * 
      */
     @Export(name="key", refs={String.class}, tree="[0]")
     private Output<String> key;
 
     /**
-     * @return Policy key. It has to be unique. It should not be used for other policies and configuration entities like archive policies, key pairs, repo layouts, property sets, backups, proxies, reverse proxies etc.
+     * @return Policy key. It has to be unique. It should not be used for other policies and configuration entities like archive policies, key pairs, repo layouts, property sets, backups, proxies, reverse proxies etc. A minimum of three characters is required and can include letters, numbers, underscore and hyphen.
      * 
      */
     public Output<String> key() {
         return this.key;
+    }
+    /**
+     * This attribute is used only for project-level cleanup policies, it is not used for global-level policies.
+     * 
+     */
+    @Export(name="projectKey", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> projectKey;
+
+    /**
+     * @return This attribute is used only for project-level cleanup policies, it is not used for global-level policies.
+     * 
+     */
+    public Output<Optional<String>> projectKey() {
+        return Codegen.optional(this.projectKey);
     }
     @Export(name="searchCriteria", refs={PackageCleanupPolicySearchCriteria.class}, tree="[0]")
     private Output<PackageCleanupPolicySearchCriteria> searchCriteria;
@@ -150,14 +176,14 @@ public class PackageCleanupPolicy extends com.pulumi.resources.CustomResource {
         return this.searchCriteria;
     }
     /**
-     * When enabled, deleted packages are permanently removed from Artifactory without an option to restore them. Defaults to `false`
+     * Enabling this setting results in packages being permanently deleted from Artifactory after the cleanup policy is executed instead of going to the Trash Can repository. Defaults to `false`.
      * 
      */
     @Export(name="skipTrashcan", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> skipTrashcan;
 
     /**
-     * @return When enabled, deleted packages are permanently removed from Artifactory without an option to restore them. Defaults to `false`
+     * @return Enabling this setting results in packages being permanently deleted from Artifactory after the cleanup policy is executed instead of going to the Trash Can repository. Defaults to `false`.
      * 
      */
     public Output<Boolean> skipTrashcan() {
