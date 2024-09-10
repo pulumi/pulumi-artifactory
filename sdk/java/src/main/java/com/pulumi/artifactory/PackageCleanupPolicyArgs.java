@@ -72,18 +72,33 @@ public final class PackageCleanupPolicyArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Policy key. It has to be unique. It should not be used for other policies and configuration entities like archive policies, key pairs, repo layouts, property sets, backups, proxies, reverse proxies etc.
+     * Policy key. It has to be unique. It should not be used for other policies and configuration entities like archive policies, key pairs, repo layouts, property sets, backups, proxies, reverse proxies etc. A minimum of three characters is required and can include letters, numbers, underscore and hyphen.
      * 
      */
     @Import(name="key", required=true)
     private Output<String> key;
 
     /**
-     * @return Policy key. It has to be unique. It should not be used for other policies and configuration entities like archive policies, key pairs, repo layouts, property sets, backups, proxies, reverse proxies etc.
+     * @return Policy key. It has to be unique. It should not be used for other policies and configuration entities like archive policies, key pairs, repo layouts, property sets, backups, proxies, reverse proxies etc. A minimum of three characters is required and can include letters, numbers, underscore and hyphen.
      * 
      */
     public Output<String> key() {
         return this.key;
+    }
+
+    /**
+     * This attribute is used only for project-level cleanup policies, it is not used for global-level policies.
+     * 
+     */
+    @Import(name="projectKey")
+    private @Nullable Output<String> projectKey;
+
+    /**
+     * @return This attribute is used only for project-level cleanup policies, it is not used for global-level policies.
+     * 
+     */
+    public Optional<Output<String>> projectKey() {
+        return Optional.ofNullable(this.projectKey);
     }
 
     @Import(name="searchCriteria", required=true)
@@ -94,14 +109,14 @@ public final class PackageCleanupPolicyArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * When enabled, deleted packages are permanently removed from Artifactory without an option to restore them. Defaults to `false`
+     * Enabling this setting results in packages being permanently deleted from Artifactory after the cleanup policy is executed instead of going to the Trash Can repository. Defaults to `false`.
      * 
      */
     @Import(name="skipTrashcan")
     private @Nullable Output<Boolean> skipTrashcan;
 
     /**
-     * @return When enabled, deleted packages are permanently removed from Artifactory without an option to restore them. Defaults to `false`
+     * @return Enabling this setting results in packages being permanently deleted from Artifactory after the cleanup policy is executed instead of going to the Trash Can repository. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> skipTrashcan() {
@@ -116,6 +131,7 @@ public final class PackageCleanupPolicyArgs extends com.pulumi.resources.Resourc
         this.durationInMinutes = $.durationInMinutes;
         this.enabled = $.enabled;
         this.key = $.key;
+        this.projectKey = $.projectKey;
         this.searchCriteria = $.searchCriteria;
         this.skipTrashcan = $.skipTrashcan;
     }
@@ -211,7 +227,7 @@ public final class PackageCleanupPolicyArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param key Policy key. It has to be unique. It should not be used for other policies and configuration entities like archive policies, key pairs, repo layouts, property sets, backups, proxies, reverse proxies etc.
+         * @param key Policy key. It has to be unique. It should not be used for other policies and configuration entities like archive policies, key pairs, repo layouts, property sets, backups, proxies, reverse proxies etc. A minimum of three characters is required and can include letters, numbers, underscore and hyphen.
          * 
          * @return builder
          * 
@@ -222,13 +238,34 @@ public final class PackageCleanupPolicyArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param key Policy key. It has to be unique. It should not be used for other policies and configuration entities like archive policies, key pairs, repo layouts, property sets, backups, proxies, reverse proxies etc.
+         * @param key Policy key. It has to be unique. It should not be used for other policies and configuration entities like archive policies, key pairs, repo layouts, property sets, backups, proxies, reverse proxies etc. A minimum of three characters is required and can include letters, numbers, underscore and hyphen.
          * 
          * @return builder
          * 
          */
         public Builder key(String key) {
             return key(Output.of(key));
+        }
+
+        /**
+         * @param projectKey This attribute is used only for project-level cleanup policies, it is not used for global-level policies.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder projectKey(@Nullable Output<String> projectKey) {
+            $.projectKey = projectKey;
+            return this;
+        }
+
+        /**
+         * @param projectKey This attribute is used only for project-level cleanup policies, it is not used for global-level policies.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder projectKey(String projectKey) {
+            return projectKey(Output.of(projectKey));
         }
 
         public Builder searchCriteria(Output<PackageCleanupPolicySearchCriteriaArgs> searchCriteria) {
@@ -241,7 +278,7 @@ public final class PackageCleanupPolicyArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param skipTrashcan When enabled, deleted packages are permanently removed from Artifactory without an option to restore them. Defaults to `false`
+         * @param skipTrashcan Enabling this setting results in packages being permanently deleted from Artifactory after the cleanup policy is executed instead of going to the Trash Can repository. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -252,7 +289,7 @@ public final class PackageCleanupPolicyArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param skipTrashcan When enabled, deleted packages are permanently removed from Artifactory without an option to restore them. Defaults to `false`
+         * @param skipTrashcan Enabling this setting results in packages being permanently deleted from Artifactory after the cleanup policy is executed instead of going to the Trash Can repository. Defaults to `false`.
          * 
          * @return builder
          * 

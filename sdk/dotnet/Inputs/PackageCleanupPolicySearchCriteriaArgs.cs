@@ -13,7 +13,7 @@ namespace Pulumi.Artifactory.Inputs
     public sealed class PackageCleanupPolicySearchCriteriaArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Remove packages based on when they were created.
+        /// Remove packages based on when they were created. For example, remove packages that were created more than a year ago. The default value is to remove packages created more than 2 years ago.
         /// </summary>
         [Input("createdBeforeInMonths")]
         public Input<int>? CreatedBeforeInMonths { get; set; }
@@ -22,7 +22,7 @@ namespace Pulumi.Artifactory.Inputs
         private InputList<string>? _excludedPackages;
 
         /// <summary>
-        /// Specify explicit package names that you want excluded from the policy.
+        /// Specify explicit package names that you want excluded from the policy. Only Name explicit names (and not patterns) are accepted.
         /// </summary>
         public InputList<string> ExcludedPackages
         {
@@ -34,7 +34,7 @@ namespace Pulumi.Artifactory.Inputs
         private InputList<string>? _excludedRepos;
 
         /// <summary>
-        /// Specify patterns for repository names or explicit repository names that you want excluded from the policy. It can not accept any pattern only list of specific repositories.
+        /// Specify patterns for repository names or explicit repository names that you want excluded from the cleanup policy.
         /// </summary>
         public InputList<string> ExcludedRepos
         {
@@ -42,6 +42,9 @@ namespace Pulumi.Artifactory.Inputs
             set => _excludedRepos = value;
         }
 
+        /// <summary>
+        /// Set this to `true` if you want the policy to run on all projects on the platform.
+        /// </summary>
         [Input("includeAllProjects")]
         public Input<bool>? IncludeAllProjects { get; set; }
 
@@ -61,7 +64,7 @@ namespace Pulumi.Artifactory.Inputs
         private InputList<string>? _includedProjects;
 
         /// <summary>
-        /// List of projects name(s) to apply the policy to.
+        /// List of projects on which you want this policy to run. To include repositories that are not assigned to any project, enter the project key `default`.
         /// </summary>
         public InputList<string> IncludedProjects
         {
@@ -70,13 +73,19 @@ namespace Pulumi.Artifactory.Inputs
         }
 
         /// <summary>
-        /// Select the number of latest version to keep. The policy will remove all versions (based on creation date) prior to the selected number. Some package types may not be supported. [Learn more](https://jfrog.com/help/r/jfrog-platform-administration-documentation/retention-policies/package-types-coverage)
+        /// Select the number of latest versions to keep. The cleanup policy will remove all versions prior to the number you select here. The latest version is always excluded. Versions are determined by creation date.
+        /// 
+        /// ~&gt;Not all package types support this condition. For information on which package types support this condition, [learn more](https://jfrog.com/help/r/jfrog-platform-administration-documentation/retention-policies/package-types-coverage).
         /// </summary>
         [Input("keepLastNVersions")]
         public Input<int>? KeepLastNVersions { get; set; }
 
         /// <summary>
-        /// Remove packages based on when they were last downloaded.
+        /// Removes packages based on when they were last downloaded. For example, removes packages that were not downloaded in the past year. The default value is to remove packages that were downloaded more than 2 years ago.
+        /// 
+        /// ~&gt;If a package was never downloaded, the policy will remove it based only on the age-condition (`created_before_in_months`).
+        /// 
+        /// ~&gt;JFrog recommends using the `last_downloaded_before_in_months` condition to ensure that packages currently in use are not deleted.
         /// </summary>
         [Input("lastDownloadedBeforeInMonths")]
         public Input<int>? LastDownloadedBeforeInMonths { get; set; }

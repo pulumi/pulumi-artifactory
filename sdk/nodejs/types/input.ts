@@ -4045,32 +4045,41 @@ export interface OauthSettingsOauthProvider {
 
 export interface PackageCleanupPolicySearchCriteria {
     /**
-     * Remove packages based on when they were created.
+     * Remove packages based on when they were created. For example, remove packages that were created more than a year ago. The default value is to remove packages created more than 2 years ago.
      */
     createdBeforeInMonths?: pulumi.Input<number>;
     /**
-     * Specify explicit package names that you want excluded from the policy.
+     * Specify explicit package names that you want excluded from the policy. Only Name explicit names (and not patterns) are accepted.
      */
     excludedPackages?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specify patterns for repository names or explicit repository names that you want excluded from the policy. It can not accept any pattern only list of specific repositories.
+     * Specify patterns for repository names or explicit repository names that you want excluded from the cleanup policy.
      */
     excludedRepos?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Set this to `true` if you want the policy to run on all projects on the platform.
+     */
     includeAllProjects?: pulumi.Input<boolean>;
     /**
      * Specify a pattern for a package name or an explicit package name. It accept only single element which can be specific package or pattern, and for including all packages use `**`. Example: `includedPackages = ["**"]`
      */
     includedPackages: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * List of projects name(s) to apply the policy to.
+     * List of projects on which you want this policy to run. To include repositories that are not assigned to any project, enter the project key `default`.
      */
     includedProjects?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Select the number of latest version to keep. The policy will remove all versions (based on creation date) prior to the selected number. Some package types may not be supported. [Learn more](https://jfrog.com/help/r/jfrog-platform-administration-documentation/retention-policies/package-types-coverage)
+     * Select the number of latest versions to keep. The cleanup policy will remove all versions prior to the number you select here. The latest version is always excluded. Versions are determined by creation date.
+     *
+     * ~>Not all package types support this condition. For information on which package types support this condition, [learn more](https://jfrog.com/help/r/jfrog-platform-administration-documentation/retention-policies/package-types-coverage).
      */
     keepLastNVersions?: pulumi.Input<number>;
     /**
-     * Remove packages based on when they were last downloaded.
+     * Removes packages based on when they were last downloaded. For example, removes packages that were not downloaded in the past year. The default value is to remove packages that were downloaded more than 2 years ago.
+     *
+     * ~>If a package was never downloaded, the policy will remove it based only on the age-condition (`createdBeforeInMonths`).
+     *
+     * ~>JFrog recommends using the `lastDownloadedBeforeInMonths` condition to ensure that packages currently in use are not deleted.
      */
     lastDownloadedBeforeInMonths?: pulumi.Input<number>;
     /**
