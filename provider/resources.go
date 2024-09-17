@@ -55,8 +55,15 @@ func computeIDField(field resource.PropertyKey) tfbridge.ComputeID {
 // Provider returns additional overlaid schema and metadata associated with the provider..
 func Provider() tfbridge.ProviderInfo {
 	// Instantiate the Terraform provider
+
+	// Remove the deprecation message for artifactory_permission_target:
+	//
+	// Fixes https://github.com/pulumi/pulumi-artifactory/issues/864
+	sdkV2Provider := artifactoryProvider.SdkV2()
+	sdkV2Provider.ResourcesMap["artifactory_permission_target"].DeprecationMessage = ""
+
 	p := pfbridge.MuxShimWithPF(context.Background(),
-		shimv2.NewProvider(artifactoryProvider.SdkV2()),
+		shimv2.NewProvider(sdkV2Provider),
 		artifactoryProvider.Framework()(),
 	)
 
