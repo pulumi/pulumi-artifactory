@@ -161,7 +161,7 @@ export class RemoteHelmociRepository extends pulumi.CustomResource {
     public readonly key!: pulumi.Output<string>;
     /**
      * Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
-     * the 'Retrieval Cache Period'. Default value is 'true'.
+     * the 'Retrieval Cache Period'. Default value is 'false'. This field exists in the API but not in the UI.
      */
     public readonly listRemoteFolderItems!: pulumi.Output<boolean | undefined>;
     /**
@@ -499,7 +499,7 @@ export interface RemoteHelmociRepositoryState {
     key?: pulumi.Input<string>;
     /**
      * Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
-     * the 'Retrieval Cache Period'. Default value is 'true'.
+     * the 'Retrieval Cache Period'. Default value is 'false'. This field exists in the API but not in the UI.
      */
     listRemoteFolderItems?: pulumi.Input<boolean>;
     /**
@@ -713,7 +713,7 @@ export interface RemoteHelmociRepositoryArgs {
     key: pulumi.Input<string>;
     /**
      * Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
-     * the 'Retrieval Cache Period'. Default value is 'true'.
+     * the 'Retrieval Cache Period'. Default value is 'false'. This field exists in the API but not in the UI.
      */
     listRemoteFolderItems?: pulumi.Input<boolean>;
     /**

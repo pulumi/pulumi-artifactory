@@ -63,7 +63,6 @@ By end of Q4 2024, API Keys will be deprecated all together and the option to us
         {
             resourceInputs["accessToken"] = args?.accessToken ? pulumi.secret(args.accessToken) : undefined;
             resourceInputs["apiKey"] = args?.apiKey ? pulumi.secret(args.apiKey) : undefined;
-            resourceInputs["checkLicense"] = pulumi.output((args ? args.checkLicense : undefined) ?? false).apply(JSON.stringify);
             resourceInputs["oidcProviderName"] = args ? args.oidcProviderName : undefined;
             resourceInputs["url"] = args ? args.url : undefined;
         }
@@ -92,12 +91,6 @@ In a future version (scheduled for end of Q3, 2023), the option to disable the u
 By end of Q4 2024, API Keys will be deprecated all together and the option to use them will no longer be available. See [JFrog API deprecation process](https://jfrog.com/help/r/jfrog-platform-administration-documentation/jfrog-api-key-deprecation-process) for more details.
      */
     apiKey?: pulumi.Input<string>;
-    /**
-     * Toggle for pre-flight checking of Artifactory Pro and Enterprise license. Default to `true`.
-     *
-     * @deprecated Remove this attribute from your provider configuration as it is no longer used and the attribute will be removed in the next major version of the provider.
-     */
-    checkLicense?: pulumi.Input<boolean>;
     /**
      * OIDC provider name. See [Configure an OIDC
      * Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-an-oidc-integration) for

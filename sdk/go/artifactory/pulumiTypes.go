@@ -7,144 +7,11 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-artifactory/sdk/v7/go/artifactory/internal"
+	"github.com/pulumi/pulumi-artifactory/sdk/v8/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 var _ = internal.GetEnvOrDefault
-
-type AccessTokenAdminToken struct {
-	InstanceId string `pulumi:"instanceId"`
-}
-
-// AccessTokenAdminTokenInput is an input type that accepts AccessTokenAdminTokenArgs and AccessTokenAdminTokenOutput values.
-// You can construct a concrete instance of `AccessTokenAdminTokenInput` via:
-//
-//	AccessTokenAdminTokenArgs{...}
-type AccessTokenAdminTokenInput interface {
-	pulumi.Input
-
-	ToAccessTokenAdminTokenOutput() AccessTokenAdminTokenOutput
-	ToAccessTokenAdminTokenOutputWithContext(context.Context) AccessTokenAdminTokenOutput
-}
-
-type AccessTokenAdminTokenArgs struct {
-	InstanceId pulumi.StringInput `pulumi:"instanceId"`
-}
-
-func (AccessTokenAdminTokenArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccessTokenAdminToken)(nil)).Elem()
-}
-
-func (i AccessTokenAdminTokenArgs) ToAccessTokenAdminTokenOutput() AccessTokenAdminTokenOutput {
-	return i.ToAccessTokenAdminTokenOutputWithContext(context.Background())
-}
-
-func (i AccessTokenAdminTokenArgs) ToAccessTokenAdminTokenOutputWithContext(ctx context.Context) AccessTokenAdminTokenOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccessTokenAdminTokenOutput)
-}
-
-func (i AccessTokenAdminTokenArgs) ToAccessTokenAdminTokenPtrOutput() AccessTokenAdminTokenPtrOutput {
-	return i.ToAccessTokenAdminTokenPtrOutputWithContext(context.Background())
-}
-
-func (i AccessTokenAdminTokenArgs) ToAccessTokenAdminTokenPtrOutputWithContext(ctx context.Context) AccessTokenAdminTokenPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccessTokenAdminTokenOutput).ToAccessTokenAdminTokenPtrOutputWithContext(ctx)
-}
-
-// AccessTokenAdminTokenPtrInput is an input type that accepts AccessTokenAdminTokenArgs, AccessTokenAdminTokenPtr and AccessTokenAdminTokenPtrOutput values.
-// You can construct a concrete instance of `AccessTokenAdminTokenPtrInput` via:
-//
-//	        AccessTokenAdminTokenArgs{...}
-//
-//	or:
-//
-//	        nil
-type AccessTokenAdminTokenPtrInput interface {
-	pulumi.Input
-
-	ToAccessTokenAdminTokenPtrOutput() AccessTokenAdminTokenPtrOutput
-	ToAccessTokenAdminTokenPtrOutputWithContext(context.Context) AccessTokenAdminTokenPtrOutput
-}
-
-type accessTokenAdminTokenPtrType AccessTokenAdminTokenArgs
-
-func AccessTokenAdminTokenPtr(v *AccessTokenAdminTokenArgs) AccessTokenAdminTokenPtrInput {
-	return (*accessTokenAdminTokenPtrType)(v)
-}
-
-func (*accessTokenAdminTokenPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AccessTokenAdminToken)(nil)).Elem()
-}
-
-func (i *accessTokenAdminTokenPtrType) ToAccessTokenAdminTokenPtrOutput() AccessTokenAdminTokenPtrOutput {
-	return i.ToAccessTokenAdminTokenPtrOutputWithContext(context.Background())
-}
-
-func (i *accessTokenAdminTokenPtrType) ToAccessTokenAdminTokenPtrOutputWithContext(ctx context.Context) AccessTokenAdminTokenPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccessTokenAdminTokenPtrOutput)
-}
-
-type AccessTokenAdminTokenOutput struct{ *pulumi.OutputState }
-
-func (AccessTokenAdminTokenOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccessTokenAdminToken)(nil)).Elem()
-}
-
-func (o AccessTokenAdminTokenOutput) ToAccessTokenAdminTokenOutput() AccessTokenAdminTokenOutput {
-	return o
-}
-
-func (o AccessTokenAdminTokenOutput) ToAccessTokenAdminTokenOutputWithContext(ctx context.Context) AccessTokenAdminTokenOutput {
-	return o
-}
-
-func (o AccessTokenAdminTokenOutput) ToAccessTokenAdminTokenPtrOutput() AccessTokenAdminTokenPtrOutput {
-	return o.ToAccessTokenAdminTokenPtrOutputWithContext(context.Background())
-}
-
-func (o AccessTokenAdminTokenOutput) ToAccessTokenAdminTokenPtrOutputWithContext(ctx context.Context) AccessTokenAdminTokenPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccessTokenAdminToken) *AccessTokenAdminToken {
-		return &v
-	}).(AccessTokenAdminTokenPtrOutput)
-}
-
-func (o AccessTokenAdminTokenOutput) InstanceId() pulumi.StringOutput {
-	return o.ApplyT(func(v AccessTokenAdminToken) string { return v.InstanceId }).(pulumi.StringOutput)
-}
-
-type AccessTokenAdminTokenPtrOutput struct{ *pulumi.OutputState }
-
-func (AccessTokenAdminTokenPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AccessTokenAdminToken)(nil)).Elem()
-}
-
-func (o AccessTokenAdminTokenPtrOutput) ToAccessTokenAdminTokenPtrOutput() AccessTokenAdminTokenPtrOutput {
-	return o
-}
-
-func (o AccessTokenAdminTokenPtrOutput) ToAccessTokenAdminTokenPtrOutputWithContext(ctx context.Context) AccessTokenAdminTokenPtrOutput {
-	return o
-}
-
-func (o AccessTokenAdminTokenPtrOutput) Elem() AccessTokenAdminTokenOutput {
-	return o.ApplyT(func(v *AccessTokenAdminToken) AccessTokenAdminToken {
-		if v != nil {
-			return *v
-		}
-		var ret AccessTokenAdminToken
-		return ret
-	}).(AccessTokenAdminTokenOutput)
-}
-
-func (o AccessTokenAdminTokenPtrOutput) InstanceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AccessTokenAdminToken) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.InstanceId
-	}).(pulumi.StringPtrOutput)
-}
 
 type ArtifactCustomWebhookCriteria struct {
 	// Trigger on any federated repositories
@@ -21611,160 +21478,6 @@ func (o RemoteVcsRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() 
 	}).(pulumi.BoolPtrOutput)
 }
 
-type ReplicationConfigReplication struct {
-	Enabled *bool `pulumi:"enabled"`
-	// Requires password encryption to be turned off `POST /api/system/decrypt`.
-	Password   *string `pulumi:"password"`
-	PathPrefix *string `pulumi:"pathPrefix"`
-	// Proxy key from Artifactory Proxies setting
-	Proxy               *string `pulumi:"proxy"`
-	SocketTimeoutMillis *int    `pulumi:"socketTimeoutMillis"`
-	SyncDeletes         *bool   `pulumi:"syncDeletes"`
-	SyncProperties      *bool   `pulumi:"syncProperties"`
-	SyncStatistics      *bool   `pulumi:"syncStatistics"`
-	Url                 *string `pulumi:"url"`
-	Username            *string `pulumi:"username"`
-}
-
-// ReplicationConfigReplicationInput is an input type that accepts ReplicationConfigReplicationArgs and ReplicationConfigReplicationOutput values.
-// You can construct a concrete instance of `ReplicationConfigReplicationInput` via:
-//
-//	ReplicationConfigReplicationArgs{...}
-type ReplicationConfigReplicationInput interface {
-	pulumi.Input
-
-	ToReplicationConfigReplicationOutput() ReplicationConfigReplicationOutput
-	ToReplicationConfigReplicationOutputWithContext(context.Context) ReplicationConfigReplicationOutput
-}
-
-type ReplicationConfigReplicationArgs struct {
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// Requires password encryption to be turned off `POST /api/system/decrypt`.
-	Password   pulumi.StringPtrInput `pulumi:"password"`
-	PathPrefix pulumi.StringPtrInput `pulumi:"pathPrefix"`
-	// Proxy key from Artifactory Proxies setting
-	Proxy               pulumi.StringPtrInput `pulumi:"proxy"`
-	SocketTimeoutMillis pulumi.IntPtrInput    `pulumi:"socketTimeoutMillis"`
-	SyncDeletes         pulumi.BoolPtrInput   `pulumi:"syncDeletes"`
-	SyncProperties      pulumi.BoolPtrInput   `pulumi:"syncProperties"`
-	SyncStatistics      pulumi.BoolPtrInput   `pulumi:"syncStatistics"`
-	Url                 pulumi.StringPtrInput `pulumi:"url"`
-	Username            pulumi.StringPtrInput `pulumi:"username"`
-}
-
-func (ReplicationConfigReplicationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicationConfigReplication)(nil)).Elem()
-}
-
-func (i ReplicationConfigReplicationArgs) ToReplicationConfigReplicationOutput() ReplicationConfigReplicationOutput {
-	return i.ToReplicationConfigReplicationOutputWithContext(context.Background())
-}
-
-func (i ReplicationConfigReplicationArgs) ToReplicationConfigReplicationOutputWithContext(ctx context.Context) ReplicationConfigReplicationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigReplicationOutput)
-}
-
-// ReplicationConfigReplicationArrayInput is an input type that accepts ReplicationConfigReplicationArray and ReplicationConfigReplicationArrayOutput values.
-// You can construct a concrete instance of `ReplicationConfigReplicationArrayInput` via:
-//
-//	ReplicationConfigReplicationArray{ ReplicationConfigReplicationArgs{...} }
-type ReplicationConfigReplicationArrayInput interface {
-	pulumi.Input
-
-	ToReplicationConfigReplicationArrayOutput() ReplicationConfigReplicationArrayOutput
-	ToReplicationConfigReplicationArrayOutputWithContext(context.Context) ReplicationConfigReplicationArrayOutput
-}
-
-type ReplicationConfigReplicationArray []ReplicationConfigReplicationInput
-
-func (ReplicationConfigReplicationArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ReplicationConfigReplication)(nil)).Elem()
-}
-
-func (i ReplicationConfigReplicationArray) ToReplicationConfigReplicationArrayOutput() ReplicationConfigReplicationArrayOutput {
-	return i.ToReplicationConfigReplicationArrayOutputWithContext(context.Background())
-}
-
-func (i ReplicationConfigReplicationArray) ToReplicationConfigReplicationArrayOutputWithContext(ctx context.Context) ReplicationConfigReplicationArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigReplicationArrayOutput)
-}
-
-type ReplicationConfigReplicationOutput struct{ *pulumi.OutputState }
-
-func (ReplicationConfigReplicationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicationConfigReplication)(nil)).Elem()
-}
-
-func (o ReplicationConfigReplicationOutput) ToReplicationConfigReplicationOutput() ReplicationConfigReplicationOutput {
-	return o
-}
-
-func (o ReplicationConfigReplicationOutput) ToReplicationConfigReplicationOutputWithContext(ctx context.Context) ReplicationConfigReplicationOutput {
-	return o
-}
-
-func (o ReplicationConfigReplicationOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ReplicationConfigReplication) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
-}
-
-// Requires password encryption to be turned off `POST /api/system/decrypt`.
-func (o ReplicationConfigReplicationOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ReplicationConfigReplication) *string { return v.Password }).(pulumi.StringPtrOutput)
-}
-
-func (o ReplicationConfigReplicationOutput) PathPrefix() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ReplicationConfigReplication) *string { return v.PathPrefix }).(pulumi.StringPtrOutput)
-}
-
-// Proxy key from Artifactory Proxies setting
-func (o ReplicationConfigReplicationOutput) Proxy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ReplicationConfigReplication) *string { return v.Proxy }).(pulumi.StringPtrOutput)
-}
-
-func (o ReplicationConfigReplicationOutput) SocketTimeoutMillis() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ReplicationConfigReplication) *int { return v.SocketTimeoutMillis }).(pulumi.IntPtrOutput)
-}
-
-func (o ReplicationConfigReplicationOutput) SyncDeletes() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ReplicationConfigReplication) *bool { return v.SyncDeletes }).(pulumi.BoolPtrOutput)
-}
-
-func (o ReplicationConfigReplicationOutput) SyncProperties() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ReplicationConfigReplication) *bool { return v.SyncProperties }).(pulumi.BoolPtrOutput)
-}
-
-func (o ReplicationConfigReplicationOutput) SyncStatistics() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ReplicationConfigReplication) *bool { return v.SyncStatistics }).(pulumi.BoolPtrOutput)
-}
-
-func (o ReplicationConfigReplicationOutput) Url() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ReplicationConfigReplication) *string { return v.Url }).(pulumi.StringPtrOutput)
-}
-
-func (o ReplicationConfigReplicationOutput) Username() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ReplicationConfigReplication) *string { return v.Username }).(pulumi.StringPtrOutput)
-}
-
-type ReplicationConfigReplicationArrayOutput struct{ *pulumi.OutputState }
-
-func (ReplicationConfigReplicationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ReplicationConfigReplication)(nil)).Elem()
-}
-
-func (o ReplicationConfigReplicationArrayOutput) ToReplicationConfigReplicationArrayOutput() ReplicationConfigReplicationArrayOutput {
-	return o
-}
-
-func (o ReplicationConfigReplicationArrayOutput) ToReplicationConfigReplicationArrayOutputWithContext(ctx context.Context) ReplicationConfigReplicationArrayOutput {
-	return o
-}
-
-func (o ReplicationConfigReplicationArrayOutput) Index(i pulumi.IntInput) ReplicationConfigReplicationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReplicationConfigReplication {
-		return vs[0].([]ReplicationConfigReplication)[vs[1].(int)]
-	}).(ReplicationConfigReplicationOutput)
-}
-
 type UnmanagedUserPasswordPolicy struct {
 	// Minimum number of digits that the password must contain
 	Digit *int `pulumi:"digit"`
@@ -35672,8 +35385,6 @@ func (o GetRepositoriesRepoArrayOutput) Index(i pulumi.IntInput) GetRepositories
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*AccessTokenAdminTokenInput)(nil)).Elem(), AccessTokenAdminTokenArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AccessTokenAdminTokenPtrInput)(nil)).Elem(), AccessTokenAdminTokenArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ArtifactCustomWebhookCriteriaInput)(nil)).Elem(), ArtifactCustomWebhookCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ArtifactCustomWebhookCriteriaPtrInput)(nil)).Elem(), ArtifactCustomWebhookCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ArtifactCustomWebhookHandlerInput)(nil)).Elem(), ArtifactCustomWebhookHandlerArgs{})
@@ -35944,8 +35655,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteTerraformRepositoryContentSynchronisationPtrInput)(nil)).Elem(), RemoteTerraformRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteVcsRepositoryContentSynchronisationInput)(nil)).Elem(), RemoteVcsRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteVcsRepositoryContentSynchronisationPtrInput)(nil)).Elem(), RemoteVcsRepositoryContentSynchronisationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigReplicationInput)(nil)).Elem(), ReplicationConfigReplicationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigReplicationArrayInput)(nil)).Elem(), ReplicationConfigReplicationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UnmanagedUserPasswordPolicyInput)(nil)).Elem(), UnmanagedUserPasswordPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UnmanagedUserPasswordPolicyPtrInput)(nil)).Elem(), UnmanagedUserPasswordPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserCustomWebhookHandlerInput)(nil)).Elem(), UserCustomWebhookHandlerArgs{})
@@ -36127,8 +35836,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteVcsRepositoryContentSynchronisationPtrInput)(nil)).Elem(), GetRemoteVcsRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoriesRepoInput)(nil)).Elem(), GetRepositoriesRepoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoriesRepoArrayInput)(nil)).Elem(), GetRepositoriesRepoArray{})
-	pulumi.RegisterOutputType(AccessTokenAdminTokenOutput{})
-	pulumi.RegisterOutputType(AccessTokenAdminTokenPtrOutput{})
 	pulumi.RegisterOutputType(ArtifactCustomWebhookCriteriaOutput{})
 	pulumi.RegisterOutputType(ArtifactCustomWebhookCriteriaPtrOutput{})
 	pulumi.RegisterOutputType(ArtifactCustomWebhookHandlerOutput{})
@@ -36399,8 +36106,6 @@ func init() {
 	pulumi.RegisterOutputType(RemoteTerraformRepositoryContentSynchronisationPtrOutput{})
 	pulumi.RegisterOutputType(RemoteVcsRepositoryContentSynchronisationOutput{})
 	pulumi.RegisterOutputType(RemoteVcsRepositoryContentSynchronisationPtrOutput{})
-	pulumi.RegisterOutputType(ReplicationConfigReplicationOutput{})
-	pulumi.RegisterOutputType(ReplicationConfigReplicationArrayOutput{})
 	pulumi.RegisterOutputType(UnmanagedUserPasswordPolicyOutput{})
 	pulumi.RegisterOutputType(UnmanagedUserPasswordPolicyPtrOutput{})
 	pulumi.RegisterOutputType(UserCustomWebhookHandlerOutput{})

@@ -13,7 +13,6 @@
         "strict": true
     },
     "files": [
-        "accessToken.ts",
         "alpineRepository.ts",
         "anonymousUser.ts",
         "apiKey.ts",
@@ -322,11 +321,9 @@
         "remoteSwiftRepository.ts",
         "remoteTerraformRepository.ts",
         "remoteVcsRepository.ts",
-        "replicationConfig.ts",
         "repositoryLayout.ts",
         "samlSettings.ts",
         "scopedToken.ts",
-        "singleReplicationConfig.ts",
         "types/index.ts",
         "types/input.ts",
         "types/output.ts",

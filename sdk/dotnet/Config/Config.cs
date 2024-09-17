@@ -54,16 +54,6 @@ namespace Pulumi.Artifactory
             set => _apiKey.Set(value);
         }
 
-        private static readonly __Value<bool?> _checkLicense = new __Value<bool?>(() => __config.GetBoolean("checkLicense") ?? false);
-        /// <summary>
-        /// Toggle for pre-flight checking of Artifactory Pro and Enterprise license. Default to `true`.
-        /// </summary>
-        public static bool? CheckLicense
-        {
-            get => _checkLicense.Get();
-            set => _checkLicense.Set(value);
-        }
-
         private static readonly __Value<string?> _oidcProviderName = new __Value<string?>(() => __config.Get("oidcProviderName"));
         /// <summary>
         /// OIDC provider name. See [Configure an OIDC

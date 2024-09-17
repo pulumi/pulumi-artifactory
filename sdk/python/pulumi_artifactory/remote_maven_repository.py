@@ -111,7 +111,7 @@ class RemoteMavenRepositoryArgs:
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
                used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[bool] list_remote_folder_items: Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
-               the 'Retrieval Cache Period'. Default value is 'true'.
+               the 'Retrieval Cache Period'. Default value is 'false'. This field exists in the API but not in the UI.
         :param pulumi.Input[str] local_address: The local address to be used when creating connections. Useful for specifying the interface to use on systems with
                multiple network interfaces.
         :param pulumi.Input[int] max_unique_snapshots: The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
@@ -563,7 +563,7 @@ class RemoteMavenRepositoryArgs:
     def list_remote_folder_items(self) -> Optional[pulumi.Input[bool]]:
         """
         Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
-        the 'Retrieval Cache Period'. Default value is 'true'.
+        the 'Retrieval Cache Period'. Default value is 'false'. This field exists in the API but not in the UI.
         """
         return pulumi.get(self, "list_remote_folder_items")
 
@@ -999,7 +999,7 @@ class _RemoteMavenRepositoryState:
         :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
                contain spaces or special characters.
         :param pulumi.Input[bool] list_remote_folder_items: Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
-               the 'Retrieval Cache Period'. Default value is 'true'.
+               the 'Retrieval Cache Period'. Default value is 'false'. This field exists in the API but not in the UI.
         :param pulumi.Input[str] local_address: The local address to be used when creating connections. Useful for specifying the interface to use on systems with
                multiple network interfaces.
         :param pulumi.Input[int] max_unique_snapshots: The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
@@ -1444,7 +1444,7 @@ class _RemoteMavenRepositoryState:
     def list_remote_folder_items(self) -> Optional[pulumi.Input[bool]]:
         """
         Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
-        the 'Retrieval Cache Period'. Default value is 'true'.
+        the 'Retrieval Cache Period'. Default value is 'false'. This field exists in the API but not in the UI.
         """
         return pulumi.get(self, "list_remote_folder_items")
 
@@ -1932,7 +1932,7 @@ class RemoteMavenRepository(pulumi.CustomResource):
         :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
                contain spaces or special characters.
         :param pulumi.Input[bool] list_remote_folder_items: Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
-               the 'Retrieval Cache Period'. Default value is 'true'.
+               the 'Retrieval Cache Period'. Default value is 'false'. This field exists in the API but not in the UI.
         :param pulumi.Input[str] local_address: The local address to be used when creating connections. Useful for specifying the interface to use on systems with
                multiple network interfaces.
         :param pulumi.Input[int] max_unique_snapshots: The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
@@ -2255,7 +2255,7 @@ class RemoteMavenRepository(pulumi.CustomResource):
         :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
                contain spaces or special characters.
         :param pulumi.Input[bool] list_remote_folder_items: Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
-               the 'Retrieval Cache Period'. Default value is 'true'.
+               the 'Retrieval Cache Period'. Default value is 'false'. This field exists in the API but not in the UI.
         :param pulumi.Input[str] local_address: The local address to be used when creating connections. Useful for specifying the interface to use on systems with
                multiple network interfaces.
         :param pulumi.Input[int] max_unique_snapshots: The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
@@ -2560,7 +2560,7 @@ class RemoteMavenRepository(pulumi.CustomResource):
     def list_remote_folder_items(self) -> pulumi.Output[Optional[bool]]:
         """
         Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
-        the 'Retrieval Cache Period'. Default value is 'true'.
+        the 'Retrieval Cache Period'. Default value is 'false'. This field exists in the API but not in the UI.
         """
         return pulumi.get(self, "list_remote_folder_items")
 

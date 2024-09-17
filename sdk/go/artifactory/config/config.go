@@ -4,7 +4,7 @@
 package config
 
 import (
-	"github.com/pulumi/pulumi-artifactory/sdk/v7/go/artifactory/internal"
+	"github.com/pulumi/pulumi-artifactory/sdk/v8/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 )
@@ -25,19 +25,6 @@ func GetAccessToken(ctx *pulumi.Context) string {
 // By end of Q4 2024, API Keys will be deprecated all together and the option to use them will no longer be available. See [JFrog API deprecation process](https://jfrog.com/help/r/jfrog-platform-administration-documentation/jfrog-api-key-deprecation-process) for more details.
 func GetApiKey(ctx *pulumi.Context) string {
 	return config.Get(ctx, "artifactory:apiKey")
-}
-
-// Toggle for pre-flight checking of Artifactory Pro and Enterprise license. Default to `true`.
-//
-// Deprecated: Remove this attribute from your provider configuration as it is no longer used and the attribute will be removed in the next major version of the provider.
-func GetCheckLicense(ctx *pulumi.Context) bool {
-	v, err := config.TryBool(ctx, "artifactory:checkLicense")
-	if err == nil {
-		return v
-	}
-	var value bool
-	value = false
-	return value
 }
 
 // OIDC provider name. See [Configure an OIDC

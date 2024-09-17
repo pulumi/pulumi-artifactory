@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/blang/semver"
-	"github.com/pulumi/pulumi-artifactory/sdk/v7/go/artifactory/internal"
+	"github.com/pulumi/pulumi-artifactory/sdk/v8/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,6 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "artifactory:index/accessToken:AccessToken":
-		r = &AccessToken{}
 	case "artifactory:index/alpineRepository:AlpineRepository":
 		r = &AlpineRepository{}
 	case "artifactory:index/anonymousUser:AnonymousUser":
@@ -345,16 +343,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &RemoteTerraformRepository{}
 	case "artifactory:index/remoteVcsRepository:RemoteVcsRepository":
 		r = &RemoteVcsRepository{}
-	case "artifactory:index/replicationConfig:ReplicationConfig":
-		r = &ReplicationConfig{}
 	case "artifactory:index/repositoryLayout:RepositoryLayout":
 		r = &RepositoryLayout{}
 	case "artifactory:index/samlSettings:SamlSettings":
 		r = &SamlSettings{}
 	case "artifactory:index/scopedToken:ScopedToken":
 		r = &ScopedToken{}
-	case "artifactory:index/singleReplicationConfig:SingleReplicationConfig":
-		r = &SingleReplicationConfig{}
 	case "artifactory:index/unmanagedUser:UnmanagedUser":
 		r = &UnmanagedUser{}
 	case "artifactory:index/user:User":
@@ -454,11 +448,6 @@ func init() {
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
-	pulumi.RegisterResourceModule(
-		"artifactory",
-		"index/accessToken",
-		&module{version},
-	)
 	pulumi.RegisterResourceModule(
 		"artifactory",
 		"index/alpineRepository",
@@ -1266,11 +1255,6 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"artifactory",
-		"index/replicationConfig",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"artifactory",
 		"index/repositoryLayout",
 		&module{version},
 	)
@@ -1282,11 +1266,6 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"artifactory",
 		"index/scopedToken",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"artifactory",
-		"index/singleReplicationConfig",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

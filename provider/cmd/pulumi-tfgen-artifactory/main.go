@@ -17,7 +17,7 @@ package main
 import (
 	"github.com/pulumi/pulumi-terraform-bridge/pf/tfgen"
 
-	artifactory "github.com/pulumi/pulumi-artifactory/provider/v7"
+	artifactory "github.com/pulumi/pulumi-artifactory/provider/v8"
 )
 
 func main() {

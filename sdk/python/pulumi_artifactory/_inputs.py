@@ -10,7 +10,6 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = [
-    'AccessTokenAdminTokenArgs',
     'ArtifactCustomWebhookCriteriaArgs',
     'ArtifactCustomWebhookHandlerArgs',
     'ArtifactLifecycleCustomWebhookHandlerArgs',
@@ -146,7 +145,6 @@ __all__ = [
     'RemoteSwiftRepositoryContentSynchronisationArgs',
     'RemoteTerraformRepositoryContentSynchronisationArgs',
     'RemoteVcsRepositoryContentSynchronisationArgs',
-    'ReplicationConfigReplicationArgs',
     'UnmanagedUserPasswordPolicyArgs',
     'UserCustomWebhookHandlerArgs',
     'UserPasswordPolicyArgs',
@@ -236,22 +234,6 @@ __all__ = [
     'GetRemoteTerraformRepositoryContentSynchronisationArgs',
     'GetRemoteVcsRepositoryContentSynchronisationArgs',
 ]
-
-@pulumi.input_type
-class AccessTokenAdminTokenArgs:
-    def __init__(__self__, *,
-                 instance_id: pulumi.Input[str]):
-        pulumi.set(__self__, "instance_id", instance_id)
-
-    @property
-    @pulumi.getter(name="instanceId")
-    def instance_id(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "instance_id")
-
-    @instance_id.setter
-    def instance_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "instance_id", value)
-
 
 @pulumi.input_type
 class ArtifactCustomWebhookCriteriaArgs:
@@ -9752,141 +9734,6 @@ class RemoteVcsRepositoryContentSynchronisationArgs:
     @statistics_enabled.setter
     def statistics_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "statistics_enabled", value)
-
-
-@pulumi.input_type
-class ReplicationConfigReplicationArgs:
-    def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[bool]] = None,
-                 password: Optional[pulumi.Input[str]] = None,
-                 path_prefix: Optional[pulumi.Input[str]] = None,
-                 proxy: Optional[pulumi.Input[str]] = None,
-                 socket_timeout_millis: Optional[pulumi.Input[int]] = None,
-                 sync_deletes: Optional[pulumi.Input[bool]] = None,
-                 sync_properties: Optional[pulumi.Input[bool]] = None,
-                 sync_statistics: Optional[pulumi.Input[bool]] = None,
-                 url: Optional[pulumi.Input[str]] = None,
-                 username: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] password: Requires password encryption to be turned off `POST /api/system/decrypt`.
-        :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies setting
-        """
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
-        if password is not None:
-            pulumi.set(__self__, "password", password)
-        if path_prefix is not None:
-            pulumi.set(__self__, "path_prefix", path_prefix)
-        if proxy is not None:
-            pulumi.set(__self__, "proxy", proxy)
-        if socket_timeout_millis is not None:
-            pulumi.set(__self__, "socket_timeout_millis", socket_timeout_millis)
-        if sync_deletes is not None:
-            pulumi.set(__self__, "sync_deletes", sync_deletes)
-        if sync_properties is not None:
-            pulumi.set(__self__, "sync_properties", sync_properties)
-        if sync_statistics is not None:
-            pulumi.set(__self__, "sync_statistics", sync_statistics)
-        if url is not None:
-            pulumi.set(__self__, "url", url)
-        if username is not None:
-            pulumi.set(__self__, "username", username)
-
-    @property
-    @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[bool]]:
-        return pulumi.get(self, "enabled")
-
-    @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enabled", value)
-
-    @property
-    @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[str]]:
-        """
-        Requires password encryption to be turned off `POST /api/system/decrypt`.
-        """
-        return pulumi.get(self, "password")
-
-    @password.setter
-    def password(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "password", value)
-
-    @property
-    @pulumi.getter(name="pathPrefix")
-    def path_prefix(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "path_prefix")
-
-    @path_prefix.setter
-    def path_prefix(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "path_prefix", value)
-
-    @property
-    @pulumi.getter
-    def proxy(self) -> Optional[pulumi.Input[str]]:
-        """
-        Proxy key from Artifactory Proxies setting
-        """
-        return pulumi.get(self, "proxy")
-
-    @proxy.setter
-    def proxy(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "proxy", value)
-
-    @property
-    @pulumi.getter(name="socketTimeoutMillis")
-    def socket_timeout_millis(self) -> Optional[pulumi.Input[int]]:
-        return pulumi.get(self, "socket_timeout_millis")
-
-    @socket_timeout_millis.setter
-    def socket_timeout_millis(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "socket_timeout_millis", value)
-
-    @property
-    @pulumi.getter(name="syncDeletes")
-    def sync_deletes(self) -> Optional[pulumi.Input[bool]]:
-        return pulumi.get(self, "sync_deletes")
-
-    @sync_deletes.setter
-    def sync_deletes(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "sync_deletes", value)
-
-    @property
-    @pulumi.getter(name="syncProperties")
-    def sync_properties(self) -> Optional[pulumi.Input[bool]]:
-        return pulumi.get(self, "sync_properties")
-
-    @sync_properties.setter
-    def sync_properties(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "sync_properties", value)
-
-    @property
-    @pulumi.getter(name="syncStatistics")
-    def sync_statistics(self) -> Optional[pulumi.Input[bool]]:
-        return pulumi.get(self, "sync_statistics")
-
-    @sync_statistics.setter
-    def sync_statistics(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "sync_statistics", value)
-
-    @property
-    @pulumi.getter
-    def url(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "url")
-
-    @url.setter
-    def url(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "url", value)
-
-    @property
-    @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "username")
-
-    @username.setter
-    def username(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "username", value)
 
 
 @pulumi.input_type

@@ -5,11 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 // Export members:
-export { AccessTokenArgs, AccessTokenState } from "./accessToken";
-export type AccessToken = import("./accessToken").AccessToken;
-export const AccessToken: typeof import("./accessToken").AccessToken = null as any;
-utilities.lazyLoad(exports, ["AccessToken"], () => require("./accessToken"));
-
 export { AlpineRepositoryArgs, AlpineRepositoryState } from "./alpineRepository";
 export type AlpineRepository = import("./alpineRepository").AlpineRepository;
 export const AlpineRepository: typeof import("./alpineRepository").AlpineRepository = null as any;
@@ -1535,11 +1530,6 @@ export type RemoteVcsRepository = import("./remoteVcsRepository").RemoteVcsRepos
 export const RemoteVcsRepository: typeof import("./remoteVcsRepository").RemoteVcsRepository = null as any;
 utilities.lazyLoad(exports, ["RemoteVcsRepository"], () => require("./remoteVcsRepository"));
 
-export { ReplicationConfigArgs, ReplicationConfigState } from "./replicationConfig";
-export type ReplicationConfig = import("./replicationConfig").ReplicationConfig;
-export const ReplicationConfig: typeof import("./replicationConfig").ReplicationConfig = null as any;
-utilities.lazyLoad(exports, ["ReplicationConfig"], () => require("./replicationConfig"));
-
 export { RepositoryLayoutArgs, RepositoryLayoutState } from "./repositoryLayout";
 export type RepositoryLayout = import("./repositoryLayout").RepositoryLayout;
 export const RepositoryLayout: typeof import("./repositoryLayout").RepositoryLayout = null as any;
@@ -1554,11 +1544,6 @@ export { ScopedTokenArgs, ScopedTokenState } from "./scopedToken";
 export type ScopedToken = import("./scopedToken").ScopedToken;
 export const ScopedToken: typeof import("./scopedToken").ScopedToken = null as any;
 utilities.lazyLoad(exports, ["ScopedToken"], () => require("./scopedToken"));
-
-export { SingleReplicationConfigArgs, SingleReplicationConfigState } from "./singleReplicationConfig";
-export type SingleReplicationConfig = import("./singleReplicationConfig").SingleReplicationConfig;
-export const SingleReplicationConfig: typeof import("./singleReplicationConfig").SingleReplicationConfig = null as any;
-utilities.lazyLoad(exports, ["SingleReplicationConfig"], () => require("./singleReplicationConfig"));
 
 export { UnmanagedUserArgs, UnmanagedUserState } from "./unmanagedUser";
 export type UnmanagedUser = import("./unmanagedUser").UnmanagedUser;
@@ -1744,8 +1729,6 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "artifactory:index/accessToken:AccessToken":
-                return new AccessToken(name, <any>undefined, { urn })
             case "artifactory:index/alpineRepository:AlpineRepository":
                 return new AlpineRepository(name, <any>undefined, { urn })
             case "artifactory:index/anonymousUser:AnonymousUser":
@@ -2068,16 +2051,12 @@ const _module = {
                 return new RemoteTerraformRepository(name, <any>undefined, { urn })
             case "artifactory:index/remoteVcsRepository:RemoteVcsRepository":
                 return new RemoteVcsRepository(name, <any>undefined, { urn })
-            case "artifactory:index/replicationConfig:ReplicationConfig":
-                return new ReplicationConfig(name, <any>undefined, { urn })
             case "artifactory:index/repositoryLayout:RepositoryLayout":
                 return new RepositoryLayout(name, <any>undefined, { urn })
             case "artifactory:index/samlSettings:SamlSettings":
                 return new SamlSettings(name, <any>undefined, { urn })
             case "artifactory:index/scopedToken:ScopedToken":
                 return new ScopedToken(name, <any>undefined, { urn })
-            case "artifactory:index/singleReplicationConfig:SingleReplicationConfig":
-                return new SingleReplicationConfig(name, <any>undefined, { urn })
             case "artifactory:index/unmanagedUser:UnmanagedUser":
                 return new UnmanagedUser(name, <any>undefined, { urn })
             case "artifactory:index/user:User":
@@ -2151,7 +2130,6 @@ const _module = {
         }
     },
 };
-pulumi.runtime.registerResourceModule("artifactory", "index/accessToken", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/alpineRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/anonymousUser", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/apiKey", _module)
@@ -2313,11 +2291,9 @@ pulumi.runtime.registerResourceModule("artifactory", "index/remoteSbtRepository"
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteSwiftRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteTerraformRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteVcsRepository", _module)
-pulumi.runtime.registerResourceModule("artifactory", "index/replicationConfig", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/repositoryLayout", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/samlSettings", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/scopedToken", _module)
-pulumi.runtime.registerResourceModule("artifactory", "index/singleReplicationConfig", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/unmanagedUser", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/user", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/userCustomWebhook", _module)

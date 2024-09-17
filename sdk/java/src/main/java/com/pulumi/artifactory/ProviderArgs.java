@@ -5,8 +5,6 @@ package com.pulumi.artifactory;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.core.internal.Codegen;
-import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -68,29 +66,6 @@ By end of Q4 2024, API Keys will be deprecated all together and the option to us
     }
 
     /**
-     * Toggle for pre-flight checking of Artifactory Pro and Enterprise license. Default to `true`.
-     * 
-     * @deprecated
-     * Remove this attribute from your provider configuration as it is no longer used and the attribute will be removed in the next major version of the provider.
-     * 
-     */
-    @Deprecated /* Remove this attribute from your provider configuration as it is no longer used and the attribute will be removed in the next major version of the provider. */
-    @Import(name="checkLicense", json=true)
-    private @Nullable Output<Boolean> checkLicense;
-
-    /**
-     * @return Toggle for pre-flight checking of Artifactory Pro and Enterprise license. Default to `true`.
-     * 
-     * @deprecated
-     * Remove this attribute from your provider configuration as it is no longer used and the attribute will be removed in the next major version of the provider.
-     * 
-     */
-    @Deprecated /* Remove this attribute from your provider configuration as it is no longer used and the attribute will be removed in the next major version of the provider. */
-    public Optional<Output<Boolean>> checkLicense() {
-        return Optional.ofNullable(this.checkLicense);
-    }
-
-    /**
      * OIDC provider name. See [Configure an OIDC
      * Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-an-oidc-integration) for
      * more details.
@@ -129,7 +104,6 @@ By end of Q4 2024, API Keys will be deprecated all together and the option to us
     private ProviderArgs(ProviderArgs $) {
         this.accessToken = $.accessToken;
         this.apiKey = $.apiKey;
-        this.checkLicense = $.checkLicense;
         this.oidcProviderName = $.oidcProviderName;
         this.url = $.url;
     }
@@ -215,35 +189,6 @@ By end of Q4 2024, API Keys will be deprecated all together and the option to us
         }
 
         /**
-         * @param checkLicense Toggle for pre-flight checking of Artifactory Pro and Enterprise license. Default to `true`.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Remove this attribute from your provider configuration as it is no longer used and the attribute will be removed in the next major version of the provider.
-         * 
-         */
-        @Deprecated /* Remove this attribute from your provider configuration as it is no longer used and the attribute will be removed in the next major version of the provider. */
-        public Builder checkLicense(@Nullable Output<Boolean> checkLicense) {
-            $.checkLicense = checkLicense;
-            return this;
-        }
-
-        /**
-         * @param checkLicense Toggle for pre-flight checking of Artifactory Pro and Enterprise license. Default to `true`.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Remove this attribute from your provider configuration as it is no longer used and the attribute will be removed in the next major version of the provider.
-         * 
-         */
-        @Deprecated /* Remove this attribute from your provider configuration as it is no longer used and the attribute will be removed in the next major version of the provider. */
-        public Builder checkLicense(Boolean checkLicense) {
-            return checkLicense(Output.of(checkLicense));
-        }
-
-        /**
          * @param oidcProviderName OIDC provider name. See [Configure an OIDC
          * Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-an-oidc-integration) for
          * more details.
@@ -290,7 +235,6 @@ By end of Q4 2024, API Keys will be deprecated all together and the option to us
         }
 
         public ProviderArgs build() {
-            $.checkLicense = Codegen.booleanProp("checkLicense").output().arg($.checkLicense).def(false).getNullable();
             return $;
         }
     }

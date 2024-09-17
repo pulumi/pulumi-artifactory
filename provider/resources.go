@@ -17,14 +17,14 @@ package artifactory
 import (
 	"context"
 	"fmt"
-	"path/filepath"
+	"path"
 	"regexp"
 	"strconv"
 
 	// embed is used to store bridge-metadata.json in the compiled binary
 	_ "embed"
 
-	artifactoryProvider "github.com/jfrog/terraform-provider-artifactory/v11/pkg/artifactory/provider"
+	artifactoryProvider "github.com/jfrog/terraform-provider-artifactory/v12/pkg/artifactory/provider"
 
 	pfbridge "github.com/pulumi/pulumi-terraform-bridge/pf/tfbridge"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
@@ -33,7 +33,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
 
-	"github.com/pulumi/pulumi-artifactory/provider/v7/pkg/version"
+	"github.com/pulumi/pulumi-artifactory/provider/v8/pkg/version"
 )
 
 // all of the token components used below.
@@ -52,18 +52,14 @@ func computeIDField(field resource.PropertyKey) tfbridge.ComputeID {
 	return tfbridge.DelegateIDField(field, "artifactory", "https://github.com/pulumi/pulumi-artifactory")
 }
 
+func always[T any](T) bool { return true }
+
 // Provider returns additional overlaid schema and metadata associated with the provider..
 func Provider() tfbridge.ProviderInfo {
 	// Instantiate the Terraform provider
-
-	// Remove the deprecation message for artifactory_permission_target:
-	//
-	// Fixes https://github.com/pulumi/pulumi-artifactory/issues/864
-	sdkV2Provider := artifactoryProvider.SdkV2()
-	sdkV2Provider.ResourcesMap["artifactory_permission_target"].DeprecationMessage = ""
-
 	p := pfbridge.MuxShimWithPF(context.Background(),
-		shimv2.NewProvider(sdkV2Provider),
+		shimv2.NewProvider(artifactoryProvider.SdkV2(),
+			shimv2.WithPlanResourceChange(always)),
 		artifactoryProvider.Framework()(),
 	)
 
@@ -79,7 +75,7 @@ func Provider() tfbridge.ProviderInfo {
 		Homepage:                "https://pulumi.io",
 		Repository:              "https://github.com/pulumi/pulumi-artifactory",
 		GitHubOrg:               "jfrog",
-		TFProviderModuleVersion: "v11",
+		TFProviderModuleVersion: "v12",
 		Version:                 version.Version,
 		DocRules:                &tfbridge.DocRuleInfo{EditRules: docEditRules},
 		Config: map[string]*tfbridge.SchemaInfo{
@@ -90,11 +86,6 @@ func Provider() tfbridge.ProviderInfo {
 			},
 		},
 		Resources: map[string]*tfbridge.ResourceInfo{
-			"artifactory_access_token": {
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"access_token": {CSharpName: "Details"},
-				},
-			},
 			"artifactory_api_key": {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"api_key": {CSharpName: "Key"},
@@ -174,7 +165,7 @@ func Provider() tfbridge.ProviderInfo {
 		},
 
 		Golang: &tfbridge.GolangInfo{
-			ImportBasePath: filepath.Join(
+			ImportBasePath: path.Join(
 				fmt.Sprintf("github.com/pulumi/pulumi-%[1]s/sdk/", mainPkg),
 				tfbridge.GetModuleMajorVersion(version.Version),
 				"go",

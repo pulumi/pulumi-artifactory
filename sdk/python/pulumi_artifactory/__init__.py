@@ -5,7 +5,6 @@
 from . import _utilities
 import typing
 # Export this package's modules as members:
-from .access_token import *
 from .alpine_repository import *
 from .anonymous_user import *
 from .api_key import *
@@ -311,11 +310,9 @@ from .remote_sbt_repository import *
 from .remote_swift_repository import *
 from .remote_terraform_repository import *
 from .remote_vcs_repository import *
-from .replication_config import *
 from .repository_layout import *
 from .saml_settings import *
 from .scoped_token import *
-from .single_replication_config import *
 from .unmanaged_user import *
 from .user import *
 from .user_custom_webhook import *
@@ -363,14 +360,6 @@ else:
 _utilities.register(
     resource_modules="""
 [
- {
-  "pkg": "artifactory",
-  "mod": "index/accessToken",
-  "fqn": "pulumi_artifactory",
-  "classes": {
-   "artifactory:index/accessToken:AccessToken": "AccessToken"
-  }
- },
  {
   "pkg": "artifactory",
   "mod": "index/alpineRepository",
@@ -1661,14 +1650,6 @@ _utilities.register(
  },
  {
   "pkg": "artifactory",
-  "mod": "index/replicationConfig",
-  "fqn": "pulumi_artifactory",
-  "classes": {
-   "artifactory:index/replicationConfig:ReplicationConfig": "ReplicationConfig"
-  }
- },
- {
-  "pkg": "artifactory",
   "mod": "index/repositoryLayout",
   "fqn": "pulumi_artifactory",
   "classes": {
@@ -1689,14 +1670,6 @@ _utilities.register(
   "fqn": "pulumi_artifactory",
   "classes": {
    "artifactory:index/scopedToken:ScopedToken": "ScopedToken"
-  }
- },
- {
-  "pkg": "artifactory",
-  "mod": "index/singleReplicationConfig",
-  "fqn": "pulumi_artifactory",
-  "classes": {
-   "artifactory:index/singleReplicationConfig:SingleReplicationConfig": "SingleReplicationConfig"
   }
  },
  {

@@ -117,12 +117,6 @@ By end of Q4 2024, API Keys will be deprecated all together and the option to us
         }
 
         /// <summary>
-        /// Toggle for pre-flight checking of Artifactory Pro and Enterprise license. Default to `true`.
-        /// </summary>
-        [Input("checkLicense", json: true)]
-        public Input<bool>? CheckLicense { get; set; }
-
-        /// <summary>
         /// OIDC provider name. See [Configure an OIDC
         /// Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-an-oidc-integration) for
         /// more details.
@@ -138,7 +132,6 @@ By end of Q4 2024, API Keys will be deprecated all together and the option to us
 
         public ProviderArgs()
         {
-            CheckLicense = false;
         }
         public static new ProviderArgs Empty => new ProviderArgs();
     }

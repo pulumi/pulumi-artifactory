@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-artifactory/sdk/v7/go/artifactory/internal"
+	"github.com/pulumi/pulumi-artifactory/sdk/v8/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -43,9 +43,6 @@ func NewProvider(ctx *pulumi.Context,
 		args = &ProviderArgs{}
 	}
 
-	if args.CheckLicense == nil {
-		args.CheckLicense = pulumi.BoolPtr(false)
-	}
 	if args.AccessToken != nil {
 		args.AccessToken = pulumi.ToSecret(args.AccessToken).(pulumi.StringPtrInput)
 	}
@@ -77,10 +74,6 @@ type providerArgs struct {
 	// In a future version (scheduled for end of Q3, 2023), the option to disable the usage/creation of API Keys will be available and set to disabled by default. Admins will be able to enable the usage/creation of API Keys.
 	// By end of Q4 2024, API Keys will be deprecated all together and the option to use them will no longer be available. See [JFrog API deprecation process](https://jfrog.com/help/r/jfrog-platform-administration-documentation/jfrog-api-key-deprecation-process) for more details.
 	ApiKey *string `pulumi:"apiKey"`
-	// Toggle for pre-flight checking of Artifactory Pro and Enterprise license. Default to `true`.
-	//
-	// Deprecated: Remove this attribute from your provider configuration as it is no longer used and the attribute will be removed in the next major version of the provider.
-	CheckLicense *bool `pulumi:"checkLicense"`
 	// OIDC provider name. See [Configure an OIDC
 	// Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-an-oidc-integration) for
 	// more details.
@@ -101,10 +94,6 @@ type ProviderArgs struct {
 	// In a future version (scheduled for end of Q3, 2023), the option to disable the usage/creation of API Keys will be available and set to disabled by default. Admins will be able to enable the usage/creation of API Keys.
 	// By end of Q4 2024, API Keys will be deprecated all together and the option to use them will no longer be available. See [JFrog API deprecation process](https://jfrog.com/help/r/jfrog-platform-administration-documentation/jfrog-api-key-deprecation-process) for more details.
 	ApiKey pulumi.StringPtrInput
-	// Toggle for pre-flight checking of Artifactory Pro and Enterprise license. Default to `true`.
-	//
-	// Deprecated: Remove this attribute from your provider configuration as it is no longer used and the attribute will be removed in the next major version of the provider.
-	CheckLicense pulumi.BoolPtrInput
 	// OIDC provider name. See [Configure an OIDC
 	// Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-an-oidc-integration) for
 	// more details.

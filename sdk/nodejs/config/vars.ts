@@ -32,17 +32,6 @@ Object.defineProperty(exports, "apiKey", {
 });
 
 /**
- * Toggle for pre-flight checking of Artifactory Pro and Enterprise license. Default to `true`.
- */
-export declare const checkLicense: boolean;
-Object.defineProperty(exports, "checkLicense", {
-    get() {
-        return __config.getObject<boolean>("checkLicense") ?? false;
-    },
-    enumerable: true,
-});
-
-/**
  * OIDC provider name. See [Configure an OIDC
  * Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-an-oidc-integration) for
  * more details.

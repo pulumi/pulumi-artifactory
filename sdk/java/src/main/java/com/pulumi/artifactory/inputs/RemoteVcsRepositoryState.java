@@ -317,7 +317,7 @@ public final class RemoteVcsRepositoryState extends com.pulumi.resources.Resourc
 
     /**
      * Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
-     * the &#39;Retrieval Cache Period&#39;. Default value is &#39;true&#39;.
+     * the &#39;Retrieval Cache Period&#39;. Default value is &#39;false&#39;. This field exists in the API but not in the UI.
      * 
      */
     @Import(name="listRemoteFolderItems")
@@ -325,7 +325,7 @@ public final class RemoteVcsRepositoryState extends com.pulumi.resources.Resourc
 
     /**
      * @return Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
-     * the &#39;Retrieval Cache Period&#39;. Default value is &#39;true&#39;.
+     * the &#39;Retrieval Cache Period&#39;. Default value is &#39;false&#39;. This field exists in the API but not in the UI.
      * 
      */
     public Optional<Output<Boolean>> listRemoteFolderItems() {
@@ -1226,7 +1226,7 @@ public final class RemoteVcsRepositoryState extends com.pulumi.resources.Resourc
 
         /**
          * @param listRemoteFolderItems Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
-         * the &#39;Retrieval Cache Period&#39;. Default value is &#39;true&#39;.
+         * the &#39;Retrieval Cache Period&#39;. Default value is &#39;false&#39;. This field exists in the API but not in the UI.
          * 
          * @return builder
          * 
@@ -1238,7 +1238,7 @@ public final class RemoteVcsRepositoryState extends com.pulumi.resources.Resourc
 
         /**
          * @param listRemoteFolderItems Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
-         * the &#39;Retrieval Cache Period&#39;. Default value is &#39;true&#39;.
+         * the &#39;Retrieval Cache Period&#39;. Default value is &#39;false&#39;. This field exists in the API but not in the UI.
          * 
          * @return builder
          * 

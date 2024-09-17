@@ -21,11 +21,6 @@ API key. If `access_token` attribute, `JFROG_ACCESS_TOKEN` or `ARTIFACTORY_ACCES
 the provider will ignore this attribute.
 """
 
-checkLicense: bool
-"""
-Toggle for pre-flight checking of Artifactory Pro and Enterprise license. Default to `true`.
-"""
-
 oidcProviderName: Optional[str]
 """
 OIDC provider name. See [Configure an OIDC

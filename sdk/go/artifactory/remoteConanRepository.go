@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-artifactory/sdk/v7/go/artifactory/internal"
+	"github.com/pulumi/pulumi-artifactory/sdk/v8/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v7/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v8/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -108,7 +108,7 @@ type RemoteConanRepository struct {
 	// contain spaces or special characters.
 	Key pulumi.StringOutput `pulumi:"key"`
 	// Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
-	// the 'Retrieval Cache Period'. Default value is 'true'.
+	// the 'Retrieval Cache Period'. Default value is 'false'. This field exists in the API but not in the UI.
 	ListRemoteFolderItems pulumi.BoolPtrOutput `pulumi:"listRemoteFolderItems"`
 	// The local address to be used when creating connections. Useful for specifying the interface to use on systems with
 	// multiple network interfaces.
@@ -272,7 +272,7 @@ type remoteConanRepositoryState struct {
 	// contain spaces or special characters.
 	Key *string `pulumi:"key"`
 	// Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
-	// the 'Retrieval Cache Period'. Default value is 'true'.
+	// the 'Retrieval Cache Period'. Default value is 'false'. This field exists in the API but not in the UI.
 	ListRemoteFolderItems *bool `pulumi:"listRemoteFolderItems"`
 	// The local address to be used when creating connections. Useful for specifying the interface to use on systems with
 	// multiple network interfaces.
@@ -394,7 +394,7 @@ type RemoteConanRepositoryState struct {
 	// contain spaces or special characters.
 	Key pulumi.StringPtrInput
 	// Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
-	// the 'Retrieval Cache Period'. Default value is 'true'.
+	// the 'Retrieval Cache Period'. Default value is 'false'. This field exists in the API but not in the UI.
 	ListRemoteFolderItems pulumi.BoolPtrInput
 	// The local address to be used when creating connections. Useful for specifying the interface to use on systems with
 	// multiple network interfaces.
@@ -520,7 +520,7 @@ type remoteConanRepositoryArgs struct {
 	// contain spaces or special characters.
 	Key string `pulumi:"key"`
 	// Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
-	// the 'Retrieval Cache Period'. Default value is 'true'.
+	// the 'Retrieval Cache Period'. Default value is 'false'. This field exists in the API but not in the UI.
 	ListRemoteFolderItems *bool `pulumi:"listRemoteFolderItems"`
 	// The local address to be used when creating connections. Useful for specifying the interface to use on systems with
 	// multiple network interfaces.
@@ -642,7 +642,7 @@ type RemoteConanRepositoryArgs struct {
 	// contain spaces or special characters.
 	Key pulumi.StringInput
 	// Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
-	// the 'Retrieval Cache Period'. Default value is 'true'.
+	// the 'Retrieval Cache Period'. Default value is 'false'. This field exists in the API but not in the UI.
 	ListRemoteFolderItems pulumi.BoolPtrInput
 	// The local address to be used when creating connections. Useful for specifying the interface to use on systems with
 	// multiple network interfaces.
@@ -908,7 +908,7 @@ func (o RemoteConanRepositoryOutput) Key() pulumi.StringOutput {
 }
 
 // Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
-// the 'Retrieval Cache Period'. Default value is 'true'.
+// the 'Retrieval Cache Period'. Default value is 'false'. This field exists in the API but not in the UI.
 func (o RemoteConanRepositoryOutput) ListRemoteFolderItems() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteConanRepository) pulumi.BoolPtrOutput { return v.ListRemoteFolderItems }).(pulumi.BoolPtrOutput)
 }
