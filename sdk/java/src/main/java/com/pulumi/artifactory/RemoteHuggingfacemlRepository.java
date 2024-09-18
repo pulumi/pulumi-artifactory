@@ -349,7 +349,7 @@ public class RemoteHuggingfacemlRepository extends com.pulumi.resources.CustomRe
     }
     /**
      * Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
-     * the &#39;Retrieval Cache Period&#39;. Default value is &#39;true&#39;.
+     * the &#39;Retrieval Cache Period&#39;. Default value is &#39;false&#39;. This field exists in the API but not in the UI.
      * 
      */
     @Export(name="listRemoteFolderItems", refs={Boolean.class}, tree="[0]")
@@ -357,7 +357,7 @@ public class RemoteHuggingfacemlRepository extends com.pulumi.resources.CustomRe
 
     /**
      * @return Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
-     * the &#39;Retrieval Cache Period&#39;. Default value is &#39;true&#39;.
+     * the &#39;Retrieval Cache Period&#39;. Default value is &#39;false&#39;. This field exists in the API but not in the UI.
      * 
      */
     public Output<Optional<Boolean>> listRemoteFolderItems() {

@@ -5,10 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 
-export interface AccessTokenAdminToken {
-    instanceId: pulumi.Input<string>;
-}
-
 export interface ArtifactCustomWebhookCriteria {
     /**
      * Trigger on any federated repositories
@@ -5279,25 +5275,6 @@ export interface RemoteVcsRepositoryContentSynchronisation {
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
     statisticsEnabled?: pulumi.Input<boolean>;
-}
-
-export interface ReplicationConfigReplication {
-    enabled?: pulumi.Input<boolean>;
-    /**
-     * Requires password encryption to be turned off `POST /api/system/decrypt`.
-     */
-    password?: pulumi.Input<string>;
-    pathPrefix?: pulumi.Input<string>;
-    /**
-     * Proxy key from Artifactory Proxies setting
-     */
-    proxy?: pulumi.Input<string>;
-    socketTimeoutMillis?: pulumi.Input<number>;
-    syncDeletes?: pulumi.Input<boolean>;
-    syncProperties?: pulumi.Input<boolean>;
-    syncStatistics?: pulumi.Input<boolean>;
-    url?: pulumi.Input<string>;
-    username?: pulumi.Input<string>;
 }
 
 export interface UnmanagedUserPasswordPolicy {

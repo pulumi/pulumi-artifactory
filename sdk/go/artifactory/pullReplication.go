@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-artifactory/sdk/v7/go/artifactory/internal"
+	"github.com/pulumi/pulumi-artifactory/sdk/v8/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -27,7 +27,7 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v7/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v8/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )

@@ -4,7 +4,6 @@
 package com.pulumi.artifactory;
 
 import com.pulumi.core.internal.Codegen;
-import java.lang.Boolean;
 import java.lang.String;
 import java.util.Optional;
 
@@ -26,13 +25,6 @@ public final class Config {
  */
     public Optional<String> apiKey() {
         return Codegen.stringProp("apiKey").config(config).get();
-    }
-/**
- * Toggle for pre-flight checking of Artifactory Pro and Enterprise license. Default to `true`.
- * 
- */
-    public Optional<Boolean> checkLicense() {
-        return Codegen.booleanProp("checkLicense").config(config).def(false).get();
     }
 /**
  * OIDC provider name. See [Configure an OIDC

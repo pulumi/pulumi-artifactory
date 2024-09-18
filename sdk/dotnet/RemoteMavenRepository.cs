@@ -203,7 +203,7 @@ namespace Pulumi.Artifactory
 
         /// <summary>
         /// Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
-        /// the 'Retrieval Cache Period'. Default value is 'true'.
+        /// the 'Retrieval Cache Period'. Default value is 'false'. This field exists in the API but not in the UI.
         /// </summary>
         [Output("listRemoteFolderItems")]
         public Output<bool?> ListRemoteFolderItems { get; private set; } = null!;
@@ -588,7 +588,7 @@ namespace Pulumi.Artifactory
 
         /// <summary>
         /// Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
-        /// the 'Retrieval Cache Period'. Default value is 'true'.
+        /// the 'Retrieval Cache Period'. Default value is 'false'. This field exists in the API but not in the UI.
         /// </summary>
         [Input("listRemoteFolderItems")]
         public Input<bool>? ListRemoteFolderItems { get; set; }
@@ -948,7 +948,7 @@ namespace Pulumi.Artifactory
 
         /// <summary>
         /// Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
-        /// the 'Retrieval Cache Period'. Default value is 'true'.
+        /// the 'Retrieval Cache Period'. Default value is 'false'. This field exists in the API but not in the UI.
         /// </summary>
         [Input("listRemoteFolderItems")]
         public Input<bool>? ListRemoteFolderItems { get; set; }

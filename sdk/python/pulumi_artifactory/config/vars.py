@@ -32,13 +32,6 @@ class _ExportableConfig(types.ModuleType):
         return __config__.get('apiKey')
 
     @property
-    def check_license(self) -> bool:
-        """
-        Toggle for pre-flight checking of Artifactory Pro and Enterprise license. Default to `true`.
-        """
-        return __config__.get_bool('checkLicense') or False
-
-    @property
     def oidc_provider_name(self) -> Optional[str]:
         """
         OIDC provider name. See [Configure an OIDC
