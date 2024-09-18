@@ -56,7 +56,6 @@ The following configuration points are available:
 - `artifactory:accessToken` - (Optional) API key for token auth. Uses `Authorization: Bearer` header. For xray 
   functionality, this is the only auth method accepted. Conflicts with `username` and `password`, and `apiKey`. This can
   also be sourced from the `ARTIFACTORY_ACCESS_TOKEN` environment variable.
-- `artifactory:checkLicense` - (Optional) Toggle for pre-flight checking of Artifactory Pro and Enterprise license. Default to `true`.
 
 ## Reference
 

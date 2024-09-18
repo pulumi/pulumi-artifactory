@@ -78,13 +78,6 @@ func Provider() tfbridge.ProviderInfo {
 		TFProviderModuleVersion: "v12",
 		Version:                 version.Version,
 		DocRules:                &tfbridge.DocRuleInfo{EditRules: docEditRules},
-		Config: map[string]*tfbridge.SchemaInfo{
-			"check_license": {
-				Default: &tfbridge.DefaultInfo{
-					Value: false,
-				},
-			},
-		},
 		Resources: map[string]*tfbridge.ResourceInfo{
 			"artifactory_api_key": {
 				Fields: map[string]*tfbridge.SchemaInfo{
