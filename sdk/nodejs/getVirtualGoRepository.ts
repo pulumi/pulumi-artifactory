@@ -19,7 +19,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getVirtualGoRepository(args: GetVirtualGoRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualGoRepositoryResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("artifactory:index/getVirtualGoRepository:getVirtualGoRepository", {
         "artifactoryRequestsCanRetrieveRemoteArtifacts": args.artifactoryRequestsCanRetrieveRemoteArtifacts,
@@ -112,7 +111,22 @@ export interface GetVirtualGoRepositoryResult {
  * ```
  */
 export function getVirtualGoRepositoryOutput(args: GetVirtualGoRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualGoRepositoryResult> {
-    return pulumi.output(args).apply((a: any) => getVirtualGoRepository(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("artifactory:index/getVirtualGoRepository:getVirtualGoRepository", {
+        "artifactoryRequestsCanRetrieveRemoteArtifacts": args.artifactoryRequestsCanRetrieveRemoteArtifacts,
+        "defaultDeploymentRepo": args.defaultDeploymentRepo,
+        "description": args.description,
+        "excludesPattern": args.excludesPattern,
+        "externalDependenciesEnabled": args.externalDependenciesEnabled,
+        "externalDependenciesPatterns": args.externalDependenciesPatterns,
+        "includesPattern": args.includesPattern,
+        "key": args.key,
+        "notes": args.notes,
+        "projectEnvironments": args.projectEnvironments,
+        "projectKey": args.projectKey,
+        "repoLayoutRef": args.repoLayoutRef,
+        "repositories": args.repositories,
+    }, opts);
 }
 
 /**

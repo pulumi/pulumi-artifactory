@@ -21,7 +21,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getFederatedDockerV1Repository(args: GetFederatedDockerV1RepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetFederatedDockerV1RepositoryResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("artifactory:index/getFederatedDockerV1Repository:getFederatedDockerV1Repository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,
@@ -148,7 +147,29 @@ export interface GetFederatedDockerV1RepositoryResult {
  * ```
  */
 export function getFederatedDockerV1RepositoryOutput(args: GetFederatedDockerV1RepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedDockerV1RepositoryResult> {
-    return pulumi.output(args).apply((a: any) => getFederatedDockerV1Repository(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("artifactory:index/getFederatedDockerV1Repository:getFederatedDockerV1Repository", {
+        "archiveBrowsingEnabled": args.archiveBrowsingEnabled,
+        "blackedOut": args.blackedOut,
+        "cdnRedirect": args.cdnRedirect,
+        "cleanupOnDelete": args.cleanupOnDelete,
+        "description": args.description,
+        "disableProxy": args.disableProxy,
+        "downloadDirect": args.downloadDirect,
+        "excludesPattern": args.excludesPattern,
+        "includesPattern": args.includesPattern,
+        "key": args.key,
+        "maxUniqueTags": args.maxUniqueTags,
+        "members": args.members,
+        "notes": args.notes,
+        "priorityResolution": args.priorityResolution,
+        "projectEnvironments": args.projectEnvironments,
+        "projectKey": args.projectKey,
+        "propertySets": args.propertySets,
+        "proxy": args.proxy,
+        "repoLayoutRef": args.repoLayoutRef,
+        "xrayIndex": args.xrayIndex,
+    }, opts);
 }
 
 /**

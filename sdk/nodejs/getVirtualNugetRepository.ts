@@ -19,7 +19,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getVirtualNugetRepository(args: GetVirtualNugetRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNugetRepositoryResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("artifactory:index/getVirtualNugetRepository:getVirtualNugetRepository", {
         "artifactoryRequestsCanRetrieveRemoteArtifacts": args.artifactoryRequestsCanRetrieveRemoteArtifacts,
@@ -101,7 +100,21 @@ export interface GetVirtualNugetRepositoryResult {
  * ```
  */
 export function getVirtualNugetRepositoryOutput(args: GetVirtualNugetRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNugetRepositoryResult> {
-    return pulumi.output(args).apply((a: any) => getVirtualNugetRepository(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("artifactory:index/getVirtualNugetRepository:getVirtualNugetRepository", {
+        "artifactoryRequestsCanRetrieveRemoteArtifacts": args.artifactoryRequestsCanRetrieveRemoteArtifacts,
+        "defaultDeploymentRepo": args.defaultDeploymentRepo,
+        "description": args.description,
+        "excludesPattern": args.excludesPattern,
+        "forceNugetAuthentication": args.forceNugetAuthentication,
+        "includesPattern": args.includesPattern,
+        "key": args.key,
+        "notes": args.notes,
+        "projectEnvironments": args.projectEnvironments,
+        "projectKey": args.projectKey,
+        "repoLayoutRef": args.repoLayoutRef,
+        "repositories": args.repositories,
+    }, opts);
 }
 
 /**

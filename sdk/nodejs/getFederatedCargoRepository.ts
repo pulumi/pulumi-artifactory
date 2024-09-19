@@ -21,7 +21,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getFederatedCargoRepository(args: GetFederatedCargoRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetFederatedCargoRepositoryResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("artifactory:index/getFederatedCargoRepository:getFederatedCargoRepository", {
         "anonymousAccess": args.anonymousAccess,
@@ -151,7 +150,31 @@ export interface GetFederatedCargoRepositoryResult {
  * ```
  */
 export function getFederatedCargoRepositoryOutput(args: GetFederatedCargoRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedCargoRepositoryResult> {
-    return pulumi.output(args).apply((a: any) => getFederatedCargoRepository(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("artifactory:index/getFederatedCargoRepository:getFederatedCargoRepository", {
+        "anonymousAccess": args.anonymousAccess,
+        "archiveBrowsingEnabled": args.archiveBrowsingEnabled,
+        "blackedOut": args.blackedOut,
+        "cdnRedirect": args.cdnRedirect,
+        "cleanupOnDelete": args.cleanupOnDelete,
+        "description": args.description,
+        "disableProxy": args.disableProxy,
+        "downloadDirect": args.downloadDirect,
+        "enableSparseIndex": args.enableSparseIndex,
+        "excludesPattern": args.excludesPattern,
+        "includesPattern": args.includesPattern,
+        "indexCompressionFormats": args.indexCompressionFormats,
+        "key": args.key,
+        "members": args.members,
+        "notes": args.notes,
+        "priorityResolution": args.priorityResolution,
+        "projectEnvironments": args.projectEnvironments,
+        "projectKey": args.projectKey,
+        "propertySets": args.propertySets,
+        "proxy": args.proxy,
+        "repoLayoutRef": args.repoLayoutRef,
+        "xrayIndex": args.xrayIndex,
+    }, opts);
 }
 
 /**

@@ -19,7 +19,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getLocalDebianRepository(args: GetLocalDebianRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalDebianRepositoryResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("artifactory:index/getLocalDebianRepository:getLocalDebianRepository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,
@@ -146,7 +145,28 @@ export interface GetLocalDebianRepositoryResult {
  * ```
  */
 export function getLocalDebianRepositoryOutput(args: GetLocalDebianRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalDebianRepositoryResult> {
-    return pulumi.output(args).apply((a: any) => getLocalDebianRepository(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("artifactory:index/getLocalDebianRepository:getLocalDebianRepository", {
+        "archiveBrowsingEnabled": args.archiveBrowsingEnabled,
+        "blackedOut": args.blackedOut,
+        "cdnRedirect": args.cdnRedirect,
+        "description": args.description,
+        "downloadDirect": args.downloadDirect,
+        "excludesPattern": args.excludesPattern,
+        "includesPattern": args.includesPattern,
+        "indexCompressionFormats": args.indexCompressionFormats,
+        "key": args.key,
+        "notes": args.notes,
+        "primaryKeypairRef": args.primaryKeypairRef,
+        "priorityResolution": args.priorityResolution,
+        "projectEnvironments": args.projectEnvironments,
+        "projectKey": args.projectKey,
+        "propertySets": args.propertySets,
+        "repoLayoutRef": args.repoLayoutRef,
+        "secondaryKeypairRef": args.secondaryKeypairRef,
+        "trivialLayout": args.trivialLayout,
+        "xrayIndex": args.xrayIndex,
+    }, opts);
 }
 
 /**

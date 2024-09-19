@@ -116,14 +116,20 @@ type LookupFederatedHelmociRepositoryResult struct {
 
 func LookupFederatedHelmociRepositoryOutput(ctx *pulumi.Context, args LookupFederatedHelmociRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupFederatedHelmociRepositoryResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupFederatedHelmociRepositoryResult, error) {
+		ApplyT(func(v interface{}) (LookupFederatedHelmociRepositoryResultOutput, error) {
 			args := v.(LookupFederatedHelmociRepositoryArgs)
-			r, err := LookupFederatedHelmociRepository(ctx, &args, opts...)
-			var s LookupFederatedHelmociRepositoryResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupFederatedHelmociRepositoryResult
+			secret, err := ctx.InvokePackageRaw("artifactory:index/getFederatedHelmociRepository:getFederatedHelmociRepository", args, &rv, "", opts...)
+			if err != nil {
+				return LookupFederatedHelmociRepositoryResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupFederatedHelmociRepositoryResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupFederatedHelmociRepositoryResultOutput), nil
+			}
+			return output, nil
 		}).(LookupFederatedHelmociRepositoryResultOutput)
 }
 

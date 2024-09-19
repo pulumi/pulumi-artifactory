@@ -21,7 +21,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getRemoteOciRepository(args: GetRemoteOciRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRemoteOciRepositoryResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("artifactory:index/getRemoteOciRepository:getRemoteOciRepository", {
         "allowAnyHostAuth": args.allowAnyHostAuth,
@@ -226,7 +225,56 @@ export interface GetRemoteOciRepositoryResult {
  * ```
  */
 export function getRemoteOciRepositoryOutput(args: GetRemoteOciRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteOciRepositoryResult> {
-    return pulumi.output(args).apply((a: any) => getRemoteOciRepository(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("artifactory:index/getRemoteOciRepository:getRemoteOciRepository", {
+        "allowAnyHostAuth": args.allowAnyHostAuth,
+        "archiveBrowsingEnabled": args.archiveBrowsingEnabled,
+        "assumedOfflinePeriodSecs": args.assumedOfflinePeriodSecs,
+        "blackedOut": args.blackedOut,
+        "blockMismatchingMimeTypes": args.blockMismatchingMimeTypes,
+        "bypassHeadRequests": args.bypassHeadRequests,
+        "cdnRedirect": args.cdnRedirect,
+        "clientTlsCertificate": args.clientTlsCertificate,
+        "contentSynchronisation": args.contentSynchronisation,
+        "description": args.description,
+        "disableProxy": args.disableProxy,
+        "disableUrlNormalization": args.disableUrlNormalization,
+        "downloadDirect": args.downloadDirect,
+        "enableCookieManagement": args.enableCookieManagement,
+        "enableTokenAuthentication": args.enableTokenAuthentication,
+        "excludesPattern": args.excludesPattern,
+        "externalDependenciesEnabled": args.externalDependenciesEnabled,
+        "externalDependenciesPatterns": args.externalDependenciesPatterns,
+        "hardFail": args.hardFail,
+        "includesPattern": args.includesPattern,
+        "key": args.key,
+        "listRemoteFolderItems": args.listRemoteFolderItems,
+        "localAddress": args.localAddress,
+        "metadataRetrievalTimeoutSecs": args.metadataRetrievalTimeoutSecs,
+        "mismatchingMimeTypesOverrideList": args.mismatchingMimeTypesOverrideList,
+        "missedCachePeriodSeconds": args.missedCachePeriodSeconds,
+        "notes": args.notes,
+        "offline": args.offline,
+        "password": args.password,
+        "priorityResolution": args.priorityResolution,
+        "projectEnvironments": args.projectEnvironments,
+        "projectId": args.projectId,
+        "projectKey": args.projectKey,
+        "propertySets": args.propertySets,
+        "proxy": args.proxy,
+        "queryParams": args.queryParams,
+        "remoteRepoLayoutRef": args.remoteRepoLayoutRef,
+        "repoLayoutRef": args.repoLayoutRef,
+        "retrievalCachePeriodSeconds": args.retrievalCachePeriodSeconds,
+        "shareConfiguration": args.shareConfiguration,
+        "socketTimeoutMillis": args.socketTimeoutMillis,
+        "storeArtifactsLocally": args.storeArtifactsLocally,
+        "synchronizeProperties": args.synchronizeProperties,
+        "unusedArtifactsCleanupPeriodHours": args.unusedArtifactsCleanupPeriodHours,
+        "url": args.url,
+        "username": args.username,
+        "xrayIndex": args.xrayIndex,
+    }, opts);
 }
 
 /**

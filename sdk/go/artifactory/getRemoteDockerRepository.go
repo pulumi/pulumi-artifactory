@@ -170,14 +170,20 @@ type LookupRemoteDockerRepositoryResult struct {
 
 func LookupRemoteDockerRepositoryOutput(ctx *pulumi.Context, args LookupRemoteDockerRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupRemoteDockerRepositoryResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupRemoteDockerRepositoryResult, error) {
+		ApplyT(func(v interface{}) (LookupRemoteDockerRepositoryResultOutput, error) {
 			args := v.(LookupRemoteDockerRepositoryArgs)
-			r, err := LookupRemoteDockerRepository(ctx, &args, opts...)
-			var s LookupRemoteDockerRepositoryResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupRemoteDockerRepositoryResult
+			secret, err := ctx.InvokePackageRaw("artifactory:index/getRemoteDockerRepository:getRemoteDockerRepository", args, &rv, "", opts...)
+			if err != nil {
+				return LookupRemoteDockerRepositoryResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupRemoteDockerRepositoryResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupRemoteDockerRepositoryResultOutput), nil
+			}
+			return output, nil
 		}).(LookupRemoteDockerRepositoryResultOutput)
 }
 

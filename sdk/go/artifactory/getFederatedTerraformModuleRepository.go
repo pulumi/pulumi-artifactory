@@ -110,14 +110,20 @@ type LookupFederatedTerraformModuleRepositoryResult struct {
 
 func LookupFederatedTerraformModuleRepositoryOutput(ctx *pulumi.Context, args LookupFederatedTerraformModuleRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupFederatedTerraformModuleRepositoryResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupFederatedTerraformModuleRepositoryResult, error) {
+		ApplyT(func(v interface{}) (LookupFederatedTerraformModuleRepositoryResultOutput, error) {
 			args := v.(LookupFederatedTerraformModuleRepositoryArgs)
-			r, err := LookupFederatedTerraformModuleRepository(ctx, &args, opts...)
-			var s LookupFederatedTerraformModuleRepositoryResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupFederatedTerraformModuleRepositoryResult
+			secret, err := ctx.InvokePackageRaw("artifactory:index/getFederatedTerraformModuleRepository:getFederatedTerraformModuleRepository", args, &rv, "", opts...)
+			if err != nil {
+				return LookupFederatedTerraformModuleRepositoryResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupFederatedTerraformModuleRepositoryResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupFederatedTerraformModuleRepositoryResultOutput), nil
+			}
+			return output, nil
 		}).(LookupFederatedTerraformModuleRepositoryResultOutput)
 }
 

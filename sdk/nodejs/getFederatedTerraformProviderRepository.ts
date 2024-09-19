@@ -19,7 +19,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getFederatedTerraformProviderRepository(args: GetFederatedTerraformProviderRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetFederatedTerraformProviderRepositoryResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("artifactory:index/getFederatedTerraformProviderRepository:getFederatedTerraformProviderRepository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,
@@ -138,7 +137,28 @@ export interface GetFederatedTerraformProviderRepositoryResult {
  * ```
  */
 export function getFederatedTerraformProviderRepositoryOutput(args: GetFederatedTerraformProviderRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedTerraformProviderRepositoryResult> {
-    return pulumi.output(args).apply((a: any) => getFederatedTerraformProviderRepository(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("artifactory:index/getFederatedTerraformProviderRepository:getFederatedTerraformProviderRepository", {
+        "archiveBrowsingEnabled": args.archiveBrowsingEnabled,
+        "blackedOut": args.blackedOut,
+        "cdnRedirect": args.cdnRedirect,
+        "cleanupOnDelete": args.cleanupOnDelete,
+        "description": args.description,
+        "disableProxy": args.disableProxy,
+        "downloadDirect": args.downloadDirect,
+        "excludesPattern": args.excludesPattern,
+        "includesPattern": args.includesPattern,
+        "key": args.key,
+        "members": args.members,
+        "notes": args.notes,
+        "priorityResolution": args.priorityResolution,
+        "projectEnvironments": args.projectEnvironments,
+        "projectKey": args.projectKey,
+        "propertySets": args.propertySets,
+        "proxy": args.proxy,
+        "repoLayoutRef": args.repoLayoutRef,
+        "xrayIndex": args.xrayIndex,
+    }, opts);
 }
 
 /**

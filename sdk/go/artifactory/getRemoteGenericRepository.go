@@ -152,14 +152,20 @@ type LookupRemoteGenericRepositoryResult struct {
 
 func LookupRemoteGenericRepositoryOutput(ctx *pulumi.Context, args LookupRemoteGenericRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupRemoteGenericRepositoryResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupRemoteGenericRepositoryResult, error) {
+		ApplyT(func(v interface{}) (LookupRemoteGenericRepositoryResultOutput, error) {
 			args := v.(LookupRemoteGenericRepositoryArgs)
-			r, err := LookupRemoteGenericRepository(ctx, &args, opts...)
-			var s LookupRemoteGenericRepositoryResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupRemoteGenericRepositoryResult
+			secret, err := ctx.InvokePackageRaw("artifactory:index/getRemoteGenericRepository:getRemoteGenericRepository", args, &rv, "", opts...)
+			if err != nil {
+				return LookupRemoteGenericRepositoryResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupRemoteGenericRepositoryResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupRemoteGenericRepositoryResultOutput), nil
+			}
+			return output, nil
 		}).(LookupRemoteGenericRepositoryResultOutput)
 }
 

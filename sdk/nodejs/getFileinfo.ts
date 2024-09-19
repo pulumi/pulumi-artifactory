@@ -23,7 +23,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getFileinfo(args: GetFileinfoArgs, opts?: pulumi.InvokeOptions): Promise<GetFileinfoResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("artifactory:index/getFileinfo:getFileinfo", {
         "path": args.path,
@@ -119,7 +118,11 @@ export interface GetFileinfoResult {
  * ```
  */
 export function getFileinfoOutput(args: GetFileinfoOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFileinfoResult> {
-    return pulumi.output(args).apply((a: any) => getFileinfo(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("artifactory:index/getFileinfo:getFileinfo", {
+        "path": args.path,
+        "repository": args.repository,
+    }, opts);
 }
 
 /**

@@ -112,14 +112,20 @@ type LookupFederatedGenericRepositoryResult struct {
 
 func LookupFederatedGenericRepositoryOutput(ctx *pulumi.Context, args LookupFederatedGenericRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupFederatedGenericRepositoryResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupFederatedGenericRepositoryResult, error) {
+		ApplyT(func(v interface{}) (LookupFederatedGenericRepositoryResultOutput, error) {
 			args := v.(LookupFederatedGenericRepositoryArgs)
-			r, err := LookupFederatedGenericRepository(ctx, &args, opts...)
-			var s LookupFederatedGenericRepositoryResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupFederatedGenericRepositoryResult
+			secret, err := ctx.InvokePackageRaw("artifactory:index/getFederatedGenericRepository:getFederatedGenericRepository", args, &rv, "", opts...)
+			if err != nil {
+				return LookupFederatedGenericRepositoryResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupFederatedGenericRepositoryResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupFederatedGenericRepositoryResultOutput), nil
+			}
+			return output, nil
 		}).(LookupFederatedGenericRepositoryResultOutput)
 }
 

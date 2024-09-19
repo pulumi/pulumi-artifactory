@@ -112,14 +112,20 @@ type LookupFederatedCocoapodsRepositoryResult struct {
 
 func LookupFederatedCocoapodsRepositoryOutput(ctx *pulumi.Context, args LookupFederatedCocoapodsRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupFederatedCocoapodsRepositoryResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupFederatedCocoapodsRepositoryResult, error) {
+		ApplyT(func(v interface{}) (LookupFederatedCocoapodsRepositoryResultOutput, error) {
 			args := v.(LookupFederatedCocoapodsRepositoryArgs)
-			r, err := LookupFederatedCocoapodsRepository(ctx, &args, opts...)
-			var s LookupFederatedCocoapodsRepositoryResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupFederatedCocoapodsRepositoryResult
+			secret, err := ctx.InvokePackageRaw("artifactory:index/getFederatedCocoapodsRepository:getFederatedCocoapodsRepository", args, &rv, "", opts...)
+			if err != nil {
+				return LookupFederatedCocoapodsRepositoryResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupFederatedCocoapodsRepositoryResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupFederatedCocoapodsRepositoryResultOutput), nil
+			}
+			return output, nil
 		}).(LookupFederatedCocoapodsRepositoryResultOutput)
 }
 

@@ -37,7 +37,6 @@ import * as utilities from "./utilities";
  *   Suppress POM Consistency Checks checkbox. True by default for Gradle repository.
  */
 export function getLocalIvyRepository(args: GetLocalIvyRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalIvyRepositoryResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("artifactory:index/getLocalIvyRepository:getLocalIvyRepository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,
@@ -172,7 +171,30 @@ export interface GetLocalIvyRepositoryResult {
  *   Suppress POM Consistency Checks checkbox. True by default for Gradle repository.
  */
 export function getLocalIvyRepositoryOutput(args: GetLocalIvyRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalIvyRepositoryResult> {
-    return pulumi.output(args).apply((a: any) => getLocalIvyRepository(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("artifactory:index/getLocalIvyRepository:getLocalIvyRepository", {
+        "archiveBrowsingEnabled": args.archiveBrowsingEnabled,
+        "blackedOut": args.blackedOut,
+        "cdnRedirect": args.cdnRedirect,
+        "checksumPolicyType": args.checksumPolicyType,
+        "description": args.description,
+        "downloadDirect": args.downloadDirect,
+        "excludesPattern": args.excludesPattern,
+        "handleReleases": args.handleReleases,
+        "handleSnapshots": args.handleSnapshots,
+        "includesPattern": args.includesPattern,
+        "key": args.key,
+        "maxUniqueSnapshots": args.maxUniqueSnapshots,
+        "notes": args.notes,
+        "priorityResolution": args.priorityResolution,
+        "projectEnvironments": args.projectEnvironments,
+        "projectKey": args.projectKey,
+        "propertySets": args.propertySets,
+        "repoLayoutRef": args.repoLayoutRef,
+        "snapshotVersionBehavior": args.snapshotVersionBehavior,
+        "suppressPomConsistencyChecks": args.suppressPomConsistencyChecks,
+        "xrayIndex": args.xrayIndex,
+    }, opts);
 }
 
 /**

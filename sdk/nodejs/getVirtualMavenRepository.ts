@@ -19,7 +19,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getVirtualMavenRepository(args: GetVirtualMavenRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMavenRepositoryResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("artifactory:index/getVirtualMavenRepository:getVirtualMavenRepository", {
         "artifactoryRequestsCanRetrieveRemoteArtifacts": args.artifactoryRequestsCanRetrieveRemoteArtifacts,
@@ -113,7 +112,23 @@ export interface GetVirtualMavenRepositoryResult {
  * ```
  */
 export function getVirtualMavenRepositoryOutput(args: GetVirtualMavenRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMavenRepositoryResult> {
-    return pulumi.output(args).apply((a: any) => getVirtualMavenRepository(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("artifactory:index/getVirtualMavenRepository:getVirtualMavenRepository", {
+        "artifactoryRequestsCanRetrieveRemoteArtifacts": args.artifactoryRequestsCanRetrieveRemoteArtifacts,
+        "defaultDeploymentRepo": args.defaultDeploymentRepo,
+        "description": args.description,
+        "excludesPattern": args.excludesPattern,
+        "forceMavenAuthentication": args.forceMavenAuthentication,
+        "includesPattern": args.includesPattern,
+        "key": args.key,
+        "keyPair": args.keyPair,
+        "notes": args.notes,
+        "pomRepositoryReferencesCleanupPolicy": args.pomRepositoryReferencesCleanupPolicy,
+        "projectEnvironments": args.projectEnvironments,
+        "projectKey": args.projectKey,
+        "repoLayoutRef": args.repoLayoutRef,
+        "repositories": args.repositories,
+    }, opts);
 }
 
 /**

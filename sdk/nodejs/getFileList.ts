@@ -22,7 +22,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getFileList(args: GetFileListArgs, opts?: pulumi.InvokeOptions): Promise<GetFileListResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("artifactory:index/getFileList:getFileList", {
         "deepListing": args.deepListing,
@@ -134,7 +133,16 @@ export interface GetFileListResult {
  * ```
  */
 export function getFileListOutput(args: GetFileListOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFileListResult> {
-    return pulumi.output(args).apply((a: any) => getFileList(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("artifactory:index/getFileList:getFileList", {
+        "deepListing": args.deepListing,
+        "depth": args.depth,
+        "folderPath": args.folderPath,
+        "includeRootPath": args.includeRootPath,
+        "listFolders": args.listFolders,
+        "metadataTimestamps": args.metadataTimestamps,
+        "repositoryKey": args.repositoryKey,
+    }, opts);
 }
 
 /**

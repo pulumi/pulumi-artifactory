@@ -19,7 +19,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getVirtualIvyRepository(args: GetVirtualIvyRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualIvyRepositoryResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("artifactory:index/getVirtualIvyRepository:getVirtualIvyRepository", {
         "artifactoryRequestsCanRetrieveRemoteArtifacts": args.artifactoryRequestsCanRetrieveRemoteArtifacts,
@@ -119,7 +118,23 @@ export interface GetVirtualIvyRepositoryResult {
  * ```
  */
 export function getVirtualIvyRepositoryOutput(args: GetVirtualIvyRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualIvyRepositoryResult> {
-    return pulumi.output(args).apply((a: any) => getVirtualIvyRepository(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("artifactory:index/getVirtualIvyRepository:getVirtualIvyRepository", {
+        "artifactoryRequestsCanRetrieveRemoteArtifacts": args.artifactoryRequestsCanRetrieveRemoteArtifacts,
+        "defaultDeploymentRepo": args.defaultDeploymentRepo,
+        "description": args.description,
+        "excludesPattern": args.excludesPattern,
+        "forceMavenAuthentication": args.forceMavenAuthentication,
+        "includesPattern": args.includesPattern,
+        "key": args.key,
+        "keyPair": args.keyPair,
+        "notes": args.notes,
+        "pomRepositoryReferencesCleanupPolicy": args.pomRepositoryReferencesCleanupPolicy,
+        "projectEnvironments": args.projectEnvironments,
+        "projectKey": args.projectKey,
+        "repoLayoutRef": args.repoLayoutRef,
+        "repositories": args.repositories,
+    }, opts);
 }
 
 /**

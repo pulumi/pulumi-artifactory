@@ -148,14 +148,20 @@ type LookupRemoteGitlfsRepositoryResult struct {
 
 func LookupRemoteGitlfsRepositoryOutput(ctx *pulumi.Context, args LookupRemoteGitlfsRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupRemoteGitlfsRepositoryResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupRemoteGitlfsRepositoryResult, error) {
+		ApplyT(func(v interface{}) (LookupRemoteGitlfsRepositoryResultOutput, error) {
 			args := v.(LookupRemoteGitlfsRepositoryArgs)
-			r, err := LookupRemoteGitlfsRepository(ctx, &args, opts...)
-			var s LookupRemoteGitlfsRepositoryResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupRemoteGitlfsRepositoryResult
+			secret, err := ctx.InvokePackageRaw("artifactory:index/getRemoteGitlfsRepository:getRemoteGitlfsRepository", args, &rv, "", opts...)
+			if err != nil {
+				return LookupRemoteGitlfsRepositoryResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupRemoteGitlfsRepositoryResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupRemoteGitlfsRepositoryResultOutput), nil
+			}
+			return output, nil
 		}).(LookupRemoteGitlfsRepositoryResultOutput)
 }
 

@@ -148,14 +148,20 @@ type LookupRemoteCranRepositoryResult struct {
 
 func LookupRemoteCranRepositoryOutput(ctx *pulumi.Context, args LookupRemoteCranRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupRemoteCranRepositoryResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupRemoteCranRepositoryResult, error) {
+		ApplyT(func(v interface{}) (LookupRemoteCranRepositoryResultOutput, error) {
 			args := v.(LookupRemoteCranRepositoryArgs)
-			r, err := LookupRemoteCranRepository(ctx, &args, opts...)
-			var s LookupRemoteCranRepositoryResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupRemoteCranRepositoryResult
+			secret, err := ctx.InvokePackageRaw("artifactory:index/getRemoteCranRepository:getRemoteCranRepository", args, &rv, "", opts...)
+			if err != nil {
+				return LookupRemoteCranRepositoryResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupRemoteCranRepositoryResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupRemoteCranRepositoryResultOutput), nil
+			}
+			return output, nil
 		}).(LookupRemoteCranRepositoryResultOutput)
 }
 

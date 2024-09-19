@@ -95,14 +95,20 @@ type LookupLocalHuggingfacemlRepositoryResult struct {
 
 func LookupLocalHuggingfacemlRepositoryOutput(ctx *pulumi.Context, args LookupLocalHuggingfacemlRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupLocalHuggingfacemlRepositoryResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupLocalHuggingfacemlRepositoryResult, error) {
+		ApplyT(func(v interface{}) (LookupLocalHuggingfacemlRepositoryResultOutput, error) {
 			args := v.(LookupLocalHuggingfacemlRepositoryArgs)
-			r, err := LookupLocalHuggingfacemlRepository(ctx, &args, opts...)
-			var s LookupLocalHuggingfacemlRepositoryResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupLocalHuggingfacemlRepositoryResult
+			secret, err := ctx.InvokePackageRaw("artifactory:index/getLocalHuggingfacemlRepository:getLocalHuggingfacemlRepository", args, &rv, "", opts...)
+			if err != nil {
+				return LookupLocalHuggingfacemlRepositoryResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupLocalHuggingfacemlRepositoryResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupLocalHuggingfacemlRepositoryResultOutput), nil
+			}
+			return output, nil
 		}).(LookupLocalHuggingfacemlRepositoryResultOutput)
 }
 

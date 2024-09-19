@@ -19,7 +19,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getLocalRpmRepository(args: GetLocalRpmRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalRpmRepositoryResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("artifactory:index/getLocalRpmRepository:getLocalRpmRepository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,
@@ -170,7 +169,30 @@ export interface GetLocalRpmRepositoryResult {
  * ```
  */
 export function getLocalRpmRepositoryOutput(args: GetLocalRpmRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalRpmRepositoryResult> {
-    return pulumi.output(args).apply((a: any) => getLocalRpmRepository(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("artifactory:index/getLocalRpmRepository:getLocalRpmRepository", {
+        "archiveBrowsingEnabled": args.archiveBrowsingEnabled,
+        "blackedOut": args.blackedOut,
+        "calculateYumMetadata": args.calculateYumMetadata,
+        "cdnRedirect": args.cdnRedirect,
+        "description": args.description,
+        "downloadDirect": args.downloadDirect,
+        "enableFileListsIndexing": args.enableFileListsIndexing,
+        "excludesPattern": args.excludesPattern,
+        "includesPattern": args.includesPattern,
+        "key": args.key,
+        "notes": args.notes,
+        "primaryKeypairRef": args.primaryKeypairRef,
+        "priorityResolution": args.priorityResolution,
+        "projectEnvironments": args.projectEnvironments,
+        "projectKey": args.projectKey,
+        "propertySets": args.propertySets,
+        "repoLayoutRef": args.repoLayoutRef,
+        "secondaryKeypairRef": args.secondaryKeypairRef,
+        "xrayIndex": args.xrayIndex,
+        "yumGroupFileNames": args.yumGroupFileNames,
+        "yumRootDepth": args.yumRootDepth,
+    }, opts);
 }
 
 /**

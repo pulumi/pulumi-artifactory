@@ -112,14 +112,20 @@ type LookupFederatedGemsRepositoryResult struct {
 
 func LookupFederatedGemsRepositoryOutput(ctx *pulumi.Context, args LookupFederatedGemsRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupFederatedGemsRepositoryResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupFederatedGemsRepositoryResult, error) {
+		ApplyT(func(v interface{}) (LookupFederatedGemsRepositoryResultOutput, error) {
 			args := v.(LookupFederatedGemsRepositoryArgs)
-			r, err := LookupFederatedGemsRepository(ctx, &args, opts...)
-			var s LookupFederatedGemsRepositoryResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupFederatedGemsRepositoryResult
+			secret, err := ctx.InvokePackageRaw("artifactory:index/getFederatedGemsRepository:getFederatedGemsRepository", args, &rv, "", opts...)
+			if err != nil {
+				return LookupFederatedGemsRepositoryResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupFederatedGemsRepositoryResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupFederatedGemsRepositoryResultOutput), nil
+			}
+			return output, nil
 		}).(LookupFederatedGemsRepositoryResultOutput)
 }
 

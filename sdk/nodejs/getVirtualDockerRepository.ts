@@ -19,7 +19,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getVirtualDockerRepository(args: GetVirtualDockerRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualDockerRepositoryResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("artifactory:index/getVirtualDockerRepository:getVirtualDockerRepository", {
         "artifactoryRequestsCanRetrieveRemoteArtifacts": args.artifactoryRequestsCanRetrieveRemoteArtifacts,
@@ -101,7 +100,21 @@ export interface GetVirtualDockerRepositoryResult {
  * ```
  */
 export function getVirtualDockerRepositoryOutput(args: GetVirtualDockerRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualDockerRepositoryResult> {
-    return pulumi.output(args).apply((a: any) => getVirtualDockerRepository(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("artifactory:index/getVirtualDockerRepository:getVirtualDockerRepository", {
+        "artifactoryRequestsCanRetrieveRemoteArtifacts": args.artifactoryRequestsCanRetrieveRemoteArtifacts,
+        "defaultDeploymentRepo": args.defaultDeploymentRepo,
+        "description": args.description,
+        "excludesPattern": args.excludesPattern,
+        "includesPattern": args.includesPattern,
+        "key": args.key,
+        "notes": args.notes,
+        "projectEnvironments": args.projectEnvironments,
+        "projectKey": args.projectKey,
+        "repoLayoutRef": args.repoLayoutRef,
+        "repositories": args.repositories,
+        "resolveDockerTagsByTimestamp": args.resolveDockerTagsByTimestamp,
+    }, opts);
 }
 
 /**

@@ -19,7 +19,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getVirtualRpmRepository(args: GetVirtualRpmRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualRpmRepositoryResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("artifactory:index/getVirtualRpmRepository:getVirtualRpmRepository", {
         "artifactoryRequestsCanRetrieveRemoteArtifacts": args.artifactoryRequestsCanRetrieveRemoteArtifacts,
@@ -110,7 +109,22 @@ export interface GetVirtualRpmRepositoryResult {
  * ```
  */
 export function getVirtualRpmRepositoryOutput(args: GetVirtualRpmRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualRpmRepositoryResult> {
-    return pulumi.output(args).apply((a: any) => getVirtualRpmRepository(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("artifactory:index/getVirtualRpmRepository:getVirtualRpmRepository", {
+        "artifactoryRequestsCanRetrieveRemoteArtifacts": args.artifactoryRequestsCanRetrieveRemoteArtifacts,
+        "defaultDeploymentRepo": args.defaultDeploymentRepo,
+        "description": args.description,
+        "excludesPattern": args.excludesPattern,
+        "includesPattern": args.includesPattern,
+        "key": args.key,
+        "notes": args.notes,
+        "primaryKeypairRef": args.primaryKeypairRef,
+        "projectEnvironments": args.projectEnvironments,
+        "projectKey": args.projectKey,
+        "repoLayoutRef": args.repoLayoutRef,
+        "repositories": args.repositories,
+        "secondaryKeypairRef": args.secondaryKeypairRef,
+    }, opts);
 }
 
 /**

@@ -21,7 +21,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getFederatedHelmociRepository(args: GetFederatedHelmociRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetFederatedHelmociRepositoryResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("artifactory:index/getFederatedHelmociRepository:getFederatedHelmociRepository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,
@@ -148,7 +147,30 @@ export interface GetFederatedHelmociRepositoryResult {
  * ```
  */
 export function getFederatedHelmociRepositoryOutput(args: GetFederatedHelmociRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedHelmociRepositoryResult> {
-    return pulumi.output(args).apply((a: any) => getFederatedHelmociRepository(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("artifactory:index/getFederatedHelmociRepository:getFederatedHelmociRepository", {
+        "archiveBrowsingEnabled": args.archiveBrowsingEnabled,
+        "blackedOut": args.blackedOut,
+        "cdnRedirect": args.cdnRedirect,
+        "cleanupOnDelete": args.cleanupOnDelete,
+        "description": args.description,
+        "disableProxy": args.disableProxy,
+        "downloadDirect": args.downloadDirect,
+        "excludesPattern": args.excludesPattern,
+        "includesPattern": args.includesPattern,
+        "key": args.key,
+        "maxUniqueTags": args.maxUniqueTags,
+        "members": args.members,
+        "notes": args.notes,
+        "priorityResolution": args.priorityResolution,
+        "projectEnvironments": args.projectEnvironments,
+        "projectKey": args.projectKey,
+        "propertySets": args.propertySets,
+        "proxy": args.proxy,
+        "repoLayoutRef": args.repoLayoutRef,
+        "tagRetention": args.tagRetention,
+        "xrayIndex": args.xrayIndex,
+    }, opts);
 }
 
 /**

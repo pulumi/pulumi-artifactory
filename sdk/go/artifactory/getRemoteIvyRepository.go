@@ -178,14 +178,20 @@ type LookupRemoteIvyRepositoryResult struct {
 
 func LookupRemoteIvyRepositoryOutput(ctx *pulumi.Context, args LookupRemoteIvyRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupRemoteIvyRepositoryResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupRemoteIvyRepositoryResult, error) {
+		ApplyT(func(v interface{}) (LookupRemoteIvyRepositoryResultOutput, error) {
 			args := v.(LookupRemoteIvyRepositoryArgs)
-			r, err := LookupRemoteIvyRepository(ctx, &args, opts...)
-			var s LookupRemoteIvyRepositoryResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupRemoteIvyRepositoryResult
+			secret, err := ctx.InvokePackageRaw("artifactory:index/getRemoteIvyRepository:getRemoteIvyRepository", args, &rv, "", opts...)
+			if err != nil {
+				return LookupRemoteIvyRepositoryResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupRemoteIvyRepositoryResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupRemoteIvyRepositoryResultOutput), nil
+			}
+			return output, nil
 		}).(LookupRemoteIvyRepositoryResultOutput)
 }
 

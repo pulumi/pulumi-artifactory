@@ -19,7 +19,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getVirtualPubRepository(args: GetVirtualPubRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualPubRepositoryResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("artifactory:index/getVirtualPubRepository:getVirtualPubRepository", {
         "artifactoryRequestsCanRetrieveRemoteArtifacts": args.artifactoryRequestsCanRetrieveRemoteArtifacts,
@@ -92,7 +91,20 @@ export interface GetVirtualPubRepositoryResult {
  * ```
  */
 export function getVirtualPubRepositoryOutput(args: GetVirtualPubRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualPubRepositoryResult> {
-    return pulumi.output(args).apply((a: any) => getVirtualPubRepository(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("artifactory:index/getVirtualPubRepository:getVirtualPubRepository", {
+        "artifactoryRequestsCanRetrieveRemoteArtifacts": args.artifactoryRequestsCanRetrieveRemoteArtifacts,
+        "defaultDeploymentRepo": args.defaultDeploymentRepo,
+        "description": args.description,
+        "excludesPattern": args.excludesPattern,
+        "includesPattern": args.includesPattern,
+        "key": args.key,
+        "notes": args.notes,
+        "projectEnvironments": args.projectEnvironments,
+        "projectKey": args.projectKey,
+        "repoLayoutRef": args.repoLayoutRef,
+        "repositories": args.repositories,
+    }, opts);
 }
 
 /**

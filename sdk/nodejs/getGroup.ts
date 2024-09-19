@@ -23,7 +23,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getGroup(args: GetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetGroupResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("artifactory:index/getGroup:getGroup", {
         "adminPrivileges": args.adminPrivileges,
@@ -165,7 +164,21 @@ export interface GetGroupResult {
  * ```
  */
 export function getGroupOutput(args: GetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGroupResult> {
-    return pulumi.output(args).apply((a: any) => getGroup(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("artifactory:index/getGroup:getGroup", {
+        "adminPrivileges": args.adminPrivileges,
+        "autoJoin": args.autoJoin,
+        "description": args.description,
+        "externalId": args.externalId,
+        "includeUsers": args.includeUsers,
+        "name": args.name,
+        "policyManager": args.policyManager,
+        "realm": args.realm,
+        "realmAttributes": args.realmAttributes,
+        "reportsManager": args.reportsManager,
+        "usersNames": args.usersNames,
+        "watchManager": args.watchManager,
+    }, opts);
 }
 
 /**

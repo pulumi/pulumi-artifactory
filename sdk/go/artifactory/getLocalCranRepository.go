@@ -93,14 +93,20 @@ type LookupLocalCranRepositoryResult struct {
 
 func LookupLocalCranRepositoryOutput(ctx *pulumi.Context, args LookupLocalCranRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupLocalCranRepositoryResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupLocalCranRepositoryResult, error) {
+		ApplyT(func(v interface{}) (LookupLocalCranRepositoryResultOutput, error) {
 			args := v.(LookupLocalCranRepositoryArgs)
-			r, err := LookupLocalCranRepository(ctx, &args, opts...)
-			var s LookupLocalCranRepositoryResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupLocalCranRepositoryResult
+			secret, err := ctx.InvokePackageRaw("artifactory:index/getLocalCranRepository:getLocalCranRepository", args, &rv, "", opts...)
+			if err != nil {
+				return LookupLocalCranRepositoryResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupLocalCranRepositoryResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupLocalCranRepositoryResultOutput), nil
+			}
+			return output, nil
 		}).(LookupLocalCranRepositoryResultOutput)
 }
 

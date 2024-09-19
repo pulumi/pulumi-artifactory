@@ -19,7 +19,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getVirtualSwiftRepository(args: GetVirtualSwiftRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualSwiftRepositoryResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("artifactory:index/getVirtualSwiftRepository:getVirtualSwiftRepository", {
         "artifactoryRequestsCanRetrieveRemoteArtifacts": args.artifactoryRequestsCanRetrieveRemoteArtifacts,
@@ -92,7 +91,20 @@ export interface GetVirtualSwiftRepositoryResult {
  * ```
  */
 export function getVirtualSwiftRepositoryOutput(args: GetVirtualSwiftRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualSwiftRepositoryResult> {
-    return pulumi.output(args).apply((a: any) => getVirtualSwiftRepository(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("artifactory:index/getVirtualSwiftRepository:getVirtualSwiftRepository", {
+        "artifactoryRequestsCanRetrieveRemoteArtifacts": args.artifactoryRequestsCanRetrieveRemoteArtifacts,
+        "defaultDeploymentRepo": args.defaultDeploymentRepo,
+        "description": args.description,
+        "excludesPattern": args.excludesPattern,
+        "includesPattern": args.includesPattern,
+        "key": args.key,
+        "notes": args.notes,
+        "projectEnvironments": args.projectEnvironments,
+        "projectKey": args.projectKey,
+        "repoLayoutRef": args.repoLayoutRef,
+        "repositories": args.repositories,
+    }, opts);
 }
 
 /**

@@ -88,14 +88,20 @@ type LookupVirtualDockerRepositoryResult struct {
 
 func LookupVirtualDockerRepositoryOutput(ctx *pulumi.Context, args LookupVirtualDockerRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualDockerRepositoryResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupVirtualDockerRepositoryResult, error) {
+		ApplyT(func(v interface{}) (LookupVirtualDockerRepositoryResultOutput, error) {
 			args := v.(LookupVirtualDockerRepositoryArgs)
-			r, err := LookupVirtualDockerRepository(ctx, &args, opts...)
-			var s LookupVirtualDockerRepositoryResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupVirtualDockerRepositoryResult
+			secret, err := ctx.InvokePackageRaw("artifactory:index/getVirtualDockerRepository:getVirtualDockerRepository", args, &rv, "", opts...)
+			if err != nil {
+				return LookupVirtualDockerRepositoryResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupVirtualDockerRepositoryResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupVirtualDockerRepositoryResultOutput), nil
+			}
+			return output, nil
 		}).(LookupVirtualDockerRepositoryResultOutput)
 }
 

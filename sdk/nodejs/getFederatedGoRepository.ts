@@ -21,7 +21,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getFederatedGoRepository(args: GetFederatedGoRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetFederatedGoRepositoryResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("artifactory:index/getFederatedGoRepository:getFederatedGoRepository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,
@@ -142,7 +141,28 @@ export interface GetFederatedGoRepositoryResult {
  * ```
  */
 export function getFederatedGoRepositoryOutput(args: GetFederatedGoRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedGoRepositoryResult> {
-    return pulumi.output(args).apply((a: any) => getFederatedGoRepository(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("artifactory:index/getFederatedGoRepository:getFederatedGoRepository", {
+        "archiveBrowsingEnabled": args.archiveBrowsingEnabled,
+        "blackedOut": args.blackedOut,
+        "cdnRedirect": args.cdnRedirect,
+        "cleanupOnDelete": args.cleanupOnDelete,
+        "description": args.description,
+        "disableProxy": args.disableProxy,
+        "downloadDirect": args.downloadDirect,
+        "excludesPattern": args.excludesPattern,
+        "includesPattern": args.includesPattern,
+        "key": args.key,
+        "members": args.members,
+        "notes": args.notes,
+        "priorityResolution": args.priorityResolution,
+        "projectEnvironments": args.projectEnvironments,
+        "projectKey": args.projectKey,
+        "propertySets": args.propertySets,
+        "proxy": args.proxy,
+        "repoLayoutRef": args.repoLayoutRef,
+        "xrayIndex": args.xrayIndex,
+    }, opts);
 }
 
 /**

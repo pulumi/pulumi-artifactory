@@ -19,7 +19,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getVirtualGradleRepository(args: GetVirtualGradleRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualGradleRepositoryResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("artifactory:index/getVirtualGradleRepository:getVirtualGradleRepository", {
         "artifactoryRequestsCanRetrieveRemoteArtifacts": args.artifactoryRequestsCanRetrieveRemoteArtifacts,
@@ -119,7 +118,23 @@ export interface GetVirtualGradleRepositoryResult {
  * ```
  */
 export function getVirtualGradleRepositoryOutput(args: GetVirtualGradleRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualGradleRepositoryResult> {
-    return pulumi.output(args).apply((a: any) => getVirtualGradleRepository(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("artifactory:index/getVirtualGradleRepository:getVirtualGradleRepository", {
+        "artifactoryRequestsCanRetrieveRemoteArtifacts": args.artifactoryRequestsCanRetrieveRemoteArtifacts,
+        "defaultDeploymentRepo": args.defaultDeploymentRepo,
+        "description": args.description,
+        "excludesPattern": args.excludesPattern,
+        "forceMavenAuthentication": args.forceMavenAuthentication,
+        "includesPattern": args.includesPattern,
+        "key": args.key,
+        "keyPair": args.keyPair,
+        "notes": args.notes,
+        "pomRepositoryReferencesCleanupPolicy": args.pomRepositoryReferencesCleanupPolicy,
+        "projectEnvironments": args.projectEnvironments,
+        "projectKey": args.projectKey,
+        "repoLayoutRef": args.repoLayoutRef,
+        "repositories": args.repositories,
+    }, opts);
 }
 
 /**

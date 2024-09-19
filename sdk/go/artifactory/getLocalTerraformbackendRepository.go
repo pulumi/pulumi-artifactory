@@ -91,14 +91,20 @@ type GetLocalTerraformbackendRepositoryResult struct {
 
 func GetLocalTerraformbackendRepositoryOutput(ctx *pulumi.Context, args GetLocalTerraformbackendRepositoryOutputArgs, opts ...pulumi.InvokeOption) GetLocalTerraformbackendRepositoryResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetLocalTerraformbackendRepositoryResult, error) {
+		ApplyT(func(v interface{}) (GetLocalTerraformbackendRepositoryResultOutput, error) {
 			args := v.(GetLocalTerraformbackendRepositoryArgs)
-			r, err := GetLocalTerraformbackendRepository(ctx, &args, opts...)
-			var s GetLocalTerraformbackendRepositoryResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetLocalTerraformbackendRepositoryResult
+			secret, err := ctx.InvokePackageRaw("artifactory:index/getLocalTerraformbackendRepository:getLocalTerraformbackendRepository", args, &rv, "", opts...)
+			if err != nil {
+				return GetLocalTerraformbackendRepositoryResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetLocalTerraformbackendRepositoryResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetLocalTerraformbackendRepositoryResultOutput), nil
+			}
+			return output, nil
 		}).(GetLocalTerraformbackendRepositoryResultOutput)
 }
 

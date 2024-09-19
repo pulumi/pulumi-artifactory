@@ -23,7 +23,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getFile(args: GetFileArgs, opts?: pulumi.InvokeOptions): Promise<GetFileResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("artifactory:index/getFile:getFile", {
         "forceOverwrite": args.forceOverwrite,
@@ -137,7 +136,14 @@ export interface GetFileResult {
  * ```
  */
 export function getFileOutput(args: GetFileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFileResult> {
-    return pulumi.output(args).apply((a: any) => getFile(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("artifactory:index/getFile:getFile", {
+        "forceOverwrite": args.forceOverwrite,
+        "outputPath": args.outputPath,
+        "path": args.path,
+        "pathIsAliased": args.pathIsAliased,
+        "repository": args.repository,
+    }, opts);
 }
 
 /**

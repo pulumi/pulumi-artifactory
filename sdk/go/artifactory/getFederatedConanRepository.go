@@ -114,14 +114,20 @@ type LookupFederatedConanRepositoryResult struct {
 
 func LookupFederatedConanRepositoryOutput(ctx *pulumi.Context, args LookupFederatedConanRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupFederatedConanRepositoryResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupFederatedConanRepositoryResult, error) {
+		ApplyT(func(v interface{}) (LookupFederatedConanRepositoryResultOutput, error) {
 			args := v.(LookupFederatedConanRepositoryArgs)
-			r, err := LookupFederatedConanRepository(ctx, &args, opts...)
-			var s LookupFederatedConanRepositoryResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupFederatedConanRepositoryResult
+			secret, err := ctx.InvokePackageRaw("artifactory:index/getFederatedConanRepository:getFederatedConanRepository", args, &rv, "", opts...)
+			if err != nil {
+				return LookupFederatedConanRepositoryResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupFederatedConanRepositoryResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupFederatedConanRepositoryResultOutput), nil
+			}
+			return output, nil
 		}).(LookupFederatedConanRepositoryResultOutput)
 }
 
