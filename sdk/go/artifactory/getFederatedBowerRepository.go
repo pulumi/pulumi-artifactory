@@ -112,14 +112,20 @@ type LookupFederatedBowerRepositoryResult struct {
 
 func LookupFederatedBowerRepositoryOutput(ctx *pulumi.Context, args LookupFederatedBowerRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupFederatedBowerRepositoryResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupFederatedBowerRepositoryResult, error) {
+		ApplyT(func(v interface{}) (LookupFederatedBowerRepositoryResultOutput, error) {
 			args := v.(LookupFederatedBowerRepositoryArgs)
-			r, err := LookupFederatedBowerRepository(ctx, &args, opts...)
-			var s LookupFederatedBowerRepositoryResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupFederatedBowerRepositoryResult
+			secret, err := ctx.InvokePackageRaw("artifactory:index/getFederatedBowerRepository:getFederatedBowerRepository", args, &rv, "", opts...)
+			if err != nil {
+				return LookupFederatedBowerRepositoryResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupFederatedBowerRepositoryResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupFederatedBowerRepositoryResultOutput), nil
+			}
+			return output, nil
 		}).(LookupFederatedBowerRepositoryResultOutput)
 }
 

@@ -19,7 +19,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getLocalCocoapodsRepository(args: GetLocalCocoapodsRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalCocoapodsRepositoryResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("artifactory:index/getLocalCocoapodsRepository:getLocalCocoapodsRepository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,
@@ -107,7 +106,24 @@ export interface GetLocalCocoapodsRepositoryResult {
  * ```
  */
 export function getLocalCocoapodsRepositoryOutput(args: GetLocalCocoapodsRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalCocoapodsRepositoryResult> {
-    return pulumi.output(args).apply((a: any) => getLocalCocoapodsRepository(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("artifactory:index/getLocalCocoapodsRepository:getLocalCocoapodsRepository", {
+        "archiveBrowsingEnabled": args.archiveBrowsingEnabled,
+        "blackedOut": args.blackedOut,
+        "cdnRedirect": args.cdnRedirect,
+        "description": args.description,
+        "downloadDirect": args.downloadDirect,
+        "excludesPattern": args.excludesPattern,
+        "includesPattern": args.includesPattern,
+        "key": args.key,
+        "notes": args.notes,
+        "priorityResolution": args.priorityResolution,
+        "projectEnvironments": args.projectEnvironments,
+        "projectKey": args.projectKey,
+        "propertySets": args.propertySets,
+        "repoLayoutRef": args.repoLayoutRef,
+        "xrayIndex": args.xrayIndex,
+    }, opts);
 }
 
 /**

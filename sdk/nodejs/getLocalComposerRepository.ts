@@ -19,7 +19,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getLocalComposerRepository(args: GetLocalComposerRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalComposerRepositoryResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("artifactory:index/getLocalComposerRepository:getLocalComposerRepository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,
@@ -107,7 +106,24 @@ export interface GetLocalComposerRepositoryResult {
  * ```
  */
 export function getLocalComposerRepositoryOutput(args: GetLocalComposerRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalComposerRepositoryResult> {
-    return pulumi.output(args).apply((a: any) => getLocalComposerRepository(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("artifactory:index/getLocalComposerRepository:getLocalComposerRepository", {
+        "archiveBrowsingEnabled": args.archiveBrowsingEnabled,
+        "blackedOut": args.blackedOut,
+        "cdnRedirect": args.cdnRedirect,
+        "description": args.description,
+        "downloadDirect": args.downloadDirect,
+        "excludesPattern": args.excludesPattern,
+        "includesPattern": args.includesPattern,
+        "key": args.key,
+        "notes": args.notes,
+        "priorityResolution": args.priorityResolution,
+        "projectEnvironments": args.projectEnvironments,
+        "projectKey": args.projectKey,
+        "propertySets": args.propertySets,
+        "repoLayoutRef": args.repoLayoutRef,
+        "xrayIndex": args.xrayIndex,
+    }, opts);
 }
 
 /**

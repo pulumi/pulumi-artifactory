@@ -21,7 +21,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getRemoteNugetRepository(args: GetRemoteNugetRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRemoteNugetRepositoryResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("artifactory:index/getRemoteNugetRepository:getRemoteNugetRepository", {
         "allowAnyHostAuth": args.allowAnyHostAuth,
@@ -235,7 +234,57 @@ export interface GetRemoteNugetRepositoryResult {
  * ```
  */
 export function getRemoteNugetRepositoryOutput(args: GetRemoteNugetRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteNugetRepositoryResult> {
-    return pulumi.output(args).apply((a: any) => getRemoteNugetRepository(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("artifactory:index/getRemoteNugetRepository:getRemoteNugetRepository", {
+        "allowAnyHostAuth": args.allowAnyHostAuth,
+        "archiveBrowsingEnabled": args.archiveBrowsingEnabled,
+        "assumedOfflinePeriodSecs": args.assumedOfflinePeriodSecs,
+        "blackedOut": args.blackedOut,
+        "blockMismatchingMimeTypes": args.blockMismatchingMimeTypes,
+        "bypassHeadRequests": args.bypassHeadRequests,
+        "cdnRedirect": args.cdnRedirect,
+        "clientTlsCertificate": args.clientTlsCertificate,
+        "contentSynchronisation": args.contentSynchronisation,
+        "description": args.description,
+        "disableProxy": args.disableProxy,
+        "disableUrlNormalization": args.disableUrlNormalization,
+        "downloadContextPath": args.downloadContextPath,
+        "downloadDirect": args.downloadDirect,
+        "enableCookieManagement": args.enableCookieManagement,
+        "excludesPattern": args.excludesPattern,
+        "feedContextPath": args.feedContextPath,
+        "forceNugetAuthentication": args.forceNugetAuthentication,
+        "hardFail": args.hardFail,
+        "includesPattern": args.includesPattern,
+        "key": args.key,
+        "listRemoteFolderItems": args.listRemoteFolderItems,
+        "localAddress": args.localAddress,
+        "metadataRetrievalTimeoutSecs": args.metadataRetrievalTimeoutSecs,
+        "mismatchingMimeTypesOverrideList": args.mismatchingMimeTypesOverrideList,
+        "missedCachePeriodSeconds": args.missedCachePeriodSeconds,
+        "notes": args.notes,
+        "offline": args.offline,
+        "password": args.password,
+        "priorityResolution": args.priorityResolution,
+        "projectEnvironments": args.projectEnvironments,
+        "projectKey": args.projectKey,
+        "propertySets": args.propertySets,
+        "proxy": args.proxy,
+        "queryParams": args.queryParams,
+        "remoteRepoLayoutRef": args.remoteRepoLayoutRef,
+        "repoLayoutRef": args.repoLayoutRef,
+        "retrievalCachePeriodSeconds": args.retrievalCachePeriodSeconds,
+        "shareConfiguration": args.shareConfiguration,
+        "socketTimeoutMillis": args.socketTimeoutMillis,
+        "storeArtifactsLocally": args.storeArtifactsLocally,
+        "symbolServerUrl": args.symbolServerUrl,
+        "synchronizeProperties": args.synchronizeProperties,
+        "unusedArtifactsCleanupPeriodHours": args.unusedArtifactsCleanupPeriodHours,
+        "url": args.url,
+        "username": args.username,
+        "v3FeedUrl": args.v3FeedUrl,
+        "xrayIndex": args.xrayIndex,
+    }, opts);
 }
 
 /**

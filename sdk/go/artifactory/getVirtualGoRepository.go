@@ -94,14 +94,20 @@ type GetVirtualGoRepositoryResult struct {
 
 func GetVirtualGoRepositoryOutput(ctx *pulumi.Context, args GetVirtualGoRepositoryOutputArgs, opts ...pulumi.InvokeOption) GetVirtualGoRepositoryResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetVirtualGoRepositoryResult, error) {
+		ApplyT(func(v interface{}) (GetVirtualGoRepositoryResultOutput, error) {
 			args := v.(GetVirtualGoRepositoryArgs)
-			r, err := GetVirtualGoRepository(ctx, &args, opts...)
-			var s GetVirtualGoRepositoryResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetVirtualGoRepositoryResult
+			secret, err := ctx.InvokePackageRaw("artifactory:index/getVirtualGoRepository:getVirtualGoRepository", args, &rv, "", opts...)
+			if err != nil {
+				return GetVirtualGoRepositoryResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetVirtualGoRepositoryResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetVirtualGoRepositoryResultOutput), nil
+			}
+			return output, nil
 		}).(GetVirtualGoRepositoryResultOutput)
 }
 

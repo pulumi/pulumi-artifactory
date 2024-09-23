@@ -100,14 +100,20 @@ type LookupVirtualSbtRepositoryResult struct {
 
 func LookupVirtualSbtRepositoryOutput(ctx *pulumi.Context, args LookupVirtualSbtRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualSbtRepositoryResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupVirtualSbtRepositoryResult, error) {
+		ApplyT(func(v interface{}) (LookupVirtualSbtRepositoryResultOutput, error) {
 			args := v.(LookupVirtualSbtRepositoryArgs)
-			r, err := LookupVirtualSbtRepository(ctx, &args, opts...)
-			var s LookupVirtualSbtRepositoryResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupVirtualSbtRepositoryResult
+			secret, err := ctx.InvokePackageRaw("artifactory:index/getVirtualSbtRepository:getVirtualSbtRepository", args, &rv, "", opts...)
+			if err != nil {
+				return LookupVirtualSbtRepositoryResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupVirtualSbtRepositoryResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupVirtualSbtRepositoryResultOutput), nil
+			}
+			return output, nil
 		}).(LookupVirtualSbtRepositoryResultOutput)
 }
 

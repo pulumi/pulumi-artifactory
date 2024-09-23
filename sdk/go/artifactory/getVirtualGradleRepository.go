@@ -100,14 +100,20 @@ type LookupVirtualGradleRepositoryResult struct {
 
 func LookupVirtualGradleRepositoryOutput(ctx *pulumi.Context, args LookupVirtualGradleRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualGradleRepositoryResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupVirtualGradleRepositoryResult, error) {
+		ApplyT(func(v interface{}) (LookupVirtualGradleRepositoryResultOutput, error) {
 			args := v.(LookupVirtualGradleRepositoryArgs)
-			r, err := LookupVirtualGradleRepository(ctx, &args, opts...)
-			var s LookupVirtualGradleRepositoryResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupVirtualGradleRepositoryResult
+			secret, err := ctx.InvokePackageRaw("artifactory:index/getVirtualGradleRepository:getVirtualGradleRepository", args, &rv, "", opts...)
+			if err != nil {
+				return LookupVirtualGradleRepositoryResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupVirtualGradleRepositoryResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupVirtualGradleRepositoryResultOutput), nil
+			}
+			return output, nil
 		}).(LookupVirtualGradleRepositoryResultOutput)
 }
 

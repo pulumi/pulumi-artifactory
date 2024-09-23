@@ -19,7 +19,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getVirtualDebianRepository(args: GetVirtualDebianRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualDebianRepositoryResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("artifactory:index/getVirtualDebianRepository:getVirtualDebianRepository", {
         "artifactoryRequestsCanRetrieveRemoteArtifacts": args.artifactoryRequestsCanRetrieveRemoteArtifacts,
@@ -137,7 +136,25 @@ export interface GetVirtualDebianRepositoryResult {
  * ```
  */
 export function getVirtualDebianRepositoryOutput(args: GetVirtualDebianRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualDebianRepositoryResult> {
-    return pulumi.output(args).apply((a: any) => getVirtualDebianRepository(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("artifactory:index/getVirtualDebianRepository:getVirtualDebianRepository", {
+        "artifactoryRequestsCanRetrieveRemoteArtifacts": args.artifactoryRequestsCanRetrieveRemoteArtifacts,
+        "debianDefaultArchitectures": args.debianDefaultArchitectures,
+        "defaultDeploymentRepo": args.defaultDeploymentRepo,
+        "description": args.description,
+        "excludesPattern": args.excludesPattern,
+        "includesPattern": args.includesPattern,
+        "key": args.key,
+        "notes": args.notes,
+        "optionalIndexCompressionFormats": args.optionalIndexCompressionFormats,
+        "primaryKeypairRef": args.primaryKeypairRef,
+        "projectEnvironments": args.projectEnvironments,
+        "projectKey": args.projectKey,
+        "repoLayoutRef": args.repoLayoutRef,
+        "repositories": args.repositories,
+        "retrievalCachePeriodSeconds": args.retrievalCachePeriodSeconds,
+        "secondaryKeypairRef": args.secondaryKeypairRef,
+    }, opts);
 }
 
 /**

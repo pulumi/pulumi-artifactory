@@ -124,14 +124,20 @@ type LookupFederatedMavenRepositoryResult struct {
 
 func LookupFederatedMavenRepositoryOutput(ctx *pulumi.Context, args LookupFederatedMavenRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupFederatedMavenRepositoryResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupFederatedMavenRepositoryResult, error) {
+		ApplyT(func(v interface{}) (LookupFederatedMavenRepositoryResultOutput, error) {
 			args := v.(LookupFederatedMavenRepositoryArgs)
-			r, err := LookupFederatedMavenRepository(ctx, &args, opts...)
-			var s LookupFederatedMavenRepositoryResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupFederatedMavenRepositoryResult
+			secret, err := ctx.InvokePackageRaw("artifactory:index/getFederatedMavenRepository:getFederatedMavenRepository", args, &rv, "", opts...)
+			if err != nil {
+				return LookupFederatedMavenRepositoryResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupFederatedMavenRepositoryResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupFederatedMavenRepositoryResultOutput), nil
+			}
+			return output, nil
 		}).(LookupFederatedMavenRepositoryResultOutput)
 }
 

@@ -158,14 +158,20 @@ type LookupRemotePypiRepositoryResult struct {
 
 func LookupRemotePypiRepositoryOutput(ctx *pulumi.Context, args LookupRemotePypiRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupRemotePypiRepositoryResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupRemotePypiRepositoryResult, error) {
+		ApplyT(func(v interface{}) (LookupRemotePypiRepositoryResultOutput, error) {
 			args := v.(LookupRemotePypiRepositoryArgs)
-			r, err := LookupRemotePypiRepository(ctx, &args, opts...)
-			var s LookupRemotePypiRepositoryResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupRemotePypiRepositoryResult
+			secret, err := ctx.InvokePackageRaw("artifactory:index/getRemotePypiRepository:getRemotePypiRepository", args, &rv, "", opts...)
+			if err != nil {
+				return LookupRemotePypiRepositoryResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupRemotePypiRepositoryResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupRemotePypiRepositoryResultOutput), nil
+			}
+			return output, nil
 		}).(LookupRemotePypiRepositoryResultOutput)
 }
 

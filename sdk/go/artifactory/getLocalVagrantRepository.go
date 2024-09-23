@@ -93,14 +93,20 @@ type LookupLocalVagrantRepositoryResult struct {
 
 func LookupLocalVagrantRepositoryOutput(ctx *pulumi.Context, args LookupLocalVagrantRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupLocalVagrantRepositoryResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupLocalVagrantRepositoryResult, error) {
+		ApplyT(func(v interface{}) (LookupLocalVagrantRepositoryResultOutput, error) {
 			args := v.(LookupLocalVagrantRepositoryArgs)
-			r, err := LookupLocalVagrantRepository(ctx, &args, opts...)
-			var s LookupLocalVagrantRepositoryResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupLocalVagrantRepositoryResult
+			secret, err := ctx.InvokePackageRaw("artifactory:index/getLocalVagrantRepository:getLocalVagrantRepository", args, &rv, "", opts...)
+			if err != nil {
+				return LookupLocalVagrantRepositoryResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupLocalVagrantRepositoryResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupLocalVagrantRepositoryResultOutput), nil
+			}
+			return output, nil
 		}).(LookupLocalVagrantRepositoryResultOutput)
 }
 

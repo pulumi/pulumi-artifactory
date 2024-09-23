@@ -21,7 +21,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getFederatedCocoapodsRepository(args: GetFederatedCocoapodsRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetFederatedCocoapodsRepositoryResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("artifactory:index/getFederatedCocoapodsRepository:getFederatedCocoapodsRepository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,
@@ -142,7 +141,28 @@ export interface GetFederatedCocoapodsRepositoryResult {
  * ```
  */
 export function getFederatedCocoapodsRepositoryOutput(args: GetFederatedCocoapodsRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedCocoapodsRepositoryResult> {
-    return pulumi.output(args).apply((a: any) => getFederatedCocoapodsRepository(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("artifactory:index/getFederatedCocoapodsRepository:getFederatedCocoapodsRepository", {
+        "archiveBrowsingEnabled": args.archiveBrowsingEnabled,
+        "blackedOut": args.blackedOut,
+        "cdnRedirect": args.cdnRedirect,
+        "cleanupOnDelete": args.cleanupOnDelete,
+        "description": args.description,
+        "disableProxy": args.disableProxy,
+        "downloadDirect": args.downloadDirect,
+        "excludesPattern": args.excludesPattern,
+        "includesPattern": args.includesPattern,
+        "key": args.key,
+        "members": args.members,
+        "notes": args.notes,
+        "priorityResolution": args.priorityResolution,
+        "projectEnvironments": args.projectEnvironments,
+        "projectKey": args.projectKey,
+        "propertySets": args.propertySets,
+        "proxy": args.proxy,
+        "repoLayoutRef": args.repoLayoutRef,
+        "xrayIndex": args.xrayIndex,
+    }, opts);
 }
 
 /**

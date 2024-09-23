@@ -21,7 +21,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getFederatedDockerV2Repository(args: GetFederatedDockerV2RepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetFederatedDockerV2RepositoryResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("artifactory:index/getFederatedDockerV2Repository:getFederatedDockerV2Repository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,
@@ -152,7 +151,31 @@ export interface GetFederatedDockerV2RepositoryResult {
  * ```
  */
 export function getFederatedDockerV2RepositoryOutput(args: GetFederatedDockerV2RepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedDockerV2RepositoryResult> {
-    return pulumi.output(args).apply((a: any) => getFederatedDockerV2Repository(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("artifactory:index/getFederatedDockerV2Repository:getFederatedDockerV2Repository", {
+        "archiveBrowsingEnabled": args.archiveBrowsingEnabled,
+        "blackedOut": args.blackedOut,
+        "blockPushingSchema1": args.blockPushingSchema1,
+        "cdnRedirect": args.cdnRedirect,
+        "cleanupOnDelete": args.cleanupOnDelete,
+        "description": args.description,
+        "disableProxy": args.disableProxy,
+        "downloadDirect": args.downloadDirect,
+        "excludesPattern": args.excludesPattern,
+        "includesPattern": args.includesPattern,
+        "key": args.key,
+        "maxUniqueTags": args.maxUniqueTags,
+        "members": args.members,
+        "notes": args.notes,
+        "priorityResolution": args.priorityResolution,
+        "projectEnvironments": args.projectEnvironments,
+        "projectKey": args.projectKey,
+        "propertySets": args.propertySets,
+        "proxy": args.proxy,
+        "repoLayoutRef": args.repoLayoutRef,
+        "tagRetention": args.tagRetention,
+        "xrayIndex": args.xrayIndex,
+    }, opts);
 }
 
 /**

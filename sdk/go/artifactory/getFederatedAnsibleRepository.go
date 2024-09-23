@@ -114,14 +114,20 @@ type LookupFederatedAnsibleRepositoryResult struct {
 
 func LookupFederatedAnsibleRepositoryOutput(ctx *pulumi.Context, args LookupFederatedAnsibleRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupFederatedAnsibleRepositoryResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupFederatedAnsibleRepositoryResult, error) {
+		ApplyT(func(v interface{}) (LookupFederatedAnsibleRepositoryResultOutput, error) {
 			args := v.(LookupFederatedAnsibleRepositoryArgs)
-			r, err := LookupFederatedAnsibleRepository(ctx, &args, opts...)
-			var s LookupFederatedAnsibleRepositoryResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupFederatedAnsibleRepositoryResult
+			secret, err := ctx.InvokePackageRaw("artifactory:index/getFederatedAnsibleRepository:getFederatedAnsibleRepository", args, &rv, "", opts...)
+			if err != nil {
+				return LookupFederatedAnsibleRepositoryResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupFederatedAnsibleRepositoryResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupFederatedAnsibleRepositoryResultOutput), nil
+			}
+			return output, nil
 		}).(LookupFederatedAnsibleRepositoryResultOutput)
 }
 

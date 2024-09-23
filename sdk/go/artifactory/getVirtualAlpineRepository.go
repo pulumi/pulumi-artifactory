@@ -92,14 +92,20 @@ type LookupVirtualAlpineRepositoryResult struct {
 
 func LookupVirtualAlpineRepositoryOutput(ctx *pulumi.Context, args LookupVirtualAlpineRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualAlpineRepositoryResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupVirtualAlpineRepositoryResult, error) {
+		ApplyT(func(v interface{}) (LookupVirtualAlpineRepositoryResultOutput, error) {
 			args := v.(LookupVirtualAlpineRepositoryArgs)
-			r, err := LookupVirtualAlpineRepository(ctx, &args, opts...)
-			var s LookupVirtualAlpineRepositoryResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupVirtualAlpineRepositoryResult
+			secret, err := ctx.InvokePackageRaw("artifactory:index/getVirtualAlpineRepository:getVirtualAlpineRepository", args, &rv, "", opts...)
+			if err != nil {
+				return LookupVirtualAlpineRepositoryResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupVirtualAlpineRepositoryResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupVirtualAlpineRepositoryResultOutput), nil
+			}
+			return output, nil
 		}).(LookupVirtualAlpineRepositoryResultOutput)
 }
 

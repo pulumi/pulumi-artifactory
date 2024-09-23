@@ -21,7 +21,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getRemoteComposerRepository(args: GetRemoteComposerRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRemoteComposerRepositoryResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("artifactory:index/getRemoteComposerRepository:getRemoteComposerRepository", {
         "allowAnyHostAuth": args.allowAnyHostAuth,
@@ -217,7 +216,55 @@ export interface GetRemoteComposerRepositoryResult {
  * ```
  */
 export function getRemoteComposerRepositoryOutput(args: GetRemoteComposerRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteComposerRepositoryResult> {
-    return pulumi.output(args).apply((a: any) => getRemoteComposerRepository(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("artifactory:index/getRemoteComposerRepository:getRemoteComposerRepository", {
+        "allowAnyHostAuth": args.allowAnyHostAuth,
+        "archiveBrowsingEnabled": args.archiveBrowsingEnabled,
+        "assumedOfflinePeriodSecs": args.assumedOfflinePeriodSecs,
+        "blackedOut": args.blackedOut,
+        "blockMismatchingMimeTypes": args.blockMismatchingMimeTypes,
+        "bypassHeadRequests": args.bypassHeadRequests,
+        "cdnRedirect": args.cdnRedirect,
+        "clientTlsCertificate": args.clientTlsCertificate,
+        "composerRegistryUrl": args.composerRegistryUrl,
+        "contentSynchronisation": args.contentSynchronisation,
+        "description": args.description,
+        "disableProxy": args.disableProxy,
+        "disableUrlNormalization": args.disableUrlNormalization,
+        "downloadDirect": args.downloadDirect,
+        "enableCookieManagement": args.enableCookieManagement,
+        "excludesPattern": args.excludesPattern,
+        "hardFail": args.hardFail,
+        "includesPattern": args.includesPattern,
+        "key": args.key,
+        "listRemoteFolderItems": args.listRemoteFolderItems,
+        "localAddress": args.localAddress,
+        "metadataRetrievalTimeoutSecs": args.metadataRetrievalTimeoutSecs,
+        "mismatchingMimeTypesOverrideList": args.mismatchingMimeTypesOverrideList,
+        "missedCachePeriodSeconds": args.missedCachePeriodSeconds,
+        "notes": args.notes,
+        "offline": args.offline,
+        "password": args.password,
+        "priorityResolution": args.priorityResolution,
+        "projectEnvironments": args.projectEnvironments,
+        "projectKey": args.projectKey,
+        "propertySets": args.propertySets,
+        "proxy": args.proxy,
+        "queryParams": args.queryParams,
+        "remoteRepoLayoutRef": args.remoteRepoLayoutRef,
+        "repoLayoutRef": args.repoLayoutRef,
+        "retrievalCachePeriodSeconds": args.retrievalCachePeriodSeconds,
+        "shareConfiguration": args.shareConfiguration,
+        "socketTimeoutMillis": args.socketTimeoutMillis,
+        "storeArtifactsLocally": args.storeArtifactsLocally,
+        "synchronizeProperties": args.synchronizeProperties,
+        "unusedArtifactsCleanupPeriodHours": args.unusedArtifactsCleanupPeriodHours,
+        "url": args.url,
+        "username": args.username,
+        "vcsGitDownloadUrl": args.vcsGitDownloadUrl,
+        "vcsGitProvider": args.vcsGitProvider,
+        "xrayIndex": args.xrayIndex,
+    }, opts);
 }
 
 /**

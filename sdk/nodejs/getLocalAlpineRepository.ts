@@ -19,7 +19,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getLocalAlpineRepository(args: GetLocalAlpineRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalAlpineRepositoryResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("artifactory:index/getLocalAlpineRepository:getLocalAlpineRepository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,
@@ -116,7 +115,26 @@ export interface GetLocalAlpineRepositoryResult {
  * ```
  */
 export function getLocalAlpineRepositoryOutput(args: GetLocalAlpineRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalAlpineRepositoryResult> {
-    return pulumi.output(args).apply((a: any) => getLocalAlpineRepository(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("artifactory:index/getLocalAlpineRepository:getLocalAlpineRepository", {
+        "archiveBrowsingEnabled": args.archiveBrowsingEnabled,
+        "blackedOut": args.blackedOut,
+        "cdnRedirect": args.cdnRedirect,
+        "description": args.description,
+        "downloadDirect": args.downloadDirect,
+        "excludesPattern": args.excludesPattern,
+        "includesPattern": args.includesPattern,
+        "indexCompressionFormats": args.indexCompressionFormats,
+        "key": args.key,
+        "notes": args.notes,
+        "primaryKeypairRef": args.primaryKeypairRef,
+        "priorityResolution": args.priorityResolution,
+        "projectEnvironments": args.projectEnvironments,
+        "projectKey": args.projectKey,
+        "propertySets": args.propertySets,
+        "repoLayoutRef": args.repoLayoutRef,
+        "xrayIndex": args.xrayIndex,
+    }, opts);
 }
 
 /**

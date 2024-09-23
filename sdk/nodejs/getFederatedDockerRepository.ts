@@ -7,7 +7,6 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 export function getFederatedDockerRepository(args: GetFederatedDockerRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetFederatedDockerRepositoryResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("artifactory:index/getFederatedDockerRepository:getFederatedDockerRepository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,
@@ -97,7 +96,31 @@ export interface GetFederatedDockerRepositoryResult {
     readonly xrayIndex?: boolean;
 }
 export function getFederatedDockerRepositoryOutput(args: GetFederatedDockerRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedDockerRepositoryResult> {
-    return pulumi.output(args).apply((a: any) => getFederatedDockerRepository(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("artifactory:index/getFederatedDockerRepository:getFederatedDockerRepository", {
+        "archiveBrowsingEnabled": args.archiveBrowsingEnabled,
+        "blackedOut": args.blackedOut,
+        "blockPushingSchema1": args.blockPushingSchema1,
+        "cdnRedirect": args.cdnRedirect,
+        "cleanupOnDelete": args.cleanupOnDelete,
+        "description": args.description,
+        "disableProxy": args.disableProxy,
+        "downloadDirect": args.downloadDirect,
+        "excludesPattern": args.excludesPattern,
+        "includesPattern": args.includesPattern,
+        "key": args.key,
+        "maxUniqueTags": args.maxUniqueTags,
+        "members": args.members,
+        "notes": args.notes,
+        "priorityResolution": args.priorityResolution,
+        "projectEnvironments": args.projectEnvironments,
+        "projectKey": args.projectKey,
+        "propertySets": args.propertySets,
+        "proxy": args.proxy,
+        "repoLayoutRef": args.repoLayoutRef,
+        "tagRetention": args.tagRetention,
+        "xrayIndex": args.xrayIndex,
+    }, opts);
 }
 
 /**

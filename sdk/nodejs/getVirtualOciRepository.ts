@@ -19,7 +19,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getVirtualOciRepository(args: GetVirtualOciRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualOciRepositoryResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("artifactory:index/getVirtualOciRepository:getVirtualOciRepository", {
         "artifactoryRequestsCanRetrieveRemoteArtifacts": args.artifactoryRequestsCanRetrieveRemoteArtifacts,
@@ -101,7 +100,21 @@ export interface GetVirtualOciRepositoryResult {
  * ```
  */
 export function getVirtualOciRepositoryOutput(args: GetVirtualOciRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualOciRepositoryResult> {
-    return pulumi.output(args).apply((a: any) => getVirtualOciRepository(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("artifactory:index/getVirtualOciRepository:getVirtualOciRepository", {
+        "artifactoryRequestsCanRetrieveRemoteArtifacts": args.artifactoryRequestsCanRetrieveRemoteArtifacts,
+        "defaultDeploymentRepo": args.defaultDeploymentRepo,
+        "description": args.description,
+        "excludesPattern": args.excludesPattern,
+        "includesPattern": args.includesPattern,
+        "key": args.key,
+        "notes": args.notes,
+        "projectEnvironments": args.projectEnvironments,
+        "projectKey": args.projectKey,
+        "repoLayoutRef": args.repoLayoutRef,
+        "repositories": args.repositories,
+        "resolveOciTagsByTimestamp": args.resolveOciTagsByTimestamp,
+    }, opts);
 }
 
 /**

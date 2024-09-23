@@ -112,14 +112,20 @@ type LookupFederatedHelmRepositoryResult struct {
 
 func LookupFederatedHelmRepositoryOutput(ctx *pulumi.Context, args LookupFederatedHelmRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupFederatedHelmRepositoryResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupFederatedHelmRepositoryResult, error) {
+		ApplyT(func(v interface{}) (LookupFederatedHelmRepositoryResultOutput, error) {
 			args := v.(LookupFederatedHelmRepositoryArgs)
-			r, err := LookupFederatedHelmRepository(ctx, &args, opts...)
-			var s LookupFederatedHelmRepositoryResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupFederatedHelmRepositoryResult
+			secret, err := ctx.InvokePackageRaw("artifactory:index/getFederatedHelmRepository:getFederatedHelmRepository", args, &rv, "", opts...)
+			if err != nil {
+				return LookupFederatedHelmRepositoryResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupFederatedHelmRepositoryResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupFederatedHelmRepositoryResultOutput), nil
+			}
+			return output, nil
 		}).(LookupFederatedHelmRepositoryResultOutput)
 }
 

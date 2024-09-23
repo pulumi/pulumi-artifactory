@@ -150,14 +150,20 @@ type LookupRemoteTerraformRepositoryResult struct {
 
 func LookupRemoteTerraformRepositoryOutput(ctx *pulumi.Context, args LookupRemoteTerraformRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupRemoteTerraformRepositoryResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupRemoteTerraformRepositoryResult, error) {
+		ApplyT(func(v interface{}) (LookupRemoteTerraformRepositoryResultOutput, error) {
 			args := v.(LookupRemoteTerraformRepositoryArgs)
-			r, err := LookupRemoteTerraformRepository(ctx, &args, opts...)
-			var s LookupRemoteTerraformRepositoryResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupRemoteTerraformRepositoryResult
+			secret, err := ctx.InvokePackageRaw("artifactory:index/getRemoteTerraformRepository:getRemoteTerraformRepository", args, &rv, "", opts...)
+			if err != nil {
+				return LookupRemoteTerraformRepositoryResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupRemoteTerraformRepositoryResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupRemoteTerraformRepositoryResultOutput), nil
+			}
+			return output, nil
 		}).(LookupRemoteTerraformRepositoryResultOutput)
 }
 

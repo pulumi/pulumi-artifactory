@@ -19,7 +19,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getVirtualComposerRepository(args: GetVirtualComposerRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualComposerRepositoryResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("artifactory:index/getVirtualComposerRepository:getVirtualComposerRepository", {
         "artifactoryRequestsCanRetrieveRemoteArtifacts": args.artifactoryRequestsCanRetrieveRemoteArtifacts,
@@ -92,7 +91,20 @@ export interface GetVirtualComposerRepositoryResult {
  * ```
  */
 export function getVirtualComposerRepositoryOutput(args: GetVirtualComposerRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualComposerRepositoryResult> {
-    return pulumi.output(args).apply((a: any) => getVirtualComposerRepository(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("artifactory:index/getVirtualComposerRepository:getVirtualComposerRepository", {
+        "artifactoryRequestsCanRetrieveRemoteArtifacts": args.artifactoryRequestsCanRetrieveRemoteArtifacts,
+        "defaultDeploymentRepo": args.defaultDeploymentRepo,
+        "description": args.description,
+        "excludesPattern": args.excludesPattern,
+        "includesPattern": args.includesPattern,
+        "key": args.key,
+        "notes": args.notes,
+        "projectEnvironments": args.projectEnvironments,
+        "projectKey": args.projectKey,
+        "repoLayoutRef": args.repoLayoutRef,
+        "repositories": args.repositories,
+    }, opts);
 }
 
 /**

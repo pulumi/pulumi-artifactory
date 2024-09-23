@@ -100,14 +100,20 @@ type LookupLocalOciRepositoryResult struct {
 
 func LookupLocalOciRepositoryOutput(ctx *pulumi.Context, args LookupLocalOciRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupLocalOciRepositoryResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupLocalOciRepositoryResult, error) {
+		ApplyT(func(v interface{}) (LookupLocalOciRepositoryResultOutput, error) {
 			args := v.(LookupLocalOciRepositoryArgs)
-			r, err := LookupLocalOciRepository(ctx, &args, opts...)
-			var s LookupLocalOciRepositoryResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupLocalOciRepositoryResult
+			secret, err := ctx.InvokePackageRaw("artifactory:index/getLocalOciRepository:getLocalOciRepository", args, &rv, "", opts...)
+			if err != nil {
+				return LookupLocalOciRepositoryResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupLocalOciRepositoryResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupLocalOciRepositoryResultOutput), nil
+			}
+			return output, nil
 		}).(LookupLocalOciRepositoryResultOutput)
 }
 

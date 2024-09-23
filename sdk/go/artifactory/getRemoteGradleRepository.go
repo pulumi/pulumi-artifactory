@@ -178,14 +178,20 @@ type LookupRemoteGradleRepositoryResult struct {
 
 func LookupRemoteGradleRepositoryOutput(ctx *pulumi.Context, args LookupRemoteGradleRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupRemoteGradleRepositoryResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupRemoteGradleRepositoryResult, error) {
+		ApplyT(func(v interface{}) (LookupRemoteGradleRepositoryResultOutput, error) {
 			args := v.(LookupRemoteGradleRepositoryArgs)
-			r, err := LookupRemoteGradleRepository(ctx, &args, opts...)
-			var s LookupRemoteGradleRepositoryResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupRemoteGradleRepositoryResult
+			secret, err := ctx.InvokePackageRaw("artifactory:index/getRemoteGradleRepository:getRemoteGradleRepository", args, &rv, "", opts...)
+			if err != nil {
+				return LookupRemoteGradleRepositoryResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupRemoteGradleRepositoryResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupRemoteGradleRepositoryResultOutput), nil
+			}
+			return output, nil
 		}).(LookupRemoteGradleRepositoryResultOutput)
 }
 

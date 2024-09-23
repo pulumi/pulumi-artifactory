@@ -93,14 +93,20 @@ type LookupLocalOpkgRepositoryResult struct {
 
 func LookupLocalOpkgRepositoryOutput(ctx *pulumi.Context, args LookupLocalOpkgRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupLocalOpkgRepositoryResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupLocalOpkgRepositoryResult, error) {
+		ApplyT(func(v interface{}) (LookupLocalOpkgRepositoryResultOutput, error) {
 			args := v.(LookupLocalOpkgRepositoryArgs)
-			r, err := LookupLocalOpkgRepository(ctx, &args, opts...)
-			var s LookupLocalOpkgRepositoryResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupLocalOpkgRepositoryResult
+			secret, err := ctx.InvokePackageRaw("artifactory:index/getLocalOpkgRepository:getLocalOpkgRepository", args, &rv, "", opts...)
+			if err != nil {
+				return LookupLocalOpkgRepositoryResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupLocalOpkgRepositoryResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupLocalOpkgRepositoryResultOutput), nil
+			}
+			return output, nil
 		}).(LookupLocalOpkgRepositoryResultOutput)
 }
 

@@ -17,7 +17,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getVirtualTerraformRepository(args: GetVirtualTerraformRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualTerraformRepositoryResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("artifactory:index/getVirtualTerraformRepository:getVirtualTerraformRepository", {
         "artifactoryRequestsCanRetrieveRemoteArtifacts": args.artifactoryRequestsCanRetrieveRemoteArtifacts,
@@ -88,7 +87,20 @@ export interface GetVirtualTerraformRepositoryResult {
  * ```
  */
 export function getVirtualTerraformRepositoryOutput(args: GetVirtualTerraformRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualTerraformRepositoryResult> {
-    return pulumi.output(args).apply((a: any) => getVirtualTerraformRepository(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("artifactory:index/getVirtualTerraformRepository:getVirtualTerraformRepository", {
+        "artifactoryRequestsCanRetrieveRemoteArtifacts": args.artifactoryRequestsCanRetrieveRemoteArtifacts,
+        "defaultDeploymentRepo": args.defaultDeploymentRepo,
+        "description": args.description,
+        "excludesPattern": args.excludesPattern,
+        "includesPattern": args.includesPattern,
+        "key": args.key,
+        "notes": args.notes,
+        "projectEnvironments": args.projectEnvironments,
+        "projectKey": args.projectKey,
+        "repoLayoutRef": args.repoLayoutRef,
+        "repositories": args.repositories,
+    }, opts);
 }
 
 /**

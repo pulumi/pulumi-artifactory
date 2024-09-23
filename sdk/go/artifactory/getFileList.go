@@ -95,14 +95,20 @@ type GetFileListResult struct {
 
 func GetFileListOutput(ctx *pulumi.Context, args GetFileListOutputArgs, opts ...pulumi.InvokeOption) GetFileListResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetFileListResult, error) {
+		ApplyT(func(v interface{}) (GetFileListResultOutput, error) {
 			args := v.(GetFileListArgs)
-			r, err := GetFileList(ctx, &args, opts...)
-			var s GetFileListResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetFileListResult
+			secret, err := ctx.InvokePackageRaw("artifactory:index/getFileList:getFileList", args, &rv, "", opts...)
+			if err != nil {
+				return GetFileListResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetFileListResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetFileListResultOutput), nil
+			}
+			return output, nil
 		}).(GetFileListResultOutput)
 }
 

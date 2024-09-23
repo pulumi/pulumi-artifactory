@@ -112,14 +112,20 @@ type LookupFederatedPypiRepositoryResult struct {
 
 func LookupFederatedPypiRepositoryOutput(ctx *pulumi.Context, args LookupFederatedPypiRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupFederatedPypiRepositoryResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupFederatedPypiRepositoryResult, error) {
+		ApplyT(func(v interface{}) (LookupFederatedPypiRepositoryResultOutput, error) {
 			args := v.(LookupFederatedPypiRepositoryArgs)
-			r, err := LookupFederatedPypiRepository(ctx, &args, opts...)
-			var s LookupFederatedPypiRepositoryResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupFederatedPypiRepositoryResult
+			secret, err := ctx.InvokePackageRaw("artifactory:index/getFederatedPypiRepository:getFederatedPypiRepository", args, &rv, "", opts...)
+			if err != nil {
+				return LookupFederatedPypiRepositoryResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupFederatedPypiRepositoryResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupFederatedPypiRepositoryResultOutput), nil
+			}
+			return output, nil
 		}).(LookupFederatedPypiRepositoryResultOutput)
 }
 

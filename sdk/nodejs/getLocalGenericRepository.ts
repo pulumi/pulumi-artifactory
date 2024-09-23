@@ -19,7 +19,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getLocalGenericRepository(args: GetLocalGenericRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalGenericRepositoryResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("artifactory:index/getLocalGenericRepository:getLocalGenericRepository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,
@@ -107,7 +106,24 @@ export interface GetLocalGenericRepositoryResult {
  * ```
  */
 export function getLocalGenericRepositoryOutput(args: GetLocalGenericRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalGenericRepositoryResult> {
-    return pulumi.output(args).apply((a: any) => getLocalGenericRepository(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("artifactory:index/getLocalGenericRepository:getLocalGenericRepository", {
+        "archiveBrowsingEnabled": args.archiveBrowsingEnabled,
+        "blackedOut": args.blackedOut,
+        "cdnRedirect": args.cdnRedirect,
+        "description": args.description,
+        "downloadDirect": args.downloadDirect,
+        "excludesPattern": args.excludesPattern,
+        "includesPattern": args.includesPattern,
+        "key": args.key,
+        "notes": args.notes,
+        "priorityResolution": args.priorityResolution,
+        "projectEnvironments": args.projectEnvironments,
+        "projectKey": args.projectKey,
+        "propertySets": args.propertySets,
+        "repoLayoutRef": args.repoLayoutRef,
+        "xrayIndex": args.xrayIndex,
+    }, opts);
 }
 
 /**

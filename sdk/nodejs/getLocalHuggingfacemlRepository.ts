@@ -8,7 +8,6 @@ import * as utilities from "./utilities";
  * Provides a data source for a local huggingfaceml repository
  */
 export function getLocalHuggingfacemlRepository(args: GetLocalHuggingfacemlRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalHuggingfacemlRepositoryResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("artifactory:index/getLocalHuggingfacemlRepository:getLocalHuggingfacemlRepository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,
@@ -165,7 +164,24 @@ export interface GetLocalHuggingfacemlRepositoryResult {
  * Provides a data source for a local huggingfaceml repository
  */
 export function getLocalHuggingfacemlRepositoryOutput(args: GetLocalHuggingfacemlRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalHuggingfacemlRepositoryResult> {
-    return pulumi.output(args).apply((a: any) => getLocalHuggingfacemlRepository(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("artifactory:index/getLocalHuggingfacemlRepository:getLocalHuggingfacemlRepository", {
+        "archiveBrowsingEnabled": args.archiveBrowsingEnabled,
+        "blackedOut": args.blackedOut,
+        "cdnRedirect": args.cdnRedirect,
+        "description": args.description,
+        "downloadDirect": args.downloadDirect,
+        "excludesPattern": args.excludesPattern,
+        "includesPattern": args.includesPattern,
+        "key": args.key,
+        "notes": args.notes,
+        "priorityResolution": args.priorityResolution,
+        "projectEnvironments": args.projectEnvironments,
+        "projectKey": args.projectKey,
+        "propertySets": args.propertySets,
+        "repoLayoutRef": args.repoLayoutRef,
+        "xrayIndex": args.xrayIndex,
+    }, opts);
 }
 
 /**

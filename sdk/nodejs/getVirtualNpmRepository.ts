@@ -19,7 +19,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getVirtualNpmRepository(args: GetVirtualNpmRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNpmRepositoryResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("artifactory:index/getVirtualNpmRepository:getVirtualNpmRepository", {
         "artifactoryRequestsCanRetrieveRemoteArtifacts": args.artifactoryRequestsCanRetrieveRemoteArtifacts,
@@ -110,7 +109,24 @@ export interface GetVirtualNpmRepositoryResult {
  * ```
  */
 export function getVirtualNpmRepositoryOutput(args: GetVirtualNpmRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNpmRepositoryResult> {
-    return pulumi.output(args).apply((a: any) => getVirtualNpmRepository(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("artifactory:index/getVirtualNpmRepository:getVirtualNpmRepository", {
+        "artifactoryRequestsCanRetrieveRemoteArtifacts": args.artifactoryRequestsCanRetrieveRemoteArtifacts,
+        "defaultDeploymentRepo": args.defaultDeploymentRepo,
+        "description": args.description,
+        "excludesPattern": args.excludesPattern,
+        "externalDependenciesEnabled": args.externalDependenciesEnabled,
+        "externalDependenciesPatterns": args.externalDependenciesPatterns,
+        "externalDependenciesRemoteRepo": args.externalDependenciesRemoteRepo,
+        "includesPattern": args.includesPattern,
+        "key": args.key,
+        "notes": args.notes,
+        "projectEnvironments": args.projectEnvironments,
+        "projectKey": args.projectKey,
+        "repoLayoutRef": args.repoLayoutRef,
+        "repositories": args.repositories,
+        "retrievalCachePeriodSeconds": args.retrievalCachePeriodSeconds,
+    }, opts);
 }
 
 /**

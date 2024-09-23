@@ -168,14 +168,20 @@ type LookupRemoteNugetRepositoryResult struct {
 
 func LookupRemoteNugetRepositoryOutput(ctx *pulumi.Context, args LookupRemoteNugetRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupRemoteNugetRepositoryResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupRemoteNugetRepositoryResult, error) {
+		ApplyT(func(v interface{}) (LookupRemoteNugetRepositoryResultOutput, error) {
 			args := v.(LookupRemoteNugetRepositoryArgs)
-			r, err := LookupRemoteNugetRepository(ctx, &args, opts...)
-			var s LookupRemoteNugetRepositoryResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupRemoteNugetRepositoryResult
+			secret, err := ctx.InvokePackageRaw("artifactory:index/getRemoteNugetRepository:getRemoteNugetRepository", args, &rv, "", opts...)
+			if err != nil {
+				return LookupRemoteNugetRepositoryResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupRemoteNugetRepositoryResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupRemoteNugetRepositoryResultOutput), nil
+			}
+			return output, nil
 		}).(LookupRemoteNugetRepositoryResultOutput)
 }
 

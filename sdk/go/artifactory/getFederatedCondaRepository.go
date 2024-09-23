@@ -112,14 +112,20 @@ type LookupFederatedCondaRepositoryResult struct {
 
 func LookupFederatedCondaRepositoryOutput(ctx *pulumi.Context, args LookupFederatedCondaRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupFederatedCondaRepositoryResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupFederatedCondaRepositoryResult, error) {
+		ApplyT(func(v interface{}) (LookupFederatedCondaRepositoryResultOutput, error) {
 			args := v.(LookupFederatedCondaRepositoryArgs)
-			r, err := LookupFederatedCondaRepository(ctx, &args, opts...)
-			var s LookupFederatedCondaRepositoryResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupFederatedCondaRepositoryResult
+			secret, err := ctx.InvokePackageRaw("artifactory:index/getFederatedCondaRepository:getFederatedCondaRepository", args, &rv, "", opts...)
+			if err != nil {
+				return LookupFederatedCondaRepositoryResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupFederatedCondaRepositoryResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupFederatedCondaRepositoryResultOutput), nil
+			}
+			return output, nil
 		}).(LookupFederatedCondaRepositoryResultOutput)
 }
 

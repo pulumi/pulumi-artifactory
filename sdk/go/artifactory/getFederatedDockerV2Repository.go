@@ -119,14 +119,20 @@ type LookupFederatedDockerV2RepositoryResult struct {
 
 func LookupFederatedDockerV2RepositoryOutput(ctx *pulumi.Context, args LookupFederatedDockerV2RepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupFederatedDockerV2RepositoryResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupFederatedDockerV2RepositoryResult, error) {
+		ApplyT(func(v interface{}) (LookupFederatedDockerV2RepositoryResultOutput, error) {
 			args := v.(LookupFederatedDockerV2RepositoryArgs)
-			r, err := LookupFederatedDockerV2Repository(ctx, &args, opts...)
-			var s LookupFederatedDockerV2RepositoryResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupFederatedDockerV2RepositoryResult
+			secret, err := ctx.InvokePackageRaw("artifactory:index/getFederatedDockerV2Repository:getFederatedDockerV2Repository", args, &rv, "", opts...)
+			if err != nil {
+				return LookupFederatedDockerV2RepositoryResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupFederatedDockerV2RepositoryResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupFederatedDockerV2RepositoryResultOutput), nil
+			}
+			return output, nil
 		}).(LookupFederatedDockerV2RepositoryResultOutput)
 }
 

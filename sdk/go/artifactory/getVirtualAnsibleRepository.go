@@ -88,14 +88,20 @@ type LookupVirtualAnsibleRepositoryResult struct {
 
 func LookupVirtualAnsibleRepositoryOutput(ctx *pulumi.Context, args LookupVirtualAnsibleRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualAnsibleRepositoryResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupVirtualAnsibleRepositoryResult, error) {
+		ApplyT(func(v interface{}) (LookupVirtualAnsibleRepositoryResultOutput, error) {
 			args := v.(LookupVirtualAnsibleRepositoryArgs)
-			r, err := LookupVirtualAnsibleRepository(ctx, &args, opts...)
-			var s LookupVirtualAnsibleRepositoryResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupVirtualAnsibleRepositoryResult
+			secret, err := ctx.InvokePackageRaw("artifactory:index/getVirtualAnsibleRepository:getVirtualAnsibleRepository", args, &rv, "", opts...)
+			if err != nil {
+				return LookupVirtualAnsibleRepositoryResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupVirtualAnsibleRepositoryResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupVirtualAnsibleRepositoryResultOutput), nil
+			}
+			return output, nil
 		}).(LookupVirtualAnsibleRepositoryResultOutput)
 }
 

@@ -84,14 +84,20 @@ type LookupVirtualSwiftRepositoryResult struct {
 
 func LookupVirtualSwiftRepositoryOutput(ctx *pulumi.Context, args LookupVirtualSwiftRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualSwiftRepositoryResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupVirtualSwiftRepositoryResult, error) {
+		ApplyT(func(v interface{}) (LookupVirtualSwiftRepositoryResultOutput, error) {
 			args := v.(LookupVirtualSwiftRepositoryArgs)
-			r, err := LookupVirtualSwiftRepository(ctx, &args, opts...)
-			var s LookupVirtualSwiftRepositoryResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupVirtualSwiftRepositoryResult
+			secret, err := ctx.InvokePackageRaw("artifactory:index/getVirtualSwiftRepository:getVirtualSwiftRepository", args, &rv, "", opts...)
+			if err != nil {
+				return LookupVirtualSwiftRepositoryResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupVirtualSwiftRepositoryResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupVirtualSwiftRepositoryResultOutput), nil
+			}
+			return output, nil
 		}).(LookupVirtualSwiftRepositoryResultOutput)
 }
 

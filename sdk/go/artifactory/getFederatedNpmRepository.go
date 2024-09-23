@@ -112,14 +112,20 @@ type LookupFederatedNpmRepositoryResult struct {
 
 func LookupFederatedNpmRepositoryOutput(ctx *pulumi.Context, args LookupFederatedNpmRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupFederatedNpmRepositoryResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupFederatedNpmRepositoryResult, error) {
+		ApplyT(func(v interface{}) (LookupFederatedNpmRepositoryResultOutput, error) {
 			args := v.(LookupFederatedNpmRepositoryArgs)
-			r, err := LookupFederatedNpmRepository(ctx, &args, opts...)
-			var s LookupFederatedNpmRepositoryResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupFederatedNpmRepositoryResult
+			secret, err := ctx.InvokePackageRaw("artifactory:index/getFederatedNpmRepository:getFederatedNpmRepository", args, &rv, "", opts...)
+			if err != nil {
+				return LookupFederatedNpmRepositoryResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupFederatedNpmRepositoryResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupFederatedNpmRepositoryResultOutput), nil
+			}
+			return output, nil
 		}).(LookupFederatedNpmRepositoryResultOutput)
 }
 

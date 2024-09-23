@@ -108,14 +108,20 @@ type GetLocalDockerV1RepositoryResult struct {
 
 func GetLocalDockerV1RepositoryOutput(ctx *pulumi.Context, args GetLocalDockerV1RepositoryOutputArgs, opts ...pulumi.InvokeOption) GetLocalDockerV1RepositoryResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetLocalDockerV1RepositoryResult, error) {
+		ApplyT(func(v interface{}) (GetLocalDockerV1RepositoryResultOutput, error) {
 			args := v.(GetLocalDockerV1RepositoryArgs)
-			r, err := GetLocalDockerV1Repository(ctx, &args, opts...)
-			var s GetLocalDockerV1RepositoryResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetLocalDockerV1RepositoryResult
+			secret, err := ctx.InvokePackageRaw("artifactory:index/getLocalDockerV1Repository:getLocalDockerV1Repository", args, &rv, "", opts...)
+			if err != nil {
+				return GetLocalDockerV1RepositoryResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetLocalDockerV1RepositoryResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetLocalDockerV1RepositoryResultOutput), nil
+			}
+			return output, nil
 		}).(GetLocalDockerV1RepositoryResultOutput)
 }
 

@@ -84,14 +84,20 @@ type LookupVirtualGitlfsRepositoryResult struct {
 
 func LookupVirtualGitlfsRepositoryOutput(ctx *pulumi.Context, args LookupVirtualGitlfsRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualGitlfsRepositoryResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupVirtualGitlfsRepositoryResult, error) {
+		ApplyT(func(v interface{}) (LookupVirtualGitlfsRepositoryResultOutput, error) {
 			args := v.(LookupVirtualGitlfsRepositoryArgs)
-			r, err := LookupVirtualGitlfsRepository(ctx, &args, opts...)
-			var s LookupVirtualGitlfsRepositoryResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupVirtualGitlfsRepositoryResult
+			secret, err := ctx.InvokePackageRaw("artifactory:index/getVirtualGitlfsRepository:getVirtualGitlfsRepository", args, &rv, "", opts...)
+			if err != nil {
+				return LookupVirtualGitlfsRepositoryResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupVirtualGitlfsRepositoryResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupVirtualGitlfsRepositoryResultOutput), nil
+			}
+			return output, nil
 		}).(LookupVirtualGitlfsRepositoryResultOutput)
 }
 

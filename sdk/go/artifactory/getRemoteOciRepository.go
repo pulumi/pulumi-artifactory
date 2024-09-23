@@ -164,14 +164,20 @@ type LookupRemoteOciRepositoryResult struct {
 
 func LookupRemoteOciRepositoryOutput(ctx *pulumi.Context, args LookupRemoteOciRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupRemoteOciRepositoryResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupRemoteOciRepositoryResult, error) {
+		ApplyT(func(v interface{}) (LookupRemoteOciRepositoryResultOutput, error) {
 			args := v.(LookupRemoteOciRepositoryArgs)
-			r, err := LookupRemoteOciRepository(ctx, &args, opts...)
-			var s LookupRemoteOciRepositoryResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupRemoteOciRepositoryResult
+			secret, err := ctx.InvokePackageRaw("artifactory:index/getRemoteOciRepository:getRemoteOciRepository", args, &rv, "", opts...)
+			if err != nil {
+				return LookupRemoteOciRepositoryResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupRemoteOciRepositoryResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupRemoteOciRepositoryResultOutput), nil
+			}
+			return output, nil
 		}).(LookupRemoteOciRepositoryResultOutput)
 }
 

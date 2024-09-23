@@ -148,14 +148,20 @@ type LookupRemoteRpmRepositoryResult struct {
 
 func LookupRemoteRpmRepositoryOutput(ctx *pulumi.Context, args LookupRemoteRpmRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupRemoteRpmRepositoryResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupRemoteRpmRepositoryResult, error) {
+		ApplyT(func(v interface{}) (LookupRemoteRpmRepositoryResultOutput, error) {
 			args := v.(LookupRemoteRpmRepositoryArgs)
-			r, err := LookupRemoteRpmRepository(ctx, &args, opts...)
-			var s LookupRemoteRpmRepositoryResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupRemoteRpmRepositoryResult
+			secret, err := ctx.InvokePackageRaw("artifactory:index/getRemoteRpmRepository:getRemoteRpmRepository", args, &rv, "", opts...)
+			if err != nil {
+				return LookupRemoteRpmRepositoryResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupRemoteRpmRepositoryResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupRemoteRpmRepositoryResultOutput), nil
+			}
+			return output, nil
 		}).(LookupRemoteRpmRepositoryResultOutput)
 }
 
