@@ -19,7 +19,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getVirtualBowerRepository(args: GetVirtualBowerRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualBowerRepositoryResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("artifactory:index/getVirtualBowerRepository:getVirtualBowerRepository", {
         "artifactoryRequestsCanRetrieveRemoteArtifacts": args.artifactoryRequestsCanRetrieveRemoteArtifacts,
@@ -119,7 +118,23 @@ export interface GetVirtualBowerRepositoryResult {
  * ```
  */
 export function getVirtualBowerRepositoryOutput(args: GetVirtualBowerRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualBowerRepositoryResult> {
-    return pulumi.output(args).apply((a: any) => getVirtualBowerRepository(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("artifactory:index/getVirtualBowerRepository:getVirtualBowerRepository", {
+        "artifactoryRequestsCanRetrieveRemoteArtifacts": args.artifactoryRequestsCanRetrieveRemoteArtifacts,
+        "defaultDeploymentRepo": args.defaultDeploymentRepo,
+        "description": args.description,
+        "excludesPattern": args.excludesPattern,
+        "externalDependenciesEnabled": args.externalDependenciesEnabled,
+        "externalDependenciesPatterns": args.externalDependenciesPatterns,
+        "externalDependenciesRemoteRepo": args.externalDependenciesRemoteRepo,
+        "includesPattern": args.includesPattern,
+        "key": args.key,
+        "notes": args.notes,
+        "projectEnvironments": args.projectEnvironments,
+        "projectKey": args.projectKey,
+        "repoLayoutRef": args.repoLayoutRef,
+        "repositories": args.repositories,
+    }, opts);
 }
 
 /**

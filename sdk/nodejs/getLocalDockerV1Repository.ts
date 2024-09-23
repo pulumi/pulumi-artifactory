@@ -19,7 +19,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getLocalDockerV1Repository(args: GetLocalDockerV1RepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalDockerV1RepositoryResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("artifactory:index/getLocalDockerV1Repository:getLocalDockerV1Repository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,
@@ -131,7 +130,25 @@ export interface GetLocalDockerV1RepositoryResult {
  * ```
  */
 export function getLocalDockerV1RepositoryOutput(args: GetLocalDockerV1RepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalDockerV1RepositoryResult> {
-    return pulumi.output(args).apply((a: any) => getLocalDockerV1Repository(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("artifactory:index/getLocalDockerV1Repository:getLocalDockerV1Repository", {
+        "archiveBrowsingEnabled": args.archiveBrowsingEnabled,
+        "blackedOut": args.blackedOut,
+        "cdnRedirect": args.cdnRedirect,
+        "description": args.description,
+        "downloadDirect": args.downloadDirect,
+        "excludesPattern": args.excludesPattern,
+        "includesPattern": args.includesPattern,
+        "key": args.key,
+        "maxUniqueTags": args.maxUniqueTags,
+        "notes": args.notes,
+        "priorityResolution": args.priorityResolution,
+        "projectEnvironments": args.projectEnvironments,
+        "projectKey": args.projectKey,
+        "propertySets": args.propertySets,
+        "repoLayoutRef": args.repoLayoutRef,
+        "xrayIndex": args.xrayIndex,
+    }, opts);
 }
 
 /**

@@ -160,14 +160,20 @@ type LookupRemoteComposerRepositoryResult struct {
 
 func LookupRemoteComposerRepositoryOutput(ctx *pulumi.Context, args LookupRemoteComposerRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupRemoteComposerRepositoryResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupRemoteComposerRepositoryResult, error) {
+		ApplyT(func(v interface{}) (LookupRemoteComposerRepositoryResultOutput, error) {
 			args := v.(LookupRemoteComposerRepositoryArgs)
-			r, err := LookupRemoteComposerRepository(ctx, &args, opts...)
-			var s LookupRemoteComposerRepositoryResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupRemoteComposerRepositoryResult
+			secret, err := ctx.InvokePackageRaw("artifactory:index/getRemoteComposerRepository:getRemoteComposerRepository", args, &rv, "", opts...)
+			if err != nil {
+				return LookupRemoteComposerRepositoryResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupRemoteComposerRepositoryResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupRemoteComposerRepositoryResultOutput), nil
+			}
+			return output, nil
 		}).(LookupRemoteComposerRepositoryResultOutput)
 }
 

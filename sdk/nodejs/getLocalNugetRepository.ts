@@ -19,7 +19,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getLocalNugetRepository(args: GetLocalNugetRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalNugetRepositoryResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("artifactory:index/getLocalNugetRepository:getLocalNugetRepository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,
@@ -128,7 +127,26 @@ export interface GetLocalNugetRepositoryResult {
  * ```
  */
 export function getLocalNugetRepositoryOutput(args: GetLocalNugetRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalNugetRepositoryResult> {
-    return pulumi.output(args).apply((a: any) => getLocalNugetRepository(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("artifactory:index/getLocalNugetRepository:getLocalNugetRepository", {
+        "archiveBrowsingEnabled": args.archiveBrowsingEnabled,
+        "blackedOut": args.blackedOut,
+        "cdnRedirect": args.cdnRedirect,
+        "description": args.description,
+        "downloadDirect": args.downloadDirect,
+        "excludesPattern": args.excludesPattern,
+        "forceNugetAuthentication": args.forceNugetAuthentication,
+        "includesPattern": args.includesPattern,
+        "key": args.key,
+        "maxUniqueSnapshots": args.maxUniqueSnapshots,
+        "notes": args.notes,
+        "priorityResolution": args.priorityResolution,
+        "projectEnvironments": args.projectEnvironments,
+        "projectKey": args.projectKey,
+        "propertySets": args.propertySets,
+        "repoLayoutRef": args.repoLayoutRef,
+        "xrayIndex": args.xrayIndex,
+    }, opts);
 }
 
 /**

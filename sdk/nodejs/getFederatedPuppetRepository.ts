@@ -21,7 +21,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getFederatedPuppetRepository(args: GetFederatedPuppetRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetFederatedPuppetRepositoryResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("artifactory:index/getFederatedPuppetRepository:getFederatedPuppetRepository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,
@@ -142,7 +141,28 @@ export interface GetFederatedPuppetRepositoryResult {
  * ```
  */
 export function getFederatedPuppetRepositoryOutput(args: GetFederatedPuppetRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedPuppetRepositoryResult> {
-    return pulumi.output(args).apply((a: any) => getFederatedPuppetRepository(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("artifactory:index/getFederatedPuppetRepository:getFederatedPuppetRepository", {
+        "archiveBrowsingEnabled": args.archiveBrowsingEnabled,
+        "blackedOut": args.blackedOut,
+        "cdnRedirect": args.cdnRedirect,
+        "cleanupOnDelete": args.cleanupOnDelete,
+        "description": args.description,
+        "disableProxy": args.disableProxy,
+        "downloadDirect": args.downloadDirect,
+        "excludesPattern": args.excludesPattern,
+        "includesPattern": args.includesPattern,
+        "key": args.key,
+        "members": args.members,
+        "notes": args.notes,
+        "priorityResolution": args.priorityResolution,
+        "projectEnvironments": args.projectEnvironments,
+        "projectKey": args.projectKey,
+        "propertySets": args.propertySets,
+        "proxy": args.proxy,
+        "repoLayoutRef": args.repoLayoutRef,
+        "xrayIndex": args.xrayIndex,
+    }, opts);
 }
 
 /**

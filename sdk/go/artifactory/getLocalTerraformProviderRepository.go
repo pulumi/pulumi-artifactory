@@ -94,14 +94,20 @@ type LookupLocalTerraformProviderRepositoryResult struct {
 
 func LookupLocalTerraformProviderRepositoryOutput(ctx *pulumi.Context, args LookupLocalTerraformProviderRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupLocalTerraformProviderRepositoryResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupLocalTerraformProviderRepositoryResult, error) {
+		ApplyT(func(v interface{}) (LookupLocalTerraformProviderRepositoryResultOutput, error) {
 			args := v.(LookupLocalTerraformProviderRepositoryArgs)
-			r, err := LookupLocalTerraformProviderRepository(ctx, &args, opts...)
-			var s LookupLocalTerraformProviderRepositoryResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupLocalTerraformProviderRepositoryResult
+			secret, err := ctx.InvokePackageRaw("artifactory:index/getLocalTerraformProviderRepository:getLocalTerraformProviderRepository", args, &rv, "", opts...)
+			if err != nil {
+				return LookupLocalTerraformProviderRepositoryResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupLocalTerraformProviderRepositoryResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupLocalTerraformProviderRepositoryResultOutput), nil
+			}
+			return output, nil
 		}).(LookupLocalTerraformProviderRepositoryResultOutput)
 }
 

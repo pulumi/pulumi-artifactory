@@ -134,14 +134,20 @@ type LookupLocalMavenRepositoryResult struct {
 
 func LookupLocalMavenRepositoryOutput(ctx *pulumi.Context, args LookupLocalMavenRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupLocalMavenRepositoryResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupLocalMavenRepositoryResult, error) {
+		ApplyT(func(v interface{}) (LookupLocalMavenRepositoryResultOutput, error) {
 			args := v.(LookupLocalMavenRepositoryArgs)
-			r, err := LookupLocalMavenRepository(ctx, &args, opts...)
-			var s LookupLocalMavenRepositoryResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupLocalMavenRepositoryResult
+			secret, err := ctx.InvokePackageRaw("artifactory:index/getLocalMavenRepository:getLocalMavenRepository", args, &rv, "", opts...)
+			if err != nil {
+				return LookupLocalMavenRepositoryResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupLocalMavenRepositoryResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupLocalMavenRepositoryResultOutput), nil
+			}
+			return output, nil
 		}).(LookupLocalMavenRepositoryResultOutput)
 }
 

@@ -19,7 +19,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getLocalCondaRepository(args: GetLocalCondaRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalCondaRepositoryResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("artifactory:index/getLocalCondaRepository:getLocalCondaRepository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,
@@ -107,7 +106,24 @@ export interface GetLocalCondaRepositoryResult {
  * ```
  */
 export function getLocalCondaRepositoryOutput(args: GetLocalCondaRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalCondaRepositoryResult> {
-    return pulumi.output(args).apply((a: any) => getLocalCondaRepository(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("artifactory:index/getLocalCondaRepository:getLocalCondaRepository", {
+        "archiveBrowsingEnabled": args.archiveBrowsingEnabled,
+        "blackedOut": args.blackedOut,
+        "cdnRedirect": args.cdnRedirect,
+        "description": args.description,
+        "downloadDirect": args.downloadDirect,
+        "excludesPattern": args.excludesPattern,
+        "includesPattern": args.includesPattern,
+        "key": args.key,
+        "notes": args.notes,
+        "priorityResolution": args.priorityResolution,
+        "projectEnvironments": args.projectEnvironments,
+        "projectKey": args.projectKey,
+        "propertySets": args.propertySets,
+        "repoLayoutRef": args.repoLayoutRef,
+        "xrayIndex": args.xrayIndex,
+    }, opts);
 }
 
 /**

@@ -122,14 +122,20 @@ type LookupFederatedDebianRepositoryResult struct {
 
 func LookupFederatedDebianRepositoryOutput(ctx *pulumi.Context, args LookupFederatedDebianRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupFederatedDebianRepositoryResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupFederatedDebianRepositoryResult, error) {
+		ApplyT(func(v interface{}) (LookupFederatedDebianRepositoryResultOutput, error) {
 			args := v.(LookupFederatedDebianRepositoryArgs)
-			r, err := LookupFederatedDebianRepository(ctx, &args, opts...)
-			var s LookupFederatedDebianRepositoryResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupFederatedDebianRepositoryResult
+			secret, err := ctx.InvokePackageRaw("artifactory:index/getFederatedDebianRepository:getFederatedDebianRepository", args, &rv, "", opts...)
+			if err != nil {
+				return LookupFederatedDebianRepositoryResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupFederatedDebianRepositoryResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupFederatedDebianRepositoryResultOutput), nil
+			}
+			return output, nil
 		}).(LookupFederatedDebianRepositoryResultOutput)
 }
 

@@ -19,7 +19,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getVirtualP2Repository(args: GetVirtualP2RepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualP2RepositoryResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("artifactory:index/getVirtualP2Repository:getVirtualP2Repository", {
         "artifactoryRequestsCanRetrieveRemoteArtifacts": args.artifactoryRequestsCanRetrieveRemoteArtifacts,
@@ -92,7 +91,20 @@ export interface GetVirtualP2RepositoryResult {
  * ```
  */
 export function getVirtualP2RepositoryOutput(args: GetVirtualP2RepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualP2RepositoryResult> {
-    return pulumi.output(args).apply((a: any) => getVirtualP2Repository(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("artifactory:index/getVirtualP2Repository:getVirtualP2Repository", {
+        "artifactoryRequestsCanRetrieveRemoteArtifacts": args.artifactoryRequestsCanRetrieveRemoteArtifacts,
+        "defaultDeploymentRepo": args.defaultDeploymentRepo,
+        "description": args.description,
+        "excludesPattern": args.excludesPattern,
+        "includesPattern": args.includesPattern,
+        "key": args.key,
+        "notes": args.notes,
+        "projectEnvironments": args.projectEnvironments,
+        "projectKey": args.projectKey,
+        "repoLayoutRef": args.repoLayoutRef,
+        "repositories": args.repositories,
+    }, opts);
 }
 
 /**

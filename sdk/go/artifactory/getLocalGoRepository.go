@@ -93,14 +93,20 @@ type LookupLocalGoRepositoryResult struct {
 
 func LookupLocalGoRepositoryOutput(ctx *pulumi.Context, args LookupLocalGoRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupLocalGoRepositoryResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupLocalGoRepositoryResult, error) {
+		ApplyT(func(v interface{}) (LookupLocalGoRepositoryResultOutput, error) {
 			args := v.(LookupLocalGoRepositoryArgs)
-			r, err := LookupLocalGoRepository(ctx, &args, opts...)
-			var s LookupLocalGoRepositoryResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupLocalGoRepositoryResult
+			secret, err := ctx.InvokePackageRaw("artifactory:index/getLocalGoRepository:getLocalGoRepository", args, &rv, "", opts...)
+			if err != nil {
+				return LookupLocalGoRepositoryResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupLocalGoRepositoryResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupLocalGoRepositoryResultOutput), nil
+			}
+			return output, nil
 		}).(LookupLocalGoRepositoryResultOutput)
 }
 

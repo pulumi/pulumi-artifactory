@@ -124,14 +124,20 @@ type LookupFederatedRpmRepositoryResult struct {
 
 func LookupFederatedRpmRepositoryOutput(ctx *pulumi.Context, args LookupFederatedRpmRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupFederatedRpmRepositoryResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupFederatedRpmRepositoryResult, error) {
+		ApplyT(func(v interface{}) (LookupFederatedRpmRepositoryResultOutput, error) {
 			args := v.(LookupFederatedRpmRepositoryArgs)
-			r, err := LookupFederatedRpmRepository(ctx, &args, opts...)
-			var s LookupFederatedRpmRepositoryResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupFederatedRpmRepositoryResult
+			secret, err := ctx.InvokePackageRaw("artifactory:index/getFederatedRpmRepository:getFederatedRpmRepository", args, &rv, "", opts...)
+			if err != nil {
+				return LookupFederatedRpmRepositoryResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupFederatedRpmRepositoryResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupFederatedRpmRepositoryResultOutput), nil
+			}
+			return output, nil
 		}).(LookupFederatedRpmRepositoryResultOutput)
 }
 

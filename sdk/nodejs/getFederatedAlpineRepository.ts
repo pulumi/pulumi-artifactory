@@ -21,7 +21,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getFederatedAlpineRepository(args: GetFederatedAlpineRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetFederatedAlpineRepositoryResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("artifactory:index/getFederatedAlpineRepository:getFederatedAlpineRepository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,
@@ -148,7 +147,30 @@ export interface GetFederatedAlpineRepositoryResult {
  * ```
  */
 export function getFederatedAlpineRepositoryOutput(args: GetFederatedAlpineRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedAlpineRepositoryResult> {
-    return pulumi.output(args).apply((a: any) => getFederatedAlpineRepository(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("artifactory:index/getFederatedAlpineRepository:getFederatedAlpineRepository", {
+        "archiveBrowsingEnabled": args.archiveBrowsingEnabled,
+        "blackedOut": args.blackedOut,
+        "cdnRedirect": args.cdnRedirect,
+        "cleanupOnDelete": args.cleanupOnDelete,
+        "description": args.description,
+        "disableProxy": args.disableProxy,
+        "downloadDirect": args.downloadDirect,
+        "excludesPattern": args.excludesPattern,
+        "includesPattern": args.includesPattern,
+        "indexCompressionFormats": args.indexCompressionFormats,
+        "key": args.key,
+        "members": args.members,
+        "notes": args.notes,
+        "primaryKeypairRef": args.primaryKeypairRef,
+        "priorityResolution": args.priorityResolution,
+        "projectEnvironments": args.projectEnvironments,
+        "projectKey": args.projectKey,
+        "propertySets": args.propertySets,
+        "proxy": args.proxy,
+        "repoLayoutRef": args.repoLayoutRef,
+        "xrayIndex": args.xrayIndex,
+    }, opts);
 }
 
 /**

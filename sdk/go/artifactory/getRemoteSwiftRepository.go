@@ -148,14 +148,20 @@ type LookupRemoteSwiftRepositoryResult struct {
 
 func LookupRemoteSwiftRepositoryOutput(ctx *pulumi.Context, args LookupRemoteSwiftRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupRemoteSwiftRepositoryResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupRemoteSwiftRepositoryResult, error) {
+		ApplyT(func(v interface{}) (LookupRemoteSwiftRepositoryResultOutput, error) {
 			args := v.(LookupRemoteSwiftRepositoryArgs)
-			r, err := LookupRemoteSwiftRepository(ctx, &args, opts...)
-			var s LookupRemoteSwiftRepositoryResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupRemoteSwiftRepositoryResult
+			secret, err := ctx.InvokePackageRaw("artifactory:index/getRemoteSwiftRepository:getRemoteSwiftRepository", args, &rv, "", opts...)
+			if err != nil {
+				return LookupRemoteSwiftRepositoryResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupRemoteSwiftRepositoryResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupRemoteSwiftRepositoryResultOutput), nil
+			}
+			return output, nil
 		}).(LookupRemoteSwiftRepositoryResultOutput)
 }
 

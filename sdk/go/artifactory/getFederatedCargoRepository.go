@@ -118,14 +118,20 @@ type LookupFederatedCargoRepositoryResult struct {
 
 func LookupFederatedCargoRepositoryOutput(ctx *pulumi.Context, args LookupFederatedCargoRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupFederatedCargoRepositoryResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupFederatedCargoRepositoryResult, error) {
+		ApplyT(func(v interface{}) (LookupFederatedCargoRepositoryResultOutput, error) {
 			args := v.(LookupFederatedCargoRepositoryArgs)
-			r, err := LookupFederatedCargoRepository(ctx, &args, opts...)
-			var s LookupFederatedCargoRepositoryResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupFederatedCargoRepositoryResult
+			secret, err := ctx.InvokePackageRaw("artifactory:index/getFederatedCargoRepository:getFederatedCargoRepository", args, &rv, "", opts...)
+			if err != nil {
+				return LookupFederatedCargoRepositoryResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupFederatedCargoRepositoryResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupFederatedCargoRepositoryResultOutput), nil
+			}
+			return output, nil
 		}).(LookupFederatedCargoRepositoryResultOutput)
 }
 

@@ -148,14 +148,20 @@ type LookupRemoteGemsRepositoryResult struct {
 
 func LookupRemoteGemsRepositoryOutput(ctx *pulumi.Context, args LookupRemoteGemsRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupRemoteGemsRepositoryResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupRemoteGemsRepositoryResult, error) {
+		ApplyT(func(v interface{}) (LookupRemoteGemsRepositoryResultOutput, error) {
 			args := v.(LookupRemoteGemsRepositoryArgs)
-			r, err := LookupRemoteGemsRepository(ctx, &args, opts...)
-			var s LookupRemoteGemsRepositoryResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupRemoteGemsRepositoryResult
+			secret, err := ctx.InvokePackageRaw("artifactory:index/getRemoteGemsRepository:getRemoteGemsRepository", args, &rv, "", opts...)
+			if err != nil {
+				return LookupRemoteGemsRepositoryResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupRemoteGemsRepositoryResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupRemoteGemsRepositoryResultOutput), nil
+			}
+			return output, nil
 		}).(LookupRemoteGemsRepositoryResultOutput)
 }
 

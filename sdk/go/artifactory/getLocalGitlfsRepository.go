@@ -93,14 +93,20 @@ type GetLocalGitlfsRepositoryResult struct {
 
 func GetLocalGitlfsRepositoryOutput(ctx *pulumi.Context, args GetLocalGitlfsRepositoryOutputArgs, opts ...pulumi.InvokeOption) GetLocalGitlfsRepositoryResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetLocalGitlfsRepositoryResult, error) {
+		ApplyT(func(v interface{}) (GetLocalGitlfsRepositoryResultOutput, error) {
 			args := v.(GetLocalGitlfsRepositoryArgs)
-			r, err := GetLocalGitlfsRepository(ctx, &args, opts...)
-			var s GetLocalGitlfsRepositoryResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetLocalGitlfsRepositoryResult
+			secret, err := ctx.InvokePackageRaw("artifactory:index/getLocalGitlfsRepository:getLocalGitlfsRepository", args, &rv, "", opts...)
+			if err != nil {
+				return GetLocalGitlfsRepositoryResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetLocalGitlfsRepositoryResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetLocalGitlfsRepositoryResultOutput), nil
+			}
+			return output, nil
 		}).(GetLocalGitlfsRepositoryResultOutput)
 }
 

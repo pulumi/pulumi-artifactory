@@ -104,14 +104,20 @@ type LookupVirtualDebianRepositoryResult struct {
 
 func LookupVirtualDebianRepositoryOutput(ctx *pulumi.Context, args LookupVirtualDebianRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualDebianRepositoryResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupVirtualDebianRepositoryResult, error) {
+		ApplyT(func(v interface{}) (LookupVirtualDebianRepositoryResultOutput, error) {
 			args := v.(LookupVirtualDebianRepositoryArgs)
-			r, err := LookupVirtualDebianRepository(ctx, &args, opts...)
-			var s LookupVirtualDebianRepositoryResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupVirtualDebianRepositoryResult
+			secret, err := ctx.InvokePackageRaw("artifactory:index/getVirtualDebianRepository:getVirtualDebianRepository", args, &rv, "", opts...)
+			if err != nil {
+				return LookupVirtualDebianRepositoryResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupVirtualDebianRepositoryResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupVirtualDebianRepositoryResultOutput), nil
+			}
+			return output, nil
 		}).(LookupVirtualDebianRepositoryResultOutput)
 }
 

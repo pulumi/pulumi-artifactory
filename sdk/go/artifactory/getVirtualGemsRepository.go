@@ -84,14 +84,20 @@ type LookupVirtualGemsRepositoryResult struct {
 
 func LookupVirtualGemsRepositoryOutput(ctx *pulumi.Context, args LookupVirtualGemsRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualGemsRepositoryResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupVirtualGemsRepositoryResult, error) {
+		ApplyT(func(v interface{}) (LookupVirtualGemsRepositoryResultOutput, error) {
 			args := v.(LookupVirtualGemsRepositoryArgs)
-			r, err := LookupVirtualGemsRepository(ctx, &args, opts...)
-			var s LookupVirtualGemsRepositoryResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupVirtualGemsRepositoryResult
+			secret, err := ctx.InvokePackageRaw("artifactory:index/getVirtualGemsRepository:getVirtualGemsRepository", args, &rv, "", opts...)
+			if err != nil {
+				return LookupVirtualGemsRepositoryResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupVirtualGemsRepositoryResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupVirtualGemsRepositoryResultOutput), nil
+			}
+			return output, nil
 		}).(LookupVirtualGemsRepositoryResultOutput)
 }
 

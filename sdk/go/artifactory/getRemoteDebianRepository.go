@@ -148,14 +148,20 @@ type LookupRemoteDebianRepositoryResult struct {
 
 func LookupRemoteDebianRepositoryOutput(ctx *pulumi.Context, args LookupRemoteDebianRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupRemoteDebianRepositoryResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupRemoteDebianRepositoryResult, error) {
+		ApplyT(func(v interface{}) (LookupRemoteDebianRepositoryResultOutput, error) {
 			args := v.(LookupRemoteDebianRepositoryArgs)
-			r, err := LookupRemoteDebianRepository(ctx, &args, opts...)
-			var s LookupRemoteDebianRepositoryResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupRemoteDebianRepositoryResult
+			secret, err := ctx.InvokePackageRaw("artifactory:index/getRemoteDebianRepository:getRemoteDebianRepository", args, &rv, "", opts...)
+			if err != nil {
+				return LookupRemoteDebianRepositoryResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupRemoteDebianRepositoryResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupRemoteDebianRepositoryResultOutput), nil
+			}
+			return output, nil
 		}).(LookupRemoteDebianRepositoryResultOutput)
 }
 

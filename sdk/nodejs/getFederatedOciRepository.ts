@@ -21,7 +21,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getFederatedOciRepository(args: GetFederatedOciRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetFederatedOciRepositoryResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("artifactory:index/getFederatedOciRepository:getFederatedOciRepository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,
@@ -148,7 +147,30 @@ export interface GetFederatedOciRepositoryResult {
  * ```
  */
 export function getFederatedOciRepositoryOutput(args: GetFederatedOciRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedOciRepositoryResult> {
-    return pulumi.output(args).apply((a: any) => getFederatedOciRepository(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("artifactory:index/getFederatedOciRepository:getFederatedOciRepository", {
+        "archiveBrowsingEnabled": args.archiveBrowsingEnabled,
+        "blackedOut": args.blackedOut,
+        "cdnRedirect": args.cdnRedirect,
+        "cleanupOnDelete": args.cleanupOnDelete,
+        "description": args.description,
+        "disableProxy": args.disableProxy,
+        "downloadDirect": args.downloadDirect,
+        "excludesPattern": args.excludesPattern,
+        "includesPattern": args.includesPattern,
+        "key": args.key,
+        "maxUniqueTags": args.maxUniqueTags,
+        "members": args.members,
+        "notes": args.notes,
+        "priorityResolution": args.priorityResolution,
+        "projectEnvironments": args.projectEnvironments,
+        "projectKey": args.projectKey,
+        "propertySets": args.propertySets,
+        "proxy": args.proxy,
+        "repoLayoutRef": args.repoLayoutRef,
+        "tagRetention": args.tagRetention,
+        "xrayIndex": args.xrayIndex,
+    }, opts);
 }
 
 /**

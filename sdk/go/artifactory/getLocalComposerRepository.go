@@ -93,14 +93,20 @@ type LookupLocalComposerRepositoryResult struct {
 
 func LookupLocalComposerRepositoryOutput(ctx *pulumi.Context, args LookupLocalComposerRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupLocalComposerRepositoryResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupLocalComposerRepositoryResult, error) {
+		ApplyT(func(v interface{}) (LookupLocalComposerRepositoryResultOutput, error) {
 			args := v.(LookupLocalComposerRepositoryArgs)
-			r, err := LookupLocalComposerRepository(ctx, &args, opts...)
-			var s LookupLocalComposerRepositoryResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupLocalComposerRepositoryResult
+			secret, err := ctx.InvokePackageRaw("artifactory:index/getLocalComposerRepository:getLocalComposerRepository", args, &rv, "", opts...)
+			if err != nil {
+				return LookupLocalComposerRepositoryResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupLocalComposerRepositoryResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupLocalComposerRepositoryResultOutput), nil
+			}
+			return output, nil
 		}).(LookupLocalComposerRepositoryResultOutput)
 }
 

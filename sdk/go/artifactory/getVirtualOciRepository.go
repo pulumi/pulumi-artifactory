@@ -88,14 +88,20 @@ type LookupVirtualOciRepositoryResult struct {
 
 func LookupVirtualOciRepositoryOutput(ctx *pulumi.Context, args LookupVirtualOciRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualOciRepositoryResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupVirtualOciRepositoryResult, error) {
+		ApplyT(func(v interface{}) (LookupVirtualOciRepositoryResultOutput, error) {
 			args := v.(LookupVirtualOciRepositoryArgs)
-			r, err := LookupVirtualOciRepository(ctx, &args, opts...)
-			var s LookupVirtualOciRepositoryResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupVirtualOciRepositoryResult
+			secret, err := ctx.InvokePackageRaw("artifactory:index/getVirtualOciRepository:getVirtualOciRepository", args, &rv, "", opts...)
+			if err != nil {
+				return LookupVirtualOciRepositoryResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupVirtualOciRepositoryResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupVirtualOciRepositoryResultOutput), nil
+			}
+			return output, nil
 		}).(LookupVirtualOciRepositoryResultOutput)
 }
 

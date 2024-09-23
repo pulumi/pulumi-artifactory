@@ -21,7 +21,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getFederatedRpmRepository(args: GetFederatedRpmRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetFederatedRpmRepositoryResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("artifactory:index/getFederatedRpmRepository:getFederatedRpmRepository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,
@@ -160,7 +159,34 @@ export interface GetFederatedRpmRepositoryResult {
  * ```
  */
 export function getFederatedRpmRepositoryOutput(args: GetFederatedRpmRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedRpmRepositoryResult> {
-    return pulumi.output(args).apply((a: any) => getFederatedRpmRepository(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("artifactory:index/getFederatedRpmRepository:getFederatedRpmRepository", {
+        "archiveBrowsingEnabled": args.archiveBrowsingEnabled,
+        "blackedOut": args.blackedOut,
+        "calculateYumMetadata": args.calculateYumMetadata,
+        "cdnRedirect": args.cdnRedirect,
+        "cleanupOnDelete": args.cleanupOnDelete,
+        "description": args.description,
+        "disableProxy": args.disableProxy,
+        "downloadDirect": args.downloadDirect,
+        "enableFileListsIndexing": args.enableFileListsIndexing,
+        "excludesPattern": args.excludesPattern,
+        "includesPattern": args.includesPattern,
+        "key": args.key,
+        "members": args.members,
+        "notes": args.notes,
+        "primaryKeypairRef": args.primaryKeypairRef,
+        "priorityResolution": args.priorityResolution,
+        "projectEnvironments": args.projectEnvironments,
+        "projectKey": args.projectKey,
+        "propertySets": args.propertySets,
+        "proxy": args.proxy,
+        "repoLayoutRef": args.repoLayoutRef,
+        "secondaryKeypairRef": args.secondaryKeypairRef,
+        "xrayIndex": args.xrayIndex,
+        "yumGroupFileNames": args.yumGroupFileNames,
+        "yumRootDepth": args.yumRootDepth,
+    }, opts);
 }
 
 /**

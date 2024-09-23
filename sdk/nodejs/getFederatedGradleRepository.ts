@@ -21,7 +21,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getFederatedGradleRepository(args: GetFederatedGradleRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetFederatedGradleRepositoryResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("artifactory:index/getFederatedGradleRepository:getFederatedGradleRepository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,
@@ -160,7 +159,34 @@ export interface GetFederatedGradleRepositoryResult {
  * ```
  */
 export function getFederatedGradleRepositoryOutput(args: GetFederatedGradleRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedGradleRepositoryResult> {
-    return pulumi.output(args).apply((a: any) => getFederatedGradleRepository(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("artifactory:index/getFederatedGradleRepository:getFederatedGradleRepository", {
+        "archiveBrowsingEnabled": args.archiveBrowsingEnabled,
+        "blackedOut": args.blackedOut,
+        "cdnRedirect": args.cdnRedirect,
+        "checksumPolicyType": args.checksumPolicyType,
+        "cleanupOnDelete": args.cleanupOnDelete,
+        "description": args.description,
+        "disableProxy": args.disableProxy,
+        "downloadDirect": args.downloadDirect,
+        "excludesPattern": args.excludesPattern,
+        "handleReleases": args.handleReleases,
+        "handleSnapshots": args.handleSnapshots,
+        "includesPattern": args.includesPattern,
+        "key": args.key,
+        "maxUniqueSnapshots": args.maxUniqueSnapshots,
+        "members": args.members,
+        "notes": args.notes,
+        "priorityResolution": args.priorityResolution,
+        "projectEnvironments": args.projectEnvironments,
+        "projectKey": args.projectKey,
+        "propertySets": args.propertySets,
+        "proxy": args.proxy,
+        "repoLayoutRef": args.repoLayoutRef,
+        "snapshotVersionBehavior": args.snapshotVersionBehavior,
+        "suppressPomConsistencyChecks": args.suppressPomConsistencyChecks,
+        "xrayIndex": args.xrayIndex,
+    }, opts);
 }
 
 /**

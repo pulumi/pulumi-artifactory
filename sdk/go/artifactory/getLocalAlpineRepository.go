@@ -98,14 +98,20 @@ type GetLocalAlpineRepositoryResult struct {
 
 func GetLocalAlpineRepositoryOutput(ctx *pulumi.Context, args GetLocalAlpineRepositoryOutputArgs, opts ...pulumi.InvokeOption) GetLocalAlpineRepositoryResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetLocalAlpineRepositoryResult, error) {
+		ApplyT(func(v interface{}) (GetLocalAlpineRepositoryResultOutput, error) {
 			args := v.(GetLocalAlpineRepositoryArgs)
-			r, err := GetLocalAlpineRepository(ctx, &args, opts...)
-			var s GetLocalAlpineRepositoryResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetLocalAlpineRepositoryResult
+			secret, err := ctx.InvokePackageRaw("artifactory:index/getLocalAlpineRepository:getLocalAlpineRepository", args, &rv, "", opts...)
+			if err != nil {
+				return GetLocalAlpineRepositoryResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetLocalAlpineRepositoryResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetLocalAlpineRepositoryResultOutput), nil
+			}
+			return output, nil
 		}).(GetLocalAlpineRepositoryResultOutput)
 }
 

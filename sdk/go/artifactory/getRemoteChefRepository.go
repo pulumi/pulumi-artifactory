@@ -148,14 +148,20 @@ type LookupRemoteChefRepositoryResult struct {
 
 func LookupRemoteChefRepositoryOutput(ctx *pulumi.Context, args LookupRemoteChefRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupRemoteChefRepositoryResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupRemoteChefRepositoryResult, error) {
+		ApplyT(func(v interface{}) (LookupRemoteChefRepositoryResultOutput, error) {
 			args := v.(LookupRemoteChefRepositoryArgs)
-			r, err := LookupRemoteChefRepository(ctx, &args, opts...)
-			var s LookupRemoteChefRepositoryResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupRemoteChefRepositoryResult
+			secret, err := ctx.InvokePackageRaw("artifactory:index/getRemoteChefRepository:getRemoteChefRepository", args, &rv, "", opts...)
+			if err != nil {
+				return LookupRemoteChefRepositoryResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupRemoteChefRepositoryResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupRemoteChefRepositoryResultOutput), nil
+			}
+			return output, nil
 		}).(LookupRemoteChefRepositoryResultOutput)
 }
 

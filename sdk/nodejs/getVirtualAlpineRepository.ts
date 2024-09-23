@@ -19,7 +19,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getVirtualAlpineRepository(args: GetVirtualAlpineRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualAlpineRepositoryResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("artifactory:index/getVirtualAlpineRepository:getVirtualAlpineRepository", {
         "artifactoryRequestsCanRetrieveRemoteArtifacts": args.artifactoryRequestsCanRetrieveRemoteArtifacts,
@@ -110,7 +109,22 @@ export interface GetVirtualAlpineRepositoryResult {
  * ```
  */
 export function getVirtualAlpineRepositoryOutput(args: GetVirtualAlpineRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualAlpineRepositoryResult> {
-    return pulumi.output(args).apply((a: any) => getVirtualAlpineRepository(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("artifactory:index/getVirtualAlpineRepository:getVirtualAlpineRepository", {
+        "artifactoryRequestsCanRetrieveRemoteArtifacts": args.artifactoryRequestsCanRetrieveRemoteArtifacts,
+        "defaultDeploymentRepo": args.defaultDeploymentRepo,
+        "description": args.description,
+        "excludesPattern": args.excludesPattern,
+        "includesPattern": args.includesPattern,
+        "key": args.key,
+        "notes": args.notes,
+        "primaryKeypairRef": args.primaryKeypairRef,
+        "projectEnvironments": args.projectEnvironments,
+        "projectKey": args.projectKey,
+        "repoLayoutRef": args.repoLayoutRef,
+        "repositories": args.repositories,
+        "retrievalCachePeriodSeconds": args.retrievalCachePeriodSeconds,
+    }, opts);
 }
 
 /**

@@ -17,7 +17,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getLocalTerraformProviderRepository(args: GetLocalTerraformProviderRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalTerraformProviderRepositoryResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("artifactory:index/getLocalTerraformProviderRepository:getLocalTerraformProviderRepository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,
@@ -112,7 +111,24 @@ export interface GetLocalTerraformProviderRepositoryResult {
  * ```
  */
 export function getLocalTerraformProviderRepositoryOutput(args: GetLocalTerraformProviderRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalTerraformProviderRepositoryResult> {
-    return pulumi.output(args).apply((a: any) => getLocalTerraformProviderRepository(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("artifactory:index/getLocalTerraformProviderRepository:getLocalTerraformProviderRepository", {
+        "archiveBrowsingEnabled": args.archiveBrowsingEnabled,
+        "blackedOut": args.blackedOut,
+        "cdnRedirect": args.cdnRedirect,
+        "description": args.description,
+        "downloadDirect": args.downloadDirect,
+        "excludesPattern": args.excludesPattern,
+        "includesPattern": args.includesPattern,
+        "key": args.key,
+        "notes": args.notes,
+        "priorityResolution": args.priorityResolution,
+        "projectEnvironments": args.projectEnvironments,
+        "projectKey": args.projectKey,
+        "propertySets": args.propertySets,
+        "repoLayoutRef": args.repoLayoutRef,
+        "xrayIndex": args.xrayIndex,
+    }, opts);
 }
 
 /**

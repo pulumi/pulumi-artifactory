@@ -24,7 +24,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getPermissionTarget(args: GetPermissionTargetArgs, opts?: pulumi.InvokeOptions): Promise<GetPermissionTargetResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("artifactory:index/getPermissionTarget:getPermissionTarget", {
         "build": args.build,
@@ -96,7 +95,13 @@ export interface GetPermissionTargetResult {
  * ```
  */
 export function getPermissionTargetOutput(args: GetPermissionTargetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPermissionTargetResult> {
-    return pulumi.output(args).apply((a: any) => getPermissionTarget(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("artifactory:index/getPermissionTarget:getPermissionTarget", {
+        "build": args.build,
+        "name": args.name,
+        "releaseBundle": args.releaseBundle,
+        "repo": args.repo,
+    }, opts);
 }
 
 /**

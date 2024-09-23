@@ -82,14 +82,20 @@ type LookupVirtualTerraformRepositoryResult struct {
 
 func LookupVirtualTerraformRepositoryOutput(ctx *pulumi.Context, args LookupVirtualTerraformRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualTerraformRepositoryResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupVirtualTerraformRepositoryResult, error) {
+		ApplyT(func(v interface{}) (LookupVirtualTerraformRepositoryResultOutput, error) {
 			args := v.(LookupVirtualTerraformRepositoryArgs)
-			r, err := LookupVirtualTerraformRepository(ctx, &args, opts...)
-			var s LookupVirtualTerraformRepositoryResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupVirtualTerraformRepositoryResult
+			secret, err := ctx.InvokePackageRaw("artifactory:index/getVirtualTerraformRepository:getVirtualTerraformRepository", args, &rv, "", opts...)
+			if err != nil {
+				return LookupVirtualTerraformRepositoryResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupVirtualTerraformRepositoryResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupVirtualTerraformRepositoryResultOutput), nil
+			}
+			return output, nil
 		}).(LookupVirtualTerraformRepositoryResultOutput)
 }
 

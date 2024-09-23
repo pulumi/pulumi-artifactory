@@ -19,7 +19,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getVirtualAnsibleRepository(args: GetVirtualAnsibleRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualAnsibleRepositoryResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("artifactory:index/getVirtualAnsibleRepository:getVirtualAnsibleRepository", {
         "artifactoryRequestsCanRetrieveRemoteArtifacts": args.artifactoryRequestsCanRetrieveRemoteArtifacts,
@@ -101,7 +100,21 @@ export interface GetVirtualAnsibleRepositoryResult {
  * ```
  */
 export function getVirtualAnsibleRepositoryOutput(args: GetVirtualAnsibleRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualAnsibleRepositoryResult> {
-    return pulumi.output(args).apply((a: any) => getVirtualAnsibleRepository(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("artifactory:index/getVirtualAnsibleRepository:getVirtualAnsibleRepository", {
+        "artifactoryRequestsCanRetrieveRemoteArtifacts": args.artifactoryRequestsCanRetrieveRemoteArtifacts,
+        "defaultDeploymentRepo": args.defaultDeploymentRepo,
+        "description": args.description,
+        "excludesPattern": args.excludesPattern,
+        "includesPattern": args.includesPattern,
+        "key": args.key,
+        "notes": args.notes,
+        "projectEnvironments": args.projectEnvironments,
+        "projectKey": args.projectKey,
+        "repoLayoutRef": args.repoLayoutRef,
+        "repositories": args.repositories,
+        "retrievalCachePeriodSeconds": args.retrievalCachePeriodSeconds,
+    }, opts);
 }
 
 /**

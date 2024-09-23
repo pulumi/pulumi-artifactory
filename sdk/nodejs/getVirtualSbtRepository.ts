@@ -19,7 +19,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getVirtualSbtRepository(args: GetVirtualSbtRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualSbtRepositoryResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("artifactory:index/getVirtualSbtRepository:getVirtualSbtRepository", {
         "artifactoryRequestsCanRetrieveRemoteArtifacts": args.artifactoryRequestsCanRetrieveRemoteArtifacts,
@@ -119,7 +118,23 @@ export interface GetVirtualSbtRepositoryResult {
  * ```
  */
 export function getVirtualSbtRepositoryOutput(args: GetVirtualSbtRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualSbtRepositoryResult> {
-    return pulumi.output(args).apply((a: any) => getVirtualSbtRepository(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("artifactory:index/getVirtualSbtRepository:getVirtualSbtRepository", {
+        "artifactoryRequestsCanRetrieveRemoteArtifacts": args.artifactoryRequestsCanRetrieveRemoteArtifacts,
+        "defaultDeploymentRepo": args.defaultDeploymentRepo,
+        "description": args.description,
+        "excludesPattern": args.excludesPattern,
+        "forceMavenAuthentication": args.forceMavenAuthentication,
+        "includesPattern": args.includesPattern,
+        "key": args.key,
+        "keyPair": args.keyPair,
+        "notes": args.notes,
+        "pomRepositoryReferencesCleanupPolicy": args.pomRepositoryReferencesCleanupPolicy,
+        "projectEnvironments": args.projectEnvironments,
+        "projectKey": args.projectKey,
+        "repoLayoutRef": args.repoLayoutRef,
+        "repositories": args.repositories,
+    }, opts);
 }
 
 /**

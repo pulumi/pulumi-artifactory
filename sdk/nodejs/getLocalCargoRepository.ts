@@ -19,7 +19,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getLocalCargoRepository(args: GetLocalCargoRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalCargoRepositoryResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("artifactory:index/getLocalCargoRepository:getLocalCargoRepository", {
         "anonymousAccess": args.anonymousAccess,
@@ -131,7 +130,27 @@ export interface GetLocalCargoRepositoryResult {
  * ```
  */
 export function getLocalCargoRepositoryOutput(args: GetLocalCargoRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalCargoRepositoryResult> {
-    return pulumi.output(args).apply((a: any) => getLocalCargoRepository(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("artifactory:index/getLocalCargoRepository:getLocalCargoRepository", {
+        "anonymousAccess": args.anonymousAccess,
+        "archiveBrowsingEnabled": args.archiveBrowsingEnabled,
+        "blackedOut": args.blackedOut,
+        "cdnRedirect": args.cdnRedirect,
+        "description": args.description,
+        "downloadDirect": args.downloadDirect,
+        "enableSparseIndex": args.enableSparseIndex,
+        "excludesPattern": args.excludesPattern,
+        "includesPattern": args.includesPattern,
+        "indexCompressionFormats": args.indexCompressionFormats,
+        "key": args.key,
+        "notes": args.notes,
+        "priorityResolution": args.priorityResolution,
+        "projectEnvironments": args.projectEnvironments,
+        "projectKey": args.projectKey,
+        "propertySets": args.propertySets,
+        "repoLayoutRef": args.repoLayoutRef,
+        "xrayIndex": args.xrayIndex,
+    }, opts);
 }
 
 /**
