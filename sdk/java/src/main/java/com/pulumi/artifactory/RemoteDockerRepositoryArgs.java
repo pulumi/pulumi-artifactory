@@ -298,7 +298,7 @@ public final class RemoteDockerRepositoryArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*.By default no
+     * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no
      * artifacts are excluded.
      * 
      */
@@ -306,7 +306,7 @@ public final class RemoteDockerRepositoryArgs extends com.pulumi.resources.Resou
     private @Nullable Output<String> excludesPattern;
 
     /**
-     * @return List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*.By default no
+     * @return List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no
      * artifacts are excluded.
      * 
      */
@@ -374,16 +374,16 @@ public final class RemoteDockerRepositoryArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When
-     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
+     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When
+     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
      * 
      */
     @Import(name="includesPattern")
     private @Nullable Output<String> includesPattern;
 
     /**
-     * @return List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When
-     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
+     * @return List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When
+     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
      * 
      */
     public Optional<Output<String>> includesPattern() {
@@ -766,15 +766,15 @@ public final class RemoteDockerRepositoryArgs extends com.pulumi.resources.Resou
      * The remote repo URL.
      * 
      */
-    @Import(name="url", required=true)
-    private Output<String> url;
+    @Import(name="url")
+    private @Nullable Output<String> url;
 
     /**
      * @return The remote repo URL.
      * 
      */
-    public Output<String> url() {
-        return this.url;
+    public Optional<Output<String>> url() {
+        return Optional.ofNullable(this.url);
     }
 
     @Import(name="username")
@@ -1249,7 +1249,7 @@ public final class RemoteDockerRepositoryArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param excludesPattern List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*.By default no
+         * @param excludesPattern List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no
          * artifacts are excluded.
          * 
          * @return builder
@@ -1261,7 +1261,7 @@ public final class RemoteDockerRepositoryArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param excludesPattern List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*.By default no
+         * @param excludesPattern List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no
          * artifacts are excluded.
          * 
          * @return builder
@@ -1365,8 +1365,8 @@ public final class RemoteDockerRepositoryArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param includesPattern List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When
-         * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
+         * @param includesPattern List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When
+         * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
          * 
          * @return builder
          * 
@@ -1377,8 +1377,8 @@ public final class RemoteDockerRepositoryArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param includesPattern List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When
-         * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
+         * @param includesPattern List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When
+         * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
          * 
          * @return builder
          * 
@@ -1911,7 +1911,7 @@ public final class RemoteDockerRepositoryArgs extends com.pulumi.resources.Resou
          * @return builder
          * 
          */
-        public Builder url(Output<String> url) {
+        public Builder url(@Nullable Output<String> url) {
             $.url = url;
             return this;
         }
@@ -1961,9 +1961,6 @@ public final class RemoteDockerRepositoryArgs extends com.pulumi.resources.Resou
         public RemoteDockerRepositoryArgs build() {
             if ($.key == null) {
                 throw new MissingRequiredPropertyException("RemoteDockerRepositoryArgs", "key");
-            }
-            if ($.url == null) {
-                throw new MissingRequiredPropertyException("RemoteDockerRepositoryArgs", "url");
             }
             return $;
         }

@@ -369,6 +369,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &VirtualBowerRepository{}
 	case "artifactory:index/virtualChefRepository:VirtualChefRepository":
 		r = &VirtualChefRepository{}
+	case "artifactory:index/virtualCocoapodsRepository:VirtualCocoapodsRepository":
+		r = &VirtualCocoapodsRepository{}
 	case "artifactory:index/virtualComposerRepository:VirtualComposerRepository":
 		r = &VirtualComposerRepository{}
 	case "artifactory:index/virtualConanRepository:VirtualConanRepository":
@@ -1316,6 +1318,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"artifactory",
 		"index/virtualChefRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/virtualCocoapodsRepository",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

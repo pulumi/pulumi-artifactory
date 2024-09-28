@@ -59,6 +59,7 @@ export function getRemoteGenericRepository(args: GetRemoteGenericRepositoryArgs,
         "remoteRepoLayoutRef": args.remoteRepoLayoutRef,
         "repoLayoutRef": args.repoLayoutRef,
         "retrievalCachePeriodSeconds": args.retrievalCachePeriodSeconds,
+        "retrieveSha256FromServer": args.retrieveSha256FromServer,
         "shareConfiguration": args.shareConfiguration,
         "socketTimeoutMillis": args.socketTimeoutMillis,
         "storeArtifactsLocally": args.storeArtifactsLocally,
@@ -116,6 +117,7 @@ export interface GetRemoteGenericRepositoryArgs {
     remoteRepoLayoutRef?: string;
     repoLayoutRef?: string;
     retrievalCachePeriodSeconds?: number;
+    retrieveSha256FromServer?: boolean;
     shareConfiguration?: boolean;
     socketTimeoutMillis?: number;
     storeArtifactsLocally?: boolean;
@@ -174,6 +176,7 @@ export interface GetRemoteGenericRepositoryResult {
     readonly remoteRepoLayoutRef?: string;
     readonly repoLayoutRef?: string;
     readonly retrievalCachePeriodSeconds?: number;
+    readonly retrieveSha256FromServer?: boolean;
     readonly shareConfiguration: boolean;
     readonly socketTimeoutMillis?: number;
     readonly storeArtifactsLocally?: boolean;
@@ -236,6 +239,7 @@ export function getRemoteGenericRepositoryOutput(args: GetRemoteGenericRepositor
         "remoteRepoLayoutRef": args.remoteRepoLayoutRef,
         "repoLayoutRef": args.repoLayoutRef,
         "retrievalCachePeriodSeconds": args.retrievalCachePeriodSeconds,
+        "retrieveSha256FromServer": args.retrieveSha256FromServer,
         "shareConfiguration": args.shareConfiguration,
         "socketTimeoutMillis": args.socketTimeoutMillis,
         "storeArtifactsLocally": args.storeArtifactsLocally,
@@ -293,6 +297,7 @@ export interface GetRemoteGenericRepositoryOutputArgs {
     remoteRepoLayoutRef?: pulumi.Input<string>;
     repoLayoutRef?: pulumi.Input<string>;
     retrievalCachePeriodSeconds?: pulumi.Input<number>;
+    retrieveSha256FromServer?: pulumi.Input<boolean>;
     shareConfiguration?: pulumi.Input<boolean>;
     socketTimeoutMillis?: pulumi.Input<number>;
     storeArtifactsLocally?: pulumi.Input<boolean>;

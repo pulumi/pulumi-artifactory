@@ -53,10 +53,10 @@ class FederatedDockerV1RepositoryArgs:
         :param pulumi.Input[bool] disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only.
-        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
+        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
                artifacts are excluded.
-        :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
-               used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
+               used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         :param pulumi.Input[str] notes: Internal description.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
@@ -222,7 +222,7 @@ class FederatedDockerV1RepositoryArgs:
     @pulumi.getter(name="excludesPattern")
     def excludes_pattern(self) -> Optional[pulumi.Input[str]]:
         """
-        List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
+        List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
         artifacts are excluded.
         """
         return pulumi.get(self, "excludes_pattern")
@@ -235,8 +235,8 @@ class FederatedDockerV1RepositoryArgs:
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> Optional[pulumi.Input[str]]:
         """
-        List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
-        used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
+        used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         """
         return pulumi.get(self, "includes_pattern")
 
@@ -388,10 +388,10 @@ class _FederatedDockerV1RepositoryState:
         :param pulumi.Input[bool] disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only.
-        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
+        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
                artifacts are excluded.
-        :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
-               used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
+               used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         :param pulumi.Input[str] key: the identity key of the repo.
         :param pulumi.Input[Sequence[pulumi.Input['FederatedDockerV1RepositoryMemberArgs']]] members: The list of Federated members and must contain this repository URL (configured base URL
                `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
@@ -563,7 +563,7 @@ class _FederatedDockerV1RepositoryState:
     @pulumi.getter(name="excludesPattern")
     def excludes_pattern(self) -> Optional[pulumi.Input[str]]:
         """
-        List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
+        List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
         artifacts are excluded.
         """
         return pulumi.get(self, "excludes_pattern")
@@ -576,8 +576,8 @@ class _FederatedDockerV1RepositoryState:
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> Optional[pulumi.Input[str]]:
         """
-        List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
-        used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
+        used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         """
         return pulumi.get(self, "includes_pattern")
 
@@ -804,10 +804,10 @@ class FederatedDockerV1Repository(pulumi.CustomResource):
         :param pulumi.Input[bool] disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only.
-        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
+        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
                artifacts are excluded.
-        :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
-               used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
+               used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         :param pulumi.Input[str] key: the identity key of the repo.
         :param pulumi.Input[Sequence[pulumi.Input[Union['FederatedDockerV1RepositoryMemberArgs', 'FederatedDockerV1RepositoryMemberArgsDict']]]] members: The list of Federated members and must contain this repository URL (configured base URL
                `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
@@ -983,10 +983,10 @@ class FederatedDockerV1Repository(pulumi.CustomResource):
         :param pulumi.Input[bool] disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only.
-        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
+        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
                artifacts are excluded.
-        :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
-               used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
+               used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         :param pulumi.Input[str] key: the identity key of the repo.
         :param pulumi.Input[Sequence[pulumi.Input[Union['FederatedDockerV1RepositoryMemberArgs', 'FederatedDockerV1RepositoryMemberArgsDict']]]] members: The list of Federated members and must contain this repository URL (configured base URL
                `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
@@ -1103,7 +1103,7 @@ class FederatedDockerV1Repository(pulumi.CustomResource):
     @pulumi.getter(name="excludesPattern")
     def excludes_pattern(self) -> pulumi.Output[Optional[str]]:
         """
-        List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
+        List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
         artifacts are excluded.
         """
         return pulumi.get(self, "excludes_pattern")
@@ -1112,8 +1112,8 @@ class FederatedDockerV1Repository(pulumi.CustomResource):
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> pulumi.Output[Optional[str]]:
         """
-        List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
-        used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
+        used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         """
         return pulumi.get(self, "includes_pattern")
 

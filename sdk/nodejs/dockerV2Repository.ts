@@ -90,13 +90,13 @@ export class DockerV2Repository extends pulumi.CustomResource {
      */
     public readonly downloadDirect!: pulumi.Output<boolean | undefined>;
     /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*.By default no
+     * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no
      * artifacts are excluded.
      */
     public readonly excludesPattern!: pulumi.Output<string | undefined>;
     /**
-     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When
-     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
+     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When
+     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
      */
     public readonly includesPattern!: pulumi.Output<string | undefined>;
     /**
@@ -245,13 +245,13 @@ export interface DockerV2RepositoryState {
      */
     downloadDirect?: pulumi.Input<boolean>;
     /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*.By default no
+     * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no
      * artifacts are excluded.
      */
     excludesPattern?: pulumi.Input<string>;
     /**
-     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When
-     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
+     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When
+     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
      */
     includesPattern?: pulumi.Input<string>;
     /**
@@ -333,13 +333,13 @@ export interface DockerV2RepositoryArgs {
      */
     downloadDirect?: pulumi.Input<boolean>;
     /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*.By default no
+     * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no
      * artifacts are excluded.
      */
     excludesPattern?: pulumi.Input<string>;
     /**
-     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When
-     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
+     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When
+     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
      */
     includesPattern?: pulumi.Input<string>;
     /**

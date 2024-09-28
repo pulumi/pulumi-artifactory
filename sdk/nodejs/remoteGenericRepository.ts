@@ -124,7 +124,7 @@ export class RemoteGenericRepository extends pulumi.CustomResource {
      */
     public readonly enableCookieManagement!: pulumi.Output<boolean | undefined>;
     /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*.By default no
+     * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no
      * artifacts are excluded.
      */
     public readonly excludesPattern!: pulumi.Output<string | undefined>;
@@ -134,8 +134,8 @@ export class RemoteGenericRepository extends pulumi.CustomResource {
      */
     public readonly hardFail!: pulumi.Output<boolean | undefined>;
     /**
-     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When
-     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
+     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When
+     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
      */
     public readonly includesPattern!: pulumi.Output<string | undefined>;
     /**
@@ -222,6 +222,10 @@ export class RemoteGenericRepository extends pulumi.CustomResource {
      * before checking for newer versions on remote server. A value of 0 indicates no caching.
      */
     public readonly retrievalCachePeriodSeconds!: pulumi.Output<number | undefined>;
+    /**
+     * When set to `true`, Artifactory retrieves the SHA256 from the remote server if it is not cached in the remote repo.
+     */
+    public readonly retrieveSha256FromServer!: pulumi.Output<boolean | undefined>;
     public readonly shareConfiguration!: pulumi.Output<boolean>;
     /**
      * Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network
@@ -247,7 +251,7 @@ export class RemoteGenericRepository extends pulumi.CustomResource {
     /**
      * The remote repo URL.
      */
-    public readonly url!: pulumi.Output<string>;
+    public readonly url!: pulumi.Output<string | undefined>;
     public readonly username!: pulumi.Output<string | undefined>;
     /**
      * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
@@ -305,6 +309,7 @@ export class RemoteGenericRepository extends pulumi.CustomResource {
             resourceInputs["remoteRepoLayoutRef"] = state ? state.remoteRepoLayoutRef : undefined;
             resourceInputs["repoLayoutRef"] = state ? state.repoLayoutRef : undefined;
             resourceInputs["retrievalCachePeriodSeconds"] = state ? state.retrievalCachePeriodSeconds : undefined;
+            resourceInputs["retrieveSha256FromServer"] = state ? state.retrieveSha256FromServer : undefined;
             resourceInputs["shareConfiguration"] = state ? state.shareConfiguration : undefined;
             resourceInputs["socketTimeoutMillis"] = state ? state.socketTimeoutMillis : undefined;
             resourceInputs["storeArtifactsLocally"] = state ? state.storeArtifactsLocally : undefined;
@@ -317,9 +322,6 @@ export class RemoteGenericRepository extends pulumi.CustomResource {
             const args = argsOrState as RemoteGenericRepositoryArgs | undefined;
             if ((!args || args.key === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'key'");
-            }
-            if ((!args || args.url === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'url'");
             }
             resourceInputs["allowAnyHostAuth"] = args ? args.allowAnyHostAuth : undefined;
             resourceInputs["archiveBrowsingEnabled"] = args ? args.archiveBrowsingEnabled : undefined;
@@ -357,6 +359,7 @@ export class RemoteGenericRepository extends pulumi.CustomResource {
             resourceInputs["remoteRepoLayoutRef"] = args ? args.remoteRepoLayoutRef : undefined;
             resourceInputs["repoLayoutRef"] = args ? args.repoLayoutRef : undefined;
             resourceInputs["retrievalCachePeriodSeconds"] = args ? args.retrievalCachePeriodSeconds : undefined;
+            resourceInputs["retrieveSha256FromServer"] = args ? args.retrieveSha256FromServer : undefined;
             resourceInputs["shareConfiguration"] = args ? args.shareConfiguration : undefined;
             resourceInputs["socketTimeoutMillis"] = args ? args.socketTimeoutMillis : undefined;
             resourceInputs["storeArtifactsLocally"] = args ? args.storeArtifactsLocally : undefined;
@@ -445,7 +448,7 @@ export interface RemoteGenericRepositoryState {
      */
     enableCookieManagement?: pulumi.Input<boolean>;
     /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*.By default no
+     * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no
      * artifacts are excluded.
      */
     excludesPattern?: pulumi.Input<string>;
@@ -455,8 +458,8 @@ export interface RemoteGenericRepositoryState {
      */
     hardFail?: pulumi.Input<boolean>;
     /**
-     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When
-     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
+     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When
+     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
      */
     includesPattern?: pulumi.Input<string>;
     /**
@@ -543,6 +546,10 @@ export interface RemoteGenericRepositoryState {
      * before checking for newer versions on remote server. A value of 0 indicates no caching.
      */
     retrievalCachePeriodSeconds?: pulumi.Input<number>;
+    /**
+     * When set to `true`, Artifactory retrieves the SHA256 from the remote server if it is not cached in the remote repo.
+     */
+    retrieveSha256FromServer?: pulumi.Input<boolean>;
     shareConfiguration?: pulumi.Input<boolean>;
     /**
      * Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network
@@ -648,7 +655,7 @@ export interface RemoteGenericRepositoryArgs {
      */
     enableCookieManagement?: pulumi.Input<boolean>;
     /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*.By default no
+     * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no
      * artifacts are excluded.
      */
     excludesPattern?: pulumi.Input<string>;
@@ -658,8 +665,8 @@ export interface RemoteGenericRepositoryArgs {
      */
     hardFail?: pulumi.Input<boolean>;
     /**
-     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When
-     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
+     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When
+     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
      */
     includesPattern?: pulumi.Input<string>;
     /**
@@ -745,6 +752,10 @@ export interface RemoteGenericRepositoryArgs {
      * before checking for newer versions on remote server. A value of 0 indicates no caching.
      */
     retrievalCachePeriodSeconds?: pulumi.Input<number>;
+    /**
+     * When set to `true`, Artifactory retrieves the SHA256 from the remote server if it is not cached in the remote repo.
+     */
+    retrieveSha256FromServer?: pulumi.Input<boolean>;
     shareConfiguration?: pulumi.Input<boolean>;
     /**
      * Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network
@@ -770,7 +781,7 @@ export interface RemoteGenericRepositoryArgs {
     /**
      * The remote repo URL.
      */
-    url: pulumi.Input<string>;
+    url?: pulumi.Input<string>;
     username?: pulumi.Input<string>;
     /**
      * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via

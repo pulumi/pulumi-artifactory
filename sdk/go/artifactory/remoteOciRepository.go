@@ -100,7 +100,7 @@ type RemoteOciRepository struct {
 	EnableCookieManagement pulumi.BoolPtrOutput `pulumi:"enableCookieManagement"`
 	// Enable token (Bearer) based authentication.
 	EnableTokenAuthentication pulumi.BoolOutput `pulumi:"enableTokenAuthentication"`
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
 	// artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrOutput `pulumi:"excludesPattern"`
 	// Also known as 'Foreign Layers Caching' on the UI.
@@ -110,8 +110,8 @@ type RemoteOciRepository struct {
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
 	// communicate with this repository.
 	HardFail pulumi.BoolPtrOutput `pulumi:"hardFail"`
-	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
-	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
+	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 	IncludesPattern pulumi.StringPtrOutput `pulumi:"includesPattern"`
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or special characters.
 	Key pulumi.StringOutput `pulumi:"key"`
@@ -177,7 +177,7 @@ type RemoteOciRepository struct {
 	// eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
 	UnusedArtifactsCleanupPeriodHours pulumi.IntPtrOutput `pulumi:"unusedArtifactsCleanupPeriodHours"`
 	// The remote repo URL.
-	Url      pulumi.StringOutput    `pulumi:"url"`
+	Url      pulumi.StringPtrOutput `pulumi:"url"`
 	Username pulumi.StringPtrOutput `pulumi:"username"`
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
@@ -193,9 +193,6 @@ func NewRemoteOciRepository(ctx *pulumi.Context,
 
 	if args.Key == nil {
 		return nil, errors.New("invalid value for required argument 'Key'")
-	}
-	if args.Url == nil {
-		return nil, errors.New("invalid value for required argument 'Url'")
 	}
 	if args.Password != nil {
 		args.Password = pulumi.ToSecret(args.Password).(pulumi.StringPtrInput)
@@ -269,7 +266,7 @@ type remoteOciRepositoryState struct {
 	EnableCookieManagement *bool `pulumi:"enableCookieManagement"`
 	// Enable token (Bearer) based authentication.
 	EnableTokenAuthentication *bool `pulumi:"enableTokenAuthentication"`
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
 	// artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
 	// Also known as 'Foreign Layers Caching' on the UI.
@@ -279,8 +276,8 @@ type remoteOciRepositoryState struct {
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
 	// communicate with this repository.
 	HardFail *bool `pulumi:"hardFail"`
-	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
-	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
+	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 	IncludesPattern *string `pulumi:"includesPattern"`
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or special characters.
 	Key *string `pulumi:"key"`
@@ -396,7 +393,7 @@ type RemoteOciRepositoryState struct {
 	EnableCookieManagement pulumi.BoolPtrInput
 	// Enable token (Bearer) based authentication.
 	EnableTokenAuthentication pulumi.BoolPtrInput
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
 	// artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
 	// Also known as 'Foreign Layers Caching' on the UI.
@@ -406,8 +403,8 @@ type RemoteOciRepositoryState struct {
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
 	// communicate with this repository.
 	HardFail pulumi.BoolPtrInput
-	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
-	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
+	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 	IncludesPattern pulumi.StringPtrInput
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or special characters.
 	Key pulumi.StringPtrInput
@@ -527,7 +524,7 @@ type remoteOciRepositoryArgs struct {
 	EnableCookieManagement *bool `pulumi:"enableCookieManagement"`
 	// Enable token (Bearer) based authentication.
 	EnableTokenAuthentication *bool `pulumi:"enableTokenAuthentication"`
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
 	// artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
 	// Also known as 'Foreign Layers Caching' on the UI.
@@ -537,8 +534,8 @@ type remoteOciRepositoryArgs struct {
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
 	// communicate with this repository.
 	HardFail *bool `pulumi:"hardFail"`
-	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
-	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
+	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 	IncludesPattern *string `pulumi:"includesPattern"`
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or special characters.
 	Key string `pulumi:"key"`
@@ -603,7 +600,7 @@ type remoteOciRepositoryArgs struct {
 	// eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
 	UnusedArtifactsCleanupPeriodHours *int `pulumi:"unusedArtifactsCleanupPeriodHours"`
 	// The remote repo URL.
-	Url      string  `pulumi:"url"`
+	Url      *string `pulumi:"url"`
 	Username *string `pulumi:"username"`
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
@@ -654,7 +651,7 @@ type RemoteOciRepositoryArgs struct {
 	EnableCookieManagement pulumi.BoolPtrInput
 	// Enable token (Bearer) based authentication.
 	EnableTokenAuthentication pulumi.BoolPtrInput
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
 	// artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
 	// Also known as 'Foreign Layers Caching' on the UI.
@@ -664,8 +661,8 @@ type RemoteOciRepositoryArgs struct {
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
 	// communicate with this repository.
 	HardFail pulumi.BoolPtrInput
-	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
-	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
+	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 	IncludesPattern pulumi.StringPtrInput
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or special characters.
 	Key pulumi.StringInput
@@ -730,7 +727,7 @@ type RemoteOciRepositoryArgs struct {
 	// eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
 	UnusedArtifactsCleanupPeriodHours pulumi.IntPtrInput
 	// The remote repo URL.
-	Url      pulumi.StringInput
+	Url      pulumi.StringPtrInput
 	Username pulumi.StringPtrInput
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
@@ -913,7 +910,7 @@ func (o RemoteOciRepositoryOutput) EnableTokenAuthentication() pulumi.BoolOutput
 	return o.ApplyT(func(v *RemoteOciRepository) pulumi.BoolOutput { return v.EnableTokenAuthentication }).(pulumi.BoolOutput)
 }
 
-// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
+// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
 // artifacts are excluded.
 func (o RemoteOciRepositoryOutput) ExcludesPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemoteOciRepository) pulumi.StringPtrOutput { return v.ExcludesPattern }).(pulumi.StringPtrOutput)
@@ -935,8 +932,8 @@ func (o RemoteOciRepositoryOutput) HardFail() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteOciRepository) pulumi.BoolPtrOutput { return v.HardFail }).(pulumi.BoolPtrOutput)
 }
 
-// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
-// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
+// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 func (o RemoteOciRepositoryOutput) IncludesPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemoteOciRepository) pulumi.StringPtrOutput { return v.IncludesPattern }).(pulumi.StringPtrOutput)
 }
@@ -1080,8 +1077,8 @@ func (o RemoteOciRepositoryOutput) UnusedArtifactsCleanupPeriodHours() pulumi.In
 }
 
 // The remote repo URL.
-func (o RemoteOciRepositoryOutput) Url() pulumi.StringOutput {
-	return o.ApplyT(func(v *RemoteOciRepository) pulumi.StringOutput { return v.Url }).(pulumi.StringOutput)
+func (o RemoteOciRepositoryOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RemoteOciRepository) pulumi.StringPtrOutput { return v.Url }).(pulumi.StringPtrOutput)
 }
 
 func (o RemoteOciRepositoryOutput) Username() pulumi.StringPtrOutput {

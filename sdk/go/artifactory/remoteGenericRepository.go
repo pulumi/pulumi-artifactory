@@ -91,14 +91,14 @@ type RemoteGenericRepository struct {
 	DownloadDirect pulumi.BoolPtrOutput `pulumi:"downloadDirect"`
 	// Enables cookie management if the remote repository uses cookies to manage client state.
 	EnableCookieManagement pulumi.BoolPtrOutput `pulumi:"enableCookieManagement"`
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
 	// artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrOutput `pulumi:"excludesPattern"`
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
 	// communicate with this repository.
 	HardFail pulumi.BoolPtrOutput `pulumi:"hardFail"`
-	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
-	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
+	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 	IncludesPattern pulumi.StringPtrOutput `pulumi:"includesPattern"`
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
 	// contain spaces or special characters.
@@ -150,7 +150,9 @@ type RemoteGenericRepository struct {
 	// Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files
 	// before checking for newer versions on remote server. A value of 0 indicates no caching.
 	RetrievalCachePeriodSeconds pulumi.IntPtrOutput `pulumi:"retrievalCachePeriodSeconds"`
-	ShareConfiguration          pulumi.BoolOutput   `pulumi:"shareConfiguration"`
+	// When set to `true`, Artifactory retrieves the SHA256 from the remote server if it is not cached in the remote repo.
+	RetrieveSha256FromServer pulumi.BoolPtrOutput `pulumi:"retrieveSha256FromServer"`
+	ShareConfiguration       pulumi.BoolOutput    `pulumi:"shareConfiguration"`
 	// Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network
 	// operation is considered a retrieval failure.
 	SocketTimeoutMillis pulumi.IntPtrOutput `pulumi:"socketTimeoutMillis"`
@@ -165,7 +167,7 @@ type RemoteGenericRepository struct {
 	// eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
 	UnusedArtifactsCleanupPeriodHours pulumi.IntPtrOutput `pulumi:"unusedArtifactsCleanupPeriodHours"`
 	// The remote repo URL.
-	Url      pulumi.StringOutput    `pulumi:"url"`
+	Url      pulumi.StringPtrOutput `pulumi:"url"`
 	Username pulumi.StringPtrOutput `pulumi:"username"`
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
@@ -181,9 +183,6 @@ func NewRemoteGenericRepository(ctx *pulumi.Context,
 
 	if args.Key == nil {
 		return nil, errors.New("invalid value for required argument 'Key'")
-	}
-	if args.Url == nil {
-		return nil, errors.New("invalid value for required argument 'Url'")
 	}
 	if args.Password != nil {
 		args.Password = pulumi.ToSecret(args.Password).(pulumi.StringPtrInput)
@@ -255,14 +254,14 @@ type remoteGenericRepositoryState struct {
 	DownloadDirect *bool `pulumi:"downloadDirect"`
 	// Enables cookie management if the remote repository uses cookies to manage client state.
 	EnableCookieManagement *bool `pulumi:"enableCookieManagement"`
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
 	// artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
 	// communicate with this repository.
 	HardFail *bool `pulumi:"hardFail"`
-	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
-	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
+	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 	IncludesPattern *string `pulumi:"includesPattern"`
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
 	// contain spaces or special characters.
@@ -313,8 +312,10 @@ type remoteGenericRepositoryState struct {
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
 	// Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files
 	// before checking for newer versions on remote server. A value of 0 indicates no caching.
-	RetrievalCachePeriodSeconds *int  `pulumi:"retrievalCachePeriodSeconds"`
-	ShareConfiguration          *bool `pulumi:"shareConfiguration"`
+	RetrievalCachePeriodSeconds *int `pulumi:"retrievalCachePeriodSeconds"`
+	// When set to `true`, Artifactory retrieves the SHA256 from the remote server if it is not cached in the remote repo.
+	RetrieveSha256FromServer *bool `pulumi:"retrieveSha256FromServer"`
+	ShareConfiguration       *bool `pulumi:"shareConfiguration"`
 	// Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network
 	// operation is considered a retrieval failure.
 	SocketTimeoutMillis *int `pulumi:"socketTimeoutMillis"`
@@ -377,14 +378,14 @@ type RemoteGenericRepositoryState struct {
 	DownloadDirect pulumi.BoolPtrInput
 	// Enables cookie management if the remote repository uses cookies to manage client state.
 	EnableCookieManagement pulumi.BoolPtrInput
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
 	// artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
 	// communicate with this repository.
 	HardFail pulumi.BoolPtrInput
-	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
-	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
+	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 	IncludesPattern pulumi.StringPtrInput
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
 	// contain spaces or special characters.
@@ -436,7 +437,9 @@ type RemoteGenericRepositoryState struct {
 	// Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files
 	// before checking for newer versions on remote server. A value of 0 indicates no caching.
 	RetrievalCachePeriodSeconds pulumi.IntPtrInput
-	ShareConfiguration          pulumi.BoolPtrInput
+	// When set to `true`, Artifactory retrieves the SHA256 from the remote server if it is not cached in the remote repo.
+	RetrieveSha256FromServer pulumi.BoolPtrInput
+	ShareConfiguration       pulumi.BoolPtrInput
 	// Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network
 	// operation is considered a retrieval failure.
 	SocketTimeoutMillis pulumi.IntPtrInput
@@ -503,14 +506,14 @@ type remoteGenericRepositoryArgs struct {
 	DownloadDirect *bool `pulumi:"downloadDirect"`
 	// Enables cookie management if the remote repository uses cookies to manage client state.
 	EnableCookieManagement *bool `pulumi:"enableCookieManagement"`
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
 	// artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
 	// communicate with this repository.
 	HardFail *bool `pulumi:"hardFail"`
-	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
-	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
+	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 	IncludesPattern *string `pulumi:"includesPattern"`
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
 	// contain spaces or special characters.
@@ -560,8 +563,10 @@ type remoteGenericRepositoryArgs struct {
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
 	// Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files
 	// before checking for newer versions on remote server. A value of 0 indicates no caching.
-	RetrievalCachePeriodSeconds *int  `pulumi:"retrievalCachePeriodSeconds"`
-	ShareConfiguration          *bool `pulumi:"shareConfiguration"`
+	RetrievalCachePeriodSeconds *int `pulumi:"retrievalCachePeriodSeconds"`
+	// When set to `true`, Artifactory retrieves the SHA256 from the remote server if it is not cached in the remote repo.
+	RetrieveSha256FromServer *bool `pulumi:"retrieveSha256FromServer"`
+	ShareConfiguration       *bool `pulumi:"shareConfiguration"`
 	// Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network
 	// operation is considered a retrieval failure.
 	SocketTimeoutMillis *int `pulumi:"socketTimeoutMillis"`
@@ -576,7 +581,7 @@ type remoteGenericRepositoryArgs struct {
 	// eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
 	UnusedArtifactsCleanupPeriodHours *int `pulumi:"unusedArtifactsCleanupPeriodHours"`
 	// The remote repo URL.
-	Url      string  `pulumi:"url"`
+	Url      *string `pulumi:"url"`
 	Username *string `pulumi:"username"`
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
@@ -625,14 +630,14 @@ type RemoteGenericRepositoryArgs struct {
 	DownloadDirect pulumi.BoolPtrInput
 	// Enables cookie management if the remote repository uses cookies to manage client state.
 	EnableCookieManagement pulumi.BoolPtrInput
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
 	// artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
 	// communicate with this repository.
 	HardFail pulumi.BoolPtrInput
-	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
-	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
+	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 	IncludesPattern pulumi.StringPtrInput
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
 	// contain spaces or special characters.
@@ -683,7 +688,9 @@ type RemoteGenericRepositoryArgs struct {
 	// Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files
 	// before checking for newer versions on remote server. A value of 0 indicates no caching.
 	RetrievalCachePeriodSeconds pulumi.IntPtrInput
-	ShareConfiguration          pulumi.BoolPtrInput
+	// When set to `true`, Artifactory retrieves the SHA256 from the remote server if it is not cached in the remote repo.
+	RetrieveSha256FromServer pulumi.BoolPtrInput
+	ShareConfiguration       pulumi.BoolPtrInput
 	// Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network
 	// operation is considered a retrieval failure.
 	SocketTimeoutMillis pulumi.IntPtrInput
@@ -698,7 +705,7 @@ type RemoteGenericRepositoryArgs struct {
 	// eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
 	UnusedArtifactsCleanupPeriodHours pulumi.IntPtrInput
 	// The remote repo URL.
-	Url      pulumi.StringInput
+	Url      pulumi.StringPtrInput
 	Username pulumi.StringPtrInput
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
@@ -876,7 +883,7 @@ func (o RemoteGenericRepositoryOutput) EnableCookieManagement() pulumi.BoolPtrOu
 	return o.ApplyT(func(v *RemoteGenericRepository) pulumi.BoolPtrOutput { return v.EnableCookieManagement }).(pulumi.BoolPtrOutput)
 }
 
-// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
+// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
 // artifacts are excluded.
 func (o RemoteGenericRepositoryOutput) ExcludesPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemoteGenericRepository) pulumi.StringPtrOutput { return v.ExcludesPattern }).(pulumi.StringPtrOutput)
@@ -888,8 +895,8 @@ func (o RemoteGenericRepositoryOutput) HardFail() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteGenericRepository) pulumi.BoolPtrOutput { return v.HardFail }).(pulumi.BoolPtrOutput)
 }
 
-// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
-// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
+// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 func (o RemoteGenericRepositoryOutput) IncludesPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemoteGenericRepository) pulumi.StringPtrOutput { return v.IncludesPattern }).(pulumi.StringPtrOutput)
 }
@@ -1004,6 +1011,11 @@ func (o RemoteGenericRepositoryOutput) RetrievalCachePeriodSeconds() pulumi.IntP
 	return o.ApplyT(func(v *RemoteGenericRepository) pulumi.IntPtrOutput { return v.RetrievalCachePeriodSeconds }).(pulumi.IntPtrOutput)
 }
 
+// When set to `true`, Artifactory retrieves the SHA256 from the remote server if it is not cached in the remote repo.
+func (o RemoteGenericRepositoryOutput) RetrieveSha256FromServer() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RemoteGenericRepository) pulumi.BoolPtrOutput { return v.RetrieveSha256FromServer }).(pulumi.BoolPtrOutput)
+}
+
 func (o RemoteGenericRepositoryOutput) ShareConfiguration() pulumi.BoolOutput {
 	return o.ApplyT(func(v *RemoteGenericRepository) pulumi.BoolOutput { return v.ShareConfiguration }).(pulumi.BoolOutput)
 }
@@ -1034,8 +1046,8 @@ func (o RemoteGenericRepositoryOutput) UnusedArtifactsCleanupPeriodHours() pulum
 }
 
 // The remote repo URL.
-func (o RemoteGenericRepositoryOutput) Url() pulumi.StringOutput {
-	return o.ApplyT(func(v *RemoteGenericRepository) pulumi.StringOutput { return v.Url }).(pulumi.StringOutput)
+func (o RemoteGenericRepositoryOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RemoteGenericRepository) pulumi.StringPtrOutput { return v.Url }).(pulumi.StringPtrOutput)
 }
 
 func (o RemoteGenericRepositoryOutput) Username() pulumi.StringPtrOutput {

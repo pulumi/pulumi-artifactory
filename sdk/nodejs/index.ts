@@ -900,6 +900,11 @@ export const getVirtualChefRepository: typeof import("./getVirtualChefRepository
 export const getVirtualChefRepositoryOutput: typeof import("./getVirtualChefRepository").getVirtualChefRepositoryOutput = null as any;
 utilities.lazyLoad(exports, ["getVirtualChefRepository","getVirtualChefRepositoryOutput"], () => require("./getVirtualChefRepository"));
 
+export { GetVirtualCocoapodsRepositoryArgs, GetVirtualCocoapodsRepositoryResult, GetVirtualCocoapodsRepositoryOutputArgs } from "./getVirtualCocoapodsRepository";
+export const getVirtualCocoapodsRepository: typeof import("./getVirtualCocoapodsRepository").getVirtualCocoapodsRepository = null as any;
+export const getVirtualCocoapodsRepositoryOutput: typeof import("./getVirtualCocoapodsRepository").getVirtualCocoapodsRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getVirtualCocoapodsRepository","getVirtualCocoapodsRepositoryOutput"], () => require("./getVirtualCocoapodsRepository"));
+
 export { GetVirtualComposerRepositoryArgs, GetVirtualComposerRepositoryResult, GetVirtualComposerRepositoryOutputArgs } from "./getVirtualComposerRepository";
 export const getVirtualComposerRepository: typeof import("./getVirtualComposerRepository").getVirtualComposerRepository = null as any;
 export const getVirtualComposerRepositoryOutput: typeof import("./getVirtualComposerRepository").getVirtualComposerRepositoryOutput = null as any;
@@ -1595,6 +1600,11 @@ export type VirtualChefRepository = import("./virtualChefRepository").VirtualChe
 export const VirtualChefRepository: typeof import("./virtualChefRepository").VirtualChefRepository = null as any;
 utilities.lazyLoad(exports, ["VirtualChefRepository"], () => require("./virtualChefRepository"));
 
+export { VirtualCocoapodsRepositoryArgs, VirtualCocoapodsRepositoryState } from "./virtualCocoapodsRepository";
+export type VirtualCocoapodsRepository = import("./virtualCocoapodsRepository").VirtualCocoapodsRepository;
+export const VirtualCocoapodsRepository: typeof import("./virtualCocoapodsRepository").VirtualCocoapodsRepository = null as any;
+utilities.lazyLoad(exports, ["VirtualCocoapodsRepository"], () => require("./virtualCocoapodsRepository"));
+
 export { VirtualComposerRepositoryArgs, VirtualComposerRepositoryState } from "./virtualComposerRepository";
 export type VirtualComposerRepository = import("./virtualComposerRepository").VirtualComposerRepository;
 export const VirtualComposerRepository: typeof import("./virtualComposerRepository").VirtualComposerRepository = null as any;
@@ -2077,6 +2087,8 @@ const _module = {
                 return new VirtualBowerRepository(name, <any>undefined, { urn })
             case "artifactory:index/virtualChefRepository:VirtualChefRepository":
                 return new VirtualChefRepository(name, <any>undefined, { urn })
+            case "artifactory:index/virtualCocoapodsRepository:VirtualCocoapodsRepository":
+                return new VirtualCocoapodsRepository(name, <any>undefined, { urn })
             case "artifactory:index/virtualComposerRepository:VirtualComposerRepository":
                 return new VirtualComposerRepository(name, <any>undefined, { urn })
             case "artifactory:index/virtualConanRepository:VirtualConanRepository":
@@ -2304,6 +2316,7 @@ pulumi.runtime.registerResourceModule("artifactory", "index/virtualAlpineReposit
 pulumi.runtime.registerResourceModule("artifactory", "index/virtualAnsibleRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/virtualBowerRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/virtualChefRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/virtualCocoapodsRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/virtualComposerRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/virtualConanRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/virtualCondaRepository", _module)

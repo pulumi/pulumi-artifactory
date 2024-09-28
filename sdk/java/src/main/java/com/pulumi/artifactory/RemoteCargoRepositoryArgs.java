@@ -279,7 +279,7 @@ public final class RemoteCargoRepositoryArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*.By default no
+     * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no
      * artifacts are excluded.
      * 
      */
@@ -287,7 +287,7 @@ public final class RemoteCargoRepositoryArgs extends com.pulumi.resources.Resour
     private @Nullable Output<String> excludesPattern;
 
     /**
-     * @return List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*.By default no
+     * @return List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no
      * artifacts are excluded.
      * 
      */
@@ -299,15 +299,15 @@ public final class RemoteCargoRepositoryArgs extends com.pulumi.resources.Resour
      * This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
      * 
      */
-    @Import(name="gitRegistryUrl", required=true)
-    private Output<String> gitRegistryUrl;
+    @Import(name="gitRegistryUrl")
+    private @Nullable Output<String> gitRegistryUrl;
 
     /**
      * @return This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
      * 
      */
-    public Output<String> gitRegistryUrl() {
-        return this.gitRegistryUrl;
+    public Optional<Output<String>> gitRegistryUrl() {
+        return Optional.ofNullable(this.gitRegistryUrl);
     }
 
     /**
@@ -328,16 +328,16 @@ public final class RemoteCargoRepositoryArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When
-     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
+     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When
+     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
      * 
      */
     @Import(name="includesPattern")
     private @Nullable Output<String> includesPattern;
 
     /**
-     * @return List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When
-     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
+     * @return List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When
+     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
      * 
      */
     public Optional<Output<String>> includesPattern() {
@@ -705,15 +705,15 @@ public final class RemoteCargoRepositoryArgs extends com.pulumi.resources.Resour
      * The remote repo URL.
      * 
      */
-    @Import(name="url", required=true)
-    private Output<String> url;
+    @Import(name="url")
+    private @Nullable Output<String> url;
 
     /**
      * @return The remote repo URL.
      * 
      */
-    public Output<String> url() {
-        return this.url;
+    public Optional<Output<String>> url() {
+        return Optional.ofNullable(this.url);
     }
 
     @Import(name="username")
@@ -1160,7 +1160,7 @@ public final class RemoteCargoRepositoryArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param excludesPattern List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*.By default no
+         * @param excludesPattern List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no
          * artifacts are excluded.
          * 
          * @return builder
@@ -1172,7 +1172,7 @@ public final class RemoteCargoRepositoryArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param excludesPattern List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*.By default no
+         * @param excludesPattern List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no
          * artifacts are excluded.
          * 
          * @return builder
@@ -1188,7 +1188,7 @@ public final class RemoteCargoRepositoryArgs extends com.pulumi.resources.Resour
          * @return builder
          * 
          */
-        public Builder gitRegistryUrl(Output<String> gitRegistryUrl) {
+        public Builder gitRegistryUrl(@Nullable Output<String> gitRegistryUrl) {
             $.gitRegistryUrl = gitRegistryUrl;
             return this;
         }
@@ -1227,8 +1227,8 @@ public final class RemoteCargoRepositoryArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param includesPattern List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When
-         * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
+         * @param includesPattern List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When
+         * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
          * 
          * @return builder
          * 
@@ -1239,8 +1239,8 @@ public final class RemoteCargoRepositoryArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param includesPattern List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When
-         * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
+         * @param includesPattern List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When
+         * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
          * 
          * @return builder
          * 
@@ -1752,7 +1752,7 @@ public final class RemoteCargoRepositoryArgs extends com.pulumi.resources.Resour
          * @return builder
          * 
          */
-        public Builder url(Output<String> url) {
+        public Builder url(@Nullable Output<String> url) {
             $.url = url;
             return this;
         }
@@ -1800,14 +1800,8 @@ public final class RemoteCargoRepositoryArgs extends com.pulumi.resources.Resour
         }
 
         public RemoteCargoRepositoryArgs build() {
-            if ($.gitRegistryUrl == null) {
-                throw new MissingRequiredPropertyException("RemoteCargoRepositoryArgs", "gitRegistryUrl");
-            }
             if ($.key == null) {
                 throw new MissingRequiredPropertyException("RemoteCargoRepositoryArgs", "key");
-            }
-            if ($.url == null) {
-                throw new MissingRequiredPropertyException("RemoteCargoRepositoryArgs", "url");
             }
             return $;
         }

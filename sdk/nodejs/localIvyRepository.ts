@@ -84,7 +84,7 @@ export class LocalIvyRepository extends pulumi.CustomResource {
      */
     public readonly downloadDirect!: pulumi.Output<boolean | undefined>;
     /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*.By default no
+     * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no
      * artifacts are excluded.
      */
     public readonly excludesPattern!: pulumi.Output<string | undefined>;
@@ -97,8 +97,8 @@ export class LocalIvyRepository extends pulumi.CustomResource {
      */
     public readonly handleSnapshots!: pulumi.Output<boolean | undefined>;
     /**
-     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When
-     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
+     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When
+     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
      */
     public readonly includesPattern!: pulumi.Output<string | undefined>;
     /**
@@ -256,7 +256,7 @@ export interface LocalIvyRepositoryState {
      */
     downloadDirect?: pulumi.Input<boolean>;
     /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*.By default no
+     * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no
      * artifacts are excluded.
      */
     excludesPattern?: pulumi.Input<string>;
@@ -269,8 +269,8 @@ export interface LocalIvyRepositoryState {
      */
     handleSnapshots?: pulumi.Input<boolean>;
     /**
-     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When
-     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
+     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When
+     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
      */
     includesPattern?: pulumi.Input<string>;
     /**
@@ -361,7 +361,7 @@ export interface LocalIvyRepositoryArgs {
      */
     downloadDirect?: pulumi.Input<boolean>;
     /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*.By default no
+     * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no
      * artifacts are excluded.
      */
     excludesPattern?: pulumi.Input<string>;
@@ -374,8 +374,8 @@ export interface LocalIvyRepositoryArgs {
      */
     handleSnapshots?: pulumi.Input<boolean>;
     /**
-     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When
-     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
+     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When
+     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
      */
     includesPattern?: pulumi.Input<string>;
     /**

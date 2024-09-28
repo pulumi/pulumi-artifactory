@@ -64,14 +64,14 @@ type VirtualIvyRepository struct {
 	DefaultDeploymentRepo pulumi.StringPtrOutput `pulumi:"defaultDeploymentRepo"`
 	// Public description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
 	// artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrOutput `pulumi:"excludesPattern"`
 	// User authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This
 	// is also enforced when aggregated repositories support anonymous requests.
 	ForceMavenAuthentication pulumi.BoolOutput `pulumi:"forceMavenAuthentication"`
-	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
-	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
+	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 	IncludesPattern pulumi.StringPtrOutput `pulumi:"includesPattern"`
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
 	// contain spaces or special characters.
@@ -135,14 +135,14 @@ type virtualIvyRepositoryState struct {
 	DefaultDeploymentRepo *string `pulumi:"defaultDeploymentRepo"`
 	// Public description.
 	Description *string `pulumi:"description"`
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
 	// artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
 	// User authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This
 	// is also enforced when aggregated repositories support anonymous requests.
 	ForceMavenAuthentication *bool `pulumi:"forceMavenAuthentication"`
-	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
-	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
+	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 	IncludesPattern *string `pulumi:"includesPattern"`
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
 	// contain spaces or special characters.
@@ -174,14 +174,14 @@ type VirtualIvyRepositoryState struct {
 	DefaultDeploymentRepo pulumi.StringPtrInput
 	// Public description.
 	Description pulumi.StringPtrInput
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
 	// artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
 	// User authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This
 	// is also enforced when aggregated repositories support anonymous requests.
 	ForceMavenAuthentication pulumi.BoolPtrInput
-	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
-	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
+	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 	IncludesPattern pulumi.StringPtrInput
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
 	// contain spaces or special characters.
@@ -217,14 +217,14 @@ type virtualIvyRepositoryArgs struct {
 	DefaultDeploymentRepo *string `pulumi:"defaultDeploymentRepo"`
 	// Public description.
 	Description *string `pulumi:"description"`
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
 	// artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
 	// User authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This
 	// is also enforced when aggregated repositories support anonymous requests.
 	ForceMavenAuthentication *bool `pulumi:"forceMavenAuthentication"`
-	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
-	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
+	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 	IncludesPattern *string `pulumi:"includesPattern"`
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
 	// contain spaces or special characters.
@@ -256,14 +256,14 @@ type VirtualIvyRepositoryArgs struct {
 	DefaultDeploymentRepo pulumi.StringPtrInput
 	// Public description.
 	Description pulumi.StringPtrInput
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
 	// artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
 	// User authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This
 	// is also enforced when aggregated repositories support anonymous requests.
 	ForceMavenAuthentication pulumi.BoolPtrInput
-	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
-	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
+	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 	IncludesPattern pulumi.StringPtrInput
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
 	// contain spaces or special characters.
@@ -391,7 +391,7 @@ func (o VirtualIvyRepositoryOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualIvyRepository) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
+// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
 // artifacts are excluded.
 func (o VirtualIvyRepositoryOutput) ExcludesPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualIvyRepository) pulumi.StringPtrOutput { return v.ExcludesPattern }).(pulumi.StringPtrOutput)
@@ -403,8 +403,8 @@ func (o VirtualIvyRepositoryOutput) ForceMavenAuthentication() pulumi.BoolOutput
 	return o.ApplyT(func(v *VirtualIvyRepository) pulumi.BoolOutput { return v.ForceMavenAuthentication }).(pulumi.BoolOutput)
 }
 
-// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
-// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
+// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 func (o VirtualIvyRepositoryOutput) IncludesPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualIvyRepository) pulumi.StringPtrOutput { return v.IncludesPattern }).(pulumi.StringPtrOutput)
 }

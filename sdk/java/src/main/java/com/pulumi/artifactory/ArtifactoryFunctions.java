@@ -238,6 +238,8 @@ import com.pulumi.artifactory.inputs.GetVirtualBowerRepositoryArgs;
 import com.pulumi.artifactory.inputs.GetVirtualBowerRepositoryPlainArgs;
 import com.pulumi.artifactory.inputs.GetVirtualChefRepositoryArgs;
 import com.pulumi.artifactory.inputs.GetVirtualChefRepositoryPlainArgs;
+import com.pulumi.artifactory.inputs.GetVirtualCocoapodsRepositoryArgs;
+import com.pulumi.artifactory.inputs.GetVirtualCocoapodsRepositoryPlainArgs;
 import com.pulumi.artifactory.inputs.GetVirtualComposerRepositoryArgs;
 import com.pulumi.artifactory.inputs.GetVirtualComposerRepositoryPlainArgs;
 import com.pulumi.artifactory.inputs.GetVirtualConanRepositoryArgs;
@@ -407,6 +409,7 @@ import com.pulumi.artifactory.outputs.GetVirtualAlpineRepositoryResult;
 import com.pulumi.artifactory.outputs.GetVirtualAnsibleRepositoryResult;
 import com.pulumi.artifactory.outputs.GetVirtualBowerRepositoryResult;
 import com.pulumi.artifactory.outputs.GetVirtualChefRepositoryResult;
+import com.pulumi.artifactory.outputs.GetVirtualCocoapodsRepositoryResult;
 import com.pulumi.artifactory.outputs.GetVirtualComposerRepositoryResult;
 import com.pulumi.artifactory.outputs.GetVirtualConanRepositoryResult;
 import com.pulumi.artifactory.outputs.GetVirtualCondaRepositoryResult;
@@ -20065,6 +20068,18 @@ public final class ArtifactoryFunctions {
      */
     public static CompletableFuture<GetVirtualChefRepositoryResult> getVirtualChefRepositoryPlain(GetVirtualChefRepositoryPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("artifactory:index/getVirtualChefRepository:getVirtualChefRepository", TypeShape.of(GetVirtualChefRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    public static Output<GetVirtualCocoapodsRepositoryResult> getVirtualCocoapodsRepository(GetVirtualCocoapodsRepositoryArgs args) {
+        return getVirtualCocoapodsRepository(args, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetVirtualCocoapodsRepositoryResult> getVirtualCocoapodsRepositoryPlain(GetVirtualCocoapodsRepositoryPlainArgs args) {
+        return getVirtualCocoapodsRepositoryPlain(args, InvokeOptions.Empty);
+    }
+    public static Output<GetVirtualCocoapodsRepositoryResult> getVirtualCocoapodsRepository(GetVirtualCocoapodsRepositoryArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("artifactory:index/getVirtualCocoapodsRepository:getVirtualCocoapodsRepository", TypeShape.of(GetVirtualCocoapodsRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    public static CompletableFuture<GetVirtualCocoapodsRepositoryResult> getVirtualCocoapodsRepositoryPlain(GetVirtualCocoapodsRepositoryPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("artifactory:index/getVirtualCocoapodsRepository:getVirtualCocoapodsRepository", TypeShape.of(GetVirtualCocoapodsRepositoryResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Retrieves a virtual PHP Composer repository.

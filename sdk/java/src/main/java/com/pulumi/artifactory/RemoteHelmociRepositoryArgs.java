@@ -264,7 +264,7 @@ public final class RemoteHelmociRepositoryArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*.By default no
+     * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no
      * artifacts are excluded.
      * 
      */
@@ -272,7 +272,7 @@ public final class RemoteHelmociRepositoryArgs extends com.pulumi.resources.Reso
     private @Nullable Output<String> excludesPattern;
 
     /**
-     * @return List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*.By default no
+     * @return List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no
      * artifacts are excluded.
      * 
      */
@@ -328,16 +328,16 @@ public final class RemoteHelmociRepositoryArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When
-     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
+     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When
+     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
      * 
      */
     @Import(name="includesPattern")
     private @Nullable Output<String> includesPattern;
 
     /**
-     * @return List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When
-     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
+     * @return List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When
+     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
      * 
      */
     public Optional<Output<String>> includesPattern() {
@@ -718,15 +718,15 @@ public final class RemoteHelmociRepositoryArgs extends com.pulumi.resources.Reso
      * This is a URL to the remote registry. Consider using HTTPS to ensure a secure connection.
      * 
      */
-    @Import(name="url", required=true)
-    private Output<String> url;
+    @Import(name="url")
+    private @Nullable Output<String> url;
 
     /**
      * @return This is a URL to the remote registry. Consider using HTTPS to ensure a secure connection.
      * 
      */
-    public Output<String> url() {
-        return this.url;
+    public Optional<Output<String>> url() {
+        return Optional.ofNullable(this.url);
     }
 
     @Import(name="username")
@@ -1153,7 +1153,7 @@ public final class RemoteHelmociRepositoryArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param excludesPattern List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*.By default no
+         * @param excludesPattern List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no
          * artifacts are excluded.
          * 
          * @return builder
@@ -1165,7 +1165,7 @@ public final class RemoteHelmociRepositoryArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param excludesPattern List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*.By default no
+         * @param excludesPattern List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no
          * artifacts are excluded.
          * 
          * @return builder
@@ -1251,8 +1251,8 @@ public final class RemoteHelmociRepositoryArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param includesPattern List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When
-         * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
+         * @param includesPattern List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When
+         * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
          * 
          * @return builder
          * 
@@ -1263,8 +1263,8 @@ public final class RemoteHelmociRepositoryArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param includesPattern List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When
-         * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
+         * @param includesPattern List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When
+         * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
          * 
          * @return builder
          * 
@@ -1795,7 +1795,7 @@ public final class RemoteHelmociRepositoryArgs extends com.pulumi.resources.Reso
          * @return builder
          * 
          */
-        public Builder url(Output<String> url) {
+        public Builder url(@Nullable Output<String> url) {
             $.url = url;
             return this;
         }
@@ -1845,9 +1845,6 @@ public final class RemoteHelmociRepositoryArgs extends com.pulumi.resources.Reso
         public RemoteHelmociRepositoryArgs build() {
             if ($.key == null) {
                 throw new MissingRequiredPropertyException("RemoteHelmociRepositoryArgs", "key");
-            }
-            if ($.url == null) {
-                throw new MissingRequiredPropertyException("RemoteHelmociRepositoryArgs", "url");
             }
             return $;
         }

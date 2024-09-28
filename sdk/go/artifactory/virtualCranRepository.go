@@ -63,11 +63,11 @@ type VirtualCranRepository struct {
 	DefaultDeploymentRepo pulumi.StringPtrOutput `pulumi:"defaultDeploymentRepo"`
 	// Public description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
 	// artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrOutput `pulumi:"excludesPattern"`
-	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
-	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
+	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 	IncludesPattern pulumi.StringPtrOutput `pulumi:"includesPattern"`
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
 	// contain spaces or special characters.
@@ -127,11 +127,11 @@ type virtualCranRepositoryState struct {
 	DefaultDeploymentRepo *string `pulumi:"defaultDeploymentRepo"`
 	// Public description.
 	Description *string `pulumi:"description"`
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
 	// artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
-	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
-	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
+	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 	IncludesPattern *string `pulumi:"includesPattern"`
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
 	// contain spaces or special characters.
@@ -159,11 +159,11 @@ type VirtualCranRepositoryState struct {
 	DefaultDeploymentRepo pulumi.StringPtrInput
 	// Public description.
 	Description pulumi.StringPtrInput
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
 	// artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
-	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
-	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
+	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 	IncludesPattern pulumi.StringPtrInput
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
 	// contain spaces or special characters.
@@ -195,11 +195,11 @@ type virtualCranRepositoryArgs struct {
 	DefaultDeploymentRepo *string `pulumi:"defaultDeploymentRepo"`
 	// Public description.
 	Description *string `pulumi:"description"`
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
 	// artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
-	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
-	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
+	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 	IncludesPattern *string `pulumi:"includesPattern"`
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
 	// contain spaces or special characters.
@@ -227,11 +227,11 @@ type VirtualCranRepositoryArgs struct {
 	DefaultDeploymentRepo pulumi.StringPtrInput
 	// Public description.
 	Description pulumi.StringPtrInput
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
 	// artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
-	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
-	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
+	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 	IncludesPattern pulumi.StringPtrInput
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
 	// contain spaces or special characters.
@@ -355,14 +355,14 @@ func (o VirtualCranRepositoryOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualCranRepository) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
+// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
 // artifacts are excluded.
 func (o VirtualCranRepositoryOutput) ExcludesPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualCranRepository) pulumi.StringPtrOutput { return v.ExcludesPattern }).(pulumi.StringPtrOutput)
 }
 
-// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
-// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
+// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 func (o VirtualCranRepositoryOutput) IncludesPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualCranRepository) pulumi.StringPtrOutput { return v.IncludesPattern }).(pulumi.StringPtrOutput)
 }
