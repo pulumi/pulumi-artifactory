@@ -16,9 +16,7 @@ __all__ = ['RemoteCargoRepositoryArgs', 'RemoteCargoRepository']
 @pulumi.input_type
 class RemoteCargoRepositoryArgs:
     def __init__(__self__, *,
-                 git_registry_url: pulumi.Input[str],
                  key: pulumi.Input[str],
-                 url: pulumi.Input[str],
                  allow_any_host_auth: Optional[pulumi.Input[bool]] = None,
                  anonymous_access: Optional[pulumi.Input[bool]] = None,
                  archive_browsing_enabled: Optional[pulumi.Input[bool]] = None,
@@ -36,6 +34,7 @@ class RemoteCargoRepositoryArgs:
                  enable_cookie_management: Optional[pulumi.Input[bool]] = None,
                  enable_sparse_index: Optional[pulumi.Input[bool]] = None,
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
+                 git_registry_url: Optional[pulumi.Input[str]] = None,
                  hard_fail: Optional[pulumi.Input[bool]] = None,
                  includes_pattern: Optional[pulumi.Input[str]] = None,
                  list_remote_folder_items: Optional[pulumi.Input[bool]] = None,
@@ -60,14 +59,13 @@ class RemoteCargoRepositoryArgs:
                  store_artifacts_locally: Optional[pulumi.Input[bool]] = None,
                  synchronize_properties: Optional[pulumi.Input[bool]] = None,
                  unused_artifacts_cleanup_period_hours: Optional[pulumi.Input[int]] = None,
+                 url: Optional[pulumi.Input[str]] = None,
                  username: Optional[pulumi.Input[str]] = None,
                  xray_index: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a RemoteCargoRepository resource.
-        :param pulumi.Input[str] git_registry_url: This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
         :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
                contain spaces or special characters.
-        :param pulumi.Input[str] url: The remote repo URL.
         :param pulumi.Input[bool] allow_any_host_auth: 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any
                other host.
         :param pulumi.Input[bool] anonymous_access: Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
@@ -96,12 +94,13 @@ class RemoteCargoRepositoryArgs:
                storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
         :param pulumi.Input[bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
         :param pulumi.Input[bool] enable_sparse_index: Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
-        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
+        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
                artifacts are excluded.
+        :param pulumi.Input[str] git_registry_url: This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
         :param pulumi.Input[bool] hard_fail: When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
                communicate with this repository.
-        :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
-               used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
+               used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         :param pulumi.Input[bool] list_remote_folder_items: Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
                the 'Retrieval Cache Period'. Default value is 'false'. This field exists in the API but not in the UI.
         :param pulumi.Input[str] local_address: The local address to be used when creating connections. Useful for specifying the interface to use on systems with
@@ -138,12 +137,11 @@ class RemoteCargoRepositoryArgs:
         :param pulumi.Input[bool] synchronize_properties: When set, remote artifacts are fetched along with their properties.
         :param pulumi.Input[int] unused_artifacts_cleanup_period_hours: Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and
                eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
+        :param pulumi.Input[str] url: The remote repo URL.
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
                Xray settings.
         """
-        pulumi.set(__self__, "git_registry_url", git_registry_url)
         pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "url", url)
         if allow_any_host_auth is not None:
             pulumi.set(__self__, "allow_any_host_auth", allow_any_host_auth)
         if anonymous_access is not None:
@@ -178,6 +176,8 @@ class RemoteCargoRepositoryArgs:
             pulumi.set(__self__, "enable_sparse_index", enable_sparse_index)
         if excludes_pattern is not None:
             pulumi.set(__self__, "excludes_pattern", excludes_pattern)
+        if git_registry_url is not None:
+            pulumi.set(__self__, "git_registry_url", git_registry_url)
         if hard_fail is not None:
             pulumi.set(__self__, "hard_fail", hard_fail)
         if includes_pattern is not None:
@@ -226,22 +226,12 @@ class RemoteCargoRepositoryArgs:
             pulumi.set(__self__, "synchronize_properties", synchronize_properties)
         if unused_artifacts_cleanup_period_hours is not None:
             pulumi.set(__self__, "unused_artifacts_cleanup_period_hours", unused_artifacts_cleanup_period_hours)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
         if username is not None:
             pulumi.set(__self__, "username", username)
         if xray_index is not None:
             pulumi.set(__self__, "xray_index", xray_index)
-
-    @property
-    @pulumi.getter(name="gitRegistryUrl")
-    def git_registry_url(self) -> pulumi.Input[str]:
-        """
-        This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
-        """
-        return pulumi.get(self, "git_registry_url")
-
-    @git_registry_url.setter
-    def git_registry_url(self, value: pulumi.Input[str]):
-        pulumi.set(self, "git_registry_url", value)
 
     @property
     @pulumi.getter
@@ -255,18 +245,6 @@ class RemoteCargoRepositoryArgs:
     @key.setter
     def key(self, value: pulumi.Input[str]):
         pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def url(self) -> pulumi.Input[str]:
-        """
-        The remote repo URL.
-        """
-        return pulumi.get(self, "url")
-
-    @url.setter
-    def url(self, value: pulumi.Input[str]):
-        pulumi.set(self, "url", value)
 
     @property
     @pulumi.getter(name="allowAnyHostAuth")
@@ -474,7 +452,7 @@ class RemoteCargoRepositoryArgs:
     @pulumi.getter(name="excludesPattern")
     def excludes_pattern(self) -> Optional[pulumi.Input[str]]:
         """
-        List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
+        List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
         artifacts are excluded.
         """
         return pulumi.get(self, "excludes_pattern")
@@ -482,6 +460,18 @@ class RemoteCargoRepositoryArgs:
     @excludes_pattern.setter
     def excludes_pattern(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "excludes_pattern", value)
+
+    @property
+    @pulumi.getter(name="gitRegistryUrl")
+    def git_registry_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
+        """
+        return pulumi.get(self, "git_registry_url")
+
+    @git_registry_url.setter
+    def git_registry_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "git_registry_url", value)
 
     @property
     @pulumi.getter(name="hardFail")
@@ -500,8 +490,8 @@ class RemoteCargoRepositoryArgs:
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> Optional[pulumi.Input[str]]:
         """
-        List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
-        used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
+        used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         """
         return pulumi.get(self, "includes_pattern")
 
@@ -783,6 +773,18 @@ class RemoteCargoRepositoryArgs:
 
     @property
     @pulumi.getter
+    def url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The remote repo URL.
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter
     def username(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "username")
 
@@ -884,13 +886,13 @@ class _RemoteCargoRepositoryState:
                storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
         :param pulumi.Input[bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
         :param pulumi.Input[bool] enable_sparse_index: Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
-        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
+        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
                artifacts are excluded.
         :param pulumi.Input[str] git_registry_url: This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
         :param pulumi.Input[bool] hard_fail: When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
                communicate with this repository.
-        :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
-               used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
+               used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
                contain spaces or special characters.
         :param pulumi.Input[bool] list_remote_folder_items: Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
@@ -1234,7 +1236,7 @@ class _RemoteCargoRepositoryState:
     @pulumi.getter(name="excludesPattern")
     def excludes_pattern(self) -> Optional[pulumi.Input[str]]:
         """
-        List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
+        List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
         artifacts are excluded.
         """
         return pulumi.get(self, "excludes_pattern")
@@ -1272,8 +1274,8 @@ class _RemoteCargoRepositoryState:
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> Optional[pulumi.Input[str]]:
         """
-        List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
-        used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
+        used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         """
         return pulumi.get(self, "includes_pattern")
 
@@ -1722,13 +1724,13 @@ class RemoteCargoRepository(pulumi.CustomResource):
                storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
         :param pulumi.Input[bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
         :param pulumi.Input[bool] enable_sparse_index: Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
-        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
+        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
                artifacts are excluded.
         :param pulumi.Input[str] git_registry_url: This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
         :param pulumi.Input[bool] hard_fail: When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
                communicate with this repository.
-        :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
-               used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
+               used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
                contain spaces or special characters.
         :param pulumi.Input[bool] list_remote_folder_items: Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
@@ -1894,8 +1896,6 @@ class RemoteCargoRepository(pulumi.CustomResource):
             __props__.__dict__["enable_cookie_management"] = enable_cookie_management
             __props__.__dict__["enable_sparse_index"] = enable_sparse_index
             __props__.__dict__["excludes_pattern"] = excludes_pattern
-            if git_registry_url is None and not opts.urn:
-                raise TypeError("Missing required property 'git_registry_url'")
             __props__.__dict__["git_registry_url"] = git_registry_url
             __props__.__dict__["hard_fail"] = hard_fail
             __props__.__dict__["includes_pattern"] = includes_pattern
@@ -1924,8 +1924,6 @@ class RemoteCargoRepository(pulumi.CustomResource):
             __props__.__dict__["store_artifacts_locally"] = store_artifacts_locally
             __props__.__dict__["synchronize_properties"] = synchronize_properties
             __props__.__dict__["unused_artifacts_cleanup_period_hours"] = unused_artifacts_cleanup_period_hours
-            if url is None and not opts.urn:
-                raise TypeError("Missing required property 'url'")
             __props__.__dict__["url"] = url
             __props__.__dict__["username"] = username
             __props__.__dict__["xray_index"] = xray_index
@@ -2024,13 +2022,13 @@ class RemoteCargoRepository(pulumi.CustomResource):
                storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
         :param pulumi.Input[bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
         :param pulumi.Input[bool] enable_sparse_index: Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
-        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
+        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
                artifacts are excluded.
         :param pulumi.Input[str] git_registry_url: This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
         :param pulumi.Input[bool] hard_fail: When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
                communicate with this repository.
-        :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
-               used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
+               used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
                contain spaces or special characters.
         :param pulumi.Input[bool] list_remote_folder_items: Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
@@ -2268,14 +2266,14 @@ class RemoteCargoRepository(pulumi.CustomResource):
     @pulumi.getter(name="excludesPattern")
     def excludes_pattern(self) -> pulumi.Output[Optional[str]]:
         """
-        List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
+        List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
         artifacts are excluded.
         """
         return pulumi.get(self, "excludes_pattern")
 
     @property
     @pulumi.getter(name="gitRegistryUrl")
-    def git_registry_url(self) -> pulumi.Output[str]:
+    def git_registry_url(self) -> pulumi.Output[Optional[str]]:
         """
         This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
         """
@@ -2294,8 +2292,8 @@ class RemoteCargoRepository(pulumi.CustomResource):
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> pulumi.Output[Optional[str]]:
         """
-        List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
-        used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
+        used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         """
         return pulumi.get(self, "includes_pattern")
 
@@ -2499,7 +2497,7 @@ class RemoteCargoRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def url(self) -> pulumi.Output[str]:
+    def url(self) -> pulumi.Output[Optional[str]]:
         """
         The remote repo URL.
         """

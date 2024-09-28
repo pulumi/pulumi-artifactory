@@ -17,7 +17,6 @@ __all__ = ['RemoteGenericRepositoryArgs', 'RemoteGenericRepository']
 class RemoteGenericRepositoryArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
-                 url: pulumi.Input[str],
                  allow_any_host_auth: Optional[pulumi.Input[bool]] = None,
                  archive_browsing_enabled: Optional[pulumi.Input[bool]] = None,
                  assumed_offline_period_secs: Optional[pulumi.Input[int]] = None,
@@ -53,18 +52,19 @@ class RemoteGenericRepositoryArgs:
                  remote_repo_layout_ref: Optional[pulumi.Input[str]] = None,
                  repo_layout_ref: Optional[pulumi.Input[str]] = None,
                  retrieval_cache_period_seconds: Optional[pulumi.Input[int]] = None,
+                 retrieve_sha256_from_server: Optional[pulumi.Input[bool]] = None,
                  share_configuration: Optional[pulumi.Input[bool]] = None,
                  socket_timeout_millis: Optional[pulumi.Input[int]] = None,
                  store_artifacts_locally: Optional[pulumi.Input[bool]] = None,
                  synchronize_properties: Optional[pulumi.Input[bool]] = None,
                  unused_artifacts_cleanup_period_hours: Optional[pulumi.Input[int]] = None,
+                 url: Optional[pulumi.Input[str]] = None,
                  username: Optional[pulumi.Input[str]] = None,
                  xray_index: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a RemoteGenericRepository resource.
         :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
                contain spaces or special characters.
-        :param pulumi.Input[str] url: The remote repo URL.
         :param pulumi.Input[bool] allow_any_host_auth: 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any
                other host.
         :param pulumi.Input[bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -91,12 +91,12 @@ class RemoteGenericRepositoryArgs:
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
         :param pulumi.Input[bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
-        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
+        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
                artifacts are excluded.
         :param pulumi.Input[bool] hard_fail: When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
                communicate with this repository.
-        :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
-               used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
+               used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         :param pulumi.Input[bool] list_remote_folder_items: Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
                the 'Retrieval Cache Period'. Default value is 'false'. This field exists in the API but not in the UI.
         :param pulumi.Input[str] local_address: The local address to be used when creating connections. Useful for specifying the interface to use on systems with
@@ -125,6 +125,7 @@ class RemoteGenericRepositoryArgs:
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the remote repository
         :param pulumi.Input[int] retrieval_cache_period_seconds: Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files
                before checking for newer versions on remote server. A value of 0 indicates no caching.
+        :param pulumi.Input[bool] retrieve_sha256_from_server: When set to `true`, Artifactory retrieves the SHA256 from the remote server if it is not cached in the remote repo.
         :param pulumi.Input[int] socket_timeout_millis: Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network
                operation is considered a retrieval failure.
         :param pulumi.Input[bool] store_artifacts_locally: When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and
@@ -134,11 +135,11 @@ class RemoteGenericRepositoryArgs:
         :param pulumi.Input[bool] synchronize_properties: When set, remote artifacts are fetched along with their properties.
         :param pulumi.Input[int] unused_artifacts_cleanup_period_hours: Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and
                eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
+        :param pulumi.Input[str] url: The remote repo URL.
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
                Xray settings.
         """
         pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "url", url)
         if allow_any_host_auth is not None:
             pulumi.set(__self__, "allow_any_host_auth", allow_any_host_auth)
         if archive_browsing_enabled is not None:
@@ -209,6 +210,8 @@ class RemoteGenericRepositoryArgs:
             pulumi.set(__self__, "repo_layout_ref", repo_layout_ref)
         if retrieval_cache_period_seconds is not None:
             pulumi.set(__self__, "retrieval_cache_period_seconds", retrieval_cache_period_seconds)
+        if retrieve_sha256_from_server is not None:
+            pulumi.set(__self__, "retrieve_sha256_from_server", retrieve_sha256_from_server)
         if share_configuration is not None:
             pulumi.set(__self__, "share_configuration", share_configuration)
         if socket_timeout_millis is not None:
@@ -219,6 +222,8 @@ class RemoteGenericRepositoryArgs:
             pulumi.set(__self__, "synchronize_properties", synchronize_properties)
         if unused_artifacts_cleanup_period_hours is not None:
             pulumi.set(__self__, "unused_artifacts_cleanup_period_hours", unused_artifacts_cleanup_period_hours)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
         if username is not None:
             pulumi.set(__self__, "username", username)
         if xray_index is not None:
@@ -236,18 +241,6 @@ class RemoteGenericRepositoryArgs:
     @key.setter
     def key(self, value: pulumi.Input[str]):
         pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def url(self) -> pulumi.Input[str]:
-        """
-        The remote repo URL.
-        """
-        return pulumi.get(self, "url")
-
-    @url.setter
-    def url(self, value: pulumi.Input[str]):
-        pulumi.set(self, "url", value)
 
     @property
     @pulumi.getter(name="allowAnyHostAuth")
@@ -431,7 +424,7 @@ class RemoteGenericRepositoryArgs:
     @pulumi.getter(name="excludesPattern")
     def excludes_pattern(self) -> Optional[pulumi.Input[str]]:
         """
-        List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
+        List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
         artifacts are excluded.
         """
         return pulumi.get(self, "excludes_pattern")
@@ -457,8 +450,8 @@ class RemoteGenericRepositoryArgs:
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> Optional[pulumi.Input[str]]:
         """
-        List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
-        used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
+        used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         """
         return pulumi.get(self, "includes_pattern")
 
@@ -689,6 +682,18 @@ class RemoteGenericRepositoryArgs:
         pulumi.set(self, "retrieval_cache_period_seconds", value)
 
     @property
+    @pulumi.getter(name="retrieveSha256FromServer")
+    def retrieve_sha256_from_server(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set to `true`, Artifactory retrieves the SHA256 from the remote server if it is not cached in the remote repo.
+        """
+        return pulumi.get(self, "retrieve_sha256_from_server")
+
+    @retrieve_sha256_from_server.setter
+    def retrieve_sha256_from_server(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "retrieve_sha256_from_server", value)
+
+    @property
     @pulumi.getter(name="shareConfiguration")
     def share_configuration(self) -> Optional[pulumi.Input[bool]]:
         return pulumi.get(self, "share_configuration")
@@ -749,6 +754,18 @@ class RemoteGenericRepositoryArgs:
     @unused_artifacts_cleanup_period_hours.setter
     def unused_artifacts_cleanup_period_hours(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "unused_artifacts_cleanup_period_hours", value)
+
+    @property
+    @pulumi.getter
+    def url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The remote repo URL.
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "url", value)
 
     @property
     @pulumi.getter
@@ -813,6 +830,7 @@ class _RemoteGenericRepositoryState:
                  remote_repo_layout_ref: Optional[pulumi.Input[str]] = None,
                  repo_layout_ref: Optional[pulumi.Input[str]] = None,
                  retrieval_cache_period_seconds: Optional[pulumi.Input[int]] = None,
+                 retrieve_sha256_from_server: Optional[pulumi.Input[bool]] = None,
                  share_configuration: Optional[pulumi.Input[bool]] = None,
                  socket_timeout_millis: Optional[pulumi.Input[int]] = None,
                  store_artifacts_locally: Optional[pulumi.Input[bool]] = None,
@@ -849,12 +867,12 @@ class _RemoteGenericRepositoryState:
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
         :param pulumi.Input[bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
-        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
+        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
                artifacts are excluded.
         :param pulumi.Input[bool] hard_fail: When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
                communicate with this repository.
-        :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
-               used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
+               used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
                contain spaces or special characters.
         :param pulumi.Input[bool] list_remote_folder_items: Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
@@ -885,6 +903,7 @@ class _RemoteGenericRepositoryState:
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the remote repository
         :param pulumi.Input[int] retrieval_cache_period_seconds: Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files
                before checking for newer versions on remote server. A value of 0 indicates no caching.
+        :param pulumi.Input[bool] retrieve_sha256_from_server: When set to `true`, Artifactory retrieves the SHA256 from the remote server if it is not cached in the remote repo.
         :param pulumi.Input[int] socket_timeout_millis: Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network
                operation is considered a retrieval failure.
         :param pulumi.Input[bool] store_artifacts_locally: When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and
@@ -972,6 +991,8 @@ class _RemoteGenericRepositoryState:
             pulumi.set(__self__, "repo_layout_ref", repo_layout_ref)
         if retrieval_cache_period_seconds is not None:
             pulumi.set(__self__, "retrieval_cache_period_seconds", retrieval_cache_period_seconds)
+        if retrieve_sha256_from_server is not None:
+            pulumi.set(__self__, "retrieve_sha256_from_server", retrieve_sha256_from_server)
         if share_configuration is not None:
             pulumi.set(__self__, "share_configuration", share_configuration)
         if socket_timeout_millis is not None:
@@ -1171,7 +1192,7 @@ class _RemoteGenericRepositoryState:
     @pulumi.getter(name="excludesPattern")
     def excludes_pattern(self) -> Optional[pulumi.Input[str]]:
         """
-        List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
+        List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
         artifacts are excluded.
         """
         return pulumi.get(self, "excludes_pattern")
@@ -1197,8 +1218,8 @@ class _RemoteGenericRepositoryState:
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> Optional[pulumi.Input[str]]:
         """
-        List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
-        used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
+        used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         """
         return pulumi.get(self, "includes_pattern")
 
@@ -1451,6 +1472,18 @@ class _RemoteGenericRepositoryState:
         pulumi.set(self, "retrieval_cache_period_seconds", value)
 
     @property
+    @pulumi.getter(name="retrieveSha256FromServer")
+    def retrieve_sha256_from_server(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set to `true`, Artifactory retrieves the SHA256 from the remote server if it is not cached in the remote repo.
+        """
+        return pulumi.get(self, "retrieve_sha256_from_server")
+
+    @retrieve_sha256_from_server.setter
+    def retrieve_sha256_from_server(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "retrieve_sha256_from_server", value)
+
+    @property
     @pulumi.getter(name="shareConfiguration")
     def share_configuration(self) -> Optional[pulumi.Input[bool]]:
         return pulumi.get(self, "share_configuration")
@@ -1588,6 +1621,7 @@ class RemoteGenericRepository(pulumi.CustomResource):
                  remote_repo_layout_ref: Optional[pulumi.Input[str]] = None,
                  repo_layout_ref: Optional[pulumi.Input[str]] = None,
                  retrieval_cache_period_seconds: Optional[pulumi.Input[int]] = None,
+                 retrieve_sha256_from_server: Optional[pulumi.Input[bool]] = None,
                  share_configuration: Optional[pulumi.Input[bool]] = None,
                  socket_timeout_millis: Optional[pulumi.Input[int]] = None,
                  store_artifacts_locally: Optional[pulumi.Input[bool]] = None,
@@ -1647,12 +1681,12 @@ class RemoteGenericRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
         :param pulumi.Input[bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
-        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
+        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
                artifacts are excluded.
         :param pulumi.Input[bool] hard_fail: When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
                communicate with this repository.
-        :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
-               used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
+               used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
                contain spaces or special characters.
         :param pulumi.Input[bool] list_remote_folder_items: Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
@@ -1683,6 +1717,7 @@ class RemoteGenericRepository(pulumi.CustomResource):
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the remote repository
         :param pulumi.Input[int] retrieval_cache_period_seconds: Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files
                before checking for newer versions on remote server. A value of 0 indicates no caching.
+        :param pulumi.Input[bool] retrieve_sha256_from_server: When set to `true`, Artifactory retrieves the SHA256 from the remote server if it is not cached in the remote repo.
         :param pulumi.Input[int] socket_timeout_millis: Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network
                operation is considered a retrieval failure.
         :param pulumi.Input[bool] store_artifacts_locally: When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and
@@ -1775,6 +1810,7 @@ class RemoteGenericRepository(pulumi.CustomResource):
                  remote_repo_layout_ref: Optional[pulumi.Input[str]] = None,
                  repo_layout_ref: Optional[pulumi.Input[str]] = None,
                  retrieval_cache_period_seconds: Optional[pulumi.Input[int]] = None,
+                 retrieve_sha256_from_server: Optional[pulumi.Input[bool]] = None,
                  share_configuration: Optional[pulumi.Input[bool]] = None,
                  socket_timeout_millis: Optional[pulumi.Input[int]] = None,
                  store_artifacts_locally: Optional[pulumi.Input[bool]] = None,
@@ -1830,13 +1866,12 @@ class RemoteGenericRepository(pulumi.CustomResource):
             __props__.__dict__["remote_repo_layout_ref"] = remote_repo_layout_ref
             __props__.__dict__["repo_layout_ref"] = repo_layout_ref
             __props__.__dict__["retrieval_cache_period_seconds"] = retrieval_cache_period_seconds
+            __props__.__dict__["retrieve_sha256_from_server"] = retrieve_sha256_from_server
             __props__.__dict__["share_configuration"] = share_configuration
             __props__.__dict__["socket_timeout_millis"] = socket_timeout_millis
             __props__.__dict__["store_artifacts_locally"] = store_artifacts_locally
             __props__.__dict__["synchronize_properties"] = synchronize_properties
             __props__.__dict__["unused_artifacts_cleanup_period_hours"] = unused_artifacts_cleanup_period_hours
-            if url is None and not opts.urn:
-                raise TypeError("Missing required property 'url'")
             __props__.__dict__["url"] = url
             __props__.__dict__["username"] = username
             __props__.__dict__["xray_index"] = xray_index
@@ -1890,6 +1925,7 @@ class RemoteGenericRepository(pulumi.CustomResource):
             remote_repo_layout_ref: Optional[pulumi.Input[str]] = None,
             repo_layout_ref: Optional[pulumi.Input[str]] = None,
             retrieval_cache_period_seconds: Optional[pulumi.Input[int]] = None,
+            retrieve_sha256_from_server: Optional[pulumi.Input[bool]] = None,
             share_configuration: Optional[pulumi.Input[bool]] = None,
             socket_timeout_millis: Optional[pulumi.Input[int]] = None,
             store_artifacts_locally: Optional[pulumi.Input[bool]] = None,
@@ -1931,12 +1967,12 @@ class RemoteGenericRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
         :param pulumi.Input[bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
-        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
+        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
                artifacts are excluded.
         :param pulumi.Input[bool] hard_fail: When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
                communicate with this repository.
-        :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
-               used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
+               used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
                contain spaces or special characters.
         :param pulumi.Input[bool] list_remote_folder_items: Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
@@ -1967,6 +2003,7 @@ class RemoteGenericRepository(pulumi.CustomResource):
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the remote repository
         :param pulumi.Input[int] retrieval_cache_period_seconds: Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files
                before checking for newer versions on remote server. A value of 0 indicates no caching.
+        :param pulumi.Input[bool] retrieve_sha256_from_server: When set to `true`, Artifactory retrieves the SHA256 from the remote server if it is not cached in the remote repo.
         :param pulumi.Input[int] socket_timeout_millis: Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network
                operation is considered a retrieval failure.
         :param pulumi.Input[bool] store_artifacts_locally: When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and
@@ -2021,6 +2058,7 @@ class RemoteGenericRepository(pulumi.CustomResource):
         __props__.__dict__["remote_repo_layout_ref"] = remote_repo_layout_ref
         __props__.__dict__["repo_layout_ref"] = repo_layout_ref
         __props__.__dict__["retrieval_cache_period_seconds"] = retrieval_cache_period_seconds
+        __props__.__dict__["retrieve_sha256_from_server"] = retrieve_sha256_from_server
         __props__.__dict__["share_configuration"] = share_configuration
         __props__.__dict__["socket_timeout_millis"] = socket_timeout_millis
         __props__.__dict__["store_artifacts_locally"] = store_artifacts_locally
@@ -2157,7 +2195,7 @@ class RemoteGenericRepository(pulumi.CustomResource):
     @pulumi.getter(name="excludesPattern")
     def excludes_pattern(self) -> pulumi.Output[Optional[str]]:
         """
-        List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
+        List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
         artifacts are excluded.
         """
         return pulumi.get(self, "excludes_pattern")
@@ -2175,8 +2213,8 @@ class RemoteGenericRepository(pulumi.CustomResource):
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> pulumi.Output[Optional[str]]:
         """
-        List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
-        used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
+        used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         """
         return pulumi.get(self, "includes_pattern")
 
@@ -2345,6 +2383,14 @@ class RemoteGenericRepository(pulumi.CustomResource):
         return pulumi.get(self, "retrieval_cache_period_seconds")
 
     @property
+    @pulumi.getter(name="retrieveSha256FromServer")
+    def retrieve_sha256_from_server(self) -> pulumi.Output[Optional[bool]]:
+        """
+        When set to `true`, Artifactory retrieves the SHA256 from the remote server if it is not cached in the remote repo.
+        """
+        return pulumi.get(self, "retrieve_sha256_from_server")
+
+    @property
     @pulumi.getter(name="shareConfiguration")
     def share_configuration(self) -> pulumi.Output[bool]:
         return pulumi.get(self, "share_configuration")
@@ -2388,7 +2434,7 @@ class RemoteGenericRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def url(self) -> pulumi.Output[str]:
+    def url(self) -> pulumi.Output[Optional[str]]:
         """
         The remote repo URL.
         """

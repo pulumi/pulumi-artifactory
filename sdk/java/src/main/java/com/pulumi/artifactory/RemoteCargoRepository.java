@@ -319,7 +319,7 @@ public class RemoteCargoRepository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enableSparseIndex);
     }
     /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*.By default no
+     * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no
      * artifacts are excluded.
      * 
      */
@@ -327,7 +327,7 @@ public class RemoteCargoRepository extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ String> excludesPattern;
 
     /**
-     * @return List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*.By default no
+     * @return List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no
      * artifacts are excluded.
      * 
      */
@@ -339,14 +339,14 @@ public class RemoteCargoRepository extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="gitRegistryUrl", refs={String.class}, tree="[0]")
-    private Output<String> gitRegistryUrl;
+    private Output</* @Nullable */ String> gitRegistryUrl;
 
     /**
      * @return This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
      * 
      */
-    public Output<String> gitRegistryUrl() {
-        return this.gitRegistryUrl;
+    public Output<Optional<String>> gitRegistryUrl() {
+        return Codegen.optional(this.gitRegistryUrl);
     }
     /**
      * When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
@@ -365,16 +365,16 @@ public class RemoteCargoRepository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.hardFail);
     }
     /**
-     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When
-     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
+     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When
+     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
      * 
      */
     @Export(name="includesPattern", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> includesPattern;
 
     /**
-     * @return List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When
-     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
+     * @return List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When
+     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
      * 
      */
     public Output<Optional<String>> includesPattern() {
@@ -725,14 +725,14 @@ public class RemoteCargoRepository extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="url", refs={String.class}, tree="[0]")
-    private Output<String> url;
+    private Output</* @Nullable */ String> url;
 
     /**
      * @return The remote repo URL.
      * 
      */
-    public Output<String> url() {
-        return this.url;
+    public Output<Optional<String>> url() {
+        return Codegen.optional(this.url);
     }
     @Export(name="username", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> username;

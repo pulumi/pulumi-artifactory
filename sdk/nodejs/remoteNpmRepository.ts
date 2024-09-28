@@ -131,7 +131,7 @@ export class RemoteNpmRepository extends pulumi.CustomResource {
      */
     public readonly enableCookieManagement!: pulumi.Output<boolean | undefined>;
     /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*.By default no
+     * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no
      * artifacts are excluded.
      */
     public readonly excludesPattern!: pulumi.Output<string | undefined>;
@@ -141,8 +141,8 @@ export class RemoteNpmRepository extends pulumi.CustomResource {
      */
     public readonly hardFail!: pulumi.Output<boolean | undefined>;
     /**
-     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When
-     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
+     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When
+     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
      */
     public readonly includesPattern!: pulumi.Output<string | undefined>;
     /**
@@ -250,7 +250,7 @@ export class RemoteNpmRepository extends pulumi.CustomResource {
     /**
      * The remote repo URL.
      */
-    public readonly url!: pulumi.Output<string>;
+    public readonly url!: pulumi.Output<string | undefined>;
     public readonly username!: pulumi.Output<string | undefined>;
     /**
      * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
@@ -320,9 +320,6 @@ export class RemoteNpmRepository extends pulumi.CustomResource {
             const args = argsOrState as RemoteNpmRepositoryArgs | undefined;
             if ((!args || args.key === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'key'");
-            }
-            if ((!args || args.url === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'url'");
             }
             resourceInputs["allowAnyHostAuth"] = args ? args.allowAnyHostAuth : undefined;
             resourceInputs["archiveBrowsingEnabled"] = args ? args.archiveBrowsingEnabled : undefined;
@@ -452,7 +449,7 @@ export interface RemoteNpmRepositoryState {
      */
     enableCookieManagement?: pulumi.Input<boolean>;
     /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*.By default no
+     * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no
      * artifacts are excluded.
      */
     excludesPattern?: pulumi.Input<string>;
@@ -462,8 +459,8 @@ export interface RemoteNpmRepositoryState {
      */
     hardFail?: pulumi.Input<boolean>;
     /**
-     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When
-     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
+     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When
+     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
      */
     includesPattern?: pulumi.Input<string>;
     /**
@@ -655,7 +652,7 @@ export interface RemoteNpmRepositoryArgs {
      */
     enableCookieManagement?: pulumi.Input<boolean>;
     /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*.By default no
+     * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no
      * artifacts are excluded.
      */
     excludesPattern?: pulumi.Input<string>;
@@ -665,8 +662,8 @@ export interface RemoteNpmRepositoryArgs {
      */
     hardFail?: pulumi.Input<boolean>;
     /**
-     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When
-     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
+     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When
+     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
      */
     includesPattern?: pulumi.Input<string>;
     /**
@@ -773,7 +770,7 @@ export interface RemoteNpmRepositoryArgs {
     /**
      * The remote repo URL.
      */
-    url: pulumi.Input<string>;
+    url?: pulumi.Input<string>;
     username?: pulumi.Input<string>;
     /**
      * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via

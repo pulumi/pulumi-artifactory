@@ -140,22 +140,22 @@ export class RemoteCargoRepository extends pulumi.CustomResource {
      */
     public readonly enableSparseIndex!: pulumi.Output<boolean | undefined>;
     /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*.By default no
+     * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no
      * artifacts are excluded.
      */
     public readonly excludesPattern!: pulumi.Output<string | undefined>;
     /**
      * This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
      */
-    public readonly gitRegistryUrl!: pulumi.Output<string>;
+    public readonly gitRegistryUrl!: pulumi.Output<string | undefined>;
     /**
      * When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
      * communicate with this repository.
      */
     public readonly hardFail!: pulumi.Output<boolean | undefined>;
     /**
-     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When
-     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
+     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When
+     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
      */
     public readonly includesPattern!: pulumi.Output<string | undefined>;
     /**
@@ -263,7 +263,7 @@ export class RemoteCargoRepository extends pulumi.CustomResource {
     /**
      * The remote repo URL.
      */
-    public readonly url!: pulumi.Output<string>;
+    public readonly url!: pulumi.Output<string | undefined>;
     public readonly username!: pulumi.Output<string | undefined>;
     /**
      * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
@@ -333,14 +333,8 @@ export class RemoteCargoRepository extends pulumi.CustomResource {
             resourceInputs["xrayIndex"] = state ? state.xrayIndex : undefined;
         } else {
             const args = argsOrState as RemoteCargoRepositoryArgs | undefined;
-            if ((!args || args.gitRegistryUrl === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'gitRegistryUrl'");
-            }
             if ((!args || args.key === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'key'");
-            }
-            if ((!args || args.url === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'url'");
             }
             resourceInputs["allowAnyHostAuth"] = args ? args.allowAnyHostAuth : undefined;
             resourceInputs["anonymousAccess"] = args ? args.anonymousAccess : undefined;
@@ -476,7 +470,7 @@ export interface RemoteCargoRepositoryState {
      */
     enableSparseIndex?: pulumi.Input<boolean>;
     /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*.By default no
+     * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no
      * artifacts are excluded.
      */
     excludesPattern?: pulumi.Input<string>;
@@ -490,8 +484,8 @@ export interface RemoteCargoRepositoryState {
      */
     hardFail?: pulumi.Input<boolean>;
     /**
-     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When
-     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
+     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When
+     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
      */
     includesPattern?: pulumi.Input<string>;
     /**
@@ -687,22 +681,22 @@ export interface RemoteCargoRepositoryArgs {
      */
     enableSparseIndex?: pulumi.Input<boolean>;
     /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*.By default no
+     * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no
      * artifacts are excluded.
      */
     excludesPattern?: pulumi.Input<string>;
     /**
      * This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
      */
-    gitRegistryUrl: pulumi.Input<string>;
+    gitRegistryUrl?: pulumi.Input<string>;
     /**
      * When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
      * communicate with this repository.
      */
     hardFail?: pulumi.Input<boolean>;
     /**
-     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When
-     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
+     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When
+     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
      */
     includesPattern?: pulumi.Input<string>;
     /**
@@ -809,7 +803,7 @@ export interface RemoteCargoRepositoryArgs {
     /**
      * The remote repo URL.
      */
-    url: pulumi.Input<string>;
+    url?: pulumi.Input<string>;
     username?: pulumi.Input<string>;
     /**
      * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via

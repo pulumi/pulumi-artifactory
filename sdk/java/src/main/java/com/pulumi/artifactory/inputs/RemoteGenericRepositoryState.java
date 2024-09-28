@@ -248,7 +248,7 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
     }
 
     /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*.By default no
+     * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no
      * artifacts are excluded.
      * 
      */
@@ -256,7 +256,7 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
     private @Nullable Output<String> excludesPattern;
 
     /**
-     * @return List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*.By default no
+     * @return List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no
      * artifacts are excluded.
      * 
      */
@@ -282,16 +282,16 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
     }
 
     /**
-     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When
-     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
+     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When
+     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
      * 
      */
     @Import(name="includesPattern")
     private @Nullable Output<String> includesPattern;
 
     /**
-     * @return List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When
-     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
+     * @return List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When
+     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
      * 
      */
     public Optional<Output<String>> includesPattern() {
@@ -600,6 +600,21 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
         return Optional.ofNullable(this.retrievalCachePeriodSeconds);
     }
 
+    /**
+     * When set to `true`, Artifactory retrieves the SHA256 from the remote server if it is not cached in the remote repo.
+     * 
+     */
+    @Import(name="retrieveSha256FromServer")
+    private @Nullable Output<Boolean> retrieveSha256FromServer;
+
+    /**
+     * @return When set to `true`, Artifactory retrieves the SHA256 from the remote server if it is not cached in the remote repo.
+     * 
+     */
+    public Optional<Output<Boolean>> retrieveSha256FromServer() {
+        return Optional.ofNullable(this.retrieveSha256FromServer);
+    }
+
     @Import(name="shareConfiguration")
     private @Nullable Output<Boolean> shareConfiguration;
 
@@ -756,6 +771,7 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
         this.remoteRepoLayoutRef = $.remoteRepoLayoutRef;
         this.repoLayoutRef = $.repoLayoutRef;
         this.retrievalCachePeriodSeconds = $.retrievalCachePeriodSeconds;
+        this.retrieveSha256FromServer = $.retrieveSha256FromServer;
         this.shareConfiguration = $.shareConfiguration;
         this.socketTimeoutMillis = $.socketTimeoutMillis;
         this.storeArtifactsLocally = $.storeArtifactsLocally;
@@ -1093,7 +1109,7 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param excludesPattern List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*.By default no
+         * @param excludesPattern List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no
          * artifacts are excluded.
          * 
          * @return builder
@@ -1105,7 +1121,7 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param excludesPattern List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*.By default no
+         * @param excludesPattern List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no
          * artifacts are excluded.
          * 
          * @return builder
@@ -1139,8 +1155,8 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param includesPattern List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When
-         * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
+         * @param includesPattern List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When
+         * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
          * 
          * @return builder
          * 
@@ -1151,8 +1167,8 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param includesPattern List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When
-         * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
+         * @param includesPattern List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When
+         * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
          * 
          * @return builder
          * 
@@ -1583,6 +1599,27 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
          */
         public Builder retrievalCachePeriodSeconds(Integer retrievalCachePeriodSeconds) {
             return retrievalCachePeriodSeconds(Output.of(retrievalCachePeriodSeconds));
+        }
+
+        /**
+         * @param retrieveSha256FromServer When set to `true`, Artifactory retrieves the SHA256 from the remote server if it is not cached in the remote repo.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder retrieveSha256FromServer(@Nullable Output<Boolean> retrieveSha256FromServer) {
+            $.retrieveSha256FromServer = retrieveSha256FromServer;
+            return this;
+        }
+
+        /**
+         * @param retrieveSha256FromServer When set to `true`, Artifactory retrieves the SHA256 from the remote server if it is not cached in the remote repo.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder retrieveSha256FromServer(Boolean retrieveSha256FromServer) {
+            return retrieveSha256FromServer(Output.of(retrieveSha256FromServer));
         }
 
         public Builder shareConfiguration(@Nullable Output<Boolean> shareConfiguration) {

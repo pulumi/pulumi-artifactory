@@ -139,7 +139,7 @@ namespace Pulumi.Artifactory
         public Output<bool?> EnableCookieManagement { get; private set; } = null!;
 
         /// <summary>
-        /// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
+        /// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
         /// artifacts are excluded.
         /// </summary>
         [Output("excludesPattern")]
@@ -153,8 +153,8 @@ namespace Pulumi.Artifactory
         public Output<bool?> HardFail { get; private set; } = null!;
 
         /// <summary>
-        /// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
-        /// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        /// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
+        /// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         /// </summary>
         [Output("includesPattern")]
         public Output<string?> IncludesPattern { get; private set; } = null!;
@@ -313,7 +313,7 @@ namespace Pulumi.Artifactory
         /// The remote repo URL.
         /// </summary>
         [Output("url")]
-        public Output<string> Url { get; private set; } = null!;
+        public Output<string?> Url { get; private set; } = null!;
 
         [Output("username")]
         public Output<string?> Username { get; private set; } = null!;
@@ -476,7 +476,7 @@ namespace Pulumi.Artifactory
         public Input<bool>? EnableCookieManagement { get; set; }
 
         /// <summary>
-        /// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
+        /// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
         /// artifacts are excluded.
         /// </summary>
         [Input("excludesPattern")]
@@ -490,8 +490,8 @@ namespace Pulumi.Artifactory
         public Input<bool>? HardFail { get; set; }
 
         /// <summary>
-        /// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
-        /// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        /// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
+        /// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         /// </summary>
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
@@ -666,8 +666,8 @@ namespace Pulumi.Artifactory
         /// <summary>
         /// The remote repo URL.
         /// </summary>
-        [Input("url", required: true)]
-        public Input<string> Url { get; set; } = null!;
+        [Input("url")]
+        public Input<string>? Url { get; set; }
 
         [Input("username")]
         public Input<string>? Username { get; set; }
@@ -788,7 +788,7 @@ namespace Pulumi.Artifactory
         public Input<bool>? EnableCookieManagement { get; set; }
 
         /// <summary>
-        /// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
+        /// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
         /// artifacts are excluded.
         /// </summary>
         [Input("excludesPattern")]
@@ -802,8 +802,8 @@ namespace Pulumi.Artifactory
         public Input<bool>? HardFail { get; set; }
 
         /// <summary>
-        /// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
-        /// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        /// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
+        /// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         /// </summary>
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }

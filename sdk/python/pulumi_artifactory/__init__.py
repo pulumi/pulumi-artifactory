@@ -184,6 +184,7 @@ from .get_virtual_alpine_repository import *
 from .get_virtual_ansible_repository import *
 from .get_virtual_bower_repository import *
 from .get_virtual_chef_repository import *
+from .get_virtual_cocoapods_repository import *
 from .get_virtual_composer_repository import *
 from .get_virtual_conan_repository import *
 from .get_virtual_conda_repository import *
@@ -323,6 +324,7 @@ from .virtual_alpine_repository import *
 from .virtual_ansible_repository import *
 from .virtual_bower_repository import *
 from .virtual_chef_repository import *
+from .virtual_cocoapods_repository import *
 from .virtual_composer_repository import *
 from .virtual_conan_repository import *
 from .virtual_conda_repository import *
@@ -1750,6 +1752,14 @@ _utilities.register(
   "fqn": "pulumi_artifactory",
   "classes": {
    "artifactory:index/virtualChefRepository:VirtualChefRepository": "VirtualChefRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/virtualCocoapodsRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/virtualCocoapodsRepository:VirtualCocoapodsRepository": "VirtualCocoapodsRepository"
   }
  },
  {
