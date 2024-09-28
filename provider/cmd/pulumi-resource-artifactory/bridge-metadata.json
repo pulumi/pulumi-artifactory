@@ -2594,6 +2594,18 @@
                     }
                 }
             },
+            "artifactory_virtual_cocoapods_repository": {
+                "current": "artifactory:index/virtualCocoapodsRepository:VirtualCocoapodsRepository",
+                "majorVersion": 8,
+                "fields": {
+                    "project_environments": {
+                        "maxItemsOne": false
+                    },
+                    "repositories": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "artifactory_virtual_composer_repository": {
                 "current": "artifactory:index/virtualComposerRepository:VirtualComposerRepository",
                 "majorVersion": 8,
@@ -4656,6 +4668,18 @@
                     }
                 }
             },
+            "artifactory_virtual_cocoapods_repository": {
+                "current": "artifactory:index/getVirtualCocoapodsRepository:getVirtualCocoapodsRepository",
+                "majorVersion": 8,
+                "fields": {
+                    "project_environments": {
+                        "maxItemsOne": false
+                    },
+                    "repositories": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "artifactory_virtual_composer_repository": {
                 "current": "artifactory:index/getVirtualComposerRepository:getVirtualComposerRepository",
                 "majorVersion": 8,
@@ -5156,6 +5180,7 @@
             "artifactory:index/virtualAnsibleRepository:VirtualAnsibleRepository": 0,
             "artifactory:index/virtualBowerRepository:VirtualBowerRepository": 0,
             "artifactory:index/virtualChefRepository:VirtualChefRepository": 0,
+            "artifactory:index/virtualCocoapodsRepository:VirtualCocoapodsRepository": 0,
             "artifactory:index/virtualComposerRepository:VirtualComposerRepository": 0,
             "artifactory:index/virtualConanRepository:VirtualConanRepository": 0,
             "artifactory:index/virtualCondaRepository:VirtualCondaRepository": 0,
@@ -5299,6 +5324,7 @@
             "artifactory:index/getVirtualAnsibleRepository:getVirtualAnsibleRepository": 0,
             "artifactory:index/getVirtualBowerRepository:getVirtualBowerRepository": 0,
             "artifactory:index/getVirtualChefRepository:getVirtualChefRepository": 0,
+            "artifactory:index/getVirtualCocoapodsRepository:getVirtualCocoapodsRepository": 0,
             "artifactory:index/getVirtualComposerRepository:getVirtualComposerRepository": 0,
             "artifactory:index/getVirtualConanRepository:getVirtualConanRepository": 0,
             "artifactory:index/getVirtualCondaRepository:getVirtualCondaRepository": 0,

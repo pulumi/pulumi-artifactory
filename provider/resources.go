@@ -215,6 +215,7 @@ func Provider() tfbridge.ProviderInfo {
 		"artifactory_local_terraform_provider_repository",
 		"artifactory_local_terraformbackend_repository",
 		"artifactory_local_vagrant_repository",
+		"artifactory_virtual_cocoapods_repository",
 	}
 
 	missingDocInfo := &tfbridge.DocInfo{AllowMissing: true}
