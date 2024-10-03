@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 
@@ -124,9 +129,6 @@ def get_repositories(package_type: Optional[str] = None,
         project_key=pulumi.get(__ret__, 'project_key'),
         repos=pulumi.get(__ret__, 'repos'),
         repository_type=pulumi.get(__ret__, 'repository_type'))
-
-
-@_utilities.lift_output_func(get_repositories)
 def get_repositories_output(package_type: Optional[pulumi.Input[Optional[str]]] = None,
                             project_key: Optional[pulumi.Input[Optional[str]]] = None,
                             repository_type: Optional[pulumi.Input[Optional[str]]] = None,
@@ -148,4 +150,15 @@ def get_repositories_output(package_type: Optional[pulumi.Input[Optional[str]]] 
     :param str project_key: Filter for repositories assigned to a specific project.
     :param str repository_type: Filter for repositories of a specific type. Allowed values are: local, remote, virtual, federated, distribution
     """
-    ...
+    __args__ = dict()
+    __args__['packageType'] = package_type
+    __args__['projectKey'] = project_key
+    __args__['repositoryType'] = repository_type
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('artifactory:index/getRepositories:getRepositories', __args__, opts=opts, typ=GetRepositoriesResult)
+    return __ret__.apply(lambda __response__: GetRepositoriesResult(
+        id=pulumi.get(__response__, 'id'),
+        package_type=pulumi.get(__response__, 'package_type'),
+        project_key=pulumi.get(__response__, 'project_key'),
+        repos=pulumi.get(__response__, 'repos'),
+        repository_type=pulumi.get(__response__, 'repository_type')))

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -238,9 +243,6 @@ def get_fileinfo(path: Optional[str] = None,
         sha1=pulumi.get(__ret__, 'sha1'),
         sha256=pulumi.get(__ret__, 'sha256'),
         size=pulumi.get(__ret__, 'size'))
-
-
-@_utilities.lift_output_func(get_fileinfo)
 def get_fileinfo_output(path: Optional[pulumi.Input[str]] = None,
                         repository: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFileinfoResult]:
@@ -264,4 +266,23 @@ def get_fileinfo_output(path: Optional[pulumi.Input[str]] = None,
     :param str path: The path to the file within the repository.
     :param str repository: Name of the repository where the file is stored.
     """
-    ...
+    __args__ = dict()
+    __args__['path'] = path
+    __args__['repository'] = repository
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('artifactory:index/getFileinfo:getFileinfo', __args__, opts=opts, typ=GetFileinfoResult)
+    return __ret__.apply(lambda __response__: GetFileinfoResult(
+        created=pulumi.get(__response__, 'created'),
+        created_by=pulumi.get(__response__, 'created_by'),
+        download_uri=pulumi.get(__response__, 'download_uri'),
+        id=pulumi.get(__response__, 'id'),
+        last_modified=pulumi.get(__response__, 'last_modified'),
+        last_updated=pulumi.get(__response__, 'last_updated'),
+        md5=pulumi.get(__response__, 'md5'),
+        mimetype=pulumi.get(__response__, 'mimetype'),
+        modified_by=pulumi.get(__response__, 'modified_by'),
+        path=pulumi.get(__response__, 'path'),
+        repository=pulumi.get(__response__, 'repository'),
+        sha1=pulumi.get(__response__, 'sha1'),
+        sha256=pulumi.get(__response__, 'sha256'),
+        size=pulumi.get(__response__, 'size')))

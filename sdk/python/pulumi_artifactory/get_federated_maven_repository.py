@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -396,9 +401,6 @@ def get_federated_maven_repository(archive_browsing_enabled: Optional[bool] = No
         snapshot_version_behavior=pulumi.get(__ret__, 'snapshot_version_behavior'),
         suppress_pom_consistency_checks=pulumi.get(__ret__, 'suppress_pom_consistency_checks'),
         xray_index=pulumi.get(__ret__, 'xray_index'))
-
-
-@_utilities.lift_output_func(get_federated_maven_repository)
 def get_federated_maven_repository_output(archive_browsing_enabled: Optional[pulumi.Input[Optional[bool]]] = None,
                                           blacked_out: Optional[pulumi.Input[Optional[bool]]] = None,
                                           cdn_redirect: Optional[pulumi.Input[Optional[bool]]] = None,
@@ -446,4 +448,59 @@ def get_federated_maven_repository_output(archive_browsing_enabled: Optional[pul
            to set up Federated repositories correctly.
     :param str proxy: Proxy key from Artifactory Proxies settings.
     """
-    ...
+    __args__ = dict()
+    __args__['archiveBrowsingEnabled'] = archive_browsing_enabled
+    __args__['blackedOut'] = blacked_out
+    __args__['cdnRedirect'] = cdn_redirect
+    __args__['checksumPolicyType'] = checksum_policy_type
+    __args__['cleanupOnDelete'] = cleanup_on_delete
+    __args__['description'] = description
+    __args__['disableProxy'] = disable_proxy
+    __args__['downloadDirect'] = download_direct
+    __args__['excludesPattern'] = excludes_pattern
+    __args__['handleReleases'] = handle_releases
+    __args__['handleSnapshots'] = handle_snapshots
+    __args__['includesPattern'] = includes_pattern
+    __args__['key'] = key
+    __args__['maxUniqueSnapshots'] = max_unique_snapshots
+    __args__['members'] = members
+    __args__['notes'] = notes
+    __args__['priorityResolution'] = priority_resolution
+    __args__['projectEnvironments'] = project_environments
+    __args__['projectKey'] = project_key
+    __args__['propertySets'] = property_sets
+    __args__['proxy'] = proxy
+    __args__['repoLayoutRef'] = repo_layout_ref
+    __args__['snapshotVersionBehavior'] = snapshot_version_behavior
+    __args__['suppressPomConsistencyChecks'] = suppress_pom_consistency_checks
+    __args__['xrayIndex'] = xray_index
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('artifactory:index/getFederatedMavenRepository:getFederatedMavenRepository', __args__, opts=opts, typ=GetFederatedMavenRepositoryResult)
+    return __ret__.apply(lambda __response__: GetFederatedMavenRepositoryResult(
+        archive_browsing_enabled=pulumi.get(__response__, 'archive_browsing_enabled'),
+        blacked_out=pulumi.get(__response__, 'blacked_out'),
+        cdn_redirect=pulumi.get(__response__, 'cdn_redirect'),
+        checksum_policy_type=pulumi.get(__response__, 'checksum_policy_type'),
+        cleanup_on_delete=pulumi.get(__response__, 'cleanup_on_delete'),
+        description=pulumi.get(__response__, 'description'),
+        disable_proxy=pulumi.get(__response__, 'disable_proxy'),
+        download_direct=pulumi.get(__response__, 'download_direct'),
+        excludes_pattern=pulumi.get(__response__, 'excludes_pattern'),
+        handle_releases=pulumi.get(__response__, 'handle_releases'),
+        handle_snapshots=pulumi.get(__response__, 'handle_snapshots'),
+        id=pulumi.get(__response__, 'id'),
+        includes_pattern=pulumi.get(__response__, 'includes_pattern'),
+        key=pulumi.get(__response__, 'key'),
+        max_unique_snapshots=pulumi.get(__response__, 'max_unique_snapshots'),
+        members=pulumi.get(__response__, 'members'),
+        notes=pulumi.get(__response__, 'notes'),
+        package_type=pulumi.get(__response__, 'package_type'),
+        priority_resolution=pulumi.get(__response__, 'priority_resolution'),
+        project_environments=pulumi.get(__response__, 'project_environments'),
+        project_key=pulumi.get(__response__, 'project_key'),
+        property_sets=pulumi.get(__response__, 'property_sets'),
+        proxy=pulumi.get(__response__, 'proxy'),
+        repo_layout_ref=pulumi.get(__response__, 'repo_layout_ref'),
+        snapshot_version_behavior=pulumi.get(__response__, 'snapshot_version_behavior'),
+        suppress_pom_consistency_checks=pulumi.get(__response__, 'suppress_pom_consistency_checks'),
+        xray_index=pulumi.get(__response__, 'xray_index')))

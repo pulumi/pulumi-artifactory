@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -686,9 +691,6 @@ def get_remote_docker_repository(allow_any_host_auth: Optional[bool] = None,
         url=pulumi.get(__ret__, 'url'),
         username=pulumi.get(__ret__, 'username'),
         xray_index=pulumi.get(__ret__, 'xray_index'))
-
-
-@_utilities.lift_output_func(get_remote_docker_repository)
 def get_remote_docker_repository_output(allow_any_host_auth: Optional[pulumi.Input[Optional[bool]]] = None,
                                         archive_browsing_enabled: Optional[pulumi.Input[Optional[bool]]] = None,
                                         assumed_offline_period_secs: Optional[pulumi.Input[Optional[int]]] = None,
@@ -759,4 +761,107 @@ def get_remote_docker_repository_output(allow_any_host_auth: Optional[pulumi.Inp
     :param Sequence[str] external_dependencies_patterns: (Optional) An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response. By default, this is set to `[**]` in the UI, which means that remote modules may be downloaded from any external VCS source. Due to SDKv2 limitations, we can't set the default value for the list. This value `[**]` must be assigned to the attribute manually, if user don't specify any other non-default values. We don't want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns `[**]` on update if HCL doesn't have the attribute set or the list is empty.
     :param str key: the identity key of the repo.
     """
-    ...
+    __args__ = dict()
+    __args__['allowAnyHostAuth'] = allow_any_host_auth
+    __args__['archiveBrowsingEnabled'] = archive_browsing_enabled
+    __args__['assumedOfflinePeriodSecs'] = assumed_offline_period_secs
+    __args__['blackedOut'] = blacked_out
+    __args__['blockMismatchingMimeTypes'] = block_mismatching_mime_types
+    __args__['blockPushingSchema1'] = block_pushing_schema1
+    __args__['bypassHeadRequests'] = bypass_head_requests
+    __args__['cdnRedirect'] = cdn_redirect
+    __args__['clientTlsCertificate'] = client_tls_certificate
+    __args__['contentSynchronisation'] = content_synchronisation
+    __args__['curated'] = curated
+    __args__['description'] = description
+    __args__['disableProxy'] = disable_proxy
+    __args__['disableUrlNormalization'] = disable_url_normalization
+    __args__['downloadDirect'] = download_direct
+    __args__['enableCookieManagement'] = enable_cookie_management
+    __args__['enableTokenAuthentication'] = enable_token_authentication
+    __args__['excludesPattern'] = excludes_pattern
+    __args__['externalDependenciesEnabled'] = external_dependencies_enabled
+    __args__['externalDependenciesPatterns'] = external_dependencies_patterns
+    __args__['hardFail'] = hard_fail
+    __args__['includesPattern'] = includes_pattern
+    __args__['key'] = key
+    __args__['listRemoteFolderItems'] = list_remote_folder_items
+    __args__['localAddress'] = local_address
+    __args__['metadataRetrievalTimeoutSecs'] = metadata_retrieval_timeout_secs
+    __args__['mismatchingMimeTypesOverrideList'] = mismatching_mime_types_override_list
+    __args__['missedCachePeriodSeconds'] = missed_cache_period_seconds
+    __args__['notes'] = notes
+    __args__['offline'] = offline
+    __args__['password'] = password
+    __args__['priorityResolution'] = priority_resolution
+    __args__['projectEnvironments'] = project_environments
+    __args__['projectId'] = project_id
+    __args__['projectKey'] = project_key
+    __args__['propertySets'] = property_sets
+    __args__['proxy'] = proxy
+    __args__['queryParams'] = query_params
+    __args__['remoteRepoLayoutRef'] = remote_repo_layout_ref
+    __args__['repoLayoutRef'] = repo_layout_ref
+    __args__['retrievalCachePeriodSeconds'] = retrieval_cache_period_seconds
+    __args__['shareConfiguration'] = share_configuration
+    __args__['socketTimeoutMillis'] = socket_timeout_millis
+    __args__['storeArtifactsLocally'] = store_artifacts_locally
+    __args__['synchronizeProperties'] = synchronize_properties
+    __args__['unusedArtifactsCleanupPeriodHours'] = unused_artifacts_cleanup_period_hours
+    __args__['url'] = url
+    __args__['username'] = username
+    __args__['xrayIndex'] = xray_index
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('artifactory:index/getRemoteDockerRepository:getRemoteDockerRepository', __args__, opts=opts, typ=GetRemoteDockerRepositoryResult)
+    return __ret__.apply(lambda __response__: GetRemoteDockerRepositoryResult(
+        allow_any_host_auth=pulumi.get(__response__, 'allow_any_host_auth'),
+        archive_browsing_enabled=pulumi.get(__response__, 'archive_browsing_enabled'),
+        assumed_offline_period_secs=pulumi.get(__response__, 'assumed_offline_period_secs'),
+        blacked_out=pulumi.get(__response__, 'blacked_out'),
+        block_mismatching_mime_types=pulumi.get(__response__, 'block_mismatching_mime_types'),
+        block_pushing_schema1=pulumi.get(__response__, 'block_pushing_schema1'),
+        bypass_head_requests=pulumi.get(__response__, 'bypass_head_requests'),
+        cdn_redirect=pulumi.get(__response__, 'cdn_redirect'),
+        client_tls_certificate=pulumi.get(__response__, 'client_tls_certificate'),
+        content_synchronisation=pulumi.get(__response__, 'content_synchronisation'),
+        curated=pulumi.get(__response__, 'curated'),
+        description=pulumi.get(__response__, 'description'),
+        disable_proxy=pulumi.get(__response__, 'disable_proxy'),
+        disable_url_normalization=pulumi.get(__response__, 'disable_url_normalization'),
+        download_direct=pulumi.get(__response__, 'download_direct'),
+        enable_cookie_management=pulumi.get(__response__, 'enable_cookie_management'),
+        enable_token_authentication=pulumi.get(__response__, 'enable_token_authentication'),
+        excludes_pattern=pulumi.get(__response__, 'excludes_pattern'),
+        external_dependencies_enabled=pulumi.get(__response__, 'external_dependencies_enabled'),
+        external_dependencies_patterns=pulumi.get(__response__, 'external_dependencies_patterns'),
+        hard_fail=pulumi.get(__response__, 'hard_fail'),
+        id=pulumi.get(__response__, 'id'),
+        includes_pattern=pulumi.get(__response__, 'includes_pattern'),
+        key=pulumi.get(__response__, 'key'),
+        list_remote_folder_items=pulumi.get(__response__, 'list_remote_folder_items'),
+        local_address=pulumi.get(__response__, 'local_address'),
+        metadata_retrieval_timeout_secs=pulumi.get(__response__, 'metadata_retrieval_timeout_secs'),
+        mismatching_mime_types_override_list=pulumi.get(__response__, 'mismatching_mime_types_override_list'),
+        missed_cache_period_seconds=pulumi.get(__response__, 'missed_cache_period_seconds'),
+        notes=pulumi.get(__response__, 'notes'),
+        offline=pulumi.get(__response__, 'offline'),
+        package_type=pulumi.get(__response__, 'package_type'),
+        password=pulumi.get(__response__, 'password'),
+        priority_resolution=pulumi.get(__response__, 'priority_resolution'),
+        project_environments=pulumi.get(__response__, 'project_environments'),
+        project_id=pulumi.get(__response__, 'project_id'),
+        project_key=pulumi.get(__response__, 'project_key'),
+        property_sets=pulumi.get(__response__, 'property_sets'),
+        proxy=pulumi.get(__response__, 'proxy'),
+        query_params=pulumi.get(__response__, 'query_params'),
+        remote_repo_layout_ref=pulumi.get(__response__, 'remote_repo_layout_ref'),
+        repo_layout_ref=pulumi.get(__response__, 'repo_layout_ref'),
+        retrieval_cache_period_seconds=pulumi.get(__response__, 'retrieval_cache_period_seconds'),
+        share_configuration=pulumi.get(__response__, 'share_configuration'),
+        socket_timeout_millis=pulumi.get(__response__, 'socket_timeout_millis'),
+        store_artifacts_locally=pulumi.get(__response__, 'store_artifacts_locally'),
+        synchronize_properties=pulumi.get(__response__, 'synchronize_properties'),
+        unused_artifacts_cleanup_period_hours=pulumi.get(__response__, 'unused_artifacts_cleanup_period_hours'),
+        url=pulumi.get(__response__, 'url'),
+        username=pulumi.get(__response__, 'username'),
+        xray_index=pulumi.get(__response__, 'xray_index')))
