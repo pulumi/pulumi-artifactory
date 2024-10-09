@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -306,9 +311,6 @@ def get_local_cargo_repository(anonymous_access: Optional[bool] = None,
         property_sets=pulumi.get(__ret__, 'property_sets'),
         repo_layout_ref=pulumi.get(__ret__, 'repo_layout_ref'),
         xray_index=pulumi.get(__ret__, 'xray_index'))
-
-
-@_utilities.lift_output_func(get_local_cargo_repository)
 def get_local_cargo_repository_output(anonymous_access: Optional[pulumi.Input[Optional[bool]]] = None,
                                       archive_browsing_enabled: Optional[pulumi.Input[Optional[bool]]] = None,
                                       blacked_out: Optional[pulumi.Input[Optional[bool]]] = None,
@@ -348,4 +350,45 @@ def get_local_cargo_repository_output(anonymous_access: Optional[pulumi.Input[Op
            of the default git index. Default value is `false`.
     :param str key: the identity key of the repo.
     """
-    ...
+    __args__ = dict()
+    __args__['anonymousAccess'] = anonymous_access
+    __args__['archiveBrowsingEnabled'] = archive_browsing_enabled
+    __args__['blackedOut'] = blacked_out
+    __args__['cdnRedirect'] = cdn_redirect
+    __args__['description'] = description
+    __args__['downloadDirect'] = download_direct
+    __args__['enableSparseIndex'] = enable_sparse_index
+    __args__['excludesPattern'] = excludes_pattern
+    __args__['includesPattern'] = includes_pattern
+    __args__['indexCompressionFormats'] = index_compression_formats
+    __args__['key'] = key
+    __args__['notes'] = notes
+    __args__['priorityResolution'] = priority_resolution
+    __args__['projectEnvironments'] = project_environments
+    __args__['projectKey'] = project_key
+    __args__['propertySets'] = property_sets
+    __args__['repoLayoutRef'] = repo_layout_ref
+    __args__['xrayIndex'] = xray_index
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('artifactory:index/getLocalCargoRepository:getLocalCargoRepository', __args__, opts=opts, typ=GetLocalCargoRepositoryResult)
+    return __ret__.apply(lambda __response__: GetLocalCargoRepositoryResult(
+        anonymous_access=pulumi.get(__response__, 'anonymous_access'),
+        archive_browsing_enabled=pulumi.get(__response__, 'archive_browsing_enabled'),
+        blacked_out=pulumi.get(__response__, 'blacked_out'),
+        cdn_redirect=pulumi.get(__response__, 'cdn_redirect'),
+        description=pulumi.get(__response__, 'description'),
+        download_direct=pulumi.get(__response__, 'download_direct'),
+        enable_sparse_index=pulumi.get(__response__, 'enable_sparse_index'),
+        excludes_pattern=pulumi.get(__response__, 'excludes_pattern'),
+        id=pulumi.get(__response__, 'id'),
+        includes_pattern=pulumi.get(__response__, 'includes_pattern'),
+        index_compression_formats=pulumi.get(__response__, 'index_compression_formats'),
+        key=pulumi.get(__response__, 'key'),
+        notes=pulumi.get(__response__, 'notes'),
+        package_type=pulumi.get(__response__, 'package_type'),
+        priority_resolution=pulumi.get(__response__, 'priority_resolution'),
+        project_environments=pulumi.get(__response__, 'project_environments'),
+        project_key=pulumi.get(__response__, 'project_key'),
+        property_sets=pulumi.get(__response__, 'property_sets'),
+        repo_layout_ref=pulumi.get(__response__, 'repo_layout_ref'),
+        xray_index=pulumi.get(__response__, 'xray_index')))
