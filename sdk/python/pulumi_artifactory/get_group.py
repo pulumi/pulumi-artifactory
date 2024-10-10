@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -255,9 +260,6 @@ def get_group(admin_privileges: Optional[bool] = None,
         reports_manager=pulumi.get(__ret__, 'reports_manager'),
         users_names=pulumi.get(__ret__, 'users_names'),
         watch_manager=pulumi.get(__ret__, 'watch_manager'))
-
-
-@_utilities.lift_output_func(get_group)
 def get_group_output(admin_privileges: Optional[pulumi.Input[Optional[bool]]] = None,
                      auto_join: Optional[pulumi.Input[Optional[bool]]] = None,
                      description: Optional[pulumi.Input[Optional[str]]] = None,
@@ -301,4 +303,32 @@ def get_group_output(admin_privileges: Optional[pulumi.Input[Optional[bool]]] = 
     :param Sequence[str] users_names: List of users assigned to the group. Set include_users to `true` to retrieve this list.
     :param bool watch_manager: When this override is set, User in the group can manage Xray Watches on any resource type. Default value is `false`.
     """
-    ...
+    __args__ = dict()
+    __args__['adminPrivileges'] = admin_privileges
+    __args__['autoJoin'] = auto_join
+    __args__['description'] = description
+    __args__['externalId'] = external_id
+    __args__['includeUsers'] = include_users
+    __args__['name'] = name
+    __args__['policyManager'] = policy_manager
+    __args__['realm'] = realm
+    __args__['realmAttributes'] = realm_attributes
+    __args__['reportsManager'] = reports_manager
+    __args__['usersNames'] = users_names
+    __args__['watchManager'] = watch_manager
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('artifactory:index/getGroup:getGroup', __args__, opts=opts, typ=GetGroupResult)
+    return __ret__.apply(lambda __response__: GetGroupResult(
+        admin_privileges=pulumi.get(__response__, 'admin_privileges'),
+        auto_join=pulumi.get(__response__, 'auto_join'),
+        description=pulumi.get(__response__, 'description'),
+        external_id=pulumi.get(__response__, 'external_id'),
+        id=pulumi.get(__response__, 'id'),
+        include_users=pulumi.get(__response__, 'include_users'),
+        name=pulumi.get(__response__, 'name'),
+        policy_manager=pulumi.get(__response__, 'policy_manager'),
+        realm=pulumi.get(__response__, 'realm'),
+        realm_attributes=pulumi.get(__response__, 'realm_attributes'),
+        reports_manager=pulumi.get(__response__, 'reports_manager'),
+        users_names=pulumi.get(__response__, 'users_names'),
+        watch_manager=pulumi.get(__response__, 'watch_manager')))

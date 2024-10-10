@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -325,9 +330,6 @@ def get_local_docker_v2_repository(archive_browsing_enabled: Optional[bool] = No
         repo_layout_ref=pulumi.get(__ret__, 'repo_layout_ref'),
         tag_retention=pulumi.get(__ret__, 'tag_retention'),
         xray_index=pulumi.get(__ret__, 'xray_index'))
-
-
-@_utilities.lift_output_func(get_local_docker_v2_repository)
 def get_local_docker_v2_repository_output(archive_browsing_enabled: Optional[pulumi.Input[Optional[bool]]] = None,
                                           blacked_out: Optional[pulumi.Input[Optional[bool]]] = None,
                                           block_pushing_schema1: Optional[pulumi.Input[Optional[bool]]] = None,
@@ -369,4 +371,46 @@ def get_local_docker_v2_repository_output(archive_browsing_enabled: Optional[pul
     :param int tag_retention: If greater than 1, overwritten tags will be saved by their digest, up to the set up
            number. This only applies to manifest V2.
     """
-    ...
+    __args__ = dict()
+    __args__['archiveBrowsingEnabled'] = archive_browsing_enabled
+    __args__['blackedOut'] = blacked_out
+    __args__['blockPushingSchema1'] = block_pushing_schema1
+    __args__['cdnRedirect'] = cdn_redirect
+    __args__['description'] = description
+    __args__['downloadDirect'] = download_direct
+    __args__['excludesPattern'] = excludes_pattern
+    __args__['includesPattern'] = includes_pattern
+    __args__['key'] = key
+    __args__['maxUniqueTags'] = max_unique_tags
+    __args__['notes'] = notes
+    __args__['priorityResolution'] = priority_resolution
+    __args__['projectEnvironments'] = project_environments
+    __args__['projectKey'] = project_key
+    __args__['propertySets'] = property_sets
+    __args__['repoLayoutRef'] = repo_layout_ref
+    __args__['tagRetention'] = tag_retention
+    __args__['xrayIndex'] = xray_index
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('artifactory:index/getLocalDockerV2Repository:getLocalDockerV2Repository', __args__, opts=opts, typ=GetLocalDockerV2RepositoryResult)
+    return __ret__.apply(lambda __response__: GetLocalDockerV2RepositoryResult(
+        api_version=pulumi.get(__response__, 'api_version'),
+        archive_browsing_enabled=pulumi.get(__response__, 'archive_browsing_enabled'),
+        blacked_out=pulumi.get(__response__, 'blacked_out'),
+        block_pushing_schema1=pulumi.get(__response__, 'block_pushing_schema1'),
+        cdn_redirect=pulumi.get(__response__, 'cdn_redirect'),
+        description=pulumi.get(__response__, 'description'),
+        download_direct=pulumi.get(__response__, 'download_direct'),
+        excludes_pattern=pulumi.get(__response__, 'excludes_pattern'),
+        id=pulumi.get(__response__, 'id'),
+        includes_pattern=pulumi.get(__response__, 'includes_pattern'),
+        key=pulumi.get(__response__, 'key'),
+        max_unique_tags=pulumi.get(__response__, 'max_unique_tags'),
+        notes=pulumi.get(__response__, 'notes'),
+        package_type=pulumi.get(__response__, 'package_type'),
+        priority_resolution=pulumi.get(__response__, 'priority_resolution'),
+        project_environments=pulumi.get(__response__, 'project_environments'),
+        project_key=pulumi.get(__response__, 'project_key'),
+        property_sets=pulumi.get(__response__, 'property_sets'),
+        repo_layout_ref=pulumi.get(__response__, 'repo_layout_ref'),
+        tag_retention=pulumi.get(__response__, 'tag_retention'),
+        xray_index=pulumi.get(__response__, 'xray_index')))

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -260,9 +265,6 @@ def get_virtual_npm_repository(artifactory_requests_can_retrieve_remote_artifact
         repo_layout_ref=pulumi.get(__ret__, 'repo_layout_ref'),
         repositories=pulumi.get(__ret__, 'repositories'),
         retrieval_cache_period_seconds=pulumi.get(__ret__, 'retrieval_cache_period_seconds'))
-
-
-@_utilities.lift_output_func(get_virtual_npm_repository)
 def get_virtual_npm_repository_output(artifactory_requests_can_retrieve_remote_artifacts: Optional[pulumi.Input[Optional[bool]]] = None,
                                       default_deployment_repo: Optional[pulumi.Input[Optional[str]]] = None,
                                       description: Optional[pulumi.Input[Optional[str]]] = None,
@@ -295,4 +297,39 @@ def get_virtual_npm_repository_output(artifactory_requests_can_retrieve_remote_a
     :param str key: the identity key of the repo.
     :param int retrieval_cache_period_seconds: (Optional, Default: `7200`) This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
     """
-    ...
+    __args__ = dict()
+    __args__['artifactoryRequestsCanRetrieveRemoteArtifacts'] = artifactory_requests_can_retrieve_remote_artifacts
+    __args__['defaultDeploymentRepo'] = default_deployment_repo
+    __args__['description'] = description
+    __args__['excludesPattern'] = excludes_pattern
+    __args__['externalDependenciesEnabled'] = external_dependencies_enabled
+    __args__['externalDependenciesPatterns'] = external_dependencies_patterns
+    __args__['externalDependenciesRemoteRepo'] = external_dependencies_remote_repo
+    __args__['includesPattern'] = includes_pattern
+    __args__['key'] = key
+    __args__['notes'] = notes
+    __args__['projectEnvironments'] = project_environments
+    __args__['projectKey'] = project_key
+    __args__['repoLayoutRef'] = repo_layout_ref
+    __args__['repositories'] = repositories
+    __args__['retrievalCachePeriodSeconds'] = retrieval_cache_period_seconds
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('artifactory:index/getVirtualNpmRepository:getVirtualNpmRepository', __args__, opts=opts, typ=GetVirtualNpmRepositoryResult)
+    return __ret__.apply(lambda __response__: GetVirtualNpmRepositoryResult(
+        artifactory_requests_can_retrieve_remote_artifacts=pulumi.get(__response__, 'artifactory_requests_can_retrieve_remote_artifacts'),
+        default_deployment_repo=pulumi.get(__response__, 'default_deployment_repo'),
+        description=pulumi.get(__response__, 'description'),
+        excludes_pattern=pulumi.get(__response__, 'excludes_pattern'),
+        external_dependencies_enabled=pulumi.get(__response__, 'external_dependencies_enabled'),
+        external_dependencies_patterns=pulumi.get(__response__, 'external_dependencies_patterns'),
+        external_dependencies_remote_repo=pulumi.get(__response__, 'external_dependencies_remote_repo'),
+        id=pulumi.get(__response__, 'id'),
+        includes_pattern=pulumi.get(__response__, 'includes_pattern'),
+        key=pulumi.get(__response__, 'key'),
+        notes=pulumi.get(__response__, 'notes'),
+        package_type=pulumi.get(__response__, 'package_type'),
+        project_environments=pulumi.get(__response__, 'project_environments'),
+        project_key=pulumi.get(__response__, 'project_key'),
+        repo_layout_ref=pulumi.get(__response__, 'repo_layout_ref'),
+        repositories=pulumi.get(__response__, 'repositories'),
+        retrieval_cache_period_seconds=pulumi.get(__response__, 'retrieval_cache_period_seconds')))

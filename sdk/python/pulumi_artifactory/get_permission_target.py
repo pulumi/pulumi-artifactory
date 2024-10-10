@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -131,9 +136,6 @@ def get_permission_target(build: Optional[Union['GetPermissionTargetBuildArgs', 
         name=pulumi.get(__ret__, 'name'),
         release_bundle=pulumi.get(__ret__, 'release_bundle'),
         repo=pulumi.get(__ret__, 'repo'))
-
-
-@_utilities.lift_output_func(get_permission_target)
 def get_permission_target_output(build: Optional[pulumi.Input[Optional[Union['GetPermissionTargetBuildArgs', 'GetPermissionTargetBuildArgsDict']]]] = None,
                                  name: Optional[pulumi.Input[str]] = None,
                                  release_bundle: Optional[pulumi.Input[Optional[Union['GetPermissionTargetReleaseBundleArgs', 'GetPermissionTargetReleaseBundleArgsDict']]]] = None,
@@ -160,4 +162,16 @@ def get_permission_target_output(build: Optional[pulumi.Input[Optional[Union['Ge
     :param Union['GetPermissionTargetReleaseBundleArgs', 'GetPermissionTargetReleaseBundleArgsDict'] release_bundle: Same as repo but for release-bundles permissions.
     :param Union['GetPermissionTargetRepoArgs', 'GetPermissionTargetRepoArgsDict'] repo: Repository permission configuration.
     """
-    ...
+    __args__ = dict()
+    __args__['build'] = build
+    __args__['name'] = name
+    __args__['releaseBundle'] = release_bundle
+    __args__['repo'] = repo
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('artifactory:index/getPermissionTarget:getPermissionTarget', __args__, opts=opts, typ=GetPermissionTargetResult)
+    return __ret__.apply(lambda __response__: GetPermissionTargetResult(
+        build=pulumi.get(__response__, 'build'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        release_bundle=pulumi.get(__response__, 'release_bundle'),
+        repo=pulumi.get(__response__, 'repo')))

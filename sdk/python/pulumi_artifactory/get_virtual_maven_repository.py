@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -252,9 +257,6 @@ def get_virtual_maven_repository(artifactory_requests_can_retrieve_remote_artifa
         project_key=pulumi.get(__ret__, 'project_key'),
         repo_layout_ref=pulumi.get(__ret__, 'repo_layout_ref'),
         repositories=pulumi.get(__ret__, 'repositories'))
-
-
-@_utilities.lift_output_func(get_virtual_maven_repository)
 def get_virtual_maven_repository_output(artifactory_requests_can_retrieve_remote_artifacts: Optional[pulumi.Input[Optional[bool]]] = None,
                                         default_deployment_repo: Optional[pulumi.Input[Optional[str]]] = None,
                                         description: Optional[pulumi.Input[Optional[str]]] = None,
@@ -287,4 +289,37 @@ def get_virtual_maven_repository_output(artifactory_requests_can_retrieve_remote
     :param str key: the identity key of the repo.
     :param str pom_repository_references_cleanup_policy: (Optional) One of: `"discard_active_reference", "discard_any_reference", "nothing"`
     """
-    ...
+    __args__ = dict()
+    __args__['artifactoryRequestsCanRetrieveRemoteArtifacts'] = artifactory_requests_can_retrieve_remote_artifacts
+    __args__['defaultDeploymentRepo'] = default_deployment_repo
+    __args__['description'] = description
+    __args__['excludesPattern'] = excludes_pattern
+    __args__['forceMavenAuthentication'] = force_maven_authentication
+    __args__['includesPattern'] = includes_pattern
+    __args__['key'] = key
+    __args__['keyPair'] = key_pair
+    __args__['notes'] = notes
+    __args__['pomRepositoryReferencesCleanupPolicy'] = pom_repository_references_cleanup_policy
+    __args__['projectEnvironments'] = project_environments
+    __args__['projectKey'] = project_key
+    __args__['repoLayoutRef'] = repo_layout_ref
+    __args__['repositories'] = repositories
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('artifactory:index/getVirtualMavenRepository:getVirtualMavenRepository', __args__, opts=opts, typ=GetVirtualMavenRepositoryResult)
+    return __ret__.apply(lambda __response__: GetVirtualMavenRepositoryResult(
+        artifactory_requests_can_retrieve_remote_artifacts=pulumi.get(__response__, 'artifactory_requests_can_retrieve_remote_artifacts'),
+        default_deployment_repo=pulumi.get(__response__, 'default_deployment_repo'),
+        description=pulumi.get(__response__, 'description'),
+        excludes_pattern=pulumi.get(__response__, 'excludes_pattern'),
+        force_maven_authentication=pulumi.get(__response__, 'force_maven_authentication'),
+        id=pulumi.get(__response__, 'id'),
+        includes_pattern=pulumi.get(__response__, 'includes_pattern'),
+        key=pulumi.get(__response__, 'key'),
+        key_pair=pulumi.get(__response__, 'key_pair'),
+        notes=pulumi.get(__response__, 'notes'),
+        package_type=pulumi.get(__response__, 'package_type'),
+        pom_repository_references_cleanup_policy=pulumi.get(__response__, 'pom_repository_references_cleanup_policy'),
+        project_environments=pulumi.get(__response__, 'project_environments'),
+        project_key=pulumi.get(__response__, 'project_key'),
+        repo_layout_ref=pulumi.get(__response__, 'repo_layout_ref'),
+        repositories=pulumi.get(__response__, 'repositories')))
