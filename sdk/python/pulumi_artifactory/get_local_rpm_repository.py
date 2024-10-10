@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -364,9 +369,6 @@ def get_local_rpm_repository(archive_browsing_enabled: Optional[bool] = None,
         xray_index=pulumi.get(__ret__, 'xray_index'),
         yum_group_file_names=pulumi.get(__ret__, 'yum_group_file_names'),
         yum_root_depth=pulumi.get(__ret__, 'yum_root_depth'))
-
-
-@_utilities.lift_output_func(get_local_rpm_repository)
 def get_local_rpm_repository_output(archive_browsing_enabled: Optional[pulumi.Input[Optional[bool]]] = None,
                                     blacked_out: Optional[pulumi.Input[Optional[bool]]] = None,
                                     calculate_yum_metadata: Optional[pulumi.Input[Optional[bool]]] = None,
@@ -416,4 +418,51 @@ def get_local_rpm_repository_output(archive_browsing_enabled: Optional[pulumi.In
            this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are
            not cleaned up.
     """
-    ...
+    __args__ = dict()
+    __args__['archiveBrowsingEnabled'] = archive_browsing_enabled
+    __args__['blackedOut'] = blacked_out
+    __args__['calculateYumMetadata'] = calculate_yum_metadata
+    __args__['cdnRedirect'] = cdn_redirect
+    __args__['description'] = description
+    __args__['downloadDirect'] = download_direct
+    __args__['enableFileListsIndexing'] = enable_file_lists_indexing
+    __args__['excludesPattern'] = excludes_pattern
+    __args__['includesPattern'] = includes_pattern
+    __args__['key'] = key
+    __args__['notes'] = notes
+    __args__['primaryKeypairRef'] = primary_keypair_ref
+    __args__['priorityResolution'] = priority_resolution
+    __args__['projectEnvironments'] = project_environments
+    __args__['projectKey'] = project_key
+    __args__['propertySets'] = property_sets
+    __args__['repoLayoutRef'] = repo_layout_ref
+    __args__['secondaryKeypairRef'] = secondary_keypair_ref
+    __args__['xrayIndex'] = xray_index
+    __args__['yumGroupFileNames'] = yum_group_file_names
+    __args__['yumRootDepth'] = yum_root_depth
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('artifactory:index/getLocalRpmRepository:getLocalRpmRepository', __args__, opts=opts, typ=GetLocalRpmRepositoryResult)
+    return __ret__.apply(lambda __response__: GetLocalRpmRepositoryResult(
+        archive_browsing_enabled=pulumi.get(__response__, 'archive_browsing_enabled'),
+        blacked_out=pulumi.get(__response__, 'blacked_out'),
+        calculate_yum_metadata=pulumi.get(__response__, 'calculate_yum_metadata'),
+        cdn_redirect=pulumi.get(__response__, 'cdn_redirect'),
+        description=pulumi.get(__response__, 'description'),
+        download_direct=pulumi.get(__response__, 'download_direct'),
+        enable_file_lists_indexing=pulumi.get(__response__, 'enable_file_lists_indexing'),
+        excludes_pattern=pulumi.get(__response__, 'excludes_pattern'),
+        id=pulumi.get(__response__, 'id'),
+        includes_pattern=pulumi.get(__response__, 'includes_pattern'),
+        key=pulumi.get(__response__, 'key'),
+        notes=pulumi.get(__response__, 'notes'),
+        package_type=pulumi.get(__response__, 'package_type'),
+        primary_keypair_ref=pulumi.get(__response__, 'primary_keypair_ref'),
+        priority_resolution=pulumi.get(__response__, 'priority_resolution'),
+        project_environments=pulumi.get(__response__, 'project_environments'),
+        project_key=pulumi.get(__response__, 'project_key'),
+        property_sets=pulumi.get(__response__, 'property_sets'),
+        repo_layout_ref=pulumi.get(__response__, 'repo_layout_ref'),
+        secondary_keypair_ref=pulumi.get(__response__, 'secondary_keypair_ref'),
+        xray_index=pulumi.get(__response__, 'xray_index'),
+        yum_group_file_names=pulumi.get(__response__, 'yum_group_file_names'),
+        yum_root_depth=pulumi.get(__response__, 'yum_root_depth')))

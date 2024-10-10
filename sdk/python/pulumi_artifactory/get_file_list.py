@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 
@@ -218,9 +223,6 @@ def get_file_list(deep_listing: Optional[bool] = None,
         metadata_timestamps=pulumi.get(__ret__, 'metadata_timestamps'),
         repository_key=pulumi.get(__ret__, 'repository_key'),
         uri=pulumi.get(__ret__, 'uri'))
-
-
-@_utilities.lift_output_func(get_file_list)
 def get_file_list_output(deep_listing: Optional[pulumi.Input[Optional[bool]]] = None,
                          depth: Optional[pulumi.Input[Optional[int]]] = None,
                          folder_path: Optional[pulumi.Input[str]] = None,
@@ -251,4 +253,25 @@ def get_file_list_output(deep_listing: Optional[pulumi.Input[Optional[bool]]] = 
     :param bool metadata_timestamps: Include metadata timestamps
     :param str repository_key: Repository key
     """
-    ...
+    __args__ = dict()
+    __args__['deepListing'] = deep_listing
+    __args__['depth'] = depth
+    __args__['folderPath'] = folder_path
+    __args__['includeRootPath'] = include_root_path
+    __args__['listFolders'] = list_folders
+    __args__['metadataTimestamps'] = metadata_timestamps
+    __args__['repositoryKey'] = repository_key
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('artifactory:index/getFileList:getFileList', __args__, opts=opts, typ=GetFileListResult)
+    return __ret__.apply(lambda __response__: GetFileListResult(
+        created=pulumi.get(__response__, 'created'),
+        deep_listing=pulumi.get(__response__, 'deep_listing'),
+        depth=pulumi.get(__response__, 'depth'),
+        files=pulumi.get(__response__, 'files'),
+        folder_path=pulumi.get(__response__, 'folder_path'),
+        id=pulumi.get(__response__, 'id'),
+        include_root_path=pulumi.get(__response__, 'include_root_path'),
+        list_folders=pulumi.get(__response__, 'list_folders'),
+        metadata_timestamps=pulumi.get(__response__, 'metadata_timestamps'),
+        repository_key=pulumi.get(__response__, 'repository_key'),
+        uri=pulumi.get(__response__, 'uri')))

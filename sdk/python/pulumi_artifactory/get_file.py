@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -277,9 +282,6 @@ def get_file(force_overwrite: Optional[bool] = None,
         sha1=pulumi.get(__ret__, 'sha1'),
         sha256=pulumi.get(__ret__, 'sha256'),
         size=pulumi.get(__ret__, 'size'))
-
-
-@_utilities.lift_output_func(get_file)
 def get_file_output(force_overwrite: Optional[pulumi.Input[Optional[bool]]] = None,
                     output_path: Optional[pulumi.Input[str]] = None,
                     path: Optional[pulumi.Input[str]] = None,
@@ -309,4 +311,29 @@ def get_file_output(force_overwrite: Optional[pulumi.Input[Optional[bool]]] = No
     :param bool path_is_aliased: If set to `true`, the provider will get the artifact directly from Artifactory without attempting to resolve it or verify it and will delegate this to artifactory if the file exists. When using a smart remote repository, it is recommended to set this attribute to `true`. This is necessary to ensure that the provider fetches the artifact directly from Artifactory. If this attribute is not set or is set to `false`, there is a risk of fetching the `-cache` directory in Artifactory, potentially resulting in resource expiration and a 404 error.
     :param str repository: Name of the repository where the file is stored.
     """
-    ...
+    __args__ = dict()
+    __args__['forceOverwrite'] = force_overwrite
+    __args__['outputPath'] = output_path
+    __args__['path'] = path
+    __args__['pathIsAliased'] = path_is_aliased
+    __args__['repository'] = repository
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('artifactory:index/getFile:getFile', __args__, opts=opts, typ=GetFileResult)
+    return __ret__.apply(lambda __response__: GetFileResult(
+        created=pulumi.get(__response__, 'created'),
+        created_by=pulumi.get(__response__, 'created_by'),
+        download_uri=pulumi.get(__response__, 'download_uri'),
+        force_overwrite=pulumi.get(__response__, 'force_overwrite'),
+        id=pulumi.get(__response__, 'id'),
+        last_modified=pulumi.get(__response__, 'last_modified'),
+        last_updated=pulumi.get(__response__, 'last_updated'),
+        md5=pulumi.get(__response__, 'md5'),
+        mimetype=pulumi.get(__response__, 'mimetype'),
+        modified_by=pulumi.get(__response__, 'modified_by'),
+        output_path=pulumi.get(__response__, 'output_path'),
+        path=pulumi.get(__response__, 'path'),
+        path_is_aliased=pulumi.get(__response__, 'path_is_aliased'),
+        repository=pulumi.get(__response__, 'repository'),
+        sha1=pulumi.get(__response__, 'sha1'),
+        sha256=pulumi.get(__response__, 'sha256'),
+        size=pulumi.get(__response__, 'size')))

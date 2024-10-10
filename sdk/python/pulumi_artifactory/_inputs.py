@@ -4,236 +4,495 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
     'ArtifactCustomWebhookCriteriaArgs',
+    'ArtifactCustomWebhookCriteriaArgsDict',
     'ArtifactCustomWebhookHandlerArgs',
+    'ArtifactCustomWebhookHandlerArgsDict',
     'ArtifactLifecycleCustomWebhookHandlerArgs',
+    'ArtifactLifecycleCustomWebhookHandlerArgsDict',
     'ArtifactLifecycleWebhookHandlerArgs',
+    'ArtifactLifecycleWebhookHandlerArgsDict',
     'ArtifactPropertyCustomWebhookCriteriaArgs',
+    'ArtifactPropertyCustomWebhookCriteriaArgsDict',
     'ArtifactPropertyCustomWebhookHandlerArgs',
+    'ArtifactPropertyCustomWebhookHandlerArgsDict',
     'ArtifactPropertyWebhookCriteriaArgs',
+    'ArtifactPropertyWebhookCriteriaArgsDict',
     'ArtifactPropertyWebhookHandlerArgs',
+    'ArtifactPropertyWebhookHandlerArgsDict',
     'ArtifactWebhookCriteriaArgs',
+    'ArtifactWebhookCriteriaArgsDict',
     'ArtifactWebhookHandlerArgs',
+    'ArtifactWebhookHandlerArgsDict',
     'ArtifactoryReleaseBundleCustomWebhookCriteriaArgs',
+    'ArtifactoryReleaseBundleCustomWebhookCriteriaArgsDict',
     'ArtifactoryReleaseBundleCustomWebhookHandlerArgs',
+    'ArtifactoryReleaseBundleCustomWebhookHandlerArgsDict',
     'ArtifactoryReleaseBundleWebhookCriteriaArgs',
+    'ArtifactoryReleaseBundleWebhookCriteriaArgsDict',
     'ArtifactoryReleaseBundleWebhookHandlerArgs',
+    'ArtifactoryReleaseBundleWebhookHandlerArgsDict',
     'BuildCustomWebhookCriteriaArgs',
+    'BuildCustomWebhookCriteriaArgsDict',
     'BuildCustomWebhookHandlerArgs',
+    'BuildCustomWebhookHandlerArgsDict',
     'BuildWebhookCriteriaArgs',
+    'BuildWebhookCriteriaArgsDict',
     'BuildWebhookHandlerArgs',
+    'BuildWebhookHandlerArgsDict',
     'DestinationCustomWebhookCriteriaArgs',
+    'DestinationCustomWebhookCriteriaArgsDict',
     'DestinationCustomWebhookHandlerArgs',
+    'DestinationCustomWebhookHandlerArgsDict',
     'DestinationWebhookCriteriaArgs',
+    'DestinationWebhookCriteriaArgsDict',
     'DestinationWebhookHandlerArgs',
+    'DestinationWebhookHandlerArgsDict',
     'DistributionCustomWebhookCriteriaArgs',
+    'DistributionCustomWebhookCriteriaArgsDict',
     'DistributionCustomWebhookHandlerArgs',
+    'DistributionCustomWebhookHandlerArgsDict',
     'DistributionWebhookCriteriaArgs',
+    'DistributionWebhookCriteriaArgsDict',
     'DistributionWebhookHandlerArgs',
+    'DistributionWebhookHandlerArgsDict',
     'DockerCustomWebhookCriteriaArgs',
+    'DockerCustomWebhookCriteriaArgsDict',
     'DockerCustomWebhookHandlerArgs',
+    'DockerCustomWebhookHandlerArgsDict',
     'DockerWebhookCriteriaArgs',
+    'DockerWebhookCriteriaArgsDict',
     'DockerWebhookHandlerArgs',
+    'DockerWebhookHandlerArgsDict',
     'FederatedAlpineRepositoryMemberArgs',
+    'FederatedAlpineRepositoryMemberArgsDict',
     'FederatedAnsibleRepositoryMemberArgs',
+    'FederatedAnsibleRepositoryMemberArgsDict',
     'FederatedBowerRepositoryMemberArgs',
+    'FederatedBowerRepositoryMemberArgsDict',
     'FederatedCargoRepositoryMemberArgs',
+    'FederatedCargoRepositoryMemberArgsDict',
     'FederatedChefRepositoryMemberArgs',
+    'FederatedChefRepositoryMemberArgsDict',
     'FederatedCocoapodsRepositoryMemberArgs',
+    'FederatedCocoapodsRepositoryMemberArgsDict',
     'FederatedComposerRepositoryMemberArgs',
+    'FederatedComposerRepositoryMemberArgsDict',
     'FederatedConanRepositoryMemberArgs',
+    'FederatedConanRepositoryMemberArgsDict',
     'FederatedCondaRepositoryMemberArgs',
+    'FederatedCondaRepositoryMemberArgsDict',
     'FederatedCranRepositoryMemberArgs',
+    'FederatedCranRepositoryMemberArgsDict',
     'FederatedDebianRepositoryMemberArgs',
+    'FederatedDebianRepositoryMemberArgsDict',
     'FederatedDockerRepositoryMemberArgs',
+    'FederatedDockerRepositoryMemberArgsDict',
     'FederatedDockerV1RepositoryMemberArgs',
+    'FederatedDockerV1RepositoryMemberArgsDict',
     'FederatedDockerV2RepositoryMemberArgs',
+    'FederatedDockerV2RepositoryMemberArgsDict',
     'FederatedGemsRepositoryMemberArgs',
+    'FederatedGemsRepositoryMemberArgsDict',
     'FederatedGenericRepositoryMemberArgs',
+    'FederatedGenericRepositoryMemberArgsDict',
     'FederatedGitltfsRepositoryMemberArgs',
+    'FederatedGitltfsRepositoryMemberArgsDict',
     'FederatedGoRepositoryMemberArgs',
+    'FederatedGoRepositoryMemberArgsDict',
     'FederatedGradleRepositoryMemberArgs',
+    'FederatedGradleRepositoryMemberArgsDict',
     'FederatedHelmRepositoryMemberArgs',
+    'FederatedHelmRepositoryMemberArgsDict',
     'FederatedHelmociRepositoryMemberArgs',
+    'FederatedHelmociRepositoryMemberArgsDict',
     'FederatedIvyRepositoryMemberArgs',
+    'FederatedIvyRepositoryMemberArgsDict',
     'FederatedMavenRepositoryMemberArgs',
+    'FederatedMavenRepositoryMemberArgsDict',
     'FederatedNpmRepositoryMemberArgs',
+    'FederatedNpmRepositoryMemberArgsDict',
     'FederatedNugetRepositoryMemberArgs',
+    'FederatedNugetRepositoryMemberArgsDict',
     'FederatedOciRepositoryMemberArgs',
+    'FederatedOciRepositoryMemberArgsDict',
     'FederatedOpkgRepositoryMemberArgs',
+    'FederatedOpkgRepositoryMemberArgsDict',
     'FederatedPuppetRepositoryMemberArgs',
+    'FederatedPuppetRepositoryMemberArgsDict',
     'FederatedPypiRepositoryMemberArgs',
+    'FederatedPypiRepositoryMemberArgsDict',
     'FederatedRpmRepositoryMemberArgs',
+    'FederatedRpmRepositoryMemberArgsDict',
     'FederatedSbtRepositoryMemberArgs',
+    'FederatedSbtRepositoryMemberArgsDict',
     'FederatedSwiftRepositoryMemberArgs',
+    'FederatedSwiftRepositoryMemberArgsDict',
     'FederatedTerraformModuleRepositoryMemberArgs',
+    'FederatedTerraformModuleRepositoryMemberArgsDict',
     'FederatedTerraformProviderRepositoryMemberArgs',
+    'FederatedTerraformProviderRepositoryMemberArgsDict',
     'FederatedVagrantRepositoryMemberArgs',
+    'FederatedVagrantRepositoryMemberArgsDict',
     'LocalRepositoryMultiReplicationReplicationArgs',
+    'LocalRepositoryMultiReplicationReplicationArgsDict',
     'ManagedUserPasswordPolicyArgs',
+    'ManagedUserPasswordPolicyArgsDict',
     'OauthSettingsOauthProviderArgs',
+    'OauthSettingsOauthProviderArgsDict',
     'PackageCleanupPolicySearchCriteriaArgs',
+    'PackageCleanupPolicySearchCriteriaArgsDict',
     'PermissionTargetBuildArgs',
+    'PermissionTargetBuildArgsDict',
     'PermissionTargetBuildActionsArgs',
+    'PermissionTargetBuildActionsArgsDict',
     'PermissionTargetBuildActionsGroupArgs',
+    'PermissionTargetBuildActionsGroupArgsDict',
     'PermissionTargetBuildActionsUserArgs',
+    'PermissionTargetBuildActionsUserArgsDict',
     'PermissionTargetReleaseBundleArgs',
+    'PermissionTargetReleaseBundleArgsDict',
     'PermissionTargetReleaseBundleActionsArgs',
+    'PermissionTargetReleaseBundleActionsArgsDict',
     'PermissionTargetReleaseBundleActionsGroupArgs',
+    'PermissionTargetReleaseBundleActionsGroupArgsDict',
     'PermissionTargetReleaseBundleActionsUserArgs',
+    'PermissionTargetReleaseBundleActionsUserArgsDict',
     'PermissionTargetRepoArgs',
+    'PermissionTargetRepoArgsDict',
     'PermissionTargetRepoActionsArgs',
+    'PermissionTargetRepoActionsArgsDict',
     'PermissionTargetRepoActionsGroupArgs',
+    'PermissionTargetRepoActionsGroupArgsDict',
     'PermissionTargetRepoActionsUserArgs',
+    'PermissionTargetRepoActionsUserArgsDict',
     'PropertySetPropertyArgs',
+    'PropertySetPropertyArgsDict',
     'PropertySetPropertyPredefinedValueArgs',
+    'PropertySetPropertyPredefinedValueArgsDict',
     'PushReplicationReplicationArgs',
+    'PushReplicationReplicationArgsDict',
     'ReleaseBundleCustomWebhookCriteriaArgs',
+    'ReleaseBundleCustomWebhookCriteriaArgsDict',
     'ReleaseBundleCustomWebhookHandlerArgs',
+    'ReleaseBundleCustomWebhookHandlerArgsDict',
     'ReleaseBundleV2CustomWebhookCriteriaArgs',
+    'ReleaseBundleV2CustomWebhookCriteriaArgsDict',
     'ReleaseBundleV2CustomWebhookHandlerArgs',
+    'ReleaseBundleV2CustomWebhookHandlerArgsDict',
     'ReleaseBundleV2PromotionCustomWebhookCriteriaArgs',
+    'ReleaseBundleV2PromotionCustomWebhookCriteriaArgsDict',
     'ReleaseBundleV2PromotionCustomWebhookHandlerArgs',
+    'ReleaseBundleV2PromotionCustomWebhookHandlerArgsDict',
     'ReleaseBundleV2PromotionWebhookCriteriaArgs',
+    'ReleaseBundleV2PromotionWebhookCriteriaArgsDict',
     'ReleaseBundleV2PromotionWebhookHandlerArgs',
+    'ReleaseBundleV2PromotionWebhookHandlerArgsDict',
     'ReleaseBundleV2SourceArgs',
+    'ReleaseBundleV2SourceArgsDict',
     'ReleaseBundleV2SourceArtifactArgs',
+    'ReleaseBundleV2SourceArtifactArgsDict',
     'ReleaseBundleV2SourceBuildArgs',
+    'ReleaseBundleV2SourceBuildArgsDict',
     'ReleaseBundleV2SourceReleaseBundleArgs',
+    'ReleaseBundleV2SourceReleaseBundleArgsDict',
     'ReleaseBundleV2WebhookCriteriaArgs',
+    'ReleaseBundleV2WebhookCriteriaArgsDict',
     'ReleaseBundleV2WebhookHandlerArgs',
+    'ReleaseBundleV2WebhookHandlerArgsDict',
     'ReleaseBundleWebhookCriteriaArgs',
+    'ReleaseBundleWebhookCriteriaArgsDict',
     'ReleaseBundleWebhookHandlerArgs',
+    'ReleaseBundleWebhookHandlerArgsDict',
     'RemoteAlpineRepositoryContentSynchronisationArgs',
+    'RemoteAlpineRepositoryContentSynchronisationArgsDict',
     'RemoteAnsibleRepositoryContentSynchronisationArgs',
+    'RemoteAnsibleRepositoryContentSynchronisationArgsDict',
     'RemoteBowerRepositoryContentSynchronisationArgs',
+    'RemoteBowerRepositoryContentSynchronisationArgsDict',
     'RemoteCargoRepositoryContentSynchronisationArgs',
+    'RemoteCargoRepositoryContentSynchronisationArgsDict',
     'RemoteChefRepositoryContentSynchronisationArgs',
+    'RemoteChefRepositoryContentSynchronisationArgsDict',
     'RemoteCocoapodsRepositoryContentSynchronisationArgs',
+    'RemoteCocoapodsRepositoryContentSynchronisationArgsDict',
     'RemoteComposerRepositoryContentSynchronisationArgs',
+    'RemoteComposerRepositoryContentSynchronisationArgsDict',
     'RemoteConanRepositoryContentSynchronisationArgs',
+    'RemoteConanRepositoryContentSynchronisationArgsDict',
     'RemoteCondaRepositoryContentSynchronisationArgs',
+    'RemoteCondaRepositoryContentSynchronisationArgsDict',
     'RemoteCranRepositoryContentSynchronisationArgs',
+    'RemoteCranRepositoryContentSynchronisationArgsDict',
     'RemoteDebianRepositoryContentSynchronisationArgs',
+    'RemoteDebianRepositoryContentSynchronisationArgsDict',
     'RemoteDockerRepositoryContentSynchronisationArgs',
+    'RemoteDockerRepositoryContentSynchronisationArgsDict',
     'RemoteGemsRepositoryContentSynchronisationArgs',
+    'RemoteGemsRepositoryContentSynchronisationArgsDict',
     'RemoteGenericRepositoryContentSynchronisationArgs',
+    'RemoteGenericRepositoryContentSynchronisationArgsDict',
     'RemoteGitlfsRepositoryContentSynchronisationArgs',
+    'RemoteGitlfsRepositoryContentSynchronisationArgsDict',
     'RemoteGoRepositoryContentSynchronisationArgs',
+    'RemoteGoRepositoryContentSynchronisationArgsDict',
     'RemoteGradleRepositoryContentSynchronisationArgs',
+    'RemoteGradleRepositoryContentSynchronisationArgsDict',
     'RemoteHelmRepositoryContentSynchronisationArgs',
+    'RemoteHelmRepositoryContentSynchronisationArgsDict',
     'RemoteHelmociRepositoryContentSynchronisationArgs',
+    'RemoteHelmociRepositoryContentSynchronisationArgsDict',
     'RemoteHuggingfacemlRepositoryContentSynchronisationArgs',
+    'RemoteHuggingfacemlRepositoryContentSynchronisationArgsDict',
     'RemoteIvyRepositoryContentSynchronisationArgs',
+    'RemoteIvyRepositoryContentSynchronisationArgsDict',
     'RemoteMavenRepositoryContentSynchronisationArgs',
+    'RemoteMavenRepositoryContentSynchronisationArgsDict',
     'RemoteNpmRepositoryContentSynchronisationArgs',
+    'RemoteNpmRepositoryContentSynchronisationArgsDict',
     'RemoteNugetRepositoryContentSynchronisationArgs',
+    'RemoteNugetRepositoryContentSynchronisationArgsDict',
     'RemoteOciRepositoryContentSynchronisationArgs',
+    'RemoteOciRepositoryContentSynchronisationArgsDict',
     'RemoteOpkgRepositoryContentSynchronisationArgs',
+    'RemoteOpkgRepositoryContentSynchronisationArgsDict',
     'RemoteP2RepositoryContentSynchronisationArgs',
+    'RemoteP2RepositoryContentSynchronisationArgsDict',
     'RemotePubRepositoryContentSynchronisationArgs',
+    'RemotePubRepositoryContentSynchronisationArgsDict',
     'RemotePuppetRepositoryContentSynchronisationArgs',
+    'RemotePuppetRepositoryContentSynchronisationArgsDict',
     'RemotePypiRepositoryContentSynchronisationArgs',
+    'RemotePypiRepositoryContentSynchronisationArgsDict',
     'RemoteRpmRepositoryContentSynchronisationArgs',
+    'RemoteRpmRepositoryContentSynchronisationArgsDict',
     'RemoteSbtRepositoryContentSynchronisationArgs',
+    'RemoteSbtRepositoryContentSynchronisationArgsDict',
     'RemoteSwiftRepositoryContentSynchronisationArgs',
+    'RemoteSwiftRepositoryContentSynchronisationArgsDict',
     'RemoteTerraformRepositoryContentSynchronisationArgs',
+    'RemoteTerraformRepositoryContentSynchronisationArgsDict',
     'RemoteVcsRepositoryContentSynchronisationArgs',
+    'RemoteVcsRepositoryContentSynchronisationArgsDict',
     'UnmanagedUserPasswordPolicyArgs',
+    'UnmanagedUserPasswordPolicyArgsDict',
     'UserCustomWebhookHandlerArgs',
+    'UserCustomWebhookHandlerArgsDict',
     'UserPasswordPolicyArgs',
+    'UserPasswordPolicyArgsDict',
     'UserWebhookHandlerArgs',
+    'UserWebhookHandlerArgsDict',
     'VaultConfigurationConfigArgs',
+    'VaultConfigurationConfigArgsDict',
     'VaultConfigurationConfigAuthArgs',
+    'VaultConfigurationConfigAuthArgsDict',
     'VaultConfigurationConfigMountArgs',
+    'VaultConfigurationConfigMountArgsDict',
     'GetFederatedAlpineRepositoryMemberArgs',
+    'GetFederatedAlpineRepositoryMemberArgsDict',
     'GetFederatedAnsibleRepositoryMemberArgs',
+    'GetFederatedAnsibleRepositoryMemberArgsDict',
     'GetFederatedBowerRepositoryMemberArgs',
+    'GetFederatedBowerRepositoryMemberArgsDict',
     'GetFederatedCargoRepositoryMemberArgs',
+    'GetFederatedCargoRepositoryMemberArgsDict',
     'GetFederatedChefRepositoryMemberArgs',
+    'GetFederatedChefRepositoryMemberArgsDict',
     'GetFederatedCocoapodsRepositoryMemberArgs',
+    'GetFederatedCocoapodsRepositoryMemberArgsDict',
     'GetFederatedComposerRepositoryMemberArgs',
+    'GetFederatedComposerRepositoryMemberArgsDict',
     'GetFederatedConanRepositoryMemberArgs',
+    'GetFederatedConanRepositoryMemberArgsDict',
     'GetFederatedCondaRepositoryMemberArgs',
+    'GetFederatedCondaRepositoryMemberArgsDict',
     'GetFederatedCranRepositoryMemberArgs',
+    'GetFederatedCranRepositoryMemberArgsDict',
     'GetFederatedDebianRepositoryMemberArgs',
+    'GetFederatedDebianRepositoryMemberArgsDict',
     'GetFederatedDockerRepositoryMemberArgs',
+    'GetFederatedDockerRepositoryMemberArgsDict',
     'GetFederatedDockerV1RepositoryMemberArgs',
+    'GetFederatedDockerV1RepositoryMemberArgsDict',
     'GetFederatedDockerV2RepositoryMemberArgs',
+    'GetFederatedDockerV2RepositoryMemberArgsDict',
     'GetFederatedGemsRepositoryMemberArgs',
+    'GetFederatedGemsRepositoryMemberArgsDict',
     'GetFederatedGenericRepositoryMemberArgs',
+    'GetFederatedGenericRepositoryMemberArgsDict',
     'GetFederatedGitlfsRepositoryMemberArgs',
+    'GetFederatedGitlfsRepositoryMemberArgsDict',
     'GetFederatedGoRepositoryMemberArgs',
+    'GetFederatedGoRepositoryMemberArgsDict',
     'GetFederatedGradleRepositoryMemberArgs',
+    'GetFederatedGradleRepositoryMemberArgsDict',
     'GetFederatedHelmRepositoryMemberArgs',
+    'GetFederatedHelmRepositoryMemberArgsDict',
     'GetFederatedHelmociRepositoryMemberArgs',
+    'GetFederatedHelmociRepositoryMemberArgsDict',
     'GetFederatedIvyRepositoryMemberArgs',
+    'GetFederatedIvyRepositoryMemberArgsDict',
     'GetFederatedMavenRepositoryMemberArgs',
+    'GetFederatedMavenRepositoryMemberArgsDict',
     'GetFederatedNpmRepositoryMemberArgs',
+    'GetFederatedNpmRepositoryMemberArgsDict',
     'GetFederatedNugetRepositoryMemberArgs',
+    'GetFederatedNugetRepositoryMemberArgsDict',
     'GetFederatedOciRepositoryMemberArgs',
+    'GetFederatedOciRepositoryMemberArgsDict',
     'GetFederatedOpkgRepositoryMemberArgs',
+    'GetFederatedOpkgRepositoryMemberArgsDict',
     'GetFederatedPuppetRepositoryMemberArgs',
+    'GetFederatedPuppetRepositoryMemberArgsDict',
     'GetFederatedPypiRepositoryMemberArgs',
+    'GetFederatedPypiRepositoryMemberArgsDict',
     'GetFederatedRpmRepositoryMemberArgs',
+    'GetFederatedRpmRepositoryMemberArgsDict',
     'GetFederatedSbtRepositoryMemberArgs',
+    'GetFederatedSbtRepositoryMemberArgsDict',
     'GetFederatedSwiftRepositoryMemberArgs',
+    'GetFederatedSwiftRepositoryMemberArgsDict',
     'GetFederatedTerraformModuleRepositoryMemberArgs',
+    'GetFederatedTerraformModuleRepositoryMemberArgsDict',
     'GetFederatedTerraformProviderRepositoryMemberArgs',
+    'GetFederatedTerraformProviderRepositoryMemberArgsDict',
     'GetFederatedVagrantRepositoryMemberArgs',
+    'GetFederatedVagrantRepositoryMemberArgsDict',
     'GetPermissionTargetBuildArgs',
+    'GetPermissionTargetBuildArgsDict',
     'GetPermissionTargetBuildActionsArgs',
+    'GetPermissionTargetBuildActionsArgsDict',
     'GetPermissionTargetBuildActionsGroupArgs',
+    'GetPermissionTargetBuildActionsGroupArgsDict',
     'GetPermissionTargetBuildActionsUserArgs',
+    'GetPermissionTargetBuildActionsUserArgsDict',
     'GetPermissionTargetReleaseBundleArgs',
+    'GetPermissionTargetReleaseBundleArgsDict',
     'GetPermissionTargetReleaseBundleActionsArgs',
+    'GetPermissionTargetReleaseBundleActionsArgsDict',
     'GetPermissionTargetReleaseBundleActionsGroupArgs',
+    'GetPermissionTargetReleaseBundleActionsGroupArgsDict',
     'GetPermissionTargetReleaseBundleActionsUserArgs',
+    'GetPermissionTargetReleaseBundleActionsUserArgsDict',
     'GetPermissionTargetRepoArgs',
+    'GetPermissionTargetRepoArgsDict',
     'GetPermissionTargetRepoActionsArgs',
+    'GetPermissionTargetRepoActionsArgsDict',
     'GetPermissionTargetRepoActionsGroupArgs',
+    'GetPermissionTargetRepoActionsGroupArgsDict',
     'GetPermissionTargetRepoActionsUserArgs',
+    'GetPermissionTargetRepoActionsUserArgsDict',
     'GetRemoteAlpineRepositoryContentSynchronisationArgs',
+    'GetRemoteAlpineRepositoryContentSynchronisationArgsDict',
     'GetRemoteAnsibleRepositoryContentSynchronisationArgs',
+    'GetRemoteAnsibleRepositoryContentSynchronisationArgsDict',
     'GetRemoteBowerRepositoryContentSynchronisationArgs',
+    'GetRemoteBowerRepositoryContentSynchronisationArgsDict',
     'GetRemoteCargoRepositoryContentSynchronisationArgs',
+    'GetRemoteCargoRepositoryContentSynchronisationArgsDict',
     'GetRemoteChefRepositoryContentSynchronisationArgs',
+    'GetRemoteChefRepositoryContentSynchronisationArgsDict',
     'GetRemoteCocoapodsRepositoryContentSynchronisationArgs',
+    'GetRemoteCocoapodsRepositoryContentSynchronisationArgsDict',
     'GetRemoteComposerRepositoryContentSynchronisationArgs',
+    'GetRemoteComposerRepositoryContentSynchronisationArgsDict',
     'GetRemoteConanRepositoryContentSynchronisationArgs',
+    'GetRemoteConanRepositoryContentSynchronisationArgsDict',
     'GetRemoteCondaRepositoryContentSynchronisationArgs',
+    'GetRemoteCondaRepositoryContentSynchronisationArgsDict',
     'GetRemoteCranRepositoryContentSynchronisationArgs',
+    'GetRemoteCranRepositoryContentSynchronisationArgsDict',
     'GetRemoteDebianRepositoryContentSynchronisationArgs',
+    'GetRemoteDebianRepositoryContentSynchronisationArgsDict',
     'GetRemoteDockerRepositoryContentSynchronisationArgs',
+    'GetRemoteDockerRepositoryContentSynchronisationArgsDict',
     'GetRemoteGemsRepositoryContentSynchronisationArgs',
+    'GetRemoteGemsRepositoryContentSynchronisationArgsDict',
     'GetRemoteGenericRepositoryContentSynchronisationArgs',
+    'GetRemoteGenericRepositoryContentSynchronisationArgsDict',
     'GetRemoteGitlfsRepositoryContentSynchronisationArgs',
+    'GetRemoteGitlfsRepositoryContentSynchronisationArgsDict',
     'GetRemoteGoRepositoryContentSynchronisationArgs',
+    'GetRemoteGoRepositoryContentSynchronisationArgsDict',
     'GetRemoteGradleRepositoryContentSynchronisationArgs',
+    'GetRemoteGradleRepositoryContentSynchronisationArgsDict',
     'GetRemoteHelmRepositoryContentSynchronisationArgs',
+    'GetRemoteHelmRepositoryContentSynchronisationArgsDict',
     'GetRemoteHelmociRepositoryContentSynchronisationArgs',
+    'GetRemoteHelmociRepositoryContentSynchronisationArgsDict',
     'GetRemoteIvyRepositoryContentSynchronisationArgs',
+    'GetRemoteIvyRepositoryContentSynchronisationArgsDict',
     'GetRemoteMavenRepositoryContentSynchronisationArgs',
+    'GetRemoteMavenRepositoryContentSynchronisationArgsDict',
     'GetRemoteNpmRepositoryContentSynchronisationArgs',
+    'GetRemoteNpmRepositoryContentSynchronisationArgsDict',
     'GetRemoteNugetRepositoryContentSynchronisationArgs',
+    'GetRemoteNugetRepositoryContentSynchronisationArgsDict',
     'GetRemoteOciRepositoryContentSynchronisationArgs',
+    'GetRemoteOciRepositoryContentSynchronisationArgsDict',
     'GetRemoteOpkgRepositoryContentSynchronisationArgs',
+    'GetRemoteOpkgRepositoryContentSynchronisationArgsDict',
     'GetRemoteP2RepositoryContentSynchronisationArgs',
+    'GetRemoteP2RepositoryContentSynchronisationArgsDict',
     'GetRemotePubRepositoryContentSynchronisationArgs',
+    'GetRemotePubRepositoryContentSynchronisationArgsDict',
     'GetRemotePuppetRepositoryContentSynchronisationArgs',
+    'GetRemotePuppetRepositoryContentSynchronisationArgsDict',
     'GetRemotePypiRepositoryContentSynchronisationArgs',
+    'GetRemotePypiRepositoryContentSynchronisationArgsDict',
     'GetRemoteRpmRepositoryContentSynchronisationArgs',
+    'GetRemoteRpmRepositoryContentSynchronisationArgsDict',
     'GetRemoteSbtRepositoryContentSynchronisationArgs',
+    'GetRemoteSbtRepositoryContentSynchronisationArgsDict',
     'GetRemoteSwiftRepositoryContentSynchronisationArgs',
+    'GetRemoteSwiftRepositoryContentSynchronisationArgsDict',
     'GetRemoteTerraformRepositoryContentSynchronisationArgs',
+    'GetRemoteTerraformRepositoryContentSynchronisationArgsDict',
     'GetRemoteVcsRepositoryContentSynchronisationArgs',
+    'GetRemoteVcsRepositoryContentSynchronisationArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ArtifactCustomWebhookCriteriaArgsDict(TypedDict):
+        any_federated: pulumi.Input[bool]
+        """
+        Trigger on any federated repositories
+        """
+        any_local: pulumi.Input[bool]
+        """
+        Trigger on any local repo.
+        """
+        any_remote: pulumi.Input[bool]
+        """
+        Trigger on any remote repo.
+        """
+        repo_keys: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Trigger on this list of repo keys.
+        """
+        exclude_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`.
+        """
+        include_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`.
+        """
+elif False:
+    ArtifactCustomWebhookCriteriaArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ArtifactCustomWebhookCriteriaArgs:
@@ -334,6 +593,31 @@ class ArtifactCustomWebhookCriteriaArgs:
         pulumi.set(self, "include_patterns", value)
 
 
+if not MYPY:
+    class ArtifactCustomWebhookHandlerArgsDict(TypedDict):
+        url: pulumi.Input[str]
+        """
+        Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+        """
+        http_headers: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
+        """
+        payload: NotRequired[pulumi.Input[str]]
+        """
+        This attribute is used to build the request body. Used in custom webhooks
+        """
+        proxy: NotRequired[pulumi.Input[str]]
+        """
+        Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+        """
+        secrets: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example: 
+        """
+elif False:
+    ArtifactCustomWebhookHandlerArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ArtifactCustomWebhookHandlerArgs:
     def __init__(__self__, *,
@@ -419,6 +703,31 @@ class ArtifactCustomWebhookHandlerArgs:
     def secrets(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "secrets", value)
 
+
+if not MYPY:
+    class ArtifactLifecycleCustomWebhookHandlerArgsDict(TypedDict):
+        url: pulumi.Input[str]
+        """
+        Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+        """
+        http_headers: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
+        """
+        payload: NotRequired[pulumi.Input[str]]
+        """
+        This attribute is used to build the request body. Used in custom webhooks
+        """
+        proxy: NotRequired[pulumi.Input[str]]
+        """
+        Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+        """
+        secrets: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
+        """
+elif False:
+    ArtifactLifecycleCustomWebhookHandlerArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ArtifactLifecycleCustomWebhookHandlerArgs:
@@ -506,6 +815,31 @@ class ArtifactLifecycleCustomWebhookHandlerArgs:
         pulumi.set(self, "secrets", value)
 
 
+if not MYPY:
+    class ArtifactLifecycleWebhookHandlerArgsDict(TypedDict):
+        url: pulumi.Input[str]
+        """
+        Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+        """
+        custom_http_headers: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
+        """
+        proxy: NotRequired[pulumi.Input[str]]
+        """
+        Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+        """
+        secret: NotRequired[pulumi.Input[str]]
+        """
+        Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
+        """
+        use_secret_for_signing: NotRequired[pulumi.Input[bool]]
+        """
+        When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
+        """
+elif False:
+    ArtifactLifecycleWebhookHandlerArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ArtifactLifecycleWebhookHandlerArgs:
     def __init__(__self__, *,
@@ -591,6 +925,35 @@ class ArtifactLifecycleWebhookHandlerArgs:
     def use_secret_for_signing(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "use_secret_for_signing", value)
 
+
+if not MYPY:
+    class ArtifactPropertyCustomWebhookCriteriaArgsDict(TypedDict):
+        any_federated: pulumi.Input[bool]
+        """
+        Trigger on any federated repositories
+        """
+        any_local: pulumi.Input[bool]
+        """
+        Trigger on any local repo.
+        """
+        any_remote: pulumi.Input[bool]
+        """
+        Trigger on any remote repo.
+        """
+        repo_keys: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Trigger on this list of repo keys.
+        """
+        exclude_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`.
+        """
+        include_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`.
+        """
+elif False:
+    ArtifactPropertyCustomWebhookCriteriaArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ArtifactPropertyCustomWebhookCriteriaArgs:
@@ -691,6 +1054,31 @@ class ArtifactPropertyCustomWebhookCriteriaArgs:
         pulumi.set(self, "include_patterns", value)
 
 
+if not MYPY:
+    class ArtifactPropertyCustomWebhookHandlerArgsDict(TypedDict):
+        url: pulumi.Input[str]
+        """
+        Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+        """
+        http_headers: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
+        """
+        payload: NotRequired[pulumi.Input[str]]
+        """
+        This attribute is used to build the request body. Used in custom webhooks
+        """
+        proxy: NotRequired[pulumi.Input[str]]
+        """
+        Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+        """
+        secrets: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
+        """
+elif False:
+    ArtifactPropertyCustomWebhookHandlerArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ArtifactPropertyCustomWebhookHandlerArgs:
     def __init__(__self__, *,
@@ -776,6 +1164,35 @@ class ArtifactPropertyCustomWebhookHandlerArgs:
     def secrets(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "secrets", value)
 
+
+if not MYPY:
+    class ArtifactPropertyWebhookCriteriaArgsDict(TypedDict):
+        any_federated: pulumi.Input[bool]
+        """
+        Trigger on any federated repo.
+        """
+        any_local: pulumi.Input[bool]
+        """
+        Trigger on any local repo.
+        """
+        any_remote: pulumi.Input[bool]
+        """
+        Trigger on any remote repo.
+        """
+        repo_keys: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Trigger on this list of repo keys.
+        """
+        exclude_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`.
+        """
+        include_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`.
+        """
+elif False:
+    ArtifactPropertyWebhookCriteriaArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ArtifactPropertyWebhookCriteriaArgs:
@@ -876,6 +1293,31 @@ class ArtifactPropertyWebhookCriteriaArgs:
         pulumi.set(self, "include_patterns", value)
 
 
+if not MYPY:
+    class ArtifactPropertyWebhookHandlerArgsDict(TypedDict):
+        url: pulumi.Input[str]
+        """
+        Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+        """
+        custom_http_headers: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
+        """
+        proxy: NotRequired[pulumi.Input[str]]
+        """
+        Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+        """
+        secret: NotRequired[pulumi.Input[str]]
+        """
+        Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
+        """
+        use_secret_for_signing: NotRequired[pulumi.Input[bool]]
+        """
+        When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
+        """
+elif False:
+    ArtifactPropertyWebhookHandlerArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ArtifactPropertyWebhookHandlerArgs:
     def __init__(__self__, *,
@@ -961,6 +1403,35 @@ class ArtifactPropertyWebhookHandlerArgs:
     def use_secret_for_signing(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "use_secret_for_signing", value)
 
+
+if not MYPY:
+    class ArtifactWebhookCriteriaArgsDict(TypedDict):
+        any_federated: pulumi.Input[bool]
+        """
+        Trigger on any federated repo.
+        """
+        any_local: pulumi.Input[bool]
+        """
+        Trigger on any local repo.
+        """
+        any_remote: pulumi.Input[bool]
+        """
+        Trigger on any remote repo.
+        """
+        repo_keys: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Trigger on this list of repo keys.
+        """
+        exclude_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`.
+        """
+        include_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`.
+        """
+elif False:
+    ArtifactWebhookCriteriaArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ArtifactWebhookCriteriaArgs:
@@ -1061,6 +1532,31 @@ class ArtifactWebhookCriteriaArgs:
         pulumi.set(self, "include_patterns", value)
 
 
+if not MYPY:
+    class ArtifactWebhookHandlerArgsDict(TypedDict):
+        url: pulumi.Input[str]
+        """
+        Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+        """
+        custom_http_headers: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
+        """
+        proxy: NotRequired[pulumi.Input[str]]
+        """
+        Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+        """
+        secret: NotRequired[pulumi.Input[str]]
+        """
+        Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
+        """
+        use_secret_for_signing: NotRequired[pulumi.Input[bool]]
+        """
+        When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
+        """
+elif False:
+    ArtifactWebhookHandlerArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ArtifactWebhookHandlerArgs:
     def __init__(__self__, *,
@@ -1147,6 +1643,27 @@ class ArtifactWebhookHandlerArgs:
         pulumi.set(self, "use_secret_for_signing", value)
 
 
+if not MYPY:
+    class ArtifactoryReleaseBundleCustomWebhookCriteriaArgsDict(TypedDict):
+        any_release_bundle: pulumi.Input[bool]
+        """
+        Trigger on any release bundle
+        """
+        registered_release_bundle_names: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Trigger on this list of release bundle names
+        """
+        exclude_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`
+        """
+        include_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`
+        """
+elif False:
+    ArtifactoryReleaseBundleCustomWebhookCriteriaArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ArtifactoryReleaseBundleCustomWebhookCriteriaArgs:
     def __init__(__self__, *,
@@ -1215,6 +1732,31 @@ class ArtifactoryReleaseBundleCustomWebhookCriteriaArgs:
     def include_patterns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "include_patterns", value)
 
+
+if not MYPY:
+    class ArtifactoryReleaseBundleCustomWebhookHandlerArgsDict(TypedDict):
+        url: pulumi.Input[str]
+        """
+        Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+        """
+        http_headers: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
+        """
+        payload: NotRequired[pulumi.Input[str]]
+        """
+        This attribute is used to build the request body. Used in custom webhooks
+        """
+        proxy: NotRequired[pulumi.Input[str]]
+        """
+        Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+        """
+        secrets: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
+        """
+elif False:
+    ArtifactoryReleaseBundleCustomWebhookHandlerArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ArtifactoryReleaseBundleCustomWebhookHandlerArgs:
@@ -1302,6 +1844,27 @@ class ArtifactoryReleaseBundleCustomWebhookHandlerArgs:
         pulumi.set(self, "secrets", value)
 
 
+if not MYPY:
+    class ArtifactoryReleaseBundleWebhookCriteriaArgsDict(TypedDict):
+        any_release_bundle: pulumi.Input[bool]
+        """
+        Trigger on any release bundle
+        """
+        registered_release_bundle_names: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Trigger on this list of release bundle names
+        """
+        exclude_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`
+        """
+        include_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`
+        """
+elif False:
+    ArtifactoryReleaseBundleWebhookCriteriaArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ArtifactoryReleaseBundleWebhookCriteriaArgs:
     def __init__(__self__, *,
@@ -1370,6 +1933,31 @@ class ArtifactoryReleaseBundleWebhookCriteriaArgs:
     def include_patterns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "include_patterns", value)
 
+
+if not MYPY:
+    class ArtifactoryReleaseBundleWebhookHandlerArgsDict(TypedDict):
+        url: pulumi.Input[str]
+        """
+        Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+        """
+        custom_http_headers: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
+        """
+        proxy: NotRequired[pulumi.Input[str]]
+        """
+        Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+        """
+        secret: NotRequired[pulumi.Input[str]]
+        """
+        Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
+        """
+        use_secret_for_signing: NotRequired[pulumi.Input[bool]]
+        """
+        When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
+        """
+elif False:
+    ArtifactoryReleaseBundleWebhookHandlerArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ArtifactoryReleaseBundleWebhookHandlerArgs:
@@ -1457,6 +2045,27 @@ class ArtifactoryReleaseBundleWebhookHandlerArgs:
         pulumi.set(self, "use_secret_for_signing", value)
 
 
+if not MYPY:
+    class BuildCustomWebhookCriteriaArgsDict(TypedDict):
+        any_build: pulumi.Input[bool]
+        """
+        Trigger on any build.
+        """
+        selected_builds: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Trigger on this list of build names.
+        """
+        exclude_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`.
+        """
+        include_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`.
+        """
+elif False:
+    BuildCustomWebhookCriteriaArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class BuildCustomWebhookCriteriaArgs:
     def __init__(__self__, *,
@@ -1525,6 +2134,31 @@ class BuildCustomWebhookCriteriaArgs:
     def include_patterns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "include_patterns", value)
 
+
+if not MYPY:
+    class BuildCustomWebhookHandlerArgsDict(TypedDict):
+        url: pulumi.Input[str]
+        """
+        Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+        """
+        http_headers: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
+        """
+        payload: NotRequired[pulumi.Input[str]]
+        """
+        This attribute is used to build the request body. Used in custom webhooks
+        """
+        proxy: NotRequired[pulumi.Input[str]]
+        """
+        Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+        """
+        secrets: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
+        """
+elif False:
+    BuildCustomWebhookHandlerArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BuildCustomWebhookHandlerArgs:
@@ -1612,6 +2246,27 @@ class BuildCustomWebhookHandlerArgs:
         pulumi.set(self, "secrets", value)
 
 
+if not MYPY:
+    class BuildWebhookCriteriaArgsDict(TypedDict):
+        any_build: pulumi.Input[bool]
+        """
+        Trigger on any build.
+        """
+        selected_builds: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Trigger on this list of build names.
+        """
+        exclude_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`.
+        """
+        include_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`.
+        """
+elif False:
+    BuildWebhookCriteriaArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class BuildWebhookCriteriaArgs:
     def __init__(__self__, *,
@@ -1680,6 +2335,31 @@ class BuildWebhookCriteriaArgs:
     def include_patterns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "include_patterns", value)
 
+
+if not MYPY:
+    class BuildWebhookHandlerArgsDict(TypedDict):
+        url: pulumi.Input[str]
+        """
+        Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+        """
+        custom_http_headers: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
+        """
+        proxy: NotRequired[pulumi.Input[str]]
+        """
+        Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+        """
+        secret: NotRequired[pulumi.Input[str]]
+        """
+        Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
+        """
+        use_secret_for_signing: NotRequired[pulumi.Input[bool]]
+        """
+        When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
+        """
+elif False:
+    BuildWebhookHandlerArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BuildWebhookHandlerArgs:
@@ -1767,6 +2447,27 @@ class BuildWebhookHandlerArgs:
         pulumi.set(self, "use_secret_for_signing", value)
 
 
+if not MYPY:
+    class DestinationCustomWebhookCriteriaArgsDict(TypedDict):
+        any_release_bundle: pulumi.Input[bool]
+        """
+        Trigger on any release bundle
+        """
+        registered_release_bundle_names: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Trigger on this list of release bundle names
+        """
+        exclude_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`
+        """
+        include_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`
+        """
+elif False:
+    DestinationCustomWebhookCriteriaArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DestinationCustomWebhookCriteriaArgs:
     def __init__(__self__, *,
@@ -1835,6 +2536,31 @@ class DestinationCustomWebhookCriteriaArgs:
     def include_patterns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "include_patterns", value)
 
+
+if not MYPY:
+    class DestinationCustomWebhookHandlerArgsDict(TypedDict):
+        url: pulumi.Input[str]
+        """
+        Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+        """
+        http_headers: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
+        """
+        payload: NotRequired[pulumi.Input[str]]
+        """
+        This attribute is used to build the request body. Used in custom webhooks
+        """
+        proxy: NotRequired[pulumi.Input[str]]
+        """
+        Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+        """
+        secrets: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
+        """
+elif False:
+    DestinationCustomWebhookHandlerArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DestinationCustomWebhookHandlerArgs:
@@ -1922,6 +2648,27 @@ class DestinationCustomWebhookHandlerArgs:
         pulumi.set(self, "secrets", value)
 
 
+if not MYPY:
+    class DestinationWebhookCriteriaArgsDict(TypedDict):
+        any_release_bundle: pulumi.Input[bool]
+        """
+        Trigger on any release bundle
+        """
+        registered_release_bundle_names: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Trigger on this list of release bundle names
+        """
+        exclude_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`
+        """
+        include_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`
+        """
+elif False:
+    DestinationWebhookCriteriaArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DestinationWebhookCriteriaArgs:
     def __init__(__self__, *,
@@ -1990,6 +2737,31 @@ class DestinationWebhookCriteriaArgs:
     def include_patterns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "include_patterns", value)
 
+
+if not MYPY:
+    class DestinationWebhookHandlerArgsDict(TypedDict):
+        url: pulumi.Input[str]
+        """
+        Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+        """
+        custom_http_headers: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
+        """
+        proxy: NotRequired[pulumi.Input[str]]
+        """
+        Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+        """
+        secret: NotRequired[pulumi.Input[str]]
+        """
+        Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
+        """
+        use_secret_for_signing: NotRequired[pulumi.Input[bool]]
+        """
+        When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
+        """
+elif False:
+    DestinationWebhookHandlerArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DestinationWebhookHandlerArgs:
@@ -2077,6 +2849,27 @@ class DestinationWebhookHandlerArgs:
         pulumi.set(self, "use_secret_for_signing", value)
 
 
+if not MYPY:
+    class DistributionCustomWebhookCriteriaArgsDict(TypedDict):
+        any_release_bundle: pulumi.Input[bool]
+        """
+        Trigger on any release bundle.
+        """
+        registered_release_bundle_names: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Trigger on this list of release bundle names.
+        """
+        exclude_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`.
+        """
+        include_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`.
+        """
+elif False:
+    DistributionCustomWebhookCriteriaArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DistributionCustomWebhookCriteriaArgs:
     def __init__(__self__, *,
@@ -2145,6 +2938,31 @@ class DistributionCustomWebhookCriteriaArgs:
     def include_patterns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "include_patterns", value)
 
+
+if not MYPY:
+    class DistributionCustomWebhookHandlerArgsDict(TypedDict):
+        url: pulumi.Input[str]
+        """
+        Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+        """
+        http_headers: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
+        """
+        payload: NotRequired[pulumi.Input[str]]
+        """
+        This attribute is used to build the request body. Used in custom webhooks
+        """
+        proxy: NotRequired[pulumi.Input[str]]
+        """
+        Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+        """
+        secrets: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
+        """
+elif False:
+    DistributionCustomWebhookHandlerArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DistributionCustomWebhookHandlerArgs:
@@ -2232,6 +3050,27 @@ class DistributionCustomWebhookHandlerArgs:
         pulumi.set(self, "secrets", value)
 
 
+if not MYPY:
+    class DistributionWebhookCriteriaArgsDict(TypedDict):
+        any_release_bundle: pulumi.Input[bool]
+        """
+        Trigger on any release bundle.
+        """
+        registered_release_bundle_names: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Trigger on this list of release bundle names.
+        """
+        exclude_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`.
+        """
+        include_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`.
+        """
+elif False:
+    DistributionWebhookCriteriaArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DistributionWebhookCriteriaArgs:
     def __init__(__self__, *,
@@ -2300,6 +3139,31 @@ class DistributionWebhookCriteriaArgs:
     def include_patterns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "include_patterns", value)
 
+
+if not MYPY:
+    class DistributionWebhookHandlerArgsDict(TypedDict):
+        url: pulumi.Input[str]
+        """
+        Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+        """
+        custom_http_headers: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
+        """
+        proxy: NotRequired[pulumi.Input[str]]
+        """
+        Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+        """
+        secret: NotRequired[pulumi.Input[str]]
+        """
+        Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
+        """
+        use_secret_for_signing: NotRequired[pulumi.Input[bool]]
+        """
+        When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
+        """
+elif False:
+    DistributionWebhookHandlerArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DistributionWebhookHandlerArgs:
@@ -2386,6 +3250,35 @@ class DistributionWebhookHandlerArgs:
     def use_secret_for_signing(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "use_secret_for_signing", value)
 
+
+if not MYPY:
+    class DockerCustomWebhookCriteriaArgsDict(TypedDict):
+        any_federated: pulumi.Input[bool]
+        """
+        Trigger on any federated repositories
+        """
+        any_local: pulumi.Input[bool]
+        """
+        Trigger on any local repo.
+        """
+        any_remote: pulumi.Input[bool]
+        """
+        Trigger on any remote repo.
+        """
+        repo_keys: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Trigger on this list of repo keys.
+        """
+        exclude_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`.
+        """
+        include_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`.
+        """
+elif False:
+    DockerCustomWebhookCriteriaArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DockerCustomWebhookCriteriaArgs:
@@ -2486,6 +3379,31 @@ class DockerCustomWebhookCriteriaArgs:
         pulumi.set(self, "include_patterns", value)
 
 
+if not MYPY:
+    class DockerCustomWebhookHandlerArgsDict(TypedDict):
+        url: pulumi.Input[str]
+        """
+        Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+        """
+        http_headers: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
+        """
+        payload: NotRequired[pulumi.Input[str]]
+        """
+        This attribute is used to build the request body. Used in custom webhooks
+        """
+        proxy: NotRequired[pulumi.Input[str]]
+        """
+        Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+        """
+        secrets: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
+        """
+elif False:
+    DockerCustomWebhookHandlerArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DockerCustomWebhookHandlerArgs:
     def __init__(__self__, *,
@@ -2571,6 +3489,35 @@ class DockerCustomWebhookHandlerArgs:
     def secrets(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "secrets", value)
 
+
+if not MYPY:
+    class DockerWebhookCriteriaArgsDict(TypedDict):
+        any_federated: pulumi.Input[bool]
+        """
+        Trigger on any federated repo.
+        """
+        any_local: pulumi.Input[bool]
+        """
+        Trigger on any local repo.
+        """
+        any_remote: pulumi.Input[bool]
+        """
+        Trigger on any remote repo.
+        """
+        repo_keys: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Trigger on this list of repo keys.
+        """
+        exclude_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`.
+        """
+        include_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`.
+        """
+elif False:
+    DockerWebhookCriteriaArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DockerWebhookCriteriaArgs:
@@ -2671,6 +3618,31 @@ class DockerWebhookCriteriaArgs:
         pulumi.set(self, "include_patterns", value)
 
 
+if not MYPY:
+    class DockerWebhookHandlerArgsDict(TypedDict):
+        url: pulumi.Input[str]
+        """
+        Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+        """
+        custom_http_headers: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
+        """
+        proxy: NotRequired[pulumi.Input[str]]
+        """
+        Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+        """
+        secret: NotRequired[pulumi.Input[str]]
+        """
+        Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
+        """
+        use_secret_for_signing: NotRequired[pulumi.Input[bool]]
+        """
+        When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
+        """
+elif False:
+    DockerWebhookHandlerArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DockerWebhookHandlerArgs:
     def __init__(__self__, *,
@@ -2757,6 +3729,24 @@ class DockerWebhookHandlerArgs:
         pulumi.set(self, "use_secret_for_signing", value)
 
 
+if not MYPY:
+    class FederatedAlpineRepositoryMemberArgsDict(TypedDict):
+        enabled: pulumi.Input[bool]
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        url: pulumi.Input[str]
+        """
+        Full URL to ending with the repository name.
+        """
+        access_token: NotRequired[pulumi.Input[str]]
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+elif False:
+    FederatedAlpineRepositoryMemberArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FederatedAlpineRepositoryMemberArgs:
     def __init__(__self__, *,
@@ -2811,6 +3801,24 @@ class FederatedAlpineRepositoryMemberArgs:
     def access_token(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "access_token", value)
 
+
+if not MYPY:
+    class FederatedAnsibleRepositoryMemberArgsDict(TypedDict):
+        enabled: pulumi.Input[bool]
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        url: pulumi.Input[str]
+        """
+        Full URL to ending with the repository name.
+        """
+        access_token: NotRequired[pulumi.Input[str]]
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+elif False:
+    FederatedAnsibleRepositoryMemberArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FederatedAnsibleRepositoryMemberArgs:
@@ -2867,6 +3875,24 @@ class FederatedAnsibleRepositoryMemberArgs:
         pulumi.set(self, "access_token", value)
 
 
+if not MYPY:
+    class FederatedBowerRepositoryMemberArgsDict(TypedDict):
+        enabled: pulumi.Input[bool]
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        url: pulumi.Input[str]
+        """
+        Full URL to ending with the repository name.
+        """
+        access_token: NotRequired[pulumi.Input[str]]
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+elif False:
+    FederatedBowerRepositoryMemberArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FederatedBowerRepositoryMemberArgs:
     def __init__(__self__, *,
@@ -2921,6 +3947,24 @@ class FederatedBowerRepositoryMemberArgs:
     def access_token(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "access_token", value)
 
+
+if not MYPY:
+    class FederatedCargoRepositoryMemberArgsDict(TypedDict):
+        enabled: pulumi.Input[bool]
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        url: pulumi.Input[str]
+        """
+        Full URL to ending with the repository name.
+        """
+        access_token: NotRequired[pulumi.Input[str]]
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+elif False:
+    FederatedCargoRepositoryMemberArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FederatedCargoRepositoryMemberArgs:
@@ -2977,6 +4021,24 @@ class FederatedCargoRepositoryMemberArgs:
         pulumi.set(self, "access_token", value)
 
 
+if not MYPY:
+    class FederatedChefRepositoryMemberArgsDict(TypedDict):
+        enabled: pulumi.Input[bool]
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        url: pulumi.Input[str]
+        """
+        Full URL to ending with the repository name.
+        """
+        access_token: NotRequired[pulumi.Input[str]]
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+elif False:
+    FederatedChefRepositoryMemberArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FederatedChefRepositoryMemberArgs:
     def __init__(__self__, *,
@@ -3031,6 +4093,24 @@ class FederatedChefRepositoryMemberArgs:
     def access_token(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "access_token", value)
 
+
+if not MYPY:
+    class FederatedCocoapodsRepositoryMemberArgsDict(TypedDict):
+        enabled: pulumi.Input[bool]
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        url: pulumi.Input[str]
+        """
+        Full URL to ending with the repository name.
+        """
+        access_token: NotRequired[pulumi.Input[str]]
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+elif False:
+    FederatedCocoapodsRepositoryMemberArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FederatedCocoapodsRepositoryMemberArgs:
@@ -3087,6 +4167,24 @@ class FederatedCocoapodsRepositoryMemberArgs:
         pulumi.set(self, "access_token", value)
 
 
+if not MYPY:
+    class FederatedComposerRepositoryMemberArgsDict(TypedDict):
+        enabled: pulumi.Input[bool]
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        url: pulumi.Input[str]
+        """
+        Full URL to ending with the repository name.
+        """
+        access_token: NotRequired[pulumi.Input[str]]
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+elif False:
+    FederatedComposerRepositoryMemberArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FederatedComposerRepositoryMemberArgs:
     def __init__(__self__, *,
@@ -3141,6 +4239,24 @@ class FederatedComposerRepositoryMemberArgs:
     def access_token(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "access_token", value)
 
+
+if not MYPY:
+    class FederatedConanRepositoryMemberArgsDict(TypedDict):
+        enabled: pulumi.Input[bool]
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        url: pulumi.Input[str]
+        """
+        Full URL to ending with the repository name.
+        """
+        access_token: NotRequired[pulumi.Input[str]]
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+elif False:
+    FederatedConanRepositoryMemberArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FederatedConanRepositoryMemberArgs:
@@ -3197,6 +4313,24 @@ class FederatedConanRepositoryMemberArgs:
         pulumi.set(self, "access_token", value)
 
 
+if not MYPY:
+    class FederatedCondaRepositoryMemberArgsDict(TypedDict):
+        enabled: pulumi.Input[bool]
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        url: pulumi.Input[str]
+        """
+        Full URL to ending with the repository name.
+        """
+        access_token: NotRequired[pulumi.Input[str]]
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+elif False:
+    FederatedCondaRepositoryMemberArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FederatedCondaRepositoryMemberArgs:
     def __init__(__self__, *,
@@ -3251,6 +4385,24 @@ class FederatedCondaRepositoryMemberArgs:
     def access_token(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "access_token", value)
 
+
+if not MYPY:
+    class FederatedCranRepositoryMemberArgsDict(TypedDict):
+        enabled: pulumi.Input[bool]
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        url: pulumi.Input[str]
+        """
+        Full URL to ending with the repository name.
+        """
+        access_token: NotRequired[pulumi.Input[str]]
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+elif False:
+    FederatedCranRepositoryMemberArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FederatedCranRepositoryMemberArgs:
@@ -3307,6 +4459,24 @@ class FederatedCranRepositoryMemberArgs:
         pulumi.set(self, "access_token", value)
 
 
+if not MYPY:
+    class FederatedDebianRepositoryMemberArgsDict(TypedDict):
+        enabled: pulumi.Input[bool]
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        url: pulumi.Input[str]
+        """
+        Full URL to ending with the repository name.
+        """
+        access_token: NotRequired[pulumi.Input[str]]
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+elif False:
+    FederatedDebianRepositoryMemberArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FederatedDebianRepositoryMemberArgs:
     def __init__(__self__, *,
@@ -3361,6 +4531,24 @@ class FederatedDebianRepositoryMemberArgs:
     def access_token(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "access_token", value)
 
+
+if not MYPY:
+    class FederatedDockerRepositoryMemberArgsDict(TypedDict):
+        enabled: pulumi.Input[bool]
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        url: pulumi.Input[str]
+        """
+        Full URL to ending with the repository name.
+        """
+        access_token: NotRequired[pulumi.Input[str]]
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+elif False:
+    FederatedDockerRepositoryMemberArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FederatedDockerRepositoryMemberArgs:
@@ -3417,6 +4605,24 @@ class FederatedDockerRepositoryMemberArgs:
         pulumi.set(self, "access_token", value)
 
 
+if not MYPY:
+    class FederatedDockerV1RepositoryMemberArgsDict(TypedDict):
+        enabled: pulumi.Input[bool]
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        url: pulumi.Input[str]
+        """
+        Full URL to ending with the repository name.
+        """
+        access_token: NotRequired[pulumi.Input[str]]
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+elif False:
+    FederatedDockerV1RepositoryMemberArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FederatedDockerV1RepositoryMemberArgs:
     def __init__(__self__, *,
@@ -3471,6 +4677,24 @@ class FederatedDockerV1RepositoryMemberArgs:
     def access_token(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "access_token", value)
 
+
+if not MYPY:
+    class FederatedDockerV2RepositoryMemberArgsDict(TypedDict):
+        enabled: pulumi.Input[bool]
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        url: pulumi.Input[str]
+        """
+        Full URL to ending with the repository name.
+        """
+        access_token: NotRequired[pulumi.Input[str]]
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+elif False:
+    FederatedDockerV2RepositoryMemberArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FederatedDockerV2RepositoryMemberArgs:
@@ -3527,6 +4751,24 @@ class FederatedDockerV2RepositoryMemberArgs:
         pulumi.set(self, "access_token", value)
 
 
+if not MYPY:
+    class FederatedGemsRepositoryMemberArgsDict(TypedDict):
+        enabled: pulumi.Input[bool]
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        url: pulumi.Input[str]
+        """
+        Full URL to ending with the repository name.
+        """
+        access_token: NotRequired[pulumi.Input[str]]
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+elif False:
+    FederatedGemsRepositoryMemberArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FederatedGemsRepositoryMemberArgs:
     def __init__(__self__, *,
@@ -3581,6 +4823,24 @@ class FederatedGemsRepositoryMemberArgs:
     def access_token(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "access_token", value)
 
+
+if not MYPY:
+    class FederatedGenericRepositoryMemberArgsDict(TypedDict):
+        enabled: pulumi.Input[bool]
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        url: pulumi.Input[str]
+        """
+        Full URL to ending with the repository name.
+        """
+        access_token: NotRequired[pulumi.Input[str]]
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+elif False:
+    FederatedGenericRepositoryMemberArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FederatedGenericRepositoryMemberArgs:
@@ -3637,6 +4897,24 @@ class FederatedGenericRepositoryMemberArgs:
         pulumi.set(self, "access_token", value)
 
 
+if not MYPY:
+    class FederatedGitltfsRepositoryMemberArgsDict(TypedDict):
+        enabled: pulumi.Input[bool]
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        url: pulumi.Input[str]
+        """
+        Full URL to ending with the repository name.
+        """
+        access_token: NotRequired[pulumi.Input[str]]
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+elif False:
+    FederatedGitltfsRepositoryMemberArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FederatedGitltfsRepositoryMemberArgs:
     def __init__(__self__, *,
@@ -3691,6 +4969,24 @@ class FederatedGitltfsRepositoryMemberArgs:
     def access_token(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "access_token", value)
 
+
+if not MYPY:
+    class FederatedGoRepositoryMemberArgsDict(TypedDict):
+        enabled: pulumi.Input[bool]
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        url: pulumi.Input[str]
+        """
+        Full URL to ending with the repository name.
+        """
+        access_token: NotRequired[pulumi.Input[str]]
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+elif False:
+    FederatedGoRepositoryMemberArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FederatedGoRepositoryMemberArgs:
@@ -3747,6 +5043,24 @@ class FederatedGoRepositoryMemberArgs:
         pulumi.set(self, "access_token", value)
 
 
+if not MYPY:
+    class FederatedGradleRepositoryMemberArgsDict(TypedDict):
+        enabled: pulumi.Input[bool]
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        url: pulumi.Input[str]
+        """
+        Full URL to ending with the repository name.
+        """
+        access_token: NotRequired[pulumi.Input[str]]
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+elif False:
+    FederatedGradleRepositoryMemberArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FederatedGradleRepositoryMemberArgs:
     def __init__(__self__, *,
@@ -3801,6 +5115,24 @@ class FederatedGradleRepositoryMemberArgs:
     def access_token(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "access_token", value)
 
+
+if not MYPY:
+    class FederatedHelmRepositoryMemberArgsDict(TypedDict):
+        enabled: pulumi.Input[bool]
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        url: pulumi.Input[str]
+        """
+        Full URL to ending with the repository name.
+        """
+        access_token: NotRequired[pulumi.Input[str]]
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+elif False:
+    FederatedHelmRepositoryMemberArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FederatedHelmRepositoryMemberArgs:
@@ -3857,6 +5189,23 @@ class FederatedHelmRepositoryMemberArgs:
         pulumi.set(self, "access_token", value)
 
 
+if not MYPY:
+    class FederatedHelmociRepositoryMemberArgsDict(TypedDict):
+        enabled: pulumi.Input[bool]
+        """
+        Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
+        """
+        url: pulumi.Input[str]
+        """
+        Full URL to ending with the repository name.
+        """
+        access_token: NotRequired[pulumi.Input[str]]
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+elif False:
+    FederatedHelmociRepositoryMemberArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FederatedHelmociRepositoryMemberArgs:
     def __init__(__self__, *,
@@ -3909,6 +5258,24 @@ class FederatedHelmociRepositoryMemberArgs:
     def access_token(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "access_token", value)
 
+
+if not MYPY:
+    class FederatedIvyRepositoryMemberArgsDict(TypedDict):
+        enabled: pulumi.Input[bool]
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        url: pulumi.Input[str]
+        """
+        Full URL to ending with the repository name.
+        """
+        access_token: NotRequired[pulumi.Input[str]]
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+elif False:
+    FederatedIvyRepositoryMemberArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FederatedIvyRepositoryMemberArgs:
@@ -3965,6 +5332,24 @@ class FederatedIvyRepositoryMemberArgs:
         pulumi.set(self, "access_token", value)
 
 
+if not MYPY:
+    class FederatedMavenRepositoryMemberArgsDict(TypedDict):
+        enabled: pulumi.Input[bool]
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        url: pulumi.Input[str]
+        """
+        Full URL to ending with the repository name.
+        """
+        access_token: NotRequired[pulumi.Input[str]]
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+elif False:
+    FederatedMavenRepositoryMemberArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FederatedMavenRepositoryMemberArgs:
     def __init__(__self__, *,
@@ -4019,6 +5404,24 @@ class FederatedMavenRepositoryMemberArgs:
     def access_token(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "access_token", value)
 
+
+if not MYPY:
+    class FederatedNpmRepositoryMemberArgsDict(TypedDict):
+        enabled: pulumi.Input[bool]
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        url: pulumi.Input[str]
+        """
+        Full URL to ending with the repository name.
+        """
+        access_token: NotRequired[pulumi.Input[str]]
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+elif False:
+    FederatedNpmRepositoryMemberArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FederatedNpmRepositoryMemberArgs:
@@ -4075,6 +5478,24 @@ class FederatedNpmRepositoryMemberArgs:
         pulumi.set(self, "access_token", value)
 
 
+if not MYPY:
+    class FederatedNugetRepositoryMemberArgsDict(TypedDict):
+        enabled: pulumi.Input[bool]
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        url: pulumi.Input[str]
+        """
+        Full URL to ending with the repository name.
+        """
+        access_token: NotRequired[pulumi.Input[str]]
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+elif False:
+    FederatedNugetRepositoryMemberArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FederatedNugetRepositoryMemberArgs:
     def __init__(__self__, *,
@@ -4129,6 +5550,24 @@ class FederatedNugetRepositoryMemberArgs:
     def access_token(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "access_token", value)
 
+
+if not MYPY:
+    class FederatedOciRepositoryMemberArgsDict(TypedDict):
+        enabled: pulumi.Input[bool]
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        url: pulumi.Input[str]
+        """
+        Full URL to ending with the repository name.
+        """
+        access_token: NotRequired[pulumi.Input[str]]
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+elif False:
+    FederatedOciRepositoryMemberArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FederatedOciRepositoryMemberArgs:
@@ -4185,6 +5624,24 @@ class FederatedOciRepositoryMemberArgs:
         pulumi.set(self, "access_token", value)
 
 
+if not MYPY:
+    class FederatedOpkgRepositoryMemberArgsDict(TypedDict):
+        enabled: pulumi.Input[bool]
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        url: pulumi.Input[str]
+        """
+        Full URL to ending with the repository name.
+        """
+        access_token: NotRequired[pulumi.Input[str]]
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+elif False:
+    FederatedOpkgRepositoryMemberArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FederatedOpkgRepositoryMemberArgs:
     def __init__(__self__, *,
@@ -4239,6 +5696,24 @@ class FederatedOpkgRepositoryMemberArgs:
     def access_token(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "access_token", value)
 
+
+if not MYPY:
+    class FederatedPuppetRepositoryMemberArgsDict(TypedDict):
+        enabled: pulumi.Input[bool]
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        url: pulumi.Input[str]
+        """
+        Full URL to ending with the repository name.
+        """
+        access_token: NotRequired[pulumi.Input[str]]
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+elif False:
+    FederatedPuppetRepositoryMemberArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FederatedPuppetRepositoryMemberArgs:
@@ -4295,6 +5770,24 @@ class FederatedPuppetRepositoryMemberArgs:
         pulumi.set(self, "access_token", value)
 
 
+if not MYPY:
+    class FederatedPypiRepositoryMemberArgsDict(TypedDict):
+        enabled: pulumi.Input[bool]
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        url: pulumi.Input[str]
+        """
+        Full URL to ending with the repository name.
+        """
+        access_token: NotRequired[pulumi.Input[str]]
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+elif False:
+    FederatedPypiRepositoryMemberArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FederatedPypiRepositoryMemberArgs:
     def __init__(__self__, *,
@@ -4349,6 +5842,24 @@ class FederatedPypiRepositoryMemberArgs:
     def access_token(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "access_token", value)
 
+
+if not MYPY:
+    class FederatedRpmRepositoryMemberArgsDict(TypedDict):
+        enabled: pulumi.Input[bool]
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        url: pulumi.Input[str]
+        """
+        Full URL to ending with the repository name.
+        """
+        access_token: NotRequired[pulumi.Input[str]]
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+elif False:
+    FederatedRpmRepositoryMemberArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FederatedRpmRepositoryMemberArgs:
@@ -4405,6 +5916,24 @@ class FederatedRpmRepositoryMemberArgs:
         pulumi.set(self, "access_token", value)
 
 
+if not MYPY:
+    class FederatedSbtRepositoryMemberArgsDict(TypedDict):
+        enabled: pulumi.Input[bool]
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        url: pulumi.Input[str]
+        """
+        Full URL to ending with the repository name.
+        """
+        access_token: NotRequired[pulumi.Input[str]]
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+elif False:
+    FederatedSbtRepositoryMemberArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FederatedSbtRepositoryMemberArgs:
     def __init__(__self__, *,
@@ -4459,6 +5988,24 @@ class FederatedSbtRepositoryMemberArgs:
     def access_token(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "access_token", value)
 
+
+if not MYPY:
+    class FederatedSwiftRepositoryMemberArgsDict(TypedDict):
+        enabled: pulumi.Input[bool]
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        url: pulumi.Input[str]
+        """
+        Full URL to ending with the repository name.
+        """
+        access_token: NotRequired[pulumi.Input[str]]
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+elif False:
+    FederatedSwiftRepositoryMemberArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FederatedSwiftRepositoryMemberArgs:
@@ -4515,6 +6062,24 @@ class FederatedSwiftRepositoryMemberArgs:
         pulumi.set(self, "access_token", value)
 
 
+if not MYPY:
+    class FederatedTerraformModuleRepositoryMemberArgsDict(TypedDict):
+        enabled: pulumi.Input[bool]
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        url: pulumi.Input[str]
+        """
+        Full URL to ending with the repository name.
+        """
+        access_token: NotRequired[pulumi.Input[str]]
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+elif False:
+    FederatedTerraformModuleRepositoryMemberArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FederatedTerraformModuleRepositoryMemberArgs:
     def __init__(__self__, *,
@@ -4569,6 +6134,24 @@ class FederatedTerraformModuleRepositoryMemberArgs:
     def access_token(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "access_token", value)
 
+
+if not MYPY:
+    class FederatedTerraformProviderRepositoryMemberArgsDict(TypedDict):
+        enabled: pulumi.Input[bool]
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        url: pulumi.Input[str]
+        """
+        Full URL to ending with the repository name.
+        """
+        access_token: NotRequired[pulumi.Input[str]]
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+elif False:
+    FederatedTerraformProviderRepositoryMemberArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FederatedTerraformProviderRepositoryMemberArgs:
@@ -4625,6 +6208,24 @@ class FederatedTerraformProviderRepositoryMemberArgs:
         pulumi.set(self, "access_token", value)
 
 
+if not MYPY:
+    class FederatedVagrantRepositoryMemberArgsDict(TypedDict):
+        enabled: pulumi.Input[bool]
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        url: pulumi.Input[str]
+        """
+        Full URL to ending with the repository name.
+        """
+        access_token: NotRequired[pulumi.Input[str]]
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+elif False:
+    FederatedVagrantRepositoryMemberArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FederatedVagrantRepositoryMemberArgs:
     def __init__(__self__, *,
@@ -4679,6 +6280,63 @@ class FederatedVagrantRepositoryMemberArgs:
     def access_token(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "access_token", value)
 
+
+if not MYPY:
+    class LocalRepositoryMultiReplicationReplicationArgsDict(TypedDict):
+        url: pulumi.Input[str]
+        """
+        The URL of the target local repository on a remote Artifactory server. Use the format `https://<artifactory_url>/artifactory/<repository_name>`.
+        """
+        username: pulumi.Input[str]
+        """
+        Username on the remote Artifactory instance.
+        """
+        check_binary_existence_in_filestore: NotRequired[pulumi.Input[bool]]
+        """
+        Enabling the `check_binary_existence_in_filestore` flag requires an Enterprise Plus license. When true, enables distributed checksum storage. For more information, see [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        When set, enables replication of this repository to the target specified in `url` attribute. Default value is `true`.
+        """
+        exclude_path_prefix_pattern: NotRequired[pulumi.Input[str]]
+        """
+        List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. By default, no artifacts are excluded.
+        """
+        include_path_prefix_pattern: NotRequired[pulumi.Input[str]]
+        """
+        List of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included `(**/*)`.
+        """
+        password: NotRequired[pulumi.Input[str]]
+        """
+        Use either the HTTP authentication password or [identity token](https://www.jfrog.com/confluence/display/JFROG/User+Profile#UserProfile-IdentityTokenidentitytoken).
+        """
+        proxy: NotRequired[pulumi.Input[str]]
+        """
+        Proxy key from Artifactory Proxies settings. The proxy configuration will be used when communicating with the remote instance.
+        """
+        replication_key: NotRequired[pulumi.Input[str]]
+        """
+        Replication ID, the value is unknown until the resource is created. Can't be set or updated.
+        """
+        socket_timeout_millis: NotRequired[pulumi.Input[int]]
+        """
+        The network timeout in milliseconds to use for remote operations. Default value is `15000`.
+        """
+        sync_deletes: NotRequired[pulumi.Input[bool]]
+        """
+        When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata). Note that enabling this option, will delete artifacts on the target that do not exist in the source repository. Default value is `false`.
+        """
+        sync_properties: NotRequired[pulumi.Input[bool]]
+        """
+        When set, the task also synchronizes the properties of replicated artifacts. Default value is `true`.
+        """
+        sync_statistics: NotRequired[pulumi.Input[bool]]
+        """
+        When set, the task also synchronizes artifact download statistics. Set to avoid inadvertent cleanup at the target instance when setting up replication for disaster recovery. Default value is `false`
+        """
+elif False:
+    LocalRepositoryMultiReplicationReplicationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LocalRepositoryMultiReplicationReplicationArgs:
@@ -4893,6 +6551,31 @@ class LocalRepositoryMultiReplicationReplicationArgs:
         pulumi.set(self, "sync_statistics", value)
 
 
+if not MYPY:
+    class ManagedUserPasswordPolicyArgsDict(TypedDict):
+        digit: NotRequired[pulumi.Input[int]]
+        """
+        Minimum number of digits that the password must contain
+        """
+        length: NotRequired[pulumi.Input[int]]
+        """
+        Minimum length of the password
+        """
+        lowercase: NotRequired[pulumi.Input[int]]
+        """
+        Minimum number of lowercase letters that the password must contain
+        """
+        special_char: NotRequired[pulumi.Input[int]]
+        """
+        Minimum number of special char that the password must contain. Special chars list: `!"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~`
+        """
+        uppercase: NotRequired[pulumi.Input[int]]
+        """
+        Minimum number of uppercase letters that the password must contain
+        """
+elif False:
+    ManagedUserPasswordPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ManagedUserPasswordPolicyArgs:
     def __init__(__self__, *,
@@ -4979,6 +6662,43 @@ class ManagedUserPasswordPolicyArgs:
     def uppercase(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "uppercase", value)
 
+
+if not MYPY:
+    class OauthSettingsOauthProviderArgsDict(TypedDict):
+        api_url: pulumi.Input[str]
+        """
+        OAuth user info endpoint for the IdP.
+        """
+        auth_url: pulumi.Input[str]
+        """
+        OAuth authorization endpoint for the IdP.
+        """
+        client_id: pulumi.Input[str]
+        """
+        OAuth client ID configured on the IdP.
+        """
+        client_secret: pulumi.Input[str]
+        """
+        OAuth client secret configured on the IdP.
+        """
+        name: pulumi.Input[str]
+        """
+        Name of the Artifactory OAuth provider.
+        """
+        token_url: pulumi.Input[str]
+        """
+        OAuth token endpoint for the IdP.
+        """
+        type: pulumi.Input[str]
+        """
+        Type of OAuth provider. (e.g., `github`, `google`, `cloudfoundry`, or `openId`)
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Enable the Artifactory OAuth provider.  Default value is `true`.
+        """
+elif False:
+    OauthSettingsOauthProviderArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OauthSettingsOauthProviderArgs:
@@ -5107,6 +6827,57 @@ class OauthSettingsOauthProviderArgs:
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
 
+
+if not MYPY:
+    class PackageCleanupPolicySearchCriteriaArgsDict(TypedDict):
+        included_packages: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Specify a pattern for a package name or an explicit package name. It accept only single element which can be specific package or pattern, and for including all packages use `**`. Example: `included_packages = ["**"]`
+        """
+        package_types: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Types of packages to be removed. Support: conan, docker, generic, gradle, maven, npm, nuget, rpm.
+        """
+        repos: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Specify patterns for repository names or explicit repository names. For including all repos use `**`. Example: `repos = ["**"]`
+        """
+        created_before_in_months: NotRequired[pulumi.Input[int]]
+        """
+        Remove packages based on when they were created. For example, remove packages that were created more than a year ago. The default value is to remove packages created more than 2 years ago.
+        """
+        excluded_packages: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify explicit package names that you want excluded from the policy. Only Name explicit names (and not patterns) are accepted.
+        """
+        excluded_repos: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify patterns for repository names or explicit repository names that you want excluded from the cleanup policy.
+        """
+        include_all_projects: NotRequired[pulumi.Input[bool]]
+        """
+        Set this to `true` if you want the policy to run on all projects on the platform.
+        """
+        included_projects: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of projects on which you want this policy to run. To include repositories that are not assigned to any project, enter the project key `default`.
+        """
+        keep_last_n_versions: NotRequired[pulumi.Input[int]]
+        """
+        Select the number of latest versions to keep. The cleanup policy will remove all versions prior to the number you select here. The latest version is always excluded. Versions are determined by creation date.
+
+        ~>Not all package types support this condition. For information on which package types support this condition, [learn more](https://jfrog.com/help/r/jfrog-platform-administration-documentation/retention-policies/package-types-coverage).
+        """
+        last_downloaded_before_in_months: NotRequired[pulumi.Input[int]]
+        """
+        Removes packages based on when they were last downloaded. For example, removes packages that were not downloaded in the past year. The default value is to remove packages that were downloaded more than 2 years ago.
+
+        ~>If a package was never downloaded, the policy will remove it based only on the age-condition (`created_before_in_months`).
+
+        ~>JFrog recommends using the `last_downloaded_before_in_months` condition to ensure that packages currently in use are not deleted.
+        """
+elif False:
+    PackageCleanupPolicySearchCriteriaArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PackageCleanupPolicySearchCriteriaArgs:
@@ -5284,6 +7055,24 @@ class PackageCleanupPolicySearchCriteriaArgs:
         pulumi.set(self, "last_downloaded_before_in_months", value)
 
 
+if not MYPY:
+    class PermissionTargetBuildArgsDict(TypedDict):
+        repositories: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        This can only be 1 value: "artifactory-build-info", and currently, validation of sets/lists is not allowed. Artifactory will reject the request if you change this
+        """
+        actions: NotRequired[pulumi.Input['PermissionTargetBuildActionsArgsDict']]
+        excludes_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The default value will be [] if nothing is supplied
+        """
+        includes_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The default value will be [""] if nothing is supplied
+        """
+elif False:
+    PermissionTargetBuildArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PermissionTargetBuildArgs:
     def __init__(__self__, *,
@@ -5350,6 +7139,19 @@ class PermissionTargetBuildArgs:
         pulumi.set(self, "includes_patterns", value)
 
 
+if not MYPY:
+    class PermissionTargetBuildActionsArgsDict(TypedDict):
+        groups: NotRequired[pulumi.Input[Sequence[pulumi.Input['PermissionTargetBuildActionsGroupArgsDict']]]]
+        """
+        Groups this permission applies for.
+        """
+        users: NotRequired[pulumi.Input[Sequence[pulumi.Input['PermissionTargetBuildActionsUserArgsDict']]]]
+        """
+        Users this permission target applies for.
+        """
+elif False:
+    PermissionTargetBuildActionsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PermissionTargetBuildActionsArgs:
     def __init__(__self__, *,
@@ -5389,6 +7191,16 @@ class PermissionTargetBuildActionsArgs:
         pulumi.set(self, "users", value)
 
 
+if not MYPY:
+    class PermissionTargetBuildActionsGroupArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        Name of permission.
+        """
+        permissions: pulumi.Input[Sequence[pulumi.Input[str]]]
+elif False:
+    PermissionTargetBuildActionsGroupArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PermissionTargetBuildActionsGroupArgs:
     def __init__(__self__, *,
@@ -5422,6 +7234,16 @@ class PermissionTargetBuildActionsGroupArgs:
         pulumi.set(self, "permissions", value)
 
 
+if not MYPY:
+    class PermissionTargetBuildActionsUserArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        Name of permission.
+        """
+        permissions: pulumi.Input[Sequence[pulumi.Input[str]]]
+elif False:
+    PermissionTargetBuildActionsUserArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PermissionTargetBuildActionsUserArgs:
     def __init__(__self__, *,
@@ -5454,6 +7276,24 @@ class PermissionTargetBuildActionsUserArgs:
     def permissions(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "permissions", value)
 
+
+if not MYPY:
+    class PermissionTargetReleaseBundleArgsDict(TypedDict):
+        repositories: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        This can only be 1 value: "artifactory-build-info", and currently, validation of sets/lists is not allowed. Artifactory will reject the request if you change this
+        """
+        actions: NotRequired[pulumi.Input['PermissionTargetReleaseBundleActionsArgsDict']]
+        excludes_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The default value will be [] if nothing is supplied
+        """
+        includes_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The default value will be [""] if nothing is supplied
+        """
+elif False:
+    PermissionTargetReleaseBundleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PermissionTargetReleaseBundleArgs:
@@ -5521,6 +7361,19 @@ class PermissionTargetReleaseBundleArgs:
         pulumi.set(self, "includes_patterns", value)
 
 
+if not MYPY:
+    class PermissionTargetReleaseBundleActionsArgsDict(TypedDict):
+        groups: NotRequired[pulumi.Input[Sequence[pulumi.Input['PermissionTargetReleaseBundleActionsGroupArgsDict']]]]
+        """
+        Groups this permission applies for.
+        """
+        users: NotRequired[pulumi.Input[Sequence[pulumi.Input['PermissionTargetReleaseBundleActionsUserArgsDict']]]]
+        """
+        Users this permission target applies for.
+        """
+elif False:
+    PermissionTargetReleaseBundleActionsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PermissionTargetReleaseBundleActionsArgs:
     def __init__(__self__, *,
@@ -5560,6 +7413,16 @@ class PermissionTargetReleaseBundleActionsArgs:
         pulumi.set(self, "users", value)
 
 
+if not MYPY:
+    class PermissionTargetReleaseBundleActionsGroupArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        Name of permission.
+        """
+        permissions: pulumi.Input[Sequence[pulumi.Input[str]]]
+elif False:
+    PermissionTargetReleaseBundleActionsGroupArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PermissionTargetReleaseBundleActionsGroupArgs:
     def __init__(__self__, *,
@@ -5593,6 +7456,16 @@ class PermissionTargetReleaseBundleActionsGroupArgs:
         pulumi.set(self, "permissions", value)
 
 
+if not MYPY:
+    class PermissionTargetReleaseBundleActionsUserArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        Name of permission.
+        """
+        permissions: pulumi.Input[Sequence[pulumi.Input[str]]]
+elif False:
+    PermissionTargetReleaseBundleActionsUserArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PermissionTargetReleaseBundleActionsUserArgs:
     def __init__(__self__, *,
@@ -5625,6 +7498,24 @@ class PermissionTargetReleaseBundleActionsUserArgs:
     def permissions(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "permissions", value)
 
+
+if not MYPY:
+    class PermissionTargetRepoArgsDict(TypedDict):
+        repositories: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
+        """
+        actions: NotRequired[pulumi.Input['PermissionTargetRepoActionsArgsDict']]
+        excludes_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Pattern of artifacts to exclude.
+        """
+        includes_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Pattern of artifacts to include.
+        """
+elif False:
+    PermissionTargetRepoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PermissionTargetRepoArgs:
@@ -5692,6 +7583,19 @@ class PermissionTargetRepoArgs:
         pulumi.set(self, "includes_patterns", value)
 
 
+if not MYPY:
+    class PermissionTargetRepoActionsArgsDict(TypedDict):
+        groups: NotRequired[pulumi.Input[Sequence[pulumi.Input['PermissionTargetRepoActionsGroupArgsDict']]]]
+        """
+        Groups this permission applies for.
+        """
+        users: NotRequired[pulumi.Input[Sequence[pulumi.Input['PermissionTargetRepoActionsUserArgsDict']]]]
+        """
+        Users this permission target applies for.
+        """
+elif False:
+    PermissionTargetRepoActionsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PermissionTargetRepoActionsArgs:
     def __init__(__self__, *,
@@ -5731,6 +7635,16 @@ class PermissionTargetRepoActionsArgs:
         pulumi.set(self, "users", value)
 
 
+if not MYPY:
+    class PermissionTargetRepoActionsGroupArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        Name of permission.
+        """
+        permissions: pulumi.Input[Sequence[pulumi.Input[str]]]
+elif False:
+    PermissionTargetRepoActionsGroupArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PermissionTargetRepoActionsGroupArgs:
     def __init__(__self__, *,
@@ -5764,6 +7678,16 @@ class PermissionTargetRepoActionsGroupArgs:
         pulumi.set(self, "permissions", value)
 
 
+if not MYPY:
+    class PermissionTargetRepoActionsUserArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        Name of permission.
+        """
+        permissions: pulumi.Input[Sequence[pulumi.Input[str]]]
+elif False:
+    PermissionTargetRepoActionsUserArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PermissionTargetRepoActionsUserArgs:
     def __init__(__self__, *,
@@ -5796,6 +7720,27 @@ class PermissionTargetRepoActionsUserArgs:
     def permissions(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "permissions", value)
 
+
+if not MYPY:
+    class PropertySetPropertyArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name pf the property.
+        """
+        closed_predefined_values: NotRequired[pulumi.Input[bool]]
+        """
+        Disables `multiple_choice` if set to `false` at the same time with multiple_choice set to `true`. Default value is `false`
+        """
+        multiple_choice: NotRequired[pulumi.Input[bool]]
+        """
+        Defines if user can select multiple values. `closed_predefined_values` should be set to `true`. Default value is `false`.
+        """
+        predefined_values: NotRequired[pulumi.Input[Sequence[pulumi.Input['PropertySetPropertyPredefinedValueArgsDict']]]]
+        """
+        Properties in the property set.
+        """
+elif False:
+    PropertySetPropertyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PropertySetPropertyArgs:
@@ -5867,6 +7812,19 @@ class PropertySetPropertyArgs:
         pulumi.set(self, "predefined_values", value)
 
 
+if not MYPY:
+    class PropertySetPropertyPredefinedValueArgsDict(TypedDict):
+        default_value: pulumi.Input[bool]
+        """
+        Whether the value is selected by default in the UI.
+        """
+        name: pulumi.Input[str]
+        """
+        Property set name.
+        """
+elif False:
+    PropertySetPropertyPredefinedValueArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PropertySetPropertyPredefinedValueArgs:
     def __init__(__self__, *,
@@ -5903,6 +7861,57 @@ class PropertySetPropertyPredefinedValueArgs:
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class PushReplicationReplicationArgsDict(TypedDict):
+        password: pulumi.Input[str]
+        """
+        Required for local repository, but not needed for remote repository.
+        """
+        url: pulumi.Input[str]
+        """
+        The URL of the target local repository on a remote Artifactory server. Required for local repository, but not needed for remote repository.
+        """
+        username: pulumi.Input[str]
+        """
+        Required for local repository, but not needed for remote repository.
+        """
+        check_binary_existence_in_filestore: NotRequired[pulumi.Input[bool]]
+        """
+        When true, enables distributed checksum storage. For more information, see
+        [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        When set, this replication will be enabled when saved.
+        """
+        path_prefix: NotRequired[pulumi.Input[str]]
+        """
+        Only artifacts that located in path that matches the subpath within the remote repository will be replicated.
+        """
+        proxy: NotRequired[pulumi.Input[str]]
+        """
+        Proxy key from Artifactory Proxies settings. The proxy configuration will be used when communicating with the remote instance.
+        """
+        socket_timeout_millis: NotRequired[pulumi.Input[int]]
+        """
+        The network timeout in milliseconds to use for remote operations.
+        """
+        sync_deletes: NotRequired[pulumi.Input[bool]]
+        """
+        When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata).
+        Note that enabling this option, will delete artifacts on the target that do not exist in the source repository.
+        """
+        sync_properties: NotRequired[pulumi.Input[bool]]
+        """
+        When set, the task also synchronizes the properties of replicated artifacts.
+        """
+        sync_statistics: NotRequired[pulumi.Input[bool]]
+        """
+        When set, artifact download statistics will also be replicated. Set to avoid inadvertent cleanup at the target instance when setting up replication for disaster recovery.
+        """
+elif False:
+    PushReplicationReplicationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PushReplicationReplicationArgs:
@@ -6088,6 +8097,27 @@ class PushReplicationReplicationArgs:
         pulumi.set(self, "sync_statistics", value)
 
 
+if not MYPY:
+    class ReleaseBundleCustomWebhookCriteriaArgsDict(TypedDict):
+        any_release_bundle: pulumi.Input[bool]
+        """
+        Trigger on any release bundle.
+        """
+        registered_release_bundle_names: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Trigger on this list of release bundle names.
+        """
+        exclude_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: "org/apache/**".
+        """
+        include_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: "org/apache/**".
+        """
+elif False:
+    ReleaseBundleCustomWebhookCriteriaArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ReleaseBundleCustomWebhookCriteriaArgs:
     def __init__(__self__, *,
@@ -6156,6 +8186,31 @@ class ReleaseBundleCustomWebhookCriteriaArgs:
     def include_patterns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "include_patterns", value)
 
+
+if not MYPY:
+    class ReleaseBundleCustomWebhookHandlerArgsDict(TypedDict):
+        url: pulumi.Input[str]
+        """
+        Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+        """
+        http_headers: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
+        """
+        payload: NotRequired[pulumi.Input[str]]
+        """
+        This attribute is used to build the request body. Used in custom webhooks
+        """
+        proxy: NotRequired[pulumi.Input[str]]
+        """
+        Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+        """
+        secrets: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
+        """
+elif False:
+    ReleaseBundleCustomWebhookHandlerArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ReleaseBundleCustomWebhookHandlerArgs:
@@ -6243,6 +8298,27 @@ class ReleaseBundleCustomWebhookHandlerArgs:
         pulumi.set(self, "secrets", value)
 
 
+if not MYPY:
+    class ReleaseBundleV2CustomWebhookCriteriaArgsDict(TypedDict):
+        any_release_bundle: pulumi.Input[bool]
+        """
+        Trigger on any release bundle.
+        """
+        selected_release_bundles: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Trigger on this list of release bundle names.
+        """
+        exclude_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: "org/apache/**".
+        """
+        include_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: "org/apache/**".
+        """
+elif False:
+    ReleaseBundleV2CustomWebhookCriteriaArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ReleaseBundleV2CustomWebhookCriteriaArgs:
     def __init__(__self__, *,
@@ -6311,6 +8387,31 @@ class ReleaseBundleV2CustomWebhookCriteriaArgs:
     def include_patterns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "include_patterns", value)
 
+
+if not MYPY:
+    class ReleaseBundleV2CustomWebhookHandlerArgsDict(TypedDict):
+        url: pulumi.Input[str]
+        """
+        Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+        """
+        http_headers: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
+        """
+        payload: NotRequired[pulumi.Input[str]]
+        """
+        This attribute is used to build the request body. Used in custom webhooks
+        """
+        proxy: NotRequired[pulumi.Input[str]]
+        """
+        Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+        """
+        secrets: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
+        """
+elif False:
+    ReleaseBundleV2CustomWebhookHandlerArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ReleaseBundleV2CustomWebhookHandlerArgs:
@@ -6398,6 +8499,23 @@ class ReleaseBundleV2CustomWebhookHandlerArgs:
         pulumi.set(self, "secrets", value)
 
 
+if not MYPY:
+    class ReleaseBundleV2PromotionCustomWebhookCriteriaArgsDict(TypedDict):
+        selected_environments: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Trigger on this list of environment names.
+        """
+        exclude_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\\nAnt-style path expressions are supported (*, **, ?).\\nFor example: "org/apache/**"
+        """
+        include_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\\nAnt-style path expressions are supported (*, **, ?).\\nFor example: "org/apache/**"
+        """
+elif False:
+    ReleaseBundleV2PromotionCustomWebhookCriteriaArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ReleaseBundleV2PromotionCustomWebhookCriteriaArgs:
     def __init__(__self__, *,
@@ -6451,6 +8569,31 @@ class ReleaseBundleV2PromotionCustomWebhookCriteriaArgs:
     def include_patterns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "include_patterns", value)
 
+
+if not MYPY:
+    class ReleaseBundleV2PromotionCustomWebhookHandlerArgsDict(TypedDict):
+        url: pulumi.Input[str]
+        """
+        Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+        """
+        http_headers: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
+        """
+        payload: NotRequired[pulumi.Input[str]]
+        """
+        This attribute is used to build the request body. Used in custom webhooks
+        """
+        proxy: NotRequired[pulumi.Input[str]]
+        """
+        Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+        """
+        secrets: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
+        """
+elif False:
+    ReleaseBundleV2PromotionCustomWebhookHandlerArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ReleaseBundleV2PromotionCustomWebhookHandlerArgs:
@@ -6538,6 +8681,23 @@ class ReleaseBundleV2PromotionCustomWebhookHandlerArgs:
         pulumi.set(self, "secrets", value)
 
 
+if not MYPY:
+    class ReleaseBundleV2PromotionWebhookCriteriaArgsDict(TypedDict):
+        selected_environments: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Trigger on this list of environment names.
+        """
+        exclude_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\\nAnt-style path expressions are supported (*, **, ?).\\nFor example: "org/apache/**"
+        """
+        include_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\\nAnt-style path expressions are supported (*, **, ?).\\nFor example: "org/apache/**"
+        """
+elif False:
+    ReleaseBundleV2PromotionWebhookCriteriaArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ReleaseBundleV2PromotionWebhookCriteriaArgs:
     def __init__(__self__, *,
@@ -6591,6 +8751,31 @@ class ReleaseBundleV2PromotionWebhookCriteriaArgs:
     def include_patterns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "include_patterns", value)
 
+
+if not MYPY:
+    class ReleaseBundleV2PromotionWebhookHandlerArgsDict(TypedDict):
+        url: pulumi.Input[str]
+        """
+        Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+        """
+        custom_http_headers: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
+        """
+        proxy: NotRequired[pulumi.Input[str]]
+        """
+        Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+        """
+        secret: NotRequired[pulumi.Input[str]]
+        """
+        Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
+        """
+        use_secret_for_signing: NotRequired[pulumi.Input[bool]]
+        """
+        When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
+        """
+elif False:
+    ReleaseBundleV2PromotionWebhookHandlerArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ReleaseBundleV2PromotionWebhookHandlerArgs:
@@ -6678,6 +8863,27 @@ class ReleaseBundleV2PromotionWebhookHandlerArgs:
         pulumi.set(self, "use_secret_for_signing", value)
 
 
+if not MYPY:
+    class ReleaseBundleV2SourceArgsDict(TypedDict):
+        aql: NotRequired[pulumi.Input[str]]
+        """
+        The contents of the AQL query.
+        """
+        artifacts: NotRequired[pulumi.Input[Sequence[pulumi.Input['ReleaseBundleV2SourceArtifactArgsDict']]]]
+        """
+        Source type to create a Release Bundle v2 version by collecting source artifacts from a list of path/checksum pairs.
+        """
+        builds: NotRequired[pulumi.Input[Sequence[pulumi.Input['ReleaseBundleV2SourceBuildArgsDict']]]]
+        """
+        Source type to create a Release Bundle v2 version by collecting source artifacts from one or multiple builds (also known as build-info).
+        """
+        release_bundles: NotRequired[pulumi.Input[Sequence[pulumi.Input['ReleaseBundleV2SourceReleaseBundleArgsDict']]]]
+        """
+        Source type to create a Release Bundle v2 version by collecting source artifacts from existing Release Bundle versions. Must match `source_type` attribute value.
+        """
+elif False:
+    ReleaseBundleV2SourceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ReleaseBundleV2SourceArgs:
     def __init__(__self__, *,
@@ -6749,6 +8955,19 @@ class ReleaseBundleV2SourceArgs:
         pulumi.set(self, "release_bundles", value)
 
 
+if not MYPY:
+    class ReleaseBundleV2SourceArtifactArgsDict(TypedDict):
+        path: pulumi.Input[str]
+        """
+        The path for the artifact
+        """
+        sha256: NotRequired[pulumi.Input[str]]
+        """
+        The SHA256 for the artifact
+        """
+elif False:
+    ReleaseBundleV2SourceArtifactArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ReleaseBundleV2SourceArtifactArgs:
     def __init__(__self__, *,
@@ -6786,6 +9005,31 @@ class ReleaseBundleV2SourceArtifactArgs:
     def sha256(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "sha256", value)
 
+
+if not MYPY:
+    class ReleaseBundleV2SourceBuildArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        Name of the build.
+        """
+        number: pulumi.Input[str]
+        """
+        Number (run) of the build.
+        """
+        include_dependencies: NotRequired[pulumi.Input[bool]]
+        """
+        Determines whether to include build dependencies in the Release Bundle. The default value is `false`.
+        """
+        repository: NotRequired[pulumi.Input[str]]
+        """
+        The repository key of the build. If omitted, the system uses the default built-in repository, `artifactory-build-info`.
+        """
+        started: NotRequired[pulumi.Input[str]]
+        """
+        Timestamp when the build was created. If omitted, the system uses the latest build run, as identified by the `name` and `number` combination. The timestamp is provided according to the ISO 8601 standard.
+        """
+elif False:
+    ReleaseBundleV2SourceBuildArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ReleaseBundleV2SourceBuildArgs:
@@ -6872,6 +9116,27 @@ class ReleaseBundleV2SourceBuildArgs:
         pulumi.set(self, "started", value)
 
 
+if not MYPY:
+    class ReleaseBundleV2SourceReleaseBundleArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the release bundle.
+        """
+        version: pulumi.Input[str]
+        """
+        The version of the release bundle.
+        """
+        project_key: NotRequired[pulumi.Input[str]]
+        """
+        Project key of the release bundle.
+        """
+        repository_key: NotRequired[pulumi.Input[str]]
+        """
+        The key of the release bundle repository.
+        """
+elif False:
+    ReleaseBundleV2SourceReleaseBundleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ReleaseBundleV2SourceReleaseBundleArgs:
     def __init__(__self__, *,
@@ -6941,6 +9206,27 @@ class ReleaseBundleV2SourceReleaseBundleArgs:
         pulumi.set(self, "repository_key", value)
 
 
+if not MYPY:
+    class ReleaseBundleV2WebhookCriteriaArgsDict(TypedDict):
+        any_release_bundle: pulumi.Input[bool]
+        """
+        Trigger on any release bundle.
+        """
+        selected_release_bundles: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Trigger on this list of release bundle names.
+        """
+        exclude_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: "org/apache/**".
+        """
+        include_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: "org/apache/**".
+        """
+elif False:
+    ReleaseBundleV2WebhookCriteriaArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ReleaseBundleV2WebhookCriteriaArgs:
     def __init__(__self__, *,
@@ -7009,6 +9295,31 @@ class ReleaseBundleV2WebhookCriteriaArgs:
     def include_patterns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "include_patterns", value)
 
+
+if not MYPY:
+    class ReleaseBundleV2WebhookHandlerArgsDict(TypedDict):
+        url: pulumi.Input[str]
+        """
+        Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+        """
+        custom_http_headers: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
+        """
+        proxy: NotRequired[pulumi.Input[str]]
+        """
+        Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+        """
+        secret: NotRequired[pulumi.Input[str]]
+        """
+        Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
+        """
+        use_secret_for_signing: NotRequired[pulumi.Input[bool]]
+        """
+        When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
+        """
+elif False:
+    ReleaseBundleV2WebhookHandlerArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ReleaseBundleV2WebhookHandlerArgs:
@@ -7096,6 +9407,27 @@ class ReleaseBundleV2WebhookHandlerArgs:
         pulumi.set(self, "use_secret_for_signing", value)
 
 
+if not MYPY:
+    class ReleaseBundleWebhookCriteriaArgsDict(TypedDict):
+        any_release_bundle: pulumi.Input[bool]
+        """
+        Trigger on any release bundle.
+        """
+        registered_release_bundle_names: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Trigger on this list of release bundle names.
+        """
+        exclude_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: "org/apache/**".
+        """
+        include_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: "org/apache/**".
+        """
+elif False:
+    ReleaseBundleWebhookCriteriaArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ReleaseBundleWebhookCriteriaArgs:
     def __init__(__self__, *,
@@ -7164,6 +9496,31 @@ class ReleaseBundleWebhookCriteriaArgs:
     def include_patterns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "include_patterns", value)
 
+
+if not MYPY:
+    class ReleaseBundleWebhookHandlerArgsDict(TypedDict):
+        url: pulumi.Input[str]
+        """
+        Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+        """
+        custom_http_headers: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
+        """
+        proxy: NotRequired[pulumi.Input[str]]
+        """
+        Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+        """
+        secret: NotRequired[pulumi.Input[str]]
+        """
+        Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
+        """
+        use_secret_for_signing: NotRequired[pulumi.Input[bool]]
+        """
+        When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
+        """
+elif False:
+    ReleaseBundleWebhookHandlerArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ReleaseBundleWebhookHandlerArgs:
@@ -7251,6 +9608,27 @@ class ReleaseBundleWebhookHandlerArgs:
         pulumi.set(self, "use_secret_for_signing", value)
 
 
+if not MYPY:
+    class RemoteAlpineRepositoryContentSynchronisationArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+        """
+        properties_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+        """
+        source_origin_absence_detection: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+        """
+        statistics_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+        """
+elif False:
+    RemoteAlpineRepositoryContentSynchronisationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RemoteAlpineRepositoryContentSynchronisationArgs:
     def __init__(__self__, *,
@@ -7321,6 +9699,27 @@ class RemoteAlpineRepositoryContentSynchronisationArgs:
     def statistics_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "statistics_enabled", value)
 
+
+if not MYPY:
+    class RemoteAnsibleRepositoryContentSynchronisationArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+        """
+        properties_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+        """
+        source_origin_absence_detection: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+        """
+        statistics_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+        """
+elif False:
+    RemoteAnsibleRepositoryContentSynchronisationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RemoteAnsibleRepositoryContentSynchronisationArgs:
@@ -7393,6 +9792,27 @@ class RemoteAnsibleRepositoryContentSynchronisationArgs:
         pulumi.set(self, "statistics_enabled", value)
 
 
+if not MYPY:
+    class RemoteBowerRepositoryContentSynchronisationArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+        """
+        properties_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+        """
+        source_origin_absence_detection: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+        """
+        statistics_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+        """
+elif False:
+    RemoteBowerRepositoryContentSynchronisationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RemoteBowerRepositoryContentSynchronisationArgs:
     def __init__(__self__, *,
@@ -7463,6 +9883,27 @@ class RemoteBowerRepositoryContentSynchronisationArgs:
     def statistics_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "statistics_enabled", value)
 
+
+if not MYPY:
+    class RemoteCargoRepositoryContentSynchronisationArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+        """
+        properties_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+        """
+        source_origin_absence_detection: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+        """
+        statistics_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+        """
+elif False:
+    RemoteCargoRepositoryContentSynchronisationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RemoteCargoRepositoryContentSynchronisationArgs:
@@ -7535,6 +9976,27 @@ class RemoteCargoRepositoryContentSynchronisationArgs:
         pulumi.set(self, "statistics_enabled", value)
 
 
+if not MYPY:
+    class RemoteChefRepositoryContentSynchronisationArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+        """
+        properties_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+        """
+        source_origin_absence_detection: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+        """
+        statistics_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+        """
+elif False:
+    RemoteChefRepositoryContentSynchronisationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RemoteChefRepositoryContentSynchronisationArgs:
     def __init__(__self__, *,
@@ -7605,6 +10067,27 @@ class RemoteChefRepositoryContentSynchronisationArgs:
     def statistics_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "statistics_enabled", value)
 
+
+if not MYPY:
+    class RemoteCocoapodsRepositoryContentSynchronisationArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+        """
+        properties_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+        """
+        source_origin_absence_detection: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+        """
+        statistics_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+        """
+elif False:
+    RemoteCocoapodsRepositoryContentSynchronisationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RemoteCocoapodsRepositoryContentSynchronisationArgs:
@@ -7677,6 +10160,27 @@ class RemoteCocoapodsRepositoryContentSynchronisationArgs:
         pulumi.set(self, "statistics_enabled", value)
 
 
+if not MYPY:
+    class RemoteComposerRepositoryContentSynchronisationArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+        """
+        properties_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+        """
+        source_origin_absence_detection: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+        """
+        statistics_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+        """
+elif False:
+    RemoteComposerRepositoryContentSynchronisationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RemoteComposerRepositoryContentSynchronisationArgs:
     def __init__(__self__, *,
@@ -7747,6 +10251,27 @@ class RemoteComposerRepositoryContentSynchronisationArgs:
     def statistics_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "statistics_enabled", value)
 
+
+if not MYPY:
+    class RemoteConanRepositoryContentSynchronisationArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+        """
+        properties_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+        """
+        source_origin_absence_detection: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+        """
+        statistics_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+        """
+elif False:
+    RemoteConanRepositoryContentSynchronisationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RemoteConanRepositoryContentSynchronisationArgs:
@@ -7819,6 +10344,27 @@ class RemoteConanRepositoryContentSynchronisationArgs:
         pulumi.set(self, "statistics_enabled", value)
 
 
+if not MYPY:
+    class RemoteCondaRepositoryContentSynchronisationArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+        """
+        properties_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+        """
+        source_origin_absence_detection: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+        """
+        statistics_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+        """
+elif False:
+    RemoteCondaRepositoryContentSynchronisationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RemoteCondaRepositoryContentSynchronisationArgs:
     def __init__(__self__, *,
@@ -7889,6 +10435,27 @@ class RemoteCondaRepositoryContentSynchronisationArgs:
     def statistics_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "statistics_enabled", value)
 
+
+if not MYPY:
+    class RemoteCranRepositoryContentSynchronisationArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+        """
+        properties_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+        """
+        source_origin_absence_detection: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+        """
+        statistics_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+        """
+elif False:
+    RemoteCranRepositoryContentSynchronisationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RemoteCranRepositoryContentSynchronisationArgs:
@@ -7961,6 +10528,27 @@ class RemoteCranRepositoryContentSynchronisationArgs:
         pulumi.set(self, "statistics_enabled", value)
 
 
+if not MYPY:
+    class RemoteDebianRepositoryContentSynchronisationArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+        """
+        properties_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+        """
+        source_origin_absence_detection: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+        """
+        statistics_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+        """
+elif False:
+    RemoteDebianRepositoryContentSynchronisationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RemoteDebianRepositoryContentSynchronisationArgs:
     def __init__(__self__, *,
@@ -8031,6 +10619,27 @@ class RemoteDebianRepositoryContentSynchronisationArgs:
     def statistics_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "statistics_enabled", value)
 
+
+if not MYPY:
+    class RemoteDockerRepositoryContentSynchronisationArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+        """
+        properties_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+        """
+        source_origin_absence_detection: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+        """
+        statistics_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+        """
+elif False:
+    RemoteDockerRepositoryContentSynchronisationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RemoteDockerRepositoryContentSynchronisationArgs:
@@ -8103,6 +10712,27 @@ class RemoteDockerRepositoryContentSynchronisationArgs:
         pulumi.set(self, "statistics_enabled", value)
 
 
+if not MYPY:
+    class RemoteGemsRepositoryContentSynchronisationArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+        """
+        properties_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+        """
+        source_origin_absence_detection: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+        """
+        statistics_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+        """
+elif False:
+    RemoteGemsRepositoryContentSynchronisationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RemoteGemsRepositoryContentSynchronisationArgs:
     def __init__(__self__, *,
@@ -8173,6 +10803,27 @@ class RemoteGemsRepositoryContentSynchronisationArgs:
     def statistics_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "statistics_enabled", value)
 
+
+if not MYPY:
+    class RemoteGenericRepositoryContentSynchronisationArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+        """
+        properties_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+        """
+        source_origin_absence_detection: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+        """
+        statistics_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+        """
+elif False:
+    RemoteGenericRepositoryContentSynchronisationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RemoteGenericRepositoryContentSynchronisationArgs:
@@ -8245,6 +10896,27 @@ class RemoteGenericRepositoryContentSynchronisationArgs:
         pulumi.set(self, "statistics_enabled", value)
 
 
+if not MYPY:
+    class RemoteGitlfsRepositoryContentSynchronisationArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+        """
+        properties_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+        """
+        source_origin_absence_detection: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+        """
+        statistics_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+        """
+elif False:
+    RemoteGitlfsRepositoryContentSynchronisationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RemoteGitlfsRepositoryContentSynchronisationArgs:
     def __init__(__self__, *,
@@ -8315,6 +10987,27 @@ class RemoteGitlfsRepositoryContentSynchronisationArgs:
     def statistics_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "statistics_enabled", value)
 
+
+if not MYPY:
+    class RemoteGoRepositoryContentSynchronisationArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+        """
+        properties_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+        """
+        source_origin_absence_detection: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+        """
+        statistics_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+        """
+elif False:
+    RemoteGoRepositoryContentSynchronisationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RemoteGoRepositoryContentSynchronisationArgs:
@@ -8387,6 +11080,27 @@ class RemoteGoRepositoryContentSynchronisationArgs:
         pulumi.set(self, "statistics_enabled", value)
 
 
+if not MYPY:
+    class RemoteGradleRepositoryContentSynchronisationArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+        """
+        properties_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+        """
+        source_origin_absence_detection: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+        """
+        statistics_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+        """
+elif False:
+    RemoteGradleRepositoryContentSynchronisationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RemoteGradleRepositoryContentSynchronisationArgs:
     def __init__(__self__, *,
@@ -8457,6 +11171,27 @@ class RemoteGradleRepositoryContentSynchronisationArgs:
     def statistics_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "statistics_enabled", value)
 
+
+if not MYPY:
+    class RemoteHelmRepositoryContentSynchronisationArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+        """
+        properties_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+        """
+        source_origin_absence_detection: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+        """
+        statistics_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+        """
+elif False:
+    RemoteHelmRepositoryContentSynchronisationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RemoteHelmRepositoryContentSynchronisationArgs:
@@ -8529,6 +11264,27 @@ class RemoteHelmRepositoryContentSynchronisationArgs:
         pulumi.set(self, "statistics_enabled", value)
 
 
+if not MYPY:
+    class RemoteHelmociRepositoryContentSynchronisationArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+        """
+        properties_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+        """
+        source_origin_absence_detection: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+        """
+        statistics_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+        """
+elif False:
+    RemoteHelmociRepositoryContentSynchronisationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RemoteHelmociRepositoryContentSynchronisationArgs:
     def __init__(__self__, *,
@@ -8599,6 +11355,27 @@ class RemoteHelmociRepositoryContentSynchronisationArgs:
     def statistics_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "statistics_enabled", value)
 
+
+if not MYPY:
+    class RemoteHuggingfacemlRepositoryContentSynchronisationArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+        """
+        properties_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+        """
+        source_origin_absence_detection: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+        """
+        statistics_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+        """
+elif False:
+    RemoteHuggingfacemlRepositoryContentSynchronisationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RemoteHuggingfacemlRepositoryContentSynchronisationArgs:
@@ -8671,6 +11448,27 @@ class RemoteHuggingfacemlRepositoryContentSynchronisationArgs:
         pulumi.set(self, "statistics_enabled", value)
 
 
+if not MYPY:
+    class RemoteIvyRepositoryContentSynchronisationArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+        """
+        properties_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+        """
+        source_origin_absence_detection: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+        """
+        statistics_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+        """
+elif False:
+    RemoteIvyRepositoryContentSynchronisationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RemoteIvyRepositoryContentSynchronisationArgs:
     def __init__(__self__, *,
@@ -8741,6 +11539,27 @@ class RemoteIvyRepositoryContentSynchronisationArgs:
     def statistics_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "statistics_enabled", value)
 
+
+if not MYPY:
+    class RemoteMavenRepositoryContentSynchronisationArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+        """
+        properties_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+        """
+        source_origin_absence_detection: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+        """
+        statistics_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+        """
+elif False:
+    RemoteMavenRepositoryContentSynchronisationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RemoteMavenRepositoryContentSynchronisationArgs:
@@ -8813,6 +11632,27 @@ class RemoteMavenRepositoryContentSynchronisationArgs:
         pulumi.set(self, "statistics_enabled", value)
 
 
+if not MYPY:
+    class RemoteNpmRepositoryContentSynchronisationArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+        """
+        properties_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+        """
+        source_origin_absence_detection: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+        """
+        statistics_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+        """
+elif False:
+    RemoteNpmRepositoryContentSynchronisationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RemoteNpmRepositoryContentSynchronisationArgs:
     def __init__(__self__, *,
@@ -8883,6 +11723,27 @@ class RemoteNpmRepositoryContentSynchronisationArgs:
     def statistics_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "statistics_enabled", value)
 
+
+if not MYPY:
+    class RemoteNugetRepositoryContentSynchronisationArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+        """
+        properties_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+        """
+        source_origin_absence_detection: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+        """
+        statistics_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+        """
+elif False:
+    RemoteNugetRepositoryContentSynchronisationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RemoteNugetRepositoryContentSynchronisationArgs:
@@ -8955,6 +11816,27 @@ class RemoteNugetRepositoryContentSynchronisationArgs:
         pulumi.set(self, "statistics_enabled", value)
 
 
+if not MYPY:
+    class RemoteOciRepositoryContentSynchronisationArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+        """
+        properties_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+        """
+        source_origin_absence_detection: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+        """
+        statistics_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+        """
+elif False:
+    RemoteOciRepositoryContentSynchronisationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RemoteOciRepositoryContentSynchronisationArgs:
     def __init__(__self__, *,
@@ -9025,6 +11907,27 @@ class RemoteOciRepositoryContentSynchronisationArgs:
     def statistics_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "statistics_enabled", value)
 
+
+if not MYPY:
+    class RemoteOpkgRepositoryContentSynchronisationArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+        """
+        properties_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+        """
+        source_origin_absence_detection: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+        """
+        statistics_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+        """
+elif False:
+    RemoteOpkgRepositoryContentSynchronisationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RemoteOpkgRepositoryContentSynchronisationArgs:
@@ -9097,6 +12000,27 @@ class RemoteOpkgRepositoryContentSynchronisationArgs:
         pulumi.set(self, "statistics_enabled", value)
 
 
+if not MYPY:
+    class RemoteP2RepositoryContentSynchronisationArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+        """
+        properties_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+        """
+        source_origin_absence_detection: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+        """
+        statistics_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+        """
+elif False:
+    RemoteP2RepositoryContentSynchronisationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RemoteP2RepositoryContentSynchronisationArgs:
     def __init__(__self__, *,
@@ -9167,6 +12091,27 @@ class RemoteP2RepositoryContentSynchronisationArgs:
     def statistics_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "statistics_enabled", value)
 
+
+if not MYPY:
+    class RemotePubRepositoryContentSynchronisationArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+        """
+        properties_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+        """
+        source_origin_absence_detection: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+        """
+        statistics_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+        """
+elif False:
+    RemotePubRepositoryContentSynchronisationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RemotePubRepositoryContentSynchronisationArgs:
@@ -9239,6 +12184,27 @@ class RemotePubRepositoryContentSynchronisationArgs:
         pulumi.set(self, "statistics_enabled", value)
 
 
+if not MYPY:
+    class RemotePuppetRepositoryContentSynchronisationArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+        """
+        properties_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+        """
+        source_origin_absence_detection: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+        """
+        statistics_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+        """
+elif False:
+    RemotePuppetRepositoryContentSynchronisationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RemotePuppetRepositoryContentSynchronisationArgs:
     def __init__(__self__, *,
@@ -9309,6 +12275,27 @@ class RemotePuppetRepositoryContentSynchronisationArgs:
     def statistics_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "statistics_enabled", value)
 
+
+if not MYPY:
+    class RemotePypiRepositoryContentSynchronisationArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+        """
+        properties_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+        """
+        source_origin_absence_detection: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+        """
+        statistics_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+        """
+elif False:
+    RemotePypiRepositoryContentSynchronisationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RemotePypiRepositoryContentSynchronisationArgs:
@@ -9381,6 +12368,27 @@ class RemotePypiRepositoryContentSynchronisationArgs:
         pulumi.set(self, "statistics_enabled", value)
 
 
+if not MYPY:
+    class RemoteRpmRepositoryContentSynchronisationArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+        """
+        properties_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+        """
+        source_origin_absence_detection: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+        """
+        statistics_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+        """
+elif False:
+    RemoteRpmRepositoryContentSynchronisationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RemoteRpmRepositoryContentSynchronisationArgs:
     def __init__(__self__, *,
@@ -9451,6 +12459,27 @@ class RemoteRpmRepositoryContentSynchronisationArgs:
     def statistics_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "statistics_enabled", value)
 
+
+if not MYPY:
+    class RemoteSbtRepositoryContentSynchronisationArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+        """
+        properties_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+        """
+        source_origin_absence_detection: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+        """
+        statistics_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+        """
+elif False:
+    RemoteSbtRepositoryContentSynchronisationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RemoteSbtRepositoryContentSynchronisationArgs:
@@ -9523,6 +12552,27 @@ class RemoteSbtRepositoryContentSynchronisationArgs:
         pulumi.set(self, "statistics_enabled", value)
 
 
+if not MYPY:
+    class RemoteSwiftRepositoryContentSynchronisationArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+        """
+        properties_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+        """
+        source_origin_absence_detection: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+        """
+        statistics_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+        """
+elif False:
+    RemoteSwiftRepositoryContentSynchronisationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RemoteSwiftRepositoryContentSynchronisationArgs:
     def __init__(__self__, *,
@@ -9593,6 +12643,27 @@ class RemoteSwiftRepositoryContentSynchronisationArgs:
     def statistics_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "statistics_enabled", value)
 
+
+if not MYPY:
+    class RemoteTerraformRepositoryContentSynchronisationArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+        """
+        properties_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+        """
+        source_origin_absence_detection: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+        """
+        statistics_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+        """
+elif False:
+    RemoteTerraformRepositoryContentSynchronisationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RemoteTerraformRepositoryContentSynchronisationArgs:
@@ -9665,6 +12736,27 @@ class RemoteTerraformRepositoryContentSynchronisationArgs:
         pulumi.set(self, "statistics_enabled", value)
 
 
+if not MYPY:
+    class RemoteVcsRepositoryContentSynchronisationArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+        """
+        properties_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+        """
+        source_origin_absence_detection: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+        """
+        statistics_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+        """
+elif False:
+    RemoteVcsRepositoryContentSynchronisationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RemoteVcsRepositoryContentSynchronisationArgs:
     def __init__(__self__, *,
@@ -9735,6 +12827,31 @@ class RemoteVcsRepositoryContentSynchronisationArgs:
     def statistics_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "statistics_enabled", value)
 
+
+if not MYPY:
+    class UnmanagedUserPasswordPolicyArgsDict(TypedDict):
+        digit: NotRequired[pulumi.Input[int]]
+        """
+        Minimum number of digits that the password must contain
+        """
+        length: NotRequired[pulumi.Input[int]]
+        """
+        Minimum length of the password
+        """
+        lowercase: NotRequired[pulumi.Input[int]]
+        """
+        Minimum number of lowercase letters that the password must contain
+        """
+        special_char: NotRequired[pulumi.Input[int]]
+        """
+        Minimum number of special char that the password must contain. Special chars list: ``!"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~``
+        """
+        uppercase: NotRequired[pulumi.Input[int]]
+        """
+        Minimum number of uppercase letters that the password must contain
+        """
+elif False:
+    UnmanagedUserPasswordPolicyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UnmanagedUserPasswordPolicyArgs:
@@ -9823,6 +12940,31 @@ class UnmanagedUserPasswordPolicyArgs:
         pulumi.set(self, "uppercase", value)
 
 
+if not MYPY:
+    class UserCustomWebhookHandlerArgsDict(TypedDict):
+        url: pulumi.Input[str]
+        """
+        Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+        """
+        http_headers: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
+        """
+        payload: NotRequired[pulumi.Input[str]]
+        """
+        This attribute is used to build the request body. Used in custom webhooks
+        """
+        proxy: NotRequired[pulumi.Input[str]]
+        """
+        Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+        """
+        secrets: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
+        """
+elif False:
+    UserCustomWebhookHandlerArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UserCustomWebhookHandlerArgs:
     def __init__(__self__, *,
@@ -9908,6 +13050,31 @@ class UserCustomWebhookHandlerArgs:
     def secrets(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "secrets", value)
 
+
+if not MYPY:
+    class UserPasswordPolicyArgsDict(TypedDict):
+        digit: NotRequired[pulumi.Input[int]]
+        """
+        Minimum number of digits that the password must contain
+        """
+        length: NotRequired[pulumi.Input[int]]
+        """
+        Minimum length of the password
+        """
+        lowercase: NotRequired[pulumi.Input[int]]
+        """
+        Minimum number of lowercase letters that the password must contain
+        """
+        special_char: NotRequired[pulumi.Input[int]]
+        """
+        Minimum number of special char that the password must contain. Special chars list: `!"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~`
+        """
+        uppercase: NotRequired[pulumi.Input[int]]
+        """
+        Minimum number of uppercase letters that the password must contain
+        """
+elif False:
+    UserPasswordPolicyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserPasswordPolicyArgs:
@@ -9996,6 +13163,31 @@ class UserPasswordPolicyArgs:
         pulumi.set(self, "uppercase", value)
 
 
+if not MYPY:
+    class UserWebhookHandlerArgsDict(TypedDict):
+        url: pulumi.Input[str]
+        """
+        Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+        """
+        custom_http_headers: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
+        """
+        proxy: NotRequired[pulumi.Input[str]]
+        """
+        Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+        """
+        secret: NotRequired[pulumi.Input[str]]
+        """
+        Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
+        """
+        use_secret_for_signing: NotRequired[pulumi.Input[bool]]
+        """
+        When set to `true`, the secret will be used to sign the event payload, allowing the target to validate that the payload content has not been changed and will not be passed as part of the event. If left unset or set to `false`, the secret is passed through the `X-JFrog-Event-Auth` HTTP header.
+        """
+elif False:
+    UserWebhookHandlerArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UserWebhookHandlerArgs:
     def __init__(__self__, *,
@@ -10082,6 +13274,17 @@ class UserWebhookHandlerArgs:
         pulumi.set(self, "use_secret_for_signing", value)
 
 
+if not MYPY:
+    class VaultConfigurationConfigArgsDict(TypedDict):
+        auth: pulumi.Input['VaultConfigurationConfigAuthArgsDict']
+        mounts: pulumi.Input[Sequence[pulumi.Input['VaultConfigurationConfigMountArgsDict']]]
+        url: pulumi.Input[str]
+        """
+        The base URL of the Vault server.
+        """
+elif False:
+    VaultConfigurationConfigArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VaultConfigurationConfigArgs:
     def __init__(__self__, *,
@@ -10125,6 +13328,28 @@ class VaultConfigurationConfigArgs:
     def url(self, value: pulumi.Input[str]):
         pulumi.set(self, "url", value)
 
+
+if not MYPY:
+    class VaultConfigurationConfigAuthArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        certificate: NotRequired[pulumi.Input[str]]
+        """
+        Client certificate (in PEM format) for `Certificate` type.
+        """
+        certificate_key: NotRequired[pulumi.Input[str]]
+        """
+        Private key (in PEM format) for `Certificate` type.
+        """
+        role_id: NotRequired[pulumi.Input[str]]
+        """
+        Role ID for `AppRole` type
+        """
+        secret_id: NotRequired[pulumi.Input[str]]
+        """
+        Secret ID for `AppRole` type
+        """
+elif False:
+    VaultConfigurationConfigAuthArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VaultConfigurationConfigAuthArgs:
@@ -10208,6 +13433,19 @@ class VaultConfigurationConfigAuthArgs:
         pulumi.set(self, "secret_id", value)
 
 
+if not MYPY:
+    class VaultConfigurationConfigMountArgsDict(TypedDict):
+        path: pulumi.Input[str]
+        """
+        Vault secret engine path
+        """
+        type: pulumi.Input[str]
+        """
+        Vault supports several secret engines, each one has different capabilities. The supported secret engine types are: `KV1` and `KV2`.
+        """
+elif False:
+    VaultConfigurationConfigMountArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VaultConfigurationConfigMountArgs:
     def __init__(__self__, *,
@@ -10244,6 +13482,24 @@ class VaultConfigurationConfigMountArgs:
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class GetFederatedAlpineRepositoryMemberArgsDict(TypedDict):
+        enabled: bool
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        url: str
+        """
+        Full URL to ending with the repository name.
+        """
+        access_token: NotRequired[str]
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+elif False:
+    GetFederatedAlpineRepositoryMemberArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetFederatedAlpineRepositoryMemberArgs:
@@ -10300,6 +13556,24 @@ class GetFederatedAlpineRepositoryMemberArgs:
         pulumi.set(self, "access_token", value)
 
 
+if not MYPY:
+    class GetFederatedAnsibleRepositoryMemberArgsDict(TypedDict):
+        enabled: bool
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        url: str
+        """
+        Full URL to ending with the repository name.
+        """
+        access_token: NotRequired[str]
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+elif False:
+    GetFederatedAnsibleRepositoryMemberArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetFederatedAnsibleRepositoryMemberArgs:
     def __init__(__self__, *,
@@ -10354,6 +13628,24 @@ class GetFederatedAnsibleRepositoryMemberArgs:
     def access_token(self, value: Optional[str]):
         pulumi.set(self, "access_token", value)
 
+
+if not MYPY:
+    class GetFederatedBowerRepositoryMemberArgsDict(TypedDict):
+        enabled: bool
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        url: str
+        """
+        Full URL to ending with the repository name.
+        """
+        access_token: NotRequired[str]
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+elif False:
+    GetFederatedBowerRepositoryMemberArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetFederatedBowerRepositoryMemberArgs:
@@ -10410,6 +13702,24 @@ class GetFederatedBowerRepositoryMemberArgs:
         pulumi.set(self, "access_token", value)
 
 
+if not MYPY:
+    class GetFederatedCargoRepositoryMemberArgsDict(TypedDict):
+        enabled: bool
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        url: str
+        """
+        Full URL to ending with the repository name.
+        """
+        access_token: NotRequired[str]
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+elif False:
+    GetFederatedCargoRepositoryMemberArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetFederatedCargoRepositoryMemberArgs:
     def __init__(__self__, *,
@@ -10464,6 +13774,24 @@ class GetFederatedCargoRepositoryMemberArgs:
     def access_token(self, value: Optional[str]):
         pulumi.set(self, "access_token", value)
 
+
+if not MYPY:
+    class GetFederatedChefRepositoryMemberArgsDict(TypedDict):
+        enabled: bool
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        url: str
+        """
+        Full URL to ending with the repository name.
+        """
+        access_token: NotRequired[str]
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+elif False:
+    GetFederatedChefRepositoryMemberArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetFederatedChefRepositoryMemberArgs:
@@ -10520,6 +13848,24 @@ class GetFederatedChefRepositoryMemberArgs:
         pulumi.set(self, "access_token", value)
 
 
+if not MYPY:
+    class GetFederatedCocoapodsRepositoryMemberArgsDict(TypedDict):
+        enabled: bool
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        url: str
+        """
+        Full URL to ending with the repository name.
+        """
+        access_token: NotRequired[str]
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+elif False:
+    GetFederatedCocoapodsRepositoryMemberArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetFederatedCocoapodsRepositoryMemberArgs:
     def __init__(__self__, *,
@@ -10574,6 +13920,24 @@ class GetFederatedCocoapodsRepositoryMemberArgs:
     def access_token(self, value: Optional[str]):
         pulumi.set(self, "access_token", value)
 
+
+if not MYPY:
+    class GetFederatedComposerRepositoryMemberArgsDict(TypedDict):
+        enabled: bool
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        url: str
+        """
+        Full URL to ending with the repository name.
+        """
+        access_token: NotRequired[str]
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+elif False:
+    GetFederatedComposerRepositoryMemberArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetFederatedComposerRepositoryMemberArgs:
@@ -10630,6 +13994,24 @@ class GetFederatedComposerRepositoryMemberArgs:
         pulumi.set(self, "access_token", value)
 
 
+if not MYPY:
+    class GetFederatedConanRepositoryMemberArgsDict(TypedDict):
+        enabled: bool
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        url: str
+        """
+        Full URL to ending with the repository name.
+        """
+        access_token: NotRequired[str]
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+elif False:
+    GetFederatedConanRepositoryMemberArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetFederatedConanRepositoryMemberArgs:
     def __init__(__self__, *,
@@ -10684,6 +14066,24 @@ class GetFederatedConanRepositoryMemberArgs:
     def access_token(self, value: Optional[str]):
         pulumi.set(self, "access_token", value)
 
+
+if not MYPY:
+    class GetFederatedCondaRepositoryMemberArgsDict(TypedDict):
+        enabled: bool
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        url: str
+        """
+        Full URL to ending with the repository name.
+        """
+        access_token: NotRequired[str]
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+elif False:
+    GetFederatedCondaRepositoryMemberArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetFederatedCondaRepositoryMemberArgs:
@@ -10740,6 +14140,24 @@ class GetFederatedCondaRepositoryMemberArgs:
         pulumi.set(self, "access_token", value)
 
 
+if not MYPY:
+    class GetFederatedCranRepositoryMemberArgsDict(TypedDict):
+        enabled: bool
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        url: str
+        """
+        Full URL to ending with the repository name.
+        """
+        access_token: NotRequired[str]
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+elif False:
+    GetFederatedCranRepositoryMemberArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetFederatedCranRepositoryMemberArgs:
     def __init__(__self__, *,
@@ -10794,6 +14212,24 @@ class GetFederatedCranRepositoryMemberArgs:
     def access_token(self, value: Optional[str]):
         pulumi.set(self, "access_token", value)
 
+
+if not MYPY:
+    class GetFederatedDebianRepositoryMemberArgsDict(TypedDict):
+        enabled: bool
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        url: str
+        """
+        Full URL to ending with the repository name.
+        """
+        access_token: NotRequired[str]
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+elif False:
+    GetFederatedDebianRepositoryMemberArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetFederatedDebianRepositoryMemberArgs:
@@ -10850,6 +14286,23 @@ class GetFederatedDebianRepositoryMemberArgs:
         pulumi.set(self, "access_token", value)
 
 
+if not MYPY:
+    class GetFederatedDockerRepositoryMemberArgsDict(TypedDict):
+        enabled: bool
+        """
+        Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
+        """
+        url: str
+        """
+        Full URL to ending with the repositoryName
+        """
+        access_token: NotRequired[str]
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+elif False:
+    GetFederatedDockerRepositoryMemberArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetFederatedDockerRepositoryMemberArgs:
     def __init__(__self__, *,
@@ -10902,6 +14355,24 @@ class GetFederatedDockerRepositoryMemberArgs:
     def access_token(self, value: Optional[str]):
         pulumi.set(self, "access_token", value)
 
+
+if not MYPY:
+    class GetFederatedDockerV1RepositoryMemberArgsDict(TypedDict):
+        enabled: bool
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        url: str
+        """
+        Full URL to ending with the repository name.
+        """
+        access_token: NotRequired[str]
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+elif False:
+    GetFederatedDockerV1RepositoryMemberArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetFederatedDockerV1RepositoryMemberArgs:
@@ -10958,6 +14429,24 @@ class GetFederatedDockerV1RepositoryMemberArgs:
         pulumi.set(self, "access_token", value)
 
 
+if not MYPY:
+    class GetFederatedDockerV2RepositoryMemberArgsDict(TypedDict):
+        enabled: bool
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        url: str
+        """
+        Full URL to ending with the repository name.
+        """
+        access_token: NotRequired[str]
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+elif False:
+    GetFederatedDockerV2RepositoryMemberArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetFederatedDockerV2RepositoryMemberArgs:
     def __init__(__self__, *,
@@ -11012,6 +14501,24 @@ class GetFederatedDockerV2RepositoryMemberArgs:
     def access_token(self, value: Optional[str]):
         pulumi.set(self, "access_token", value)
 
+
+if not MYPY:
+    class GetFederatedGemsRepositoryMemberArgsDict(TypedDict):
+        enabled: bool
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        url: str
+        """
+        Full URL to ending with the repository name.
+        """
+        access_token: NotRequired[str]
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+elif False:
+    GetFederatedGemsRepositoryMemberArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetFederatedGemsRepositoryMemberArgs:
@@ -11068,6 +14575,24 @@ class GetFederatedGemsRepositoryMemberArgs:
         pulumi.set(self, "access_token", value)
 
 
+if not MYPY:
+    class GetFederatedGenericRepositoryMemberArgsDict(TypedDict):
+        enabled: bool
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        url: str
+        """
+        Full URL to ending with the repository name.
+        """
+        access_token: NotRequired[str]
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+elif False:
+    GetFederatedGenericRepositoryMemberArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetFederatedGenericRepositoryMemberArgs:
     def __init__(__self__, *,
@@ -11122,6 +14647,24 @@ class GetFederatedGenericRepositoryMemberArgs:
     def access_token(self, value: Optional[str]):
         pulumi.set(self, "access_token", value)
 
+
+if not MYPY:
+    class GetFederatedGitlfsRepositoryMemberArgsDict(TypedDict):
+        enabled: bool
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        url: str
+        """
+        Full URL to ending with the repository name.
+        """
+        access_token: NotRequired[str]
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+elif False:
+    GetFederatedGitlfsRepositoryMemberArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetFederatedGitlfsRepositoryMemberArgs:
@@ -11178,6 +14721,24 @@ class GetFederatedGitlfsRepositoryMemberArgs:
         pulumi.set(self, "access_token", value)
 
 
+if not MYPY:
+    class GetFederatedGoRepositoryMemberArgsDict(TypedDict):
+        enabled: bool
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        url: str
+        """
+        Full URL to ending with the repository name.
+        """
+        access_token: NotRequired[str]
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+elif False:
+    GetFederatedGoRepositoryMemberArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetFederatedGoRepositoryMemberArgs:
     def __init__(__self__, *,
@@ -11232,6 +14793,24 @@ class GetFederatedGoRepositoryMemberArgs:
     def access_token(self, value: Optional[str]):
         pulumi.set(self, "access_token", value)
 
+
+if not MYPY:
+    class GetFederatedGradleRepositoryMemberArgsDict(TypedDict):
+        enabled: bool
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        url: str
+        """
+        Full URL to ending with the repository name.
+        """
+        access_token: NotRequired[str]
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+elif False:
+    GetFederatedGradleRepositoryMemberArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetFederatedGradleRepositoryMemberArgs:
@@ -11288,6 +14867,24 @@ class GetFederatedGradleRepositoryMemberArgs:
         pulumi.set(self, "access_token", value)
 
 
+if not MYPY:
+    class GetFederatedHelmRepositoryMemberArgsDict(TypedDict):
+        enabled: bool
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        url: str
+        """
+        Full URL to ending with the repository name.
+        """
+        access_token: NotRequired[str]
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+elif False:
+    GetFederatedHelmRepositoryMemberArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetFederatedHelmRepositoryMemberArgs:
     def __init__(__self__, *,
@@ -11342,6 +14939,24 @@ class GetFederatedHelmRepositoryMemberArgs:
     def access_token(self, value: Optional[str]):
         pulumi.set(self, "access_token", value)
 
+
+if not MYPY:
+    class GetFederatedHelmociRepositoryMemberArgsDict(TypedDict):
+        enabled: bool
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        url: str
+        """
+        Full URL to ending with the repository name.
+        """
+        access_token: NotRequired[str]
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+elif False:
+    GetFederatedHelmociRepositoryMemberArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetFederatedHelmociRepositoryMemberArgs:
@@ -11398,6 +15013,24 @@ class GetFederatedHelmociRepositoryMemberArgs:
         pulumi.set(self, "access_token", value)
 
 
+if not MYPY:
+    class GetFederatedIvyRepositoryMemberArgsDict(TypedDict):
+        enabled: bool
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        url: str
+        """
+        Full URL to ending with the repository name.
+        """
+        access_token: NotRequired[str]
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+elif False:
+    GetFederatedIvyRepositoryMemberArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetFederatedIvyRepositoryMemberArgs:
     def __init__(__self__, *,
@@ -11452,6 +15085,24 @@ class GetFederatedIvyRepositoryMemberArgs:
     def access_token(self, value: Optional[str]):
         pulumi.set(self, "access_token", value)
 
+
+if not MYPY:
+    class GetFederatedMavenRepositoryMemberArgsDict(TypedDict):
+        enabled: bool
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        url: str
+        """
+        Full URL to ending with the repository name.
+        """
+        access_token: NotRequired[str]
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+elif False:
+    GetFederatedMavenRepositoryMemberArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetFederatedMavenRepositoryMemberArgs:
@@ -11508,6 +15159,24 @@ class GetFederatedMavenRepositoryMemberArgs:
         pulumi.set(self, "access_token", value)
 
 
+if not MYPY:
+    class GetFederatedNpmRepositoryMemberArgsDict(TypedDict):
+        enabled: bool
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        url: str
+        """
+        Full URL to ending with the repository name.
+        """
+        access_token: NotRequired[str]
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+elif False:
+    GetFederatedNpmRepositoryMemberArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetFederatedNpmRepositoryMemberArgs:
     def __init__(__self__, *,
@@ -11562,6 +15231,24 @@ class GetFederatedNpmRepositoryMemberArgs:
     def access_token(self, value: Optional[str]):
         pulumi.set(self, "access_token", value)
 
+
+if not MYPY:
+    class GetFederatedNugetRepositoryMemberArgsDict(TypedDict):
+        enabled: bool
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        url: str
+        """
+        Full URL to ending with the repository name.
+        """
+        access_token: NotRequired[str]
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+elif False:
+    GetFederatedNugetRepositoryMemberArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetFederatedNugetRepositoryMemberArgs:
@@ -11618,6 +15305,24 @@ class GetFederatedNugetRepositoryMemberArgs:
         pulumi.set(self, "access_token", value)
 
 
+if not MYPY:
+    class GetFederatedOciRepositoryMemberArgsDict(TypedDict):
+        enabled: bool
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        url: str
+        """
+        Full URL to ending with the repository name.
+        """
+        access_token: NotRequired[str]
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+elif False:
+    GetFederatedOciRepositoryMemberArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetFederatedOciRepositoryMemberArgs:
     def __init__(__self__, *,
@@ -11672,6 +15377,24 @@ class GetFederatedOciRepositoryMemberArgs:
     def access_token(self, value: Optional[str]):
         pulumi.set(self, "access_token", value)
 
+
+if not MYPY:
+    class GetFederatedOpkgRepositoryMemberArgsDict(TypedDict):
+        enabled: bool
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        url: str
+        """
+        Full URL to ending with the repository name.
+        """
+        access_token: NotRequired[str]
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+elif False:
+    GetFederatedOpkgRepositoryMemberArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetFederatedOpkgRepositoryMemberArgs:
@@ -11728,6 +15451,24 @@ class GetFederatedOpkgRepositoryMemberArgs:
         pulumi.set(self, "access_token", value)
 
 
+if not MYPY:
+    class GetFederatedPuppetRepositoryMemberArgsDict(TypedDict):
+        enabled: bool
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        url: str
+        """
+        Full URL to ending with the repository name.
+        """
+        access_token: NotRequired[str]
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+elif False:
+    GetFederatedPuppetRepositoryMemberArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetFederatedPuppetRepositoryMemberArgs:
     def __init__(__self__, *,
@@ -11782,6 +15523,24 @@ class GetFederatedPuppetRepositoryMemberArgs:
     def access_token(self, value: Optional[str]):
         pulumi.set(self, "access_token", value)
 
+
+if not MYPY:
+    class GetFederatedPypiRepositoryMemberArgsDict(TypedDict):
+        enabled: bool
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        url: str
+        """
+        Full URL to ending with the repository name.
+        """
+        access_token: NotRequired[str]
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+elif False:
+    GetFederatedPypiRepositoryMemberArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetFederatedPypiRepositoryMemberArgs:
@@ -11838,6 +15597,24 @@ class GetFederatedPypiRepositoryMemberArgs:
         pulumi.set(self, "access_token", value)
 
 
+if not MYPY:
+    class GetFederatedRpmRepositoryMemberArgsDict(TypedDict):
+        enabled: bool
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        url: str
+        """
+        Full URL to ending with the repository name.
+        """
+        access_token: NotRequired[str]
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+elif False:
+    GetFederatedRpmRepositoryMemberArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetFederatedRpmRepositoryMemberArgs:
     def __init__(__self__, *,
@@ -11892,6 +15669,24 @@ class GetFederatedRpmRepositoryMemberArgs:
     def access_token(self, value: Optional[str]):
         pulumi.set(self, "access_token", value)
 
+
+if not MYPY:
+    class GetFederatedSbtRepositoryMemberArgsDict(TypedDict):
+        enabled: bool
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        url: str
+        """
+        Full URL to ending with the repository name.
+        """
+        access_token: NotRequired[str]
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+elif False:
+    GetFederatedSbtRepositoryMemberArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetFederatedSbtRepositoryMemberArgs:
@@ -11948,6 +15743,24 @@ class GetFederatedSbtRepositoryMemberArgs:
         pulumi.set(self, "access_token", value)
 
 
+if not MYPY:
+    class GetFederatedSwiftRepositoryMemberArgsDict(TypedDict):
+        enabled: bool
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        url: str
+        """
+        Full URL to ending with the repository name.
+        """
+        access_token: NotRequired[str]
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+elif False:
+    GetFederatedSwiftRepositoryMemberArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetFederatedSwiftRepositoryMemberArgs:
     def __init__(__self__, *,
@@ -12002,6 +15815,24 @@ class GetFederatedSwiftRepositoryMemberArgs:
     def access_token(self, value: Optional[str]):
         pulumi.set(self, "access_token", value)
 
+
+if not MYPY:
+    class GetFederatedTerraformModuleRepositoryMemberArgsDict(TypedDict):
+        enabled: bool
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        url: str
+        """
+        Full URL to ending with the repository name.
+        """
+        access_token: NotRequired[str]
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+elif False:
+    GetFederatedTerraformModuleRepositoryMemberArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetFederatedTerraformModuleRepositoryMemberArgs:
@@ -12058,6 +15889,24 @@ class GetFederatedTerraformModuleRepositoryMemberArgs:
         pulumi.set(self, "access_token", value)
 
 
+if not MYPY:
+    class GetFederatedTerraformProviderRepositoryMemberArgsDict(TypedDict):
+        enabled: bool
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        url: str
+        """
+        Full URL to ending with the repository name.
+        """
+        access_token: NotRequired[str]
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+elif False:
+    GetFederatedTerraformProviderRepositoryMemberArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetFederatedTerraformProviderRepositoryMemberArgs:
     def __init__(__self__, *,
@@ -12113,6 +15962,24 @@ class GetFederatedTerraformProviderRepositoryMemberArgs:
         pulumi.set(self, "access_token", value)
 
 
+if not MYPY:
+    class GetFederatedVagrantRepositoryMemberArgsDict(TypedDict):
+        enabled: bool
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        url: str
+        """
+        Full URL to ending with the repository name.
+        """
+        access_token: NotRequired[str]
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+elif False:
+    GetFederatedVagrantRepositoryMemberArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetFederatedVagrantRepositoryMemberArgs:
     def __init__(__self__, *,
@@ -12167,6 +16034,26 @@ class GetFederatedVagrantRepositoryMemberArgs:
     def access_token(self, value: Optional[str]):
         pulumi.set(self, "access_token", value)
 
+
+if not MYPY:
+    class GetPermissionTargetBuildArgsDict(TypedDict):
+        repositories: Sequence[str]
+        """
+        List of repositories this permission target is applicable for. You can specify the
+        name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote
+        repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
+        """
+        actions: NotRequired['GetPermissionTargetBuildActionsArgsDict']
+        excludes_patterns: NotRequired[Sequence[str]]
+        """
+        Pattern of artifacts to exclude.
+        """
+        includes_patterns: NotRequired[Sequence[str]]
+        """
+        Pattern of artifacts to include.
+        """
+elif False:
+    GetPermissionTargetBuildArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetPermissionTargetBuildArgs:
@@ -12238,6 +16125,19 @@ class GetPermissionTargetBuildArgs:
         pulumi.set(self, "includes_patterns", value)
 
 
+if not MYPY:
+    class GetPermissionTargetBuildActionsArgsDict(TypedDict):
+        groups: NotRequired[Sequence['GetPermissionTargetBuildActionsGroupArgsDict']]
+        """
+        Groups this permission applies for.
+        """
+        users: NotRequired[Sequence['GetPermissionTargetBuildActionsUserArgsDict']]
+        """
+        Users this permission target applies for.
+        """
+elif False:
+    GetPermissionTargetBuildActionsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetPermissionTargetBuildActionsArgs:
     def __init__(__self__, *,
@@ -12277,6 +16177,16 @@ class GetPermissionTargetBuildActionsArgs:
         pulumi.set(self, "users", value)
 
 
+if not MYPY:
+    class GetPermissionTargetBuildActionsGroupArgsDict(TypedDict):
+        name: str
+        """
+        Name of the permission target.
+        """
+        permissions: Sequence[str]
+elif False:
+    GetPermissionTargetBuildActionsGroupArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetPermissionTargetBuildActionsGroupArgs:
     def __init__(__self__, *,
@@ -12310,6 +16220,16 @@ class GetPermissionTargetBuildActionsGroupArgs:
         pulumi.set(self, "permissions", value)
 
 
+if not MYPY:
+    class GetPermissionTargetBuildActionsUserArgsDict(TypedDict):
+        name: str
+        """
+        Name of the permission target.
+        """
+        permissions: Sequence[str]
+elif False:
+    GetPermissionTargetBuildActionsUserArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetPermissionTargetBuildActionsUserArgs:
     def __init__(__self__, *,
@@ -12342,6 +16262,26 @@ class GetPermissionTargetBuildActionsUserArgs:
     def permissions(self, value: Sequence[str]):
         pulumi.set(self, "permissions", value)
 
+
+if not MYPY:
+    class GetPermissionTargetReleaseBundleArgsDict(TypedDict):
+        repositories: Sequence[str]
+        """
+        List of repositories this permission target is applicable for. You can specify the
+        name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote
+        repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
+        """
+        actions: NotRequired['GetPermissionTargetReleaseBundleActionsArgsDict']
+        excludes_patterns: NotRequired[Sequence[str]]
+        """
+        Pattern of artifacts to exclude.
+        """
+        includes_patterns: NotRequired[Sequence[str]]
+        """
+        Pattern of artifacts to include.
+        """
+elif False:
+    GetPermissionTargetReleaseBundleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetPermissionTargetReleaseBundleArgs:
@@ -12413,6 +16353,19 @@ class GetPermissionTargetReleaseBundleArgs:
         pulumi.set(self, "includes_patterns", value)
 
 
+if not MYPY:
+    class GetPermissionTargetReleaseBundleActionsArgsDict(TypedDict):
+        groups: NotRequired[Sequence['GetPermissionTargetReleaseBundleActionsGroupArgsDict']]
+        """
+        Groups this permission applies for.
+        """
+        users: NotRequired[Sequence['GetPermissionTargetReleaseBundleActionsUserArgsDict']]
+        """
+        Users this permission target applies for.
+        """
+elif False:
+    GetPermissionTargetReleaseBundleActionsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetPermissionTargetReleaseBundleActionsArgs:
     def __init__(__self__, *,
@@ -12452,6 +16405,16 @@ class GetPermissionTargetReleaseBundleActionsArgs:
         pulumi.set(self, "users", value)
 
 
+if not MYPY:
+    class GetPermissionTargetReleaseBundleActionsGroupArgsDict(TypedDict):
+        name: str
+        """
+        Name of the permission target.
+        """
+        permissions: Sequence[str]
+elif False:
+    GetPermissionTargetReleaseBundleActionsGroupArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetPermissionTargetReleaseBundleActionsGroupArgs:
     def __init__(__self__, *,
@@ -12485,6 +16448,16 @@ class GetPermissionTargetReleaseBundleActionsGroupArgs:
         pulumi.set(self, "permissions", value)
 
 
+if not MYPY:
+    class GetPermissionTargetReleaseBundleActionsUserArgsDict(TypedDict):
+        name: str
+        """
+        Name of the permission target.
+        """
+        permissions: Sequence[str]
+elif False:
+    GetPermissionTargetReleaseBundleActionsUserArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetPermissionTargetReleaseBundleActionsUserArgs:
     def __init__(__self__, *,
@@ -12517,6 +16490,26 @@ class GetPermissionTargetReleaseBundleActionsUserArgs:
     def permissions(self, value: Sequence[str]):
         pulumi.set(self, "permissions", value)
 
+
+if not MYPY:
+    class GetPermissionTargetRepoArgsDict(TypedDict):
+        repositories: Sequence[str]
+        """
+        List of repositories this permission target is applicable for. You can specify the
+        name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote
+        repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
+        """
+        actions: NotRequired['GetPermissionTargetRepoActionsArgsDict']
+        excludes_patterns: NotRequired[Sequence[str]]
+        """
+        Pattern of artifacts to exclude.
+        """
+        includes_patterns: NotRequired[Sequence[str]]
+        """
+        Pattern of artifacts to include.
+        """
+elif False:
+    GetPermissionTargetRepoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetPermissionTargetRepoArgs:
@@ -12588,6 +16581,19 @@ class GetPermissionTargetRepoArgs:
         pulumi.set(self, "includes_patterns", value)
 
 
+if not MYPY:
+    class GetPermissionTargetRepoActionsArgsDict(TypedDict):
+        groups: NotRequired[Sequence['GetPermissionTargetRepoActionsGroupArgsDict']]
+        """
+        Groups this permission applies for.
+        """
+        users: NotRequired[Sequence['GetPermissionTargetRepoActionsUserArgsDict']]
+        """
+        Users this permission target applies for.
+        """
+elif False:
+    GetPermissionTargetRepoActionsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetPermissionTargetRepoActionsArgs:
     def __init__(__self__, *,
@@ -12627,6 +16633,16 @@ class GetPermissionTargetRepoActionsArgs:
         pulumi.set(self, "users", value)
 
 
+if not MYPY:
+    class GetPermissionTargetRepoActionsGroupArgsDict(TypedDict):
+        name: str
+        """
+        Name of the permission target.
+        """
+        permissions: Sequence[str]
+elif False:
+    GetPermissionTargetRepoActionsGroupArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetPermissionTargetRepoActionsGroupArgs:
     def __init__(__self__, *,
@@ -12660,6 +16676,16 @@ class GetPermissionTargetRepoActionsGroupArgs:
         pulumi.set(self, "permissions", value)
 
 
+if not MYPY:
+    class GetPermissionTargetRepoActionsUserArgsDict(TypedDict):
+        name: str
+        """
+        Name of the permission target.
+        """
+        permissions: Sequence[str]
+elif False:
+    GetPermissionTargetRepoActionsUserArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetPermissionTargetRepoActionsUserArgs:
     def __init__(__self__, *,
@@ -12692,6 +16718,27 @@ class GetPermissionTargetRepoActionsUserArgs:
     def permissions(self, value: Sequence[str]):
         pulumi.set(self, "permissions", value)
 
+
+if not MYPY:
+    class GetRemoteAlpineRepositoryContentSynchronisationArgsDict(TypedDict):
+        enabled: NotRequired[bool]
+        """
+        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+        """
+        properties_enabled: NotRequired[bool]
+        """
+        If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+        """
+        source_origin_absence_detection: NotRequired[bool]
+        """
+        If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+        """
+        statistics_enabled: NotRequired[bool]
+        """
+        If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+        """
+elif False:
+    GetRemoteAlpineRepositoryContentSynchronisationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetRemoteAlpineRepositoryContentSynchronisationArgs:
@@ -12764,6 +16811,27 @@ class GetRemoteAlpineRepositoryContentSynchronisationArgs:
         pulumi.set(self, "statistics_enabled", value)
 
 
+if not MYPY:
+    class GetRemoteAnsibleRepositoryContentSynchronisationArgsDict(TypedDict):
+        enabled: NotRequired[bool]
+        """
+        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+        """
+        properties_enabled: NotRequired[bool]
+        """
+        If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+        """
+        source_origin_absence_detection: NotRequired[bool]
+        """
+        If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+        """
+        statistics_enabled: NotRequired[bool]
+        """
+        If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+        """
+elif False:
+    GetRemoteAnsibleRepositoryContentSynchronisationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetRemoteAnsibleRepositoryContentSynchronisationArgs:
     def __init__(__self__, *,
@@ -12834,6 +16902,27 @@ class GetRemoteAnsibleRepositoryContentSynchronisationArgs:
     def statistics_enabled(self, value: Optional[bool]):
         pulumi.set(self, "statistics_enabled", value)
 
+
+if not MYPY:
+    class GetRemoteBowerRepositoryContentSynchronisationArgsDict(TypedDict):
+        enabled: NotRequired[bool]
+        """
+        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+        """
+        properties_enabled: NotRequired[bool]
+        """
+        If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+        """
+        source_origin_absence_detection: NotRequired[bool]
+        """
+        If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+        """
+        statistics_enabled: NotRequired[bool]
+        """
+        If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+        """
+elif False:
+    GetRemoteBowerRepositoryContentSynchronisationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetRemoteBowerRepositoryContentSynchronisationArgs:
@@ -12906,6 +16995,27 @@ class GetRemoteBowerRepositoryContentSynchronisationArgs:
         pulumi.set(self, "statistics_enabled", value)
 
 
+if not MYPY:
+    class GetRemoteCargoRepositoryContentSynchronisationArgsDict(TypedDict):
+        enabled: NotRequired[bool]
+        """
+        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+        """
+        properties_enabled: NotRequired[bool]
+        """
+        If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+        """
+        source_origin_absence_detection: NotRequired[bool]
+        """
+        If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+        """
+        statistics_enabled: NotRequired[bool]
+        """
+        If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+        """
+elif False:
+    GetRemoteCargoRepositoryContentSynchronisationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetRemoteCargoRepositoryContentSynchronisationArgs:
     def __init__(__self__, *,
@@ -12976,6 +17086,27 @@ class GetRemoteCargoRepositoryContentSynchronisationArgs:
     def statistics_enabled(self, value: Optional[bool]):
         pulumi.set(self, "statistics_enabled", value)
 
+
+if not MYPY:
+    class GetRemoteChefRepositoryContentSynchronisationArgsDict(TypedDict):
+        enabled: NotRequired[bool]
+        """
+        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+        """
+        properties_enabled: NotRequired[bool]
+        """
+        If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+        """
+        source_origin_absence_detection: NotRequired[bool]
+        """
+        If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+        """
+        statistics_enabled: NotRequired[bool]
+        """
+        If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+        """
+elif False:
+    GetRemoteChefRepositoryContentSynchronisationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetRemoteChefRepositoryContentSynchronisationArgs:
@@ -13048,6 +17179,27 @@ class GetRemoteChefRepositoryContentSynchronisationArgs:
         pulumi.set(self, "statistics_enabled", value)
 
 
+if not MYPY:
+    class GetRemoteCocoapodsRepositoryContentSynchronisationArgsDict(TypedDict):
+        enabled: NotRequired[bool]
+        """
+        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+        """
+        properties_enabled: NotRequired[bool]
+        """
+        If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+        """
+        source_origin_absence_detection: NotRequired[bool]
+        """
+        If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+        """
+        statistics_enabled: NotRequired[bool]
+        """
+        If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+        """
+elif False:
+    GetRemoteCocoapodsRepositoryContentSynchronisationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetRemoteCocoapodsRepositoryContentSynchronisationArgs:
     def __init__(__self__, *,
@@ -13118,6 +17270,27 @@ class GetRemoteCocoapodsRepositoryContentSynchronisationArgs:
     def statistics_enabled(self, value: Optional[bool]):
         pulumi.set(self, "statistics_enabled", value)
 
+
+if not MYPY:
+    class GetRemoteComposerRepositoryContentSynchronisationArgsDict(TypedDict):
+        enabled: NotRequired[bool]
+        """
+        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+        """
+        properties_enabled: NotRequired[bool]
+        """
+        If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+        """
+        source_origin_absence_detection: NotRequired[bool]
+        """
+        If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+        """
+        statistics_enabled: NotRequired[bool]
+        """
+        If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+        """
+elif False:
+    GetRemoteComposerRepositoryContentSynchronisationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetRemoteComposerRepositoryContentSynchronisationArgs:
@@ -13190,6 +17363,27 @@ class GetRemoteComposerRepositoryContentSynchronisationArgs:
         pulumi.set(self, "statistics_enabled", value)
 
 
+if not MYPY:
+    class GetRemoteConanRepositoryContentSynchronisationArgsDict(TypedDict):
+        enabled: NotRequired[bool]
+        """
+        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+        """
+        properties_enabled: NotRequired[bool]
+        """
+        If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+        """
+        source_origin_absence_detection: NotRequired[bool]
+        """
+        If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+        """
+        statistics_enabled: NotRequired[bool]
+        """
+        If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+        """
+elif False:
+    GetRemoteConanRepositoryContentSynchronisationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetRemoteConanRepositoryContentSynchronisationArgs:
     def __init__(__self__, *,
@@ -13260,6 +17454,27 @@ class GetRemoteConanRepositoryContentSynchronisationArgs:
     def statistics_enabled(self, value: Optional[bool]):
         pulumi.set(self, "statistics_enabled", value)
 
+
+if not MYPY:
+    class GetRemoteCondaRepositoryContentSynchronisationArgsDict(TypedDict):
+        enabled: NotRequired[bool]
+        """
+        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+        """
+        properties_enabled: NotRequired[bool]
+        """
+        If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+        """
+        source_origin_absence_detection: NotRequired[bool]
+        """
+        If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+        """
+        statistics_enabled: NotRequired[bool]
+        """
+        If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+        """
+elif False:
+    GetRemoteCondaRepositoryContentSynchronisationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetRemoteCondaRepositoryContentSynchronisationArgs:
@@ -13332,6 +17547,27 @@ class GetRemoteCondaRepositoryContentSynchronisationArgs:
         pulumi.set(self, "statistics_enabled", value)
 
 
+if not MYPY:
+    class GetRemoteCranRepositoryContentSynchronisationArgsDict(TypedDict):
+        enabled: NotRequired[bool]
+        """
+        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+        """
+        properties_enabled: NotRequired[bool]
+        """
+        If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+        """
+        source_origin_absence_detection: NotRequired[bool]
+        """
+        If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+        """
+        statistics_enabled: NotRequired[bool]
+        """
+        If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+        """
+elif False:
+    GetRemoteCranRepositoryContentSynchronisationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetRemoteCranRepositoryContentSynchronisationArgs:
     def __init__(__self__, *,
@@ -13402,6 +17638,27 @@ class GetRemoteCranRepositoryContentSynchronisationArgs:
     def statistics_enabled(self, value: Optional[bool]):
         pulumi.set(self, "statistics_enabled", value)
 
+
+if not MYPY:
+    class GetRemoteDebianRepositoryContentSynchronisationArgsDict(TypedDict):
+        enabled: NotRequired[bool]
+        """
+        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+        """
+        properties_enabled: NotRequired[bool]
+        """
+        If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+        """
+        source_origin_absence_detection: NotRequired[bool]
+        """
+        If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+        """
+        statistics_enabled: NotRequired[bool]
+        """
+        If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+        """
+elif False:
+    GetRemoteDebianRepositoryContentSynchronisationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetRemoteDebianRepositoryContentSynchronisationArgs:
@@ -13474,6 +17731,27 @@ class GetRemoteDebianRepositoryContentSynchronisationArgs:
         pulumi.set(self, "statistics_enabled", value)
 
 
+if not MYPY:
+    class GetRemoteDockerRepositoryContentSynchronisationArgsDict(TypedDict):
+        enabled: NotRequired[bool]
+        """
+        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+        """
+        properties_enabled: NotRequired[bool]
+        """
+        If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+        """
+        source_origin_absence_detection: NotRequired[bool]
+        """
+        If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+        """
+        statistics_enabled: NotRequired[bool]
+        """
+        If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+        """
+elif False:
+    GetRemoteDockerRepositoryContentSynchronisationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetRemoteDockerRepositoryContentSynchronisationArgs:
     def __init__(__self__, *,
@@ -13544,6 +17822,27 @@ class GetRemoteDockerRepositoryContentSynchronisationArgs:
     def statistics_enabled(self, value: Optional[bool]):
         pulumi.set(self, "statistics_enabled", value)
 
+
+if not MYPY:
+    class GetRemoteGemsRepositoryContentSynchronisationArgsDict(TypedDict):
+        enabled: NotRequired[bool]
+        """
+        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+        """
+        properties_enabled: NotRequired[bool]
+        """
+        If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+        """
+        source_origin_absence_detection: NotRequired[bool]
+        """
+        If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+        """
+        statistics_enabled: NotRequired[bool]
+        """
+        If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+        """
+elif False:
+    GetRemoteGemsRepositoryContentSynchronisationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetRemoteGemsRepositoryContentSynchronisationArgs:
@@ -13616,6 +17915,27 @@ class GetRemoteGemsRepositoryContentSynchronisationArgs:
         pulumi.set(self, "statistics_enabled", value)
 
 
+if not MYPY:
+    class GetRemoteGenericRepositoryContentSynchronisationArgsDict(TypedDict):
+        enabled: NotRequired[bool]
+        """
+        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+        """
+        properties_enabled: NotRequired[bool]
+        """
+        If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+        """
+        source_origin_absence_detection: NotRequired[bool]
+        """
+        If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+        """
+        statistics_enabled: NotRequired[bool]
+        """
+        If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+        """
+elif False:
+    GetRemoteGenericRepositoryContentSynchronisationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetRemoteGenericRepositoryContentSynchronisationArgs:
     def __init__(__self__, *,
@@ -13686,6 +18006,27 @@ class GetRemoteGenericRepositoryContentSynchronisationArgs:
     def statistics_enabled(self, value: Optional[bool]):
         pulumi.set(self, "statistics_enabled", value)
 
+
+if not MYPY:
+    class GetRemoteGitlfsRepositoryContentSynchronisationArgsDict(TypedDict):
+        enabled: NotRequired[bool]
+        """
+        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+        """
+        properties_enabled: NotRequired[bool]
+        """
+        If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+        """
+        source_origin_absence_detection: NotRequired[bool]
+        """
+        If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+        """
+        statistics_enabled: NotRequired[bool]
+        """
+        If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+        """
+elif False:
+    GetRemoteGitlfsRepositoryContentSynchronisationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetRemoteGitlfsRepositoryContentSynchronisationArgs:
@@ -13758,6 +18099,27 @@ class GetRemoteGitlfsRepositoryContentSynchronisationArgs:
         pulumi.set(self, "statistics_enabled", value)
 
 
+if not MYPY:
+    class GetRemoteGoRepositoryContentSynchronisationArgsDict(TypedDict):
+        enabled: NotRequired[bool]
+        """
+        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+        """
+        properties_enabled: NotRequired[bool]
+        """
+        If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+        """
+        source_origin_absence_detection: NotRequired[bool]
+        """
+        If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+        """
+        statistics_enabled: NotRequired[bool]
+        """
+        If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+        """
+elif False:
+    GetRemoteGoRepositoryContentSynchronisationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetRemoteGoRepositoryContentSynchronisationArgs:
     def __init__(__self__, *,
@@ -13828,6 +18190,27 @@ class GetRemoteGoRepositoryContentSynchronisationArgs:
     def statistics_enabled(self, value: Optional[bool]):
         pulumi.set(self, "statistics_enabled", value)
 
+
+if not MYPY:
+    class GetRemoteGradleRepositoryContentSynchronisationArgsDict(TypedDict):
+        enabled: NotRequired[bool]
+        """
+        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+        """
+        properties_enabled: NotRequired[bool]
+        """
+        If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+        """
+        source_origin_absence_detection: NotRequired[bool]
+        """
+        If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+        """
+        statistics_enabled: NotRequired[bool]
+        """
+        If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+        """
+elif False:
+    GetRemoteGradleRepositoryContentSynchronisationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetRemoteGradleRepositoryContentSynchronisationArgs:
@@ -13900,6 +18283,27 @@ class GetRemoteGradleRepositoryContentSynchronisationArgs:
         pulumi.set(self, "statistics_enabled", value)
 
 
+if not MYPY:
+    class GetRemoteHelmRepositoryContentSynchronisationArgsDict(TypedDict):
+        enabled: NotRequired[bool]
+        """
+        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+        """
+        properties_enabled: NotRequired[bool]
+        """
+        If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+        """
+        source_origin_absence_detection: NotRequired[bool]
+        """
+        If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+        """
+        statistics_enabled: NotRequired[bool]
+        """
+        If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+        """
+elif False:
+    GetRemoteHelmRepositoryContentSynchronisationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetRemoteHelmRepositoryContentSynchronisationArgs:
     def __init__(__self__, *,
@@ -13970,6 +18374,27 @@ class GetRemoteHelmRepositoryContentSynchronisationArgs:
     def statistics_enabled(self, value: Optional[bool]):
         pulumi.set(self, "statistics_enabled", value)
 
+
+if not MYPY:
+    class GetRemoteHelmociRepositoryContentSynchronisationArgsDict(TypedDict):
+        enabled: NotRequired[bool]
+        """
+        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+        """
+        properties_enabled: NotRequired[bool]
+        """
+        If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+        """
+        source_origin_absence_detection: NotRequired[bool]
+        """
+        If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+        """
+        statistics_enabled: NotRequired[bool]
+        """
+        If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+        """
+elif False:
+    GetRemoteHelmociRepositoryContentSynchronisationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetRemoteHelmociRepositoryContentSynchronisationArgs:
@@ -14042,6 +18467,27 @@ class GetRemoteHelmociRepositoryContentSynchronisationArgs:
         pulumi.set(self, "statistics_enabled", value)
 
 
+if not MYPY:
+    class GetRemoteIvyRepositoryContentSynchronisationArgsDict(TypedDict):
+        enabled: NotRequired[bool]
+        """
+        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+        """
+        properties_enabled: NotRequired[bool]
+        """
+        If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+        """
+        source_origin_absence_detection: NotRequired[bool]
+        """
+        If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+        """
+        statistics_enabled: NotRequired[bool]
+        """
+        If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+        """
+elif False:
+    GetRemoteIvyRepositoryContentSynchronisationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetRemoteIvyRepositoryContentSynchronisationArgs:
     def __init__(__self__, *,
@@ -14112,6 +18558,27 @@ class GetRemoteIvyRepositoryContentSynchronisationArgs:
     def statistics_enabled(self, value: Optional[bool]):
         pulumi.set(self, "statistics_enabled", value)
 
+
+if not MYPY:
+    class GetRemoteMavenRepositoryContentSynchronisationArgsDict(TypedDict):
+        enabled: NotRequired[bool]
+        """
+        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+        """
+        properties_enabled: NotRequired[bool]
+        """
+        If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+        """
+        source_origin_absence_detection: NotRequired[bool]
+        """
+        If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+        """
+        statistics_enabled: NotRequired[bool]
+        """
+        If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+        """
+elif False:
+    GetRemoteMavenRepositoryContentSynchronisationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetRemoteMavenRepositoryContentSynchronisationArgs:
@@ -14184,6 +18651,27 @@ class GetRemoteMavenRepositoryContentSynchronisationArgs:
         pulumi.set(self, "statistics_enabled", value)
 
 
+if not MYPY:
+    class GetRemoteNpmRepositoryContentSynchronisationArgsDict(TypedDict):
+        enabled: NotRequired[bool]
+        """
+        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+        """
+        properties_enabled: NotRequired[bool]
+        """
+        If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+        """
+        source_origin_absence_detection: NotRequired[bool]
+        """
+        If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+        """
+        statistics_enabled: NotRequired[bool]
+        """
+        If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+        """
+elif False:
+    GetRemoteNpmRepositoryContentSynchronisationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetRemoteNpmRepositoryContentSynchronisationArgs:
     def __init__(__self__, *,
@@ -14254,6 +18742,27 @@ class GetRemoteNpmRepositoryContentSynchronisationArgs:
     def statistics_enabled(self, value: Optional[bool]):
         pulumi.set(self, "statistics_enabled", value)
 
+
+if not MYPY:
+    class GetRemoteNugetRepositoryContentSynchronisationArgsDict(TypedDict):
+        enabled: NotRequired[bool]
+        """
+        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+        """
+        properties_enabled: NotRequired[bool]
+        """
+        If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+        """
+        source_origin_absence_detection: NotRequired[bool]
+        """
+        If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+        """
+        statistics_enabled: NotRequired[bool]
+        """
+        If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+        """
+elif False:
+    GetRemoteNugetRepositoryContentSynchronisationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetRemoteNugetRepositoryContentSynchronisationArgs:
@@ -14326,6 +18835,27 @@ class GetRemoteNugetRepositoryContentSynchronisationArgs:
         pulumi.set(self, "statistics_enabled", value)
 
 
+if not MYPY:
+    class GetRemoteOciRepositoryContentSynchronisationArgsDict(TypedDict):
+        enabled: NotRequired[bool]
+        """
+        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+        """
+        properties_enabled: NotRequired[bool]
+        """
+        If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+        """
+        source_origin_absence_detection: NotRequired[bool]
+        """
+        If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+        """
+        statistics_enabled: NotRequired[bool]
+        """
+        If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+        """
+elif False:
+    GetRemoteOciRepositoryContentSynchronisationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetRemoteOciRepositoryContentSynchronisationArgs:
     def __init__(__self__, *,
@@ -14396,6 +18926,27 @@ class GetRemoteOciRepositoryContentSynchronisationArgs:
     def statistics_enabled(self, value: Optional[bool]):
         pulumi.set(self, "statistics_enabled", value)
 
+
+if not MYPY:
+    class GetRemoteOpkgRepositoryContentSynchronisationArgsDict(TypedDict):
+        enabled: NotRequired[bool]
+        """
+        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+        """
+        properties_enabled: NotRequired[bool]
+        """
+        If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+        """
+        source_origin_absence_detection: NotRequired[bool]
+        """
+        If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+        """
+        statistics_enabled: NotRequired[bool]
+        """
+        If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+        """
+elif False:
+    GetRemoteOpkgRepositoryContentSynchronisationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetRemoteOpkgRepositoryContentSynchronisationArgs:
@@ -14468,6 +19019,27 @@ class GetRemoteOpkgRepositoryContentSynchronisationArgs:
         pulumi.set(self, "statistics_enabled", value)
 
 
+if not MYPY:
+    class GetRemoteP2RepositoryContentSynchronisationArgsDict(TypedDict):
+        enabled: NotRequired[bool]
+        """
+        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+        """
+        properties_enabled: NotRequired[bool]
+        """
+        If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+        """
+        source_origin_absence_detection: NotRequired[bool]
+        """
+        If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+        """
+        statistics_enabled: NotRequired[bool]
+        """
+        If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+        """
+elif False:
+    GetRemoteP2RepositoryContentSynchronisationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetRemoteP2RepositoryContentSynchronisationArgs:
     def __init__(__self__, *,
@@ -14538,6 +19110,27 @@ class GetRemoteP2RepositoryContentSynchronisationArgs:
     def statistics_enabled(self, value: Optional[bool]):
         pulumi.set(self, "statistics_enabled", value)
 
+
+if not MYPY:
+    class GetRemotePubRepositoryContentSynchronisationArgsDict(TypedDict):
+        enabled: NotRequired[bool]
+        """
+        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+        """
+        properties_enabled: NotRequired[bool]
+        """
+        If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+        """
+        source_origin_absence_detection: NotRequired[bool]
+        """
+        If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+        """
+        statistics_enabled: NotRequired[bool]
+        """
+        If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+        """
+elif False:
+    GetRemotePubRepositoryContentSynchronisationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetRemotePubRepositoryContentSynchronisationArgs:
@@ -14610,6 +19203,27 @@ class GetRemotePubRepositoryContentSynchronisationArgs:
         pulumi.set(self, "statistics_enabled", value)
 
 
+if not MYPY:
+    class GetRemotePuppetRepositoryContentSynchronisationArgsDict(TypedDict):
+        enabled: NotRequired[bool]
+        """
+        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+        """
+        properties_enabled: NotRequired[bool]
+        """
+        If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+        """
+        source_origin_absence_detection: NotRequired[bool]
+        """
+        If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+        """
+        statistics_enabled: NotRequired[bool]
+        """
+        If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+        """
+elif False:
+    GetRemotePuppetRepositoryContentSynchronisationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetRemotePuppetRepositoryContentSynchronisationArgs:
     def __init__(__self__, *,
@@ -14680,6 +19294,27 @@ class GetRemotePuppetRepositoryContentSynchronisationArgs:
     def statistics_enabled(self, value: Optional[bool]):
         pulumi.set(self, "statistics_enabled", value)
 
+
+if not MYPY:
+    class GetRemotePypiRepositoryContentSynchronisationArgsDict(TypedDict):
+        enabled: NotRequired[bool]
+        """
+        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+        """
+        properties_enabled: NotRequired[bool]
+        """
+        If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+        """
+        source_origin_absence_detection: NotRequired[bool]
+        """
+        If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+        """
+        statistics_enabled: NotRequired[bool]
+        """
+        If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+        """
+elif False:
+    GetRemotePypiRepositoryContentSynchronisationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetRemotePypiRepositoryContentSynchronisationArgs:
@@ -14752,6 +19387,27 @@ class GetRemotePypiRepositoryContentSynchronisationArgs:
         pulumi.set(self, "statistics_enabled", value)
 
 
+if not MYPY:
+    class GetRemoteRpmRepositoryContentSynchronisationArgsDict(TypedDict):
+        enabled: NotRequired[bool]
+        """
+        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+        """
+        properties_enabled: NotRequired[bool]
+        """
+        If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+        """
+        source_origin_absence_detection: NotRequired[bool]
+        """
+        If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+        """
+        statistics_enabled: NotRequired[bool]
+        """
+        If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+        """
+elif False:
+    GetRemoteRpmRepositoryContentSynchronisationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetRemoteRpmRepositoryContentSynchronisationArgs:
     def __init__(__self__, *,
@@ -14822,6 +19478,27 @@ class GetRemoteRpmRepositoryContentSynchronisationArgs:
     def statistics_enabled(self, value: Optional[bool]):
         pulumi.set(self, "statistics_enabled", value)
 
+
+if not MYPY:
+    class GetRemoteSbtRepositoryContentSynchronisationArgsDict(TypedDict):
+        enabled: NotRequired[bool]
+        """
+        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+        """
+        properties_enabled: NotRequired[bool]
+        """
+        If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+        """
+        source_origin_absence_detection: NotRequired[bool]
+        """
+        If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+        """
+        statistics_enabled: NotRequired[bool]
+        """
+        If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+        """
+elif False:
+    GetRemoteSbtRepositoryContentSynchronisationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetRemoteSbtRepositoryContentSynchronisationArgs:
@@ -14894,6 +19571,27 @@ class GetRemoteSbtRepositoryContentSynchronisationArgs:
         pulumi.set(self, "statistics_enabled", value)
 
 
+if not MYPY:
+    class GetRemoteSwiftRepositoryContentSynchronisationArgsDict(TypedDict):
+        enabled: NotRequired[bool]
+        """
+        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+        """
+        properties_enabled: NotRequired[bool]
+        """
+        If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+        """
+        source_origin_absence_detection: NotRequired[bool]
+        """
+        If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+        """
+        statistics_enabled: NotRequired[bool]
+        """
+        If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+        """
+elif False:
+    GetRemoteSwiftRepositoryContentSynchronisationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetRemoteSwiftRepositoryContentSynchronisationArgs:
     def __init__(__self__, *,
@@ -14965,6 +19663,27 @@ class GetRemoteSwiftRepositoryContentSynchronisationArgs:
         pulumi.set(self, "statistics_enabled", value)
 
 
+if not MYPY:
+    class GetRemoteTerraformRepositoryContentSynchronisationArgsDict(TypedDict):
+        enabled: NotRequired[bool]
+        """
+        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+        """
+        properties_enabled: NotRequired[bool]
+        """
+        If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+        """
+        source_origin_absence_detection: NotRequired[bool]
+        """
+        If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+        """
+        statistics_enabled: NotRequired[bool]
+        """
+        If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+        """
+elif False:
+    GetRemoteTerraformRepositoryContentSynchronisationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetRemoteTerraformRepositoryContentSynchronisationArgs:
     def __init__(__self__, *,
@@ -15035,6 +19754,27 @@ class GetRemoteTerraformRepositoryContentSynchronisationArgs:
     def statistics_enabled(self, value: Optional[bool]):
         pulumi.set(self, "statistics_enabled", value)
 
+
+if not MYPY:
+    class GetRemoteVcsRepositoryContentSynchronisationArgsDict(TypedDict):
+        enabled: NotRequired[bool]
+        """
+        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+        """
+        properties_enabled: NotRequired[bool]
+        """
+        If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+        """
+        source_origin_absence_detection: NotRequired[bool]
+        """
+        If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+        """
+        statistics_enabled: NotRequired[bool]
+        """
+        If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+        """
+elif False:
+    GetRemoteVcsRepositoryContentSynchronisationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetRemoteVcsRepositoryContentSynchronisationArgs:
