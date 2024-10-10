@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -288,9 +293,6 @@ def get_virtual_debian_repository(artifactory_requests_can_retrieve_remote_artif
         repositories=pulumi.get(__ret__, 'repositories'),
         retrieval_cache_period_seconds=pulumi.get(__ret__, 'retrieval_cache_period_seconds'),
         secondary_keypair_ref=pulumi.get(__ret__, 'secondary_keypair_ref'))
-
-
-@_utilities.lift_output_func(get_virtual_debian_repository)
 def get_virtual_debian_repository_output(artifactory_requests_can_retrieve_remote_artifacts: Optional[pulumi.Input[Optional[bool]]] = None,
                                          debian_default_architectures: Optional[pulumi.Input[Optional[str]]] = None,
                                          default_deployment_repo: Optional[pulumi.Input[Optional[str]]] = None,
@@ -328,4 +330,41 @@ def get_virtual_debian_repository_output(artifactory_requests_can_retrieve_remot
     :param int retrieval_cache_period_seconds: (Optional, Default: `7200`) This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
     :param str secondary_keypair_ref: (Optional) Secondary keypair used to sign artifacts. Default is empty.
     """
-    ...
+    __args__ = dict()
+    __args__['artifactoryRequestsCanRetrieveRemoteArtifacts'] = artifactory_requests_can_retrieve_remote_artifacts
+    __args__['debianDefaultArchitectures'] = debian_default_architectures
+    __args__['defaultDeploymentRepo'] = default_deployment_repo
+    __args__['description'] = description
+    __args__['excludesPattern'] = excludes_pattern
+    __args__['includesPattern'] = includes_pattern
+    __args__['key'] = key
+    __args__['notes'] = notes
+    __args__['optionalIndexCompressionFormats'] = optional_index_compression_formats
+    __args__['primaryKeypairRef'] = primary_keypair_ref
+    __args__['projectEnvironments'] = project_environments
+    __args__['projectKey'] = project_key
+    __args__['repoLayoutRef'] = repo_layout_ref
+    __args__['repositories'] = repositories
+    __args__['retrievalCachePeriodSeconds'] = retrieval_cache_period_seconds
+    __args__['secondaryKeypairRef'] = secondary_keypair_ref
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('artifactory:index/getVirtualDebianRepository:getVirtualDebianRepository', __args__, opts=opts, typ=GetVirtualDebianRepositoryResult)
+    return __ret__.apply(lambda __response__: GetVirtualDebianRepositoryResult(
+        artifactory_requests_can_retrieve_remote_artifacts=pulumi.get(__response__, 'artifactory_requests_can_retrieve_remote_artifacts'),
+        debian_default_architectures=pulumi.get(__response__, 'debian_default_architectures'),
+        default_deployment_repo=pulumi.get(__response__, 'default_deployment_repo'),
+        description=pulumi.get(__response__, 'description'),
+        excludes_pattern=pulumi.get(__response__, 'excludes_pattern'),
+        id=pulumi.get(__response__, 'id'),
+        includes_pattern=pulumi.get(__response__, 'includes_pattern'),
+        key=pulumi.get(__response__, 'key'),
+        notes=pulumi.get(__response__, 'notes'),
+        optional_index_compression_formats=pulumi.get(__response__, 'optional_index_compression_formats'),
+        package_type=pulumi.get(__response__, 'package_type'),
+        primary_keypair_ref=pulumi.get(__response__, 'primary_keypair_ref'),
+        project_environments=pulumi.get(__response__, 'project_environments'),
+        project_key=pulumi.get(__response__, 'project_key'),
+        repo_layout_ref=pulumi.get(__response__, 'repo_layout_ref'),
+        repositories=pulumi.get(__response__, 'repositories'),
+        retrieval_cache_period_seconds=pulumi.get(__response__, 'retrieval_cache_period_seconds'),
+        secondary_keypair_ref=pulumi.get(__response__, 'secondary_keypair_ref')))

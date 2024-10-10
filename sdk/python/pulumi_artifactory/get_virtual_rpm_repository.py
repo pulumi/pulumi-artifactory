@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -240,9 +245,6 @@ def get_virtual_rpm_repository(artifactory_requests_can_retrieve_remote_artifact
         repo_layout_ref=pulumi.get(__ret__, 'repo_layout_ref'),
         repositories=pulumi.get(__ret__, 'repositories'),
         secondary_keypair_ref=pulumi.get(__ret__, 'secondary_keypair_ref'))
-
-
-@_utilities.lift_output_func(get_virtual_rpm_repository)
 def get_virtual_rpm_repository_output(artifactory_requests_can_retrieve_remote_artifacts: Optional[pulumi.Input[Optional[bool]]] = None,
                                       default_deployment_repo: Optional[pulumi.Input[Optional[str]]] = None,
                                       description: Optional[pulumi.Input[Optional[str]]] = None,
@@ -274,4 +276,35 @@ def get_virtual_rpm_repository_output(artifactory_requests_can_retrieve_remote_a
     :param str primary_keypair_ref: (Optional) The primary GPG key to be used to sign packages.
     :param str secondary_keypair_ref: (Optional) The secondary GPG key to be used to sign packages.
     """
-    ...
+    __args__ = dict()
+    __args__['artifactoryRequestsCanRetrieveRemoteArtifacts'] = artifactory_requests_can_retrieve_remote_artifacts
+    __args__['defaultDeploymentRepo'] = default_deployment_repo
+    __args__['description'] = description
+    __args__['excludesPattern'] = excludes_pattern
+    __args__['includesPattern'] = includes_pattern
+    __args__['key'] = key
+    __args__['notes'] = notes
+    __args__['primaryKeypairRef'] = primary_keypair_ref
+    __args__['projectEnvironments'] = project_environments
+    __args__['projectKey'] = project_key
+    __args__['repoLayoutRef'] = repo_layout_ref
+    __args__['repositories'] = repositories
+    __args__['secondaryKeypairRef'] = secondary_keypair_ref
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('artifactory:index/getVirtualRpmRepository:getVirtualRpmRepository', __args__, opts=opts, typ=GetVirtualRpmRepositoryResult)
+    return __ret__.apply(lambda __response__: GetVirtualRpmRepositoryResult(
+        artifactory_requests_can_retrieve_remote_artifacts=pulumi.get(__response__, 'artifactory_requests_can_retrieve_remote_artifacts'),
+        default_deployment_repo=pulumi.get(__response__, 'default_deployment_repo'),
+        description=pulumi.get(__response__, 'description'),
+        excludes_pattern=pulumi.get(__response__, 'excludes_pattern'),
+        id=pulumi.get(__response__, 'id'),
+        includes_pattern=pulumi.get(__response__, 'includes_pattern'),
+        key=pulumi.get(__response__, 'key'),
+        notes=pulumi.get(__response__, 'notes'),
+        package_type=pulumi.get(__response__, 'package_type'),
+        primary_keypair_ref=pulumi.get(__response__, 'primary_keypair_ref'),
+        project_environments=pulumi.get(__response__, 'project_environments'),
+        project_key=pulumi.get(__response__, 'project_key'),
+        repo_layout_ref=pulumi.get(__response__, 'repo_layout_ref'),
+        repositories=pulumi.get(__response__, 'repositories'),
+        secondary_keypair_ref=pulumi.get(__response__, 'secondary_keypair_ref')))
