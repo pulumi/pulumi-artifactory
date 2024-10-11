@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -177,9 +182,6 @@ def get_user(admin: Optional[bool] = None,
         internal_password_disabled=pulumi.get(__ret__, 'internal_password_disabled'),
         name=pulumi.get(__ret__, 'name'),
         profile_updatable=pulumi.get(__ret__, 'profile_updatable'))
-
-
-@_utilities.lift_output_func(get_user)
 def get_user_output(admin: Optional[pulumi.Input[Optional[bool]]] = None,
                     disable_ui_access: Optional[pulumi.Input[Optional[bool]]] = None,
                     email: Optional[pulumi.Input[Optional[str]]] = None,
@@ -212,4 +214,22 @@ def get_user_output(admin: Optional[pulumi.Input[Optional[bool]]] = None,
     :param str name: Name of the user.
     :param bool profile_updatable: When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
     """
-    ...
+    __args__ = dict()
+    __args__['admin'] = admin
+    __args__['disableUiAccess'] = disable_ui_access
+    __args__['email'] = email
+    __args__['groups'] = groups
+    __args__['internalPasswordDisabled'] = internal_password_disabled
+    __args__['name'] = name
+    __args__['profileUpdatable'] = profile_updatable
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('artifactory:index/getUser:getUser', __args__, opts=opts, typ=GetUserResult)
+    return __ret__.apply(lambda __response__: GetUserResult(
+        admin=pulumi.get(__response__, 'admin'),
+        disable_ui_access=pulumi.get(__response__, 'disable_ui_access'),
+        email=pulumi.get(__response__, 'email'),
+        groups=pulumi.get(__response__, 'groups'),
+        id=pulumi.get(__response__, 'id'),
+        internal_password_disabled=pulumi.get(__response__, 'internal_password_disabled'),
+        name=pulumi.get(__response__, 'name'),
+        profile_updatable=pulumi.get(__response__, 'profile_updatable')))
