@@ -124,6 +124,32 @@ func Provider() tfbridge.ProviderInfo {
 			"artifactory_release_bundle_v2_promotion": {ComputeID: computeIDField("name")},
 			"artifactory_item_properties":             {ComputeID: computeIDField("repoKey")},
 
+			// ComputeID mappings for v12.2.0 on webhooks
+			"artifactory_artifact_custom_webhook":                    {ComputeID: computeIDField("id")},
+			"artifactory_user_custom_webhook":                        {ComputeID: computeIDField("id")},
+			"artifactory_release_bundle_v2_promotion_custom_webhook": {ComputeID: computeIDField("id")},
+			"artifactory_artifact_webhook":                           {ComputeID: computeIDField("id")},
+			"artifactory_artifactory_release_bundle_custom_webhook":  {ComputeID: computeIDField("id")},
+			"artifactory_artifact_lifecycle_webhook":                 {ComputeID: computeIDField("id")},
+			"artifactory_release_bundle_v2_promotion_webhook":        {ComputeID: computeIDField("id")},
+			"artifactory_build_webhook":                              {ComputeID: computeIDField("id")},
+			"artifactory_docker_custom_webhook":                      {ComputeID: computeIDField("id")},
+			"artifactory_release_bundle_v2_custom_webhook":           {ComputeID: computeIDField("id")},
+			"artifactory_artifact_lifecycle_custom_webhook":          {ComputeID: computeIDField("id")},
+			"artifactory_distribution_custom_webhook":                {ComputeID: computeIDField("id")},
+			"artifactory_artifact_property_custom_webhook":           {ComputeID: computeIDField("id")},
+			"artifactory_artifact_property_webhook":                  {ComputeID: computeIDField("id")},
+			"artifactory_destination_webhook":                        {ComputeID: computeIDField("id")},
+			"artifactory_release_bundle_v2_webhook":                  {ComputeID: computeIDField("id")},
+			"artifactory_release_bundle_webhook":                     {ComputeID: computeIDField("id")},
+			"artifactory_destination_custom_webhook":                 {ComputeID: computeIDField("id")},
+			"artifactory_docker_webhook":                             {ComputeID: computeIDField("id")},
+			"artifactory_user_webhook":                               {ComputeID: computeIDField("id")},
+			"artifactory_build_custom_webhook":                       {ComputeID: computeIDField("id")},
+			"artifactory_artifactory_release_bundle_webhook":         {ComputeID: computeIDField("id")},
+			"artifactory_release_bundle_custom_webhook":              {ComputeID: computeIDField("id")},
+			"artifactory_distribution_webhook":                       {ComputeID: computeIDField("id")},
+
 			// Old Manual Mappings.
 			//
 			// We leave these as they are to avoid churn.
