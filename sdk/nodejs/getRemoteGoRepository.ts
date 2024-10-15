@@ -32,6 +32,7 @@ export function getRemoteGoRepository(args: GetRemoteGoRepositoryArgs, opts?: pu
         "cdnRedirect": args.cdnRedirect,
         "clientTlsCertificate": args.clientTlsCertificate,
         "contentSynchronisation": args.contentSynchronisation,
+        "curated": args.curated,
         "description": args.description,
         "disableProxy": args.disableProxy,
         "disableUrlNormalization": args.disableUrlNormalization,
@@ -83,6 +84,7 @@ export interface GetRemoteGoRepositoryArgs {
     cdnRedirect?: boolean;
     clientTlsCertificate?: string;
     contentSynchronisation?: inputs.GetRemoteGoRepositoryContentSynchronisation;
+    curated?: boolean;
     description?: string;
     disableProxy?: boolean;
     disableUrlNormalization?: boolean;
@@ -139,6 +141,7 @@ export interface GetRemoteGoRepositoryResult {
     readonly cdnRedirect?: boolean;
     readonly clientTlsCertificate: string;
     readonly contentSynchronisation: outputs.GetRemoteGoRepositoryContentSynchronisation;
+    readonly curated?: boolean;
     readonly description?: string;
     readonly disableProxy?: boolean;
     readonly disableUrlNormalization?: boolean;
@@ -209,6 +212,7 @@ export function getRemoteGoRepositoryOutput(args: GetRemoteGoRepositoryOutputArg
         "cdnRedirect": args.cdnRedirect,
         "clientTlsCertificate": args.clientTlsCertificate,
         "contentSynchronisation": args.contentSynchronisation,
+        "curated": args.curated,
         "description": args.description,
         "disableProxy": args.disableProxy,
         "disableUrlNormalization": args.disableUrlNormalization,
@@ -260,6 +264,7 @@ export interface GetRemoteGoRepositoryOutputArgs {
     cdnRedirect?: pulumi.Input<boolean>;
     clientTlsCertificate?: pulumi.Input<string>;
     contentSynchronisation?: pulumi.Input<inputs.GetRemoteGoRepositoryContentSynchronisationArgs>;
+    curated?: pulumi.Input<boolean>;
     description?: pulumi.Input<string>;
     disableProxy?: pulumi.Input<boolean>;
     disableUrlNormalization?: pulumi.Input<boolean>;

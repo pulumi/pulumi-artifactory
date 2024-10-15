@@ -17,32 +17,16 @@ public final class ReleaseBundleV2PromotionCustomWebhookCriteriaArgs extends com
 
     public static final ReleaseBundleV2PromotionCustomWebhookCriteriaArgs Empty = new ReleaseBundleV2PromotionCustomWebhookCriteriaArgs();
 
-    /**
-     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\nAnt-style path expressions are supported (*, **, ?).\nFor example: &#34;org/apache/**&#34;
-     * 
-     */
     @Import(name="excludePatterns")
     private @Nullable Output<List<String>> excludePatterns;
 
-    /**
-     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\nAnt-style path expressions are supported (*, **, ?).\nFor example: &#34;org/apache/**&#34;
-     * 
-     */
     public Optional<Output<List<String>>> excludePatterns() {
         return Optional.ofNullable(this.excludePatterns);
     }
 
-    /**
-     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\nAnt-style path expressions are supported (*, **, ?).\nFor example: &#34;org/apache/**&#34;
-     * 
-     */
     @Import(name="includePatterns")
     private @Nullable Output<List<String>> includePatterns;
 
-    /**
-     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\nAnt-style path expressions are supported (*, **, ?).\nFor example: &#34;org/apache/**&#34;
-     * 
-     */
     public Optional<Output<List<String>>> includePatterns() {
         return Optional.ofNullable(this.includePatterns);
     }
@@ -88,64 +72,28 @@ public final class ReleaseBundleV2PromotionCustomWebhookCriteriaArgs extends com
             $ = new ReleaseBundleV2PromotionCustomWebhookCriteriaArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param excludePatterns Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\nAnt-style path expressions are supported (*, **, ?).\nFor example: &#34;org/apache/**&#34;
-         * 
-         * @return builder
-         * 
-         */
         public Builder excludePatterns(@Nullable Output<List<String>> excludePatterns) {
             $.excludePatterns = excludePatterns;
             return this;
         }
 
-        /**
-         * @param excludePatterns Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\nAnt-style path expressions are supported (*, **, ?).\nFor example: &#34;org/apache/**&#34;
-         * 
-         * @return builder
-         * 
-         */
         public Builder excludePatterns(List<String> excludePatterns) {
             return excludePatterns(Output.of(excludePatterns));
         }
 
-        /**
-         * @param excludePatterns Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\nAnt-style path expressions are supported (*, **, ?).\nFor example: &#34;org/apache/**&#34;
-         * 
-         * @return builder
-         * 
-         */
         public Builder excludePatterns(String... excludePatterns) {
             return excludePatterns(List.of(excludePatterns));
         }
 
-        /**
-         * @param includePatterns Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\nAnt-style path expressions are supported (*, **, ?).\nFor example: &#34;org/apache/**&#34;
-         * 
-         * @return builder
-         * 
-         */
         public Builder includePatterns(@Nullable Output<List<String>> includePatterns) {
             $.includePatterns = includePatterns;
             return this;
         }
 
-        /**
-         * @param includePatterns Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\nAnt-style path expressions are supported (*, **, ?).\nFor example: &#34;org/apache/**&#34;
-         * 
-         * @return builder
-         * 
-         */
         public Builder includePatterns(List<String> includePatterns) {
             return includePatterns(Output.of(includePatterns));
         }
 
-        /**
-         * @param includePatterns Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\nAnt-style path expressions are supported (*, **, ?).\nFor example: &#34;org/apache/**&#34;
-         * 
-         * @return builder
-         * 
-         */
         public Builder includePatterns(String... includePatterns) {
             return includePatterns(List.of(includePatterns));
         }

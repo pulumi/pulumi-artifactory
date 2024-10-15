@@ -179,7 +179,7 @@ class LocalRepositoryMultiReplication(pulumi.CustomResource):
 
         This resource replaces `PushReplication` and used to create a replication of one local repository to multiple repositories on the remote server.
 
-        > This resource requires Artifactory Enterprise license. Use `LocalRepositorySingleReplication` with other licenses.
+        ~>This resource requires Artifactory Enterprise license. Use `LocalRepositorySingleReplication` with other licenses.
 
         ## Example Usage
 
@@ -248,7 +248,7 @@ class LocalRepositoryMultiReplication(pulumi.CustomResource):
 
         This resource replaces `PushReplication` and used to create a replication of one local repository to multiple repositories on the remote server.
 
-        > This resource requires Artifactory Enterprise license. Use `LocalRepositorySingleReplication` with other licenses.
+        ~>This resource requires Artifactory Enterprise license. Use `LocalRepositorySingleReplication` with other licenses.
 
         ## Example Usage
 

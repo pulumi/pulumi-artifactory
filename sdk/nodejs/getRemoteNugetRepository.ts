@@ -32,6 +32,7 @@ export function getRemoteNugetRepository(args: GetRemoteNugetRepositoryArgs, opt
         "cdnRedirect": args.cdnRedirect,
         "clientTlsCertificate": args.clientTlsCertificate,
         "contentSynchronisation": args.contentSynchronisation,
+        "curated": args.curated,
         "description": args.description,
         "disableProxy": args.disableProxy,
         "disableUrlNormalization": args.disableUrlNormalization,
@@ -87,6 +88,7 @@ export interface GetRemoteNugetRepositoryArgs {
     cdnRedirect?: boolean;
     clientTlsCertificate?: string;
     contentSynchronisation?: inputs.GetRemoteNugetRepositoryContentSynchronisation;
+    curated?: boolean;
     description?: string;
     disableProxy?: boolean;
     disableUrlNormalization?: boolean;
@@ -159,6 +161,7 @@ export interface GetRemoteNugetRepositoryResult {
     readonly cdnRedirect?: boolean;
     readonly clientTlsCertificate: string;
     readonly contentSynchronisation: outputs.GetRemoteNugetRepositoryContentSynchronisation;
+    readonly curated?: boolean;
     readonly description?: string;
     readonly disableProxy?: boolean;
     readonly disableUrlNormalization?: boolean;
@@ -245,6 +248,7 @@ export function getRemoteNugetRepositoryOutput(args: GetRemoteNugetRepositoryOut
         "cdnRedirect": args.cdnRedirect,
         "clientTlsCertificate": args.clientTlsCertificate,
         "contentSynchronisation": args.contentSynchronisation,
+        "curated": args.curated,
         "description": args.description,
         "disableProxy": args.disableProxy,
         "disableUrlNormalization": args.disableUrlNormalization,
@@ -300,6 +304,7 @@ export interface GetRemoteNugetRepositoryOutputArgs {
     cdnRedirect?: pulumi.Input<boolean>;
     clientTlsCertificate?: pulumi.Input<string>;
     contentSynchronisation?: pulumi.Input<inputs.GetRemoteNugetRepositoryContentSynchronisationArgs>;
+    curated?: pulumi.Input<boolean>;
     description?: pulumi.Input<string>;
     disableProxy?: pulumi.Input<boolean>;
     disableUrlNormalization?: pulumi.Input<boolean>;

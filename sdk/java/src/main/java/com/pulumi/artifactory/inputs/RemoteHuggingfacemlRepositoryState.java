@@ -169,6 +169,21 @@ public final class RemoteHuggingfacemlRepositoryState extends com.pulumi.resourc
     }
 
     /**
+     * Enable repository to be protected by the Curation service.
+     * 
+     */
+    @Import(name="curated")
+    private @Nullable Output<Boolean> curated;
+
+    /**
+     * @return Enable repository to be protected by the Curation service.
+     * 
+     */
+    public Optional<Output<Boolean>> curated() {
+        return Optional.ofNullable(this.curated);
+    }
+
+    /**
      * Public description.
      * 
      */
@@ -713,6 +728,7 @@ public final class RemoteHuggingfacemlRepositoryState extends com.pulumi.resourc
         this.cdnRedirect = $.cdnRedirect;
         this.clientTlsCertificate = $.clientTlsCertificate;
         this.contentSynchronisation = $.contentSynchronisation;
+        this.curated = $.curated;
         this.description = $.description;
         this.disableProxy = $.disableProxy;
         this.disableUrlNormalization = $.disableUrlNormalization;
@@ -965,6 +981,27 @@ public final class RemoteHuggingfacemlRepositoryState extends com.pulumi.resourc
 
         public Builder contentSynchronisation(RemoteHuggingfacemlRepositoryContentSynchronisationArgs contentSynchronisation) {
             return contentSynchronisation(Output.of(contentSynchronisation));
+        }
+
+        /**
+         * @param curated Enable repository to be protected by the Curation service.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder curated(@Nullable Output<Boolean> curated) {
+            $.curated = curated;
+            return this;
+        }
+
+        /**
+         * @param curated Enable repository to be protected by the Curation service.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder curated(Boolean curated) {
+            return curated(Output.of(curated));
         }
 
         /**

@@ -22,25 +22,26 @@ __all__ = ['UserCustomWebhookArgs', 'UserCustomWebhook']
 class UserCustomWebhookArgs:
     def __init__(__self__, *,
                  event_types: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 handlers: pulumi.Input[Sequence[pulumi.Input['UserCustomWebhookHandlerArgs']]],
                  key: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
-                 enabled: Optional[pulumi.Input[bool]] = None):
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 handlers: Optional[pulumi.Input[Sequence[pulumi.Input['UserCustomWebhookHandlerArgs']]]] = None):
         """
         The set of arguments for constructing a UserCustomWebhook resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] event_types: List of event triggers for the Webhook. Allow values: `locked`
-        :param pulumi.Input[Sequence[pulumi.Input['UserCustomWebhookHandlerArgs']]] handlers: At least one is required.
         :param pulumi.Input[str] key: The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
         :param pulumi.Input[str] description: Webhook description. Max length 1000 characters.
         :param pulumi.Input[bool] enabled: Status of webhook. Default to `true`
+        :param pulumi.Input[Sequence[pulumi.Input['UserCustomWebhookHandlerArgs']]] handlers: At least one is required.
         """
         pulumi.set(__self__, "event_types", event_types)
-        pulumi.set(__self__, "handlers", handlers)
         pulumi.set(__self__, "key", key)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if handlers is not None:
+            pulumi.set(__self__, "handlers", handlers)
 
     @property
     @pulumi.getter(name="eventTypes")
@@ -53,18 +54,6 @@ class UserCustomWebhookArgs:
     @event_types.setter
     def event_types(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "event_types", value)
-
-    @property
-    @pulumi.getter
-    def handlers(self) -> pulumi.Input[Sequence[pulumi.Input['UserCustomWebhookHandlerArgs']]]:
-        """
-        At least one is required.
-        """
-        return pulumi.get(self, "handlers")
-
-    @handlers.setter
-    def handlers(self, value: pulumi.Input[Sequence[pulumi.Input['UserCustomWebhookHandlerArgs']]]):
-        pulumi.set(self, "handlers", value)
 
     @property
     @pulumi.getter
@@ -101,6 +90,18 @@ class UserCustomWebhookArgs:
     @enabled.setter
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter
+    def handlers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserCustomWebhookHandlerArgs']]]]:
+        """
+        At least one is required.
+        """
+        return pulumi.get(self, "handlers")
+
+    @handlers.setter
+    def handlers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserCustomWebhookHandlerArgs']]]]):
+        pulumi.set(self, "handlers", value)
 
 
 @pulumi.input_type
@@ -304,8 +305,6 @@ class UserCustomWebhook(pulumi.CustomResource):
             if event_types is None and not opts.urn:
                 raise TypeError("Missing required property 'event_types'")
             __props__.__dict__["event_types"] = event_types
-            if handlers is None and not opts.urn:
-                raise TypeError("Missing required property 'handlers'")
             __props__.__dict__["handlers"] = handlers
             if key is None and not opts.urn:
                 raise TypeError("Missing required property 'key'")
@@ -359,7 +358,7 @@ class UserCustomWebhook(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def enabled(self) -> pulumi.Output[Optional[bool]]:
+    def enabled(self) -> pulumi.Output[bool]:
         """
         Status of webhook. Default to `true`
         """
@@ -375,7 +374,7 @@ class UserCustomWebhook(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def handlers(self) -> pulumi.Output[Sequence['outputs.UserCustomWebhookHandler']]:
+    def handlers(self) -> pulumi.Output[Optional[Sequence['outputs.UserCustomWebhookHandler']]]:
         """
         At least one is required.
         """

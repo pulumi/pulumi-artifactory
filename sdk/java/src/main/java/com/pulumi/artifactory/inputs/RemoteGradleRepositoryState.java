@@ -169,6 +169,21 @@ public final class RemoteGradleRepositoryState extends com.pulumi.resources.Reso
     }
 
     /**
+     * Enable repository to be protected by the Curation service.
+     * 
+     */
+    @Import(name="curated")
+    private @Nullable Output<Boolean> curated;
+
+    /**
+     * @return Enable repository to be protected by the Curation service.
+     * 
+     */
+    public Optional<Output<Boolean>> curated() {
+        return Optional.ofNullable(this.curated);
+    }
+
+    /**
      * Public description.
      * 
      */
@@ -833,6 +848,7 @@ public final class RemoteGradleRepositoryState extends com.pulumi.resources.Reso
         this.cdnRedirect = $.cdnRedirect;
         this.clientTlsCertificate = $.clientTlsCertificate;
         this.contentSynchronisation = $.contentSynchronisation;
+        this.curated = $.curated;
         this.description = $.description;
         this.disableProxy = $.disableProxy;
         this.disableUrlNormalization = $.disableUrlNormalization;
@@ -1093,6 +1109,27 @@ public final class RemoteGradleRepositoryState extends com.pulumi.resources.Reso
 
         public Builder contentSynchronisation(RemoteGradleRepositoryContentSynchronisationArgs contentSynchronisation) {
             return contentSynchronisation(Output.of(contentSynchronisation));
+        }
+
+        /**
+         * @param curated Enable repository to be protected by the Curation service.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder curated(@Nullable Output<Boolean> curated) {
+            $.curated = curated;
+            return this;
+        }
+
+        /**
+         * @param curated Enable repository to be protected by the Curation service.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder curated(Boolean curated) {
+            return curated(Output.of(curated));
         }
 
         /**

@@ -24,15 +24,15 @@ public final class ReleaseBundleWebhookArgs extends com.pulumi.resources.Resourc
      * Specifies where the webhook will be applied on which repositories.
      * 
      */
-    @Import(name="criteria", required=true)
-    private Output<ReleaseBundleWebhookCriteriaArgs> criteria;
+    @Import(name="criteria")
+    private @Nullable Output<ReleaseBundleWebhookCriteriaArgs> criteria;
 
     /**
      * @return Specifies where the webhook will be applied on which repositories.
      * 
      */
-    public Output<ReleaseBundleWebhookCriteriaArgs> criteria() {
-        return this.criteria;
+    public Optional<Output<ReleaseBundleWebhookCriteriaArgs>> criteria() {
+        return Optional.ofNullable(this.criteria);
     }
 
     /**
@@ -84,15 +84,15 @@ public final class ReleaseBundleWebhookArgs extends com.pulumi.resources.Resourc
      * At least one is required.
      * 
      */
-    @Import(name="handlers", required=true)
-    private Output<List<ReleaseBundleWebhookHandlerArgs>> handlers;
+    @Import(name="handlers")
+    private @Nullable Output<List<ReleaseBundleWebhookHandlerArgs>> handlers;
 
     /**
      * @return At least one is required.
      * 
      */
-    public Output<List<ReleaseBundleWebhookHandlerArgs>> handlers() {
-        return this.handlers;
+    public Optional<Output<List<ReleaseBundleWebhookHandlerArgs>>> handlers() {
+        return Optional.ofNullable(this.handlers);
     }
 
     /**
@@ -145,7 +145,7 @@ public final class ReleaseBundleWebhookArgs extends com.pulumi.resources.Resourc
          * @return builder
          * 
          */
-        public Builder criteria(Output<ReleaseBundleWebhookCriteriaArgs> criteria) {
+        public Builder criteria(@Nullable Output<ReleaseBundleWebhookCriteriaArgs> criteria) {
             $.criteria = criteria;
             return this;
         }
@@ -239,7 +239,7 @@ public final class ReleaseBundleWebhookArgs extends com.pulumi.resources.Resourc
          * @return builder
          * 
          */
-        public Builder handlers(Output<List<ReleaseBundleWebhookHandlerArgs>> handlers) {
+        public Builder handlers(@Nullable Output<List<ReleaseBundleWebhookHandlerArgs>> handlers) {
             $.handlers = handlers;
             return this;
         }
@@ -286,14 +286,8 @@ public final class ReleaseBundleWebhookArgs extends com.pulumi.resources.Resourc
         }
 
         public ReleaseBundleWebhookArgs build() {
-            if ($.criteria == null) {
-                throw new MissingRequiredPropertyException("ReleaseBundleWebhookArgs", "criteria");
-            }
             if ($.eventTypes == null) {
                 throw new MissingRequiredPropertyException("ReleaseBundleWebhookArgs", "eventTypes");
-            }
-            if ($.handlers == null) {
-                throw new MissingRequiredPropertyException("ReleaseBundleWebhookArgs", "handlers");
             }
             if ($.key == null) {
                 throw new MissingRequiredPropertyException("ReleaseBundleWebhookArgs", "key");

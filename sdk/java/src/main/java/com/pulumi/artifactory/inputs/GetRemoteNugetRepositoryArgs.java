@@ -83,6 +83,13 @@ public final class GetRemoteNugetRepositoryArgs extends com.pulumi.resources.Inv
         return Optional.ofNullable(this.contentSynchronisation);
     }
 
+    @Import(name="curated")
+    private @Nullable Output<Boolean> curated;
+
+    public Optional<Output<Boolean>> curated() {
+        return Optional.ofNullable(this.curated);
+    }
+
     @Import(name="description")
     private @Nullable Output<String> description;
 
@@ -416,6 +423,7 @@ public final class GetRemoteNugetRepositoryArgs extends com.pulumi.resources.Inv
         this.cdnRedirect = $.cdnRedirect;
         this.clientTlsCertificate = $.clientTlsCertificate;
         this.contentSynchronisation = $.contentSynchronisation;
+        this.curated = $.curated;
         this.description = $.description;
         this.disableProxy = $.disableProxy;
         this.disableUrlNormalization = $.disableUrlNormalization;
@@ -554,6 +562,15 @@ public final class GetRemoteNugetRepositoryArgs extends com.pulumi.resources.Inv
 
         public Builder contentSynchronisation(GetRemoteNugetRepositoryContentSynchronisationArgs contentSynchronisation) {
             return contentSynchronisation(Output.of(contentSynchronisation));
+        }
+
+        public Builder curated(@Nullable Output<Boolean> curated) {
+            $.curated = curated;
+            return this;
+        }
+
+        public Builder curated(Boolean curated) {
+            return curated(Output.of(curated));
         }
 
         public Builder description(@Nullable Output<String> description) {

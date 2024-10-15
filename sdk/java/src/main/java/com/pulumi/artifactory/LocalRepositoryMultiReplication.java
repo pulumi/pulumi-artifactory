@@ -26,7 +26,7 @@ import javax.annotation.Nullable;
  * 
  * This resource replaces `artifactory.PushReplication` and used to create a replication of one local repository to multiple repositories on the remote server.
  * 
- * &gt; This resource requires Artifactory Enterprise license. Use `artifactory.LocalRepositorySingleReplication` with other licenses.
+ * ~&gt;This resource requires Artifactory Enterprise license. Use `artifactory.LocalRepositorySingleReplication` with other licenses.
  * 
  * ## Example Usage
  * 

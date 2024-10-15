@@ -81,6 +81,8 @@ type RemoteGoRepository struct {
 	// Client TLS certificate name.
 	ClientTlsCertificate   pulumi.StringOutput                            `pulumi:"clientTlsCertificate"`
 	ContentSynchronisation RemoteGoRepositoryContentSynchronisationOutput `pulumi:"contentSynchronisation"`
+	// Enable repository to be protected by the Curation service.
+	Curated pulumi.BoolPtrOutput `pulumi:"curated"`
 	// Public description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
@@ -242,6 +244,8 @@ type remoteGoRepositoryState struct {
 	// Client TLS certificate name.
 	ClientTlsCertificate   *string                                   `pulumi:"clientTlsCertificate"`
 	ContentSynchronisation *RemoteGoRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
+	// Enable repository to be protected by the Curation service.
+	Curated *bool `pulumi:"curated"`
 	// Public description.
 	Description *string `pulumi:"description"`
 	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
@@ -364,6 +368,8 @@ type RemoteGoRepositoryState struct {
 	// Client TLS certificate name.
 	ClientTlsCertificate   pulumi.StringPtrInput
 	ContentSynchronisation RemoteGoRepositoryContentSynchronisationPtrInput
+	// Enable repository to be protected by the Curation service.
+	Curated pulumi.BoolPtrInput
 	// Public description.
 	Description pulumi.StringPtrInput
 	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
@@ -490,6 +496,8 @@ type remoteGoRepositoryArgs struct {
 	// Client TLS certificate name.
 	ClientTlsCertificate   *string                                   `pulumi:"clientTlsCertificate"`
 	ContentSynchronisation *RemoteGoRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
+	// Enable repository to be protected by the Curation service.
+	Curated *bool `pulumi:"curated"`
 	// Public description.
 	Description *string `pulumi:"description"`
 	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
@@ -612,6 +620,8 @@ type RemoteGoRepositoryArgs struct {
 	// Client TLS certificate name.
 	ClientTlsCertificate   pulumi.StringPtrInput
 	ContentSynchronisation RemoteGoRepositoryContentSynchronisationPtrInput
+	// Enable repository to be protected by the Curation service.
+	Curated pulumi.BoolPtrInput
 	// Public description.
 	Description pulumi.StringPtrInput
 	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
@@ -846,6 +856,11 @@ func (o RemoteGoRepositoryOutput) ContentSynchronisation() RemoteGoRepositoryCon
 	return o.ApplyT(func(v *RemoteGoRepository) RemoteGoRepositoryContentSynchronisationOutput {
 		return v.ContentSynchronisation
 	}).(RemoteGoRepositoryContentSynchronisationOutput)
+}
+
+// Enable repository to be protected by the Curation service.
+func (o RemoteGoRepositoryOutput) Curated() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RemoteGoRepository) pulumi.BoolPtrOutput { return v.Curated }).(pulumi.BoolPtrOutput)
 }
 
 // Public description.

@@ -81,11 +81,11 @@ type ArtifactPropertyWebhook struct {
 	pulumi.CustomResourceState
 
 	// Specifies where the webhook will be applied on which repositories.
-	Criteria ArtifactPropertyWebhookCriteriaOutput `pulumi:"criteria"`
+	Criteria ArtifactPropertyWebhookCriteriaPtrOutput `pulumi:"criteria"`
 	// Webhook description. Max length 1000 characters.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Status of webhook. Default to `true`.
-	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
+	Enabled pulumi.BoolOutput `pulumi:"enabled"`
 	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `added`, `deleted`.
 	EventTypes pulumi.StringArrayOutput `pulumi:"eventTypes"`
 	// At least one is required.
@@ -101,14 +101,8 @@ func NewArtifactPropertyWebhook(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Criteria == nil {
-		return nil, errors.New("invalid value for required argument 'Criteria'")
-	}
 	if args.EventTypes == nil {
 		return nil, errors.New("invalid value for required argument 'EventTypes'")
-	}
-	if args.Handlers == nil {
-		return nil, errors.New("invalid value for required argument 'Handlers'")
 	}
 	if args.Key == nil {
 		return nil, errors.New("invalid value for required argument 'Key'")
@@ -171,7 +165,7 @@ func (ArtifactPropertyWebhookState) ElementType() reflect.Type {
 
 type artifactPropertyWebhookArgs struct {
 	// Specifies where the webhook will be applied on which repositories.
-	Criteria ArtifactPropertyWebhookCriteria `pulumi:"criteria"`
+	Criteria *ArtifactPropertyWebhookCriteria `pulumi:"criteria"`
 	// Webhook description. Max length 1000 characters.
 	Description *string `pulumi:"description"`
 	// Status of webhook. Default to `true`.
@@ -187,7 +181,7 @@ type artifactPropertyWebhookArgs struct {
 // The set of arguments for constructing a ArtifactPropertyWebhook resource.
 type ArtifactPropertyWebhookArgs struct {
 	// Specifies where the webhook will be applied on which repositories.
-	Criteria ArtifactPropertyWebhookCriteriaInput
+	Criteria ArtifactPropertyWebhookCriteriaPtrInput
 	// Webhook description. Max length 1000 characters.
 	Description pulumi.StringPtrInput
 	// Status of webhook. Default to `true`.
@@ -288,8 +282,8 @@ func (o ArtifactPropertyWebhookOutput) ToArtifactPropertyWebhookOutputWithContex
 }
 
 // Specifies where the webhook will be applied on which repositories.
-func (o ArtifactPropertyWebhookOutput) Criteria() ArtifactPropertyWebhookCriteriaOutput {
-	return o.ApplyT(func(v *ArtifactPropertyWebhook) ArtifactPropertyWebhookCriteriaOutput { return v.Criteria }).(ArtifactPropertyWebhookCriteriaOutput)
+func (o ArtifactPropertyWebhookOutput) Criteria() ArtifactPropertyWebhookCriteriaPtrOutput {
+	return o.ApplyT(func(v *ArtifactPropertyWebhook) ArtifactPropertyWebhookCriteriaPtrOutput { return v.Criteria }).(ArtifactPropertyWebhookCriteriaPtrOutput)
 }
 
 // Webhook description. Max length 1000 characters.
@@ -298,8 +292,8 @@ func (o ArtifactPropertyWebhookOutput) Description() pulumi.StringPtrOutput {
 }
 
 // Status of webhook. Default to `true`.
-func (o ArtifactPropertyWebhookOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ArtifactPropertyWebhook) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+func (o ArtifactPropertyWebhookOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *ArtifactPropertyWebhook) pulumi.BoolOutput { return v.Enabled }).(pulumi.BoolOutput)
 }
 
 // List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `added`, `deleted`.

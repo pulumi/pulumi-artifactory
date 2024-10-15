@@ -59,6 +59,7 @@ type LookupRemoteNugetRepositoryArgs struct {
 	CdnRedirect               *bool                                           `pulumi:"cdnRedirect"`
 	ClientTlsCertificate      *string                                         `pulumi:"clientTlsCertificate"`
 	ContentSynchronisation    *GetRemoteNugetRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
+	Curated                   *bool                                           `pulumi:"curated"`
 	Description               *string                                         `pulumi:"description"`
 	DisableProxy              *bool                                           `pulumi:"disableProxy"`
 	DisableUrlNormalization   *bool                                           `pulumi:"disableUrlNormalization"`
@@ -117,6 +118,7 @@ type LookupRemoteNugetRepositoryResult struct {
 	CdnRedirect               *bool                                          `pulumi:"cdnRedirect"`
 	ClientTlsCertificate      string                                         `pulumi:"clientTlsCertificate"`
 	ContentSynchronisation    GetRemoteNugetRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
+	Curated                   *bool                                          `pulumi:"curated"`
 	Description               *string                                        `pulumi:"description"`
 	DisableProxy              *bool                                          `pulumi:"disableProxy"`
 	DisableUrlNormalization   *bool                                          `pulumi:"disableUrlNormalization"`
@@ -196,6 +198,7 @@ type LookupRemoteNugetRepositoryOutputArgs struct {
 	CdnRedirect               pulumi.BoolPtrInput                                    `pulumi:"cdnRedirect"`
 	ClientTlsCertificate      pulumi.StringPtrInput                                  `pulumi:"clientTlsCertificate"`
 	ContentSynchronisation    GetRemoteNugetRepositoryContentSynchronisationPtrInput `pulumi:"contentSynchronisation"`
+	Curated                   pulumi.BoolPtrInput                                    `pulumi:"curated"`
 	Description               pulumi.StringPtrInput                                  `pulumi:"description"`
 	DisableProxy              pulumi.BoolPtrInput                                    `pulumi:"disableProxy"`
 	DisableUrlNormalization   pulumi.BoolPtrInput                                    `pulumi:"disableUrlNormalization"`
@@ -298,6 +301,10 @@ func (o LookupRemoteNugetRepositoryResultOutput) ContentSynchronisation() GetRem
 	return o.ApplyT(func(v LookupRemoteNugetRepositoryResult) GetRemoteNugetRepositoryContentSynchronisation {
 		return v.ContentSynchronisation
 	}).(GetRemoteNugetRepositoryContentSynchronisationOutput)
+}
+
+func (o LookupRemoteNugetRepositoryResultOutput) Curated() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupRemoteNugetRepositoryResult) *bool { return v.Curated }).(pulumi.BoolPtrOutput)
 }
 
 func (o LookupRemoteNugetRepositoryResultOutput) Description() pulumi.StringPtrOutput {

@@ -219,7 +219,6 @@ __all__ = [
     'GetRemoteCranRepositoryContentSynchronisationResult',
     'GetRemoteDebianRepositoryContentSynchronisationResult',
     'GetRemoteDockerRepositoryContentSynchronisationResult',
-    'GetRemoteGemsRepositoryContentSynchronisationResult',
     'GetRemoteGenericRepositoryContentSynchronisationResult',
     'GetRemoteGitlfsRepositoryContentSynchronisationResult',
     'GetRemoteGoRepositoryContentSynchronisationResult',
@@ -4913,6 +4912,8 @@ class LocalRepositoryMultiReplicationReplication(dict):
         suggest = None
         if key == "checkBinaryExistenceInFilestore":
             suggest = "check_binary_existence_in_filestore"
+        elif key == "disableProxy":
+            suggest = "disable_proxy"
         elif key == "excludePathPrefixPattern":
             suggest = "exclude_path_prefix_pattern"
         elif key == "includePathPrefixPattern":
@@ -4943,6 +4944,7 @@ class LocalRepositoryMultiReplicationReplication(dict):
                  url: str,
                  username: str,
                  check_binary_existence_in_filestore: Optional[bool] = None,
+                 disable_proxy: Optional[bool] = None,
                  enabled: Optional[bool] = None,
                  exclude_path_prefix_pattern: Optional[str] = None,
                  include_path_prefix_pattern: Optional[str] = None,
@@ -4957,6 +4959,7 @@ class LocalRepositoryMultiReplicationReplication(dict):
         :param str url: The URL of the target local repository on a remote Artifactory server. Use the format `https://<artifactory_url>/artifactory/<repository_name>`.
         :param str username: Username on the remote Artifactory instance.
         :param bool check_binary_existence_in_filestore: Enabling the `check_binary_existence_in_filestore` flag requires an Enterprise Plus license. When true, enables distributed checksum storage. For more information, see [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
+        :param bool disable_proxy: When set to `true`, the `proxy` attribute will be ignored (from version 7.41.7). The default value is `false`.
         :param bool enabled: When set, enables replication of this repository to the target specified in `url` attribute. Default value is `true`.
         :param str exclude_path_prefix_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. By default, no artifacts are excluded.
         :param str include_path_prefix_pattern: List of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included `(**/*)`.
@@ -4972,6 +4975,8 @@ class LocalRepositoryMultiReplicationReplication(dict):
         pulumi.set(__self__, "username", username)
         if check_binary_existence_in_filestore is not None:
             pulumi.set(__self__, "check_binary_existence_in_filestore", check_binary_existence_in_filestore)
+        if disable_proxy is not None:
+            pulumi.set(__self__, "disable_proxy", disable_proxy)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if exclude_path_prefix_pattern is not None:
@@ -5016,6 +5021,14 @@ class LocalRepositoryMultiReplicationReplication(dict):
         Enabling the `check_binary_existence_in_filestore` flag requires an Enterprise Plus license. When true, enables distributed checksum storage. For more information, see [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
         """
         return pulumi.get(self, "check_binary_existence_in_filestore")
+
+    @property
+    @pulumi.getter(name="disableProxy")
+    def disable_proxy(self) -> Optional[bool]:
+        """
+        When set to `true`, the `proxy` attribute will be ignored (from version 7.41.7). The default value is `false`.
+        """
+        return pulumi.get(self, "disable_proxy")
 
     @property
     @pulumi.getter
@@ -6557,8 +6570,6 @@ class ReleaseBundleV2PromotionCustomWebhookCriteria(dict):
                  include_patterns: Optional[Sequence[str]] = None):
         """
         :param Sequence[str] selected_environments: Trigger on this list of environment names.
-        :param Sequence[str] exclude_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\\nAnt-style path expressions are supported (*, **, ?).\\nFor example: "org/apache/**"
-        :param Sequence[str] include_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\\nAnt-style path expressions are supported (*, **, ?).\\nFor example: "org/apache/**"
         """
         pulumi.set(__self__, "selected_environments", selected_environments)
         if exclude_patterns is not None:
@@ -6577,17 +6588,11 @@ class ReleaseBundleV2PromotionCustomWebhookCriteria(dict):
     @property
     @pulumi.getter(name="excludePatterns")
     def exclude_patterns(self) -> Optional[Sequence[str]]:
-        """
-        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\\nAnt-style path expressions are supported (*, **, ?).\\nFor example: "org/apache/**"
-        """
         return pulumi.get(self, "exclude_patterns")
 
     @property
     @pulumi.getter(name="includePatterns")
     def include_patterns(self) -> Optional[Sequence[str]]:
-        """
-        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\\nAnt-style path expressions are supported (*, **, ?).\\nFor example: "org/apache/**"
-        """
         return pulumi.get(self, "include_patterns")
 
 
@@ -6703,8 +6708,6 @@ class ReleaseBundleV2PromotionWebhookCriteria(dict):
                  include_patterns: Optional[Sequence[str]] = None):
         """
         :param Sequence[str] selected_environments: Trigger on this list of environment names.
-        :param Sequence[str] exclude_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\\nAnt-style path expressions are supported (*, **, ?).\\nFor example: "org/apache/**"
-        :param Sequence[str] include_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\\nAnt-style path expressions are supported (*, **, ?).\\nFor example: "org/apache/**"
         """
         pulumi.set(__self__, "selected_environments", selected_environments)
         if exclude_patterns is not None:
@@ -6723,17 +6726,11 @@ class ReleaseBundleV2PromotionWebhookCriteria(dict):
     @property
     @pulumi.getter(name="excludePatterns")
     def exclude_patterns(self) -> Optional[Sequence[str]]:
-        """
-        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\\nAnt-style path expressions are supported (*, **, ?).\\nFor example: "org/apache/**"
-        """
         return pulumi.get(self, "exclude_patterns")
 
     @property
     @pulumi.getter(name="includePatterns")
     def include_patterns(self) -> Optional[Sequence[str]]:
-        """
-        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\\nAnt-style path expressions are supported (*, **, ?).\\nFor example: "org/apache/**"
-        """
         return pulumi.get(self, "include_patterns")
 
 
@@ -13157,61 +13154,6 @@ class GetRemoteDebianRepositoryContentSynchronisationResult(dict):
 
 @pulumi.output_type
 class GetRemoteDockerRepositoryContentSynchronisationResult(dict):
-    def __init__(__self__, *,
-                 enabled: Optional[bool] = None,
-                 properties_enabled: Optional[bool] = None,
-                 source_origin_absence_detection: Optional[bool] = None,
-                 statistics_enabled: Optional[bool] = None):
-        """
-        :param bool enabled: If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
-        :param bool properties_enabled: If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
-        :param bool source_origin_absence_detection: If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
-        :param bool statistics_enabled: If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
-        """
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
-        if properties_enabled is not None:
-            pulumi.set(__self__, "properties_enabled", properties_enabled)
-        if source_origin_absence_detection is not None:
-            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
-        if statistics_enabled is not None:
-            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
-
-    @property
-    @pulumi.getter
-    def enabled(self) -> Optional[bool]:
-        """
-        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
-        """
-        return pulumi.get(self, "enabled")
-
-    @property
-    @pulumi.getter(name="propertiesEnabled")
-    def properties_enabled(self) -> Optional[bool]:
-        """
-        If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
-        """
-        return pulumi.get(self, "properties_enabled")
-
-    @property
-    @pulumi.getter(name="sourceOriginAbsenceDetection")
-    def source_origin_absence_detection(self) -> Optional[bool]:
-        """
-        If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
-        """
-        return pulumi.get(self, "source_origin_absence_detection")
-
-    @property
-    @pulumi.getter(name="statisticsEnabled")
-    def statistics_enabled(self) -> Optional[bool]:
-        """
-        If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
-        """
-        return pulumi.get(self, "statistics_enabled")
-
-
-@pulumi.output_type
-class GetRemoteGemsRepositoryContentSynchronisationResult(dict):
     def __init__(__self__, *,
                  enabled: Optional[bool] = None,
                  properties_enabled: Optional[bool] = None,

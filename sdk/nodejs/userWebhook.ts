@@ -66,7 +66,7 @@ export class UserWebhook extends pulumi.CustomResource {
     /**
      * Status of webhook. Default to `true`
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    public readonly enabled!: pulumi.Output<boolean>;
     /**
      * List of event triggers for the Webhook. Allow values: `locked`
      */
@@ -74,7 +74,7 @@ export class UserWebhook extends pulumi.CustomResource {
     /**
      * At least one is required.
      */
-    public readonly handlers!: pulumi.Output<outputs.UserWebhookHandler[]>;
+    public readonly handlers!: pulumi.Output<outputs.UserWebhookHandler[] | undefined>;
     /**
      * The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
      */
@@ -102,9 +102,6 @@ export class UserWebhook extends pulumi.CustomResource {
             const args = argsOrState as UserWebhookArgs | undefined;
             if ((!args || args.eventTypes === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'eventTypes'");
-            }
-            if ((!args || args.handlers === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'handlers'");
             }
             if ((!args || args.key === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'key'");
@@ -165,7 +162,7 @@ export interface UserWebhookArgs {
     /**
      * At least one is required.
      */
-    handlers: pulumi.Input<pulumi.Input<inputs.UserWebhookHandler>[]>;
+    handlers?: pulumi.Input<pulumi.Input<inputs.UserWebhookHandler>[]>;
     /**
      * The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
      */

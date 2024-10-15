@@ -192,9 +192,6 @@ namespace Pulumi.Artifactory
         [Input("retrievalCachePeriodSeconds")]
         public int? RetrievalCachePeriodSeconds { get; set; }
 
-        [Input("retrieveSha256FromServer")]
-        public bool? RetrieveSha256FromServer { get; set; }
-
         [Input("shareConfiguration")]
         public bool? ShareConfiguration { get; set; }
 
@@ -360,9 +357,6 @@ namespace Pulumi.Artifactory
         [Input("retrievalCachePeriodSeconds")]
         public Input<int>? RetrievalCachePeriodSeconds { get; set; }
 
-        [Input("retrieveSha256FromServer")]
-        public Input<bool>? RetrieveSha256FromServer { get; set; }
-
         [Input("shareConfiguration")]
         public Input<bool>? ShareConfiguration { get; set; }
 
@@ -441,7 +435,6 @@ namespace Pulumi.Artifactory
         public readonly string? RemoteRepoLayoutRef;
         public readonly string? RepoLayoutRef;
         public readonly int? RetrievalCachePeriodSeconds;
-        public readonly bool? RetrieveSha256FromServer;
         public readonly bool ShareConfiguration;
         public readonly int? SocketTimeoutMillis;
         public readonly bool? StoreArtifactsLocally;
@@ -529,8 +522,6 @@ namespace Pulumi.Artifactory
 
             int? retrievalCachePeriodSeconds,
 
-            bool? retrieveSha256FromServer,
-
             bool shareConfiguration,
 
             int? socketTimeoutMillis,
@@ -585,7 +576,6 @@ namespace Pulumi.Artifactory
             RemoteRepoLayoutRef = remoteRepoLayoutRef;
             RepoLayoutRef = repoLayoutRef;
             RetrievalCachePeriodSeconds = retrievalCachePeriodSeconds;
-            RetrieveSha256FromServer = retrieveSha256FromServer;
             ShareConfiguration = shareConfiguration;
             SocketTimeoutMillis = socketTimeoutMillis;
             StoreArtifactsLocally = storeArtifactsLocally;

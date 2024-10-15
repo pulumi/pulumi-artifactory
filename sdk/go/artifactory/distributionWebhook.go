@@ -76,11 +76,11 @@ type DistributionWebhook struct {
 	pulumi.CustomResourceState
 
 	// Specifies where the webhook will be applied on which repositories.
-	Criteria DistributionWebhookCriteriaOutput `pulumi:"criteria"`
+	Criteria DistributionWebhookCriteriaPtrOutput `pulumi:"criteria"`
 	// Webhook description. Max length 1000 characters.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Status of webhook. Default to `true`.
-	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
+	Enabled pulumi.BoolOutput `pulumi:"enabled"`
 	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `distributeStarted`, `distributeCompleted`, `distributeAborted`, ` distribute_failed,  `deleteStarted` ,  `deleteCompleted` ,  `deleteFailed`
 	EventTypes pulumi.StringArrayOutput `pulumi:"eventTypes"`
 	// At least one is required.
@@ -96,14 +96,8 @@ func NewDistributionWebhook(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Criteria == nil {
-		return nil, errors.New("invalid value for required argument 'Criteria'")
-	}
 	if args.EventTypes == nil {
 		return nil, errors.New("invalid value for required argument 'EventTypes'")
-	}
-	if args.Handlers == nil {
-		return nil, errors.New("invalid value for required argument 'Handlers'")
 	}
 	if args.Key == nil {
 		return nil, errors.New("invalid value for required argument 'Key'")
@@ -166,7 +160,7 @@ func (DistributionWebhookState) ElementType() reflect.Type {
 
 type distributionWebhookArgs struct {
 	// Specifies where the webhook will be applied on which repositories.
-	Criteria DistributionWebhookCriteria `pulumi:"criteria"`
+	Criteria *DistributionWebhookCriteria `pulumi:"criteria"`
 	// Webhook description. Max length 1000 characters.
 	Description *string `pulumi:"description"`
 	// Status of webhook. Default to `true`.
@@ -182,7 +176,7 @@ type distributionWebhookArgs struct {
 // The set of arguments for constructing a DistributionWebhook resource.
 type DistributionWebhookArgs struct {
 	// Specifies where the webhook will be applied on which repositories.
-	Criteria DistributionWebhookCriteriaInput
+	Criteria DistributionWebhookCriteriaPtrInput
 	// Webhook description. Max length 1000 characters.
 	Description pulumi.StringPtrInput
 	// Status of webhook. Default to `true`.
@@ -283,8 +277,8 @@ func (o DistributionWebhookOutput) ToDistributionWebhookOutputWithContext(ctx co
 }
 
 // Specifies where the webhook will be applied on which repositories.
-func (o DistributionWebhookOutput) Criteria() DistributionWebhookCriteriaOutput {
-	return o.ApplyT(func(v *DistributionWebhook) DistributionWebhookCriteriaOutput { return v.Criteria }).(DistributionWebhookCriteriaOutput)
+func (o DistributionWebhookOutput) Criteria() DistributionWebhookCriteriaPtrOutput {
+	return o.ApplyT(func(v *DistributionWebhook) DistributionWebhookCriteriaPtrOutput { return v.Criteria }).(DistributionWebhookCriteriaPtrOutput)
 }
 
 // Webhook description. Max length 1000 characters.
@@ -293,8 +287,8 @@ func (o DistributionWebhookOutput) Description() pulumi.StringPtrOutput {
 }
 
 // Status of webhook. Default to `true`.
-func (o DistributionWebhookOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *DistributionWebhook) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+func (o DistributionWebhookOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *DistributionWebhook) pulumi.BoolOutput { return v.Enabled }).(pulumi.BoolOutput)
 }
 
 // List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `distributeStarted`, `distributeCompleted`, `distributeAborted`, ` distribute_failed,  `deleteStarted` ,  `deleteCompleted` ,  `deleteFailed`

@@ -28,7 +28,7 @@ class GetRemoteGenericRepositoryResult:
     """
     A collection of values returned by getRemoteGenericRepository.
     """
-    def __init__(__self__, allow_any_host_auth=None, archive_browsing_enabled=None, assumed_offline_period_secs=None, blacked_out=None, block_mismatching_mime_types=None, bypass_head_requests=None, cdn_redirect=None, client_tls_certificate=None, content_synchronisation=None, description=None, disable_proxy=None, disable_url_normalization=None, download_direct=None, enable_cookie_management=None, excludes_pattern=None, hard_fail=None, id=None, includes_pattern=None, key=None, list_remote_folder_items=None, local_address=None, metadata_retrieval_timeout_secs=None, mismatching_mime_types_override_list=None, missed_cache_period_seconds=None, notes=None, offline=None, package_type=None, password=None, priority_resolution=None, project_environments=None, project_key=None, propagate_query_params=None, property_sets=None, proxy=None, query_params=None, remote_repo_layout_ref=None, repo_layout_ref=None, retrieval_cache_period_seconds=None, retrieve_sha256_from_server=None, share_configuration=None, socket_timeout_millis=None, store_artifacts_locally=None, synchronize_properties=None, unused_artifacts_cleanup_period_hours=None, url=None, username=None, xray_index=None):
+    def __init__(__self__, allow_any_host_auth=None, archive_browsing_enabled=None, assumed_offline_period_secs=None, blacked_out=None, block_mismatching_mime_types=None, bypass_head_requests=None, cdn_redirect=None, client_tls_certificate=None, content_synchronisation=None, description=None, disable_proxy=None, disable_url_normalization=None, download_direct=None, enable_cookie_management=None, excludes_pattern=None, hard_fail=None, id=None, includes_pattern=None, key=None, list_remote_folder_items=None, local_address=None, metadata_retrieval_timeout_secs=None, mismatching_mime_types_override_list=None, missed_cache_period_seconds=None, notes=None, offline=None, package_type=None, password=None, priority_resolution=None, project_environments=None, project_key=None, propagate_query_params=None, property_sets=None, proxy=None, query_params=None, remote_repo_layout_ref=None, repo_layout_ref=None, retrieval_cache_period_seconds=None, share_configuration=None, socket_timeout_millis=None, store_artifacts_locally=None, synchronize_properties=None, unused_artifacts_cleanup_period_hours=None, url=None, username=None, xray_index=None):
         if allow_any_host_auth and not isinstance(allow_any_host_auth, bool):
             raise TypeError("Expected argument 'allow_any_host_auth' to be a bool")
         pulumi.set(__self__, "allow_any_host_auth", allow_any_host_auth)
@@ -143,9 +143,6 @@ class GetRemoteGenericRepositoryResult:
         if retrieval_cache_period_seconds and not isinstance(retrieval_cache_period_seconds, int):
             raise TypeError("Expected argument 'retrieval_cache_period_seconds' to be a int")
         pulumi.set(__self__, "retrieval_cache_period_seconds", retrieval_cache_period_seconds)
-        if retrieve_sha256_from_server and not isinstance(retrieve_sha256_from_server, bool):
-            raise TypeError("Expected argument 'retrieve_sha256_from_server' to be a bool")
-        pulumi.set(__self__, "retrieve_sha256_from_server", retrieve_sha256_from_server)
         if share_configuration and not isinstance(share_configuration, bool):
             raise TypeError("Expected argument 'share_configuration' to be a bool")
         pulumi.set(__self__, "share_configuration", share_configuration)
@@ -368,11 +365,6 @@ class GetRemoteGenericRepositoryResult:
         return pulumi.get(self, "retrieval_cache_period_seconds")
 
     @property
-    @pulumi.getter(name="retrieveSha256FromServer")
-    def retrieve_sha256_from_server(self) -> Optional[bool]:
-        return pulumi.get(self, "retrieve_sha256_from_server")
-
-    @property
     @pulumi.getter(name="shareConfiguration")
     def share_configuration(self) -> bool:
         return pulumi.get(self, "share_configuration")
@@ -457,7 +449,6 @@ class AwaitableGetRemoteGenericRepositoryResult(GetRemoteGenericRepositoryResult
             remote_repo_layout_ref=self.remote_repo_layout_ref,
             repo_layout_ref=self.repo_layout_ref,
             retrieval_cache_period_seconds=self.retrieval_cache_period_seconds,
-            retrieve_sha256_from_server=self.retrieve_sha256_from_server,
             share_configuration=self.share_configuration,
             socket_timeout_millis=self.socket_timeout_millis,
             store_artifacts_locally=self.store_artifacts_locally,
@@ -504,7 +495,6 @@ def get_remote_generic_repository(allow_any_host_auth: Optional[bool] = None,
                                   remote_repo_layout_ref: Optional[str] = None,
                                   repo_layout_ref: Optional[str] = None,
                                   retrieval_cache_period_seconds: Optional[int] = None,
-                                  retrieve_sha256_from_server: Optional[bool] = None,
                                   share_configuration: Optional[bool] = None,
                                   socket_timeout_millis: Optional[int] = None,
                                   store_artifacts_locally: Optional[bool] = None,
@@ -567,7 +557,6 @@ def get_remote_generic_repository(allow_any_host_auth: Optional[bool] = None,
     __args__['remoteRepoLayoutRef'] = remote_repo_layout_ref
     __args__['repoLayoutRef'] = repo_layout_ref
     __args__['retrievalCachePeriodSeconds'] = retrieval_cache_period_seconds
-    __args__['retrieveSha256FromServer'] = retrieve_sha256_from_server
     __args__['shareConfiguration'] = share_configuration
     __args__['socketTimeoutMillis'] = socket_timeout_millis
     __args__['storeArtifactsLocally'] = store_artifacts_locally
@@ -618,7 +607,6 @@ def get_remote_generic_repository(allow_any_host_auth: Optional[bool] = None,
         remote_repo_layout_ref=pulumi.get(__ret__, 'remote_repo_layout_ref'),
         repo_layout_ref=pulumi.get(__ret__, 'repo_layout_ref'),
         retrieval_cache_period_seconds=pulumi.get(__ret__, 'retrieval_cache_period_seconds'),
-        retrieve_sha256_from_server=pulumi.get(__ret__, 'retrieve_sha256_from_server'),
         share_configuration=pulumi.get(__ret__, 'share_configuration'),
         socket_timeout_millis=pulumi.get(__ret__, 'socket_timeout_millis'),
         store_artifacts_locally=pulumi.get(__ret__, 'store_artifacts_locally'),
@@ -663,7 +651,6 @@ def get_remote_generic_repository_output(allow_any_host_auth: Optional[pulumi.In
                                          remote_repo_layout_ref: Optional[pulumi.Input[Optional[str]]] = None,
                                          repo_layout_ref: Optional[pulumi.Input[Optional[str]]] = None,
                                          retrieval_cache_period_seconds: Optional[pulumi.Input[Optional[int]]] = None,
-                                         retrieve_sha256_from_server: Optional[pulumi.Input[Optional[bool]]] = None,
                                          share_configuration: Optional[pulumi.Input[Optional[bool]]] = None,
                                          socket_timeout_millis: Optional[pulumi.Input[Optional[int]]] = None,
                                          store_artifacts_locally: Optional[pulumi.Input[Optional[bool]]] = None,
@@ -726,7 +713,6 @@ def get_remote_generic_repository_output(allow_any_host_auth: Optional[pulumi.In
     __args__['remoteRepoLayoutRef'] = remote_repo_layout_ref
     __args__['repoLayoutRef'] = repo_layout_ref
     __args__['retrievalCachePeriodSeconds'] = retrieval_cache_period_seconds
-    __args__['retrieveSha256FromServer'] = retrieve_sha256_from_server
     __args__['shareConfiguration'] = share_configuration
     __args__['socketTimeoutMillis'] = socket_timeout_millis
     __args__['storeArtifactsLocally'] = store_artifacts_locally
@@ -776,7 +762,6 @@ def get_remote_generic_repository_output(allow_any_host_auth: Optional[pulumi.In
         remote_repo_layout_ref=pulumi.get(__response__, 'remote_repo_layout_ref'),
         repo_layout_ref=pulumi.get(__response__, 'repo_layout_ref'),
         retrieval_cache_period_seconds=pulumi.get(__response__, 'retrieval_cache_period_seconds'),
-        retrieve_sha256_from_server=pulumi.get(__response__, 'retrieve_sha256_from_server'),
         share_configuration=pulumi.get(__response__, 'share_configuration'),
         socket_timeout_millis=pulumi.get(__response__, 'socket_timeout_millis'),
         store_artifacts_locally=pulumi.get(__response__, 'store_artifacts_locally'),

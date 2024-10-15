@@ -97,14 +97,14 @@ public class ArtifactPropertyCustomWebhook extends com.pulumi.resources.CustomRe
      * 
      */
     @Export(name="criteria", refs={ArtifactPropertyCustomWebhookCriteria.class}, tree="[0]")
-    private Output<ArtifactPropertyCustomWebhookCriteria> criteria;
+    private Output</* @Nullable */ ArtifactPropertyCustomWebhookCriteria> criteria;
 
     /**
      * @return Specifies where the webhook will be applied on which repositories.
      * 
      */
-    public Output<ArtifactPropertyCustomWebhookCriteria> criteria() {
-        return this.criteria;
+    public Output<Optional<ArtifactPropertyCustomWebhookCriteria>> criteria() {
+        return Codegen.optional(this.criteria);
     }
     /**
      * Webhook description. Max length 1000 characters.
@@ -125,14 +125,14 @@ public class ArtifactPropertyCustomWebhook extends com.pulumi.resources.CustomRe
      * 
      */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> enabled;
+    private Output<Boolean> enabled;
 
     /**
      * @return Status of webhook. Default to `true`.
      * 
      */
-    public Output<Optional<Boolean>> enabled() {
-        return Codegen.optional(this.enabled);
+    public Output<Boolean> enabled() {
+        return this.enabled;
     }
     /**
      * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `added`, `deleted`.
@@ -153,14 +153,14 @@ public class ArtifactPropertyCustomWebhook extends com.pulumi.resources.CustomRe
      * 
      */
     @Export(name="handlers", refs={List.class,ArtifactPropertyCustomWebhookHandler.class}, tree="[0,1]")
-    private Output<List<ArtifactPropertyCustomWebhookHandler>> handlers;
+    private Output</* @Nullable */ List<ArtifactPropertyCustomWebhookHandler>> handlers;
 
     /**
      * @return At least one is required.
      * 
      */
-    public Output<List<ArtifactPropertyCustomWebhookHandler>> handlers() {
-        return this.handlers;
+    public Output<Optional<List<ArtifactPropertyCustomWebhookHandler>>> handlers() {
+        return Codegen.optional(this.handlers);
     }
     /**
      * The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.

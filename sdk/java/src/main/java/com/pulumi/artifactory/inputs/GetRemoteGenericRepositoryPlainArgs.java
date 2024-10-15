@@ -287,13 +287,6 @@ public final class GetRemoteGenericRepositoryPlainArgs extends com.pulumi.resour
         return Optional.ofNullable(this.retrievalCachePeriodSeconds);
     }
 
-    @Import(name="retrieveSha256FromServer")
-    private @Nullable Boolean retrieveSha256FromServer;
-
-    public Optional<Boolean> retrieveSha256FromServer() {
-        return Optional.ofNullable(this.retrieveSha256FromServer);
-    }
-
     @Import(name="shareConfiguration")
     private @Nullable Boolean shareConfiguration;
 
@@ -389,7 +382,6 @@ public final class GetRemoteGenericRepositoryPlainArgs extends com.pulumi.resour
         this.remoteRepoLayoutRef = $.remoteRepoLayoutRef;
         this.repoLayoutRef = $.repoLayoutRef;
         this.retrievalCachePeriodSeconds = $.retrievalCachePeriodSeconds;
-        this.retrieveSha256FromServer = $.retrieveSha256FromServer;
         this.shareConfiguration = $.shareConfiguration;
         this.socketTimeoutMillis = $.socketTimeoutMillis;
         this.storeArtifactsLocally = $.storeArtifactsLocally;
@@ -615,11 +607,6 @@ public final class GetRemoteGenericRepositoryPlainArgs extends com.pulumi.resour
 
         public Builder retrievalCachePeriodSeconds(@Nullable Integer retrievalCachePeriodSeconds) {
             $.retrievalCachePeriodSeconds = retrievalCachePeriodSeconds;
-            return this;
-        }
-
-        public Builder retrieveSha256FromServer(@Nullable Boolean retrieveSha256FromServer) {
-            $.retrieveSha256FromServer = retrieveSha256FromServer;
             return this;
         }
 

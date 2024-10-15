@@ -62,7 +62,6 @@ public final class GetRemoteGenericRepositoryResult {
     private @Nullable String remoteRepoLayoutRef;
     private @Nullable String repoLayoutRef;
     private @Nullable Integer retrievalCachePeriodSeconds;
-    private @Nullable Boolean retrieveSha256FromServer;
     private Boolean shareConfiguration;
     private @Nullable Integer socketTimeoutMillis;
     private @Nullable Boolean storeArtifactsLocally;
@@ -195,9 +194,6 @@ public final class GetRemoteGenericRepositoryResult {
     public Optional<Integer> retrievalCachePeriodSeconds() {
         return Optional.ofNullable(this.retrievalCachePeriodSeconds);
     }
-    public Optional<Boolean> retrieveSha256FromServer() {
-        return Optional.ofNullable(this.retrieveSha256FromServer);
-    }
     public Boolean shareConfiguration() {
         return this.shareConfiguration;
     }
@@ -270,7 +266,6 @@ public final class GetRemoteGenericRepositoryResult {
         private @Nullable String remoteRepoLayoutRef;
         private @Nullable String repoLayoutRef;
         private @Nullable Integer retrievalCachePeriodSeconds;
-        private @Nullable Boolean retrieveSha256FromServer;
         private Boolean shareConfiguration;
         private @Nullable Integer socketTimeoutMillis;
         private @Nullable Boolean storeArtifactsLocally;
@@ -320,7 +315,6 @@ public final class GetRemoteGenericRepositoryResult {
     	      this.remoteRepoLayoutRef = defaults.remoteRepoLayoutRef;
     	      this.repoLayoutRef = defaults.repoLayoutRef;
     	      this.retrievalCachePeriodSeconds = defaults.retrievalCachePeriodSeconds;
-    	      this.retrieveSha256FromServer = defaults.retrieveSha256FromServer;
     	      this.shareConfiguration = defaults.shareConfiguration;
     	      this.socketTimeoutMillis = defaults.socketTimeoutMillis;
     	      this.storeArtifactsLocally = defaults.storeArtifactsLocally;
@@ -578,12 +572,6 @@ public final class GetRemoteGenericRepositoryResult {
             return this;
         }
         @CustomType.Setter
-        public Builder retrieveSha256FromServer(@Nullable Boolean retrieveSha256FromServer) {
-
-            this.retrieveSha256FromServer = retrieveSha256FromServer;
-            return this;
-        }
-        @CustomType.Setter
         public Builder shareConfiguration(Boolean shareConfiguration) {
             if (shareConfiguration == null) {
               throw new MissingRequiredPropertyException("GetRemoteGenericRepositoryResult", "shareConfiguration");
@@ -673,7 +661,6 @@ public final class GetRemoteGenericRepositoryResult {
             _resultValue.remoteRepoLayoutRef = remoteRepoLayoutRef;
             _resultValue.repoLayoutRef = repoLayoutRef;
             _resultValue.retrievalCachePeriodSeconds = retrievalCachePeriodSeconds;
-            _resultValue.retrieveSha256FromServer = retrieveSha256FromServer;
             _resultValue.shareConfiguration = shareConfiguration;
             _resultValue.socketTimeoutMillis = socketTimeoutMillis;
             _resultValue.storeArtifactsLocally = storeArtifactsLocally;

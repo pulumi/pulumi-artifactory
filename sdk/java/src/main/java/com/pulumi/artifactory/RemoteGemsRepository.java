@@ -210,6 +210,20 @@ public class RemoteGemsRepository extends com.pulumi.resources.CustomResource {
         return this.contentSynchronisation;
     }
     /**
+     * Enable repository to be protected by the Curation service.
+     * 
+     */
+    @Export(name="curated", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> curated;
+
+    /**
+     * @return Enable repository to be protected by the Curation service.
+     * 
+     */
+    public Output<Optional<Boolean>> curated() {
+        return Codegen.optional(this.curated);
+    }
+    /**
      * Public description.
      * 
      */
@@ -508,6 +522,20 @@ public class RemoteGemsRepository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.projectKey);
     }
     /**
+     * When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
+     * 
+     */
+    @Export(name="propagateQueryParams", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> propagateQueryParams;
+
+    /**
+     * @return When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
+     * 
+     */
+    public Output<Optional<Boolean>> propagateQueryParams() {
+        return Codegen.optional(this.propagateQueryParams);
+    }
+    /**
      * List of property set names
      * 
      */
@@ -598,6 +626,20 @@ public class RemoteGemsRepository extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Integer>> retrievalCachePeriodSeconds() {
         return Codegen.optional(this.retrievalCachePeriodSeconds);
+    }
+    /**
+     * When set to `true`, Artifactory retrieves the SHA256 from the remote server if it is not cached in the remote repo.
+     * 
+     */
+    @Export(name="retrieveSha256FromServer", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> retrieveSha256FromServer;
+
+    /**
+     * @return When set to `true`, Artifactory retrieves the SHA256 from the remote server if it is not cached in the remote repo.
+     * 
+     */
+    public Output<Optional<Boolean>> retrieveSha256FromServer() {
+        return Codegen.optional(this.retrieveSha256FromServer);
     }
     @Export(name="shareConfiguration", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> shareConfiguration;

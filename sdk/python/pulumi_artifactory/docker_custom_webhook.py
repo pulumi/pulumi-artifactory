@@ -21,41 +21,31 @@ __all__ = ['DockerCustomWebhookArgs', 'DockerCustomWebhook']
 @pulumi.input_type
 class DockerCustomWebhookArgs:
     def __init__(__self__, *,
-                 criteria: pulumi.Input['DockerCustomWebhookCriteriaArgs'],
                  event_types: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 handlers: pulumi.Input[Sequence[pulumi.Input['DockerCustomWebhookHandlerArgs']]],
                  key: pulumi.Input[str],
+                 criteria: Optional[pulumi.Input['DockerCustomWebhookCriteriaArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 enabled: Optional[pulumi.Input[bool]] = None):
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 handlers: Optional[pulumi.Input[Sequence[pulumi.Input['DockerCustomWebhookHandlerArgs']]]] = None):
         """
         The set of arguments for constructing a DockerCustomWebhook resource.
-        :param pulumi.Input['DockerCustomWebhookCriteriaArgs'] criteria: Specifies where the webhook will be applied on which repositories.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] event_types: List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `pushed`, `deleted`, `promoted`.
-        :param pulumi.Input[Sequence[pulumi.Input['DockerCustomWebhookHandlerArgs']]] handlers: At least one is required.
         :param pulumi.Input[str] key: The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+        :param pulumi.Input['DockerCustomWebhookCriteriaArgs'] criteria: Specifies where the webhook will be applied on which repositories.
         :param pulumi.Input[str] description: Webhook description. Max length 1000 characters.
         :param pulumi.Input[bool] enabled: Status of webhook. Default to `true`.
+        :param pulumi.Input[Sequence[pulumi.Input['DockerCustomWebhookHandlerArgs']]] handlers: At least one is required.
         """
-        pulumi.set(__self__, "criteria", criteria)
         pulumi.set(__self__, "event_types", event_types)
-        pulumi.set(__self__, "handlers", handlers)
         pulumi.set(__self__, "key", key)
+        if criteria is not None:
+            pulumi.set(__self__, "criteria", criteria)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
-
-    @property
-    @pulumi.getter
-    def criteria(self) -> pulumi.Input['DockerCustomWebhookCriteriaArgs']:
-        """
-        Specifies where the webhook will be applied on which repositories.
-        """
-        return pulumi.get(self, "criteria")
-
-    @criteria.setter
-    def criteria(self, value: pulumi.Input['DockerCustomWebhookCriteriaArgs']):
-        pulumi.set(self, "criteria", value)
+        if handlers is not None:
+            pulumi.set(__self__, "handlers", handlers)
 
     @property
     @pulumi.getter(name="eventTypes")
@@ -71,18 +61,6 @@ class DockerCustomWebhookArgs:
 
     @property
     @pulumi.getter
-    def handlers(self) -> pulumi.Input[Sequence[pulumi.Input['DockerCustomWebhookHandlerArgs']]]:
-        """
-        At least one is required.
-        """
-        return pulumi.get(self, "handlers")
-
-    @handlers.setter
-    def handlers(self, value: pulumi.Input[Sequence[pulumi.Input['DockerCustomWebhookHandlerArgs']]]):
-        pulumi.set(self, "handlers", value)
-
-    @property
-    @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
         The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
@@ -92,6 +70,18 @@ class DockerCustomWebhookArgs:
     @key.setter
     def key(self, value: pulumi.Input[str]):
         pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def criteria(self) -> Optional[pulumi.Input['DockerCustomWebhookCriteriaArgs']]:
+        """
+        Specifies where the webhook will be applied on which repositories.
+        """
+        return pulumi.get(self, "criteria")
+
+    @criteria.setter
+    def criteria(self, value: Optional[pulumi.Input['DockerCustomWebhookCriteriaArgs']]):
+        pulumi.set(self, "criteria", value)
 
     @property
     @pulumi.getter
@@ -116,6 +106,18 @@ class DockerCustomWebhookArgs:
     @enabled.setter
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter
+    def handlers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DockerCustomWebhookHandlerArgs']]]]:
+        """
+        At least one is required.
+        """
+        return pulumi.get(self, "handlers")
+
+    @handlers.setter
+    def handlers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DockerCustomWebhookHandlerArgs']]]]):
+        pulumi.set(self, "handlers", value)
 
 
 @pulumi.input_type
@@ -357,16 +359,12 @@ class DockerCustomWebhook(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DockerCustomWebhookArgs.__new__(DockerCustomWebhookArgs)
 
-            if criteria is None and not opts.urn:
-                raise TypeError("Missing required property 'criteria'")
             __props__.__dict__["criteria"] = criteria
             __props__.__dict__["description"] = description
             __props__.__dict__["enabled"] = enabled
             if event_types is None and not opts.urn:
                 raise TypeError("Missing required property 'event_types'")
             __props__.__dict__["event_types"] = event_types
-            if handlers is None and not opts.urn:
-                raise TypeError("Missing required property 'handlers'")
             __props__.__dict__["handlers"] = handlers
             if key is None and not opts.urn:
                 raise TypeError("Missing required property 'key'")
@@ -415,7 +413,7 @@ class DockerCustomWebhook(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def criteria(self) -> pulumi.Output['outputs.DockerCustomWebhookCriteria']:
+    def criteria(self) -> pulumi.Output[Optional['outputs.DockerCustomWebhookCriteria']]:
         """
         Specifies where the webhook will be applied on which repositories.
         """
@@ -431,7 +429,7 @@ class DockerCustomWebhook(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def enabled(self) -> pulumi.Output[Optional[bool]]:
+    def enabled(self) -> pulumi.Output[bool]:
         """
         Status of webhook. Default to `true`.
         """
@@ -447,7 +445,7 @@ class DockerCustomWebhook(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def handlers(self) -> pulumi.Output[Sequence['outputs.DockerCustomWebhookHandler']]:
+    def handlers(self) -> pulumi.Output[Optional[Sequence['outputs.DockerCustomWebhookHandler']]]:
         """
         At least one is required.
         """

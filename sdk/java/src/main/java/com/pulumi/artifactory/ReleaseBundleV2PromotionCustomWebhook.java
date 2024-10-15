@@ -87,14 +87,14 @@ public class ReleaseBundleV2PromotionCustomWebhook extends com.pulumi.resources.
      * 
      */
     @Export(name="criteria", refs={ReleaseBundleV2PromotionCustomWebhookCriteria.class}, tree="[0]")
-    private Output<ReleaseBundleV2PromotionCustomWebhookCriteria> criteria;
+    private Output</* @Nullable */ ReleaseBundleV2PromotionCustomWebhookCriteria> criteria;
 
     /**
      * @return Specifies where the webhook will be applied on which enviroments.
      * 
      */
-    public Output<ReleaseBundleV2PromotionCustomWebhookCriteria> criteria() {
-        return this.criteria;
+    public Output<Optional<ReleaseBundleV2PromotionCustomWebhookCriteria>> criteria() {
+        return Codegen.optional(this.criteria);
     }
     /**
      * Webhook description. Max length 1000 characters.
@@ -115,14 +115,14 @@ public class ReleaseBundleV2PromotionCustomWebhook extends com.pulumi.resources.
      * 
      */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> enabled;
+    private Output<Boolean> enabled;
 
     /**
      * @return Status of webhook. Default to `true`.
      * 
      */
-    public Output<Optional<Boolean>> enabled() {
-        return Codegen.optional(this.enabled);
+    public Output<Boolean> enabled() {
+        return this.enabled;
     }
     /**
      * List of event triggers for the Webhook. Allow values: `release_bundle_v2_promotion_started`, `release_bundle_v2_promotion_completed`, `release_bundle_v2_promotion_failed`
@@ -143,14 +143,14 @@ public class ReleaseBundleV2PromotionCustomWebhook extends com.pulumi.resources.
      * 
      */
     @Export(name="handlers", refs={List.class,ReleaseBundleV2PromotionCustomWebhookHandler.class}, tree="[0,1]")
-    private Output<List<ReleaseBundleV2PromotionCustomWebhookHandler>> handlers;
+    private Output</* @Nullable */ List<ReleaseBundleV2PromotionCustomWebhookHandler>> handlers;
 
     /**
      * @return At least one is required.
      * 
      */
-    public Output<List<ReleaseBundleV2PromotionCustomWebhookHandler>> handlers() {
-        return this.handlers;
+    public Output<Optional<List<ReleaseBundleV2PromotionCustomWebhookHandler>>> handlers() {
+        return Codegen.optional(this.handlers);
     }
     /**
      * The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.

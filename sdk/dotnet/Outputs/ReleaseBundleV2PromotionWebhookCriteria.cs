@@ -13,13 +13,7 @@ namespace Pulumi.Artifactory.Outputs
     [OutputType]
     public sealed class ReleaseBundleV2PromotionWebhookCriteria
     {
-        /// <summary>
-        /// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\nAnt-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
-        /// </summary>
         public readonly ImmutableArray<string> ExcludePatterns;
-        /// <summary>
-        /// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\nAnt-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
-        /// </summary>
         public readonly ImmutableArray<string> IncludePatterns;
         /// <summary>
         /// Trigger on this list of environment names.

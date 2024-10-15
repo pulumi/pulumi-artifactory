@@ -25,6 +25,7 @@ public final class GetRemoteNugetRepositoryResult {
     private @Nullable Boolean cdnRedirect;
     private String clientTlsCertificate;
     private GetRemoteNugetRepositoryContentSynchronisation contentSynchronisation;
+    private @Nullable Boolean curated;
     private @Nullable String description;
     private @Nullable Boolean disableProxy;
     private @Nullable Boolean disableUrlNormalization;
@@ -118,6 +119,9 @@ public final class GetRemoteNugetRepositoryResult {
     }
     public GetRemoteNugetRepositoryContentSynchronisation contentSynchronisation() {
         return this.contentSynchronisation;
+    }
+    public Optional<Boolean> curated() {
+        return Optional.ofNullable(this.curated);
     }
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
@@ -285,6 +289,7 @@ public final class GetRemoteNugetRepositoryResult {
         private @Nullable Boolean cdnRedirect;
         private String clientTlsCertificate;
         private GetRemoteNugetRepositoryContentSynchronisation contentSynchronisation;
+        private @Nullable Boolean curated;
         private @Nullable String description;
         private @Nullable Boolean disableProxy;
         private @Nullable Boolean disableUrlNormalization;
@@ -338,6 +343,7 @@ public final class GetRemoteNugetRepositoryResult {
     	      this.cdnRedirect = defaults.cdnRedirect;
     	      this.clientTlsCertificate = defaults.clientTlsCertificate;
     	      this.contentSynchronisation = defaults.contentSynchronisation;
+    	      this.curated = defaults.curated;
     	      this.description = defaults.description;
     	      this.disableProxy = defaults.disableProxy;
     	      this.disableUrlNormalization = defaults.disableUrlNormalization;
@@ -437,6 +443,12 @@ public final class GetRemoteNugetRepositoryResult {
               throw new MissingRequiredPropertyException("GetRemoteNugetRepositoryResult", "contentSynchronisation");
             }
             this.contentSynchronisation = contentSynchronisation;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder curated(@Nullable Boolean curated) {
+
+            this.curated = curated;
             return this;
         }
         @CustomType.Setter
@@ -712,6 +724,7 @@ public final class GetRemoteNugetRepositoryResult {
             _resultValue.cdnRedirect = cdnRedirect;
             _resultValue.clientTlsCertificate = clientTlsCertificate;
             _resultValue.contentSynchronisation = contentSynchronisation;
+            _resultValue.curated = curated;
             _resultValue.description = description;
             _resultValue.disableProxy = disableProxy;
             _resultValue.disableUrlNormalization = disableUrlNormalization;

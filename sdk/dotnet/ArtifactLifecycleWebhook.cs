@@ -63,7 +63,7 @@ namespace Pulumi.Artifactory
         /// Status of webhook. Default to `true`
         /// </summary>
         [Output("enabled")]
-        public Output<bool?> Enabled { get; private set; } = null!;
+        public Output<bool> Enabled { get; private set; } = null!;
 
         /// <summary>
         /// List of event triggers for the Webhook. Allow values: `archive`, `restore`
@@ -153,7 +153,7 @@ namespace Pulumi.Artifactory
             set => _eventTypes = value;
         }
 
-        [Input("handlers", required: true)]
+        [Input("handlers")]
         private InputList<Inputs.ArtifactLifecycleWebhookHandlerArgs>? _handlers;
 
         /// <summary>

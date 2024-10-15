@@ -61,7 +61,7 @@ type ArtifactLifecycleWebhook struct {
 	// Webhook description. Max length 1000 characters.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Status of webhook. Default to `true`
-	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
+	Enabled pulumi.BoolOutput `pulumi:"enabled"`
 	// List of event triggers for the Webhook. Allow values: `archive`, `restore`
 	EventTypes pulumi.StringArrayOutput `pulumi:"eventTypes"`
 	// At least one is required.
@@ -79,9 +79,6 @@ func NewArtifactLifecycleWebhook(ctx *pulumi.Context,
 
 	if args.EventTypes == nil {
 		return nil, errors.New("invalid value for required argument 'EventTypes'")
-	}
-	if args.Handlers == nil {
-		return nil, errors.New("invalid value for required argument 'Handlers'")
 	}
 	if args.Key == nil {
 		return nil, errors.New("invalid value for required argument 'Key'")
@@ -258,8 +255,8 @@ func (o ArtifactLifecycleWebhookOutput) Description() pulumi.StringPtrOutput {
 }
 
 // Status of webhook. Default to `true`
-func (o ArtifactLifecycleWebhookOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ArtifactLifecycleWebhook) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+func (o ArtifactLifecycleWebhookOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *ArtifactLifecycleWebhook) pulumi.BoolOutput { return v.Enabled }).(pulumi.BoolOutput)
 }
 
 // List of event triggers for the Webhook. Allow values: `archive`, `restore`

@@ -214,6 +214,20 @@ public class RemoteNugetRepository extends com.pulumi.resources.CustomResource {
         return this.contentSynchronisation;
     }
     /**
+     * Enable repository to be protected by the Curation service.
+     * 
+     */
+    @Export(name="curated", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> curated;
+
+    /**
+     * @return Enable repository to be protected by the Curation service.
+     * 
+     */
+    public Output<Optional<Boolean>> curated() {
+        return Codegen.optional(this.curated);
+    }
+    /**
      * Public description.
      * 
      */

@@ -760,11 +760,6 @@ export const getRemoteDockerRepository: typeof import("./getRemoteDockerReposito
 export const getRemoteDockerRepositoryOutput: typeof import("./getRemoteDockerRepository").getRemoteDockerRepositoryOutput = null as any;
 utilities.lazyLoad(exports, ["getRemoteDockerRepository","getRemoteDockerRepositoryOutput"], () => require("./getRemoteDockerRepository"));
 
-export { GetRemoteGemsRepositoryArgs, GetRemoteGemsRepositoryResult, GetRemoteGemsRepositoryOutputArgs } from "./getRemoteGemsRepository";
-export const getRemoteGemsRepository: typeof import("./getRemoteGemsRepository").getRemoteGemsRepository = null as any;
-export const getRemoteGemsRepositoryOutput: typeof import("./getRemoteGemsRepository").getRemoteGemsRepositoryOutput = null as any;
-utilities.lazyLoad(exports, ["getRemoteGemsRepository","getRemoteGemsRepositoryOutput"], () => require("./getRemoteGemsRepository"));
-
 export { GetRemoteGenericRepositoryArgs, GetRemoteGenericRepositoryResult, GetRemoteGenericRepositoryOutputArgs } from "./getRemoteGenericRepository";
 export const getRemoteGenericRepository: typeof import("./getRemoteGenericRepository").getRemoteGenericRepository = null as any;
 export const getRemoteGenericRepositoryOutput: typeof import("./getRemoteGenericRepository").getRemoteGenericRepositoryOutput = null as any;

@@ -74,11 +74,11 @@ type ReleaseBundleWebhook struct {
 	pulumi.CustomResourceState
 
 	// Specifies where the webhook will be applied on which repositories.
-	Criteria ReleaseBundleWebhookCriteriaOutput `pulumi:"criteria"`
+	Criteria ReleaseBundleWebhookCriteriaPtrOutput `pulumi:"criteria"`
 	// Webhook description. Max length 1000 characters.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Status of webhook. Default to `true`.
-	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
+	Enabled pulumi.BoolOutput `pulumi:"enabled"`
 	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `created`, `signed`, `deleted`.
 	EventTypes pulumi.StringArrayOutput `pulumi:"eventTypes"`
 	// At least one is required.
@@ -94,14 +94,8 @@ func NewReleaseBundleWebhook(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Criteria == nil {
-		return nil, errors.New("invalid value for required argument 'Criteria'")
-	}
 	if args.EventTypes == nil {
 		return nil, errors.New("invalid value for required argument 'EventTypes'")
-	}
-	if args.Handlers == nil {
-		return nil, errors.New("invalid value for required argument 'Handlers'")
 	}
 	if args.Key == nil {
 		return nil, errors.New("invalid value for required argument 'Key'")
@@ -164,7 +158,7 @@ func (ReleaseBundleWebhookState) ElementType() reflect.Type {
 
 type releaseBundleWebhookArgs struct {
 	// Specifies where the webhook will be applied on which repositories.
-	Criteria ReleaseBundleWebhookCriteria `pulumi:"criteria"`
+	Criteria *ReleaseBundleWebhookCriteria `pulumi:"criteria"`
 	// Webhook description. Max length 1000 characters.
 	Description *string `pulumi:"description"`
 	// Status of webhook. Default to `true`.
@@ -180,7 +174,7 @@ type releaseBundleWebhookArgs struct {
 // The set of arguments for constructing a ReleaseBundleWebhook resource.
 type ReleaseBundleWebhookArgs struct {
 	// Specifies where the webhook will be applied on which repositories.
-	Criteria ReleaseBundleWebhookCriteriaInput
+	Criteria ReleaseBundleWebhookCriteriaPtrInput
 	// Webhook description. Max length 1000 characters.
 	Description pulumi.StringPtrInput
 	// Status of webhook. Default to `true`.
@@ -281,8 +275,8 @@ func (o ReleaseBundleWebhookOutput) ToReleaseBundleWebhookOutputWithContext(ctx 
 }
 
 // Specifies where the webhook will be applied on which repositories.
-func (o ReleaseBundleWebhookOutput) Criteria() ReleaseBundleWebhookCriteriaOutput {
-	return o.ApplyT(func(v *ReleaseBundleWebhook) ReleaseBundleWebhookCriteriaOutput { return v.Criteria }).(ReleaseBundleWebhookCriteriaOutput)
+func (o ReleaseBundleWebhookOutput) Criteria() ReleaseBundleWebhookCriteriaPtrOutput {
+	return o.ApplyT(func(v *ReleaseBundleWebhook) ReleaseBundleWebhookCriteriaPtrOutput { return v.Criteria }).(ReleaseBundleWebhookCriteriaPtrOutput)
 }
 
 // Webhook description. Max length 1000 characters.
@@ -291,8 +285,8 @@ func (o ReleaseBundleWebhookOutput) Description() pulumi.StringPtrOutput {
 }
 
 // Status of webhook. Default to `true`.
-func (o ReleaseBundleWebhookOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ReleaseBundleWebhook) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+func (o ReleaseBundleWebhookOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *ReleaseBundleWebhook) pulumi.BoolOutput { return v.Enabled }).(pulumi.BoolOutput)
 }
 
 // List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `created`, `signed`, `deleted`.

@@ -24,15 +24,15 @@ public final class ArtifactoryReleaseBundleCustomWebhookArgs extends com.pulumi.
      * Specifies where the webhook will be applied on which repositories.
      * 
      */
-    @Import(name="criteria", required=true)
-    private Output<ArtifactoryReleaseBundleCustomWebhookCriteriaArgs> criteria;
+    @Import(name="criteria")
+    private @Nullable Output<ArtifactoryReleaseBundleCustomWebhookCriteriaArgs> criteria;
 
     /**
      * @return Specifies where the webhook will be applied on which repositories.
      * 
      */
-    public Output<ArtifactoryReleaseBundleCustomWebhookCriteriaArgs> criteria() {
-        return this.criteria;
+    public Optional<Output<ArtifactoryReleaseBundleCustomWebhookCriteriaArgs>> criteria() {
+        return Optional.ofNullable(this.criteria);
     }
 
     /**
@@ -84,15 +84,15 @@ public final class ArtifactoryReleaseBundleCustomWebhookArgs extends com.pulumi.
      * At least one is required.
      * 
      */
-    @Import(name="handlers", required=true)
-    private Output<List<ArtifactoryReleaseBundleCustomWebhookHandlerArgs>> handlers;
+    @Import(name="handlers")
+    private @Nullable Output<List<ArtifactoryReleaseBundleCustomWebhookHandlerArgs>> handlers;
 
     /**
      * @return At least one is required.
      * 
      */
-    public Output<List<ArtifactoryReleaseBundleCustomWebhookHandlerArgs>> handlers() {
-        return this.handlers;
+    public Optional<Output<List<ArtifactoryReleaseBundleCustomWebhookHandlerArgs>>> handlers() {
+        return Optional.ofNullable(this.handlers);
     }
 
     /**
@@ -145,7 +145,7 @@ public final class ArtifactoryReleaseBundleCustomWebhookArgs extends com.pulumi.
          * @return builder
          * 
          */
-        public Builder criteria(Output<ArtifactoryReleaseBundleCustomWebhookCriteriaArgs> criteria) {
+        public Builder criteria(@Nullable Output<ArtifactoryReleaseBundleCustomWebhookCriteriaArgs> criteria) {
             $.criteria = criteria;
             return this;
         }
@@ -239,7 +239,7 @@ public final class ArtifactoryReleaseBundleCustomWebhookArgs extends com.pulumi.
          * @return builder
          * 
          */
-        public Builder handlers(Output<List<ArtifactoryReleaseBundleCustomWebhookHandlerArgs>> handlers) {
+        public Builder handlers(@Nullable Output<List<ArtifactoryReleaseBundleCustomWebhookHandlerArgs>> handlers) {
             $.handlers = handlers;
             return this;
         }
@@ -286,14 +286,8 @@ public final class ArtifactoryReleaseBundleCustomWebhookArgs extends com.pulumi.
         }
 
         public ArtifactoryReleaseBundleCustomWebhookArgs build() {
-            if ($.criteria == null) {
-                throw new MissingRequiredPropertyException("ArtifactoryReleaseBundleCustomWebhookArgs", "criteria");
-            }
             if ($.eventTypes == null) {
                 throw new MissingRequiredPropertyException("ArtifactoryReleaseBundleCustomWebhookArgs", "eventTypes");
-            }
-            if ($.handlers == null) {
-                throw new MissingRequiredPropertyException("ArtifactoryReleaseBundleCustomWebhookArgs", "handlers");
             }
             if ($.key == null) {
                 throw new MissingRequiredPropertyException("ArtifactoryReleaseBundleCustomWebhookArgs", "key");

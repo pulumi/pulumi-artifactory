@@ -91,14 +91,14 @@ public class ArtifactLifecycleWebhook extends com.pulumi.resources.CustomResourc
      * 
      */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> enabled;
+    private Output<Boolean> enabled;
 
     /**
      * @return Status of webhook. Default to `true`
      * 
      */
-    public Output<Optional<Boolean>> enabled() {
-        return Codegen.optional(this.enabled);
+    public Output<Boolean> enabled() {
+        return this.enabled;
     }
     /**
      * List of event triggers for the Webhook. Allow values: `archive`, `restore`
@@ -119,14 +119,14 @@ public class ArtifactLifecycleWebhook extends com.pulumi.resources.CustomResourc
      * 
      */
     @Export(name="handlers", refs={List.class,ArtifactLifecycleWebhookHandler.class}, tree="[0,1]")
-    private Output<List<ArtifactLifecycleWebhookHandler>> handlers;
+    private Output</* @Nullable */ List<ArtifactLifecycleWebhookHandler>> handlers;
 
     /**
      * @return At least one is required.
      * 
      */
-    public Output<List<ArtifactLifecycleWebhookHandler>> handlers() {
-        return this.handlers;
+    public Output<Optional<List<ArtifactLifecycleWebhookHandler>>> handlers() {
+        return Codegen.optional(this.handlers);
     }
     /**
      * The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
