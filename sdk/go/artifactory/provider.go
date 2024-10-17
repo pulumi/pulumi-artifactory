@@ -31,7 +31,8 @@ type Provider struct {
 	// OIDC provider name. See [Configure an OIDC
 	// Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-an-oidc-integration) for
 	// more details.
-	OidcProviderName pulumi.StringPtrOutput `pulumi:"oidcProviderName"`
+	OidcProviderName     pulumi.StringPtrOutput `pulumi:"oidcProviderName"`
+	TfcCredentialTagName pulumi.StringPtrOutput `pulumi:"tfcCredentialTagName"`
 	// Artifactory URL.
 	Url pulumi.StringPtrOutput `pulumi:"url"`
 }
@@ -77,7 +78,8 @@ type providerArgs struct {
 	// OIDC provider name. See [Configure an OIDC
 	// Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-an-oidc-integration) for
 	// more details.
-	OidcProviderName *string `pulumi:"oidcProviderName"`
+	OidcProviderName     *string `pulumi:"oidcProviderName"`
+	TfcCredentialTagName *string `pulumi:"tfcCredentialTagName"`
 	// Artifactory URL.
 	Url *string `pulumi:"url"`
 }
@@ -97,7 +99,8 @@ type ProviderArgs struct {
 	// OIDC provider name. See [Configure an OIDC
 	// Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-an-oidc-integration) for
 	// more details.
-	OidcProviderName pulumi.StringPtrInput
+	OidcProviderName     pulumi.StringPtrInput
+	TfcCredentialTagName pulumi.StringPtrInput
 	// Artifactory URL.
 	Url pulumi.StringPtrInput
 }
@@ -160,6 +163,10 @@ func (o ProviderOutput) ApiKey() pulumi.StringPtrOutput {
 // more details.
 func (o ProviderOutput) OidcProviderName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.OidcProviderName }).(pulumi.StringPtrOutput)
+}
+
+func (o ProviderOutput) TfcCredentialTagName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.TfcCredentialTagName }).(pulumi.StringPtrOutput)
 }
 
 // Artifactory URL.

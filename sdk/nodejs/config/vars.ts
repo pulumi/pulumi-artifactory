@@ -44,6 +44,14 @@ Object.defineProperty(exports, "oidcProviderName", {
     enumerable: true,
 });
 
+export declare const tfcCredentialTagName: string | undefined;
+Object.defineProperty(exports, "tfcCredentialTagName", {
+    get() {
+        return __config.get("tfcCredentialTagName");
+    },
+    enumerable: true,
+});
+
 /**
  * Artifactory URL.
  */

@@ -45,6 +45,7 @@ By end of Q4 2024, API Keys will be deprecated all together and the option to us
      * more details.
      */
     public readonly oidcProviderName!: pulumi.Output<string | undefined>;
+    public readonly tfcCredentialTagName!: pulumi.Output<string | undefined>;
     /**
      * Artifactory URL.
      */
@@ -64,6 +65,7 @@ By end of Q4 2024, API Keys will be deprecated all together and the option to us
             resourceInputs["accessToken"] = args?.accessToken ? pulumi.secret(args.accessToken) : undefined;
             resourceInputs["apiKey"] = args?.apiKey ? pulumi.secret(args.apiKey) : undefined;
             resourceInputs["oidcProviderName"] = args ? args.oidcProviderName : undefined;
+            resourceInputs["tfcCredentialTagName"] = args ? args.tfcCredentialTagName : undefined;
             resourceInputs["url"] = args ? args.url : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -97,6 +99,7 @@ By end of Q4 2024, API Keys will be deprecated all together and the option to us
      * more details.
      */
     oidcProviderName?: pulumi.Input<string>;
+    tfcCredentialTagName?: pulumi.Input<string>;
     /**
      * Artifactory URL.
      */

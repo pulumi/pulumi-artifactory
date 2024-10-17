@@ -81,6 +81,12 @@ By end of Q4 2024, API Keys will be deprecated all together and the option to us
     public Output<Optional<String>> oidcProviderName() {
         return Codegen.optional(this.oidcProviderName);
     }
+    @Export(name="tfcCredentialTagName", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> tfcCredentialTagName;
+
+    public Output<Optional<String>> tfcCredentialTagName() {
+        return Codegen.optional(this.tfcCredentialTagName);
+    }
     /**
      * Artifactory URL.
      * 

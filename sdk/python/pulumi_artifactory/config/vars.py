@@ -46,6 +46,10 @@ class _ExportableConfig(types.ModuleType):
         return __config__.get('oidcProviderName')
 
     @property
+    def tfc_credential_tag_name(self) -> Optional[str]:
+        return __config__.get('tfcCredentialTagName')
+
+    @property
     def url(self) -> Optional[str]:
         """
         Artifactory URL.
