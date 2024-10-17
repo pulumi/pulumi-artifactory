@@ -84,6 +84,13 @@ By end of Q4 2024, API Keys will be deprecated all together and the option to us
         return Optional.ofNullable(this.oidcProviderName);
     }
 
+    @Import(name="tfcCredentialTagName")
+    private @Nullable Output<String> tfcCredentialTagName;
+
+    public Optional<Output<String>> tfcCredentialTagName() {
+        return Optional.ofNullable(this.tfcCredentialTagName);
+    }
+
     /**
      * Artifactory URL.
      * 
@@ -105,6 +112,7 @@ By end of Q4 2024, API Keys will be deprecated all together and the option to us
         this.accessToken = $.accessToken;
         this.apiKey = $.apiKey;
         this.oidcProviderName = $.oidcProviderName;
+        this.tfcCredentialTagName = $.tfcCredentialTagName;
         this.url = $.url;
     }
 
@@ -211,6 +219,15 @@ By end of Q4 2024, API Keys will be deprecated all together and the option to us
          */
         public Builder oidcProviderName(String oidcProviderName) {
             return oidcProviderName(Output.of(oidcProviderName));
+        }
+
+        public Builder tfcCredentialTagName(@Nullable Output<String> tfcCredentialTagName) {
+            $.tfcCredentialTagName = tfcCredentialTagName;
+            return this;
+        }
+
+        public Builder tfcCredentialTagName(String tfcCredentialTagName) {
+            return tfcCredentialTagName(Output.of(tfcCredentialTagName));
         }
 
         /**

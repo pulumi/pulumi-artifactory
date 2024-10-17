@@ -33,6 +33,9 @@ func GetApiKey(ctx *pulumi.Context) string {
 func GetOidcProviderName(ctx *pulumi.Context) string {
 	return config.Get(ctx, "artifactory:oidcProviderName")
 }
+func GetTfcCredentialTagName(ctx *pulumi.Context) string {
+	return config.Get(ctx, "artifactory:tfcCredentialTagName")
+}
 
 // Artifactory URL.
 func GetUrl(ctx *pulumi.Context) string {

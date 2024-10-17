@@ -22,6 +22,7 @@ class ProviderArgs:
                  access_token: Optional[pulumi.Input[str]] = None,
                  api_key: Optional[pulumi.Input[str]] = None,
                  oidc_provider_name: Optional[pulumi.Input[str]] = None,
+                 tfc_credential_tag_name: Optional[pulumi.Input[str]] = None,
                  url: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Provider resource.
@@ -47,6 +48,8 @@ By end of Q4 2024, API Keys will be deprecated all together and the option to us
             pulumi.set(__self__, "api_key", api_key)
         if oidc_provider_name is not None:
             pulumi.set(__self__, "oidc_provider_name", oidc_provider_name)
+        if tfc_credential_tag_name is not None:
+            pulumi.set(__self__, "tfc_credential_tag_name", tfc_credential_tag_name)
         if url is not None:
             pulumi.set(__self__, "url", url)
 
@@ -94,6 +97,15 @@ By end of Q4 2024, API Keys will be deprecated all together and the option to us
         pulumi.set(self, "oidc_provider_name", value)
 
     @property
+    @pulumi.getter(name="tfcCredentialTagName")
+    def tfc_credential_tag_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "tfc_credential_tag_name")
+
+    @tfc_credential_tag_name.setter
+    def tfc_credential_tag_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tfc_credential_tag_name", value)
+
+    @property
     @pulumi.getter
     def url(self) -> Optional[pulumi.Input[str]]:
         """
@@ -114,6 +126,7 @@ class Provider(pulumi.ProviderResource):
                  access_token: Optional[pulumi.Input[str]] = None,
                  api_key: Optional[pulumi.Input[str]] = None,
                  oidc_provider_name: Optional[pulumi.Input[str]] = None,
+                 tfc_credential_tag_name: Optional[pulumi.Input[str]] = None,
                  url: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -163,6 +176,7 @@ class Provider(pulumi.ProviderResource):
                  access_token: Optional[pulumi.Input[str]] = None,
                  api_key: Optional[pulumi.Input[str]] = None,
                  oidc_provider_name: Optional[pulumi.Input[str]] = None,
+                 tfc_credential_tag_name: Optional[pulumi.Input[str]] = None,
                  url: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -176,6 +190,7 @@ class Provider(pulumi.ProviderResource):
             __props__.__dict__["access_token"] = None if access_token is None else pulumi.Output.secret(access_token)
             __props__.__dict__["api_key"] = None if api_key is None else pulumi.Output.secret(api_key)
             __props__.__dict__["oidc_provider_name"] = oidc_provider_name
+            __props__.__dict__["tfc_credential_tag_name"] = tfc_credential_tag_name
             __props__.__dict__["url"] = url
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["accessToken", "apiKey"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
@@ -215,6 +230,11 @@ By end of Q4 2024, API Keys will be deprecated all together and the option to us
         more details.
         """
         return pulumi.get(self, "oidc_provider_name")
+
+    @property
+    @pulumi.getter(name="tfcCredentialTagName")
+    def tfc_credential_tag_name(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "tfc_credential_tag_name")
 
     @property
     @pulumi.getter

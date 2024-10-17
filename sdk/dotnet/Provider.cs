@@ -40,6 +40,9 @@ namespace Pulumi.Artifactory
         [Output("oidcProviderName")]
         public Output<string?> OidcProviderName { get; private set; } = null!;
 
+        [Output("tfcCredentialTagName")]
+        public Output<string?> TfcCredentialTagName { get; private set; } = null!;
+
         /// <summary>
         /// Artifactory URL.
         /// </summary>
@@ -123,6 +126,9 @@ By end of Q4 2024, API Keys will be deprecated all together and the option to us
         /// </summary>
         [Input("oidcProviderName")]
         public Input<string>? OidcProviderName { get; set; }
+
+        [Input("tfcCredentialTagName")]
+        public Input<string>? TfcCredentialTagName { get; set; }
 
         /// <summary>
         /// Artifactory URL.

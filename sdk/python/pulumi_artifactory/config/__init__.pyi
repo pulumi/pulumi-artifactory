@@ -33,6 +33,8 @@ Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentatio
 more details.
 """
 
+tfcCredentialTagName: Optional[str]
+
 url: Optional[str]
 """
 Artifactory URL.

@@ -35,6 +35,9 @@ public final class Config {
     public Optional<String> oidcProviderName() {
         return Codegen.stringProp("oidcProviderName").config(config).get();
     }
+    public Optional<String> tfcCredentialTagName() {
+        return Codegen.stringProp("tfcCredentialTagName").config(config).get();
+    }
 /**
  * Artifactory URL.
  * 

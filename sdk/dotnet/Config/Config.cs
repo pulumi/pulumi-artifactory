@@ -66,6 +66,13 @@ namespace Pulumi.Artifactory
             set => _oidcProviderName.Set(value);
         }
 
+        private static readonly __Value<string?> _tfcCredentialTagName = new __Value<string?>(() => __config.Get("tfcCredentialTagName"));
+        public static string? TfcCredentialTagName
+        {
+            get => _tfcCredentialTagName.Get();
+            set => _tfcCredentialTagName.Set(value);
+        }
+
         private static readonly __Value<string?> _url = new __Value<string?>(() => __config.Get("url"));
         /// <summary>
         /// Artifactory URL.
