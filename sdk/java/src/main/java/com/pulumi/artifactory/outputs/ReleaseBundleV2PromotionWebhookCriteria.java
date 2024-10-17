@@ -12,15 +12,7 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ReleaseBundleV2PromotionWebhookCriteria {
-    /**
-     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\nAnt-style path expressions are supported (*, **, ?).\nFor example: &#34;org/apache/**&#34;
-     * 
-     */
     private @Nullable List<String> excludePatterns;
-    /**
-     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\nAnt-style path expressions are supported (*, **, ?).\nFor example: &#34;org/apache/**&#34;
-     * 
-     */
     private @Nullable List<String> includePatterns;
     /**
      * @return Trigger on this list of environment names.
@@ -29,17 +21,9 @@ public final class ReleaseBundleV2PromotionWebhookCriteria {
     private List<String> selectedEnvironments;
 
     private ReleaseBundleV2PromotionWebhookCriteria() {}
-    /**
-     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\nAnt-style path expressions are supported (*, **, ?).\nFor example: &#34;org/apache/**&#34;
-     * 
-     */
     public List<String> excludePatterns() {
         return this.excludePatterns == null ? List.of() : this.excludePatterns;
     }
-    /**
-     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\nAnt-style path expressions are supported (*, **, ?).\nFor example: &#34;org/apache/**&#34;
-     * 
-     */
     public List<String> includePatterns() {
         return this.includePatterns == null ? List.of() : this.includePatterns;
     }

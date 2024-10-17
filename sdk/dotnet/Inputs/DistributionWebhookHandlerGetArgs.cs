@@ -30,11 +30,21 @@ namespace Pulumi.Artifactory.Inputs
         [Input("proxy")]
         public Input<string>? Proxy { get; set; }
 
+        [Input("secret")]
+        private Input<string>? _secret;
+
         /// <summary>
         /// Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
         /// </summary>
-        [Input("secret")]
-        public Input<string>? Secret { get; set; }
+        public Input<string>? Secret
+        {
+            get => _secret;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _secret = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.

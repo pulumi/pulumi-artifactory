@@ -68,11 +68,11 @@ type ReleaseBundleV2PromotionCustomWebhook struct {
 	pulumi.CustomResourceState
 
 	// Specifies where the webhook will be applied on which enviroments.
-	Criteria ReleaseBundleV2PromotionCustomWebhookCriteriaOutput `pulumi:"criteria"`
+	Criteria ReleaseBundleV2PromotionCustomWebhookCriteriaPtrOutput `pulumi:"criteria"`
 	// Webhook description. Max length 1000 characters.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Status of webhook. Default to `true`.
-	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
+	Enabled pulumi.BoolOutput `pulumi:"enabled"`
 	// List of event triggers for the Webhook. Allow values: `releaseBundleV2PromotionStarted`, `releaseBundleV2PromotionCompleted`, `releaseBundleV2PromotionFailed`
 	EventTypes pulumi.StringArrayOutput `pulumi:"eventTypes"`
 	// At least one is required.
@@ -88,14 +88,8 @@ func NewReleaseBundleV2PromotionCustomWebhook(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Criteria == nil {
-		return nil, errors.New("invalid value for required argument 'Criteria'")
-	}
 	if args.EventTypes == nil {
 		return nil, errors.New("invalid value for required argument 'EventTypes'")
-	}
-	if args.Handlers == nil {
-		return nil, errors.New("invalid value for required argument 'Handlers'")
 	}
 	if args.Key == nil {
 		return nil, errors.New("invalid value for required argument 'Key'")
@@ -158,7 +152,7 @@ func (ReleaseBundleV2PromotionCustomWebhookState) ElementType() reflect.Type {
 
 type releaseBundleV2PromotionCustomWebhookArgs struct {
 	// Specifies where the webhook will be applied on which enviroments.
-	Criteria ReleaseBundleV2PromotionCustomWebhookCriteria `pulumi:"criteria"`
+	Criteria *ReleaseBundleV2PromotionCustomWebhookCriteria `pulumi:"criteria"`
 	// Webhook description. Max length 1000 characters.
 	Description *string `pulumi:"description"`
 	// Status of webhook. Default to `true`.
@@ -174,7 +168,7 @@ type releaseBundleV2PromotionCustomWebhookArgs struct {
 // The set of arguments for constructing a ReleaseBundleV2PromotionCustomWebhook resource.
 type ReleaseBundleV2PromotionCustomWebhookArgs struct {
 	// Specifies where the webhook will be applied on which enviroments.
-	Criteria ReleaseBundleV2PromotionCustomWebhookCriteriaInput
+	Criteria ReleaseBundleV2PromotionCustomWebhookCriteriaPtrInput
 	// Webhook description. Max length 1000 characters.
 	Description pulumi.StringPtrInput
 	// Status of webhook. Default to `true`.
@@ -275,10 +269,10 @@ func (o ReleaseBundleV2PromotionCustomWebhookOutput) ToReleaseBundleV2PromotionC
 }
 
 // Specifies where the webhook will be applied on which enviroments.
-func (o ReleaseBundleV2PromotionCustomWebhookOutput) Criteria() ReleaseBundleV2PromotionCustomWebhookCriteriaOutput {
-	return o.ApplyT(func(v *ReleaseBundleV2PromotionCustomWebhook) ReleaseBundleV2PromotionCustomWebhookCriteriaOutput {
+func (o ReleaseBundleV2PromotionCustomWebhookOutput) Criteria() ReleaseBundleV2PromotionCustomWebhookCriteriaPtrOutput {
+	return o.ApplyT(func(v *ReleaseBundleV2PromotionCustomWebhook) ReleaseBundleV2PromotionCustomWebhookCriteriaPtrOutput {
 		return v.Criteria
-	}).(ReleaseBundleV2PromotionCustomWebhookCriteriaOutput)
+	}).(ReleaseBundleV2PromotionCustomWebhookCriteriaPtrOutput)
 }
 
 // Webhook description. Max length 1000 characters.
@@ -287,8 +281,8 @@ func (o ReleaseBundleV2PromotionCustomWebhookOutput) Description() pulumi.String
 }
 
 // Status of webhook. Default to `true`.
-func (o ReleaseBundleV2PromotionCustomWebhookOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ReleaseBundleV2PromotionCustomWebhook) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+func (o ReleaseBundleV2PromotionCustomWebhookOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *ReleaseBundleV2PromotionCustomWebhook) pulumi.BoolOutput { return v.Enabled }).(pulumi.BoolOutput)
 }
 
 // List of event triggers for the Webhook. Allow values: `releaseBundleV2PromotionStarted`, `releaseBundleV2PromotionCompleted`, `releaseBundleV2PromotionFailed`

@@ -86,14 +86,14 @@ public class ReleaseBundleV2Webhook extends com.pulumi.resources.CustomResource 
      * 
      */
     @Export(name="criteria", refs={ReleaseBundleV2WebhookCriteria.class}, tree="[0]")
-    private Output<ReleaseBundleV2WebhookCriteria> criteria;
+    private Output</* @Nullable */ ReleaseBundleV2WebhookCriteria> criteria;
 
     /**
      * @return Specifies where the webhook will be applied on which repositories.
      * 
      */
-    public Output<ReleaseBundleV2WebhookCriteria> criteria() {
-        return this.criteria;
+    public Output<Optional<ReleaseBundleV2WebhookCriteria>> criteria() {
+        return Codegen.optional(this.criteria);
     }
     /**
      * Webhook description. Max length 1000 characters.
@@ -114,14 +114,14 @@ public class ReleaseBundleV2Webhook extends com.pulumi.resources.CustomResource 
      * 
      */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> enabled;
+    private Output<Boolean> enabled;
 
     /**
      * @return Status of webhook. Default to `true`.
      * 
      */
-    public Output<Optional<Boolean>> enabled() {
-        return Codegen.optional(this.enabled);
+    public Output<Boolean> enabled() {
+        return this.enabled;
     }
     /**
      * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `release_bundle_v2_started`, `release_bundle_v2_failed`, `release_bundle_v2_completed`.
@@ -142,14 +142,14 @@ public class ReleaseBundleV2Webhook extends com.pulumi.resources.CustomResource 
      * 
      */
     @Export(name="handlers", refs={List.class,ReleaseBundleV2WebhookHandler.class}, tree="[0,1]")
-    private Output<List<ReleaseBundleV2WebhookHandler>> handlers;
+    private Output</* @Nullable */ List<ReleaseBundleV2WebhookHandler>> handlers;
 
     /**
      * @return At least one is required.
      * 
      */
-    public Output<List<ReleaseBundleV2WebhookHandler>> handlers() {
-        return this.handlers;
+    public Output<Optional<List<ReleaseBundleV2WebhookHandler>>> handlers() {
+        return Codegen.optional(this.handlers);
     }
     /**
      * The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.

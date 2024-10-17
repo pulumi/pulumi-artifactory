@@ -76,7 +76,7 @@ export class ArtifactPropertyWebhook extends pulumi.CustomResource {
     /**
      * Specifies where the webhook will be applied on which repositories.
      */
-    public readonly criteria!: pulumi.Output<outputs.ArtifactPropertyWebhookCriteria>;
+    public readonly criteria!: pulumi.Output<outputs.ArtifactPropertyWebhookCriteria | undefined>;
     /**
      * Webhook description. Max length 1000 characters.
      */
@@ -84,7 +84,7 @@ export class ArtifactPropertyWebhook extends pulumi.CustomResource {
     /**
      * Status of webhook. Default to `true`.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    public readonly enabled!: pulumi.Output<boolean>;
     /**
      * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `added`, `deleted`.
      */
@@ -92,7 +92,7 @@ export class ArtifactPropertyWebhook extends pulumi.CustomResource {
     /**
      * At least one is required.
      */
-    public readonly handlers!: pulumi.Output<outputs.ArtifactPropertyWebhookHandler[]>;
+    public readonly handlers!: pulumi.Output<outputs.ArtifactPropertyWebhookHandler[] | undefined>;
     /**
      * The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
      */
@@ -119,14 +119,8 @@ export class ArtifactPropertyWebhook extends pulumi.CustomResource {
             resourceInputs["key"] = state ? state.key : undefined;
         } else {
             const args = argsOrState as ArtifactPropertyWebhookArgs | undefined;
-            if ((!args || args.criteria === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'criteria'");
-            }
             if ((!args || args.eventTypes === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'eventTypes'");
-            }
-            if ((!args || args.handlers === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'handlers'");
             }
             if ((!args || args.key === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'key'");
@@ -180,7 +174,7 @@ export interface ArtifactPropertyWebhookArgs {
     /**
      * Specifies where the webhook will be applied on which repositories.
      */
-    criteria: pulumi.Input<inputs.ArtifactPropertyWebhookCriteria>;
+    criteria?: pulumi.Input<inputs.ArtifactPropertyWebhookCriteria>;
     /**
      * Webhook description. Max length 1000 characters.
      */
@@ -196,7 +190,7 @@ export interface ArtifactPropertyWebhookArgs {
     /**
      * At least one is required.
      */
-    handlers: pulumi.Input<pulumi.Input<inputs.ArtifactPropertyWebhookHandler>[]>;
+    handlers?: pulumi.Input<pulumi.Input<inputs.ArtifactPropertyWebhookHandler>[]>;
     /**
      * The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
      */

@@ -156,7 +156,6 @@ from .get_remote_conda_repository import *
 from .get_remote_cran_repository import *
 from .get_remote_debian_repository import *
 from .get_remote_docker_repository import *
-from .get_remote_gems_repository import *
 from .get_remote_generic_repository import *
 from .get_remote_gitlfs_repository import *
 from .get_remote_go_repository import *

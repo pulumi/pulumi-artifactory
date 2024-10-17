@@ -31,6 +31,7 @@ class RemoteGemsRepositoryArgs:
                  cdn_redirect: Optional[pulumi.Input[bool]] = None,
                  client_tls_certificate: Optional[pulumi.Input[str]] = None,
                  content_synchronisation: Optional[pulumi.Input['RemoteGemsRepositoryContentSynchronisationArgs']] = None,
+                 curated: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  disable_proxy: Optional[pulumi.Input[bool]] = None,
                  disable_url_normalization: Optional[pulumi.Input[bool]] = None,
@@ -50,12 +51,14 @@ class RemoteGemsRepositoryArgs:
                  priority_resolution: Optional[pulumi.Input[bool]] = None,
                  project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  project_key: Optional[pulumi.Input[str]] = None,
+                 propagate_query_params: Optional[pulumi.Input[bool]] = None,
                  property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  proxy: Optional[pulumi.Input[str]] = None,
                  query_params: Optional[pulumi.Input[str]] = None,
                  remote_repo_layout_ref: Optional[pulumi.Input[str]] = None,
                  repo_layout_ref: Optional[pulumi.Input[str]] = None,
                  retrieval_cache_period_seconds: Optional[pulumi.Input[int]] = None,
+                 retrieve_sha256_from_server: Optional[pulumi.Input[bool]] = None,
                  share_configuration: Optional[pulumi.Input[bool]] = None,
                  socket_timeout_millis: Optional[pulumi.Input[int]] = None,
                  store_artifacts_locally: Optional[pulumi.Input[bool]] = None,
@@ -87,6 +90,7 @@ class RemoteGemsRepositoryArgs:
         :param pulumi.Input[bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS
                CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[str] client_tls_certificate: Client TLS certificate name.
+        :param pulumi.Input[bool] curated: Enable repository to be protected by the Curation service.
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
                for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
@@ -117,6 +121,7 @@ class RemoteGemsRepositoryArgs:
                not found in those repositories, Artifactory will merge from repositories marked as non-priority.
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+        :param pulumi.Input[bool] propagate_query_params: When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set names
         :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies settings. Can't be set if `disable_proxy = true`.
         :param pulumi.Input[str] query_params: Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
@@ -127,6 +132,7 @@ class RemoteGemsRepositoryArgs:
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the remote repository
         :param pulumi.Input[int] retrieval_cache_period_seconds: Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files
                before checking for newer versions on remote server. A value of 0 indicates no caching.
+        :param pulumi.Input[bool] retrieve_sha256_from_server: When set to `true`, Artifactory retrieves the SHA256 from the remote server if it is not cached in the remote repo.
         :param pulumi.Input[int] socket_timeout_millis: Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network
                operation is considered a retrieval failure.
         :param pulumi.Input[bool] store_artifacts_locally: When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and
@@ -159,6 +165,8 @@ class RemoteGemsRepositoryArgs:
             pulumi.set(__self__, "client_tls_certificate", client_tls_certificate)
         if content_synchronisation is not None:
             pulumi.set(__self__, "content_synchronisation", content_synchronisation)
+        if curated is not None:
+            pulumi.set(__self__, "curated", curated)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if disable_proxy is not None:
@@ -197,6 +205,8 @@ class RemoteGemsRepositoryArgs:
             pulumi.set(__self__, "project_environments", project_environments)
         if project_key is not None:
             pulumi.set(__self__, "project_key", project_key)
+        if propagate_query_params is not None:
+            pulumi.set(__self__, "propagate_query_params", propagate_query_params)
         if property_sets is not None:
             pulumi.set(__self__, "property_sets", property_sets)
         if proxy is not None:
@@ -209,6 +219,8 @@ class RemoteGemsRepositoryArgs:
             pulumi.set(__self__, "repo_layout_ref", repo_layout_ref)
         if retrieval_cache_period_seconds is not None:
             pulumi.set(__self__, "retrieval_cache_period_seconds", retrieval_cache_period_seconds)
+        if retrieve_sha256_from_server is not None:
+            pulumi.set(__self__, "retrieve_sha256_from_server", retrieve_sha256_from_server)
         if share_configuration is not None:
             pulumi.set(__self__, "share_configuration", share_configuration)
         if socket_timeout_millis is not None:
@@ -354,6 +366,18 @@ class RemoteGemsRepositoryArgs:
     @content_synchronisation.setter
     def content_synchronisation(self, value: Optional[pulumi.Input['RemoteGemsRepositoryContentSynchronisationArgs']]):
         pulumi.set(self, "content_synchronisation", value)
+
+    @property
+    @pulumi.getter
+    def curated(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable repository to be protected by the Curation service.
+        """
+        return pulumi.get(self, "curated")
+
+    @curated.setter
+    def curated(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "curated", value)
 
     @property
     @pulumi.getter
@@ -591,6 +615,18 @@ class RemoteGemsRepositoryArgs:
         pulumi.set(self, "project_key", value)
 
     @property
+    @pulumi.getter(name="propagateQueryParams")
+    def propagate_query_params(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
+        """
+        return pulumi.get(self, "propagate_query_params")
+
+    @propagate_query_params.setter
+    def propagate_query_params(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "propagate_query_params", value)
+
+    @property
     @pulumi.getter(name="propertySets")
     def property_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -665,6 +701,18 @@ class RemoteGemsRepositoryArgs:
     @retrieval_cache_period_seconds.setter
     def retrieval_cache_period_seconds(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "retrieval_cache_period_seconds", value)
+
+    @property
+    @pulumi.getter(name="retrieveSha256FromServer")
+    def retrieve_sha256_from_server(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set to `true`, Artifactory retrieves the SHA256 from the remote server if it is not cached in the remote repo.
+        """
+        return pulumi.get(self, "retrieve_sha256_from_server")
+
+    @retrieve_sha256_from_server.setter
+    def retrieve_sha256_from_server(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "retrieve_sha256_from_server", value)
 
     @property
     @pulumi.getter(name="shareConfiguration")
@@ -775,6 +823,7 @@ class _RemoteGemsRepositoryState:
                  cdn_redirect: Optional[pulumi.Input[bool]] = None,
                  client_tls_certificate: Optional[pulumi.Input[str]] = None,
                  content_synchronisation: Optional[pulumi.Input['RemoteGemsRepositoryContentSynchronisationArgs']] = None,
+                 curated: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  disable_proxy: Optional[pulumi.Input[bool]] = None,
                  disable_url_normalization: Optional[pulumi.Input[bool]] = None,
@@ -796,12 +845,14 @@ class _RemoteGemsRepositoryState:
                  priority_resolution: Optional[pulumi.Input[bool]] = None,
                  project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  project_key: Optional[pulumi.Input[str]] = None,
+                 propagate_query_params: Optional[pulumi.Input[bool]] = None,
                  property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  proxy: Optional[pulumi.Input[str]] = None,
                  query_params: Optional[pulumi.Input[str]] = None,
                  remote_repo_layout_ref: Optional[pulumi.Input[str]] = None,
                  repo_layout_ref: Optional[pulumi.Input[str]] = None,
                  retrieval_cache_period_seconds: Optional[pulumi.Input[int]] = None,
+                 retrieve_sha256_from_server: Optional[pulumi.Input[bool]] = None,
                  share_configuration: Optional[pulumi.Input[bool]] = None,
                  socket_timeout_millis: Optional[pulumi.Input[int]] = None,
                  store_artifacts_locally: Optional[pulumi.Input[bool]] = None,
@@ -831,6 +882,7 @@ class _RemoteGemsRepositoryState:
         :param pulumi.Input[bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS
                CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[str] client_tls_certificate: Client TLS certificate name.
+        :param pulumi.Input[bool] curated: Enable repository to be protected by the Curation service.
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
                for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
@@ -863,6 +915,7 @@ class _RemoteGemsRepositoryState:
                not found in those repositories, Artifactory will merge from repositories marked as non-priority.
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+        :param pulumi.Input[bool] propagate_query_params: When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set names
         :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies settings. Can't be set if `disable_proxy = true`.
         :param pulumi.Input[str] query_params: Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
@@ -873,6 +926,7 @@ class _RemoteGemsRepositoryState:
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the remote repository
         :param pulumi.Input[int] retrieval_cache_period_seconds: Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files
                before checking for newer versions on remote server. A value of 0 indicates no caching.
+        :param pulumi.Input[bool] retrieve_sha256_from_server: When set to `true`, Artifactory retrieves the SHA256 from the remote server if it is not cached in the remote repo.
         :param pulumi.Input[int] socket_timeout_millis: Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network
                operation is considered a retrieval failure.
         :param pulumi.Input[bool] store_artifacts_locally: When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and
@@ -904,6 +958,8 @@ class _RemoteGemsRepositoryState:
             pulumi.set(__self__, "client_tls_certificate", client_tls_certificate)
         if content_synchronisation is not None:
             pulumi.set(__self__, "content_synchronisation", content_synchronisation)
+        if curated is not None:
+            pulumi.set(__self__, "curated", curated)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if disable_proxy is not None:
@@ -946,6 +1002,8 @@ class _RemoteGemsRepositoryState:
             pulumi.set(__self__, "project_environments", project_environments)
         if project_key is not None:
             pulumi.set(__self__, "project_key", project_key)
+        if propagate_query_params is not None:
+            pulumi.set(__self__, "propagate_query_params", propagate_query_params)
         if property_sets is not None:
             pulumi.set(__self__, "property_sets", property_sets)
         if proxy is not None:
@@ -958,6 +1016,8 @@ class _RemoteGemsRepositoryState:
             pulumi.set(__self__, "repo_layout_ref", repo_layout_ref)
         if retrieval_cache_period_seconds is not None:
             pulumi.set(__self__, "retrieval_cache_period_seconds", retrieval_cache_period_seconds)
+        if retrieve_sha256_from_server is not None:
+            pulumi.set(__self__, "retrieve_sha256_from_server", retrieve_sha256_from_server)
         if share_configuration is not None:
             pulumi.set(__self__, "share_configuration", share_configuration)
         if socket_timeout_millis is not None:
@@ -1090,6 +1150,18 @@ class _RemoteGemsRepositoryState:
     @content_synchronisation.setter
     def content_synchronisation(self, value: Optional[pulumi.Input['RemoteGemsRepositoryContentSynchronisationArgs']]):
         pulumi.set(self, "content_synchronisation", value)
+
+    @property
+    @pulumi.getter
+    def curated(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable repository to be protected by the Curation service.
+        """
+        return pulumi.get(self, "curated")
+
+    @curated.setter
+    def curated(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "curated", value)
 
     @property
     @pulumi.getter
@@ -1349,6 +1421,18 @@ class _RemoteGemsRepositoryState:
         pulumi.set(self, "project_key", value)
 
     @property
+    @pulumi.getter(name="propagateQueryParams")
+    def propagate_query_params(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
+        """
+        return pulumi.get(self, "propagate_query_params")
+
+    @propagate_query_params.setter
+    def propagate_query_params(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "propagate_query_params", value)
+
+    @property
     @pulumi.getter(name="propertySets")
     def property_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -1423,6 +1507,18 @@ class _RemoteGemsRepositoryState:
     @retrieval_cache_period_seconds.setter
     def retrieval_cache_period_seconds(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "retrieval_cache_period_seconds", value)
+
+    @property
+    @pulumi.getter(name="retrieveSha256FromServer")
+    def retrieve_sha256_from_server(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set to `true`, Artifactory retrieves the SHA256 from the remote server if it is not cached in the remote repo.
+        """
+        return pulumi.get(self, "retrieve_sha256_from_server")
+
+    @retrieve_sha256_from_server.setter
+    def retrieve_sha256_from_server(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "retrieve_sha256_from_server", value)
 
     @property
     @pulumi.getter(name="shareConfiguration")
@@ -1535,6 +1631,7 @@ class RemoteGemsRepository(pulumi.CustomResource):
                  cdn_redirect: Optional[pulumi.Input[bool]] = None,
                  client_tls_certificate: Optional[pulumi.Input[str]] = None,
                  content_synchronisation: Optional[pulumi.Input[Union['RemoteGemsRepositoryContentSynchronisationArgs', 'RemoteGemsRepositoryContentSynchronisationArgsDict']]] = None,
+                 curated: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  disable_proxy: Optional[pulumi.Input[bool]] = None,
                  disable_url_normalization: Optional[pulumi.Input[bool]] = None,
@@ -1555,12 +1652,14 @@ class RemoteGemsRepository(pulumi.CustomResource):
                  priority_resolution: Optional[pulumi.Input[bool]] = None,
                  project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  project_key: Optional[pulumi.Input[str]] = None,
+                 propagate_query_params: Optional[pulumi.Input[bool]] = None,
                  property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  proxy: Optional[pulumi.Input[str]] = None,
                  query_params: Optional[pulumi.Input[str]] = None,
                  remote_repo_layout_ref: Optional[pulumi.Input[str]] = None,
                  repo_layout_ref: Optional[pulumi.Input[str]] = None,
                  retrieval_cache_period_seconds: Optional[pulumi.Input[int]] = None,
+                 retrieve_sha256_from_server: Optional[pulumi.Input[bool]] = None,
                  share_configuration: Optional[pulumi.Input[bool]] = None,
                  socket_timeout_millis: Optional[pulumi.Input[int]] = None,
                  store_artifacts_locally: Optional[pulumi.Input[bool]] = None,
@@ -1614,6 +1713,7 @@ class RemoteGemsRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS
                CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[str] client_tls_certificate: Client TLS certificate name.
+        :param pulumi.Input[bool] curated: Enable repository to be protected by the Curation service.
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
                for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
@@ -1646,6 +1746,7 @@ class RemoteGemsRepository(pulumi.CustomResource):
                not found in those repositories, Artifactory will merge from repositories marked as non-priority.
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+        :param pulumi.Input[bool] propagate_query_params: When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set names
         :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies settings. Can't be set if `disable_proxy = true`.
         :param pulumi.Input[str] query_params: Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
@@ -1656,6 +1757,7 @@ class RemoteGemsRepository(pulumi.CustomResource):
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the remote repository
         :param pulumi.Input[int] retrieval_cache_period_seconds: Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files
                before checking for newer versions on remote server. A value of 0 indicates no caching.
+        :param pulumi.Input[bool] retrieve_sha256_from_server: When set to `true`, Artifactory retrieves the SHA256 from the remote server if it is not cached in the remote repo.
         :param pulumi.Input[int] socket_timeout_millis: Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network
                operation is considered a retrieval failure.
         :param pulumi.Input[bool] store_artifacts_locally: When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and
@@ -1722,6 +1824,7 @@ class RemoteGemsRepository(pulumi.CustomResource):
                  cdn_redirect: Optional[pulumi.Input[bool]] = None,
                  client_tls_certificate: Optional[pulumi.Input[str]] = None,
                  content_synchronisation: Optional[pulumi.Input[Union['RemoteGemsRepositoryContentSynchronisationArgs', 'RemoteGemsRepositoryContentSynchronisationArgsDict']]] = None,
+                 curated: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  disable_proxy: Optional[pulumi.Input[bool]] = None,
                  disable_url_normalization: Optional[pulumi.Input[bool]] = None,
@@ -1742,12 +1845,14 @@ class RemoteGemsRepository(pulumi.CustomResource):
                  priority_resolution: Optional[pulumi.Input[bool]] = None,
                  project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  project_key: Optional[pulumi.Input[str]] = None,
+                 propagate_query_params: Optional[pulumi.Input[bool]] = None,
                  property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  proxy: Optional[pulumi.Input[str]] = None,
                  query_params: Optional[pulumi.Input[str]] = None,
                  remote_repo_layout_ref: Optional[pulumi.Input[str]] = None,
                  repo_layout_ref: Optional[pulumi.Input[str]] = None,
                  retrieval_cache_period_seconds: Optional[pulumi.Input[int]] = None,
+                 retrieve_sha256_from_server: Optional[pulumi.Input[bool]] = None,
                  share_configuration: Optional[pulumi.Input[bool]] = None,
                  socket_timeout_millis: Optional[pulumi.Input[int]] = None,
                  store_artifacts_locally: Optional[pulumi.Input[bool]] = None,
@@ -1774,6 +1879,7 @@ class RemoteGemsRepository(pulumi.CustomResource):
             __props__.__dict__["cdn_redirect"] = cdn_redirect
             __props__.__dict__["client_tls_certificate"] = client_tls_certificate
             __props__.__dict__["content_synchronisation"] = content_synchronisation
+            __props__.__dict__["curated"] = curated
             __props__.__dict__["description"] = description
             __props__.__dict__["disable_proxy"] = disable_proxy
             __props__.__dict__["disable_url_normalization"] = disable_url_normalization
@@ -1796,12 +1902,14 @@ class RemoteGemsRepository(pulumi.CustomResource):
             __props__.__dict__["priority_resolution"] = priority_resolution
             __props__.__dict__["project_environments"] = project_environments
             __props__.__dict__["project_key"] = project_key
+            __props__.__dict__["propagate_query_params"] = propagate_query_params
             __props__.__dict__["property_sets"] = property_sets
             __props__.__dict__["proxy"] = proxy
             __props__.__dict__["query_params"] = query_params
             __props__.__dict__["remote_repo_layout_ref"] = remote_repo_layout_ref
             __props__.__dict__["repo_layout_ref"] = repo_layout_ref
             __props__.__dict__["retrieval_cache_period_seconds"] = retrieval_cache_period_seconds
+            __props__.__dict__["retrieve_sha256_from_server"] = retrieve_sha256_from_server
             __props__.__dict__["share_configuration"] = share_configuration
             __props__.__dict__["socket_timeout_millis"] = socket_timeout_millis
             __props__.__dict__["store_artifacts_locally"] = store_artifacts_locally
@@ -1832,6 +1940,7 @@ class RemoteGemsRepository(pulumi.CustomResource):
             cdn_redirect: Optional[pulumi.Input[bool]] = None,
             client_tls_certificate: Optional[pulumi.Input[str]] = None,
             content_synchronisation: Optional[pulumi.Input[Union['RemoteGemsRepositoryContentSynchronisationArgs', 'RemoteGemsRepositoryContentSynchronisationArgsDict']]] = None,
+            curated: Optional[pulumi.Input[bool]] = None,
             description: Optional[pulumi.Input[str]] = None,
             disable_proxy: Optional[pulumi.Input[bool]] = None,
             disable_url_normalization: Optional[pulumi.Input[bool]] = None,
@@ -1853,12 +1962,14 @@ class RemoteGemsRepository(pulumi.CustomResource):
             priority_resolution: Optional[pulumi.Input[bool]] = None,
             project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             project_key: Optional[pulumi.Input[str]] = None,
+            propagate_query_params: Optional[pulumi.Input[bool]] = None,
             property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             proxy: Optional[pulumi.Input[str]] = None,
             query_params: Optional[pulumi.Input[str]] = None,
             remote_repo_layout_ref: Optional[pulumi.Input[str]] = None,
             repo_layout_ref: Optional[pulumi.Input[str]] = None,
             retrieval_cache_period_seconds: Optional[pulumi.Input[int]] = None,
+            retrieve_sha256_from_server: Optional[pulumi.Input[bool]] = None,
             share_configuration: Optional[pulumi.Input[bool]] = None,
             socket_timeout_millis: Optional[pulumi.Input[int]] = None,
             store_artifacts_locally: Optional[pulumi.Input[bool]] = None,
@@ -1893,6 +2004,7 @@ class RemoteGemsRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS
                CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[str] client_tls_certificate: Client TLS certificate name.
+        :param pulumi.Input[bool] curated: Enable repository to be protected by the Curation service.
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
                for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
@@ -1925,6 +2037,7 @@ class RemoteGemsRepository(pulumi.CustomResource):
                not found in those repositories, Artifactory will merge from repositories marked as non-priority.
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+        :param pulumi.Input[bool] propagate_query_params: When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set names
         :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies settings. Can't be set if `disable_proxy = true`.
         :param pulumi.Input[str] query_params: Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
@@ -1935,6 +2048,7 @@ class RemoteGemsRepository(pulumi.CustomResource):
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the remote repository
         :param pulumi.Input[int] retrieval_cache_period_seconds: Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files
                before checking for newer versions on remote server. A value of 0 indicates no caching.
+        :param pulumi.Input[bool] retrieve_sha256_from_server: When set to `true`, Artifactory retrieves the SHA256 from the remote server if it is not cached in the remote repo.
         :param pulumi.Input[int] socket_timeout_millis: Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network
                operation is considered a retrieval failure.
         :param pulumi.Input[bool] store_artifacts_locally: When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and
@@ -1961,6 +2075,7 @@ class RemoteGemsRepository(pulumi.CustomResource):
         __props__.__dict__["cdn_redirect"] = cdn_redirect
         __props__.__dict__["client_tls_certificate"] = client_tls_certificate
         __props__.__dict__["content_synchronisation"] = content_synchronisation
+        __props__.__dict__["curated"] = curated
         __props__.__dict__["description"] = description
         __props__.__dict__["disable_proxy"] = disable_proxy
         __props__.__dict__["disable_url_normalization"] = disable_url_normalization
@@ -1982,12 +2097,14 @@ class RemoteGemsRepository(pulumi.CustomResource):
         __props__.__dict__["priority_resolution"] = priority_resolution
         __props__.__dict__["project_environments"] = project_environments
         __props__.__dict__["project_key"] = project_key
+        __props__.__dict__["propagate_query_params"] = propagate_query_params
         __props__.__dict__["property_sets"] = property_sets
         __props__.__dict__["proxy"] = proxy
         __props__.__dict__["query_params"] = query_params
         __props__.__dict__["remote_repo_layout_ref"] = remote_repo_layout_ref
         __props__.__dict__["repo_layout_ref"] = repo_layout_ref
         __props__.__dict__["retrieval_cache_period_seconds"] = retrieval_cache_period_seconds
+        __props__.__dict__["retrieve_sha256_from_server"] = retrieve_sha256_from_server
         __props__.__dict__["share_configuration"] = share_configuration
         __props__.__dict__["socket_timeout_millis"] = socket_timeout_millis
         __props__.__dict__["store_artifacts_locally"] = store_artifacts_locally
@@ -2077,6 +2194,14 @@ class RemoteGemsRepository(pulumi.CustomResource):
     @pulumi.getter(name="contentSynchronisation")
     def content_synchronisation(self) -> pulumi.Output['outputs.RemoteGemsRepositoryContentSynchronisation']:
         return pulumi.get(self, "content_synchronisation")
+
+    @property
+    @pulumi.getter
+    def curated(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Enable repository to be protected by the Curation service.
+        """
+        return pulumi.get(self, "curated")
 
     @property
     @pulumi.getter
@@ -2252,6 +2377,14 @@ class RemoteGemsRepository(pulumi.CustomResource):
         return pulumi.get(self, "project_key")
 
     @property
+    @pulumi.getter(name="propagateQueryParams")
+    def propagate_query_params(self) -> pulumi.Output[Optional[bool]]:
+        """
+        When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
+        """
+        return pulumi.get(self, "propagate_query_params")
+
+    @property
     @pulumi.getter(name="propertySets")
     def property_sets(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
@@ -2302,6 +2435,14 @@ class RemoteGemsRepository(pulumi.CustomResource):
         before checking for newer versions on remote server. A value of 0 indicates no caching.
         """
         return pulumi.get(self, "retrieval_cache_period_seconds")
+
+    @property
+    @pulumi.getter(name="retrieveSha256FromServer")
+    def retrieve_sha256_from_server(self) -> pulumi.Output[Optional[bool]]:
+        """
+        When set to `true`, Artifactory retrieves the SHA256 from the remote server if it is not cached in the remote repo.
+        """
+        return pulumi.get(self, "retrieve_sha256_from_server")
 
     @property
     @pulumi.getter(name="shareConfiguration")

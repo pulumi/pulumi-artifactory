@@ -166,7 +166,6 @@
         "getRemoteCranRepository.ts",
         "getRemoteDebianRepository.ts",
         "getRemoteDockerRepository.ts",
-        "getRemoteGemsRepository.ts",
         "getRemoteGenericRepository.ts",
         "getRemoteGitlfsRepository.ts",
         "getRemoteGoRepository.ts",

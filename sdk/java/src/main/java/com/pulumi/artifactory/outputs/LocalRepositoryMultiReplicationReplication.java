@@ -20,6 +20,11 @@ public final class LocalRepositoryMultiReplicationReplication {
      */
     private @Nullable Boolean checkBinaryExistenceInFilestore;
     /**
+     * @return When set to `true`, the `proxy` attribute will be ignored (from version 7.41.7). The default value is `false`.
+     * 
+     */
+    private @Nullable Boolean disableProxy;
+    /**
      * @return When set, enables replication of this repository to the target specified in `url` attribute. Default value is `true`.
      * 
      */
@@ -87,6 +92,13 @@ public final class LocalRepositoryMultiReplicationReplication {
      */
     public Optional<Boolean> checkBinaryExistenceInFilestore() {
         return Optional.ofNullable(this.checkBinaryExistenceInFilestore);
+    }
+    /**
+     * @return When set to `true`, the `proxy` attribute will be ignored (from version 7.41.7). The default value is `false`.
+     * 
+     */
+    public Optional<Boolean> disableProxy() {
+        return Optional.ofNullable(this.disableProxy);
     }
     /**
      * @return When set, enables replication of this repository to the target specified in `url` attribute. Default value is `true`.
@@ -183,6 +195,7 @@ public final class LocalRepositoryMultiReplicationReplication {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean checkBinaryExistenceInFilestore;
+        private @Nullable Boolean disableProxy;
         private @Nullable Boolean enabled;
         private @Nullable String excludePathPrefixPattern;
         private @Nullable String includePathPrefixPattern;
@@ -199,6 +212,7 @@ public final class LocalRepositoryMultiReplicationReplication {
         public Builder(LocalRepositoryMultiReplicationReplication defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.checkBinaryExistenceInFilestore = defaults.checkBinaryExistenceInFilestore;
+    	      this.disableProxy = defaults.disableProxy;
     	      this.enabled = defaults.enabled;
     	      this.excludePathPrefixPattern = defaults.excludePathPrefixPattern;
     	      this.includePathPrefixPattern = defaults.includePathPrefixPattern;
@@ -217,6 +231,12 @@ public final class LocalRepositoryMultiReplicationReplication {
         public Builder checkBinaryExistenceInFilestore(@Nullable Boolean checkBinaryExistenceInFilestore) {
 
             this.checkBinaryExistenceInFilestore = checkBinaryExistenceInFilestore;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder disableProxy(@Nullable Boolean disableProxy) {
+
+            this.disableProxy = disableProxy;
             return this;
         }
         @CustomType.Setter
@@ -298,6 +318,7 @@ public final class LocalRepositoryMultiReplicationReplication {
         public LocalRepositoryMultiReplicationReplication build() {
             final var _resultValue = new LocalRepositoryMultiReplicationReplication();
             _resultValue.checkBinaryExistenceInFilestore = checkBinaryExistenceInFilestore;
+            _resultValue.disableProxy = disableProxy;
             _resultValue.enabled = enabled;
             _resultValue.excludePathPrefixPattern = excludePathPrefixPattern;
             _resultValue.includePathPrefixPattern = includePathPrefixPattern;

@@ -103,6 +103,10 @@ export class RemoteGemsRepository extends pulumi.CustomResource {
     public readonly clientTlsCertificate!: pulumi.Output<string>;
     public readonly contentSynchronisation!: pulumi.Output<outputs.RemoteGemsRepositoryContentSynchronisation>;
     /**
+     * Enable repository to be protected by the Curation service.
+     */
+    public readonly curated!: pulumi.Output<boolean | undefined>;
+    /**
      * Public description.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -192,6 +196,10 @@ export class RemoteGemsRepository extends pulumi.CustomResource {
      */
     public readonly projectKey!: pulumi.Output<string | undefined>;
     /**
+     * When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
+     */
+    public readonly propagateQueryParams!: pulumi.Output<boolean | undefined>;
+    /**
      * List of property set names
      */
     public readonly propertySets!: pulumi.Output<string[] | undefined>;
@@ -219,6 +227,10 @@ export class RemoteGemsRepository extends pulumi.CustomResource {
      * before checking for newer versions on remote server. A value of 0 indicates no caching.
      */
     public readonly retrievalCachePeriodSeconds!: pulumi.Output<number | undefined>;
+    /**
+     * When set to `true`, Artifactory retrieves the SHA256 from the remote server if it is not cached in the remote repo.
+     */
+    public readonly retrieveSha256FromServer!: pulumi.Output<boolean | undefined>;
     public readonly shareConfiguration!: pulumi.Output<boolean>;
     /**
      * Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network
@@ -274,6 +286,7 @@ export class RemoteGemsRepository extends pulumi.CustomResource {
             resourceInputs["cdnRedirect"] = state ? state.cdnRedirect : undefined;
             resourceInputs["clientTlsCertificate"] = state ? state.clientTlsCertificate : undefined;
             resourceInputs["contentSynchronisation"] = state ? state.contentSynchronisation : undefined;
+            resourceInputs["curated"] = state ? state.curated : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["disableProxy"] = state ? state.disableProxy : undefined;
             resourceInputs["disableUrlNormalization"] = state ? state.disableUrlNormalization : undefined;
@@ -295,12 +308,14 @@ export class RemoteGemsRepository extends pulumi.CustomResource {
             resourceInputs["priorityResolution"] = state ? state.priorityResolution : undefined;
             resourceInputs["projectEnvironments"] = state ? state.projectEnvironments : undefined;
             resourceInputs["projectKey"] = state ? state.projectKey : undefined;
+            resourceInputs["propagateQueryParams"] = state ? state.propagateQueryParams : undefined;
             resourceInputs["propertySets"] = state ? state.propertySets : undefined;
             resourceInputs["proxy"] = state ? state.proxy : undefined;
             resourceInputs["queryParams"] = state ? state.queryParams : undefined;
             resourceInputs["remoteRepoLayoutRef"] = state ? state.remoteRepoLayoutRef : undefined;
             resourceInputs["repoLayoutRef"] = state ? state.repoLayoutRef : undefined;
             resourceInputs["retrievalCachePeriodSeconds"] = state ? state.retrievalCachePeriodSeconds : undefined;
+            resourceInputs["retrieveSha256FromServer"] = state ? state.retrieveSha256FromServer : undefined;
             resourceInputs["shareConfiguration"] = state ? state.shareConfiguration : undefined;
             resourceInputs["socketTimeoutMillis"] = state ? state.socketTimeoutMillis : undefined;
             resourceInputs["storeArtifactsLocally"] = state ? state.storeArtifactsLocally : undefined;
@@ -323,6 +338,7 @@ export class RemoteGemsRepository extends pulumi.CustomResource {
             resourceInputs["cdnRedirect"] = args ? args.cdnRedirect : undefined;
             resourceInputs["clientTlsCertificate"] = args ? args.clientTlsCertificate : undefined;
             resourceInputs["contentSynchronisation"] = args ? args.contentSynchronisation : undefined;
+            resourceInputs["curated"] = args ? args.curated : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["disableProxy"] = args ? args.disableProxy : undefined;
             resourceInputs["disableUrlNormalization"] = args ? args.disableUrlNormalization : undefined;
@@ -343,12 +359,14 @@ export class RemoteGemsRepository extends pulumi.CustomResource {
             resourceInputs["priorityResolution"] = args ? args.priorityResolution : undefined;
             resourceInputs["projectEnvironments"] = args ? args.projectEnvironments : undefined;
             resourceInputs["projectKey"] = args ? args.projectKey : undefined;
+            resourceInputs["propagateQueryParams"] = args ? args.propagateQueryParams : undefined;
             resourceInputs["propertySets"] = args ? args.propertySets : undefined;
             resourceInputs["proxy"] = args ? args.proxy : undefined;
             resourceInputs["queryParams"] = args ? args.queryParams : undefined;
             resourceInputs["remoteRepoLayoutRef"] = args ? args.remoteRepoLayoutRef : undefined;
             resourceInputs["repoLayoutRef"] = args ? args.repoLayoutRef : undefined;
             resourceInputs["retrievalCachePeriodSeconds"] = args ? args.retrievalCachePeriodSeconds : undefined;
+            resourceInputs["retrieveSha256FromServer"] = args ? args.retrieveSha256FromServer : undefined;
             resourceInputs["shareConfiguration"] = args ? args.shareConfiguration : undefined;
             resourceInputs["socketTimeoutMillis"] = args ? args.socketTimeoutMillis : undefined;
             resourceInputs["storeArtifactsLocally"] = args ? args.storeArtifactsLocally : undefined;
@@ -414,6 +432,10 @@ export interface RemoteGemsRepositoryState {
      */
     clientTlsCertificate?: pulumi.Input<string>;
     contentSynchronisation?: pulumi.Input<inputs.RemoteGemsRepositoryContentSynchronisation>;
+    /**
+     * Enable repository to be protected by the Curation service.
+     */
+    curated?: pulumi.Input<boolean>;
     /**
      * Public description.
      */
@@ -504,6 +526,10 @@ export interface RemoteGemsRepositoryState {
      */
     projectKey?: pulumi.Input<string>;
     /**
+     * When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
+     */
+    propagateQueryParams?: pulumi.Input<boolean>;
+    /**
      * List of property set names
      */
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
@@ -531,6 +557,10 @@ export interface RemoteGemsRepositoryState {
      * before checking for newer versions on remote server. A value of 0 indicates no caching.
      */
     retrievalCachePeriodSeconds?: pulumi.Input<number>;
+    /**
+     * When set to `true`, Artifactory retrieves the SHA256 from the remote server if it is not cached in the remote repo.
+     */
+    retrieveSha256FromServer?: pulumi.Input<boolean>;
     shareConfiguration?: pulumi.Input<boolean>;
     /**
      * Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network
@@ -613,6 +643,10 @@ export interface RemoteGemsRepositoryArgs {
      */
     clientTlsCertificate?: pulumi.Input<string>;
     contentSynchronisation?: pulumi.Input<inputs.RemoteGemsRepositoryContentSynchronisation>;
+    /**
+     * Enable repository to be protected by the Curation service.
+     */
+    curated?: pulumi.Input<boolean>;
     /**
      * Public description.
      */
@@ -702,6 +736,10 @@ export interface RemoteGemsRepositoryArgs {
      */
     projectKey?: pulumi.Input<string>;
     /**
+     * When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
+     */
+    propagateQueryParams?: pulumi.Input<boolean>;
+    /**
      * List of property set names
      */
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
@@ -729,6 +767,10 @@ export interface RemoteGemsRepositoryArgs {
      * before checking for newer versions on remote server. A value of 0 indicates no caching.
      */
     retrievalCachePeriodSeconds?: pulumi.Input<number>;
+    /**
+     * When set to `true`, Artifactory retrieves the SHA256 from the remote server if it is not cached in the remote repo.
+     */
+    retrieveSha256FromServer?: pulumi.Input<boolean>;
     shareConfiguration?: pulumi.Input<boolean>;
     /**
      * Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network

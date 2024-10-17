@@ -3090,44 +3090,6 @@ export interface GetRemoteDockerRepositoryContentSynchronisationArgs {
     statisticsEnabled?: pulumi.Input<boolean>;
 }
 
-export interface GetRemoteGemsRepositoryContentSynchronisation {
-    /**
-     * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
-     */
-    enabled?: boolean;
-    /**
-     * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
-     */
-    propertiesEnabled?: boolean;
-    /**
-     * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
-     */
-    sourceOriginAbsenceDetection?: boolean;
-    /**
-     * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
-     */
-    statisticsEnabled?: boolean;
-}
-
-export interface GetRemoteGemsRepositoryContentSynchronisationArgs {
-    /**
-     * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
-     */
-    enabled?: pulumi.Input<boolean>;
-    /**
-     * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
-     */
-    propertiesEnabled?: pulumi.Input<boolean>;
-    /**
-     * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
-     */
-    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
-    /**
-     * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
-     */
-    statisticsEnabled?: pulumi.Input<boolean>;
-}
-
 export interface GetRemoteGenericRepositoryContentSynchronisation {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
@@ -3932,6 +3894,10 @@ export interface LocalRepositoryMultiReplicationReplication {
      */
     checkBinaryExistenceInFilestore?: pulumi.Input<boolean>;
     /**
+     * When set to `true`, the `proxy` attribute will be ignored (from version 7.41.7). The default value is `false`.
+     */
+    disableProxy?: pulumi.Input<boolean>;
+    /**
      * When set, enables replication of this repository to the target specified in `url` attribute. Default value is `true`.
      */
     enabled?: pulumi.Input<boolean>;
@@ -4381,13 +4347,7 @@ export interface ReleaseBundleV2CustomWebhookHandler {
 }
 
 export interface ReleaseBundleV2PromotionCustomWebhookCriteria {
-    /**
-     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\nAnt-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
-     */
     excludePatterns?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\nAnt-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
-     */
     includePatterns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Trigger on this list of environment names.
@@ -4419,13 +4379,7 @@ export interface ReleaseBundleV2PromotionCustomWebhookHandler {
 }
 
 export interface ReleaseBundleV2PromotionWebhookCriteria {
-    /**
-     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\nAnt-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
-     */
     excludePatterns?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\nAnt-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
-     */
     includePatterns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Trigger on this list of environment names.

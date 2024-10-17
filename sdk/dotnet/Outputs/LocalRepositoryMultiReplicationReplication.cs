@@ -18,6 +18,10 @@ namespace Pulumi.Artifactory.Outputs
         /// </summary>
         public readonly bool? CheckBinaryExistenceInFilestore;
         /// <summary>
+        /// When set to `true`, the `proxy` attribute will be ignored (from version 7.41.7). The default value is `false`.
+        /// </summary>
+        public readonly bool? DisableProxy;
+        /// <summary>
         /// When set, enables replication of this repository to the target specified in `url` attribute. Default value is `true`.
         /// </summary>
         public readonly bool? Enabled;
@@ -70,6 +74,8 @@ namespace Pulumi.Artifactory.Outputs
         private LocalRepositoryMultiReplicationReplication(
             bool? checkBinaryExistenceInFilestore,
 
+            bool? disableProxy,
+
             bool? enabled,
 
             string? excludePathPrefixPattern,
@@ -95,6 +101,7 @@ namespace Pulumi.Artifactory.Outputs
             string username)
         {
             CheckBinaryExistenceInFilestore = checkBinaryExistenceInFilestore;
+            DisableProxy = disableProxy;
             Enabled = enabled;
             ExcludePathPrefixPattern = excludePathPrefixPattern;
             IncludePathPrefixPattern = includePathPrefixPattern;

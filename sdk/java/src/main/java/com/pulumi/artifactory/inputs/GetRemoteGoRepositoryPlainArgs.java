@@ -82,6 +82,13 @@ public final class GetRemoteGoRepositoryPlainArgs extends com.pulumi.resources.I
         return Optional.ofNullable(this.contentSynchronisation);
     }
 
+    @Import(name="curated")
+    private @Nullable Boolean curated;
+
+    public Optional<Boolean> curated() {
+        return Optional.ofNullable(this.curated);
+    }
+
     @Import(name="description")
     private @Nullable String description;
 
@@ -355,6 +362,7 @@ public final class GetRemoteGoRepositoryPlainArgs extends com.pulumi.resources.I
         this.cdnRedirect = $.cdnRedirect;
         this.clientTlsCertificate = $.clientTlsCertificate;
         this.contentSynchronisation = $.contentSynchronisation;
+        this.curated = $.curated;
         this.description = $.description;
         this.disableProxy = $.disableProxy;
         this.disableUrlNormalization = $.disableUrlNormalization;
@@ -452,6 +460,11 @@ public final class GetRemoteGoRepositoryPlainArgs extends com.pulumi.resources.I
 
         public Builder contentSynchronisation(@Nullable GetRemoteGoRepositoryContentSynchronisation contentSynchronisation) {
             $.contentSynchronisation = contentSynchronisation;
+            return this;
+        }
+
+        public Builder curated(@Nullable Boolean curated) {
+            $.curated = curated;
             return this;
         }
 

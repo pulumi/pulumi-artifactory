@@ -21,41 +21,31 @@ __all__ = ['DistributionWebhookArgs', 'DistributionWebhook']
 @pulumi.input_type
 class DistributionWebhookArgs:
     def __init__(__self__, *,
-                 criteria: pulumi.Input['DistributionWebhookCriteriaArgs'],
                  event_types: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 handlers: pulumi.Input[Sequence[pulumi.Input['DistributionWebhookHandlerArgs']]],
                  key: pulumi.Input[str],
+                 criteria: Optional[pulumi.Input['DistributionWebhookCriteriaArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 enabled: Optional[pulumi.Input[bool]] = None):
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 handlers: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionWebhookHandlerArgs']]]] = None):
         """
         The set of arguments for constructing a DistributionWebhook resource.
-        :param pulumi.Input['DistributionWebhookCriteriaArgs'] criteria: Specifies where the webhook will be applied on which repositories.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] event_types: List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `distribute_started`, `distribute_completed`, `distribute_aborted`, `distribute_failed, `delete_started`, `delete_completed`, `delete_failed`
-        :param pulumi.Input[Sequence[pulumi.Input['DistributionWebhookHandlerArgs']]] handlers: At least one is required.
         :param pulumi.Input[str] key: The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+        :param pulumi.Input['DistributionWebhookCriteriaArgs'] criteria: Specifies where the webhook will be applied on which repositories.
         :param pulumi.Input[str] description: Webhook description. Max length 1000 characters.
         :param pulumi.Input[bool] enabled: Status of webhook. Default to `true`.
+        :param pulumi.Input[Sequence[pulumi.Input['DistributionWebhookHandlerArgs']]] handlers: At least one is required.
         """
-        pulumi.set(__self__, "criteria", criteria)
         pulumi.set(__self__, "event_types", event_types)
-        pulumi.set(__self__, "handlers", handlers)
         pulumi.set(__self__, "key", key)
+        if criteria is not None:
+            pulumi.set(__self__, "criteria", criteria)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
-
-    @property
-    @pulumi.getter
-    def criteria(self) -> pulumi.Input['DistributionWebhookCriteriaArgs']:
-        """
-        Specifies where the webhook will be applied on which repositories.
-        """
-        return pulumi.get(self, "criteria")
-
-    @criteria.setter
-    def criteria(self, value: pulumi.Input['DistributionWebhookCriteriaArgs']):
-        pulumi.set(self, "criteria", value)
+        if handlers is not None:
+            pulumi.set(__self__, "handlers", handlers)
 
     @property
     @pulumi.getter(name="eventTypes")
@@ -71,18 +61,6 @@ class DistributionWebhookArgs:
 
     @property
     @pulumi.getter
-    def handlers(self) -> pulumi.Input[Sequence[pulumi.Input['DistributionWebhookHandlerArgs']]]:
-        """
-        At least one is required.
-        """
-        return pulumi.get(self, "handlers")
-
-    @handlers.setter
-    def handlers(self, value: pulumi.Input[Sequence[pulumi.Input['DistributionWebhookHandlerArgs']]]):
-        pulumi.set(self, "handlers", value)
-
-    @property
-    @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
         The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
@@ -92,6 +70,18 @@ class DistributionWebhookArgs:
     @key.setter
     def key(self, value: pulumi.Input[str]):
         pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def criteria(self) -> Optional[pulumi.Input['DistributionWebhookCriteriaArgs']]:
+        """
+        Specifies where the webhook will be applied on which repositories.
+        """
+        return pulumi.get(self, "criteria")
+
+    @criteria.setter
+    def criteria(self, value: Optional[pulumi.Input['DistributionWebhookCriteriaArgs']]):
+        pulumi.set(self, "criteria", value)
 
     @property
     @pulumi.getter
@@ -116,6 +106,18 @@ class DistributionWebhookArgs:
     @enabled.setter
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter
+    def handlers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DistributionWebhookHandlerArgs']]]]:
+        """
+        At least one is required.
+        """
+        return pulumi.get(self, "handlers")
+
+    @handlers.setter
+    def handlers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionWebhookHandlerArgs']]]]):
+        pulumi.set(self, "handlers", value)
 
 
 @pulumi.input_type
@@ -355,16 +357,12 @@ class DistributionWebhook(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DistributionWebhookArgs.__new__(DistributionWebhookArgs)
 
-            if criteria is None and not opts.urn:
-                raise TypeError("Missing required property 'criteria'")
             __props__.__dict__["criteria"] = criteria
             __props__.__dict__["description"] = description
             __props__.__dict__["enabled"] = enabled
             if event_types is None and not opts.urn:
                 raise TypeError("Missing required property 'event_types'")
             __props__.__dict__["event_types"] = event_types
-            if handlers is None and not opts.urn:
-                raise TypeError("Missing required property 'handlers'")
             __props__.__dict__["handlers"] = handlers
             if key is None and not opts.urn:
                 raise TypeError("Missing required property 'key'")
@@ -413,7 +411,7 @@ class DistributionWebhook(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def criteria(self) -> pulumi.Output['outputs.DistributionWebhookCriteria']:
+    def criteria(self) -> pulumi.Output[Optional['outputs.DistributionWebhookCriteria']]:
         """
         Specifies where the webhook will be applied on which repositories.
         """
@@ -429,7 +427,7 @@ class DistributionWebhook(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def enabled(self) -> pulumi.Output[Optional[bool]]:
+    def enabled(self) -> pulumi.Output[bool]:
         """
         Status of webhook. Default to `true`.
         """
@@ -445,7 +443,7 @@ class DistributionWebhook(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def handlers(self) -> pulumi.Output[Sequence['outputs.DistributionWebhookHandler']]:
+    def handlers(self) -> pulumi.Output[Optional[Sequence['outputs.DistributionWebhookHandler']]]:
         """
         At least one is required.
         """

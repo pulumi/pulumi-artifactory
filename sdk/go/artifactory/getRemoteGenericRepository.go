@@ -88,7 +88,6 @@ type LookupRemoteGenericRepositoryArgs struct {
 	RemoteRepoLayoutRef               *string  `pulumi:"remoteRepoLayoutRef"`
 	RepoLayoutRef                     *string  `pulumi:"repoLayoutRef"`
 	RetrievalCachePeriodSeconds       *int     `pulumi:"retrievalCachePeriodSeconds"`
-	RetrieveSha256FromServer          *bool    `pulumi:"retrieveSha256FromServer"`
 	ShareConfiguration                *bool    `pulumi:"shareConfiguration"`
 	SocketTimeoutMillis               *int     `pulumi:"socketTimeoutMillis"`
 	StoreArtifactsLocally             *bool    `pulumi:"storeArtifactsLocally"`
@@ -141,7 +140,6 @@ type LookupRemoteGenericRepositoryResult struct {
 	RemoteRepoLayoutRef               *string  `pulumi:"remoteRepoLayoutRef"`
 	RepoLayoutRef                     *string  `pulumi:"repoLayoutRef"`
 	RetrievalCachePeriodSeconds       *int     `pulumi:"retrievalCachePeriodSeconds"`
-	RetrieveSha256FromServer          *bool    `pulumi:"retrieveSha256FromServer"`
 	ShareConfiguration                bool     `pulumi:"shareConfiguration"`
 	SocketTimeoutMillis               *int     `pulumi:"socketTimeoutMillis"`
 	StoreArtifactsLocally             *bool    `pulumi:"storeArtifactsLocally"`
@@ -211,7 +209,6 @@ type LookupRemoteGenericRepositoryOutputArgs struct {
 	RemoteRepoLayoutRef               pulumi.StringPtrInput   `pulumi:"remoteRepoLayoutRef"`
 	RepoLayoutRef                     pulumi.StringPtrInput   `pulumi:"repoLayoutRef"`
 	RetrievalCachePeriodSeconds       pulumi.IntPtrInput      `pulumi:"retrievalCachePeriodSeconds"`
-	RetrieveSha256FromServer          pulumi.BoolPtrInput     `pulumi:"retrieveSha256FromServer"`
 	ShareConfiguration                pulumi.BoolPtrInput     `pulumi:"shareConfiguration"`
 	SocketTimeoutMillis               pulumi.IntPtrInput      `pulumi:"socketTimeoutMillis"`
 	StoreArtifactsLocally             pulumi.BoolPtrInput     `pulumi:"storeArtifactsLocally"`
@@ -395,10 +392,6 @@ func (o LookupRemoteGenericRepositoryResultOutput) RepoLayoutRef() pulumi.String
 
 func (o LookupRemoteGenericRepositoryResultOutput) RetrievalCachePeriodSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupRemoteGenericRepositoryResult) *int { return v.RetrievalCachePeriodSeconds }).(pulumi.IntPtrOutput)
-}
-
-func (o LookupRemoteGenericRepositoryResultOutput) RetrieveSha256FromServer() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v LookupRemoteGenericRepositoryResult) *bool { return v.RetrieveSha256FromServer }).(pulumi.BoolPtrOutput)
 }
 
 func (o LookupRemoteGenericRepositoryResultOutput) ShareConfiguration() pulumi.BoolOutput {

@@ -9215,6 +9215,8 @@ func (o FederatedVagrantRepositoryMemberArrayOutput) Index(i pulumi.IntInput) Fe
 type LocalRepositoryMultiReplicationReplication struct {
 	// Enabling the `checkBinaryExistenceInFilestore` flag requires an Enterprise Plus license. When true, enables distributed checksum storage. For more information, see [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
 	CheckBinaryExistenceInFilestore *bool `pulumi:"checkBinaryExistenceInFilestore"`
+	// When set to `true`, the `proxy` attribute will be ignored (from version 7.41.7). The default value is `false`.
+	DisableProxy *bool `pulumi:"disableProxy"`
 	// When set, enables replication of this repository to the target specified in `url` attribute. Default value is `true`.
 	Enabled *bool `pulumi:"enabled"`
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. By default, no artifacts are excluded.
@@ -9255,6 +9257,8 @@ type LocalRepositoryMultiReplicationReplicationInput interface {
 type LocalRepositoryMultiReplicationReplicationArgs struct {
 	// Enabling the `checkBinaryExistenceInFilestore` flag requires an Enterprise Plus license. When true, enables distributed checksum storage. For more information, see [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
 	CheckBinaryExistenceInFilestore pulumi.BoolPtrInput `pulumi:"checkBinaryExistenceInFilestore"`
+	// When set to `true`, the `proxy` attribute will be ignored (from version 7.41.7). The default value is `false`.
+	DisableProxy pulumi.BoolPtrInput `pulumi:"disableProxy"`
 	// When set, enables replication of this repository to the target specified in `url` attribute. Default value is `true`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. By default, no artifacts are excluded.
@@ -9335,6 +9339,11 @@ func (o LocalRepositoryMultiReplicationReplicationOutput) ToLocalRepositoryMulti
 // Enabling the `checkBinaryExistenceInFilestore` flag requires an Enterprise Plus license. When true, enables distributed checksum storage. For more information, see [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
 func (o LocalRepositoryMultiReplicationReplicationOutput) CheckBinaryExistenceInFilestore() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LocalRepositoryMultiReplicationReplication) *bool { return v.CheckBinaryExistenceInFilestore }).(pulumi.BoolPtrOutput)
+}
+
+// When set to `true`, the `proxy` attribute will be ignored (from version 7.41.7). The default value is `false`.
+func (o LocalRepositoryMultiReplicationReplicationOutput) DisableProxy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LocalRepositoryMultiReplicationReplication) *bool { return v.DisableProxy }).(pulumi.BoolPtrOutput)
 }
 
 // When set, enables replication of this repository to the target specified in `url` attribute. Default value is `true`.
@@ -12860,9 +12869,7 @@ func (o ReleaseBundleV2CustomWebhookHandlerArrayOutput) Index(i pulumi.IntInput)
 }
 
 type ReleaseBundleV2PromotionCustomWebhookCriteria struct {
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\nAnt-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
 	ExcludePatterns []string `pulumi:"excludePatterns"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\nAnt-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
 	IncludePatterns []string `pulumi:"includePatterns"`
 	// Trigger on this list of environment names.
 	SelectedEnvironments []string `pulumi:"selectedEnvironments"`
@@ -12880,9 +12887,7 @@ type ReleaseBundleV2PromotionCustomWebhookCriteriaInput interface {
 }
 
 type ReleaseBundleV2PromotionCustomWebhookCriteriaArgs struct {
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\nAnt-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
 	ExcludePatterns pulumi.StringArrayInput `pulumi:"excludePatterns"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\nAnt-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
 	IncludePatterns pulumi.StringArrayInput `pulumi:"includePatterns"`
 	// Trigger on this list of environment names.
 	SelectedEnvironments pulumi.StringArrayInput `pulumi:"selectedEnvironments"`
@@ -12965,12 +12970,10 @@ func (o ReleaseBundleV2PromotionCustomWebhookCriteriaOutput) ToReleaseBundleV2Pr
 	}).(ReleaseBundleV2PromotionCustomWebhookCriteriaPtrOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\nAnt-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
 func (o ReleaseBundleV2PromotionCustomWebhookCriteriaOutput) ExcludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ReleaseBundleV2PromotionCustomWebhookCriteria) []string { return v.ExcludePatterns }).(pulumi.StringArrayOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\nAnt-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
 func (o ReleaseBundleV2PromotionCustomWebhookCriteriaOutput) IncludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ReleaseBundleV2PromotionCustomWebhookCriteria) []string { return v.IncludePatterns }).(pulumi.StringArrayOutput)
 }
@@ -13004,7 +13007,6 @@ func (o ReleaseBundleV2PromotionCustomWebhookCriteriaPtrOutput) Elem() ReleaseBu
 	}).(ReleaseBundleV2PromotionCustomWebhookCriteriaOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\nAnt-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
 func (o ReleaseBundleV2PromotionCustomWebhookCriteriaPtrOutput) ExcludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ReleaseBundleV2PromotionCustomWebhookCriteria) []string {
 		if v == nil {
@@ -13014,7 +13016,6 @@ func (o ReleaseBundleV2PromotionCustomWebhookCriteriaPtrOutput) ExcludePatterns(
 	}).(pulumi.StringArrayOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\nAnt-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
 func (o ReleaseBundleV2PromotionCustomWebhookCriteriaPtrOutput) IncludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ReleaseBundleV2PromotionCustomWebhookCriteria) []string {
 		if v == nil {
@@ -13168,9 +13169,7 @@ func (o ReleaseBundleV2PromotionCustomWebhookHandlerArrayOutput) Index(i pulumi.
 }
 
 type ReleaseBundleV2PromotionWebhookCriteria struct {
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\nAnt-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
 	ExcludePatterns []string `pulumi:"excludePatterns"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\nAnt-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
 	IncludePatterns []string `pulumi:"includePatterns"`
 	// Trigger on this list of environment names.
 	SelectedEnvironments []string `pulumi:"selectedEnvironments"`
@@ -13188,9 +13187,7 @@ type ReleaseBundleV2PromotionWebhookCriteriaInput interface {
 }
 
 type ReleaseBundleV2PromotionWebhookCriteriaArgs struct {
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\nAnt-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
 	ExcludePatterns pulumi.StringArrayInput `pulumi:"excludePatterns"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\nAnt-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
 	IncludePatterns pulumi.StringArrayInput `pulumi:"includePatterns"`
 	// Trigger on this list of environment names.
 	SelectedEnvironments pulumi.StringArrayInput `pulumi:"selectedEnvironments"`
@@ -13273,12 +13270,10 @@ func (o ReleaseBundleV2PromotionWebhookCriteriaOutput) ToReleaseBundleV2Promotio
 	}).(ReleaseBundleV2PromotionWebhookCriteriaPtrOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\nAnt-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
 func (o ReleaseBundleV2PromotionWebhookCriteriaOutput) ExcludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ReleaseBundleV2PromotionWebhookCriteria) []string { return v.ExcludePatterns }).(pulumi.StringArrayOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\nAnt-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
 func (o ReleaseBundleV2PromotionWebhookCriteriaOutput) IncludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ReleaseBundleV2PromotionWebhookCriteria) []string { return v.IncludePatterns }).(pulumi.StringArrayOutput)
 }
@@ -13312,7 +13307,6 @@ func (o ReleaseBundleV2PromotionWebhookCriteriaPtrOutput) Elem() ReleaseBundleV2
 	}).(ReleaseBundleV2PromotionWebhookCriteriaOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\nAnt-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
 func (o ReleaseBundleV2PromotionWebhookCriteriaPtrOutput) ExcludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ReleaseBundleV2PromotionWebhookCriteria) []string {
 		if v == nil {
@@ -13322,7 +13316,6 @@ func (o ReleaseBundleV2PromotionWebhookCriteriaPtrOutput) ExcludePatterns() pulu
 	}).(pulumi.StringArrayOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\nAnt-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
 func (o ReleaseBundleV2PromotionWebhookCriteriaPtrOutput) IncludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ReleaseBundleV2PromotionWebhookCriteria) []string {
 		if v == nil {
@@ -30996,200 +30989,6 @@ func (o GetRemoteDockerRepositoryContentSynchronisationPtrOutput) StatisticsEnab
 	}).(pulumi.BoolPtrOutput)
 }
 
-type GetRemoteGemsRepositoryContentSynchronisation struct {
-	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
-	Enabled *bool `pulumi:"enabled"`
-	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
-	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
-	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
-	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
-	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
-	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
-}
-
-// GetRemoteGemsRepositoryContentSynchronisationInput is an input type that accepts GetRemoteGemsRepositoryContentSynchronisationArgs and GetRemoteGemsRepositoryContentSynchronisationOutput values.
-// You can construct a concrete instance of `GetRemoteGemsRepositoryContentSynchronisationInput` via:
-//
-//	GetRemoteGemsRepositoryContentSynchronisationArgs{...}
-type GetRemoteGemsRepositoryContentSynchronisationInput interface {
-	pulumi.Input
-
-	ToGetRemoteGemsRepositoryContentSynchronisationOutput() GetRemoteGemsRepositoryContentSynchronisationOutput
-	ToGetRemoteGemsRepositoryContentSynchronisationOutputWithContext(context.Context) GetRemoteGemsRepositoryContentSynchronisationOutput
-}
-
-type GetRemoteGemsRepositoryContentSynchronisationArgs struct {
-	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
-	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
-	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
-	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
-	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
-	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
-}
-
-func (GetRemoteGemsRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetRemoteGemsRepositoryContentSynchronisation)(nil)).Elem()
-}
-
-func (i GetRemoteGemsRepositoryContentSynchronisationArgs) ToGetRemoteGemsRepositoryContentSynchronisationOutput() GetRemoteGemsRepositoryContentSynchronisationOutput {
-	return i.ToGetRemoteGemsRepositoryContentSynchronisationOutputWithContext(context.Background())
-}
-
-func (i GetRemoteGemsRepositoryContentSynchronisationArgs) ToGetRemoteGemsRepositoryContentSynchronisationOutputWithContext(ctx context.Context) GetRemoteGemsRepositoryContentSynchronisationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteGemsRepositoryContentSynchronisationOutput)
-}
-
-func (i GetRemoteGemsRepositoryContentSynchronisationArgs) ToGetRemoteGemsRepositoryContentSynchronisationPtrOutput() GetRemoteGemsRepositoryContentSynchronisationPtrOutput {
-	return i.ToGetRemoteGemsRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
-}
-
-func (i GetRemoteGemsRepositoryContentSynchronisationArgs) ToGetRemoteGemsRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteGemsRepositoryContentSynchronisationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteGemsRepositoryContentSynchronisationOutput).ToGetRemoteGemsRepositoryContentSynchronisationPtrOutputWithContext(ctx)
-}
-
-// GetRemoteGemsRepositoryContentSynchronisationPtrInput is an input type that accepts GetRemoteGemsRepositoryContentSynchronisationArgs, GetRemoteGemsRepositoryContentSynchronisationPtr and GetRemoteGemsRepositoryContentSynchronisationPtrOutput values.
-// You can construct a concrete instance of `GetRemoteGemsRepositoryContentSynchronisationPtrInput` via:
-//
-//	        GetRemoteGemsRepositoryContentSynchronisationArgs{...}
-//
-//	or:
-//
-//	        nil
-type GetRemoteGemsRepositoryContentSynchronisationPtrInput interface {
-	pulumi.Input
-
-	ToGetRemoteGemsRepositoryContentSynchronisationPtrOutput() GetRemoteGemsRepositoryContentSynchronisationPtrOutput
-	ToGetRemoteGemsRepositoryContentSynchronisationPtrOutputWithContext(context.Context) GetRemoteGemsRepositoryContentSynchronisationPtrOutput
-}
-
-type getRemoteGemsRepositoryContentSynchronisationPtrType GetRemoteGemsRepositoryContentSynchronisationArgs
-
-func GetRemoteGemsRepositoryContentSynchronisationPtr(v *GetRemoteGemsRepositoryContentSynchronisationArgs) GetRemoteGemsRepositoryContentSynchronisationPtrInput {
-	return (*getRemoteGemsRepositoryContentSynchronisationPtrType)(v)
-}
-
-func (*getRemoteGemsRepositoryContentSynchronisationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GetRemoteGemsRepositoryContentSynchronisation)(nil)).Elem()
-}
-
-func (i *getRemoteGemsRepositoryContentSynchronisationPtrType) ToGetRemoteGemsRepositoryContentSynchronisationPtrOutput() GetRemoteGemsRepositoryContentSynchronisationPtrOutput {
-	return i.ToGetRemoteGemsRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
-}
-
-func (i *getRemoteGemsRepositoryContentSynchronisationPtrType) ToGetRemoteGemsRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteGemsRepositoryContentSynchronisationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteGemsRepositoryContentSynchronisationPtrOutput)
-}
-
-type GetRemoteGemsRepositoryContentSynchronisationOutput struct{ *pulumi.OutputState }
-
-func (GetRemoteGemsRepositoryContentSynchronisationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetRemoteGemsRepositoryContentSynchronisation)(nil)).Elem()
-}
-
-func (o GetRemoteGemsRepositoryContentSynchronisationOutput) ToGetRemoteGemsRepositoryContentSynchronisationOutput() GetRemoteGemsRepositoryContentSynchronisationOutput {
-	return o
-}
-
-func (o GetRemoteGemsRepositoryContentSynchronisationOutput) ToGetRemoteGemsRepositoryContentSynchronisationOutputWithContext(ctx context.Context) GetRemoteGemsRepositoryContentSynchronisationOutput {
-	return o
-}
-
-func (o GetRemoteGemsRepositoryContentSynchronisationOutput) ToGetRemoteGemsRepositoryContentSynchronisationPtrOutput() GetRemoteGemsRepositoryContentSynchronisationPtrOutput {
-	return o.ToGetRemoteGemsRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
-}
-
-func (o GetRemoteGemsRepositoryContentSynchronisationOutput) ToGetRemoteGemsRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteGemsRepositoryContentSynchronisationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetRemoteGemsRepositoryContentSynchronisation) *GetRemoteGemsRepositoryContentSynchronisation {
-		return &v
-	}).(GetRemoteGemsRepositoryContentSynchronisationPtrOutput)
-}
-
-// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
-func (o GetRemoteGemsRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v GetRemoteGemsRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
-}
-
-// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
-func (o GetRemoteGemsRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v GetRemoteGemsRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
-}
-
-// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
-func (o GetRemoteGemsRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v GetRemoteGemsRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
-}
-
-// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
-func (o GetRemoteGemsRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v GetRemoteGemsRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
-}
-
-type GetRemoteGemsRepositoryContentSynchronisationPtrOutput struct{ *pulumi.OutputState }
-
-func (GetRemoteGemsRepositoryContentSynchronisationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GetRemoteGemsRepositoryContentSynchronisation)(nil)).Elem()
-}
-
-func (o GetRemoteGemsRepositoryContentSynchronisationPtrOutput) ToGetRemoteGemsRepositoryContentSynchronisationPtrOutput() GetRemoteGemsRepositoryContentSynchronisationPtrOutput {
-	return o
-}
-
-func (o GetRemoteGemsRepositoryContentSynchronisationPtrOutput) ToGetRemoteGemsRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteGemsRepositoryContentSynchronisationPtrOutput {
-	return o
-}
-
-func (o GetRemoteGemsRepositoryContentSynchronisationPtrOutput) Elem() GetRemoteGemsRepositoryContentSynchronisationOutput {
-	return o.ApplyT(func(v *GetRemoteGemsRepositoryContentSynchronisation) GetRemoteGemsRepositoryContentSynchronisation {
-		if v != nil {
-			return *v
-		}
-		var ret GetRemoteGemsRepositoryContentSynchronisation
-		return ret
-	}).(GetRemoteGemsRepositoryContentSynchronisationOutput)
-}
-
-// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
-func (o GetRemoteGemsRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *GetRemoteGemsRepositoryContentSynchronisation) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Enabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
-func (o GetRemoteGemsRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *GetRemoteGemsRepositoryContentSynchronisation) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.PropertiesEnabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
-func (o GetRemoteGemsRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *GetRemoteGemsRepositoryContentSynchronisation) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.SourceOriginAbsenceDetection
-	}).(pulumi.BoolPtrOutput)
-}
-
-// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
-func (o GetRemoteGemsRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *GetRemoteGemsRepositoryContentSynchronisation) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.StatisticsEnabled
-	}).(pulumi.BoolPtrOutput)
-}
-
 type GetRemoteGenericRepositoryContentSynchronisation struct {
 	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 	Enabled *bool `pulumi:"enabled"`
@@ -35790,8 +35589,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteDebianRepositoryContentSynchronisationPtrInput)(nil)).Elem(), GetRemoteDebianRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteDockerRepositoryContentSynchronisationInput)(nil)).Elem(), GetRemoteDockerRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteDockerRepositoryContentSynchronisationPtrInput)(nil)).Elem(), GetRemoteDockerRepositoryContentSynchronisationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteGemsRepositoryContentSynchronisationInput)(nil)).Elem(), GetRemoteGemsRepositoryContentSynchronisationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteGemsRepositoryContentSynchronisationPtrInput)(nil)).Elem(), GetRemoteGemsRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteGenericRepositoryContentSynchronisationInput)(nil)).Elem(), GetRemoteGenericRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteGenericRepositoryContentSynchronisationPtrInput)(nil)).Elem(), GetRemoteGenericRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteGitlfsRepositoryContentSynchronisationInput)(nil)).Elem(), GetRemoteGitlfsRepositoryContentSynchronisationArgs{})
@@ -36241,8 +36038,6 @@ func init() {
 	pulumi.RegisterOutputType(GetRemoteDebianRepositoryContentSynchronisationPtrOutput{})
 	pulumi.RegisterOutputType(GetRemoteDockerRepositoryContentSynchronisationOutput{})
 	pulumi.RegisterOutputType(GetRemoteDockerRepositoryContentSynchronisationPtrOutput{})
-	pulumi.RegisterOutputType(GetRemoteGemsRepositoryContentSynchronisationOutput{})
-	pulumi.RegisterOutputType(GetRemoteGemsRepositoryContentSynchronisationPtrOutput{})
 	pulumi.RegisterOutputType(GetRemoteGenericRepositoryContentSynchronisationOutput{})
 	pulumi.RegisterOutputType(GetRemoteGenericRepositoryContentSynchronisationPtrOutput{})
 	pulumi.RegisterOutputType(GetRemoteGitlfsRepositoryContentSynchronisationOutput{})

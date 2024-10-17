@@ -92,14 +92,14 @@ public class UserCustomWebhook extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> enabled;
+    private Output<Boolean> enabled;
 
     /**
      * @return Status of webhook. Default to `true`
      * 
      */
-    public Output<Optional<Boolean>> enabled() {
-        return Codegen.optional(this.enabled);
+    public Output<Boolean> enabled() {
+        return this.enabled;
     }
     /**
      * List of event triggers for the Webhook. Allow values: `locked`
@@ -120,14 +120,14 @@ public class UserCustomWebhook extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="handlers", refs={List.class,UserCustomWebhookHandler.class}, tree="[0,1]")
-    private Output<List<UserCustomWebhookHandler>> handlers;
+    private Output</* @Nullable */ List<UserCustomWebhookHandler>> handlers;
 
     /**
      * @return At least one is required.
      * 
      */
-    public Output<List<UserCustomWebhookHandler>> handlers() {
-        return this.handlers;
+    public Output<Optional<List<UserCustomWebhookHandler>>> handlers() {
+        return Codegen.optional(this.handlers);
     }
     /**
      * The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.

@@ -14,10 +14,6 @@ namespace Pulumi.Artifactory.Inputs
     {
         [Input("excludePatterns")]
         private InputList<string>? _excludePatterns;
-
-        /// <summary>
-        /// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\nAnt-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
-        /// </summary>
         public InputList<string> ExcludePatterns
         {
             get => _excludePatterns ?? (_excludePatterns = new InputList<string>());
@@ -26,10 +22,6 @@ namespace Pulumi.Artifactory.Inputs
 
         [Input("includePatterns")]
         private InputList<string>? _includePatterns;
-
-        /// <summary>
-        /// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\nAnt-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
-        /// </summary>
         public InputList<string> IncludePatterns
         {
             get => _includePatterns ?? (_includePatterns = new InputList<string>());

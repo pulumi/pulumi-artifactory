@@ -74,7 +74,7 @@ export class ReleaseBundleV2PromotionCustomWebhook extends pulumi.CustomResource
     /**
      * Specifies where the webhook will be applied on which enviroments.
      */
-    public readonly criteria!: pulumi.Output<outputs.ReleaseBundleV2PromotionCustomWebhookCriteria>;
+    public readonly criteria!: pulumi.Output<outputs.ReleaseBundleV2PromotionCustomWebhookCriteria | undefined>;
     /**
      * Webhook description. Max length 1000 characters.
      */
@@ -82,7 +82,7 @@ export class ReleaseBundleV2PromotionCustomWebhook extends pulumi.CustomResource
     /**
      * Status of webhook. Default to `true`.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    public readonly enabled!: pulumi.Output<boolean>;
     /**
      * List of event triggers for the Webhook. Allow values: `releaseBundleV2PromotionStarted`, `releaseBundleV2PromotionCompleted`, `releaseBundleV2PromotionFailed`
      */
@@ -90,7 +90,7 @@ export class ReleaseBundleV2PromotionCustomWebhook extends pulumi.CustomResource
     /**
      * At least one is required.
      */
-    public readonly handlers!: pulumi.Output<outputs.ReleaseBundleV2PromotionCustomWebhookHandler[]>;
+    public readonly handlers!: pulumi.Output<outputs.ReleaseBundleV2PromotionCustomWebhookHandler[] | undefined>;
     /**
      * The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
      */
@@ -117,14 +117,8 @@ export class ReleaseBundleV2PromotionCustomWebhook extends pulumi.CustomResource
             resourceInputs["key"] = state ? state.key : undefined;
         } else {
             const args = argsOrState as ReleaseBundleV2PromotionCustomWebhookArgs | undefined;
-            if ((!args || args.criteria === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'criteria'");
-            }
             if ((!args || args.eventTypes === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'eventTypes'");
-            }
-            if ((!args || args.handlers === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'handlers'");
             }
             if ((!args || args.key === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'key'");
@@ -178,7 +172,7 @@ export interface ReleaseBundleV2PromotionCustomWebhookArgs {
     /**
      * Specifies where the webhook will be applied on which enviroments.
      */
-    criteria: pulumi.Input<inputs.ReleaseBundleV2PromotionCustomWebhookCriteria>;
+    criteria?: pulumi.Input<inputs.ReleaseBundleV2PromotionCustomWebhookCriteria>;
     /**
      * Webhook description. Max length 1000 characters.
      */
@@ -194,7 +188,7 @@ export interface ReleaseBundleV2PromotionCustomWebhookArgs {
     /**
      * At least one is required.
      */
-    handlers: pulumi.Input<pulumi.Input<inputs.ReleaseBundleV2PromotionCustomWebhookHandler>[]>;
+    handlers?: pulumi.Input<pulumi.Input<inputs.ReleaseBundleV2PromotionCustomWebhookHandler>[]>;
     /**
      * The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
      */

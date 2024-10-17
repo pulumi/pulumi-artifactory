@@ -59,6 +59,7 @@ type LookupRemoteConanRepositoryArgs struct {
 	CdnRedirect               *bool                                           `pulumi:"cdnRedirect"`
 	ClientTlsCertificate      *string                                         `pulumi:"clientTlsCertificate"`
 	ContentSynchronisation    *GetRemoteConanRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
+	Curated                   *bool                                           `pulumi:"curated"`
 	Description               *string                                         `pulumi:"description"`
 	DisableProxy              *bool                                           `pulumi:"disableProxy"`
 	DisableUrlNormalization   *bool                                           `pulumi:"disableUrlNormalization"`
@@ -109,6 +110,7 @@ type LookupRemoteConanRepositoryResult struct {
 	CdnRedirect               *bool                                          `pulumi:"cdnRedirect"`
 	ClientTlsCertificate      string                                         `pulumi:"clientTlsCertificate"`
 	ContentSynchronisation    GetRemoteConanRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
+	Curated                   *bool                                          `pulumi:"curated"`
 	Description               *string                                        `pulumi:"description"`
 	DisableProxy              *bool                                          `pulumi:"disableProxy"`
 	DisableUrlNormalization   *bool                                          `pulumi:"disableUrlNormalization"`
@@ -180,6 +182,7 @@ type LookupRemoteConanRepositoryOutputArgs struct {
 	CdnRedirect               pulumi.BoolPtrInput                                    `pulumi:"cdnRedirect"`
 	ClientTlsCertificate      pulumi.StringPtrInput                                  `pulumi:"clientTlsCertificate"`
 	ContentSynchronisation    GetRemoteConanRepositoryContentSynchronisationPtrInput `pulumi:"contentSynchronisation"`
+	Curated                   pulumi.BoolPtrInput                                    `pulumi:"curated"`
 	Description               pulumi.StringPtrInput                                  `pulumi:"description"`
 	DisableProxy              pulumi.BoolPtrInput                                    `pulumi:"disableProxy"`
 	DisableUrlNormalization   pulumi.BoolPtrInput                                    `pulumi:"disableUrlNormalization"`
@@ -274,6 +277,10 @@ func (o LookupRemoteConanRepositoryResultOutput) ContentSynchronisation() GetRem
 	return o.ApplyT(func(v LookupRemoteConanRepositoryResult) GetRemoteConanRepositoryContentSynchronisation {
 		return v.ContentSynchronisation
 	}).(GetRemoteConanRepositoryContentSynchronisationOutput)
+}
+
+func (o LookupRemoteConanRepositoryResultOutput) Curated() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupRemoteConanRepositoryResult) *bool { return v.Curated }).(pulumi.BoolPtrOutput)
 }
 
 func (o LookupRemoteConanRepositoryResultOutput) Description() pulumi.StringPtrOutput {

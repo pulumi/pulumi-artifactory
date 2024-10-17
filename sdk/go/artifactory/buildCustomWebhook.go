@@ -74,11 +74,11 @@ type BuildCustomWebhook struct {
 	pulumi.CustomResourceState
 
 	// Specifies where the webhook will be applied on which repositories.
-	Criteria BuildCustomWebhookCriteriaOutput `pulumi:"criteria"`
+	Criteria BuildCustomWebhookCriteriaPtrOutput `pulumi:"criteria"`
 	// Webhook description. Max length 1000 characters.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Status of webhook. Default to `true`.
-	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
+	Enabled pulumi.BoolOutput `pulumi:"enabled"`
 	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `uploaded`, `deleted`, `promoted`.
 	EventTypes pulumi.StringArrayOutput `pulumi:"eventTypes"`
 	// At least one is required.
@@ -94,14 +94,8 @@ func NewBuildCustomWebhook(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Criteria == nil {
-		return nil, errors.New("invalid value for required argument 'Criteria'")
-	}
 	if args.EventTypes == nil {
 		return nil, errors.New("invalid value for required argument 'EventTypes'")
-	}
-	if args.Handlers == nil {
-		return nil, errors.New("invalid value for required argument 'Handlers'")
 	}
 	if args.Key == nil {
 		return nil, errors.New("invalid value for required argument 'Key'")
@@ -164,7 +158,7 @@ func (BuildCustomWebhookState) ElementType() reflect.Type {
 
 type buildCustomWebhookArgs struct {
 	// Specifies where the webhook will be applied on which repositories.
-	Criteria BuildCustomWebhookCriteria `pulumi:"criteria"`
+	Criteria *BuildCustomWebhookCriteria `pulumi:"criteria"`
 	// Webhook description. Max length 1000 characters.
 	Description *string `pulumi:"description"`
 	// Status of webhook. Default to `true`.
@@ -180,7 +174,7 @@ type buildCustomWebhookArgs struct {
 // The set of arguments for constructing a BuildCustomWebhook resource.
 type BuildCustomWebhookArgs struct {
 	// Specifies where the webhook will be applied on which repositories.
-	Criteria BuildCustomWebhookCriteriaInput
+	Criteria BuildCustomWebhookCriteriaPtrInput
 	// Webhook description. Max length 1000 characters.
 	Description pulumi.StringPtrInput
 	// Status of webhook. Default to `true`.
@@ -281,8 +275,8 @@ func (o BuildCustomWebhookOutput) ToBuildCustomWebhookOutputWithContext(ctx cont
 }
 
 // Specifies where the webhook will be applied on which repositories.
-func (o BuildCustomWebhookOutput) Criteria() BuildCustomWebhookCriteriaOutput {
-	return o.ApplyT(func(v *BuildCustomWebhook) BuildCustomWebhookCriteriaOutput { return v.Criteria }).(BuildCustomWebhookCriteriaOutput)
+func (o BuildCustomWebhookOutput) Criteria() BuildCustomWebhookCriteriaPtrOutput {
+	return o.ApplyT(func(v *BuildCustomWebhook) BuildCustomWebhookCriteriaPtrOutput { return v.Criteria }).(BuildCustomWebhookCriteriaPtrOutput)
 }
 
 // Webhook description. Max length 1000 characters.
@@ -291,8 +285,8 @@ func (o BuildCustomWebhookOutput) Description() pulumi.StringPtrOutput {
 }
 
 // Status of webhook. Default to `true`.
-func (o BuildCustomWebhookOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *BuildCustomWebhook) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+func (o BuildCustomWebhookOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *BuildCustomWebhook) pulumi.BoolOutput { return v.Enabled }).(pulumi.BoolOutput)
 }
 
 // List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `uploaded`, `deleted`, `promoted`.

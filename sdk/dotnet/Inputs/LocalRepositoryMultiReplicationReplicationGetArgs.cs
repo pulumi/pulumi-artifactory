@@ -19,6 +19,12 @@ namespace Pulumi.Artifactory.Inputs
         public Input<bool>? CheckBinaryExistenceInFilestore { get; set; }
 
         /// <summary>
+        /// When set to `true`, the `proxy` attribute will be ignored (from version 7.41.7). The default value is `false`.
+        /// </summary>
+        [Input("disableProxy")]
+        public Input<bool>? DisableProxy { get; set; }
+
+        /// <summary>
         /// When set, enables replication of this repository to the target specified in `url` attribute. Default value is `true`.
         /// </summary>
         [Input("enabled")]

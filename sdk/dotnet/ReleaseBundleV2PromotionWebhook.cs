@@ -66,7 +66,7 @@ namespace Pulumi.Artifactory
         /// Specifies where the webhook will be applied on which enviroments.
         /// </summary>
         [Output("criteria")]
-        public Output<Outputs.ReleaseBundleV2PromotionWebhookCriteria> Criteria { get; private set; } = null!;
+        public Output<Outputs.ReleaseBundleV2PromotionWebhookCriteria?> Criteria { get; private set; } = null!;
 
         /// <summary>
         /// Webhook description. Max length 1000 characters.
@@ -78,7 +78,7 @@ namespace Pulumi.Artifactory
         /// Status of webhook. Default to `true`
         /// </summary>
         [Output("enabled")]
-        public Output<bool?> Enabled { get; private set; } = null!;
+        public Output<bool> Enabled { get; private set; } = null!;
 
         /// <summary>
         /// List of event triggers for the Webhook. Allow values: `release_bundle_v2_promotion_started`, `release_bundle_v2_promotion_completed`, `release_bundle_v2_promotion_failed`
@@ -147,8 +147,8 @@ namespace Pulumi.Artifactory
         /// <summary>
         /// Specifies where the webhook will be applied on which enviroments.
         /// </summary>
-        [Input("criteria", required: true)]
-        public Input<Inputs.ReleaseBundleV2PromotionWebhookCriteriaArgs> Criteria { get; set; } = null!;
+        [Input("criteria")]
+        public Input<Inputs.ReleaseBundleV2PromotionWebhookCriteriaArgs>? Criteria { get; set; }
 
         /// <summary>
         /// Webhook description. Max length 1000 characters.
@@ -174,7 +174,7 @@ namespace Pulumi.Artifactory
             set => _eventTypes = value;
         }
 
-        [Input("handlers", required: true)]
+        [Input("handlers")]
         private InputList<Inputs.ReleaseBundleV2PromotionWebhookHandlerArgs>? _handlers;
 
         /// <summary>

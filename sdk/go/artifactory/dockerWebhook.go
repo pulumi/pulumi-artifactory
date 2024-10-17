@@ -82,11 +82,11 @@ type DockerWebhook struct {
 	pulumi.CustomResourceState
 
 	// Specifies where the webhook will be applied on which repositories.
-	Criteria DockerWebhookCriteriaOutput `pulumi:"criteria"`
+	Criteria DockerWebhookCriteriaPtrOutput `pulumi:"criteria"`
 	// Webhook description. Max length 1000 characters.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Status of webhook. Default to `true`.
-	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
+	Enabled pulumi.BoolOutput `pulumi:"enabled"`
 	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `pushed`, `deleted`, `promoted`.
 	EventTypes pulumi.StringArrayOutput `pulumi:"eventTypes"`
 	// At least one is required.
@@ -102,14 +102,8 @@ func NewDockerWebhook(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Criteria == nil {
-		return nil, errors.New("invalid value for required argument 'Criteria'")
-	}
 	if args.EventTypes == nil {
 		return nil, errors.New("invalid value for required argument 'EventTypes'")
-	}
-	if args.Handlers == nil {
-		return nil, errors.New("invalid value for required argument 'Handlers'")
 	}
 	if args.Key == nil {
 		return nil, errors.New("invalid value for required argument 'Key'")
@@ -172,7 +166,7 @@ func (DockerWebhookState) ElementType() reflect.Type {
 
 type dockerWebhookArgs struct {
 	// Specifies where the webhook will be applied on which repositories.
-	Criteria DockerWebhookCriteria `pulumi:"criteria"`
+	Criteria *DockerWebhookCriteria `pulumi:"criteria"`
 	// Webhook description. Max length 1000 characters.
 	Description *string `pulumi:"description"`
 	// Status of webhook. Default to `true`.
@@ -188,7 +182,7 @@ type dockerWebhookArgs struct {
 // The set of arguments for constructing a DockerWebhook resource.
 type DockerWebhookArgs struct {
 	// Specifies where the webhook will be applied on which repositories.
-	Criteria DockerWebhookCriteriaInput
+	Criteria DockerWebhookCriteriaPtrInput
 	// Webhook description. Max length 1000 characters.
 	Description pulumi.StringPtrInput
 	// Status of webhook. Default to `true`.
@@ -289,8 +283,8 @@ func (o DockerWebhookOutput) ToDockerWebhookOutputWithContext(ctx context.Contex
 }
 
 // Specifies where the webhook will be applied on which repositories.
-func (o DockerWebhookOutput) Criteria() DockerWebhookCriteriaOutput {
-	return o.ApplyT(func(v *DockerWebhook) DockerWebhookCriteriaOutput { return v.Criteria }).(DockerWebhookCriteriaOutput)
+func (o DockerWebhookOutput) Criteria() DockerWebhookCriteriaPtrOutput {
+	return o.ApplyT(func(v *DockerWebhook) DockerWebhookCriteriaPtrOutput { return v.Criteria }).(DockerWebhookCriteriaPtrOutput)
 }
 
 // Webhook description. Max length 1000 characters.
@@ -299,8 +293,8 @@ func (o DockerWebhookOutput) Description() pulumi.StringPtrOutput {
 }
 
 // Status of webhook. Default to `true`.
-func (o DockerWebhookOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *DockerWebhook) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+func (o DockerWebhookOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *DockerWebhook) pulumi.BoolOutput { return v.Enabled }).(pulumi.BoolOutput)
 }
 
 // List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `pushed`, `deleted`, `promoted`.

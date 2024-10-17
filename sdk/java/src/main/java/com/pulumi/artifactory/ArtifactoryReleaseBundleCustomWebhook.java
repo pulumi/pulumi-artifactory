@@ -92,14 +92,14 @@ public class ArtifactoryReleaseBundleCustomWebhook extends com.pulumi.resources.
      * 
      */
     @Export(name="criteria", refs={ArtifactoryReleaseBundleCustomWebhookCriteria.class}, tree="[0]")
-    private Output<ArtifactoryReleaseBundleCustomWebhookCriteria> criteria;
+    private Output</* @Nullable */ ArtifactoryReleaseBundleCustomWebhookCriteria> criteria;
 
     /**
      * @return Specifies where the webhook will be applied on which repositories.
      * 
      */
-    public Output<ArtifactoryReleaseBundleCustomWebhookCriteria> criteria() {
-        return this.criteria;
+    public Output<Optional<ArtifactoryReleaseBundleCustomWebhookCriteria>> criteria() {
+        return Codegen.optional(this.criteria);
     }
     /**
      * Webhook description. Max length 1000 characters.
@@ -120,14 +120,14 @@ public class ArtifactoryReleaseBundleCustomWebhook extends com.pulumi.resources.
      * 
      */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> enabled;
+    private Output<Boolean> enabled;
 
     /**
      * @return Status of webhook. Default to `true`
      * 
      */
-    public Output<Optional<Boolean>> enabled() {
-        return Codegen.optional(this.enabled);
+    public Output<Boolean> enabled() {
+        return this.enabled;
     }
     /**
      * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `received`, `delete_started`, `delete_completed`, `delete_failed`
@@ -148,14 +148,14 @@ public class ArtifactoryReleaseBundleCustomWebhook extends com.pulumi.resources.
      * 
      */
     @Export(name="handlers", refs={List.class,ArtifactoryReleaseBundleCustomWebhookHandler.class}, tree="[0,1]")
-    private Output<List<ArtifactoryReleaseBundleCustomWebhookHandler>> handlers;
+    private Output</* @Nullable */ List<ArtifactoryReleaseBundleCustomWebhookHandler>> handlers;
 
     /**
      * @return At least one is required.
      * 
      */
-    public Output<List<ArtifactoryReleaseBundleCustomWebhookHandler>> handlers() {
-        return this.handlers;
+    public Output<Optional<List<ArtifactoryReleaseBundleCustomWebhookHandler>>> handlers() {
+        return Codegen.optional(this.handlers);
     }
     /**
      * The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.

@@ -80,6 +80,8 @@ type RemoteHuggingfacemlRepository struct {
 	// Client TLS certificate name.
 	ClientTlsCertificate   pulumi.StringOutput                                       `pulumi:"clientTlsCertificate"`
 	ContentSynchronisation RemoteHuggingfacemlRepositoryContentSynchronisationOutput `pulumi:"contentSynchronisation"`
+	// Enable repository to be protected by the Curation service.
+	Curated pulumi.BoolPtrOutput `pulumi:"curated"`
 	// Public description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
@@ -239,6 +241,8 @@ type remoteHuggingfacemlRepositoryState struct {
 	// Client TLS certificate name.
 	ClientTlsCertificate   *string                                              `pulumi:"clientTlsCertificate"`
 	ContentSynchronisation *RemoteHuggingfacemlRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
+	// Enable repository to be protected by the Curation service.
+	Curated *bool `pulumi:"curated"`
 	// Public description.
 	Description *string `pulumi:"description"`
 	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
@@ -359,6 +363,8 @@ type RemoteHuggingfacemlRepositoryState struct {
 	// Client TLS certificate name.
 	ClientTlsCertificate   pulumi.StringPtrInput
 	ContentSynchronisation RemoteHuggingfacemlRepositoryContentSynchronisationPtrInput
+	// Enable repository to be protected by the Curation service.
+	Curated pulumi.BoolPtrInput
 	// Public description.
 	Description pulumi.StringPtrInput
 	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
@@ -483,6 +489,8 @@ type remoteHuggingfacemlRepositoryArgs struct {
 	// Client TLS certificate name.
 	ClientTlsCertificate   *string                                              `pulumi:"clientTlsCertificate"`
 	ContentSynchronisation *RemoteHuggingfacemlRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
+	// Enable repository to be protected by the Curation service.
+	Curated *bool `pulumi:"curated"`
 	// Public description.
 	Description *string `pulumi:"description"`
 	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
@@ -603,6 +611,8 @@ type RemoteHuggingfacemlRepositoryArgs struct {
 	// Client TLS certificate name.
 	ClientTlsCertificate   pulumi.StringPtrInput
 	ContentSynchronisation RemoteHuggingfacemlRepositoryContentSynchronisationPtrInput
+	// Enable repository to be protected by the Curation service.
+	Curated pulumi.BoolPtrInput
 	// Public description.
 	Description pulumi.StringPtrInput
 	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
@@ -835,6 +845,11 @@ func (o RemoteHuggingfacemlRepositoryOutput) ContentSynchronisation() RemoteHugg
 	return o.ApplyT(func(v *RemoteHuggingfacemlRepository) RemoteHuggingfacemlRepositoryContentSynchronisationOutput {
 		return v.ContentSynchronisation
 	}).(RemoteHuggingfacemlRepositoryContentSynchronisationOutput)
+}
+
+// Enable repository to be protected by the Curation service.
+func (o RemoteHuggingfacemlRepositoryOutput) Curated() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RemoteHuggingfacemlRepository) pulumi.BoolPtrOutput { return v.Curated }).(pulumi.BoolPtrOutput)
 }
 
 // Public description.

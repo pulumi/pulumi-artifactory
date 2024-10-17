@@ -106,6 +106,12 @@ namespace Pulumi.Artifactory
         public Output<Outputs.RemoteGemsRepositoryContentSynchronisation> ContentSynchronisation { get; private set; } = null!;
 
         /// <summary>
+        /// Enable repository to be protected by the Curation service.
+        /// </summary>
+        [Output("curated")]
+        public Output<bool?> Curated { get; private set; } = null!;
+
+        /// <summary>
         /// Public description.
         /// </summary>
         [Output("description")]
@@ -237,6 +243,12 @@ namespace Pulumi.Artifactory
         public Output<string?> ProjectKey { get; private set; } = null!;
 
         /// <summary>
+        /// When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
+        /// </summary>
+        [Output("propagateQueryParams")]
+        public Output<bool?> PropagateQueryParams { get; private set; } = null!;
+
+        /// <summary>
         /// List of property set names
         /// </summary>
         [Output("propertySets")]
@@ -275,6 +287,12 @@ namespace Pulumi.Artifactory
         /// </summary>
         [Output("retrievalCachePeriodSeconds")]
         public Output<int?> RetrievalCachePeriodSeconds { get; private set; } = null!;
+
+        /// <summary>
+        /// When set to `true`, Artifactory retrieves the SHA256 from the remote server if it is not cached in the remote repo.
+        /// </summary>
+        [Output("retrieveSha256FromServer")]
+        public Output<bool?> RetrieveSha256FromServer { get; private set; } = null!;
 
         [Output("shareConfiguration")]
         public Output<bool> ShareConfiguration { get; private set; } = null!;
@@ -437,6 +455,12 @@ namespace Pulumi.Artifactory
         public Input<Inputs.RemoteGemsRepositoryContentSynchronisationArgs>? ContentSynchronisation { get; set; }
 
         /// <summary>
+        /// Enable repository to be protected by the Curation service.
+        /// </summary>
+        [Input("curated")]
+        public Input<bool>? Curated { get; set; }
+
+        /// <summary>
         /// Public description.
         /// </summary>
         [Input("description")]
@@ -578,6 +602,12 @@ namespace Pulumi.Artifactory
         [Input("projectKey")]
         public Input<string>? ProjectKey { get; set; }
 
+        /// <summary>
+        /// When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
+        /// </summary>
+        [Input("propagateQueryParams")]
+        public Input<bool>? PropagateQueryParams { get; set; }
+
         [Input("propertySets")]
         private InputList<string>? _propertySets;
 
@@ -623,6 +653,12 @@ namespace Pulumi.Artifactory
         /// </summary>
         [Input("retrievalCachePeriodSeconds")]
         public Input<int>? RetrievalCachePeriodSeconds { get; set; }
+
+        /// <summary>
+        /// When set to `true`, Artifactory retrieves the SHA256 from the remote server if it is not cached in the remote repo.
+        /// </summary>
+        [Input("retrieveSha256FromServer")]
+        public Input<bool>? RetrieveSha256FromServer { get; set; }
 
         [Input("shareConfiguration")]
         public Input<bool>? ShareConfiguration { get; set; }
@@ -741,6 +777,12 @@ namespace Pulumi.Artifactory
 
         [Input("contentSynchronisation")]
         public Input<Inputs.RemoteGemsRepositoryContentSynchronisationGetArgs>? ContentSynchronisation { get; set; }
+
+        /// <summary>
+        /// Enable repository to be protected by the Curation service.
+        /// </summary>
+        [Input("curated")]
+        public Input<bool>? Curated { get; set; }
 
         /// <summary>
         /// Public description.
@@ -887,6 +929,12 @@ namespace Pulumi.Artifactory
         [Input("projectKey")]
         public Input<string>? ProjectKey { get; set; }
 
+        /// <summary>
+        /// When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
+        /// </summary>
+        [Input("propagateQueryParams")]
+        public Input<bool>? PropagateQueryParams { get; set; }
+
         [Input("propertySets")]
         private InputList<string>? _propertySets;
 
@@ -932,6 +980,12 @@ namespace Pulumi.Artifactory
         /// </summary>
         [Input("retrievalCachePeriodSeconds")]
         public Input<int>? RetrievalCachePeriodSeconds { get; set; }
+
+        /// <summary>
+        /// When set to `true`, Artifactory retrieves the SHA256 from the remote server if it is not cached in the remote repo.
+        /// </summary>
+        [Input("retrieveSha256FromServer")]
+        public Input<bool>? RetrieveSha256FromServer { get; set; }
 
         [Input("shareConfiguration")]
         public Input<bool>? ShareConfiguration { get; set; }

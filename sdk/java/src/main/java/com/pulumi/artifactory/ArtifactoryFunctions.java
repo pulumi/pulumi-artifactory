@@ -182,8 +182,6 @@ import com.pulumi.artifactory.inputs.GetRemoteDebianRepositoryArgs;
 import com.pulumi.artifactory.inputs.GetRemoteDebianRepositoryPlainArgs;
 import com.pulumi.artifactory.inputs.GetRemoteDockerRepositoryArgs;
 import com.pulumi.artifactory.inputs.GetRemoteDockerRepositoryPlainArgs;
-import com.pulumi.artifactory.inputs.GetRemoteGemsRepositoryArgs;
-import com.pulumi.artifactory.inputs.GetRemoteGemsRepositoryPlainArgs;
 import com.pulumi.artifactory.inputs.GetRemoteGenericRepositoryArgs;
 import com.pulumi.artifactory.inputs.GetRemoteGenericRepositoryPlainArgs;
 import com.pulumi.artifactory.inputs.GetRemoteGitlfsRepositoryArgs;
@@ -381,7 +379,6 @@ import com.pulumi.artifactory.outputs.GetRemoteCondaRepositoryResult;
 import com.pulumi.artifactory.outputs.GetRemoteCranRepositoryResult;
 import com.pulumi.artifactory.outputs.GetRemoteDebianRepositoryResult;
 import com.pulumi.artifactory.outputs.GetRemoteDockerRepositoryResult;
-import com.pulumi.artifactory.outputs.GetRemoteGemsRepositoryResult;
 import com.pulumi.artifactory.outputs.GetRemoteGenericRepositoryResult;
 import com.pulumi.artifactory.outputs.GetRemoteGitlfsRepositoryResult;
 import com.pulumi.artifactory.outputs.GetRemoteGoRepositoryResult;
@@ -15410,174 +15407,6 @@ public final class ArtifactoryFunctions {
      */
     public static CompletableFuture<GetRemoteDockerRepositoryResult> getRemoteDockerRepositoryPlain(GetRemoteDockerRepositoryPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("artifactory:index/getRemoteDockerRepository:getRemoteDockerRepository", TypeShape.of(GetRemoteDockerRepositoryResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Retrieves a remote Gems repository.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.artifactory.ArtifactoryFunctions;
-     * import com.pulumi.artifactory.inputs.GetRemoteGemsRepositoryArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var remote-gems = ArtifactoryFunctions.getRemoteGemsRepository(GetRemoteGemsRepositoryArgs.builder()
-     *             .key("remote-gems")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
-    public static Output<GetRemoteGemsRepositoryResult> getRemoteGemsRepository(GetRemoteGemsRepositoryArgs args) {
-        return getRemoteGemsRepository(args, InvokeOptions.Empty);
-    }
-    /**
-     * Retrieves a remote Gems repository.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.artifactory.ArtifactoryFunctions;
-     * import com.pulumi.artifactory.inputs.GetRemoteGemsRepositoryArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var remote-gems = ArtifactoryFunctions.getRemoteGemsRepository(GetRemoteGemsRepositoryArgs.builder()
-     *             .key("remote-gems")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
-    public static CompletableFuture<GetRemoteGemsRepositoryResult> getRemoteGemsRepositoryPlain(GetRemoteGemsRepositoryPlainArgs args) {
-        return getRemoteGemsRepositoryPlain(args, InvokeOptions.Empty);
-    }
-    /**
-     * Retrieves a remote Gems repository.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.artifactory.ArtifactoryFunctions;
-     * import com.pulumi.artifactory.inputs.GetRemoteGemsRepositoryArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var remote-gems = ArtifactoryFunctions.getRemoteGemsRepository(GetRemoteGemsRepositoryArgs.builder()
-     *             .key("remote-gems")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
-    public static Output<GetRemoteGemsRepositoryResult> getRemoteGemsRepository(GetRemoteGemsRepositoryArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("artifactory:index/getRemoteGemsRepository:getRemoteGemsRepository", TypeShape.of(GetRemoteGemsRepositoryResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Retrieves a remote Gems repository.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.artifactory.ArtifactoryFunctions;
-     * import com.pulumi.artifactory.inputs.GetRemoteGemsRepositoryArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var remote-gems = ArtifactoryFunctions.getRemoteGemsRepository(GetRemoteGemsRepositoryArgs.builder()
-     *             .key("remote-gems")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
-    public static CompletableFuture<GetRemoteGemsRepositoryResult> getRemoteGemsRepositoryPlain(GetRemoteGemsRepositoryPlainArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invokeAsync("artifactory:index/getRemoteGemsRepository:getRemoteGemsRepository", TypeShape.of(GetRemoteGemsRepositoryResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Retrieves a remote Generic repository.

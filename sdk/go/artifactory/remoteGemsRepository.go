@@ -80,6 +80,8 @@ type RemoteGemsRepository struct {
 	// Client TLS certificate name.
 	ClientTlsCertificate   pulumi.StringOutput                              `pulumi:"clientTlsCertificate"`
 	ContentSynchronisation RemoteGemsRepositoryContentSynchronisationOutput `pulumi:"contentSynchronisation"`
+	// Enable repository to be protected by the Curation service.
+	Curated pulumi.BoolPtrOutput `pulumi:"curated"`
 	// Public description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
@@ -133,6 +135,8 @@ type RemoteGemsRepository struct {
 	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrOutput `pulumi:"projectKey"`
+	// When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
+	PropagateQueryParams pulumi.BoolPtrOutput `pulumi:"propagateQueryParams"`
 	// List of property set names
 	PropertySets pulumi.StringArrayOutput `pulumi:"propertySets"`
 	// Proxy key from Artifactory Proxies settings. Can't be set if `disableProxy = true`.
@@ -149,7 +153,9 @@ type RemoteGemsRepository struct {
 	// Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files
 	// before checking for newer versions on remote server. A value of 0 indicates no caching.
 	RetrievalCachePeriodSeconds pulumi.IntPtrOutput `pulumi:"retrievalCachePeriodSeconds"`
-	ShareConfiguration          pulumi.BoolOutput   `pulumi:"shareConfiguration"`
+	// When set to `true`, Artifactory retrieves the SHA256 from the remote server if it is not cached in the remote repo.
+	RetrieveSha256FromServer pulumi.BoolPtrOutput `pulumi:"retrieveSha256FromServer"`
+	ShareConfiguration       pulumi.BoolOutput    `pulumi:"shareConfiguration"`
 	// Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network
 	// operation is considered a retrieval failure.
 	SocketTimeoutMillis pulumi.IntPtrOutput `pulumi:"socketTimeoutMillis"`
@@ -239,6 +245,8 @@ type remoteGemsRepositoryState struct {
 	// Client TLS certificate name.
 	ClientTlsCertificate   *string                                     `pulumi:"clientTlsCertificate"`
 	ContentSynchronisation *RemoteGemsRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
+	// Enable repository to be protected by the Curation service.
+	Curated *bool `pulumi:"curated"`
 	// Public description.
 	Description *string `pulumi:"description"`
 	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
@@ -292,6 +300,8 @@ type remoteGemsRepositoryState struct {
 	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey *string `pulumi:"projectKey"`
+	// When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
+	PropagateQueryParams *bool `pulumi:"propagateQueryParams"`
 	// List of property set names
 	PropertySets []string `pulumi:"propertySets"`
 	// Proxy key from Artifactory Proxies settings. Can't be set if `disableProxy = true`.
@@ -307,8 +317,10 @@ type remoteGemsRepositoryState struct {
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
 	// Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files
 	// before checking for newer versions on remote server. A value of 0 indicates no caching.
-	RetrievalCachePeriodSeconds *int  `pulumi:"retrievalCachePeriodSeconds"`
-	ShareConfiguration          *bool `pulumi:"shareConfiguration"`
+	RetrievalCachePeriodSeconds *int `pulumi:"retrievalCachePeriodSeconds"`
+	// When set to `true`, Artifactory retrieves the SHA256 from the remote server if it is not cached in the remote repo.
+	RetrieveSha256FromServer *bool `pulumi:"retrieveSha256FromServer"`
+	ShareConfiguration       *bool `pulumi:"shareConfiguration"`
 	// Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network
 	// operation is considered a retrieval failure.
 	SocketTimeoutMillis *int `pulumi:"socketTimeoutMillis"`
@@ -359,6 +371,8 @@ type RemoteGemsRepositoryState struct {
 	// Client TLS certificate name.
 	ClientTlsCertificate   pulumi.StringPtrInput
 	ContentSynchronisation RemoteGemsRepositoryContentSynchronisationPtrInput
+	// Enable repository to be protected by the Curation service.
+	Curated pulumi.BoolPtrInput
 	// Public description.
 	Description pulumi.StringPtrInput
 	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
@@ -412,6 +426,8 @@ type RemoteGemsRepositoryState struct {
 	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrInput
+	// When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
+	PropagateQueryParams pulumi.BoolPtrInput
 	// List of property set names
 	PropertySets pulumi.StringArrayInput
 	// Proxy key from Artifactory Proxies settings. Can't be set if `disableProxy = true`.
@@ -428,7 +444,9 @@ type RemoteGemsRepositoryState struct {
 	// Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files
 	// before checking for newer versions on remote server. A value of 0 indicates no caching.
 	RetrievalCachePeriodSeconds pulumi.IntPtrInput
-	ShareConfiguration          pulumi.BoolPtrInput
+	// When set to `true`, Artifactory retrieves the SHA256 from the remote server if it is not cached in the remote repo.
+	RetrieveSha256FromServer pulumi.BoolPtrInput
+	ShareConfiguration       pulumi.BoolPtrInput
 	// Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network
 	// operation is considered a retrieval failure.
 	SocketTimeoutMillis pulumi.IntPtrInput
@@ -483,6 +501,8 @@ type remoteGemsRepositoryArgs struct {
 	// Client TLS certificate name.
 	ClientTlsCertificate   *string                                     `pulumi:"clientTlsCertificate"`
 	ContentSynchronisation *RemoteGemsRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
+	// Enable repository to be protected by the Curation service.
+	Curated *bool `pulumi:"curated"`
 	// Public description.
 	Description *string `pulumi:"description"`
 	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
@@ -535,6 +555,8 @@ type remoteGemsRepositoryArgs struct {
 	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey *string `pulumi:"projectKey"`
+	// When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
+	PropagateQueryParams *bool `pulumi:"propagateQueryParams"`
 	// List of property set names
 	PropertySets []string `pulumi:"propertySets"`
 	// Proxy key from Artifactory Proxies settings. Can't be set if `disableProxy = true`.
@@ -550,8 +572,10 @@ type remoteGemsRepositoryArgs struct {
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
 	// Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files
 	// before checking for newer versions on remote server. A value of 0 indicates no caching.
-	RetrievalCachePeriodSeconds *int  `pulumi:"retrievalCachePeriodSeconds"`
-	ShareConfiguration          *bool `pulumi:"shareConfiguration"`
+	RetrievalCachePeriodSeconds *int `pulumi:"retrievalCachePeriodSeconds"`
+	// When set to `true`, Artifactory retrieves the SHA256 from the remote server if it is not cached in the remote repo.
+	RetrieveSha256FromServer *bool `pulumi:"retrieveSha256FromServer"`
+	ShareConfiguration       *bool `pulumi:"shareConfiguration"`
 	// Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network
 	// operation is considered a retrieval failure.
 	SocketTimeoutMillis *int `pulumi:"socketTimeoutMillis"`
@@ -603,6 +627,8 @@ type RemoteGemsRepositoryArgs struct {
 	// Client TLS certificate name.
 	ClientTlsCertificate   pulumi.StringPtrInput
 	ContentSynchronisation RemoteGemsRepositoryContentSynchronisationPtrInput
+	// Enable repository to be protected by the Curation service.
+	Curated pulumi.BoolPtrInput
 	// Public description.
 	Description pulumi.StringPtrInput
 	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
@@ -655,6 +681,8 @@ type RemoteGemsRepositoryArgs struct {
 	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrInput
+	// When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
+	PropagateQueryParams pulumi.BoolPtrInput
 	// List of property set names
 	PropertySets pulumi.StringArrayInput
 	// Proxy key from Artifactory Proxies settings. Can't be set if `disableProxy = true`.
@@ -671,7 +699,9 @@ type RemoteGemsRepositoryArgs struct {
 	// Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files
 	// before checking for newer versions on remote server. A value of 0 indicates no caching.
 	RetrievalCachePeriodSeconds pulumi.IntPtrInput
-	ShareConfiguration          pulumi.BoolPtrInput
+	// When set to `true`, Artifactory retrieves the SHA256 from the remote server if it is not cached in the remote repo.
+	RetrieveSha256FromServer pulumi.BoolPtrInput
+	ShareConfiguration       pulumi.BoolPtrInput
 	// Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network
 	// operation is considered a retrieval failure.
 	SocketTimeoutMillis pulumi.IntPtrInput
@@ -837,6 +867,11 @@ func (o RemoteGemsRepositoryOutput) ContentSynchronisation() RemoteGemsRepositor
 	}).(RemoteGemsRepositoryContentSynchronisationOutput)
 }
 
+// Enable repository to be protected by the Curation service.
+func (o RemoteGemsRepositoryOutput) Curated() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RemoteGemsRepository) pulumi.BoolPtrOutput { return v.Curated }).(pulumi.BoolPtrOutput)
+}
+
 // Public description.
 func (o RemoteGemsRepositoryOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemoteGemsRepository) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
@@ -953,6 +988,11 @@ func (o RemoteGemsRepositoryOutput) ProjectKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemoteGemsRepository) pulumi.StringPtrOutput { return v.ProjectKey }).(pulumi.StringPtrOutput)
 }
 
+// When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
+func (o RemoteGemsRepositoryOutput) PropagateQueryParams() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RemoteGemsRepository) pulumi.BoolPtrOutput { return v.PropagateQueryParams }).(pulumi.BoolPtrOutput)
+}
+
 // List of property set names
 func (o RemoteGemsRepositoryOutput) PropertySets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RemoteGemsRepository) pulumi.StringArrayOutput { return v.PropertySets }).(pulumi.StringArrayOutput)
@@ -985,6 +1025,11 @@ func (o RemoteGemsRepositoryOutput) RepoLayoutRef() pulumi.StringPtrOutput {
 // before checking for newer versions on remote server. A value of 0 indicates no caching.
 func (o RemoteGemsRepositoryOutput) RetrievalCachePeriodSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RemoteGemsRepository) pulumi.IntPtrOutput { return v.RetrievalCachePeriodSeconds }).(pulumi.IntPtrOutput)
+}
+
+// When set to `true`, Artifactory retrieves the SHA256 from the remote server if it is not cached in the remote repo.
+func (o RemoteGemsRepositoryOutput) RetrieveSha256FromServer() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RemoteGemsRepository) pulumi.BoolPtrOutput { return v.RetrieveSha256FromServer }).(pulumi.BoolPtrOutput)
 }
 
 func (o RemoteGemsRepositoryOutput) ShareConfiguration() pulumi.BoolOutput {

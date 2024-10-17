@@ -76,7 +76,7 @@ namespace Pulumi.Artifactory
         /// Specifies where the webhook will be applied on which repositories.
         /// </summary>
         [Output("criteria")]
-        public Output<Outputs.ReleaseBundleWebhookCriteria> Criteria { get; private set; } = null!;
+        public Output<Outputs.ReleaseBundleWebhookCriteria?> Criteria { get; private set; } = null!;
 
         /// <summary>
         /// Webhook description. Max length 1000 characters.
@@ -88,7 +88,7 @@ namespace Pulumi.Artifactory
         /// Status of webhook. Default to `true`.
         /// </summary>
         [Output("enabled")]
-        public Output<bool?> Enabled { get; private set; } = null!;
+        public Output<bool> Enabled { get; private set; } = null!;
 
         /// <summary>
         /// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `created`, `signed`, `deleted`.
@@ -157,8 +157,8 @@ namespace Pulumi.Artifactory
         /// <summary>
         /// Specifies where the webhook will be applied on which repositories.
         /// </summary>
-        [Input("criteria", required: true)]
-        public Input<Inputs.ReleaseBundleWebhookCriteriaArgs> Criteria { get; set; } = null!;
+        [Input("criteria")]
+        public Input<Inputs.ReleaseBundleWebhookCriteriaArgs>? Criteria { get; set; }
 
         /// <summary>
         /// Webhook description. Max length 1000 characters.
@@ -184,7 +184,7 @@ namespace Pulumi.Artifactory
             set => _eventTypes = value;
         }
 
-        [Input("handlers", required: true)]
+        [Input("handlers")]
         private InputList<Inputs.ReleaseBundleWebhookHandlerArgs>? _handlers;
 
         /// <summary>
