@@ -15,6 +15,7 @@
 package artifactory
 
 import (
+	"bytes"
 	"context"
 	"fmt"
 	"path"
@@ -252,10 +253,12 @@ func Provider() tfbridge.ProviderInfo {
 }
 
 func docEditRules(defaults []tfbridge.DocsEdit) []tfbridge.DocsEdit {
-	return append(
-		defaults,
+	edits := []tfbridge.DocsEdit{
+		removeTfcEntry,
 		removeTFCloudOIDC,
-	)
+	}
+	edits = append(edits, defaults...)
+	return edits
 }
 
 var (
@@ -265,6 +268,21 @@ var (
 		Edit: func(_ string, content []byte) ([]byte, error) {
 			content = TFCloudOIDCRegexp.ReplaceAllLiteral(content, nil)
 			return content, nil
+		},
+	}
+	removeTfcEntry = tfbridge.DocsEdit{
+		Path: "index.md",
+		Edit: func(_ string, content []byte) ([]byte, error) {
+			from := "* `tfc_credential_tag_name` - (Optional) Terraform Cloud Workload Identity Token tag name." +
+				" Use for generating multiple TFC workload identity tokens. " +
+				"When set, the provider will attempt to use env var with this tag name as suffix. " +
+				"**Note:** this is case sensitive, so if set to `JFROG`, then env var " +
+				"`TFC_WORKLOAD_IDENTITY_TOKEN_JFROG` is used instead of `TFC_WORKLOAD_IDENTITY_TOKEN`. " +
+				"See [Generating Multiple Tokens](https://developer.hashicorp.com/terraform/cloud-docs/workspaces/" +
+				"dynamic-provider-credentials/manual-generation#generating-multiple-tokens) " +
+				"on HCP Terraform for more details."
+			return bytes.ReplaceAll(content, []byte(from), nil), nil
+
 		},
 	}
 )
