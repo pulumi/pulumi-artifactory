@@ -282,7 +282,6 @@ var (
 				"dynamic-provider-credentials/manual-generation#generating-multiple-tokens) " +
 				"on HCP Terraform for more details."
 			return bytes.ReplaceAll(content, []byte(from), nil), nil
-
 		},
 	}
 )
