@@ -94,7 +94,7 @@ namespace Pulumi.Artifactory.Inputs
         private InputList<string>? _packageTypes;
 
         /// <summary>
-        /// Types of packages to be removed. Support: conan, docker, generic, gradle, maven, npm, nuget, rpm.
+        /// Types of packages to be removed. Support: conan, debian, docker, gems, generic, go, gradle, helm, maven, npm, nuget, pypi, yum.
         /// </summary>
         public InputList<string> PackageTypes
         {

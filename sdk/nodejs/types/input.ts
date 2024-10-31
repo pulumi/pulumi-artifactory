@@ -4045,7 +4045,7 @@ export interface PackageCleanupPolicySearchCriteria {
      */
     lastDownloadedBeforeInMonths?: pulumi.Input<number>;
     /**
-     * Types of packages to be removed. Support: conan, docker, generic, gradle, maven, npm, nuget, rpm.
+     * Types of packages to be removed. Support: conan, debian, docker, gems, generic, go, gradle, helm, maven, npm, nuget, pypi, yum.
      */
     packageTypes: pulumi.Input<pulumi.Input<string>[]>;
     /**

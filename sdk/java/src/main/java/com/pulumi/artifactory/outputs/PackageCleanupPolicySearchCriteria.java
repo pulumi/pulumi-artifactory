@@ -62,7 +62,7 @@ public final class PackageCleanupPolicySearchCriteria {
      */
     private @Nullable Integer lastDownloadedBeforeInMonths;
     /**
-     * @return Types of packages to be removed. Support: conan, docker, generic, gradle, maven, npm, nuget, rpm.
+     * @return Types of packages to be removed. Support: conan, debian, docker, gems, generic, go, gradle, helm, maven, npm, nuget, pypi, yum.
      * 
      */
     private List<String> packageTypes;
@@ -136,7 +136,7 @@ public final class PackageCleanupPolicySearchCriteria {
         return Optional.ofNullable(this.lastDownloadedBeforeInMonths);
     }
     /**
-     * @return Types of packages to be removed. Support: conan, docker, generic, gradle, maven, npm, nuget, rpm.
+     * @return Types of packages to be removed. Support: conan, debian, docker, gems, generic, go, gradle, helm, maven, npm, nuget, pypi, yum.
      * 
      */
     public List<String> packageTypes() {

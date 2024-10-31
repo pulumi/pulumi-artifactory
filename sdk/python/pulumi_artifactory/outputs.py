@@ -5364,7 +5364,7 @@ class PackageCleanupPolicySearchCriteria(dict):
                  last_downloaded_before_in_months: Optional[int] = None):
         """
         :param Sequence[str] included_packages: Specify a pattern for a package name or an explicit package name. It accept only single element which can be specific package or pattern, and for including all packages use `**`. Example: `included_packages = ["**"]`
-        :param Sequence[str] package_types: Types of packages to be removed. Support: conan, docker, generic, gradle, maven, npm, nuget, rpm.
+        :param Sequence[str] package_types: Types of packages to be removed. Support: conan, debian, docker, gems, generic, go, gradle, helm, maven, npm, nuget, pypi, yum.
         :param Sequence[str] repos: Specify patterns for repository names or explicit repository names. For including all repos use `**`. Example: `repos = ["**"]`
         :param int created_before_in_months: Remove packages based on when they were created. For example, remove packages that were created more than a year ago. The default value is to remove packages created more than 2 years ago.
         :param Sequence[str] excluded_packages: Specify explicit package names that you want excluded from the policy. Only Name explicit names (and not patterns) are accepted.
@@ -5410,7 +5410,7 @@ class PackageCleanupPolicySearchCriteria(dict):
     @pulumi.getter(name="packageTypes")
     def package_types(self) -> Sequence[str]:
         """
-        Types of packages to be removed. Support: conan, docker, generic, gradle, maven, npm, nuget, rpm.
+        Types of packages to be removed. Support: conan, debian, docker, gems, generic, go, gradle, helm, maven, npm, nuget, pypi, yum.
         """
         return pulumi.get(self, "package_types")
 
