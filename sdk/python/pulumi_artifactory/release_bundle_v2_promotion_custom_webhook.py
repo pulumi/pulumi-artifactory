@@ -261,12 +261,12 @@ class ReleaseBundleV2PromotionCustomWebhook(pulumi.CustomResource):
             handlers=[{
                 "url": "https://tempurl.org",
                 "secrets": {
-                    "secret_name1": "value1",
-                    "secret_name2": "value2",
+                    "secretName1": "value1",
+                    "secretName2": "value2",
                 },
                 "http_headers": {
-                    "header_name1": "value1",
-                    "header_name2": "value2",
+                    "headerName1": "value1",
+                    "headerName2": "value2",
                 },
                 "payload": "{ \\"ref\\": \\"main\\" , \\"inputs\\": { \\"artifact_path\\": \\"test-repo/repo-path\\" } }",
             }])
@@ -312,12 +312,12 @@ class ReleaseBundleV2PromotionCustomWebhook(pulumi.CustomResource):
             handlers=[{
                 "url": "https://tempurl.org",
                 "secrets": {
-                    "secret_name1": "value1",
-                    "secret_name2": "value2",
+                    "secretName1": "value1",
+                    "secretName2": "value2",
                 },
                 "http_headers": {
-                    "header_name1": "value1",
-                    "header_name2": "value2",
+                    "headerName1": "value1",
+                    "headerName2": "value2",
                 },
                 "payload": "{ \\"ref\\": \\"main\\" , \\"inputs\\": { \\"artifact_path\\": \\"test-repo/repo-path\\" } }",
             }])

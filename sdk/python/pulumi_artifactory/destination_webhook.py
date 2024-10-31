@@ -265,8 +265,8 @@ class DestinationWebhook(pulumi.CustomResource):
                 "secret": "some-secret",
                 "proxy": "proxy-key",
                 "custom_http_headers": {
-                    "header_1": "value-1",
-                    "header_2": "value-2",
+                    "header-1": "value-1",
+                    "header-2": "value-2",
                 },
             }])
         ```
@@ -315,8 +315,8 @@ class DestinationWebhook(pulumi.CustomResource):
                 "secret": "some-secret",
                 "proxy": "proxy-key",
                 "custom_http_headers": {
-                    "header_1": "value-1",
-                    "header_2": "value-2",
+                    "header-1": "value-1",
+                    "header-2": "value-2",
                 },
             }])
         ```
