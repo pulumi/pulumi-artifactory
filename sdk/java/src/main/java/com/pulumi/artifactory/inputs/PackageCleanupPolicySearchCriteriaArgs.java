@@ -152,14 +152,14 @@ public final class PackageCleanupPolicySearchCriteriaArgs extends com.pulumi.res
     }
 
     /**
-     * Types of packages to be removed. Support: conan, docker, generic, gradle, maven, npm, nuget, rpm.
+     * Types of packages to be removed. Support: conan, debian, docker, gems, generic, go, gradle, helm, maven, npm, nuget, pypi, yum.
      * 
      */
     @Import(name="packageTypes", required=true)
     private Output<List<String>> packageTypes;
 
     /**
-     * @return Types of packages to be removed. Support: conan, docker, generic, gradle, maven, npm, nuget, rpm.
+     * @return Types of packages to be removed. Support: conan, debian, docker, gems, generic, go, gradle, helm, maven, npm, nuget, pypi, yum.
      * 
      */
     public Output<List<String>> packageTypes() {
@@ -435,7 +435,7 @@ public final class PackageCleanupPolicySearchCriteriaArgs extends com.pulumi.res
         }
 
         /**
-         * @param packageTypes Types of packages to be removed. Support: conan, docker, generic, gradle, maven, npm, nuget, rpm.
+         * @param packageTypes Types of packages to be removed. Support: conan, debian, docker, gems, generic, go, gradle, helm, maven, npm, nuget, pypi, yum.
          * 
          * @return builder
          * 
@@ -446,7 +446,7 @@ public final class PackageCleanupPolicySearchCriteriaArgs extends com.pulumi.res
         }
 
         /**
-         * @param packageTypes Types of packages to be removed. Support: conan, docker, generic, gradle, maven, npm, nuget, rpm.
+         * @param packageTypes Types of packages to be removed. Support: conan, debian, docker, gems, generic, go, gradle, helm, maven, npm, nuget, pypi, yum.
          * 
          * @return builder
          * 
@@ -456,7 +456,7 @@ public final class PackageCleanupPolicySearchCriteriaArgs extends com.pulumi.res
         }
 
         /**
-         * @param packageTypes Types of packages to be removed. Support: conan, docker, generic, gradle, maven, npm, nuget, rpm.
+         * @param packageTypes Types of packages to be removed. Support: conan, debian, docker, gems, generic, go, gradle, helm, maven, npm, nuget, pypi, yum.
          * 
          * @return builder
          * 

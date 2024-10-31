@@ -6854,7 +6854,7 @@ if not MYPY:
         """
         package_types: pulumi.Input[Sequence[pulumi.Input[str]]]
         """
-        Types of packages to be removed. Support: conan, docker, generic, gradle, maven, npm, nuget, rpm.
+        Types of packages to be removed. Support: conan, debian, docker, gems, generic, go, gradle, helm, maven, npm, nuget, pypi, yum.
         """
         repos: pulumi.Input[Sequence[pulumi.Input[str]]]
         """
@@ -6912,7 +6912,7 @@ class PackageCleanupPolicySearchCriteriaArgs:
                  last_downloaded_before_in_months: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] included_packages: Specify a pattern for a package name or an explicit package name. It accept only single element which can be specific package or pattern, and for including all packages use `**`. Example: `included_packages = ["**"]`
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] package_types: Types of packages to be removed. Support: conan, docker, generic, gradle, maven, npm, nuget, rpm.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] package_types: Types of packages to be removed. Support: conan, debian, docker, gems, generic, go, gradle, helm, maven, npm, nuget, pypi, yum.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] repos: Specify patterns for repository names or explicit repository names. For including all repos use `**`. Example: `repos = ["**"]`
         :param pulumi.Input[int] created_before_in_months: Remove packages based on when they were created. For example, remove packages that were created more than a year ago. The default value is to remove packages created more than 2 years ago.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_packages: Specify explicit package names that you want excluded from the policy. Only Name explicit names (and not patterns) are accepted.
@@ -6962,7 +6962,7 @@ class PackageCleanupPolicySearchCriteriaArgs:
     @pulumi.getter(name="packageTypes")
     def package_types(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        Types of packages to be removed. Support: conan, docker, generic, gradle, maven, npm, nuget, rpm.
+        Types of packages to be removed. Support: conan, debian, docker, gems, generic, go, gradle, helm, maven, npm, nuget, pypi, yum.
         """
         return pulumi.get(self, "package_types")
 

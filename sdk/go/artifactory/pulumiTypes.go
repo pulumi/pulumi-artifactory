@@ -9822,7 +9822,7 @@ type PackageCleanupPolicySearchCriteria struct {
 	//
 	// ~>JFrog recommends using the `lastDownloadedBeforeInMonths` condition to ensure that packages currently in use are not deleted.
 	LastDownloadedBeforeInMonths *int `pulumi:"lastDownloadedBeforeInMonths"`
-	// Types of packages to be removed. Support: conan, docker, generic, gradle, maven, npm, nuget, rpm.
+	// Types of packages to be removed. Support: conan, debian, docker, gems, generic, go, gradle, helm, maven, npm, nuget, pypi, yum.
 	PackageTypes []string `pulumi:"packageTypes"`
 	// Specify patterns for repository names or explicit repository names. For including all repos use `**`. Example: `repos = ["**"]`
 	Repos []string `pulumi:"repos"`
@@ -9862,7 +9862,7 @@ type PackageCleanupPolicySearchCriteriaArgs struct {
 	//
 	// ~>JFrog recommends using the `lastDownloadedBeforeInMonths` condition to ensure that packages currently in use are not deleted.
 	LastDownloadedBeforeInMonths pulumi.IntPtrInput `pulumi:"lastDownloadedBeforeInMonths"`
-	// Types of packages to be removed. Support: conan, docker, generic, gradle, maven, npm, nuget, rpm.
+	// Types of packages to be removed. Support: conan, debian, docker, gems, generic, go, gradle, helm, maven, npm, nuget, pypi, yum.
 	PackageTypes pulumi.StringArrayInput `pulumi:"packageTypes"`
 	// Specify patterns for repository names or explicit repository names. For including all repos use `**`. Example: `repos = ["**"]`
 	Repos pulumi.StringArrayInput `pulumi:"repos"`
@@ -9991,7 +9991,7 @@ func (o PackageCleanupPolicySearchCriteriaOutput) LastDownloadedBeforeInMonths()
 	return o.ApplyT(func(v PackageCleanupPolicySearchCriteria) *int { return v.LastDownloadedBeforeInMonths }).(pulumi.IntPtrOutput)
 }
 
-// Types of packages to be removed. Support: conan, docker, generic, gradle, maven, npm, nuget, rpm.
+// Types of packages to be removed. Support: conan, debian, docker, gems, generic, go, gradle, helm, maven, npm, nuget, pypi, yum.
 func (o PackageCleanupPolicySearchCriteriaOutput) PackageTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PackageCleanupPolicySearchCriteria) []string { return v.PackageTypes }).(pulumi.StringArrayOutput)
 }
@@ -10111,7 +10111,7 @@ func (o PackageCleanupPolicySearchCriteriaPtrOutput) LastDownloadedBeforeInMonth
 	}).(pulumi.IntPtrOutput)
 }
 
-// Types of packages to be removed. Support: conan, docker, generic, gradle, maven, npm, nuget, rpm.
+// Types of packages to be removed. Support: conan, debian, docker, gems, generic, go, gradle, helm, maven, npm, nuget, pypi, yum.
 func (o PackageCleanupPolicySearchCriteriaPtrOutput) PackageTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PackageCleanupPolicySearchCriteria) []string {
 		if v == nil {
