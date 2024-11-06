@@ -694,14 +694,14 @@ public final class RemoteGoRepositoryArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `ARTIFACTORY`.
+     * Artifactory supports proxying the following Git providers out-of-the-box: GitHub (`GITHUB`), GitHub Enterprise (`GITHUBENTERPRISE`), BitBucket Cloud (`BITBUCKET`), BitBucket Server (`STASH`), GitLab (`GITLAB`), or a remote Artifactory instance (`ARTIFACTORY`). Default value is `ARTIFACTORY`.
      * 
      */
     @Import(name="vcsGitProvider")
     private @Nullable Output<String> vcsGitProvider;
 
     /**
-     * @return Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `ARTIFACTORY`.
+     * @return Artifactory supports proxying the following Git providers out-of-the-box: GitHub (`GITHUB`), GitHub Enterprise (`GITHUBENTERPRISE`), BitBucket Cloud (`BITBUCKET`), BitBucket Server (`STASH`), GitLab (`GITLAB`), or a remote Artifactory instance (`ARTIFACTORY`). Default value is `ARTIFACTORY`.
      * 
      */
     public Optional<Output<String>> vcsGitProvider() {
@@ -1719,7 +1719,7 @@ public final class RemoteGoRepositoryArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param vcsGitProvider Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `ARTIFACTORY`.
+         * @param vcsGitProvider Artifactory supports proxying the following Git providers out-of-the-box: GitHub (`GITHUB`), GitHub Enterprise (`GITHUBENTERPRISE`), BitBucket Cloud (`BITBUCKET`), BitBucket Server (`STASH`), GitLab (`GITLAB`), or a remote Artifactory instance (`ARTIFACTORY`). Default value is `ARTIFACTORY`.
          * 
          * @return builder
          * 
@@ -1730,7 +1730,7 @@ public final class RemoteGoRepositoryArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param vcsGitProvider Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `ARTIFACTORY`.
+         * @param vcsGitProvider Artifactory supports proxying the following Git providers out-of-the-box: GitHub (`GITHUB`), GitHub Enterprise (`GITHUBENTERPRISE`), BitBucket Cloud (`BITBUCKET`), BitBucket Server (`STASH`), GitLab (`GITLAB`), or a remote Artifactory instance (`ARTIFACTORY`). Default value is `ARTIFACTORY`.
          * 
          * @return builder
          * 

@@ -20,6 +20,7 @@ import javax.annotation.Nullable;
 
 /**
  * Creates a remote Go repository.
+ * 
  * Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Go+Registry).
  * 
  * ## Example Usage
@@ -707,14 +708,14 @@ public class RemoteGoRepository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.username);
     }
     /**
-     * Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `ARTIFACTORY`.
+     * Artifactory supports proxying the following Git providers out-of-the-box: GitHub (`GITHUB`), GitHub Enterprise (`GITHUBENTERPRISE`), BitBucket Cloud (`BITBUCKET`), BitBucket Server (`STASH`), GitLab (`GITLAB`), or a remote Artifactory instance (`ARTIFACTORY`). Default value is `ARTIFACTORY`.
      * 
      */
     @Export(name="vcsGitProvider", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> vcsGitProvider;
 
     /**
-     * @return Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `ARTIFACTORY`.
+     * @return Artifactory supports proxying the following Git providers out-of-the-box: GitHub (`GITHUB`), GitHub Enterprise (`GITHUBENTERPRISE`), BitBucket Cloud (`BITBUCKET`), BitBucket Server (`STASH`), GitLab (`GITLAB`), or a remote Artifactory instance (`ARTIFACTORY`). Default value is `ARTIFACTORY`.
      * 
      */
     public Output<Optional<String>> vcsGitProvider() {
