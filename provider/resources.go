@@ -53,14 +53,11 @@ func computeIDField(field resource.PropertyKey) tfbridge.ComputeID {
 	return tfbridge.DelegateIDField(field, "artifactory", "https://github.com/pulumi/pulumi-artifactory")
 }
 
-func always[T any](T) bool { return true }
-
 // Provider returns additional overlaid schema and metadata associated with the provider..
 func Provider() tfbridge.ProviderInfo {
 	// Instantiate the Terraform provider
 	p := pfbridge.MuxShimWithPF(context.Background(),
-		shimv2.NewProvider(artifactoryProvider.SdkV2(),
-			shimv2.WithPlanResourceChange(always)),
+		shimv2.NewProvider(artifactoryProvider.SdkV2()),
 		artifactoryProvider.Framework()(),
 	)
 
