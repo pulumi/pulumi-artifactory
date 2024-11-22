@@ -6,7 +6,7 @@ layout: package
 ---
 ## Installation
 
-The artifactory provider is available as a package in all Pulumi languages:
+The Artifactory provider is available as a package in all Pulumi languages:
 
 * JavaScript/TypeScript: [`@pulumi/artifactory`](https://www.npmjs.com/package/@pulumi/artifactory)
 * Python: [`pulumi-artifactory`](https://pypi.org/project/pulumi-artifactory/)
