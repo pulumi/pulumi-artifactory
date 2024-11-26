@@ -32,3 +32,7 @@ go.work
 go.work.sum
 
 sdk/python/venv
+
+
+# Ignore local build tracking directory
+.make
