@@ -188,7 +188,7 @@ export interface GetRemoteCondaRepositoryResult {
  * });
  * ```
  */
-export function getRemoteCondaRepositoryOutput(args: GetRemoteCondaRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteCondaRepositoryResult> {
+export function getRemoteCondaRepositoryOutput(args: GetRemoteCondaRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRemoteCondaRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getRemoteCondaRepository:getRemoteCondaRepository", {
         "allowAnyHostAuth": args.allowAnyHostAuth,

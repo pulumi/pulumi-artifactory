@@ -140,7 +140,7 @@ export interface GetFederatedNpmRepositoryResult {
  * });
  * ```
  */
-export function getFederatedNpmRepositoryOutput(args: GetFederatedNpmRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedNpmRepositoryResult> {
+export function getFederatedNpmRepositoryOutput(args: GetFederatedNpmRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFederatedNpmRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getFederatedNpmRepository:getFederatedNpmRepository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,

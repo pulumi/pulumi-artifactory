@@ -105,7 +105,7 @@ export interface GetLocalCondaRepositoryResult {
  * });
  * ```
  */
-export function getLocalCondaRepositoryOutput(args: GetLocalCondaRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalCondaRepositoryResult> {
+export function getLocalCondaRepositoryOutput(args: GetLocalCondaRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLocalCondaRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getLocalCondaRepository:getLocalCondaRepository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,

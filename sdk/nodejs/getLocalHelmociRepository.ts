@@ -120,7 +120,7 @@ export interface GetLocalHelmociRepositoryResult {
  * });
  * ```
  */
-export function getLocalHelmociRepositoryOutput(args: GetLocalHelmociRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalHelmociRepositoryResult> {
+export function getLocalHelmociRepositoryOutput(args: GetLocalHelmociRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLocalHelmociRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getLocalHelmociRepository:getLocalHelmociRepository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,

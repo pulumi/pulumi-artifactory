@@ -254,7 +254,7 @@ export interface GetRemoteIvyRepositoryResult {
  * });
  * ```
  */
-export function getRemoteIvyRepositoryOutput(args: GetRemoteIvyRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteIvyRepositoryResult> {
+export function getRemoteIvyRepositoryOutput(args: GetRemoteIvyRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRemoteIvyRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getRemoteIvyRepository:getRemoteIvyRepository", {
         "allowAnyHostAuth": args.allowAnyHostAuth,

@@ -272,7 +272,7 @@ def get_group_output(admin_privileges: Optional[pulumi.Input[Optional[bool]]] = 
                      reports_manager: Optional[pulumi.Input[Optional[bool]]] = None,
                      users_names: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                      watch_manager: Optional[pulumi.Input[Optional[bool]]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGroupResult]:
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGroupResult]:
     """
     ## # Artifactory Group Data Source
 
@@ -316,7 +316,7 @@ def get_group_output(admin_privileges: Optional[pulumi.Input[Optional[bool]]] = 
     __args__['reportsManager'] = reports_manager
     __args__['usersNames'] = users_names
     __args__['watchManager'] = watch_manager
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('artifactory:index/getGroup:getGroup', __args__, opts=opts, typ=GetGroupResult)
     return __ret__.apply(lambda __response__: GetGroupResult(
         admin_privileges=pulumi.get(__response__, 'admin_privileges'),

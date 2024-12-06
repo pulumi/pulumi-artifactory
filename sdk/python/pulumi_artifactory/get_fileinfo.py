@@ -245,7 +245,7 @@ def get_fileinfo(path: Optional[str] = None,
         size=pulumi.get(__ret__, 'size'))
 def get_fileinfo_output(path: Optional[pulumi.Input[str]] = None,
                         repository: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFileinfoResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFileinfoResult]:
     """
     ## # Artifactory File Info Data Source
 
@@ -269,7 +269,7 @@ def get_fileinfo_output(path: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['path'] = path
     __args__['repository'] = repository
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('artifactory:index/getFileinfo:getFileinfo', __args__, opts=opts, typ=GetFileinfoResult)
     return __ret__.apply(lambda __response__: GetFileinfoResult(
         created=pulumi.get(__response__, 'created'),

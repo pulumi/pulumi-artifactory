@@ -150,7 +150,7 @@ export interface GetFederatedDockerV2RepositoryResult {
  * });
  * ```
  */
-export function getFederatedDockerV2RepositoryOutput(args: GetFederatedDockerV2RepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedDockerV2RepositoryResult> {
+export function getFederatedDockerV2RepositoryOutput(args: GetFederatedDockerV2RepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFederatedDockerV2RepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getFederatedDockerV2Repository:getFederatedDockerV2Repository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,

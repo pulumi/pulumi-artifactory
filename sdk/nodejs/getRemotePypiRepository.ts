@@ -209,7 +209,7 @@ export interface GetRemotePypiRepositoryResult {
  * });
  * ```
  */
-export function getRemotePypiRepositoryOutput(args: GetRemotePypiRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemotePypiRepositoryResult> {
+export function getRemotePypiRepositoryOutput(args: GetRemotePypiRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRemotePypiRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getRemotePypiRepository:getRemotePypiRepository", {
         "allowAnyHostAuth": args.allowAnyHostAuth,

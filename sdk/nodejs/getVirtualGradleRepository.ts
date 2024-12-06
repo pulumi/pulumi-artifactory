@@ -117,7 +117,7 @@ export interface GetVirtualGradleRepositoryResult {
  * });
  * ```
  */
-export function getVirtualGradleRepositoryOutput(args: GetVirtualGradleRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualGradleRepositoryResult> {
+export function getVirtualGradleRepositoryOutput(args: GetVirtualGradleRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualGradleRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getVirtualGradleRepository:getVirtualGradleRepository", {
         "artifactoryRequestsCanRetrieveRemoteArtifacts": args.artifactoryRequestsCanRetrieveRemoteArtifacts,

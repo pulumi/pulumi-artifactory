@@ -200,7 +200,7 @@ export interface GetRemoteConanRepositoryResult {
  * });
  * ```
  */
-export function getRemoteConanRepositoryOutput(args: GetRemoteConanRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteConanRepositoryResult> {
+export function getRemoteConanRepositoryOutput(args: GetRemoteConanRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRemoteConanRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getRemoteConanRepository:getRemoteConanRepository", {
         "allowAnyHostAuth": args.allowAnyHostAuth,

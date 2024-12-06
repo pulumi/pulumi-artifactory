@@ -135,7 +135,7 @@ export interface GetVirtualDebianRepositoryResult {
  * });
  * ```
  */
-export function getVirtualDebianRepositoryOutput(args: GetVirtualDebianRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualDebianRepositoryResult> {
+export function getVirtualDebianRepositoryOutput(args: GetVirtualDebianRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualDebianRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getVirtualDebianRepository:getVirtualDebianRepository", {
         "artifactoryRequestsCanRetrieveRemoteArtifacts": args.artifactoryRequestsCanRetrieveRemoteArtifacts,

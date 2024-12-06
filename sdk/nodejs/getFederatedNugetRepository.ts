@@ -146,7 +146,7 @@ export interface GetFederatedNugetRepositoryResult {
  * });
  * ```
  */
-export function getFederatedNugetRepositoryOutput(args: GetFederatedNugetRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedNugetRepositoryResult> {
+export function getFederatedNugetRepositoryOutput(args: GetFederatedNugetRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFederatedNugetRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getFederatedNugetRepository:getFederatedNugetRepository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,

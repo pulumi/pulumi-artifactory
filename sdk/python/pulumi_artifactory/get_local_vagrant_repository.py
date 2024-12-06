@@ -279,7 +279,7 @@ def get_local_vagrant_repository_output(archive_browsing_enabled: Optional[pulum
                                         property_sets: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                                         repo_layout_ref: Optional[pulumi.Input[Optional[str]]] = None,
                                         xray_index: Optional[pulumi.Input[Optional[bool]]] = None,
-                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocalVagrantRepositoryResult]:
+                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocalVagrantRepositoryResult]:
     """
     Retrieves a local vagrant repository.
 
@@ -311,7 +311,7 @@ def get_local_vagrant_repository_output(archive_browsing_enabled: Optional[pulum
     __args__['propertySets'] = property_sets
     __args__['repoLayoutRef'] = repo_layout_ref
     __args__['xrayIndex'] = xray_index
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('artifactory:index/getLocalVagrantRepository:getLocalVagrantRepository', __args__, opts=opts, typ=GetLocalVagrantRepositoryResult)
     return __ret__.apply(lambda __response__: GetLocalVagrantRepositoryResult(
         archive_browsing_enabled=pulumi.get(__response__, 'archive_browsing_enabled'),

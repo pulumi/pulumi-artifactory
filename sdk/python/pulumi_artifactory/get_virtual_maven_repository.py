@@ -271,7 +271,7 @@ def get_virtual_maven_repository_output(artifactory_requests_can_retrieve_remote
                                         project_key: Optional[pulumi.Input[Optional[str]]] = None,
                                         repo_layout_ref: Optional[pulumi.Input[Optional[str]]] = None,
                                         repositories: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
-                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualMavenRepositoryResult]:
+                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualMavenRepositoryResult]:
     """
     Retrieves a virtual Maven repository.
 
@@ -304,7 +304,7 @@ def get_virtual_maven_repository_output(artifactory_requests_can_retrieve_remote
     __args__['projectKey'] = project_key
     __args__['repoLayoutRef'] = repo_layout_ref
     __args__['repositories'] = repositories
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('artifactory:index/getVirtualMavenRepository:getVirtualMavenRepository', __args__, opts=opts, typ=GetVirtualMavenRepositoryResult)
     return __ret__.apply(lambda __response__: GetVirtualMavenRepositoryResult(
         artifactory_requests_can_retrieve_remote_artifacts=pulumi.get(__response__, 'artifactory_requests_can_retrieve_remote_artifacts'),

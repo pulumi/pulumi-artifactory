@@ -140,7 +140,7 @@ export interface GetFederatedComposerRepositoryResult {
  * });
  * ```
  */
-export function getFederatedComposerRepositoryOutput(args: GetFederatedComposerRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedComposerRepositoryResult> {
+export function getFederatedComposerRepositoryOutput(args: GetFederatedComposerRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFederatedComposerRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getFederatedComposerRepository:getFederatedComposerRepository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,

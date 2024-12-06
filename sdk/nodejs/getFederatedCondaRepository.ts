@@ -140,7 +140,7 @@ export interface GetFederatedCondaRepositoryResult {
  * });
  * ```
  */
-export function getFederatedCondaRepositoryOutput(args: GetFederatedCondaRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedCondaRepositoryResult> {
+export function getFederatedCondaRepositoryOutput(args: GetFederatedCondaRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFederatedCondaRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getFederatedCondaRepository:getFederatedCondaRepository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,

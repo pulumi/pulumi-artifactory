@@ -99,7 +99,7 @@ export interface GetVirtualCondaRepositoryResult {
  * });
  * ```
  */
-export function getVirtualCondaRepositoryOutput(args: GetVirtualCondaRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualCondaRepositoryResult> {
+export function getVirtualCondaRepositoryOutput(args: GetVirtualCondaRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualCondaRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getVirtualCondaRepository:getVirtualCondaRepository", {
         "artifactoryRequestsCanRetrieveRemoteArtifacts": args.artifactoryRequestsCanRetrieveRemoteArtifacts,

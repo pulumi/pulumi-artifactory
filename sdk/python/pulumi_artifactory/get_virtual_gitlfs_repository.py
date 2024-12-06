@@ -224,7 +224,7 @@ def get_virtual_gitlfs_repository_output(artifactory_requests_can_retrieve_remot
                                          project_key: Optional[pulumi.Input[Optional[str]]] = None,
                                          repo_layout_ref: Optional[pulumi.Input[Optional[str]]] = None,
                                          repositories: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
-                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualGitlfsRepositoryResult]:
+                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualGitlfsRepositoryResult]:
     """
     Retrieves a virtual Git LFS repository.
 
@@ -252,7 +252,7 @@ def get_virtual_gitlfs_repository_output(artifactory_requests_can_retrieve_remot
     __args__['projectKey'] = project_key
     __args__['repoLayoutRef'] = repo_layout_ref
     __args__['repositories'] = repositories
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('artifactory:index/getVirtualGitlfsRepository:getVirtualGitlfsRepository', __args__, opts=opts, typ=GetVirtualGitlfsRepositoryResult)
     return __ret__.apply(lambda __response__: GetVirtualGitlfsRepositoryResult(
         artifactory_requests_can_retrieve_remote_artifacts=pulumi.get(__response__, 'artifactory_requests_can_retrieve_remote_artifacts'),

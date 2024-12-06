@@ -188,7 +188,7 @@ export interface GetRemoteOpkgRepositoryResult {
  * });
  * ```
  */
-export function getRemoteOpkgRepositoryOutput(args: GetRemoteOpkgRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteOpkgRepositoryResult> {
+export function getRemoteOpkgRepositoryOutput(args: GetRemoteOpkgRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRemoteOpkgRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getRemoteOpkgRepository:getRemoteOpkgRepository", {
         "allowAnyHostAuth": args.allowAnyHostAuth,

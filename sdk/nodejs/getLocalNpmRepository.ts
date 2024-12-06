@@ -105,7 +105,7 @@ export interface GetLocalNpmRepositoryResult {
  * });
  * ```
  */
-export function getLocalNpmRepositoryOutput(args: GetLocalNpmRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalNpmRepositoryResult> {
+export function getLocalNpmRepositoryOutput(args: GetLocalNpmRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLocalNpmRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getLocalNpmRepository:getLocalNpmRepository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,

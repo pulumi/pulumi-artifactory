@@ -117,7 +117,7 @@ export interface GetLocalBowerRepositoryResult {
  * });
  * ```
  */
-export function getLocalBowerRepositoryOutput(args: GetLocalBowerRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalBowerRepositoryResult> {
+export function getLocalBowerRepositoryOutput(args: GetLocalBowerRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLocalBowerRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getLocalBowerRepository:getLocalBowerRepository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,

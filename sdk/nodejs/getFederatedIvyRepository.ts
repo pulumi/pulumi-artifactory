@@ -158,7 +158,7 @@ export interface GetFederatedIvyRepositoryResult {
  * });
  * ```
  */
-export function getFederatedIvyRepositoryOutput(args: GetFederatedIvyRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedIvyRepositoryResult> {
+export function getFederatedIvyRepositoryOutput(args: GetFederatedIvyRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFederatedIvyRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getFederatedIvyRepository:getFederatedIvyRepository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,

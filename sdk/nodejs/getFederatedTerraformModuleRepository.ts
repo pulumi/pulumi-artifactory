@@ -136,7 +136,7 @@ export interface GetFederatedTerraformModuleRepositoryResult {
  * });
  * ```
  */
-export function getFederatedTerraformModuleRepositoryOutput(args: GetFederatedTerraformModuleRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedTerraformModuleRepositoryResult> {
+export function getFederatedTerraformModuleRepositoryOutput(args: GetFederatedTerraformModuleRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFederatedTerraformModuleRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getFederatedTerraformModuleRepository:getFederatedTerraformModuleRepository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,

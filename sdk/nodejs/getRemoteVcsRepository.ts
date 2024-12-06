@@ -215,7 +215,7 @@ export interface GetRemoteVcsRepositoryResult {
  * });
  * ```
  */
-export function getRemoteVcsRepositoryOutput(args: GetRemoteVcsRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteVcsRepositoryResult> {
+export function getRemoteVcsRepositoryOutput(args: GetRemoteVcsRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRemoteVcsRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getRemoteVcsRepository:getRemoteVcsRepository", {
         "allowAnyHostAuth": args.allowAnyHostAuth,

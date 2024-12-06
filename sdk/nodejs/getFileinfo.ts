@@ -117,7 +117,7 @@ export interface GetFileinfoResult {
  * });
  * ```
  */
-export function getFileinfoOutput(args: GetFileinfoOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFileinfoResult> {
+export function getFileinfoOutput(args: GetFileinfoOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFileinfoResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getFileinfo:getFileinfo", {
         "path": args.path,

@@ -189,7 +189,7 @@ def get_user_output(admin: Optional[pulumi.Input[Optional[bool]]] = None,
                     internal_password_disabled: Optional[pulumi.Input[Optional[bool]]] = None,
                     name: Optional[pulumi.Input[str]] = None,
                     profile_updatable: Optional[pulumi.Input[Optional[bool]]] = None,
-                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserResult]:
+                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserResult]:
     """
     ## # Artifactory User Data Source
 
@@ -222,7 +222,7 @@ def get_user_output(admin: Optional[pulumi.Input[Optional[bool]]] = None,
     __args__['internalPasswordDisabled'] = internal_password_disabled
     __args__['name'] = name
     __args__['profileUpdatable'] = profile_updatable
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('artifactory:index/getUser:getUser', __args__, opts=opts, typ=GetUserResult)
     return __ret__.apply(lambda __response__: GetUserResult(
         admin=pulumi.get(__response__, 'admin'),

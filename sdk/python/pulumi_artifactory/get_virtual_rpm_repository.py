@@ -258,7 +258,7 @@ def get_virtual_rpm_repository_output(artifactory_requests_can_retrieve_remote_a
                                       repo_layout_ref: Optional[pulumi.Input[Optional[str]]] = None,
                                       repositories: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                                       secondary_keypair_ref: Optional[pulumi.Input[Optional[str]]] = None,
-                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualRpmRepositoryResult]:
+                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualRpmRepositoryResult]:
     """
     Retrieves a virtual Rpm repository.
 
@@ -290,7 +290,7 @@ def get_virtual_rpm_repository_output(artifactory_requests_can_retrieve_remote_a
     __args__['repoLayoutRef'] = repo_layout_ref
     __args__['repositories'] = repositories
     __args__['secondaryKeypairRef'] = secondary_keypair_ref
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('artifactory:index/getVirtualRpmRepository:getVirtualRpmRepository', __args__, opts=opts, typ=GetVirtualRpmRepositoryResult)
     return __ret__.apply(lambda __response__: GetVirtualRpmRepositoryResult(
         artifactory_requests_can_retrieve_remote_artifacts=pulumi.get(__response__, 'artifactory_requests_can_retrieve_remote_artifacts'),

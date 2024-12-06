@@ -105,7 +105,7 @@ export interface GetLocalOpkgRepositoryResult {
  * });
  * ```
  */
-export function getLocalOpkgRepositoryOutput(args: GetLocalOpkgRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalOpkgRepositoryResult> {
+export function getLocalOpkgRepositoryOutput(args: GetLocalOpkgRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLocalOpkgRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getLocalOpkgRepository:getLocalOpkgRepository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,

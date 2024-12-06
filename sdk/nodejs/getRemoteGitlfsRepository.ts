@@ -188,7 +188,7 @@ export interface GetRemoteGitlfsRepositoryResult {
  * });
  * ```
  */
-export function getRemoteGitlfsRepositoryOutput(args: GetRemoteGitlfsRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteGitlfsRepositoryResult> {
+export function getRemoteGitlfsRepositoryOutput(args: GetRemoteGitlfsRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRemoteGitlfsRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getRemoteGitlfsRepository:getRemoteGitlfsRepository", {
         "allowAnyHostAuth": args.allowAnyHostAuth,

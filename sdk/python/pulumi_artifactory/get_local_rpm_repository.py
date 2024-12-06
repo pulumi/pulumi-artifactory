@@ -390,7 +390,7 @@ def get_local_rpm_repository_output(archive_browsing_enabled: Optional[pulumi.In
                                     xray_index: Optional[pulumi.Input[Optional[bool]]] = None,
                                     yum_group_file_names: Optional[pulumi.Input[Optional[str]]] = None,
                                     yum_root_depth: Optional[pulumi.Input[Optional[int]]] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocalRpmRepositoryResult]:
+                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocalRpmRepositoryResult]:
     """
     Retrieves a local RPM repository.
 
@@ -440,7 +440,7 @@ def get_local_rpm_repository_output(archive_browsing_enabled: Optional[pulumi.In
     __args__['xrayIndex'] = xray_index
     __args__['yumGroupFileNames'] = yum_group_file_names
     __args__['yumRootDepth'] = yum_root_depth
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('artifactory:index/getLocalRpmRepository:getLocalRpmRepository', __args__, opts=opts, typ=GetLocalRpmRepositoryResult)
     return __ret__.apply(lambda __response__: GetLocalRpmRepositoryResult(
         archive_browsing_enabled=pulumi.get(__response__, 'archive_browsing_enabled'),
