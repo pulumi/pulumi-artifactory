@@ -158,7 +158,7 @@ export interface GetFederatedRpmRepositoryResult {
  * });
  * ```
  */
-export function getFederatedRpmRepositoryOutput(args: GetFederatedRpmRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedRpmRepositoryResult> {
+export function getFederatedRpmRepositoryOutput(args: GetFederatedRpmRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFederatedRpmRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getFederatedRpmRepository:getFederatedRpmRepository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,

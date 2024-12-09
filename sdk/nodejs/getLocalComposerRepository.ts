@@ -105,7 +105,7 @@ export interface GetLocalComposerRepositoryResult {
  * });
  * ```
  */
-export function getLocalComposerRepositoryOutput(args: GetLocalComposerRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalComposerRepositoryResult> {
+export function getLocalComposerRepositoryOutput(args: GetLocalComposerRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLocalComposerRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getLocalComposerRepository:getLocalComposerRepository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,

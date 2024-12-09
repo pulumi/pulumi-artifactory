@@ -215,7 +215,7 @@ export interface GetRemoteCargoRepositoryResult {
  * });
  * ```
  */
-export function getRemoteCargoRepositoryOutput(args: GetRemoteCargoRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteCargoRepositoryResult> {
+export function getRemoteCargoRepositoryOutput(args: GetRemoteCargoRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRemoteCargoRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getRemoteCargoRepository:getRemoteCargoRepository", {
         "allowAnyHostAuth": args.allowAnyHostAuth,

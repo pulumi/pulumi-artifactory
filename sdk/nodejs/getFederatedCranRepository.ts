@@ -140,7 +140,7 @@ export interface GetFederatedCranRepositoryResult {
  * });
  * ```
  */
-export function getFederatedCranRepositoryOutput(args: GetFederatedCranRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedCranRepositoryResult> {
+export function getFederatedCranRepositoryOutput(args: GetFederatedCranRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFederatedCranRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getFederatedCranRepository:getFederatedCranRepository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,

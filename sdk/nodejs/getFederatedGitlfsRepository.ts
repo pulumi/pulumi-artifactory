@@ -140,7 +140,7 @@ export interface GetFederatedGitlfsRepositoryResult {
  * });
  * ```
  */
-export function getFederatedGitlfsRepositoryOutput(args: GetFederatedGitlfsRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedGitlfsRepositoryResult> {
+export function getFederatedGitlfsRepositoryOutput(args: GetFederatedGitlfsRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFederatedGitlfsRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getFederatedGitlfsRepository:getFederatedGitlfsRepository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,

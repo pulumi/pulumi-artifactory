@@ -105,7 +105,7 @@ export interface GetLocalPuppetRepositoryResult {
  * });
  * ```
  */
-export function getLocalPuppetRepositoryOutput(args: GetLocalPuppetRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalPuppetRepositoryResult> {
+export function getLocalPuppetRepositoryOutput(args: GetLocalPuppetRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLocalPuppetRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getLocalPuppetRepository:getLocalPuppetRepository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,

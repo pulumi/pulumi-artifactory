@@ -141,7 +141,7 @@ export interface GetLocalDockerV2RepositoryResult {
  * });
  * ```
  */
-export function getLocalDockerV2RepositoryOutput(args: GetLocalDockerV2RepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalDockerV2RepositoryResult> {
+export function getLocalDockerV2RepositoryOutput(args: GetLocalDockerV2RepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLocalDockerV2RepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getLocalDockerV2Repository:getLocalDockerV2Repository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,

@@ -188,7 +188,7 @@ export interface GetRemoteCranRepositoryResult {
  * });
  * ```
  */
-export function getRemoteCranRepositoryOutput(args: GetRemoteCranRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteCranRepositoryResult> {
+export function getRemoteCranRepositoryOutput(args: GetRemoteCranRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRemoteCranRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getRemoteCranRepository:getRemoteCranRepository", {
         "allowAnyHostAuth": args.allowAnyHostAuth,

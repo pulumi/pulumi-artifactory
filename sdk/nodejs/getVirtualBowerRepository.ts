@@ -117,7 +117,7 @@ export interface GetVirtualBowerRepositoryResult {
  * });
  * ```
  */
-export function getVirtualBowerRepositoryOutput(args: GetVirtualBowerRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualBowerRepositoryResult> {
+export function getVirtualBowerRepositoryOutput(args: GetVirtualBowerRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualBowerRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getVirtualBowerRepository:getVirtualBowerRepository", {
         "artifactoryRequestsCanRetrieveRemoteArtifacts": args.artifactoryRequestsCanRetrieveRemoteArtifacts,

@@ -105,7 +105,7 @@ export interface GetLocalHelmRepositoryResult {
  * });
  * ```
  */
-export function getLocalHelmRepositoryOutput(args: GetLocalHelmRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalHelmRepositoryResult> {
+export function getLocalHelmRepositoryOutput(args: GetLocalHelmRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLocalHelmRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getLocalHelmRepository:getLocalHelmRepository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,

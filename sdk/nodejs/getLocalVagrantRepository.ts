@@ -105,7 +105,7 @@ export interface GetLocalVagrantRepositoryResult {
  * });
  * ```
  */
-export function getLocalVagrantRepositoryOutput(args: GetLocalVagrantRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalVagrantRepositoryResult> {
+export function getLocalVagrantRepositoryOutput(args: GetLocalVagrantRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLocalVagrantRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getLocalVagrantRepository:getLocalVagrantRepository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,

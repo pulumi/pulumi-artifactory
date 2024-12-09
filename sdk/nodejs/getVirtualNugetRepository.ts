@@ -99,7 +99,7 @@ export interface GetVirtualNugetRepositoryResult {
  * });
  * ```
  */
-export function getVirtualNugetRepositoryOutput(args: GetVirtualNugetRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNugetRepositoryResult> {
+export function getVirtualNugetRepositoryOutput(args: GetVirtualNugetRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualNugetRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getVirtualNugetRepository:getVirtualNugetRepository", {
         "artifactoryRequestsCanRetrieveRemoteArtifacts": args.artifactoryRequestsCanRetrieveRemoteArtifacts,

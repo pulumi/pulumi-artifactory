@@ -386,7 +386,7 @@ def get_local_maven_repository_output(archive_browsing_enabled: Optional[pulumi.
                                       snapshot_version_behavior: Optional[pulumi.Input[Optional[str]]] = None,
                                       suppress_pom_consistency_checks: Optional[pulumi.Input[Optional[bool]]] = None,
                                       xray_index: Optional[pulumi.Input[Optional[bool]]] = None,
-                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocalMavenRepositoryResult]:
+                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocalMavenRepositoryResult]:
     """
     Retrieves a local Maven repository.
 
@@ -448,7 +448,7 @@ def get_local_maven_repository_output(archive_browsing_enabled: Optional[pulumi.
     __args__['snapshotVersionBehavior'] = snapshot_version_behavior
     __args__['suppressPomConsistencyChecks'] = suppress_pom_consistency_checks
     __args__['xrayIndex'] = xray_index
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('artifactory:index/getLocalMavenRepository:getLocalMavenRepository', __args__, opts=opts, typ=GetLocalMavenRepositoryResult)
     return __ret__.apply(lambda __response__: GetLocalMavenRepositoryResult(
         archive_browsing_enabled=pulumi.get(__response__, 'archive_browsing_enabled'),

@@ -90,7 +90,7 @@ export interface GetVirtualGemsRepositoryResult {
  * });
  * ```
  */
-export function getVirtualGemsRepositoryOutput(args: GetVirtualGemsRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualGemsRepositoryResult> {
+export function getVirtualGemsRepositoryOutput(args: GetVirtualGemsRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualGemsRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getVirtualGemsRepository:getVirtualGemsRepository", {
         "artifactoryRequestsCanRetrieveRemoteArtifacts": args.artifactoryRequestsCanRetrieveRemoteArtifacts,

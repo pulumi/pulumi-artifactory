@@ -170,7 +170,7 @@ export interface GetLocalIvyRepositoryResult {
  *   path, Artifactory rejects the deployment with a "409 Conflict" error. You can disable this behavior by setting the
  *   Suppress POM Consistency Checks checkbox. True by default for Gradle repository.
  */
-export function getLocalIvyRepositoryOutput(args: GetLocalIvyRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalIvyRepositoryResult> {
+export function getLocalIvyRepositoryOutput(args: GetLocalIvyRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLocalIvyRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getLocalIvyRepository:getLocalIvyRepository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,

@@ -203,7 +203,7 @@ export interface GetRemoteBowerRepositoryResult {
  * });
  * ```
  */
-export function getRemoteBowerRepositoryOutput(args: GetRemoteBowerRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteBowerRepositoryResult> {
+export function getRemoteBowerRepositoryOutput(args: GetRemoteBowerRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRemoteBowerRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getRemoteBowerRepository:getRemoteBowerRepository", {
         "allowAnyHostAuth": args.allowAnyHostAuth,

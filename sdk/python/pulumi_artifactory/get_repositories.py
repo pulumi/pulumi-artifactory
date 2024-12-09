@@ -132,7 +132,7 @@ def get_repositories(package_type: Optional[str] = None,
 def get_repositories_output(package_type: Optional[pulumi.Input[Optional[str]]] = None,
                             project_key: Optional[pulumi.Input[Optional[str]]] = None,
                             repository_type: Optional[pulumi.Input[Optional[str]]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRepositoriesResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRepositoriesResult]:
     """
     Returns a list of minimal repository details for all repositories of the specified type.
 
@@ -154,7 +154,7 @@ def get_repositories_output(package_type: Optional[pulumi.Input[Optional[str]]] 
     __args__['packageType'] = package_type
     __args__['projectKey'] = project_key
     __args__['repositoryType'] = repository_type
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('artifactory:index/getRepositories:getRepositories', __args__, opts=opts, typ=GetRepositoriesResult)
     return __ret__.apply(lambda __response__: GetRepositoriesResult(
         id=pulumi.get(__response__, 'id'),

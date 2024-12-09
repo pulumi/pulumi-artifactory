@@ -90,7 +90,7 @@ export interface GetVirtualGitlfsRepositoryResult {
  * });
  * ```
  */
-export function getVirtualGitlfsRepositoryOutput(args: GetVirtualGitlfsRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualGitlfsRepositoryResult> {
+export function getVirtualGitlfsRepositoryOutput(args: GetVirtualGitlfsRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualGitlfsRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getVirtualGitlfsRepository:getVirtualGitlfsRepository", {
         "artifactoryRequestsCanRetrieveRemoteArtifacts": args.artifactoryRequestsCanRetrieveRemoteArtifacts,

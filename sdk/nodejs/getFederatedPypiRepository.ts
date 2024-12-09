@@ -140,7 +140,7 @@ export interface GetFederatedPypiRepositoryResult {
  * });
  * ```
  */
-export function getFederatedPypiRepositoryOutput(args: GetFederatedPypiRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedPypiRepositoryResult> {
+export function getFederatedPypiRepositoryOutput(args: GetFederatedPypiRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFederatedPypiRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getFederatedPypiRepository:getFederatedPypiRepository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,

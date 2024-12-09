@@ -111,7 +111,7 @@ export interface GetVirtualMavenRepositoryResult {
  * });
  * ```
  */
-export function getVirtualMavenRepositoryOutput(args: GetVirtualMavenRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMavenRepositoryResult> {
+export function getVirtualMavenRepositoryOutput(args: GetVirtualMavenRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualMavenRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getVirtualMavenRepository:getVirtualMavenRepository", {
         "artifactoryRequestsCanRetrieveRemoteArtifacts": args.artifactoryRequestsCanRetrieveRemoteArtifacts,

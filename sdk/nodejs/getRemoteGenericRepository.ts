@@ -197,7 +197,7 @@ export interface GetRemoteGenericRepositoryResult {
  * });
  * ```
  */
-export function getRemoteGenericRepositoryOutput(args: GetRemoteGenericRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteGenericRepositoryResult> {
+export function getRemoteGenericRepositoryOutput(args: GetRemoteGenericRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRemoteGenericRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getRemoteGenericRepository:getRemoteGenericRepository", {
         "allowAnyHostAuth": args.allowAnyHostAuth,

@@ -140,7 +140,7 @@ export interface GetFederatedGoRepositoryResult {
  * });
  * ```
  */
-export function getFederatedGoRepositoryOutput(args: GetFederatedGoRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedGoRepositoryResult> {
+export function getFederatedGoRepositoryOutput(args: GetFederatedGoRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFederatedGoRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getFederatedGoRepository:getFederatedGoRepository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,

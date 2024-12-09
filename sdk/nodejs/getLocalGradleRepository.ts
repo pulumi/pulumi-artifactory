@@ -170,7 +170,7 @@ export interface GetLocalGradleRepositoryResult {
  *   the deployed path, Artifactory rejects the deployment with a "409 Conflict" error. You can disable this behavior by
  *   setting the Suppress POM Consistency Checks checkbox. True by default for Gradle repository.
  */
-export function getLocalGradleRepositoryOutput(args: GetLocalGradleRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalGradleRepositoryResult> {
+export function getLocalGradleRepositoryOutput(args: GetLocalGradleRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLocalGradleRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getLocalGradleRepository:getLocalGradleRepository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,

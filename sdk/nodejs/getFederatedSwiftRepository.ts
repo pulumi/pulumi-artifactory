@@ -140,7 +140,7 @@ export interface GetFederatedSwiftRepositoryResult {
  * });
  * ```
  */
-export function getFederatedSwiftRepositoryOutput(args: GetFederatedSwiftRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedSwiftRepositoryResult> {
+export function getFederatedSwiftRepositoryOutput(args: GetFederatedSwiftRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFederatedSwiftRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getFederatedSwiftRepository:getFederatedSwiftRepository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,

@@ -140,7 +140,7 @@ export interface GetFederatedHelmRepositoryResult {
  * });
  * ```
  */
-export function getFederatedHelmRepositoryOutput(args: GetFederatedHelmRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedHelmRepositoryResult> {
+export function getFederatedHelmRepositoryOutput(args: GetFederatedHelmRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFederatedHelmRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getFederatedHelmRepository:getFederatedHelmRepository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,

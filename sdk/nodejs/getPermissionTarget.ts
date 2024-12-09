@@ -94,7 +94,7 @@ export interface GetPermissionTargetResult {
  * });
  * ```
  */
-export function getPermissionTargetOutput(args: GetPermissionTargetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPermissionTargetResult> {
+export function getPermissionTargetOutput(args: GetPermissionTargetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPermissionTargetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getPermissionTarget:getPermissionTarget", {
         "build": args.build,

@@ -188,7 +188,7 @@ export interface GetRemoteChefRepositoryResult {
  * });
  * ```
  */
-export function getRemoteChefRepositoryOutput(args: GetRemoteChefRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteChefRepositoryResult> {
+export function getRemoteChefRepositoryOutput(args: GetRemoteChefRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRemoteChefRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getRemoteChefRepository:getRemoteChefRepository", {
         "allowAnyHostAuth": args.allowAnyHostAuth,
