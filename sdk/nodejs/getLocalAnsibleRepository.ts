@@ -111,7 +111,7 @@ export interface GetLocalAnsibleRepositoryResult {
  * });
  * ```
  */
-export function getLocalAnsibleRepositoryOutput(args: GetLocalAnsibleRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalAnsibleRepositoryResult> {
+export function getLocalAnsibleRepositoryOutput(args: GetLocalAnsibleRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLocalAnsibleRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getLocalAnsibleRepository:getLocalAnsibleRepository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,

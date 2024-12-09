@@ -90,7 +90,7 @@ export interface GetVirtualP2RepositoryResult {
  * });
  * ```
  */
-export function getVirtualP2RepositoryOutput(args: GetVirtualP2RepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualP2RepositoryResult> {
+export function getVirtualP2RepositoryOutput(args: GetVirtualP2RepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualP2RepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getVirtualP2Repository:getVirtualP2Repository", {
         "artifactoryRequestsCanRetrieveRemoteArtifacts": args.artifactoryRequestsCanRetrieveRemoteArtifacts,

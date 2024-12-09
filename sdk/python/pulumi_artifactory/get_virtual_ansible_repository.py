@@ -241,7 +241,7 @@ def get_virtual_ansible_repository_output(artifactory_requests_can_retrieve_remo
                                           repo_layout_ref: Optional[pulumi.Input[Optional[str]]] = None,
                                           repositories: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                                           retrieval_cache_period_seconds: Optional[pulumi.Input[Optional[int]]] = None,
-                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualAnsibleRepositoryResult]:
+                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualAnsibleRepositoryResult]:
     """
     Retrieves a virtual Ansible repository.
 
@@ -271,7 +271,7 @@ def get_virtual_ansible_repository_output(artifactory_requests_can_retrieve_remo
     __args__['repoLayoutRef'] = repo_layout_ref
     __args__['repositories'] = repositories
     __args__['retrievalCachePeriodSeconds'] = retrieval_cache_period_seconds
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('artifactory:index/getVirtualAnsibleRepository:getVirtualAnsibleRepository', __args__, opts=opts, typ=GetVirtualAnsibleRepositoryResult)
     return __ret__.apply(lambda __response__: GetVirtualAnsibleRepositoryResult(
         artifactory_requests_can_retrieve_remote_artifacts=pulumi.get(__response__, 'artifactory_requests_can_retrieve_remote_artifacts'),

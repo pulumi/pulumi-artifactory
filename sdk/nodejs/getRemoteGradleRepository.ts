@@ -254,7 +254,7 @@ export interface GetRemoteGradleRepositoryResult {
  * });
  * ```
  */
-export function getRemoteGradleRepositoryOutput(args: GetRemoteGradleRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteGradleRepositoryResult> {
+export function getRemoteGradleRepositoryOutput(args: GetRemoteGradleRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRemoteGradleRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getRemoteGradleRepository:getRemoteGradleRepository", {
         "allowAnyHostAuth": args.allowAnyHostAuth,

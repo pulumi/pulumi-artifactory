@@ -188,7 +188,7 @@ export interface GetRemoteDebianRepositoryResult {
  * });
  * ```
  */
-export function getRemoteDebianRepositoryOutput(args: GetRemoteDebianRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteDebianRepositoryResult> {
+export function getRemoteDebianRepositoryOutput(args: GetRemoteDebianRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRemoteDebianRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getRemoteDebianRepository:getRemoteDebianRepository", {
         "allowAnyHostAuth": args.allowAnyHostAuth,

@@ -105,7 +105,7 @@ export interface GetLocalCocoapodsRepositoryResult {
  * });
  * ```
  */
-export function getLocalCocoapodsRepositoryOutput(args: GetLocalCocoapodsRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalCocoapodsRepositoryResult> {
+export function getLocalCocoapodsRepositoryOutput(args: GetLocalCocoapodsRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLocalCocoapodsRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getLocalCocoapodsRepository:getLocalCocoapodsRepository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,

@@ -158,7 +158,7 @@ export interface GetFederatedSbtRepositoryResult {
  * });
  * ```
  */
-export function getFederatedSbtRepositoryOutput(args: GetFederatedSbtRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedSbtRepositoryResult> {
+export function getFederatedSbtRepositoryOutput(args: GetFederatedSbtRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFederatedSbtRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getFederatedSbtRepository:getFederatedSbtRepository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,

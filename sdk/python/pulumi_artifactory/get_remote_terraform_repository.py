@@ -666,7 +666,7 @@ def get_remote_terraform_repository_output(allow_any_host_auth: Optional[pulumi.
                                            url: Optional[pulumi.Input[Optional[str]]] = None,
                                            username: Optional[pulumi.Input[Optional[str]]] = None,
                                            xray_index: Optional[pulumi.Input[Optional[bool]]] = None,
-                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRemoteTerraformRepositoryResult]:
+                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRemoteTerraformRepositoryResult]:
     """
     ## Example Usage
 
@@ -726,7 +726,7 @@ def get_remote_terraform_repository_output(allow_any_host_auth: Optional[pulumi.
     __args__['url'] = url
     __args__['username'] = username
     __args__['xrayIndex'] = xray_index
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('artifactory:index/getRemoteTerraformRepository:getRemoteTerraformRepository', __args__, opts=opts, typ=GetRemoteTerraformRepositoryResult)
     return __ret__.apply(lambda __response__: GetRemoteTerraformRepositoryResult(
         allow_any_host_auth=pulumi.get(__response__, 'allow_any_host_auth'),

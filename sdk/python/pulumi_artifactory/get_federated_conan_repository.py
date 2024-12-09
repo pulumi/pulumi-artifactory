@@ -361,7 +361,7 @@ def get_federated_conan_repository_output(archive_browsing_enabled: Optional[pul
                                           proxy: Optional[pulumi.Input[Optional[str]]] = None,
                                           repo_layout_ref: Optional[pulumi.Input[Optional[str]]] = None,
                                           xray_index: Optional[pulumi.Input[Optional[bool]]] = None,
-                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFederatedConanRepositoryResult]:
+                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFederatedConanRepositoryResult]:
     """
     Retrieves a federated Conan repository.
 
@@ -404,7 +404,7 @@ def get_federated_conan_repository_output(archive_browsing_enabled: Optional[pul
     __args__['proxy'] = proxy
     __args__['repoLayoutRef'] = repo_layout_ref
     __args__['xrayIndex'] = xray_index
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('artifactory:index/getFederatedConanRepository:getFederatedConanRepository', __args__, opts=opts, typ=GetFederatedConanRepositoryResult)
     return __ret__.apply(lambda __response__: GetFederatedConanRepositoryResult(
         archive_browsing_enabled=pulumi.get(__response__, 'archive_browsing_enabled'),

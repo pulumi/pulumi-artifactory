@@ -287,7 +287,7 @@ def get_file_output(force_overwrite: Optional[pulumi.Input[Optional[bool]]] = No
                     path: Optional[pulumi.Input[str]] = None,
                     path_is_aliased: Optional[pulumi.Input[Optional[bool]]] = None,
                     repository: Optional[pulumi.Input[str]] = None,
-                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFileResult]:
+                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFileResult]:
     """
     ## # Artifactory File Data Source
 
@@ -317,7 +317,7 @@ def get_file_output(force_overwrite: Optional[pulumi.Input[Optional[bool]]] = No
     __args__['path'] = path
     __args__['pathIsAliased'] = path_is_aliased
     __args__['repository'] = repository
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('artifactory:index/getFile:getFile', __args__, opts=opts, typ=GetFileResult)
     return __ret__.apply(lambda __response__: GetFileResult(
         created=pulumi.get(__response__, 'created'),

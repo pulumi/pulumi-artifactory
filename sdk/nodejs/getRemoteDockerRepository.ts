@@ -236,7 +236,7 @@ export interface GetRemoteDockerRepositoryResult {
  * });
  * ```
  */
-export function getRemoteDockerRepositoryOutput(args: GetRemoteDockerRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteDockerRepositoryResult> {
+export function getRemoteDockerRepositoryOutput(args: GetRemoteDockerRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRemoteDockerRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getRemoteDockerRepository:getRemoteDockerRepository", {
         "allowAnyHostAuth": args.allowAnyHostAuth,

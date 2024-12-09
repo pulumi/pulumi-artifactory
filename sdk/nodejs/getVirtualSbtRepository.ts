@@ -117,7 +117,7 @@ export interface GetVirtualSbtRepositoryResult {
  * });
  * ```
  */
-export function getVirtualSbtRepositoryOutput(args: GetVirtualSbtRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualSbtRepositoryResult> {
+export function getVirtualSbtRepositoryOutput(args: GetVirtualSbtRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualSbtRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getVirtualSbtRepository:getVirtualSbtRepository", {
         "artifactoryRequestsCanRetrieveRemoteArtifacts": args.artifactoryRequestsCanRetrieveRemoteArtifacts,

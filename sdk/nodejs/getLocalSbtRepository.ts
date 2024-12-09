@@ -170,7 +170,7 @@ export interface GetLocalSbtRepositoryResult {
  *   path, Artifactory rejects the deployment with a "409 Conflict" error. You can disable this behavior by setting the
  *   Suppress POM Consistency Checks checkbox. True by default for Gradle repository.
  */
-export function getLocalSbtRepositoryOutput(args: GetLocalSbtRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalSbtRepositoryResult> {
+export function getLocalSbtRepositoryOutput(args: GetLocalSbtRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLocalSbtRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getLocalSbtRepository:getLocalSbtRepository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,

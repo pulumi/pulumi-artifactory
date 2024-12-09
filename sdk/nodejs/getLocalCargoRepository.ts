@@ -129,7 +129,7 @@ export interface GetLocalCargoRepositoryResult {
  * });
  * ```
  */
-export function getLocalCargoRepositoryOutput(args: GetLocalCargoRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalCargoRepositoryResult> {
+export function getLocalCargoRepositoryOutput(args: GetLocalCargoRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLocalCargoRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getLocalCargoRepository:getLocalCargoRepository", {
         "anonymousAccess": args.anonymousAccess,

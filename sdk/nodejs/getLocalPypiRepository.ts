@@ -105,7 +105,7 @@ export interface GetLocalPypiRepositoryResult {
  * });
  * ```
  */
-export function getLocalPypiRepositoryOutput(args: GetLocalPypiRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalPypiRepositoryResult> {
+export function getLocalPypiRepositoryOutput(args: GetLocalPypiRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLocalPypiRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getLocalPypiRepository:getLocalPypiRepository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,

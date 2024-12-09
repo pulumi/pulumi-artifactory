@@ -387,7 +387,7 @@ def get_federated_cargo_repository_output(anonymous_access: Optional[pulumi.Inpu
                                           proxy: Optional[pulumi.Input[Optional[str]]] = None,
                                           repo_layout_ref: Optional[pulumi.Input[Optional[str]]] = None,
                                           xray_index: Optional[pulumi.Input[Optional[bool]]] = None,
-                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFederatedCargoRepositoryResult]:
+                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFederatedCargoRepositoryResult]:
     """
     Retrieves a federated Cargo repository.
 
@@ -432,7 +432,7 @@ def get_federated_cargo_repository_output(anonymous_access: Optional[pulumi.Inpu
     __args__['proxy'] = proxy
     __args__['repoLayoutRef'] = repo_layout_ref
     __args__['xrayIndex'] = xray_index
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('artifactory:index/getFederatedCargoRepository:getFederatedCargoRepository', __args__, opts=opts, typ=GetFederatedCargoRepositoryResult)
     return __ret__.apply(lambda __response__: GetFederatedCargoRepositoryResult(
         anonymous_access=pulumi.get(__response__, 'anonymous_access'),

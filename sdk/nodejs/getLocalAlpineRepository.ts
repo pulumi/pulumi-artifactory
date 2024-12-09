@@ -114,7 +114,7 @@ export interface GetLocalAlpineRepositoryResult {
  * });
  * ```
  */
-export function getLocalAlpineRepositoryOutput(args: GetLocalAlpineRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalAlpineRepositoryResult> {
+export function getLocalAlpineRepositoryOutput(args: GetLocalAlpineRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLocalAlpineRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getLocalAlpineRepository:getLocalAlpineRepository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,

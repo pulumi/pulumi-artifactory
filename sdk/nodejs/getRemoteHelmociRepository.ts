@@ -218,7 +218,7 @@ export interface GetRemoteHelmociRepositoryResult {
  * });
  * ```
  */
-export function getRemoteHelmociRepositoryOutput(args: GetRemoteHelmociRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteHelmociRepositoryResult> {
+export function getRemoteHelmociRepositoryOutput(args: GetRemoteHelmociRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRemoteHelmociRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getRemoteHelmociRepository:getRemoteHelmociRepository", {
         "allowAnyHostAuth": args.allowAnyHostAuth,

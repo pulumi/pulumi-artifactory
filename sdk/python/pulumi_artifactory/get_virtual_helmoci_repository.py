@@ -241,7 +241,7 @@ def get_virtual_helmoci_repository_output(artifactory_requests_can_retrieve_remo
                                           repo_layout_ref: Optional[pulumi.Input[Optional[str]]] = None,
                                           repositories: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                                           resolve_oci_tags_by_timestamp: Optional[pulumi.Input[Optional[bool]]] = None,
-                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualHelmociRepositoryResult]:
+                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualHelmociRepositoryResult]:
     """
     Retrieves a virtual Helm OCI repository.
 
@@ -271,7 +271,7 @@ def get_virtual_helmoci_repository_output(artifactory_requests_can_retrieve_remo
     __args__['repoLayoutRef'] = repo_layout_ref
     __args__['repositories'] = repositories
     __args__['resolveOciTagsByTimestamp'] = resolve_oci_tags_by_timestamp
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('artifactory:index/getVirtualHelmociRepository:getVirtualHelmociRepository', __args__, opts=opts, typ=GetVirtualHelmociRepositoryResult)
     return __ret__.apply(lambda __response__: GetVirtualHelmociRepositoryResult(
         artifactory_requests_can_retrieve_remote_artifacts=pulumi.get(__response__, 'artifactory_requests_can_retrieve_remote_artifacts'),

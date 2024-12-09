@@ -116,7 +116,7 @@ export interface GetLocalConanRepositoryResult {
  * });
  * ```
  */
-export function getLocalConanRepositoryOutput(args: GetLocalConanRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalConanRepositoryResult> {
+export function getLocalConanRepositoryOutput(args: GetLocalConanRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLocalConanRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getLocalConanRepository:getLocalConanRepository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,

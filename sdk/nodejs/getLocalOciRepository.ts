@@ -120,7 +120,7 @@ export interface GetLocalOciRepositoryResult {
  * });
  * ```
  */
-export function getLocalOciRepositoryOutput(args: GetLocalOciRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalOciRepositoryResult> {
+export function getLocalOciRepositoryOutput(args: GetLocalOciRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLocalOciRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getLocalOciRepository:getLocalOciRepository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,

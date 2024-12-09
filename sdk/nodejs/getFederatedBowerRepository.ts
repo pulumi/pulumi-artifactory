@@ -140,7 +140,7 @@ export interface GetFederatedBowerRepositoryResult {
  * });
  * ```
  */
-export function getFederatedBowerRepositoryOutput(args: GetFederatedBowerRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedBowerRepositoryResult> {
+export function getFederatedBowerRepositoryOutput(args: GetFederatedBowerRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFederatedBowerRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getFederatedBowerRepository:getFederatedBowerRepository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,

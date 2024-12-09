@@ -158,7 +158,7 @@ export interface GetFederatedMavenRepositoryResult {
  * });
  * ```
  */
-export function getFederatedMavenRepositoryOutput(args: GetFederatedMavenRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedMavenRepositoryResult> {
+export function getFederatedMavenRepositoryOutput(args: GetFederatedMavenRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFederatedMavenRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getFederatedMavenRepository:getFederatedMavenRepository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,

@@ -642,7 +642,7 @@ def get_remote_conda_repository_output(allow_any_host_auth: Optional[pulumi.Inpu
                                        url: Optional[pulumi.Input[Optional[str]]] = None,
                                        username: Optional[pulumi.Input[Optional[str]]] = None,
                                        xray_index: Optional[pulumi.Input[Optional[bool]]] = None,
-                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRemoteCondaRepositoryResult]:
+                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRemoteCondaRepositoryResult]:
     """
     Retrieves a remote Conda repository.
 
@@ -702,7 +702,7 @@ def get_remote_conda_repository_output(allow_any_host_auth: Optional[pulumi.Inpu
     __args__['url'] = url
     __args__['username'] = username
     __args__['xrayIndex'] = xray_index
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('artifactory:index/getRemoteCondaRepository:getRemoteCondaRepository', __args__, opts=opts, typ=GetRemoteCondaRepositoryResult)
     return __ret__.apply(lambda __response__: GetRemoteCondaRepositoryResult(
         allow_any_host_auth=pulumi.get(__response__, 'allow_any_host_auth'),
