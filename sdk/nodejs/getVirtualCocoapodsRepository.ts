@@ -59,7 +59,7 @@ export interface GetVirtualCocoapodsRepositoryResult {
     readonly repoLayoutRef?: string;
     readonly repositories?: string[];
 }
-export function getVirtualCocoapodsRepositoryOutput(args: GetVirtualCocoapodsRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualCocoapodsRepositoryResult> {
+export function getVirtualCocoapodsRepositoryOutput(args: GetVirtualCocoapodsRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualCocoapodsRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getVirtualCocoapodsRepository:getVirtualCocoapodsRepository", {
         "artifactoryRequestsCanRetrieveRemoteArtifacts": args.artifactoryRequestsCanRetrieveRemoteArtifacts,

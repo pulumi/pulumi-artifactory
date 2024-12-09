@@ -140,7 +140,7 @@ export interface GetFederatedOpkgRepositoryResult {
  * });
  * ```
  */
-export function getFederatedOpkgRepositoryOutput(args: GetFederatedOpkgRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedOpkgRepositoryResult> {
+export function getFederatedOpkgRepositoryOutput(args: GetFederatedOpkgRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFederatedOpkgRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getFederatedOpkgRepository:getFederatedOpkgRepository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,

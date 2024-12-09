@@ -172,7 +172,7 @@ export interface GetLocalMavenRepositoryResult {
  *   the deployed path, Artifactory rejects the deployment with a "409 Conflict" error. You can disable this behavior by
  *   setting the Suppress POM Consistency Checks checkbox. False by default for Maven repository.
  */
-export function getLocalMavenRepositoryOutput(args: GetLocalMavenRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalMavenRepositoryResult> {
+export function getLocalMavenRepositoryOutput(args: GetLocalMavenRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLocalMavenRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getLocalMavenRepository:getLocalMavenRepository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,

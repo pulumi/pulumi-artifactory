@@ -215,7 +215,7 @@ export interface GetRemoteCocoapodsRepositoryResult {
  * });
  * ```
  */
-export function getRemoteCocoapodsRepositoryOutput(args: GetRemoteCocoapodsRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteCocoapodsRepositoryResult> {
+export function getRemoteCocoapodsRepositoryOutput(args: GetRemoteCocoapodsRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRemoteCocoapodsRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getRemoteCocoapodsRepository:getRemoteCocoapodsRepository", {
         "allowAnyHostAuth": args.allowAnyHostAuth,

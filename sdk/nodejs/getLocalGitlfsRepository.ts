@@ -105,7 +105,7 @@ export interface GetLocalGitlfsRepositoryResult {
  * });
  * ```
  */
-export function getLocalGitlfsRepositoryOutput(args: GetLocalGitlfsRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalGitlfsRepositoryResult> {
+export function getLocalGitlfsRepositoryOutput(args: GetLocalGitlfsRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLocalGitlfsRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getLocalGitlfsRepository:getLocalGitlfsRepository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,

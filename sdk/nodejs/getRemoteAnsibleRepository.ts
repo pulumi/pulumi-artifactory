@@ -188,7 +188,7 @@ export interface GetRemoteAnsibleRepositoryResult {
  * });
  * ```
  */
-export function getRemoteAnsibleRepositoryOutput(args: GetRemoteAnsibleRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteAnsibleRepositoryResult> {
+export function getRemoteAnsibleRepositoryOutput(args: GetRemoteAnsibleRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRemoteAnsibleRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getRemoteAnsibleRepository:getRemoteAnsibleRepository", {
         "allowAnyHostAuth": args.allowAnyHostAuth,

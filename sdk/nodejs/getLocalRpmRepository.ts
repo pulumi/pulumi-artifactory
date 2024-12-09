@@ -168,7 +168,7 @@ export interface GetLocalRpmRepositoryResult {
  * });
  * ```
  */
-export function getLocalRpmRepositoryOutput(args: GetLocalRpmRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalRpmRepositoryResult> {
+export function getLocalRpmRepositoryOutput(args: GetLocalRpmRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLocalRpmRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getLocalRpmRepository:getLocalRpmRepository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,

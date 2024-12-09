@@ -105,7 +105,7 @@ export interface GetLocalCranRepositoryResult {
  * });
  * ```
  */
-export function getLocalCranRepositoryOutput(args: GetLocalCranRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalCranRepositoryResult> {
+export function getLocalCranRepositoryOutput(args: GetLocalCranRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLocalCranRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getLocalCranRepository:getLocalCranRepository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,

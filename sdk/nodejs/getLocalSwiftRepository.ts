@@ -105,7 +105,7 @@ export interface GetLocalSwiftRepositoryResult {
  * });
  * ```
  */
-export function getLocalSwiftRepositoryOutput(args: GetLocalSwiftRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalSwiftRepositoryResult> {
+export function getLocalSwiftRepositoryOutput(args: GetLocalSwiftRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLocalSwiftRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getLocalSwiftRepository:getLocalSwiftRepository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,

@@ -401,7 +401,7 @@ def get_federated_debian_repository_output(archive_browsing_enabled: Optional[pu
                                            secondary_keypair_ref: Optional[pulumi.Input[Optional[str]]] = None,
                                            trivial_layout: Optional[pulumi.Input[Optional[bool]]] = None,
                                            xray_index: Optional[pulumi.Input[Optional[bool]]] = None,
-                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFederatedDebianRepositoryResult]:
+                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFederatedDebianRepositoryResult]:
     """
     Retrieves a federated Debian repository.
 
@@ -447,7 +447,7 @@ def get_federated_debian_repository_output(archive_browsing_enabled: Optional[pu
     __args__['secondaryKeypairRef'] = secondary_keypair_ref
     __args__['trivialLayout'] = trivial_layout
     __args__['xrayIndex'] = xray_index
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('artifactory:index/getFederatedDebianRepository:getFederatedDebianRepository', __args__, opts=opts, typ=GetFederatedDebianRepositoryResult)
     return __ret__.apply(lambda __response__: GetFederatedDebianRepositoryResult(
         archive_browsing_enabled=pulumi.get(__response__, 'archive_browsing_enabled'),

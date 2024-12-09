@@ -140,7 +140,7 @@ export interface GetFederatedGemsRepositoryResult {
  * });
  * ```
  */
-export function getFederatedGemsRepositoryOutput(args: GetFederatedGemsRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedGemsRepositoryResult> {
+export function getFederatedGemsRepositoryOutput(args: GetFederatedGemsRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFederatedGemsRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getFederatedGemsRepository:getFederatedGemsRepository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,

@@ -105,7 +105,7 @@ export interface GetLocalPubRepositoryResult {
  * });
  * ```
  */
-export function getLocalPubRepositoryOutput(args: GetLocalPubRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalPubRepositoryResult> {
+export function getLocalPubRepositoryOutput(args: GetLocalPubRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLocalPubRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getLocalPubRepository:getLocalPubRepository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,

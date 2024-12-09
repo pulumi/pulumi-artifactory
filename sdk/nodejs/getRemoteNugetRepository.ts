@@ -236,7 +236,7 @@ export interface GetRemoteNugetRepositoryResult {
  * });
  * ```
  */
-export function getRemoteNugetRepositoryOutput(args: GetRemoteNugetRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteNugetRepositoryResult> {
+export function getRemoteNugetRepositoryOutput(args: GetRemoteNugetRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRemoteNugetRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getRemoteNugetRepository:getRemoteNugetRepository", {
         "allowAnyHostAuth": args.allowAnyHostAuth,

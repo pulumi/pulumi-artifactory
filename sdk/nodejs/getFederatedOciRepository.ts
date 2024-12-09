@@ -146,7 +146,7 @@ export interface GetFederatedOciRepositoryResult {
  * });
  * ```
  */
-export function getFederatedOciRepositoryOutput(args: GetFederatedOciRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedOciRepositoryResult> {
+export function getFederatedOciRepositoryOutput(args: GetFederatedOciRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFederatedOciRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getFederatedOciRepository:getFederatedOciRepository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,

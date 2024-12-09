@@ -132,7 +132,7 @@ export interface GetFileListResult {
  * });
  * ```
  */
-export function getFileListOutput(args: GetFileListOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFileListResult> {
+export function getFileListOutput(args: GetFileListOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFileListResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getFileList:getFileList", {
         "deepListing": args.deepListing,

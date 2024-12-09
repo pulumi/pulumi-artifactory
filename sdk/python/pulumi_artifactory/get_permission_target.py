@@ -140,7 +140,7 @@ def get_permission_target_output(build: Optional[pulumi.Input[Optional[Union['Ge
                                  name: Optional[pulumi.Input[str]] = None,
                                  release_bundle: Optional[pulumi.Input[Optional[Union['GetPermissionTargetReleaseBundleArgs', 'GetPermissionTargetReleaseBundleArgsDict']]]] = None,
                                  repo: Optional[pulumi.Input[Optional[Union['GetPermissionTargetRepoArgs', 'GetPermissionTargetRepoArgsDict']]]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPermissionTargetResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPermissionTargetResult]:
     """
     ## # Artifactory Permission Target Data Source
 
@@ -167,7 +167,7 @@ def get_permission_target_output(build: Optional[pulumi.Input[Optional[Union['Ge
     __args__['name'] = name
     __args__['releaseBundle'] = release_bundle
     __args__['repo'] = repo
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('artifactory:index/getPermissionTarget:getPermissionTarget', __args__, opts=opts, typ=GetPermissionTargetResult)
     return __ret__.apply(lambda __response__: GetPermissionTargetResult(
         build=pulumi.get(__response__, 'build'),

@@ -158,7 +158,7 @@ export interface GetFederatedGradleRepositoryResult {
  * });
  * ```
  */
-export function getFederatedGradleRepositoryOutput(args: GetFederatedGradleRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedGradleRepositoryResult> {
+export function getFederatedGradleRepositoryOutput(args: GetFederatedGradleRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFederatedGradleRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getFederatedGradleRepository:getFederatedGradleRepository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,

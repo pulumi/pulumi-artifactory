@@ -108,7 +108,7 @@ export interface GetVirtualNpmRepositoryResult {
  * });
  * ```
  */
-export function getVirtualNpmRepositoryOutput(args: GetVirtualNpmRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNpmRepositoryResult> {
+export function getVirtualNpmRepositoryOutput(args: GetVirtualNpmRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualNpmRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getVirtualNpmRepository:getVirtualNpmRepository", {
         "artifactoryRequestsCanRetrieveRemoteArtifacts": args.artifactoryRequestsCanRetrieveRemoteArtifacts,

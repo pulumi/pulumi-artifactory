@@ -200,7 +200,7 @@ export interface GetRemoteGoRepositoryResult {
  * });
  * ```
  */
-export function getRemoteGoRepositoryOutput(args: GetRemoteGoRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteGoRepositoryResult> {
+export function getRemoteGoRepositoryOutput(args: GetRemoteGoRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRemoteGoRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getRemoteGoRepository:getRemoteGoRepository", {
         "allowAnyHostAuth": args.allowAnyHostAuth,

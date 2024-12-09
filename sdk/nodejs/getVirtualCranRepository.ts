@@ -99,7 +99,7 @@ export interface GetVirtualCranRepositoryResult {
  * });
  * ```
  */
-export function getVirtualCranRepositoryOutput(args: GetVirtualCranRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualCranRepositoryResult> {
+export function getVirtualCranRepositoryOutput(args: GetVirtualCranRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualCranRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getVirtualCranRepository:getVirtualCranRepository", {
         "artifactoryRequestsCanRetrieveRemoteArtifacts": args.artifactoryRequestsCanRetrieveRemoteArtifacts,

@@ -101,7 +101,7 @@ export interface GetLocalTerraformbackendRepositoryResult {
  * });
  * ```
  */
-export function getLocalTerraformbackendRepositoryOutput(args: GetLocalTerraformbackendRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalTerraformbackendRepositoryResult> {
+export function getLocalTerraformbackendRepositoryOutput(args: GetLocalTerraformbackendRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLocalTerraformbackendRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getLocalTerraformbackendRepository:getLocalTerraformbackendRepository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,

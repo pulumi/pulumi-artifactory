@@ -254,7 +254,7 @@ export interface GetRemoteSbtRepositoryResult {
  * });
  * ```
  */
-export function getRemoteSbtRepositoryOutput(args: GetRemoteSbtRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteSbtRepositoryResult> {
+export function getRemoteSbtRepositoryOutput(args: GetRemoteSbtRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRemoteSbtRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getRemoteSbtRepository:getRemoteSbtRepository", {
         "allowAnyHostAuth": args.allowAnyHostAuth,
