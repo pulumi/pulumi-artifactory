@@ -693,7 +693,7 @@ def get_remote_cocoapods_repository_output(allow_any_host_auth: Optional[pulumi.
                                            vcs_git_download_url: Optional[pulumi.Input[Optional[str]]] = None,
                                            vcs_git_provider: Optional[pulumi.Input[Optional[str]]] = None,
                                            xray_index: Optional[pulumi.Input[Optional[bool]]] = None,
-                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRemoteCocoapodsRepositoryResult]:
+                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRemoteCocoapodsRepositoryResult]:
     """
     Retrieves a remote CocoaPods repository.
 
@@ -759,7 +759,7 @@ def get_remote_cocoapods_repository_output(allow_any_host_auth: Optional[pulumi.
     __args__['vcsGitDownloadUrl'] = vcs_git_download_url
     __args__['vcsGitProvider'] = vcs_git_provider
     __args__['xrayIndex'] = xray_index
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('artifactory:index/getRemoteCocoapodsRepository:getRemoteCocoapodsRepository', __args__, opts=opts, typ=GetRemoteCocoapodsRepositoryResult)
     return __ret__.apply(lambda __response__: GetRemoteCocoapodsRepositoryResult(
         allow_any_host_auth=pulumi.get(__response__, 'allow_any_host_auth'),

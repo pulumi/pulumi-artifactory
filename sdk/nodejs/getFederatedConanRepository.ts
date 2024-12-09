@@ -143,7 +143,7 @@ export interface GetFederatedConanRepositoryResult {
  * });
  * ```
  */
-export function getFederatedConanRepositoryOutput(args: GetFederatedConanRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedConanRepositoryResult> {
+export function getFederatedConanRepositoryOutput(args: GetFederatedConanRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFederatedConanRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getFederatedConanRepository:getFederatedConanRepository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,

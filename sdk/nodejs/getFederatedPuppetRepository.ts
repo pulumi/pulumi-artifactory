@@ -140,7 +140,7 @@ export interface GetFederatedPuppetRepositoryResult {
  * });
  * ```
  */
-export function getFederatedPuppetRepositoryOutput(args: GetFederatedPuppetRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedPuppetRepositoryResult> {
+export function getFederatedPuppetRepositoryOutput(args: GetFederatedPuppetRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFederatedPuppetRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getFederatedPuppetRepository:getFederatedPuppetRepository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,

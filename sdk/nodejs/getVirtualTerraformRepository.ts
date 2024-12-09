@@ -86,7 +86,7 @@ export interface GetVirtualTerraformRepositoryResult {
  * });
  * ```
  */
-export function getVirtualTerraformRepositoryOutput(args: GetVirtualTerraformRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualTerraformRepositoryResult> {
+export function getVirtualTerraformRepositoryOutput(args: GetVirtualTerraformRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualTerraformRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getVirtualTerraformRepository:getVirtualTerraformRepository", {
         "artifactoryRequestsCanRetrieveRemoteArtifacts": args.artifactoryRequestsCanRetrieveRemoteArtifacts,

@@ -105,7 +105,7 @@ export interface GetLocalGoRepositoryResult {
  * });
  * ```
  */
-export function getLocalGoRepositoryOutput(args: GetLocalGoRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalGoRepositoryResult> {
+export function getLocalGoRepositoryOutput(args: GetLocalGoRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLocalGoRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getLocalGoRepository:getLocalGoRepository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,

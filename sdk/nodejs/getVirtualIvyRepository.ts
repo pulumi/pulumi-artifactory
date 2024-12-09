@@ -117,7 +117,7 @@ export interface GetVirtualIvyRepositoryResult {
  * });
  * ```
  */
-export function getVirtualIvyRepositoryOutput(args: GetVirtualIvyRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualIvyRepositoryResult> {
+export function getVirtualIvyRepositoryOutput(args: GetVirtualIvyRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualIvyRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getVirtualIvyRepository:getVirtualIvyRepository", {
         "artifactoryRequestsCanRetrieveRemoteArtifacts": args.artifactoryRequestsCanRetrieveRemoteArtifacts,

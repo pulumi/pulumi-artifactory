@@ -241,7 +241,7 @@ def get_virtual_docker_repository_output(artifactory_requests_can_retrieve_remot
                                          repo_layout_ref: Optional[pulumi.Input[Optional[str]]] = None,
                                          repositories: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                                          resolve_docker_tags_by_timestamp: Optional[pulumi.Input[Optional[bool]]] = None,
-                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualDockerRepositoryResult]:
+                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualDockerRepositoryResult]:
     """
     Retrieves a virtual Docker repository.
 
@@ -271,7 +271,7 @@ def get_virtual_docker_repository_output(artifactory_requests_can_retrieve_remot
     __args__['repoLayoutRef'] = repo_layout_ref
     __args__['repositories'] = repositories
     __args__['resolveDockerTagsByTimestamp'] = resolve_docker_tags_by_timestamp
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('artifactory:index/getVirtualDockerRepository:getVirtualDockerRepository', __args__, opts=opts, typ=GetVirtualDockerRepositoryResult)
     return __ret__.apply(lambda __response__: GetVirtualDockerRepositoryResult(
         artifactory_requests_can_retrieve_remote_artifacts=pulumi.get(__response__, 'artifactory_requests_can_retrieve_remote_artifacts'),

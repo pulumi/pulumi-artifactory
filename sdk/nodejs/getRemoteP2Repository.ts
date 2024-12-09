@@ -188,7 +188,7 @@ export interface GetRemoteP2RepositoryResult {
  * });
  * ```
  */
-export function getRemoteP2RepositoryOutput(args: GetRemoteP2RepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteP2RepositoryResult> {
+export function getRemoteP2RepositoryOutput(args: GetRemoteP2RepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRemoteP2RepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getRemoteP2Repository:getRemoteP2Repository", {
         "allowAnyHostAuth": args.allowAnyHostAuth,

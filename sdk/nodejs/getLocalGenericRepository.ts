@@ -105,7 +105,7 @@ export interface GetLocalGenericRepositoryResult {
  * });
  * ```
  */
-export function getLocalGenericRepositoryOutput(args: GetLocalGenericRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalGenericRepositoryResult> {
+export function getLocalGenericRepositoryOutput(args: GetLocalGenericRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLocalGenericRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getLocalGenericRepository:getLocalGenericRepository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,

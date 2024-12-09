@@ -117,7 +117,7 @@ export interface GetLocalChefRepositoryResult {
  * });
  * ```
  */
-export function getLocalChefRepositoryOutput(args: GetLocalChefRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalChefRepositoryResult> {
+export function getLocalChefRepositoryOutput(args: GetLocalChefRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLocalChefRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getLocalChefRepository:getLocalChefRepository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,

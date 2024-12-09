@@ -146,7 +146,7 @@ export interface GetFederatedHelmociRepositoryResult {
  * });
  * ```
  */
-export function getFederatedHelmociRepositoryOutput(args: GetFederatedHelmociRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedHelmociRepositoryResult> {
+export function getFederatedHelmociRepositoryOutput(args: GetFederatedHelmociRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFederatedHelmociRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getFederatedHelmociRepository:getFederatedHelmociRepository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,

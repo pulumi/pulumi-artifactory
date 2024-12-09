@@ -263,7 +263,7 @@ export interface GetRemoteMavenRepositoryResult {
  * });
  * ```
  */
-export function getRemoteMavenRepositoryOutput(args: GetRemoteMavenRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteMavenRepositoryResult> {
+export function getRemoteMavenRepositoryOutput(args: GetRemoteMavenRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRemoteMavenRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getRemoteMavenRepository:getRemoteMavenRepository", {
         "allowAnyHostAuth": args.allowAnyHostAuth,

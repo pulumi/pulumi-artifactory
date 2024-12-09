@@ -642,7 +642,7 @@ def get_remote_swift_repository_output(allow_any_host_auth: Optional[pulumi.Inpu
                                        url: Optional[pulumi.Input[Optional[str]]] = None,
                                        username: Optional[pulumi.Input[Optional[str]]] = None,
                                        xray_index: Optional[pulumi.Input[Optional[bool]]] = None,
-                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRemoteSwiftRepositoryResult]:
+                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRemoteSwiftRepositoryResult]:
     """
     Retrieves a remote Swift repository.
 
@@ -702,7 +702,7 @@ def get_remote_swift_repository_output(allow_any_host_auth: Optional[pulumi.Inpu
     __args__['url'] = url
     __args__['username'] = username
     __args__['xrayIndex'] = xray_index
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('artifactory:index/getRemoteSwiftRepository:getRemoteSwiftRepository', __args__, opts=opts, typ=GetRemoteSwiftRepositoryResult)
     return __ret__.apply(lambda __response__: GetRemoteSwiftRepositoryResult(
         allow_any_host_auth=pulumi.get(__response__, 'allow_any_host_auth'),

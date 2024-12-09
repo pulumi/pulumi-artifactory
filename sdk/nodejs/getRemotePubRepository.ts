@@ -188,7 +188,7 @@ export interface GetRemotePubRepositoryResult {
  * });
  * ```
  */
-export function getRemotePubRepositoryOutput(args: GetRemotePubRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemotePubRepositoryResult> {
+export function getRemotePubRepositoryOutput(args: GetRemotePubRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRemotePubRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getRemotePubRepository:getRemotePubRepository", {
         "allowAnyHostAuth": args.allowAnyHostAuth,

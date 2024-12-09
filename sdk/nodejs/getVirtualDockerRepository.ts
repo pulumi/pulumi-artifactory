@@ -99,7 +99,7 @@ export interface GetVirtualDockerRepositoryResult {
  * });
  * ```
  */
-export function getVirtualDockerRepositoryOutput(args: GetVirtualDockerRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualDockerRepositoryResult> {
+export function getVirtualDockerRepositoryOutput(args: GetVirtualDockerRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualDockerRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getVirtualDockerRepository:getVirtualDockerRepository", {
         "artifactoryRequestsCanRetrieveRemoteArtifacts": args.artifactoryRequestsCanRetrieveRemoteArtifacts,

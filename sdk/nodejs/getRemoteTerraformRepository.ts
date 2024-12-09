@@ -190,7 +190,7 @@ export interface GetRemoteTerraformRepositoryResult {
  * });
  * ```
  */
-export function getRemoteTerraformRepositoryOutput(args: GetRemoteTerraformRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteTerraformRepositoryResult> {
+export function getRemoteTerraformRepositoryOutput(args: GetRemoteTerraformRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRemoteTerraformRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getRemoteTerraformRepository:getRemoteTerraformRepository", {
         "allowAnyHostAuth": args.allowAnyHostAuth,

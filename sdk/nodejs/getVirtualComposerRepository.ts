@@ -90,7 +90,7 @@ export interface GetVirtualComposerRepositoryResult {
  * });
  * ```
  */
-export function getVirtualComposerRepositoryOutput(args: GetVirtualComposerRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualComposerRepositoryResult> {
+export function getVirtualComposerRepositoryOutput(args: GetVirtualComposerRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualComposerRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getVirtualComposerRepository:getVirtualComposerRepository", {
         "artifactoryRequestsCanRetrieveRemoteArtifacts": args.artifactoryRequestsCanRetrieveRemoteArtifacts,

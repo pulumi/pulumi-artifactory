@@ -90,7 +90,7 @@ export interface GetVirtualPypiRepositoryResult {
  * });
  * ```
  */
-export function getVirtualPypiRepositoryOutput(args: GetVirtualPypiRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualPypiRepositoryResult> {
+export function getVirtualPypiRepositoryOutput(args: GetVirtualPypiRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualPypiRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getVirtualPypiRepository:getVirtualPypiRepository", {
         "artifactoryRequestsCanRetrieveRemoteArtifacts": args.artifactoryRequestsCanRetrieveRemoteArtifacts,

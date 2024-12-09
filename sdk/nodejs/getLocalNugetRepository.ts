@@ -126,7 +126,7 @@ export interface GetLocalNugetRepositoryResult {
  * });
  * ```
  */
-export function getLocalNugetRepositoryOutput(args: GetLocalNugetRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalNugetRepositoryResult> {
+export function getLocalNugetRepositoryOutput(args: GetLocalNugetRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLocalNugetRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getLocalNugetRepository:getLocalNugetRepository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,

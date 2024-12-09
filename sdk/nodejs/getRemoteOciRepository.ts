@@ -224,7 +224,7 @@ export interface GetRemoteOciRepositoryResult {
  * });
  * ```
  */
-export function getRemoteOciRepositoryOutput(args: GetRemoteOciRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteOciRepositoryResult> {
+export function getRemoteOciRepositoryOutput(args: GetRemoteOciRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRemoteOciRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getRemoteOciRepository:getRemoteOciRepository", {
         "allowAnyHostAuth": args.allowAnyHostAuth,

@@ -348,7 +348,7 @@ def get_federated_pypi_repository_output(archive_browsing_enabled: Optional[pulu
                                          proxy: Optional[pulumi.Input[Optional[str]]] = None,
                                          repo_layout_ref: Optional[pulumi.Input[Optional[str]]] = None,
                                          xray_index: Optional[pulumi.Input[Optional[bool]]] = None,
-                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFederatedPypiRepositoryResult]:
+                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFederatedPypiRepositoryResult]:
     """
     Retrieves a federated Pypi repository.
 
@@ -390,7 +390,7 @@ def get_federated_pypi_repository_output(archive_browsing_enabled: Optional[pulu
     __args__['proxy'] = proxy
     __args__['repoLayoutRef'] = repo_layout_ref
     __args__['xrayIndex'] = xray_index
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('artifactory:index/getFederatedPypiRepository:getFederatedPypiRepository', __args__, opts=opts, typ=GetFederatedPypiRepositoryResult)
     return __ret__.apply(lambda __response__: GetFederatedPypiRepositoryResult(
         archive_browsing_enabled=pulumi.get(__response__, 'archive_browsing_enabled'),

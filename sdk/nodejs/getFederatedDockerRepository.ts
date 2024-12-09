@@ -95,7 +95,7 @@ export interface GetFederatedDockerRepositoryResult {
     readonly tagRetention?: number;
     readonly xrayIndex?: boolean;
 }
-export function getFederatedDockerRepositoryOutput(args: GetFederatedDockerRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedDockerRepositoryResult> {
+export function getFederatedDockerRepositoryOutput(args: GetFederatedDockerRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFederatedDockerRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getFederatedDockerRepository:getFederatedDockerRepository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,

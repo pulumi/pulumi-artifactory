@@ -108,7 +108,7 @@ export interface GetVirtualHelmRepositoryResult {
  * });
  * ```
  */
-export function getVirtualHelmRepositoryOutput(args: GetVirtualHelmRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualHelmRepositoryResult> {
+export function getVirtualHelmRepositoryOutput(args: GetVirtualHelmRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualHelmRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getVirtualHelmRepository:getVirtualHelmRepository", {
         "artifactoryRequestsCanRetrieveRemoteArtifacts": args.artifactoryRequestsCanRetrieveRemoteArtifacts,

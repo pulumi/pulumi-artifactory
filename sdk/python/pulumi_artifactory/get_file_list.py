@@ -230,7 +230,7 @@ def get_file_list_output(deep_listing: Optional[pulumi.Input[Optional[bool]]] = 
                          list_folders: Optional[pulumi.Input[Optional[bool]]] = None,
                          metadata_timestamps: Optional[pulumi.Input[Optional[bool]]] = None,
                          repository_key: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFileListResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFileListResult]:
     """
     Get a flat (the default) or deep listing of the files and folders (not included by default) within a folder. For deep listing you can specify an optional depth to limit the results. Optionally include a map of metadata timestamp values as part of the result.
 
@@ -261,7 +261,7 @@ def get_file_list_output(deep_listing: Optional[pulumi.Input[Optional[bool]]] = 
     __args__['listFolders'] = list_folders
     __args__['metadataTimestamps'] = metadata_timestamps
     __args__['repositoryKey'] = repository_key
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('artifactory:index/getFileList:getFileList', __args__, opts=opts, typ=GetFileListResult)
     return __ret__.apply(lambda __response__: GetFileListResult(
         created=pulumi.get(__response__, 'created'),

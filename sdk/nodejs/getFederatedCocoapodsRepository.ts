@@ -140,7 +140,7 @@ export interface GetFederatedCocoapodsRepositoryResult {
  * });
  * ```
  */
-export function getFederatedCocoapodsRepositoryOutput(args: GetFederatedCocoapodsRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedCocoapodsRepositoryResult> {
+export function getFederatedCocoapodsRepositoryOutput(args: GetFederatedCocoapodsRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFederatedCocoapodsRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getFederatedCocoapodsRepository:getFederatedCocoapodsRepository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,

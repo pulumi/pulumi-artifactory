@@ -99,7 +99,7 @@ export interface GetVirtualHelmociRepositoryResult {
  * });
  * ```
  */
-export function getVirtualHelmociRepositoryOutput(args: GetVirtualHelmociRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualHelmociRepositoryResult> {
+export function getVirtualHelmociRepositoryOutput(args: GetVirtualHelmociRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualHelmociRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getVirtualHelmociRepository:getVirtualHelmociRepository", {
         "artifactoryRequestsCanRetrieveRemoteArtifacts": args.artifactoryRequestsCanRetrieveRemoteArtifacts,
