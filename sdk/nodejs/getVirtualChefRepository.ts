@@ -99,7 +99,7 @@ export interface GetVirtualChefRepositoryResult {
  * });
  * ```
  */
-export function getVirtualChefRepositoryOutput(args: GetVirtualChefRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualChefRepositoryResult> {
+export function getVirtualChefRepositoryOutput(args: GetVirtualChefRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualChefRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getVirtualChefRepository:getVirtualChefRepository", {
         "artifactoryRequestsCanRetrieveRemoteArtifacts": args.artifactoryRequestsCanRetrieveRemoteArtifacts,

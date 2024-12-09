@@ -188,7 +188,7 @@ export interface GetRemoteSwiftRepositoryResult {
  * });
  * ```
  */
-export function getRemoteSwiftRepositoryOutput(args: GetRemoteSwiftRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteSwiftRepositoryResult> {
+export function getRemoteSwiftRepositoryOutput(args: GetRemoteSwiftRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRemoteSwiftRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getRemoteSwiftRepository:getRemoteSwiftRepository", {
         "allowAnyHostAuth": args.allowAnyHostAuth,

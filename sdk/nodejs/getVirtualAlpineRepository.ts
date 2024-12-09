@@ -108,7 +108,7 @@ export interface GetVirtualAlpineRepositoryResult {
  * });
  * ```
  */
-export function getVirtualAlpineRepositoryOutput(args: GetVirtualAlpineRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualAlpineRepositoryResult> {
+export function getVirtualAlpineRepositoryOutput(args: GetVirtualAlpineRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualAlpineRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getVirtualAlpineRepository:getVirtualAlpineRepository", {
         "artifactoryRequestsCanRetrieveRemoteArtifacts": args.artifactoryRequestsCanRetrieveRemoteArtifacts,

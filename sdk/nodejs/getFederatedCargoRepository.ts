@@ -149,7 +149,7 @@ export interface GetFederatedCargoRepositoryResult {
  * });
  * ```
  */
-export function getFederatedCargoRepositoryOutput(args: GetFederatedCargoRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedCargoRepositoryResult> {
+export function getFederatedCargoRepositoryOutput(args: GetFederatedCargoRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFederatedCargoRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getFederatedCargoRepository:getFederatedCargoRepository", {
         "anonymousAccess": args.anonymousAccess,

@@ -740,7 +740,7 @@ def get_remote_nuget_repository_output(allow_any_host_auth: Optional[pulumi.Inpu
                                        username: Optional[pulumi.Input[Optional[str]]] = None,
                                        v3_feed_url: Optional[pulumi.Input[Optional[str]]] = None,
                                        xray_index: Optional[pulumi.Input[Optional[bool]]] = None,
-                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRemoteNugetRepositoryResult]:
+                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRemoteNugetRepositoryResult]:
     """
     Retrieves a remote NuGet repository.
 
@@ -811,7 +811,7 @@ def get_remote_nuget_repository_output(allow_any_host_auth: Optional[pulumi.Inpu
     __args__['username'] = username
     __args__['v3FeedUrl'] = v3_feed_url
     __args__['xrayIndex'] = xray_index
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('artifactory:index/getRemoteNugetRepository:getRemoteNugetRepository', __args__, opts=opts, typ=GetRemoteNugetRepositoryResult)
     return __ret__.apply(lambda __response__: GetRemoteNugetRepositoryResult(
         allow_any_host_auth=pulumi.get(__response__, 'allow_any_host_auth'),

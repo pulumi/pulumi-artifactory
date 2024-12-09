@@ -144,7 +144,7 @@ export interface GetLocalDebianRepositoryResult {
  * });
  * ```
  */
-export function getLocalDebianRepositoryOutput(args: GetLocalDebianRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalDebianRepositoryResult> {
+export function getLocalDebianRepositoryOutput(args: GetLocalDebianRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLocalDebianRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getLocalDebianRepository:getLocalDebianRepository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,

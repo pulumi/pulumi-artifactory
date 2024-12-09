@@ -105,7 +105,7 @@ export interface GetLocalGemsRepositoryResult {
  * });
  * ```
  */
-export function getLocalGemsRepositoryOutput(args: GetLocalGemsRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalGemsRepositoryResult> {
+export function getLocalGemsRepositoryOutput(args: GetLocalGemsRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLocalGemsRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getLocalGemsRepository:getLocalGemsRepository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,

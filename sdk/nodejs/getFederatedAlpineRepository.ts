@@ -146,7 +146,7 @@ export interface GetFederatedAlpineRepositoryResult {
  * });
  * ```
  */
-export function getFederatedAlpineRepositoryOutput(args: GetFederatedAlpineRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedAlpineRepositoryResult> {
+export function getFederatedAlpineRepositoryOutput(args: GetFederatedAlpineRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFederatedAlpineRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getFederatedAlpineRepository:getFederatedAlpineRepository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,

@@ -143,7 +143,7 @@ export interface GetFederatedChefRepositoryResult {
  * });
  * ```
  */
-export function getFederatedChefRepositoryOutput(args: GetFederatedChefRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedChefRepositoryResult> {
+export function getFederatedChefRepositoryOutput(args: GetFederatedChefRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFederatedChefRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getFederatedChefRepository:getFederatedChefRepository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,

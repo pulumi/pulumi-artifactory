@@ -258,7 +258,7 @@ def get_virtual_helm_repository_output(artifactory_requests_can_retrieve_remote_
                                        repositories: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                                        retrieval_cache_period_seconds: Optional[pulumi.Input[Optional[int]]] = None,
                                        use_namespaces: Optional[pulumi.Input[Optional[bool]]] = None,
-                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualHelmRepositoryResult]:
+                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualHelmRepositoryResult]:
     """
     Retrieves a virtual Helm repository.
 
@@ -290,7 +290,7 @@ def get_virtual_helm_repository_output(artifactory_requests_can_retrieve_remote_
     __args__['repositories'] = repositories
     __args__['retrievalCachePeriodSeconds'] = retrieval_cache_period_seconds
     __args__['useNamespaces'] = use_namespaces
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('artifactory:index/getVirtualHelmRepository:getVirtualHelmRepository', __args__, opts=opts, typ=GetVirtualHelmRepositoryResult)
     return __ret__.apply(lambda __response__: GetVirtualHelmRepositoryResult(
         artifactory_requests_can_retrieve_remote_artifacts=pulumi.get(__response__, 'artifactory_requests_can_retrieve_remote_artifacts'),

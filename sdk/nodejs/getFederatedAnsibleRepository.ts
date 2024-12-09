@@ -143,7 +143,7 @@ export interface GetFederatedAnsibleRepositoryResult {
  * });
  * ```
  */
-export function getFederatedAnsibleRepositoryOutput(args: GetFederatedAnsibleRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedAnsibleRepositoryResult> {
+export function getFederatedAnsibleRepositoryOutput(args: GetFederatedAnsibleRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFederatedAnsibleRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getFederatedAnsibleRepository:getFederatedAnsibleRepository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,

@@ -166,7 +166,7 @@ export interface GetRemotePuppetRepositoryResult {
 /**
  * Retrieves a remote Peppet repository.
  */
-export function getRemotePuppetRepositoryOutput(args: GetRemotePuppetRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemotePuppetRepositoryResult> {
+export function getRemotePuppetRepositoryOutput(args: GetRemotePuppetRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRemotePuppetRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getRemotePuppetRepository:getRemotePuppetRepository", {
         "allowAnyHostAuth": args.allowAnyHostAuth,

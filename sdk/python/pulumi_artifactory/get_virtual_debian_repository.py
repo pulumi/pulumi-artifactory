@@ -309,7 +309,7 @@ def get_virtual_debian_repository_output(artifactory_requests_can_retrieve_remot
                                          repositories: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                                          retrieval_cache_period_seconds: Optional[pulumi.Input[Optional[int]]] = None,
                                          secondary_keypair_ref: Optional[pulumi.Input[Optional[str]]] = None,
-                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualDebianRepositoryResult]:
+                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualDebianRepositoryResult]:
     """
     Retrieves a virtual Debian repository.
 
@@ -347,7 +347,7 @@ def get_virtual_debian_repository_output(artifactory_requests_can_retrieve_remot
     __args__['repositories'] = repositories
     __args__['retrievalCachePeriodSeconds'] = retrieval_cache_period_seconds
     __args__['secondaryKeypairRef'] = secondary_keypair_ref
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('artifactory:index/getVirtualDebianRepository:getVirtualDebianRepository', __args__, opts=opts, typ=GetVirtualDebianRepositoryResult)
     return __ret__.apply(lambda __response__: GetVirtualDebianRepositoryResult(
         artifactory_requests_can_retrieve_remote_artifacts=pulumi.get(__response__, 'artifactory_requests_can_retrieve_remote_artifacts'),

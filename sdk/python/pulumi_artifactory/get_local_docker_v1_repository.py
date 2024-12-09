@@ -338,7 +338,7 @@ def get_local_docker_v1_repository_output(archive_browsing_enabled: Optional[pul
                                           property_sets: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                                           repo_layout_ref: Optional[pulumi.Input[Optional[str]]] = None,
                                           xray_index: Optional[pulumi.Input[Optional[bool]]] = None,
-                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocalDockerV1RepositoryResult]:
+                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocalDockerV1RepositoryResult]:
     """
     Retrieves a local Docker (v1) repository resource.
 
@@ -374,7 +374,7 @@ def get_local_docker_v1_repository_output(archive_browsing_enabled: Optional[pul
     __args__['propertySets'] = property_sets
     __args__['repoLayoutRef'] = repo_layout_ref
     __args__['xrayIndex'] = xray_index
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('artifactory:index/getLocalDockerV1Repository:getLocalDockerV1Repository', __args__, opts=opts, typ=GetLocalDockerV1RepositoryResult)
     return __ret__.apply(lambda __response__: GetLocalDockerV1RepositoryResult(
         api_version=pulumi.get(__response__, 'api_version'),

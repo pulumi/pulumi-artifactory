@@ -99,7 +99,7 @@ export interface GetVirtualAnsibleRepositoryResult {
  * });
  * ```
  */
-export function getVirtualAnsibleRepositoryOutput(args: GetVirtualAnsibleRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualAnsibleRepositoryResult> {
+export function getVirtualAnsibleRepositoryOutput(args: GetVirtualAnsibleRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualAnsibleRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getVirtualAnsibleRepository:getVirtualAnsibleRepository", {
         "artifactoryRequestsCanRetrieveRemoteArtifacts": args.artifactoryRequestsCanRetrieveRemoteArtifacts,

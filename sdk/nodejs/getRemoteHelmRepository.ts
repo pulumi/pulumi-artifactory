@@ -215,7 +215,7 @@ export interface GetRemoteHelmRepositoryResult {
  * });
  * ```
  */
-export function getRemoteHelmRepositoryOutput(args: GetRemoteHelmRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteHelmRepositoryResult> {
+export function getRemoteHelmRepositoryOutput(args: GetRemoteHelmRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRemoteHelmRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getRemoteHelmRepository:getRemoteHelmRepository", {
         "allowAnyHostAuth": args.allowAnyHostAuth,

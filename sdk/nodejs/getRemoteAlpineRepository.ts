@@ -188,7 +188,7 @@ export interface GetRemoteAlpineRepositoryResult {
  * });
  * ```
  */
-export function getRemoteAlpineRepositoryOutput(args: GetRemoteAlpineRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteAlpineRepositoryResult> {
+export function getRemoteAlpineRepositoryOutput(args: GetRemoteAlpineRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRemoteAlpineRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getRemoteAlpineRepository:getRemoteAlpineRepository", {
         "allowAnyHostAuth": args.allowAnyHostAuth,

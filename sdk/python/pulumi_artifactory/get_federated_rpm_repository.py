@@ -426,7 +426,7 @@ def get_federated_rpm_repository_output(archive_browsing_enabled: Optional[pulum
                                         xray_index: Optional[pulumi.Input[Optional[bool]]] = None,
                                         yum_group_file_names: Optional[pulumi.Input[Optional[str]]] = None,
                                         yum_root_depth: Optional[pulumi.Input[Optional[int]]] = None,
-                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFederatedRpmRepositoryResult]:
+                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFederatedRpmRepositoryResult]:
     """
     Retrieves a federated Rpm repository.
 
@@ -474,7 +474,7 @@ def get_federated_rpm_repository_output(archive_browsing_enabled: Optional[pulum
     __args__['xrayIndex'] = xray_index
     __args__['yumGroupFileNames'] = yum_group_file_names
     __args__['yumRootDepth'] = yum_root_depth
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('artifactory:index/getFederatedRpmRepository:getFederatedRpmRepository', __args__, opts=opts, typ=GetFederatedRpmRepositoryResult)
     return __ret__.apply(lambda __response__: GetFederatedRpmRepositoryResult(
         archive_browsing_enabled=pulumi.get(__response__, 'archive_browsing_enabled'),

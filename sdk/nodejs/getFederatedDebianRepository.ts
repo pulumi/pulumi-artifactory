@@ -158,7 +158,7 @@ export interface GetFederatedDebianRepositoryResult {
  * });
  * ```
  */
-export function getFederatedDebianRepositoryOutput(args: GetFederatedDebianRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedDebianRepositoryResult> {
+export function getFederatedDebianRepositoryOutput(args: GetFederatedDebianRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFederatedDebianRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getFederatedDebianRepository:getFederatedDebianRepository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,

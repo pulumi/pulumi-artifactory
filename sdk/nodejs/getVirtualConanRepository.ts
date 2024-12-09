@@ -110,7 +110,7 @@ export interface GetVirtualConanRepositoryResult {
  * });
  * ```
  */
-export function getVirtualConanRepositoryOutput(args: GetVirtualConanRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualConanRepositoryResult> {
+export function getVirtualConanRepositoryOutput(args: GetVirtualConanRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualConanRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getVirtualConanRepository:getVirtualConanRepository", {
         "artifactoryRequestsCanRetrieveRemoteArtifacts": args.artifactoryRequestsCanRetrieveRemoteArtifacts,

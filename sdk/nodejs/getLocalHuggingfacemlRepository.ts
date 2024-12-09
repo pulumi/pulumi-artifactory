@@ -163,7 +163,7 @@ export interface GetLocalHuggingfacemlRepositoryResult {
 /**
  * Provides a data source for a local huggingfaceml repository
  */
-export function getLocalHuggingfacemlRepositoryOutput(args: GetLocalHuggingfacemlRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalHuggingfacemlRepositoryResult> {
+export function getLocalHuggingfacemlRepositoryOutput(args: GetLocalHuggingfacemlRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLocalHuggingfacemlRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getLocalHuggingfacemlRepository:getLocalHuggingfacemlRepository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,

@@ -99,7 +99,7 @@ export interface GetVirtualOciRepositoryResult {
  * });
  * ```
  */
-export function getVirtualOciRepositoryOutput(args: GetVirtualOciRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualOciRepositoryResult> {
+export function getVirtualOciRepositoryOutput(args: GetVirtualOciRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualOciRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getVirtualOciRepository:getVirtualOciRepository", {
         "artifactoryRequestsCanRetrieveRemoteArtifacts": args.artifactoryRequestsCanRetrieveRemoteArtifacts,

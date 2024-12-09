@@ -140,7 +140,7 @@ export interface GetFederatedVagrantRepositoryResult {
  * });
  * ```
  */
-export function getFederatedVagrantRepositoryOutput(args: GetFederatedVagrantRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedVagrantRepositoryResult> {
+export function getFederatedVagrantRepositoryOutput(args: GetFederatedVagrantRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFederatedVagrantRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("artifactory:index/getFederatedVagrantRepository:getFederatedVagrantRepository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,
