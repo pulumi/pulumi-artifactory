@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetFederatedHelmociRepositoryResult> Invoke(GetFederatedHelmociRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFederatedHelmociRepositoryResult>("artifactory:index/getFederatedHelmociRepository:getFederatedHelmociRepository", args ?? new GetFederatedHelmociRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a federated Helm OCI repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var my_helmoci_federated = Artifactory.GetFederatedHelmociRepository.Invoke(new()
+        ///     {
+        ///         Key = "my-helmoci-federated",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetFederatedHelmociRepositoryResult> Invoke(GetFederatedHelmociRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFederatedHelmociRepositoryResult>("artifactory:index/getFederatedHelmociRepository:getFederatedHelmociRepository", args ?? new GetFederatedHelmociRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

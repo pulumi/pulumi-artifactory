@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetLocalPubRepositoryResult> Invoke(GetLocalPubRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalPubRepositoryResult>("artifactory:index/getLocalPubRepository:getLocalPubRepository", args ?? new GetLocalPubRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a local pub repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var local_test_pub_repo = Artifactory.GetLocalPubRepository.Invoke(new()
+        ///     {
+        ///         Key = "local-test-pub-repo",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetLocalPubRepositoryResult> Invoke(GetLocalPubRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLocalPubRepositoryResult>("artifactory:index/getLocalPubRepository:getLocalPubRepository", args ?? new GetLocalPubRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetFederatedAnsibleRepositoryResult> Invoke(GetFederatedAnsibleRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFederatedAnsibleRepositoryResult>("artifactory:index/getFederatedAnsibleRepository:getFederatedAnsibleRepository", args ?? new GetFederatedAnsibleRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a federated Ansible repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var federated_test_ansible_repo = Artifactory.GetFederatedAnsibleRepository.Invoke(new()
+        ///     {
+        ///         Key = "federated-test-ansible-repo",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetFederatedAnsibleRepositoryResult> Invoke(GetFederatedAnsibleRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFederatedAnsibleRepositoryResult>("artifactory:index/getFederatedAnsibleRepository:getFederatedAnsibleRepository", args ?? new GetFederatedAnsibleRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

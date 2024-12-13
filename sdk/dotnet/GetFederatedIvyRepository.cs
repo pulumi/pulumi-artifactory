@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetFederatedIvyRepositoryResult> Invoke(GetFederatedIvyRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFederatedIvyRepositoryResult>("artifactory:index/getFederatedIvyRepository:getFederatedIvyRepository", args ?? new GetFederatedIvyRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a federated Ivy repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var federated_test_ivy_repo = Artifactory.GetFederatedIvyRepository.Invoke(new()
+        ///     {
+        ///         Key = "federated-test-ivy-repo",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetFederatedIvyRepositoryResult> Invoke(GetFederatedIvyRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFederatedIvyRepositoryResult>("artifactory:index/getFederatedIvyRepository:getFederatedIvyRepository", args ?? new GetFederatedIvyRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

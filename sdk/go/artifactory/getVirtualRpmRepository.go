@@ -91,21 +91,11 @@ type LookupVirtualRpmRepositoryResult struct {
 }
 
 func LookupVirtualRpmRepositoryOutput(ctx *pulumi.Context, args LookupVirtualRpmRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualRpmRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupVirtualRpmRepositoryResultOutput, error) {
 			args := v.(LookupVirtualRpmRepositoryArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupVirtualRpmRepositoryResult
-			secret, err := ctx.InvokePackageRaw("artifactory:index/getVirtualRpmRepository:getVirtualRpmRepository", args, &rv, "", opts...)
-			if err != nil {
-				return LookupVirtualRpmRepositoryResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupVirtualRpmRepositoryResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupVirtualRpmRepositoryResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("artifactory:index/getVirtualRpmRepository:getVirtualRpmRepository", args, LookupVirtualRpmRepositoryResultOutput{}, options).(LookupVirtualRpmRepositoryResultOutput), nil
 		}).(LookupVirtualRpmRepositoryResultOutput)
 }
 

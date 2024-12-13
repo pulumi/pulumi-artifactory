@@ -92,21 +92,11 @@ type LookupLocalGemsRepositoryResult struct {
 }
 
 func LookupLocalGemsRepositoryOutput(ctx *pulumi.Context, args LookupLocalGemsRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupLocalGemsRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupLocalGemsRepositoryResultOutput, error) {
 			args := v.(LookupLocalGemsRepositoryArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupLocalGemsRepositoryResult
-			secret, err := ctx.InvokePackageRaw("artifactory:index/getLocalGemsRepository:getLocalGemsRepository", args, &rv, "", opts...)
-			if err != nil {
-				return LookupLocalGemsRepositoryResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupLocalGemsRepositoryResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupLocalGemsRepositoryResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("artifactory:index/getLocalGemsRepository:getLocalGemsRepository", args, LookupLocalGemsRepositoryResultOutput{}, options).(LookupLocalGemsRepositoryResultOutput), nil
 		}).(LookupLocalGemsRepositoryResultOutput)
 }
 

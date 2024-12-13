@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetRemoteChefRepositoryResult> Invoke(GetRemoteChefRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRemoteChefRepositoryResult>("artifactory:index/getRemoteChefRepository:getRemoteChefRepository", args ?? new GetRemoteChefRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a remote Chef repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var remote_chef = Artifactory.GetRemoteChefRepository.Invoke(new()
+        ///     {
+        ///         Key = "remote-chef",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetRemoteChefRepositoryResult> Invoke(GetRemoteChefRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRemoteChefRepositoryResult>("artifactory:index/getRemoteChefRepository:getRemoteChefRepository", args ?? new GetRemoteChefRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

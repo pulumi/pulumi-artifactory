@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetVirtualGemsRepositoryResult> Invoke(GetVirtualGemsRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualGemsRepositoryResult>("artifactory:index/getVirtualGemsRepository:getVirtualGemsRepository", args ?? new GetVirtualGemsRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a virtual Gems repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var virtual_gems = Artifactory.GetVirtualGemsRepository.Invoke(new()
+        ///     {
+        ///         Key = "virtual-gems",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetVirtualGemsRepositoryResult> Invoke(GetVirtualGemsRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVirtualGemsRepositoryResult>("artifactory:index/getVirtualGemsRepository:getVirtualGemsRepository", args ?? new GetVirtualGemsRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

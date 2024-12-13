@@ -111,21 +111,11 @@ type LookupFederatedComposerRepositoryResult struct {
 }
 
 func LookupFederatedComposerRepositoryOutput(ctx *pulumi.Context, args LookupFederatedComposerRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupFederatedComposerRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupFederatedComposerRepositoryResultOutput, error) {
 			args := v.(LookupFederatedComposerRepositoryArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupFederatedComposerRepositoryResult
-			secret, err := ctx.InvokePackageRaw("artifactory:index/getFederatedComposerRepository:getFederatedComposerRepository", args, &rv, "", opts...)
-			if err != nil {
-				return LookupFederatedComposerRepositoryResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupFederatedComposerRepositoryResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupFederatedComposerRepositoryResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("artifactory:index/getFederatedComposerRepository:getFederatedComposerRepository", args, LookupFederatedComposerRepositoryResultOutput{}, options).(LookupFederatedComposerRepositoryResultOutput), nil
 		}).(LookupFederatedComposerRepositoryResultOutput)
 }
 

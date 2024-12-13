@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetRemotePubRepositoryResult> Invoke(GetRemotePubRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRemotePubRepositoryResult>("artifactory:index/getRemotePubRepository:getRemotePubRepository", args ?? new GetRemotePubRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a remote Pub repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var remote_pub = Artifactory.GetRemotePubRepository.Invoke(new()
+        ///     {
+        ///         Key = "remote-pub",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetRemotePubRepositoryResult> Invoke(GetRemotePubRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRemotePubRepositoryResult>("artifactory:index/getRemotePubRepository:getRemotePubRepository", args ?? new GetRemotePubRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

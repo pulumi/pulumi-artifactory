@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetVirtualGradleRepositoryResult> Invoke(GetVirtualGradleRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualGradleRepositoryResult>("artifactory:index/getVirtualGradleRepository:getVirtualGradleRepository", args ?? new GetVirtualGradleRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a virtual Gradle repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var virtual_gradle = Artifactory.GetVirtualGradleRepository.Invoke(new()
+        ///     {
+        ///         Key = "virtual-gradle",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetVirtualGradleRepositoryResult> Invoke(GetVirtualGradleRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVirtualGradleRepositoryResult>("artifactory:index/getVirtualGradleRepository:getVirtualGradleRepository", args ?? new GetVirtualGradleRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

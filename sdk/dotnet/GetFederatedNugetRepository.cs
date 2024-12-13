@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetFederatedNugetRepositoryResult> Invoke(GetFederatedNugetRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFederatedNugetRepositoryResult>("artifactory:index/getFederatedNugetRepository:getFederatedNugetRepository", args ?? new GetFederatedNugetRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a federated Nuget repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var federated_test_nuget_repo = Artifactory.GetFederatedNugetRepository.Invoke(new()
+        ///     {
+        ///         Key = "federated-test-nuget-repo",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetFederatedNugetRepositoryResult> Invoke(GetFederatedNugetRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFederatedNugetRepositoryResult>("artifactory:index/getFederatedNugetRepository:getFederatedNugetRepository", args ?? new GetFederatedNugetRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

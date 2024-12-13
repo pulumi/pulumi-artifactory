@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetLocalOpkgRepositoryResult> Invoke(GetLocalOpkgRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalOpkgRepositoryResult>("artifactory:index/getLocalOpkgRepository:getLocalOpkgRepository", args ?? new GetLocalOpkgRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a local opkg repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var local_test_opkg_repo = Artifactory.GetLocalOpkgRepository.Invoke(new()
+        ///     {
+        ///         Key = "local-test-opkg-repo",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetLocalOpkgRepositoryResult> Invoke(GetLocalOpkgRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLocalOpkgRepositoryResult>("artifactory:index/getLocalOpkgRepository:getLocalOpkgRepository", args ?? new GetLocalOpkgRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

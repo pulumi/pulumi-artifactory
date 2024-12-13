@@ -22,6 +22,12 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetLocalHuggingfacemlRepositoryResult> Invoke(GetLocalHuggingfacemlRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalHuggingfacemlRepositoryResult>("artifactory:index/getLocalHuggingfacemlRepository:getLocalHuggingfacemlRepository", args ?? new GetLocalHuggingfacemlRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Provides a data source for a local huggingfaceml repository
+        /// </summary>
+        public static Output<GetLocalHuggingfacemlRepositoryResult> Invoke(GetLocalHuggingfacemlRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLocalHuggingfacemlRepositoryResult>("artifactory:index/getLocalHuggingfacemlRepository:getLocalHuggingfacemlRepository", args ?? new GetLocalHuggingfacemlRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

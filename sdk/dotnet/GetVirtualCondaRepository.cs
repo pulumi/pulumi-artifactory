@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetVirtualCondaRepositoryResult> Invoke(GetVirtualCondaRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualCondaRepositoryResult>("artifactory:index/getVirtualCondaRepository:getVirtualCondaRepository", args ?? new GetVirtualCondaRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a virtual Conda repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var virtual_conda = Artifactory.GetVirtualCondaRepository.Invoke(new()
+        ///     {
+        ///         Key = "virtual-conda",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetVirtualCondaRepositoryResult> Invoke(GetVirtualCondaRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVirtualCondaRepositoryResult>("artifactory:index/getVirtualCondaRepository:getVirtualCondaRepository", args ?? new GetVirtualCondaRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

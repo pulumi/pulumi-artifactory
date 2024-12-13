@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetVirtualOciRepositoryResult> Invoke(GetVirtualOciRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualOciRepositoryResult>("artifactory:index/getVirtualOciRepository:getVirtualOciRepository", args ?? new GetVirtualOciRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a virtual OCI repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var my_oci_virtual = Artifactory.GetVirtualOciRepository.Invoke(new()
+        ///     {
+        ///         Key = "my-oci-virtual",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetVirtualOciRepositoryResult> Invoke(GetVirtualOciRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVirtualOciRepositoryResult>("artifactory:index/getVirtualOciRepository:getVirtualOciRepository", args ?? new GetVirtualOciRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

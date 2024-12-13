@@ -64,6 +64,33 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetPermissionTargetResult> Invoke(GetPermissionTargetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPermissionTargetResult>("artifactory:index/getPermissionTarget:getPermissionTarget", args ?? new GetPermissionTargetInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// ## # Artifactory Permission Target Data Source
+        /// 
+        /// Provides an Artifactory permission target data source. This can be used to read the configuration of permission targets in artifactory.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     //
+        ///     var target1 = Artifactory.GetPermissionTarget.Invoke(new()
+        ///     {
+        ///         Name = "my_permission",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetPermissionTargetResult> Invoke(GetPermissionTargetInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPermissionTargetResult>("artifactory:index/getPermissionTarget:getPermissionTarget", args ?? new GetPermissionTargetInvokeArgs(), options.WithDefaults());
     }
 
 

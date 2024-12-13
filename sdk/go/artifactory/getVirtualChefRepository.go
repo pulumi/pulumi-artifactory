@@ -87,21 +87,11 @@ type LookupVirtualChefRepositoryResult struct {
 }
 
 func LookupVirtualChefRepositoryOutput(ctx *pulumi.Context, args LookupVirtualChefRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualChefRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupVirtualChefRepositoryResultOutput, error) {
 			args := v.(LookupVirtualChefRepositoryArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupVirtualChefRepositoryResult
-			secret, err := ctx.InvokePackageRaw("artifactory:index/getVirtualChefRepository:getVirtualChefRepository", args, &rv, "", opts...)
-			if err != nil {
-				return LookupVirtualChefRepositoryResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupVirtualChefRepositoryResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupVirtualChefRepositoryResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("artifactory:index/getVirtualChefRepository:getVirtualChefRepository", args, LookupVirtualChefRepositoryResultOutput{}, options).(LookupVirtualChefRepositoryResultOutput), nil
 		}).(LookupVirtualChefRepositoryResultOutput)
 }
 

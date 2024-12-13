@@ -54,6 +54,28 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetRemoteTerraformRepositoryResult> Invoke(GetRemoteTerraformRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRemoteTerraformRepositoryResult>("artifactory:index/getRemoteTerraformRepository:getRemoteTerraformRepository", args ?? new GetRemoteTerraformRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var remote_terraform = Artifactory.GetRemoteTerraformRepository.Invoke(new()
+        ///     {
+        ///         Key = "remote-terraform",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetRemoteTerraformRepositoryResult> Invoke(GetRemoteTerraformRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRemoteTerraformRepositoryResult>("artifactory:index/getRemoteTerraformRepository:getRemoteTerraformRepository", args ?? new GetRemoteTerraformRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

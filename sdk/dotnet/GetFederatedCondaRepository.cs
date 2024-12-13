@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetFederatedCondaRepositoryResult> Invoke(GetFederatedCondaRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFederatedCondaRepositoryResult>("artifactory:index/getFederatedCondaRepository:getFederatedCondaRepository", args ?? new GetFederatedCondaRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a federated Conda repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var federated_test_conda_repo = Artifactory.GetFederatedCondaRepository.Invoke(new()
+        ///     {
+        ///         Key = "federated-test-conda-repo",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetFederatedCondaRepositoryResult> Invoke(GetFederatedCondaRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFederatedCondaRepositoryResult>("artifactory:index/getFederatedCondaRepository:getFederatedCondaRepository", args ?? new GetFederatedCondaRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

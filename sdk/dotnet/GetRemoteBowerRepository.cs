@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetRemoteBowerRepositoryResult> Invoke(GetRemoteBowerRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRemoteBowerRepositoryResult>("artifactory:index/getRemoteBowerRepository:getRemoteBowerRepository", args ?? new GetRemoteBowerRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a remote Bower repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var remote_bower = Artifactory.GetRemoteBowerRepository.Invoke(new()
+        ///     {
+        ///         Key = "remote-bower",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetRemoteBowerRepositoryResult> Invoke(GetRemoteBowerRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRemoteBowerRepositoryResult>("artifactory:index/getRemoteBowerRepository:getRemoteBowerRepository", args ?? new GetRemoteBowerRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

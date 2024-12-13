@@ -54,6 +54,28 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetFederatedTerraformModuleRepositoryResult> Invoke(GetFederatedTerraformModuleRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFederatedTerraformModuleRepositoryResult>("artifactory:index/getFederatedTerraformModuleRepository:getFederatedTerraformModuleRepository", args ?? new GetFederatedTerraformModuleRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var federated_test_terraformModule_repo = Artifactory.GetFederatedTerraformModuleRepository.Invoke(new()
+        ///     {
+        ///         Key = "federated-test-terraform-module-repo",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetFederatedTerraformModuleRepositoryResult> Invoke(GetFederatedTerraformModuleRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFederatedTerraformModuleRepositoryResult>("artifactory:index/getFederatedTerraformModuleRepository:getFederatedTerraformModuleRepository", args ?? new GetFederatedTerraformModuleRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

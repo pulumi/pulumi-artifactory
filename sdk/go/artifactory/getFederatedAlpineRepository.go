@@ -115,21 +115,11 @@ type LookupFederatedAlpineRepositoryResult struct {
 }
 
 func LookupFederatedAlpineRepositoryOutput(ctx *pulumi.Context, args LookupFederatedAlpineRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupFederatedAlpineRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupFederatedAlpineRepositoryResultOutput, error) {
 			args := v.(LookupFederatedAlpineRepositoryArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupFederatedAlpineRepositoryResult
-			secret, err := ctx.InvokePackageRaw("artifactory:index/getFederatedAlpineRepository:getFederatedAlpineRepository", args, &rv, "", opts...)
-			if err != nil {
-				return LookupFederatedAlpineRepositoryResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupFederatedAlpineRepositoryResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupFederatedAlpineRepositoryResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("artifactory:index/getFederatedAlpineRepository:getFederatedAlpineRepository", args, LookupFederatedAlpineRepositoryResultOutput{}, options).(LookupFederatedAlpineRepositoryResultOutput), nil
 		}).(LookupFederatedAlpineRepositoryResultOutput)
 }
 

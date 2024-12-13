@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetLocalCranRepositoryResult> Invoke(GetLocalCranRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalCranRepositoryResult>("artifactory:index/getLocalCranRepository:getLocalCranRepository", args ?? new GetLocalCranRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a local cran repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var local_test_cran_repo = Artifactory.GetLocalCranRepository.Invoke(new()
+        ///     {
+        ///         Key = "local-test-cran-repo",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetLocalCranRepositoryResult> Invoke(GetLocalCranRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLocalCranRepositoryResult>("artifactory:index/getLocalCranRepository:getLocalCranRepository", args ?? new GetLocalCranRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

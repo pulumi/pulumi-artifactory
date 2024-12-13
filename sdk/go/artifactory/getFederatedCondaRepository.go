@@ -111,21 +111,11 @@ type LookupFederatedCondaRepositoryResult struct {
 }
 
 func LookupFederatedCondaRepositoryOutput(ctx *pulumi.Context, args LookupFederatedCondaRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupFederatedCondaRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupFederatedCondaRepositoryResultOutput, error) {
 			args := v.(LookupFederatedCondaRepositoryArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupFederatedCondaRepositoryResult
-			secret, err := ctx.InvokePackageRaw("artifactory:index/getFederatedCondaRepository:getFederatedCondaRepository", args, &rv, "", opts...)
-			if err != nil {
-				return LookupFederatedCondaRepositoryResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupFederatedCondaRepositoryResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupFederatedCondaRepositoryResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("artifactory:index/getFederatedCondaRepository:getFederatedCondaRepository", args, LookupFederatedCondaRepositoryResultOutput{}, options).(LookupFederatedCondaRepositoryResultOutput), nil
 		}).(LookupFederatedCondaRepositoryResultOutput)
 }
 

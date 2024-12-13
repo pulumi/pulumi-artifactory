@@ -147,21 +147,11 @@ type LookupRemoteGitlfsRepositoryResult struct {
 }
 
 func LookupRemoteGitlfsRepositoryOutput(ctx *pulumi.Context, args LookupRemoteGitlfsRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupRemoteGitlfsRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupRemoteGitlfsRepositoryResultOutput, error) {
 			args := v.(LookupRemoteGitlfsRepositoryArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupRemoteGitlfsRepositoryResult
-			secret, err := ctx.InvokePackageRaw("artifactory:index/getRemoteGitlfsRepository:getRemoteGitlfsRepository", args, &rv, "", opts...)
-			if err != nil {
-				return LookupRemoteGitlfsRepositoryResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupRemoteGitlfsRepositoryResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupRemoteGitlfsRepositoryResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("artifactory:index/getRemoteGitlfsRepository:getRemoteGitlfsRepository", args, LookupRemoteGitlfsRepositoryResultOutput{}, options).(LookupRemoteGitlfsRepositoryResultOutput), nil
 		}).(LookupRemoteGitlfsRepositoryResultOutput)
 }
 

@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetRemoteVcsRepositoryResult> Invoke(GetRemoteVcsRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRemoteVcsRepositoryResult>("artifactory:index/getRemoteVcsRepository:getRemoteVcsRepository", args ?? new GetRemoteVcsRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a remote VCS repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var remote_vcs = Artifactory.GetRemoteVcsRepository.Invoke(new()
+        ///     {
+        ///         Key = "remote-vcs",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetRemoteVcsRepositoryResult> Invoke(GetRemoteVcsRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRemoteVcsRepositoryResult>("artifactory:index/getRemoteVcsRepository:getRemoteVcsRepository", args ?? new GetRemoteVcsRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

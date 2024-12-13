@@ -60,6 +60,31 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetFileListResult> Invoke(GetFileListInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFileListResult>("artifactory:index/getFileList:getFileList", args ?? new GetFileListInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a flat (the default) or deep listing of the files and folders (not included by default) within a folder. For deep listing you can specify an optional depth to limit the results. Optionally include a map of metadata timestamp values as part of the result.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var my_repo_file_list = Artifactory.GetFileList.Invoke(new()
+        ///     {
+        ///         RepositoryKey = "my-generic-local",
+        ///         FolderPath = "path/to/artifact",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetFileListResult> Invoke(GetFileListInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFileListResult>("artifactory:index/getFileList:getFileList", args ?? new GetFileListInvokeArgs(), options.WithDefaults());
     }
 
 

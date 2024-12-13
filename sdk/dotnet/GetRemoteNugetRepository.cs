@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetRemoteNugetRepositoryResult> Invoke(GetRemoteNugetRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRemoteNugetRepositoryResult>("artifactory:index/getRemoteNugetRepository:getRemoteNugetRepository", args ?? new GetRemoteNugetRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a remote NuGet repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var remote_nuget = Artifactory.GetRemoteNugetRepository.Invoke(new()
+        ///     {
+        ///         Key = "remote-nuget",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetRemoteNugetRepositoryResult> Invoke(GetRemoteNugetRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRemoteNugetRepositoryResult>("artifactory:index/getRemoteNugetRepository:getRemoteNugetRepository", args ?? new GetRemoteNugetRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

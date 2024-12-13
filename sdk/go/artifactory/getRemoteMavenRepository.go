@@ -181,21 +181,11 @@ type LookupRemoteMavenRepositoryResult struct {
 }
 
 func LookupRemoteMavenRepositoryOutput(ctx *pulumi.Context, args LookupRemoteMavenRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupRemoteMavenRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupRemoteMavenRepositoryResultOutput, error) {
 			args := v.(LookupRemoteMavenRepositoryArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupRemoteMavenRepositoryResult
-			secret, err := ctx.InvokePackageRaw("artifactory:index/getRemoteMavenRepository:getRemoteMavenRepository", args, &rv, "", opts...)
-			if err != nil {
-				return LookupRemoteMavenRepositoryResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupRemoteMavenRepositoryResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupRemoteMavenRepositoryResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("artifactory:index/getRemoteMavenRepository:getRemoteMavenRepository", args, LookupRemoteMavenRepositoryResultOutput{}, options).(LookupRemoteMavenRepositoryResultOutput), nil
 		}).(LookupRemoteMavenRepositoryResultOutput)
 }
 

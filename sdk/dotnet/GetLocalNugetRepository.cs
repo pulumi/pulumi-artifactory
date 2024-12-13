@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetLocalNugetRepositoryResult> Invoke(GetLocalNugetRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalNugetRepositoryResult>("artifactory:index/getLocalNugetRepository:getLocalNugetRepository", args ?? new GetLocalNugetRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a local Nuget repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var local_test_nuget_repo_basic = Artifactory.GetLocalNugetRepository.Invoke(new()
+        ///     {
+        ///         Key = "local-test-nuget-repo-basic",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetLocalNugetRepositoryResult> Invoke(GetLocalNugetRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLocalNugetRepositoryResult>("artifactory:index/getLocalNugetRepository:getLocalNugetRepository", args ?? new GetLocalNugetRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetRemoteCargoRepositoryResult> Invoke(GetRemoteCargoRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRemoteCargoRepositoryResult>("artifactory:index/getRemoteCargoRepository:getRemoteCargoRepository", args ?? new GetRemoteCargoRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a remote Cargo repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var remote_cargo = Artifactory.GetRemoteCargoRepository.Invoke(new()
+        ///     {
+        ///         Key = "remote-cargo",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetRemoteCargoRepositoryResult> Invoke(GetRemoteCargoRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRemoteCargoRepositoryResult>("artifactory:index/getRemoteCargoRepository:getRemoteCargoRepository", args ?? new GetRemoteCargoRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

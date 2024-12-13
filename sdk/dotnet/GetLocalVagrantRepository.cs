@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetLocalVagrantRepositoryResult> Invoke(GetLocalVagrantRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalVagrantRepositoryResult>("artifactory:index/getLocalVagrantRepository:getLocalVagrantRepository", args ?? new GetLocalVagrantRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a local vagrant repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var local_test_vagrant_repo = Artifactory.GetLocalVagrantRepository.Invoke(new()
+        ///     {
+        ///         Key = "local-test-vagrant-repo",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetLocalVagrantRepositoryResult> Invoke(GetLocalVagrantRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLocalVagrantRepositoryResult>("artifactory:index/getLocalVagrantRepository:getLocalVagrantRepository", args ?? new GetLocalVagrantRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

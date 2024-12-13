@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetRemoteAlpineRepositoryResult> Invoke(GetRemoteAlpineRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRemoteAlpineRepositoryResult>("artifactory:index/getRemoteAlpineRepository:getRemoteAlpineRepository", args ?? new GetRemoteAlpineRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a remote Alpine repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var remote_alpine = Artifactory.GetRemoteAlpineRepository.Invoke(new()
+        ///     {
+        ///         Key = "remote-alpine",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetRemoteAlpineRepositoryResult> Invoke(GetRemoteAlpineRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRemoteAlpineRepositoryResult>("artifactory:index/getRemoteAlpineRepository:getRemoteAlpineRepository", args ?? new GetRemoteAlpineRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

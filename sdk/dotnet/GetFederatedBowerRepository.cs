@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetFederatedBowerRepositoryResult> Invoke(GetFederatedBowerRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFederatedBowerRepositoryResult>("artifactory:index/getFederatedBowerRepository:getFederatedBowerRepository", args ?? new GetFederatedBowerRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a federated Bower repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var federated_test_bower_repo = Artifactory.GetFederatedBowerRepository.Invoke(new()
+        ///     {
+        ///         Key = "federated-test-bower-repo",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetFederatedBowerRepositoryResult> Invoke(GetFederatedBowerRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFederatedBowerRepositoryResult>("artifactory:index/getFederatedBowerRepository:getFederatedBowerRepository", args ?? new GetFederatedBowerRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

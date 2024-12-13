@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetVirtualDockerRepositoryResult> Invoke(GetVirtualDockerRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualDockerRepositoryResult>("artifactory:index/getVirtualDockerRepository:getVirtualDockerRepository", args ?? new GetVirtualDockerRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a virtual Docker repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var virtual_docker = Artifactory.GetVirtualDockerRepository.Invoke(new()
+        ///     {
+        ///         Key = "virtual-docker",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetVirtualDockerRepositoryResult> Invoke(GetVirtualDockerRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVirtualDockerRepositoryResult>("artifactory:index/getVirtualDockerRepository:getVirtualDockerRepository", args ?? new GetVirtualDockerRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetLocalGemsRepositoryResult> Invoke(GetLocalGemsRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalGemsRepositoryResult>("artifactory:index/getLocalGemsRepository:getLocalGemsRepository", args ?? new GetLocalGemsRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a local gems repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var local_test_gems_repo = Artifactory.GetLocalGemsRepository.Invoke(new()
+        ///     {
+        ///         Key = "local-test-gems-repo",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetLocalGemsRepositoryResult> Invoke(GetLocalGemsRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLocalGemsRepositoryResult>("artifactory:index/getLocalGemsRepository:getLocalGemsRepository", args ?? new GetLocalGemsRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

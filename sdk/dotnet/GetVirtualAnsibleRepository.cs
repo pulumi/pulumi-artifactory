@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetVirtualAnsibleRepositoryResult> Invoke(GetVirtualAnsibleRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualAnsibleRepositoryResult>("artifactory:index/getVirtualAnsibleRepository:getVirtualAnsibleRepository", args ?? new GetVirtualAnsibleRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a virtual Ansible repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var virtual_ansible = Artifactory.GetVirtualAnsibleRepository.Invoke(new()
+        ///     {
+        ///         Key = "virtual-ansible",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetVirtualAnsibleRepositoryResult> Invoke(GetVirtualAnsibleRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVirtualAnsibleRepositoryResult>("artifactory:index/getVirtualAnsibleRepository:getVirtualAnsibleRepository", args ?? new GetVirtualAnsibleRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

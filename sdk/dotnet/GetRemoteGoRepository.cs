@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetRemoteGoRepositoryResult> Invoke(GetRemoteGoRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRemoteGoRepositoryResult>("artifactory:index/getRemoteGoRepository:getRemoteGoRepository", args ?? new GetRemoteGoRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a remote Go repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var remote_go = Artifactory.GetRemoteGoRepository.Invoke(new()
+        ///     {
+        ///         Key = "remote-go",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetRemoteGoRepositoryResult> Invoke(GetRemoteGoRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRemoteGoRepositoryResult>("artifactory:index/getRemoteGoRepository:getRemoteGoRepository", args ?? new GetRemoteGoRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

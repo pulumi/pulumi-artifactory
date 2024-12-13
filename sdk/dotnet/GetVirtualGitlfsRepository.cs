@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetVirtualGitlfsRepositoryResult> Invoke(GetVirtualGitlfsRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualGitlfsRepositoryResult>("artifactory:index/getVirtualGitlfsRepository:getVirtualGitlfsRepository", args ?? new GetVirtualGitlfsRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a virtual Git LFS repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var virtual_gitlfs = Artifactory.GetVirtualGitlfsRepository.Invoke(new()
+        ///     {
+        ///         Key = "virtual-gitlfs",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetVirtualGitlfsRepositoryResult> Invoke(GetVirtualGitlfsRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVirtualGitlfsRepositoryResult>("artifactory:index/getVirtualGitlfsRepository:getVirtualGitlfsRepository", args ?? new GetVirtualGitlfsRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

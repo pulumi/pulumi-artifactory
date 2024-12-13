@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetFederatedCargoRepositoryResult> Invoke(GetFederatedCargoRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFederatedCargoRepositoryResult>("artifactory:index/getFederatedCargoRepository:getFederatedCargoRepository", args ?? new GetFederatedCargoRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a federated Cargo repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var federated_test_cargo_repo = Artifactory.GetFederatedCargoRepository.Invoke(new()
+        ///     {
+        ///         Key = "federated-test-cargo-repo",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetFederatedCargoRepositoryResult> Invoke(GetFederatedCargoRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFederatedCargoRepositoryResult>("artifactory:index/getFederatedCargoRepository:getFederatedCargoRepository", args ?? new GetFederatedCargoRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

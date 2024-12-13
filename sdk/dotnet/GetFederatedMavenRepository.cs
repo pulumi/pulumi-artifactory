@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetFederatedMavenRepositoryResult> Invoke(GetFederatedMavenRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFederatedMavenRepositoryResult>("artifactory:index/getFederatedMavenRepository:getFederatedMavenRepository", args ?? new GetFederatedMavenRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a federated Maven repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var federated_test_maven_repo = Artifactory.GetFederatedMavenRepository.Invoke(new()
+        ///     {
+        ///         Key = "federated-test-maven-repo",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetFederatedMavenRepositoryResult> Invoke(GetFederatedMavenRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFederatedMavenRepositoryResult>("artifactory:index/getFederatedMavenRepository:getFederatedMavenRepository", args ?? new GetFederatedMavenRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

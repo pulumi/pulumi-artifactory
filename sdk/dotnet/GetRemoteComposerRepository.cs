@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetRemoteComposerRepositoryResult> Invoke(GetRemoteComposerRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRemoteComposerRepositoryResult>("artifactory:index/getRemoteComposerRepository:getRemoteComposerRepository", args ?? new GetRemoteComposerRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a remote Composer repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var remote_composer = Artifactory.GetRemoteComposerRepository.Invoke(new()
+        ///     {
+        ///         Key = "remote-composer",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetRemoteComposerRepositoryResult> Invoke(GetRemoteComposerRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRemoteComposerRepositoryResult>("artifactory:index/getRemoteComposerRepository:getRemoteComposerRepository", args ?? new GetRemoteComposerRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

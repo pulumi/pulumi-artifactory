@@ -177,21 +177,11 @@ type LookupRemoteGradleRepositoryResult struct {
 }
 
 func LookupRemoteGradleRepositoryOutput(ctx *pulumi.Context, args LookupRemoteGradleRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupRemoteGradleRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupRemoteGradleRepositoryResultOutput, error) {
 			args := v.(LookupRemoteGradleRepositoryArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupRemoteGradleRepositoryResult
-			secret, err := ctx.InvokePackageRaw("artifactory:index/getRemoteGradleRepository:getRemoteGradleRepository", args, &rv, "", opts...)
-			if err != nil {
-				return LookupRemoteGradleRepositoryResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupRemoteGradleRepositoryResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupRemoteGradleRepositoryResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("artifactory:index/getRemoteGradleRepository:getRemoteGradleRepository", args, LookupRemoteGradleRepositoryResultOutput{}, options).(LookupRemoteGradleRepositoryResultOutput), nil
 		}).(LookupRemoteGradleRepositoryResultOutput)
 }
 

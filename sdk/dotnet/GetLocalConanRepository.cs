@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetLocalConanRepositoryResult> Invoke(GetLocalConanRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalConanRepositoryResult>("artifactory:index/getLocalConanRepository:getLocalConanRepository", args ?? new GetLocalConanRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a local conan repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var local_test_conan_repo = Artifactory.GetLocalConanRepository.Invoke(new()
+        ///     {
+        ///         Key = "local-test-conan-repo",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetLocalConanRepositoryResult> Invoke(GetLocalConanRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLocalConanRepositoryResult>("artifactory:index/getLocalConanRepository:getLocalConanRepository", args ?? new GetLocalConanRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

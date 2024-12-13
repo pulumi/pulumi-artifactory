@@ -159,21 +159,11 @@ type LookupRemoteCargoRepositoryResult struct {
 }
 
 func LookupRemoteCargoRepositoryOutput(ctx *pulumi.Context, args LookupRemoteCargoRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupRemoteCargoRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupRemoteCargoRepositoryResultOutput, error) {
 			args := v.(LookupRemoteCargoRepositoryArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupRemoteCargoRepositoryResult
-			secret, err := ctx.InvokePackageRaw("artifactory:index/getRemoteCargoRepository:getRemoteCargoRepository", args, &rv, "", opts...)
-			if err != nil {
-				return LookupRemoteCargoRepositoryResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupRemoteCargoRepositoryResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupRemoteCargoRepositoryResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("artifactory:index/getRemoteCargoRepository:getRemoteCargoRepository", args, LookupRemoteCargoRepositoryResultOutput{}, options).(LookupRemoteCargoRepositoryResultOutput), nil
 		}).(LookupRemoteCargoRepositoryResultOutput)
 }
 

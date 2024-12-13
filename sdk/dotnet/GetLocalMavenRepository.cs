@@ -94,6 +94,48 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetLocalMavenRepositoryResult> Invoke(GetLocalMavenRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalMavenRepositoryResult>("artifactory:index/getLocalMavenRepository:getLocalMavenRepository", args ?? new GetLocalMavenRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a local Maven repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var local_test_maven_repo_basic = Artifactory.GetLocalMavenRepository.Invoke(new()
+        ///     {
+        ///         Key = "local-test-maven-repo-basic",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ## * `snapshot_version_behavior` - Specifies the naming convention for Maven SNAPSHOT versions. The options are
+        /// 
+        ///   -
+        ///   * `unique`: Version number is based on a time-stamp (default)
+        ///   * `non-unique`: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type
+        ///   * `deployer`: Respects the settings in the Maven client that is deploying the artifact.
+        /// * `max_unique_snapshots` - The maximum number of unique snapshots of a single artifact to store. Once the
+        ///   number of snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no
+        ///   limit, and unique snapshots are not cleaned up.
+        /// * `handle_releases` - If set, Artifactory allows you to deploy release artifacts into this repository.
+        ///   Default is `true`.
+        /// * `handle_snapshots` - If set, Artifactory allows you to deploy snapshot artifacts into this repository.
+        ///   Default is `true`.
+        /// * `suppress_pom_consistency_checks` - By default, Artifactory keeps your repositories healthy by refusing
+        ///   POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match
+        ///   the deployed path, Artifactory rejects the deployment with a "409 Conflict" error. You can disable this behavior by
+        ///   setting the Suppress POM Consistency Checks checkbox. False by default for Maven repository.
+        /// </summary>
+        public static Output<GetLocalMavenRepositoryResult> Invoke(GetLocalMavenRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLocalMavenRepositoryResult>("artifactory:index/getLocalMavenRepository:getLocalMavenRepository", args ?? new GetLocalMavenRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

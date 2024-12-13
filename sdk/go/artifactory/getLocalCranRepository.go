@@ -92,21 +92,11 @@ type LookupLocalCranRepositoryResult struct {
 }
 
 func LookupLocalCranRepositoryOutput(ctx *pulumi.Context, args LookupLocalCranRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupLocalCranRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupLocalCranRepositoryResultOutput, error) {
 			args := v.(LookupLocalCranRepositoryArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupLocalCranRepositoryResult
-			secret, err := ctx.InvokePackageRaw("artifactory:index/getLocalCranRepository:getLocalCranRepository", args, &rv, "", opts...)
-			if err != nil {
-				return LookupLocalCranRepositoryResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupLocalCranRepositoryResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupLocalCranRepositoryResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("artifactory:index/getLocalCranRepository:getLocalCranRepository", args, LookupLocalCranRepositoryResultOutput{}, options).(LookupLocalCranRepositoryResultOutput), nil
 		}).(LookupLocalCranRepositoryResultOutput)
 }
 

@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetVirtualAlpineRepositoryResult> Invoke(GetVirtualAlpineRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualAlpineRepositoryResult>("artifactory:index/getVirtualAlpineRepository:getVirtualAlpineRepository", args ?? new GetVirtualAlpineRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a virtual Alpine repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var virtual_alpine = Artifactory.GetVirtualAlpineRepository.Invoke(new()
+        ///     {
+        ///         Key = "virtual-alpine",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetVirtualAlpineRepositoryResult> Invoke(GetVirtualAlpineRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVirtualAlpineRepositoryResult>("artifactory:index/getVirtualAlpineRepository:getVirtualAlpineRepository", args ?? new GetVirtualAlpineRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

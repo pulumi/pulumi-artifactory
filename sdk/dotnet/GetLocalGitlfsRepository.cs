@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetLocalGitlfsRepositoryResult> Invoke(GetLocalGitlfsRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalGitlfsRepositoryResult>("artifactory:index/getLocalGitlfsRepository:getLocalGitlfsRepository", args ?? new GetLocalGitlfsRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a local gitlfs repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var local_test_gitlfs_repo = Artifactory.GetLocalGitlfsRepository.Invoke(new()
+        ///     {
+        ///         Key = "local-test-gitlfs-repo",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetLocalGitlfsRepositoryResult> Invoke(GetLocalGitlfsRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLocalGitlfsRepositoryResult>("artifactory:index/getLocalGitlfsRepository:getLocalGitlfsRepository", args ?? new GetLocalGitlfsRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

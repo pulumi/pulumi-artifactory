@@ -90,21 +90,11 @@ type GetFileinfoResult struct {
 }
 
 func GetFileinfoOutput(ctx *pulumi.Context, args GetFileinfoOutputArgs, opts ...pulumi.InvokeOption) GetFileinfoResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetFileinfoResultOutput, error) {
 			args := v.(GetFileinfoArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetFileinfoResult
-			secret, err := ctx.InvokePackageRaw("artifactory:index/getFileinfo:getFileinfo", args, &rv, "", opts...)
-			if err != nil {
-				return GetFileinfoResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetFileinfoResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetFileinfoResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("artifactory:index/getFileinfo:getFileinfo", args, GetFileinfoResultOutput{}, options).(GetFileinfoResultOutput), nil
 		}).(GetFileinfoResultOutput)
 }
 

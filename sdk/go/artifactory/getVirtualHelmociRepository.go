@@ -87,21 +87,11 @@ type LookupVirtualHelmociRepositoryResult struct {
 }
 
 func LookupVirtualHelmociRepositoryOutput(ctx *pulumi.Context, args LookupVirtualHelmociRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualHelmociRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupVirtualHelmociRepositoryResultOutput, error) {
 			args := v.(LookupVirtualHelmociRepositoryArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupVirtualHelmociRepositoryResult
-			secret, err := ctx.InvokePackageRaw("artifactory:index/getVirtualHelmociRepository:getVirtualHelmociRepository", args, &rv, "", opts...)
-			if err != nil {
-				return LookupVirtualHelmociRepositoryResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupVirtualHelmociRepositoryResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupVirtualHelmociRepositoryResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("artifactory:index/getVirtualHelmociRepository:getVirtualHelmociRepository", args, LookupVirtualHelmociRepositoryResultOutput{}, options).(LookupVirtualHelmociRepositoryResultOutput), nil
 		}).(LookupVirtualHelmociRepositoryResultOutput)
 }
 

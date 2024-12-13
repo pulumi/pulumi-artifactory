@@ -87,21 +87,11 @@ type LookupVirtualCranRepositoryResult struct {
 }
 
 func LookupVirtualCranRepositoryOutput(ctx *pulumi.Context, args LookupVirtualCranRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualCranRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupVirtualCranRepositoryResultOutput, error) {
 			args := v.(LookupVirtualCranRepositoryArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupVirtualCranRepositoryResult
-			secret, err := ctx.InvokePackageRaw("artifactory:index/getVirtualCranRepository:getVirtualCranRepository", args, &rv, "", opts...)
-			if err != nil {
-				return LookupVirtualCranRepositoryResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupVirtualCranRepositoryResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupVirtualCranRepositoryResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("artifactory:index/getVirtualCranRepository:getVirtualCranRepository", args, LookupVirtualCranRepositoryResultOutput{}, options).(LookupVirtualCranRepositoryResultOutput), nil
 		}).(LookupVirtualCranRepositoryResultOutput)
 }
 
