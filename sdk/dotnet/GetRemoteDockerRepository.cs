@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetRemoteDockerRepositoryResult> Invoke(GetRemoteDockerRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRemoteDockerRepositoryResult>("artifactory:index/getRemoteDockerRepository:getRemoteDockerRepository", args ?? new GetRemoteDockerRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a remote Docker repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var remote_docker = Artifactory.GetRemoteDockerRepository.Invoke(new()
+        ///     {
+        ///         Key = "remote-docker",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetRemoteDockerRepositoryResult> Invoke(GetRemoteDockerRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRemoteDockerRepositoryResult>("artifactory:index/getRemoteDockerRepository:getRemoteDockerRepository", args ?? new GetRemoteDockerRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

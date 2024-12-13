@@ -66,6 +66,34 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetFileResult> Invoke(GetFileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFileResult>("artifactory:index/getFile:getFile", args ?? new GetFileInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// ## # Artifactory File Data Source
+        /// 
+        /// Provides an Artifactory file datasource. This can be used to download a file from a given Artifactory repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var my_file = Artifactory.GetFile.Invoke(new()
+        ///     {
+        ///         Repository = "repo-key",
+        ///         Path = "/path/to/the/artifact.zip",
+        ///         OutputPath = "tmp/artifact.zip",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetFileResult> Invoke(GetFileInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFileResult>("artifactory:index/getFile:getFile", args ?? new GetFileInvokeArgs(), options.WithDefaults());
     }
 
 

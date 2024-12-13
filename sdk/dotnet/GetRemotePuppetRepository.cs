@@ -22,6 +22,12 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetRemotePuppetRepositoryResult> Invoke(GetRemotePuppetRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRemotePuppetRepositoryResult>("artifactory:index/getRemotePuppetRepository:getRemotePuppetRepository", args ?? new GetRemotePuppetRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a remote Peppet repository.
+        /// </summary>
+        public static Output<GetRemotePuppetRepositoryResult> Invoke(GetRemotePuppetRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRemotePuppetRepositoryResult>("artifactory:index/getRemotePuppetRepository:getRemotePuppetRepository", args ?? new GetRemotePuppetRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -159,21 +159,11 @@ type LookupRemoteVcsRepositoryResult struct {
 }
 
 func LookupRemoteVcsRepositoryOutput(ctx *pulumi.Context, args LookupRemoteVcsRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupRemoteVcsRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupRemoteVcsRepositoryResultOutput, error) {
 			args := v.(LookupRemoteVcsRepositoryArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupRemoteVcsRepositoryResult
-			secret, err := ctx.InvokePackageRaw("artifactory:index/getRemoteVcsRepository:getRemoteVcsRepository", args, &rv, "", opts...)
-			if err != nil {
-				return LookupRemoteVcsRepositoryResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupRemoteVcsRepositoryResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupRemoteVcsRepositoryResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("artifactory:index/getRemoteVcsRepository:getRemoteVcsRepository", args, LookupRemoteVcsRepositoryResultOutput{}, options).(LookupRemoteVcsRepositoryResultOutput), nil
 		}).(LookupRemoteVcsRepositoryResultOutput)
 }
 

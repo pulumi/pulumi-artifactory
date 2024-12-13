@@ -16,6 +16,9 @@ namespace Pulumi.Artifactory
 
         public static Output<GetFederatedDockerRepositoryResult> Invoke(GetFederatedDockerRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFederatedDockerRepositoryResult>("artifactory:index/getFederatedDockerRepository:getFederatedDockerRepository", args ?? new GetFederatedDockerRepositoryInvokeArgs(), options.WithDefaults());
+
+        public static Output<GetFederatedDockerRepositoryResult> Invoke(GetFederatedDockerRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFederatedDockerRepositoryResult>("artifactory:index/getFederatedDockerRepository:getFederatedDockerRepository", args ?? new GetFederatedDockerRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

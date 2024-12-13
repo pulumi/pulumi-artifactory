@@ -92,21 +92,11 @@ type LookupLocalNpmRepositoryResult struct {
 }
 
 func LookupLocalNpmRepositoryOutput(ctx *pulumi.Context, args LookupLocalNpmRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupLocalNpmRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupLocalNpmRepositoryResultOutput, error) {
 			args := v.(LookupLocalNpmRepositoryArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupLocalNpmRepositoryResult
-			secret, err := ctx.InvokePackageRaw("artifactory:index/getLocalNpmRepository:getLocalNpmRepository", args, &rv, "", opts...)
-			if err != nil {
-				return LookupLocalNpmRepositoryResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupLocalNpmRepositoryResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupLocalNpmRepositoryResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("artifactory:index/getLocalNpmRepository:getLocalNpmRepository", args, LookupLocalNpmRepositoryResultOutput{}, options).(LookupLocalNpmRepositoryResultOutput), nil
 		}).(LookupLocalNpmRepositoryResultOutput)
 }
 

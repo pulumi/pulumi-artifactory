@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetFederatedOciRepositoryResult> Invoke(GetFederatedOciRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFederatedOciRepositoryResult>("artifactory:index/getFederatedOciRepository:getFederatedOciRepository", args ?? new GetFederatedOciRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a federated OCI repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var my_oci_federated = Artifactory.GetFederatedOciRepository.Invoke(new()
+        ///     {
+        ///         Key = "my-oci-federated",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetFederatedOciRepositoryResult> Invoke(GetFederatedOciRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFederatedOciRepositoryResult>("artifactory:index/getFederatedOciRepository:getFederatedOciRepository", args ?? new GetFederatedOciRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

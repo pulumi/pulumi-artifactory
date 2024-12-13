@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetLocalOciRepositoryResult> Invoke(GetLocalOciRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalOciRepositoryResult>("artifactory:index/getLocalOciRepository:getLocalOciRepository", args ?? new GetLocalOciRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a local OCI repository resource
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var my_oci_local = Artifactory.GetLocalOciRepository.Invoke(new()
+        ///     {
+        ///         Key = "my-oci-local",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetLocalOciRepositoryResult> Invoke(GetLocalOciRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLocalOciRepositoryResult>("artifactory:index/getLocalOciRepository:getLocalOciRepository", args ?? new GetLocalOciRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

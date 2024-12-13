@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetLocalAnsibleRepositoryResult> Invoke(GetLocalAnsibleRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalAnsibleRepositoryResult>("artifactory:index/getLocalAnsibleRepository:getLocalAnsibleRepository", args ?? new GetLocalAnsibleRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a local Ansible repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var local_test_ansible_repo_basic = Artifactory.GetLocalAnsibleRepository.Invoke(new()
+        ///     {
+        ///         Key = "local-test-ansible-repo-basic",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetLocalAnsibleRepositoryResult> Invoke(GetLocalAnsibleRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLocalAnsibleRepositoryResult>("artifactory:index/getLocalAnsibleRepository:getLocalAnsibleRepository", args ?? new GetLocalAnsibleRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

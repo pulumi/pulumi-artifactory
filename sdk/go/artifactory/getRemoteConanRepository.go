@@ -153,21 +153,11 @@ type LookupRemoteConanRepositoryResult struct {
 }
 
 func LookupRemoteConanRepositoryOutput(ctx *pulumi.Context, args LookupRemoteConanRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupRemoteConanRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupRemoteConanRepositoryResultOutput, error) {
 			args := v.(LookupRemoteConanRepositoryArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupRemoteConanRepositoryResult
-			secret, err := ctx.InvokePackageRaw("artifactory:index/getRemoteConanRepository:getRemoteConanRepository", args, &rv, "", opts...)
-			if err != nil {
-				return LookupRemoteConanRepositoryResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupRemoteConanRepositoryResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupRemoteConanRepositoryResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("artifactory:index/getRemoteConanRepository:getRemoteConanRepository", args, LookupRemoteConanRepositoryResultOutput{}, options).(LookupRemoteConanRepositoryResultOutput), nil
 		}).(LookupRemoteConanRepositoryResultOutput)
 }
 

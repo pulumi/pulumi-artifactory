@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetFederatedGoRepositoryResult> Invoke(GetFederatedGoRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFederatedGoRepositoryResult>("artifactory:index/getFederatedGoRepository:getFederatedGoRepository", args ?? new GetFederatedGoRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a federated Go repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var federated_test_go_repo = Artifactory.GetFederatedGoRepository.Invoke(new()
+        ///     {
+        ///         Key = "federated-test-go-repo",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetFederatedGoRepositoryResult> Invoke(GetFederatedGoRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFederatedGoRepositoryResult>("artifactory:index/getFederatedGoRepository:getFederatedGoRepository", args ?? new GetFederatedGoRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

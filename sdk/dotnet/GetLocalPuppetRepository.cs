@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetLocalPuppetRepositoryResult> Invoke(GetLocalPuppetRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalPuppetRepositoryResult>("artifactory:index/getLocalPuppetRepository:getLocalPuppetRepository", args ?? new GetLocalPuppetRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a local puppet repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var local_test_puppet_repo = Artifactory.GetLocalPuppetRepository.Invoke(new()
+        ///     {
+        ///         Key = "local-test-puppet-repo",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetLocalPuppetRepositoryResult> Invoke(GetLocalPuppetRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLocalPuppetRepositoryResult>("artifactory:index/getLocalPuppetRepository:getLocalPuppetRepository", args ?? new GetLocalPuppetRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

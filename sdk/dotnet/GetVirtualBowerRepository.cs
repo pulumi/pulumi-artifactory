@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetVirtualBowerRepositoryResult> Invoke(GetVirtualBowerRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualBowerRepositoryResult>("artifactory:index/getVirtualBowerRepository:getVirtualBowerRepository", args ?? new GetVirtualBowerRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a virtual Bower repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var virtual_alpine = Artifactory.GetVirtualBowerRepository.Invoke(new()
+        ///     {
+        ///         Key = "virtual-alpine",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetVirtualBowerRepositoryResult> Invoke(GetVirtualBowerRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVirtualBowerRepositoryResult>("artifactory:index/getVirtualBowerRepository:getVirtualBowerRepository", args ?? new GetVirtualBowerRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

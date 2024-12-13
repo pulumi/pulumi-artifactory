@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetVirtualIvyRepositoryResult> Invoke(GetVirtualIvyRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualIvyRepositoryResult>("artifactory:index/getVirtualIvyRepository:getVirtualIvyRepository", args ?? new GetVirtualIvyRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a virtual Ivy repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var virtual_ivy = Artifactory.GetVirtualIvyRepository.Invoke(new()
+        ///     {
+        ///         Key = "virtual-ivy",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetVirtualIvyRepositoryResult> Invoke(GetVirtualIvyRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVirtualIvyRepositoryResult>("artifactory:index/getVirtualIvyRepository:getVirtualIvyRepository", args ?? new GetVirtualIvyRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

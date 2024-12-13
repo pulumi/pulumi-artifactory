@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetRemoteAnsibleRepositoryResult> Invoke(GetRemoteAnsibleRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRemoteAnsibleRepositoryResult>("artifactory:index/getRemoteAnsibleRepository:getRemoteAnsibleRepository", args ?? new GetRemoteAnsibleRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a remote Ansible repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var remote_ansible = Artifactory.GetRemoteAnsibleRepository.Invoke(new()
+        ///     {
+        ///         Key = "remote-ansible",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetRemoteAnsibleRepositoryResult> Invoke(GetRemoteAnsibleRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRemoteAnsibleRepositoryResult>("artifactory:index/getRemoteAnsibleRepository:getRemoteAnsibleRepository", args ?? new GetRemoteAnsibleRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

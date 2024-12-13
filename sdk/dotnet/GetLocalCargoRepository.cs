@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetLocalCargoRepositoryResult> Invoke(GetLocalCargoRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalCargoRepositoryResult>("artifactory:index/getLocalCargoRepository:getLocalCargoRepository", args ?? new GetLocalCargoRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a local cargo repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var local_test_cargo_repo_basic = Artifactory.GetLocalCargoRepository.Invoke(new()
+        ///     {
+        ///         Key = "local-test-cargo-repo-basic",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetLocalCargoRepositoryResult> Invoke(GetLocalCargoRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLocalCargoRepositoryResult>("artifactory:index/getLocalCargoRepository:getLocalCargoRepository", args ?? new GetLocalCargoRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

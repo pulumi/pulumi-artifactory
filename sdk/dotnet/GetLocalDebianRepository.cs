@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetLocalDebianRepositoryResult> Invoke(GetLocalDebianRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalDebianRepositoryResult>("artifactory:index/getLocalDebianRepository:getLocalDebianRepository", args ?? new GetLocalDebianRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a local Debian repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var local_test_debian_repo_basic = Artifactory.GetLocalDebianRepository.Invoke(new()
+        ///     {
+        ///         Key = "local-test-debian-repo-basic",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetLocalDebianRepositoryResult> Invoke(GetLocalDebianRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLocalDebianRepositoryResult>("artifactory:index/getLocalDebianRepository:getLocalDebianRepository", args ?? new GetLocalDebianRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

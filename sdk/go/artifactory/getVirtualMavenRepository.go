@@ -93,21 +93,11 @@ type GetVirtualMavenRepositoryResult struct {
 }
 
 func GetVirtualMavenRepositoryOutput(ctx *pulumi.Context, args GetVirtualMavenRepositoryOutputArgs, opts ...pulumi.InvokeOption) GetVirtualMavenRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetVirtualMavenRepositoryResultOutput, error) {
 			args := v.(GetVirtualMavenRepositoryArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetVirtualMavenRepositoryResult
-			secret, err := ctx.InvokePackageRaw("artifactory:index/getVirtualMavenRepository:getVirtualMavenRepository", args, &rv, "", opts...)
-			if err != nil {
-				return GetVirtualMavenRepositoryResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetVirtualMavenRepositoryResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetVirtualMavenRepositoryResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("artifactory:index/getVirtualMavenRepository:getVirtualMavenRepository", args, GetVirtualMavenRepositoryResultOutput{}, options).(GetVirtualMavenRepositoryResultOutput), nil
 		}).(GetVirtualMavenRepositoryResultOutput)
 }
 

@@ -112,21 +112,11 @@ type LookupFederatedChefRepositoryResult struct {
 }
 
 func LookupFederatedChefRepositoryOutput(ctx *pulumi.Context, args LookupFederatedChefRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupFederatedChefRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupFederatedChefRepositoryResultOutput, error) {
 			args := v.(LookupFederatedChefRepositoryArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupFederatedChefRepositoryResult
-			secret, err := ctx.InvokePackageRaw("artifactory:index/getFederatedChefRepository:getFederatedChefRepository", args, &rv, "", opts...)
-			if err != nil {
-				return LookupFederatedChefRepositoryResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupFederatedChefRepositoryResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupFederatedChefRepositoryResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("artifactory:index/getFederatedChefRepository:getFederatedChefRepository", args, LookupFederatedChefRepositoryResultOutput{}, options).(LookupFederatedChefRepositoryResultOutput), nil
 		}).(LookupFederatedChefRepositoryResultOutput)
 }
 

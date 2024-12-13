@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetRemoteHelmociRepositoryResult> Invoke(GetRemoteHelmociRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRemoteHelmociRepositoryResult>("artifactory:index/getRemoteHelmociRepository:getRemoteHelmociRepository", args ?? new GetRemoteHelmociRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a remote Helm OCI repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var my_helmoci_remote = Artifactory.GetRemoteHelmociRepository.Invoke(new()
+        ///     {
+        ///         Key = "my-helmoci-remote",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetRemoteHelmociRepositoryResult> Invoke(GetRemoteHelmociRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRemoteHelmociRepositoryResult>("artifactory:index/getRemoteHelmociRepository:getRemoteHelmociRepository", args ?? new GetRemoteHelmociRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

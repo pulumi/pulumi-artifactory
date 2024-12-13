@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetRemoteSbtRepositoryResult> Invoke(GetRemoteSbtRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRemoteSbtRepositoryResult>("artifactory:index/getRemoteSbtRepository:getRemoteSbtRepository", args ?? new GetRemoteSbtRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a remote SBT repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var remote_sbt = Artifactory.GetRemoteSbtRepository.Invoke(new()
+        ///     {
+        ///         Key = "remote-sbt",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetRemoteSbtRepositoryResult> Invoke(GetRemoteSbtRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRemoteSbtRepositoryResult>("artifactory:index/getRemoteSbtRepository:getRemoteSbtRepository", args ?? new GetRemoteSbtRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

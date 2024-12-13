@@ -76,21 +76,11 @@ type LookupPermissionTargetResult struct {
 }
 
 func LookupPermissionTargetOutput(ctx *pulumi.Context, args LookupPermissionTargetOutputArgs, opts ...pulumi.InvokeOption) LookupPermissionTargetResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupPermissionTargetResultOutput, error) {
 			args := v.(LookupPermissionTargetArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupPermissionTargetResult
-			secret, err := ctx.InvokePackageRaw("artifactory:index/getPermissionTarget:getPermissionTarget", args, &rv, "", opts...)
-			if err != nil {
-				return LookupPermissionTargetResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupPermissionTargetResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupPermissionTargetResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("artifactory:index/getPermissionTarget:getPermissionTarget", args, LookupPermissionTargetResultOutput{}, options).(LookupPermissionTargetResultOutput), nil
 		}).(LookupPermissionTargetResultOutput)
 }
 

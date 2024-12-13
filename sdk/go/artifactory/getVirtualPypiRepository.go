@@ -83,21 +83,11 @@ type LookupVirtualPypiRepositoryResult struct {
 }
 
 func LookupVirtualPypiRepositoryOutput(ctx *pulumi.Context, args LookupVirtualPypiRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualPypiRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupVirtualPypiRepositoryResultOutput, error) {
 			args := v.(LookupVirtualPypiRepositoryArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupVirtualPypiRepositoryResult
-			secret, err := ctx.InvokePackageRaw("artifactory:index/getVirtualPypiRepository:getVirtualPypiRepository", args, &rv, "", opts...)
-			if err != nil {
-				return LookupVirtualPypiRepositoryResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupVirtualPypiRepositoryResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupVirtualPypiRepositoryResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("artifactory:index/getVirtualPypiRepository:getVirtualPypiRepository", args, LookupVirtualPypiRepositoryResultOutput{}, options).(LookupVirtualPypiRepositoryResultOutput), nil
 		}).(LookupVirtualPypiRepositoryResultOutput)
 }
 

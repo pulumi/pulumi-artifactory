@@ -123,21 +123,11 @@ type LookupFederatedGradleRepositoryResult struct {
 }
 
 func LookupFederatedGradleRepositoryOutput(ctx *pulumi.Context, args LookupFederatedGradleRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupFederatedGradleRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupFederatedGradleRepositoryResultOutput, error) {
 			args := v.(LookupFederatedGradleRepositoryArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupFederatedGradleRepositoryResult
-			secret, err := ctx.InvokePackageRaw("artifactory:index/getFederatedGradleRepository:getFederatedGradleRepository", args, &rv, "", opts...)
-			if err != nil {
-				return LookupFederatedGradleRepositoryResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupFederatedGradleRepositoryResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupFederatedGradleRepositoryResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("artifactory:index/getFederatedGradleRepository:getFederatedGradleRepository", args, LookupFederatedGradleRepositoryResultOutput{}, options).(LookupFederatedGradleRepositoryResultOutput), nil
 		}).(LookupFederatedGradleRepositoryResultOutput)
 }
 

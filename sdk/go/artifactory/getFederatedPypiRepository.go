@@ -111,21 +111,11 @@ type LookupFederatedPypiRepositoryResult struct {
 }
 
 func LookupFederatedPypiRepositoryOutput(ctx *pulumi.Context, args LookupFederatedPypiRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupFederatedPypiRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupFederatedPypiRepositoryResultOutput, error) {
 			args := v.(LookupFederatedPypiRepositoryArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupFederatedPypiRepositoryResult
-			secret, err := ctx.InvokePackageRaw("artifactory:index/getFederatedPypiRepository:getFederatedPypiRepository", args, &rv, "", opts...)
-			if err != nil {
-				return LookupFederatedPypiRepositoryResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupFederatedPypiRepositoryResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupFederatedPypiRepositoryResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("artifactory:index/getFederatedPypiRepository:getFederatedPypiRepository", args, LookupFederatedPypiRepositoryResultOutput{}, options).(LookupFederatedPypiRepositoryResultOutput), nil
 		}).(LookupFederatedPypiRepositoryResultOutput)
 }
 

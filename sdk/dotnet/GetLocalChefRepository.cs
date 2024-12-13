@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetLocalChefRepositoryResult> Invoke(GetLocalChefRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalChefRepositoryResult>("artifactory:index/getLocalChefRepository:getLocalChefRepository", args ?? new GetLocalChefRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a local Chef repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var local_test_chef_repo = Artifactory.GetLocalChefRepository.Invoke(new()
+        ///     {
+        ///         Key = "local-test-chef-repo",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetLocalChefRepositoryResult> Invoke(GetLocalChefRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLocalChefRepositoryResult>("artifactory:index/getLocalChefRepository:getLocalChefRepository", args ?? new GetLocalChefRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

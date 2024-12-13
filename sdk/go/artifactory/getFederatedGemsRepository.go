@@ -111,21 +111,11 @@ type LookupFederatedGemsRepositoryResult struct {
 }
 
 func LookupFederatedGemsRepositoryOutput(ctx *pulumi.Context, args LookupFederatedGemsRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupFederatedGemsRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupFederatedGemsRepositoryResultOutput, error) {
 			args := v.(LookupFederatedGemsRepositoryArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupFederatedGemsRepositoryResult
-			secret, err := ctx.InvokePackageRaw("artifactory:index/getFederatedGemsRepository:getFederatedGemsRepository", args, &rv, "", opts...)
-			if err != nil {
-				return LookupFederatedGemsRepositoryResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupFederatedGemsRepositoryResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupFederatedGemsRepositoryResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("artifactory:index/getFederatedGemsRepository:getFederatedGemsRepository", args, LookupFederatedGemsRepositoryResultOutput{}, options).(LookupFederatedGemsRepositoryResultOutput), nil
 		}).(LookupFederatedGemsRepositoryResultOutput)
 }
 

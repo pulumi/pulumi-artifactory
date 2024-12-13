@@ -66,6 +66,34 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetFileinfoResult> Invoke(GetFileinfoInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFileinfoResult>("artifactory:index/getFileinfo:getFileinfo", args ?? new GetFileinfoInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// ## # Artifactory File Info Data Source
+        /// 
+        /// Provides an Artifactory fileinfo datasource. This can be used to read metadata of files stored in Artifactory repositories.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     // 
+        ///     var my_file = Artifactory.GetFileinfo.Invoke(new()
+        ///     {
+        ///         Repository = "repo-key",
+        ///         Path = "/path/to/the/artifact.zip",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetFileinfoResult> Invoke(GetFileinfoInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFileinfoResult>("artifactory:index/getFileinfo:getFileinfo", args ?? new GetFileinfoInvokeArgs(), options.WithDefaults());
     }
 
 

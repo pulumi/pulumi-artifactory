@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetVirtualMavenRepositoryResult> Invoke(GetVirtualMavenRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualMavenRepositoryResult>("artifactory:index/getVirtualMavenRepository:getVirtualMavenRepository", args ?? new GetVirtualMavenRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a virtual Maven repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var virtual_maven = Artifactory.GetVirtualMavenRepository.Invoke(new()
+        ///     {
+        ///         Key = "virtual-maven",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetVirtualMavenRepositoryResult> Invoke(GetVirtualMavenRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVirtualMavenRepositoryResult>("artifactory:index/getVirtualMavenRepository:getVirtualMavenRepository", args ?? new GetVirtualMavenRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

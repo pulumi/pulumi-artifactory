@@ -92,21 +92,11 @@ type LookupLocalGenericRepositoryResult struct {
 }
 
 func LookupLocalGenericRepositoryOutput(ctx *pulumi.Context, args LookupLocalGenericRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupLocalGenericRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupLocalGenericRepositoryResultOutput, error) {
 			args := v.(LookupLocalGenericRepositoryArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupLocalGenericRepositoryResult
-			secret, err := ctx.InvokePackageRaw("artifactory:index/getLocalGenericRepository:getLocalGenericRepository", args, &rv, "", opts...)
-			if err != nil {
-				return LookupLocalGenericRepositoryResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupLocalGenericRepositoryResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupLocalGenericRepositoryResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("artifactory:index/getLocalGenericRepository:getLocalGenericRepository", args, LookupLocalGenericRepositoryResultOutput{}, options).(LookupLocalGenericRepositoryResultOutput), nil
 		}).(LookupLocalGenericRepositoryResultOutput)
 }
 

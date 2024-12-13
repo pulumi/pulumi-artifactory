@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetFederatedGitlfsRepositoryResult> Invoke(GetFederatedGitlfsRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFederatedGitlfsRepositoryResult>("artifactory:index/getFederatedGitlfsRepository:getFederatedGitlfsRepository", args ?? new GetFederatedGitlfsRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a federated Gitlfs repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var federated_test_gitlfs_repo = Artifactory.GetFederatedGitlfsRepository.Invoke(new()
+        ///     {
+        ///         Key = "federated-test-gitlfs-repo",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetFederatedGitlfsRepositoryResult> Invoke(GetFederatedGitlfsRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFederatedGitlfsRepositoryResult>("artifactory:index/getFederatedGitlfsRepository:getFederatedGitlfsRepository", args ?? new GetFederatedGitlfsRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

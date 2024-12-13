@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetVirtualP2RepositoryResult> Invoke(GetVirtualP2RepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualP2RepositoryResult>("artifactory:index/getVirtualP2Repository:getVirtualP2Repository", args ?? new GetVirtualP2RepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a virtual P2 repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var virtual_p2 = Artifactory.GetVirtualP2Repository.Invoke(new()
+        ///     {
+        ///         Key = "virtual-p2",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetVirtualP2RepositoryResult> Invoke(GetVirtualP2RepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVirtualP2RepositoryResult>("artifactory:index/getVirtualP2Repository:getVirtualP2Repository", args ?? new GetVirtualP2RepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

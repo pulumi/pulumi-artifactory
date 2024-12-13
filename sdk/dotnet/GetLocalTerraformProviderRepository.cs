@@ -54,6 +54,28 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetLocalTerraformProviderRepositoryResult> Invoke(GetLocalTerraformProviderRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalTerraformProviderRepositoryResult>("artifactory:index/getLocalTerraformProviderRepository:getLocalTerraformProviderRepository", args ?? new GetLocalTerraformProviderRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var local_test_terraform_provider_repo = Artifactory.GetLocalTerraformProviderRepository.Invoke(new()
+        ///     {
+        ///         Key = "local-test-terraform-provider-repo",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetLocalTerraformProviderRepositoryResult> Invoke(GetLocalTerraformProviderRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLocalTerraformProviderRepositoryResult>("artifactory:index/getLocalTerraformProviderRepository:getLocalTerraformProviderRepository", args ?? new GetLocalTerraformProviderRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

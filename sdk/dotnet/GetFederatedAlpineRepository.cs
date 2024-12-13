@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetFederatedAlpineRepositoryResult> Invoke(GetFederatedAlpineRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFederatedAlpineRepositoryResult>("artifactory:index/getFederatedAlpineRepository:getFederatedAlpineRepository", args ?? new GetFederatedAlpineRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a federated Alpine repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var federated_test_alpine_repo = Artifactory.GetFederatedAlpineRepository.Invoke(new()
+        ///     {
+        ///         Key = "federated-test-alpine-repo",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetFederatedAlpineRepositoryResult> Invoke(GetFederatedAlpineRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFederatedAlpineRepositoryResult>("artifactory:index/getFederatedAlpineRepository:getFederatedAlpineRepository", args ?? new GetFederatedAlpineRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

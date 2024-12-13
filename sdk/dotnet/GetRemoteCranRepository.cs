@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetRemoteCranRepositoryResult> Invoke(GetRemoteCranRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRemoteCranRepositoryResult>("artifactory:index/getRemoteCranRepository:getRemoteCranRepository", args ?? new GetRemoteCranRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a remote CRAN repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var remote_cran = Artifactory.GetRemoteCranRepository.Invoke(new()
+        ///     {
+        ///         Key = "remote-cran",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetRemoteCranRepositoryResult> Invoke(GetRemoteCranRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRemoteCranRepositoryResult>("artifactory:index/getRemoteCranRepository:getRemoteCranRepository", args ?? new GetRemoteCranRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

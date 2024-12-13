@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetRemotePypiRepositoryResult> Invoke(GetRemotePypiRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRemotePypiRepositoryResult>("artifactory:index/getRemotePypiRepository:getRemotePypiRepository", args ?? new GetRemotePypiRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a remote Pypi repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var remote_pypi = Artifactory.GetRemotePypiRepository.Invoke(new()
+        ///     {
+        ///         Key = "remote-pypi",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetRemotePypiRepositoryResult> Invoke(GetRemotePypiRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRemotePypiRepositoryResult>("artifactory:index/getRemotePypiRepository:getRemotePypiRepository", args ?? new GetRemotePypiRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

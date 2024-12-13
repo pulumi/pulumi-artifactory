@@ -131,21 +131,11 @@ type LookupLocalSbtRepositoryResult struct {
 }
 
 func LookupLocalSbtRepositoryOutput(ctx *pulumi.Context, args LookupLocalSbtRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupLocalSbtRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupLocalSbtRepositoryResultOutput, error) {
 			args := v.(LookupLocalSbtRepositoryArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupLocalSbtRepositoryResult
-			secret, err := ctx.InvokePackageRaw("artifactory:index/getLocalSbtRepository:getLocalSbtRepository", args, &rv, "", opts...)
-			if err != nil {
-				return LookupLocalSbtRepositoryResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupLocalSbtRepositoryResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupLocalSbtRepositoryResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("artifactory:index/getLocalSbtRepository:getLocalSbtRepository", args, LookupLocalSbtRepositoryResultOutput{}, options).(LookupLocalSbtRepositoryResultOutput), nil
 		}).(LookupLocalSbtRepositoryResultOutput)
 }
 

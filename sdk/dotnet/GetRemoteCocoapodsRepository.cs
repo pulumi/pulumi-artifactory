@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetRemoteCocoapodsRepositoryResult> Invoke(GetRemoteCocoapodsRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRemoteCocoapodsRepositoryResult>("artifactory:index/getRemoteCocoapodsRepository:getRemoteCocoapodsRepository", args ?? new GetRemoteCocoapodsRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a remote CocoaPods repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var remote_cocoapods = Artifactory.GetRemoteCocoapodsRepository.Invoke(new()
+        ///     {
+        ///         Key = "remote-cocoapods",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetRemoteCocoapodsRepositoryResult> Invoke(GetRemoteCocoapodsRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRemoteCocoapodsRepositoryResult>("artifactory:index/getRemoteCocoapodsRepository:getRemoteCocoapodsRepository", args ?? new GetRemoteCocoapodsRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

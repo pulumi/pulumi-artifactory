@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetLocalHelmRepositoryResult> Invoke(GetLocalHelmRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalHelmRepositoryResult>("artifactory:index/getLocalHelmRepository:getLocalHelmRepository", args ?? new GetLocalHelmRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a local helm repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var local_test_helm_repo = Artifactory.GetLocalHelmRepository.Invoke(new()
+        ///     {
+        ///         Key = "local-test-helm-repo",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetLocalHelmRepositoryResult> Invoke(GetLocalHelmRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLocalHelmRepositoryResult>("artifactory:index/getLocalHelmRepository:getLocalHelmRepository", args ?? new GetLocalHelmRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

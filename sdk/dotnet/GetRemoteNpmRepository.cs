@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetRemoteNpmRepositoryResult> Invoke(GetRemoteNpmRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRemoteNpmRepositoryResult>("artifactory:index/getRemoteNpmRepository:getRemoteNpmRepository", args ?? new GetRemoteNpmRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a remote Npm repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var remote_npm = Artifactory.GetRemoteNpmRepository.Invoke(new()
+        ///     {
+        ///         Key = "remote-npm",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetRemoteNpmRepositoryResult> Invoke(GetRemoteNpmRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRemoteNpmRepositoryResult>("artifactory:index/getRemoteNpmRepository:getRemoteNpmRepository", args ?? new GetRemoteNpmRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

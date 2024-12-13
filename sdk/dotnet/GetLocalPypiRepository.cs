@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetLocalPypiRepositoryResult> Invoke(GetLocalPypiRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalPypiRepositoryResult>("artifactory:index/getLocalPypiRepository:getLocalPypiRepository", args ?? new GetLocalPypiRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a local pypi repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var local_test_pypi_repo = Artifactory.GetLocalPypiRepository.Invoke(new()
+        ///     {
+        ///         Key = "local-test-pypi-repo",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetLocalPypiRepositoryResult> Invoke(GetLocalPypiRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLocalPypiRepositoryResult>("artifactory:index/getLocalPypiRepository:getLocalPypiRepository", args ?? new GetLocalPypiRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 
