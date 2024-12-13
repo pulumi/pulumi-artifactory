@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetVirtualPuppetRepositoryResult> Invoke(GetVirtualPuppetRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualPuppetRepositoryResult>("artifactory:index/getVirtualPuppetRepository:getVirtualPuppetRepository", args ?? new GetVirtualPuppetRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a virtual Puppet repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var virtual_puppet = Artifactory.GetVirtualPuppetRepository.Invoke(new()
+        ///     {
+        ///         Key = "virtual-puppet",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetVirtualPuppetRepositoryResult> Invoke(GetVirtualPuppetRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVirtualPuppetRepositoryResult>("artifactory:index/getVirtualPuppetRepository:getVirtualPuppetRepository", args ?? new GetVirtualPuppetRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

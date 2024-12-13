@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetVirtualGoRepositoryResult> Invoke(GetVirtualGoRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualGoRepositoryResult>("artifactory:index/getVirtualGoRepository:getVirtualGoRepository", args ?? new GetVirtualGoRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a virtual Go repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var virtual_go = Artifactory.GetVirtualGoRepository.Invoke(new()
+        ///     {
+        ///         Key = "virtual-go",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetVirtualGoRepositoryResult> Invoke(GetVirtualGoRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVirtualGoRepositoryResult>("artifactory:index/getVirtualGoRepository:getVirtualGoRepository", args ?? new GetVirtualGoRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetLocalDockerV2RepositoryResult> Invoke(GetLocalDockerV2RepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalDockerV2RepositoryResult>("artifactory:index/getLocalDockerV2Repository:getLocalDockerV2Repository", args ?? new GetLocalDockerV2RepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a local Docker (V2) repository resource
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var artifactoryLocalTestDockerV2Repository = Artifactory.GetLocalDockerV2Repository.Invoke(new()
+        ///     {
+        ///         Key = "artifactory_local_test_docker_v2_repository",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetLocalDockerV2RepositoryResult> Invoke(GetLocalDockerV2RepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLocalDockerV2RepositoryResult>("artifactory:index/getLocalDockerV2Repository:getLocalDockerV2Repository", args ?? new GetLocalDockerV2RepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

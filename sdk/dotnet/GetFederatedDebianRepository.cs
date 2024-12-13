@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetFederatedDebianRepositoryResult> Invoke(GetFederatedDebianRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFederatedDebianRepositoryResult>("artifactory:index/getFederatedDebianRepository:getFederatedDebianRepository", args ?? new GetFederatedDebianRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a federated Debian repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var federated_test_debian_repo = Artifactory.GetFederatedDebianRepository.Invoke(new()
+        ///     {
+        ///         Key = "federated-test-debian-repo",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetFederatedDebianRepositoryResult> Invoke(GetFederatedDebianRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFederatedDebianRepositoryResult>("artifactory:index/getFederatedDebianRepository:getFederatedDebianRepository", args ?? new GetFederatedDebianRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

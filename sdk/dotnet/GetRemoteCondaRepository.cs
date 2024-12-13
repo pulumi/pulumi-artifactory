@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetRemoteCondaRepositoryResult> Invoke(GetRemoteCondaRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRemoteCondaRepositoryResult>("artifactory:index/getRemoteCondaRepository:getRemoteCondaRepository", args ?? new GetRemoteCondaRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a remote Conda repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var remote_conda = Artifactory.GetRemoteCondaRepository.Invoke(new()
+        ///     {
+        ///         Key = "remote-conda",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetRemoteCondaRepositoryResult> Invoke(GetRemoteCondaRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRemoteCondaRepositoryResult>("artifactory:index/getRemoteCondaRepository:getRemoteCondaRepository", args ?? new GetRemoteCondaRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

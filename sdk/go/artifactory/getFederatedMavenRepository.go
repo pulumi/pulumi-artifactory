@@ -123,21 +123,11 @@ type LookupFederatedMavenRepositoryResult struct {
 }
 
 func LookupFederatedMavenRepositoryOutput(ctx *pulumi.Context, args LookupFederatedMavenRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupFederatedMavenRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupFederatedMavenRepositoryResultOutput, error) {
 			args := v.(LookupFederatedMavenRepositoryArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupFederatedMavenRepositoryResult
-			secret, err := ctx.InvokePackageRaw("artifactory:index/getFederatedMavenRepository:getFederatedMavenRepository", args, &rv, "", opts...)
-			if err != nil {
-				return LookupFederatedMavenRepositoryResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupFederatedMavenRepositoryResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupFederatedMavenRepositoryResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("artifactory:index/getFederatedMavenRepository:getFederatedMavenRepository", args, LookupFederatedMavenRepositoryResultOutput{}, options).(LookupFederatedMavenRepositoryResultOutput), nil
 		}).(LookupFederatedMavenRepositoryResultOutput)
 }
 

@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetFederatedGradleRepositoryResult> Invoke(GetFederatedGradleRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFederatedGradleRepositoryResult>("artifactory:index/getFederatedGradleRepository:getFederatedGradleRepository", args ?? new GetFederatedGradleRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a federated Gradle repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var federated_test_gradle_repo = Artifactory.GetFederatedGradleRepository.Invoke(new()
+        ///     {
+        ///         Key = "federated-test-gradle-repo",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetFederatedGradleRepositoryResult> Invoke(GetFederatedGradleRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFederatedGradleRepositoryResult>("artifactory:index/getFederatedGradleRepository:getFederatedGradleRepository", args ?? new GetFederatedGradleRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

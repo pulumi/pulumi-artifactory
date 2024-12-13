@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetVirtualPubRepositoryResult> Invoke(GetVirtualPubRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualPubRepositoryResult>("artifactory:index/getVirtualPubRepository:getVirtualPubRepository", args ?? new GetVirtualPubRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a virtual Pub repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var virtual_pub = Artifactory.GetVirtualPubRepository.Invoke(new()
+        ///     {
+        ///         Key = "virtual-pub",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetVirtualPubRepositoryResult> Invoke(GetVirtualPubRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVirtualPubRepositoryResult>("artifactory:index/getVirtualPubRepository:getVirtualPubRepository", args ?? new GetVirtualPubRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

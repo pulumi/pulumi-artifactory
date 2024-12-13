@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetLocalCocoapodsRepositoryResult> Invoke(GetLocalCocoapodsRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalCocoapodsRepositoryResult>("artifactory:index/getLocalCocoapodsRepository:getLocalCocoapodsRepository", args ?? new GetLocalCocoapodsRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a local cocoapods repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var local_test_cocoapods_repo = Artifactory.GetLocalCocoapodsRepository.Invoke(new()
+        ///     {
+        ///         Key = "local-test-cocoapods-repo",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetLocalCocoapodsRepositoryResult> Invoke(GetLocalCocoapodsRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLocalCocoapodsRepositoryResult>("artifactory:index/getLocalCocoapodsRepository:getLocalCocoapodsRepository", args ?? new GetLocalCocoapodsRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

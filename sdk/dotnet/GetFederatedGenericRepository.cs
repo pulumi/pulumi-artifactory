@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetFederatedGenericRepositoryResult> Invoke(GetFederatedGenericRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFederatedGenericRepositoryResult>("artifactory:index/getFederatedGenericRepository:getFederatedGenericRepository", args ?? new GetFederatedGenericRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a federated Generic repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var terraform_federated_test_generic_repo = Artifactory.GetFederatedGenericRepository.Invoke(new()
+        ///     {
+        ///         Key = "terraform-federated-test-generic-repo",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetFederatedGenericRepositoryResult> Invoke(GetFederatedGenericRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFederatedGenericRepositoryResult>("artifactory:index/getFederatedGenericRepository:getFederatedGenericRepository", args ?? new GetFederatedGenericRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

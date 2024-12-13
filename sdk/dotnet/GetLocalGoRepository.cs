@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetLocalGoRepositoryResult> Invoke(GetLocalGoRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalGoRepositoryResult>("artifactory:index/getLocalGoRepository:getLocalGoRepository", args ?? new GetLocalGoRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a local go repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var local_test_go_repo = Artifactory.GetLocalGoRepository.Invoke(new()
+        ///     {
+        ///         Key = "local-test-go-repo",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetLocalGoRepositoryResult> Invoke(GetLocalGoRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLocalGoRepositoryResult>("artifactory:index/getLocalGoRepository:getLocalGoRepository", args ?? new GetLocalGoRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -147,21 +147,11 @@ type LookupRemoteDebianRepositoryResult struct {
 }
 
 func LookupRemoteDebianRepositoryOutput(ctx *pulumi.Context, args LookupRemoteDebianRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupRemoteDebianRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupRemoteDebianRepositoryResultOutput, error) {
 			args := v.(LookupRemoteDebianRepositoryArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupRemoteDebianRepositoryResult
-			secret, err := ctx.InvokePackageRaw("artifactory:index/getRemoteDebianRepository:getRemoteDebianRepository", args, &rv, "", opts...)
-			if err != nil {
-				return LookupRemoteDebianRepositoryResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupRemoteDebianRepositoryResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupRemoteDebianRepositoryResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("artifactory:index/getRemoteDebianRepository:getRemoteDebianRepository", args, LookupRemoteDebianRepositoryResultOutput{}, options).(LookupRemoteDebianRepositoryResultOutput), nil
 		}).(LookupRemoteDebianRepositoryResultOutput)
 }
 

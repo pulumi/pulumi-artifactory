@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetFederatedCocoapodsRepositoryResult> Invoke(GetFederatedCocoapodsRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFederatedCocoapodsRepositoryResult>("artifactory:index/getFederatedCocoapodsRepository:getFederatedCocoapodsRepository", args ?? new GetFederatedCocoapodsRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a federated Cocoapods repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var federated_test_cocoapods_repo = Artifactory.GetFederatedCocoapodsRepository.Invoke(new()
+        ///     {
+        ///         Key = "federated-test-cocoapods-repo",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetFederatedCocoapodsRepositoryResult> Invoke(GetFederatedCocoapodsRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFederatedCocoapodsRepositoryResult>("artifactory:index/getFederatedCocoapodsRepository:getFederatedCocoapodsRepository", args ?? new GetFederatedCocoapodsRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

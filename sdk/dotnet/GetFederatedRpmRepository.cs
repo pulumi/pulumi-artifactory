@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetFederatedRpmRepositoryResult> Invoke(GetFederatedRpmRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFederatedRpmRepositoryResult>("artifactory:index/getFederatedRpmRepository:getFederatedRpmRepository", args ?? new GetFederatedRpmRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a federated Rpm repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var federated_test_rpm_repo = Artifactory.GetFederatedRpmRepository.Invoke(new()
+        ///     {
+        ///         Key = "federated-test-rpm-repo",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetFederatedRpmRepositoryResult> Invoke(GetFederatedRpmRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFederatedRpmRepositoryResult>("artifactory:index/getFederatedRpmRepository:getFederatedRpmRepository", args ?? new GetFederatedRpmRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

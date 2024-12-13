@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetLocalComposerRepositoryResult> Invoke(GetLocalComposerRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalComposerRepositoryResult>("artifactory:index/getLocalComposerRepository:getLocalComposerRepository", args ?? new GetLocalComposerRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a local composer repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var local_test_composer_repo = Artifactory.GetLocalComposerRepository.Invoke(new()
+        ///     {
+        ///         Key = "local-test-composer-repo",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetLocalComposerRepositoryResult> Invoke(GetLocalComposerRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLocalComposerRepositoryResult>("artifactory:index/getLocalComposerRepository:getLocalComposerRepository", args ?? new GetLocalComposerRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

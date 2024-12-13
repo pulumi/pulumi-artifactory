@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetVirtualConanRepositoryResult> Invoke(GetVirtualConanRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualConanRepositoryResult>("artifactory:index/getVirtualConanRepository:getVirtualConanRepository", args ?? new GetVirtualConanRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a virtual Conan repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var virtual_conan = Artifactory.GetVirtualConanRepository.Invoke(new()
+        ///     {
+        ///         Key = "virtual-conan",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetVirtualConanRepositoryResult> Invoke(GetVirtualConanRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVirtualConanRepositoryResult>("artifactory:index/getVirtualConanRepository:getVirtualConanRepository", args ?? new GetVirtualConanRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

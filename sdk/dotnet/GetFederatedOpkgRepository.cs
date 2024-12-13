@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetFederatedOpkgRepositoryResult> Invoke(GetFederatedOpkgRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFederatedOpkgRepositoryResult>("artifactory:index/getFederatedOpkgRepository:getFederatedOpkgRepository", args ?? new GetFederatedOpkgRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a federated Opkg repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var federated_test_opkg_repo = Artifactory.GetFederatedOpkgRepository.Invoke(new()
+        ///     {
+        ///         Key = "federated-test-opkg-repo",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetFederatedOpkgRepositoryResult> Invoke(GetFederatedOpkgRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFederatedOpkgRepositoryResult>("artifactory:index/getFederatedOpkgRepository:getFederatedOpkgRepository", args ?? new GetFederatedOpkgRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

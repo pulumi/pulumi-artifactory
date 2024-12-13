@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetFederatedPuppetRepositoryResult> Invoke(GetFederatedPuppetRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFederatedPuppetRepositoryResult>("artifactory:index/getFederatedPuppetRepository:getFederatedPuppetRepository", args ?? new GetFederatedPuppetRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a federated Puppet repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var federated_test_puppet_repo = Artifactory.GetFederatedPuppetRepository.Invoke(new()
+        ///     {
+        ///         Key = "federated-test-puppet-repo",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetFederatedPuppetRepositoryResult> Invoke(GetFederatedPuppetRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFederatedPuppetRepositoryResult>("artifactory:index/getFederatedPuppetRepository:getFederatedPuppetRepository", args ?? new GetFederatedPuppetRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -64,6 +64,33 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetUserResult> Invoke(GetUserInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserResult>("artifactory:index/getUser:getUser", args ?? new GetUserInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// ## # Artifactory User Data Source
+        /// 
+        /// Provides an Artifactory user data source. This can be used to read the configuration of users in artifactory.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     //
+        ///     var user1 = Artifactory.GetUser.Invoke(new()
+        ///     {
+        ///         Name = "user1",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetUserResult> Invoke(GetUserInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetUserResult>("artifactory:index/getUser:getUser", args ?? new GetUserInvokeArgs(), options.WithDefaults());
     }
 
 

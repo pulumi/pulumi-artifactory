@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetRemoteOciRepositoryResult> Invoke(GetRemoteOciRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRemoteOciRepositoryResult>("artifactory:index/getRemoteOciRepository:getRemoteOciRepository", args ?? new GetRemoteOciRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a remote OCI repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var my_oci_remote = Artifactory.GetRemoteOciRepository.Invoke(new()
+        ///     {
+        ///         Key = "my-oci-remote",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetRemoteOciRepositoryResult> Invoke(GetRemoteOciRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRemoteOciRepositoryResult>("artifactory:index/getRemoteOciRepository:getRemoteOciRepository", args ?? new GetRemoteOciRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

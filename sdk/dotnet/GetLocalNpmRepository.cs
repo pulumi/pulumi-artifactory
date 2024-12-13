@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetLocalNpmRepositoryResult> Invoke(GetLocalNpmRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalNpmRepositoryResult>("artifactory:index/getLocalNpmRepository:getLocalNpmRepository", args ?? new GetLocalNpmRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a local npm repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var local_test_npm_repo = Artifactory.GetLocalNpmRepository.Invoke(new()
+        ///     {
+        ///         Key = "local-test-npm-repo",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetLocalNpmRepositoryResult> Invoke(GetLocalNpmRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLocalNpmRepositoryResult>("artifactory:index/getLocalNpmRepository:getLocalNpmRepository", args ?? new GetLocalNpmRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

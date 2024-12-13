@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetVirtualDebianRepositoryResult> Invoke(GetVirtualDebianRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualDebianRepositoryResult>("artifactory:index/getVirtualDebianRepository:getVirtualDebianRepository", args ?? new GetVirtualDebianRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a virtual Debian repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var virtual_debian = Artifactory.GetVirtualDebianRepository.Invoke(new()
+        ///     {
+        ///         Key = "virtual-debian",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetVirtualDebianRepositoryResult> Invoke(GetVirtualDebianRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVirtualDebianRepositoryResult>("artifactory:index/getVirtualDebianRepository:getVirtualDebianRepository", args ?? new GetVirtualDebianRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

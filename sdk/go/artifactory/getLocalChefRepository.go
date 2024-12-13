@@ -96,21 +96,11 @@ type LookupLocalChefRepositoryResult struct {
 }
 
 func LookupLocalChefRepositoryOutput(ctx *pulumi.Context, args LookupLocalChefRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupLocalChefRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupLocalChefRepositoryResultOutput, error) {
 			args := v.(LookupLocalChefRepositoryArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupLocalChefRepositoryResult
-			secret, err := ctx.InvokePackageRaw("artifactory:index/getLocalChefRepository:getLocalChefRepository", args, &rv, "", opts...)
-			if err != nil {
-				return LookupLocalChefRepositoryResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupLocalChefRepositoryResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupLocalChefRepositoryResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("artifactory:index/getLocalChefRepository:getLocalChefRepository", args, LookupLocalChefRepositoryResultOutput{}, options).(LookupLocalChefRepositoryResultOutput), nil
 		}).(LookupLocalChefRepositoryResultOutput)
 }
 

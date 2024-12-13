@@ -113,21 +113,11 @@ type GetLocalDebianRepositoryResult struct {
 }
 
 func GetLocalDebianRepositoryOutput(ctx *pulumi.Context, args GetLocalDebianRepositoryOutputArgs, opts ...pulumi.InvokeOption) GetLocalDebianRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetLocalDebianRepositoryResultOutput, error) {
 			args := v.(GetLocalDebianRepositoryArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetLocalDebianRepositoryResult
-			secret, err := ctx.InvokePackageRaw("artifactory:index/getLocalDebianRepository:getLocalDebianRepository", args, &rv, "", opts...)
-			if err != nil {
-				return GetLocalDebianRepositoryResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetLocalDebianRepositoryResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetLocalDebianRepositoryResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("artifactory:index/getLocalDebianRepository:getLocalDebianRepository", args, GetLocalDebianRepositoryResultOutput{}, options).(GetLocalDebianRepositoryResultOutput), nil
 		}).(GetLocalDebianRepositoryResultOutput)
 }
 

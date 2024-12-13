@@ -111,21 +111,11 @@ type LookupFederatedCranRepositoryResult struct {
 }
 
 func LookupFederatedCranRepositoryOutput(ctx *pulumi.Context, args LookupFederatedCranRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupFederatedCranRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupFederatedCranRepositoryResultOutput, error) {
 			args := v.(LookupFederatedCranRepositoryArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupFederatedCranRepositoryResult
-			secret, err := ctx.InvokePackageRaw("artifactory:index/getFederatedCranRepository:getFederatedCranRepository", args, &rv, "", opts...)
-			if err != nil {
-				return LookupFederatedCranRepositoryResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupFederatedCranRepositoryResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupFederatedCranRepositoryResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("artifactory:index/getFederatedCranRepository:getFederatedCranRepository", args, LookupFederatedCranRepositoryResultOutput{}, options).(LookupFederatedCranRepositoryResultOutput), nil
 		}).(LookupFederatedCranRepositoryResultOutput)
 }
 

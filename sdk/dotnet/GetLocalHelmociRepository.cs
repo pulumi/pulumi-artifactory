@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetLocalHelmociRepositoryResult> Invoke(GetLocalHelmociRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalHelmociRepositoryResult>("artifactory:index/getLocalHelmociRepository:getLocalHelmociRepository", args ?? new GetLocalHelmociRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a local Helm OCI repository resource
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var my_helmoci_local = Artifactory.GetLocalHelmociRepository.Invoke(new()
+        ///     {
+        ///         Key = "my-helmoci-local",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetLocalHelmociRepositoryResult> Invoke(GetLocalHelmociRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLocalHelmociRepositoryResult>("artifactory:index/getLocalHelmociRepository:getLocalHelmociRepository", args ?? new GetLocalHelmociRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

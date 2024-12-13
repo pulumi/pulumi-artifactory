@@ -131,21 +131,11 @@ type LookupLocalGradleRepositoryResult struct {
 }
 
 func LookupLocalGradleRepositoryOutput(ctx *pulumi.Context, args LookupLocalGradleRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupLocalGradleRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupLocalGradleRepositoryResultOutput, error) {
 			args := v.(LookupLocalGradleRepositoryArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupLocalGradleRepositoryResult
-			secret, err := ctx.InvokePackageRaw("artifactory:index/getLocalGradleRepository:getLocalGradleRepository", args, &rv, "", opts...)
-			if err != nil {
-				return LookupLocalGradleRepositoryResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupLocalGradleRepositoryResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupLocalGradleRepositoryResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("artifactory:index/getLocalGradleRepository:getLocalGradleRepository", args, LookupLocalGradleRepositoryResultOutput{}, options).(LookupLocalGradleRepositoryResultOutput), nil
 		}).(LookupLocalGradleRepositoryResultOutput)
 }
 

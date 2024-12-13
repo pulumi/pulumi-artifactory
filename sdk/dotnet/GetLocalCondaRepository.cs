@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetLocalCondaRepositoryResult> Invoke(GetLocalCondaRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalCondaRepositoryResult>("artifactory:index/getLocalCondaRepository:getLocalCondaRepository", args ?? new GetLocalCondaRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a local conda repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var local_test_conda_repo = Artifactory.GetLocalCondaRepository.Invoke(new()
+        ///     {
+        ///         Key = "local-test-conda-repo",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetLocalCondaRepositoryResult> Invoke(GetLocalCondaRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLocalCondaRepositoryResult>("artifactory:index/getLocalCondaRepository:getLocalCondaRepository", args ?? new GetLocalCondaRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

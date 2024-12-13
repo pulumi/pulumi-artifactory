@@ -16,6 +16,9 @@ namespace Pulumi.Artifactory
 
         public static Output<GetVirtualCocoapodsRepositoryResult> Invoke(GetVirtualCocoapodsRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualCocoapodsRepositoryResult>("artifactory:index/getVirtualCocoapodsRepository:getVirtualCocoapodsRepository", args ?? new GetVirtualCocoapodsRepositoryInvokeArgs(), options.WithDefaults());
+
+        public static Output<GetVirtualCocoapodsRepositoryResult> Invoke(GetVirtualCocoapodsRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVirtualCocoapodsRepositoryResult>("artifactory:index/getVirtualCocoapodsRepository:getVirtualCocoapodsRepository", args ?? new GetVirtualCocoapodsRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

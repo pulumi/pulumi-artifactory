@@ -83,21 +83,11 @@ type LookupVirtualP2RepositoryResult struct {
 }
 
 func LookupVirtualP2RepositoryOutput(ctx *pulumi.Context, args LookupVirtualP2RepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualP2RepositoryResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupVirtualP2RepositoryResultOutput, error) {
 			args := v.(LookupVirtualP2RepositoryArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupVirtualP2RepositoryResult
-			secret, err := ctx.InvokePackageRaw("artifactory:index/getVirtualP2Repository:getVirtualP2Repository", args, &rv, "", opts...)
-			if err != nil {
-				return LookupVirtualP2RepositoryResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupVirtualP2RepositoryResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupVirtualP2RepositoryResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("artifactory:index/getVirtualP2Repository:getVirtualP2Repository", args, LookupVirtualP2RepositoryResultOutput{}, options).(LookupVirtualP2RepositoryResultOutput), nil
 		}).(LookupVirtualP2RepositoryResultOutput)
 }
 

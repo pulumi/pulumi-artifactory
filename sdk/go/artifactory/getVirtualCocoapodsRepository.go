@@ -55,21 +55,11 @@ type LookupVirtualCocoapodsRepositoryResult struct {
 }
 
 func LookupVirtualCocoapodsRepositoryOutput(ctx *pulumi.Context, args LookupVirtualCocoapodsRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualCocoapodsRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupVirtualCocoapodsRepositoryResultOutput, error) {
 			args := v.(LookupVirtualCocoapodsRepositoryArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupVirtualCocoapodsRepositoryResult
-			secret, err := ctx.InvokePackageRaw("artifactory:index/getVirtualCocoapodsRepository:getVirtualCocoapodsRepository", args, &rv, "", opts...)
-			if err != nil {
-				return LookupVirtualCocoapodsRepositoryResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupVirtualCocoapodsRepositoryResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupVirtualCocoapodsRepositoryResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("artifactory:index/getVirtualCocoapodsRepository:getVirtualCocoapodsRepository", args, LookupVirtualCocoapodsRepositoryResultOutput{}, options).(LookupVirtualCocoapodsRepositoryResultOutput), nil
 		}).(LookupVirtualCocoapodsRepositoryResultOutput)
 }
 

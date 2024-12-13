@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetVirtualNpmRepositoryResult> Invoke(GetVirtualNpmRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualNpmRepositoryResult>("artifactory:index/getVirtualNpmRepository:getVirtualNpmRepository", args ?? new GetVirtualNpmRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a virtual NPM repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var virtual_npm = Artifactory.GetVirtualNpmRepository.Invoke(new()
+        ///     {
+        ///         Key = "virtual-npm",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetVirtualNpmRepositoryResult> Invoke(GetVirtualNpmRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVirtualNpmRepositoryResult>("artifactory:index/getVirtualNpmRepository:getVirtualNpmRepository", args ?? new GetVirtualNpmRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

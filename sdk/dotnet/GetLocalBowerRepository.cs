@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetLocalBowerRepositoryResult> Invoke(GetLocalBowerRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalBowerRepositoryResult>("artifactory:index/getLocalBowerRepository:getLocalBowerRepository", args ?? new GetLocalBowerRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a local Bower repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var local_test_bower_repo = Artifactory.GetLocalBowerRepository.Invoke(new()
+        ///     {
+        ///         Key = "local-test-bower-repo",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetLocalBowerRepositoryResult> Invoke(GetLocalBowerRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLocalBowerRepositoryResult>("artifactory:index/getLocalBowerRepository:getLocalBowerRepository", args ?? new GetLocalBowerRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

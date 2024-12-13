@@ -147,21 +147,11 @@ type LookupRemotePubRepositoryResult struct {
 }
 
 func LookupRemotePubRepositoryOutput(ctx *pulumi.Context, args LookupRemotePubRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupRemotePubRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupRemotePubRepositoryResultOutput, error) {
 			args := v.(LookupRemotePubRepositoryArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupRemotePubRepositoryResult
-			secret, err := ctx.InvokePackageRaw("artifactory:index/getRemotePubRepository:getRemotePubRepository", args, &rv, "", opts...)
-			if err != nil {
-				return LookupRemotePubRepositoryResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupRemotePubRepositoryResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupRemotePubRepositoryResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("artifactory:index/getRemotePubRepository:getRemotePubRepository", args, LookupRemotePubRepositoryResultOutput{}, options).(LookupRemotePubRepositoryResultOutput), nil
 		}).(LookupRemotePubRepositoryResultOutput)
 }
 

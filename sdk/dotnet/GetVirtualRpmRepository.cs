@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetVirtualRpmRepositoryResult> Invoke(GetVirtualRpmRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualRpmRepositoryResult>("artifactory:index/getVirtualRpmRepository:getVirtualRpmRepository", args ?? new GetVirtualRpmRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a virtual Rpm repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var virtual_rpm = Artifactory.GetVirtualRpmRepository.Invoke(new()
+        ///     {
+        ///         Key = "virtual-rpm",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetVirtualRpmRepositoryResult> Invoke(GetVirtualRpmRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVirtualRpmRepositoryResult>("artifactory:index/getVirtualRpmRepository:getVirtualRpmRepository", args ?? new GetVirtualRpmRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

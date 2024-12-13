@@ -113,21 +113,11 @@ type LookupFederatedConanRepositoryResult struct {
 }
 
 func LookupFederatedConanRepositoryOutput(ctx *pulumi.Context, args LookupFederatedConanRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupFederatedConanRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupFederatedConanRepositoryResultOutput, error) {
 			args := v.(LookupFederatedConanRepositoryArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupFederatedConanRepositoryResult
-			secret, err := ctx.InvokePackageRaw("artifactory:index/getFederatedConanRepository:getFederatedConanRepository", args, &rv, "", opts...)
-			if err != nil {
-				return LookupFederatedConanRepositoryResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupFederatedConanRepositoryResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupFederatedConanRepositoryResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("artifactory:index/getFederatedConanRepository:getFederatedConanRepository", args, LookupFederatedConanRepositoryResultOutput{}, options).(LookupFederatedConanRepositoryResultOutput), nil
 		}).(LookupFederatedConanRepositoryResultOutput)
 }
 

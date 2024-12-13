@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetLocalRpmRepositoryResult> Invoke(GetLocalRpmRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalRpmRepositoryResult>("artifactory:index/getLocalRpmRepository:getLocalRpmRepository", args ?? new GetLocalRpmRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a local RPM repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var local_test_rpm_repo_basic = Artifactory.GetLocalRpmRepository.Invoke(new()
+        ///     {
+        ///         Key = "local-test-rpm-repo-basic",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetLocalRpmRepositoryResult> Invoke(GetLocalRpmRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLocalRpmRepositoryResult>("artifactory:index/getLocalRpmRepository:getLocalRpmRepository", args ?? new GetLocalRpmRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

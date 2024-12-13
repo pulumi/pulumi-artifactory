@@ -111,21 +111,11 @@ type GetFederatedGitlfsRepositoryResult struct {
 }
 
 func GetFederatedGitlfsRepositoryOutput(ctx *pulumi.Context, args GetFederatedGitlfsRepositoryOutputArgs, opts ...pulumi.InvokeOption) GetFederatedGitlfsRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetFederatedGitlfsRepositoryResultOutput, error) {
 			args := v.(GetFederatedGitlfsRepositoryArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetFederatedGitlfsRepositoryResult
-			secret, err := ctx.InvokePackageRaw("artifactory:index/getFederatedGitlfsRepository:getFederatedGitlfsRepository", args, &rv, "", opts...)
-			if err != nil {
-				return GetFederatedGitlfsRepositoryResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetFederatedGitlfsRepositoryResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetFederatedGitlfsRepositoryResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("artifactory:index/getFederatedGitlfsRepository:getFederatedGitlfsRepository", args, GetFederatedGitlfsRepositoryResultOutput{}, options).(GetFederatedGitlfsRepositoryResultOutput), nil
 		}).(GetFederatedGitlfsRepositoryResultOutput)
 }
 

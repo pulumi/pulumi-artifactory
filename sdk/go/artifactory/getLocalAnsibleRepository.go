@@ -95,21 +95,11 @@ type LookupLocalAnsibleRepositoryResult struct {
 }
 
 func LookupLocalAnsibleRepositoryOutput(ctx *pulumi.Context, args LookupLocalAnsibleRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupLocalAnsibleRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupLocalAnsibleRepositoryResultOutput, error) {
 			args := v.(LookupLocalAnsibleRepositoryArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupLocalAnsibleRepositoryResult
-			secret, err := ctx.InvokePackageRaw("artifactory:index/getLocalAnsibleRepository:getLocalAnsibleRepository", args, &rv, "", opts...)
-			if err != nil {
-				return LookupLocalAnsibleRepositoryResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupLocalAnsibleRepositoryResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupLocalAnsibleRepositoryResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("artifactory:index/getLocalAnsibleRepository:getLocalAnsibleRepository", args, LookupLocalAnsibleRepositoryResultOutput{}, options).(LookupLocalAnsibleRepositoryResultOutput), nil
 		}).(LookupLocalAnsibleRepositoryResultOutput)
 }
 

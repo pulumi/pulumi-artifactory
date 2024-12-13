@@ -121,21 +121,11 @@ type LookupFederatedDebianRepositoryResult struct {
 }
 
 func LookupFederatedDebianRepositoryOutput(ctx *pulumi.Context, args LookupFederatedDebianRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupFederatedDebianRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupFederatedDebianRepositoryResultOutput, error) {
 			args := v.(LookupFederatedDebianRepositoryArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupFederatedDebianRepositoryResult
-			secret, err := ctx.InvokePackageRaw("artifactory:index/getFederatedDebianRepository:getFederatedDebianRepository", args, &rv, "", opts...)
-			if err != nil {
-				return LookupFederatedDebianRepositoryResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupFederatedDebianRepositoryResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupFederatedDebianRepositoryResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("artifactory:index/getFederatedDebianRepository:getFederatedDebianRepository", args, LookupFederatedDebianRepositoryResultOutput{}, options).(LookupFederatedDebianRepositoryResultOutput), nil
 		}).(LookupFederatedDebianRepositoryResultOutput)
 }
 

@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetFederatedGemsRepositoryResult> Invoke(GetFederatedGemsRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFederatedGemsRepositoryResult>("artifactory:index/getFederatedGemsRepository:getFederatedGemsRepository", args ?? new GetFederatedGemsRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a federated Gems repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var federated_test_gems_repo = Artifactory.GetFederatedGemsRepository.Invoke(new()
+        ///     {
+        ///         Key = "federated-test-gems-repo",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetFederatedGemsRepositoryResult> Invoke(GetFederatedGemsRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFederatedGemsRepositoryResult>("artifactory:index/getFederatedGemsRepository:getFederatedGemsRepository", args ?? new GetFederatedGemsRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

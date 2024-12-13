@@ -161,21 +161,11 @@ type LookupRemoteHelmociRepositoryResult struct {
 }
 
 func LookupRemoteHelmociRepositoryOutput(ctx *pulumi.Context, args LookupRemoteHelmociRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupRemoteHelmociRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupRemoteHelmociRepositoryResultOutput, error) {
 			args := v.(LookupRemoteHelmociRepositoryArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupRemoteHelmociRepositoryResult
-			secret, err := ctx.InvokePackageRaw("artifactory:index/getRemoteHelmociRepository:getRemoteHelmociRepository", args, &rv, "", opts...)
-			if err != nil {
-				return LookupRemoteHelmociRepositoryResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupRemoteHelmociRepositoryResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupRemoteHelmociRepositoryResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("artifactory:index/getRemoteHelmociRepository:getRemoteHelmociRepository", args, LookupRemoteHelmociRepositoryResultOutput{}, options).(LookupRemoteHelmociRepositoryResultOutput), nil
 		}).(LookupRemoteHelmociRepositoryResultOutput)
 }
 

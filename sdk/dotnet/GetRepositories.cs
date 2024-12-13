@@ -60,6 +60,31 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetRepositoriesResult> Invoke(GetRepositoriesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRepositoriesResult>("artifactory:index/getRepositories:getRepositories", args ?? new GetRepositoriesInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Returns a list of minimal repository details for all repositories of the specified type.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var all_alpine_local = Artifactory.GetRepositories.Invoke(new()
+        ///     {
+        ///         RepositoryType = "local",
+        ///         PackageType = "alpine",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetRepositoriesResult> Invoke(GetRepositoriesInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRepositoriesResult>("artifactory:index/getRepositories:getRepositories", args ?? new GetRepositoriesInvokeArgs(), options.WithDefaults());
     }
 
 

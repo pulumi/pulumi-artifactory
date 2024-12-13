@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetFederatedComposerRepositoryResult> Invoke(GetFederatedComposerRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFederatedComposerRepositoryResult>("artifactory:index/getFederatedComposerRepository:getFederatedComposerRepository", args ?? new GetFederatedComposerRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a federated Composer repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var federated_test_composer_repo = Artifactory.GetFederatedComposerRepository.Invoke(new()
+        ///     {
+        ///         Key = "federated-test-composer-repo",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetFederatedComposerRepositoryResult> Invoke(GetFederatedComposerRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFederatedComposerRepositoryResult>("artifactory:index/getFederatedComposerRepository:getFederatedComposerRepository", args ?? new GetFederatedComposerRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

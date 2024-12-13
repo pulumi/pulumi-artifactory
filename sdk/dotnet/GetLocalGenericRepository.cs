@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetLocalGenericRepositoryResult> Invoke(GetLocalGenericRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalGenericRepositoryResult>("artifactory:index/getLocalGenericRepository:getLocalGenericRepository", args ?? new GetLocalGenericRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a local generic repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var local_test_generic_repo = Artifactory.GetLocalGenericRepository.Invoke(new()
+        ///     {
+        ///         Key = "local-test-generic-repo",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetLocalGenericRepositoryResult> Invoke(GetLocalGenericRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLocalGenericRepositoryResult>("artifactory:index/getLocalGenericRepository:getLocalGenericRepository", args ?? new GetLocalGenericRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetRemoteConanRepositoryResult> Invoke(GetRemoteConanRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRemoteConanRepositoryResult>("artifactory:index/getRemoteConanRepository:getRemoteConanRepository", args ?? new GetRemoteConanRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a remote Conan repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var remote_conan = Artifactory.GetRemoteConanRepository.Invoke(new()
+        ///     {
+        ///         Key = "remote-conan",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetRemoteConanRepositoryResult> Invoke(GetRemoteConanRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRemoteConanRepositoryResult>("artifactory:index/getRemoteConanRepository:getRemoteConanRepository", args ?? new GetRemoteConanRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

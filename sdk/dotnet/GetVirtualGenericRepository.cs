@@ -58,6 +58,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Output<GetVirtualGenericRepositoryResult> Invoke(GetVirtualGenericRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualGenericRepositoryResult>("artifactory:index/getVirtualGenericRepository:getVirtualGenericRepository", args ?? new GetVirtualGenericRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a virtual Generic repository.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var virtual_generic = Artifactory.GetVirtualGenericRepository.Invoke(new()
+        ///     {
+        ///         Key = "virtual-generic",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetVirtualGenericRepositoryResult> Invoke(GetVirtualGenericRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVirtualGenericRepositoryResult>("artifactory:index/getVirtualGenericRepository:getVirtualGenericRepository", args ?? new GetVirtualGenericRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 
