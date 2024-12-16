@@ -9,6 +9,34 @@
                 "current": "artifactory:index/apiKey:ApiKey",
                 "majorVersion": 8
             },
+            "artifactory_archive_policy": {
+                "current": "artifactory:index/archivePolicy:ArchivePolicy",
+                "majorVersion": 8,
+                "fields": {
+                    "search_criteria": {
+                        "fields": {
+                            "excluded_packages": {
+                                "maxItemsOne": false
+                            },
+                            "excluded_repos": {
+                                "maxItemsOne": false
+                            },
+                            "included_packages": {
+                                "maxItemsOne": false
+                            },
+                            "included_projects": {
+                                "maxItemsOne": false
+                            },
+                            "package_types": {
+                                "maxItemsOne": false
+                            },
+                            "repos": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    }
+                }
+            },
             "artifactory_artifact": {
                 "current": "artifactory:index/artifact:Artifact",
                 "majorVersion": 8
@@ -5097,6 +5125,7 @@
             "artifactory:index/alpineRepository:AlpineRepository": 0,
             "artifactory:index/anonymousUser:AnonymousUser": 1,
             "artifactory:index/apiKey:ApiKey": 0,
+            "artifactory:index/archivePolicy:ArchivePolicy": 1,
             "artifactory:index/artifact:Artifact": 1,
             "artifactory:index/artifactCustomWebhook:ArtifactCustomWebhook": 1,
             "artifactory:index/artifactLifecycleCustomWebhook:ArtifactLifecycleCustomWebhook": 1,
