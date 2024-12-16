@@ -51,9 +51,6 @@ namespace Pulumi.Artifactory.Outputs
         /// ~&gt;JFrog recommends using the `last_downloaded_before_in_months` condition to ensure that packages currently in use are not deleted.
         /// </summary>
         public readonly int? LastDownloadedBeforeInMonths;
-        /// <summary>
-        /// Types of packages to be removed. Support: conan, debian, docker, gems, generic, go, gradle, helm, maven, npm, nuget, pypi, yum.
-        /// </summary>
         public readonly ImmutableArray<string> PackageTypes;
         /// <summary>
         /// Specify patterns for repository names or explicit repository names. For including all repos use `**`. Example: `repos = ["**"]`

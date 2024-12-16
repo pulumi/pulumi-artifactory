@@ -151,17 +151,9 @@ public final class PackageCleanupPolicySearchCriteriaArgs extends com.pulumi.res
         return Optional.ofNullable(this.lastDownloadedBeforeInMonths);
     }
 
-    /**
-     * Types of packages to be removed. Support: conan, debian, docker, gems, generic, go, gradle, helm, maven, npm, nuget, pypi, yum.
-     * 
-     */
     @Import(name="packageTypes", required=true)
     private Output<List<String>> packageTypes;
 
-    /**
-     * @return Types of packages to be removed. Support: conan, debian, docker, gems, generic, go, gradle, helm, maven, npm, nuget, pypi, yum.
-     * 
-     */
     public Output<List<String>> packageTypes() {
         return this.packageTypes;
     }
@@ -434,33 +426,15 @@ public final class PackageCleanupPolicySearchCriteriaArgs extends com.pulumi.res
             return lastDownloadedBeforeInMonths(Output.of(lastDownloadedBeforeInMonths));
         }
 
-        /**
-         * @param packageTypes Types of packages to be removed. Support: conan, debian, docker, gems, generic, go, gradle, helm, maven, npm, nuget, pypi, yum.
-         * 
-         * @return builder
-         * 
-         */
         public Builder packageTypes(Output<List<String>> packageTypes) {
             $.packageTypes = packageTypes;
             return this;
         }
 
-        /**
-         * @param packageTypes Types of packages to be removed. Support: conan, debian, docker, gems, generic, go, gradle, helm, maven, npm, nuget, pypi, yum.
-         * 
-         * @return builder
-         * 
-         */
         public Builder packageTypes(List<String> packageTypes) {
             return packageTypes(Output.of(packageTypes));
         }
 
-        /**
-         * @param packageTypes Types of packages to be removed. Support: conan, debian, docker, gems, generic, go, gradle, helm, maven, npm, nuget, pypi, yum.
-         * 
-         * @return builder
-         * 
-         */
         public Builder packageTypes(String... packageTypes) {
             return packageTypes(List.of(packageTypes));
         }

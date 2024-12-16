@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class ArtifactArgs extends com.pulumi.resources.ResourceArgs {
@@ -15,18 +17,33 @@ public final class ArtifactArgs extends com.pulumi.resources.ResourceArgs {
     public static final ArtifactArgs Empty = new ArtifactArgs();
 
     /**
-     * Path to the source file.
+     * Base64 content of the source file. Conflicts with `file_path`. Either one of these attribute must be set.
      * 
      */
-    @Import(name="filePath", required=true)
-    private Output<String> filePath;
+    @Import(name="contentBase64")
+    private @Nullable Output<String> contentBase64;
 
     /**
-     * @return Path to the source file.
+     * @return Base64 content of the source file. Conflicts with `file_path`. Either one of these attribute must be set.
      * 
      */
-    public Output<String> filePath() {
-        return this.filePath;
+    public Optional<Output<String>> contentBase64() {
+        return Optional.ofNullable(this.contentBase64);
+    }
+
+    /**
+     * Path to the source file. Conflicts with `content_base64`. Either one of these attribute must be set.
+     * 
+     */
+    @Import(name="filePath")
+    private @Nullable Output<String> filePath;
+
+    /**
+     * @return Path to the source file. Conflicts with `content_base64`. Either one of these attribute must be set.
+     * 
+     */
+    public Optional<Output<String>> filePath() {
+        return Optional.ofNullable(this.filePath);
     }
 
     /**
@@ -62,6 +79,7 @@ public final class ArtifactArgs extends com.pulumi.resources.ResourceArgs {
     private ArtifactArgs() {}
 
     private ArtifactArgs(ArtifactArgs $) {
+        this.contentBase64 = $.contentBase64;
         this.filePath = $.filePath;
         this.path = $.path;
         this.repository = $.repository;
@@ -86,18 +104,39 @@ public final class ArtifactArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param filePath Path to the source file.
+         * @param contentBase64 Base64 content of the source file. Conflicts with `file_path`. Either one of these attribute must be set.
          * 
          * @return builder
          * 
          */
-        public Builder filePath(Output<String> filePath) {
+        public Builder contentBase64(@Nullable Output<String> contentBase64) {
+            $.contentBase64 = contentBase64;
+            return this;
+        }
+
+        /**
+         * @param contentBase64 Base64 content of the source file. Conflicts with `file_path`. Either one of these attribute must be set.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder contentBase64(String contentBase64) {
+            return contentBase64(Output.of(contentBase64));
+        }
+
+        /**
+         * @param filePath Path to the source file. Conflicts with `content_base64`. Either one of these attribute must be set.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder filePath(@Nullable Output<String> filePath) {
             $.filePath = filePath;
             return this;
         }
 
         /**
-         * @param filePath Path to the source file.
+         * @param filePath Path to the source file. Conflicts with `content_base64`. Either one of these attribute must be set.
          * 
          * @return builder
          * 
@@ -149,9 +188,6 @@ public final class ArtifactArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ArtifactArgs build() {
-            if ($.filePath == null) {
-                throw new MissingRequiredPropertyException("ArtifactArgs", "filePath");
-            }
             if ($.path == null) {
                 throw new MissingRequiredPropertyException("ArtifactArgs", "path");
             }

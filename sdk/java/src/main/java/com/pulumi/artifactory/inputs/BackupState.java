@@ -19,14 +19,14 @@ public final class BackupState extends com.pulumi.resources.ResourceArgs {
     public static final BackupState Empty = new BackupState();
 
     /**
-     * If set, backups will be created within a Zip archive (Slow and CPU intensive). Default value is `false`.
+     * If set to true, backups will be created within a Zip archive (Slow and CPU intensive). Default value is `false`
      * 
      */
     @Import(name="createArchive")
     private @Nullable Output<Boolean> createArchive;
 
     /**
-     * @return If set, backups will be created within a Zip archive (Slow and CPU intensive). Default value is `false`.
+     * @return If set to true, backups will be created within a Zip archive (Slow and CPU intensive). Default value is `false`
      * 
      */
     public Optional<Output<Boolean>> createArchive() {
@@ -34,14 +34,14 @@ public final class BackupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A valid CRON expression that you can use to control backup frequency. Eg: &#34;0 0 12 * * ? *&#34;, &#34;0 0 2 ? * MON-SAT *&#34;. Note: please use 7 character format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year. Also, specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html) and in [Cronexp package readme](https://github.com/gorhill/cronexpr#other-details).
+     * A valid CRON expression that you can use to control backup frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. **Note:** please use 7 character format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year. Also, specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html) and in [Cronexp package readme](https://github.com/gorhill/cronexpr#other-details).
      * 
      */
     @Import(name="cronExp")
     private @Nullable Output<String> cronExp;
 
     /**
-     * @return A valid CRON expression that you can use to control backup frequency. Eg: &#34;0 0 12 * * ? *&#34;, &#34;0 0 2 ? * MON-SAT *&#34;. Note: please use 7 character format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year. Also, specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html) and in [Cronexp package readme](https://github.com/gorhill/cronexpr#other-details).
+     * @return A valid CRON expression that you can use to control backup frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. **Note:** please use 7 character format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year. Also, specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html) and in [Cronexp package readme](https://github.com/gorhill/cronexpr#other-details).
      * 
      */
     public Optional<Output<String>> cronExp() {
@@ -64,14 +64,14 @@ public final class BackupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * When set, new repositories will not be automatically added to the backup. Default value is `false`.
+     * When set to true, new repositories will not be automatically added to the backup. Default value is `false`.
      * 
      */
     @Import(name="excludeNewRepositories")
     private @Nullable Output<Boolean> excludeNewRepositories;
 
     /**
-     * @return When set, new repositories will not be automatically added to the backup. Default value is `false`.
+     * @return When set to true, new repositories will not be automatically added to the backup. Default value is `false`.
      * 
      */
     public Optional<Output<Boolean>> excludeNewRepositories() {
@@ -79,14 +79,14 @@ public final class BackupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of excluded repositories from the backup. Default is empty list.
+     * List of excluded repositories from the backup.
      * 
      */
     @Import(name="excludedRepositories")
     private @Nullable Output<List<String>> excludedRepositories;
 
     /**
-     * @return A list of excluded repositories from the backup. Default is empty list.
+     * @return List of excluded repositories from the backup.
      * 
      */
     public Optional<Output<List<String>>> excludedRepositories() {
@@ -108,30 +108,22 @@ public final class BackupState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.exportMissionControl);
     }
 
-    /**
-     * The unique ID of the artifactory backup config.
-     * 
-     */
     @Import(name="key")
     private @Nullable Output<String> key;
 
-    /**
-     * @return The unique ID of the artifactory backup config.
-     * 
-     */
     public Optional<Output<String>> key() {
         return Optional.ofNullable(this.key);
     }
 
     /**
-     * The number of hours to keep a backup before Artifactory will clean it up to free up disk space. Applicable only to non-incremental backups. Default value is 168 hours ie: 7 days.
+     * The number of hours to keep a backup before Artifactory will clean it up to free up disk space. Applicable only to non-incremental backups. Default value is 168 hours i.e. 7 days.
      * 
      */
     @Import(name="retentionPeriodHours")
     private @Nullable Output<Integer> retentionPeriodHours;
 
     /**
-     * @return The number of hours to keep a backup before Artifactory will clean it up to free up disk space. Applicable only to non-incremental backups. Default value is 168 hours ie: 7 days.
+     * @return The number of hours to keep a backup before Artifactory will clean it up to free up disk space. Applicable only to non-incremental backups. Default value is 168 hours i.e. 7 days.
      * 
      */
     public Optional<Output<Integer>> retentionPeriodHours() {
@@ -139,14 +131,14 @@ public final class BackupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * If set, all Artifactory administrators will be notified by email if any problem is encountered during backup. Default value is `true`.
+     * If set to true, all Artifactory administrators will be notified by email if any problem is encountered during backup. Default value is `true`.
      * 
      */
     @Import(name="sendMailOnError")
     private @Nullable Output<Boolean> sendMailOnError;
 
     /**
-     * @return If set, all Artifactory administrators will be notified by email if any problem is encountered during backup. Default value is `true`.
+     * @return If set to true, all Artifactory administrators will be notified by email if any problem is encountered during backup. Default value is `true`.
      * 
      */
     public Optional<Output<Boolean>> sendMailOnError() {
@@ -154,14 +146,14 @@ public final class BackupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * If set, Artifactory will verify that the backup target location has enough disk space available to hold the backed up data. If there is not enough space available, Artifactory will abort the backup and write a message in the log file. Applicable only to non-incremental backups.
+     * If set, Artifactory will verify that the backup target location has enough disk space available to hold the backed up data. If there is not enough space available, Artifactory will abort the backup and write a message in the log file. Applicable only to non-incremental backups. Default value is `false`.
      * 
      */
     @Import(name="verifyDiskSpace")
     private @Nullable Output<Boolean> verifyDiskSpace;
 
     /**
-     * @return If set, Artifactory will verify that the backup target location has enough disk space available to hold the backed up data. If there is not enough space available, Artifactory will abort the backup and write a message in the log file. Applicable only to non-incremental backups.
+     * @return If set, Artifactory will verify that the backup target location has enough disk space available to hold the backed up data. If there is not enough space available, Artifactory will abort the backup and write a message in the log file. Applicable only to non-incremental backups. Default value is `false`.
      * 
      */
     public Optional<Output<Boolean>> verifyDiskSpace() {
@@ -202,7 +194,7 @@ public final class BackupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createArchive If set, backups will be created within a Zip archive (Slow and CPU intensive). Default value is `false`.
+         * @param createArchive If set to true, backups will be created within a Zip archive (Slow and CPU intensive). Default value is `false`
          * 
          * @return builder
          * 
@@ -213,7 +205,7 @@ public final class BackupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createArchive If set, backups will be created within a Zip archive (Slow and CPU intensive). Default value is `false`.
+         * @param createArchive If set to true, backups will be created within a Zip archive (Slow and CPU intensive). Default value is `false`
          * 
          * @return builder
          * 
@@ -223,7 +215,7 @@ public final class BackupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cronExp A valid CRON expression that you can use to control backup frequency. Eg: &#34;0 0 12 * * ? *&#34;, &#34;0 0 2 ? * MON-SAT *&#34;. Note: please use 7 character format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year. Also, specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html) and in [Cronexp package readme](https://github.com/gorhill/cronexpr#other-details).
+         * @param cronExp A valid CRON expression that you can use to control backup frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. **Note:** please use 7 character format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year. Also, specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html) and in [Cronexp package readme](https://github.com/gorhill/cronexpr#other-details).
          * 
          * @return builder
          * 
@@ -234,7 +226,7 @@ public final class BackupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cronExp A valid CRON expression that you can use to control backup frequency. Eg: &#34;0 0 12 * * ? *&#34;, &#34;0 0 2 ? * MON-SAT *&#34;. Note: please use 7 character format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year. Also, specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html) and in [Cronexp package readme](https://github.com/gorhill/cronexpr#other-details).
+         * @param cronExp A valid CRON expression that you can use to control backup frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. **Note:** please use 7 character format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year. Also, specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html) and in [Cronexp package readme](https://github.com/gorhill/cronexpr#other-details).
          * 
          * @return builder
          * 
@@ -265,7 +257,7 @@ public final class BackupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param excludeNewRepositories When set, new repositories will not be automatically added to the backup. Default value is `false`.
+         * @param excludeNewRepositories When set to true, new repositories will not be automatically added to the backup. Default value is `false`.
          * 
          * @return builder
          * 
@@ -276,7 +268,7 @@ public final class BackupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param excludeNewRepositories When set, new repositories will not be automatically added to the backup. Default value is `false`.
+         * @param excludeNewRepositories When set to true, new repositories will not be automatically added to the backup. Default value is `false`.
          * 
          * @return builder
          * 
@@ -286,7 +278,7 @@ public final class BackupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param excludedRepositories A list of excluded repositories from the backup. Default is empty list.
+         * @param excludedRepositories List of excluded repositories from the backup.
          * 
          * @return builder
          * 
@@ -297,7 +289,7 @@ public final class BackupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param excludedRepositories A list of excluded repositories from the backup. Default is empty list.
+         * @param excludedRepositories List of excluded repositories from the backup.
          * 
          * @return builder
          * 
@@ -307,7 +299,7 @@ public final class BackupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param excludedRepositories A list of excluded repositories from the backup. Default is empty list.
+         * @param excludedRepositories List of excluded repositories from the backup.
          * 
          * @return builder
          * 
@@ -337,29 +329,17 @@ public final class BackupState extends com.pulumi.resources.ResourceArgs {
             return exportMissionControl(Output.of(exportMissionControl));
         }
 
-        /**
-         * @param key The unique ID of the artifactory backup config.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(@Nullable Output<String> key) {
             $.key = key;
             return this;
         }
 
-        /**
-         * @param key The unique ID of the artifactory backup config.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(String key) {
             return key(Output.of(key));
         }
 
         /**
-         * @param retentionPeriodHours The number of hours to keep a backup before Artifactory will clean it up to free up disk space. Applicable only to non-incremental backups. Default value is 168 hours ie: 7 days.
+         * @param retentionPeriodHours The number of hours to keep a backup before Artifactory will clean it up to free up disk space. Applicable only to non-incremental backups. Default value is 168 hours i.e. 7 days.
          * 
          * @return builder
          * 
@@ -370,7 +350,7 @@ public final class BackupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param retentionPeriodHours The number of hours to keep a backup before Artifactory will clean it up to free up disk space. Applicable only to non-incremental backups. Default value is 168 hours ie: 7 days.
+         * @param retentionPeriodHours The number of hours to keep a backup before Artifactory will clean it up to free up disk space. Applicable only to non-incremental backups. Default value is 168 hours i.e. 7 days.
          * 
          * @return builder
          * 
@@ -380,7 +360,7 @@ public final class BackupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sendMailOnError If set, all Artifactory administrators will be notified by email if any problem is encountered during backup. Default value is `true`.
+         * @param sendMailOnError If set to true, all Artifactory administrators will be notified by email if any problem is encountered during backup. Default value is `true`.
          * 
          * @return builder
          * 
@@ -391,7 +371,7 @@ public final class BackupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sendMailOnError If set, all Artifactory administrators will be notified by email if any problem is encountered during backup. Default value is `true`.
+         * @param sendMailOnError If set to true, all Artifactory administrators will be notified by email if any problem is encountered during backup. Default value is `true`.
          * 
          * @return builder
          * 
@@ -401,7 +381,7 @@ public final class BackupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param verifyDiskSpace If set, Artifactory will verify that the backup target location has enough disk space available to hold the backed up data. If there is not enough space available, Artifactory will abort the backup and write a message in the log file. Applicable only to non-incremental backups.
+         * @param verifyDiskSpace If set, Artifactory will verify that the backup target location has enough disk space available to hold the backed up data. If there is not enough space available, Artifactory will abort the backup and write a message in the log file. Applicable only to non-incremental backups. Default value is `false`.
          * 
          * @return builder
          * 
@@ -412,7 +392,7 @@ public final class BackupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param verifyDiskSpace If set, Artifactory will verify that the backup target location has enough disk space available to hold the backed up data. If there is not enough space available, Artifactory will abort the backup and write a message in the log file. Applicable only to non-incremental backups.
+         * @param verifyDiskSpace If set, Artifactory will verify that the backup target location has enough disk space available to hold the backed up data. If there is not enough space available, Artifactory will abort the backup and write a message in the log file. Applicable only to non-incremental backups. Default value is `false`.
          * 
          * @return builder
          * 

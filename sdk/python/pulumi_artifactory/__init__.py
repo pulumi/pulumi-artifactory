@@ -8,6 +8,7 @@ import typing
 from .alpine_repository import *
 from .anonymous_user import *
 from .api_key import *
+from .archive_policy import *
 from .artifact import *
 from .artifact_custom_webhook import *
 from .artifact_lifecycle_custom_webhook import *
@@ -383,6 +384,14 @@ _utilities.register(
   "fqn": "pulumi_artifactory",
   "classes": {
    "artifactory:index/apiKey:ApiKey": "ApiKey"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/archivePolicy",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/archivePolicy:ArchivePolicy": "ArchivePolicy"
   }
  },
  {

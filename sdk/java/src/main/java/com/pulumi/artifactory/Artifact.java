@@ -12,6 +12,7 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -46,6 +47,12 @@ import javax.annotation.Nullable;
  *             .repository("my-generic-local")
  *             .path("/my-path/my-file.zip")
  *             .filePath("/path/to/my-file.zip")
+ *             .build());
+ * 
+ *         var my_base64_artifact = new Artifact("my-base64-artifact", ArtifactArgs.builder()
+ *             .repository("my-generic-local")
+ *             .path("/my-path/my-file.zip")
+ *             .contentBase64("UEsDBAoAAAAAALl8alQAAAAAAAAAAAAAAAAJAAAATUVUQS1JTkYvUEsDBAoAAAAIALh8alTmUEsubQAAAIMAAAAUAAAATUVUQS1JTkYvTUFOSUZFU1QuTUbzTczLTEstLtENSy0qzszPs1Iw1DPg5XIsSs7ILEstQggH5KRWlBYrwCR4uZyLUhNLUlN0nSqtFBwLEpMzUhV8E8tS8xSM9cz0jHm5nEozc0rAsilAO1JzcjMhYim6XinZQGuA9uiZ83LxcgEAUEsDBAoAAAAAALh8alQAAAAAAAAAAAAAAAAMAAAAYXJ0aWZhY3RvcnkvUEsDBAoAAAAAALh8alQAAAAAAAAAAAAAAAARAAAAYXJ0aWZhY3RvcnkvdGVzdC9QSwMECgAAAAgAuHxqVMgzPcxdAQAALAIAAB0AAABhcnRpZmFjdG9yeS90ZXN0L011bHRpMS5jbGFzc3VRy07CQBQ9w6OlpQqCgPgEV+jCxsTEBcaNiXFRHwkGF66GOuKQPkyZmvBZutDEhR/gRxlvCwkxwVnck3vunXPPnfn++fwCcIRdExpWDdRQL6BhYg1NHes6Nhi0ExlIdcqQ7ez1GXJn4YNgKDkyEFexPxDRLR94xFSc0OVen0cyyWdkTj3JMUPT4ZGSj9xVYTSxlRgr+zL2lDzsUovPZcBQ79w7I/7CbY8HQ7unIhkMu+lAHg1JorqgzGD2wjhyxblMhhWnmgdJnwUdBR2bFrawzWBdCM8LW3dh5D20dexYaKHN0PjHFkN5Pux6MBKu+kP1JmMlfHqSMKZCbepMhvYN2VJkTnCfzFUX0Az6c5J5tHKts2hjtJGnz0hOBixZg6JBmU3ICPP7H2CvadmkqKWkhiJFa9pAuERoYBml2eXjVIy4N2Qq2Xfk5gImIWhKgRrnIgbKWCGkj007q79QSwECFAMKAAAAAAC5fGpUAAAAAAAAAAAAAAAACQAAAAAAAAAAABAA7UEAAAAATUVUQS1JTkYvUEsBAhQDCgAAAAgAuHxqVOZQSy5tAAAAgwAAABQAAAAAAAAAAAAAAKSBJwAAAE1FVEEtSU5GL01BTklGRVNULk1GUEsBAhQDCgAAAAAAuHxqVAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAQAO1BxgAAAGFydGlmYWN0b3J5L1BLAQIUAwoAAAAAALh8alQAAAAAAAAAAAAAAAARAAAAAAAAAAAAEADtQfAAAABhcnRpZmFjdG9yeS90ZXN0L1BLAQIUAwoAAAAIALh8alTIMz3MXQEAACwCAAAdAAAAAAAAAAAAAACkgR8BAABhcnRpZmFjdG9yeS90ZXN0L011bHRpMS5jbGFzc1BLBQYAAAAABQAFAD0BAAC3AgAAAAA=")
  *             .build());
  * 
  *     }
@@ -100,6 +107,20 @@ public class Artifact extends com.pulumi.resources.CustomResource {
         return this.checksumSha256;
     }
     /**
+     * Base64 content of the source file. Conflicts with `file_path`. Either one of these attribute must be set.
+     * 
+     */
+    @Export(name="contentBase64", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> contentBase64;
+
+    /**
+     * @return Base64 content of the source file. Conflicts with `file_path`. Either one of these attribute must be set.
+     * 
+     */
+    public Output<Optional<String>> contentBase64() {
+        return Codegen.optional(this.contentBase64);
+    }
+    /**
      * Timestamp when artifact is created.
      * 
      */
@@ -142,18 +163,18 @@ public class Artifact extends com.pulumi.resources.CustomResource {
         return this.downloadUri;
     }
     /**
-     * Path to the source file.
+     * Path to the source file. Conflicts with `content_base64`. Either one of these attribute must be set.
      * 
      */
     @Export(name="filePath", refs={String.class}, tree="[0]")
-    private Output<String> filePath;
+    private Output</* @Nullable */ String> filePath;
 
     /**
-     * @return Path to the source file.
+     * @return Path to the source file. Conflicts with `content_base64`. Either one of these attribute must be set.
      * 
      */
-    public Output<String> filePath() {
-        return this.filePath;
+    public Output<Optional<String>> filePath() {
+        return Codegen.optional(this.filePath);
     }
     /**
      * MIME type of the artifact.

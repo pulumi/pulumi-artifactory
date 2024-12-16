@@ -29,6 +29,13 @@ namespace Pulumi.Artifactory
     ///         FilePath = "/path/to/my-file.zip",
     ///     });
     /// 
+    ///     var my_base64_artifact = new Artifactory.Artifact("my-base64-artifact", new()
+    ///     {
+    ///         Repository = "my-generic-local",
+    ///         Path = "/my-path/my-file.zip",
+    ///         ContentBase64 = "UEsDBAoAAAAAALl8alQAAAAAAAAAAAAAAAAJAAAATUVUQS1JTkYvUEsDBAoAAAAIALh8alTmUEsubQAAAIMAAAAUAAAATUVUQS1JTkYvTUFOSUZFU1QuTUbzTczLTEstLtENSy0qzszPs1Iw1DPg5XIsSs7ILEstQggH5KRWlBYrwCR4uZyLUhNLUlN0nSqtFBwLEpMzUhV8E8tS8xSM9cz0jHm5nEozc0rAsilAO1JzcjMhYim6XinZQGuA9uiZ83LxcgEAUEsDBAoAAAAAALh8alQAAAAAAAAAAAAAAAAMAAAAYXJ0aWZhY3RvcnkvUEsDBAoAAAAAALh8alQAAAAAAAAAAAAAAAARAAAAYXJ0aWZhY3RvcnkvdGVzdC9QSwMECgAAAAgAuHxqVMgzPcxdAQAALAIAAB0AAABhcnRpZmFjdG9yeS90ZXN0L011bHRpMS5jbGFzc3VRy07CQBQ9w6OlpQqCgPgEV+jCxsTEBcaNiXFRHwkGF66GOuKQPkyZmvBZutDEhR/gRxlvCwkxwVnck3vunXPPnfn++fwCcIRdExpWDdRQL6BhYg1NHes6Nhi0ExlIdcqQ7ez1GXJn4YNgKDkyEFexPxDRLR94xFSc0OVen0cyyWdkTj3JMUPT4ZGSj9xVYTSxlRgr+zL2lDzsUovPZcBQ79w7I/7CbY8HQ7unIhkMu+lAHg1JorqgzGD2wjhyxblMhhWnmgdJnwUdBR2bFrawzWBdCM8LW3dh5D20dexYaKHN0PjHFkN5Pux6MBKu+kP1JmMlfHqSMKZCbepMhvYN2VJkTnCfzFUX0Az6c5J5tHKts2hjtJGnz0hOBixZg6JBmU3ICPP7H2CvadmkqKWkhiJFa9pAuERoYBml2eXjVIy4N2Qq2Xfk5gImIWhKgRrnIgbKWCGkj007q79QSwECFAMKAAAAAAC5fGpUAAAAAAAAAAAAAAAACQAAAAAAAAAAABAA7UEAAAAATUVUQS1JTkYvUEsBAhQDCgAAAAgAuHxqVOZQSy5tAAAAgwAAABQAAAAAAAAAAAAAAKSBJwAAAE1FVEEtSU5GL01BTklGRVNULk1GUEsBAhQDCgAAAAAAuHxqVAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAQAO1BxgAAAGFydGlmYWN0b3J5L1BLAQIUAwoAAAAAALh8alQAAAAAAAAAAAAAAAARAAAAAAAAAAAAEADtQfAAAABhcnRpZmFjdG9yeS90ZXN0L1BLAQIUAwoAAAAIALh8alTIMz3MXQEAACwCAAAdAAAAAAAAAAAAAACkgR8BAABhcnRpZmFjdG9yeS90ZXN0L011bHRpMS5jbGFzc1BLBQYAAAAABQAFAD0BAAC3AgAAAAA=",
+    ///     });
+    /// 
     /// });
     /// ```
     /// </summary>
@@ -54,6 +61,12 @@ namespace Pulumi.Artifactory
         public Output<string> ChecksumSha256 { get; private set; } = null!;
 
         /// <summary>
+        /// Base64 content of the source file. Conflicts with `file_path`. Either one of these attribute must be set.
+        /// </summary>
+        [Output("contentBase64")]
+        public Output<string?> ContentBase64 { get; private set; } = null!;
+
+        /// <summary>
         /// Timestamp when artifact is created.
         /// </summary>
         [Output("created")]
@@ -72,10 +85,10 @@ namespace Pulumi.Artifactory
         public Output<string> DownloadUri { get; private set; } = null!;
 
         /// <summary>
-        /// Path to the source file.
+        /// Path to the source file. Conflicts with `content_base64`. Either one of these attribute must be set.
         /// </summary>
         [Output("filePath")]
-        public Output<string> FilePath { get; private set; } = null!;
+        public Output<string?> FilePath { get; private set; } = null!;
 
         /// <summary>
         /// MIME type of the artifact.
@@ -154,10 +167,16 @@ namespace Pulumi.Artifactory
     public sealed class ArtifactArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Path to the source file.
+        /// Base64 content of the source file. Conflicts with `file_path`. Either one of these attribute must be set.
         /// </summary>
-        [Input("filePath", required: true)]
-        public Input<string> FilePath { get; set; } = null!;
+        [Input("contentBase64")]
+        public Input<string>? ContentBase64 { get; set; }
+
+        /// <summary>
+        /// Path to the source file. Conflicts with `content_base64`. Either one of these attribute must be set.
+        /// </summary>
+        [Input("filePath")]
+        public Input<string>? FilePath { get; set; }
 
         /// <summary>
         /// The relative path in the target repository. Must begin with a '/'. You can add key-value matrix parameters to deploy the artifacts with properties. For more details, please refer to [Introducing Matrix Parameters](https://jfrog.com/help/r/jfrog-artifactory-documentation/using-properties-in-deployment-and-resolution).
@@ -198,6 +217,12 @@ namespace Pulumi.Artifactory
         public Input<string>? ChecksumSha256 { get; set; }
 
         /// <summary>
+        /// Base64 content of the source file. Conflicts with `file_path`. Either one of these attribute must be set.
+        /// </summary>
+        [Input("contentBase64")]
+        public Input<string>? ContentBase64 { get; set; }
+
+        /// <summary>
         /// Timestamp when artifact is created.
         /// </summary>
         [Input("created")]
@@ -216,7 +241,7 @@ namespace Pulumi.Artifactory
         public Input<string>? DownloadUri { get; set; }
 
         /// <summary>
-        /// Path to the source file.
+        /// Path to the source file. Conflicts with `content_base64`. Either one of these attribute must be set.
         /// </summary>
         [Input("filePath")]
         public Input<string>? FilePath { get; set; }

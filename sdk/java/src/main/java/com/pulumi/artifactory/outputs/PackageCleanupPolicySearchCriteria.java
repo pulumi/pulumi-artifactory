@@ -61,10 +61,6 @@ public final class PackageCleanupPolicySearchCriteria {
      * 
      */
     private @Nullable Integer lastDownloadedBeforeInMonths;
-    /**
-     * @return Types of packages to be removed. Support: conan, debian, docker, gems, generic, go, gradle, helm, maven, npm, nuget, pypi, yum.
-     * 
-     */
     private List<String> packageTypes;
     /**
      * @return Specify patterns for repository names or explicit repository names. For including all repos use `**`. Example: `repos = [&#34;**&#34;]`
@@ -135,10 +131,6 @@ public final class PackageCleanupPolicySearchCriteria {
     public Optional<Integer> lastDownloadedBeforeInMonths() {
         return Optional.ofNullable(this.lastDownloadedBeforeInMonths);
     }
-    /**
-     * @return Types of packages to be removed. Support: conan, debian, docker, gems, generic, go, gradle, helm, maven, npm, nuget, pypi, yum.
-     * 
-     */
     public List<String> packageTypes() {
         return this.packageTypes;
     }
