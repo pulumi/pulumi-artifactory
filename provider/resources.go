@@ -82,6 +82,7 @@ func Provider() tfbridge.ProviderInfo {
 					"api_key": {CSharpName: "Key"},
 				},
 			},
+			"artifactory_archive_policy": {ComputeID: computeIDField("key")},
 
 			"artifactory_backup":                  {ComputeID: computeIDField("key")},
 			"artifactory_property_set":            {ComputeID: computeIDField("name")},
