@@ -15,19 +15,19 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 
-public final class PackageCleanupPolicySearchCriteriaArgs extends com.pulumi.resources.ResourceArgs {
+public final class ArchivePolicySearchCriteriaArgs extends com.pulumi.resources.ResourceArgs {
 
-    public static final PackageCleanupPolicySearchCriteriaArgs Empty = new PackageCleanupPolicySearchCriteriaArgs();
+    public static final ArchivePolicySearchCriteriaArgs Empty = new ArchivePolicySearchCriteriaArgs();
 
     /**
-     * Remove packages based on when they were created. For example, remove packages that were created more than a year ago. The default value is to remove packages created more than 2 years ago.
+     * The archive policy will archive packages based on how long ago they were created. For example, if this parameter is 2 then packages created more than 2 months ago will be archived as part of the policy.
      * 
      */
     @Import(name="createdBeforeInMonths")
     private @Nullable Output<Integer> createdBeforeInMonths;
 
     /**
-     * @return Remove packages based on when they were created. For example, remove packages that were created more than a year ago. The default value is to remove packages created more than 2 years ago.
+     * @return The archive policy will archive packages based on how long ago they were created. For example, if this parameter is 2 then packages created more than 2 months ago will be archived as part of the policy.
      * 
      */
     public Optional<Output<Integer>> createdBeforeInMonths() {
@@ -50,14 +50,14 @@ public final class PackageCleanupPolicySearchCriteriaArgs extends com.pulumi.res
     }
 
     /**
-     * Specify patterns for repository names or explicit repository names that you want excluded from the cleanup policy.
+     * Specify patterns for repository names or explicit repository names that you want excluded from the archive policy.
      * 
      */
     @Import(name="excludedRepos")
     private @Nullable Output<List<String>> excludedRepos;
 
     /**
-     * @return Specify patterns for repository names or explicit repository names that you want excluded from the cleanup policy.
+     * @return Specify patterns for repository names or explicit repository names that you want excluded from the archive policy.
      * 
      */
     public Optional<Output<List<String>>> excludedRepos() {
@@ -65,14 +65,14 @@ public final class PackageCleanupPolicySearchCriteriaArgs extends com.pulumi.res
     }
 
     /**
-     * Set this to `true` if you want the policy to run on all projects on the platform.
+     * Set this value to `true` if you want the policy to run on all Artifactory projects. The default value is `false`.
      * 
      */
     @Import(name="includeAllProjects")
     private @Nullable Output<Boolean> includeAllProjects;
 
     /**
-     * @return Set this to `true` if you want the policy to run on all projects on the platform.
+     * @return Set this value to `true` if you want the policy to run on all Artifactory projects. The default value is `false`.
      * 
      */
     public Optional<Output<Boolean>> includeAllProjects() {
@@ -97,6 +97,8 @@ public final class PackageCleanupPolicySearchCriteriaArgs extends com.pulumi.res
     /**
      * List of projects on which you want this policy to run. To include repositories that are not assigned to any project, enter the project key `default`.
      * 
+     * ~&gt;This setting is relevant only on the global level, for Platform Admins.
+     * 
      */
     @Import(name="includedProjects")
     private @Nullable Output<List<String>> includedProjects;
@@ -104,24 +106,30 @@ public final class PackageCleanupPolicySearchCriteriaArgs extends com.pulumi.res
     /**
      * @return List of projects on which you want this policy to run. To include repositories that are not assigned to any project, enter the project key `default`.
      * 
+     * ~&gt;This setting is relevant only on the global level, for Platform Admins.
+     * 
      */
     public Optional<Output<List<String>>> includedProjects() {
         return Optional.ofNullable(this.includedProjects);
     }
 
     /**
-     * Select the number of latest versions to keep. The cleanup policy will remove all versions prior to the number you select here. The latest version is always excluded. Versions are determined by creation date.
+     * Set a value for the number of latest versions to keep. The archive policy will remove all versions before the number you select here. The latest version is always excluded.
      * 
-     * ~&gt;Not all package types support this condition. For information on which package types support this condition, [learn more](https://jfrog.com/help/r/jfrog-platform-administration-documentation/retention-policies/package-types-coverage).
+     * ~&gt;Versions are determined by creation date.
+     * 
+     * ~&gt;Not all package types support this condition. If you include a package type in your policy that is not compatible with this condition, a validation error (400) is returned. For information on which package types support this condition, see here.
      * 
      */
     @Import(name="keepLastNVersions")
     private @Nullable Output<Integer> keepLastNVersions;
 
     /**
-     * @return Select the number of latest versions to keep. The cleanup policy will remove all versions prior to the number you select here. The latest version is always excluded. Versions are determined by creation date.
+     * @return Set a value for the number of latest versions to keep. The archive policy will remove all versions before the number you select here. The latest version is always excluded.
      * 
-     * ~&gt;Not all package types support this condition. For information on which package types support this condition, [learn more](https://jfrog.com/help/r/jfrog-platform-administration-documentation/retention-policies/package-types-coverage).
+     * ~&gt;Versions are determined by creation date.
+     * 
+     * ~&gt;Not all package types support this condition. If you include a package type in your policy that is not compatible with this condition, a validation error (400) is returned. For information on which package types support this condition, see here.
      * 
      */
     public Optional<Output<Integer>> keepLastNVersions() {
@@ -129,22 +137,18 @@ public final class PackageCleanupPolicySearchCriteriaArgs extends com.pulumi.res
     }
 
     /**
-     * Removes packages based on when they were last downloaded. For example, removes packages that were not downloaded in the past year. The default value is to remove packages that were downloaded more than 2 years ago.
+     * The archive policy will archive packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 months ago will be archived as part of the policy.
      * 
-     * ~&gt;If a package was never downloaded, the policy will remove it based only on the age-condition (`created_before_in_months`).
-     * 
-     * ~&gt;JFrog recommends using the `last_downloaded_before_in_months` condition to ensure that packages currently in use are not deleted.
+     * ~&gt;JFrog recommends using the `last_downloaded_before_in_months` condition to ensure that packages currently in use are not archived.
      * 
      */
     @Import(name="lastDownloadedBeforeInMonths")
     private @Nullable Output<Integer> lastDownloadedBeforeInMonths;
 
     /**
-     * @return Removes packages based on when they were last downloaded. For example, removes packages that were not downloaded in the past year. The default value is to remove packages that were downloaded more than 2 years ago.
+     * @return The archive policy will archive packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 months ago will be archived as part of the policy.
      * 
-     * ~&gt;If a package was never downloaded, the policy will remove it based only on the age-condition (`created_before_in_months`).
-     * 
-     * ~&gt;JFrog recommends using the `last_downloaded_before_in_months` condition to ensure that packages currently in use are not deleted.
+     * ~&gt;JFrog recommends using the `last_downloaded_before_in_months` condition to ensure that packages currently in use are not archived.
      * 
      */
     public Optional<Output<Integer>> lastDownloadedBeforeInMonths() {
@@ -159,23 +163,23 @@ public final class PackageCleanupPolicySearchCriteriaArgs extends com.pulumi.res
     }
 
     /**
-     * Specify patterns for repository names or explicit repository names. For including all repos use `**`. Example: `repos = [&#34;**&#34;]`
+     * Specify one or more patterns for the repository name(s) on which you want the archive policy to run. You can also specify explicit repository names. Specifying at least one pattern or explicit name is required. Only packages in repositories that match the pattern or explicit name will be archived. For including all repos use `**`. Example: `repos = [&#34;**&#34;]`
      * 
      */
     @Import(name="repos", required=true)
     private Output<List<String>> repos;
 
     /**
-     * @return Specify patterns for repository names or explicit repository names. For including all repos use `**`. Example: `repos = [&#34;**&#34;]`
+     * @return Specify one or more patterns for the repository name(s) on which you want the archive policy to run. You can also specify explicit repository names. Specifying at least one pattern or explicit name is required. Only packages in repositories that match the pattern or explicit name will be archived. For including all repos use `**`. Example: `repos = [&#34;**&#34;]`
      * 
      */
     public Output<List<String>> repos() {
         return this.repos;
     }
 
-    private PackageCleanupPolicySearchCriteriaArgs() {}
+    private ArchivePolicySearchCriteriaArgs() {}
 
-    private PackageCleanupPolicySearchCriteriaArgs(PackageCleanupPolicySearchCriteriaArgs $) {
+    private ArchivePolicySearchCriteriaArgs(ArchivePolicySearchCriteriaArgs $) {
         this.createdBeforeInMonths = $.createdBeforeInMonths;
         this.excludedPackages = $.excludedPackages;
         this.excludedRepos = $.excludedRepos;
@@ -191,23 +195,23 @@ public final class PackageCleanupPolicySearchCriteriaArgs extends com.pulumi.res
     public static Builder builder() {
         return new Builder();
     }
-    public static Builder builder(PackageCleanupPolicySearchCriteriaArgs defaults) {
+    public static Builder builder(ArchivePolicySearchCriteriaArgs defaults) {
         return new Builder(defaults);
     }
 
     public static final class Builder {
-        private PackageCleanupPolicySearchCriteriaArgs $;
+        private ArchivePolicySearchCriteriaArgs $;
 
         public Builder() {
-            $ = new PackageCleanupPolicySearchCriteriaArgs();
+            $ = new ArchivePolicySearchCriteriaArgs();
         }
 
-        public Builder(PackageCleanupPolicySearchCriteriaArgs defaults) {
-            $ = new PackageCleanupPolicySearchCriteriaArgs(Objects.requireNonNull(defaults));
+        public Builder(ArchivePolicySearchCriteriaArgs defaults) {
+            $ = new ArchivePolicySearchCriteriaArgs(Objects.requireNonNull(defaults));
         }
 
         /**
-         * @param createdBeforeInMonths Remove packages based on when they were created. For example, remove packages that were created more than a year ago. The default value is to remove packages created more than 2 years ago.
+         * @param createdBeforeInMonths The archive policy will archive packages based on how long ago they were created. For example, if this parameter is 2 then packages created more than 2 months ago will be archived as part of the policy.
          * 
          * @return builder
          * 
@@ -218,7 +222,7 @@ public final class PackageCleanupPolicySearchCriteriaArgs extends com.pulumi.res
         }
 
         /**
-         * @param createdBeforeInMonths Remove packages based on when they were created. For example, remove packages that were created more than a year ago. The default value is to remove packages created more than 2 years ago.
+         * @param createdBeforeInMonths The archive policy will archive packages based on how long ago they were created. For example, if this parameter is 2 then packages created more than 2 months ago will be archived as part of the policy.
          * 
          * @return builder
          * 
@@ -259,7 +263,7 @@ public final class PackageCleanupPolicySearchCriteriaArgs extends com.pulumi.res
         }
 
         /**
-         * @param excludedRepos Specify patterns for repository names or explicit repository names that you want excluded from the cleanup policy.
+         * @param excludedRepos Specify patterns for repository names or explicit repository names that you want excluded from the archive policy.
          * 
          * @return builder
          * 
@@ -270,7 +274,7 @@ public final class PackageCleanupPolicySearchCriteriaArgs extends com.pulumi.res
         }
 
         /**
-         * @param excludedRepos Specify patterns for repository names or explicit repository names that you want excluded from the cleanup policy.
+         * @param excludedRepos Specify patterns for repository names or explicit repository names that you want excluded from the archive policy.
          * 
          * @return builder
          * 
@@ -280,7 +284,7 @@ public final class PackageCleanupPolicySearchCriteriaArgs extends com.pulumi.res
         }
 
         /**
-         * @param excludedRepos Specify patterns for repository names or explicit repository names that you want excluded from the cleanup policy.
+         * @param excludedRepos Specify patterns for repository names or explicit repository names that you want excluded from the archive policy.
          * 
          * @return builder
          * 
@@ -290,7 +294,7 @@ public final class PackageCleanupPolicySearchCriteriaArgs extends com.pulumi.res
         }
 
         /**
-         * @param includeAllProjects Set this to `true` if you want the policy to run on all projects on the platform.
+         * @param includeAllProjects Set this value to `true` if you want the policy to run on all Artifactory projects. The default value is `false`.
          * 
          * @return builder
          * 
@@ -301,7 +305,7 @@ public final class PackageCleanupPolicySearchCriteriaArgs extends com.pulumi.res
         }
 
         /**
-         * @param includeAllProjects Set this to `true` if you want the policy to run on all projects on the platform.
+         * @param includeAllProjects Set this value to `true` if you want the policy to run on all Artifactory projects. The default value is `false`.
          * 
          * @return builder
          * 
@@ -344,6 +348,8 @@ public final class PackageCleanupPolicySearchCriteriaArgs extends com.pulumi.res
         /**
          * @param includedProjects List of projects on which you want this policy to run. To include repositories that are not assigned to any project, enter the project key `default`.
          * 
+         * ~&gt;This setting is relevant only on the global level, for Platform Admins.
+         * 
          * @return builder
          * 
          */
@@ -355,6 +361,8 @@ public final class PackageCleanupPolicySearchCriteriaArgs extends com.pulumi.res
         /**
          * @param includedProjects List of projects on which you want this policy to run. To include repositories that are not assigned to any project, enter the project key `default`.
          * 
+         * ~&gt;This setting is relevant only on the global level, for Platform Admins.
+         * 
          * @return builder
          * 
          */
@@ -365,6 +373,8 @@ public final class PackageCleanupPolicySearchCriteriaArgs extends com.pulumi.res
         /**
          * @param includedProjects List of projects on which you want this policy to run. To include repositories that are not assigned to any project, enter the project key `default`.
          * 
+         * ~&gt;This setting is relevant only on the global level, for Platform Admins.
+         * 
          * @return builder
          * 
          */
@@ -373,9 +383,11 @@ public final class PackageCleanupPolicySearchCriteriaArgs extends com.pulumi.res
         }
 
         /**
-         * @param keepLastNVersions Select the number of latest versions to keep. The cleanup policy will remove all versions prior to the number you select here. The latest version is always excluded. Versions are determined by creation date.
+         * @param keepLastNVersions Set a value for the number of latest versions to keep. The archive policy will remove all versions before the number you select here. The latest version is always excluded.
          * 
-         * ~&gt;Not all package types support this condition. For information on which package types support this condition, [learn more](https://jfrog.com/help/r/jfrog-platform-administration-documentation/retention-policies/package-types-coverage).
+         * ~&gt;Versions are determined by creation date.
+         * 
+         * ~&gt;Not all package types support this condition. If you include a package type in your policy that is not compatible with this condition, a validation error (400) is returned. For information on which package types support this condition, see here.
          * 
          * @return builder
          * 
@@ -386,9 +398,11 @@ public final class PackageCleanupPolicySearchCriteriaArgs extends com.pulumi.res
         }
 
         /**
-         * @param keepLastNVersions Select the number of latest versions to keep. The cleanup policy will remove all versions prior to the number you select here. The latest version is always excluded. Versions are determined by creation date.
+         * @param keepLastNVersions Set a value for the number of latest versions to keep. The archive policy will remove all versions before the number you select here. The latest version is always excluded.
          * 
-         * ~&gt;Not all package types support this condition. For information on which package types support this condition, [learn more](https://jfrog.com/help/r/jfrog-platform-administration-documentation/retention-policies/package-types-coverage).
+         * ~&gt;Versions are determined by creation date.
+         * 
+         * ~&gt;Not all package types support this condition. If you include a package type in your policy that is not compatible with this condition, a validation error (400) is returned. For information on which package types support this condition, see here.
          * 
          * @return builder
          * 
@@ -398,11 +412,9 @@ public final class PackageCleanupPolicySearchCriteriaArgs extends com.pulumi.res
         }
 
         /**
-         * @param lastDownloadedBeforeInMonths Removes packages based on when they were last downloaded. For example, removes packages that were not downloaded in the past year. The default value is to remove packages that were downloaded more than 2 years ago.
+         * @param lastDownloadedBeforeInMonths The archive policy will archive packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 months ago will be archived as part of the policy.
          * 
-         * ~&gt;If a package was never downloaded, the policy will remove it based only on the age-condition (`created_before_in_months`).
-         * 
-         * ~&gt;JFrog recommends using the `last_downloaded_before_in_months` condition to ensure that packages currently in use are not deleted.
+         * ~&gt;JFrog recommends using the `last_downloaded_before_in_months` condition to ensure that packages currently in use are not archived.
          * 
          * @return builder
          * 
@@ -413,11 +425,9 @@ public final class PackageCleanupPolicySearchCriteriaArgs extends com.pulumi.res
         }
 
         /**
-         * @param lastDownloadedBeforeInMonths Removes packages based on when they were last downloaded. For example, removes packages that were not downloaded in the past year. The default value is to remove packages that were downloaded more than 2 years ago.
+         * @param lastDownloadedBeforeInMonths The archive policy will archive packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 months ago will be archived as part of the policy.
          * 
-         * ~&gt;If a package was never downloaded, the policy will remove it based only on the age-condition (`created_before_in_months`).
-         * 
-         * ~&gt;JFrog recommends using the `last_downloaded_before_in_months` condition to ensure that packages currently in use are not deleted.
+         * ~&gt;JFrog recommends using the `last_downloaded_before_in_months` condition to ensure that packages currently in use are not archived.
          * 
          * @return builder
          * 
@@ -440,7 +450,7 @@ public final class PackageCleanupPolicySearchCriteriaArgs extends com.pulumi.res
         }
 
         /**
-         * @param repos Specify patterns for repository names or explicit repository names. For including all repos use `**`. Example: `repos = [&#34;**&#34;]`
+         * @param repos Specify one or more patterns for the repository name(s) on which you want the archive policy to run. You can also specify explicit repository names. Specifying at least one pattern or explicit name is required. Only packages in repositories that match the pattern or explicit name will be archived. For including all repos use `**`. Example: `repos = [&#34;**&#34;]`
          * 
          * @return builder
          * 
@@ -451,7 +461,7 @@ public final class PackageCleanupPolicySearchCriteriaArgs extends com.pulumi.res
         }
 
         /**
-         * @param repos Specify patterns for repository names or explicit repository names. For including all repos use `**`. Example: `repos = [&#34;**&#34;]`
+         * @param repos Specify one or more patterns for the repository name(s) on which you want the archive policy to run. You can also specify explicit repository names. Specifying at least one pattern or explicit name is required. Only packages in repositories that match the pattern or explicit name will be archived. For including all repos use `**`. Example: `repos = [&#34;**&#34;]`
          * 
          * @return builder
          * 
@@ -461,7 +471,7 @@ public final class PackageCleanupPolicySearchCriteriaArgs extends com.pulumi.res
         }
 
         /**
-         * @param repos Specify patterns for repository names or explicit repository names. For including all repos use `**`. Example: `repos = [&#34;**&#34;]`
+         * @param repos Specify one or more patterns for the repository name(s) on which you want the archive policy to run. You can also specify explicit repository names. Specifying at least one pattern or explicit name is required. Only packages in repositories that match the pattern or explicit name will be archived. For including all repos use `**`. Example: `repos = [&#34;**&#34;]`
          * 
          * @return builder
          * 
@@ -470,15 +480,15 @@ public final class PackageCleanupPolicySearchCriteriaArgs extends com.pulumi.res
             return repos(List.of(repos));
         }
 
-        public PackageCleanupPolicySearchCriteriaArgs build() {
+        public ArchivePolicySearchCriteriaArgs build() {
             if ($.includedPackages == null) {
-                throw new MissingRequiredPropertyException("PackageCleanupPolicySearchCriteriaArgs", "includedPackages");
+                throw new MissingRequiredPropertyException("ArchivePolicySearchCriteriaArgs", "includedPackages");
             }
             if ($.packageTypes == null) {
-                throw new MissingRequiredPropertyException("PackageCleanupPolicySearchCriteriaArgs", "packageTypes");
+                throw new MissingRequiredPropertyException("ArchivePolicySearchCriteriaArgs", "packageTypes");
             }
             if ($.repos == null) {
-                throw new MissingRequiredPropertyException("PackageCleanupPolicySearchCriteriaArgs", "repos");
+                throw new MissingRequiredPropertyException("ArchivePolicySearchCriteriaArgs", "repos");
             }
             return $;
         }

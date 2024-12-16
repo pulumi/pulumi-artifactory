@@ -62,6 +62,21 @@ public final class ArtifactState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Base64 content of the source file. Conflicts with `file_path`. Either one of these attribute must be set.
+     * 
+     */
+    @Import(name="contentBase64")
+    private @Nullable Output<String> contentBase64;
+
+    /**
+     * @return Base64 content of the source file. Conflicts with `file_path`. Either one of these attribute must be set.
+     * 
+     */
+    public Optional<Output<String>> contentBase64() {
+        return Optional.ofNullable(this.contentBase64);
+    }
+
+    /**
      * Timestamp when artifact is created.
      * 
      */
@@ -107,14 +122,14 @@ public final class ArtifactState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Path to the source file.
+     * Path to the source file. Conflicts with `content_base64`. Either one of these attribute must be set.
      * 
      */
     @Import(name="filePath")
     private @Nullable Output<String> filePath;
 
     /**
-     * @return Path to the source file.
+     * @return Path to the source file. Conflicts with `content_base64`. Either one of these attribute must be set.
      * 
      */
     public Optional<Output<String>> filePath() {
@@ -202,6 +217,7 @@ public final class ArtifactState extends com.pulumi.resources.ResourceArgs {
         this.checksumMd5 = $.checksumMd5;
         this.checksumSha1 = $.checksumSha1;
         this.checksumSha256 = $.checksumSha256;
+        this.contentBase64 = $.contentBase64;
         this.created = $.created;
         this.createdBy = $.createdBy;
         this.downloadUri = $.downloadUri;
@@ -295,6 +311,27 @@ public final class ArtifactState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param contentBase64 Base64 content of the source file. Conflicts with `file_path`. Either one of these attribute must be set.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder contentBase64(@Nullable Output<String> contentBase64) {
+            $.contentBase64 = contentBase64;
+            return this;
+        }
+
+        /**
+         * @param contentBase64 Base64 content of the source file. Conflicts with `file_path`. Either one of these attribute must be set.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder contentBase64(String contentBase64) {
+            return contentBase64(Output.of(contentBase64));
+        }
+
+        /**
          * @param created Timestamp when artifact is created.
          * 
          * @return builder
@@ -358,7 +395,7 @@ public final class ArtifactState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param filePath Path to the source file.
+         * @param filePath Path to the source file. Conflicts with `content_base64`. Either one of these attribute must be set.
          * 
          * @return builder
          * 
@@ -369,7 +406,7 @@ public final class ArtifactState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param filePath Path to the source file.
+         * @param filePath Path to the source file. Conflicts with `content_base64`. Either one of these attribute must be set.
          * 
          * @return builder
          * 

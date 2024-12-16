@@ -11,10 +11,10 @@ namespace Pulumi.Artifactory.Outputs
 {
 
     [OutputType]
-    public sealed class PackageCleanupPolicySearchCriteria
+    public sealed class ArchivePolicySearchCriteria
     {
         /// <summary>
-        /// Remove packages based on when they were created. For example, remove packages that were created more than a year ago. The default value is to remove packages created more than 2 years ago.
+        /// The archive policy will archive packages based on how long ago they were created. For example, if this parameter is 2 then packages created more than 2 months ago will be archived as part of the policy.
         /// </summary>
         public readonly int? CreatedBeforeInMonths;
         /// <summary>
@@ -22,11 +22,11 @@ namespace Pulumi.Artifactory.Outputs
         /// </summary>
         public readonly ImmutableArray<string> ExcludedPackages;
         /// <summary>
-        /// Specify patterns for repository names or explicit repository names that you want excluded from the cleanup policy.
+        /// Specify patterns for repository names or explicit repository names that you want excluded from the archive policy.
         /// </summary>
         public readonly ImmutableArray<string> ExcludedRepos;
         /// <summary>
-        /// Set this to `true` if you want the policy to run on all projects on the platform.
+        /// Set this value to `true` if you want the policy to run on all Artifactory projects. The default value is `false`.
         /// </summary>
         public readonly bool? IncludeAllProjects;
         /// <summary>
@@ -35,30 +35,32 @@ namespace Pulumi.Artifactory.Outputs
         public readonly ImmutableArray<string> IncludedPackages;
         /// <summary>
         /// List of projects on which you want this policy to run. To include repositories that are not assigned to any project, enter the project key `default`.
+        /// 
+        /// ~&gt;This setting is relevant only on the global level, for Platform Admins.
         /// </summary>
         public readonly ImmutableArray<string> IncludedProjects;
         /// <summary>
-        /// Select the number of latest versions to keep. The cleanup policy will remove all versions prior to the number you select here. The latest version is always excluded. Versions are determined by creation date.
+        /// Set a value for the number of latest versions to keep. The archive policy will remove all versions before the number you select here. The latest version is always excluded.
         /// 
-        /// ~&gt;Not all package types support this condition. For information on which package types support this condition, [learn more](https://jfrog.com/help/r/jfrog-platform-administration-documentation/retention-policies/package-types-coverage).
+        /// ~&gt;Versions are determined by creation date.
+        /// 
+        /// ~&gt;Not all package types support this condition. If you include a package type in your policy that is not compatible with this condition, a validation error (400) is returned. For information on which package types support this condition, see here.
         /// </summary>
         public readonly int? KeepLastNVersions;
         /// <summary>
-        /// Removes packages based on when they were last downloaded. For example, removes packages that were not downloaded in the past year. The default value is to remove packages that were downloaded more than 2 years ago.
+        /// The archive policy will archive packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 months ago will be archived as part of the policy.
         /// 
-        /// ~&gt;If a package was never downloaded, the policy will remove it based only on the age-condition (`created_before_in_months`).
-        /// 
-        /// ~&gt;JFrog recommends using the `last_downloaded_before_in_months` condition to ensure that packages currently in use are not deleted.
+        /// ~&gt;JFrog recommends using the `last_downloaded_before_in_months` condition to ensure that packages currently in use are not archived.
         /// </summary>
         public readonly int? LastDownloadedBeforeInMonths;
         public readonly ImmutableArray<string> PackageTypes;
         /// <summary>
-        /// Specify patterns for repository names or explicit repository names. For including all repos use `**`. Example: `repos = ["**"]`
+        /// Specify one or more patterns for the repository name(s) on which you want the archive policy to run. You can also specify explicit repository names. Specifying at least one pattern or explicit name is required. Only packages in repositories that match the pattern or explicit name will be archived. For including all repos use `**`. Example: `repos = ["**"]`
         /// </summary>
         public readonly ImmutableArray<string> Repos;
 
         [OutputConstructor]
-        private PackageCleanupPolicySearchCriteria(
+        private ArchivePolicySearchCriteria(
             int? createdBeforeInMonths,
 
             ImmutableArray<string> excludedPackages,

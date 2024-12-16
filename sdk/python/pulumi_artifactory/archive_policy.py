@@ -16,13 +16,13 @@ from . import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['PackageCleanupPolicyArgs', 'PackageCleanupPolicy']
+__all__ = ['ArchivePolicyArgs', 'ArchivePolicy']
 
 @pulumi.input_type
-class PackageCleanupPolicyArgs:
+class ArchivePolicyArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
-                 search_criteria: pulumi.Input['PackageCleanupPolicySearchCriteriaArgs'],
+                 search_criteria: pulumi.Input['ArchivePolicySearchCriteriaArgs'],
                  cron_expression: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  duration_in_minutes: Optional[pulumi.Input[int]] = None,
@@ -30,13 +30,13 @@ class PackageCleanupPolicyArgs:
                  project_key: Optional[pulumi.Input[str]] = None,
                  skip_trashcan: Optional[pulumi.Input[bool]] = None):
         """
-        The set of arguments for constructing a PackageCleanupPolicy resource.
-        :param pulumi.Input[str] key: Policy key. It has to be unique. It should not be used for other policies and configuration entities like archive policies, key pairs, repo layouts, property sets, backups, proxies, reverse proxies etc. A minimum of three characters is required and can include letters, numbers, underscore and hyphen.
-        :param pulumi.Input[str] cron_expression: The Cron expression that sets the schedule of policy execution. For example, `0 0 2 * * ?` executes the policy every day at 02:00 AM. The minimum recurrent time for policy execution is 6 hours.
-        :param pulumi.Input[int] duration_in_minutes: Enable and select the maximum duration for policy execution. Note: using this setting can cause the policy to stop before completion.
+        The set of arguments for constructing a ArchivePolicy resource.
+        :param pulumi.Input[str] key: An ID that is used to identify the archive policy. A minimum of three characters is required and can include letters, numbers, underscore and hyphen.
+        :param pulumi.Input[str] cron_expression: The cron expression determines when the policy is run. This parameter is not mandatory, however if left empty the policy will not run automatically and can only be triggered manually.
+        :param pulumi.Input[int] duration_in_minutes: The maximum duration (in minutes) for policy execution, after which the policy will stop running even if not completed. While setting a maximum run duration for a policy is useful for adhering to a strict archive V2 schedule, it can cause the policy to stop before completion.
         :param pulumi.Input[bool] enabled: Enables or disabled the package cleanup policy. This allows the user to run the policy manually. If a policy has a valid cron expression, then it will be scheduled for execution based on it. If a policy is disabled, its future executions will be unscheduled. Defaults to `true`
-        :param pulumi.Input[str] project_key: This attribute is used only for project-level cleanup policies, it is not used for global-level policies.
-        :param pulumi.Input[bool] skip_trashcan: Enabling this setting results in packages being permanently deleted from Artifactory after the cleanup policy is executed instead of going to the Trash Can repository. Defaults to `false`.
+        :param pulumi.Input[str] project_key: This attribute is used only for project-level archive V2 policies, it is not used for global-level policies.
+        :param pulumi.Input[bool] skip_trashcan: A `true` value means that when this policy is executed, packages will be permanently deleted. `false` means that when the policy is executed packages will be deleted to the Trash Can. Defaults to `false`.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "search_criteria", search_criteria)
@@ -57,7 +57,7 @@ class PackageCleanupPolicyArgs:
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
-        Policy key. It has to be unique. It should not be used for other policies and configuration entities like archive policies, key pairs, repo layouts, property sets, backups, proxies, reverse proxies etc. A minimum of three characters is required and can include letters, numbers, underscore and hyphen.
+        An ID that is used to identify the archive policy. A minimum of three characters is required and can include letters, numbers, underscore and hyphen.
         """
         return pulumi.get(self, "key")
 
@@ -67,18 +67,18 @@ class PackageCleanupPolicyArgs:
 
     @property
     @pulumi.getter(name="searchCriteria")
-    def search_criteria(self) -> pulumi.Input['PackageCleanupPolicySearchCriteriaArgs']:
+    def search_criteria(self) -> pulumi.Input['ArchivePolicySearchCriteriaArgs']:
         return pulumi.get(self, "search_criteria")
 
     @search_criteria.setter
-    def search_criteria(self, value: pulumi.Input['PackageCleanupPolicySearchCriteriaArgs']):
+    def search_criteria(self, value: pulumi.Input['ArchivePolicySearchCriteriaArgs']):
         pulumi.set(self, "search_criteria", value)
 
     @property
     @pulumi.getter(name="cronExpression")
     def cron_expression(self) -> Optional[pulumi.Input[str]]:
         """
-        The Cron expression that sets the schedule of policy execution. For example, `0 0 2 * * ?` executes the policy every day at 02:00 AM. The minimum recurrent time for policy execution is 6 hours.
+        The cron expression determines when the policy is run. This parameter is not mandatory, however if left empty the policy will not run automatically and can only be triggered manually.
         """
         return pulumi.get(self, "cron_expression")
 
@@ -99,7 +99,7 @@ class PackageCleanupPolicyArgs:
     @pulumi.getter(name="durationInMinutes")
     def duration_in_minutes(self) -> Optional[pulumi.Input[int]]:
         """
-        Enable and select the maximum duration for policy execution. Note: using this setting can cause the policy to stop before completion.
+        The maximum duration (in minutes) for policy execution, after which the policy will stop running even if not completed. While setting a maximum run duration for a policy is useful for adhering to a strict archive V2 schedule, it can cause the policy to stop before completion.
         """
         return pulumi.get(self, "duration_in_minutes")
 
@@ -123,7 +123,7 @@ class PackageCleanupPolicyArgs:
     @pulumi.getter(name="projectKey")
     def project_key(self) -> Optional[pulumi.Input[str]]:
         """
-        This attribute is used only for project-level cleanup policies, it is not used for global-level policies.
+        This attribute is used only for project-level archive V2 policies, it is not used for global-level policies.
         """
         return pulumi.get(self, "project_key")
 
@@ -135,7 +135,7 @@ class PackageCleanupPolicyArgs:
     @pulumi.getter(name="skipTrashcan")
     def skip_trashcan(self) -> Optional[pulumi.Input[bool]]:
         """
-        Enabling this setting results in packages being permanently deleted from Artifactory after the cleanup policy is executed instead of going to the Trash Can repository. Defaults to `false`.
+        A `true` value means that when this policy is executed, packages will be permanently deleted. `false` means that when the policy is executed packages will be deleted to the Trash Can. Defaults to `false`.
         """
         return pulumi.get(self, "skip_trashcan")
 
@@ -145,7 +145,7 @@ class PackageCleanupPolicyArgs:
 
 
 @pulumi.input_type
-class _PackageCleanupPolicyState:
+class _ArchivePolicyState:
     def __init__(__self__, *,
                  cron_expression: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -153,16 +153,16 @@ class _PackageCleanupPolicyState:
                  enabled: Optional[pulumi.Input[bool]] = None,
                  key: Optional[pulumi.Input[str]] = None,
                  project_key: Optional[pulumi.Input[str]] = None,
-                 search_criteria: Optional[pulumi.Input['PackageCleanupPolicySearchCriteriaArgs']] = None,
+                 search_criteria: Optional[pulumi.Input['ArchivePolicySearchCriteriaArgs']] = None,
                  skip_trashcan: Optional[pulumi.Input[bool]] = None):
         """
-        Input properties used for looking up and filtering PackageCleanupPolicy resources.
-        :param pulumi.Input[str] cron_expression: The Cron expression that sets the schedule of policy execution. For example, `0 0 2 * * ?` executes the policy every day at 02:00 AM. The minimum recurrent time for policy execution is 6 hours.
-        :param pulumi.Input[int] duration_in_minutes: Enable and select the maximum duration for policy execution. Note: using this setting can cause the policy to stop before completion.
+        Input properties used for looking up and filtering ArchivePolicy resources.
+        :param pulumi.Input[str] cron_expression: The cron expression determines when the policy is run. This parameter is not mandatory, however if left empty the policy will not run automatically and can only be triggered manually.
+        :param pulumi.Input[int] duration_in_minutes: The maximum duration (in minutes) for policy execution, after which the policy will stop running even if not completed. While setting a maximum run duration for a policy is useful for adhering to a strict archive V2 schedule, it can cause the policy to stop before completion.
         :param pulumi.Input[bool] enabled: Enables or disabled the package cleanup policy. This allows the user to run the policy manually. If a policy has a valid cron expression, then it will be scheduled for execution based on it. If a policy is disabled, its future executions will be unscheduled. Defaults to `true`
-        :param pulumi.Input[str] key: Policy key. It has to be unique. It should not be used for other policies and configuration entities like archive policies, key pairs, repo layouts, property sets, backups, proxies, reverse proxies etc. A minimum of three characters is required and can include letters, numbers, underscore and hyphen.
-        :param pulumi.Input[str] project_key: This attribute is used only for project-level cleanup policies, it is not used for global-level policies.
-        :param pulumi.Input[bool] skip_trashcan: Enabling this setting results in packages being permanently deleted from Artifactory after the cleanup policy is executed instead of going to the Trash Can repository. Defaults to `false`.
+        :param pulumi.Input[str] key: An ID that is used to identify the archive policy. A minimum of three characters is required and can include letters, numbers, underscore and hyphen.
+        :param pulumi.Input[str] project_key: This attribute is used only for project-level archive V2 policies, it is not used for global-level policies.
+        :param pulumi.Input[bool] skip_trashcan: A `true` value means that when this policy is executed, packages will be permanently deleted. `false` means that when the policy is executed packages will be deleted to the Trash Can. Defaults to `false`.
         """
         if cron_expression is not None:
             pulumi.set(__self__, "cron_expression", cron_expression)
@@ -185,7 +185,7 @@ class _PackageCleanupPolicyState:
     @pulumi.getter(name="cronExpression")
     def cron_expression(self) -> Optional[pulumi.Input[str]]:
         """
-        The Cron expression that sets the schedule of policy execution. For example, `0 0 2 * * ?` executes the policy every day at 02:00 AM. The minimum recurrent time for policy execution is 6 hours.
+        The cron expression determines when the policy is run. This parameter is not mandatory, however if left empty the policy will not run automatically and can only be triggered manually.
         """
         return pulumi.get(self, "cron_expression")
 
@@ -206,7 +206,7 @@ class _PackageCleanupPolicyState:
     @pulumi.getter(name="durationInMinutes")
     def duration_in_minutes(self) -> Optional[pulumi.Input[int]]:
         """
-        Enable and select the maximum duration for policy execution. Note: using this setting can cause the policy to stop before completion.
+        The maximum duration (in minutes) for policy execution, after which the policy will stop running even if not completed. While setting a maximum run duration for a policy is useful for adhering to a strict archive V2 schedule, it can cause the policy to stop before completion.
         """
         return pulumi.get(self, "duration_in_minutes")
 
@@ -230,7 +230,7 @@ class _PackageCleanupPolicyState:
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
         """
-        Policy key. It has to be unique. It should not be used for other policies and configuration entities like archive policies, key pairs, repo layouts, property sets, backups, proxies, reverse proxies etc. A minimum of three characters is required and can include letters, numbers, underscore and hyphen.
+        An ID that is used to identify the archive policy. A minimum of three characters is required and can include letters, numbers, underscore and hyphen.
         """
         return pulumi.get(self, "key")
 
@@ -242,7 +242,7 @@ class _PackageCleanupPolicyState:
     @pulumi.getter(name="projectKey")
     def project_key(self) -> Optional[pulumi.Input[str]]:
         """
-        This attribute is used only for project-level cleanup policies, it is not used for global-level policies.
+        This attribute is used only for project-level archive V2 policies, it is not used for global-level policies.
         """
         return pulumi.get(self, "project_key")
 
@@ -252,18 +252,18 @@ class _PackageCleanupPolicyState:
 
     @property
     @pulumi.getter(name="searchCriteria")
-    def search_criteria(self) -> Optional[pulumi.Input['PackageCleanupPolicySearchCriteriaArgs']]:
+    def search_criteria(self) -> Optional[pulumi.Input['ArchivePolicySearchCriteriaArgs']]:
         return pulumi.get(self, "search_criteria")
 
     @search_criteria.setter
-    def search_criteria(self, value: Optional[pulumi.Input['PackageCleanupPolicySearchCriteriaArgs']]):
+    def search_criteria(self, value: Optional[pulumi.Input['ArchivePolicySearchCriteriaArgs']]):
         pulumi.set(self, "search_criteria", value)
 
     @property
     @pulumi.getter(name="skipTrashcan")
     def skip_trashcan(self) -> Optional[pulumi.Input[bool]]:
         """
-        Enabling this setting results in packages being permanently deleted from Artifactory after the cleanup policy is executed instead of going to the Trash Can repository. Defaults to `false`.
+        A `true` value means that when this policy is executed, packages will be permanently deleted. `false` means that when the policy is executed packages will be deleted to the Trash Can. Defaults to `false`.
         """
         return pulumi.get(self, "skip_trashcan")
 
@@ -272,7 +272,7 @@ class _PackageCleanupPolicyState:
         pulumi.set(self, "skip_trashcan", value)
 
 
-class PackageCleanupPolicy(pulumi.CustomResource):
+class ArchivePolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -283,61 +283,61 @@ class PackageCleanupPolicy(pulumi.CustomResource):
                  enabled: Optional[pulumi.Input[bool]] = None,
                  key: Optional[pulumi.Input[str]] = None,
                  project_key: Optional[pulumi.Input[str]] = None,
-                 search_criteria: Optional[pulumi.Input[Union['PackageCleanupPolicySearchCriteriaArgs', 'PackageCleanupPolicySearchCriteriaArgsDict']]] = None,
+                 search_criteria: Optional[pulumi.Input[Union['ArchivePolicySearchCriteriaArgs', 'ArchivePolicySearchCriteriaArgsDict']]] = None,
                  skip_trashcan: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        Provides an Artifactory Package Cleanup Policy resource. This resource enable system administrators to define and customize policies based on specific criteria for removing unused binaries from across their JFrog platform. See [Cleanup Policies](https://jfrog.com/help/r/jfrog-platform-administration-documentation/cleanup-policies) for more details.
+        Provides an Artifactory Archive Policy resource. This resource enable system administrators to define and customize policies based on specific criteria for removing unused binaries from across their JFrog platform. See [Retention Policies](https://jfrog.com/help/r/jfrog-platform-administration-documentation/retention-policies) for more details.
 
-        ~>Currently in beta and will be globally available in v7.98.x.
+        ~>Currently in beta and not yet globally available. A full rollout is scheduled for Q1 2025.
 
         ## Import
 
         ```sh
-        $ pulumi import artifactory:index/packageCleanupPolicy:PackageCleanupPolicy my-cleanup-policy my-policy
+        $ pulumi import artifactory:index/archivePolicy:ArchivePolicy my-archive-policy my-policy
         ```
 
         ```sh
-        $ pulumi import artifactory:index/packageCleanupPolicy:PackageCleanupPolicy my-cleanup-policy my-policy:myproj
+        $ pulumi import artifactory:index/archivePolicy:ArchivePolicy my-archive-policy my-policy:myproj
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] cron_expression: The Cron expression that sets the schedule of policy execution. For example, `0 0 2 * * ?` executes the policy every day at 02:00 AM. The minimum recurrent time for policy execution is 6 hours.
-        :param pulumi.Input[int] duration_in_minutes: Enable and select the maximum duration for policy execution. Note: using this setting can cause the policy to stop before completion.
+        :param pulumi.Input[str] cron_expression: The cron expression determines when the policy is run. This parameter is not mandatory, however if left empty the policy will not run automatically and can only be triggered manually.
+        :param pulumi.Input[int] duration_in_minutes: The maximum duration (in minutes) for policy execution, after which the policy will stop running even if not completed. While setting a maximum run duration for a policy is useful for adhering to a strict archive V2 schedule, it can cause the policy to stop before completion.
         :param pulumi.Input[bool] enabled: Enables or disabled the package cleanup policy. This allows the user to run the policy manually. If a policy has a valid cron expression, then it will be scheduled for execution based on it. If a policy is disabled, its future executions will be unscheduled. Defaults to `true`
-        :param pulumi.Input[str] key: Policy key. It has to be unique. It should not be used for other policies and configuration entities like archive policies, key pairs, repo layouts, property sets, backups, proxies, reverse proxies etc. A minimum of three characters is required and can include letters, numbers, underscore and hyphen.
-        :param pulumi.Input[str] project_key: This attribute is used only for project-level cleanup policies, it is not used for global-level policies.
-        :param pulumi.Input[bool] skip_trashcan: Enabling this setting results in packages being permanently deleted from Artifactory after the cleanup policy is executed instead of going to the Trash Can repository. Defaults to `false`.
+        :param pulumi.Input[str] key: An ID that is used to identify the archive policy. A minimum of three characters is required and can include letters, numbers, underscore and hyphen.
+        :param pulumi.Input[str] project_key: This attribute is used only for project-level archive V2 policies, it is not used for global-level policies.
+        :param pulumi.Input[bool] skip_trashcan: A `true` value means that when this policy is executed, packages will be permanently deleted. `false` means that when the policy is executed packages will be deleted to the Trash Can. Defaults to `false`.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: PackageCleanupPolicyArgs,
+                 args: ArchivePolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an Artifactory Package Cleanup Policy resource. This resource enable system administrators to define and customize policies based on specific criteria for removing unused binaries from across their JFrog platform. See [Cleanup Policies](https://jfrog.com/help/r/jfrog-platform-administration-documentation/cleanup-policies) for more details.
+        Provides an Artifactory Archive Policy resource. This resource enable system administrators to define and customize policies based on specific criteria for removing unused binaries from across their JFrog platform. See [Retention Policies](https://jfrog.com/help/r/jfrog-platform-administration-documentation/retention-policies) for more details.
 
-        ~>Currently in beta and will be globally available in v7.98.x.
+        ~>Currently in beta and not yet globally available. A full rollout is scheduled for Q1 2025.
 
         ## Import
 
         ```sh
-        $ pulumi import artifactory:index/packageCleanupPolicy:PackageCleanupPolicy my-cleanup-policy my-policy
+        $ pulumi import artifactory:index/archivePolicy:ArchivePolicy my-archive-policy my-policy
         ```
 
         ```sh
-        $ pulumi import artifactory:index/packageCleanupPolicy:PackageCleanupPolicy my-cleanup-policy my-policy:myproj
+        $ pulumi import artifactory:index/archivePolicy:ArchivePolicy my-archive-policy my-policy:myproj
         ```
 
         :param str resource_name: The name of the resource.
-        :param PackageCleanupPolicyArgs args: The arguments to use to populate this resource's properties.
+        :param ArchivePolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(PackageCleanupPolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ArchivePolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -352,7 +352,7 @@ class PackageCleanupPolicy(pulumi.CustomResource):
                  enabled: Optional[pulumi.Input[bool]] = None,
                  key: Optional[pulumi.Input[str]] = None,
                  project_key: Optional[pulumi.Input[str]] = None,
-                 search_criteria: Optional[pulumi.Input[Union['PackageCleanupPolicySearchCriteriaArgs', 'PackageCleanupPolicySearchCriteriaArgsDict']]] = None,
+                 search_criteria: Optional[pulumi.Input[Union['ArchivePolicySearchCriteriaArgs', 'ArchivePolicySearchCriteriaArgsDict']]] = None,
                  skip_trashcan: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -361,7 +361,7 @@ class PackageCleanupPolicy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = PackageCleanupPolicyArgs.__new__(PackageCleanupPolicyArgs)
+            __props__ = ArchivePolicyArgs.__new__(ArchivePolicyArgs)
 
             __props__.__dict__["cron_expression"] = cron_expression
             __props__.__dict__["description"] = description
@@ -375,8 +375,8 @@ class PackageCleanupPolicy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'search_criteria'")
             __props__.__dict__["search_criteria"] = search_criteria
             __props__.__dict__["skip_trashcan"] = skip_trashcan
-        super(PackageCleanupPolicy, __self__).__init__(
-            'artifactory:index/packageCleanupPolicy:PackageCleanupPolicy',
+        super(ArchivePolicy, __self__).__init__(
+            'artifactory:index/archivePolicy:ArchivePolicy',
             resource_name,
             __props__,
             opts)
@@ -391,25 +391,25 @@ class PackageCleanupPolicy(pulumi.CustomResource):
             enabled: Optional[pulumi.Input[bool]] = None,
             key: Optional[pulumi.Input[str]] = None,
             project_key: Optional[pulumi.Input[str]] = None,
-            search_criteria: Optional[pulumi.Input[Union['PackageCleanupPolicySearchCriteriaArgs', 'PackageCleanupPolicySearchCriteriaArgsDict']]] = None,
-            skip_trashcan: Optional[pulumi.Input[bool]] = None) -> 'PackageCleanupPolicy':
+            search_criteria: Optional[pulumi.Input[Union['ArchivePolicySearchCriteriaArgs', 'ArchivePolicySearchCriteriaArgsDict']]] = None,
+            skip_trashcan: Optional[pulumi.Input[bool]] = None) -> 'ArchivePolicy':
         """
-        Get an existing PackageCleanupPolicy resource's state with the given name, id, and optional extra
+        Get an existing ArchivePolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] cron_expression: The Cron expression that sets the schedule of policy execution. For example, `0 0 2 * * ?` executes the policy every day at 02:00 AM. The minimum recurrent time for policy execution is 6 hours.
-        :param pulumi.Input[int] duration_in_minutes: Enable and select the maximum duration for policy execution. Note: using this setting can cause the policy to stop before completion.
+        :param pulumi.Input[str] cron_expression: The cron expression determines when the policy is run. This parameter is not mandatory, however if left empty the policy will not run automatically and can only be triggered manually.
+        :param pulumi.Input[int] duration_in_minutes: The maximum duration (in minutes) for policy execution, after which the policy will stop running even if not completed. While setting a maximum run duration for a policy is useful for adhering to a strict archive V2 schedule, it can cause the policy to stop before completion.
         :param pulumi.Input[bool] enabled: Enables or disabled the package cleanup policy. This allows the user to run the policy manually. If a policy has a valid cron expression, then it will be scheduled for execution based on it. If a policy is disabled, its future executions will be unscheduled. Defaults to `true`
-        :param pulumi.Input[str] key: Policy key. It has to be unique. It should not be used for other policies and configuration entities like archive policies, key pairs, repo layouts, property sets, backups, proxies, reverse proxies etc. A minimum of three characters is required and can include letters, numbers, underscore and hyphen.
-        :param pulumi.Input[str] project_key: This attribute is used only for project-level cleanup policies, it is not used for global-level policies.
-        :param pulumi.Input[bool] skip_trashcan: Enabling this setting results in packages being permanently deleted from Artifactory after the cleanup policy is executed instead of going to the Trash Can repository. Defaults to `false`.
+        :param pulumi.Input[str] key: An ID that is used to identify the archive policy. A minimum of three characters is required and can include letters, numbers, underscore and hyphen.
+        :param pulumi.Input[str] project_key: This attribute is used only for project-level archive V2 policies, it is not used for global-level policies.
+        :param pulumi.Input[bool] skip_trashcan: A `true` value means that when this policy is executed, packages will be permanently deleted. `false` means that when the policy is executed packages will be deleted to the Trash Can. Defaults to `false`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = _PackageCleanupPolicyState.__new__(_PackageCleanupPolicyState)
+        __props__ = _ArchivePolicyState.__new__(_ArchivePolicyState)
 
         __props__.__dict__["cron_expression"] = cron_expression
         __props__.__dict__["description"] = description
@@ -419,13 +419,13 @@ class PackageCleanupPolicy(pulumi.CustomResource):
         __props__.__dict__["project_key"] = project_key
         __props__.__dict__["search_criteria"] = search_criteria
         __props__.__dict__["skip_trashcan"] = skip_trashcan
-        return PackageCleanupPolicy(resource_name, opts=opts, __props__=__props__)
+        return ArchivePolicy(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter(name="cronExpression")
     def cron_expression(self) -> pulumi.Output[Optional[str]]:
         """
-        The Cron expression that sets the schedule of policy execution. For example, `0 0 2 * * ?` executes the policy every day at 02:00 AM. The minimum recurrent time for policy execution is 6 hours.
+        The cron expression determines when the policy is run. This parameter is not mandatory, however if left empty the policy will not run automatically and can only be triggered manually.
         """
         return pulumi.get(self, "cron_expression")
 
@@ -438,7 +438,7 @@ class PackageCleanupPolicy(pulumi.CustomResource):
     @pulumi.getter(name="durationInMinutes")
     def duration_in_minutes(self) -> pulumi.Output[Optional[int]]:
         """
-        Enable and select the maximum duration for policy execution. Note: using this setting can cause the policy to stop before completion.
+        The maximum duration (in minutes) for policy execution, after which the policy will stop running even if not completed. While setting a maximum run duration for a policy is useful for adhering to a strict archive V2 schedule, it can cause the policy to stop before completion.
         """
         return pulumi.get(self, "duration_in_minutes")
 
@@ -454,7 +454,7 @@ class PackageCleanupPolicy(pulumi.CustomResource):
     @pulumi.getter
     def key(self) -> pulumi.Output[str]:
         """
-        Policy key. It has to be unique. It should not be used for other policies and configuration entities like archive policies, key pairs, repo layouts, property sets, backups, proxies, reverse proxies etc. A minimum of three characters is required and can include letters, numbers, underscore and hyphen.
+        An ID that is used to identify the archive policy. A minimum of three characters is required and can include letters, numbers, underscore and hyphen.
         """
         return pulumi.get(self, "key")
 
@@ -462,20 +462,20 @@ class PackageCleanupPolicy(pulumi.CustomResource):
     @pulumi.getter(name="projectKey")
     def project_key(self) -> pulumi.Output[Optional[str]]:
         """
-        This attribute is used only for project-level cleanup policies, it is not used for global-level policies.
+        This attribute is used only for project-level archive V2 policies, it is not used for global-level policies.
         """
         return pulumi.get(self, "project_key")
 
     @property
     @pulumi.getter(name="searchCriteria")
-    def search_criteria(self) -> pulumi.Output['outputs.PackageCleanupPolicySearchCriteria']:
+    def search_criteria(self) -> pulumi.Output['outputs.ArchivePolicySearchCriteria']:
         return pulumi.get(self, "search_criteria")
 
     @property
     @pulumi.getter(name="skipTrashcan")
     def skip_trashcan(self) -> pulumi.Output[bool]:
         """
-        Enabling this setting results in packages being permanently deleted from Artifactory after the cleanup policy is executed instead of going to the Trash Can repository. Defaults to `false`.
+        A `true` value means that when this policy is executed, packages will be permanently deleted. `false` means that when the policy is executed packages will be deleted to the Trash Can. Defaults to `false`.
         """
         return pulumi.get(self, "skip_trashcan")
 

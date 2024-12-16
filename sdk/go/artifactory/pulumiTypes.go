@@ -13,6 +13,342 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type ArchivePolicySearchCriteria struct {
+	// The archive policy will archive packages based on how long ago they were created. For example, if this parameter is 2 then packages created more than 2 months ago will be archived as part of the policy.
+	CreatedBeforeInMonths *int `pulumi:"createdBeforeInMonths"`
+	// Specify explicit package names that you want excluded from the policy. Only Name explicit names (and not patterns) are accepted.
+	ExcludedPackages []string `pulumi:"excludedPackages"`
+	// Specify patterns for repository names or explicit repository names that you want excluded from the archive policy.
+	ExcludedRepos []string `pulumi:"excludedRepos"`
+	// Set this value to `true` if you want the policy to run on all Artifactory projects. The default value is `false`.
+	IncludeAllProjects *bool `pulumi:"includeAllProjects"`
+	// Specify a pattern for a package name or an explicit package name. It accept only single element which can be specific package or pattern, and for including all packages use `**`. Example: `includedPackages = ["**"]`
+	IncludedPackages []string `pulumi:"includedPackages"`
+	// List of projects on which you want this policy to run. To include repositories that are not assigned to any project, enter the project key `default`.
+	//
+	// ~>This setting is relevant only on the global level, for Platform Admins.
+	IncludedProjects []string `pulumi:"includedProjects"`
+	// Set a value for the number of latest versions to keep. The archive policy will remove all versions before the number you select here. The latest version is always excluded.
+	//
+	// ~>Versions are determined by creation date.
+	//
+	// ~>Not all package types support this condition. If you include a package type in your policy that is not compatible with this condition, a validation error (400) is returned. For information on which package types support this condition, see here.
+	KeepLastNVersions *int `pulumi:"keepLastNVersions"`
+	// The archive policy will archive packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 months ago will be archived as part of the policy.
+	//
+	// ~>JFrog recommends using the `lastDownloadedBeforeInMonths` condition to ensure that packages currently in use are not archived.
+	LastDownloadedBeforeInMonths *int     `pulumi:"lastDownloadedBeforeInMonths"`
+	PackageTypes                 []string `pulumi:"packageTypes"`
+	// Specify one or more patterns for the repository name(s) on which you want the archive policy to run. You can also specify explicit repository names. Specifying at least one pattern or explicit name is required. Only packages in repositories that match the pattern or explicit name will be archived. For including all repos use `**`. Example: `repos = ["**"]`
+	Repos []string `pulumi:"repos"`
+}
+
+// ArchivePolicySearchCriteriaInput is an input type that accepts ArchivePolicySearchCriteriaArgs and ArchivePolicySearchCriteriaOutput values.
+// You can construct a concrete instance of `ArchivePolicySearchCriteriaInput` via:
+//
+//	ArchivePolicySearchCriteriaArgs{...}
+type ArchivePolicySearchCriteriaInput interface {
+	pulumi.Input
+
+	ToArchivePolicySearchCriteriaOutput() ArchivePolicySearchCriteriaOutput
+	ToArchivePolicySearchCriteriaOutputWithContext(context.Context) ArchivePolicySearchCriteriaOutput
+}
+
+type ArchivePolicySearchCriteriaArgs struct {
+	// The archive policy will archive packages based on how long ago they were created. For example, if this parameter is 2 then packages created more than 2 months ago will be archived as part of the policy.
+	CreatedBeforeInMonths pulumi.IntPtrInput `pulumi:"createdBeforeInMonths"`
+	// Specify explicit package names that you want excluded from the policy. Only Name explicit names (and not patterns) are accepted.
+	ExcludedPackages pulumi.StringArrayInput `pulumi:"excludedPackages"`
+	// Specify patterns for repository names or explicit repository names that you want excluded from the archive policy.
+	ExcludedRepos pulumi.StringArrayInput `pulumi:"excludedRepos"`
+	// Set this value to `true` if you want the policy to run on all Artifactory projects. The default value is `false`.
+	IncludeAllProjects pulumi.BoolPtrInput `pulumi:"includeAllProjects"`
+	// Specify a pattern for a package name or an explicit package name. It accept only single element which can be specific package or pattern, and for including all packages use `**`. Example: `includedPackages = ["**"]`
+	IncludedPackages pulumi.StringArrayInput `pulumi:"includedPackages"`
+	// List of projects on which you want this policy to run. To include repositories that are not assigned to any project, enter the project key `default`.
+	//
+	// ~>This setting is relevant only on the global level, for Platform Admins.
+	IncludedProjects pulumi.StringArrayInput `pulumi:"includedProjects"`
+	// Set a value for the number of latest versions to keep. The archive policy will remove all versions before the number you select here. The latest version is always excluded.
+	//
+	// ~>Versions are determined by creation date.
+	//
+	// ~>Not all package types support this condition. If you include a package type in your policy that is not compatible with this condition, a validation error (400) is returned. For information on which package types support this condition, see here.
+	KeepLastNVersions pulumi.IntPtrInput `pulumi:"keepLastNVersions"`
+	// The archive policy will archive packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 months ago will be archived as part of the policy.
+	//
+	// ~>JFrog recommends using the `lastDownloadedBeforeInMonths` condition to ensure that packages currently in use are not archived.
+	LastDownloadedBeforeInMonths pulumi.IntPtrInput      `pulumi:"lastDownloadedBeforeInMonths"`
+	PackageTypes                 pulumi.StringArrayInput `pulumi:"packageTypes"`
+	// Specify one or more patterns for the repository name(s) on which you want the archive policy to run. You can also specify explicit repository names. Specifying at least one pattern or explicit name is required. Only packages in repositories that match the pattern or explicit name will be archived. For including all repos use `**`. Example: `repos = ["**"]`
+	Repos pulumi.StringArrayInput `pulumi:"repos"`
+}
+
+func (ArchivePolicySearchCriteriaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ArchivePolicySearchCriteria)(nil)).Elem()
+}
+
+func (i ArchivePolicySearchCriteriaArgs) ToArchivePolicySearchCriteriaOutput() ArchivePolicySearchCriteriaOutput {
+	return i.ToArchivePolicySearchCriteriaOutputWithContext(context.Background())
+}
+
+func (i ArchivePolicySearchCriteriaArgs) ToArchivePolicySearchCriteriaOutputWithContext(ctx context.Context) ArchivePolicySearchCriteriaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ArchivePolicySearchCriteriaOutput)
+}
+
+func (i ArchivePolicySearchCriteriaArgs) ToArchivePolicySearchCriteriaPtrOutput() ArchivePolicySearchCriteriaPtrOutput {
+	return i.ToArchivePolicySearchCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (i ArchivePolicySearchCriteriaArgs) ToArchivePolicySearchCriteriaPtrOutputWithContext(ctx context.Context) ArchivePolicySearchCriteriaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ArchivePolicySearchCriteriaOutput).ToArchivePolicySearchCriteriaPtrOutputWithContext(ctx)
+}
+
+// ArchivePolicySearchCriteriaPtrInput is an input type that accepts ArchivePolicySearchCriteriaArgs, ArchivePolicySearchCriteriaPtr and ArchivePolicySearchCriteriaPtrOutput values.
+// You can construct a concrete instance of `ArchivePolicySearchCriteriaPtrInput` via:
+//
+//	        ArchivePolicySearchCriteriaArgs{...}
+//
+//	or:
+//
+//	        nil
+type ArchivePolicySearchCriteriaPtrInput interface {
+	pulumi.Input
+
+	ToArchivePolicySearchCriteriaPtrOutput() ArchivePolicySearchCriteriaPtrOutput
+	ToArchivePolicySearchCriteriaPtrOutputWithContext(context.Context) ArchivePolicySearchCriteriaPtrOutput
+}
+
+type archivePolicySearchCriteriaPtrType ArchivePolicySearchCriteriaArgs
+
+func ArchivePolicySearchCriteriaPtr(v *ArchivePolicySearchCriteriaArgs) ArchivePolicySearchCriteriaPtrInput {
+	return (*archivePolicySearchCriteriaPtrType)(v)
+}
+
+func (*archivePolicySearchCriteriaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ArchivePolicySearchCriteria)(nil)).Elem()
+}
+
+func (i *archivePolicySearchCriteriaPtrType) ToArchivePolicySearchCriteriaPtrOutput() ArchivePolicySearchCriteriaPtrOutput {
+	return i.ToArchivePolicySearchCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (i *archivePolicySearchCriteriaPtrType) ToArchivePolicySearchCriteriaPtrOutputWithContext(ctx context.Context) ArchivePolicySearchCriteriaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ArchivePolicySearchCriteriaPtrOutput)
+}
+
+type ArchivePolicySearchCriteriaOutput struct{ *pulumi.OutputState }
+
+func (ArchivePolicySearchCriteriaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ArchivePolicySearchCriteria)(nil)).Elem()
+}
+
+func (o ArchivePolicySearchCriteriaOutput) ToArchivePolicySearchCriteriaOutput() ArchivePolicySearchCriteriaOutput {
+	return o
+}
+
+func (o ArchivePolicySearchCriteriaOutput) ToArchivePolicySearchCriteriaOutputWithContext(ctx context.Context) ArchivePolicySearchCriteriaOutput {
+	return o
+}
+
+func (o ArchivePolicySearchCriteriaOutput) ToArchivePolicySearchCriteriaPtrOutput() ArchivePolicySearchCriteriaPtrOutput {
+	return o.ToArchivePolicySearchCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (o ArchivePolicySearchCriteriaOutput) ToArchivePolicySearchCriteriaPtrOutputWithContext(ctx context.Context) ArchivePolicySearchCriteriaPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ArchivePolicySearchCriteria) *ArchivePolicySearchCriteria {
+		return &v
+	}).(ArchivePolicySearchCriteriaPtrOutput)
+}
+
+// The archive policy will archive packages based on how long ago they were created. For example, if this parameter is 2 then packages created more than 2 months ago will be archived as part of the policy.
+func (o ArchivePolicySearchCriteriaOutput) CreatedBeforeInMonths() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ArchivePolicySearchCriteria) *int { return v.CreatedBeforeInMonths }).(pulumi.IntPtrOutput)
+}
+
+// Specify explicit package names that you want excluded from the policy. Only Name explicit names (and not patterns) are accepted.
+func (o ArchivePolicySearchCriteriaOutput) ExcludedPackages() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ArchivePolicySearchCriteria) []string { return v.ExcludedPackages }).(pulumi.StringArrayOutput)
+}
+
+// Specify patterns for repository names or explicit repository names that you want excluded from the archive policy.
+func (o ArchivePolicySearchCriteriaOutput) ExcludedRepos() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ArchivePolicySearchCriteria) []string { return v.ExcludedRepos }).(pulumi.StringArrayOutput)
+}
+
+// Set this value to `true` if you want the policy to run on all Artifactory projects. The default value is `false`.
+func (o ArchivePolicySearchCriteriaOutput) IncludeAllProjects() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ArchivePolicySearchCriteria) *bool { return v.IncludeAllProjects }).(pulumi.BoolPtrOutput)
+}
+
+// Specify a pattern for a package name or an explicit package name. It accept only single element which can be specific package or pattern, and for including all packages use `**`. Example: `includedPackages = ["**"]`
+func (o ArchivePolicySearchCriteriaOutput) IncludedPackages() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ArchivePolicySearchCriteria) []string { return v.IncludedPackages }).(pulumi.StringArrayOutput)
+}
+
+// List of projects on which you want this policy to run. To include repositories that are not assigned to any project, enter the project key `default`.
+//
+// ~>This setting is relevant only on the global level, for Platform Admins.
+func (o ArchivePolicySearchCriteriaOutput) IncludedProjects() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ArchivePolicySearchCriteria) []string { return v.IncludedProjects }).(pulumi.StringArrayOutput)
+}
+
+// Set a value for the number of latest versions to keep. The archive policy will remove all versions before the number you select here. The latest version is always excluded.
+//
+// ~>Versions are determined by creation date.
+//
+// ~>Not all package types support this condition. If you include a package type in your policy that is not compatible with this condition, a validation error (400) is returned. For information on which package types support this condition, see here.
+func (o ArchivePolicySearchCriteriaOutput) KeepLastNVersions() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ArchivePolicySearchCriteria) *int { return v.KeepLastNVersions }).(pulumi.IntPtrOutput)
+}
+
+// The archive policy will archive packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 months ago will be archived as part of the policy.
+//
+// ~>JFrog recommends using the `lastDownloadedBeforeInMonths` condition to ensure that packages currently in use are not archived.
+func (o ArchivePolicySearchCriteriaOutput) LastDownloadedBeforeInMonths() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ArchivePolicySearchCriteria) *int { return v.LastDownloadedBeforeInMonths }).(pulumi.IntPtrOutput)
+}
+
+func (o ArchivePolicySearchCriteriaOutput) PackageTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ArchivePolicySearchCriteria) []string { return v.PackageTypes }).(pulumi.StringArrayOutput)
+}
+
+// Specify one or more patterns for the repository name(s) on which you want the archive policy to run. You can also specify explicit repository names. Specifying at least one pattern or explicit name is required. Only packages in repositories that match the pattern or explicit name will be archived. For including all repos use `**`. Example: `repos = ["**"]`
+func (o ArchivePolicySearchCriteriaOutput) Repos() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ArchivePolicySearchCriteria) []string { return v.Repos }).(pulumi.StringArrayOutput)
+}
+
+type ArchivePolicySearchCriteriaPtrOutput struct{ *pulumi.OutputState }
+
+func (ArchivePolicySearchCriteriaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ArchivePolicySearchCriteria)(nil)).Elem()
+}
+
+func (o ArchivePolicySearchCriteriaPtrOutput) ToArchivePolicySearchCriteriaPtrOutput() ArchivePolicySearchCriteriaPtrOutput {
+	return o
+}
+
+func (o ArchivePolicySearchCriteriaPtrOutput) ToArchivePolicySearchCriteriaPtrOutputWithContext(ctx context.Context) ArchivePolicySearchCriteriaPtrOutput {
+	return o
+}
+
+func (o ArchivePolicySearchCriteriaPtrOutput) Elem() ArchivePolicySearchCriteriaOutput {
+	return o.ApplyT(func(v *ArchivePolicySearchCriteria) ArchivePolicySearchCriteria {
+		if v != nil {
+			return *v
+		}
+		var ret ArchivePolicySearchCriteria
+		return ret
+	}).(ArchivePolicySearchCriteriaOutput)
+}
+
+// The archive policy will archive packages based on how long ago they were created. For example, if this parameter is 2 then packages created more than 2 months ago will be archived as part of the policy.
+func (o ArchivePolicySearchCriteriaPtrOutput) CreatedBeforeInMonths() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ArchivePolicySearchCriteria) *int {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedBeforeInMonths
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specify explicit package names that you want excluded from the policy. Only Name explicit names (and not patterns) are accepted.
+func (o ArchivePolicySearchCriteriaPtrOutput) ExcludedPackages() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ArchivePolicySearchCriteria) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludedPackages
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specify patterns for repository names or explicit repository names that you want excluded from the archive policy.
+func (o ArchivePolicySearchCriteriaPtrOutput) ExcludedRepos() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ArchivePolicySearchCriteria) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludedRepos
+	}).(pulumi.StringArrayOutput)
+}
+
+// Set this value to `true` if you want the policy to run on all Artifactory projects. The default value is `false`.
+func (o ArchivePolicySearchCriteriaPtrOutput) IncludeAllProjects() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ArchivePolicySearchCriteria) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeAllProjects
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specify a pattern for a package name or an explicit package name. It accept only single element which can be specific package or pattern, and for including all packages use `**`. Example: `includedPackages = ["**"]`
+func (o ArchivePolicySearchCriteriaPtrOutput) IncludedPackages() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ArchivePolicySearchCriteria) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IncludedPackages
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of projects on which you want this policy to run. To include repositories that are not assigned to any project, enter the project key `default`.
+//
+// ~>This setting is relevant only on the global level, for Platform Admins.
+func (o ArchivePolicySearchCriteriaPtrOutput) IncludedProjects() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ArchivePolicySearchCriteria) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IncludedProjects
+	}).(pulumi.StringArrayOutput)
+}
+
+// Set a value for the number of latest versions to keep. The archive policy will remove all versions before the number you select here. The latest version is always excluded.
+//
+// ~>Versions are determined by creation date.
+//
+// ~>Not all package types support this condition. If you include a package type in your policy that is not compatible with this condition, a validation error (400) is returned. For information on which package types support this condition, see here.
+func (o ArchivePolicySearchCriteriaPtrOutput) KeepLastNVersions() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ArchivePolicySearchCriteria) *int {
+		if v == nil {
+			return nil
+		}
+		return v.KeepLastNVersions
+	}).(pulumi.IntPtrOutput)
+}
+
+// The archive policy will archive packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 months ago will be archived as part of the policy.
+//
+// ~>JFrog recommends using the `lastDownloadedBeforeInMonths` condition to ensure that packages currently in use are not archived.
+func (o ArchivePolicySearchCriteriaPtrOutput) LastDownloadedBeforeInMonths() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ArchivePolicySearchCriteria) *int {
+		if v == nil {
+			return nil
+		}
+		return v.LastDownloadedBeforeInMonths
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o ArchivePolicySearchCriteriaPtrOutput) PackageTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ArchivePolicySearchCriteria) []string {
+		if v == nil {
+			return nil
+		}
+		return v.PackageTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specify one or more patterns for the repository name(s) on which you want the archive policy to run. You can also specify explicit repository names. Specifying at least one pattern or explicit name is required. Only packages in repositories that match the pattern or explicit name will be archived. For including all repos use `**`. Example: `repos = ["**"]`
+func (o ArchivePolicySearchCriteriaPtrOutput) Repos() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ArchivePolicySearchCriteria) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Repos
+	}).(pulumi.StringArrayOutput)
+}
+
 type ArtifactCustomWebhookCriteria struct {
 	// Trigger on any federated repositories
 	AnyFederated bool `pulumi:"anyFederated"`
@@ -9821,9 +10157,8 @@ type PackageCleanupPolicySearchCriteria struct {
 	// ~>If a package was never downloaded, the policy will remove it based only on the age-condition (`createdBeforeInMonths`).
 	//
 	// ~>JFrog recommends using the `lastDownloadedBeforeInMonths` condition to ensure that packages currently in use are not deleted.
-	LastDownloadedBeforeInMonths *int `pulumi:"lastDownloadedBeforeInMonths"`
-	// Types of packages to be removed. Support: conan, debian, docker, gems, generic, go, gradle, helm, maven, npm, nuget, pypi, yum.
-	PackageTypes []string `pulumi:"packageTypes"`
+	LastDownloadedBeforeInMonths *int     `pulumi:"lastDownloadedBeforeInMonths"`
+	PackageTypes                 []string `pulumi:"packageTypes"`
 	// Specify patterns for repository names or explicit repository names. For including all repos use `**`. Example: `repos = ["**"]`
 	Repos []string `pulumi:"repos"`
 }
@@ -9861,9 +10196,8 @@ type PackageCleanupPolicySearchCriteriaArgs struct {
 	// ~>If a package was never downloaded, the policy will remove it based only on the age-condition (`createdBeforeInMonths`).
 	//
 	// ~>JFrog recommends using the `lastDownloadedBeforeInMonths` condition to ensure that packages currently in use are not deleted.
-	LastDownloadedBeforeInMonths pulumi.IntPtrInput `pulumi:"lastDownloadedBeforeInMonths"`
-	// Types of packages to be removed. Support: conan, debian, docker, gems, generic, go, gradle, helm, maven, npm, nuget, pypi, yum.
-	PackageTypes pulumi.StringArrayInput `pulumi:"packageTypes"`
+	LastDownloadedBeforeInMonths pulumi.IntPtrInput      `pulumi:"lastDownloadedBeforeInMonths"`
+	PackageTypes                 pulumi.StringArrayInput `pulumi:"packageTypes"`
 	// Specify patterns for repository names or explicit repository names. For including all repos use `**`. Example: `repos = ["**"]`
 	Repos pulumi.StringArrayInput `pulumi:"repos"`
 }
@@ -9991,7 +10325,6 @@ func (o PackageCleanupPolicySearchCriteriaOutput) LastDownloadedBeforeInMonths()
 	return o.ApplyT(func(v PackageCleanupPolicySearchCriteria) *int { return v.LastDownloadedBeforeInMonths }).(pulumi.IntPtrOutput)
 }
 
-// Types of packages to be removed. Support: conan, debian, docker, gems, generic, go, gradle, helm, maven, npm, nuget, pypi, yum.
 func (o PackageCleanupPolicySearchCriteriaOutput) PackageTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PackageCleanupPolicySearchCriteria) []string { return v.PackageTypes }).(pulumi.StringArrayOutput)
 }
@@ -10111,7 +10444,6 @@ func (o PackageCleanupPolicySearchCriteriaPtrOutput) LastDownloadedBeforeInMonth
 	}).(pulumi.IntPtrOutput)
 }
 
-// Types of packages to be removed. Support: conan, debian, docker, gems, generic, go, gradle, helm, maven, npm, nuget, pypi, yum.
 func (o PackageCleanupPolicySearchCriteriaPtrOutput) PackageTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PackageCleanupPolicySearchCriteria) []string {
 		if v == nil {
@@ -35184,6 +35516,8 @@ func (o GetRepositoriesRepoArrayOutput) Index(i pulumi.IntInput) GetRepositories
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ArchivePolicySearchCriteriaInput)(nil)).Elem(), ArchivePolicySearchCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ArchivePolicySearchCriteriaPtrInput)(nil)).Elem(), ArchivePolicySearchCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ArtifactCustomWebhookCriteriaInput)(nil)).Elem(), ArtifactCustomWebhookCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ArtifactCustomWebhookCriteriaPtrInput)(nil)).Elem(), ArtifactCustomWebhookCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ArtifactCustomWebhookHandlerInput)(nil)).Elem(), ArtifactCustomWebhookHandlerArgs{})
@@ -35633,6 +35967,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteVcsRepositoryContentSynchronisationPtrInput)(nil)).Elem(), GetRemoteVcsRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoriesRepoInput)(nil)).Elem(), GetRepositoriesRepoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoriesRepoArrayInput)(nil)).Elem(), GetRepositoriesRepoArray{})
+	pulumi.RegisterOutputType(ArchivePolicySearchCriteriaOutput{})
+	pulumi.RegisterOutputType(ArchivePolicySearchCriteriaPtrOutput{})
 	pulumi.RegisterOutputType(ArtifactCustomWebhookCriteriaOutput{})
 	pulumi.RegisterOutputType(ArtifactCustomWebhookCriteriaPtrOutput{})
 	pulumi.RegisterOutputType(ArtifactCustomWebhookHandlerOutput{})

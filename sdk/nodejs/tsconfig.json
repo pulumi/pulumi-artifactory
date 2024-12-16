@@ -16,6 +16,7 @@
         "alpineRepository.ts",
         "anonymousUser.ts",
         "apiKey.ts",
+        "archivePolicy.ts",
         "artifact.ts",
         "artifactCustomWebhook.ts",
         "artifactLifecycleCustomWebhook.ts",

@@ -19,30 +19,23 @@ __all__ = ['ArtifactArgs', 'Artifact']
 @pulumi.input_type
 class ArtifactArgs:
     def __init__(__self__, *,
-                 file_path: pulumi.Input[str],
                  path: pulumi.Input[str],
-                 repository: pulumi.Input[str]):
+                 repository: pulumi.Input[str],
+                 content_base64: Optional[pulumi.Input[str]] = None,
+                 file_path: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Artifact resource.
-        :param pulumi.Input[str] file_path: Path to the source file.
         :param pulumi.Input[str] path: The relative path in the target repository. Must begin with a '/'. You can add key-value matrix parameters to deploy the artifacts with properties. For more details, please refer to [Introducing Matrix Parameters](https://jfrog.com/help/r/jfrog-artifactory-documentation/using-properties-in-deployment-and-resolution).
         :param pulumi.Input[str] repository: Name of the respository.
+        :param pulumi.Input[str] content_base64: Base64 content of the source file. Conflicts with `file_path`. Either one of these attribute must be set.
+        :param pulumi.Input[str] file_path: Path to the source file. Conflicts with `content_base64`. Either one of these attribute must be set.
         """
-        pulumi.set(__self__, "file_path", file_path)
         pulumi.set(__self__, "path", path)
         pulumi.set(__self__, "repository", repository)
-
-    @property
-    @pulumi.getter(name="filePath")
-    def file_path(self) -> pulumi.Input[str]:
-        """
-        Path to the source file.
-        """
-        return pulumi.get(self, "file_path")
-
-    @file_path.setter
-    def file_path(self, value: pulumi.Input[str]):
-        pulumi.set(self, "file_path", value)
+        if content_base64 is not None:
+            pulumi.set(__self__, "content_base64", content_base64)
+        if file_path is not None:
+            pulumi.set(__self__, "file_path", file_path)
 
     @property
     @pulumi.getter
@@ -68,6 +61,30 @@ class ArtifactArgs:
     def repository(self, value: pulumi.Input[str]):
         pulumi.set(self, "repository", value)
 
+    @property
+    @pulumi.getter(name="contentBase64")
+    def content_base64(self) -> Optional[pulumi.Input[str]]:
+        """
+        Base64 content of the source file. Conflicts with `file_path`. Either one of these attribute must be set.
+        """
+        return pulumi.get(self, "content_base64")
+
+    @content_base64.setter
+    def content_base64(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "content_base64", value)
+
+    @property
+    @pulumi.getter(name="filePath")
+    def file_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        Path to the source file. Conflicts with `content_base64`. Either one of these attribute must be set.
+        """
+        return pulumi.get(self, "file_path")
+
+    @file_path.setter
+    def file_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "file_path", value)
+
 
 @pulumi.input_type
 class _ArtifactState:
@@ -75,6 +92,7 @@ class _ArtifactState:
                  checksum_md5: Optional[pulumi.Input[str]] = None,
                  checksum_sha1: Optional[pulumi.Input[str]] = None,
                  checksum_sha256: Optional[pulumi.Input[str]] = None,
+                 content_base64: Optional[pulumi.Input[str]] = None,
                  created: Optional[pulumi.Input[str]] = None,
                  created_by: Optional[pulumi.Input[str]] = None,
                  download_uri: Optional[pulumi.Input[str]] = None,
@@ -89,10 +107,11 @@ class _ArtifactState:
         :param pulumi.Input[str] checksum_md5: MD5 checksum of the artifact.
         :param pulumi.Input[str] checksum_sha1: SHA1 checksum of the artifact.
         :param pulumi.Input[str] checksum_sha256: SHA256 checksum of the artifact.
+        :param pulumi.Input[str] content_base64: Base64 content of the source file. Conflicts with `file_path`. Either one of these attribute must be set.
         :param pulumi.Input[str] created: Timestamp when artifact is created.
         :param pulumi.Input[str] created_by: User who deploys the artifact.
         :param pulumi.Input[str] download_uri: Download URI of the artifact.
-        :param pulumi.Input[str] file_path: Path to the source file.
+        :param pulumi.Input[str] file_path: Path to the source file. Conflicts with `content_base64`. Either one of these attribute must be set.
         :param pulumi.Input[str] mime_type: MIME type of the artifact.
         :param pulumi.Input[str] path: The relative path in the target repository. Must begin with a '/'. You can add key-value matrix parameters to deploy the artifacts with properties. For more details, please refer to [Introducing Matrix Parameters](https://jfrog.com/help/r/jfrog-artifactory-documentation/using-properties-in-deployment-and-resolution).
         :param pulumi.Input[str] repository: Name of the respository.
@@ -105,6 +124,8 @@ class _ArtifactState:
             pulumi.set(__self__, "checksum_sha1", checksum_sha1)
         if checksum_sha256 is not None:
             pulumi.set(__self__, "checksum_sha256", checksum_sha256)
+        if content_base64 is not None:
+            pulumi.set(__self__, "content_base64", content_base64)
         if created is not None:
             pulumi.set(__self__, "created", created)
         if created_by is not None:
@@ -161,6 +182,18 @@ class _ArtifactState:
         pulumi.set(self, "checksum_sha256", value)
 
     @property
+    @pulumi.getter(name="contentBase64")
+    def content_base64(self) -> Optional[pulumi.Input[str]]:
+        """
+        Base64 content of the source file. Conflicts with `file_path`. Either one of these attribute must be set.
+        """
+        return pulumi.get(self, "content_base64")
+
+    @content_base64.setter
+    def content_base64(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "content_base64", value)
+
+    @property
     @pulumi.getter
     def created(self) -> Optional[pulumi.Input[str]]:
         """
@@ -200,7 +233,7 @@ class _ArtifactState:
     @pulumi.getter(name="filePath")
     def file_path(self) -> Optional[pulumi.Input[str]]:
         """
-        Path to the source file.
+        Path to the source file. Conflicts with `content_base64`. Either one of these attribute must be set.
         """
         return pulumi.get(self, "file_path")
 
@@ -274,6 +307,7 @@ class Artifact(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 content_base64: Optional[pulumi.Input[str]] = None,
                  file_path: Optional[pulumi.Input[str]] = None,
                  path: Optional[pulumi.Input[str]] = None,
                  repository: Optional[pulumi.Input[str]] = None,
@@ -291,11 +325,16 @@ class Artifact(pulumi.CustomResource):
             repository="my-generic-local",
             path="/my-path/my-file.zip",
             file_path="/path/to/my-file.zip")
+        my_base64_artifact = artifactory.Artifact("my-base64-artifact",
+            repository="my-generic-local",
+            path="/my-path/my-file.zip",
+            content_base64="UEsDBAoAAAAAALl8alQAAAAAAAAAAAAAAAAJAAAATUVUQS1JTkYvUEsDBAoAAAAIALh8alTmUEsubQAAAIMAAAAUAAAATUVUQS1JTkYvTUFOSUZFU1QuTUbzTczLTEstLtENSy0qzszPs1Iw1DPg5XIsSs7ILEstQggH5KRWlBYrwCR4uZyLUhNLUlN0nSqtFBwLEpMzUhV8E8tS8xSM9cz0jHm5nEozc0rAsilAO1JzcjMhYim6XinZQGuA9uiZ83LxcgEAUEsDBAoAAAAAALh8alQAAAAAAAAAAAAAAAAMAAAAYXJ0aWZhY3RvcnkvUEsDBAoAAAAAALh8alQAAAAAAAAAAAAAAAARAAAAYXJ0aWZhY3RvcnkvdGVzdC9QSwMECgAAAAgAuHxqVMgzPcxdAQAALAIAAB0AAABhcnRpZmFjdG9yeS90ZXN0L011bHRpMS5jbGFzc3VRy07CQBQ9w6OlpQqCgPgEV+jCxsTEBcaNiXFRHwkGF66GOuKQPkyZmvBZutDEhR/gRxlvCwkxwVnck3vunXPPnfn++fwCcIRdExpWDdRQL6BhYg1NHes6Nhi0ExlIdcqQ7ez1GXJn4YNgKDkyEFexPxDRLR94xFSc0OVen0cyyWdkTj3JMUPT4ZGSj9xVYTSxlRgr+zL2lDzsUovPZcBQ79w7I/7CbY8HQ7unIhkMu+lAHg1JorqgzGD2wjhyxblMhhWnmgdJnwUdBR2bFrawzWBdCM8LW3dh5D20dexYaKHN0PjHFkN5Pux6MBKu+kP1JmMlfHqSMKZCbepMhvYN2VJkTnCfzFUX0Az6c5J5tHKts2hjtJGnz0hOBixZg6JBmU3ICPP7H2CvadmkqKWkhiJFa9pAuERoYBml2eXjVIy4N2Qq2Xfk5gImIWhKgRrnIgbKWCGkj007q79QSwECFAMKAAAAAAC5fGpUAAAAAAAAAAAAAAAACQAAAAAAAAAAABAA7UEAAAAATUVUQS1JTkYvUEsBAhQDCgAAAAgAuHxqVOZQSy5tAAAAgwAAABQAAAAAAAAAAAAAAKSBJwAAAE1FVEEtSU5GL01BTklGRVNULk1GUEsBAhQDCgAAAAAAuHxqVAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAQAO1BxgAAAGFydGlmYWN0b3J5L1BLAQIUAwoAAAAAALh8alQAAAAAAAAAAAAAAAARAAAAAAAAAAAAEADtQfAAAABhcnRpZmFjdG9yeS90ZXN0L1BLAQIUAwoAAAAIALh8alTIMz3MXQEAACwCAAAdAAAAAAAAAAAAAACkgR8BAABhcnRpZmFjdG9yeS90ZXN0L011bHRpMS5jbGFzc1BLBQYAAAAABQAFAD0BAAC3AgAAAAA=")
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] file_path: Path to the source file.
+        :param pulumi.Input[str] content_base64: Base64 content of the source file. Conflicts with `file_path`. Either one of these attribute must be set.
+        :param pulumi.Input[str] file_path: Path to the source file. Conflicts with `content_base64`. Either one of these attribute must be set.
         :param pulumi.Input[str] path: The relative path in the target repository. Must begin with a '/'. You can add key-value matrix parameters to deploy the artifacts with properties. For more details, please refer to [Introducing Matrix Parameters](https://jfrog.com/help/r/jfrog-artifactory-documentation/using-properties-in-deployment-and-resolution).
         :param pulumi.Input[str] repository: Name of the respository.
         """
@@ -318,6 +357,10 @@ class Artifact(pulumi.CustomResource):
             repository="my-generic-local",
             path="/my-path/my-file.zip",
             file_path="/path/to/my-file.zip")
+        my_base64_artifact = artifactory.Artifact("my-base64-artifact",
+            repository="my-generic-local",
+            path="/my-path/my-file.zip",
+            content_base64="UEsDBAoAAAAAALl8alQAAAAAAAAAAAAAAAAJAAAATUVUQS1JTkYvUEsDBAoAAAAIALh8alTmUEsubQAAAIMAAAAUAAAATUVUQS1JTkYvTUFOSUZFU1QuTUbzTczLTEstLtENSy0qzszPs1Iw1DPg5XIsSs7ILEstQggH5KRWlBYrwCR4uZyLUhNLUlN0nSqtFBwLEpMzUhV8E8tS8xSM9cz0jHm5nEozc0rAsilAO1JzcjMhYim6XinZQGuA9uiZ83LxcgEAUEsDBAoAAAAAALh8alQAAAAAAAAAAAAAAAAMAAAAYXJ0aWZhY3RvcnkvUEsDBAoAAAAAALh8alQAAAAAAAAAAAAAAAARAAAAYXJ0aWZhY3RvcnkvdGVzdC9QSwMECgAAAAgAuHxqVMgzPcxdAQAALAIAAB0AAABhcnRpZmFjdG9yeS90ZXN0L011bHRpMS5jbGFzc3VRy07CQBQ9w6OlpQqCgPgEV+jCxsTEBcaNiXFRHwkGF66GOuKQPkyZmvBZutDEhR/gRxlvCwkxwVnck3vunXPPnfn++fwCcIRdExpWDdRQL6BhYg1NHes6Nhi0ExlIdcqQ7ez1GXJn4YNgKDkyEFexPxDRLR94xFSc0OVen0cyyWdkTj3JMUPT4ZGSj9xVYTSxlRgr+zL2lDzsUovPZcBQ79w7I/7CbY8HQ7unIhkMu+lAHg1JorqgzGD2wjhyxblMhhWnmgdJnwUdBR2bFrawzWBdCM8LW3dh5D20dexYaKHN0PjHFkN5Pux6MBKu+kP1JmMlfHqSMKZCbepMhvYN2VJkTnCfzFUX0Az6c5J5tHKts2hjtJGnz0hOBixZg6JBmU3ICPP7H2CvadmkqKWkhiJFa9pAuERoYBml2eXjVIy4N2Qq2Xfk5gImIWhKgRrnIgbKWCGkj007q79QSwECFAMKAAAAAAC5fGpUAAAAAAAAAAAAAAAACQAAAAAAAAAAABAA7UEAAAAATUVUQS1JTkYvUEsBAhQDCgAAAAgAuHxqVOZQSy5tAAAAgwAAABQAAAAAAAAAAAAAAKSBJwAAAE1FVEEtSU5GL01BTklGRVNULk1GUEsBAhQDCgAAAAAAuHxqVAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAQAO1BxgAAAGFydGlmYWN0b3J5L1BLAQIUAwoAAAAAALh8alQAAAAAAAAAAAAAAAARAAAAAAAAAAAAEADtQfAAAABhcnRpZmFjdG9yeS90ZXN0L1BLAQIUAwoAAAAIALh8alTIMz3MXQEAACwCAAAdAAAAAAAAAAAAAACkgR8BAABhcnRpZmFjdG9yeS90ZXN0L011bHRpMS5jbGFzc1BLBQYAAAAABQAFAD0BAAC3AgAAAAA=")
         ```
 
         :param str resource_name: The name of the resource.
@@ -335,6 +378,7 @@ class Artifact(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 content_base64: Optional[pulumi.Input[str]] = None,
                  file_path: Optional[pulumi.Input[str]] = None,
                  path: Optional[pulumi.Input[str]] = None,
                  repository: Optional[pulumi.Input[str]] = None,
@@ -347,8 +391,7 @@ class Artifact(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ArtifactArgs.__new__(ArtifactArgs)
 
-            if file_path is None and not opts.urn:
-                raise TypeError("Missing required property 'file_path'")
+            __props__.__dict__["content_base64"] = content_base64
             __props__.__dict__["file_path"] = file_path
             if path is None and not opts.urn:
                 raise TypeError("Missing required property 'path'")
@@ -378,6 +421,7 @@ class Artifact(pulumi.CustomResource):
             checksum_md5: Optional[pulumi.Input[str]] = None,
             checksum_sha1: Optional[pulumi.Input[str]] = None,
             checksum_sha256: Optional[pulumi.Input[str]] = None,
+            content_base64: Optional[pulumi.Input[str]] = None,
             created: Optional[pulumi.Input[str]] = None,
             created_by: Optional[pulumi.Input[str]] = None,
             download_uri: Optional[pulumi.Input[str]] = None,
@@ -397,10 +441,11 @@ class Artifact(pulumi.CustomResource):
         :param pulumi.Input[str] checksum_md5: MD5 checksum of the artifact.
         :param pulumi.Input[str] checksum_sha1: SHA1 checksum of the artifact.
         :param pulumi.Input[str] checksum_sha256: SHA256 checksum of the artifact.
+        :param pulumi.Input[str] content_base64: Base64 content of the source file. Conflicts with `file_path`. Either one of these attribute must be set.
         :param pulumi.Input[str] created: Timestamp when artifact is created.
         :param pulumi.Input[str] created_by: User who deploys the artifact.
         :param pulumi.Input[str] download_uri: Download URI of the artifact.
-        :param pulumi.Input[str] file_path: Path to the source file.
+        :param pulumi.Input[str] file_path: Path to the source file. Conflicts with `content_base64`. Either one of these attribute must be set.
         :param pulumi.Input[str] mime_type: MIME type of the artifact.
         :param pulumi.Input[str] path: The relative path in the target repository. Must begin with a '/'. You can add key-value matrix parameters to deploy the artifacts with properties. For more details, please refer to [Introducing Matrix Parameters](https://jfrog.com/help/r/jfrog-artifactory-documentation/using-properties-in-deployment-and-resolution).
         :param pulumi.Input[str] repository: Name of the respository.
@@ -414,6 +459,7 @@ class Artifact(pulumi.CustomResource):
         __props__.__dict__["checksum_md5"] = checksum_md5
         __props__.__dict__["checksum_sha1"] = checksum_sha1
         __props__.__dict__["checksum_sha256"] = checksum_sha256
+        __props__.__dict__["content_base64"] = content_base64
         __props__.__dict__["created"] = created
         __props__.__dict__["created_by"] = created_by
         __props__.__dict__["download_uri"] = download_uri
@@ -450,6 +496,14 @@ class Artifact(pulumi.CustomResource):
         return pulumi.get(self, "checksum_sha256")
 
     @property
+    @pulumi.getter(name="contentBase64")
+    def content_base64(self) -> pulumi.Output[Optional[str]]:
+        """
+        Base64 content of the source file. Conflicts with `file_path`. Either one of these attribute must be set.
+        """
+        return pulumi.get(self, "content_base64")
+
+    @property
     @pulumi.getter
     def created(self) -> pulumi.Output[str]:
         """
@@ -475,9 +529,9 @@ class Artifact(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="filePath")
-    def file_path(self) -> pulumi.Output[str]:
+    def file_path(self) -> pulumi.Output[Optional[str]]:
         """
-        Path to the source file.
+        Path to the source file. Conflicts with `content_base64`. Either one of these attribute must be set.
         """
         return pulumi.get(self, "file_path")
 

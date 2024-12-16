@@ -18,6 +18,11 @@ import * as utilities from "./utilities";
  *     path: "/my-path/my-file.zip",
  *     filePath: "/path/to/my-file.zip",
  * });
+ * const my_base64_artifact = new artifactory.Artifact("my-base64-artifact", {
+ *     repository: "my-generic-local",
+ *     path: "/my-path/my-file.zip",
+ *     contentBase64: "UEsDBAoAAAAAALl8alQAAAAAAAAAAAAAAAAJAAAATUVUQS1JTkYvUEsDBAoAAAAIALh8alTmUEsubQAAAIMAAAAUAAAATUVUQS1JTkYvTUFOSUZFU1QuTUbzTczLTEstLtENSy0qzszPs1Iw1DPg5XIsSs7ILEstQggH5KRWlBYrwCR4uZyLUhNLUlN0nSqtFBwLEpMzUhV8E8tS8xSM9cz0jHm5nEozc0rAsilAO1JzcjMhYim6XinZQGuA9uiZ83LxcgEAUEsDBAoAAAAAALh8alQAAAAAAAAAAAAAAAAMAAAAYXJ0aWZhY3RvcnkvUEsDBAoAAAAAALh8alQAAAAAAAAAAAAAAAARAAAAYXJ0aWZhY3RvcnkvdGVzdC9QSwMECgAAAAgAuHxqVMgzPcxdAQAALAIAAB0AAABhcnRpZmFjdG9yeS90ZXN0L011bHRpMS5jbGFzc3VRy07CQBQ9w6OlpQqCgPgEV+jCxsTEBcaNiXFRHwkGF66GOuKQPkyZmvBZutDEhR/gRxlvCwkxwVnck3vunXPPnfn++fwCcIRdExpWDdRQL6BhYg1NHes6Nhi0ExlIdcqQ7ez1GXJn4YNgKDkyEFexPxDRLR94xFSc0OVen0cyyWdkTj3JMUPT4ZGSj9xVYTSxlRgr+zL2lDzsUovPZcBQ79w7I/7CbY8HQ7unIhkMu+lAHg1JorqgzGD2wjhyxblMhhWnmgdJnwUdBR2bFrawzWBdCM8LW3dh5D20dexYaKHN0PjHFkN5Pux6MBKu+kP1JmMlfHqSMKZCbepMhvYN2VJkTnCfzFUX0Az6c5J5tHKts2hjtJGnz0hOBixZg6JBmU3ICPP7H2CvadmkqKWkhiJFa9pAuERoYBml2eXjVIy4N2Qq2Xfk5gImIWhKgRrnIgbKWCGkj007q79QSwECFAMKAAAAAAC5fGpUAAAAAAAAAAAAAAAACQAAAAAAAAAAABAA7UEAAAAATUVUQS1JTkYvUEsBAhQDCgAAAAgAuHxqVOZQSy5tAAAAgwAAABQAAAAAAAAAAAAAAKSBJwAAAE1FVEEtSU5GL01BTklGRVNULk1GUEsBAhQDCgAAAAAAuHxqVAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAQAO1BxgAAAGFydGlmYWN0b3J5L1BLAQIUAwoAAAAAALh8alQAAAAAAAAAAAAAAAARAAAAAAAAAAAAEADtQfAAAABhcnRpZmFjdG9yeS90ZXN0L1BLAQIUAwoAAAAIALh8alTIMz3MXQEAACwCAAAdAAAAAAAAAAAAAACkgR8BAABhcnRpZmFjdG9yeS90ZXN0L011bHRpMS5jbGFzc1BLBQYAAAAABQAFAD0BAAC3AgAAAAA=",
+ * });
  * ```
  */
 export class Artifact extends pulumi.CustomResource {
@@ -61,6 +66,10 @@ export class Artifact extends pulumi.CustomResource {
      */
     public /*out*/ readonly checksumSha256!: pulumi.Output<string>;
     /**
+     * Base64 content of the source file. Conflicts with `filePath`. Either one of these attribute must be set.
+     */
+    public readonly contentBase64!: pulumi.Output<string | undefined>;
+    /**
      * Timestamp when artifact is created.
      */
     public /*out*/ readonly created!: pulumi.Output<string>;
@@ -73,9 +82,9 @@ export class Artifact extends pulumi.CustomResource {
      */
     public /*out*/ readonly downloadUri!: pulumi.Output<string>;
     /**
-     * Path to the source file.
+     * Path to the source file. Conflicts with `contentBase64`. Either one of these attribute must be set.
      */
-    public readonly filePath!: pulumi.Output<string>;
+    public readonly filePath!: pulumi.Output<string | undefined>;
     /**
      * MIME type of the artifact.
      */
@@ -113,6 +122,7 @@ export class Artifact extends pulumi.CustomResource {
             resourceInputs["checksumMd5"] = state ? state.checksumMd5 : undefined;
             resourceInputs["checksumSha1"] = state ? state.checksumSha1 : undefined;
             resourceInputs["checksumSha256"] = state ? state.checksumSha256 : undefined;
+            resourceInputs["contentBase64"] = state ? state.contentBase64 : undefined;
             resourceInputs["created"] = state ? state.created : undefined;
             resourceInputs["createdBy"] = state ? state.createdBy : undefined;
             resourceInputs["downloadUri"] = state ? state.downloadUri : undefined;
@@ -124,15 +134,13 @@ export class Artifact extends pulumi.CustomResource {
             resourceInputs["uri"] = state ? state.uri : undefined;
         } else {
             const args = argsOrState as ArtifactArgs | undefined;
-            if ((!args || args.filePath === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'filePath'");
-            }
             if ((!args || args.path === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'path'");
             }
             if ((!args || args.repository === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'repository'");
             }
+            resourceInputs["contentBase64"] = args ? args.contentBase64 : undefined;
             resourceInputs["filePath"] = args ? args.filePath : undefined;
             resourceInputs["path"] = args ? args.path : undefined;
             resourceInputs["repository"] = args ? args.repository : undefined;
@@ -168,6 +176,10 @@ export interface ArtifactState {
      */
     checksumSha256?: pulumi.Input<string>;
     /**
+     * Base64 content of the source file. Conflicts with `filePath`. Either one of these attribute must be set.
+     */
+    contentBase64?: pulumi.Input<string>;
+    /**
      * Timestamp when artifact is created.
      */
     created?: pulumi.Input<string>;
@@ -180,7 +192,7 @@ export interface ArtifactState {
      */
     downloadUri?: pulumi.Input<string>;
     /**
-     * Path to the source file.
+     * Path to the source file. Conflicts with `contentBase64`. Either one of these attribute must be set.
      */
     filePath?: pulumi.Input<string>;
     /**
@@ -210,9 +222,13 @@ export interface ArtifactState {
  */
 export interface ArtifactArgs {
     /**
-     * Path to the source file.
+     * Base64 content of the source file. Conflicts with `filePath`. Either one of these attribute must be set.
      */
-    filePath: pulumi.Input<string>;
+    contentBase64?: pulumi.Input<string>;
+    /**
+     * Path to the source file. Conflicts with `contentBase64`. Either one of these attribute must be set.
+     */
+    filePath?: pulumi.Input<string>;
     /**
      * The relative path in the target repository. Must begin with a '/'. You can add key-value matrix parameters to deploy the artifacts with properties. For more details, please refer to [Introducing Matrix Parameters](https://jfrog.com/help/r/jfrog-artifactory-documentation/using-properties-in-deployment-and-resolution).
      */

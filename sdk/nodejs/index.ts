@@ -20,6 +20,11 @@ export type ApiKey = import("./apiKey").ApiKey;
 export const ApiKey: typeof import("./apiKey").ApiKey = null as any;
 utilities.lazyLoad(exports, ["ApiKey"], () => require("./apiKey"));
 
+export { ArchivePolicyArgs, ArchivePolicyState } from "./archivePolicy";
+export type ArchivePolicy = import("./archivePolicy").ArchivePolicy;
+export const ArchivePolicy: typeof import("./archivePolicy").ArchivePolicy = null as any;
+utilities.lazyLoad(exports, ["ArchivePolicy"], () => require("./archivePolicy"));
+
 export { ArtifactArgs, ArtifactState } from "./artifact";
 export type Artifact = import("./artifact").Artifact;
 export const Artifact: typeof import("./artifact").Artifact = null as any;
@@ -1740,6 +1745,8 @@ const _module = {
                 return new AnonymousUser(name, <any>undefined, { urn })
             case "artifactory:index/apiKey:ApiKey":
                 return new ApiKey(name, <any>undefined, { urn })
+            case "artifactory:index/archivePolicy:ArchivePolicy":
+                return new ArchivePolicy(name, <any>undefined, { urn })
             case "artifactory:index/artifact:Artifact":
                 return new Artifact(name, <any>undefined, { urn })
             case "artifactory:index/artifactCustomWebhook:ArtifactCustomWebhook":
@@ -2140,6 +2147,7 @@ const _module = {
 pulumi.runtime.registerResourceModule("artifactory", "index/alpineRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/anonymousUser", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/apiKey", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/archivePolicy", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/artifact", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/artifactCustomWebhook", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/artifactLifecycleCustomWebhook", _module)

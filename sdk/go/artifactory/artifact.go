@@ -36,6 +36,14 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			_, err = artifactory.NewArtifact(ctx, "my-base64-artifact", &artifactory.ArtifactArgs{
+//				Repository:    pulumi.String("my-generic-local"),
+//				Path:          pulumi.String("/my-path/my-file.zip"),
+//				ContentBase64: pulumi.String("UEsDBAoAAAAAALl8alQAAAAAAAAAAAAAAAAJAAAATUVUQS1JTkYvUEsDBAoAAAAIALh8alTmUEsubQAAAIMAAAAUAAAATUVUQS1JTkYvTUFOSUZFU1QuTUbzTczLTEstLtENSy0qzszPs1Iw1DPg5XIsSs7ILEstQggH5KRWlBYrwCR4uZyLUhNLUlN0nSqtFBwLEpMzUhV8E8tS8xSM9cz0jHm5nEozc0rAsilAO1JzcjMhYim6XinZQGuA9uiZ83LxcgEAUEsDBAoAAAAAALh8alQAAAAAAAAAAAAAAAAMAAAAYXJ0aWZhY3RvcnkvUEsDBAoAAAAAALh8alQAAAAAAAAAAAAAAAARAAAAYXJ0aWZhY3RvcnkvdGVzdC9QSwMECgAAAAgAuHxqVMgzPcxdAQAALAIAAB0AAABhcnRpZmFjdG9yeS90ZXN0L011bHRpMS5jbGFzc3VRy07CQBQ9w6OlpQqCgPgEV+jCxsTEBcaNiXFRHwkGF66GOuKQPkyZmvBZutDEhR/gRxlvCwkxwVnck3vunXPPnfn++fwCcIRdExpWDdRQL6BhYg1NHes6Nhi0ExlIdcqQ7ez1GXJn4YNgKDkyEFexPxDRLR94xFSc0OVen0cyyWdkTj3JMUPT4ZGSj9xVYTSxlRgr+zL2lDzsUovPZcBQ79w7I/7CbY8HQ7unIhkMu+lAHg1JorqgzGD2wjhyxblMhhWnmgdJnwUdBR2bFrawzWBdCM8LW3dh5D20dexYaKHN0PjHFkN5Pux6MBKu+kP1JmMlfHqSMKZCbepMhvYN2VJkTnCfzFUX0Az6c5J5tHKts2hjtJGnz0hOBixZg6JBmU3ICPP7H2CvadmkqKWkhiJFa9pAuERoYBml2eXjVIy4N2Qq2Xfk5gImIWhKgRrnIgbKWCGkj007q79QSwECFAMKAAAAAAC5fGpUAAAAAAAAAAAAAAAACQAAAAAAAAAAABAA7UEAAAAATUVUQS1JTkYvUEsBAhQDCgAAAAgAuHxqVOZQSy5tAAAAgwAAABQAAAAAAAAAAAAAAKSBJwAAAE1FVEEtSU5GL01BTklGRVNULk1GUEsBAhQDCgAAAAAAuHxqVAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAQAO1BxgAAAGFydGlmYWN0b3J5L1BLAQIUAwoAAAAAALh8alQAAAAAAAAAAAAAAAARAAAAAAAAAAAAEADtQfAAAABhcnRpZmFjdG9yeS90ZXN0L1BLAQIUAwoAAAAIALh8alTIMz3MXQEAACwCAAAdAAAAAAAAAAAAAACkgR8BAABhcnRpZmFjdG9yeS90ZXN0L011bHRpMS5jbGFzc1BLBQYAAAAABQAFAD0BAAC3AgAAAAA="),
+//			})
+//			if err != nil {
+//				return err
+//			}
 //			return nil
 //		})
 //	}
@@ -50,14 +58,16 @@ type Artifact struct {
 	ChecksumSha1 pulumi.StringOutput `pulumi:"checksumSha1"`
 	// SHA256 checksum of the artifact.
 	ChecksumSha256 pulumi.StringOutput `pulumi:"checksumSha256"`
+	// Base64 content of the source file. Conflicts with `filePath`. Either one of these attribute must be set.
+	ContentBase64 pulumi.StringPtrOutput `pulumi:"contentBase64"`
 	// Timestamp when artifact is created.
 	Created pulumi.StringOutput `pulumi:"created"`
 	// User who deploys the artifact.
 	CreatedBy pulumi.StringOutput `pulumi:"createdBy"`
 	// Download URI of the artifact.
 	DownloadUri pulumi.StringOutput `pulumi:"downloadUri"`
-	// Path to the source file.
-	FilePath pulumi.StringOutput `pulumi:"filePath"`
+	// Path to the source file. Conflicts with `contentBase64`. Either one of these attribute must be set.
+	FilePath pulumi.StringPtrOutput `pulumi:"filePath"`
 	// MIME type of the artifact.
 	MimeType pulumi.StringOutput `pulumi:"mimeType"`
 	// The relative path in the target repository. Must begin with a '/'. You can add key-value matrix parameters to deploy the artifacts with properties. For more details, please refer to [Introducing Matrix Parameters](https://jfrog.com/help/r/jfrog-artifactory-documentation/using-properties-in-deployment-and-resolution).
@@ -77,9 +87,6 @@ func NewArtifact(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.FilePath == nil {
-		return nil, errors.New("invalid value for required argument 'FilePath'")
-	}
 	if args.Path == nil {
 		return nil, errors.New("invalid value for required argument 'Path'")
 	}
@@ -115,13 +122,15 @@ type artifactState struct {
 	ChecksumSha1 *string `pulumi:"checksumSha1"`
 	// SHA256 checksum of the artifact.
 	ChecksumSha256 *string `pulumi:"checksumSha256"`
+	// Base64 content of the source file. Conflicts with `filePath`. Either one of these attribute must be set.
+	ContentBase64 *string `pulumi:"contentBase64"`
 	// Timestamp when artifact is created.
 	Created *string `pulumi:"created"`
 	// User who deploys the artifact.
 	CreatedBy *string `pulumi:"createdBy"`
 	// Download URI of the artifact.
 	DownloadUri *string `pulumi:"downloadUri"`
-	// Path to the source file.
+	// Path to the source file. Conflicts with `contentBase64`. Either one of these attribute must be set.
 	FilePath *string `pulumi:"filePath"`
 	// MIME type of the artifact.
 	MimeType *string `pulumi:"mimeType"`
@@ -142,13 +151,15 @@ type ArtifactState struct {
 	ChecksumSha1 pulumi.StringPtrInput
 	// SHA256 checksum of the artifact.
 	ChecksumSha256 pulumi.StringPtrInput
+	// Base64 content of the source file. Conflicts with `filePath`. Either one of these attribute must be set.
+	ContentBase64 pulumi.StringPtrInput
 	// Timestamp when artifact is created.
 	Created pulumi.StringPtrInput
 	// User who deploys the artifact.
 	CreatedBy pulumi.StringPtrInput
 	// Download URI of the artifact.
 	DownloadUri pulumi.StringPtrInput
-	// Path to the source file.
+	// Path to the source file. Conflicts with `contentBase64`. Either one of these attribute must be set.
 	FilePath pulumi.StringPtrInput
 	// MIME type of the artifact.
 	MimeType pulumi.StringPtrInput
@@ -167,8 +178,10 @@ func (ArtifactState) ElementType() reflect.Type {
 }
 
 type artifactArgs struct {
-	// Path to the source file.
-	FilePath string `pulumi:"filePath"`
+	// Base64 content of the source file. Conflicts with `filePath`. Either one of these attribute must be set.
+	ContentBase64 *string `pulumi:"contentBase64"`
+	// Path to the source file. Conflicts with `contentBase64`. Either one of these attribute must be set.
+	FilePath *string `pulumi:"filePath"`
 	// The relative path in the target repository. Must begin with a '/'. You can add key-value matrix parameters to deploy the artifacts with properties. For more details, please refer to [Introducing Matrix Parameters](https://jfrog.com/help/r/jfrog-artifactory-documentation/using-properties-in-deployment-and-resolution).
 	Path string `pulumi:"path"`
 	// Name of the respository.
@@ -177,8 +190,10 @@ type artifactArgs struct {
 
 // The set of arguments for constructing a Artifact resource.
 type ArtifactArgs struct {
-	// Path to the source file.
-	FilePath pulumi.StringInput
+	// Base64 content of the source file. Conflicts with `filePath`. Either one of these attribute must be set.
+	ContentBase64 pulumi.StringPtrInput
+	// Path to the source file. Conflicts with `contentBase64`. Either one of these attribute must be set.
+	FilePath pulumi.StringPtrInput
 	// The relative path in the target repository. Must begin with a '/'. You can add key-value matrix parameters to deploy the artifacts with properties. For more details, please refer to [Introducing Matrix Parameters](https://jfrog.com/help/r/jfrog-artifactory-documentation/using-properties-in-deployment-and-resolution).
 	Path pulumi.StringInput
 	// Name of the respository.
@@ -287,6 +302,11 @@ func (o ArtifactOutput) ChecksumSha256() pulumi.StringOutput {
 	return o.ApplyT(func(v *Artifact) pulumi.StringOutput { return v.ChecksumSha256 }).(pulumi.StringOutput)
 }
 
+// Base64 content of the source file. Conflicts with `filePath`. Either one of these attribute must be set.
+func (o ArtifactOutput) ContentBase64() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Artifact) pulumi.StringPtrOutput { return v.ContentBase64 }).(pulumi.StringPtrOutput)
+}
+
 // Timestamp when artifact is created.
 func (o ArtifactOutput) Created() pulumi.StringOutput {
 	return o.ApplyT(func(v *Artifact) pulumi.StringOutput { return v.Created }).(pulumi.StringOutput)
@@ -302,9 +322,9 @@ func (o ArtifactOutput) DownloadUri() pulumi.StringOutput {
 	return o.ApplyT(func(v *Artifact) pulumi.StringOutput { return v.DownloadUri }).(pulumi.StringOutput)
 }
 
-// Path to the source file.
-func (o ArtifactOutput) FilePath() pulumi.StringOutput {
-	return o.ApplyT(func(v *Artifact) pulumi.StringOutput { return v.FilePath }).(pulumi.StringOutput)
+// Path to the source file. Conflicts with `contentBase64`. Either one of these attribute must be set.
+func (o ArtifactOutput) FilePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Artifact) pulumi.StringPtrOutput { return v.FilePath }).(pulumi.StringPtrOutput)
 }
 
 // MIME type of the artifact.

@@ -15,6 +15,8 @@ else:
 from . import _utilities
 
 __all__ = [
+    'ArchivePolicySearchCriteriaArgs',
+    'ArchivePolicySearchCriteriaArgsDict',
     'ArtifactCustomWebhookCriteriaArgs',
     'ArtifactCustomWebhookCriteriaArgsDict',
     'ArtifactCustomWebhookHandlerArgs',
@@ -462,6 +464,232 @@ __all__ = [
 ]
 
 MYPY = False
+
+if not MYPY:
+    class ArchivePolicySearchCriteriaArgsDict(TypedDict):
+        included_packages: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Specify a pattern for a package name or an explicit package name. It accept only single element which can be specific package or pattern, and for including all packages use `**`. Example: `included_packages = ["**"]`
+        """
+        package_types: pulumi.Input[Sequence[pulumi.Input[str]]]
+        repos: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Specify one or more patterns for the repository name(s) on which you want the archive policy to run. You can also specify explicit repository names. Specifying at least one pattern or explicit name is required. Only packages in repositories that match the pattern or explicit name will be archived. For including all repos use `**`. Example: `repos = ["**"]`
+        """
+        created_before_in_months: NotRequired[pulumi.Input[int]]
+        """
+        The archive policy will archive packages based on how long ago they were created. For example, if this parameter is 2 then packages created more than 2 months ago will be archived as part of the policy.
+        """
+        excluded_packages: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify explicit package names that you want excluded from the policy. Only Name explicit names (and not patterns) are accepted.
+        """
+        excluded_repos: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify patterns for repository names or explicit repository names that you want excluded from the archive policy.
+        """
+        include_all_projects: NotRequired[pulumi.Input[bool]]
+        """
+        Set this value to `true` if you want the policy to run on all Artifactory projects. The default value is `false`.
+        """
+        included_projects: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of projects on which you want this policy to run. To include repositories that are not assigned to any project, enter the project key `default`.
+
+        ~>This setting is relevant only on the global level, for Platform Admins.
+        """
+        keep_last_n_versions: NotRequired[pulumi.Input[int]]
+        """
+        Set a value for the number of latest versions to keep. The archive policy will remove all versions before the number you select here. The latest version is always excluded.
+
+        ~>Versions are determined by creation date.
+
+        ~>Not all package types support this condition. If you include a package type in your policy that is not compatible with this condition, a validation error (400) is returned. For information on which package types support this condition, see here.
+        """
+        last_downloaded_before_in_months: NotRequired[pulumi.Input[int]]
+        """
+        The archive policy will archive packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 months ago will be archived as part of the policy.
+
+        ~>JFrog recommends using the `last_downloaded_before_in_months` condition to ensure that packages currently in use are not archived.
+        """
+elif False:
+    ArchivePolicySearchCriteriaArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ArchivePolicySearchCriteriaArgs:
+    def __init__(__self__, *,
+                 included_packages: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 package_types: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 repos: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 created_before_in_months: Optional[pulumi.Input[int]] = None,
+                 excluded_packages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 excluded_repos: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 include_all_projects: Optional[pulumi.Input[bool]] = None,
+                 included_projects: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 keep_last_n_versions: Optional[pulumi.Input[int]] = None,
+                 last_downloaded_before_in_months: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] included_packages: Specify a pattern for a package name or an explicit package name. It accept only single element which can be specific package or pattern, and for including all packages use `**`. Example: `included_packages = ["**"]`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] repos: Specify one or more patterns for the repository name(s) on which you want the archive policy to run. You can also specify explicit repository names. Specifying at least one pattern or explicit name is required. Only packages in repositories that match the pattern or explicit name will be archived. For including all repos use `**`. Example: `repos = ["**"]`
+        :param pulumi.Input[int] created_before_in_months: The archive policy will archive packages based on how long ago they were created. For example, if this parameter is 2 then packages created more than 2 months ago will be archived as part of the policy.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_packages: Specify explicit package names that you want excluded from the policy. Only Name explicit names (and not patterns) are accepted.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_repos: Specify patterns for repository names or explicit repository names that you want excluded from the archive policy.
+        :param pulumi.Input[bool] include_all_projects: Set this value to `true` if you want the policy to run on all Artifactory projects. The default value is `false`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] included_projects: List of projects on which you want this policy to run. To include repositories that are not assigned to any project, enter the project key `default`.
+               
+               ~>This setting is relevant only on the global level, for Platform Admins.
+        :param pulumi.Input[int] keep_last_n_versions: Set a value for the number of latest versions to keep. The archive policy will remove all versions before the number you select here. The latest version is always excluded.
+               
+               ~>Versions are determined by creation date.
+               
+               ~>Not all package types support this condition. If you include a package type in your policy that is not compatible with this condition, a validation error (400) is returned. For information on which package types support this condition, see here.
+        :param pulumi.Input[int] last_downloaded_before_in_months: The archive policy will archive packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 months ago will be archived as part of the policy.
+               
+               ~>JFrog recommends using the `last_downloaded_before_in_months` condition to ensure that packages currently in use are not archived.
+        """
+        pulumi.set(__self__, "included_packages", included_packages)
+        pulumi.set(__self__, "package_types", package_types)
+        pulumi.set(__self__, "repos", repos)
+        if created_before_in_months is not None:
+            pulumi.set(__self__, "created_before_in_months", created_before_in_months)
+        if excluded_packages is not None:
+            pulumi.set(__self__, "excluded_packages", excluded_packages)
+        if excluded_repos is not None:
+            pulumi.set(__self__, "excluded_repos", excluded_repos)
+        if include_all_projects is not None:
+            pulumi.set(__self__, "include_all_projects", include_all_projects)
+        if included_projects is not None:
+            pulumi.set(__self__, "included_projects", included_projects)
+        if keep_last_n_versions is not None:
+            pulumi.set(__self__, "keep_last_n_versions", keep_last_n_versions)
+        if last_downloaded_before_in_months is not None:
+            pulumi.set(__self__, "last_downloaded_before_in_months", last_downloaded_before_in_months)
+
+    @property
+    @pulumi.getter(name="includedPackages")
+    def included_packages(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Specify a pattern for a package name or an explicit package name. It accept only single element which can be specific package or pattern, and for including all packages use `**`. Example: `included_packages = ["**"]`
+        """
+        return pulumi.get(self, "included_packages")
+
+    @included_packages.setter
+    def included_packages(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "included_packages", value)
+
+    @property
+    @pulumi.getter(name="packageTypes")
+    def package_types(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        return pulumi.get(self, "package_types")
+
+    @package_types.setter
+    def package_types(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "package_types", value)
+
+    @property
+    @pulumi.getter
+    def repos(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Specify one or more patterns for the repository name(s) on which you want the archive policy to run. You can also specify explicit repository names. Specifying at least one pattern or explicit name is required. Only packages in repositories that match the pattern or explicit name will be archived. For including all repos use `**`. Example: `repos = ["**"]`
+        """
+        return pulumi.get(self, "repos")
+
+    @repos.setter
+    def repos(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "repos", value)
+
+    @property
+    @pulumi.getter(name="createdBeforeInMonths")
+    def created_before_in_months(self) -> Optional[pulumi.Input[int]]:
+        """
+        The archive policy will archive packages based on how long ago they were created. For example, if this parameter is 2 then packages created more than 2 months ago will be archived as part of the policy.
+        """
+        return pulumi.get(self, "created_before_in_months")
+
+    @created_before_in_months.setter
+    def created_before_in_months(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "created_before_in_months", value)
+
+    @property
+    @pulumi.getter(name="excludedPackages")
+    def excluded_packages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specify explicit package names that you want excluded from the policy. Only Name explicit names (and not patterns) are accepted.
+        """
+        return pulumi.get(self, "excluded_packages")
+
+    @excluded_packages.setter
+    def excluded_packages(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "excluded_packages", value)
+
+    @property
+    @pulumi.getter(name="excludedRepos")
+    def excluded_repos(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specify patterns for repository names or explicit repository names that you want excluded from the archive policy.
+        """
+        return pulumi.get(self, "excluded_repos")
+
+    @excluded_repos.setter
+    def excluded_repos(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "excluded_repos", value)
+
+    @property
+    @pulumi.getter(name="includeAllProjects")
+    def include_all_projects(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Set this value to `true` if you want the policy to run on all Artifactory projects. The default value is `false`.
+        """
+        return pulumi.get(self, "include_all_projects")
+
+    @include_all_projects.setter
+    def include_all_projects(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "include_all_projects", value)
+
+    @property
+    @pulumi.getter(name="includedProjects")
+    def included_projects(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of projects on which you want this policy to run. To include repositories that are not assigned to any project, enter the project key `default`.
+
+        ~>This setting is relevant only on the global level, for Platform Admins.
+        """
+        return pulumi.get(self, "included_projects")
+
+    @included_projects.setter
+    def included_projects(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "included_projects", value)
+
+    @property
+    @pulumi.getter(name="keepLastNVersions")
+    def keep_last_n_versions(self) -> Optional[pulumi.Input[int]]:
+        """
+        Set a value for the number of latest versions to keep. The archive policy will remove all versions before the number you select here. The latest version is always excluded.
+
+        ~>Versions are determined by creation date.
+
+        ~>Not all package types support this condition. If you include a package type in your policy that is not compatible with this condition, a validation error (400) is returned. For information on which package types support this condition, see here.
+        """
+        return pulumi.get(self, "keep_last_n_versions")
+
+    @keep_last_n_versions.setter
+    def keep_last_n_versions(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "keep_last_n_versions", value)
+
+    @property
+    @pulumi.getter(name="lastDownloadedBeforeInMonths")
+    def last_downloaded_before_in_months(self) -> Optional[pulumi.Input[int]]:
+        """
+        The archive policy will archive packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 months ago will be archived as part of the policy.
+
+        ~>JFrog recommends using the `last_downloaded_before_in_months` condition to ensure that packages currently in use are not archived.
+        """
+        return pulumi.get(self, "last_downloaded_before_in_months")
+
+    @last_downloaded_before_in_months.setter
+    def last_downloaded_before_in_months(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "last_downloaded_before_in_months", value)
+
 
 if not MYPY:
     class ArtifactCustomWebhookCriteriaArgsDict(TypedDict):
@@ -6853,9 +7081,6 @@ if not MYPY:
         Specify a pattern for a package name or an explicit package name. It accept only single element which can be specific package or pattern, and for including all packages use `**`. Example: `included_packages = ["**"]`
         """
         package_types: pulumi.Input[Sequence[pulumi.Input[str]]]
-        """
-        Types of packages to be removed. Support: conan, debian, docker, gems, generic, go, gradle, helm, maven, npm, nuget, pypi, yum.
-        """
         repos: pulumi.Input[Sequence[pulumi.Input[str]]]
         """
         Specify patterns for repository names or explicit repository names. For including all repos use `**`. Example: `repos = ["**"]`
@@ -6912,7 +7137,6 @@ class PackageCleanupPolicySearchCriteriaArgs:
                  last_downloaded_before_in_months: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] included_packages: Specify a pattern for a package name or an explicit package name. It accept only single element which can be specific package or pattern, and for including all packages use `**`. Example: `included_packages = ["**"]`
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] package_types: Types of packages to be removed. Support: conan, debian, docker, gems, generic, go, gradle, helm, maven, npm, nuget, pypi, yum.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] repos: Specify patterns for repository names or explicit repository names. For including all repos use `**`. Example: `repos = ["**"]`
         :param pulumi.Input[int] created_before_in_months: Remove packages based on when they were created. For example, remove packages that were created more than a year ago. The default value is to remove packages created more than 2 years ago.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_packages: Specify explicit package names that you want excluded from the policy. Only Name explicit names (and not patterns) are accepted.
@@ -6961,9 +7185,6 @@ class PackageCleanupPolicySearchCriteriaArgs:
     @property
     @pulumi.getter(name="packageTypes")
     def package_types(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        Types of packages to be removed. Support: conan, debian, docker, gems, generic, go, gradle, helm, maven, npm, nuget, pypi, yum.
-        """
         return pulumi.get(self, "package_types")
 
     @package_types.setter
