@@ -8,7 +8,7 @@ replace (
 )
 
 require (
-	github.com/jfrog/terraform-provider-artifactory/v12 v12.6.0
+	github.com/jfrog/terraform-provider-artifactory/v12 v12.7.0
 	github.com/pulumi/providertest v0.1.3
 	github.com/pulumi/pulumi-terraform-bridge/v3 v3.98.0
 	github.com/pulumi/pulumi/sdk/v3 v3.143.0
@@ -129,7 +129,7 @@ require (
 	github.com/hashicorp/terraform-exec v0.21.0 // indirect
 	github.com/hashicorp/terraform-json v0.23.0 // indirect
 	github.com/hashicorp/terraform-plugin-framework v1.13.0 // indirect
-	github.com/hashicorp/terraform-plugin-framework-validators v0.15.0 // indirect
+	github.com/hashicorp/terraform-plugin-framework-validators v0.16.0 // indirect
 	github.com/hashicorp/terraform-plugin-go v0.25.0 // indirect
 	github.com/hashicorp/terraform-plugin-log v0.9.0 // indirect
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.35.0 // indirect
