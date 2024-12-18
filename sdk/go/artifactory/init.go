@@ -201,6 +201,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &LocalHuggingfacemlRepository{}
 	case "artifactory:index/localIvyRepository:LocalIvyRepository":
 		r = &LocalIvyRepository{}
+	case "artifactory:index/localMachinelearningRepository:LocalMachinelearningRepository":
+		r = &LocalMachinelearningRepository{}
 	case "artifactory:index/localMavenRepository:LocalMavenRepository":
 		r = &LocalMavenRepository{}
 	case "artifactory:index/localNpmRepository:LocalNpmRepository":
@@ -900,6 +902,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"artifactory",
 		"index/localIvyRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/localMachinelearningRepository",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

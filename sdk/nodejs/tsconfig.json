@@ -249,6 +249,7 @@
         "localHelmociRepository.ts",
         "localHuggingfacemlRepository.ts",
         "localIvyRepository.ts",
+        "localMachinelearningRepository.ts",
         "localMavenRepository.ts",
         "localNpmRepository.ts",
         "localNugetRepository.ts",

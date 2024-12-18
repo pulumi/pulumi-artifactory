@@ -1170,6 +1170,11 @@ export type LocalIvyRepository = import("./localIvyRepository").LocalIvyReposito
 export const LocalIvyRepository: typeof import("./localIvyRepository").LocalIvyRepository = null as any;
 utilities.lazyLoad(exports, ["LocalIvyRepository"], () => require("./localIvyRepository"));
 
+export { LocalMachinelearningRepositoryArgs, LocalMachinelearningRepositoryState } from "./localMachinelearningRepository";
+export type LocalMachinelearningRepository = import("./localMachinelearningRepository").LocalMachinelearningRepository;
+export const LocalMachinelearningRepository: typeof import("./localMachinelearningRepository").LocalMachinelearningRepository = null as any;
+utilities.lazyLoad(exports, ["LocalMachinelearningRepository"], () => require("./localMachinelearningRepository"));
+
 export { LocalMavenRepositoryArgs, LocalMavenRepositoryState } from "./localMavenRepository";
 export type LocalMavenRepository = import("./localMavenRepository").LocalMavenRepository;
 export const LocalMavenRepository: typeof import("./localMavenRepository").LocalMavenRepository = null as any;
@@ -1919,6 +1924,8 @@ const _module = {
                 return new LocalHuggingfacemlRepository(name, <any>undefined, { urn })
             case "artifactory:index/localIvyRepository:LocalIvyRepository":
                 return new LocalIvyRepository(name, <any>undefined, { urn })
+            case "artifactory:index/localMachinelearningRepository:LocalMachinelearningRepository":
+                return new LocalMachinelearningRepository(name, <any>undefined, { urn })
             case "artifactory:index/localMavenRepository:LocalMavenRepository":
                 return new LocalMavenRepository(name, <any>undefined, { urn })
             case "artifactory:index/localNpmRepository:LocalNpmRepository":
@@ -2234,6 +2241,7 @@ pulumi.runtime.registerResourceModule("artifactory", "index/localHelmRepository"
 pulumi.runtime.registerResourceModule("artifactory", "index/localHelmociRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/localHuggingfacemlRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/localIvyRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/localMachinelearningRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/localMavenRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/localNpmRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/localNugetRepository", _module)
