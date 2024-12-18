@@ -1672,8 +1672,8 @@ github.com/hashicorp/terraform-json v0.23.0 h1:sniCkExU4iKtTADReHzACkk8fnpQXrdD2
 github.com/hashicorp/terraform-json v0.23.0/go.mod h1:MHdXbBAbSg0GvzuWazEGKAn/cyNfIB7mN6y7KJN6y2c=
 github.com/hashicorp/terraform-plugin-framework v1.13.0 h1:8OTG4+oZUfKgnfTdPTJwZ532Bh2BobF4H+yBiYJ/scw=
 github.com/hashicorp/terraform-plugin-framework v1.13.0/go.mod h1:j64rwMGpgM3NYXTKuxrCnyubQb/4VKldEKlcG8cvmjU=
-github.com/hashicorp/terraform-plugin-framework-validators v0.15.0 h1:RXMmu7JgpFjnI1a5QjMCBb11usrW2OtAG+iOTIj5c9Y=
-github.com/hashicorp/terraform-plugin-framework-validators v0.15.0/go.mod h1:Bh89/hNmqsEWug4/XWKYBwtnw3tbz5BAy1L1OgvbIaY=
+github.com/hashicorp/terraform-plugin-framework-validators v0.16.0 h1:O9QqGoYDzQT7lwTXUsZEtgabeWW96zUBh47Smn2lkFA=
+github.com/hashicorp/terraform-plugin-framework-validators v0.16.0/go.mod h1:Bh89/hNmqsEWug4/XWKYBwtnw3tbz5BAy1L1OgvbIaY=
 github.com/hashicorp/terraform-plugin-go v0.22.0/go.mod h1:mPULV91VKss7sik6KFEcEu7HuTogMLLO/EvWCuFkRVE=
 github.com/hashicorp/terraform-plugin-go v0.25.0 h1:oi13cx7xXA6QciMcpcFi/rwA974rdTxjqEhXJjbAyks=
 github.com/hashicorp/terraform-plugin-go v0.25.0/go.mod h1:+SYagMYadJP86Kvn+TGeV+ofr/R3g4/If0O5sO96MVw=
@@ -1721,8 +1721,8 @@ github.com/inconshreveable/mousetrap v1.1.0 h1:wN+x4NVGpMsO7ErUn/mUI3vEoE6Jt13X2
 github.com/inconshreveable/mousetrap v1.1.0/go.mod h1:vpF70FUmC8bwa3OWnCshd2FqLfsEA9PFc4w1p2J65bw=
 github.com/jbenet/go-context v0.0.0-20150711004518-d14ea06fba99 h1:BQSFePA1RWJOlocH6Fxy8MmwDt+yVQYULKfN0RoTN8A=
 github.com/jbenet/go-context v0.0.0-20150711004518-d14ea06fba99/go.mod h1:1lJo3i6rXxKeerYnT8Nvf0QmHCRC1n8sfWVwXF2Frvo=
-github.com/jfrog/terraform-provider-artifactory/v12 v12.6.0 h1:utIIMoLIn87UOzHjbc9QM1wrQ6YrD5RCauEAeVJmuSQ=
-github.com/jfrog/terraform-provider-artifactory/v12 v12.6.0/go.mod h1:bEgq6QcL43TLnVdjCve7OX3W96kshzZZp/5btlw8o10=
+github.com/jfrog/terraform-provider-artifactory/v12 v12.7.0 h1:ovn2DIFakHt1ViwbUmE/aSy6jf6tQs/DUxXiYZ+v6fE=
+github.com/jfrog/terraform-provider-artifactory/v12 v12.7.0/go.mod h1:SG5KSAt3Ubl8i+sEkiAjjze9cMuUVGOD9v/MgSKxD+I=
 github.com/jfrog/terraform-provider-shared v1.27.1 h1:uVp3RN/H3mZm6f9mw917ZjOPLELfb7Zv3I1YrKjC9BI=
 github.com/jfrog/terraform-provider-shared v1.27.1/go.mod h1:6J2ITGCAs6hAuFClSDeXHz0sJEIElDIMu4A/+WB1zvs=
 github.com/jhump/gopoet v0.0.0-20190322174617-17282ff210b3/go.mod h1:me9yfT6IJSlOL3FCfrg+L6yzUEZ+5jW6WHt4Sk+UPUI=

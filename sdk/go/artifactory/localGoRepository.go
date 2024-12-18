@@ -53,41 +53,41 @@ type LocalGoRepository struct {
 	// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
 	// therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
 	// security (e.g., cross-site scripting attacks).
-	ArchiveBrowsingEnabled pulumi.BoolPtrOutput `pulumi:"archiveBrowsingEnabled"`
+	ArchiveBrowsingEnabled pulumi.BoolOutput `pulumi:"archiveBrowsingEnabled"`
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
-	BlackedOut pulumi.BoolPtrOutput `pulumi:"blackedOut"`
+	BlackedOut pulumi.BoolOutput `pulumi:"blackedOut"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
-	CdnRedirect pulumi.BoolPtrOutput `pulumi:"cdnRedirect"`
+	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is `false`
+	CdnRedirect pulumi.BoolOutput `pulumi:"cdnRedirect"`
 	// Public description.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
+	Description pulumi.StringOutput `pulumi:"description"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only.
-	DownloadDirect pulumi.BoolPtrOutput `pulumi:"downloadDirect"`
+	DownloadDirect pulumi.BoolOutput `pulumi:"downloadDirect"`
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
 	// artifacts are excluded.
-	ExcludesPattern pulumi.StringPtrOutput `pulumi:"excludesPattern"`
+	ExcludesPattern pulumi.StringOutput `pulumi:"excludesPattern"`
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
-	IncludesPattern pulumi.StringPtrOutput `pulumi:"includesPattern"`
+	IncludesPattern pulumi.StringOutput `pulumi:"includesPattern"`
 	// the identity key of the repo.
 	Key pulumi.StringOutput `pulumi:"key"`
 	// Internal description.
-	Notes       pulumi.StringPtrOutput `pulumi:"notes"`
-	PackageType pulumi.StringOutput    `pulumi:"packageType"`
+	Notes pulumi.StringOutput `pulumi:"notes"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
-	PriorityResolution  pulumi.BoolPtrOutput     `pulumi:"priorityResolution"`
+	PriorityResolution  pulumi.BoolOutput        `pulumi:"priorityResolution"`
 	ProjectEnvironments pulumi.StringArrayOutput `pulumi:"projectEnvironments"`
 	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
-	ProjectKey pulumi.StringPtrOutput `pulumi:"projectKey"`
+	ProjectKey pulumi.StringOutput `pulumi:"projectKey"`
 	// List of property set name
 	PropertySets pulumi.StringArrayOutput `pulumi:"propertySets"`
-	// Repository layout key for the local repository
-	RepoLayoutRef pulumi.StringPtrOutput `pulumi:"repoLayoutRef"`
+	// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+	// corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+	RepoLayoutRef pulumi.StringOutput `pulumi:"repoLayoutRef"`
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
-	XrayIndex pulumi.BoolPtrOutput `pulumi:"xrayIndex"`
+	XrayIndex pulumi.BoolOutput `pulumi:"xrayIndex"`
 }
 
 // NewLocalGoRepository registers a new resource with the given unique name, arguments, and options.
@@ -130,7 +130,7 @@ type localGoRepositoryState struct {
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 	BlackedOut *bool `pulumi:"blackedOut"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is `false`
 	CdnRedirect *bool `pulumi:"cdnRedirect"`
 	// Public description.
 	Description *string `pulumi:"description"`
@@ -146,8 +146,7 @@ type localGoRepositoryState struct {
 	// the identity key of the repo.
 	Key *string `pulumi:"key"`
 	// Internal description.
-	Notes       *string `pulumi:"notes"`
-	PackageType *string `pulumi:"packageType"`
+	Notes *string `pulumi:"notes"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution  *bool    `pulumi:"priorityResolution"`
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
@@ -156,7 +155,8 @@ type localGoRepositoryState struct {
 	ProjectKey *string `pulumi:"projectKey"`
 	// List of property set name
 	PropertySets []string `pulumi:"propertySets"`
-	// Repository layout key for the local repository
+	// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+	// corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
@@ -171,7 +171,7 @@ type LocalGoRepositoryState struct {
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 	BlackedOut pulumi.BoolPtrInput
 	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is `false`
 	CdnRedirect pulumi.BoolPtrInput
 	// Public description.
 	Description pulumi.StringPtrInput
@@ -187,8 +187,7 @@ type LocalGoRepositoryState struct {
 	// the identity key of the repo.
 	Key pulumi.StringPtrInput
 	// Internal description.
-	Notes       pulumi.StringPtrInput
-	PackageType pulumi.StringPtrInput
+	Notes pulumi.StringPtrInput
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution  pulumi.BoolPtrInput
 	ProjectEnvironments pulumi.StringArrayInput
@@ -197,7 +196,8 @@ type LocalGoRepositoryState struct {
 	ProjectKey pulumi.StringPtrInput
 	// List of property set name
 	PropertySets pulumi.StringArrayInput
-	// Repository layout key for the local repository
+	// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+	// corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
 	RepoLayoutRef pulumi.StringPtrInput
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
@@ -216,7 +216,7 @@ type localGoRepositoryArgs struct {
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 	BlackedOut *bool `pulumi:"blackedOut"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is `false`
 	CdnRedirect *bool `pulumi:"cdnRedirect"`
 	// Public description.
 	Description *string `pulumi:"description"`
@@ -241,7 +241,8 @@ type localGoRepositoryArgs struct {
 	ProjectKey *string `pulumi:"projectKey"`
 	// List of property set name
 	PropertySets []string `pulumi:"propertySets"`
-	// Repository layout key for the local repository
+	// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+	// corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
@@ -257,7 +258,7 @@ type LocalGoRepositoryArgs struct {
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 	BlackedOut pulumi.BoolPtrInput
 	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is `false`
 	CdnRedirect pulumi.BoolPtrInput
 	// Public description.
 	Description pulumi.StringPtrInput
@@ -282,7 +283,8 @@ type LocalGoRepositoryArgs struct {
 	ProjectKey pulumi.StringPtrInput
 	// List of property set name
 	PropertySets pulumi.StringArrayInput
-	// Repository layout key for the local repository
+	// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+	// corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
 	RepoLayoutRef pulumi.StringPtrInput
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
@@ -379,42 +381,42 @@ func (o LocalGoRepositoryOutput) ToLocalGoRepositoryOutputWithContext(ctx contex
 // When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
 // therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
 // security (e.g., cross-site scripting attacks).
-func (o LocalGoRepositoryOutput) ArchiveBrowsingEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *LocalGoRepository) pulumi.BoolPtrOutput { return v.ArchiveBrowsingEnabled }).(pulumi.BoolPtrOutput)
+func (o LocalGoRepositoryOutput) ArchiveBrowsingEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *LocalGoRepository) pulumi.BoolOutput { return v.ArchiveBrowsingEnabled }).(pulumi.BoolOutput)
 }
 
 // When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
-func (o LocalGoRepositoryOutput) BlackedOut() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *LocalGoRepository) pulumi.BoolPtrOutput { return v.BlackedOut }).(pulumi.BoolPtrOutput)
+func (o LocalGoRepositoryOutput) BlackedOut() pulumi.BoolOutput {
+	return o.ApplyT(func(v *LocalGoRepository) pulumi.BoolOutput { return v.BlackedOut }).(pulumi.BoolOutput)
 }
 
 // When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
-func (o LocalGoRepositoryOutput) CdnRedirect() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *LocalGoRepository) pulumi.BoolPtrOutput { return v.CdnRedirect }).(pulumi.BoolPtrOutput)
+// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is `false`
+func (o LocalGoRepositoryOutput) CdnRedirect() pulumi.BoolOutput {
+	return o.ApplyT(func(v *LocalGoRepository) pulumi.BoolOutput { return v.CdnRedirect }).(pulumi.BoolOutput)
 }
 
 // Public description.
-func (o LocalGoRepositoryOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LocalGoRepository) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+func (o LocalGoRepositoryOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v *LocalGoRepository) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
 // When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 // storage provider. Available in Enterprise+ and Edge licenses only.
-func (o LocalGoRepositoryOutput) DownloadDirect() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *LocalGoRepository) pulumi.BoolPtrOutput { return v.DownloadDirect }).(pulumi.BoolPtrOutput)
+func (o LocalGoRepositoryOutput) DownloadDirect() pulumi.BoolOutput {
+	return o.ApplyT(func(v *LocalGoRepository) pulumi.BoolOutput { return v.DownloadDirect }).(pulumi.BoolOutput)
 }
 
 // List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
 // artifacts are excluded.
-func (o LocalGoRepositoryOutput) ExcludesPattern() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LocalGoRepository) pulumi.StringPtrOutput { return v.ExcludesPattern }).(pulumi.StringPtrOutput)
+func (o LocalGoRepositoryOutput) ExcludesPattern() pulumi.StringOutput {
+	return o.ApplyT(func(v *LocalGoRepository) pulumi.StringOutput { return v.ExcludesPattern }).(pulumi.StringOutput)
 }
 
 // List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
 // used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
-func (o LocalGoRepositoryOutput) IncludesPattern() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LocalGoRepository) pulumi.StringPtrOutput { return v.IncludesPattern }).(pulumi.StringPtrOutput)
+func (o LocalGoRepositoryOutput) IncludesPattern() pulumi.StringOutput {
+	return o.ApplyT(func(v *LocalGoRepository) pulumi.StringOutput { return v.IncludesPattern }).(pulumi.StringOutput)
 }
 
 // the identity key of the repo.
@@ -423,17 +425,13 @@ func (o LocalGoRepositoryOutput) Key() pulumi.StringOutput {
 }
 
 // Internal description.
-func (o LocalGoRepositoryOutput) Notes() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LocalGoRepository) pulumi.StringPtrOutput { return v.Notes }).(pulumi.StringPtrOutput)
-}
-
-func (o LocalGoRepositoryOutput) PackageType() pulumi.StringOutput {
-	return o.ApplyT(func(v *LocalGoRepository) pulumi.StringOutput { return v.PackageType }).(pulumi.StringOutput)
+func (o LocalGoRepositoryOutput) Notes() pulumi.StringOutput {
+	return o.ApplyT(func(v *LocalGoRepository) pulumi.StringOutput { return v.Notes }).(pulumi.StringOutput)
 }
 
 // Setting repositories with priority will cause metadata to be merged only from repositories set with this field
-func (o LocalGoRepositoryOutput) PriorityResolution() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *LocalGoRepository) pulumi.BoolPtrOutput { return v.PriorityResolution }).(pulumi.BoolPtrOutput)
+func (o LocalGoRepositoryOutput) PriorityResolution() pulumi.BoolOutput {
+	return o.ApplyT(func(v *LocalGoRepository) pulumi.BoolOutput { return v.PriorityResolution }).(pulumi.BoolOutput)
 }
 
 func (o LocalGoRepositoryOutput) ProjectEnvironments() pulumi.StringArrayOutput {
@@ -442,8 +440,8 @@ func (o LocalGoRepositoryOutput) ProjectEnvironments() pulumi.StringArrayOutput 
 
 // Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
 // assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
-func (o LocalGoRepositoryOutput) ProjectKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LocalGoRepository) pulumi.StringPtrOutput { return v.ProjectKey }).(pulumi.StringPtrOutput)
+func (o LocalGoRepositoryOutput) ProjectKey() pulumi.StringOutput {
+	return o.ApplyT(func(v *LocalGoRepository) pulumi.StringOutput { return v.ProjectKey }).(pulumi.StringOutput)
 }
 
 // List of property set name
@@ -451,15 +449,16 @@ func (o LocalGoRepositoryOutput) PropertySets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LocalGoRepository) pulumi.StringArrayOutput { return v.PropertySets }).(pulumi.StringArrayOutput)
 }
 
-// Repository layout key for the local repository
-func (o LocalGoRepositoryOutput) RepoLayoutRef() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LocalGoRepository) pulumi.StringPtrOutput { return v.RepoLayoutRef }).(pulumi.StringPtrOutput)
+// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+// corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+func (o LocalGoRepositoryOutput) RepoLayoutRef() pulumi.StringOutput {
+	return o.ApplyT(func(v *LocalGoRepository) pulumi.StringOutput { return v.RepoLayoutRef }).(pulumi.StringOutput)
 }
 
 // Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 // Xray settings.
-func (o LocalGoRepositoryOutput) XrayIndex() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *LocalGoRepository) pulumi.BoolPtrOutput { return v.XrayIndex }).(pulumi.BoolPtrOutput)
+func (o LocalGoRepositoryOutput) XrayIndex() pulumi.BoolOutput {
+	return o.ApplyT(func(v *LocalGoRepository) pulumi.BoolOutput { return v.XrayIndex }).(pulumi.BoolOutput)
 }
 
 type LocalGoRepositoryArrayOutput struct{ *pulumi.OutputState }

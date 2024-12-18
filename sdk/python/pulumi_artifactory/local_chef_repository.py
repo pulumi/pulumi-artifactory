@@ -42,7 +42,7 @@ class LocalChefRepositoryArgs:
                security (e.g., cross-site scripting attacks).
         :param pulumi.Input[bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
         :param pulumi.Input[bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-               CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+               CloudFront. Available in Enterprise+ and Edge licenses only. Default value is `false`
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only.
@@ -55,7 +55,8 @@ class LocalChefRepositoryArgs:
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
-        :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
+        :param pulumi.Input[str] repo_layout_ref: Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+               corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
                Xray settings.
         """
@@ -132,7 +133,7 @@ class LocalChefRepositoryArgs:
     def cdn_redirect(self) -> Optional[pulumi.Input[bool]]:
         """
         When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-        CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        CloudFront. Available in Enterprise+ and Edge licenses only. Default value is `false`
         """
         return pulumi.get(self, "cdn_redirect")
 
@@ -253,7 +254,8 @@ class LocalChefRepositoryArgs:
     @pulumi.getter(name="repoLayoutRef")
     def repo_layout_ref(self) -> Optional[pulumi.Input[str]]:
         """
-        Repository layout key for the local repository
+        Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+        corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
         """
         return pulumi.get(self, "repo_layout_ref")
 
@@ -287,7 +289,6 @@ class _LocalChefRepositoryState:
                  includes_pattern: Optional[pulumi.Input[str]] = None,
                  key: Optional[pulumi.Input[str]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
-                 package_type: Optional[pulumi.Input[str]] = None,
                  priority_resolution: Optional[pulumi.Input[bool]] = None,
                  project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  project_key: Optional[pulumi.Input[str]] = None,
@@ -301,7 +302,7 @@ class _LocalChefRepositoryState:
                security (e.g., cross-site scripting attacks).
         :param pulumi.Input[bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
         :param pulumi.Input[bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-               CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+               CloudFront. Available in Enterprise+ and Edge licenses only. Default value is `false`
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only.
@@ -315,7 +316,8 @@ class _LocalChefRepositoryState:
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
-        :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
+        :param pulumi.Input[str] repo_layout_ref: Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+               corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
                Xray settings.
         """
@@ -337,8 +339,6 @@ class _LocalChefRepositoryState:
             pulumi.set(__self__, "key", key)
         if notes is not None:
             pulumi.set(__self__, "notes", notes)
-        if package_type is not None:
-            pulumi.set(__self__, "package_type", package_type)
         if priority_resolution is not None:
             pulumi.set(__self__, "priority_resolution", priority_resolution)
         if project_environments is not None:
@@ -383,7 +383,7 @@ class _LocalChefRepositoryState:
     def cdn_redirect(self) -> Optional[pulumi.Input[bool]]:
         """
         When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-        CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        CloudFront. Available in Enterprise+ and Edge licenses only. Default value is `false`
         """
         return pulumi.get(self, "cdn_redirect")
 
@@ -467,15 +467,6 @@ class _LocalChefRepositoryState:
         pulumi.set(self, "notes", value)
 
     @property
-    @pulumi.getter(name="packageType")
-    def package_type(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "package_type")
-
-    @package_type.setter
-    def package_type(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "package_type", value)
-
-    @property
     @pulumi.getter(name="priorityResolution")
     def priority_resolution(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -525,7 +516,8 @@ class _LocalChefRepositoryState:
     @pulumi.getter(name="repoLayoutRef")
     def repo_layout_ref(self) -> Optional[pulumi.Input[str]]:
         """
-        Repository layout key for the local repository
+        Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+        corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
         """
         return pulumi.get(self, "repo_layout_ref")
 
@@ -595,7 +587,7 @@ class LocalChefRepository(pulumi.CustomResource):
                security (e.g., cross-site scripting attacks).
         :param pulumi.Input[bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
         :param pulumi.Input[bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-               CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+               CloudFront. Available in Enterprise+ and Edge licenses only. Default value is `false`
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only.
@@ -609,7 +601,8 @@ class LocalChefRepository(pulumi.CustomResource):
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
-        :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
+        :param pulumi.Input[str] repo_layout_ref: Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+               corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
                Xray settings.
         """
@@ -695,7 +688,6 @@ class LocalChefRepository(pulumi.CustomResource):
             __props__.__dict__["property_sets"] = property_sets
             __props__.__dict__["repo_layout_ref"] = repo_layout_ref
             __props__.__dict__["xray_index"] = xray_index
-            __props__.__dict__["package_type"] = None
         super(LocalChefRepository, __self__).__init__(
             'artifactory:index/localChefRepository:LocalChefRepository',
             resource_name,
@@ -715,7 +707,6 @@ class LocalChefRepository(pulumi.CustomResource):
             includes_pattern: Optional[pulumi.Input[str]] = None,
             key: Optional[pulumi.Input[str]] = None,
             notes: Optional[pulumi.Input[str]] = None,
-            package_type: Optional[pulumi.Input[str]] = None,
             priority_resolution: Optional[pulumi.Input[bool]] = None,
             project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             project_key: Optional[pulumi.Input[str]] = None,
@@ -734,7 +725,7 @@ class LocalChefRepository(pulumi.CustomResource):
                security (e.g., cross-site scripting attacks).
         :param pulumi.Input[bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
         :param pulumi.Input[bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-               CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+               CloudFront. Available in Enterprise+ and Edge licenses only. Default value is `false`
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only.
@@ -748,7 +739,8 @@ class LocalChefRepository(pulumi.CustomResource):
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
-        :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
+        :param pulumi.Input[str] repo_layout_ref: Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+               corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
                Xray settings.
         """
@@ -765,7 +757,6 @@ class LocalChefRepository(pulumi.CustomResource):
         __props__.__dict__["includes_pattern"] = includes_pattern
         __props__.__dict__["key"] = key
         __props__.__dict__["notes"] = notes
-        __props__.__dict__["package_type"] = package_type
         __props__.__dict__["priority_resolution"] = priority_resolution
         __props__.__dict__["project_environments"] = project_environments
         __props__.__dict__["project_key"] = project_key
@@ -776,7 +767,7 @@ class LocalChefRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="archiveBrowsingEnabled")
-    def archive_browsing_enabled(self) -> pulumi.Output[Optional[bool]]:
+    def archive_browsing_enabled(self) -> pulumi.Output[bool]:
         """
         When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
         therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
@@ -786,7 +777,7 @@ class LocalChefRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="blackedOut")
-    def blacked_out(self) -> pulumi.Output[Optional[bool]]:
+    def blacked_out(self) -> pulumi.Output[bool]:
         """
         When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
         """
@@ -794,16 +785,16 @@ class LocalChefRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cdnRedirect")
-    def cdn_redirect(self) -> pulumi.Output[Optional[bool]]:
+    def cdn_redirect(self) -> pulumi.Output[bool]:
         """
         When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-        CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        CloudFront. Available in Enterprise+ and Edge licenses only. Default value is `false`
         """
         return pulumi.get(self, "cdn_redirect")
 
     @property
     @pulumi.getter
-    def description(self) -> pulumi.Output[Optional[str]]:
+    def description(self) -> pulumi.Output[str]:
         """
         Public description.
         """
@@ -811,7 +802,7 @@ class LocalChefRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="downloadDirect")
-    def download_direct(self) -> pulumi.Output[Optional[bool]]:
+    def download_direct(self) -> pulumi.Output[bool]:
         """
         When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
         storage provider. Available in Enterprise+ and Edge licenses only.
@@ -820,7 +811,7 @@ class LocalChefRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="excludesPattern")
-    def excludes_pattern(self) -> pulumi.Output[Optional[str]]:
+    def excludes_pattern(self) -> pulumi.Output[str]:
         """
         List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
         artifacts are excluded.
@@ -829,7 +820,7 @@ class LocalChefRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="includesPattern")
-    def includes_pattern(self) -> pulumi.Output[Optional[str]]:
+    def includes_pattern(self) -> pulumi.Output[str]:
         """
         List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
         used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
@@ -846,20 +837,15 @@ class LocalChefRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def notes(self) -> pulumi.Output[Optional[str]]:
+    def notes(self) -> pulumi.Output[str]:
         """
         Internal description.
         """
         return pulumi.get(self, "notes")
 
     @property
-    @pulumi.getter(name="packageType")
-    def package_type(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "package_type")
-
-    @property
     @pulumi.getter(name="priorityResolution")
-    def priority_resolution(self) -> pulumi.Output[Optional[bool]]:
+    def priority_resolution(self) -> pulumi.Output[bool]:
         """
         Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         """
@@ -872,7 +858,7 @@ class LocalChefRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="projectKey")
-    def project_key(self) -> pulumi.Output[Optional[str]]:
+    def project_key(self) -> pulumi.Output[str]:
         """
         Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
         assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
@@ -889,15 +875,16 @@ class LocalChefRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="repoLayoutRef")
-    def repo_layout_ref(self) -> pulumi.Output[Optional[str]]:
+    def repo_layout_ref(self) -> pulumi.Output[str]:
         """
-        Repository layout key for the local repository
+        Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+        corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
         """
         return pulumi.get(self, "repo_layout_ref")
 
     @property
     @pulumi.getter(name="xrayIndex")
-    def xray_index(self) -> pulumi.Output[Optional[bool]]:
+    def xray_index(self) -> pulumi.Output[bool]:
         """
         Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
         Xray settings.

@@ -238,6 +238,7 @@ from .local_helm_repository import *
 from .local_helmoci_repository import *
 from .local_huggingfaceml_repository import *
 from .local_ivy_repository import *
+from .local_machinelearning_repository import *
 from .local_maven_repository import *
 from .local_npm_repository import *
 from .local_nuget_repository import *
@@ -1080,6 +1081,14 @@ _utilities.register(
   "fqn": "pulumi_artifactory",
   "classes": {
    "artifactory:index/localIvyRepository:LocalIvyRepository": "LocalIvyRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/localMachinelearningRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/localMachinelearningRepository:LocalMachinelearningRepository": "LocalMachinelearningRepository"
   }
  },
  {

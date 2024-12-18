@@ -54,7 +54,7 @@ public final class LocalPubRepositoryArgs extends com.pulumi.resources.ResourceA
 
     /**
      * When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
+     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is `false`
      * 
      */
     @Import(name="cdnRedirect")
@@ -62,7 +62,7 @@ public final class LocalPubRepositoryArgs extends com.pulumi.resources.ResourceA
 
     /**
      * @return When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
+     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is `false`
      * 
      */
     public Optional<Output<Boolean>> cdnRedirect() {
@@ -220,14 +220,16 @@ public final class LocalPubRepositoryArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Repository layout key for the local repository
+     * Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+     * corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
      * 
      */
     @Import(name="repoLayoutRef")
     private @Nullable Output<String> repoLayoutRef;
 
     /**
-     * @return Repository layout key for the local repository
+     * @return Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+     * corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
      * 
      */
     public Optional<Output<String>> repoLayoutRef() {
@@ -337,7 +339,7 @@ public final class LocalPubRepositoryArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param cdnRedirect When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-         * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
+         * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is `false`
          * 
          * @return builder
          * 
@@ -349,7 +351,7 @@ public final class LocalPubRepositoryArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param cdnRedirect When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-         * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
+         * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is `false`
          * 
          * @return builder
          * 
@@ -579,7 +581,8 @@ public final class LocalPubRepositoryArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param repoLayoutRef Repository layout key for the local repository
+         * @param repoLayoutRef Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+         * corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
          * 
          * @return builder
          * 
@@ -590,7 +593,8 @@ public final class LocalPubRepositoryArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param repoLayoutRef Repository layout key for the local repository
+         * @param repoLayoutRef Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+         * corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
          * 
          * @return builder
          * 
