@@ -8,6 +8,7 @@ import * as utilities from "./utilities";
 
 /**
  * Creates a remote Cargo repository.
+ *
  * Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Cargo+Registry).
  *
  * ## Example Usage
@@ -20,8 +21,8 @@ import * as utilities from "./utilities";
  *     key: "my-remote-cargo",
  *     anonymousAccess: true,
  *     enableSparseIndex: true,
- *     url: "https://github.com/rust-lang/crates.io-index",
- *     gitRegistryUrl: "https://github.com/rust-lang/foo.index",
+ *     url: "https://index.crates.io/",
+ *     gitRegistryUrl: "https://index.crates.io/",
  * });
  * ```
  * ## Note
@@ -145,7 +146,7 @@ export class RemoteCargoRepository extends pulumi.CustomResource {
      */
     public readonly excludesPattern!: pulumi.Output<string | undefined>;
     /**
-     * This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
+     * This is the index url, expected to be a git repository. Default value is `https://index.crates.io/`.
      */
     public readonly gitRegistryUrl!: pulumi.Output<string | undefined>;
     /**
@@ -475,7 +476,7 @@ export interface RemoteCargoRepositoryState {
      */
     excludesPattern?: pulumi.Input<string>;
     /**
-     * This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
+     * This is the index url, expected to be a git repository. Default value is `https://index.crates.io/`.
      */
     gitRegistryUrl?: pulumi.Input<string>;
     /**
@@ -686,7 +687,7 @@ export interface RemoteCargoRepositoryArgs {
      */
     excludesPattern?: pulumi.Input<string>;
     /**
-     * This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
+     * This is the index url, expected to be a git repository. Default value is `https://index.crates.io/`.
      */
     gitRegistryUrl?: pulumi.Input<string>;
     /**
