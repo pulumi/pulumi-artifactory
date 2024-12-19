@@ -13,6 +13,7 @@ import (
 )
 
 // Creates a remote Cargo repository.
+//
 // Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Cargo+Registry).
 //
 // ## Example Usage
@@ -33,8 +34,8 @@ import (
 //				Key:               pulumi.String("my-remote-cargo"),
 //				AnonymousAccess:   pulumi.Bool(true),
 //				EnableSparseIndex: pulumi.Bool(true),
-//				Url:               pulumi.String("https://github.com/rust-lang/crates.io-index"),
-//				GitRegistryUrl:    pulumi.String("https://github.com/rust-lang/foo.index"),
+//				Url:               pulumi.String("https://index.crates.io/"),
+//				GitRegistryUrl:    pulumi.String("https://index.crates.io/"),
 //			})
 //			if err != nil {
 //				return err
@@ -106,7 +107,7 @@ type RemoteCargoRepository struct {
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
 	// artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrOutput `pulumi:"excludesPattern"`
-	// This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
+	// This is the index url, expected to be a git repository. Default value is `https://index.crates.io/`.
 	GitRegistryUrl pulumi.StringPtrOutput `pulumi:"gitRegistryUrl"`
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
 	// communicate with this repository.
@@ -271,7 +272,7 @@ type remoteCargoRepositoryState struct {
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
 	// artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
-	// This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
+	// This is the index url, expected to be a git repository. Default value is `https://index.crates.io/`.
 	GitRegistryUrl *string `pulumi:"gitRegistryUrl"`
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
 	// communicate with this repository.
@@ -397,7 +398,7 @@ type RemoteCargoRepositoryState struct {
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
 	// artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
-	// This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
+	// This is the index url, expected to be a git repository. Default value is `https://index.crates.io/`.
 	GitRegistryUrl pulumi.StringPtrInput
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
 	// communicate with this repository.
@@ -527,7 +528,7 @@ type remoteCargoRepositoryArgs struct {
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
 	// artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
-	// This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
+	// This is the index url, expected to be a git repository. Default value is `https://index.crates.io/`.
 	GitRegistryUrl *string `pulumi:"gitRegistryUrl"`
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
 	// communicate with this repository.
@@ -653,7 +654,7 @@ type RemoteCargoRepositoryArgs struct {
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
 	// artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
-	// This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
+	// This is the index url, expected to be a git repository. Default value is `https://index.crates.io/`.
 	GitRegistryUrl pulumi.StringPtrInput
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
 	// communicate with this repository.
@@ -917,7 +918,7 @@ func (o RemoteCargoRepositoryOutput) ExcludesPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemoteCargoRepository) pulumi.StringPtrOutput { return v.ExcludesPattern }).(pulumi.StringPtrOutput)
 }
 
-// This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
+// This is the index url, expected to be a git repository. Default value is `https://index.crates.io/`.
 func (o RemoteCargoRepositoryOutput) GitRegistryUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemoteCargoRepository) pulumi.StringPtrOutput { return v.GitRegistryUrl }).(pulumi.StringPtrOutput)
 }

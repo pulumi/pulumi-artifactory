@@ -20,6 +20,7 @@ import javax.annotation.Nullable;
 
 /**
  * Creates a remote Cargo repository.
+ * 
  * Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Cargo+Registry).
  * 
  * ## Example Usage
@@ -51,8 +52,8 @@ import javax.annotation.Nullable;
  *             .key("my-remote-cargo")
  *             .anonymousAccess(true)
  *             .enableSparseIndex(true)
- *             .url("https://github.com/rust-lang/crates.io-index")
- *             .gitRegistryUrl("https://github.com/rust-lang/foo.index")
+ *             .url("https://index.crates.io/")
+ *             .gitRegistryUrl("https://index.crates.io/")
  *             .build());
  * 
  *     }
@@ -335,14 +336,14 @@ public class RemoteCargoRepository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.excludesPattern);
     }
     /**
-     * This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
+     * This is the index url, expected to be a git repository. Default value is `https://index.crates.io/`.
      * 
      */
     @Export(name="gitRegistryUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> gitRegistryUrl;
 
     /**
-     * @return This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
+     * @return This is the index url, expected to be a git repository. Default value is `https://index.crates.io/`.
      * 
      */
     public Output<Optional<String>> gitRegistryUrl() {

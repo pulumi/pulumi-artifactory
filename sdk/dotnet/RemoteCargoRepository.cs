@@ -11,6 +11,7 @@ namespace Pulumi.Artifactory
 {
     /// <summary>
     /// Creates a remote Cargo repository.
+    /// 
     /// Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Cargo+Registry).
     /// 
     /// ## Example Usage
@@ -28,8 +29,8 @@ namespace Pulumi.Artifactory
     ///         Key = "my-remote-cargo",
     ///         AnonymousAccess = true,
     ///         EnableSparseIndex = true,
-    ///         Url = "https://github.com/rust-lang/crates.io-index",
-    ///         GitRegistryUrl = "https://github.com/rust-lang/foo.index",
+    ///         Url = "https://index.crates.io/",
+    ///         GitRegistryUrl = "https://index.crates.io/",
     ///     });
     /// 
     /// });
@@ -164,7 +165,7 @@ namespace Pulumi.Artifactory
         public Output<string?> ExcludesPattern { get; private set; } = null!;
 
         /// <summary>
-        /// This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
+        /// This is the index url, expected to be a git repository. Default value is `https://index.crates.io/`.
         /// </summary>
         [Output("gitRegistryUrl")]
         public Output<string?> GitRegistryUrl { get; private set; } = null!;
@@ -513,7 +514,7 @@ namespace Pulumi.Artifactory
         public Input<string>? ExcludesPattern { get; set; }
 
         /// <summary>
-        /// This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
+        /// This is the index url, expected to be a git repository. Default value is `https://index.crates.io/`.
         /// </summary>
         [Input("gitRegistryUrl")]
         public Input<string>? GitRegistryUrl { get; set; }
@@ -837,7 +838,7 @@ namespace Pulumi.Artifactory
         public Input<string>? ExcludesPattern { get; set; }
 
         /// <summary>
-        /// This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
+        /// This is the index url, expected to be a git repository. Default value is `https://index.crates.io/`.
         /// </summary>
         [Input("gitRegistryUrl")]
         public Input<string>? GitRegistryUrl { get; set; }
