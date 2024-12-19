@@ -101,7 +101,7 @@ class RemoteCargoRepositoryArgs:
         :param pulumi.Input[bool] enable_sparse_index: Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
                artifacts are excluded.
-        :param pulumi.Input[str] git_registry_url: This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
+        :param pulumi.Input[str] git_registry_url: This is the index url, expected to be a git repository. Default value is `https://index.crates.io/`.
         :param pulumi.Input[bool] hard_fail: When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
                communicate with this repository.
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
@@ -470,7 +470,7 @@ class RemoteCargoRepositoryArgs:
     @pulumi.getter(name="gitRegistryUrl")
     def git_registry_url(self) -> Optional[pulumi.Input[str]]:
         """
-        This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
+        This is the index url, expected to be a git repository. Default value is `https://index.crates.io/`.
         """
         return pulumi.get(self, "git_registry_url")
 
@@ -893,7 +893,7 @@ class _RemoteCargoRepositoryState:
         :param pulumi.Input[bool] enable_sparse_index: Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
                artifacts are excluded.
-        :param pulumi.Input[str] git_registry_url: This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
+        :param pulumi.Input[str] git_registry_url: This is the index url, expected to be a git repository. Default value is `https://index.crates.io/`.
         :param pulumi.Input[bool] hard_fail: When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
                communicate with this repository.
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
@@ -1254,7 +1254,7 @@ class _RemoteCargoRepositoryState:
     @pulumi.getter(name="gitRegistryUrl")
     def git_registry_url(self) -> Optional[pulumi.Input[str]]:
         """
-        This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
+        This is the index url, expected to be a git repository. Default value is `https://index.crates.io/`.
         """
         return pulumi.get(self, "git_registry_url")
 
@@ -1671,6 +1671,7 @@ class RemoteCargoRepository(pulumi.CustomResource):
                  __props__=None):
         """
         Creates a remote Cargo repository.
+
         Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Cargo+Registry).
 
         ## Example Usage
@@ -1683,8 +1684,8 @@ class RemoteCargoRepository(pulumi.CustomResource):
             key="my-remote-cargo",
             anonymous_access=True,
             enable_sparse_index=True,
-            url="https://github.com/rust-lang/crates.io-index",
-            git_registry_url="https://github.com/rust-lang/foo.index")
+            url="https://index.crates.io/",
+            git_registry_url="https://index.crates.io/")
         ```
         ## Note
 
@@ -1731,7 +1732,7 @@ class RemoteCargoRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_sparse_index: Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
                artifacts are excluded.
-        :param pulumi.Input[str] git_registry_url: This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
+        :param pulumi.Input[str] git_registry_url: This is the index url, expected to be a git repository. Default value is `https://index.crates.io/`.
         :param pulumi.Input[bool] hard_fail: When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
                communicate with this repository.
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
@@ -1786,6 +1787,7 @@ class RemoteCargoRepository(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Creates a remote Cargo repository.
+
         Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Cargo+Registry).
 
         ## Example Usage
@@ -1798,8 +1800,8 @@ class RemoteCargoRepository(pulumi.CustomResource):
             key="my-remote-cargo",
             anonymous_access=True,
             enable_sparse_index=True,
-            url="https://github.com/rust-lang/crates.io-index",
-            git_registry_url="https://github.com/rust-lang/foo.index")
+            url="https://index.crates.io/",
+            git_registry_url="https://index.crates.io/")
         ```
         ## Note
 
@@ -2029,7 +2031,7 @@ class RemoteCargoRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_sparse_index: Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
                artifacts are excluded.
-        :param pulumi.Input[str] git_registry_url: This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
+        :param pulumi.Input[str] git_registry_url: This is the index url, expected to be a git repository. Default value is `https://index.crates.io/`.
         :param pulumi.Input[bool] hard_fail: When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
                communicate with this repository.
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
@@ -2280,7 +2282,7 @@ class RemoteCargoRepository(pulumi.CustomResource):
     @pulumi.getter(name="gitRegistryUrl")
     def git_registry_url(self) -> pulumi.Output[Optional[str]]:
         """
-        This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
+        This is the index url, expected to be a git repository. Default value is `https://index.crates.io/`.
         """
         return pulumi.get(self, "git_registry_url")
 
