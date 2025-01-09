@@ -264,6 +264,7 @@ class DistributionCustomWebhook(pulumi.CustomResource):
             },
             handlers=[{
                 "url": "https://tempurl.org",
+                "method": "POST",
                 "secrets": {
                     "secretName1": "value1",
                     "secretName2": "value2",
@@ -319,6 +320,7 @@ class DistributionCustomWebhook(pulumi.CustomResource):
             },
             handlers=[{
                 "url": "https://tempurl.org",
+                "method": "POST",
                 "secrets": {
                     "secretName1": "value1",
                     "secretName2": "value2",

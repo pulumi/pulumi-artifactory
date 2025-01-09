@@ -798,6 +798,21 @@
                     }
                 }
             },
+            "artifactory_federated_huggingfaceml_repository": {
+                "current": "artifactory:index/federatedHuggingfacemlRepository:FederatedHuggingfacemlRepository",
+                "majorVersion": 8,
+                "fields": {
+                    "member": {
+                        "maxItemsOne": false
+                    },
+                    "project_environments": {
+                        "maxItemsOne": false
+                    },
+                    "property_sets": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "artifactory_federated_ivy_repository": {
                 "current": "artifactory:index/federatedIvyRepository:FederatedIvyRepository",
                 "majorVersion": 8,
@@ -3293,6 +3308,21 @@
                     }
                 }
             },
+            "artifactory_federated_huggingfaceml_repository": {
+                "current": "artifactory:index/getFederatedHuggingfacemlRepository:getFederatedHuggingfacemlRepository",
+                "majorVersion": 8,
+                "fields": {
+                    "member": {
+                        "maxItemsOne": false
+                    },
+                    "project_environments": {
+                        "maxItemsOne": false
+                    },
+                    "property_sets": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "artifactory_federated_ivy_repository": {
                 "current": "artifactory:index/getFederatedIvyRepository:getFederatedIvyRepository",
                 "majorVersion": 8,
@@ -5182,6 +5212,7 @@
             "artifactory:index/federatedGradleRepository:FederatedGradleRepository": 0,
             "artifactory:index/federatedHelmRepository:FederatedHelmRepository": 0,
             "artifactory:index/federatedHelmociRepository:FederatedHelmociRepository": 0,
+            "artifactory:index/federatedHuggingfacemlRepository:FederatedHuggingfacemlRepository": 0,
             "artifactory:index/federatedIvyRepository:FederatedIvyRepository": 0,
             "artifactory:index/federatedMavenRepository:FederatedMavenRepository": 0,
             "artifactory:index/federatedNpmRepository:FederatedNpmRepository": 0,
@@ -5358,6 +5389,7 @@
             "artifactory:index/getFederatedGradleRepository:getFederatedGradleRepository": 0,
             "artifactory:index/getFederatedHelmRepository:getFederatedHelmRepository": 0,
             "artifactory:index/getFederatedHelmociRepository:getFederatedHelmociRepository": 0,
+            "artifactory:index/getFederatedHuggingfacemlRepository:getFederatedHuggingfacemlRepository": 0,
             "artifactory:index/getFederatedIvyRepository:getFederatedIvyRepository": 0,
             "artifactory:index/getFederatedMavenRepository:getFederatedMavenRepository": 0,
             "artifactory:index/getFederatedNpmRepository:getFederatedNpmRepository": 0,

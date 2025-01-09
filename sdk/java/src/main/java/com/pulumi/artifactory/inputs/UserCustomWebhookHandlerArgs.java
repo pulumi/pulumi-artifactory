@@ -33,6 +33,21 @@ public final class UserCustomWebhookHandlerArgs extends com.pulumi.resources.Res
     }
 
     /**
+     * Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+     * 
+     */
+    @Import(name="method")
+    private @Nullable Output<String> method;
+
+    /**
+     * @return Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+     * 
+     */
+    public Optional<Output<String>> method() {
+        return Optional.ofNullable(this.method);
+    }
+
+    /**
      * This attribute is used to build the request body. Used in custom webhooks
      * 
      */
@@ -78,14 +93,14 @@ public final class UserCustomWebhookHandlerArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+     * Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send a request to.
      * 
      */
     @Import(name="url", required=true)
     private Output<String> url;
 
     /**
-     * @return Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+     * @return Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send a request to.
      * 
      */
     public Output<String> url() {
@@ -96,6 +111,7 @@ public final class UserCustomWebhookHandlerArgs extends com.pulumi.resources.Res
 
     private UserCustomWebhookHandlerArgs(UserCustomWebhookHandlerArgs $) {
         this.httpHeaders = $.httpHeaders;
+        this.method = $.method;
         this.payload = $.payload;
         this.proxy = $.proxy;
         this.secrets = $.secrets;
@@ -139,6 +155,27 @@ public final class UserCustomWebhookHandlerArgs extends com.pulumi.resources.Res
          */
         public Builder httpHeaders(Map<String,String> httpHeaders) {
             return httpHeaders(Output.of(httpHeaders));
+        }
+
+        /**
+         * @param method Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder method(@Nullable Output<String> method) {
+            $.method = method;
+            return this;
+        }
+
+        /**
+         * @param method Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder method(String method) {
+            return method(Output.of(method));
         }
 
         /**
@@ -205,7 +242,7 @@ public final class UserCustomWebhookHandlerArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param url Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+         * @param url Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send a request to.
          * 
          * @return builder
          * 
@@ -216,7 +253,7 @@ public final class UserCustomWebhookHandlerArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param url Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+         * @param url Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send a request to.
          * 
          * @return builder
          * 

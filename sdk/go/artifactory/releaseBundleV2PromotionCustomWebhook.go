@@ -43,7 +43,8 @@ import (
 //				},
 //				Handlers: artifactory.ReleaseBundleV2PromotionCustomWebhookHandlerArray{
 //					&artifactory.ReleaseBundleV2PromotionCustomWebhookHandlerArgs{
-//						Url: pulumi.String("https://tempurl.org"),
+//						Url:    pulumi.String("https://tempurl.org"),
+//						Method: pulumi.String("POST"),
 //						Secrets: pulumi.StringMap{
 //							"secretName1": pulumi.String("value1"),
 //							"secretName2": pulumi.String("value2"),

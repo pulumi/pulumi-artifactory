@@ -245,6 +245,11 @@ export type FederatedHelmociRepository = import("./federatedHelmociRepository").
 export const FederatedHelmociRepository: typeof import("./federatedHelmociRepository").FederatedHelmociRepository = null as any;
 utilities.lazyLoad(exports, ["FederatedHelmociRepository"], () => require("./federatedHelmociRepository"));
 
+export { FederatedHuggingfacemlRepositoryArgs, FederatedHuggingfacemlRepositoryState } from "./federatedHuggingfacemlRepository";
+export type FederatedHuggingfacemlRepository = import("./federatedHuggingfacemlRepository").FederatedHuggingfacemlRepository;
+export const FederatedHuggingfacemlRepository: typeof import("./federatedHuggingfacemlRepository").FederatedHuggingfacemlRepository = null as any;
+utilities.lazyLoad(exports, ["FederatedHuggingfacemlRepository"], () => require("./federatedHuggingfacemlRepository"));
+
 export { FederatedIvyRepositoryArgs, FederatedIvyRepositoryState } from "./federatedIvyRepository";
 export type FederatedIvyRepository = import("./federatedIvyRepository").FederatedIvyRepository;
 export const FederatedIvyRepository: typeof import("./federatedIvyRepository").FederatedIvyRepository = null as any;
@@ -424,6 +429,11 @@ export { GetFederatedHelmociRepositoryArgs, GetFederatedHelmociRepositoryResult,
 export const getFederatedHelmociRepository: typeof import("./getFederatedHelmociRepository").getFederatedHelmociRepository = null as any;
 export const getFederatedHelmociRepositoryOutput: typeof import("./getFederatedHelmociRepository").getFederatedHelmociRepositoryOutput = null as any;
 utilities.lazyLoad(exports, ["getFederatedHelmociRepository","getFederatedHelmociRepositoryOutput"], () => require("./getFederatedHelmociRepository"));
+
+export { GetFederatedHuggingfacemlRepositoryArgs, GetFederatedHuggingfacemlRepositoryResult, GetFederatedHuggingfacemlRepositoryOutputArgs } from "./getFederatedHuggingfacemlRepository";
+export const getFederatedHuggingfacemlRepository: typeof import("./getFederatedHuggingfacemlRepository").getFederatedHuggingfacemlRepository = null as any;
+export const getFederatedHuggingfacemlRepositoryOutput: typeof import("./getFederatedHuggingfacemlRepository").getFederatedHuggingfacemlRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getFederatedHuggingfacemlRepository","getFederatedHuggingfacemlRepositoryOutput"], () => require("./getFederatedHuggingfacemlRepository"));
 
 export { GetFederatedIvyRepositoryArgs, GetFederatedIvyRepositoryResult, GetFederatedIvyRepositoryOutputArgs } from "./getFederatedIvyRepository";
 export const getFederatedIvyRepository: typeof import("./getFederatedIvyRepository").getFederatedIvyRepository = null as any;
@@ -1840,6 +1850,8 @@ const _module = {
                 return new FederatedHelmRepository(name, <any>undefined, { urn })
             case "artifactory:index/federatedHelmociRepository:FederatedHelmociRepository":
                 return new FederatedHelmociRepository(name, <any>undefined, { urn })
+            case "artifactory:index/federatedHuggingfacemlRepository:FederatedHuggingfacemlRepository":
+                return new FederatedHuggingfacemlRepository(name, <any>undefined, { urn })
             case "artifactory:index/federatedIvyRepository:FederatedIvyRepository":
                 return new FederatedIvyRepository(name, <any>undefined, { urn })
             case "artifactory:index/federatedMavenRepository:FederatedMavenRepository":
@@ -2199,6 +2211,7 @@ pulumi.runtime.registerResourceModule("artifactory", "index/federatedGoRepositor
 pulumi.runtime.registerResourceModule("artifactory", "index/federatedGradleRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/federatedHelmRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/federatedHelmociRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/federatedHuggingfacemlRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/federatedIvyRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/federatedMavenRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/federatedNpmRepository", _module)

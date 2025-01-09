@@ -66,6 +66,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .handlers(ArtifactoryReleaseBundleCustomWebhookHandlerArgs.builder()
  *                 .url("https://tempurl.org")
+ *                 .method("POST")
  *                 .secrets(Map.ofEntries(
  *                     Map.entry("secretName1", "value1"),
  *                     Map.entry("secretName2", "value2")

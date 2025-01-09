@@ -57,6 +57,7 @@ namespace Pulumi.Artifactory
     ///             new Artifactory.Inputs.ArtifactPropertyCustomWebhookHandlerArgs
     ///             {
     ///                 Url = "https://tempurl.org",
+    ///                 Method = "POST",
     ///                 Secrets = 
     ///                 {
     ///                     { "secretName1", "value1" },

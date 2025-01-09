@@ -86,6 +86,10 @@ export interface ArtifactCustomWebhookHandler {
      */
     httpHeaders?: {[key: string]: string};
     /**
+     * Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+     */
+    method?: string;
+    /**
      * This attribute is used to build the request body. Used in custom webhooks
      */
     payload?: string;
@@ -108,6 +112,10 @@ export interface ArtifactLifecycleCustomWebhookHandler {
      * HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
      */
     httpHeaders?: {[key: string]: string};
+    /**
+     * Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+     */
+    method?: string;
     /**
      * This attribute is used to build the request body. Used in custom webhooks
      */
@@ -181,6 +189,10 @@ export interface ArtifactPropertyCustomWebhookHandler {
      * HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
      */
     httpHeaders?: {[key: string]: string};
+    /**
+     * Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+     */
+    method?: string;
     /**
      * This attribute is used to build the request body. Used in custom webhooks
      */
@@ -324,6 +336,10 @@ export interface ArtifactoryReleaseBundleCustomWebhookHandler {
      */
     httpHeaders?: {[key: string]: string};
     /**
+     * Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+     */
+    method?: string;
+    /**
      * This attribute is used to build the request body. Used in custom webhooks
      */
     payload?: string;
@@ -407,6 +423,10 @@ export interface BuildCustomWebhookHandler {
      * HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
      */
     httpHeaders?: {[key: string]: string};
+    /**
+     * Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+     */
+    method?: string;
     /**
      * This attribute is used to build the request body. Used in custom webhooks
      */
@@ -492,6 +512,10 @@ export interface DestinationCustomWebhookHandler {
      */
     httpHeaders?: {[key: string]: string};
     /**
+     * Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+     */
+    method?: string;
+    /**
      * This attribute is used to build the request body. Used in custom webhooks
      */
     payload?: string;
@@ -575,6 +599,10 @@ export interface DistributionCustomWebhookHandler {
      * HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
      */
     httpHeaders?: {[key: string]: string};
+    /**
+     * Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+     */
+    method?: string;
     /**
      * This attribute is used to build the request body. Used in custom webhooks
      */
@@ -667,6 +695,10 @@ export interface DockerCustomWebhookHandler {
      * HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
      */
     httpHeaders?: {[key: string]: string};
+    /**
+     * Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+     */
+    method?: string;
     /**
      * This attribute is used to build the request body. Used in custom webhooks
      */
@@ -1056,6 +1088,21 @@ export interface FederatedHelmRepositoryMember {
 }
 
 export interface FederatedHelmociRepositoryMember {
+    /**
+     * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+     */
+    accessToken?: string;
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
+     */
+    enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
+    url: string;
+}
+
+export interface FederatedHuggingfacemlRepositoryMember {
     /**
      * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
      */
@@ -1625,6 +1672,21 @@ export interface GetFederatedHelmociRepositoryMember {
     enabled: boolean;
     /**
      * Full URL to ending with the repository name.
+     */
+    url: string;
+}
+
+export interface GetFederatedHuggingfacemlRepositoryMember {
+    /**
+     * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+     */
+    accessToken?: string;
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
+     */
+    enabled: boolean;
+    /**
+     * Full URL to ending with the repositoryName
      */
     url: string;
 }
@@ -3057,6 +3119,10 @@ export interface ReleaseBundleCustomWebhookHandler {
      */
     httpHeaders?: {[key: string]: string};
     /**
+     * Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+     */
+    method?: string;
+    /**
      * This attribute is used to build the request body. Used in custom webhooks
      */
     payload?: string;
@@ -3099,6 +3165,10 @@ export interface ReleaseBundleV2CustomWebhookHandler {
      */
     httpHeaders?: {[key: string]: string};
     /**
+     * Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+     */
+    method?: string;
+    /**
      * This attribute is used to build the request body. Used in custom webhooks
      */
     payload?: string;
@@ -3130,6 +3200,10 @@ export interface ReleaseBundleV2PromotionCustomWebhookHandler {
      * HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
      */
     httpHeaders?: {[key: string]: string};
+    /**
+     * Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+     */
+    method?: string;
     /**
      * This attribute is used to build the request body. Used in custom webhooks
      */
@@ -4030,6 +4104,10 @@ export interface UserCustomWebhookHandler {
      */
     httpHeaders?: {[key: string]: string};
     /**
+     * Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+     */
+    method?: string;
+    /**
      * This attribute is used to build the request body. Used in custom webhooks
      */
     payload?: string;
@@ -4042,7 +4120,7 @@ export interface UserCustomWebhookHandler {
      */
     secrets?: {[key: string]: string};
     /**
-     * Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+     * Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send a request to.
      */
     url: string;
 }

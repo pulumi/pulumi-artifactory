@@ -18,6 +18,10 @@ namespace Pulumi.Artifactory.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string>? HttpHeaders;
         /// <summary>
+        /// Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+        /// </summary>
+        public readonly string? Method;
+        /// <summary>
         /// This attribute is used to build the request body. Used in custom webhooks
         /// </summary>
         public readonly string? Payload;
@@ -38,6 +42,8 @@ namespace Pulumi.Artifactory.Outputs
         private ArtifactPropertyCustomWebhookHandler(
             ImmutableDictionary<string, string>? httpHeaders,
 
+            string? method,
+
             string? payload,
 
             string? proxy,
@@ -47,6 +53,7 @@ namespace Pulumi.Artifactory.Outputs
             string url)
         {
             HttpHeaders = httpHeaders;
+            Method = method;
             Payload = payload;
             Proxy = proxy;
             Secrets = secrets;

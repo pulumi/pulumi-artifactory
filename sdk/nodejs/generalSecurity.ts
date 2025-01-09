@@ -63,6 +63,13 @@ export class GeneralSecurity extends pulumi.CustomResource {
      * Enable anonymous access.  Default value is `false`.
      */
     public readonly enableAnonymousAccess!: pulumi.Output<boolean>;
+    /**
+     * Determines the password requirements from users identified to Artifactory from a remote client such as Maven. The
+     * options are: (1) `SUPPORTED` (default): Users can authenticate using secure encrypted passwords or clear-text passwords.
+     * (2) `REQUIRED`: Users must authenticate using secure encrypted passwords. Clear-text authentication fails. (3)
+     * `UNSUPPORTED`: Only clear-text passwords can be used for authentication. Default value is `SUPPORTED`.
+     */
+    public readonly encryptionPolicy!: pulumi.Output<string>;
 
     /**
      * Create a GeneralSecurity resource with the given unique name, arguments, and options.
@@ -78,9 +85,11 @@ export class GeneralSecurity extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as GeneralSecurityState | undefined;
             resourceInputs["enableAnonymousAccess"] = state ? state.enableAnonymousAccess : undefined;
+            resourceInputs["encryptionPolicy"] = state ? state.encryptionPolicy : undefined;
         } else {
             const args = argsOrState as GeneralSecurityArgs | undefined;
             resourceInputs["enableAnonymousAccess"] = args ? args.enableAnonymousAccess : undefined;
+            resourceInputs["encryptionPolicy"] = args ? args.encryptionPolicy : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(GeneralSecurity.__pulumiType, name, resourceInputs, opts);
@@ -95,6 +104,13 @@ export interface GeneralSecurityState {
      * Enable anonymous access.  Default value is `false`.
      */
     enableAnonymousAccess?: pulumi.Input<boolean>;
+    /**
+     * Determines the password requirements from users identified to Artifactory from a remote client such as Maven. The
+     * options are: (1) `SUPPORTED` (default): Users can authenticate using secure encrypted passwords or clear-text passwords.
+     * (2) `REQUIRED`: Users must authenticate using secure encrypted passwords. Clear-text authentication fails. (3)
+     * `UNSUPPORTED`: Only clear-text passwords can be used for authentication. Default value is `SUPPORTED`.
+     */
+    encryptionPolicy?: pulumi.Input<string>;
 }
 
 /**
@@ -105,4 +121,11 @@ export interface GeneralSecurityArgs {
      * Enable anonymous access.  Default value is `false`.
      */
     enableAnonymousAccess?: pulumi.Input<boolean>;
+    /**
+     * Determines the password requirements from users identified to Artifactory from a remote client such as Maven. The
+     * options are: (1) `SUPPORTED` (default): Users can authenticate using secure encrypted passwords or clear-text passwords.
+     * (2) `REQUIRED`: Users must authenticate using secure encrypted passwords. Clear-text authentication fails. (3)
+     * `UNSUPPORTED`: Only clear-text passwords can be used for authentication. Default value is `SUPPORTED`.
+     */
+    encryptionPolicy?: pulumi.Input<string>;
 }

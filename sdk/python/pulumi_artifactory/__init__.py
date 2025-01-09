@@ -53,6 +53,7 @@ from .federated_go_repository import *
 from .federated_gradle_repository import *
 from .federated_helm_repository import *
 from .federated_helmoci_repository import *
+from .federated_huggingfaceml_repository import *
 from .federated_ivy_repository import *
 from .federated_maven_repository import *
 from .federated_npm_repository import *
@@ -89,6 +90,7 @@ from .get_federated_go_repository import *
 from .get_federated_gradle_repository import *
 from .get_federated_helm_repository import *
 from .get_federated_helmoci_repository import *
+from .get_federated_huggingfaceml_repository import *
 from .get_federated_ivy_repository import *
 from .get_federated_maven_repository import *
 from .get_federated_npm_repository import *
@@ -745,6 +747,14 @@ _utilities.register(
   "fqn": "pulumi_artifactory",
   "classes": {
    "artifactory:index/federatedHelmociRepository:FederatedHelmociRepository": "FederatedHelmociRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/federatedHuggingfacemlRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/federatedHuggingfacemlRepository:FederatedHuggingfacemlRepository": "FederatedHuggingfacemlRepository"
   }
  },
  {

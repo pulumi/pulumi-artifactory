@@ -218,6 +218,7 @@ class UserCustomWebhook(pulumi.CustomResource):
             event_types=["locked"],
             handlers=[{
                 "url": "https://tempurl.org",
+                "method": "POST",
                 "secrets": {
                     "secretName1": "value1",
                     "secretName2": "value2",
@@ -259,6 +260,7 @@ class UserCustomWebhook(pulumi.CustomResource):
             event_types=["locked"],
             handlers=[{
                 "url": "https://tempurl.org",
+                "method": "POST",
                 "secrets": {
                     "secretName1": "value1",
                     "secretName2": "value2",

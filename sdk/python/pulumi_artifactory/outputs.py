@@ -68,6 +68,7 @@ __all__ = [
     'FederatedGradleRepositoryMember',
     'FederatedHelmRepositoryMember',
     'FederatedHelmociRepositoryMember',
+    'FederatedHuggingfacemlRepositoryMember',
     'FederatedIvyRepositoryMember',
     'FederatedMavenRepositoryMember',
     'FederatedNpmRepositoryMember',
@@ -180,6 +181,7 @@ __all__ = [
     'GetFederatedGradleRepositoryMemberResult',
     'GetFederatedHelmRepositoryMemberResult',
     'GetFederatedHelmociRepositoryMemberResult',
+    'GetFederatedHuggingfacemlRepositoryMemberResult',
     'GetFederatedIvyRepositoryMemberResult',
     'GetFederatedMavenRepositoryMemberResult',
     'GetFederatedNpmRepositoryMemberResult',
@@ -537,12 +539,14 @@ class ArtifactCustomWebhookHandler(dict):
     def __init__(__self__, *,
                  url: str,
                  http_headers: Optional[Mapping[str, str]] = None,
+                 method: Optional[str] = None,
                  payload: Optional[str] = None,
                  proxy: Optional[str] = None,
                  secrets: Optional[Mapping[str, str]] = None):
         """
         :param str url: Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
         :param Mapping[str, str] http_headers: HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
+        :param str method: Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
         :param str payload: This attribute is used to build the request body. Used in custom webhooks
         :param str proxy: Proxy key from Artifactory UI (Administration > Proxies > Configuration).
         :param Mapping[str, str] secrets: Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example: 
@@ -550,6 +554,8 @@ class ArtifactCustomWebhookHandler(dict):
         pulumi.set(__self__, "url", url)
         if http_headers is not None:
             pulumi.set(__self__, "http_headers", http_headers)
+        if method is not None:
+            pulumi.set(__self__, "method", method)
         if payload is not None:
             pulumi.set(__self__, "payload", payload)
         if proxy is not None:
@@ -572,6 +578,14 @@ class ArtifactCustomWebhookHandler(dict):
         HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
         """
         return pulumi.get(self, "http_headers")
+
+    @property
+    @pulumi.getter
+    def method(self) -> Optional[str]:
+        """
+        Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+        """
+        return pulumi.get(self, "method")
 
     @property
     @pulumi.getter
@@ -620,12 +634,14 @@ class ArtifactLifecycleCustomWebhookHandler(dict):
     def __init__(__self__, *,
                  url: str,
                  http_headers: Optional[Mapping[str, str]] = None,
+                 method: Optional[str] = None,
                  payload: Optional[str] = None,
                  proxy: Optional[str] = None,
                  secrets: Optional[Mapping[str, str]] = None):
         """
         :param str url: Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
         :param Mapping[str, str] http_headers: HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
+        :param str method: Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
         :param str payload: This attribute is used to build the request body. Used in custom webhooks
         :param str proxy: Proxy key from Artifactory UI (Administration > Proxies > Configuration).
         :param Mapping[str, str] secrets: Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
@@ -633,6 +649,8 @@ class ArtifactLifecycleCustomWebhookHandler(dict):
         pulumi.set(__self__, "url", url)
         if http_headers is not None:
             pulumi.set(__self__, "http_headers", http_headers)
+        if method is not None:
+            pulumi.set(__self__, "method", method)
         if payload is not None:
             pulumi.set(__self__, "payload", payload)
         if proxy is not None:
@@ -655,6 +673,14 @@ class ArtifactLifecycleCustomWebhookHandler(dict):
         HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
         """
         return pulumi.get(self, "http_headers")
+
+    @property
+    @pulumi.getter
+    def method(self) -> Optional[str]:
+        """
+        Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+        """
+        return pulumi.get(self, "method")
 
     @property
     @pulumi.getter
@@ -890,12 +916,14 @@ class ArtifactPropertyCustomWebhookHandler(dict):
     def __init__(__self__, *,
                  url: str,
                  http_headers: Optional[Mapping[str, str]] = None,
+                 method: Optional[str] = None,
                  payload: Optional[str] = None,
                  proxy: Optional[str] = None,
                  secrets: Optional[Mapping[str, str]] = None):
         """
         :param str url: Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
         :param Mapping[str, str] http_headers: HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
+        :param str method: Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
         :param str payload: This attribute is used to build the request body. Used in custom webhooks
         :param str proxy: Proxy key from Artifactory UI (Administration > Proxies > Configuration).
         :param Mapping[str, str] secrets: Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
@@ -903,6 +931,8 @@ class ArtifactPropertyCustomWebhookHandler(dict):
         pulumi.set(__self__, "url", url)
         if http_headers is not None:
             pulumi.set(__self__, "http_headers", http_headers)
+        if method is not None:
+            pulumi.set(__self__, "method", method)
         if payload is not None:
             pulumi.set(__self__, "payload", payload)
         if proxy is not None:
@@ -925,6 +955,14 @@ class ArtifactPropertyCustomWebhookHandler(dict):
         HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
         """
         return pulumi.get(self, "http_headers")
+
+    @property
+    @pulumi.getter
+    def method(self) -> Optional[str]:
+        """
+        Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+        """
+        return pulumi.get(self, "method")
 
     @property
     @pulumi.getter
@@ -1423,12 +1461,14 @@ class ArtifactoryReleaseBundleCustomWebhookHandler(dict):
     def __init__(__self__, *,
                  url: str,
                  http_headers: Optional[Mapping[str, str]] = None,
+                 method: Optional[str] = None,
                  payload: Optional[str] = None,
                  proxy: Optional[str] = None,
                  secrets: Optional[Mapping[str, str]] = None):
         """
         :param str url: Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
         :param Mapping[str, str] http_headers: HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
+        :param str method: Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
         :param str payload: This attribute is used to build the request body. Used in custom webhooks
         :param str proxy: Proxy key from Artifactory UI (Administration > Proxies > Configuration).
         :param Mapping[str, str] secrets: Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
@@ -1436,6 +1476,8 @@ class ArtifactoryReleaseBundleCustomWebhookHandler(dict):
         pulumi.set(__self__, "url", url)
         if http_headers is not None:
             pulumi.set(__self__, "http_headers", http_headers)
+        if method is not None:
+            pulumi.set(__self__, "method", method)
         if payload is not None:
             pulumi.set(__self__, "payload", payload)
         if proxy is not None:
@@ -1458,6 +1500,14 @@ class ArtifactoryReleaseBundleCustomWebhookHandler(dict):
         HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
         """
         return pulumi.get(self, "http_headers")
+
+    @property
+    @pulumi.getter
+    def method(self) -> Optional[str]:
+        """
+        Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+        """
+        return pulumi.get(self, "method")
 
     @property
     @pulumi.getter
@@ -1743,12 +1793,14 @@ class BuildCustomWebhookHandler(dict):
     def __init__(__self__, *,
                  url: str,
                  http_headers: Optional[Mapping[str, str]] = None,
+                 method: Optional[str] = None,
                  payload: Optional[str] = None,
                  proxy: Optional[str] = None,
                  secrets: Optional[Mapping[str, str]] = None):
         """
         :param str url: Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
         :param Mapping[str, str] http_headers: HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
+        :param str method: Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
         :param str payload: This attribute is used to build the request body. Used in custom webhooks
         :param str proxy: Proxy key from Artifactory UI (Administration > Proxies > Configuration).
         :param Mapping[str, str] secrets: Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
@@ -1756,6 +1808,8 @@ class BuildCustomWebhookHandler(dict):
         pulumi.set(__self__, "url", url)
         if http_headers is not None:
             pulumi.set(__self__, "http_headers", http_headers)
+        if method is not None:
+            pulumi.set(__self__, "method", method)
         if payload is not None:
             pulumi.set(__self__, "payload", payload)
         if proxy is not None:
@@ -1778,6 +1832,14 @@ class BuildCustomWebhookHandler(dict):
         HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
         """
         return pulumi.get(self, "http_headers")
+
+    @property
+    @pulumi.getter
+    def method(self) -> Optional[str]:
+        """
+        Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+        """
+        return pulumi.get(self, "method")
 
     @property
     @pulumi.getter
@@ -2063,12 +2125,14 @@ class DestinationCustomWebhookHandler(dict):
     def __init__(__self__, *,
                  url: str,
                  http_headers: Optional[Mapping[str, str]] = None,
+                 method: Optional[str] = None,
                  payload: Optional[str] = None,
                  proxy: Optional[str] = None,
                  secrets: Optional[Mapping[str, str]] = None):
         """
         :param str url: Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
         :param Mapping[str, str] http_headers: HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
+        :param str method: Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
         :param str payload: This attribute is used to build the request body. Used in custom webhooks
         :param str proxy: Proxy key from Artifactory UI (Administration > Proxies > Configuration).
         :param Mapping[str, str] secrets: Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
@@ -2076,6 +2140,8 @@ class DestinationCustomWebhookHandler(dict):
         pulumi.set(__self__, "url", url)
         if http_headers is not None:
             pulumi.set(__self__, "http_headers", http_headers)
+        if method is not None:
+            pulumi.set(__self__, "method", method)
         if payload is not None:
             pulumi.set(__self__, "payload", payload)
         if proxy is not None:
@@ -2098,6 +2164,14 @@ class DestinationCustomWebhookHandler(dict):
         HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
         """
         return pulumi.get(self, "http_headers")
+
+    @property
+    @pulumi.getter
+    def method(self) -> Optional[str]:
+        """
+        Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+        """
+        return pulumi.get(self, "method")
 
     @property
     @pulumi.getter
@@ -2383,12 +2457,14 @@ class DistributionCustomWebhookHandler(dict):
     def __init__(__self__, *,
                  url: str,
                  http_headers: Optional[Mapping[str, str]] = None,
+                 method: Optional[str] = None,
                  payload: Optional[str] = None,
                  proxy: Optional[str] = None,
                  secrets: Optional[Mapping[str, str]] = None):
         """
         :param str url: Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
         :param Mapping[str, str] http_headers: HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
+        :param str method: Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
         :param str payload: This attribute is used to build the request body. Used in custom webhooks
         :param str proxy: Proxy key from Artifactory UI (Administration > Proxies > Configuration).
         :param Mapping[str, str] secrets: Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
@@ -2396,6 +2472,8 @@ class DistributionCustomWebhookHandler(dict):
         pulumi.set(__self__, "url", url)
         if http_headers is not None:
             pulumi.set(__self__, "http_headers", http_headers)
+        if method is not None:
+            pulumi.set(__self__, "method", method)
         if payload is not None:
             pulumi.set(__self__, "payload", payload)
         if proxy is not None:
@@ -2418,6 +2496,14 @@ class DistributionCustomWebhookHandler(dict):
         HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
         """
         return pulumi.get(self, "http_headers")
+
+    @property
+    @pulumi.getter
+    def method(self) -> Optional[str]:
+        """
+        Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+        """
+        return pulumi.get(self, "method")
 
     @property
     @pulumi.getter
@@ -2729,12 +2815,14 @@ class DockerCustomWebhookHandler(dict):
     def __init__(__self__, *,
                  url: str,
                  http_headers: Optional[Mapping[str, str]] = None,
+                 method: Optional[str] = None,
                  payload: Optional[str] = None,
                  proxy: Optional[str] = None,
                  secrets: Optional[Mapping[str, str]] = None):
         """
         :param str url: Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
         :param Mapping[str, str] http_headers: HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
+        :param str method: Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
         :param str payload: This attribute is used to build the request body. Used in custom webhooks
         :param str proxy: Proxy key from Artifactory UI (Administration > Proxies > Configuration).
         :param Mapping[str, str] secrets: Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
@@ -2742,6 +2830,8 @@ class DockerCustomWebhookHandler(dict):
         pulumi.set(__self__, "url", url)
         if http_headers is not None:
             pulumi.set(__self__, "http_headers", http_headers)
+        if method is not None:
+            pulumi.set(__self__, "method", method)
         if payload is not None:
             pulumi.set(__self__, "payload", payload)
         if proxy is not None:
@@ -2764,6 +2854,14 @@ class DockerCustomWebhookHandler(dict):
         HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
         """
         return pulumi.get(self, "http_headers")
+
+    @property
+    @pulumi.getter
+    def method(self) -> Optional[str]:
+        """
+        Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+        """
+        return pulumi.get(self, "method")
 
     @property
     @pulumi.getter
@@ -4194,6 +4292,64 @@ class FederatedHelmociRepositoryMember(dict):
 
     def get(self, key: str, default = None) -> Any:
         FederatedHelmociRepositoryMember.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: bool,
+                 url: str,
+                 access_token: Optional[str] = None):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        :param str access_token: Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
+        return pulumi.get(self, "url")
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[str]:
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+        return pulumi.get(self, "access_token")
+
+
+@pulumi.output_type
+class FederatedHuggingfacemlRepositoryMember(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessToken":
+            suggest = "access_token"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FederatedHuggingfacemlRepositoryMember. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FederatedHuggingfacemlRepositoryMember.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FederatedHuggingfacemlRepositoryMember.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -6487,12 +6643,14 @@ class ReleaseBundleCustomWebhookHandler(dict):
     def __init__(__self__, *,
                  url: str,
                  http_headers: Optional[Mapping[str, str]] = None,
+                 method: Optional[str] = None,
                  payload: Optional[str] = None,
                  proxy: Optional[str] = None,
                  secrets: Optional[Mapping[str, str]] = None):
         """
         :param str url: Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
         :param Mapping[str, str] http_headers: HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
+        :param str method: Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
         :param str payload: This attribute is used to build the request body. Used in custom webhooks
         :param str proxy: Proxy key from Artifactory UI (Administration > Proxies > Configuration).
         :param Mapping[str, str] secrets: Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
@@ -6500,6 +6658,8 @@ class ReleaseBundleCustomWebhookHandler(dict):
         pulumi.set(__self__, "url", url)
         if http_headers is not None:
             pulumi.set(__self__, "http_headers", http_headers)
+        if method is not None:
+            pulumi.set(__self__, "method", method)
         if payload is not None:
             pulumi.set(__self__, "payload", payload)
         if proxy is not None:
@@ -6522,6 +6682,14 @@ class ReleaseBundleCustomWebhookHandler(dict):
         HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
         """
         return pulumi.get(self, "http_headers")
+
+    @property
+    @pulumi.getter
+    def method(self) -> Optional[str]:
+        """
+        Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+        """
+        return pulumi.get(self, "method")
 
     @property
     @pulumi.getter
@@ -6646,12 +6814,14 @@ class ReleaseBundleV2CustomWebhookHandler(dict):
     def __init__(__self__, *,
                  url: str,
                  http_headers: Optional[Mapping[str, str]] = None,
+                 method: Optional[str] = None,
                  payload: Optional[str] = None,
                  proxy: Optional[str] = None,
                  secrets: Optional[Mapping[str, str]] = None):
         """
         :param str url: Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
         :param Mapping[str, str] http_headers: HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
+        :param str method: Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
         :param str payload: This attribute is used to build the request body. Used in custom webhooks
         :param str proxy: Proxy key from Artifactory UI (Administration > Proxies > Configuration).
         :param Mapping[str, str] secrets: Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
@@ -6659,6 +6829,8 @@ class ReleaseBundleV2CustomWebhookHandler(dict):
         pulumi.set(__self__, "url", url)
         if http_headers is not None:
             pulumi.set(__self__, "http_headers", http_headers)
+        if method is not None:
+            pulumi.set(__self__, "method", method)
         if payload is not None:
             pulumi.set(__self__, "payload", payload)
         if proxy is not None:
@@ -6681,6 +6853,14 @@ class ReleaseBundleV2CustomWebhookHandler(dict):
         HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
         """
         return pulumi.get(self, "http_headers")
+
+    @property
+    @pulumi.getter
+    def method(self) -> Optional[str]:
+        """
+        Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+        """
+        return pulumi.get(self, "method")
 
     @property
     @pulumi.getter
@@ -6784,12 +6964,14 @@ class ReleaseBundleV2PromotionCustomWebhookHandler(dict):
     def __init__(__self__, *,
                  url: str,
                  http_headers: Optional[Mapping[str, str]] = None,
+                 method: Optional[str] = None,
                  payload: Optional[str] = None,
                  proxy: Optional[str] = None,
                  secrets: Optional[Mapping[str, str]] = None):
         """
         :param str url: Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
         :param Mapping[str, str] http_headers: HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
+        :param str method: Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
         :param str payload: This attribute is used to build the request body. Used in custom webhooks
         :param str proxy: Proxy key from Artifactory UI (Administration > Proxies > Configuration).
         :param Mapping[str, str] secrets: Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
@@ -6797,6 +6979,8 @@ class ReleaseBundleV2PromotionCustomWebhookHandler(dict):
         pulumi.set(__self__, "url", url)
         if http_headers is not None:
             pulumi.set(__self__, "http_headers", http_headers)
+        if method is not None:
+            pulumi.set(__self__, "method", method)
         if payload is not None:
             pulumi.set(__self__, "payload", payload)
         if proxy is not None:
@@ -6819,6 +7003,14 @@ class ReleaseBundleV2PromotionCustomWebhookHandler(dict):
         HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
         """
         return pulumi.get(self, "http_headers")
+
+    @property
+    @pulumi.getter
+    def method(self) -> Optional[str]:
+        """
+        Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+        """
+        return pulumi.get(self, "method")
 
     @property
     @pulumi.getter
@@ -10329,12 +10521,14 @@ class UserCustomWebhookHandler(dict):
     def __init__(__self__, *,
                  url: str,
                  http_headers: Optional[Mapping[str, str]] = None,
+                 method: Optional[str] = None,
                  payload: Optional[str] = None,
                  proxy: Optional[str] = None,
                  secrets: Optional[Mapping[str, str]] = None):
         """
-        :param str url: Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+        :param str url: Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send a request to.
         :param Mapping[str, str] http_headers: HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
+        :param str method: Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
         :param str payload: This attribute is used to build the request body. Used in custom webhooks
         :param str proxy: Proxy key from Artifactory UI (Administration > Proxies > Configuration).
         :param Mapping[str, str] secrets: Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
@@ -10342,6 +10536,8 @@ class UserCustomWebhookHandler(dict):
         pulumi.set(__self__, "url", url)
         if http_headers is not None:
             pulumi.set(__self__, "http_headers", http_headers)
+        if method is not None:
+            pulumi.set(__self__, "method", method)
         if payload is not None:
             pulumi.set(__self__, "payload", payload)
         if proxy is not None:
@@ -10353,7 +10549,7 @@ class UserCustomWebhookHandler(dict):
     @pulumi.getter
     def url(self) -> str:
         """
-        Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+        Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send a request to.
         """
         return pulumi.get(self, "url")
 
@@ -10364,6 +10560,14 @@ class UserCustomWebhookHandler(dict):
         HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
         """
         return pulumi.get(self, "http_headers")
+
+    @property
+    @pulumi.getter
+    def method(self) -> Optional[str]:
+        """
+        Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+        """
+        return pulumi.get(self, "method")
 
     @property
     @pulumi.getter
@@ -11592,6 +11796,47 @@ class GetFederatedHelmociRepositoryMemberResult(dict):
     def url(self) -> str:
         """
         Full URL to ending with the repository name.
+        """
+        return pulumi.get(self, "url")
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[str]:
+        """
+        Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+        return pulumi.get(self, "access_token")
+
+
+@pulumi.output_type
+class GetFederatedHuggingfacemlRepositoryMemberResult(dict):
+    def __init__(__self__, *,
+                 enabled: bool,
+                 url: str,
+                 access_token: Optional[str] = None):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repositoryName
+        :param str access_token: Admin access token for this member Artifactory instance. Used in conjunction with `cleanup_on_delete` attribute when Access Federation for access tokens is not enabled.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        Full URL to ending with the repositoryName
         """
         return pulumi.get(self, "url")
 
