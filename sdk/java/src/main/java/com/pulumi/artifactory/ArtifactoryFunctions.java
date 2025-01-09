@@ -46,6 +46,8 @@ import com.pulumi.artifactory.inputs.GetFederatedHelmRepositoryArgs;
 import com.pulumi.artifactory.inputs.GetFederatedHelmRepositoryPlainArgs;
 import com.pulumi.artifactory.inputs.GetFederatedHelmociRepositoryArgs;
 import com.pulumi.artifactory.inputs.GetFederatedHelmociRepositoryPlainArgs;
+import com.pulumi.artifactory.inputs.GetFederatedHuggingfacemlRepositoryArgs;
+import com.pulumi.artifactory.inputs.GetFederatedHuggingfacemlRepositoryPlainArgs;
 import com.pulumi.artifactory.inputs.GetFederatedIvyRepositoryArgs;
 import com.pulumi.artifactory.inputs.GetFederatedIvyRepositoryPlainArgs;
 import com.pulumi.artifactory.inputs.GetFederatedMavenRepositoryArgs;
@@ -311,6 +313,7 @@ import com.pulumi.artifactory.outputs.GetFederatedGoRepositoryResult;
 import com.pulumi.artifactory.outputs.GetFederatedGradleRepositoryResult;
 import com.pulumi.artifactory.outputs.GetFederatedHelmRepositoryResult;
 import com.pulumi.artifactory.outputs.GetFederatedHelmociRepositoryResult;
+import com.pulumi.artifactory.outputs.GetFederatedHuggingfacemlRepositoryResult;
 import com.pulumi.artifactory.outputs.GetFederatedIvyRepositoryResult;
 import com.pulumi.artifactory.outputs.GetFederatedMavenRepositoryResult;
 import com.pulumi.artifactory.outputs.GetFederatedNpmRepositoryResult;
@@ -4655,6 +4658,21 @@ public final class ArtifactoryFunctions {
      */
     public static CompletableFuture<GetFederatedHelmociRepositoryResult> getFederatedHelmociRepositoryPlain(GetFederatedHelmociRepositoryPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("artifactory:index/getFederatedHelmociRepository:getFederatedHelmociRepository", TypeShape.of(GetFederatedHelmociRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    public static Output<GetFederatedHuggingfacemlRepositoryResult> getFederatedHuggingfacemlRepository(GetFederatedHuggingfacemlRepositoryArgs args) {
+        return getFederatedHuggingfacemlRepository(args, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetFederatedHuggingfacemlRepositoryResult> getFederatedHuggingfacemlRepositoryPlain(GetFederatedHuggingfacemlRepositoryPlainArgs args) {
+        return getFederatedHuggingfacemlRepositoryPlain(args, InvokeOptions.Empty);
+    }
+    public static Output<GetFederatedHuggingfacemlRepositoryResult> getFederatedHuggingfacemlRepository(GetFederatedHuggingfacemlRepositoryArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("artifactory:index/getFederatedHuggingfacemlRepository:getFederatedHuggingfacemlRepository", TypeShape.of(GetFederatedHuggingfacemlRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    public static Output<GetFederatedHuggingfacemlRepositoryResult> getFederatedHuggingfacemlRepository(GetFederatedHuggingfacemlRepositoryArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("artifactory:index/getFederatedHuggingfacemlRepository:getFederatedHuggingfacemlRepository", TypeShape.of(GetFederatedHuggingfacemlRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    public static CompletableFuture<GetFederatedHuggingfacemlRepositoryResult> getFederatedHuggingfacemlRepositoryPlain(GetFederatedHuggingfacemlRepositoryPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("artifactory:index/getFederatedHuggingfacemlRepository:getFederatedHuggingfacemlRepository", TypeShape.of(GetFederatedHuggingfacemlRepositoryResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Retrieves a federated Ivy repository.

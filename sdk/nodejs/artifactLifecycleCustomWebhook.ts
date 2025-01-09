@@ -24,6 +24,7 @@ import * as utilities from "./utilities";
  *     ],
  *     handlers: [{
  *         url: "https://tempurl.org",
+ *         method: "POST",
  *         secrets: {
  *             secretName1: "value1",
  *             secretName2: "value2",

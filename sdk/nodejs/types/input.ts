@@ -86,6 +86,10 @@ export interface ArtifactCustomWebhookHandler {
      */
     httpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
+     * Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+     */
+    method?: pulumi.Input<string>;
+    /**
      * This attribute is used to build the request body. Used in custom webhooks
      */
     payload?: pulumi.Input<string>;
@@ -108,6 +112,10 @@ export interface ArtifactLifecycleCustomWebhookHandler {
      * HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
      */
     httpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+     */
+    method?: pulumi.Input<string>;
     /**
      * This attribute is used to build the request body. Used in custom webhooks
      */
@@ -181,6 +189,10 @@ export interface ArtifactPropertyCustomWebhookHandler {
      * HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
      */
     httpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+     */
+    method?: pulumi.Input<string>;
     /**
      * This attribute is used to build the request body. Used in custom webhooks
      */
@@ -324,6 +336,10 @@ export interface ArtifactoryReleaseBundleCustomWebhookHandler {
      */
     httpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
+     * Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+     */
+    method?: pulumi.Input<string>;
+    /**
      * This attribute is used to build the request body. Used in custom webhooks
      */
     payload?: pulumi.Input<string>;
@@ -407,6 +423,10 @@ export interface BuildCustomWebhookHandler {
      * HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
      */
     httpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+     */
+    method?: pulumi.Input<string>;
     /**
      * This attribute is used to build the request body. Used in custom webhooks
      */
@@ -492,6 +512,10 @@ export interface DestinationCustomWebhookHandler {
      */
     httpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
+     * Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+     */
+    method?: pulumi.Input<string>;
+    /**
      * This attribute is used to build the request body. Used in custom webhooks
      */
     payload?: pulumi.Input<string>;
@@ -575,6 +599,10 @@ export interface DistributionCustomWebhookHandler {
      * HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
      */
     httpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+     */
+    method?: pulumi.Input<string>;
     /**
      * This attribute is used to build the request body. Used in custom webhooks
      */
@@ -667,6 +695,10 @@ export interface DockerCustomWebhookHandler {
      * HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
      */
     httpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+     */
+    method?: pulumi.Input<string>;
     /**
      * This attribute is used to build the request body. Used in custom webhooks
      */
@@ -1056,6 +1088,21 @@ export interface FederatedHelmRepositoryMember {
 }
 
 export interface FederatedHelmociRepositoryMember {
+    /**
+     * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+     */
+    accessToken?: pulumi.Input<string>;
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
+     */
+    enabled: pulumi.Input<boolean>;
+    /**
+     * Full URL to ending with the repository name.
+     */
+    url: pulumi.Input<string>;
+}
+
+export interface FederatedHuggingfacemlRepositoryMember {
     /**
      * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
      */
@@ -1960,6 +2007,36 @@ export interface GetFederatedHelmociRepositoryMemberArgs {
     enabled: pulumi.Input<boolean>;
     /**
      * Full URL to ending with the repository name.
+     */
+    url: pulumi.Input<string>;
+}
+
+export interface GetFederatedHuggingfacemlRepositoryMember {
+    /**
+     * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+     */
+    accessToken?: string;
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
+     */
+    enabled: boolean;
+    /**
+     * Full URL to ending with the repositoryName
+     */
+    url: string;
+}
+
+export interface GetFederatedHuggingfacemlRepositoryMemberArgs {
+    /**
+     * Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+     */
+    accessToken?: pulumi.Input<string>;
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
+     */
+    enabled: pulumi.Input<boolean>;
+    /**
+     * Full URL to ending with the repositoryName
      */
     url: pulumi.Input<string>;
 }
@@ -4332,6 +4409,10 @@ export interface ReleaseBundleCustomWebhookHandler {
      */
     httpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
+     * Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+     */
+    method?: pulumi.Input<string>;
+    /**
      * This attribute is used to build the request body. Used in custom webhooks
      */
     payload?: pulumi.Input<string>;
@@ -4374,6 +4455,10 @@ export interface ReleaseBundleV2CustomWebhookHandler {
      */
     httpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
+     * Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+     */
+    method?: pulumi.Input<string>;
+    /**
      * This attribute is used to build the request body. Used in custom webhooks
      */
     payload?: pulumi.Input<string>;
@@ -4405,6 +4490,10 @@ export interface ReleaseBundleV2PromotionCustomWebhookHandler {
      * HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
      */
     httpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+     */
+    method?: pulumi.Input<string>;
     /**
      * This attribute is used to build the request body. Used in custom webhooks
      */
@@ -5305,6 +5394,10 @@ export interface UserCustomWebhookHandler {
      */
     httpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
+     * Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+     */
+    method?: pulumi.Input<string>;
+    /**
      * This attribute is used to build the request body. Used in custom webhooks
      */
     payload?: pulumi.Input<string>;
@@ -5317,7 +5410,7 @@ export interface UserCustomWebhookHandler {
      */
     secrets?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+     * Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send a request to.
      */
     url: pulumi.Input<string>;
 }

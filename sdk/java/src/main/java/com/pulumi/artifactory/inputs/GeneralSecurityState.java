@@ -6,6 +6,7 @@ package com.pulumi.artifactory.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
+import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -30,10 +31,32 @@ public final class GeneralSecurityState extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.enableAnonymousAccess);
     }
 
+    /**
+     * Determines the password requirements from users identified to Artifactory from a remote client such as Maven. The
+     * options are: (1) `SUPPORTED` (default): Users can authenticate using secure encrypted passwords or clear-text passwords.
+     * (2) `REQUIRED`: Users must authenticate using secure encrypted passwords. Clear-text authentication fails. (3)
+     * `UNSUPPORTED`: Only clear-text passwords can be used for authentication. Default value is `SUPPORTED`.
+     * 
+     */
+    @Import(name="encryptionPolicy")
+    private @Nullable Output<String> encryptionPolicy;
+
+    /**
+     * @return Determines the password requirements from users identified to Artifactory from a remote client such as Maven. The
+     * options are: (1) `SUPPORTED` (default): Users can authenticate using secure encrypted passwords or clear-text passwords.
+     * (2) `REQUIRED`: Users must authenticate using secure encrypted passwords. Clear-text authentication fails. (3)
+     * `UNSUPPORTED`: Only clear-text passwords can be used for authentication. Default value is `SUPPORTED`.
+     * 
+     */
+    public Optional<Output<String>> encryptionPolicy() {
+        return Optional.ofNullable(this.encryptionPolicy);
+    }
+
     private GeneralSecurityState() {}
 
     private GeneralSecurityState(GeneralSecurityState $) {
         this.enableAnonymousAccess = $.enableAnonymousAccess;
+        this.encryptionPolicy = $.encryptionPolicy;
     }
 
     public static Builder builder() {
@@ -73,6 +96,33 @@ public final class GeneralSecurityState extends com.pulumi.resources.ResourceArg
          */
         public Builder enableAnonymousAccess(Boolean enableAnonymousAccess) {
             return enableAnonymousAccess(Output.of(enableAnonymousAccess));
+        }
+
+        /**
+         * @param encryptionPolicy Determines the password requirements from users identified to Artifactory from a remote client such as Maven. The
+         * options are: (1) `SUPPORTED` (default): Users can authenticate using secure encrypted passwords or clear-text passwords.
+         * (2) `REQUIRED`: Users must authenticate using secure encrypted passwords. Clear-text authentication fails. (3)
+         * `UNSUPPORTED`: Only clear-text passwords can be used for authentication. Default value is `SUPPORTED`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder encryptionPolicy(@Nullable Output<String> encryptionPolicy) {
+            $.encryptionPolicy = encryptionPolicy;
+            return this;
+        }
+
+        /**
+         * @param encryptionPolicy Determines the password requirements from users identified to Artifactory from a remote client such as Maven. The
+         * options are: (1) `SUPPORTED` (default): Users can authenticate using secure encrypted passwords or clear-text passwords.
+         * (2) `REQUIRED`: Users must authenticate using secure encrypted passwords. Clear-text authentication fails. (3)
+         * `UNSUPPORTED`: Only clear-text passwords can be used for authentication. Default value is `SUPPORTED`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder encryptionPolicy(String encryptionPolicy) {
+            return encryptionPolicy(Output.of(encryptionPolicy));
         }
 
         public GeneralSecurityState build() {

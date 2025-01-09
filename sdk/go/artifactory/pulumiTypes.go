@@ -584,6 +584,8 @@ func (o ArtifactCustomWebhookCriteriaPtrOutput) RepoKeys() pulumi.StringArrayOut
 type ArtifactCustomWebhookHandler struct {
 	// HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
 	HttpHeaders map[string]string `pulumi:"httpHeaders"`
+	// Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+	Method *string `pulumi:"method"`
 	// This attribute is used to build the request body. Used in custom webhooks
 	Payload *string `pulumi:"payload"`
 	// Proxy key from Artifactory UI (Administration > Proxies > Configuration).
@@ -608,6 +610,8 @@ type ArtifactCustomWebhookHandlerInput interface {
 type ArtifactCustomWebhookHandlerArgs struct {
 	// HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
 	HttpHeaders pulumi.StringMapInput `pulumi:"httpHeaders"`
+	// Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+	Method pulumi.StringPtrInput `pulumi:"method"`
 	// This attribute is used to build the request body. Used in custom webhooks
 	Payload pulumi.StringPtrInput `pulumi:"payload"`
 	// Proxy key from Artifactory UI (Administration > Proxies > Configuration).
@@ -674,6 +678,11 @@ func (o ArtifactCustomWebhookHandlerOutput) HttpHeaders() pulumi.StringMapOutput
 	return o.ApplyT(func(v ArtifactCustomWebhookHandler) map[string]string { return v.HttpHeaders }).(pulumi.StringMapOutput)
 }
 
+// Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+func (o ArtifactCustomWebhookHandlerOutput) Method() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ArtifactCustomWebhookHandler) *string { return v.Method }).(pulumi.StringPtrOutput)
+}
+
 // This attribute is used to build the request body. Used in custom webhooks
 func (o ArtifactCustomWebhookHandlerOutput) Payload() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ArtifactCustomWebhookHandler) *string { return v.Payload }).(pulumi.StringPtrOutput)
@@ -717,6 +726,8 @@ func (o ArtifactCustomWebhookHandlerArrayOutput) Index(i pulumi.IntInput) Artifa
 type ArtifactLifecycleCustomWebhookHandler struct {
 	// HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
 	HttpHeaders map[string]string `pulumi:"httpHeaders"`
+	// Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+	Method *string `pulumi:"method"`
 	// This attribute is used to build the request body. Used in custom webhooks
 	Payload *string `pulumi:"payload"`
 	// Proxy key from Artifactory UI (Administration > Proxies > Configuration).
@@ -741,6 +752,8 @@ type ArtifactLifecycleCustomWebhookHandlerInput interface {
 type ArtifactLifecycleCustomWebhookHandlerArgs struct {
 	// HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
 	HttpHeaders pulumi.StringMapInput `pulumi:"httpHeaders"`
+	// Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+	Method pulumi.StringPtrInput `pulumi:"method"`
 	// This attribute is used to build the request body. Used in custom webhooks
 	Payload pulumi.StringPtrInput `pulumi:"payload"`
 	// Proxy key from Artifactory UI (Administration > Proxies > Configuration).
@@ -805,6 +818,11 @@ func (o ArtifactLifecycleCustomWebhookHandlerOutput) ToArtifactLifecycleCustomWe
 // HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
 func (o ArtifactLifecycleCustomWebhookHandlerOutput) HttpHeaders() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ArtifactLifecycleCustomWebhookHandler) map[string]string { return v.HttpHeaders }).(pulumi.StringMapOutput)
+}
+
+// Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+func (o ArtifactLifecycleCustomWebhookHandlerOutput) Method() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ArtifactLifecycleCustomWebhookHandler) *string { return v.Method }).(pulumi.StringPtrOutput)
 }
 
 // This attribute is used to build the request body. Used in custom webhooks
@@ -1215,6 +1233,8 @@ func (o ArtifactPropertyCustomWebhookCriteriaPtrOutput) RepoKeys() pulumi.String
 type ArtifactPropertyCustomWebhookHandler struct {
 	// HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
 	HttpHeaders map[string]string `pulumi:"httpHeaders"`
+	// Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+	Method *string `pulumi:"method"`
 	// This attribute is used to build the request body. Used in custom webhooks
 	Payload *string `pulumi:"payload"`
 	// Proxy key from Artifactory UI (Administration > Proxies > Configuration).
@@ -1239,6 +1259,8 @@ type ArtifactPropertyCustomWebhookHandlerInput interface {
 type ArtifactPropertyCustomWebhookHandlerArgs struct {
 	// HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
 	HttpHeaders pulumi.StringMapInput `pulumi:"httpHeaders"`
+	// Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+	Method pulumi.StringPtrInput `pulumi:"method"`
 	// This attribute is used to build the request body. Used in custom webhooks
 	Payload pulumi.StringPtrInput `pulumi:"payload"`
 	// Proxy key from Artifactory UI (Administration > Proxies > Configuration).
@@ -1303,6 +1325,11 @@ func (o ArtifactPropertyCustomWebhookHandlerOutput) ToArtifactPropertyCustomWebh
 // HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
 func (o ArtifactPropertyCustomWebhookHandlerOutput) HttpHeaders() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ArtifactPropertyCustomWebhookHandler) map[string]string { return v.HttpHeaders }).(pulumi.StringMapOutput)
+}
+
+// Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+func (o ArtifactPropertyCustomWebhookHandlerOutput) Method() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ArtifactPropertyCustomWebhookHandler) *string { return v.Method }).(pulumi.StringPtrOutput)
 }
 
 // This attribute is used to build the request body. Used in custom webhooks
@@ -2272,6 +2299,8 @@ func (o ArtifactoryReleaseBundleCustomWebhookCriteriaPtrOutput) RegisteredReleas
 type ArtifactoryReleaseBundleCustomWebhookHandler struct {
 	// HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
 	HttpHeaders map[string]string `pulumi:"httpHeaders"`
+	// Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+	Method *string `pulumi:"method"`
 	// This attribute is used to build the request body. Used in custom webhooks
 	Payload *string `pulumi:"payload"`
 	// Proxy key from Artifactory UI (Administration > Proxies > Configuration).
@@ -2296,6 +2325,8 @@ type ArtifactoryReleaseBundleCustomWebhookHandlerInput interface {
 type ArtifactoryReleaseBundleCustomWebhookHandlerArgs struct {
 	// HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
 	HttpHeaders pulumi.StringMapInput `pulumi:"httpHeaders"`
+	// Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+	Method pulumi.StringPtrInput `pulumi:"method"`
 	// This attribute is used to build the request body. Used in custom webhooks
 	Payload pulumi.StringPtrInput `pulumi:"payload"`
 	// Proxy key from Artifactory UI (Administration > Proxies > Configuration).
@@ -2360,6 +2391,11 @@ func (o ArtifactoryReleaseBundleCustomWebhookHandlerOutput) ToArtifactoryRelease
 // HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
 func (o ArtifactoryReleaseBundleCustomWebhookHandlerOutput) HttpHeaders() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ArtifactoryReleaseBundleCustomWebhookHandler) map[string]string { return v.HttpHeaders }).(pulumi.StringMapOutput)
+}
+
+// Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+func (o ArtifactoryReleaseBundleCustomWebhookHandlerOutput) Method() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ArtifactoryReleaseBundleCustomWebhookHandler) *string { return v.Method }).(pulumi.StringPtrOutput)
 }
 
 // This attribute is used to build the request body. Used in custom webhooks
@@ -2926,6 +2962,8 @@ func (o BuildCustomWebhookCriteriaPtrOutput) SelectedBuilds() pulumi.StringArray
 type BuildCustomWebhookHandler struct {
 	// HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
 	HttpHeaders map[string]string `pulumi:"httpHeaders"`
+	// Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+	Method *string `pulumi:"method"`
 	// This attribute is used to build the request body. Used in custom webhooks
 	Payload *string `pulumi:"payload"`
 	// Proxy key from Artifactory UI (Administration > Proxies > Configuration).
@@ -2950,6 +2988,8 @@ type BuildCustomWebhookHandlerInput interface {
 type BuildCustomWebhookHandlerArgs struct {
 	// HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
 	HttpHeaders pulumi.StringMapInput `pulumi:"httpHeaders"`
+	// Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+	Method pulumi.StringPtrInput `pulumi:"method"`
 	// This attribute is used to build the request body. Used in custom webhooks
 	Payload pulumi.StringPtrInput `pulumi:"payload"`
 	// Proxy key from Artifactory UI (Administration > Proxies > Configuration).
@@ -3014,6 +3054,11 @@ func (o BuildCustomWebhookHandlerOutput) ToBuildCustomWebhookHandlerOutputWithCo
 // HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
 func (o BuildCustomWebhookHandlerOutput) HttpHeaders() pulumi.StringMapOutput {
 	return o.ApplyT(func(v BuildCustomWebhookHandler) map[string]string { return v.HttpHeaders }).(pulumi.StringMapOutput)
+}
+
+// Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+func (o BuildCustomWebhookHandlerOutput) Method() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BuildCustomWebhookHandler) *string { return v.Method }).(pulumi.StringPtrOutput)
 }
 
 // This attribute is used to build the request body. Used in custom webhooks
@@ -3580,6 +3625,8 @@ func (o DestinationCustomWebhookCriteriaPtrOutput) RegisteredReleaseBundleNames(
 type DestinationCustomWebhookHandler struct {
 	// HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
 	HttpHeaders map[string]string `pulumi:"httpHeaders"`
+	// Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+	Method *string `pulumi:"method"`
 	// This attribute is used to build the request body. Used in custom webhooks
 	Payload *string `pulumi:"payload"`
 	// Proxy key from Artifactory UI (Administration > Proxies > Configuration).
@@ -3604,6 +3651,8 @@ type DestinationCustomWebhookHandlerInput interface {
 type DestinationCustomWebhookHandlerArgs struct {
 	// HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
 	HttpHeaders pulumi.StringMapInput `pulumi:"httpHeaders"`
+	// Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+	Method pulumi.StringPtrInput `pulumi:"method"`
 	// This attribute is used to build the request body. Used in custom webhooks
 	Payload pulumi.StringPtrInput `pulumi:"payload"`
 	// Proxy key from Artifactory UI (Administration > Proxies > Configuration).
@@ -3668,6 +3717,11 @@ func (o DestinationCustomWebhookHandlerOutput) ToDestinationCustomWebhookHandler
 // HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
 func (o DestinationCustomWebhookHandlerOutput) HttpHeaders() pulumi.StringMapOutput {
 	return o.ApplyT(func(v DestinationCustomWebhookHandler) map[string]string { return v.HttpHeaders }).(pulumi.StringMapOutput)
+}
+
+// Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+func (o DestinationCustomWebhookHandlerOutput) Method() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DestinationCustomWebhookHandler) *string { return v.Method }).(pulumi.StringPtrOutput)
 }
 
 // This attribute is used to build the request body. Used in custom webhooks
@@ -4234,6 +4288,8 @@ func (o DistributionCustomWebhookCriteriaPtrOutput) RegisteredReleaseBundleNames
 type DistributionCustomWebhookHandler struct {
 	// HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
 	HttpHeaders map[string]string `pulumi:"httpHeaders"`
+	// Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+	Method *string `pulumi:"method"`
 	// This attribute is used to build the request body. Used in custom webhooks
 	Payload *string `pulumi:"payload"`
 	// Proxy key from Artifactory UI (Administration > Proxies > Configuration).
@@ -4258,6 +4314,8 @@ type DistributionCustomWebhookHandlerInput interface {
 type DistributionCustomWebhookHandlerArgs struct {
 	// HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
 	HttpHeaders pulumi.StringMapInput `pulumi:"httpHeaders"`
+	// Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+	Method pulumi.StringPtrInput `pulumi:"method"`
 	// This attribute is used to build the request body. Used in custom webhooks
 	Payload pulumi.StringPtrInput `pulumi:"payload"`
 	// Proxy key from Artifactory UI (Administration > Proxies > Configuration).
@@ -4322,6 +4380,11 @@ func (o DistributionCustomWebhookHandlerOutput) ToDistributionCustomWebhookHandl
 // HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
 func (o DistributionCustomWebhookHandlerOutput) HttpHeaders() pulumi.StringMapOutput {
 	return o.ApplyT(func(v DistributionCustomWebhookHandler) map[string]string { return v.HttpHeaders }).(pulumi.StringMapOutput)
+}
+
+// Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+func (o DistributionCustomWebhookHandlerOutput) Method() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DistributionCustomWebhookHandler) *string { return v.Method }).(pulumi.StringPtrOutput)
 }
 
 // This attribute is used to build the request body. Used in custom webhooks
@@ -4926,6 +4989,8 @@ func (o DockerCustomWebhookCriteriaPtrOutput) RepoKeys() pulumi.StringArrayOutpu
 type DockerCustomWebhookHandler struct {
 	// HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
 	HttpHeaders map[string]string `pulumi:"httpHeaders"`
+	// Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+	Method *string `pulumi:"method"`
 	// This attribute is used to build the request body. Used in custom webhooks
 	Payload *string `pulumi:"payload"`
 	// Proxy key from Artifactory UI (Administration > Proxies > Configuration).
@@ -4950,6 +5015,8 @@ type DockerCustomWebhookHandlerInput interface {
 type DockerCustomWebhookHandlerArgs struct {
 	// HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
 	HttpHeaders pulumi.StringMapInput `pulumi:"httpHeaders"`
+	// Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+	Method pulumi.StringPtrInput `pulumi:"method"`
 	// This attribute is used to build the request body. Used in custom webhooks
 	Payload pulumi.StringPtrInput `pulumi:"payload"`
 	// Proxy key from Artifactory UI (Administration > Proxies > Configuration).
@@ -5014,6 +5081,11 @@ func (o DockerCustomWebhookHandlerOutput) ToDockerCustomWebhookHandlerOutputWith
 // HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
 func (o DockerCustomWebhookHandlerOutput) HttpHeaders() pulumi.StringMapOutput {
 	return o.ApplyT(func(v DockerCustomWebhookHandler) map[string]string { return v.HttpHeaders }).(pulumi.StringMapOutput)
+}
+
+// Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+func (o DockerCustomWebhookHandlerOutput) Method() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DockerCustomWebhookHandler) *string { return v.Method }).(pulumi.StringPtrOutput)
 }
 
 // This attribute is used to build the request body. Used in custom webhooks
@@ -7894,6 +7966,121 @@ func (o FederatedHelmociRepositoryMemberArrayOutput) Index(i pulumi.IntInput) Fe
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FederatedHelmociRepositoryMember {
 		return vs[0].([]FederatedHelmociRepositoryMember)[vs[1].(int)]
 	}).(FederatedHelmociRepositoryMemberOutput)
+}
+
+type FederatedHuggingfacemlRepositoryMember struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken *string `pulumi:"accessToken"`
+	// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
+	Enabled bool `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url string `pulumi:"url"`
+}
+
+// FederatedHuggingfacemlRepositoryMemberInput is an input type that accepts FederatedHuggingfacemlRepositoryMemberArgs and FederatedHuggingfacemlRepositoryMemberOutput values.
+// You can construct a concrete instance of `FederatedHuggingfacemlRepositoryMemberInput` via:
+//
+//	FederatedHuggingfacemlRepositoryMemberArgs{...}
+type FederatedHuggingfacemlRepositoryMemberInput interface {
+	pulumi.Input
+
+	ToFederatedHuggingfacemlRepositoryMemberOutput() FederatedHuggingfacemlRepositoryMemberOutput
+	ToFederatedHuggingfacemlRepositoryMemberOutputWithContext(context.Context) FederatedHuggingfacemlRepositoryMemberOutput
+}
+
+type FederatedHuggingfacemlRepositoryMemberArgs struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
+	// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (FederatedHuggingfacemlRepositoryMemberArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FederatedHuggingfacemlRepositoryMember)(nil)).Elem()
+}
+
+func (i FederatedHuggingfacemlRepositoryMemberArgs) ToFederatedHuggingfacemlRepositoryMemberOutput() FederatedHuggingfacemlRepositoryMemberOutput {
+	return i.ToFederatedHuggingfacemlRepositoryMemberOutputWithContext(context.Background())
+}
+
+func (i FederatedHuggingfacemlRepositoryMemberArgs) ToFederatedHuggingfacemlRepositoryMemberOutputWithContext(ctx context.Context) FederatedHuggingfacemlRepositoryMemberOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FederatedHuggingfacemlRepositoryMemberOutput)
+}
+
+// FederatedHuggingfacemlRepositoryMemberArrayInput is an input type that accepts FederatedHuggingfacemlRepositoryMemberArray and FederatedHuggingfacemlRepositoryMemberArrayOutput values.
+// You can construct a concrete instance of `FederatedHuggingfacemlRepositoryMemberArrayInput` via:
+//
+//	FederatedHuggingfacemlRepositoryMemberArray{ FederatedHuggingfacemlRepositoryMemberArgs{...} }
+type FederatedHuggingfacemlRepositoryMemberArrayInput interface {
+	pulumi.Input
+
+	ToFederatedHuggingfacemlRepositoryMemberArrayOutput() FederatedHuggingfacemlRepositoryMemberArrayOutput
+	ToFederatedHuggingfacemlRepositoryMemberArrayOutputWithContext(context.Context) FederatedHuggingfacemlRepositoryMemberArrayOutput
+}
+
+type FederatedHuggingfacemlRepositoryMemberArray []FederatedHuggingfacemlRepositoryMemberInput
+
+func (FederatedHuggingfacemlRepositoryMemberArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FederatedHuggingfacemlRepositoryMember)(nil)).Elem()
+}
+
+func (i FederatedHuggingfacemlRepositoryMemberArray) ToFederatedHuggingfacemlRepositoryMemberArrayOutput() FederatedHuggingfacemlRepositoryMemberArrayOutput {
+	return i.ToFederatedHuggingfacemlRepositoryMemberArrayOutputWithContext(context.Background())
+}
+
+func (i FederatedHuggingfacemlRepositoryMemberArray) ToFederatedHuggingfacemlRepositoryMemberArrayOutputWithContext(ctx context.Context) FederatedHuggingfacemlRepositoryMemberArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FederatedHuggingfacemlRepositoryMemberArrayOutput)
+}
+
+type FederatedHuggingfacemlRepositoryMemberOutput struct{ *pulumi.OutputState }
+
+func (FederatedHuggingfacemlRepositoryMemberOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FederatedHuggingfacemlRepositoryMember)(nil)).Elem()
+}
+
+func (o FederatedHuggingfacemlRepositoryMemberOutput) ToFederatedHuggingfacemlRepositoryMemberOutput() FederatedHuggingfacemlRepositoryMemberOutput {
+	return o
+}
+
+func (o FederatedHuggingfacemlRepositoryMemberOutput) ToFederatedHuggingfacemlRepositoryMemberOutputWithContext(ctx context.Context) FederatedHuggingfacemlRepositoryMemberOutput {
+	return o
+}
+
+// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+func (o FederatedHuggingfacemlRepositoryMemberOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FederatedHuggingfacemlRepositoryMember) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
+}
+
+// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
+func (o FederatedHuggingfacemlRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v FederatedHuggingfacemlRepositoryMember) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Full URL to ending with the repository name.
+func (o FederatedHuggingfacemlRepositoryMemberOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v FederatedHuggingfacemlRepositoryMember) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type FederatedHuggingfacemlRepositoryMemberArrayOutput struct{ *pulumi.OutputState }
+
+func (FederatedHuggingfacemlRepositoryMemberArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FederatedHuggingfacemlRepositoryMember)(nil)).Elem()
+}
+
+func (o FederatedHuggingfacemlRepositoryMemberArrayOutput) ToFederatedHuggingfacemlRepositoryMemberArrayOutput() FederatedHuggingfacemlRepositoryMemberArrayOutput {
+	return o
+}
+
+func (o FederatedHuggingfacemlRepositoryMemberArrayOutput) ToFederatedHuggingfacemlRepositoryMemberArrayOutputWithContext(ctx context.Context) FederatedHuggingfacemlRepositoryMemberArrayOutput {
+	return o
+}
+
+func (o FederatedHuggingfacemlRepositoryMemberArrayOutput) Index(i pulumi.IntInput) FederatedHuggingfacemlRepositoryMemberOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FederatedHuggingfacemlRepositoryMember {
+		return vs[0].([]FederatedHuggingfacemlRepositoryMember)[vs[1].(int)]
+	}).(FederatedHuggingfacemlRepositoryMemberOutput)
 }
 
 type FederatedIvyRepositoryMember struct {
@@ -12743,6 +12930,8 @@ func (o ReleaseBundleCustomWebhookCriteriaPtrOutput) RegisteredReleaseBundleName
 type ReleaseBundleCustomWebhookHandler struct {
 	// HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
 	HttpHeaders map[string]string `pulumi:"httpHeaders"`
+	// Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+	Method *string `pulumi:"method"`
 	// This attribute is used to build the request body. Used in custom webhooks
 	Payload *string `pulumi:"payload"`
 	// Proxy key from Artifactory UI (Administration > Proxies > Configuration).
@@ -12767,6 +12956,8 @@ type ReleaseBundleCustomWebhookHandlerInput interface {
 type ReleaseBundleCustomWebhookHandlerArgs struct {
 	// HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
 	HttpHeaders pulumi.StringMapInput `pulumi:"httpHeaders"`
+	// Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+	Method pulumi.StringPtrInput `pulumi:"method"`
 	// This attribute is used to build the request body. Used in custom webhooks
 	Payload pulumi.StringPtrInput `pulumi:"payload"`
 	// Proxy key from Artifactory UI (Administration > Proxies > Configuration).
@@ -12831,6 +13022,11 @@ func (o ReleaseBundleCustomWebhookHandlerOutput) ToReleaseBundleCustomWebhookHan
 // HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
 func (o ReleaseBundleCustomWebhookHandlerOutput) HttpHeaders() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ReleaseBundleCustomWebhookHandler) map[string]string { return v.HttpHeaders }).(pulumi.StringMapOutput)
+}
+
+// Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+func (o ReleaseBundleCustomWebhookHandlerOutput) Method() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReleaseBundleCustomWebhookHandler) *string { return v.Method }).(pulumi.StringPtrOutput)
 }
 
 // This attribute is used to build the request body. Used in custom webhooks
@@ -13070,6 +13266,8 @@ func (o ReleaseBundleV2CustomWebhookCriteriaPtrOutput) SelectedReleaseBundles() 
 type ReleaseBundleV2CustomWebhookHandler struct {
 	// HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
 	HttpHeaders map[string]string `pulumi:"httpHeaders"`
+	// Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+	Method *string `pulumi:"method"`
 	// This attribute is used to build the request body. Used in custom webhooks
 	Payload *string `pulumi:"payload"`
 	// Proxy key from Artifactory UI (Administration > Proxies > Configuration).
@@ -13094,6 +13292,8 @@ type ReleaseBundleV2CustomWebhookHandlerInput interface {
 type ReleaseBundleV2CustomWebhookHandlerArgs struct {
 	// HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
 	HttpHeaders pulumi.StringMapInput `pulumi:"httpHeaders"`
+	// Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+	Method pulumi.StringPtrInput `pulumi:"method"`
 	// This attribute is used to build the request body. Used in custom webhooks
 	Payload pulumi.StringPtrInput `pulumi:"payload"`
 	// Proxy key from Artifactory UI (Administration > Proxies > Configuration).
@@ -13158,6 +13358,11 @@ func (o ReleaseBundleV2CustomWebhookHandlerOutput) ToReleaseBundleV2CustomWebhoo
 // HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
 func (o ReleaseBundleV2CustomWebhookHandlerOutput) HttpHeaders() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ReleaseBundleV2CustomWebhookHandler) map[string]string { return v.HttpHeaders }).(pulumi.StringMapOutput)
+}
+
+// Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+func (o ReleaseBundleV2CustomWebhookHandlerOutput) Method() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReleaseBundleV2CustomWebhookHandler) *string { return v.Method }).(pulumi.StringPtrOutput)
 }
 
 // This attribute is used to build the request body. Used in custom webhooks
@@ -13370,6 +13575,8 @@ func (o ReleaseBundleV2PromotionCustomWebhookCriteriaPtrOutput) SelectedEnvironm
 type ReleaseBundleV2PromotionCustomWebhookHandler struct {
 	// HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
 	HttpHeaders map[string]string `pulumi:"httpHeaders"`
+	// Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+	Method *string `pulumi:"method"`
 	// This attribute is used to build the request body. Used in custom webhooks
 	Payload *string `pulumi:"payload"`
 	// Proxy key from Artifactory UI (Administration > Proxies > Configuration).
@@ -13394,6 +13601,8 @@ type ReleaseBundleV2PromotionCustomWebhookHandlerInput interface {
 type ReleaseBundleV2PromotionCustomWebhookHandlerArgs struct {
 	// HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
 	HttpHeaders pulumi.StringMapInput `pulumi:"httpHeaders"`
+	// Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+	Method pulumi.StringPtrInput `pulumi:"method"`
 	// This attribute is used to build the request body. Used in custom webhooks
 	Payload pulumi.StringPtrInput `pulumi:"payload"`
 	// Proxy key from Artifactory UI (Administration > Proxies > Configuration).
@@ -13458,6 +13667,11 @@ func (o ReleaseBundleV2PromotionCustomWebhookHandlerOutput) ToReleaseBundleV2Pro
 // HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
 func (o ReleaseBundleV2PromotionCustomWebhookHandlerOutput) HttpHeaders() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ReleaseBundleV2PromotionCustomWebhookHandler) map[string]string { return v.HttpHeaders }).(pulumi.StringMapOutput)
+}
+
+// Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+func (o ReleaseBundleV2PromotionCustomWebhookHandlerOutput) Method() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReleaseBundleV2PromotionCustomWebhookHandler) *string { return v.Method }).(pulumi.StringPtrOutput)
 }
 
 // This attribute is used to build the request body. Used in custom webhooks
@@ -22019,13 +22233,15 @@ func (o UnmanagedUserPasswordPolicyPtrOutput) Uppercase() pulumi.IntPtrOutput {
 type UserCustomWebhookHandler struct {
 	// HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
 	HttpHeaders map[string]string `pulumi:"httpHeaders"`
+	// Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+	Method *string `pulumi:"method"`
 	// This attribute is used to build the request body. Used in custom webhooks
 	Payload *string `pulumi:"payload"`
 	// Proxy key from Artifactory UI (Administration > Proxies > Configuration).
 	Proxy *string `pulumi:"proxy"`
 	// Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
 	Secrets map[string]string `pulumi:"secrets"`
-	// Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+	// Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send a request to.
 	Url string `pulumi:"url"`
 }
 
@@ -22043,13 +22259,15 @@ type UserCustomWebhookHandlerInput interface {
 type UserCustomWebhookHandlerArgs struct {
 	// HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
 	HttpHeaders pulumi.StringMapInput `pulumi:"httpHeaders"`
+	// Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+	Method pulumi.StringPtrInput `pulumi:"method"`
 	// This attribute is used to build the request body. Used in custom webhooks
 	Payload pulumi.StringPtrInput `pulumi:"payload"`
 	// Proxy key from Artifactory UI (Administration > Proxies > Configuration).
 	Proxy pulumi.StringPtrInput `pulumi:"proxy"`
 	// Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
 	Secrets pulumi.StringMapInput `pulumi:"secrets"`
-	// Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+	// Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send a request to.
 	Url pulumi.StringInput `pulumi:"url"`
 }
 
@@ -22109,6 +22327,11 @@ func (o UserCustomWebhookHandlerOutput) HttpHeaders() pulumi.StringMapOutput {
 	return o.ApplyT(func(v UserCustomWebhookHandler) map[string]string { return v.HttpHeaders }).(pulumi.StringMapOutput)
 }
 
+// Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+func (o UserCustomWebhookHandlerOutput) Method() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserCustomWebhookHandler) *string { return v.Method }).(pulumi.StringPtrOutput)
+}
+
 // This attribute is used to build the request body. Used in custom webhooks
 func (o UserCustomWebhookHandlerOutput) Payload() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserCustomWebhookHandler) *string { return v.Payload }).(pulumi.StringPtrOutput)
@@ -22124,7 +22347,7 @@ func (o UserCustomWebhookHandlerOutput) Secrets() pulumi.StringMapOutput {
 	return o.ApplyT(func(v UserCustomWebhookHandler) map[string]string { return v.Secrets }).(pulumi.StringMapOutput)
 }
 
-// Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+// Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send a request to.
 func (o UserCustomWebhookHandlerOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v UserCustomWebhookHandler) string { return v.Url }).(pulumi.StringOutput)
 }
@@ -25450,6 +25673,121 @@ func (o GetFederatedHelmociRepositoryMemberArrayOutput) Index(i pulumi.IntInput)
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFederatedHelmociRepositoryMember {
 		return vs[0].([]GetFederatedHelmociRepositoryMember)[vs[1].(int)]
 	}).(GetFederatedHelmociRepositoryMemberOutput)
+}
+
+type GetFederatedHuggingfacemlRepositoryMember struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken *string `pulumi:"accessToken"`
+	// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
+	Enabled bool `pulumi:"enabled"`
+	// Full URL to ending with the repositoryName
+	Url string `pulumi:"url"`
+}
+
+// GetFederatedHuggingfacemlRepositoryMemberInput is an input type that accepts GetFederatedHuggingfacemlRepositoryMemberArgs and GetFederatedHuggingfacemlRepositoryMemberOutput values.
+// You can construct a concrete instance of `GetFederatedHuggingfacemlRepositoryMemberInput` via:
+//
+//	GetFederatedHuggingfacemlRepositoryMemberArgs{...}
+type GetFederatedHuggingfacemlRepositoryMemberInput interface {
+	pulumi.Input
+
+	ToGetFederatedHuggingfacemlRepositoryMemberOutput() GetFederatedHuggingfacemlRepositoryMemberOutput
+	ToGetFederatedHuggingfacemlRepositoryMemberOutputWithContext(context.Context) GetFederatedHuggingfacemlRepositoryMemberOutput
+}
+
+type GetFederatedHuggingfacemlRepositoryMemberArgs struct {
+	// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
+	// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Full URL to ending with the repositoryName
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (GetFederatedHuggingfacemlRepositoryMemberArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFederatedHuggingfacemlRepositoryMember)(nil)).Elem()
+}
+
+func (i GetFederatedHuggingfacemlRepositoryMemberArgs) ToGetFederatedHuggingfacemlRepositoryMemberOutput() GetFederatedHuggingfacemlRepositoryMemberOutput {
+	return i.ToGetFederatedHuggingfacemlRepositoryMemberOutputWithContext(context.Background())
+}
+
+func (i GetFederatedHuggingfacemlRepositoryMemberArgs) ToGetFederatedHuggingfacemlRepositoryMemberOutputWithContext(ctx context.Context) GetFederatedHuggingfacemlRepositoryMemberOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFederatedHuggingfacemlRepositoryMemberOutput)
+}
+
+// GetFederatedHuggingfacemlRepositoryMemberArrayInput is an input type that accepts GetFederatedHuggingfacemlRepositoryMemberArray and GetFederatedHuggingfacemlRepositoryMemberArrayOutput values.
+// You can construct a concrete instance of `GetFederatedHuggingfacemlRepositoryMemberArrayInput` via:
+//
+//	GetFederatedHuggingfacemlRepositoryMemberArray{ GetFederatedHuggingfacemlRepositoryMemberArgs{...} }
+type GetFederatedHuggingfacemlRepositoryMemberArrayInput interface {
+	pulumi.Input
+
+	ToGetFederatedHuggingfacemlRepositoryMemberArrayOutput() GetFederatedHuggingfacemlRepositoryMemberArrayOutput
+	ToGetFederatedHuggingfacemlRepositoryMemberArrayOutputWithContext(context.Context) GetFederatedHuggingfacemlRepositoryMemberArrayOutput
+}
+
+type GetFederatedHuggingfacemlRepositoryMemberArray []GetFederatedHuggingfacemlRepositoryMemberInput
+
+func (GetFederatedHuggingfacemlRepositoryMemberArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFederatedHuggingfacemlRepositoryMember)(nil)).Elem()
+}
+
+func (i GetFederatedHuggingfacemlRepositoryMemberArray) ToGetFederatedHuggingfacemlRepositoryMemberArrayOutput() GetFederatedHuggingfacemlRepositoryMemberArrayOutput {
+	return i.ToGetFederatedHuggingfacemlRepositoryMemberArrayOutputWithContext(context.Background())
+}
+
+func (i GetFederatedHuggingfacemlRepositoryMemberArray) ToGetFederatedHuggingfacemlRepositoryMemberArrayOutputWithContext(ctx context.Context) GetFederatedHuggingfacemlRepositoryMemberArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFederatedHuggingfacemlRepositoryMemberArrayOutput)
+}
+
+type GetFederatedHuggingfacemlRepositoryMemberOutput struct{ *pulumi.OutputState }
+
+func (GetFederatedHuggingfacemlRepositoryMemberOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFederatedHuggingfacemlRepositoryMember)(nil)).Elem()
+}
+
+func (o GetFederatedHuggingfacemlRepositoryMemberOutput) ToGetFederatedHuggingfacemlRepositoryMemberOutput() GetFederatedHuggingfacemlRepositoryMemberOutput {
+	return o
+}
+
+func (o GetFederatedHuggingfacemlRepositoryMemberOutput) ToGetFederatedHuggingfacemlRepositoryMemberOutputWithContext(ctx context.Context) GetFederatedHuggingfacemlRepositoryMemberOutput {
+	return o
+}
+
+// Admin access token for this member Artifactory instance. Used in conjunction with `cleanupOnDelete` attribute when Access Federation for access tokens is not enabled.
+func (o GetFederatedHuggingfacemlRepositoryMemberOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetFederatedHuggingfacemlRepositoryMember) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
+}
+
+// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
+func (o GetFederatedHuggingfacemlRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetFederatedHuggingfacemlRepositoryMember) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Full URL to ending with the repositoryName
+func (o GetFederatedHuggingfacemlRepositoryMemberOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFederatedHuggingfacemlRepositoryMember) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type GetFederatedHuggingfacemlRepositoryMemberArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFederatedHuggingfacemlRepositoryMemberArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFederatedHuggingfacemlRepositoryMember)(nil)).Elem()
+}
+
+func (o GetFederatedHuggingfacemlRepositoryMemberArrayOutput) ToGetFederatedHuggingfacemlRepositoryMemberArrayOutput() GetFederatedHuggingfacemlRepositoryMemberArrayOutput {
+	return o
+}
+
+func (o GetFederatedHuggingfacemlRepositoryMemberArrayOutput) ToGetFederatedHuggingfacemlRepositoryMemberArrayOutputWithContext(ctx context.Context) GetFederatedHuggingfacemlRepositoryMemberArrayOutput {
+	return o
+}
+
+func (o GetFederatedHuggingfacemlRepositoryMemberArrayOutput) Index(i pulumi.IntInput) GetFederatedHuggingfacemlRepositoryMemberOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFederatedHuggingfacemlRepositoryMember {
+		return vs[0].([]GetFederatedHuggingfacemlRepositoryMember)[vs[1].(int)]
+	}).(GetFederatedHuggingfacemlRepositoryMemberOutput)
 }
 
 type GetFederatedIvyRepositoryMember struct {
@@ -35620,6 +35958,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedHelmRepositoryMemberArrayInput)(nil)).Elem(), FederatedHelmRepositoryMemberArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedHelmociRepositoryMemberInput)(nil)).Elem(), FederatedHelmociRepositoryMemberArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedHelmociRepositoryMemberArrayInput)(nil)).Elem(), FederatedHelmociRepositoryMemberArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FederatedHuggingfacemlRepositoryMemberInput)(nil)).Elem(), FederatedHuggingfacemlRepositoryMemberArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FederatedHuggingfacemlRepositoryMemberArrayInput)(nil)).Elem(), FederatedHuggingfacemlRepositoryMemberArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedIvyRepositoryMemberInput)(nil)).Elem(), FederatedIvyRepositoryMemberArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedIvyRepositoryMemberArrayInput)(nil)).Elem(), FederatedIvyRepositoryMemberArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedMavenRepositoryMemberInput)(nil)).Elem(), FederatedMavenRepositoryMemberArgs{})
@@ -35844,6 +36184,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedHelmRepositoryMemberArrayInput)(nil)).Elem(), GetFederatedHelmRepositoryMemberArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedHelmociRepositoryMemberInput)(nil)).Elem(), GetFederatedHelmociRepositoryMemberArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedHelmociRepositoryMemberArrayInput)(nil)).Elem(), GetFederatedHelmociRepositoryMemberArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedHuggingfacemlRepositoryMemberInput)(nil)).Elem(), GetFederatedHuggingfacemlRepositoryMemberArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedHuggingfacemlRepositoryMemberArrayInput)(nil)).Elem(), GetFederatedHuggingfacemlRepositoryMemberArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedIvyRepositoryMemberInput)(nil)).Elem(), GetFederatedIvyRepositoryMemberArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedIvyRepositoryMemberArrayInput)(nil)).Elem(), GetFederatedIvyRepositoryMemberArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedMavenRepositoryMemberInput)(nil)).Elem(), GetFederatedMavenRepositoryMemberArgs{})
@@ -36071,6 +36413,8 @@ func init() {
 	pulumi.RegisterOutputType(FederatedHelmRepositoryMemberArrayOutput{})
 	pulumi.RegisterOutputType(FederatedHelmociRepositoryMemberOutput{})
 	pulumi.RegisterOutputType(FederatedHelmociRepositoryMemberArrayOutput{})
+	pulumi.RegisterOutputType(FederatedHuggingfacemlRepositoryMemberOutput{})
+	pulumi.RegisterOutputType(FederatedHuggingfacemlRepositoryMemberArrayOutput{})
 	pulumi.RegisterOutputType(FederatedIvyRepositoryMemberOutput{})
 	pulumi.RegisterOutputType(FederatedIvyRepositoryMemberArrayOutput{})
 	pulumi.RegisterOutputType(FederatedMavenRepositoryMemberOutput{})
@@ -36295,6 +36639,8 @@ func init() {
 	pulumi.RegisterOutputType(GetFederatedHelmRepositoryMemberArrayOutput{})
 	pulumi.RegisterOutputType(GetFederatedHelmociRepositoryMemberOutput{})
 	pulumi.RegisterOutputType(GetFederatedHelmociRepositoryMemberArrayOutput{})
+	pulumi.RegisterOutputType(GetFederatedHuggingfacemlRepositoryMemberOutput{})
+	pulumi.RegisterOutputType(GetFederatedHuggingfacemlRepositoryMemberArrayOutput{})
 	pulumi.RegisterOutputType(GetFederatedIvyRepositoryMemberOutput{})
 	pulumi.RegisterOutputType(GetFederatedIvyRepositoryMemberArrayOutput{})
 	pulumi.RegisterOutputType(GetFederatedMavenRepositoryMemberOutput{})

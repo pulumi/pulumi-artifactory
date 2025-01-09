@@ -19,6 +19,11 @@ public final class UserCustomWebhookHandler {
      */
     private @Nullable Map<String,String> httpHeaders;
     /**
+     * @return Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+     * 
+     */
+    private @Nullable String method;
+    /**
      * @return This attribute is used to build the request body. Used in custom webhooks
      * 
      */
@@ -34,7 +39,7 @@ public final class UserCustomWebhookHandler {
      */
     private @Nullable Map<String,String> secrets;
     /**
-     * @return Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+     * @return Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send a request to.
      * 
      */
     private String url;
@@ -46,6 +51,13 @@ public final class UserCustomWebhookHandler {
      */
     public Map<String,String> httpHeaders() {
         return this.httpHeaders == null ? Map.of() : this.httpHeaders;
+    }
+    /**
+     * @return Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+     * 
+     */
+    public Optional<String> method() {
+        return Optional.ofNullable(this.method);
     }
     /**
      * @return This attribute is used to build the request body. Used in custom webhooks
@@ -69,7 +81,7 @@ public final class UserCustomWebhookHandler {
         return this.secrets == null ? Map.of() : this.secrets;
     }
     /**
-     * @return Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+     * @return Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send a request to.
      * 
      */
     public String url() {
@@ -86,6 +98,7 @@ public final class UserCustomWebhookHandler {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable Map<String,String> httpHeaders;
+        private @Nullable String method;
         private @Nullable String payload;
         private @Nullable String proxy;
         private @Nullable Map<String,String> secrets;
@@ -94,6 +107,7 @@ public final class UserCustomWebhookHandler {
         public Builder(UserCustomWebhookHandler defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.httpHeaders = defaults.httpHeaders;
+    	      this.method = defaults.method;
     	      this.payload = defaults.payload;
     	      this.proxy = defaults.proxy;
     	      this.secrets = defaults.secrets;
@@ -104,6 +118,12 @@ public final class UserCustomWebhookHandler {
         public Builder httpHeaders(@Nullable Map<String,String> httpHeaders) {
 
             this.httpHeaders = httpHeaders;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder method(@Nullable String method) {
+
+            this.method = method;
             return this;
         }
         @CustomType.Setter
@@ -135,6 +155,7 @@ public final class UserCustomWebhookHandler {
         public UserCustomWebhookHandler build() {
             final var _resultValue = new UserCustomWebhookHandler();
             _resultValue.httpHeaders = httpHeaders;
+            _resultValue.method = method;
             _resultValue.payload = payload;
             _resultValue.proxy = proxy;
             _resultValue.secrets = secrets;

@@ -44,6 +44,7 @@ namespace Pulumi.Artifactory
     ///             new Artifactory.Inputs.ReleaseBundleV2PromotionCustomWebhookHandlerArgs
     ///             {
     ///                 Url = "https://tempurl.org",
+    ///                 Method = "POST",
     ///                 Secrets = 
     ///                 {
     ///                     { "secretName1", "value1" },

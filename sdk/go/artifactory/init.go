@@ -117,6 +117,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &FederatedHelmRepository{}
 	case "artifactory:index/federatedHelmociRepository:FederatedHelmociRepository":
 		r = &FederatedHelmociRepository{}
+	case "artifactory:index/federatedHuggingfacemlRepository:FederatedHuggingfacemlRepository":
+		r = &FederatedHuggingfacemlRepository{}
 	case "artifactory:index/federatedIvyRepository:FederatedIvyRepository":
 		r = &FederatedIvyRepository{}
 	case "artifactory:index/federatedMavenRepository:FederatedMavenRepository":
@@ -692,6 +694,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"artifactory",
 		"index/federatedHelmociRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/federatedHuggingfacemlRepository",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

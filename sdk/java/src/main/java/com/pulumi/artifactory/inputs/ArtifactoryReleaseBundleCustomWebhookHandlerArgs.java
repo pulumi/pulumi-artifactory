@@ -33,6 +33,21 @@ public final class ArtifactoryReleaseBundleCustomWebhookHandlerArgs extends com.
     }
 
     /**
+     * Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+     * 
+     */
+    @Import(name="method")
+    private @Nullable Output<String> method;
+
+    /**
+     * @return Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+     * 
+     */
+    public Optional<Output<String>> method() {
+        return Optional.ofNullable(this.method);
+    }
+
+    /**
      * This attribute is used to build the request body. Used in custom webhooks
      * 
      */
@@ -96,6 +111,7 @@ public final class ArtifactoryReleaseBundleCustomWebhookHandlerArgs extends com.
 
     private ArtifactoryReleaseBundleCustomWebhookHandlerArgs(ArtifactoryReleaseBundleCustomWebhookHandlerArgs $) {
         this.httpHeaders = $.httpHeaders;
+        this.method = $.method;
         this.payload = $.payload;
         this.proxy = $.proxy;
         this.secrets = $.secrets;
@@ -139,6 +155,27 @@ public final class ArtifactoryReleaseBundleCustomWebhookHandlerArgs extends com.
          */
         public Builder httpHeaders(Map<String,String> httpHeaders) {
             return httpHeaders(Output.of(httpHeaders));
+        }
+
+        /**
+         * @param method Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder method(@Nullable Output<String> method) {
+            $.method = method;
+            return this;
+        }
+
+        /**
+         * @param method Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder method(String method) {
+            return method(Output.of(method));
         }
 
         /**

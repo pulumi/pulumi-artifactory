@@ -25,6 +25,12 @@ namespace Pulumi.Artifactory.Inputs
         }
 
         /// <summary>
+        /// Specifies the HTTP method for the URL that the Webhook invokes. Allowed values are: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+        /// </summary>
+        [Input("method")]
+        public Input<string>? Method { get; set; }
+
+        /// <summary>
         /// This attribute is used to build the request body. Used in custom webhooks
         /// </summary>
         [Input("payload")]
@@ -49,7 +55,7 @@ namespace Pulumi.Artifactory.Inputs
         }
 
         /// <summary>
-        /// Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+        /// Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send a request to.
         /// </summary>
         [Input("url", required: true)]
         public Input<string> Url { get; set; } = null!;
