@@ -53,23 +53,6 @@ public final class AlpineRepositoryArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
-     * 
-     */
-    @Import(name="cdnRedirect")
-    private @Nullable Output<Boolean> cdnRedirect;
-
-    /**
-     * @return When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
-     * 
-     */
-    public Optional<Output<Boolean>> cdnRedirect() {
-        return Optional.ofNullable(this.cdnRedirect);
-    }
-
-    /**
      * Public description.
      * 
      */
@@ -133,13 +116,6 @@ public final class AlpineRepositoryArgs extends com.pulumi.resources.ResourceArg
      */
     public Optional<Output<String>> includesPattern() {
         return Optional.ofNullable(this.includesPattern);
-    }
-
-    @Import(name="indexCompressionFormats")
-    private @Nullable Output<List<String>> indexCompressionFormats;
-
-    public Optional<Output<List<String>>> indexCompressionFormats() {
-        return Optional.ofNullable(this.indexCompressionFormats);
     }
 
     /**
@@ -244,14 +220,16 @@ public final class AlpineRepositoryArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Repository layout key for the local repository
+     * Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+     * corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
      * 
      */
     @Import(name="repoLayoutRef")
     private @Nullable Output<String> repoLayoutRef;
 
     /**
-     * @return Repository layout key for the local repository
+     * @return Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+     * corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
      * 
      */
     public Optional<Output<String>> repoLayoutRef() {
@@ -280,12 +258,10 @@ public final class AlpineRepositoryArgs extends com.pulumi.resources.ResourceArg
     private AlpineRepositoryArgs(AlpineRepositoryArgs $) {
         this.archiveBrowsingEnabled = $.archiveBrowsingEnabled;
         this.blackedOut = $.blackedOut;
-        this.cdnRedirect = $.cdnRedirect;
         this.description = $.description;
         this.downloadDirect = $.downloadDirect;
         this.excludesPattern = $.excludesPattern;
         this.includesPattern = $.includesPattern;
-        this.indexCompressionFormats = $.indexCompressionFormats;
         this.key = $.key;
         this.notes = $.notes;
         this.primaryKeypairRef = $.primaryKeypairRef;
@@ -359,29 +335,6 @@ public final class AlpineRepositoryArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder blackedOut(Boolean blackedOut) {
             return blackedOut(Output.of(blackedOut));
-        }
-
-        /**
-         * @param cdnRedirect When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-         * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
-         * 
-         * @return builder
-         * 
-         */
-        public Builder cdnRedirect(@Nullable Output<Boolean> cdnRedirect) {
-            $.cdnRedirect = cdnRedirect;
-            return this;
-        }
-
-        /**
-         * @param cdnRedirect When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-         * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
-         * 
-         * @return builder
-         * 
-         */
-        public Builder cdnRedirect(Boolean cdnRedirect) {
-            return cdnRedirect(Output.of(cdnRedirect));
         }
 
         /**
@@ -472,19 +425,6 @@ public final class AlpineRepositoryArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder includesPattern(String includesPattern) {
             return includesPattern(Output.of(includesPattern));
-        }
-
-        public Builder indexCompressionFormats(@Nullable Output<List<String>> indexCompressionFormats) {
-            $.indexCompressionFormats = indexCompressionFormats;
-            return this;
-        }
-
-        public Builder indexCompressionFormats(List<String> indexCompressionFormats) {
-            return indexCompressionFormats(Output.of(indexCompressionFormats));
-        }
-
-        public Builder indexCompressionFormats(String... indexCompressionFormats) {
-            return indexCompressionFormats(List.of(indexCompressionFormats));
         }
 
         /**
@@ -641,7 +581,8 @@ public final class AlpineRepositoryArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param repoLayoutRef Repository layout key for the local repository
+         * @param repoLayoutRef Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+         * corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
          * 
          * @return builder
          * 
@@ -652,7 +593,8 @@ public final class AlpineRepositoryArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param repoLayoutRef Repository layout key for the local repository
+         * @param repoLayoutRef Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+         * corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
          * 
          * @return builder
          * 

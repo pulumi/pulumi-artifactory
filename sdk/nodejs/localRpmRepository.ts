@@ -93,43 +93,38 @@ export class LocalRpmRepository extends pulumi.CustomResource {
      * therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
      * security (e.g., cross-site scripting attacks).
      */
-    public readonly archiveBrowsingEnabled!: pulumi.Output<boolean | undefined>;
+    public readonly archiveBrowsingEnabled!: pulumi.Output<boolean>;
     /**
      * When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
      */
-    public readonly blackedOut!: pulumi.Output<boolean | undefined>;
+    public readonly blackedOut!: pulumi.Output<boolean>;
     /**
      * Default: `false`.
      */
-    public readonly calculateYumMetadata!: pulumi.Output<boolean | undefined>;
-    /**
-     * When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
-     */
-    public readonly cdnRedirect!: pulumi.Output<boolean | undefined>;
+    public readonly calculateYumMetadata!: pulumi.Output<boolean>;
     /**
      * Public description.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string>;
     /**
      * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
      * storage provider. Available in Enterprise+ and Edge licenses only.
      */
-    public readonly downloadDirect!: pulumi.Output<boolean | undefined>;
+    public readonly downloadDirect!: pulumi.Output<boolean>;
     /**
      * Default: `false`.
      */
-    public readonly enableFileListsIndexing!: pulumi.Output<boolean | undefined>;
+    public readonly enableFileListsIndexing!: pulumi.Output<boolean>;
     /**
      * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no
      * artifacts are excluded.
      */
-    public readonly excludesPattern!: pulumi.Output<string | undefined>;
+    public readonly excludesPattern!: pulumi.Output<string>;
     /**
      * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When
      * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
      */
-    public readonly includesPattern!: pulumi.Output<string | undefined>;
+    public readonly includesPattern!: pulumi.Output<string>;
     /**
      * the identity key of the repo.
      */
@@ -137,8 +132,7 @@ export class LocalRpmRepository extends pulumi.CustomResource {
     /**
      * Internal description.
      */
-    public readonly notes!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly packageType!: pulumi.Output<string>;
+    public readonly notes!: pulumi.Output<string>;
     /**
      * The primary GPG key to be used to sign packages.
      */
@@ -146,21 +140,22 @@ export class LocalRpmRepository extends pulumi.CustomResource {
     /**
      * Setting repositories with priority will cause metadata to be merged only from repositories set with this field
      */
-    public readonly priorityResolution!: pulumi.Output<boolean | undefined>;
+    public readonly priorityResolution!: pulumi.Output<boolean>;
     public readonly projectEnvironments!: pulumi.Output<string[]>;
     /**
      * Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
      * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      */
-    public readonly projectKey!: pulumi.Output<string | undefined>;
+    public readonly projectKey!: pulumi.Output<string>;
     /**
      * List of property set name
      */
     public readonly propertySets!: pulumi.Output<string[] | undefined>;
     /**
-     * Repository layout key for the local repository
+     * Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+     * corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
      */
-    public readonly repoLayoutRef!: pulumi.Output<string | undefined>;
+    public readonly repoLayoutRef!: pulumi.Output<string>;
     /**
      * The secondary GPG key to be used to sign packages.
      */
@@ -169,13 +164,13 @@ export class LocalRpmRepository extends pulumi.CustomResource {
      * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
      * Xray settings.
      */
-    public readonly xrayIndex!: pulumi.Output<boolean | undefined>;
+    public readonly xrayIndex!: pulumi.Output<boolean>;
     /**
      * A comma separated list of XML file names containing RPM group component definitions. 
      * Artifactory includes the group definitions as part of the calculated RPM metadata, as well as automatically
      * generating a gzipped version of the group files, if required. Default is empty string.
      */
-    public readonly yumGroupFileNames!: pulumi.Output<string | undefined>;
+    public readonly yumGroupFileNames!: pulumi.Output<string>;
     /**
      * The depth, relative to the repository's root folder, where RPM metadata is created. 
      * This is useful when your repository contains multiple RPM repositories under parallel hierarchies. For example, if
@@ -183,7 +178,7 @@ export class LocalRpmRepository extends pulumi.CustomResource {
      * exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique
      * snapshots are not cleaned up.
      */
-    public readonly yumRootDepth!: pulumi.Output<number | undefined>;
+    public readonly yumRootDepth!: pulumi.Output<number>;
 
     /**
      * Create a LocalRpmRepository resource with the given unique name, arguments, and options.
@@ -201,7 +196,6 @@ export class LocalRpmRepository extends pulumi.CustomResource {
             resourceInputs["archiveBrowsingEnabled"] = state ? state.archiveBrowsingEnabled : undefined;
             resourceInputs["blackedOut"] = state ? state.blackedOut : undefined;
             resourceInputs["calculateYumMetadata"] = state ? state.calculateYumMetadata : undefined;
-            resourceInputs["cdnRedirect"] = state ? state.cdnRedirect : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["downloadDirect"] = state ? state.downloadDirect : undefined;
             resourceInputs["enableFileListsIndexing"] = state ? state.enableFileListsIndexing : undefined;
@@ -209,7 +203,6 @@ export class LocalRpmRepository extends pulumi.CustomResource {
             resourceInputs["includesPattern"] = state ? state.includesPattern : undefined;
             resourceInputs["key"] = state ? state.key : undefined;
             resourceInputs["notes"] = state ? state.notes : undefined;
-            resourceInputs["packageType"] = state ? state.packageType : undefined;
             resourceInputs["primaryKeypairRef"] = state ? state.primaryKeypairRef : undefined;
             resourceInputs["priorityResolution"] = state ? state.priorityResolution : undefined;
             resourceInputs["projectEnvironments"] = state ? state.projectEnvironments : undefined;
@@ -228,7 +221,6 @@ export class LocalRpmRepository extends pulumi.CustomResource {
             resourceInputs["archiveBrowsingEnabled"] = args ? args.archiveBrowsingEnabled : undefined;
             resourceInputs["blackedOut"] = args ? args.blackedOut : undefined;
             resourceInputs["calculateYumMetadata"] = args ? args.calculateYumMetadata : undefined;
-            resourceInputs["cdnRedirect"] = args ? args.cdnRedirect : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["downloadDirect"] = args ? args.downloadDirect : undefined;
             resourceInputs["enableFileListsIndexing"] = args ? args.enableFileListsIndexing : undefined;
@@ -246,7 +238,6 @@ export class LocalRpmRepository extends pulumi.CustomResource {
             resourceInputs["xrayIndex"] = args ? args.xrayIndex : undefined;
             resourceInputs["yumGroupFileNames"] = args ? args.yumGroupFileNames : undefined;
             resourceInputs["yumRootDepth"] = args ? args.yumRootDepth : undefined;
-            resourceInputs["packageType"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LocalRpmRepository.__pulumiType, name, resourceInputs, opts);
@@ -271,11 +262,6 @@ export interface LocalRpmRepositoryState {
      * Default: `false`.
      */
     calculateYumMetadata?: pulumi.Input<boolean>;
-    /**
-     * When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
-     */
-    cdnRedirect?: pulumi.Input<boolean>;
     /**
      * Public description.
      */
@@ -307,7 +293,6 @@ export interface LocalRpmRepositoryState {
      * Internal description.
      */
     notes?: pulumi.Input<string>;
-    packageType?: pulumi.Input<string>;
     /**
      * The primary GPG key to be used to sign packages.
      */
@@ -327,7 +312,8 @@ export interface LocalRpmRepositoryState {
      */
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Repository layout key for the local repository
+     * Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+     * corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
      */
     repoLayoutRef?: pulumi.Input<string>;
     /**
@@ -373,11 +359,6 @@ export interface LocalRpmRepositoryArgs {
      * Default: `false`.
      */
     calculateYumMetadata?: pulumi.Input<boolean>;
-    /**
-     * When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
-     */
-    cdnRedirect?: pulumi.Input<boolean>;
     /**
      * Public description.
      */
@@ -428,7 +409,8 @@ export interface LocalRpmRepositoryArgs {
      */
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Repository layout key for the local repository
+     * Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+     * corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
      */
     repoLayoutRef?: pulumi.Input<string>;
     /**

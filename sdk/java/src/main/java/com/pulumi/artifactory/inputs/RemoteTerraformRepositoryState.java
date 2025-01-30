@@ -201,14 +201,14 @@ public final class RemoteTerraformRepositoryState extends com.pulumi.resources.R
     }
 
     /**
-     * Whether to disable URL normalization, default is `false`.
+     * Whether to disable URL normalization. Default is `false`.
      * 
      */
     @Import(name="disableUrlNormalization")
     private @Nullable Output<Boolean> disableUrlNormalization;
 
     /**
-     * @return Whether to disable URL normalization, default is `false`.
+     * @return Whether to disable URL normalization. Default is `false`.
      * 
      */
     public Optional<Output<Boolean>> disableUrlNormalization() {
@@ -430,13 +430,6 @@ public final class RemoteTerraformRepositoryState extends com.pulumi.resources.R
         return Optional.ofNullable(this.offline);
     }
 
-    @Import(name="packageType")
-    private @Nullable Output<String> packageType;
-
-    public Optional<Output<String>> packageType() {
-        return Optional.ofNullable(this.packageType);
-    }
-
     @Import(name="password")
     private @Nullable Output<String> password;
 
@@ -445,18 +438,14 @@ public final class RemoteTerraformRepositoryState extends com.pulumi.resources.R
     }
 
     /**
-     * Setting Priority Resolution takes precedence over the resolution order when resolving virtual repositories. Setting
-     * repositories with priority will cause metadata to be merged only from repositories set with a priority. If a package is
-     * not found in those repositories, Artifactory will merge from repositories marked as non-priority.
+     * Setting repositories with priority will cause metadata to be merged only from repositories set with this field
      * 
      */
     @Import(name="priorityResolution")
     private @Nullable Output<Boolean> priorityResolution;
 
     /**
-     * @return Setting Priority Resolution takes precedence over the resolution order when resolving virtual repositories. Setting
-     * repositories with priority will cause metadata to be merged only from repositories set with a priority. If a package is
-     * not found in those repositories, Artifactory will merge from repositories marked as non-priority.
+     * @return Setting repositories with priority will cause metadata to be merged only from repositories set with this field
      * 
      */
     public Optional<Output<Boolean>> priorityResolution() {
@@ -488,14 +477,14 @@ public final class RemoteTerraformRepositoryState extends com.pulumi.resources.R
     }
 
     /**
-     * List of property set names
+     * List of property set name
      * 
      */
     @Import(name="propertySets")
     private @Nullable Output<List<String>> propertySets;
 
     /**
-     * @return List of property set names
+     * @return List of property set name
      * 
      */
     public Optional<Output<List<String>>> propertySets() {
@@ -554,14 +543,16 @@ public final class RemoteTerraformRepositoryState extends com.pulumi.resources.R
     }
 
     /**
-     * Repository layout key for the remote repository
+     * Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+     * corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
      * 
      */
     @Import(name="repoLayoutRef")
     private @Nullable Output<String> repoLayoutRef;
 
     /**
-     * @return Repository layout key for the remote repository
+     * @return Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+     * corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
      * 
      */
     public Optional<Output<String>> repoLayoutRef() {
@@ -585,9 +576,21 @@ public final class RemoteTerraformRepositoryState extends com.pulumi.resources.R
         return Optional.ofNullable(this.retrievalCachePeriodSeconds);
     }
 
+    /**
+     * @deprecated
+     * No longer supported
+     * 
+     */
+    @Deprecated /* No longer supported */
     @Import(name="shareConfiguration")
     private @Nullable Output<Boolean> shareConfiguration;
 
+    /**
+     * @deprecated
+     * No longer supported
+     * 
+     */
+    @Deprecated /* No longer supported */
     public Optional<Output<Boolean>> shareConfiguration() {
         return Optional.ofNullable(this.shareConfiguration);
     }
@@ -743,7 +746,6 @@ public final class RemoteTerraformRepositoryState extends com.pulumi.resources.R
         this.missedCachePeriodSeconds = $.missedCachePeriodSeconds;
         this.notes = $.notes;
         this.offline = $.offline;
-        this.packageType = $.packageType;
         this.password = $.password;
         this.priorityResolution = $.priorityResolution;
         this.projectEnvironments = $.projectEnvironments;
@@ -1028,7 +1030,7 @@ public final class RemoteTerraformRepositoryState extends com.pulumi.resources.R
         }
 
         /**
-         * @param disableUrlNormalization Whether to disable URL normalization, default is `false`.
+         * @param disableUrlNormalization Whether to disable URL normalization. Default is `false`.
          * 
          * @return builder
          * 
@@ -1039,7 +1041,7 @@ public final class RemoteTerraformRepositoryState extends com.pulumi.resources.R
         }
 
         /**
-         * @param disableUrlNormalization Whether to disable URL normalization, default is `false`.
+         * @param disableUrlNormalization Whether to disable URL normalization. Default is `false`.
          * 
          * @return builder
          * 
@@ -1341,15 +1343,6 @@ public final class RemoteTerraformRepositoryState extends com.pulumi.resources.R
             return offline(Output.of(offline));
         }
 
-        public Builder packageType(@Nullable Output<String> packageType) {
-            $.packageType = packageType;
-            return this;
-        }
-
-        public Builder packageType(String packageType) {
-            return packageType(Output.of(packageType));
-        }
-
         public Builder password(@Nullable Output<String> password) {
             $.password = password;
             return this;
@@ -1360,9 +1353,7 @@ public final class RemoteTerraformRepositoryState extends com.pulumi.resources.R
         }
 
         /**
-         * @param priorityResolution Setting Priority Resolution takes precedence over the resolution order when resolving virtual repositories. Setting
-         * repositories with priority will cause metadata to be merged only from repositories set with a priority. If a package is
-         * not found in those repositories, Artifactory will merge from repositories marked as non-priority.
+         * @param priorityResolution Setting repositories with priority will cause metadata to be merged only from repositories set with this field
          * 
          * @return builder
          * 
@@ -1373,9 +1364,7 @@ public final class RemoteTerraformRepositoryState extends com.pulumi.resources.R
         }
 
         /**
-         * @param priorityResolution Setting Priority Resolution takes precedence over the resolution order when resolving virtual repositories. Setting
-         * repositories with priority will cause metadata to be merged only from repositories set with a priority. If a package is
-         * not found in those repositories, Artifactory will merge from repositories marked as non-priority.
+         * @param priorityResolution Setting repositories with priority will cause metadata to be merged only from repositories set with this field
          * 
          * @return builder
          * 
@@ -1421,7 +1410,7 @@ public final class RemoteTerraformRepositoryState extends com.pulumi.resources.R
         }
 
         /**
-         * @param propertySets List of property set names
+         * @param propertySets List of property set name
          * 
          * @return builder
          * 
@@ -1432,7 +1421,7 @@ public final class RemoteTerraformRepositoryState extends com.pulumi.resources.R
         }
 
         /**
-         * @param propertySets List of property set names
+         * @param propertySets List of property set name
          * 
          * @return builder
          * 
@@ -1442,7 +1431,7 @@ public final class RemoteTerraformRepositoryState extends com.pulumi.resources.R
         }
 
         /**
-         * @param propertySets List of property set names
+         * @param propertySets List of property set name
          * 
          * @return builder
          * 
@@ -1521,7 +1510,8 @@ public final class RemoteTerraformRepositoryState extends com.pulumi.resources.R
         }
 
         /**
-         * @param repoLayoutRef Repository layout key for the remote repository
+         * @param repoLayoutRef Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+         * corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
          * 
          * @return builder
          * 
@@ -1532,7 +1522,8 @@ public final class RemoteTerraformRepositoryState extends com.pulumi.resources.R
         }
 
         /**
-         * @param repoLayoutRef Repository layout key for the remote repository
+         * @param repoLayoutRef Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+         * corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
          * 
          * @return builder
          * 
@@ -1564,11 +1555,27 @@ public final class RemoteTerraformRepositoryState extends com.pulumi.resources.R
             return retrievalCachePeriodSeconds(Output.of(retrievalCachePeriodSeconds));
         }
 
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * No longer supported
+         * 
+         */
+        @Deprecated /* No longer supported */
         public Builder shareConfiguration(@Nullable Output<Boolean> shareConfiguration) {
             $.shareConfiguration = shareConfiguration;
             return this;
         }
 
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * No longer supported
+         * 
+         */
+        @Deprecated /* No longer supported */
         public Builder shareConfiguration(Boolean shareConfiguration) {
             return shareConfiguration(Output.of(shareConfiguration));
         }

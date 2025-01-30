@@ -3414,665 +3414,665 @@ export interface RemoteAlpineRepositoryContentSynchronisation {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: boolean;
+    enabled: boolean;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: boolean;
+    propertiesEnabled: boolean;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: boolean;
+    sourceOriginAbsenceDetection: boolean;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: boolean;
+    statisticsEnabled: boolean;
 }
 
 export interface RemoteAnsibleRepositoryContentSynchronisation {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: boolean;
+    enabled: boolean;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: boolean;
+    propertiesEnabled: boolean;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: boolean;
+    sourceOriginAbsenceDetection: boolean;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: boolean;
+    statisticsEnabled: boolean;
 }
 
 export interface RemoteBowerRepositoryContentSynchronisation {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: boolean;
+    enabled: boolean;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: boolean;
+    propertiesEnabled: boolean;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: boolean;
+    sourceOriginAbsenceDetection: boolean;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: boolean;
+    statisticsEnabled: boolean;
 }
 
 export interface RemoteCargoRepositoryContentSynchronisation {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: boolean;
+    enabled: boolean;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: boolean;
+    propertiesEnabled: boolean;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: boolean;
+    sourceOriginAbsenceDetection: boolean;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: boolean;
+    statisticsEnabled: boolean;
 }
 
 export interface RemoteChefRepositoryContentSynchronisation {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: boolean;
+    enabled: boolean;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: boolean;
+    propertiesEnabled: boolean;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: boolean;
+    sourceOriginAbsenceDetection: boolean;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: boolean;
+    statisticsEnabled: boolean;
 }
 
 export interface RemoteCocoapodsRepositoryContentSynchronisation {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: boolean;
+    enabled: boolean;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: boolean;
+    propertiesEnabled: boolean;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: boolean;
+    sourceOriginAbsenceDetection: boolean;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: boolean;
+    statisticsEnabled: boolean;
 }
 
 export interface RemoteComposerRepositoryContentSynchronisation {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: boolean;
+    enabled: boolean;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: boolean;
+    propertiesEnabled: boolean;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: boolean;
+    sourceOriginAbsenceDetection: boolean;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: boolean;
+    statisticsEnabled: boolean;
 }
 
 export interface RemoteConanRepositoryContentSynchronisation {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: boolean;
+    enabled: boolean;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: boolean;
+    propertiesEnabled: boolean;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: boolean;
+    sourceOriginAbsenceDetection: boolean;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: boolean;
+    statisticsEnabled: boolean;
 }
 
 export interface RemoteCondaRepositoryContentSynchronisation {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: boolean;
+    enabled: boolean;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: boolean;
+    propertiesEnabled: boolean;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: boolean;
+    sourceOriginAbsenceDetection: boolean;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: boolean;
+    statisticsEnabled: boolean;
 }
 
 export interface RemoteCranRepositoryContentSynchronisation {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: boolean;
+    enabled: boolean;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: boolean;
+    propertiesEnabled: boolean;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: boolean;
+    sourceOriginAbsenceDetection: boolean;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: boolean;
+    statisticsEnabled: boolean;
 }
 
 export interface RemoteDebianRepositoryContentSynchronisation {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: boolean;
+    enabled: boolean;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: boolean;
+    propertiesEnabled: boolean;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: boolean;
+    sourceOriginAbsenceDetection: boolean;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: boolean;
+    statisticsEnabled: boolean;
 }
 
 export interface RemoteDockerRepositoryContentSynchronisation {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: boolean;
+    enabled: boolean;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: boolean;
+    propertiesEnabled: boolean;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: boolean;
+    sourceOriginAbsenceDetection: boolean;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: boolean;
+    statisticsEnabled: boolean;
 }
 
 export interface RemoteGemsRepositoryContentSynchronisation {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: boolean;
+    enabled: boolean;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: boolean;
+    propertiesEnabled: boolean;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: boolean;
+    sourceOriginAbsenceDetection: boolean;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: boolean;
+    statisticsEnabled: boolean;
 }
 
 export interface RemoteGenericRepositoryContentSynchronisation {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: boolean;
+    enabled: boolean;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: boolean;
+    propertiesEnabled: boolean;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: boolean;
+    sourceOriginAbsenceDetection: boolean;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: boolean;
+    statisticsEnabled: boolean;
 }
 
 export interface RemoteGitlfsRepositoryContentSynchronisation {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: boolean;
+    enabled: boolean;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: boolean;
+    propertiesEnabled: boolean;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: boolean;
+    sourceOriginAbsenceDetection: boolean;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: boolean;
+    statisticsEnabled: boolean;
 }
 
 export interface RemoteGoRepositoryContentSynchronisation {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: boolean;
+    enabled: boolean;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: boolean;
+    propertiesEnabled: boolean;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: boolean;
+    sourceOriginAbsenceDetection: boolean;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: boolean;
+    statisticsEnabled: boolean;
 }
 
 export interface RemoteGradleRepositoryContentSynchronisation {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: boolean;
+    enabled: boolean;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: boolean;
+    propertiesEnabled: boolean;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: boolean;
+    sourceOriginAbsenceDetection: boolean;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: boolean;
+    statisticsEnabled: boolean;
 }
 
 export interface RemoteHelmRepositoryContentSynchronisation {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: boolean;
+    enabled: boolean;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: boolean;
+    propertiesEnabled: boolean;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: boolean;
+    sourceOriginAbsenceDetection: boolean;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: boolean;
+    statisticsEnabled: boolean;
 }
 
 export interface RemoteHelmociRepositoryContentSynchronisation {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: boolean;
+    enabled: boolean;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: boolean;
+    propertiesEnabled: boolean;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: boolean;
+    sourceOriginAbsenceDetection: boolean;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: boolean;
+    statisticsEnabled: boolean;
 }
 
 export interface RemoteHuggingfacemlRepositoryContentSynchronisation {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: boolean;
+    enabled: boolean;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: boolean;
+    propertiesEnabled: boolean;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: boolean;
+    sourceOriginAbsenceDetection: boolean;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: boolean;
+    statisticsEnabled: boolean;
 }
 
 export interface RemoteIvyRepositoryContentSynchronisation {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: boolean;
+    enabled: boolean;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: boolean;
+    propertiesEnabled: boolean;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: boolean;
+    sourceOriginAbsenceDetection: boolean;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: boolean;
+    statisticsEnabled: boolean;
 }
 
 export interface RemoteMavenRepositoryContentSynchronisation {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: boolean;
+    enabled: boolean;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: boolean;
+    propertiesEnabled: boolean;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: boolean;
+    sourceOriginAbsenceDetection: boolean;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: boolean;
+    statisticsEnabled: boolean;
 }
 
 export interface RemoteNpmRepositoryContentSynchronisation {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: boolean;
+    enabled: boolean;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: boolean;
+    propertiesEnabled: boolean;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: boolean;
+    sourceOriginAbsenceDetection: boolean;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: boolean;
+    statisticsEnabled: boolean;
 }
 
 export interface RemoteNugetRepositoryContentSynchronisation {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: boolean;
+    enabled: boolean;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: boolean;
+    propertiesEnabled: boolean;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: boolean;
+    sourceOriginAbsenceDetection: boolean;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: boolean;
+    statisticsEnabled: boolean;
 }
 
 export interface RemoteOciRepositoryContentSynchronisation {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: boolean;
+    enabled: boolean;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: boolean;
+    propertiesEnabled: boolean;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: boolean;
+    sourceOriginAbsenceDetection: boolean;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: boolean;
+    statisticsEnabled: boolean;
 }
 
 export interface RemoteOpkgRepositoryContentSynchronisation {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: boolean;
+    enabled: boolean;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: boolean;
+    propertiesEnabled: boolean;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: boolean;
+    sourceOriginAbsenceDetection: boolean;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: boolean;
+    statisticsEnabled: boolean;
 }
 
 export interface RemoteP2RepositoryContentSynchronisation {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: boolean;
+    enabled: boolean;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: boolean;
+    propertiesEnabled: boolean;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: boolean;
+    sourceOriginAbsenceDetection: boolean;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: boolean;
+    statisticsEnabled: boolean;
 }
 
 export interface RemotePubRepositoryContentSynchronisation {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: boolean;
+    enabled: boolean;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: boolean;
+    propertiesEnabled: boolean;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: boolean;
+    sourceOriginAbsenceDetection: boolean;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: boolean;
+    statisticsEnabled: boolean;
 }
 
 export interface RemotePuppetRepositoryContentSynchronisation {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: boolean;
+    enabled: boolean;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: boolean;
+    propertiesEnabled: boolean;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: boolean;
+    sourceOriginAbsenceDetection: boolean;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: boolean;
+    statisticsEnabled: boolean;
 }
 
 export interface RemotePypiRepositoryContentSynchronisation {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: boolean;
+    enabled: boolean;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: boolean;
+    propertiesEnabled: boolean;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: boolean;
+    sourceOriginAbsenceDetection: boolean;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: boolean;
+    statisticsEnabled: boolean;
 }
 
 export interface RemoteRpmRepositoryContentSynchronisation {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: boolean;
+    enabled: boolean;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: boolean;
+    propertiesEnabled: boolean;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: boolean;
+    sourceOriginAbsenceDetection: boolean;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: boolean;
+    statisticsEnabled: boolean;
 }
 
 export interface RemoteSbtRepositoryContentSynchronisation {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: boolean;
+    enabled: boolean;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: boolean;
+    propertiesEnabled: boolean;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: boolean;
+    sourceOriginAbsenceDetection: boolean;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: boolean;
+    statisticsEnabled: boolean;
 }
 
 export interface RemoteSwiftRepositoryContentSynchronisation {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: boolean;
+    enabled: boolean;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: boolean;
+    propertiesEnabled: boolean;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: boolean;
+    sourceOriginAbsenceDetection: boolean;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: boolean;
+    statisticsEnabled: boolean;
 }
 
 export interface RemoteTerraformRepositoryContentSynchronisation {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: boolean;
+    enabled: boolean;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: boolean;
+    propertiesEnabled: boolean;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: boolean;
+    sourceOriginAbsenceDetection: boolean;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: boolean;
+    statisticsEnabled: boolean;
 }
 
 export interface RemoteVcsRepositoryContentSynchronisation {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
-    enabled?: boolean;
+    enabled: boolean;
     /**
      * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
      */
-    propertiesEnabled?: boolean;
+    propertiesEnabled: boolean;
     /**
      * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
      */
-    sourceOriginAbsenceDetection?: boolean;
+    sourceOriginAbsenceDetection: boolean;
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
-    statisticsEnabled?: boolean;
+    statisticsEnabled: boolean;
 }
 
 export interface UnmanagedUserPasswordPolicy {

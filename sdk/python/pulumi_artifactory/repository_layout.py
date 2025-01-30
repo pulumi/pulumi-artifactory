@@ -398,7 +398,7 @@ class RepositoryLayout(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="descriptorPathPattern")
-    def descriptor_path_pattern(self) -> pulumi.Output[Optional[str]]:
+    def descriptor_path_pattern(self) -> pulumi.Output[str]:
         """
         Please refer to: [Descriptor Path Patterns](https://www.jfrog.com/confluence/display/JFROG/Repository+Layouts#RepositoryLayouts-DescriptorPathPatterns) in the Artifactory Wiki documentation.
         """

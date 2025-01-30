@@ -7,7 +7,6 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
-import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -51,23 +50,6 @@ public final class DockerV1RepositoryArgs extends com.pulumi.resources.ResourceA
      */
     public Optional<Output<Boolean>> blackedOut() {
         return Optional.ofNullable(this.blackedOut);
-    }
-
-    /**
-     * When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
-     * 
-     */
-    @Import(name="cdnRedirect")
-    private @Nullable Output<Boolean> cdnRedirect;
-
-    /**
-     * @return When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
-     * 
-     */
-    public Optional<Output<Boolean>> cdnRedirect() {
-        return Optional.ofNullable(this.cdnRedirect);
     }
 
     /**
@@ -151,13 +133,6 @@ public final class DockerV1RepositoryArgs extends com.pulumi.resources.ResourceA
         return this.key;
     }
 
-    @Import(name="maxUniqueTags")
-    private @Nullable Output<Integer> maxUniqueTags;
-
-    public Optional<Output<Integer>> maxUniqueTags() {
-        return Optional.ofNullable(this.maxUniqueTags);
-    }
-
     /**
      * Internal description.
      * 
@@ -228,14 +203,16 @@ public final class DockerV1RepositoryArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Repository layout key for the local repository
+     * Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+     * corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
      * 
      */
     @Import(name="repoLayoutRef")
     private @Nullable Output<String> repoLayoutRef;
 
     /**
-     * @return Repository layout key for the local repository
+     * @return Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+     * corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
      * 
      */
     public Optional<Output<String>> repoLayoutRef() {
@@ -264,13 +241,11 @@ public final class DockerV1RepositoryArgs extends com.pulumi.resources.ResourceA
     private DockerV1RepositoryArgs(DockerV1RepositoryArgs $) {
         this.archiveBrowsingEnabled = $.archiveBrowsingEnabled;
         this.blackedOut = $.blackedOut;
-        this.cdnRedirect = $.cdnRedirect;
         this.description = $.description;
         this.downloadDirect = $.downloadDirect;
         this.excludesPattern = $.excludesPattern;
         this.includesPattern = $.includesPattern;
         this.key = $.key;
-        this.maxUniqueTags = $.maxUniqueTags;
         this.notes = $.notes;
         this.priorityResolution = $.priorityResolution;
         this.projectEnvironments = $.projectEnvironments;
@@ -342,29 +317,6 @@ public final class DockerV1RepositoryArgs extends com.pulumi.resources.ResourceA
          */
         public Builder blackedOut(Boolean blackedOut) {
             return blackedOut(Output.of(blackedOut));
-        }
-
-        /**
-         * @param cdnRedirect When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-         * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
-         * 
-         * @return builder
-         * 
-         */
-        public Builder cdnRedirect(@Nullable Output<Boolean> cdnRedirect) {
-            $.cdnRedirect = cdnRedirect;
-            return this;
-        }
-
-        /**
-         * @param cdnRedirect When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-         * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
-         * 
-         * @return builder
-         * 
-         */
-        public Builder cdnRedirect(Boolean cdnRedirect) {
-            return cdnRedirect(Output.of(cdnRedirect));
         }
 
         /**
@@ -478,15 +430,6 @@ public final class DockerV1RepositoryArgs extends com.pulumi.resources.ResourceA
             return key(Output.of(key));
         }
 
-        public Builder maxUniqueTags(@Nullable Output<Integer> maxUniqueTags) {
-            $.maxUniqueTags = maxUniqueTags;
-            return this;
-        }
-
-        public Builder maxUniqueTags(Integer maxUniqueTags) {
-            return maxUniqueTags(Output.of(maxUniqueTags));
-        }
-
         /**
          * @param notes Internal description.
          * 
@@ -597,7 +540,8 @@ public final class DockerV1RepositoryArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param repoLayoutRef Repository layout key for the local repository
+         * @param repoLayoutRef Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+         * corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
          * 
          * @return builder
          * 
@@ -608,7 +552,8 @@ public final class DockerV1RepositoryArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param repoLayoutRef Repository layout key for the local repository
+         * @param repoLayoutRef Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+         * corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
          * 
          * @return builder
          * 

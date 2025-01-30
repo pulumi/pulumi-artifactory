@@ -23,7 +23,6 @@ class LocalRpmRepositoryArgs:
                  archive_browsing_enabled: Optional[pulumi.Input[bool]] = None,
                  blacked_out: Optional[pulumi.Input[bool]] = None,
                  calculate_yum_metadata: Optional[pulumi.Input[bool]] = None,
-                 cdn_redirect: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  download_direct: Optional[pulumi.Input[bool]] = None,
                  enable_file_lists_indexing: Optional[pulumi.Input[bool]] = None,
@@ -48,8 +47,6 @@ class LocalRpmRepositoryArgs:
                security (e.g., cross-site scripting attacks).
         :param pulumi.Input[bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
         :param pulumi.Input[bool] calculate_yum_metadata: Default: `false`.
-        :param pulumi.Input[bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-               CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only.
@@ -64,7 +61,8 @@ class LocalRpmRepositoryArgs:
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
-        :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
+        :param pulumi.Input[str] repo_layout_ref: Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+               corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
         :param pulumi.Input[str] secondary_keypair_ref: The secondary GPG key to be used to sign packages.
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
                Xray settings.
@@ -84,8 +82,6 @@ class LocalRpmRepositoryArgs:
             pulumi.set(__self__, "blacked_out", blacked_out)
         if calculate_yum_metadata is not None:
             pulumi.set(__self__, "calculate_yum_metadata", calculate_yum_metadata)
-        if cdn_redirect is not None:
-            pulumi.set(__self__, "cdn_redirect", cdn_redirect)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if download_direct is not None:
@@ -168,19 +164,6 @@ class LocalRpmRepositoryArgs:
     @calculate_yum_metadata.setter
     def calculate_yum_metadata(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "calculate_yum_metadata", value)
-
-    @property
-    @pulumi.getter(name="cdnRedirect")
-    def cdn_redirect(self) -> Optional[pulumi.Input[bool]]:
-        """
-        When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-        CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
-        """
-        return pulumi.get(self, "cdn_redirect")
-
-    @cdn_redirect.setter
-    def cdn_redirect(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "cdn_redirect", value)
 
     @property
     @pulumi.getter
@@ -319,7 +302,8 @@ class LocalRpmRepositoryArgs:
     @pulumi.getter(name="repoLayoutRef")
     def repo_layout_ref(self) -> Optional[pulumi.Input[str]]:
         """
-        Repository layout key for the local repository
+        Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+        corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
         """
         return pulumi.get(self, "repo_layout_ref")
 
@@ -389,7 +373,6 @@ class _LocalRpmRepositoryState:
                  archive_browsing_enabled: Optional[pulumi.Input[bool]] = None,
                  blacked_out: Optional[pulumi.Input[bool]] = None,
                  calculate_yum_metadata: Optional[pulumi.Input[bool]] = None,
-                 cdn_redirect: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  download_direct: Optional[pulumi.Input[bool]] = None,
                  enable_file_lists_indexing: Optional[pulumi.Input[bool]] = None,
@@ -397,7 +380,6 @@ class _LocalRpmRepositoryState:
                  includes_pattern: Optional[pulumi.Input[str]] = None,
                  key: Optional[pulumi.Input[str]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
-                 package_type: Optional[pulumi.Input[str]] = None,
                  primary_keypair_ref: Optional[pulumi.Input[str]] = None,
                  priority_resolution: Optional[pulumi.Input[bool]] = None,
                  project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -415,8 +397,6 @@ class _LocalRpmRepositoryState:
                security (e.g., cross-site scripting attacks).
         :param pulumi.Input[bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
         :param pulumi.Input[bool] calculate_yum_metadata: Default: `false`.
-        :param pulumi.Input[bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-               CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only.
@@ -432,7 +412,8 @@ class _LocalRpmRepositoryState:
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
-        :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
+        :param pulumi.Input[str] repo_layout_ref: Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+               corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
         :param pulumi.Input[str] secondary_keypair_ref: The secondary GPG key to be used to sign packages.
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
                Xray settings.
@@ -451,8 +432,6 @@ class _LocalRpmRepositoryState:
             pulumi.set(__self__, "blacked_out", blacked_out)
         if calculate_yum_metadata is not None:
             pulumi.set(__self__, "calculate_yum_metadata", calculate_yum_metadata)
-        if cdn_redirect is not None:
-            pulumi.set(__self__, "cdn_redirect", cdn_redirect)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if download_direct is not None:
@@ -467,8 +446,6 @@ class _LocalRpmRepositoryState:
             pulumi.set(__self__, "key", key)
         if notes is not None:
             pulumi.set(__self__, "notes", notes)
-        if package_type is not None:
-            pulumi.set(__self__, "package_type", package_type)
         if primary_keypair_ref is not None:
             pulumi.set(__self__, "primary_keypair_ref", primary_keypair_ref)
         if priority_resolution is not None:
@@ -527,19 +504,6 @@ class _LocalRpmRepositoryState:
     @calculate_yum_metadata.setter
     def calculate_yum_metadata(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "calculate_yum_metadata", value)
-
-    @property
-    @pulumi.getter(name="cdnRedirect")
-    def cdn_redirect(self) -> Optional[pulumi.Input[bool]]:
-        """
-        When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-        CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
-        """
-        return pulumi.get(self, "cdn_redirect")
-
-    @cdn_redirect.setter
-    def cdn_redirect(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "cdn_redirect", value)
 
     @property
     @pulumi.getter
@@ -629,15 +593,6 @@ class _LocalRpmRepositoryState:
         pulumi.set(self, "notes", value)
 
     @property
-    @pulumi.getter(name="packageType")
-    def package_type(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "package_type")
-
-    @package_type.setter
-    def package_type(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "package_type", value)
-
-    @property
     @pulumi.getter(name="primaryKeypairRef")
     def primary_keypair_ref(self) -> Optional[pulumi.Input[str]]:
         """
@@ -699,7 +654,8 @@ class _LocalRpmRepositoryState:
     @pulumi.getter(name="repoLayoutRef")
     def repo_layout_ref(self) -> Optional[pulumi.Input[str]]:
         """
-        Repository layout key for the local repository
+        Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+        corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
         """
         return pulumi.get(self, "repo_layout_ref")
 
@@ -771,7 +727,6 @@ class LocalRpmRepository(pulumi.CustomResource):
                  archive_browsing_enabled: Optional[pulumi.Input[bool]] = None,
                  blacked_out: Optional[pulumi.Input[bool]] = None,
                  calculate_yum_metadata: Optional[pulumi.Input[bool]] = None,
-                 cdn_redirect: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  download_direct: Optional[pulumi.Input[bool]] = None,
                  enable_file_lists_indexing: Optional[pulumi.Input[bool]] = None,
@@ -841,8 +796,6 @@ class LocalRpmRepository(pulumi.CustomResource):
                security (e.g., cross-site scripting attacks).
         :param pulumi.Input[bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
         :param pulumi.Input[bool] calculate_yum_metadata: Default: `false`.
-        :param pulumi.Input[bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-               CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only.
@@ -858,7 +811,8 @@ class LocalRpmRepository(pulumi.CustomResource):
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
-        :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
+        :param pulumi.Input[str] repo_layout_ref: Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+               corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
         :param pulumi.Input[str] secondary_keypair_ref: The secondary GPG key to be used to sign packages.
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
                Xray settings.
@@ -939,7 +893,6 @@ class LocalRpmRepository(pulumi.CustomResource):
                  archive_browsing_enabled: Optional[pulumi.Input[bool]] = None,
                  blacked_out: Optional[pulumi.Input[bool]] = None,
                  calculate_yum_metadata: Optional[pulumi.Input[bool]] = None,
-                 cdn_redirect: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  download_direct: Optional[pulumi.Input[bool]] = None,
                  enable_file_lists_indexing: Optional[pulumi.Input[bool]] = None,
@@ -969,7 +922,6 @@ class LocalRpmRepository(pulumi.CustomResource):
             __props__.__dict__["archive_browsing_enabled"] = archive_browsing_enabled
             __props__.__dict__["blacked_out"] = blacked_out
             __props__.__dict__["calculate_yum_metadata"] = calculate_yum_metadata
-            __props__.__dict__["cdn_redirect"] = cdn_redirect
             __props__.__dict__["description"] = description
             __props__.__dict__["download_direct"] = download_direct
             __props__.__dict__["enable_file_lists_indexing"] = enable_file_lists_indexing
@@ -989,7 +941,6 @@ class LocalRpmRepository(pulumi.CustomResource):
             __props__.__dict__["xray_index"] = xray_index
             __props__.__dict__["yum_group_file_names"] = yum_group_file_names
             __props__.__dict__["yum_root_depth"] = yum_root_depth
-            __props__.__dict__["package_type"] = None
         super(LocalRpmRepository, __self__).__init__(
             'artifactory:index/localRpmRepository:LocalRpmRepository',
             resource_name,
@@ -1003,7 +954,6 @@ class LocalRpmRepository(pulumi.CustomResource):
             archive_browsing_enabled: Optional[pulumi.Input[bool]] = None,
             blacked_out: Optional[pulumi.Input[bool]] = None,
             calculate_yum_metadata: Optional[pulumi.Input[bool]] = None,
-            cdn_redirect: Optional[pulumi.Input[bool]] = None,
             description: Optional[pulumi.Input[str]] = None,
             download_direct: Optional[pulumi.Input[bool]] = None,
             enable_file_lists_indexing: Optional[pulumi.Input[bool]] = None,
@@ -1011,7 +961,6 @@ class LocalRpmRepository(pulumi.CustomResource):
             includes_pattern: Optional[pulumi.Input[str]] = None,
             key: Optional[pulumi.Input[str]] = None,
             notes: Optional[pulumi.Input[str]] = None,
-            package_type: Optional[pulumi.Input[str]] = None,
             primary_keypair_ref: Optional[pulumi.Input[str]] = None,
             priority_resolution: Optional[pulumi.Input[bool]] = None,
             project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1034,8 +983,6 @@ class LocalRpmRepository(pulumi.CustomResource):
                security (e.g., cross-site scripting attacks).
         :param pulumi.Input[bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
         :param pulumi.Input[bool] calculate_yum_metadata: Default: `false`.
-        :param pulumi.Input[bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-               CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only.
@@ -1051,7 +998,8 @@ class LocalRpmRepository(pulumi.CustomResource):
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
-        :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
+        :param pulumi.Input[str] repo_layout_ref: Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+               corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
         :param pulumi.Input[str] secondary_keypair_ref: The secondary GPG key to be used to sign packages.
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
                Xray settings.
@@ -1071,7 +1019,6 @@ class LocalRpmRepository(pulumi.CustomResource):
         __props__.__dict__["archive_browsing_enabled"] = archive_browsing_enabled
         __props__.__dict__["blacked_out"] = blacked_out
         __props__.__dict__["calculate_yum_metadata"] = calculate_yum_metadata
-        __props__.__dict__["cdn_redirect"] = cdn_redirect
         __props__.__dict__["description"] = description
         __props__.__dict__["download_direct"] = download_direct
         __props__.__dict__["enable_file_lists_indexing"] = enable_file_lists_indexing
@@ -1079,7 +1026,6 @@ class LocalRpmRepository(pulumi.CustomResource):
         __props__.__dict__["includes_pattern"] = includes_pattern
         __props__.__dict__["key"] = key
         __props__.__dict__["notes"] = notes
-        __props__.__dict__["package_type"] = package_type
         __props__.__dict__["primary_keypair_ref"] = primary_keypair_ref
         __props__.__dict__["priority_resolution"] = priority_resolution
         __props__.__dict__["project_environments"] = project_environments
@@ -1094,7 +1040,7 @@ class LocalRpmRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="archiveBrowsingEnabled")
-    def archive_browsing_enabled(self) -> pulumi.Output[Optional[bool]]:
+    def archive_browsing_enabled(self) -> pulumi.Output[bool]:
         """
         When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
         therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
@@ -1104,7 +1050,7 @@ class LocalRpmRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="blackedOut")
-    def blacked_out(self) -> pulumi.Output[Optional[bool]]:
+    def blacked_out(self) -> pulumi.Output[bool]:
         """
         When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
         """
@@ -1112,24 +1058,15 @@ class LocalRpmRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="calculateYumMetadata")
-    def calculate_yum_metadata(self) -> pulumi.Output[Optional[bool]]:
+    def calculate_yum_metadata(self) -> pulumi.Output[bool]:
         """
         Default: `false`.
         """
         return pulumi.get(self, "calculate_yum_metadata")
 
     @property
-    @pulumi.getter(name="cdnRedirect")
-    def cdn_redirect(self) -> pulumi.Output[Optional[bool]]:
-        """
-        When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-        CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
-        """
-        return pulumi.get(self, "cdn_redirect")
-
-    @property
     @pulumi.getter
-    def description(self) -> pulumi.Output[Optional[str]]:
+    def description(self) -> pulumi.Output[str]:
         """
         Public description.
         """
@@ -1137,7 +1074,7 @@ class LocalRpmRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="downloadDirect")
-    def download_direct(self) -> pulumi.Output[Optional[bool]]:
+    def download_direct(self) -> pulumi.Output[bool]:
         """
         When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
         storage provider. Available in Enterprise+ and Edge licenses only.
@@ -1146,7 +1083,7 @@ class LocalRpmRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableFileListsIndexing")
-    def enable_file_lists_indexing(self) -> pulumi.Output[Optional[bool]]:
+    def enable_file_lists_indexing(self) -> pulumi.Output[bool]:
         """
         Default: `false`.
         """
@@ -1154,7 +1091,7 @@ class LocalRpmRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="excludesPattern")
-    def excludes_pattern(self) -> pulumi.Output[Optional[str]]:
+    def excludes_pattern(self) -> pulumi.Output[str]:
         """
         List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
         artifacts are excluded.
@@ -1163,7 +1100,7 @@ class LocalRpmRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="includesPattern")
-    def includes_pattern(self) -> pulumi.Output[Optional[str]]:
+    def includes_pattern(self) -> pulumi.Output[str]:
         """
         List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
         used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
@@ -1180,16 +1117,11 @@ class LocalRpmRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def notes(self) -> pulumi.Output[Optional[str]]:
+    def notes(self) -> pulumi.Output[str]:
         """
         Internal description.
         """
         return pulumi.get(self, "notes")
-
-    @property
-    @pulumi.getter(name="packageType")
-    def package_type(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "package_type")
 
     @property
     @pulumi.getter(name="primaryKeypairRef")
@@ -1201,7 +1133,7 @@ class LocalRpmRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="priorityResolution")
-    def priority_resolution(self) -> pulumi.Output[Optional[bool]]:
+    def priority_resolution(self) -> pulumi.Output[bool]:
         """
         Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         """
@@ -1214,7 +1146,7 @@ class LocalRpmRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="projectKey")
-    def project_key(self) -> pulumi.Output[Optional[str]]:
+    def project_key(self) -> pulumi.Output[str]:
         """
         Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
         assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
@@ -1231,9 +1163,10 @@ class LocalRpmRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="repoLayoutRef")
-    def repo_layout_ref(self) -> pulumi.Output[Optional[str]]:
+    def repo_layout_ref(self) -> pulumi.Output[str]:
         """
-        Repository layout key for the local repository
+        Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+        corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
         """
         return pulumi.get(self, "repo_layout_ref")
 
@@ -1247,7 +1180,7 @@ class LocalRpmRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="xrayIndex")
-    def xray_index(self) -> pulumi.Output[Optional[bool]]:
+    def xray_index(self) -> pulumi.Output[bool]:
         """
         Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
         Xray settings.
@@ -1256,7 +1189,7 @@ class LocalRpmRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="yumGroupFileNames")
-    def yum_group_file_names(self) -> pulumi.Output[Optional[str]]:
+    def yum_group_file_names(self) -> pulumi.Output[str]:
         """
         A comma separated list of XML file names containing RPM group component definitions. 
         Artifactory includes the group definitions as part of the calculated RPM metadata, as well as automatically
@@ -1266,7 +1199,7 @@ class LocalRpmRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="yumRootDepth")
-    def yum_root_depth(self) -> pulumi.Output[Optional[int]]:
+    def yum_root_depth(self) -> pulumi.Output[int]:
         """
         The depth, relative to the repository's root folder, where RPM metadata is created. 
         This is useful when your repository contains multiple RPM repositories under parallel hierarchies. For example, if

@@ -58,7 +58,7 @@ namespace Pulumi.Artifactory
         /// Please refer to: [Descriptor Path Patterns](https://www.jfrog.com/confluence/display/JFROG/Repository+Layouts#RepositoryLayouts-DescriptorPathPatterns) in the Artifactory Wiki documentation.
         /// </summary>
         [Output("descriptorPathPattern")]
-        public Output<string?> DescriptorPathPattern { get; private set; } = null!;
+        public Output<string> DescriptorPathPattern { get; private set; } = null!;
 
         /// <summary>
         /// When set, `descriptor_path_pattern` will be used. Default to `false`.

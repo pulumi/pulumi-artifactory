@@ -52,23 +52,6 @@ public final class LocalConanRepositoryState extends com.pulumi.resources.Resour
     }
 
     /**
-     * When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
-     * 
-     */
-    @Import(name="cdnRedirect")
-    private @Nullable Output<Boolean> cdnRedirect;
-
-    /**
-     * @return When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
-     * 
-     */
-    public Optional<Output<Boolean>> cdnRedirect() {
-        return Optional.ofNullable(this.cdnRedirect);
-    }
-
-    /**
      * Public description.
      * 
      */
@@ -179,13 +162,6 @@ public final class LocalConanRepositoryState extends com.pulumi.resources.Resour
         return Optional.ofNullable(this.notes);
     }
 
-    @Import(name="packageType")
-    private @Nullable Output<String> packageType;
-
-    public Optional<Output<String>> packageType() {
-        return Optional.ofNullable(this.packageType);
-    }
-
     /**
      * Setting repositories with priority will cause metadata to be merged only from repositories set with this field
      * 
@@ -241,14 +217,16 @@ public final class LocalConanRepositoryState extends com.pulumi.resources.Resour
     }
 
     /**
-     * Repository layout key for the local repository
+     * Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+     * corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
      * 
      */
     @Import(name="repoLayoutRef")
     private @Nullable Output<String> repoLayoutRef;
 
     /**
-     * @return Repository layout key for the local repository
+     * @return Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+     * corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
      * 
      */
     public Optional<Output<String>> repoLayoutRef() {
@@ -277,7 +255,6 @@ public final class LocalConanRepositoryState extends com.pulumi.resources.Resour
     private LocalConanRepositoryState(LocalConanRepositoryState $) {
         this.archiveBrowsingEnabled = $.archiveBrowsingEnabled;
         this.blackedOut = $.blackedOut;
-        this.cdnRedirect = $.cdnRedirect;
         this.description = $.description;
         this.downloadDirect = $.downloadDirect;
         this.excludesPattern = $.excludesPattern;
@@ -285,7 +262,6 @@ public final class LocalConanRepositoryState extends com.pulumi.resources.Resour
         this.includesPattern = $.includesPattern;
         this.key = $.key;
         this.notes = $.notes;
-        this.packageType = $.packageType;
         this.priorityResolution = $.priorityResolution;
         this.projectEnvironments = $.projectEnvironments;
         this.projectKey = $.projectKey;
@@ -356,29 +332,6 @@ public final class LocalConanRepositoryState extends com.pulumi.resources.Resour
          */
         public Builder blackedOut(Boolean blackedOut) {
             return blackedOut(Output.of(blackedOut));
-        }
-
-        /**
-         * @param cdnRedirect When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-         * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
-         * 
-         * @return builder
-         * 
-         */
-        public Builder cdnRedirect(@Nullable Output<Boolean> cdnRedirect) {
-            $.cdnRedirect = cdnRedirect;
-            return this;
-        }
-
-        /**
-         * @param cdnRedirect When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-         * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
-         * 
-         * @return builder
-         * 
-         */
-        public Builder cdnRedirect(Boolean cdnRedirect) {
-            return cdnRedirect(Output.of(cdnRedirect));
         }
 
         /**
@@ -534,15 +487,6 @@ public final class LocalConanRepositoryState extends com.pulumi.resources.Resour
             return notes(Output.of(notes));
         }
 
-        public Builder packageType(@Nullable Output<String> packageType) {
-            $.packageType = packageType;
-            return this;
-        }
-
-        public Builder packageType(String packageType) {
-            return packageType(Output.of(packageType));
-        }
-
         /**
          * @param priorityResolution Setting repositories with priority will cause metadata to be merged only from repositories set with this field
          * 
@@ -632,7 +576,8 @@ public final class LocalConanRepositoryState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param repoLayoutRef Repository layout key for the local repository
+         * @param repoLayoutRef Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+         * corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
          * 
          * @return builder
          * 
@@ -643,7 +588,8 @@ public final class LocalConanRepositoryState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param repoLayoutRef Repository layout key for the local repository
+         * @param repoLayoutRef Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+         * corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
          * 
          * @return builder
          * 

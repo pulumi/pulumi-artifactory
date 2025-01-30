@@ -12,7 +12,6 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.String;
-import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -90,14 +89,14 @@ public class RepositoryLayout extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="descriptorPathPattern", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> descriptorPathPattern;
+    private Output<String> descriptorPathPattern;
 
     /**
      * @return Please refer to: [Descriptor Path Patterns](https://www.jfrog.com/confluence/display/JFROG/Repository+Layouts#RepositoryLayouts-DescriptorPathPatterns) in the Artifactory Wiki documentation.
      * 
      */
-    public Output<Optional<String>> descriptorPathPattern() {
-        return Codegen.optional(this.descriptorPathPattern);
+    public Output<String> descriptorPathPattern() {
+        return this.descriptorPathPattern;
     }
     /**
      * When set, `descriptor_path_pattern` will be used. Default to `false`.

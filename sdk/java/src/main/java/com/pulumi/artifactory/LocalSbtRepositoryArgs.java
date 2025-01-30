@@ -54,23 +54,6 @@ public final class LocalSbtRepositoryArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
-     * 
-     */
-    @Import(name="cdnRedirect")
-    private @Nullable Output<Boolean> cdnRedirect;
-
-    /**
-     * @return When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
-     * 
-     */
-    public Optional<Output<Boolean>> cdnRedirect() {
-        return Optional.ofNullable(this.cdnRedirect);
-    }
-
-    /**
      * Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or
      * conflicts with the locally calculated checksum (bad checksum). Options are: &#34;client-checksums&#34;, or
      * &#34;server-generated-checksums&#34;. Default: &#34;client-checksums&#34;\n For more details, please refer to Checksum Policy -
@@ -289,14 +272,16 @@ public final class LocalSbtRepositoryArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Repository layout key for the local repository
+     * Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+     * corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
      * 
      */
     @Import(name="repoLayoutRef")
     private @Nullable Output<String> repoLayoutRef;
 
     /**
-     * @return Repository layout key for the local repository
+     * @return Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+     * corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
      * 
      */
     public Optional<Output<String>> repoLayoutRef() {
@@ -304,18 +289,18 @@ public final class LocalSbtRepositoryArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Specifies the naming convention for Maven SNAPSHOT versions. The options are - unique: Version number is based on a
-     * time-stamp (default) non-unique: Version number uses a self-overriding naming pattern of
-     * artifactId-version-SNAPSHOT.type deployer: Respects the settings in the Maven client that is deploying the artifact.
+     * Specifies the naming convention for Maven SNAPSHOT versions. The options are - `unique`: Version number is based on a
+     * time-stamp (default), `non-unique`: Version number uses a self-overriding naming pattern of
+     * artifactId-version-SNAPSHOT.type, `deployer`: Respects the settings in the Maven client that is deploying the artifact.
      * 
      */
     @Import(name="snapshotVersionBehavior")
     private @Nullable Output<String> snapshotVersionBehavior;
 
     /**
-     * @return Specifies the naming convention for Maven SNAPSHOT versions. The options are - unique: Version number is based on a
-     * time-stamp (default) non-unique: Version number uses a self-overriding naming pattern of
-     * artifactId-version-SNAPSHOT.type deployer: Respects the settings in the Maven client that is deploying the artifact.
+     * @return Specifies the naming convention for Maven SNAPSHOT versions. The options are - `unique`: Version number is based on a
+     * time-stamp (default), `non-unique`: Version number uses a self-overriding naming pattern of
+     * artifactId-version-SNAPSHOT.type, `deployer`: Respects the settings in the Maven client that is deploying the artifact.
      * 
      */
     public Optional<Output<String>> snapshotVersionBehavior() {
@@ -325,7 +310,7 @@ public final class LocalSbtRepositoryArgs extends com.pulumi.resources.ResourceA
     /**
      * By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the
      * groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the
-     * deployment with a &#34;409 Conflict&#34; error. You can disable this behavior by setting the Suppress POM Consistency Checks
+     * deployment with a `409 Conflict` error. You can disable this behavior by setting the Suppress POM Consistency Checks
      * checkbox.
      * 
      */
@@ -335,7 +320,7 @@ public final class LocalSbtRepositoryArgs extends com.pulumi.resources.ResourceA
     /**
      * @return By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the
      * groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the
-     * deployment with a &#34;409 Conflict&#34; error. You can disable this behavior by setting the Suppress POM Consistency Checks
+     * deployment with a `409 Conflict` error. You can disable this behavior by setting the Suppress POM Consistency Checks
      * checkbox.
      * 
      */
@@ -365,7 +350,6 @@ public final class LocalSbtRepositoryArgs extends com.pulumi.resources.ResourceA
     private LocalSbtRepositoryArgs(LocalSbtRepositoryArgs $) {
         this.archiveBrowsingEnabled = $.archiveBrowsingEnabled;
         this.blackedOut = $.blackedOut;
-        this.cdnRedirect = $.cdnRedirect;
         this.checksumPolicyType = $.checksumPolicyType;
         this.description = $.description;
         this.downloadDirect = $.downloadDirect;
@@ -448,29 +432,6 @@ public final class LocalSbtRepositoryArgs extends com.pulumi.resources.ResourceA
          */
         public Builder blackedOut(Boolean blackedOut) {
             return blackedOut(Output.of(blackedOut));
-        }
-
-        /**
-         * @param cdnRedirect When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-         * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
-         * 
-         * @return builder
-         * 
-         */
-        public Builder cdnRedirect(@Nullable Output<Boolean> cdnRedirect) {
-            $.cdnRedirect = cdnRedirect;
-            return this;
-        }
-
-        /**
-         * @param cdnRedirect When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-         * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
-         * 
-         * @return builder
-         * 
-         */
-        public Builder cdnRedirect(Boolean cdnRedirect) {
-            return cdnRedirect(Output.of(cdnRedirect));
         }
 
         /**
@@ -786,7 +747,8 @@ public final class LocalSbtRepositoryArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param repoLayoutRef Repository layout key for the local repository
+         * @param repoLayoutRef Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+         * corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
          * 
          * @return builder
          * 
@@ -797,7 +759,8 @@ public final class LocalSbtRepositoryArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param repoLayoutRef Repository layout key for the local repository
+         * @param repoLayoutRef Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+         * corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
          * 
          * @return builder
          * 
@@ -807,9 +770,9 @@ public final class LocalSbtRepositoryArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param snapshotVersionBehavior Specifies the naming convention for Maven SNAPSHOT versions. The options are - unique: Version number is based on a
-         * time-stamp (default) non-unique: Version number uses a self-overriding naming pattern of
-         * artifactId-version-SNAPSHOT.type deployer: Respects the settings in the Maven client that is deploying the artifact.
+         * @param snapshotVersionBehavior Specifies the naming convention for Maven SNAPSHOT versions. The options are - `unique`: Version number is based on a
+         * time-stamp (default), `non-unique`: Version number uses a self-overriding naming pattern of
+         * artifactId-version-SNAPSHOT.type, `deployer`: Respects the settings in the Maven client that is deploying the artifact.
          * 
          * @return builder
          * 
@@ -820,9 +783,9 @@ public final class LocalSbtRepositoryArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param snapshotVersionBehavior Specifies the naming convention for Maven SNAPSHOT versions. The options are - unique: Version number is based on a
-         * time-stamp (default) non-unique: Version number uses a self-overriding naming pattern of
-         * artifactId-version-SNAPSHOT.type deployer: Respects the settings in the Maven client that is deploying the artifact.
+         * @param snapshotVersionBehavior Specifies the naming convention for Maven SNAPSHOT versions. The options are - `unique`: Version number is based on a
+         * time-stamp (default), `non-unique`: Version number uses a self-overriding naming pattern of
+         * artifactId-version-SNAPSHOT.type, `deployer`: Respects the settings in the Maven client that is deploying the artifact.
          * 
          * @return builder
          * 
@@ -834,7 +797,7 @@ public final class LocalSbtRepositoryArgs extends com.pulumi.resources.ResourceA
         /**
          * @param suppressPomConsistencyChecks By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the
          * groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the
-         * deployment with a &#34;409 Conflict&#34; error. You can disable this behavior by setting the Suppress POM Consistency Checks
+         * deployment with a `409 Conflict` error. You can disable this behavior by setting the Suppress POM Consistency Checks
          * checkbox.
          * 
          * @return builder
@@ -848,7 +811,7 @@ public final class LocalSbtRepositoryArgs extends com.pulumi.resources.ResourceA
         /**
          * @param suppressPomConsistencyChecks By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the
          * groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the
-         * deployment with a &#34;409 Conflict&#34; error. You can disable this behavior by setting the Suppress POM Consistency Checks
+         * deployment with a `409 Conflict` error. You can disable this behavior by setting the Suppress POM Consistency Checks
          * checkbox.
          * 
          * @return builder

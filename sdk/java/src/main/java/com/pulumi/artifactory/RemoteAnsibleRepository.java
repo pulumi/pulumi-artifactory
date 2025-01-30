@@ -76,15 +76,15 @@ public class RemoteAnsibleRepository extends com.pulumi.resources.CustomResource
      * 
      */
     @Export(name="allowAnyHostAuth", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> allowAnyHostAuth;
+    private Output<Boolean> allowAnyHostAuth;
 
     /**
      * @return &#39;Lenient Host Authentication&#39; in the UI. Allow credentials of this repository to be used on requests redirected to any
      * other host.
      * 
      */
-    public Output<Optional<Boolean>> allowAnyHostAuth() {
-        return Codegen.optional(this.allowAnyHostAuth);
+    public Output<Boolean> allowAnyHostAuth() {
+        return this.allowAnyHostAuth;
     }
     /**
      * When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -93,7 +93,7 @@ public class RemoteAnsibleRepository extends com.pulumi.resources.CustomResource
      * 
      */
     @Export(name="archiveBrowsingEnabled", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> archiveBrowsingEnabled;
+    private Output<Boolean> archiveBrowsingEnabled;
 
     /**
      * @return When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -101,8 +101,8 @@ public class RemoteAnsibleRepository extends com.pulumi.resources.CustomResource
      * security (e.g., cross-site scripting attacks).
      * 
      */
-    public Output<Optional<Boolean>> archiveBrowsingEnabled() {
-        return Codegen.optional(this.archiveBrowsingEnabled);
+    public Output<Boolean> archiveBrowsingEnabled() {
+        return this.archiveBrowsingEnabled;
     }
     /**
      * The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
@@ -111,7 +111,7 @@ public class RemoteAnsibleRepository extends com.pulumi.resources.CustomResource
      * 
      */
     @Export(name="assumedOfflinePeriodSecs", refs={Integer.class}, tree="[0]")
-    private Output</* @Nullable */ Integer> assumedOfflinePeriodSecs;
+    private Output<Integer> assumedOfflinePeriodSecs;
 
     /**
      * @return The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
@@ -119,8 +119,8 @@ public class RemoteAnsibleRepository extends com.pulumi.resources.CustomResource
      * offline.
      * 
      */
-    public Output<Optional<Integer>> assumedOfflinePeriodSecs() {
-        return Codegen.optional(this.assumedOfflinePeriodSecs);
+    public Output<Integer> assumedOfflinePeriodSecs() {
+        return this.assumedOfflinePeriodSecs;
     }
     /**
      * (A.K.A &#39;Ignore Repository&#39; on the UI) When set, the repository or its local cache do not participate in artifact
@@ -128,15 +128,15 @@ public class RemoteAnsibleRepository extends com.pulumi.resources.CustomResource
      * 
      */
     @Export(name="blackedOut", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> blackedOut;
+    private Output<Boolean> blackedOut;
 
     /**
      * @return (A.K.A &#39;Ignore Repository&#39; on the UI) When set, the repository or its local cache do not participate in artifact
      * resolution.
      * 
      */
-    public Output<Optional<Boolean>> blackedOut() {
-        return Codegen.optional(this.blackedOut);
+    public Output<Boolean> blackedOut() {
+        return this.blackedOut;
     }
     /**
      * If set, artifacts will fail to download if a mismatch is detected between requested and received mimetype, according to
@@ -145,7 +145,7 @@ public class RemoteAnsibleRepository extends com.pulumi.resources.CustomResource
      * 
      */
     @Export(name="blockMismatchingMimeTypes", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> blockMismatchingMimeTypes;
+    private Output<Boolean> blockMismatchingMimeTypes;
 
     /**
      * @return If set, artifacts will fail to download if a mismatch is detected between requested and received mimetype, according to
@@ -153,8 +153,8 @@ public class RemoteAnsibleRepository extends com.pulumi.resources.CustomResource
      * to the override list &#39;mismatching_mime_types_override_list&#39;.
      * 
      */
-    public Output<Optional<Boolean>> blockMismatchingMimeTypes() {
-        return Codegen.optional(this.blockMismatchingMimeTypes);
+    public Output<Boolean> blockMismatchingMimeTypes() {
+        return this.blockMismatchingMimeTypes;
     }
     /**
      * Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
@@ -163,7 +163,7 @@ public class RemoteAnsibleRepository extends com.pulumi.resources.CustomResource
      * 
      */
     @Export(name="bypassHeadRequests", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> bypassHeadRequests;
+    private Output<Boolean> bypassHeadRequests;
 
     /**
      * @return Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
@@ -171,8 +171,8 @@ public class RemoteAnsibleRepository extends com.pulumi.resources.CustomResource
      * Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
      * 
      */
-    public Output<Optional<Boolean>> bypassHeadRequests() {
-        return Codegen.optional(this.bypassHeadRequests);
+    public Output<Boolean> bypassHeadRequests() {
+        return this.bypassHeadRequests;
     }
     /**
      * When set, download requests to this repository will redirect the client to download the artifact directly from AWS
@@ -180,49 +180,49 @@ public class RemoteAnsibleRepository extends com.pulumi.resources.CustomResource
      * 
      */
     @Export(name="cdnRedirect", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> cdnRedirect;
+    private Output<Boolean> cdnRedirect;
 
     /**
      * @return When set, download requests to this repository will redirect the client to download the artifact directly from AWS
      * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
      * 
      */
-    public Output<Optional<Boolean>> cdnRedirect() {
-        return Codegen.optional(this.cdnRedirect);
+    public Output<Boolean> cdnRedirect() {
+        return this.cdnRedirect;
     }
     /**
      * Client TLS certificate name.
      * 
      */
     @Export(name="clientTlsCertificate", refs={String.class}, tree="[0]")
-    private Output<String> clientTlsCertificate;
+    private Output</* @Nullable */ String> clientTlsCertificate;
 
     /**
      * @return Client TLS certificate name.
      * 
      */
-    public Output<String> clientTlsCertificate() {
-        return this.clientTlsCertificate;
+    public Output<Optional<String>> clientTlsCertificate() {
+        return Codegen.optional(this.clientTlsCertificate);
     }
     @Export(name="contentSynchronisation", refs={RemoteAnsibleRepositoryContentSynchronisation.class}, tree="[0]")
-    private Output<RemoteAnsibleRepositoryContentSynchronisation> contentSynchronisation;
+    private Output</* @Nullable */ RemoteAnsibleRepositoryContentSynchronisation> contentSynchronisation;
 
-    public Output<RemoteAnsibleRepositoryContentSynchronisation> contentSynchronisation() {
-        return this.contentSynchronisation;
+    public Output<Optional<RemoteAnsibleRepositoryContentSynchronisation>> contentSynchronisation() {
+        return Codegen.optional(this.contentSynchronisation);
     }
     /**
      * Public description.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> description;
+    private Output<String> description;
 
     /**
      * @return Public description.
      * 
      */
-    public Output<Optional<String>> description() {
-        return Codegen.optional(this.description);
+    public Output<String> description() {
+        return this.description;
     }
     /**
      * When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
@@ -230,29 +230,29 @@ public class RemoteAnsibleRepository extends com.pulumi.resources.CustomResource
      * 
      */
     @Export(name="disableProxy", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> disableProxy;
+    private Output<Boolean> disableProxy;
 
     /**
      * @return When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
      * for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
      * 
      */
-    public Output<Optional<Boolean>> disableProxy() {
-        return Codegen.optional(this.disableProxy);
+    public Output<Boolean> disableProxy() {
+        return this.disableProxy;
     }
     /**
-     * Whether to disable URL normalization, default is `false`.
+     * Whether to disable URL normalization. Default is `false`.
      * 
      */
     @Export(name="disableUrlNormalization", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> disableUrlNormalization;
+    private Output<Boolean> disableUrlNormalization;
 
     /**
-     * @return Whether to disable URL normalization, default is `false`.
+     * @return Whether to disable URL normalization. Default is `false`.
      * 
      */
-    public Output<Optional<Boolean>> disableUrlNormalization() {
-        return Codegen.optional(this.disableUrlNormalization);
+    public Output<Boolean> disableUrlNormalization() {
+        return this.disableUrlNormalization;
     }
     /**
      * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
@@ -260,29 +260,29 @@ public class RemoteAnsibleRepository extends com.pulumi.resources.CustomResource
      * 
      */
     @Export(name="downloadDirect", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> downloadDirect;
+    private Output<Boolean> downloadDirect;
 
     /**
      * @return When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
      * storage provider. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;.
      * 
      */
-    public Output<Optional<Boolean>> downloadDirect() {
-        return Codegen.optional(this.downloadDirect);
+    public Output<Boolean> downloadDirect() {
+        return this.downloadDirect;
     }
     /**
      * Enables cookie management if the remote repository uses cookies to manage client state.
      * 
      */
     @Export(name="enableCookieManagement", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> enableCookieManagement;
+    private Output<Boolean> enableCookieManagement;
 
     /**
      * @return Enables cookie management if the remote repository uses cookies to manage client state.
      * 
      */
-    public Output<Optional<Boolean>> enableCookieManagement() {
-        return Codegen.optional(this.enableCookieManagement);
+    public Output<Boolean> enableCookieManagement() {
+        return this.enableCookieManagement;
     }
     /**
      * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no
@@ -290,15 +290,15 @@ public class RemoteAnsibleRepository extends com.pulumi.resources.CustomResource
      * 
      */
     @Export(name="excludesPattern", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> excludesPattern;
+    private Output<String> excludesPattern;
 
     /**
      * @return List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no
      * artifacts are excluded.
      * 
      */
-    public Output<Optional<String>> excludesPattern() {
-        return Codegen.optional(this.excludesPattern);
+    public Output<String> excludesPattern() {
+        return this.excludesPattern;
     }
     /**
      * When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
@@ -306,15 +306,15 @@ public class RemoteAnsibleRepository extends com.pulumi.resources.CustomResource
      * 
      */
     @Export(name="hardFail", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> hardFail;
+    private Output<Boolean> hardFail;
 
     /**
      * @return When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
      * communicate with this repository.
      * 
      */
-    public Output<Optional<Boolean>> hardFail() {
-        return Codegen.optional(this.hardFail);
+    public Output<Boolean> hardFail() {
+        return this.hardFail;
     }
     /**
      * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When
@@ -322,15 +322,15 @@ public class RemoteAnsibleRepository extends com.pulumi.resources.CustomResource
      * 
      */
     @Export(name="includesPattern", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> includesPattern;
+    private Output<String> includesPattern;
 
     /**
      * @return List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When
      * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
      * 
      */
-    public Output<Optional<String>> includesPattern() {
-        return Codegen.optional(this.includesPattern);
+    public Output<String> includesPattern() {
+        return this.includesPattern;
     }
     /**
      * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
@@ -354,15 +354,15 @@ public class RemoteAnsibleRepository extends com.pulumi.resources.CustomResource
      * 
      */
     @Export(name="listRemoteFolderItems", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> listRemoteFolderItems;
+    private Output<Boolean> listRemoteFolderItems;
 
     /**
      * @return Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
      * the &#39;Retrieval Cache Period&#39;. Default value is &#39;false&#39;. This field exists in the API but not in the UI.
      * 
      */
-    public Output<Optional<Boolean>> listRemoteFolderItems() {
-        return Codegen.optional(this.listRemoteFolderItems);
+    public Output<Boolean> listRemoteFolderItems() {
+        return this.listRemoteFolderItems;
     }
     /**
      * The local address to be used when creating connections. Useful for specifying the interface to use on systems with
@@ -370,15 +370,15 @@ public class RemoteAnsibleRepository extends com.pulumi.resources.CustomResource
      * 
      */
     @Export(name="localAddress", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> localAddress;
+    private Output<String> localAddress;
 
     /**
      * @return The local address to be used when creating connections. Useful for specifying the interface to use on systems with
      * multiple network interfaces.
      * 
      */
-    public Output<Optional<String>> localAddress() {
-        return Codegen.optional(this.localAddress);
+    public Output<String> localAddress() {
+        return this.localAddress;
     }
     /**
      * Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
@@ -386,15 +386,15 @@ public class RemoteAnsibleRepository extends com.pulumi.resources.CustomResource
      * 
      */
     @Export(name="metadataRetrievalTimeoutSecs", refs={Integer.class}, tree="[0]")
-    private Output</* @Nullable */ Integer> metadataRetrievalTimeoutSecs;
+    private Output<Integer> metadataRetrievalTimeoutSecs;
 
     /**
      * @return Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
      * the remote before serving locally cached artifact or fail the request.
      * 
      */
-    public Output<Optional<Integer>> metadataRetrievalTimeoutSecs() {
-        return Codegen.optional(this.metadataRetrievalTimeoutSecs);
+    public Output<Integer> metadataRetrievalTimeoutSecs() {
+        return this.metadataRetrievalTimeoutSecs;
     }
     /**
      * The set of mime types that should override the block_mismatching_mime_types setting. Eg:
@@ -402,15 +402,15 @@ public class RemoteAnsibleRepository extends com.pulumi.resources.CustomResource
      * 
      */
     @Export(name="mismatchingMimeTypesOverrideList", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> mismatchingMimeTypesOverrideList;
+    private Output<String> mismatchingMimeTypesOverrideList;
 
     /**
      * @return The set of mime types that should override the block_mismatching_mime_types setting. Eg:
      * &#39;application/json,application/xml&#39;. Default value is empty.
      * 
      */
-    public Output<Optional<String>> mismatchingMimeTypesOverrideList() {
-        return Codegen.optional(this.mismatchingMimeTypesOverrideList);
+    public Output<String> mismatchingMimeTypesOverrideList() {
+        return this.mismatchingMimeTypesOverrideList;
     }
     /**
      * Missed Retrieval Cache Period (Sec) in the UI. The number of seconds to cache artifact retrieval misses (artifact not
@@ -418,49 +418,43 @@ public class RemoteAnsibleRepository extends com.pulumi.resources.CustomResource
      * 
      */
     @Export(name="missedCachePeriodSeconds", refs={Integer.class}, tree="[0]")
-    private Output</* @Nullable */ Integer> missedCachePeriodSeconds;
+    private Output<Integer> missedCachePeriodSeconds;
 
     /**
      * @return Missed Retrieval Cache Period (Sec) in the UI. The number of seconds to cache artifact retrieval misses (artifact not
      * found). A value of 0 indicates no caching.
      * 
      */
-    public Output<Optional<Integer>> missedCachePeriodSeconds() {
-        return Codegen.optional(this.missedCachePeriodSeconds);
+    public Output<Integer> missedCachePeriodSeconds() {
+        return this.missedCachePeriodSeconds;
     }
     /**
      * Internal description.
      * 
      */
     @Export(name="notes", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> notes;
+    private Output<String> notes;
 
     /**
      * @return Internal description.
      * 
      */
-    public Output<Optional<String>> notes() {
-        return Codegen.optional(this.notes);
+    public Output<String> notes() {
+        return this.notes;
     }
     /**
      * If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
      * 
      */
     @Export(name="offline", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> offline;
+    private Output<Boolean> offline;
 
     /**
      * @return If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
      * 
      */
-    public Output<Optional<Boolean>> offline() {
-        return Codegen.optional(this.offline);
-    }
-    @Export(name="packageType", refs={String.class}, tree="[0]")
-    private Output<String> packageType;
-
-    public Output<String> packageType() {
-        return this.packageType;
+    public Output<Boolean> offline() {
+        return this.offline;
     }
     @Export(name="password", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> password;
@@ -469,22 +463,18 @@ public class RemoteAnsibleRepository extends com.pulumi.resources.CustomResource
         return Codegen.optional(this.password);
     }
     /**
-     * Setting Priority Resolution takes precedence over the resolution order when resolving virtual repositories. Setting
-     * repositories with priority will cause metadata to be merged only from repositories set with a priority. If a package is
-     * not found in those repositories, Artifactory will merge from repositories marked as non-priority.
+     * Setting repositories with priority will cause metadata to be merged only from repositories set with this field
      * 
      */
     @Export(name="priorityResolution", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> priorityResolution;
+    private Output<Boolean> priorityResolution;
 
     /**
-     * @return Setting Priority Resolution takes precedence over the resolution order when resolving virtual repositories. Setting
-     * repositories with priority will cause metadata to be merged only from repositories set with a priority. If a package is
-     * not found in those repositories, Artifactory will merge from repositories marked as non-priority.
+     * @return Setting repositories with priority will cause metadata to be merged only from repositories set with this field
      * 
      */
-    public Output<Optional<Boolean>> priorityResolution() {
-        return Codegen.optional(this.priorityResolution);
+    public Output<Boolean> priorityResolution() {
+        return this.priorityResolution;
     }
     @Export(name="projectEnvironments", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> projectEnvironments;
@@ -498,25 +488,25 @@ public class RemoteAnsibleRepository extends com.pulumi.resources.CustomResource
      * 
      */
     @Export(name="projectKey", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> projectKey;
+    private Output<String> projectKey;
 
     /**
      * @return Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
      * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      * 
      */
-    public Output<Optional<String>> projectKey() {
-        return Codegen.optional(this.projectKey);
+    public Output<String> projectKey() {
+        return this.projectKey;
     }
     /**
-     * List of property set names
+     * List of property set name
      * 
      */
     @Export(name="propertySets", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> propertySets;
 
     /**
-     * @return List of property set names
+     * @return List of property set name
      * 
      */
     public Output<Optional<List<String>>> propertySets() {
@@ -527,14 +517,14 @@ public class RemoteAnsibleRepository extends com.pulumi.resources.CustomResource
      * 
      */
     @Export(name="proxy", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> proxy;
+    private Output<String> proxy;
 
     /**
      * @return Proxy key from Artifactory Proxies settings. Can&#39;t be set if `disable_proxy = true`.
      * 
      */
-    public Output<Optional<String>> proxy() {
-        return Codegen.optional(this.proxy);
+    public Output<String> proxy() {
+        return this.proxy;
     }
     /**
      * Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
@@ -542,15 +532,15 @@ public class RemoteAnsibleRepository extends com.pulumi.resources.CustomResource
      * 
      */
     @Export(name="queryParams", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> queryParams;
+    private Output<String> queryParams;
 
     /**
      * @return Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
      * `param1=val1&amp;param2=val2&amp;param3=val3`
      * 
      */
-    public Output<Optional<String>> queryParams() {
-        return Codegen.optional(this.queryParams);
+    public Output<String> queryParams() {
+        return this.queryParams;
     }
     /**
      * Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an
@@ -559,7 +549,7 @@ public class RemoteAnsibleRepository extends com.pulumi.resources.CustomResource
      * 
      */
     @Export(name="remoteRepoLayoutRef", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> remoteRepoLayoutRef;
+    private Output<String> remoteRepoLayoutRef;
 
     /**
      * @return Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an
@@ -567,22 +557,24 @@ public class RemoteAnsibleRepository extends com.pulumi.resources.CustomResource
      * ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
      * 
      */
-    public Output<Optional<String>> remoteRepoLayoutRef() {
-        return Codegen.optional(this.remoteRepoLayoutRef);
+    public Output<String> remoteRepoLayoutRef() {
+        return this.remoteRepoLayoutRef;
     }
     /**
-     * Repository layout key for the remote repository
+     * Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+     * corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
      * 
      */
     @Export(name="repoLayoutRef", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> repoLayoutRef;
+    private Output<String> repoLayoutRef;
 
     /**
-     * @return Repository layout key for the remote repository
+     * @return Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+     * corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
      * 
      */
-    public Output<Optional<String>> repoLayoutRef() {
-        return Codegen.optional(this.repoLayoutRef);
+    public Output<String> repoLayoutRef() {
+        return this.repoLayoutRef;
     }
     /**
      * Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files
@@ -590,16 +582,22 @@ public class RemoteAnsibleRepository extends com.pulumi.resources.CustomResource
      * 
      */
     @Export(name="retrievalCachePeriodSeconds", refs={Integer.class}, tree="[0]")
-    private Output</* @Nullable */ Integer> retrievalCachePeriodSeconds;
+    private Output<Integer> retrievalCachePeriodSeconds;
 
     /**
      * @return Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files
      * before checking for newer versions on remote server. A value of 0 indicates no caching.
      * 
      */
-    public Output<Optional<Integer>> retrievalCachePeriodSeconds() {
-        return Codegen.optional(this.retrievalCachePeriodSeconds);
+    public Output<Integer> retrievalCachePeriodSeconds() {
+        return this.retrievalCachePeriodSeconds;
     }
+    /**
+     * @deprecated
+     * No longer supported
+     * 
+     */
+    @Deprecated /* No longer supported */
     @Export(name="shareConfiguration", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> shareConfiguration;
 
@@ -612,15 +610,15 @@ public class RemoteAnsibleRepository extends com.pulumi.resources.CustomResource
      * 
      */
     @Export(name="socketTimeoutMillis", refs={Integer.class}, tree="[0]")
-    private Output</* @Nullable */ Integer> socketTimeoutMillis;
+    private Output<Integer> socketTimeoutMillis;
 
     /**
      * @return Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network
      * operation is considered a retrieval failure.
      * 
      */
-    public Output<Optional<Integer>> socketTimeoutMillis() {
-        return Codegen.optional(this.socketTimeoutMillis);
+    public Output<Integer> socketTimeoutMillis() {
+        return this.socketTimeoutMillis;
     }
     /**
      * When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and
@@ -630,7 +628,7 @@ public class RemoteAnsibleRepository extends com.pulumi.resources.CustomResource
      * 
      */
     @Export(name="storeArtifactsLocally", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> storeArtifactsLocally;
+    private Output<Boolean> storeArtifactsLocally;
 
     /**
      * @return When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and
@@ -639,22 +637,22 @@ public class RemoteAnsibleRepository extends com.pulumi.resources.CustomResource
      * servers.
      * 
      */
-    public Output<Optional<Boolean>> storeArtifactsLocally() {
-        return Codegen.optional(this.storeArtifactsLocally);
+    public Output<Boolean> storeArtifactsLocally() {
+        return this.storeArtifactsLocally;
     }
     /**
      * When set, remote artifacts are fetched along with their properties.
      * 
      */
     @Export(name="synchronizeProperties", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> synchronizeProperties;
+    private Output<Boolean> synchronizeProperties;
 
     /**
      * @return When set, remote artifacts are fetched along with their properties.
      * 
      */
-    public Output<Optional<Boolean>> synchronizeProperties() {
-        return Codegen.optional(this.synchronizeProperties);
+    public Output<Boolean> synchronizeProperties() {
+        return this.synchronizeProperties;
     }
     /**
      * Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed &#39;unused&#39; and
@@ -662,35 +660,35 @@ public class RemoteAnsibleRepository extends com.pulumi.resources.CustomResource
      * 
      */
     @Export(name="unusedArtifactsCleanupPeriodHours", refs={Integer.class}, tree="[0]")
-    private Output</* @Nullable */ Integer> unusedArtifactsCleanupPeriodHours;
+    private Output<Integer> unusedArtifactsCleanupPeriodHours;
 
     /**
      * @return Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed &#39;unused&#39; and
      * eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
      * 
      */
-    public Output<Optional<Integer>> unusedArtifactsCleanupPeriodHours() {
-        return Codegen.optional(this.unusedArtifactsCleanupPeriodHours);
+    public Output<Integer> unusedArtifactsCleanupPeriodHours() {
+        return this.unusedArtifactsCleanupPeriodHours;
     }
     /**
      * The remote repo URL.
      * 
      */
     @Export(name="url", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> url;
+    private Output<String> url;
 
     /**
      * @return The remote repo URL.
      * 
      */
-    public Output<Optional<String>> url() {
-        return Codegen.optional(this.url);
+    public Output<String> url() {
+        return this.url;
     }
     @Export(name="username", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> username;
+    private Output<String> username;
 
-    public Output<Optional<String>> username() {
-        return Codegen.optional(this.username);
+    public Output<String> username() {
+        return this.username;
     }
     /**
      * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
@@ -698,15 +696,15 @@ public class RemoteAnsibleRepository extends com.pulumi.resources.CustomResource
      * 
      */
     @Export(name="xrayIndex", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> xrayIndex;
+    private Output<Boolean> xrayIndex;
 
     /**
      * @return Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
      * Xray settings.
      * 
      */
-    public Output<Optional<Boolean>> xrayIndex() {
-        return Codegen.optional(this.xrayIndex);
+    public Output<Boolean> xrayIndex() {
+        return this.xrayIndex;
     }
 
     /**

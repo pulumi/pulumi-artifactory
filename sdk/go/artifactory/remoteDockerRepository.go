@@ -61,22 +61,22 @@ type RemoteDockerRepository struct {
 
 	// 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any
 	// other host.
-	AllowAnyHostAuth pulumi.BoolPtrOutput `pulumi:"allowAnyHostAuth"`
+	AllowAnyHostAuth pulumi.BoolOutput `pulumi:"allowAnyHostAuth"`
 	// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
 	// therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
 	// security (e.g., cross-site scripting attacks).
-	ArchiveBrowsingEnabled pulumi.BoolPtrOutput `pulumi:"archiveBrowsingEnabled"`
+	ArchiveBrowsingEnabled pulumi.BoolOutput `pulumi:"archiveBrowsingEnabled"`
 	// The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
 	// an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
 	// offline.
-	AssumedOfflinePeriodSecs pulumi.IntPtrOutput `pulumi:"assumedOfflinePeriodSecs"`
+	AssumedOfflinePeriodSecs pulumi.IntOutput `pulumi:"assumedOfflinePeriodSecs"`
 	// (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact
 	// resolution.
-	BlackedOut pulumi.BoolPtrOutput `pulumi:"blackedOut"`
+	BlackedOut pulumi.BoolOutput `pulumi:"blackedOut"`
 	// If set, artifacts will fail to download if a mismatch is detected between requested and received mimetype, according to
 	// the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes
 	// to the override list 'mismatching_mime_types_override_list'.
-	BlockMismatchingMimeTypes pulumi.BoolPtrOutput `pulumi:"blockMismatchingMimeTypes"`
+	BlockMismatchingMimeTypes pulumi.BoolOutput `pulumi:"blockMismatchingMimeTypes"`
 	// When set, Artifactory will block the pulling of Docker images with manifest v2
 	// schema 1 from the remote repository (i.e. the upstream). It will be possible to pull images with manifest v2 schema 1
 	// that exist in the cache.
@@ -84,118 +84,111 @@ type RemoteDockerRepository struct {
 	// Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
 	// HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
 	// Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
-	BypassHeadRequests pulumi.BoolPtrOutput `pulumi:"bypassHeadRequests"`
+	BypassHeadRequests pulumi.BoolOutput `pulumi:"bypassHeadRequests"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
 	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
-	CdnRedirect pulumi.BoolPtrOutput `pulumi:"cdnRedirect"`
+	CdnRedirect pulumi.BoolOutput `pulumi:"cdnRedirect"`
 	// Client TLS certificate name.
-	ClientTlsCertificate   pulumi.StringOutput                                `pulumi:"clientTlsCertificate"`
-	ContentSynchronisation RemoteDockerRepositoryContentSynchronisationOutput `pulumi:"contentSynchronisation"`
+	ClientTlsCertificate   pulumi.StringPtrOutput                                `pulumi:"clientTlsCertificate"`
+	ContentSynchronisation RemoteDockerRepositoryContentSynchronisationPtrOutput `pulumi:"contentSynchronisation"`
 	// Enable repository to be protected by the Curation service.
-	Curated pulumi.BoolPtrOutput `pulumi:"curated"`
+	Curated pulumi.BoolOutput `pulumi:"curated"`
 	// Public description.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
+	Description pulumi.StringOutput `pulumi:"description"`
 	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
 	// for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
-	DisableProxy pulumi.BoolPtrOutput `pulumi:"disableProxy"`
-	// Whether to disable URL normalization, default is `false`.
-	DisableUrlNormalization pulumi.BoolPtrOutput `pulumi:"disableUrlNormalization"`
+	DisableProxy pulumi.BoolOutput `pulumi:"disableProxy"`
+	// Whether to disable URL normalization. Default is `false`.
+	DisableUrlNormalization pulumi.BoolOutput `pulumi:"disableUrlNormalization"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
-	DownloadDirect pulumi.BoolPtrOutput `pulumi:"downloadDirect"`
+	DownloadDirect pulumi.BoolOutput `pulumi:"downloadDirect"`
 	// Enables cookie management if the remote repository uses cookies to manage client state.
-	EnableCookieManagement pulumi.BoolPtrOutput `pulumi:"enableCookieManagement"`
+	EnableCookieManagement pulumi.BoolOutput `pulumi:"enableCookieManagement"`
 	// Enable token (Bearer) based authentication.
 	EnableTokenAuthentication pulumi.BoolOutput `pulumi:"enableTokenAuthentication"`
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
 	// artifacts are excluded.
-	ExcludesPattern pulumi.StringPtrOutput `pulumi:"excludesPattern"`
+	ExcludesPattern pulumi.StringOutput `pulumi:"excludesPattern"`
 	// Also known as 'Foreign Layers Caching' on the UI.
-	ExternalDependenciesEnabled pulumi.BoolPtrOutput `pulumi:"externalDependenciesEnabled"`
-	// An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will
-	// follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response.
-	// By default, this is set to `[**]` in the UI, which means that remote modules may be downloaded from any external VCS source.
-	// Due to SDKv2 limitations, we can't set the default value for the list.
-	// This value `[**]` must be assigned to the attribute manually, if user don't specify any other non-default values.
-	// We don't want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns
-	// `[**]` on update if HCL doesn't have the attribute set or the list is empty.
+	ExternalDependenciesEnabled pulumi.BoolOutput `pulumi:"externalDependenciesEnabled"`
+	// An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response. Default to `["**"]`
 	ExternalDependenciesPatterns pulumi.StringArrayOutput `pulumi:"externalDependenciesPatterns"`
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
 	// communicate with this repository.
-	HardFail pulumi.BoolPtrOutput `pulumi:"hardFail"`
+	HardFail pulumi.BoolOutput `pulumi:"hardFail"`
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
-	IncludesPattern pulumi.StringPtrOutput `pulumi:"includesPattern"`
+	IncludesPattern pulumi.StringOutput `pulumi:"includesPattern"`
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
 	// contain spaces or special characters.
 	Key pulumi.StringOutput `pulumi:"key"`
 	// Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
 	// the 'Retrieval Cache Period'. Default value is 'false'. This field exists in the API but not in the UI.
-	ListRemoteFolderItems pulumi.BoolPtrOutput `pulumi:"listRemoteFolderItems"`
+	ListRemoteFolderItems pulumi.BoolOutput `pulumi:"listRemoteFolderItems"`
 	// The local address to be used when creating connections. Useful for specifying the interface to use on systems with
 	// multiple network interfaces.
-	LocalAddress pulumi.StringPtrOutput `pulumi:"localAddress"`
+	LocalAddress pulumi.StringOutput `pulumi:"localAddress"`
 	// Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
 	// the remote before serving locally cached artifact or fail the request.
-	MetadataRetrievalTimeoutSecs pulumi.IntPtrOutput `pulumi:"metadataRetrievalTimeoutSecs"`
+	MetadataRetrievalTimeoutSecs pulumi.IntOutput `pulumi:"metadataRetrievalTimeoutSecs"`
 	// The set of mime types that should override the blockMismatchingMimeTypes setting. Eg:
 	// 'application/json,application/xml'. Default value is empty.
-	MismatchingMimeTypesOverrideList pulumi.StringPtrOutput `pulumi:"mismatchingMimeTypesOverrideList"`
+	MismatchingMimeTypesOverrideList pulumi.StringOutput `pulumi:"mismatchingMimeTypesOverrideList"`
 	// Missed Retrieval Cache Period (Sec) in the UI. The number of seconds to cache artifact retrieval misses (artifact not
 	// found). A value of 0 indicates no caching.
-	MissedCachePeriodSeconds pulumi.IntPtrOutput `pulumi:"missedCachePeriodSeconds"`
+	MissedCachePeriodSeconds pulumi.IntOutput `pulumi:"missedCachePeriodSeconds"`
 	// Internal description.
-	Notes pulumi.StringPtrOutput `pulumi:"notes"`
+	Notes pulumi.StringOutput `pulumi:"notes"`
 	// If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
-	Offline     pulumi.BoolPtrOutput   `pulumi:"offline"`
-	PackageType pulumi.StringOutput    `pulumi:"packageType"`
-	Password    pulumi.StringPtrOutput `pulumi:"password"`
-	// Setting Priority Resolution takes precedence over the resolution order when resolving virtual repositories. Setting
-	// repositories with priority will cause metadata to be merged only from repositories set with a priority. If a package is
-	// not found in those repositories, Artifactory will merge from repositories marked as non-priority.
-	PriorityResolution  pulumi.BoolPtrOutput     `pulumi:"priorityResolution"`
+	Offline  pulumi.BoolOutput      `pulumi:"offline"`
+	Password pulumi.StringPtrOutput `pulumi:"password"`
+	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+	PriorityResolution  pulumi.BoolOutput        `pulumi:"priorityResolution"`
 	ProjectEnvironments pulumi.StringArrayOutput `pulumi:"projectEnvironments"`
 	// Use this attribute to enter your GCR, GAR Project Id to limit the scope of this remote repo to a specific project in your third-party registry. When leaving this field blank or unset, remote repositories that support project id will default to their default project as you have set up in your account.
-	ProjectId pulumi.StringPtrOutput `pulumi:"projectId"`
+	ProjectId pulumi.StringOutput `pulumi:"projectId"`
 	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
-	ProjectKey pulumi.StringPtrOutput `pulumi:"projectKey"`
-	// List of property set names
+	ProjectKey pulumi.StringOutput `pulumi:"projectKey"`
+	// List of property set name
 	PropertySets pulumi.StringArrayOutput `pulumi:"propertySets"`
 	// Proxy key from Artifactory Proxies settings. Can't be set if `disableProxy = true`.
-	Proxy pulumi.StringPtrOutput `pulumi:"proxy"`
+	Proxy pulumi.StringOutput `pulumi:"proxy"`
 	// Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
 	// `param1=val1&param2=val2&param3=val3`
-	QueryParams pulumi.StringPtrOutput `pulumi:"queryParams"`
+	QueryParams pulumi.StringOutput `pulumi:"queryParams"`
 	// Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an
 	// empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be
 	// ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
-	RemoteRepoLayoutRef pulumi.StringPtrOutput `pulumi:"remoteRepoLayoutRef"`
-	// Repository layout key for the remote repository
-	RepoLayoutRef pulumi.StringPtrOutput `pulumi:"repoLayoutRef"`
+	RemoteRepoLayoutRef pulumi.StringOutput `pulumi:"remoteRepoLayoutRef"`
+	// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+	// corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+	RepoLayoutRef pulumi.StringOutput `pulumi:"repoLayoutRef"`
 	// Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files
 	// before checking for newer versions on remote server. A value of 0 indicates no caching.
-	RetrievalCachePeriodSeconds pulumi.IntPtrOutput `pulumi:"retrievalCachePeriodSeconds"`
-	ShareConfiguration          pulumi.BoolOutput   `pulumi:"shareConfiguration"`
+	RetrievalCachePeriodSeconds pulumi.IntOutput `pulumi:"retrievalCachePeriodSeconds"`
+	// Deprecated: No longer supported
+	ShareConfiguration pulumi.BoolOutput `pulumi:"shareConfiguration"`
 	// Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network
 	// operation is considered a retrieval failure.
-	SocketTimeoutMillis pulumi.IntPtrOutput `pulumi:"socketTimeoutMillis"`
+	SocketTimeoutMillis pulumi.IntOutput `pulumi:"socketTimeoutMillis"`
 	// When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and
 	// direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with
 	// one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory
 	// servers.
-	StoreArtifactsLocally pulumi.BoolPtrOutput `pulumi:"storeArtifactsLocally"`
+	StoreArtifactsLocally pulumi.BoolOutput `pulumi:"storeArtifactsLocally"`
 	// When set, remote artifacts are fetched along with their properties.
-	SynchronizeProperties pulumi.BoolPtrOutput `pulumi:"synchronizeProperties"`
+	SynchronizeProperties pulumi.BoolOutput `pulumi:"synchronizeProperties"`
 	// Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and
 	// eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
-	UnusedArtifactsCleanupPeriodHours pulumi.IntPtrOutput `pulumi:"unusedArtifactsCleanupPeriodHours"`
+	UnusedArtifactsCleanupPeriodHours pulumi.IntOutput `pulumi:"unusedArtifactsCleanupPeriodHours"`
 	// The remote repo URL.
-	Url      pulumi.StringPtrOutput `pulumi:"url"`
-	Username pulumi.StringPtrOutput `pulumi:"username"`
+	Url      pulumi.StringOutput `pulumi:"url"`
+	Username pulumi.StringOutput `pulumi:"username"`
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
-	XrayIndex pulumi.BoolPtrOutput `pulumi:"xrayIndex"`
+	XrayIndex pulumi.BoolOutput `pulumi:"xrayIndex"`
 }
 
 // NewRemoteDockerRepository registers a new resource with the given unique name, arguments, and options.
@@ -207,6 +200,9 @@ func NewRemoteDockerRepository(ctx *pulumi.Context,
 
 	if args.Key == nil {
 		return nil, errors.New("invalid value for required argument 'Key'")
+	}
+	if args.Url == nil {
+		return nil, errors.New("invalid value for required argument 'Url'")
 	}
 	if args.Password != nil {
 		args.Password = pulumi.ToSecret(args.Password).(pulumi.StringPtrInput)
@@ -277,7 +273,7 @@ type remoteDockerRepositoryState struct {
 	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
 	// for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
 	DisableProxy *bool `pulumi:"disableProxy"`
-	// Whether to disable URL normalization, default is `false`.
+	// Whether to disable URL normalization. Default is `false`.
 	DisableUrlNormalization *bool `pulumi:"disableUrlNormalization"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
@@ -291,13 +287,7 @@ type remoteDockerRepositoryState struct {
 	ExcludesPattern *string `pulumi:"excludesPattern"`
 	// Also known as 'Foreign Layers Caching' on the UI.
 	ExternalDependenciesEnabled *bool `pulumi:"externalDependenciesEnabled"`
-	// An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will
-	// follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response.
-	// By default, this is set to `[**]` in the UI, which means that remote modules may be downloaded from any external VCS source.
-	// Due to SDKv2 limitations, we can't set the default value for the list.
-	// This value `[**]` must be assigned to the attribute manually, if user don't specify any other non-default values.
-	// We don't want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns
-	// `[**]` on update if HCL doesn't have the attribute set or the list is empty.
+	// An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response. Default to `["**"]`
 	ExternalDependenciesPatterns []string `pulumi:"externalDependenciesPatterns"`
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
 	// communicate with this repository.
@@ -326,12 +316,9 @@ type remoteDockerRepositoryState struct {
 	// Internal description.
 	Notes *string `pulumi:"notes"`
 	// If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
-	Offline     *bool   `pulumi:"offline"`
-	PackageType *string `pulumi:"packageType"`
-	Password    *string `pulumi:"password"`
-	// Setting Priority Resolution takes precedence over the resolution order when resolving virtual repositories. Setting
-	// repositories with priority will cause metadata to be merged only from repositories set with a priority. If a package is
-	// not found in those repositories, Artifactory will merge from repositories marked as non-priority.
+	Offline  *bool   `pulumi:"offline"`
+	Password *string `pulumi:"password"`
+	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution  *bool    `pulumi:"priorityResolution"`
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
 	// Use this attribute to enter your GCR, GAR Project Id to limit the scope of this remote repo to a specific project in your third-party registry. When leaving this field blank or unset, remote repositories that support project id will default to their default project as you have set up in your account.
@@ -339,7 +326,7 @@ type remoteDockerRepositoryState struct {
 	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey *string `pulumi:"projectKey"`
-	// List of property set names
+	// List of property set name
 	PropertySets []string `pulumi:"propertySets"`
 	// Proxy key from Artifactory Proxies settings. Can't be set if `disableProxy = true`.
 	Proxy *string `pulumi:"proxy"`
@@ -350,12 +337,14 @@ type remoteDockerRepositoryState struct {
 	// empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be
 	// ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
 	RemoteRepoLayoutRef *string `pulumi:"remoteRepoLayoutRef"`
-	// Repository layout key for the remote repository
+	// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+	// corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
 	// Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files
 	// before checking for newer versions on remote server. A value of 0 indicates no caching.
-	RetrievalCachePeriodSeconds *int  `pulumi:"retrievalCachePeriodSeconds"`
-	ShareConfiguration          *bool `pulumi:"shareConfiguration"`
+	RetrievalCachePeriodSeconds *int `pulumi:"retrievalCachePeriodSeconds"`
+	// Deprecated: No longer supported
+	ShareConfiguration *bool `pulumi:"shareConfiguration"`
 	// Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network
 	// operation is considered a retrieval failure.
 	SocketTimeoutMillis *int `pulumi:"socketTimeoutMillis"`
@@ -417,7 +406,7 @@ type RemoteDockerRepositoryState struct {
 	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
 	// for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
 	DisableProxy pulumi.BoolPtrInput
-	// Whether to disable URL normalization, default is `false`.
+	// Whether to disable URL normalization. Default is `false`.
 	DisableUrlNormalization pulumi.BoolPtrInput
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
@@ -431,13 +420,7 @@ type RemoteDockerRepositoryState struct {
 	ExcludesPattern pulumi.StringPtrInput
 	// Also known as 'Foreign Layers Caching' on the UI.
 	ExternalDependenciesEnabled pulumi.BoolPtrInput
-	// An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will
-	// follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response.
-	// By default, this is set to `[**]` in the UI, which means that remote modules may be downloaded from any external VCS source.
-	// Due to SDKv2 limitations, we can't set the default value for the list.
-	// This value `[**]` must be assigned to the attribute manually, if user don't specify any other non-default values.
-	// We don't want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns
-	// `[**]` on update if HCL doesn't have the attribute set or the list is empty.
+	// An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response. Default to `["**"]`
 	ExternalDependenciesPatterns pulumi.StringArrayInput
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
 	// communicate with this repository.
@@ -466,12 +449,9 @@ type RemoteDockerRepositoryState struct {
 	// Internal description.
 	Notes pulumi.StringPtrInput
 	// If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
-	Offline     pulumi.BoolPtrInput
-	PackageType pulumi.StringPtrInput
-	Password    pulumi.StringPtrInput
-	// Setting Priority Resolution takes precedence over the resolution order when resolving virtual repositories. Setting
-	// repositories with priority will cause metadata to be merged only from repositories set with a priority. If a package is
-	// not found in those repositories, Artifactory will merge from repositories marked as non-priority.
+	Offline  pulumi.BoolPtrInput
+	Password pulumi.StringPtrInput
+	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution  pulumi.BoolPtrInput
 	ProjectEnvironments pulumi.StringArrayInput
 	// Use this attribute to enter your GCR, GAR Project Id to limit the scope of this remote repo to a specific project in your third-party registry. When leaving this field blank or unset, remote repositories that support project id will default to their default project as you have set up in your account.
@@ -479,7 +459,7 @@ type RemoteDockerRepositoryState struct {
 	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrInput
-	// List of property set names
+	// List of property set name
 	PropertySets pulumi.StringArrayInput
 	// Proxy key from Artifactory Proxies settings. Can't be set if `disableProxy = true`.
 	Proxy pulumi.StringPtrInput
@@ -490,12 +470,14 @@ type RemoteDockerRepositoryState struct {
 	// empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be
 	// ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
 	RemoteRepoLayoutRef pulumi.StringPtrInput
-	// Repository layout key for the remote repository
+	// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+	// corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
 	RepoLayoutRef pulumi.StringPtrInput
 	// Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files
 	// before checking for newer versions on remote server. A value of 0 indicates no caching.
 	RetrievalCachePeriodSeconds pulumi.IntPtrInput
-	ShareConfiguration          pulumi.BoolPtrInput
+	// Deprecated: No longer supported
+	ShareConfiguration pulumi.BoolPtrInput
 	// Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network
 	// operation is considered a retrieval failure.
 	SocketTimeoutMillis pulumi.IntPtrInput
@@ -561,7 +543,7 @@ type remoteDockerRepositoryArgs struct {
 	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
 	// for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
 	DisableProxy *bool `pulumi:"disableProxy"`
-	// Whether to disable URL normalization, default is `false`.
+	// Whether to disable URL normalization. Default is `false`.
 	DisableUrlNormalization *bool `pulumi:"disableUrlNormalization"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
@@ -575,13 +557,7 @@ type remoteDockerRepositoryArgs struct {
 	ExcludesPattern *string `pulumi:"excludesPattern"`
 	// Also known as 'Foreign Layers Caching' on the UI.
 	ExternalDependenciesEnabled *bool `pulumi:"externalDependenciesEnabled"`
-	// An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will
-	// follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response.
-	// By default, this is set to `[**]` in the UI, which means that remote modules may be downloaded from any external VCS source.
-	// Due to SDKv2 limitations, we can't set the default value for the list.
-	// This value `[**]` must be assigned to the attribute manually, if user don't specify any other non-default values.
-	// We don't want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns
-	// `[**]` on update if HCL doesn't have the attribute set or the list is empty.
+	// An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response. Default to `["**"]`
 	ExternalDependenciesPatterns []string `pulumi:"externalDependenciesPatterns"`
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
 	// communicate with this repository.
@@ -612,9 +588,7 @@ type remoteDockerRepositoryArgs struct {
 	// If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
 	Offline  *bool   `pulumi:"offline"`
 	Password *string `pulumi:"password"`
-	// Setting Priority Resolution takes precedence over the resolution order when resolving virtual repositories. Setting
-	// repositories with priority will cause metadata to be merged only from repositories set with a priority. If a package is
-	// not found in those repositories, Artifactory will merge from repositories marked as non-priority.
+	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution  *bool    `pulumi:"priorityResolution"`
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
 	// Use this attribute to enter your GCR, GAR Project Id to limit the scope of this remote repo to a specific project in your third-party registry. When leaving this field blank or unset, remote repositories that support project id will default to their default project as you have set up in your account.
@@ -622,7 +596,7 @@ type remoteDockerRepositoryArgs struct {
 	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey *string `pulumi:"projectKey"`
-	// List of property set names
+	// List of property set name
 	PropertySets []string `pulumi:"propertySets"`
 	// Proxy key from Artifactory Proxies settings. Can't be set if `disableProxy = true`.
 	Proxy *string `pulumi:"proxy"`
@@ -633,12 +607,14 @@ type remoteDockerRepositoryArgs struct {
 	// empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be
 	// ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
 	RemoteRepoLayoutRef *string `pulumi:"remoteRepoLayoutRef"`
-	// Repository layout key for the remote repository
+	// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+	// corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
 	// Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files
 	// before checking for newer versions on remote server. A value of 0 indicates no caching.
-	RetrievalCachePeriodSeconds *int  `pulumi:"retrievalCachePeriodSeconds"`
-	ShareConfiguration          *bool `pulumi:"shareConfiguration"`
+	RetrievalCachePeriodSeconds *int `pulumi:"retrievalCachePeriodSeconds"`
+	// Deprecated: No longer supported
+	ShareConfiguration *bool `pulumi:"shareConfiguration"`
 	// Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network
 	// operation is considered a retrieval failure.
 	SocketTimeoutMillis *int `pulumi:"socketTimeoutMillis"`
@@ -653,7 +629,7 @@ type remoteDockerRepositoryArgs struct {
 	// eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
 	UnusedArtifactsCleanupPeriodHours *int `pulumi:"unusedArtifactsCleanupPeriodHours"`
 	// The remote repo URL.
-	Url      *string `pulumi:"url"`
+	Url      string  `pulumi:"url"`
 	Username *string `pulumi:"username"`
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
@@ -701,7 +677,7 @@ type RemoteDockerRepositoryArgs struct {
 	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
 	// for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
 	DisableProxy pulumi.BoolPtrInput
-	// Whether to disable URL normalization, default is `false`.
+	// Whether to disable URL normalization. Default is `false`.
 	DisableUrlNormalization pulumi.BoolPtrInput
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
@@ -715,13 +691,7 @@ type RemoteDockerRepositoryArgs struct {
 	ExcludesPattern pulumi.StringPtrInput
 	// Also known as 'Foreign Layers Caching' on the UI.
 	ExternalDependenciesEnabled pulumi.BoolPtrInput
-	// An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will
-	// follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response.
-	// By default, this is set to `[**]` in the UI, which means that remote modules may be downloaded from any external VCS source.
-	// Due to SDKv2 limitations, we can't set the default value for the list.
-	// This value `[**]` must be assigned to the attribute manually, if user don't specify any other non-default values.
-	// We don't want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns
-	// `[**]` on update if HCL doesn't have the attribute set or the list is empty.
+	// An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response. Default to `["**"]`
 	ExternalDependenciesPatterns pulumi.StringArrayInput
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
 	// communicate with this repository.
@@ -752,9 +722,7 @@ type RemoteDockerRepositoryArgs struct {
 	// If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
 	Offline  pulumi.BoolPtrInput
 	Password pulumi.StringPtrInput
-	// Setting Priority Resolution takes precedence over the resolution order when resolving virtual repositories. Setting
-	// repositories with priority will cause metadata to be merged only from repositories set with a priority. If a package is
-	// not found in those repositories, Artifactory will merge from repositories marked as non-priority.
+	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution  pulumi.BoolPtrInput
 	ProjectEnvironments pulumi.StringArrayInput
 	// Use this attribute to enter your GCR, GAR Project Id to limit the scope of this remote repo to a specific project in your third-party registry. When leaving this field blank or unset, remote repositories that support project id will default to their default project as you have set up in your account.
@@ -762,7 +730,7 @@ type RemoteDockerRepositoryArgs struct {
 	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrInput
-	// List of property set names
+	// List of property set name
 	PropertySets pulumi.StringArrayInput
 	// Proxy key from Artifactory Proxies settings. Can't be set if `disableProxy = true`.
 	Proxy pulumi.StringPtrInput
@@ -773,12 +741,14 @@ type RemoteDockerRepositoryArgs struct {
 	// empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be
 	// ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
 	RemoteRepoLayoutRef pulumi.StringPtrInput
-	// Repository layout key for the remote repository
+	// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+	// corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
 	RepoLayoutRef pulumi.StringPtrInput
 	// Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files
 	// before checking for newer versions on remote server. A value of 0 indicates no caching.
 	RetrievalCachePeriodSeconds pulumi.IntPtrInput
-	ShareConfiguration          pulumi.BoolPtrInput
+	// Deprecated: No longer supported
+	ShareConfiguration pulumi.BoolPtrInput
 	// Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network
 	// operation is considered a retrieval failure.
 	SocketTimeoutMillis pulumi.IntPtrInput
@@ -793,7 +763,7 @@ type RemoteDockerRepositoryArgs struct {
 	// eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
 	UnusedArtifactsCleanupPeriodHours pulumi.IntPtrInput
 	// The remote repo URL.
-	Url      pulumi.StringPtrInput
+	Url      pulumi.StringInput
 	Username pulumi.StringPtrInput
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
@@ -889,35 +859,35 @@ func (o RemoteDockerRepositoryOutput) ToRemoteDockerRepositoryOutputWithContext(
 
 // 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any
 // other host.
-func (o RemoteDockerRepositoryOutput) AllowAnyHostAuth() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.BoolPtrOutput { return v.AllowAnyHostAuth }).(pulumi.BoolPtrOutput)
+func (o RemoteDockerRepositoryOutput) AllowAnyHostAuth() pulumi.BoolOutput {
+	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.BoolOutput { return v.AllowAnyHostAuth }).(pulumi.BoolOutput)
 }
 
 // When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
 // therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
 // security (e.g., cross-site scripting attacks).
-func (o RemoteDockerRepositoryOutput) ArchiveBrowsingEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.BoolPtrOutput { return v.ArchiveBrowsingEnabled }).(pulumi.BoolPtrOutput)
+func (o RemoteDockerRepositoryOutput) ArchiveBrowsingEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.BoolOutput { return v.ArchiveBrowsingEnabled }).(pulumi.BoolOutput)
 }
 
 // The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
 // an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
 // offline.
-func (o RemoteDockerRepositoryOutput) AssumedOfflinePeriodSecs() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.IntPtrOutput { return v.AssumedOfflinePeriodSecs }).(pulumi.IntPtrOutput)
+func (o RemoteDockerRepositoryOutput) AssumedOfflinePeriodSecs() pulumi.IntOutput {
+	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.IntOutput { return v.AssumedOfflinePeriodSecs }).(pulumi.IntOutput)
 }
 
 // (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact
 // resolution.
-func (o RemoteDockerRepositoryOutput) BlackedOut() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.BoolPtrOutput { return v.BlackedOut }).(pulumi.BoolPtrOutput)
+func (o RemoteDockerRepositoryOutput) BlackedOut() pulumi.BoolOutput {
+	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.BoolOutput { return v.BlackedOut }).(pulumi.BoolOutput)
 }
 
 // If set, artifacts will fail to download if a mismatch is detected between requested and received mimetype, according to
 // the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes
 // to the override list 'mismatching_mime_types_override_list'.
-func (o RemoteDockerRepositoryOutput) BlockMismatchingMimeTypes() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.BoolPtrOutput { return v.BlockMismatchingMimeTypes }).(pulumi.BoolPtrOutput)
+func (o RemoteDockerRepositoryOutput) BlockMismatchingMimeTypes() pulumi.BoolOutput {
+	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.BoolOutput { return v.BlockMismatchingMimeTypes }).(pulumi.BoolOutput)
 }
 
 // When set, Artifactory will block the pulling of Docker images with manifest v2
@@ -930,57 +900,57 @@ func (o RemoteDockerRepositoryOutput) BlockPushingSchema1() pulumi.BoolOutput {
 // Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
 // HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
 // Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
-func (o RemoteDockerRepositoryOutput) BypassHeadRequests() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.BoolPtrOutput { return v.BypassHeadRequests }).(pulumi.BoolPtrOutput)
+func (o RemoteDockerRepositoryOutput) BypassHeadRequests() pulumi.BoolOutput {
+	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.BoolOutput { return v.BypassHeadRequests }).(pulumi.BoolOutput)
 }
 
 // When set, download requests to this repository will redirect the client to download the artifact directly from AWS
 // CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
-func (o RemoteDockerRepositoryOutput) CdnRedirect() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.BoolPtrOutput { return v.CdnRedirect }).(pulumi.BoolPtrOutput)
+func (o RemoteDockerRepositoryOutput) CdnRedirect() pulumi.BoolOutput {
+	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.BoolOutput { return v.CdnRedirect }).(pulumi.BoolOutput)
 }
 
 // Client TLS certificate name.
-func (o RemoteDockerRepositoryOutput) ClientTlsCertificate() pulumi.StringOutput {
-	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.StringOutput { return v.ClientTlsCertificate }).(pulumi.StringOutput)
+func (o RemoteDockerRepositoryOutput) ClientTlsCertificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.StringPtrOutput { return v.ClientTlsCertificate }).(pulumi.StringPtrOutput)
 }
 
-func (o RemoteDockerRepositoryOutput) ContentSynchronisation() RemoteDockerRepositoryContentSynchronisationOutput {
-	return o.ApplyT(func(v *RemoteDockerRepository) RemoteDockerRepositoryContentSynchronisationOutput {
+func (o RemoteDockerRepositoryOutput) ContentSynchronisation() RemoteDockerRepositoryContentSynchronisationPtrOutput {
+	return o.ApplyT(func(v *RemoteDockerRepository) RemoteDockerRepositoryContentSynchronisationPtrOutput {
 		return v.ContentSynchronisation
-	}).(RemoteDockerRepositoryContentSynchronisationOutput)
+	}).(RemoteDockerRepositoryContentSynchronisationPtrOutput)
 }
 
 // Enable repository to be protected by the Curation service.
-func (o RemoteDockerRepositoryOutput) Curated() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.BoolPtrOutput { return v.Curated }).(pulumi.BoolPtrOutput)
+func (o RemoteDockerRepositoryOutput) Curated() pulumi.BoolOutput {
+	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.BoolOutput { return v.Curated }).(pulumi.BoolOutput)
 }
 
 // Public description.
-func (o RemoteDockerRepositoryOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+func (o RemoteDockerRepositoryOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
 // When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
 // for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
-func (o RemoteDockerRepositoryOutput) DisableProxy() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.BoolPtrOutput { return v.DisableProxy }).(pulumi.BoolPtrOutput)
+func (o RemoteDockerRepositoryOutput) DisableProxy() pulumi.BoolOutput {
+	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.BoolOutput { return v.DisableProxy }).(pulumi.BoolOutput)
 }
 
-// Whether to disable URL normalization, default is `false`.
-func (o RemoteDockerRepositoryOutput) DisableUrlNormalization() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.BoolPtrOutput { return v.DisableUrlNormalization }).(pulumi.BoolPtrOutput)
+// Whether to disable URL normalization. Default is `false`.
+func (o RemoteDockerRepositoryOutput) DisableUrlNormalization() pulumi.BoolOutput {
+	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.BoolOutput { return v.DisableUrlNormalization }).(pulumi.BoolOutput)
 }
 
 // When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 // storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
-func (o RemoteDockerRepositoryOutput) DownloadDirect() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.BoolPtrOutput { return v.DownloadDirect }).(pulumi.BoolPtrOutput)
+func (o RemoteDockerRepositoryOutput) DownloadDirect() pulumi.BoolOutput {
+	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.BoolOutput { return v.DownloadDirect }).(pulumi.BoolOutput)
 }
 
 // Enables cookie management if the remote repository uses cookies to manage client state.
-func (o RemoteDockerRepositoryOutput) EnableCookieManagement() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.BoolPtrOutput { return v.EnableCookieManagement }).(pulumi.BoolPtrOutput)
+func (o RemoteDockerRepositoryOutput) EnableCookieManagement() pulumi.BoolOutput {
+	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.BoolOutput { return v.EnableCookieManagement }).(pulumi.BoolOutput)
 }
 
 // Enable token (Bearer) based authentication.
@@ -990,36 +960,30 @@ func (o RemoteDockerRepositoryOutput) EnableTokenAuthentication() pulumi.BoolOut
 
 // List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
 // artifacts are excluded.
-func (o RemoteDockerRepositoryOutput) ExcludesPattern() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.StringPtrOutput { return v.ExcludesPattern }).(pulumi.StringPtrOutput)
+func (o RemoteDockerRepositoryOutput) ExcludesPattern() pulumi.StringOutput {
+	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.StringOutput { return v.ExcludesPattern }).(pulumi.StringOutput)
 }
 
 // Also known as 'Foreign Layers Caching' on the UI.
-func (o RemoteDockerRepositoryOutput) ExternalDependenciesEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.BoolPtrOutput { return v.ExternalDependenciesEnabled }).(pulumi.BoolPtrOutput)
+func (o RemoteDockerRepositoryOutput) ExternalDependenciesEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.BoolOutput { return v.ExternalDependenciesEnabled }).(pulumi.BoolOutput)
 }
 
-// An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will
-// follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response.
-// By default, this is set to `[**]` in the UI, which means that remote modules may be downloaded from any external VCS source.
-// Due to SDKv2 limitations, we can't set the default value for the list.
-// This value `[**]` must be assigned to the attribute manually, if user don't specify any other non-default values.
-// We don't want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns
-// `[**]` on update if HCL doesn't have the attribute set or the list is empty.
+// An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response. Default to `["**"]`
 func (o RemoteDockerRepositoryOutput) ExternalDependenciesPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.StringArrayOutput { return v.ExternalDependenciesPatterns }).(pulumi.StringArrayOutput)
 }
 
 // When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
 // communicate with this repository.
-func (o RemoteDockerRepositoryOutput) HardFail() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.BoolPtrOutput { return v.HardFail }).(pulumi.BoolPtrOutput)
+func (o RemoteDockerRepositoryOutput) HardFail() pulumi.BoolOutput {
+	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.BoolOutput { return v.HardFail }).(pulumi.BoolOutput)
 }
 
 // List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
 // used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
-func (o RemoteDockerRepositoryOutput) IncludesPattern() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.StringPtrOutput { return v.IncludesPattern }).(pulumi.StringPtrOutput)
+func (o RemoteDockerRepositoryOutput) IncludesPattern() pulumi.StringOutput {
+	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.StringOutput { return v.IncludesPattern }).(pulumi.StringOutput)
 }
 
 // A mandatory identifier for the repository that must be unique. It cannot begin with a number or
@@ -1030,57 +994,51 @@ func (o RemoteDockerRepositoryOutput) Key() pulumi.StringOutput {
 
 // Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
 // the 'Retrieval Cache Period'. Default value is 'false'. This field exists in the API but not in the UI.
-func (o RemoteDockerRepositoryOutput) ListRemoteFolderItems() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.BoolPtrOutput { return v.ListRemoteFolderItems }).(pulumi.BoolPtrOutput)
+func (o RemoteDockerRepositoryOutput) ListRemoteFolderItems() pulumi.BoolOutput {
+	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.BoolOutput { return v.ListRemoteFolderItems }).(pulumi.BoolOutput)
 }
 
 // The local address to be used when creating connections. Useful for specifying the interface to use on systems with
 // multiple network interfaces.
-func (o RemoteDockerRepositoryOutput) LocalAddress() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.StringPtrOutput { return v.LocalAddress }).(pulumi.StringPtrOutput)
+func (o RemoteDockerRepositoryOutput) LocalAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.StringOutput { return v.LocalAddress }).(pulumi.StringOutput)
 }
 
 // Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
 // the remote before serving locally cached artifact or fail the request.
-func (o RemoteDockerRepositoryOutput) MetadataRetrievalTimeoutSecs() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.IntPtrOutput { return v.MetadataRetrievalTimeoutSecs }).(pulumi.IntPtrOutput)
+func (o RemoteDockerRepositoryOutput) MetadataRetrievalTimeoutSecs() pulumi.IntOutput {
+	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.IntOutput { return v.MetadataRetrievalTimeoutSecs }).(pulumi.IntOutput)
 }
 
 // The set of mime types that should override the blockMismatchingMimeTypes setting. Eg:
 // 'application/json,application/xml'. Default value is empty.
-func (o RemoteDockerRepositoryOutput) MismatchingMimeTypesOverrideList() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.StringPtrOutput { return v.MismatchingMimeTypesOverrideList }).(pulumi.StringPtrOutput)
+func (o RemoteDockerRepositoryOutput) MismatchingMimeTypesOverrideList() pulumi.StringOutput {
+	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.StringOutput { return v.MismatchingMimeTypesOverrideList }).(pulumi.StringOutput)
 }
 
 // Missed Retrieval Cache Period (Sec) in the UI. The number of seconds to cache artifact retrieval misses (artifact not
 // found). A value of 0 indicates no caching.
-func (o RemoteDockerRepositoryOutput) MissedCachePeriodSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.IntPtrOutput { return v.MissedCachePeriodSeconds }).(pulumi.IntPtrOutput)
+func (o RemoteDockerRepositoryOutput) MissedCachePeriodSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.IntOutput { return v.MissedCachePeriodSeconds }).(pulumi.IntOutput)
 }
 
 // Internal description.
-func (o RemoteDockerRepositoryOutput) Notes() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.StringPtrOutput { return v.Notes }).(pulumi.StringPtrOutput)
+func (o RemoteDockerRepositoryOutput) Notes() pulumi.StringOutput {
+	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.StringOutput { return v.Notes }).(pulumi.StringOutput)
 }
 
 // If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
-func (o RemoteDockerRepositoryOutput) Offline() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.BoolPtrOutput { return v.Offline }).(pulumi.BoolPtrOutput)
-}
-
-func (o RemoteDockerRepositoryOutput) PackageType() pulumi.StringOutput {
-	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.StringOutput { return v.PackageType }).(pulumi.StringOutput)
+func (o RemoteDockerRepositoryOutput) Offline() pulumi.BoolOutput {
+	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.BoolOutput { return v.Offline }).(pulumi.BoolOutput)
 }
 
 func (o RemoteDockerRepositoryOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.StringPtrOutput { return v.Password }).(pulumi.StringPtrOutput)
 }
 
-// Setting Priority Resolution takes precedence over the resolution order when resolving virtual repositories. Setting
-// repositories with priority will cause metadata to be merged only from repositories set with a priority. If a package is
-// not found in those repositories, Artifactory will merge from repositories marked as non-priority.
-func (o RemoteDockerRepositoryOutput) PriorityResolution() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.BoolPtrOutput { return v.PriorityResolution }).(pulumi.BoolPtrOutput)
+// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+func (o RemoteDockerRepositoryOutput) PriorityResolution() pulumi.BoolOutput {
+	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.BoolOutput { return v.PriorityResolution }).(pulumi.BoolOutput)
 }
 
 func (o RemoteDockerRepositoryOutput) ProjectEnvironments() pulumi.StringArrayOutput {
@@ -1088,92 +1046,94 @@ func (o RemoteDockerRepositoryOutput) ProjectEnvironments() pulumi.StringArrayOu
 }
 
 // Use this attribute to enter your GCR, GAR Project Id to limit the scope of this remote repo to a specific project in your third-party registry. When leaving this field blank or unset, remote repositories that support project id will default to their default project as you have set up in your account.
-func (o RemoteDockerRepositoryOutput) ProjectId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.StringPtrOutput { return v.ProjectId }).(pulumi.StringPtrOutput)
+func (o RemoteDockerRepositoryOutput) ProjectId() pulumi.StringOutput {
+	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.StringOutput { return v.ProjectId }).(pulumi.StringOutput)
 }
 
 // Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
 // assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
-func (o RemoteDockerRepositoryOutput) ProjectKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.StringPtrOutput { return v.ProjectKey }).(pulumi.StringPtrOutput)
+func (o RemoteDockerRepositoryOutput) ProjectKey() pulumi.StringOutput {
+	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.StringOutput { return v.ProjectKey }).(pulumi.StringOutput)
 }
 
-// List of property set names
+// List of property set name
 func (o RemoteDockerRepositoryOutput) PropertySets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.StringArrayOutput { return v.PropertySets }).(pulumi.StringArrayOutput)
 }
 
 // Proxy key from Artifactory Proxies settings. Can't be set if `disableProxy = true`.
-func (o RemoteDockerRepositoryOutput) Proxy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.StringPtrOutput { return v.Proxy }).(pulumi.StringPtrOutput)
+func (o RemoteDockerRepositoryOutput) Proxy() pulumi.StringOutput {
+	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.StringOutput { return v.Proxy }).(pulumi.StringOutput)
 }
 
 // Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
 // `param1=val1&param2=val2&param3=val3`
-func (o RemoteDockerRepositoryOutput) QueryParams() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.StringPtrOutput { return v.QueryParams }).(pulumi.StringPtrOutput)
+func (o RemoteDockerRepositoryOutput) QueryParams() pulumi.StringOutput {
+	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.StringOutput { return v.QueryParams }).(pulumi.StringOutput)
 }
 
 // Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an
 // empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be
 // ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
-func (o RemoteDockerRepositoryOutput) RemoteRepoLayoutRef() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.StringPtrOutput { return v.RemoteRepoLayoutRef }).(pulumi.StringPtrOutput)
+func (o RemoteDockerRepositoryOutput) RemoteRepoLayoutRef() pulumi.StringOutput {
+	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.StringOutput { return v.RemoteRepoLayoutRef }).(pulumi.StringOutput)
 }
 
-// Repository layout key for the remote repository
-func (o RemoteDockerRepositoryOutput) RepoLayoutRef() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.StringPtrOutput { return v.RepoLayoutRef }).(pulumi.StringPtrOutput)
+// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+// corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+func (o RemoteDockerRepositoryOutput) RepoLayoutRef() pulumi.StringOutput {
+	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.StringOutput { return v.RepoLayoutRef }).(pulumi.StringOutput)
 }
 
 // Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files
 // before checking for newer versions on remote server. A value of 0 indicates no caching.
-func (o RemoteDockerRepositoryOutput) RetrievalCachePeriodSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.IntPtrOutput { return v.RetrievalCachePeriodSeconds }).(pulumi.IntPtrOutput)
+func (o RemoteDockerRepositoryOutput) RetrievalCachePeriodSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.IntOutput { return v.RetrievalCachePeriodSeconds }).(pulumi.IntOutput)
 }
 
+// Deprecated: No longer supported
 func (o RemoteDockerRepositoryOutput) ShareConfiguration() pulumi.BoolOutput {
 	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.BoolOutput { return v.ShareConfiguration }).(pulumi.BoolOutput)
 }
 
 // Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network
 // operation is considered a retrieval failure.
-func (o RemoteDockerRepositoryOutput) SocketTimeoutMillis() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.IntPtrOutput { return v.SocketTimeoutMillis }).(pulumi.IntPtrOutput)
+func (o RemoteDockerRepositoryOutput) SocketTimeoutMillis() pulumi.IntOutput {
+	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.IntOutput { return v.SocketTimeoutMillis }).(pulumi.IntOutput)
 }
 
 // When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and
 // direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with
 // one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory
 // servers.
-func (o RemoteDockerRepositoryOutput) StoreArtifactsLocally() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.BoolPtrOutput { return v.StoreArtifactsLocally }).(pulumi.BoolPtrOutput)
+func (o RemoteDockerRepositoryOutput) StoreArtifactsLocally() pulumi.BoolOutput {
+	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.BoolOutput { return v.StoreArtifactsLocally }).(pulumi.BoolOutput)
 }
 
 // When set, remote artifacts are fetched along with their properties.
-func (o RemoteDockerRepositoryOutput) SynchronizeProperties() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.BoolPtrOutput { return v.SynchronizeProperties }).(pulumi.BoolPtrOutput)
+func (o RemoteDockerRepositoryOutput) SynchronizeProperties() pulumi.BoolOutput {
+	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.BoolOutput { return v.SynchronizeProperties }).(pulumi.BoolOutput)
 }
 
 // Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and
 // eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
-func (o RemoteDockerRepositoryOutput) UnusedArtifactsCleanupPeriodHours() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.IntPtrOutput { return v.UnusedArtifactsCleanupPeriodHours }).(pulumi.IntPtrOutput)
+func (o RemoteDockerRepositoryOutput) UnusedArtifactsCleanupPeriodHours() pulumi.IntOutput {
+	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.IntOutput { return v.UnusedArtifactsCleanupPeriodHours }).(pulumi.IntOutput)
 }
 
 // The remote repo URL.
-func (o RemoteDockerRepositoryOutput) Url() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.StringPtrOutput { return v.Url }).(pulumi.StringPtrOutput)
+func (o RemoteDockerRepositoryOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.StringOutput { return v.Url }).(pulumi.StringOutput)
 }
 
-func (o RemoteDockerRepositoryOutput) Username() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.StringPtrOutput { return v.Username }).(pulumi.StringPtrOutput)
+func (o RemoteDockerRepositoryOutput) Username() pulumi.StringOutput {
+	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.StringOutput { return v.Username }).(pulumi.StringOutput)
 }
 
 // Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 // Xray settings.
-func (o RemoteDockerRepositoryOutput) XrayIndex() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.BoolPtrOutput { return v.XrayIndex }).(pulumi.BoolPtrOutput)
+func (o RemoteDockerRepositoryOutput) XrayIndex() pulumi.BoolOutput {
+	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.BoolOutput { return v.XrayIndex }).(pulumi.BoolOutput)
 }
 
 type RemoteDockerRepositoryArrayOutput struct{ *pulumi.OutputState }

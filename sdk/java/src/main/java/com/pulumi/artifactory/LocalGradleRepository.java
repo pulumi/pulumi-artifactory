@@ -79,7 +79,7 @@ public class LocalGradleRepository extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="archiveBrowsingEnabled", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> archiveBrowsingEnabled;
+    private Output<Boolean> archiveBrowsingEnabled;
 
     /**
      * @return When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -87,38 +87,22 @@ public class LocalGradleRepository extends com.pulumi.resources.CustomResource {
      * security (e.g., cross-site scripting attacks).
      * 
      */
-    public Output<Optional<Boolean>> archiveBrowsingEnabled() {
-        return Codegen.optional(this.archiveBrowsingEnabled);
+    public Output<Boolean> archiveBrowsingEnabled() {
+        return this.archiveBrowsingEnabled;
     }
     /**
      * When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
      * 
      */
     @Export(name="blackedOut", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> blackedOut;
+    private Output<Boolean> blackedOut;
 
     /**
      * @return When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
      * 
      */
-    public Output<Optional<Boolean>> blackedOut() {
-        return Codegen.optional(this.blackedOut);
-    }
-    /**
-     * When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
-     * 
-     */
-    @Export(name="cdnRedirect", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> cdnRedirect;
-
-    /**
-     * @return When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
-     * 
-     */
-    public Output<Optional<Boolean>> cdnRedirect() {
-        return Codegen.optional(this.cdnRedirect);
+    public Output<Boolean> blackedOut() {
+        return this.blackedOut;
     }
     /**
      * Checksum policy determines how Artifactory behaves when a client checksum for a deployed
@@ -128,7 +112,7 @@ public class LocalGradleRepository extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="checksumPolicyType", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> checksumPolicyType;
+    private Output<String> checksumPolicyType;
 
     /**
      * @return Checksum policy determines how Artifactory behaves when a client checksum for a deployed
@@ -137,22 +121,22 @@ public class LocalGradleRepository extends com.pulumi.resources.CustomResource {
      * please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy).
      * 
      */
-    public Output<Optional<String>> checksumPolicyType() {
-        return Codegen.optional(this.checksumPolicyType);
+    public Output<String> checksumPolicyType() {
+        return this.checksumPolicyType;
     }
     /**
      * Public description.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> description;
+    private Output<String> description;
 
     /**
      * @return Public description.
      * 
      */
-    public Output<Optional<String>> description() {
-        return Codegen.optional(this.description);
+    public Output<String> description() {
+        return this.description;
     }
     /**
      * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
@@ -160,15 +144,15 @@ public class LocalGradleRepository extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="downloadDirect", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> downloadDirect;
+    private Output<Boolean> downloadDirect;
 
     /**
      * @return When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
      * storage provider. Available in Enterprise+ and Edge licenses only.
      * 
      */
-    public Output<Optional<Boolean>> downloadDirect() {
-        return Codegen.optional(this.downloadDirect);
+    public Output<Boolean> downloadDirect() {
+        return this.downloadDirect;
     }
     /**
      * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no
@@ -176,43 +160,43 @@ public class LocalGradleRepository extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="excludesPattern", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> excludesPattern;
+    private Output<String> excludesPattern;
 
     /**
      * @return List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no
      * artifacts are excluded.
      * 
      */
-    public Output<Optional<String>> excludesPattern() {
-        return Codegen.optional(this.excludesPattern);
+    public Output<String> excludesPattern() {
+        return this.excludesPattern;
     }
     /**
      * If set, Artifactory allows you to deploy release artifacts into this repository. Default is `true`.
      * 
      */
     @Export(name="handleReleases", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> handleReleases;
+    private Output<Boolean> handleReleases;
 
     /**
      * @return If set, Artifactory allows you to deploy release artifacts into this repository. Default is `true`.
      * 
      */
-    public Output<Optional<Boolean>> handleReleases() {
-        return Codegen.optional(this.handleReleases);
+    public Output<Boolean> handleReleases() {
+        return this.handleReleases;
     }
     /**
      * If set, Artifactory allows you to deploy snapshot artifacts into this repository. Default is `true`.
      * 
      */
     @Export(name="handleSnapshots", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> handleSnapshots;
+    private Output<Boolean> handleSnapshots;
 
     /**
      * @return If set, Artifactory allows you to deploy snapshot artifacts into this repository. Default is `true`.
      * 
      */
-    public Output<Optional<Boolean>> handleSnapshots() {
-        return Codegen.optional(this.handleSnapshots);
+    public Output<Boolean> handleSnapshots() {
+        return this.handleSnapshots;
     }
     /**
      * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When
@@ -220,15 +204,15 @@ public class LocalGradleRepository extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="includesPattern", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> includesPattern;
+    private Output<String> includesPattern;
 
     /**
      * @return List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When
      * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
      * 
      */
-    public Output<Optional<String>> includesPattern() {
-        return Codegen.optional(this.includesPattern);
+    public Output<String> includesPattern() {
+        return this.includesPattern;
     }
     /**
      * the identity key of the repo.
@@ -251,7 +235,7 @@ public class LocalGradleRepository extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="maxUniqueSnapshots", refs={Integer.class}, tree="[0]")
-    private Output</* @Nullable */ Integer> maxUniqueSnapshots;
+    private Output<Integer> maxUniqueSnapshots;
 
     /**
      * @return The maximum number of unique snapshots of a single artifact to store.
@@ -259,42 +243,36 @@ public class LocalGradleRepository extends com.pulumi.resources.CustomResource {
      * A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
      * 
      */
-    public Output<Optional<Integer>> maxUniqueSnapshots() {
-        return Codegen.optional(this.maxUniqueSnapshots);
+    public Output<Integer> maxUniqueSnapshots() {
+        return this.maxUniqueSnapshots;
     }
     /**
      * Internal description.
      * 
      */
     @Export(name="notes", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> notes;
+    private Output<String> notes;
 
     /**
      * @return Internal description.
      * 
      */
-    public Output<Optional<String>> notes() {
-        return Codegen.optional(this.notes);
-    }
-    @Export(name="packageType", refs={String.class}, tree="[0]")
-    private Output<String> packageType;
-
-    public Output<String> packageType() {
-        return this.packageType;
+    public Output<String> notes() {
+        return this.notes;
     }
     /**
      * Setting repositories with priority will cause metadata to be merged only from repositories set with this field
      * 
      */
     @Export(name="priorityResolution", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> priorityResolution;
+    private Output<Boolean> priorityResolution;
 
     /**
      * @return Setting repositories with priority will cause metadata to be merged only from repositories set with this field
      * 
      */
-    public Output<Optional<Boolean>> priorityResolution() {
-        return Codegen.optional(this.priorityResolution);
+    public Output<Boolean> priorityResolution() {
+        return this.priorityResolution;
     }
     @Export(name="projectEnvironments", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> projectEnvironments;
@@ -308,15 +286,15 @@ public class LocalGradleRepository extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="projectKey", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> projectKey;
+    private Output<String> projectKey;
 
     /**
      * @return Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
      * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      * 
      */
-    public Output<Optional<String>> projectKey() {
-        return Codegen.optional(this.projectKey);
+    public Output<String> projectKey() {
+        return this.projectKey;
     }
     /**
      * List of property set name
@@ -333,18 +311,20 @@ public class LocalGradleRepository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.propertySets);
     }
     /**
-     * Repository layout key for the local repository
+     * Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+     * corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
      * 
      */
     @Export(name="repoLayoutRef", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> repoLayoutRef;
+    private Output<String> repoLayoutRef;
 
     /**
-     * @return Repository layout key for the local repository
+     * @return Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+     * corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
      * 
      */
-    public Output<Optional<String>> repoLayoutRef() {
-        return Codegen.optional(this.repoLayoutRef);
+    public Output<String> repoLayoutRef() {
+        return this.repoLayoutRef;
     }
     /**
      * Specifies the naming convention for Maven SNAPSHOT versions.
@@ -352,15 +332,15 @@ public class LocalGradleRepository extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="snapshotVersionBehavior", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> snapshotVersionBehavior;
+    private Output<String> snapshotVersionBehavior;
 
     /**
      * @return Specifies the naming convention for Maven SNAPSHOT versions.
      * The options are -
      * 
      */
-    public Output<Optional<String>> snapshotVersionBehavior() {
-        return Codegen.optional(this.snapshotVersionBehavior);
+    public Output<String> snapshotVersionBehavior() {
+        return this.snapshotVersionBehavior;
     }
     /**
      * By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path).
@@ -369,7 +349,7 @@ public class LocalGradleRepository extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="suppressPomConsistencyChecks", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> suppressPomConsistencyChecks;
+    private Output<Boolean> suppressPomConsistencyChecks;
 
     /**
      * @return By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path).
@@ -377,8 +357,8 @@ public class LocalGradleRepository extends com.pulumi.resources.CustomResource {
      * You can disable this behavior by setting the Suppress POM Consistency Checks checkbox. True by default for Gradle repository.
      * 
      */
-    public Output<Optional<Boolean>> suppressPomConsistencyChecks() {
-        return Codegen.optional(this.suppressPomConsistencyChecks);
+    public Output<Boolean> suppressPomConsistencyChecks() {
+        return this.suppressPomConsistencyChecks;
     }
     /**
      * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
@@ -386,15 +366,15 @@ public class LocalGradleRepository extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="xrayIndex", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> xrayIndex;
+    private Output<Boolean> xrayIndex;
 
     /**
      * @return Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
      * Xray settings.
      * 
      */
-    public Output<Optional<Boolean>> xrayIndex() {
-        return Codegen.optional(this.xrayIndex);
+    public Output<Boolean> xrayIndex() {
+        return this.xrayIndex;
     }
 
     /**
