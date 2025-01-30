@@ -94,47 +94,46 @@ namespace Pulumi.Artifactory
         /// security (e.g., cross-site scripting attacks).
         /// </summary>
         [Output("archiveBrowsingEnabled")]
-        public Output<bool?> ArchiveBrowsingEnabled { get; private set; } = null!;
+        public Output<bool> ArchiveBrowsingEnabled { get; private set; } = null!;
 
         /// <summary>
         /// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
         /// </summary>
         [Output("blackedOut")]
-        public Output<bool?> BlackedOut { get; private set; } = null!;
+        public Output<bool> BlackedOut { get; private set; } = null!;
 
         /// <summary>
-        /// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-        /// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        /// When set, enable indexing with debug symbols (.ddeb).
         /// </summary>
-        [Output("cdnRedirect")]
-        public Output<bool?> CdnRedirect { get; private set; } = null!;
+        [Output("ddebSupported")]
+        public Output<bool> DdebSupported { get; private set; } = null!;
 
         /// <summary>
         /// Public description.
         /// </summary>
         [Output("description")]
-        public Output<string?> Description { get; private set; } = null!;
+        public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
         /// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
         /// storage provider. Available in Enterprise+ and Edge licenses only.
         /// </summary>
         [Output("downloadDirect")]
-        public Output<bool?> DownloadDirect { get; private set; } = null!;
+        public Output<bool> DownloadDirect { get; private set; } = null!;
 
         /// <summary>
         /// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
         /// artifacts are excluded.
         /// </summary>
         [Output("excludesPattern")]
-        public Output<string?> ExcludesPattern { get; private set; } = null!;
+        public Output<string> ExcludesPattern { get; private set; } = null!;
 
         /// <summary>
         /// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
         /// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         /// </summary>
         [Output("includesPattern")]
-        public Output<string?> IncludesPattern { get; private set; } = null!;
+        public Output<string> IncludesPattern { get; private set; } = null!;
 
         /// <summary>
         /// The options are Bzip2 (.bz2 extension) (default), LZMA (.lzma extension)
@@ -153,10 +152,7 @@ namespace Pulumi.Artifactory
         /// Internal description.
         /// </summary>
         [Output("notes")]
-        public Output<string?> Notes { get; private set; } = null!;
-
-        [Output("packageType")]
-        public Output<string> PackageType { get; private set; } = null!;
+        public Output<string> Notes { get; private set; } = null!;
 
         /// <summary>
         /// The primary RSA key to be used to sign packages.
@@ -168,7 +164,7 @@ namespace Pulumi.Artifactory
         /// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         /// </summary>
         [Output("priorityResolution")]
-        public Output<bool?> PriorityResolution { get; private set; } = null!;
+        public Output<bool> PriorityResolution { get; private set; } = null!;
 
         [Output("projectEnvironments")]
         public Output<ImmutableArray<string>> ProjectEnvironments { get; private set; } = null!;
@@ -178,7 +174,7 @@ namespace Pulumi.Artifactory
         /// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         /// </summary>
         [Output("projectKey")]
-        public Output<string?> ProjectKey { get; private set; } = null!;
+        public Output<string> ProjectKey { get; private set; } = null!;
 
         /// <summary>
         /// List of property set name
@@ -187,10 +183,11 @@ namespace Pulumi.Artifactory
         public Output<ImmutableArray<string>> PropertySets { get; private set; } = null!;
 
         /// <summary>
-        /// Repository layout key for the local repository
+        /// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+        /// corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
         /// </summary>
         [Output("repoLayoutRef")]
-        public Output<string?> RepoLayoutRef { get; private set; } = null!;
+        public Output<string> RepoLayoutRef { get; private set; } = null!;
 
         /// <summary>
         /// The secondary RSA key to be used to sign packages.
@@ -202,14 +199,14 @@ namespace Pulumi.Artifactory
         /// When set, the repository will use the deprecated trivial layout.
         /// </summary>
         [Output("trivialLayout")]
-        public Output<bool?> TrivialLayout { get; private set; } = null!;
+        public Output<bool> TrivialLayout { get; private set; } = null!;
 
         /// <summary>
         /// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
         /// Xray settings.
         /// </summary>
         [Output("xrayIndex")]
-        public Output<bool?> XrayIndex { get; private set; } = null!;
+        public Output<bool> XrayIndex { get; private set; } = null!;
 
 
         /// <summary>
@@ -272,11 +269,10 @@ namespace Pulumi.Artifactory
         public Input<bool>? BlackedOut { get; set; }
 
         /// <summary>
-        /// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-        /// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        /// When set, enable indexing with debug symbols (.ddeb).
         /// </summary>
-        [Input("cdnRedirect")]
-        public Input<bool>? CdnRedirect { get; set; }
+        [Input("ddebSupported")]
+        public Input<bool>? DdebSupported { get; set; }
 
         /// <summary>
         /// Public description.
@@ -370,7 +366,8 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// Repository layout key for the local repository
+        /// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+        /// corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
         /// </summary>
         [Input("repoLayoutRef")]
         public Input<string>? RepoLayoutRef { get; set; }
@@ -417,11 +414,10 @@ namespace Pulumi.Artifactory
         public Input<bool>? BlackedOut { get; set; }
 
         /// <summary>
-        /// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-        /// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        /// When set, enable indexing with debug symbols (.ddeb).
         /// </summary>
-        [Input("cdnRedirect")]
-        public Input<bool>? CdnRedirect { get; set; }
+        [Input("ddebSupported")]
+        public Input<bool>? DdebSupported { get; set; }
 
         /// <summary>
         /// Public description.
@@ -475,9 +471,6 @@ namespace Pulumi.Artifactory
         [Input("notes")]
         public Input<string>? Notes { get; set; }
 
-        [Input("packageType")]
-        public Input<string>? PackageType { get; set; }
-
         /// <summary>
         /// The primary RSA key to be used to sign packages.
         /// </summary>
@@ -518,7 +511,8 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// Repository layout key for the local repository
+        /// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+        /// corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
         /// </summary>
         [Input("repoLayoutRef")]
         public Input<string>? RepoLayoutRef { get; set; }

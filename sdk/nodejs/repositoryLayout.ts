@@ -68,7 +68,7 @@ export class RepositoryLayout extends pulumi.CustomResource {
     /**
      * Please refer to: [Descriptor Path Patterns](https://www.jfrog.com/confluence/display/JFROG/Repository+Layouts#RepositoryLayouts-DescriptorPathPatterns) in the Artifactory Wiki documentation.
      */
-    public readonly descriptorPathPattern!: pulumi.Output<string | undefined>;
+    public readonly descriptorPathPattern!: pulumi.Output<string>;
     /**
      * When set, `descriptorPathPattern` will be used. Default to `false`.
      */

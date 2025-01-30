@@ -60,7 +60,7 @@ type RepositoryLayout struct {
 	// Please refer to: [Path Patterns](https://www.jfrog.com/confluence/display/JFROG/Repository+Layouts#RepositoryLayouts-ModulesandPathPatternsusedbyRepositoryLayouts) in the Artifactory Wiki documentation.
 	ArtifactPathPattern pulumi.StringOutput `pulumi:"artifactPathPattern"`
 	// Please refer to: [Descriptor Path Patterns](https://www.jfrog.com/confluence/display/JFROG/Repository+Layouts#RepositoryLayouts-DescriptorPathPatterns) in the Artifactory Wiki documentation.
-	DescriptorPathPattern pulumi.StringPtrOutput `pulumi:"descriptorPathPattern"`
+	DescriptorPathPattern pulumi.StringOutput `pulumi:"descriptorPathPattern"`
 	// When set, `descriptorPathPattern` will be used. Default to `false`.
 	DistinctiveDescriptorPathPattern pulumi.BoolOutput `pulumi:"distinctiveDescriptorPathPattern"`
 	// A regular expression matching the integration revision string appearing in a file name as part of the artifact's path. For example, `SNAPSHOT|(?:(?:[0-9]{8}.[0-9]{6})-(?:[0-9]+))`, in Maven. Note! Take care not to introduce any regexp capturing groups within this expression. If not applicable use `.*`
@@ -267,8 +267,8 @@ func (o RepositoryLayoutOutput) ArtifactPathPattern() pulumi.StringOutput {
 }
 
 // Please refer to: [Descriptor Path Patterns](https://www.jfrog.com/confluence/display/JFROG/Repository+Layouts#RepositoryLayouts-DescriptorPathPatterns) in the Artifactory Wiki documentation.
-func (o RepositoryLayoutOutput) DescriptorPathPattern() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RepositoryLayout) pulumi.StringPtrOutput { return v.DescriptorPathPattern }).(pulumi.StringPtrOutput)
+func (o RepositoryLayoutOutput) DescriptorPathPattern() pulumi.StringOutput {
+	return o.ApplyT(func(v *RepositoryLayout) pulumi.StringOutput { return v.DescriptorPathPattern }).(pulumi.StringOutput)
 }
 
 // When set, `descriptorPathPattern` will be used. Default to `false`.

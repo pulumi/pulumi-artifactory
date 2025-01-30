@@ -68,103 +68,103 @@ export class RemoteMavenRepository extends pulumi.CustomResource {
      * 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any
      * other host.
      */
-    public readonly allowAnyHostAuth!: pulumi.Output<boolean | undefined>;
+    public readonly allowAnyHostAuth!: pulumi.Output<boolean>;
     /**
      * When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
      * therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
      * security (e.g., cross-site scripting attacks).
      */
-    public readonly archiveBrowsingEnabled!: pulumi.Output<boolean | undefined>;
+    public readonly archiveBrowsingEnabled!: pulumi.Output<boolean>;
     /**
      * The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
      * an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
      * offline.
      */
-    public readonly assumedOfflinePeriodSecs!: pulumi.Output<number | undefined>;
+    public readonly assumedOfflinePeriodSecs!: pulumi.Output<number>;
     /**
      * (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact
      * resolution.
      */
-    public readonly blackedOut!: pulumi.Output<boolean | undefined>;
+    public readonly blackedOut!: pulumi.Output<boolean>;
     /**
      * If set, artifacts will fail to download if a mismatch is detected between requested and received mimetype, according to
      * the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes
      * to the override list 'mismatching_mime_types_override_list'.
      */
-    public readonly blockMismatchingMimeTypes!: pulumi.Output<boolean | undefined>;
+    public readonly blockMismatchingMimeTypes!: pulumi.Output<boolean>;
     /**
      * Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
      * HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
      * Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
      */
-    public readonly bypassHeadRequests!: pulumi.Output<boolean | undefined>;
+    public readonly bypassHeadRequests!: pulumi.Output<boolean>;
     /**
      * When set, download requests to this repository will redirect the client to download the artifact directly from AWS
      * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
      */
-    public readonly cdnRedirect!: pulumi.Output<boolean | undefined>;
+    public readonly cdnRedirect!: pulumi.Output<boolean>;
     /**
      * Client TLS certificate name.
      */
-    public readonly clientTlsCertificate!: pulumi.Output<string>;
-    public readonly contentSynchronisation!: pulumi.Output<outputs.RemoteMavenRepositoryContentSynchronisation>;
+    public readonly clientTlsCertificate!: pulumi.Output<string | undefined>;
+    public readonly contentSynchronisation!: pulumi.Output<outputs.RemoteMavenRepositoryContentSynchronisation | undefined>;
     /**
      * Enable repository to be protected by the Curation service.
      */
-    public readonly curated!: pulumi.Output<boolean | undefined>;
+    public readonly curated!: pulumi.Output<boolean>;
     /**
      * Public description.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string>;
     /**
      * When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
      * for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
      */
-    public readonly disableProxy!: pulumi.Output<boolean | undefined>;
+    public readonly disableProxy!: pulumi.Output<boolean>;
     /**
-     * Whether to disable URL normalization, default is `false`.
+     * Whether to disable URL normalization. Default is `false`.
      */
-    public readonly disableUrlNormalization!: pulumi.Output<boolean | undefined>;
+    public readonly disableUrlNormalization!: pulumi.Output<boolean>;
     /**
      * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
      * storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
      */
-    public readonly downloadDirect!: pulumi.Output<boolean | undefined>;
+    public readonly downloadDirect!: pulumi.Output<boolean>;
     /**
      * Enables cookie management if the remote repository uses cookies to manage client state.
      */
-    public readonly enableCookieManagement!: pulumi.Output<boolean | undefined>;
+    public readonly enableCookieManagement!: pulumi.Output<boolean>;
     /**
      * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no
      * artifacts are excluded.
      */
-    public readonly excludesPattern!: pulumi.Output<string | undefined>;
+    public readonly excludesPattern!: pulumi.Output<string>;
     /**
      * When set, if a POM is requested, Artifactory attempts to fetch the corresponding jar in the background. This will accelerate first access time to the jar when it is subsequently requested.
      */
-    public readonly fetchJarsEagerly!: pulumi.Output<boolean | undefined>;
+    public readonly fetchJarsEagerly!: pulumi.Output<boolean>;
     /**
      * When set, if a binaries jar is requested, Artifactory attempts to fetch the corresponding source jar in the background. This will accelerate first access time to the source jar when it is subsequently requested.
      */
-    public readonly fetchSourcesEagerly!: pulumi.Output<boolean | undefined>;
+    public readonly fetchSourcesEagerly!: pulumi.Output<boolean>;
     /**
      * If set, Artifactory allows you to deploy release artifacts into this repository.
      */
-    public readonly handleReleases!: pulumi.Output<boolean | undefined>;
+    public readonly handleReleases!: pulumi.Output<boolean>;
     /**
      * If set, Artifactory allows you to deploy snapshot artifacts into this repository.
      */
-    public readonly handleSnapshots!: pulumi.Output<boolean | undefined>;
+    public readonly handleSnapshots!: pulumi.Output<boolean>;
     /**
      * When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
      * communicate with this repository.
      */
-    public readonly hardFail!: pulumi.Output<boolean | undefined>;
+    public readonly hardFail!: pulumi.Output<boolean>;
     /**
      * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When
      * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
      */
-    public readonly includesPattern!: pulumi.Output<string | undefined>;
+    public readonly includesPattern!: pulumi.Output<string>;
     /**
      * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
      * contain spaces or special characters.
@@ -174,125 +174,126 @@ export class RemoteMavenRepository extends pulumi.CustomResource {
      * Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
      * the 'Retrieval Cache Period'. Default value is 'false'. This field exists in the API but not in the UI.
      */
-    public readonly listRemoteFolderItems!: pulumi.Output<boolean | undefined>;
+    public readonly listRemoteFolderItems!: pulumi.Output<boolean>;
     /**
      * The local address to be used when creating connections. Useful for specifying the interface to use on systems with
      * multiple network interfaces.
      */
-    public readonly localAddress!: pulumi.Output<string | undefined>;
+    public readonly localAddress!: pulumi.Output<string>;
     /**
      * The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
      */
-    public readonly maxUniqueSnapshots!: pulumi.Output<number | undefined>;
+    public readonly maxUniqueSnapshots!: pulumi.Output<number>;
     /**
      * Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
      * the remote before serving locally cached artifact or fail the request.
      */
-    public readonly metadataRetrievalTimeoutSecs!: pulumi.Output<number | undefined>;
+    public readonly metadataRetrievalTimeoutSecs!: pulumi.Output<number>;
     /**
      * The set of mime types that should override the blockMismatchingMimeTypes setting. Eg:
      * 'application/json,application/xml'. Default value is empty.
      */
-    public readonly mismatchingMimeTypesOverrideList!: pulumi.Output<string | undefined>;
+    public readonly mismatchingMimeTypesOverrideList!: pulumi.Output<string>;
     /**
      * Missed Retrieval Cache Period (Sec) in the UI. The number of seconds to cache artifact retrieval misses (artifact not
      * found). A value of 0 indicates no caching.
      */
-    public readonly missedCachePeriodSeconds!: pulumi.Output<number | undefined>;
+    public readonly missedCachePeriodSeconds!: pulumi.Output<number>;
     /**
      * Internal description.
      */
-    public readonly notes!: pulumi.Output<string | undefined>;
+    public readonly notes!: pulumi.Output<string>;
     /**
      * If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
      */
-    public readonly offline!: pulumi.Output<boolean | undefined>;
-    public /*out*/ readonly packageType!: pulumi.Output<string>;
+    public readonly offline!: pulumi.Output<boolean>;
     public readonly password!: pulumi.Output<string | undefined>;
     /**
-     * Setting Priority Resolution takes precedence over the resolution order when resolving virtual repositories. Setting
-     * repositories with priority will cause metadata to be merged only from repositories set with a priority. If a package is
-     * not found in those repositories, Artifactory will merge from repositories marked as non-priority.
+     * Setting repositories with priority will cause metadata to be merged only from repositories set with this field
      */
-    public readonly priorityResolution!: pulumi.Output<boolean | undefined>;
+    public readonly priorityResolution!: pulumi.Output<boolean>;
     public readonly projectEnvironments!: pulumi.Output<string[]>;
     /**
      * Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
      * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      */
-    public readonly projectKey!: pulumi.Output<string | undefined>;
+    public readonly projectKey!: pulumi.Output<string>;
     /**
-     * List of property set names
+     * List of property set name
      */
     public readonly propertySets!: pulumi.Output<string[] | undefined>;
     /**
      * Proxy key from Artifactory Proxies settings. Can't be set if `disableProxy = true`.
      */
-    public readonly proxy!: pulumi.Output<string | undefined>;
+    public readonly proxy!: pulumi.Output<string>;
     /**
      * Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
      * `param1=val1&param2=val2&param3=val3`
      */
-    public readonly queryParams!: pulumi.Output<string | undefined>;
+    public readonly queryParams!: pulumi.Output<string>;
     /**
      * Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive portal".
      */
-    public readonly rejectInvalidJars!: pulumi.Output<boolean | undefined>;
+    public readonly rejectInvalidJars!: pulumi.Output<boolean>;
     /**
      * Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
      */
-    public readonly remoteRepoChecksumPolicyType!: pulumi.Output<string | undefined>;
+    public readonly remoteRepoChecksumPolicyType!: pulumi.Output<string>;
     /**
      * Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an
      * empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be
      * ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
      */
-    public readonly remoteRepoLayoutRef!: pulumi.Output<string | undefined>;
+    public readonly remoteRepoLayoutRef!: pulumi.Output<string>;
     /**
-     * Repository layout key for the remote repository
+     * Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+     * corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
      */
-    public readonly repoLayoutRef!: pulumi.Output<string | undefined>;
+    public readonly repoLayoutRef!: pulumi.Output<string>;
     /**
      * Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files
      * before checking for newer versions on remote server. A value of 0 indicates no caching.
      */
-    public readonly retrievalCachePeriodSeconds!: pulumi.Output<number | undefined>;
+    public readonly retrievalCachePeriodSeconds!: pulumi.Output<number>;
+    /**
+     * @deprecated No longer supported
+     */
     public readonly shareConfiguration!: pulumi.Output<boolean>;
     /**
      * Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network
      * operation is considered a retrieval failure.
      */
-    public readonly socketTimeoutMillis!: pulumi.Output<number | undefined>;
+    public readonly socketTimeoutMillis!: pulumi.Output<number>;
     /**
      * When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and
      * direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with
      * one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory
      * servers.
      */
-    public readonly storeArtifactsLocally!: pulumi.Output<boolean | undefined>;
+    public readonly storeArtifactsLocally!: pulumi.Output<boolean>;
     /**
      * By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error. You can disable this behavior by setting this attribute to `true`.
      */
-    public readonly suppressPomConsistencyChecks!: pulumi.Output<boolean | undefined>;
+    public readonly suppressPomConsistencyChecks!: pulumi.Output<boolean>;
     /**
      * When set, remote artifacts are fetched along with their properties.
      */
-    public readonly synchronizeProperties!: pulumi.Output<boolean | undefined>;
+    public readonly synchronizeProperties!: pulumi.Output<boolean>;
     /**
      * Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and
      * eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
      */
-    public readonly unusedArtifactsCleanupPeriodHours!: pulumi.Output<number | undefined>;
+    public readonly unusedArtifactsCleanupPeriodHours!: pulumi.Output<number>;
     /**
      * The remote repo URL.
      */
-    public readonly url!: pulumi.Output<string | undefined>;
-    public readonly username!: pulumi.Output<string | undefined>;
+    public readonly url!: pulumi.Output<string>;
+    public readonly username!: pulumi.Output<string>;
     /**
      * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
      * Xray settings.
      */
-    public readonly xrayIndex!: pulumi.Output<boolean | undefined>;
+    public readonly xrayIndex!: pulumi.Output<boolean>;
 
     /**
      * Create a RemoteMavenRepository resource with the given unique name, arguments, and options.
@@ -338,7 +339,6 @@ export class RemoteMavenRepository extends pulumi.CustomResource {
             resourceInputs["missedCachePeriodSeconds"] = state ? state.missedCachePeriodSeconds : undefined;
             resourceInputs["notes"] = state ? state.notes : undefined;
             resourceInputs["offline"] = state ? state.offline : undefined;
-            resourceInputs["packageType"] = state ? state.packageType : undefined;
             resourceInputs["password"] = state ? state.password : undefined;
             resourceInputs["priorityResolution"] = state ? state.priorityResolution : undefined;
             resourceInputs["projectEnvironments"] = state ? state.projectEnvironments : undefined;
@@ -364,6 +364,9 @@ export class RemoteMavenRepository extends pulumi.CustomResource {
             const args = argsOrState as RemoteMavenRepositoryArgs | undefined;
             if ((!args || args.key === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'key'");
+            }
+            if ((!args || args.url === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'url'");
             }
             resourceInputs["allowAnyHostAuth"] = args ? args.allowAnyHostAuth : undefined;
             resourceInputs["archiveBrowsingEnabled"] = args ? args.archiveBrowsingEnabled : undefined;
@@ -417,7 +420,6 @@ export class RemoteMavenRepository extends pulumi.CustomResource {
             resourceInputs["url"] = args ? args.url : undefined;
             resourceInputs["username"] = args ? args.username : undefined;
             resourceInputs["xrayIndex"] = args ? args.xrayIndex : undefined;
-            resourceInputs["packageType"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["password"] };
@@ -488,7 +490,7 @@ export interface RemoteMavenRepositoryState {
      */
     disableProxy?: pulumi.Input<boolean>;
     /**
-     * Whether to disable URL normalization, default is `false`.
+     * Whether to disable URL normalization. Default is `false`.
      */
     disableUrlNormalization?: pulumi.Input<boolean>;
     /**
@@ -573,12 +575,9 @@ export interface RemoteMavenRepositoryState {
      * If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
      */
     offline?: pulumi.Input<boolean>;
-    packageType?: pulumi.Input<string>;
     password?: pulumi.Input<string>;
     /**
-     * Setting Priority Resolution takes precedence over the resolution order when resolving virtual repositories. Setting
-     * repositories with priority will cause metadata to be merged only from repositories set with a priority. If a package is
-     * not found in those repositories, Artifactory will merge from repositories marked as non-priority.
+     * Setting repositories with priority will cause metadata to be merged only from repositories set with this field
      */
     priorityResolution?: pulumi.Input<boolean>;
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
@@ -588,7 +587,7 @@ export interface RemoteMavenRepositoryState {
      */
     projectKey?: pulumi.Input<string>;
     /**
-     * List of property set names
+     * List of property set name
      */
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -615,7 +614,8 @@ export interface RemoteMavenRepositoryState {
      */
     remoteRepoLayoutRef?: pulumi.Input<string>;
     /**
-     * Repository layout key for the remote repository
+     * Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+     * corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
      */
     repoLayoutRef?: pulumi.Input<string>;
     /**
@@ -623,6 +623,9 @@ export interface RemoteMavenRepositoryState {
      * before checking for newer versions on remote server. A value of 0 indicates no caching.
      */
     retrievalCachePeriodSeconds?: pulumi.Input<number>;
+    /**
+     * @deprecated No longer supported
+     */
     shareConfiguration?: pulumi.Input<boolean>;
     /**
      * Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network
@@ -723,7 +726,7 @@ export interface RemoteMavenRepositoryArgs {
      */
     disableProxy?: pulumi.Input<boolean>;
     /**
-     * Whether to disable URL normalization, default is `false`.
+     * Whether to disable URL normalization. Default is `false`.
      */
     disableUrlNormalization?: pulumi.Input<boolean>;
     /**
@@ -810,9 +813,7 @@ export interface RemoteMavenRepositoryArgs {
     offline?: pulumi.Input<boolean>;
     password?: pulumi.Input<string>;
     /**
-     * Setting Priority Resolution takes precedence over the resolution order when resolving virtual repositories. Setting
-     * repositories with priority will cause metadata to be merged only from repositories set with a priority. If a package is
-     * not found in those repositories, Artifactory will merge from repositories marked as non-priority.
+     * Setting repositories with priority will cause metadata to be merged only from repositories set with this field
      */
     priorityResolution?: pulumi.Input<boolean>;
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
@@ -822,7 +823,7 @@ export interface RemoteMavenRepositoryArgs {
      */
     projectKey?: pulumi.Input<string>;
     /**
-     * List of property set names
+     * List of property set name
      */
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -849,7 +850,8 @@ export interface RemoteMavenRepositoryArgs {
      */
     remoteRepoLayoutRef?: pulumi.Input<string>;
     /**
-     * Repository layout key for the remote repository
+     * Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+     * corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
      */
     repoLayoutRef?: pulumi.Input<string>;
     /**
@@ -857,6 +859,9 @@ export interface RemoteMavenRepositoryArgs {
      * before checking for newer versions on remote server. A value of 0 indicates no caching.
      */
     retrievalCachePeriodSeconds?: pulumi.Input<number>;
+    /**
+     * @deprecated No longer supported
+     */
     shareConfiguration?: pulumi.Input<boolean>;
     /**
      * Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network
@@ -886,7 +891,7 @@ export interface RemoteMavenRepositoryArgs {
     /**
      * The remote repo URL.
      */
-    url?: pulumi.Input<string>;
+    url: pulumi.Input<string>;
     username?: pulumi.Input<string>;
     /**
      * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via

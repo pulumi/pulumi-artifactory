@@ -22,6 +22,7 @@ __all__ = ['RemoteConanRepositoryArgs', 'RemoteConanRepository']
 class RemoteConanRepositoryArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
+                 url: pulumi.Input[str],
                  allow_any_host_auth: Optional[pulumi.Input[bool]] = None,
                  archive_browsing_enabled: Optional[pulumi.Input[bool]] = None,
                  assumed_offline_period_secs: Optional[pulumi.Input[int]] = None,
@@ -63,13 +64,13 @@ class RemoteConanRepositoryArgs:
                  store_artifacts_locally: Optional[pulumi.Input[bool]] = None,
                  synchronize_properties: Optional[pulumi.Input[bool]] = None,
                  unused_artifacts_cleanup_period_hours: Optional[pulumi.Input[int]] = None,
-                 url: Optional[pulumi.Input[str]] = None,
                  username: Optional[pulumi.Input[str]] = None,
                  xray_index: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a RemoteConanRepository resource.
         :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
                contain spaces or special characters.
+        :param pulumi.Input[str] url: The remote repo URL.
         :param pulumi.Input[bool] allow_any_host_auth: 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any
                other host.
         :param pulumi.Input[bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -93,7 +94,7 @@ class RemoteConanRepositoryArgs:
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
                for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
-        :param pulumi.Input[bool] disable_url_normalization: Whether to disable URL normalization, default is `false`.
+        :param pulumi.Input[bool] disable_url_normalization: Whether to disable URL normalization. Default is `false`.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
         :param pulumi.Input[bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
@@ -116,19 +117,18 @@ class RemoteConanRepositoryArgs:
                found). A value of 0 indicates no caching.
         :param pulumi.Input[str] notes: Internal description.
         :param pulumi.Input[bool] offline: If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
-        :param pulumi.Input[bool] priority_resolution: Setting Priority Resolution takes precedence over the resolution order when resolving virtual repositories. Setting
-               repositories with priority will cause metadata to be merged only from repositories set with a priority. If a package is
-               not found in those repositories, Artifactory will merge from repositories marked as non-priority.
+        :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set names
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
         :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies settings. Can't be set if `disable_proxy = true`.
         :param pulumi.Input[str] query_params: Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
                `param1=val1&param2=val2&param3=val3`
         :param pulumi.Input[str] remote_repo_layout_ref: Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an
                empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be
                ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
-        :param pulumi.Input[str] repo_layout_ref: Repository layout key for the remote repository
+        :param pulumi.Input[str] repo_layout_ref: Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+               corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
         :param pulumi.Input[int] retrieval_cache_period_seconds: Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files
                before checking for newer versions on remote server. A value of 0 indicates no caching.
         :param pulumi.Input[int] socket_timeout_millis: Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network
@@ -140,11 +140,11 @@ class RemoteConanRepositoryArgs:
         :param pulumi.Input[bool] synchronize_properties: When set, remote artifacts are fetched along with their properties.
         :param pulumi.Input[int] unused_artifacts_cleanup_period_hours: Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and
                eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
-        :param pulumi.Input[str] url: The remote repo URL.
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
                Xray settings.
         """
         pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "url", url)
         if allow_any_host_auth is not None:
             pulumi.set(__self__, "allow_any_host_auth", allow_any_host_auth)
         if archive_browsing_enabled is not None:
@@ -218,6 +218,9 @@ class RemoteConanRepositoryArgs:
         if retrieval_cache_period_seconds is not None:
             pulumi.set(__self__, "retrieval_cache_period_seconds", retrieval_cache_period_seconds)
         if share_configuration is not None:
+            warnings.warn("""No longer supported""", DeprecationWarning)
+            pulumi.log.warn("""share_configuration is deprecated: No longer supported""")
+        if share_configuration is not None:
             pulumi.set(__self__, "share_configuration", share_configuration)
         if socket_timeout_millis is not None:
             pulumi.set(__self__, "socket_timeout_millis", socket_timeout_millis)
@@ -227,8 +230,6 @@ class RemoteConanRepositoryArgs:
             pulumi.set(__self__, "synchronize_properties", synchronize_properties)
         if unused_artifacts_cleanup_period_hours is not None:
             pulumi.set(__self__, "unused_artifacts_cleanup_period_hours", unused_artifacts_cleanup_period_hours)
-        if url is not None:
-            pulumi.set(__self__, "url", url)
         if username is not None:
             pulumi.set(__self__, "username", username)
         if xray_index is not None:
@@ -246,6 +247,18 @@ class RemoteConanRepositoryArgs:
     @key.setter
     def key(self, value: pulumi.Input[str]):
         pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def url(self) -> pulumi.Input[str]:
+        """
+        The remote repo URL.
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "url", value)
 
     @property
     @pulumi.getter(name="allowAnyHostAuth")
@@ -404,7 +417,7 @@ class RemoteConanRepositoryArgs:
     @pulumi.getter(name="disableUrlNormalization")
     def disable_url_normalization(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether to disable URL normalization, default is `false`.
+        Whether to disable URL normalization. Default is `false`.
         """
         return pulumi.get(self, "disable_url_normalization")
 
@@ -590,9 +603,7 @@ class RemoteConanRepositoryArgs:
     @pulumi.getter(name="priorityResolution")
     def priority_resolution(self) -> Optional[pulumi.Input[bool]]:
         """
-        Setting Priority Resolution takes precedence over the resolution order when resolving virtual repositories. Setting
-        repositories with priority will cause metadata to be merged only from repositories set with a priority. If a package is
-        not found in those repositories, Artifactory will merge from repositories marked as non-priority.
+        Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         """
         return pulumi.get(self, "priority_resolution")
 
@@ -626,7 +637,7 @@ class RemoteConanRepositoryArgs:
     @pulumi.getter(name="propertySets")
     def property_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of property set names
+        List of property set name
         """
         return pulumi.get(self, "property_sets")
 
@@ -677,7 +688,8 @@ class RemoteConanRepositoryArgs:
     @pulumi.getter(name="repoLayoutRef")
     def repo_layout_ref(self) -> Optional[pulumi.Input[str]]:
         """
-        Repository layout key for the remote repository
+        Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+        corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
         """
         return pulumi.get(self, "repo_layout_ref")
 
@@ -700,6 +712,7 @@ class RemoteConanRepositoryArgs:
 
     @property
     @pulumi.getter(name="shareConfiguration")
+    @_utilities.deprecated("""No longer supported""")
     def share_configuration(self) -> Optional[pulumi.Input[bool]]:
         return pulumi.get(self, "share_configuration")
 
@@ -762,18 +775,6 @@ class RemoteConanRepositoryArgs:
 
     @property
     @pulumi.getter
-    def url(self) -> Optional[pulumi.Input[str]]:
-        """
-        The remote repo URL.
-        """
-        return pulumi.get(self, "url")
-
-    @url.setter
-    def url(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "url", value)
-
-    @property
-    @pulumi.getter
     def username(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "username")
 
@@ -825,7 +826,6 @@ class _RemoteConanRepositoryState:
                  missed_cache_period_seconds: Optional[pulumi.Input[int]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
                  offline: Optional[pulumi.Input[bool]] = None,
-                 package_type: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  priority_resolution: Optional[pulumi.Input[bool]] = None,
                  project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -869,7 +869,7 @@ class _RemoteConanRepositoryState:
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
                for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
-        :param pulumi.Input[bool] disable_url_normalization: Whether to disable URL normalization, default is `false`.
+        :param pulumi.Input[bool] disable_url_normalization: Whether to disable URL normalization. Default is `false`.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
         :param pulumi.Input[bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
@@ -894,19 +894,18 @@ class _RemoteConanRepositoryState:
                found). A value of 0 indicates no caching.
         :param pulumi.Input[str] notes: Internal description.
         :param pulumi.Input[bool] offline: If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
-        :param pulumi.Input[bool] priority_resolution: Setting Priority Resolution takes precedence over the resolution order when resolving virtual repositories. Setting
-               repositories with priority will cause metadata to be merged only from repositories set with a priority. If a package is
-               not found in those repositories, Artifactory will merge from repositories marked as non-priority.
+        :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set names
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
         :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies settings. Can't be set if `disable_proxy = true`.
         :param pulumi.Input[str] query_params: Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
                `param1=val1&param2=val2&param3=val3`
         :param pulumi.Input[str] remote_repo_layout_ref: Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an
                empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be
                ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
-        :param pulumi.Input[str] repo_layout_ref: Repository layout key for the remote repository
+        :param pulumi.Input[str] repo_layout_ref: Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+               corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
         :param pulumi.Input[int] retrieval_cache_period_seconds: Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files
                before checking for newer versions on remote server. A value of 0 indicates no caching.
         :param pulumi.Input[int] socket_timeout_millis: Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network
@@ -976,8 +975,6 @@ class _RemoteConanRepositoryState:
             pulumi.set(__self__, "notes", notes)
         if offline is not None:
             pulumi.set(__self__, "offline", offline)
-        if package_type is not None:
-            pulumi.set(__self__, "package_type", package_type)
         if password is not None:
             pulumi.set(__self__, "password", password)
         if priority_resolution is not None:
@@ -998,6 +995,9 @@ class _RemoteConanRepositoryState:
             pulumi.set(__self__, "repo_layout_ref", repo_layout_ref)
         if retrieval_cache_period_seconds is not None:
             pulumi.set(__self__, "retrieval_cache_period_seconds", retrieval_cache_period_seconds)
+        if share_configuration is not None:
+            warnings.warn("""No longer supported""", DeprecationWarning)
+            pulumi.log.warn("""share_configuration is deprecated: No longer supported""")
         if share_configuration is not None:
             pulumi.set(__self__, "share_configuration", share_configuration)
         if socket_timeout_millis is not None:
@@ -1172,7 +1172,7 @@ class _RemoteConanRepositoryState:
     @pulumi.getter(name="disableUrlNormalization")
     def disable_url_normalization(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether to disable URL normalization, default is `false`.
+        Whether to disable URL normalization. Default is `false`.
         """
         return pulumi.get(self, "disable_url_normalization")
 
@@ -1359,15 +1359,6 @@ class _RemoteConanRepositoryState:
         pulumi.set(self, "offline", value)
 
     @property
-    @pulumi.getter(name="packageType")
-    def package_type(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "package_type")
-
-    @package_type.setter
-    def package_type(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "package_type", value)
-
-    @property
     @pulumi.getter
     def password(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "password")
@@ -1380,9 +1371,7 @@ class _RemoteConanRepositoryState:
     @pulumi.getter(name="priorityResolution")
     def priority_resolution(self) -> Optional[pulumi.Input[bool]]:
         """
-        Setting Priority Resolution takes precedence over the resolution order when resolving virtual repositories. Setting
-        repositories with priority will cause metadata to be merged only from repositories set with a priority. If a package is
-        not found in those repositories, Artifactory will merge from repositories marked as non-priority.
+        Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         """
         return pulumi.get(self, "priority_resolution")
 
@@ -1416,7 +1405,7 @@ class _RemoteConanRepositoryState:
     @pulumi.getter(name="propertySets")
     def property_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of property set names
+        List of property set name
         """
         return pulumi.get(self, "property_sets")
 
@@ -1467,7 +1456,8 @@ class _RemoteConanRepositoryState:
     @pulumi.getter(name="repoLayoutRef")
     def repo_layout_ref(self) -> Optional[pulumi.Input[str]]:
         """
-        Repository layout key for the remote repository
+        Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+        corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
         """
         return pulumi.get(self, "repo_layout_ref")
 
@@ -1490,6 +1480,7 @@ class _RemoteConanRepositoryState:
 
     @property
     @pulumi.getter(name="shareConfiguration")
+    @_utilities.deprecated("""No longer supported""")
     def share_configuration(self) -> Optional[pulumi.Input[bool]]:
         return pulumi.get(self, "share_configuration")
 
@@ -1685,7 +1676,7 @@ class RemoteConanRepository(pulumi.CustomResource):
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
                for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
-        :param pulumi.Input[bool] disable_url_normalization: Whether to disable URL normalization, default is `false`.
+        :param pulumi.Input[bool] disable_url_normalization: Whether to disable URL normalization. Default is `false`.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
         :param pulumi.Input[bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
@@ -1710,19 +1701,18 @@ class RemoteConanRepository(pulumi.CustomResource):
                found). A value of 0 indicates no caching.
         :param pulumi.Input[str] notes: Internal description.
         :param pulumi.Input[bool] offline: If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
-        :param pulumi.Input[bool] priority_resolution: Setting Priority Resolution takes precedence over the resolution order when resolving virtual repositories. Setting
-               repositories with priority will cause metadata to be merged only from repositories set with a priority. If a package is
-               not found in those repositories, Artifactory will merge from repositories marked as non-priority.
+        :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set names
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
         :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies settings. Can't be set if `disable_proxy = true`.
         :param pulumi.Input[str] query_params: Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
                `param1=val1&param2=val2&param3=val3`
         :param pulumi.Input[str] remote_repo_layout_ref: Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an
                empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be
                ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
-        :param pulumi.Input[str] repo_layout_ref: Repository layout key for the remote repository
+        :param pulumi.Input[str] repo_layout_ref: Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+               corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
         :param pulumi.Input[int] retrieval_cache_period_seconds: Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files
                before checking for newer versions on remote server. A value of 0 indicates no caching.
         :param pulumi.Input[int] socket_timeout_millis: Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network
@@ -1881,10 +1871,11 @@ class RemoteConanRepository(pulumi.CustomResource):
             __props__.__dict__["store_artifacts_locally"] = store_artifacts_locally
             __props__.__dict__["synchronize_properties"] = synchronize_properties
             __props__.__dict__["unused_artifacts_cleanup_period_hours"] = unused_artifacts_cleanup_period_hours
+            if url is None and not opts.urn:
+                raise TypeError("Missing required property 'url'")
             __props__.__dict__["url"] = url
             __props__.__dict__["username"] = username
             __props__.__dict__["xray_index"] = xray_index
-            __props__.__dict__["package_type"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["password"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(RemoteConanRepository, __self__).__init__(
@@ -1924,7 +1915,6 @@ class RemoteConanRepository(pulumi.CustomResource):
             missed_cache_period_seconds: Optional[pulumi.Input[int]] = None,
             notes: Optional[pulumi.Input[str]] = None,
             offline: Optional[pulumi.Input[bool]] = None,
-            package_type: Optional[pulumi.Input[str]] = None,
             password: Optional[pulumi.Input[str]] = None,
             priority_resolution: Optional[pulumi.Input[bool]] = None,
             project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1973,7 +1963,7 @@ class RemoteConanRepository(pulumi.CustomResource):
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
                for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
-        :param pulumi.Input[bool] disable_url_normalization: Whether to disable URL normalization, default is `false`.
+        :param pulumi.Input[bool] disable_url_normalization: Whether to disable URL normalization. Default is `false`.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
         :param pulumi.Input[bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
@@ -1998,19 +1988,18 @@ class RemoteConanRepository(pulumi.CustomResource):
                found). A value of 0 indicates no caching.
         :param pulumi.Input[str] notes: Internal description.
         :param pulumi.Input[bool] offline: If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
-        :param pulumi.Input[bool] priority_resolution: Setting Priority Resolution takes precedence over the resolution order when resolving virtual repositories. Setting
-               repositories with priority will cause metadata to be merged only from repositories set with a priority. If a package is
-               not found in those repositories, Artifactory will merge from repositories marked as non-priority.
+        :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set names
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
         :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies settings. Can't be set if `disable_proxy = true`.
         :param pulumi.Input[str] query_params: Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
                `param1=val1&param2=val2&param3=val3`
         :param pulumi.Input[str] remote_repo_layout_ref: Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an
                empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be
                ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
-        :param pulumi.Input[str] repo_layout_ref: Repository layout key for the remote repository
+        :param pulumi.Input[str] repo_layout_ref: Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+               corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
         :param pulumi.Input[int] retrieval_cache_period_seconds: Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files
                before checking for newer versions on remote server. A value of 0 indicates no caching.
         :param pulumi.Input[int] socket_timeout_millis: Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network
@@ -2057,7 +2046,6 @@ class RemoteConanRepository(pulumi.CustomResource):
         __props__.__dict__["missed_cache_period_seconds"] = missed_cache_period_seconds
         __props__.__dict__["notes"] = notes
         __props__.__dict__["offline"] = offline
-        __props__.__dict__["package_type"] = package_type
         __props__.__dict__["password"] = password
         __props__.__dict__["priority_resolution"] = priority_resolution
         __props__.__dict__["project_environments"] = project_environments
@@ -2080,7 +2068,7 @@ class RemoteConanRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allowAnyHostAuth")
-    def allow_any_host_auth(self) -> pulumi.Output[Optional[bool]]:
+    def allow_any_host_auth(self) -> pulumi.Output[bool]:
         """
         'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any
         other host.
@@ -2089,7 +2077,7 @@ class RemoteConanRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="archiveBrowsingEnabled")
-    def archive_browsing_enabled(self) -> pulumi.Output[Optional[bool]]:
+    def archive_browsing_enabled(self) -> pulumi.Output[bool]:
         """
         When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
         therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
@@ -2099,7 +2087,7 @@ class RemoteConanRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="assumedOfflinePeriodSecs")
-    def assumed_offline_period_secs(self) -> pulumi.Output[Optional[int]]:
+    def assumed_offline_period_secs(self) -> pulumi.Output[int]:
         """
         The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
         an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
@@ -2109,7 +2097,7 @@ class RemoteConanRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="blackedOut")
-    def blacked_out(self) -> pulumi.Output[Optional[bool]]:
+    def blacked_out(self) -> pulumi.Output[bool]:
         """
         (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact
         resolution.
@@ -2118,7 +2106,7 @@ class RemoteConanRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="blockMismatchingMimeTypes")
-    def block_mismatching_mime_types(self) -> pulumi.Output[Optional[bool]]:
+    def block_mismatching_mime_types(self) -> pulumi.Output[bool]:
         """
         If set, artifacts will fail to download if a mismatch is detected between requested and received mimetype, according to
         the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes
@@ -2128,7 +2116,7 @@ class RemoteConanRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="bypassHeadRequests")
-    def bypass_head_requests(self) -> pulumi.Output[Optional[bool]]:
+    def bypass_head_requests(self) -> pulumi.Output[bool]:
         """
         Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
         HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
@@ -2138,7 +2126,7 @@ class RemoteConanRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cdnRedirect")
-    def cdn_redirect(self) -> pulumi.Output[Optional[bool]]:
+    def cdn_redirect(self) -> pulumi.Output[bool]:
         """
         When set, download requests to this repository will redirect the client to download the artifact directly from AWS
         CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
@@ -2147,7 +2135,7 @@ class RemoteConanRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clientTlsCertificate")
-    def client_tls_certificate(self) -> pulumi.Output[str]:
+    def client_tls_certificate(self) -> pulumi.Output[Optional[str]]:
         """
         Client TLS certificate name.
         """
@@ -2155,12 +2143,12 @@ class RemoteConanRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="contentSynchronisation")
-    def content_synchronisation(self) -> pulumi.Output['outputs.RemoteConanRepositoryContentSynchronisation']:
+    def content_synchronisation(self) -> pulumi.Output[Optional['outputs.RemoteConanRepositoryContentSynchronisation']]:
         return pulumi.get(self, "content_synchronisation")
 
     @property
     @pulumi.getter
-    def curated(self) -> pulumi.Output[Optional[bool]]:
+    def curated(self) -> pulumi.Output[bool]:
         """
         Enable repository to be protected by the Curation service.
         """
@@ -2168,7 +2156,7 @@ class RemoteConanRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> pulumi.Output[Optional[str]]:
+    def description(self) -> pulumi.Output[str]:
         """
         Public description.
         """
@@ -2176,7 +2164,7 @@ class RemoteConanRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="disableProxy")
-    def disable_proxy(self) -> pulumi.Output[Optional[bool]]:
+    def disable_proxy(self) -> pulumi.Output[bool]:
         """
         When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
         for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
@@ -2185,15 +2173,15 @@ class RemoteConanRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="disableUrlNormalization")
-    def disable_url_normalization(self) -> pulumi.Output[Optional[bool]]:
+    def disable_url_normalization(self) -> pulumi.Output[bool]:
         """
-        Whether to disable URL normalization, default is `false`.
+        Whether to disable URL normalization. Default is `false`.
         """
         return pulumi.get(self, "disable_url_normalization")
 
     @property
     @pulumi.getter(name="downloadDirect")
-    def download_direct(self) -> pulumi.Output[Optional[bool]]:
+    def download_direct(self) -> pulumi.Output[bool]:
         """
         When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
         storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
@@ -2202,7 +2190,7 @@ class RemoteConanRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableCookieManagement")
-    def enable_cookie_management(self) -> pulumi.Output[Optional[bool]]:
+    def enable_cookie_management(self) -> pulumi.Output[bool]:
         """
         Enables cookie management if the remote repository uses cookies to manage client state.
         """
@@ -2210,7 +2198,7 @@ class RemoteConanRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="excludesPattern")
-    def excludes_pattern(self) -> pulumi.Output[Optional[str]]:
+    def excludes_pattern(self) -> pulumi.Output[str]:
         """
         List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
         artifacts are excluded.
@@ -2219,7 +2207,7 @@ class RemoteConanRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="forceConanAuthentication")
-    def force_conan_authentication(self) -> pulumi.Output[Optional[bool]]:
+    def force_conan_authentication(self) -> pulumi.Output[bool]:
         """
         Force basic authentication credentials in order to use this repository. Default value is `false`.
         """
@@ -2227,7 +2215,7 @@ class RemoteConanRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hardFail")
-    def hard_fail(self) -> pulumi.Output[Optional[bool]]:
+    def hard_fail(self) -> pulumi.Output[bool]:
         """
         When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
         communicate with this repository.
@@ -2236,7 +2224,7 @@ class RemoteConanRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="includesPattern")
-    def includes_pattern(self) -> pulumi.Output[Optional[str]]:
+    def includes_pattern(self) -> pulumi.Output[str]:
         """
         List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
         used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
@@ -2254,7 +2242,7 @@ class RemoteConanRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="listRemoteFolderItems")
-    def list_remote_folder_items(self) -> pulumi.Output[Optional[bool]]:
+    def list_remote_folder_items(self) -> pulumi.Output[bool]:
         """
         Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
         the 'Retrieval Cache Period'. Default value is 'false'. This field exists in the API but not in the UI.
@@ -2263,7 +2251,7 @@ class RemoteConanRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="localAddress")
-    def local_address(self) -> pulumi.Output[Optional[str]]:
+    def local_address(self) -> pulumi.Output[str]:
         """
         The local address to be used when creating connections. Useful for specifying the interface to use on systems with
         multiple network interfaces.
@@ -2272,7 +2260,7 @@ class RemoteConanRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="metadataRetrievalTimeoutSecs")
-    def metadata_retrieval_timeout_secs(self) -> pulumi.Output[Optional[int]]:
+    def metadata_retrieval_timeout_secs(self) -> pulumi.Output[int]:
         """
         Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
         the remote before serving locally cached artifact or fail the request.
@@ -2281,7 +2269,7 @@ class RemoteConanRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="mismatchingMimeTypesOverrideList")
-    def mismatching_mime_types_override_list(self) -> pulumi.Output[Optional[str]]:
+    def mismatching_mime_types_override_list(self) -> pulumi.Output[str]:
         """
         The set of mime types that should override the block_mismatching_mime_types setting. Eg:
         'application/json,application/xml'. Default value is empty.
@@ -2290,7 +2278,7 @@ class RemoteConanRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="missedCachePeriodSeconds")
-    def missed_cache_period_seconds(self) -> pulumi.Output[Optional[int]]:
+    def missed_cache_period_seconds(self) -> pulumi.Output[int]:
         """
         Missed Retrieval Cache Period (Sec) in the UI. The number of seconds to cache artifact retrieval misses (artifact not
         found). A value of 0 indicates no caching.
@@ -2299,7 +2287,7 @@ class RemoteConanRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def notes(self) -> pulumi.Output[Optional[str]]:
+    def notes(self) -> pulumi.Output[str]:
         """
         Internal description.
         """
@@ -2307,16 +2295,11 @@ class RemoteConanRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def offline(self) -> pulumi.Output[Optional[bool]]:
+    def offline(self) -> pulumi.Output[bool]:
         """
         If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
         """
         return pulumi.get(self, "offline")
-
-    @property
-    @pulumi.getter(name="packageType")
-    def package_type(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "package_type")
 
     @property
     @pulumi.getter
@@ -2325,11 +2308,9 @@ class RemoteConanRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="priorityResolution")
-    def priority_resolution(self) -> pulumi.Output[Optional[bool]]:
+    def priority_resolution(self) -> pulumi.Output[bool]:
         """
-        Setting Priority Resolution takes precedence over the resolution order when resolving virtual repositories. Setting
-        repositories with priority will cause metadata to be merged only from repositories set with a priority. If a package is
-        not found in those repositories, Artifactory will merge from repositories marked as non-priority.
+        Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         """
         return pulumi.get(self, "priority_resolution")
 
@@ -2340,7 +2321,7 @@ class RemoteConanRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="projectKey")
-    def project_key(self) -> pulumi.Output[Optional[str]]:
+    def project_key(self) -> pulumi.Output[str]:
         """
         Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
         assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
@@ -2351,13 +2332,13 @@ class RemoteConanRepository(pulumi.CustomResource):
     @pulumi.getter(name="propertySets")
     def property_sets(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        List of property set names
+        List of property set name
         """
         return pulumi.get(self, "property_sets")
 
     @property
     @pulumi.getter
-    def proxy(self) -> pulumi.Output[Optional[str]]:
+    def proxy(self) -> pulumi.Output[str]:
         """
         Proxy key from Artifactory Proxies settings. Can't be set if `disable_proxy = true`.
         """
@@ -2365,7 +2346,7 @@ class RemoteConanRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="queryParams")
-    def query_params(self) -> pulumi.Output[Optional[str]]:
+    def query_params(self) -> pulumi.Output[str]:
         """
         Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
         `param1=val1&param2=val2&param3=val3`
@@ -2374,7 +2355,7 @@ class RemoteConanRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="remoteRepoLayoutRef")
-    def remote_repo_layout_ref(self) -> pulumi.Output[Optional[str]]:
+    def remote_repo_layout_ref(self) -> pulumi.Output[str]:
         """
         Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an
         empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be
@@ -2384,15 +2365,16 @@ class RemoteConanRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="repoLayoutRef")
-    def repo_layout_ref(self) -> pulumi.Output[Optional[str]]:
+    def repo_layout_ref(self) -> pulumi.Output[str]:
         """
-        Repository layout key for the remote repository
+        Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+        corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
         """
         return pulumi.get(self, "repo_layout_ref")
 
     @property
     @pulumi.getter(name="retrievalCachePeriodSeconds")
-    def retrieval_cache_period_seconds(self) -> pulumi.Output[Optional[int]]:
+    def retrieval_cache_period_seconds(self) -> pulumi.Output[int]:
         """
         Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files
         before checking for newer versions on remote server. A value of 0 indicates no caching.
@@ -2401,12 +2383,13 @@ class RemoteConanRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="shareConfiguration")
+    @_utilities.deprecated("""No longer supported""")
     def share_configuration(self) -> pulumi.Output[bool]:
         return pulumi.get(self, "share_configuration")
 
     @property
     @pulumi.getter(name="socketTimeoutMillis")
-    def socket_timeout_millis(self) -> pulumi.Output[Optional[int]]:
+    def socket_timeout_millis(self) -> pulumi.Output[int]:
         """
         Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network
         operation is considered a retrieval failure.
@@ -2415,7 +2398,7 @@ class RemoteConanRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storeArtifactsLocally")
-    def store_artifacts_locally(self) -> pulumi.Output[Optional[bool]]:
+    def store_artifacts_locally(self) -> pulumi.Output[bool]:
         """
         When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and
         direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with
@@ -2426,7 +2409,7 @@ class RemoteConanRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="synchronizeProperties")
-    def synchronize_properties(self) -> pulumi.Output[Optional[bool]]:
+    def synchronize_properties(self) -> pulumi.Output[bool]:
         """
         When set, remote artifacts are fetched along with their properties.
         """
@@ -2434,7 +2417,7 @@ class RemoteConanRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="unusedArtifactsCleanupPeriodHours")
-    def unused_artifacts_cleanup_period_hours(self) -> pulumi.Output[Optional[int]]:
+    def unused_artifacts_cleanup_period_hours(self) -> pulumi.Output[int]:
         """
         Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and
         eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
@@ -2443,7 +2426,7 @@ class RemoteConanRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def url(self) -> pulumi.Output[Optional[str]]:
+    def url(self) -> pulumi.Output[str]:
         """
         The remote repo URL.
         """
@@ -2451,12 +2434,12 @@ class RemoteConanRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def username(self) -> pulumi.Output[Optional[str]]:
+    def username(self) -> pulumi.Output[str]:
         return pulumi.get(self, "username")
 
     @property
     @pulumi.getter(name="xrayIndex")
-    def xray_index(self) -> pulumi.Output[Optional[bool]]:
+    def xray_index(self) -> pulumi.Output[bool]:
         """
         Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
         Xray settings.

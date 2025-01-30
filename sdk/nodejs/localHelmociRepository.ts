@@ -63,35 +63,30 @@ export class LocalHelmociRepository extends pulumi.CustomResource {
      * therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
      * security (e.g., cross-site scripting attacks).
      */
-    public readonly archiveBrowsingEnabled!: pulumi.Output<boolean | undefined>;
+    public readonly archiveBrowsingEnabled!: pulumi.Output<boolean>;
     /**
      * When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
      */
-    public readonly blackedOut!: pulumi.Output<boolean | undefined>;
-    /**
-     * When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
-     */
-    public readonly cdnRedirect!: pulumi.Output<boolean | undefined>;
+    public readonly blackedOut!: pulumi.Output<boolean>;
     /**
      * Public description.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string>;
     /**
      * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
      * storage provider. Available in Enterprise+ and Edge licenses only.
      */
-    public readonly downloadDirect!: pulumi.Output<boolean | undefined>;
+    public readonly downloadDirect!: pulumi.Output<boolean>;
     /**
      * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no
      * artifacts are excluded.
      */
-    public readonly excludesPattern!: pulumi.Output<string | undefined>;
+    public readonly excludesPattern!: pulumi.Output<string>;
     /**
      * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When
      * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
      */
-    public readonly includesPattern!: pulumi.Output<string | undefined>;
+    public readonly includesPattern!: pulumi.Output<string>;
     /**
      * the identity key of the repo.
      */
@@ -101,39 +96,39 @@ export class LocalHelmociRepository extends pulumi.CustomResource {
      * repository. Once the number tags for an image exceeds this setting, older tags are removed.
      * A value of 0 (default) indicates there is no limit.
      */
-    public readonly maxUniqueTags!: pulumi.Output<number | undefined>;
+    public readonly maxUniqueTags!: pulumi.Output<number>;
     /**
      * Internal description.
      */
-    public readonly notes!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly packageType!: pulumi.Output<string>;
+    public readonly notes!: pulumi.Output<string>;
     /**
      * Setting repositories with priority will cause metadata to be merged only from repositories set with this field
      */
-    public readonly priorityResolution!: pulumi.Output<boolean | undefined>;
+    public readonly priorityResolution!: pulumi.Output<boolean>;
     public readonly projectEnvironments!: pulumi.Output<string[]>;
     /**
      * Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
      * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      */
-    public readonly projectKey!: pulumi.Output<string | undefined>;
+    public readonly projectKey!: pulumi.Output<string>;
     /**
      * List of property set name
      */
     public readonly propertySets!: pulumi.Output<string[] | undefined>;
     /**
-     * Repository layout key for the local repository
+     * Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+     * corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
      */
-    public readonly repoLayoutRef!: pulumi.Output<string | undefined>;
+    public readonly repoLayoutRef!: pulumi.Output<string>;
     /**
      * If greater than 1, overwritten tags will be saved by their digest, up to the set up number.
      */
-    public readonly tagRetention!: pulumi.Output<number | undefined>;
+    public readonly tagRetention!: pulumi.Output<number>;
     /**
      * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
      * Xray settings.
      */
-    public readonly xrayIndex!: pulumi.Output<boolean | undefined>;
+    public readonly xrayIndex!: pulumi.Output<boolean>;
 
     /**
      * Create a LocalHelmociRepository resource with the given unique name, arguments, and options.
@@ -150,7 +145,6 @@ export class LocalHelmociRepository extends pulumi.CustomResource {
             const state = argsOrState as LocalHelmociRepositoryState | undefined;
             resourceInputs["archiveBrowsingEnabled"] = state ? state.archiveBrowsingEnabled : undefined;
             resourceInputs["blackedOut"] = state ? state.blackedOut : undefined;
-            resourceInputs["cdnRedirect"] = state ? state.cdnRedirect : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["downloadDirect"] = state ? state.downloadDirect : undefined;
             resourceInputs["excludesPattern"] = state ? state.excludesPattern : undefined;
@@ -158,7 +152,6 @@ export class LocalHelmociRepository extends pulumi.CustomResource {
             resourceInputs["key"] = state ? state.key : undefined;
             resourceInputs["maxUniqueTags"] = state ? state.maxUniqueTags : undefined;
             resourceInputs["notes"] = state ? state.notes : undefined;
-            resourceInputs["packageType"] = state ? state.packageType : undefined;
             resourceInputs["priorityResolution"] = state ? state.priorityResolution : undefined;
             resourceInputs["projectEnvironments"] = state ? state.projectEnvironments : undefined;
             resourceInputs["projectKey"] = state ? state.projectKey : undefined;
@@ -173,7 +166,6 @@ export class LocalHelmociRepository extends pulumi.CustomResource {
             }
             resourceInputs["archiveBrowsingEnabled"] = args ? args.archiveBrowsingEnabled : undefined;
             resourceInputs["blackedOut"] = args ? args.blackedOut : undefined;
-            resourceInputs["cdnRedirect"] = args ? args.cdnRedirect : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["downloadDirect"] = args ? args.downloadDirect : undefined;
             resourceInputs["excludesPattern"] = args ? args.excludesPattern : undefined;
@@ -188,7 +180,6 @@ export class LocalHelmociRepository extends pulumi.CustomResource {
             resourceInputs["repoLayoutRef"] = args ? args.repoLayoutRef : undefined;
             resourceInputs["tagRetention"] = args ? args.tagRetention : undefined;
             resourceInputs["xrayIndex"] = args ? args.xrayIndex : undefined;
-            resourceInputs["packageType"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LocalHelmociRepository.__pulumiType, name, resourceInputs, opts);
@@ -209,11 +200,6 @@ export interface LocalHelmociRepositoryState {
      * When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
      */
     blackedOut?: pulumi.Input<boolean>;
-    /**
-     * When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
-     */
-    cdnRedirect?: pulumi.Input<boolean>;
     /**
      * Public description.
      */
@@ -247,7 +233,6 @@ export interface LocalHelmociRepositoryState {
      * Internal description.
      */
     notes?: pulumi.Input<string>;
-    packageType?: pulumi.Input<string>;
     /**
      * Setting repositories with priority will cause metadata to be merged only from repositories set with this field
      */
@@ -263,7 +248,8 @@ export interface LocalHelmociRepositoryState {
      */
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Repository layout key for the local repository
+     * Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+     * corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
      */
     repoLayoutRef?: pulumi.Input<string>;
     /**
@@ -291,11 +277,6 @@ export interface LocalHelmociRepositoryArgs {
      * When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
      */
     blackedOut?: pulumi.Input<boolean>;
-    /**
-     * When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
-     */
-    cdnRedirect?: pulumi.Input<boolean>;
     /**
      * Public description.
      */
@@ -344,7 +325,8 @@ export interface LocalHelmociRepositoryArgs {
      */
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Repository layout key for the local repository
+     * Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+     * corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
      */
     repoLayoutRef?: pulumi.Input<string>;
     /**

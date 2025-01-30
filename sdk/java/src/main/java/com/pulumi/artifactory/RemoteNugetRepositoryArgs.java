@@ -217,14 +217,14 @@ public final class RemoteNugetRepositoryArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Whether to disable URL normalization, default is `false`.
+     * Whether to disable URL normalization. Default is `false`.
      * 
      */
     @Import(name="disableUrlNormalization")
     private @Nullable Output<Boolean> disableUrlNormalization;
 
     /**
-     * @return Whether to disable URL normalization, default is `false`.
+     * @return Whether to disable URL normalization. Default is `false`.
      * 
      */
     public Optional<Output<Boolean>> disableUrlNormalization() {
@@ -503,18 +503,14 @@ public final class RemoteNugetRepositoryArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Setting Priority Resolution takes precedence over the resolution order when resolving virtual repositories. Setting
-     * repositories with priority will cause metadata to be merged only from repositories set with a priority. If a package is
-     * not found in those repositories, Artifactory will merge from repositories marked as non-priority.
+     * Setting repositories with priority will cause metadata to be merged only from repositories set with this field
      * 
      */
     @Import(name="priorityResolution")
     private @Nullable Output<Boolean> priorityResolution;
 
     /**
-     * @return Setting Priority Resolution takes precedence over the resolution order when resolving virtual repositories. Setting
-     * repositories with priority will cause metadata to be merged only from repositories set with a priority. If a package is
-     * not found in those repositories, Artifactory will merge from repositories marked as non-priority.
+     * @return Setting repositories with priority will cause metadata to be merged only from repositories set with this field
      * 
      */
     public Optional<Output<Boolean>> priorityResolution() {
@@ -546,14 +542,14 @@ public final class RemoteNugetRepositoryArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * List of property set names
+     * List of property set name
      * 
      */
     @Import(name="propertySets")
     private @Nullable Output<List<String>> propertySets;
 
     /**
-     * @return List of property set names
+     * @return List of property set name
      * 
      */
     public Optional<Output<List<String>>> propertySets() {
@@ -612,14 +608,16 @@ public final class RemoteNugetRepositoryArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Repository layout key for the remote repository
+     * Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+     * corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
      * 
      */
     @Import(name="repoLayoutRef")
     private @Nullable Output<String> repoLayoutRef;
 
     /**
-     * @return Repository layout key for the remote repository
+     * @return Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+     * corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
      * 
      */
     public Optional<Output<String>> repoLayoutRef() {
@@ -643,9 +641,21 @@ public final class RemoteNugetRepositoryArgs extends com.pulumi.resources.Resour
         return Optional.ofNullable(this.retrievalCachePeriodSeconds);
     }
 
+    /**
+     * @deprecated
+     * No longer supported
+     * 
+     */
+    @Deprecated /* No longer supported */
     @Import(name="shareConfiguration")
     private @Nullable Output<Boolean> shareConfiguration;
 
+    /**
+     * @deprecated
+     * No longer supported
+     * 
+     */
+    @Deprecated /* No longer supported */
     public Optional<Output<Boolean>> shareConfiguration() {
         return Optional.ofNullable(this.shareConfiguration);
     }
@@ -739,15 +749,15 @@ public final class RemoteNugetRepositoryArgs extends com.pulumi.resources.Resour
      * The remote repo URL.
      * 
      */
-    @Import(name="url")
-    private @Nullable Output<String> url;
+    @Import(name="url", required=true)
+    private Output<String> url;
 
     /**
      * @return The remote repo URL.
      * 
      */
-    public Optional<Output<String>> url() {
-        return Optional.ofNullable(this.url);
+    public Output<String> url() {
+        return this.url;
     }
 
     @Import(name="username")
@@ -1126,7 +1136,7 @@ public final class RemoteNugetRepositoryArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param disableUrlNormalization Whether to disable URL normalization, default is `false`.
+         * @param disableUrlNormalization Whether to disable URL normalization. Default is `false`.
          * 
          * @return builder
          * 
@@ -1137,7 +1147,7 @@ public final class RemoteNugetRepositoryArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param disableUrlNormalization Whether to disable URL normalization, default is `false`.
+         * @param disableUrlNormalization Whether to disable URL normalization. Default is `false`.
          * 
          * @return builder
          * 
@@ -1516,9 +1526,7 @@ public final class RemoteNugetRepositoryArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param priorityResolution Setting Priority Resolution takes precedence over the resolution order when resolving virtual repositories. Setting
-         * repositories with priority will cause metadata to be merged only from repositories set with a priority. If a package is
-         * not found in those repositories, Artifactory will merge from repositories marked as non-priority.
+         * @param priorityResolution Setting repositories with priority will cause metadata to be merged only from repositories set with this field
          * 
          * @return builder
          * 
@@ -1529,9 +1537,7 @@ public final class RemoteNugetRepositoryArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param priorityResolution Setting Priority Resolution takes precedence over the resolution order when resolving virtual repositories. Setting
-         * repositories with priority will cause metadata to be merged only from repositories set with a priority. If a package is
-         * not found in those repositories, Artifactory will merge from repositories marked as non-priority.
+         * @param priorityResolution Setting repositories with priority will cause metadata to be merged only from repositories set with this field
          * 
          * @return builder
          * 
@@ -1577,7 +1583,7 @@ public final class RemoteNugetRepositoryArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param propertySets List of property set names
+         * @param propertySets List of property set name
          * 
          * @return builder
          * 
@@ -1588,7 +1594,7 @@ public final class RemoteNugetRepositoryArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param propertySets List of property set names
+         * @param propertySets List of property set name
          * 
          * @return builder
          * 
@@ -1598,7 +1604,7 @@ public final class RemoteNugetRepositoryArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param propertySets List of property set names
+         * @param propertySets List of property set name
          * 
          * @return builder
          * 
@@ -1677,7 +1683,8 @@ public final class RemoteNugetRepositoryArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param repoLayoutRef Repository layout key for the remote repository
+         * @param repoLayoutRef Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+         * corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
          * 
          * @return builder
          * 
@@ -1688,7 +1695,8 @@ public final class RemoteNugetRepositoryArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param repoLayoutRef Repository layout key for the remote repository
+         * @param repoLayoutRef Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+         * corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
          * 
          * @return builder
          * 
@@ -1720,11 +1728,27 @@ public final class RemoteNugetRepositoryArgs extends com.pulumi.resources.Resour
             return retrievalCachePeriodSeconds(Output.of(retrievalCachePeriodSeconds));
         }
 
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * No longer supported
+         * 
+         */
+        @Deprecated /* No longer supported */
         public Builder shareConfiguration(@Nullable Output<Boolean> shareConfiguration) {
             $.shareConfiguration = shareConfiguration;
             return this;
         }
 
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * No longer supported
+         * 
+         */
+        @Deprecated /* No longer supported */
         public Builder shareConfiguration(Boolean shareConfiguration) {
             return shareConfiguration(Output.of(shareConfiguration));
         }
@@ -1850,7 +1874,7 @@ public final class RemoteNugetRepositoryArgs extends com.pulumi.resources.Resour
          * @return builder
          * 
          */
-        public Builder url(@Nullable Output<String> url) {
+        public Builder url(Output<String> url) {
             $.url = url;
             return this;
         }
@@ -1921,6 +1945,9 @@ public final class RemoteNugetRepositoryArgs extends com.pulumi.resources.Resour
         public RemoteNugetRepositoryArgs build() {
             if ($.key == null) {
                 throw new MissingRequiredPropertyException("RemoteNugetRepositoryArgs", "key");
+            }
+            if ($.url == null) {
+                throw new MissingRequiredPropertyException("RemoteNugetRepositoryArgs", "url");
             }
             return $;
         }

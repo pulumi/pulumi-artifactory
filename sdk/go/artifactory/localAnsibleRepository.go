@@ -77,44 +77,40 @@ type LocalAnsibleRepository struct {
 	// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
 	// therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
 	// security (e.g., cross-site scripting attacks).
-	ArchiveBrowsingEnabled pulumi.BoolPtrOutput `pulumi:"archiveBrowsingEnabled"`
+	ArchiveBrowsingEnabled pulumi.BoolOutput `pulumi:"archiveBrowsingEnabled"`
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
-	BlackedOut pulumi.BoolPtrOutput `pulumi:"blackedOut"`
-	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
-	CdnRedirect pulumi.BoolPtrOutput `pulumi:"cdnRedirect"`
+	BlackedOut pulumi.BoolOutput `pulumi:"blackedOut"`
 	// Public description.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
+	Description pulumi.StringOutput `pulumi:"description"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only.
-	DownloadDirect pulumi.BoolPtrOutput `pulumi:"downloadDirect"`
+	DownloadDirect pulumi.BoolOutput `pulumi:"downloadDirect"`
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
 	// artifacts are excluded.
-	ExcludesPattern pulumi.StringPtrOutput `pulumi:"excludesPattern"`
+	ExcludesPattern pulumi.StringOutput `pulumi:"excludesPattern"`
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
-	IncludesPattern pulumi.StringPtrOutput `pulumi:"includesPattern"`
+	IncludesPattern pulumi.StringOutput `pulumi:"includesPattern"`
 	// the identity key of the repo.
 	Key pulumi.StringOutput `pulumi:"key"`
 	// Internal description.
-	Notes       pulumi.StringPtrOutput `pulumi:"notes"`
-	PackageType pulumi.StringOutput    `pulumi:"packageType"`
-	// Used to sign index files in Alpine Linux repositories. See:
-	// https://www.jfrog.com/confluence/display/JFROG/Alpine+Linux+Repositories#AlpineLinuxRepositories-SigningAlpineLinuxIndex
+	Notes pulumi.StringOutput `pulumi:"notes"`
+	// Primary keypair used to sign artifacts. Default value is empty.
 	PrimaryKeypairRef pulumi.StringPtrOutput `pulumi:"primaryKeypairRef"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
-	PriorityResolution  pulumi.BoolPtrOutput     `pulumi:"priorityResolution"`
+	PriorityResolution  pulumi.BoolOutput        `pulumi:"priorityResolution"`
 	ProjectEnvironments pulumi.StringArrayOutput `pulumi:"projectEnvironments"`
 	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
-	ProjectKey pulumi.StringPtrOutput `pulumi:"projectKey"`
+	ProjectKey pulumi.StringOutput `pulumi:"projectKey"`
 	// List of property set name
 	PropertySets pulumi.StringArrayOutput `pulumi:"propertySets"`
-	// Repository layout key for the local repository
-	RepoLayoutRef pulumi.StringPtrOutput `pulumi:"repoLayoutRef"`
+	// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+	// corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+	RepoLayoutRef pulumi.StringOutput `pulumi:"repoLayoutRef"`
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
-	XrayIndex pulumi.BoolPtrOutput `pulumi:"xrayIndex"`
+	XrayIndex pulumi.BoolOutput `pulumi:"xrayIndex"`
 }
 
 // NewLocalAnsibleRepository registers a new resource with the given unique name, arguments, and options.
@@ -156,9 +152,6 @@ type localAnsibleRepositoryState struct {
 	ArchiveBrowsingEnabled *bool `pulumi:"archiveBrowsingEnabled"`
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 	BlackedOut *bool `pulumi:"blackedOut"`
-	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
-	CdnRedirect *bool `pulumi:"cdnRedirect"`
 	// Public description.
 	Description *string `pulumi:"description"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
@@ -173,10 +166,8 @@ type localAnsibleRepositoryState struct {
 	// the identity key of the repo.
 	Key *string `pulumi:"key"`
 	// Internal description.
-	Notes       *string `pulumi:"notes"`
-	PackageType *string `pulumi:"packageType"`
-	// Used to sign index files in Alpine Linux repositories. See:
-	// https://www.jfrog.com/confluence/display/JFROG/Alpine+Linux+Repositories#AlpineLinuxRepositories-SigningAlpineLinuxIndex
+	Notes *string `pulumi:"notes"`
+	// Primary keypair used to sign artifacts. Default value is empty.
 	PrimaryKeypairRef *string `pulumi:"primaryKeypairRef"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution  *bool    `pulumi:"priorityResolution"`
@@ -186,7 +177,8 @@ type localAnsibleRepositoryState struct {
 	ProjectKey *string `pulumi:"projectKey"`
 	// List of property set name
 	PropertySets []string `pulumi:"propertySets"`
-	// Repository layout key for the local repository
+	// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+	// corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
@@ -200,9 +192,6 @@ type LocalAnsibleRepositoryState struct {
 	ArchiveBrowsingEnabled pulumi.BoolPtrInput
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 	BlackedOut pulumi.BoolPtrInput
-	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
-	CdnRedirect pulumi.BoolPtrInput
 	// Public description.
 	Description pulumi.StringPtrInput
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
@@ -217,10 +206,8 @@ type LocalAnsibleRepositoryState struct {
 	// the identity key of the repo.
 	Key pulumi.StringPtrInput
 	// Internal description.
-	Notes       pulumi.StringPtrInput
-	PackageType pulumi.StringPtrInput
-	// Used to sign index files in Alpine Linux repositories. See:
-	// https://www.jfrog.com/confluence/display/JFROG/Alpine+Linux+Repositories#AlpineLinuxRepositories-SigningAlpineLinuxIndex
+	Notes pulumi.StringPtrInput
+	// Primary keypair used to sign artifacts. Default value is empty.
 	PrimaryKeypairRef pulumi.StringPtrInput
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution  pulumi.BoolPtrInput
@@ -230,7 +217,8 @@ type LocalAnsibleRepositoryState struct {
 	ProjectKey pulumi.StringPtrInput
 	// List of property set name
 	PropertySets pulumi.StringArrayInput
-	// Repository layout key for the local repository
+	// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+	// corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
 	RepoLayoutRef pulumi.StringPtrInput
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
@@ -248,9 +236,6 @@ type localAnsibleRepositoryArgs struct {
 	ArchiveBrowsingEnabled *bool `pulumi:"archiveBrowsingEnabled"`
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 	BlackedOut *bool `pulumi:"blackedOut"`
-	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
-	CdnRedirect *bool `pulumi:"cdnRedirect"`
 	// Public description.
 	Description *string `pulumi:"description"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
@@ -266,8 +251,7 @@ type localAnsibleRepositoryArgs struct {
 	Key string `pulumi:"key"`
 	// Internal description.
 	Notes *string `pulumi:"notes"`
-	// Used to sign index files in Alpine Linux repositories. See:
-	// https://www.jfrog.com/confluence/display/JFROG/Alpine+Linux+Repositories#AlpineLinuxRepositories-SigningAlpineLinuxIndex
+	// Primary keypair used to sign artifacts. Default value is empty.
 	PrimaryKeypairRef *string `pulumi:"primaryKeypairRef"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution  *bool    `pulumi:"priorityResolution"`
@@ -277,7 +261,8 @@ type localAnsibleRepositoryArgs struct {
 	ProjectKey *string `pulumi:"projectKey"`
 	// List of property set name
 	PropertySets []string `pulumi:"propertySets"`
-	// Repository layout key for the local repository
+	// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+	// corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
@@ -292,9 +277,6 @@ type LocalAnsibleRepositoryArgs struct {
 	ArchiveBrowsingEnabled pulumi.BoolPtrInput
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 	BlackedOut pulumi.BoolPtrInput
-	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
-	CdnRedirect pulumi.BoolPtrInput
 	// Public description.
 	Description pulumi.StringPtrInput
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
@@ -310,8 +292,7 @@ type LocalAnsibleRepositoryArgs struct {
 	Key pulumi.StringInput
 	// Internal description.
 	Notes pulumi.StringPtrInput
-	// Used to sign index files in Alpine Linux repositories. See:
-	// https://www.jfrog.com/confluence/display/JFROG/Alpine+Linux+Repositories#AlpineLinuxRepositories-SigningAlpineLinuxIndex
+	// Primary keypair used to sign artifacts. Default value is empty.
 	PrimaryKeypairRef pulumi.StringPtrInput
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution  pulumi.BoolPtrInput
@@ -321,7 +302,8 @@ type LocalAnsibleRepositoryArgs struct {
 	ProjectKey pulumi.StringPtrInput
 	// List of property set name
 	PropertySets pulumi.StringArrayInput
-	// Repository layout key for the local repository
+	// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+	// corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
 	RepoLayoutRef pulumi.StringPtrInput
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
@@ -418,42 +400,36 @@ func (o LocalAnsibleRepositoryOutput) ToLocalAnsibleRepositoryOutputWithContext(
 // When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
 // therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
 // security (e.g., cross-site scripting attacks).
-func (o LocalAnsibleRepositoryOutput) ArchiveBrowsingEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *LocalAnsibleRepository) pulumi.BoolPtrOutput { return v.ArchiveBrowsingEnabled }).(pulumi.BoolPtrOutput)
+func (o LocalAnsibleRepositoryOutput) ArchiveBrowsingEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *LocalAnsibleRepository) pulumi.BoolOutput { return v.ArchiveBrowsingEnabled }).(pulumi.BoolOutput)
 }
 
 // When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
-func (o LocalAnsibleRepositoryOutput) BlackedOut() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *LocalAnsibleRepository) pulumi.BoolPtrOutput { return v.BlackedOut }).(pulumi.BoolPtrOutput)
-}
-
-// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
-func (o LocalAnsibleRepositoryOutput) CdnRedirect() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *LocalAnsibleRepository) pulumi.BoolPtrOutput { return v.CdnRedirect }).(pulumi.BoolPtrOutput)
+func (o LocalAnsibleRepositoryOutput) BlackedOut() pulumi.BoolOutput {
+	return o.ApplyT(func(v *LocalAnsibleRepository) pulumi.BoolOutput { return v.BlackedOut }).(pulumi.BoolOutput)
 }
 
 // Public description.
-func (o LocalAnsibleRepositoryOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LocalAnsibleRepository) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+func (o LocalAnsibleRepositoryOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v *LocalAnsibleRepository) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
 // When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 // storage provider. Available in Enterprise+ and Edge licenses only.
-func (o LocalAnsibleRepositoryOutput) DownloadDirect() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *LocalAnsibleRepository) pulumi.BoolPtrOutput { return v.DownloadDirect }).(pulumi.BoolPtrOutput)
+func (o LocalAnsibleRepositoryOutput) DownloadDirect() pulumi.BoolOutput {
+	return o.ApplyT(func(v *LocalAnsibleRepository) pulumi.BoolOutput { return v.DownloadDirect }).(pulumi.BoolOutput)
 }
 
 // List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
 // artifacts are excluded.
-func (o LocalAnsibleRepositoryOutput) ExcludesPattern() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LocalAnsibleRepository) pulumi.StringPtrOutput { return v.ExcludesPattern }).(pulumi.StringPtrOutput)
+func (o LocalAnsibleRepositoryOutput) ExcludesPattern() pulumi.StringOutput {
+	return o.ApplyT(func(v *LocalAnsibleRepository) pulumi.StringOutput { return v.ExcludesPattern }).(pulumi.StringOutput)
 }
 
 // List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
 // used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
-func (o LocalAnsibleRepositoryOutput) IncludesPattern() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LocalAnsibleRepository) pulumi.StringPtrOutput { return v.IncludesPattern }).(pulumi.StringPtrOutput)
+func (o LocalAnsibleRepositoryOutput) IncludesPattern() pulumi.StringOutput {
+	return o.ApplyT(func(v *LocalAnsibleRepository) pulumi.StringOutput { return v.IncludesPattern }).(pulumi.StringOutput)
 }
 
 // the identity key of the repo.
@@ -462,23 +438,18 @@ func (o LocalAnsibleRepositoryOutput) Key() pulumi.StringOutput {
 }
 
 // Internal description.
-func (o LocalAnsibleRepositoryOutput) Notes() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LocalAnsibleRepository) pulumi.StringPtrOutput { return v.Notes }).(pulumi.StringPtrOutput)
+func (o LocalAnsibleRepositoryOutput) Notes() pulumi.StringOutput {
+	return o.ApplyT(func(v *LocalAnsibleRepository) pulumi.StringOutput { return v.Notes }).(pulumi.StringOutput)
 }
 
-func (o LocalAnsibleRepositoryOutput) PackageType() pulumi.StringOutput {
-	return o.ApplyT(func(v *LocalAnsibleRepository) pulumi.StringOutput { return v.PackageType }).(pulumi.StringOutput)
-}
-
-// Used to sign index files in Alpine Linux repositories. See:
-// https://www.jfrog.com/confluence/display/JFROG/Alpine+Linux+Repositories#AlpineLinuxRepositories-SigningAlpineLinuxIndex
+// Primary keypair used to sign artifacts. Default value is empty.
 func (o LocalAnsibleRepositoryOutput) PrimaryKeypairRef() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LocalAnsibleRepository) pulumi.StringPtrOutput { return v.PrimaryKeypairRef }).(pulumi.StringPtrOutput)
 }
 
 // Setting repositories with priority will cause metadata to be merged only from repositories set with this field
-func (o LocalAnsibleRepositoryOutput) PriorityResolution() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *LocalAnsibleRepository) pulumi.BoolPtrOutput { return v.PriorityResolution }).(pulumi.BoolPtrOutput)
+func (o LocalAnsibleRepositoryOutput) PriorityResolution() pulumi.BoolOutput {
+	return o.ApplyT(func(v *LocalAnsibleRepository) pulumi.BoolOutput { return v.PriorityResolution }).(pulumi.BoolOutput)
 }
 
 func (o LocalAnsibleRepositoryOutput) ProjectEnvironments() pulumi.StringArrayOutput {
@@ -487,8 +458,8 @@ func (o LocalAnsibleRepositoryOutput) ProjectEnvironments() pulumi.StringArrayOu
 
 // Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
 // assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
-func (o LocalAnsibleRepositoryOutput) ProjectKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LocalAnsibleRepository) pulumi.StringPtrOutput { return v.ProjectKey }).(pulumi.StringPtrOutput)
+func (o LocalAnsibleRepositoryOutput) ProjectKey() pulumi.StringOutput {
+	return o.ApplyT(func(v *LocalAnsibleRepository) pulumi.StringOutput { return v.ProjectKey }).(pulumi.StringOutput)
 }
 
 // List of property set name
@@ -496,15 +467,16 @@ func (o LocalAnsibleRepositoryOutput) PropertySets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LocalAnsibleRepository) pulumi.StringArrayOutput { return v.PropertySets }).(pulumi.StringArrayOutput)
 }
 
-// Repository layout key for the local repository
-func (o LocalAnsibleRepositoryOutput) RepoLayoutRef() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LocalAnsibleRepository) pulumi.StringPtrOutput { return v.RepoLayoutRef }).(pulumi.StringPtrOutput)
+// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+// corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+func (o LocalAnsibleRepositoryOutput) RepoLayoutRef() pulumi.StringOutput {
+	return o.ApplyT(func(v *LocalAnsibleRepository) pulumi.StringOutput { return v.RepoLayoutRef }).(pulumi.StringOutput)
 }
 
 // Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 // Xray settings.
-func (o LocalAnsibleRepositoryOutput) XrayIndex() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *LocalAnsibleRepository) pulumi.BoolPtrOutput { return v.XrayIndex }).(pulumi.BoolPtrOutput)
+func (o LocalAnsibleRepositoryOutput) XrayIndex() pulumi.BoolOutput {
+	return o.ApplyT(func(v *LocalAnsibleRepository) pulumi.BoolOutput { return v.XrayIndex }).(pulumi.BoolOutput)
 }
 
 type LocalAnsibleRepositoryArrayOutput struct{ *pulumi.OutputState }

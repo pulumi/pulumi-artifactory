@@ -52,20 +52,18 @@ public final class DebianRepositoryState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
+     * When set, enable indexing with debug symbols (.ddeb).
      * 
      */
-    @Import(name="cdnRedirect")
-    private @Nullable Output<Boolean> cdnRedirect;
+    @Import(name="ddebSupported")
+    private @Nullable Output<Boolean> ddebSupported;
 
     /**
-     * @return When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
+     * @return When set, enable indexing with debug symbols (.ddeb).
      * 
      */
-    public Optional<Output<Boolean>> cdnRedirect() {
-        return Optional.ofNullable(this.cdnRedirect);
+    public Optional<Output<Boolean>> ddebSupported() {
+        return Optional.ofNullable(this.ddebSupported);
     }
 
     /**
@@ -181,13 +179,6 @@ public final class DebianRepositoryState extends com.pulumi.resources.ResourceAr
         return Optional.ofNullable(this.notes);
     }
 
-    @Import(name="packageType")
-    private @Nullable Output<String> packageType;
-
-    public Optional<Output<String>> packageType() {
-        return Optional.ofNullable(this.packageType);
-    }
-
     /**
      * The primary RSA key to be used to sign packages.
      * 
@@ -258,14 +249,16 @@ public final class DebianRepositoryState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Repository layout key for the local repository
+     * Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+     * corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
      * 
      */
     @Import(name="repoLayoutRef")
     private @Nullable Output<String> repoLayoutRef;
 
     /**
-     * @return Repository layout key for the local repository
+     * @return Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+     * corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
      * 
      */
     public Optional<Output<String>> repoLayoutRef() {
@@ -290,22 +283,14 @@ public final class DebianRepositoryState extends com.pulumi.resources.ResourceAr
     /**
      * When set, the repository will use the deprecated trivial layout.
      * 
-     * @deprecated
-     * You shouldn&#39;t be using this
-     * 
      */
-    @Deprecated /* You shouldn't be using this */
     @Import(name="trivialLayout")
     private @Nullable Output<Boolean> trivialLayout;
 
     /**
      * @return When set, the repository will use the deprecated trivial layout.
      * 
-     * @deprecated
-     * You shouldn&#39;t be using this
-     * 
      */
-    @Deprecated /* You shouldn't be using this */
     public Optional<Output<Boolean>> trivialLayout() {
         return Optional.ofNullable(this.trivialLayout);
     }
@@ -332,7 +317,7 @@ public final class DebianRepositoryState extends com.pulumi.resources.ResourceAr
     private DebianRepositoryState(DebianRepositoryState $) {
         this.archiveBrowsingEnabled = $.archiveBrowsingEnabled;
         this.blackedOut = $.blackedOut;
-        this.cdnRedirect = $.cdnRedirect;
+        this.ddebSupported = $.ddebSupported;
         this.description = $.description;
         this.downloadDirect = $.downloadDirect;
         this.excludesPattern = $.excludesPattern;
@@ -340,7 +325,6 @@ public final class DebianRepositoryState extends com.pulumi.resources.ResourceAr
         this.indexCompressionFormats = $.indexCompressionFormats;
         this.key = $.key;
         this.notes = $.notes;
-        this.packageType = $.packageType;
         this.primaryKeypairRef = $.primaryKeypairRef;
         this.priorityResolution = $.priorityResolution;
         this.projectEnvironments = $.projectEnvironments;
@@ -417,26 +401,24 @@ public final class DebianRepositoryState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param cdnRedirect When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-         * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
+         * @param ddebSupported When set, enable indexing with debug symbols (.ddeb).
          * 
          * @return builder
          * 
          */
-        public Builder cdnRedirect(@Nullable Output<Boolean> cdnRedirect) {
-            $.cdnRedirect = cdnRedirect;
+        public Builder ddebSupported(@Nullable Output<Boolean> ddebSupported) {
+            $.ddebSupported = ddebSupported;
             return this;
         }
 
         /**
-         * @param cdnRedirect When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-         * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
+         * @param ddebSupported When set, enable indexing with debug symbols (.ddeb).
          * 
          * @return builder
          * 
          */
-        public Builder cdnRedirect(Boolean cdnRedirect) {
-            return cdnRedirect(Output.of(cdnRedirect));
+        public Builder ddebSupported(Boolean ddebSupported) {
+            return ddebSupported(Output.of(ddebSupported));
         }
 
         /**
@@ -605,15 +587,6 @@ public final class DebianRepositoryState extends com.pulumi.resources.ResourceAr
             return notes(Output.of(notes));
         }
 
-        public Builder packageType(@Nullable Output<String> packageType) {
-            $.packageType = packageType;
-            return this;
-        }
-
-        public Builder packageType(String packageType) {
-            return packageType(Output.of(packageType));
-        }
-
         /**
          * @param primaryKeypairRef The primary RSA key to be used to sign packages.
          * 
@@ -724,7 +697,8 @@ public final class DebianRepositoryState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param repoLayoutRef Repository layout key for the local repository
+         * @param repoLayoutRef Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+         * corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
          * 
          * @return builder
          * 
@@ -735,7 +709,8 @@ public final class DebianRepositoryState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param repoLayoutRef Repository layout key for the local repository
+         * @param repoLayoutRef Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+         * corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
          * 
          * @return builder
          * 
@@ -770,11 +745,7 @@ public final class DebianRepositoryState extends com.pulumi.resources.ResourceAr
          * 
          * @return builder
          * 
-         * @deprecated
-         * You shouldn&#39;t be using this
-         * 
          */
-        @Deprecated /* You shouldn't be using this */
         public Builder trivialLayout(@Nullable Output<Boolean> trivialLayout) {
             $.trivialLayout = trivialLayout;
             return this;
@@ -785,11 +756,7 @@ public final class DebianRepositoryState extends com.pulumi.resources.ResourceAr
          * 
          * @return builder
          * 
-         * @deprecated
-         * You shouldn&#39;t be using this
-         * 
          */
-        @Deprecated /* You shouldn't be using this */
         public Builder trivialLayout(Boolean trivialLayout) {
             return trivialLayout(Output.of(trivialLayout));
         }
