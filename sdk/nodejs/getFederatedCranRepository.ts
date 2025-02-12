@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const federated-test-cran-repo = artifactory.getFederatedCranRepository({
+ * const federated_test_cran_repo = artifactory.getFederatedCranRepository({
  *     key: "federated-test-cran-repo",
  * });
  * ```
@@ -135,7 +135,7 @@ export interface GetFederatedCranRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const federated-test-cran-repo = artifactory.getFederatedCranRepository({
+ * const federated_test_cran_repo = artifactory.getFederatedCranRepository({
  *     key: "federated-test-cran-repo",
  * });
  * ```

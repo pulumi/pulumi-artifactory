@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const local-test-ansible-repo-basic = artifactory.getLocalAnsibleRepository({
+ * const local_test_ansible_repo_basic = artifactory.getLocalAnsibleRepository({
  *     key: "local-test-ansible-repo-basic",
  * });
  * ```
@@ -106,7 +106,7 @@ export interface GetLocalAnsibleRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const local-test-ansible-repo-basic = artifactory.getLocalAnsibleRepository({
+ * const local_test_ansible_repo_basic = artifactory.getLocalAnsibleRepository({
  *     key: "local-test-ansible-repo-basic",
  * });
  * ```

@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const federated-test-bower-repo = artifactory.getFederatedBowerRepository({
+ * const federated_test_bower_repo = artifactory.getFederatedBowerRepository({
  *     key: "federated-test-bower-repo",
  * });
  * ```
@@ -135,7 +135,7 @@ export interface GetFederatedBowerRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const federated-test-bower-repo = artifactory.getFederatedBowerRepository({
+ * const federated_test_bower_repo = artifactory.getFederatedBowerRepository({
  *     key: "federated-test-bower-repo",
  * });
  * ```

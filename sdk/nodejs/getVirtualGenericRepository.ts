@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const virtual-generic = artifactory.getVirtualGenericRepository({
+ * const virtual_generic = artifactory.getVirtualGenericRepository({
  *     key: "virtual-generic",
  * });
  * ```
@@ -85,7 +85,7 @@ export interface GetVirtualGenericRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const virtual-generic = artifactory.getVirtualGenericRepository({
+ * const virtual_generic = artifactory.getVirtualGenericRepository({
  *     key: "virtual-generic",
  * });
  * ```

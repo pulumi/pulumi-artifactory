@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const local-test-helm-repo = artifactory.getLocalHelmRepository({
+ * const local_test_helm_repo = artifactory.getLocalHelmRepository({
  *     key: "local-test-helm-repo",
  * });
  * ```
@@ -100,7 +100,7 @@ export interface GetLocalHelmRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const local-test-helm-repo = artifactory.getLocalHelmRepository({
+ * const local_test_helm_repo = artifactory.getLocalHelmRepository({
  *     key: "local-test-helm-repo",
  * });
  * ```

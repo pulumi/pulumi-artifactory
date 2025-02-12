@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const virtual-composer = artifactory.getVirtualComposerRepository({
+ * const virtual_composer = artifactory.getVirtualComposerRepository({
  *     key: "virtual-composer",
  * });
  * ```
@@ -85,7 +85,7 @@ export interface GetVirtualComposerRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const virtual-composer = artifactory.getVirtualComposerRepository({
+ * const virtual_composer = artifactory.getVirtualComposerRepository({
  *     key: "virtual-composer",
  * });
  * ```

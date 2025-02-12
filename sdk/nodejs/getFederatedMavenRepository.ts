@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const federated-test-maven-repo = artifactory.getFederatedMavenRepository({
+ * const federated_test_maven_repo = artifactory.getFederatedMavenRepository({
  *     key: "federated-test-maven-repo",
  * });
  * ```
@@ -153,7 +153,7 @@ export interface GetFederatedMavenRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const federated-test-maven-repo = artifactory.getFederatedMavenRepository({
+ * const federated_test_maven_repo = artifactory.getFederatedMavenRepository({
  *     key: "federated-test-maven-repo",
  * });
  * ```

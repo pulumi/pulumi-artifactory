@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const remote-pypi = artifactory.getRemotePypiRepository({
+ * const remote_pypi = artifactory.getRemotePypiRepository({
  *     key: "remote-pypi",
  * });
  * ```
@@ -204,7 +204,7 @@ export interface GetRemotePypiRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const remote-pypi = artifactory.getRemotePypiRepository({
+ * const remote_pypi = artifactory.getRemotePypiRepository({
  *     key: "remote-pypi",
  * });
  * ```

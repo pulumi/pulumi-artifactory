@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const federated-test-debian-repo = artifactory.getFederatedDebianRepository({
+ * const federated_test_debian_repo = artifactory.getFederatedDebianRepository({
  *     key: "federated-test-debian-repo",
  * });
  * ```
@@ -153,7 +153,7 @@ export interface GetFederatedDebianRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const federated-test-debian-repo = artifactory.getFederatedDebianRepository({
+ * const federated_test_debian_repo = artifactory.getFederatedDebianRepository({
  *     key: "federated-test-debian-repo",
  * });
  * ```

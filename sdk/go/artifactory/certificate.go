@@ -36,7 +36,7 @@ import (
 //				return err
 //			}
 //			// Create a new Artifactory certificate called my-cert
-//			_, err = artifactory.NewCertificate(ctx, "my-cert", &artifactory.CertificateArgs{
+//			my_cert, err := artifactory.NewCertificate(ctx, "my-cert", &artifactory.CertificateArgs{
 //				Alias:   pulumi.String("my-cert"),
 //				Content: pulumi.String(invokeFile.Result),
 //			})

@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const local-test-chef-repo = artifactory.getLocalChefRepository({
+ * const local_test_chef_repo = artifactory.getLocalChefRepository({
  *     key: "local-test-chef-repo",
  * });
  * ```
@@ -112,7 +112,7 @@ export interface GetLocalChefRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const local-test-chef-repo = artifactory.getLocalChefRepository({
+ * const local_test_chef_repo = artifactory.getLocalChefRepository({
  *     key: "local-test-chef-repo",
  * });
  * ```

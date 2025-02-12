@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const remote-helm = artifactory.getRemoteHelmRepository({
+ * const remote_helm = artifactory.getRemoteHelmRepository({
  *     key: "remote-helm",
  * });
  * ```
@@ -210,7 +210,7 @@ export interface GetRemoteHelmRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const remote-helm = artifactory.getRemoteHelmRepository({
+ * const remote_helm = artifactory.getRemoteHelmRepository({
  *     key: "remote-helm",
  * });
  * ```

@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const remote-p2 = artifactory.getRemoteP2Repository({
+ * const remote_p2 = artifactory.getRemoteP2Repository({
  *     key: "remote-p2",
  * });
  * ```
@@ -183,7 +183,7 @@ export interface GetRemoteP2RepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const remote-p2 = artifactory.getRemoteP2Repository({
+ * const remote_p2 = artifactory.getRemoteP2Repository({
  *     key: "remote-p2",
  * });
  * ```

@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const federated-test-gitlfs-repo = artifactory.getFederatedGitlfsRepository({
+ * const federated_test_gitlfs_repo = artifactory.getFederatedGitlfsRepository({
  *     key: "federated-test-gitlfs-repo",
  * });
  * ```
@@ -135,7 +135,7 @@ export interface GetFederatedGitlfsRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const federated-test-gitlfs-repo = artifactory.getFederatedGitlfsRepository({
+ * const federated_test_gitlfs_repo = artifactory.getFederatedGitlfsRepository({
  *     key: "federated-test-gitlfs-repo",
  * });
  * ```

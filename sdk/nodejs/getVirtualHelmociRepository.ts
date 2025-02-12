@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const my-helmoci-virtual = artifactory.getVirtualHelmociRepository({
+ * const my_helmoci_virtual = artifactory.getVirtualHelmociRepository({
  *     key: "my-helmoci-virtual",
  * });
  * ```
@@ -94,7 +94,7 @@ export interface GetVirtualHelmociRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const my-helmoci-virtual = artifactory.getVirtualHelmociRepository({
+ * const my_helmoci_virtual = artifactory.getVirtualHelmociRepository({
  *     key: "my-helmoci-virtual",
  * });
  * ```

@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const federated-test-nuget-repo = artifactory.getFederatedNugetRepository({
+ * const federated_test_nuget_repo = artifactory.getFederatedNugetRepository({
  *     key: "federated-test-nuget-repo",
  * });
  * ```
@@ -141,7 +141,7 @@ export interface GetFederatedNugetRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const federated-test-nuget-repo = artifactory.getFederatedNugetRepository({
+ * const federated_test_nuget_repo = artifactory.getFederatedNugetRepository({
  *     key: "federated-test-nuget-repo",
  * });
  * ```

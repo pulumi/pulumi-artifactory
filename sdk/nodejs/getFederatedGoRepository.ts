@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const federated-test-go-repo = artifactory.getFederatedGoRepository({
+ * const federated_test_go_repo = artifactory.getFederatedGoRepository({
  *     key: "federated-test-go-repo",
  * });
  * ```
@@ -135,7 +135,7 @@ export interface GetFederatedGoRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const federated-test-go-repo = artifactory.getFederatedGoRepository({
+ * const federated_test_go_repo = artifactory.getFederatedGoRepository({
  *     key: "federated-test-go-repo",
  * });
  * ```

@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const local-test-go-repo = artifactory.getLocalGoRepository({
+ * const local_test_go_repo = artifactory.getLocalGoRepository({
  *     key: "local-test-go-repo",
  * });
  * ```
@@ -100,7 +100,7 @@ export interface GetLocalGoRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const local-test-go-repo = artifactory.getLocalGoRepository({
+ * const local_test_go_repo = artifactory.getLocalGoRepository({
  *     key: "local-test-go-repo",
  * });
  * ```

@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const local-test-gems-repo = artifactory.getLocalGemsRepository({
+ * const local_test_gems_repo = artifactory.getLocalGemsRepository({
  *     key: "local-test-gems-repo",
  * });
  * ```
@@ -100,7 +100,7 @@ export interface GetLocalGemsRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const local-test-gems-repo = artifactory.getLocalGemsRepository({
+ * const local_test_gems_repo = artifactory.getLocalGemsRepository({
  *     key: "local-test-gems-repo",
  * });
  * ```

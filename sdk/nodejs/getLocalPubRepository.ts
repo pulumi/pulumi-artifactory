@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const local-test-pub-repo = artifactory.getLocalPubRepository({
+ * const local_test_pub_repo = artifactory.getLocalPubRepository({
  *     key: "local-test-pub-repo",
  * });
  * ```
@@ -100,7 +100,7 @@ export interface GetLocalPubRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const local-test-pub-repo = artifactory.getLocalPubRepository({
+ * const local_test_pub_repo = artifactory.getLocalPubRepository({
  *     key: "local-test-pub-repo",
  * });
  * ```

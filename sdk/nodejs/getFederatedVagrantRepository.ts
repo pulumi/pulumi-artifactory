@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const federated-test-vagrant-repo = artifactory.getFederatedVagrantRepository({
+ * const federated_test_vagrant_repo = artifactory.getFederatedVagrantRepository({
  *     key: "federated-test-vagrant-repo",
  * });
  * ```
@@ -135,7 +135,7 @@ export interface GetFederatedVagrantRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const federated-test-vagrant-repo = artifactory.getFederatedVagrantRepository({
+ * const federated_test_vagrant_repo = artifactory.getFederatedVagrantRepository({
  *     key: "federated-test-vagrant-repo",
  * });
  * ```

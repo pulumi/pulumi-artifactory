@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const remote-pub = artifactory.getRemotePubRepository({
+ * const remote_pub = artifactory.getRemotePubRepository({
  *     key: "remote-pub",
  * });
  * ```
@@ -183,7 +183,7 @@ export interface GetRemotePubRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const remote-pub = artifactory.getRemotePubRepository({
+ * const remote_pub = artifactory.getRemotePubRepository({
  *     key: "remote-pub",
  * });
  * ```

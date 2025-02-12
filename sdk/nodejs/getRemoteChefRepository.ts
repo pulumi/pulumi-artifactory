@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const remote-chef = artifactory.getRemoteChefRepository({
+ * const remote_chef = artifactory.getRemoteChefRepository({
  *     key: "remote-chef",
  * });
  * ```
@@ -183,7 +183,7 @@ export interface GetRemoteChefRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const remote-chef = artifactory.getRemoteChefRepository({
+ * const remote_chef = artifactory.getRemoteChefRepository({
  *     key: "remote-chef",
  * });
  * ```

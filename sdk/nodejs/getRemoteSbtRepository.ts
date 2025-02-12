@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const remote-sbt = artifactory.getRemoteSbtRepository({
+ * const remote_sbt = artifactory.getRemoteSbtRepository({
  *     key: "remote-sbt",
  * });
  * ```
@@ -249,7 +249,7 @@ export interface GetRemoteSbtRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const remote-sbt = artifactory.getRemoteSbtRepository({
+ * const remote_sbt = artifactory.getRemoteSbtRepository({
  *     key: "remote-sbt",
  * });
  * ```

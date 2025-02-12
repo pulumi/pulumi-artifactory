@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const local-test-conan-repo = artifactory.getLocalConanRepository({
+ * const local_test_conan_repo = artifactory.getLocalConanRepository({
  *     key: "local-test-conan-repo",
  * });
  * ```
@@ -111,7 +111,7 @@ export interface GetLocalConanRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const local-test-conan-repo = artifactory.getLocalConanRepository({
+ * const local_test_conan_repo = artifactory.getLocalConanRepository({
  *     key: "local-test-conan-repo",
  * });
  * ```

@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const local-test-debian-repo-basic = artifactory.getLocalDebianRepository({
+ * const local_test_debian_repo_basic = artifactory.getLocalDebianRepository({
  *     key: "local-test-debian-repo-basic",
  * });
  * ```
@@ -139,7 +139,7 @@ export interface GetLocalDebianRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const local-test-debian-repo-basic = artifactory.getLocalDebianRepository({
+ * const local_test_debian_repo_basic = artifactory.getLocalDebianRepository({
  *     key: "local-test-debian-repo-basic",
  * });
  * ```

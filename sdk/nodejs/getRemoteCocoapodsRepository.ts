@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const remote-cocoapods = artifactory.getRemoteCocoapodsRepository({
+ * const remote_cocoapods = artifactory.getRemoteCocoapodsRepository({
  *     key: "remote-cocoapods",
  * });
  * ```
@@ -210,7 +210,7 @@ export interface GetRemoteCocoapodsRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const remote-cocoapods = artifactory.getRemoteCocoapodsRepository({
+ * const remote_cocoapods = artifactory.getRemoteCocoapodsRepository({
  *     key: "remote-cocoapods",
  * });
  * ```

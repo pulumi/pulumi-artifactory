@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const virtual-p2 = artifactory.getVirtualP2Repository({
+ * const virtual_p2 = artifactory.getVirtualP2Repository({
  *     key: "virtual-p2",
  * });
  * ```
@@ -85,7 +85,7 @@ export interface GetVirtualP2RepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const virtual-p2 = artifactory.getVirtualP2Repository({
+ * const virtual_p2 = artifactory.getVirtualP2Repository({
  *     key: "virtual-p2",
  * });
  * ```

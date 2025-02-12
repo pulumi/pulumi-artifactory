@@ -11,7 +11,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const virtual-terraform = artifactory.getVirtualTerraformRepository({
+ * const virtual_terraform = artifactory.getVirtualTerraformRepository({
  *     key: "virtual-terraform",
  * });
  * ```
@@ -81,7 +81,7 @@ export interface GetVirtualTerraformRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const virtual-terraform = artifactory.getVirtualTerraformRepository({
+ * const virtual_terraform = artifactory.getVirtualTerraformRepository({
  *     key: "virtual-terraform",
  * });
  * ```

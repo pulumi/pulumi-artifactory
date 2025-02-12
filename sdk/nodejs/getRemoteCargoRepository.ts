@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const remote-cargo = artifactory.getRemoteCargoRepository({
+ * const remote_cargo = artifactory.getRemoteCargoRepository({
  *     key: "remote-cargo",
  * });
  * ```
@@ -210,7 +210,7 @@ export interface GetRemoteCargoRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const remote-cargo = artifactory.getRemoteCargoRepository({
+ * const remote_cargo = artifactory.getRemoteCargoRepository({
  *     key: "remote-cargo",
  * });
  * ```

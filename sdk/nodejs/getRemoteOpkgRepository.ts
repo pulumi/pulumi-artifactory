@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const remote-opkg = artifactory.getRemoteOpkgRepository({
+ * const remote_opkg = artifactory.getRemoteOpkgRepository({
  *     key: "remote-opkg",
  * });
  * ```
@@ -183,7 +183,7 @@ export interface GetRemoteOpkgRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const remote-opkg = artifactory.getRemoteOpkgRepository({
+ * const remote_opkg = artifactory.getRemoteOpkgRepository({
  *     key: "remote-opkg",
  * });
  * ```

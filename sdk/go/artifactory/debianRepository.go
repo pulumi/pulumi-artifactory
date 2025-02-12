@@ -43,7 +43,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = artifactory.NewKeypair(ctx, "some-keypairGPG1", &artifactory.KeypairArgs{
+//			some_keypairGPG1, err := artifactory.NewKeypair(ctx, "some-keypairGPG1", &artifactory.KeypairArgs{
 //				PairName:   pulumi.Sprintf("some-keypair%v", randid.Id),
 //				PairType:   pulumi.String("GPG"),
 //				Alias:      pulumi.String("foo-alias1"),
@@ -65,7 +65,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = artifactory.NewKeypair(ctx, "some-keypairGPG2", &artifactory.KeypairArgs{
+//			some_keypairGPG2, err := artifactory.NewKeypair(ctx, "some-keypairGPG2", &artifactory.KeypairArgs{
 //				PairName:   pulumi.Sprintf("some-keypair4%v", randid.Id),
 //				PairType:   pulumi.String("GPG"),
 //				Alias:      pulumi.String("foo-alias2"),

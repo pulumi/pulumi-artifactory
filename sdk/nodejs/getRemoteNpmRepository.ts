@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const remote-npm = artifactory.getRemoteNpmRepository({
+ * const remote_npm = artifactory.getRemoteNpmRepository({
  *     key: "remote-npm",
  * });
  * ```
@@ -186,7 +186,7 @@ export interface GetRemoteNpmRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const remote-npm = artifactory.getRemoteNpmRepository({
+ * const remote_npm = artifactory.getRemoteNpmRepository({
  *     key: "remote-npm",
  * });
  * ```

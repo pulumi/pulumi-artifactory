@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const federated-test-pypi-repo = artifactory.getFederatedPypiRepository({
+ * const federated_test_pypi_repo = artifactory.getFederatedPypiRepository({
  *     key: "federated-test-pypi-repo",
  * });
  * ```
@@ -135,7 +135,7 @@ export interface GetFederatedPypiRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const federated-test-pypi-repo = artifactory.getFederatedPypiRepository({
+ * const federated_test_pypi_repo = artifactory.getFederatedPypiRepository({
  *     key: "federated-test-pypi-repo",
  * });
  * ```

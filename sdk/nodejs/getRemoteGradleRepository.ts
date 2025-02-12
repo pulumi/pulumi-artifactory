@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const remote-gradle = artifactory.getRemoteGradleRepository({
+ * const remote_gradle = artifactory.getRemoteGradleRepository({
  *     key: "remote-gradle",
  * });
  * ```
@@ -249,7 +249,7 @@ export interface GetRemoteGradleRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const remote-gradle = artifactory.getRemoteGradleRepository({
+ * const remote_gradle = artifactory.getRemoteGradleRepository({
  *     key: "remote-gradle",
  * });
  * ```

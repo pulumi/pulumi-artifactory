@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const local-test-alpine-repo-basic = artifactory.getLocalAlpineRepository({
+ * const local_test_alpine_repo_basic = artifactory.getLocalAlpineRepository({
  *     key: "local-test-alpine-repo-basic",
  * });
  * ```
@@ -109,7 +109,7 @@ export interface GetLocalAlpineRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const local-test-alpine-repo-basic = artifactory.getLocalAlpineRepository({
+ * const local_test_alpine_repo_basic = artifactory.getLocalAlpineRepository({
  *     key: "local-test-alpine-repo-basic",
  * });
  * ```

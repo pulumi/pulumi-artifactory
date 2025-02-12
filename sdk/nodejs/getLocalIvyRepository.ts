@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const local-test-ivy-repo = artifactory.getLocalIvyRepository({
+ * const local_test_ivy_repo = artifactory.getLocalIvyRepository({
  *     key: "local-test-ivy-repo",
  * });
  * ```
@@ -147,7 +147,7 @@ export interface GetLocalIvyRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const local-test-ivy-repo = artifactory.getLocalIvyRepository({
+ * const local_test_ivy_repo = artifactory.getLocalIvyRepository({
  *     key: "local-test-ivy-repo",
  * });
  * ```

@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const remote-conda = artifactory.getRemoteCondaRepository({
+ * const remote_conda = artifactory.getRemoteCondaRepository({
  *     key: "remote-conda",
  * });
  * ```
@@ -183,7 +183,7 @@ export interface GetRemoteCondaRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const remote-conda = artifactory.getRemoteCondaRepository({
+ * const remote_conda = artifactory.getRemoteCondaRepository({
  *     key: "remote-conda",
  * });
  * ```

@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const virtual-swift = artifactory.getVirtualSwiftRepository({
+ * const virtual_swift = artifactory.getVirtualSwiftRepository({
  *     key: "virtual-swift",
  * });
  * ```
@@ -85,7 +85,7 @@ export interface GetVirtualSwiftRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const virtual-swift = artifactory.getVirtualSwiftRepository({
+ * const virtual_swift = artifactory.getVirtualSwiftRepository({
  *     key: "virtual-swift",
  * });
  * ```
