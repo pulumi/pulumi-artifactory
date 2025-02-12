@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const virtual-helm = artifactory.getVirtualHelmRepository({
+ * const virtual_helm = artifactory.getVirtualHelmRepository({
  *     key: "virtual-helm",
  * });
  * ```
@@ -103,7 +103,7 @@ export interface GetVirtualHelmRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const virtual-helm = artifactory.getVirtualHelmRepository({
+ * const virtual_helm = artifactory.getVirtualHelmRepository({
  *     key: "virtual-helm",
  * });
  * ```

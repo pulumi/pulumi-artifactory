@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const federated-test-puppet-repo = artifactory.getFederatedPuppetRepository({
+ * const federated_test_puppet_repo = artifactory.getFederatedPuppetRepository({
  *     key: "federated-test-puppet-repo",
  * });
  * ```
@@ -135,7 +135,7 @@ export interface GetFederatedPuppetRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const federated-test-puppet-repo = artifactory.getFederatedPuppetRepository({
+ * const federated_test_puppet_repo = artifactory.getFederatedPuppetRepository({
  *     key: "federated-test-puppet-repo",
  * });
  * ```

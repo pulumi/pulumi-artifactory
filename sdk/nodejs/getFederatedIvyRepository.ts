@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const federated-test-ivy-repo = artifactory.getFederatedIvyRepository({
+ * const federated_test_ivy_repo = artifactory.getFederatedIvyRepository({
  *     key: "federated-test-ivy-repo",
  * });
  * ```
@@ -153,7 +153,7 @@ export interface GetFederatedIvyRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const federated-test-ivy-repo = artifactory.getFederatedIvyRepository({
+ * const federated_test_ivy_repo = artifactory.getFederatedIvyRepository({
  *     key: "federated-test-ivy-repo",
  * });
  * ```

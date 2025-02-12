@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const federated-test-conan-repo = artifactory.getFederatedConanRepository({
+ * const federated_test_conan_repo = artifactory.getFederatedConanRepository({
  *     key: "federated-test-conan-repo",
  * });
  * ```
@@ -138,7 +138,7 @@ export interface GetFederatedConanRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const federated-test-conan-repo = artifactory.getFederatedConanRepository({
+ * const federated_test_conan_repo = artifactory.getFederatedConanRepository({
  *     key: "federated-test-conan-repo",
  * });
  * ```

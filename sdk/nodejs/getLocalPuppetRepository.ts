@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const local-test-puppet-repo = artifactory.getLocalPuppetRepository({
+ * const local_test_puppet_repo = artifactory.getLocalPuppetRepository({
  *     key: "local-test-puppet-repo",
  * });
  * ```
@@ -100,7 +100,7 @@ export interface GetLocalPuppetRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const local-test-puppet-repo = artifactory.getLocalPuppetRepository({
+ * const local_test_puppet_repo = artifactory.getLocalPuppetRepository({
  *     key: "local-test-puppet-repo",
  * });
  * ```

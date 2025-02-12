@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const local-test-bower-repo = artifactory.getLocalBowerRepository({
+ * const local_test_bower_repo = artifactory.getLocalBowerRepository({
  *     key: "local-test-bower-repo",
  * });
  * ```
@@ -112,7 +112,7 @@ export interface GetLocalBowerRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const local-test-bower-repo = artifactory.getLocalBowerRepository({
+ * const local_test_bower_repo = artifactory.getLocalBowerRepository({
  *     key: "local-test-bower-repo",
  * });
  * ```

@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const my-helmoci-local = artifactory.getLocalHelmociRepository({
+ * const my_helmoci_local = artifactory.getLocalHelmociRepository({
  *     key: "my-helmoci-local",
  * });
  * ```
@@ -115,7 +115,7 @@ export interface GetLocalHelmociRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const my-helmoci-local = artifactory.getLocalHelmociRepository({
+ * const my_helmoci_local = artifactory.getLocalHelmociRepository({
  *     key: "my-helmoci-local",
  * });
  * ```

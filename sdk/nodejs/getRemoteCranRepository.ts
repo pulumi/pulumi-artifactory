@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const remote-cran = artifactory.getRemoteCranRepository({
+ * const remote_cran = artifactory.getRemoteCranRepository({
  *     key: "remote-cran",
  * });
  * ```
@@ -183,7 +183,7 @@ export interface GetRemoteCranRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const remote-cran = artifactory.getRemoteCranRepository({
+ * const remote_cran = artifactory.getRemoteCranRepository({
  *     key: "remote-cran",
  * });
  * ```

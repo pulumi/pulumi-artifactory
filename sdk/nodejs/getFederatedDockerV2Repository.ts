@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const federated-test-docker-repo = artifactory.getFederatedDockerV2Repository({
+ * const federated_test_docker_repo = artifactory.getFederatedDockerV2Repository({
  *     key: "federated-test-docker-repo",
  * });
  * ```
@@ -145,7 +145,7 @@ export interface GetFederatedDockerV2RepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const federated-test-docker-repo = artifactory.getFederatedDockerV2Repository({
+ * const federated_test_docker_repo = artifactory.getFederatedDockerV2Repository({
  *     key: "federated-test-docker-repo",
  * });
  * ```

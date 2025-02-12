@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const local-test-gradle-repo-basic = artifactory.getLocalGradleRepository({
+ * const local_test_gradle_repo_basic = artifactory.getLocalGradleRepository({
  *     key: "local-test-gradle-repo-basic",
  * });
  * ```
@@ -147,7 +147,7 @@ export interface GetLocalGradleRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const local-test-gradle-repo-basic = artifactory.getLocalGradleRepository({
+ * const local_test_gradle_repo_basic = artifactory.getLocalGradleRepository({
  *     key: "local-test-gradle-repo-basic",
  * });
  * ```

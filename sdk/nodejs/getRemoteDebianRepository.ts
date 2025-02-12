@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const remote-debian = artifactory.getRemoteDebianRepository({
+ * const remote_debian = artifactory.getRemoteDebianRepository({
  *     key: "remote-debian",
  * });
  * ```
@@ -183,7 +183,7 @@ export interface GetRemoteDebianRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const remote-debian = artifactory.getRemoteDebianRepository({
+ * const remote_debian = artifactory.getRemoteDebianRepository({
  *     key: "remote-debian",
  * });
  * ```

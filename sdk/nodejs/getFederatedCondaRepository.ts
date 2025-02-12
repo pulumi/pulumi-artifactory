@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const federated-test-conda-repo = artifactory.getFederatedCondaRepository({
+ * const federated_test_conda_repo = artifactory.getFederatedCondaRepository({
  *     key: "federated-test-conda-repo",
  * });
  * ```
@@ -135,7 +135,7 @@ export interface GetFederatedCondaRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const federated-test-conda-repo = artifactory.getFederatedCondaRepository({
+ * const federated_test_conda_repo = artifactory.getFederatedCondaRepository({
  *     key: "federated-test-conda-repo",
  * });
  * ```

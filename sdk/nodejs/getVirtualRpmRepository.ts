@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const virtual-rpm = artifactory.getVirtualRpmRepository({
+ * const virtual_rpm = artifactory.getVirtualRpmRepository({
  *     key: "virtual-rpm",
  * });
  * ```
@@ -103,7 +103,7 @@ export interface GetVirtualRpmRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const virtual-rpm = artifactory.getVirtualRpmRepository({
+ * const virtual_rpm = artifactory.getVirtualRpmRepository({
  *     key: "virtual-rpm",
  * });
  * ```

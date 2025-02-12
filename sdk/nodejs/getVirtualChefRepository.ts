@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const virtual-chef = artifactory.getVirtualChefRepository({
+ * const virtual_chef = artifactory.getVirtualChefRepository({
  *     key: "virtual-chef",
  * });
  * ```
@@ -94,7 +94,7 @@ export interface GetVirtualChefRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const virtual-chef = artifactory.getVirtualChefRepository({
+ * const virtual_chef = artifactory.getVirtualChefRepository({
  *     key: "virtual-chef",
  * });
  * ```

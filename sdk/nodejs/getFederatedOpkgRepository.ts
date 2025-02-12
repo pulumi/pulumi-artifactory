@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const federated-test-opkg-repo = artifactory.getFederatedOpkgRepository({
+ * const federated_test_opkg_repo = artifactory.getFederatedOpkgRepository({
  *     key: "federated-test-opkg-repo",
  * });
  * ```
@@ -135,7 +135,7 @@ export interface GetFederatedOpkgRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const federated-test-opkg-repo = artifactory.getFederatedOpkgRepository({
+ * const federated_test_opkg_repo = artifactory.getFederatedOpkgRepository({
  *     key: "federated-test-opkg-repo",
  * });
  * ```

@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const remote-maven = artifactory.getRemoteMavenRepository({
+ * const remote_maven = artifactory.getRemoteMavenRepository({
  *     key: "remote-maven",
  * });
  * ```
@@ -258,7 +258,7 @@ export interface GetRemoteMavenRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const remote-maven = artifactory.getRemoteMavenRepository({
+ * const remote_maven = artifactory.getRemoteMavenRepository({
  *     key: "remote-maven",
  * });
  * ```

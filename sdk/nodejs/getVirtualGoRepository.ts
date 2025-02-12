@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const virtual-go = artifactory.getVirtualGoRepository({
+ * const virtual_go = artifactory.getVirtualGoRepository({
  *     key: "virtual-go",
  * });
  * ```
@@ -105,7 +105,7 @@ export interface GetVirtualGoRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const virtual-go = artifactory.getVirtualGoRepository({
+ * const virtual_go = artifactory.getVirtualGoRepository({
  *     key: "virtual-go",
  * });
  * ```

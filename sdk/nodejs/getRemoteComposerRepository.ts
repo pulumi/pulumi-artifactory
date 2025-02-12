@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const remote-composer = artifactory.getRemoteComposerRepository({
+ * const remote_composer = artifactory.getRemoteComposerRepository({
  *     key: "remote-composer",
  * });
  * ```
@@ -210,7 +210,7 @@ export interface GetRemoteComposerRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const remote-composer = artifactory.getRemoteComposerRepository({
+ * const remote_composer = artifactory.getRemoteComposerRepository({
  *     key: "remote-composer",
  * });
  * ```

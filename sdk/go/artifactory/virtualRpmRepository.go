@@ -42,7 +42,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = artifactory.NewKeypair(ctx, "primary-keypair", &artifactory.KeypairArgs{
+//			primary_keypair, err := artifactory.NewKeypair(ctx, "primary-keypair", &artifactory.KeypairArgs{
 //				PairName:   pulumi.String("primary-keypair"),
 //				PairType:   pulumi.String("GPG"),
 //				Alias:      pulumi.String("foo-alias-1"),
@@ -64,7 +64,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = artifactory.NewKeypair(ctx, "secondary-keypair", &artifactory.KeypairArgs{
+//			secondary_keypair, err := artifactory.NewKeypair(ctx, "secondary-keypair", &artifactory.KeypairArgs{
 //				PairName:   pulumi.String("secondary-keypair"),
 //				PairType:   pulumi.String("GPG"),
 //				Alias:      pulumi.String("foo-alias-2"),

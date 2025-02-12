@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const virtual-maven = artifactory.getVirtualMavenRepository({
+ * const virtual_maven = artifactory.getVirtualMavenRepository({
  *     key: "virtual-maven",
  * });
  * ```
@@ -106,7 +106,7 @@ export interface GetVirtualMavenRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const virtual-maven = artifactory.getVirtualMavenRepository({
+ * const virtual_maven = artifactory.getVirtualMavenRepository({
  *     key: "virtual-maven",
  * });
  * ```

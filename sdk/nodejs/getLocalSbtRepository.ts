@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const local-test-sbt-repo = artifactory.getLocalSbtRepository({
+ * const local_test_sbt_repo = artifactory.getLocalSbtRepository({
  *     key: "local-test-sbt-repo",
  * });
  * ```
@@ -147,7 +147,7 @@ export interface GetLocalSbtRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const local-test-sbt-repo = artifactory.getLocalSbtRepository({
+ * const local_test_sbt_repo = artifactory.getLocalSbtRepository({
  *     key: "local-test-sbt-repo",
  * });
  * ```

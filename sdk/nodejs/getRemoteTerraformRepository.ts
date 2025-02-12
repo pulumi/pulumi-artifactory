@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const remote-terraform = artifactory.getRemoteTerraformRepository({
+ * const remote_terraform = artifactory.getRemoteTerraformRepository({
  *     key: "remote-terraform",
  * });
  * ```
@@ -185,7 +185,7 @@ export interface GetRemoteTerraformRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const remote-terraform = artifactory.getRemoteTerraformRepository({
+ * const remote_terraform = artifactory.getRemoteTerraformRepository({
  *     key: "remote-terraform",
  * });
  * ```

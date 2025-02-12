@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const federated-test-alpine-repo = artifactory.getFederatedAlpineRepository({
+ * const federated_test_alpine_repo = artifactory.getFederatedAlpineRepository({
  *     key: "federated-test-alpine-repo",
  * });
  * ```
@@ -141,7 +141,7 @@ export interface GetFederatedAlpineRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const federated-test-alpine-repo = artifactory.getFederatedAlpineRepository({
+ * const federated_test_alpine_repo = artifactory.getFederatedAlpineRepository({
  *     key: "federated-test-alpine-repo",
  * });
  * ```

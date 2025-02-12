@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const my-file = artifactory.getFile({
+ * const my_file = artifactory.getFile({
  *     repository: "repo-key",
  *     path: "/path/to/the/artifact.zip",
  *     outputPath: "tmp/artifact.zip",
@@ -128,7 +128,7 @@ export interface GetFileResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const my-file = artifactory.getFile({
+ * const my_file = artifactory.getFile({
  *     repository: "repo-key",
  *     path: "/path/to/the/artifact.zip",
  *     outputPath: "tmp/artifact.zip",

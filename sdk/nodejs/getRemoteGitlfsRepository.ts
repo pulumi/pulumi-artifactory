@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const remote-gitlfs = artifactory.getRemoteGitlfsRepository({
+ * const remote_gitlfs = artifactory.getRemoteGitlfsRepository({
  *     key: "remote-gitlfs",
  * });
  * ```
@@ -183,7 +183,7 @@ export interface GetRemoteGitlfsRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const remote-gitlfs = artifactory.getRemoteGitlfsRepository({
+ * const remote_gitlfs = artifactory.getRemoteGitlfsRepository({
  *     key: "remote-gitlfs",
  * });
  * ```

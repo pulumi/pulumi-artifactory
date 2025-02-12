@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const virtual-alpine = artifactory.getVirtualBowerRepository({
+ * const virtual_alpine = artifactory.getVirtualBowerRepository({
  *     key: "virtual-alpine",
  * });
  * ```
@@ -112,7 +112,7 @@ export interface GetVirtualBowerRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const virtual-alpine = artifactory.getVirtualBowerRepository({
+ * const virtual_alpine = artifactory.getVirtualBowerRepository({
  *     key: "virtual-alpine",
  * });
  * ```

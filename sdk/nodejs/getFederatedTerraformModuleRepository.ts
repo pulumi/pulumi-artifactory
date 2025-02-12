@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const federated-test-terraformModule-repo = artifactory.getFederatedTerraformModuleRepository({
+ * const federated_test_terraformModule_repo = artifactory.getFederatedTerraformModuleRepository({
  *     key: "federated-test-terraform-module-repo",
  * });
  * ```
@@ -131,7 +131,7 @@ export interface GetFederatedTerraformModuleRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const federated-test-terraformModule-repo = artifactory.getFederatedTerraformModuleRepository({
+ * const federated_test_terraformModule_repo = artifactory.getFederatedTerraformModuleRepository({
  *     key: "federated-test-terraform-module-repo",
  * });
  * ```

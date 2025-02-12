@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const virtual-gems = artifactory.getVirtualGemsRepository({
+ * const virtual_gems = artifactory.getVirtualGemsRepository({
  *     key: "virtual-gems",
  * });
  * ```
@@ -85,7 +85,7 @@ export interface GetVirtualGemsRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const virtual-gems = artifactory.getVirtualGemsRepository({
+ * const virtual_gems = artifactory.getVirtualGemsRepository({
  *     key: "virtual-gems",
  * });
  * ```

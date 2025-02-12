@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const virtual-debian = artifactory.getVirtualDebianRepository({
+ * const virtual_debian = artifactory.getVirtualDebianRepository({
  *     key: "virtual-debian",
  * });
  * ```
@@ -130,7 +130,7 @@ export interface GetVirtualDebianRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const virtual-debian = artifactory.getVirtualDebianRepository({
+ * const virtual_debian = artifactory.getVirtualDebianRepository({
  *     key: "virtual-debian",
  * });
  * ```

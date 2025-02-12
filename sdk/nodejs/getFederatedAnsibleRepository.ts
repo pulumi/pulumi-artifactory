@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const federated-test-ansible-repo = artifactory.getFederatedAnsibleRepository({
+ * const federated_test_ansible_repo = artifactory.getFederatedAnsibleRepository({
  *     key: "federated-test-ansible-repo",
  * });
  * ```
@@ -138,7 +138,7 @@ export interface GetFederatedAnsibleRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const federated-test-ansible-repo = artifactory.getFederatedAnsibleRepository({
+ * const federated_test_ansible_repo = artifactory.getFederatedAnsibleRepository({
  *     key: "federated-test-ansible-repo",
  * });
  * ```

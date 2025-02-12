@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const virtual-conan = artifactory.getVirtualConanRepository({
+ * const virtual_conan = artifactory.getVirtualConanRepository({
  *     key: "virtual-conan",
  * });
  * ```
@@ -105,7 +105,7 @@ export interface GetVirtualConanRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const virtual-conan = artifactory.getVirtualConanRepository({
+ * const virtual_conan = artifactory.getVirtualConanRepository({
  *     key: "virtual-conan",
  * });
  * ```

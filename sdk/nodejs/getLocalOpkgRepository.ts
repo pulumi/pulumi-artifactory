@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const local-test-opkg-repo = artifactory.getLocalOpkgRepository({
+ * const local_test_opkg_repo = artifactory.getLocalOpkgRepository({
  *     key: "local-test-opkg-repo",
  * });
  * ```
@@ -100,7 +100,7 @@ export interface GetLocalOpkgRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const local-test-opkg-repo = artifactory.getLocalOpkgRepository({
+ * const local_test_opkg_repo = artifactory.getLocalOpkgRepository({
  *     key: "local-test-opkg-repo",
  * });
  * ```

@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const virtual-pub = artifactory.getVirtualPubRepository({
+ * const virtual_pub = artifactory.getVirtualPubRepository({
  *     key: "virtual-pub",
  * });
  * ```
@@ -85,7 +85,7 @@ export interface GetVirtualPubRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const virtual-pub = artifactory.getVirtualPubRepository({
+ * const virtual_pub = artifactory.getVirtualPubRepository({
  *     key: "virtual-pub",
  * });
  * ```

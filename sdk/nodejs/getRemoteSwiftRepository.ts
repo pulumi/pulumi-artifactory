@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const remote-swift = artifactory.getRemoteSwiftRepository({
+ * const remote_swift = artifactory.getRemoteSwiftRepository({
  *     key: "remote-swift",
  * });
  * ```
@@ -183,7 +183,7 @@ export interface GetRemoteSwiftRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const remote-swift = artifactory.getRemoteSwiftRepository({
+ * const remote_swift = artifactory.getRemoteSwiftRepository({
  *     key: "remote-swift",
  * });
  * ```

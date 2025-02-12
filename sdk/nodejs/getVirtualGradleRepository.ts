@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const virtual-gradle = artifactory.getVirtualGradleRepository({
+ * const virtual_gradle = artifactory.getVirtualGradleRepository({
  *     key: "virtual-gradle",
  * });
  * ```
@@ -112,7 +112,7 @@ export interface GetVirtualGradleRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const virtual-gradle = artifactory.getVirtualGradleRepository({
+ * const virtual_gradle = artifactory.getVirtualGradleRepository({
  *     key: "virtual-gradle",
  * });
  * ```

@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const remote-generic = artifactory.getRemoteGenericRepository({
+ * const remote_generic = artifactory.getRemoteGenericRepository({
  *     key: "remote-generic",
  * });
  * ```
@@ -192,7 +192,7 @@ export interface GetRemoteGenericRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const remote-generic = artifactory.getRemoteGenericRepository({
+ * const remote_generic = artifactory.getRemoteGenericRepository({
  *     key: "remote-generic",
  * });
  * ```

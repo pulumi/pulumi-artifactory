@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const virtual-alpine = artifactory.getVirtualAlpineRepository({
+ * const virtual_alpine = artifactory.getVirtualAlpineRepository({
  *     key: "virtual-alpine",
  * });
  * ```
@@ -103,7 +103,7 @@ export interface GetVirtualAlpineRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const virtual-alpine = artifactory.getVirtualAlpineRepository({
+ * const virtual_alpine = artifactory.getVirtualAlpineRepository({
  *     key: "virtual-alpine",
  * });
  * ```
