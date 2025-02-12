@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const federated-test-chef-repo = artifactory.getFederatedChefRepository({
+ * const federated_test_chef_repo = artifactory.getFederatedChefRepository({
  *     key: "federated-test-chef-repo",
  * });
  * ```
@@ -138,7 +138,7 @@ export interface GetFederatedChefRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const federated-test-chef-repo = artifactory.getFederatedChefRepository({
+ * const federated_test_chef_repo = artifactory.getFederatedChefRepository({
  *     key: "federated-test-chef-repo",
  * });
  * ```

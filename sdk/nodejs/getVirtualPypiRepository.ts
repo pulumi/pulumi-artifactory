@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const virtual-pypi = artifactory.getVirtualPypiRepository({
+ * const virtual_pypi = artifactory.getVirtualPypiRepository({
  *     key: "virtual-pypi",
  * });
  * ```
@@ -85,7 +85,7 @@ export interface GetVirtualPypiRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const virtual-pypi = artifactory.getVirtualPypiRepository({
+ * const virtual_pypi = artifactory.getVirtualPypiRepository({
  *     key: "virtual-pypi",
  * });
  * ```

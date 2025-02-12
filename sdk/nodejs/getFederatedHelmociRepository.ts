@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const my-helmoci-federated = artifactory.getFederatedHelmociRepository({
+ * const my_helmoci_federated = artifactory.getFederatedHelmociRepository({
  *     key: "my-helmoci-federated",
  * });
  * ```
@@ -141,7 +141,7 @@ export interface GetFederatedHelmociRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const my-helmoci-federated = artifactory.getFederatedHelmociRepository({
+ * const my_helmoci_federated = artifactory.getFederatedHelmociRepository({
  *     key: "my-helmoci-federated",
  * });
  * ```

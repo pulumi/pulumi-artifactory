@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const virtual-sbt = artifactory.getVirtualSbtRepository({
+ * const virtual_sbt = artifactory.getVirtualSbtRepository({
  *     key: "virtual-sbt",
  * });
  * ```
@@ -112,7 +112,7 @@ export interface GetVirtualSbtRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const virtual-sbt = artifactory.getVirtualSbtRepository({
+ * const virtual_sbt = artifactory.getVirtualSbtRepository({
  *     key: "virtual-sbt",
  * });
  * ```

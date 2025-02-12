@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const local-test-gitlfs-repo = artifactory.getLocalGitlfsRepository({
+ * const local_test_gitlfs_repo = artifactory.getLocalGitlfsRepository({
  *     key: "local-test-gitlfs-repo",
  * });
  * ```
@@ -100,7 +100,7 @@ export interface GetLocalGitlfsRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const local-test-gitlfs-repo = artifactory.getLocalGitlfsRepository({
+ * const local_test_gitlfs_repo = artifactory.getLocalGitlfsRepository({
  *     key: "local-test-gitlfs-repo",
  * });
  * ```

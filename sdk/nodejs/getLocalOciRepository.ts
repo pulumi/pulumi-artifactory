@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const my-oci-local = artifactory.getLocalOciRepository({
+ * const my_oci_local = artifactory.getLocalOciRepository({
  *     key: "my-oci-local",
  * });
  * ```
@@ -115,7 +115,7 @@ export interface GetLocalOciRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const my-oci-local = artifactory.getLocalOciRepository({
+ * const my_oci_local = artifactory.getLocalOciRepository({
  *     key: "my-oci-local",
  * });
  * ```

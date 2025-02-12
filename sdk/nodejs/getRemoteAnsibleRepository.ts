@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const remote-ansible = artifactory.getRemoteAnsibleRepository({
+ * const remote_ansible = artifactory.getRemoteAnsibleRepository({
  *     key: "remote-ansible",
  * });
  * ```
@@ -183,7 +183,7 @@ export interface GetRemoteAnsibleRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const remote-ansible = artifactory.getRemoteAnsibleRepository({
+ * const remote_ansible = artifactory.getRemoteAnsibleRepository({
  *     key: "remote-ansible",
  * });
  * ```

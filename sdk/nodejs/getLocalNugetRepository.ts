@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const local-test-nuget-repo-basic = artifactory.getLocalNugetRepository({
+ * const local_test_nuget_repo_basic = artifactory.getLocalNugetRepository({
  *     key: "local-test-nuget-repo-basic",
  * });
  * ```
@@ -121,7 +121,7 @@ export interface GetLocalNugetRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const local-test-nuget-repo-basic = artifactory.getLocalNugetRepository({
+ * const local_test_nuget_repo_basic = artifactory.getLocalNugetRepository({
  *     key: "local-test-nuget-repo-basic",
  * });
  * ```

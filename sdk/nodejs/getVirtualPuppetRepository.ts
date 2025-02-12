@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const virtual-puppet = artifactory.getVirtualPuppetRepository({
+ * const virtual_puppet = artifactory.getVirtualPuppetRepository({
  *     key: "virtual-puppet",
  * });
  * ```
@@ -85,7 +85,7 @@ export interface GetVirtualPuppetRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const virtual-puppet = artifactory.getVirtualPuppetRepository({
+ * const virtual_puppet = artifactory.getVirtualPuppetRepository({
  *     key: "virtual-puppet",
  * });
  * ```

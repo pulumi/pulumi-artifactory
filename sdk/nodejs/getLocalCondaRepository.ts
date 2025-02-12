@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const local-test-conda-repo = artifactory.getLocalCondaRepository({
+ * const local_test_conda_repo = artifactory.getLocalCondaRepository({
  *     key: "local-test-conda-repo",
  * });
  * ```
@@ -100,7 +100,7 @@ export interface GetLocalCondaRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const local-test-conda-repo = artifactory.getLocalCondaRepository({
+ * const local_test_conda_repo = artifactory.getLocalCondaRepository({
  *     key: "local-test-conda-repo",
  * });
  * ```

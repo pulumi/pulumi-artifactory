@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const my-oci-federated = artifactory.getFederatedOciRepository({
+ * const my_oci_federated = artifactory.getFederatedOciRepository({
  *     key: "my-oci-federated",
  * });
  * ```
@@ -141,7 +141,7 @@ export interface GetFederatedOciRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const my-oci-federated = artifactory.getFederatedOciRepository({
+ * const my_oci_federated = artifactory.getFederatedOciRepository({
  *     key: "my-oci-federated",
  * });
  * ```

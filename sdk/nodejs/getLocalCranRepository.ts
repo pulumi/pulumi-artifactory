@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const local-test-cran-repo = artifactory.getLocalCranRepository({
+ * const local_test_cran_repo = artifactory.getLocalCranRepository({
  *     key: "local-test-cran-repo",
  * });
  * ```
@@ -100,7 +100,7 @@ export interface GetLocalCranRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const local-test-cran-repo = artifactory.getLocalCranRepository({
+ * const local_test_cran_repo = artifactory.getLocalCranRepository({
  *     key: "local-test-cran-repo",
  * });
  * ```

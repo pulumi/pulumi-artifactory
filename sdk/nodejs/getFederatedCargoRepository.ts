@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const federated-test-cargo-repo = artifactory.getFederatedCargoRepository({
+ * const federated_test_cargo_repo = artifactory.getFederatedCargoRepository({
  *     key: "federated-test-cargo-repo",
  * });
  * ```
@@ -144,7 +144,7 @@ export interface GetFederatedCargoRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const federated-test-cargo-repo = artifactory.getFederatedCargoRepository({
+ * const federated_test_cargo_repo = artifactory.getFederatedCargoRepository({
  *     key: "federated-test-cargo-repo",
  * });
  * ```

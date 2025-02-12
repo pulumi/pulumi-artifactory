@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const federated-test-composer-repo = artifactory.getFederatedComposerRepository({
+ * const federated_test_composer_repo = artifactory.getFederatedComposerRepository({
  *     key: "federated-test-composer-repo",
  * });
  * ```
@@ -135,7 +135,7 @@ export interface GetFederatedComposerRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const federated-test-composer-repo = artifactory.getFederatedComposerRepository({
+ * const federated_test_composer_repo = artifactory.getFederatedComposerRepository({
  *     key: "federated-test-composer-repo",
  * });
  * ```

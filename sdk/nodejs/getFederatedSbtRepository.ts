@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const federated-test-sbt-repo = artifactory.getFederatedSbtRepository({
+ * const federated_test_sbt_repo = artifactory.getFederatedSbtRepository({
  *     key: "federated-test-sbt-repo",
  * });
  * ```
@@ -153,7 +153,7 @@ export interface GetFederatedSbtRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const federated-test-sbt-repo = artifactory.getFederatedSbtRepository({
+ * const federated_test_sbt_repo = artifactory.getFederatedSbtRepository({
  *     key: "federated-test-sbt-repo",
  * });
  * ```

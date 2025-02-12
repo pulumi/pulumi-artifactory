@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const local-test-cocoapods-repo = artifactory.getLocalCocoapodsRepository({
+ * const local_test_cocoapods_repo = artifactory.getLocalCocoapodsRepository({
  *     key: "local-test-cocoapods-repo",
  * });
  * ```
@@ -100,7 +100,7 @@ export interface GetLocalCocoapodsRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const local-test-cocoapods-repo = artifactory.getLocalCocoapodsRepository({
+ * const local_test_cocoapods_repo = artifactory.getLocalCocoapodsRepository({
  *     key: "local-test-cocoapods-repo",
  * });
  * ```

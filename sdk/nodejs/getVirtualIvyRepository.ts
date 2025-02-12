@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const virtual-ivy = artifactory.getVirtualIvyRepository({
+ * const virtual_ivy = artifactory.getVirtualIvyRepository({
  *     key: "virtual-ivy",
  * });
  * ```
@@ -112,7 +112,7 @@ export interface GetVirtualIvyRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const virtual-ivy = artifactory.getVirtualIvyRepository({
+ * const virtual_ivy = artifactory.getVirtualIvyRepository({
  *     key: "virtual-ivy",
  * });
  * ```

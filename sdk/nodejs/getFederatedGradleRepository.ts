@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const federated-test-gradle-repo = artifactory.getFederatedGradleRepository({
+ * const federated_test_gradle_repo = artifactory.getFederatedGradleRepository({
  *     key: "federated-test-gradle-repo",
  * });
  * ```
@@ -153,7 +153,7 @@ export interface GetFederatedGradleRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const federated-test-gradle-repo = artifactory.getFederatedGradleRepository({
+ * const federated_test_gradle_repo = artifactory.getFederatedGradleRepository({
  *     key: "federated-test-gradle-repo",
  * });
  * ```

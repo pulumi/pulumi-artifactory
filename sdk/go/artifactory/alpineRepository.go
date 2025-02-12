@@ -41,7 +41,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = artifactory.NewKeypair(ctx, "some-keypairRSA", &artifactory.KeypairArgs{
+//			some_keypairRSA, err := artifactory.NewKeypair(ctx, "some-keypairRSA", &artifactory.KeypairArgs{
 //				PairName:   pulumi.String("some-keypair"),
 //				PairType:   pulumi.String("RSA"),
 //				Alias:      pulumi.String("foo-alias"),

@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const remote-ivy = artifactory.getRemoteIvyRepository({
+ * const remote_ivy = artifactory.getRemoteIvyRepository({
  *     key: "remote-ivy",
  * });
  * ```
@@ -249,7 +249,7 @@ export interface GetRemoteIvyRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const remote-ivy = artifactory.getRemoteIvyRepository({
+ * const remote_ivy = artifactory.getRemoteIvyRepository({
  *     key: "remote-ivy",
  * });
  * ```

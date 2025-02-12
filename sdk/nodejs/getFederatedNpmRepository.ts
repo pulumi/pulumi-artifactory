@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const federated-test-npm-repo = artifactory.getFederatedNpmRepository({
+ * const federated_test_npm_repo = artifactory.getFederatedNpmRepository({
  *     key: "federated-test-npm-repo",
  * });
  * ```
@@ -135,7 +135,7 @@ export interface GetFederatedNpmRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const federated-test-npm-repo = artifactory.getFederatedNpmRepository({
+ * const federated_test_npm_repo = artifactory.getFederatedNpmRepository({
  *     key: "federated-test-npm-repo",
  * });
  * ```

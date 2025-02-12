@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const federated-test-cocoapods-repo = artifactory.getFederatedCocoapodsRepository({
+ * const federated_test_cocoapods_repo = artifactory.getFederatedCocoapodsRepository({
  *     key: "federated-test-cocoapods-repo",
  * });
  * ```
@@ -135,7 +135,7 @@ export interface GetFederatedCocoapodsRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const federated-test-cocoapods-repo = artifactory.getFederatedCocoapodsRepository({
+ * const federated_test_cocoapods_repo = artifactory.getFederatedCocoapodsRepository({
  *     key: "federated-test-cocoapods-repo",
  * });
  * ```

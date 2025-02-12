@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const local-test-generic-repo = artifactory.getLocalGenericRepository({
+ * const local_test_generic_repo = artifactory.getLocalGenericRepository({
  *     key: "local-test-generic-repo",
  * });
  * ```
@@ -100,7 +100,7 @@ export interface GetLocalGenericRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const local-test-generic-repo = artifactory.getLocalGenericRepository({
+ * const local_test_generic_repo = artifactory.getLocalGenericRepository({
  *     key: "local-test-generic-repo",
  * });
  * ```

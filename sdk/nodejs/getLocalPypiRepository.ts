@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const local-test-pypi-repo = artifactory.getLocalPypiRepository({
+ * const local_test_pypi_repo = artifactory.getLocalPypiRepository({
  *     key: "local-test-pypi-repo",
  * });
  * ```
@@ -100,7 +100,7 @@ export interface GetLocalPypiRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const local-test-pypi-repo = artifactory.getLocalPypiRepository({
+ * const local_test_pypi_repo = artifactory.getLocalPypiRepository({
  *     key: "local-test-pypi-repo",
  * });
  * ```

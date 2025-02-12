@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const local-test-swift-repo = artifactory.getLocalSwiftRepository({
+ * const local_test_swift_repo = artifactory.getLocalSwiftRepository({
  *     key: "local-test-swift-repo",
  * });
  * ```
@@ -100,7 +100,7 @@ export interface GetLocalSwiftRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const local-test-swift-repo = artifactory.getLocalSwiftRepository({
+ * const local_test_swift_repo = artifactory.getLocalSwiftRepository({
  *     key: "local-test-swift-repo",
  * });
  * ```

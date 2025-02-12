@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const my-oci-remote = artifactory.getRemoteOciRepository({
+ * const my_oci_remote = artifactory.getRemoteOciRepository({
  *     key: "my-oci-remote",
  * });
  * ```
@@ -219,7 +219,7 @@ export interface GetRemoteOciRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const my-oci-remote = artifactory.getRemoteOciRepository({
+ * const my_oci_remote = artifactory.getRemoteOciRepository({
  *     key: "my-oci-remote",
  * });
  * ```

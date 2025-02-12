@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const my-oci-virtual = artifactory.getVirtualOciRepository({
+ * const my_oci_virtual = artifactory.getVirtualOciRepository({
  *     key: "my-oci-virtual",
  * });
  * ```
@@ -94,7 +94,7 @@ export interface GetVirtualOciRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const my-oci-virtual = artifactory.getVirtualOciRepository({
+ * const my_oci_virtual = artifactory.getVirtualOciRepository({
  *     key: "my-oci-virtual",
  * });
  * ```

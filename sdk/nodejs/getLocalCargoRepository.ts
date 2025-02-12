@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const local-test-cargo-repo-basic = artifactory.getLocalCargoRepository({
+ * const local_test_cargo_repo_basic = artifactory.getLocalCargoRepository({
  *     key: "local-test-cargo-repo-basic",
  * });
  * ```
@@ -124,7 +124,7 @@ export interface GetLocalCargoRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const local-test-cargo-repo-basic = artifactory.getLocalCargoRepository({
+ * const local_test_cargo_repo_basic = artifactory.getLocalCargoRepository({
  *     key: "local-test-cargo-repo-basic",
  * });
  * ```

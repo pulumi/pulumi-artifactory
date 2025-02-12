@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const local-test-maven-repo-basic = artifactory.getLocalMavenRepository({
+ * const local_test_maven_repo_basic = artifactory.getLocalMavenRepository({
  *     key: "local-test-maven-repo-basic",
  * });
  * ```
@@ -149,7 +149,7 @@ export interface GetLocalMavenRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const local-test-maven-repo-basic = artifactory.getLocalMavenRepository({
+ * const local_test_maven_repo_basic = artifactory.getLocalMavenRepository({
  *     key: "local-test-maven-repo-basic",
  * });
  * ```

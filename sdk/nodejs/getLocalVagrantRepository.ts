@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const local-test-vagrant-repo = artifactory.getLocalVagrantRepository({
+ * const local_test_vagrant_repo = artifactory.getLocalVagrantRepository({
  *     key: "local-test-vagrant-repo",
  * });
  * ```
@@ -100,7 +100,7 @@ export interface GetLocalVagrantRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const local-test-vagrant-repo = artifactory.getLocalVagrantRepository({
+ * const local_test_vagrant_repo = artifactory.getLocalVagrantRepository({
  *     key: "local-test-vagrant-repo",
  * });
  * ```

@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const federated-test-swift-repo = artifactory.getFederatedSwiftRepository({
+ * const federated_test_swift_repo = artifactory.getFederatedSwiftRepository({
  *     key: "federated-test-swift-repo",
  * });
  * ```
@@ -135,7 +135,7 @@ export interface GetFederatedSwiftRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const federated-test-swift-repo = artifactory.getFederatedSwiftRepository({
+ * const federated_test_swift_repo = artifactory.getFederatedSwiftRepository({
  *     key: "federated-test-swift-repo",
  * });
  * ```

@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const virtual-cran = artifactory.getVirtualCranRepository({
+ * const virtual_cran = artifactory.getVirtualCranRepository({
  *     key: "virtual-cran",
  * });
  * ```
@@ -94,7 +94,7 @@ export interface GetVirtualCranRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const virtual-cran = artifactory.getVirtualCranRepository({
+ * const virtual_cran = artifactory.getVirtualCranRepository({
  *     key: "virtual-cran",
  * });
  * ```

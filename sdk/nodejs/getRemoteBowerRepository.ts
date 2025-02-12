@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const remote-bower = artifactory.getRemoteBowerRepository({
+ * const remote_bower = artifactory.getRemoteBowerRepository({
  *     key: "remote-bower",
  * });
  * ```
@@ -198,7 +198,7 @@ export interface GetRemoteBowerRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const remote-bower = artifactory.getRemoteBowerRepository({
+ * const remote_bower = artifactory.getRemoteBowerRepository({
  *     key: "remote-bower",
  * });
  * ```

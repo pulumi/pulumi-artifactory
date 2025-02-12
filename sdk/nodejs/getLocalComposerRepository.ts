@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const local-test-composer-repo = artifactory.getLocalComposerRepository({
+ * const local_test_composer_repo = artifactory.getLocalComposerRepository({
  *     key: "local-test-composer-repo",
  * });
  * ```
@@ -100,7 +100,7 @@ export interface GetLocalComposerRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const local-test-composer-repo = artifactory.getLocalComposerRepository({
+ * const local_test_composer_repo = artifactory.getLocalComposerRepository({
  *     key: "local-test-composer-repo",
  * });
  * ```

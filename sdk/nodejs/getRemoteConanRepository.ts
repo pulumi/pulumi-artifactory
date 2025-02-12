@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const remote-conan = artifactory.getRemoteConanRepository({
+ * const remote_conan = artifactory.getRemoteConanRepository({
  *     key: "remote-conan",
  * });
  * ```
@@ -195,7 +195,7 @@ export interface GetRemoteConanRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const remote-conan = artifactory.getRemoteConanRepository({
+ * const remote_conan = artifactory.getRemoteConanRepository({
  *     key: "remote-conan",
  * });
  * ```

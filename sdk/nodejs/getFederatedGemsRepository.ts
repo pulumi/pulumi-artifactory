@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const federated-test-gems-repo = artifactory.getFederatedGemsRepository({
+ * const federated_test_gems_repo = artifactory.getFederatedGemsRepository({
  *     key: "federated-test-gems-repo",
  * });
  * ```
@@ -135,7 +135,7 @@ export interface GetFederatedGemsRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const federated-test-gems-repo = artifactory.getFederatedGemsRepository({
+ * const federated_test_gems_repo = artifactory.getFederatedGemsRepository({
  *     key: "federated-test-gems-repo",
  * });
  * ```

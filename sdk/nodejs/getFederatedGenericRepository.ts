@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const terraform-federated-test-generic-repo = artifactory.getFederatedGenericRepository({
+ * const terraform_federated_test_generic_repo = artifactory.getFederatedGenericRepository({
  *     key: "terraform-federated-test-generic-repo",
  * });
  * ```
@@ -135,7 +135,7 @@ export interface GetFederatedGenericRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const terraform-federated-test-generic-repo = artifactory.getFederatedGenericRepository({
+ * const terraform_federated_test_generic_repo = artifactory.getFederatedGenericRepository({
  *     key: "terraform-federated-test-generic-repo",
  * });
  * ```

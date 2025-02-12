@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const local-test-rpm-repo-basic = artifactory.getLocalRpmRepository({
+ * const local_test_rpm_repo_basic = artifactory.getLocalRpmRepository({
  *     key: "local-test-rpm-repo-basic",
  * });
  * ```
@@ -163,7 +163,7 @@ export interface GetLocalRpmRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const local-test-rpm-repo-basic = artifactory.getLocalRpmRepository({
+ * const local_test_rpm_repo_basic = artifactory.getLocalRpmRepository({
  *     key: "local-test-rpm-repo-basic",
  * });
  * ```

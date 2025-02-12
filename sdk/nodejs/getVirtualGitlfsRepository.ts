@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const virtual-gitlfs = artifactory.getVirtualGitlfsRepository({
+ * const virtual_gitlfs = artifactory.getVirtualGitlfsRepository({
  *     key: "virtual-gitlfs",
  * });
  * ```
@@ -85,7 +85,7 @@ export interface GetVirtualGitlfsRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const virtual-gitlfs = artifactory.getVirtualGitlfsRepository({
+ * const virtual_gitlfs = artifactory.getVirtualGitlfsRepository({
  *     key: "virtual-gitlfs",
  * });
  * ```

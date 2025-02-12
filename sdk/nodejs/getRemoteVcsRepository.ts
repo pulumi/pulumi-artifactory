@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const remote-vcs = artifactory.getRemoteVcsRepository({
+ * const remote_vcs = artifactory.getRemoteVcsRepository({
  *     key: "remote-vcs",
  * });
  * ```
@@ -210,7 +210,7 @@ export interface GetRemoteVcsRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const remote-vcs = artifactory.getRemoteVcsRepository({
+ * const remote_vcs = artifactory.getRemoteVcsRepository({
  *     key: "remote-vcs",
  * });
  * ```

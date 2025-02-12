@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const federated-test-helm-repo = artifactory.getFederatedHelmRepository({
+ * const federated_test_helm_repo = artifactory.getFederatedHelmRepository({
  *     key: "federated-test-helm-repo",
  * });
  * ```
@@ -135,7 +135,7 @@ export interface GetFederatedHelmRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const federated-test-helm-repo = artifactory.getFederatedHelmRepository({
+ * const federated_test_helm_repo = artifactory.getFederatedHelmRepository({
  *     key: "federated-test-helm-repo",
  * });
  * ```

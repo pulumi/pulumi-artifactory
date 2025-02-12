@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const remote-docker = artifactory.getRemoteDockerRepository({
+ * const remote_docker = artifactory.getRemoteDockerRepository({
  *     key: "remote-docker",
  * });
  * ```
@@ -231,7 +231,7 @@ export interface GetRemoteDockerRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const remote-docker = artifactory.getRemoteDockerRepository({
+ * const remote_docker = artifactory.getRemoteDockerRepository({
  *     key: "remote-docker",
  * });
  * ```

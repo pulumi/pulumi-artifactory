@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const virtual-conda = artifactory.getVirtualCondaRepository({
+ * const virtual_conda = artifactory.getVirtualCondaRepository({
  *     key: "virtual-conda",
  * });
  * ```
@@ -94,7 +94,7 @@ export interface GetVirtualCondaRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const virtual-conda = artifactory.getVirtualCondaRepository({
+ * const virtual_conda = artifactory.getVirtualCondaRepository({
  *     key: "virtual-conda",
  * });
  * ```

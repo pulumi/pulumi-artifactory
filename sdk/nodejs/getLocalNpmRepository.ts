@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const local-test-npm-repo = artifactory.getLocalNpmRepository({
+ * const local_test_npm_repo = artifactory.getLocalNpmRepository({
  *     key: "local-test-npm-repo",
  * });
  * ```
@@ -100,7 +100,7 @@ export interface GetLocalNpmRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const local-test-npm-repo = artifactory.getLocalNpmRepository({
+ * const local_test_npm_repo = artifactory.getLocalNpmRepository({
  *     key: "local-test-npm-repo",
  * });
  * ```

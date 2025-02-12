@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const virtual-ansible = artifactory.getVirtualAnsibleRepository({
+ * const virtual_ansible = artifactory.getVirtualAnsibleRepository({
  *     key: "virtual-ansible",
  * });
  * ```
@@ -94,7 +94,7 @@ export interface GetVirtualAnsibleRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const virtual-ansible = artifactory.getVirtualAnsibleRepository({
+ * const virtual_ansible = artifactory.getVirtualAnsibleRepository({
  *     key: "virtual-ansible",
  * });
  * ```

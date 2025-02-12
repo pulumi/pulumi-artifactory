@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const remote-go = artifactory.getRemoteGoRepository({
+ * const remote_go = artifactory.getRemoteGoRepository({
  *     key: "remote-go",
  * });
  * ```
@@ -195,7 +195,7 @@ export interface GetRemoteGoRepositoryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const remote-go = artifactory.getRemoteGoRepository({
+ * const remote_go = artifactory.getRemoteGoRepository({
  *     key: "remote-go",
  * });
  * ```
