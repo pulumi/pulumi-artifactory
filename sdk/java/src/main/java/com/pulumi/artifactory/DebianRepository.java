@@ -217,15 +217,15 @@ public class DebianRepository extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="indexCompressionFormats", refs={List.class,String.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<String>> indexCompressionFormats;
+    private Output<List<String>> indexCompressionFormats;
 
     /**
      * @return The options are Bzip2 (.bz2 extension) (default), LZMA (.lzma extension)
      * and XZ (.xz extension).
      * 
      */
-    public Output<Optional<List<String>>> indexCompressionFormats() {
-        return Codegen.optional(this.indexCompressionFormats);
+    public Output<List<String>> indexCompressionFormats() {
+        return this.indexCompressionFormats;
     }
     /**
      * the identity key of the repo.

@@ -2856,7 +2856,7 @@ export interface PackageCleanupPolicySearchCriteria {
     /**
      * Set this to `true` if you want the policy to run on all projects on the platform.
      */
-    includeAllProjects?: boolean;
+    includeAllProjects: boolean;
     /**
      * Specify a pattern for a package name or an explicit package name. It accept only single element which can be specific package or pattern, and for including all packages use `**`. Example: `includedPackages = ["**"]`
      */

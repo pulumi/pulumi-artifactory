@@ -192,6 +192,23 @@ public final class LocalMachinelearningRepositoryState extends com.pulumi.resour
     }
 
     /**
+     * Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+     * corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+     * 
+     */
+    @Import(name="repoLayoutRef")
+    private @Nullable Output<String> repoLayoutRef;
+
+    /**
+     * @return Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+     * corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+     * 
+     */
+    public Optional<Output<String>> repoLayoutRef() {
+        return Optional.ofNullable(this.repoLayoutRef);
+    }
+
+    /**
      * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
      * 
      */
@@ -221,6 +238,7 @@ public final class LocalMachinelearningRepositoryState extends com.pulumi.resour
         this.projectEnvironments = $.projectEnvironments;
         this.projectKey = $.projectKey;
         this.propertySets = $.propertySets;
+        this.repoLayoutRef = $.repoLayoutRef;
         this.xrayIndex = $.xrayIndex;
     }
 
@@ -496,6 +514,29 @@ public final class LocalMachinelearningRepositoryState extends com.pulumi.resour
          */
         public Builder propertySets(String... propertySets) {
             return propertySets(List.of(propertySets));
+        }
+
+        /**
+         * @param repoLayoutRef Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+         * corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder repoLayoutRef(@Nullable Output<String> repoLayoutRef) {
+            $.repoLayoutRef = repoLayoutRef;
+            return this;
+        }
+
+        /**
+         * @param repoLayoutRef Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+         * corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder repoLayoutRef(String repoLayoutRef) {
+            return repoLayoutRef(Output.of(repoLayoutRef));
         }
 
         /**

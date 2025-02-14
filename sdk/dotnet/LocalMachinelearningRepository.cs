@@ -112,6 +112,13 @@ namespace Pulumi.Artifactory
         public Output<ImmutableArray<string>> PropertySets { get; private set; } = null!;
 
         /// <summary>
+        /// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+        /// corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+        /// </summary>
+        [Output("repoLayoutRef")]
+        public Output<string> RepoLayoutRef { get; private set; } = null!;
+
+        /// <summary>
         /// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
         /// </summary>
         [Output("xrayIndex")]
@@ -245,6 +252,13 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
+        /// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+        /// corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+        /// </summary>
+        [Input("repoLayoutRef")]
+        public Input<string>? RepoLayoutRef { get; set; }
+
+        /// <summary>
         /// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
         /// </summary>
         [Input("xrayIndex")]
@@ -338,6 +352,13 @@ namespace Pulumi.Artifactory
             get => _propertySets ?? (_propertySets = new InputList<string>());
             set => _propertySets = value;
         }
+
+        /// <summary>
+        /// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+        /// corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+        /// </summary>
+        [Input("repoLayoutRef")]
+        public Input<string>? RepoLayoutRef { get; set; }
 
         /// <summary>
         /// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
