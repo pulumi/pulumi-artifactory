@@ -99,6 +99,11 @@ export class LocalMachinelearningRepository extends pulumi.CustomResource {
      */
     public readonly propertySets!: pulumi.Output<string[] | undefined>;
     /**
+     * Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+     * corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+     */
+    public readonly repoLayoutRef!: pulumi.Output<string>;
+    /**
      * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
      */
     public readonly xrayIndex!: pulumi.Output<boolean>;
@@ -128,6 +133,7 @@ export class LocalMachinelearningRepository extends pulumi.CustomResource {
             resourceInputs["projectEnvironments"] = state ? state.projectEnvironments : undefined;
             resourceInputs["projectKey"] = state ? state.projectKey : undefined;
             resourceInputs["propertySets"] = state ? state.propertySets : undefined;
+            resourceInputs["repoLayoutRef"] = state ? state.repoLayoutRef : undefined;
             resourceInputs["xrayIndex"] = state ? state.xrayIndex : undefined;
         } else {
             const args = argsOrState as LocalMachinelearningRepositoryArgs | undefined;
@@ -146,6 +152,7 @@ export class LocalMachinelearningRepository extends pulumi.CustomResource {
             resourceInputs["projectEnvironments"] = args ? args.projectEnvironments : undefined;
             resourceInputs["projectKey"] = args ? args.projectKey : undefined;
             resourceInputs["propertySets"] = args ? args.propertySets : undefined;
+            resourceInputs["repoLayoutRef"] = args ? args.repoLayoutRef : undefined;
             resourceInputs["xrayIndex"] = args ? args.xrayIndex : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -204,6 +211,11 @@ export interface LocalMachinelearningRepositoryState {
      */
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+     * corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+     */
+    repoLayoutRef?: pulumi.Input<string>;
+    /**
      * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
      */
     xrayIndex?: pulumi.Input<boolean>;
@@ -259,6 +271,11 @@ export interface LocalMachinelearningRepositoryArgs {
      * List of property set name
      */
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+     * corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+     */
+    repoLayoutRef?: pulumi.Input<string>;
     /**
      * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
      */

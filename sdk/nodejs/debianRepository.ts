@@ -127,7 +127,7 @@ export class DebianRepository extends pulumi.CustomResource {
      * The options are Bzip2 (.bz2 extension) (default), LZMA (.lzma extension)
      * and XZ (.xz extension).
      */
-    public readonly indexCompressionFormats!: pulumi.Output<string[] | undefined>;
+    public readonly indexCompressionFormats!: pulumi.Output<string[]>;
     /**
      * the identity key of the repo.
      */

@@ -228,6 +228,22 @@ public class LocalMachinelearningRepository extends com.pulumi.resources.CustomR
         return Codegen.optional(this.propertySets);
     }
     /**
+     * Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+     * corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+     * 
+     */
+    @Export(name="repoLayoutRef", refs={String.class}, tree="[0]")
+    private Output<String> repoLayoutRef;
+
+    /**
+     * @return Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+     * corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+     * 
+     */
+    public Output<String> repoLayoutRef() {
+        return this.repoLayoutRef;
+    }
+    /**
      * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
      * 
      */

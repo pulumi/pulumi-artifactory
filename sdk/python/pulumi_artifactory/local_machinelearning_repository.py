@@ -31,6 +31,7 @@ class LocalMachinelearningRepositoryArgs:
                  project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  project_key: Optional[pulumi.Input[str]] = None,
                  property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 repo_layout_ref: Optional[pulumi.Input[str]] = None,
                  xray_index: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a LocalMachinelearningRepository resource.
@@ -46,6 +47,8 @@ class LocalMachinelearningRepositoryArgs:
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
+        :param pulumi.Input[str] repo_layout_ref: Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+               corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
         """
         pulumi.set(__self__, "key", key)
@@ -71,6 +74,8 @@ class LocalMachinelearningRepositoryArgs:
             pulumi.set(__self__, "project_key", project_key)
         if property_sets is not None:
             pulumi.set(__self__, "property_sets", property_sets)
+        if repo_layout_ref is not None:
+            pulumi.set(__self__, "repo_layout_ref", repo_layout_ref)
         if xray_index is not None:
             pulumi.set(__self__, "xray_index", xray_index)
 
@@ -217,6 +222,19 @@ class LocalMachinelearningRepositoryArgs:
         pulumi.set(self, "property_sets", value)
 
     @property
+    @pulumi.getter(name="repoLayoutRef")
+    def repo_layout_ref(self) -> Optional[pulumi.Input[str]]:
+        """
+        Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+        corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+        """
+        return pulumi.get(self, "repo_layout_ref")
+
+    @repo_layout_ref.setter
+    def repo_layout_ref(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "repo_layout_ref", value)
+
+    @property
     @pulumi.getter(name="xrayIndex")
     def xray_index(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -244,6 +262,7 @@ class _LocalMachinelearningRepositoryState:
                  project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  project_key: Optional[pulumi.Input[str]] = None,
                  property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 repo_layout_ref: Optional[pulumi.Input[str]] = None,
                  xray_index: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering LocalMachinelearningRepository resources.
@@ -259,6 +278,8 @@ class _LocalMachinelearningRepositoryState:
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
+        :param pulumi.Input[str] repo_layout_ref: Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+               corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
         """
         if archive_browsing_enabled is not None:
@@ -285,6 +306,8 @@ class _LocalMachinelearningRepositoryState:
             pulumi.set(__self__, "project_key", project_key)
         if property_sets is not None:
             pulumi.set(__self__, "property_sets", property_sets)
+        if repo_layout_ref is not None:
+            pulumi.set(__self__, "repo_layout_ref", repo_layout_ref)
         if xray_index is not None:
             pulumi.set(__self__, "xray_index", xray_index)
 
@@ -431,6 +454,19 @@ class _LocalMachinelearningRepositoryState:
         pulumi.set(self, "property_sets", value)
 
     @property
+    @pulumi.getter(name="repoLayoutRef")
+    def repo_layout_ref(self) -> Optional[pulumi.Input[str]]:
+        """
+        Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+        corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+        """
+        return pulumi.get(self, "repo_layout_ref")
+
+    @repo_layout_ref.setter
+    def repo_layout_ref(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "repo_layout_ref", value)
+
+    @property
     @pulumi.getter(name="xrayIndex")
     def xray_index(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -460,6 +496,7 @@ class LocalMachinelearningRepository(pulumi.CustomResource):
                  project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  project_key: Optional[pulumi.Input[str]] = None,
                  property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 repo_layout_ref: Optional[pulumi.Input[str]] = None,
                  xray_index: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
@@ -496,6 +533,8 @@ class LocalMachinelearningRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
+        :param pulumi.Input[str] repo_layout_ref: Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+               corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
         """
         ...
@@ -551,6 +590,7 @@ class LocalMachinelearningRepository(pulumi.CustomResource):
                  project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  project_key: Optional[pulumi.Input[str]] = None,
                  property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 repo_layout_ref: Optional[pulumi.Input[str]] = None,
                  xray_index: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -575,6 +615,7 @@ class LocalMachinelearningRepository(pulumi.CustomResource):
             __props__.__dict__["project_environments"] = project_environments
             __props__.__dict__["project_key"] = project_key
             __props__.__dict__["property_sets"] = property_sets
+            __props__.__dict__["repo_layout_ref"] = repo_layout_ref
             __props__.__dict__["xray_index"] = xray_index
         super(LocalMachinelearningRepository, __self__).__init__(
             'artifactory:index/localMachinelearningRepository:LocalMachinelearningRepository',
@@ -598,6 +639,7 @@ class LocalMachinelearningRepository(pulumi.CustomResource):
             project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             project_key: Optional[pulumi.Input[str]] = None,
             property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            repo_layout_ref: Optional[pulumi.Input[str]] = None,
             xray_index: Optional[pulumi.Input[bool]] = None) -> 'LocalMachinelearningRepository':
         """
         Get an existing LocalMachinelearningRepository resource's state with the given name, id, and optional extra
@@ -618,6 +660,8 @@ class LocalMachinelearningRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
+        :param pulumi.Input[str] repo_layout_ref: Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+               corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -636,6 +680,7 @@ class LocalMachinelearningRepository(pulumi.CustomResource):
         __props__.__dict__["project_environments"] = project_environments
         __props__.__dict__["project_key"] = project_key
         __props__.__dict__["property_sets"] = property_sets
+        __props__.__dict__["repo_layout_ref"] = repo_layout_ref
         __props__.__dict__["xray_index"] = xray_index
         return LocalMachinelearningRepository(resource_name, opts=opts, __props__=__props__)
 
@@ -732,6 +777,15 @@ class LocalMachinelearningRepository(pulumi.CustomResource):
         List of property set name
         """
         return pulumi.get(self, "property_sets")
+
+    @property
+    @pulumi.getter(name="repoLayoutRef")
+    def repo_layout_ref(self) -> pulumi.Output[str]:
+        """
+        Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+        corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+        """
+        return pulumi.get(self, "repo_layout_ref")
 
     @property
     @pulumi.getter(name="xrayIndex")

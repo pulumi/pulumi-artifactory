@@ -1036,7 +1036,7 @@ class DebianRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="indexCompressionFormats")
-    def index_compression_formats(self) -> pulumi.Output[Optional[Sequence[str]]]:
+    def index_compression_formats(self) -> pulumi.Output[Sequence[str]]:
         """
         The options are Bzip2 (.bz2 extension) (default), LZMA (.lzma extension)
         and XZ (.xz extension).
