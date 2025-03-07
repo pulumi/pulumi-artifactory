@@ -77,7 +77,7 @@ type RemoteGenericRepository struct {
 	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
 	CdnRedirect pulumi.BoolOutput `pulumi:"cdnRedirect"`
 	// Client TLS certificate name.
-	ClientTlsCertificate   pulumi.StringPtrOutput                                 `pulumi:"clientTlsCertificate"`
+	ClientTlsCertificate   pulumi.StringOutput                                    `pulumi:"clientTlsCertificate"`
 	ContentSynchronisation RemoteGenericRepositoryContentSynchronisationPtrOutput `pulumi:"contentSynchronisation"`
 	// Public description.
 	Description pulumi.StringOutput `pulumi:"description"`
@@ -846,8 +846,8 @@ func (o RemoteGenericRepositoryOutput) CdnRedirect() pulumi.BoolOutput {
 }
 
 // Client TLS certificate name.
-func (o RemoteGenericRepositoryOutput) ClientTlsCertificate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RemoteGenericRepository) pulumi.StringPtrOutput { return v.ClientTlsCertificate }).(pulumi.StringPtrOutput)
+func (o RemoteGenericRepositoryOutput) ClientTlsCertificate() pulumi.StringOutput {
+	return o.ApplyT(func(v *RemoteGenericRepository) pulumi.StringOutput { return v.ClientTlsCertificate }).(pulumi.StringOutput)
 }
 
 func (o RemoteGenericRepositoryOutput) ContentSynchronisation() RemoteGenericRepositoryContentSynchronisationPtrOutput {

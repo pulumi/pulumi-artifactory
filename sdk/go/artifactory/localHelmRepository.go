@@ -29,7 +29,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewLocalHelmRepository(ctx, "terraform-local-test-helm-repo", &artifactory.LocalHelmRepositoryArgs{
-//				Key: pulumi.String("terraform-local-test-helm-repo"),
+//				Key:                      pulumi.String("terraform-local-test-helm-repo"),
+//				ForceNonDuplicateChart:   pulumi.Bool(true),
+//				ForceMetadataNameVersion: pulumi.Bool(false),
 //			})
 //			if err != nil {
 //				return err
@@ -57,7 +59,7 @@ type LocalHelmRepository struct {
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 	BlackedOut pulumi.BoolOutput `pulumi:"blackedOut"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is `false`
+	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
 	CdnRedirect pulumi.BoolOutput `pulumi:"cdnRedirect"`
 	// Public description.
 	Description pulumi.StringOutput `pulumi:"description"`
@@ -67,6 +69,10 @@ type LocalHelmRepository struct {
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
 	// artifacts are excluded.
 	ExcludesPattern pulumi.StringOutput `pulumi:"excludesPattern"`
+	// Ensures that the chart name and version in the file name match the values in Chart.yaml and adhere to SemVer standards. Only available for 7.104.5 onward. Cannot be updated after it is set.
+	ForceMetadataNameVersion pulumi.BoolOutput `pulumi:"forceMetadataNameVersion"`
+	// Prevents the deployment of charts with the same name and version in different repository paths. Only available for 7.104.5 onward. Cannot be updated after it is set.
+	ForceNonDuplicateChart pulumi.BoolOutput `pulumi:"forceNonDuplicateChart"`
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 	IncludesPattern pulumi.StringOutput `pulumi:"includesPattern"`
@@ -130,7 +136,7 @@ type localHelmRepositoryState struct {
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 	BlackedOut *bool `pulumi:"blackedOut"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is `false`
+	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
 	CdnRedirect *bool `pulumi:"cdnRedirect"`
 	// Public description.
 	Description *string `pulumi:"description"`
@@ -140,6 +146,10 @@ type localHelmRepositoryState struct {
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
 	// artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
+	// Ensures that the chart name and version in the file name match the values in Chart.yaml and adhere to SemVer standards. Only available for 7.104.5 onward. Cannot be updated after it is set.
+	ForceMetadataNameVersion *bool `pulumi:"forceMetadataNameVersion"`
+	// Prevents the deployment of charts with the same name and version in different repository paths. Only available for 7.104.5 onward. Cannot be updated after it is set.
+	ForceNonDuplicateChart *bool `pulumi:"forceNonDuplicateChart"`
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 	IncludesPattern *string `pulumi:"includesPattern"`
@@ -171,7 +181,7 @@ type LocalHelmRepositoryState struct {
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 	BlackedOut pulumi.BoolPtrInput
 	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is `false`
+	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
 	CdnRedirect pulumi.BoolPtrInput
 	// Public description.
 	Description pulumi.StringPtrInput
@@ -181,6 +191,10 @@ type LocalHelmRepositoryState struct {
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
 	// artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
+	// Ensures that the chart name and version in the file name match the values in Chart.yaml and adhere to SemVer standards. Only available for 7.104.5 onward. Cannot be updated after it is set.
+	ForceMetadataNameVersion pulumi.BoolPtrInput
+	// Prevents the deployment of charts with the same name and version in different repository paths. Only available for 7.104.5 onward. Cannot be updated after it is set.
+	ForceNonDuplicateChart pulumi.BoolPtrInput
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 	IncludesPattern pulumi.StringPtrInput
@@ -216,7 +230,7 @@ type localHelmRepositoryArgs struct {
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 	BlackedOut *bool `pulumi:"blackedOut"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is `false`
+	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
 	CdnRedirect *bool `pulumi:"cdnRedirect"`
 	// Public description.
 	Description *string `pulumi:"description"`
@@ -226,6 +240,10 @@ type localHelmRepositoryArgs struct {
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
 	// artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
+	// Ensures that the chart name and version in the file name match the values in Chart.yaml and adhere to SemVer standards. Only available for 7.104.5 onward. Cannot be updated after it is set.
+	ForceMetadataNameVersion *bool `pulumi:"forceMetadataNameVersion"`
+	// Prevents the deployment of charts with the same name and version in different repository paths. Only available for 7.104.5 onward. Cannot be updated after it is set.
+	ForceNonDuplicateChart *bool `pulumi:"forceNonDuplicateChart"`
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 	IncludesPattern *string `pulumi:"includesPattern"`
@@ -258,7 +276,7 @@ type LocalHelmRepositoryArgs struct {
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 	BlackedOut pulumi.BoolPtrInput
 	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is `false`
+	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
 	CdnRedirect pulumi.BoolPtrInput
 	// Public description.
 	Description pulumi.StringPtrInput
@@ -268,6 +286,10 @@ type LocalHelmRepositoryArgs struct {
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
 	// artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
+	// Ensures that the chart name and version in the file name match the values in Chart.yaml and adhere to SemVer standards. Only available for 7.104.5 onward. Cannot be updated after it is set.
+	ForceMetadataNameVersion pulumi.BoolPtrInput
+	// Prevents the deployment of charts with the same name and version in different repository paths. Only available for 7.104.5 onward. Cannot be updated after it is set.
+	ForceNonDuplicateChart pulumi.BoolPtrInput
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 	IncludesPattern pulumi.StringPtrInput
@@ -391,7 +413,7 @@ func (o LocalHelmRepositoryOutput) BlackedOut() pulumi.BoolOutput {
 }
 
 // When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is `false`
+// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
 func (o LocalHelmRepositoryOutput) CdnRedirect() pulumi.BoolOutput {
 	return o.ApplyT(func(v *LocalHelmRepository) pulumi.BoolOutput { return v.CdnRedirect }).(pulumi.BoolOutput)
 }
@@ -411,6 +433,16 @@ func (o LocalHelmRepositoryOutput) DownloadDirect() pulumi.BoolOutput {
 // artifacts are excluded.
 func (o LocalHelmRepositoryOutput) ExcludesPattern() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocalHelmRepository) pulumi.StringOutput { return v.ExcludesPattern }).(pulumi.StringOutput)
+}
+
+// Ensures that the chart name and version in the file name match the values in Chart.yaml and adhere to SemVer standards. Only available for 7.104.5 onward. Cannot be updated after it is set.
+func (o LocalHelmRepositoryOutput) ForceMetadataNameVersion() pulumi.BoolOutput {
+	return o.ApplyT(func(v *LocalHelmRepository) pulumi.BoolOutput { return v.ForceMetadataNameVersion }).(pulumi.BoolOutput)
+}
+
+// Prevents the deployment of charts with the same name and version in different repository paths. Only available for 7.104.5 onward. Cannot be updated after it is set.
+func (o LocalHelmRepositoryOutput) ForceNonDuplicateChart() pulumi.BoolOutput {
+	return o.ApplyT(func(v *LocalHelmRepository) pulumi.BoolOutput { return v.ForceNonDuplicateChart }).(pulumi.BoolOutput)
 }
 
 // List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When

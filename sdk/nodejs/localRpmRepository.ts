@@ -103,6 +103,11 @@ export class LocalRpmRepository extends pulumi.CustomResource {
      */
     public readonly calculateYumMetadata!: pulumi.Output<boolean>;
     /**
+     * When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+     */
+    public readonly cdnRedirect!: pulumi.Output<boolean>;
+    /**
      * Public description.
      */
     public readonly description!: pulumi.Output<string>;
@@ -136,7 +141,7 @@ export class LocalRpmRepository extends pulumi.CustomResource {
     /**
      * The primary GPG key to be used to sign packages.
      */
-    public readonly primaryKeypairRef!: pulumi.Output<string | undefined>;
+    public readonly primaryKeypairRef!: pulumi.Output<string>;
     /**
      * Setting repositories with priority will cause metadata to be merged only from repositories set with this field
      */
@@ -159,7 +164,7 @@ export class LocalRpmRepository extends pulumi.CustomResource {
     /**
      * The secondary GPG key to be used to sign packages.
      */
-    public readonly secondaryKeypairRef!: pulumi.Output<string | undefined>;
+    public readonly secondaryKeypairRef!: pulumi.Output<string>;
     /**
      * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
      * Xray settings.
@@ -196,6 +201,7 @@ export class LocalRpmRepository extends pulumi.CustomResource {
             resourceInputs["archiveBrowsingEnabled"] = state ? state.archiveBrowsingEnabled : undefined;
             resourceInputs["blackedOut"] = state ? state.blackedOut : undefined;
             resourceInputs["calculateYumMetadata"] = state ? state.calculateYumMetadata : undefined;
+            resourceInputs["cdnRedirect"] = state ? state.cdnRedirect : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["downloadDirect"] = state ? state.downloadDirect : undefined;
             resourceInputs["enableFileListsIndexing"] = state ? state.enableFileListsIndexing : undefined;
@@ -221,6 +227,7 @@ export class LocalRpmRepository extends pulumi.CustomResource {
             resourceInputs["archiveBrowsingEnabled"] = args ? args.archiveBrowsingEnabled : undefined;
             resourceInputs["blackedOut"] = args ? args.blackedOut : undefined;
             resourceInputs["calculateYumMetadata"] = args ? args.calculateYumMetadata : undefined;
+            resourceInputs["cdnRedirect"] = args ? args.cdnRedirect : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["downloadDirect"] = args ? args.downloadDirect : undefined;
             resourceInputs["enableFileListsIndexing"] = args ? args.enableFileListsIndexing : undefined;
@@ -262,6 +269,11 @@ export interface LocalRpmRepositoryState {
      * Default: `false`.
      */
     calculateYumMetadata?: pulumi.Input<boolean>;
+    /**
+     * When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+     */
+    cdnRedirect?: pulumi.Input<boolean>;
     /**
      * Public description.
      */
@@ -359,6 +371,11 @@ export interface LocalRpmRepositoryArgs {
      * Default: `false`.
      */
     calculateYumMetadata?: pulumi.Input<boolean>;
+    /**
+     * When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+     */
+    cdnRedirect?: pulumi.Input<boolean>;
     /**
      * Public description.
      */

@@ -52,6 +52,23 @@ public final class AlpineRepositoryState extends com.pulumi.resources.ResourceAr
     }
 
     /**
+     * When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
+     * 
+     */
+    @Import(name="cdnRedirect")
+    private @Nullable Output<Boolean> cdnRedirect;
+
+    /**
+     * @return When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
+     * 
+     */
+    public Optional<Output<Boolean>> cdnRedirect() {
+        return Optional.ofNullable(this.cdnRedirect);
+    }
+
+    /**
      * Public description.
      * 
      */
@@ -257,6 +274,7 @@ public final class AlpineRepositoryState extends com.pulumi.resources.ResourceAr
     private AlpineRepositoryState(AlpineRepositoryState $) {
         this.archiveBrowsingEnabled = $.archiveBrowsingEnabled;
         this.blackedOut = $.blackedOut;
+        this.cdnRedirect = $.cdnRedirect;
         this.description = $.description;
         this.downloadDirect = $.downloadDirect;
         this.excludesPattern = $.excludesPattern;
@@ -334,6 +352,29 @@ public final class AlpineRepositoryState extends com.pulumi.resources.ResourceAr
          */
         public Builder blackedOut(Boolean blackedOut) {
             return blackedOut(Output.of(blackedOut));
+        }
+
+        /**
+         * @param cdnRedirect When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+         * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cdnRedirect(@Nullable Output<Boolean> cdnRedirect) {
+            $.cdnRedirect = cdnRedirect;
+            return this;
+        }
+
+        /**
+         * @param cdnRedirect When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+         * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cdnRedirect(Boolean cdnRedirect) {
+            return cdnRedirect(Output.of(cdnRedirect));
         }
 
         /**

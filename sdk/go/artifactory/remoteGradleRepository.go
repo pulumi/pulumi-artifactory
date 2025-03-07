@@ -83,7 +83,7 @@ type RemoteGradleRepository struct {
 	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
 	CdnRedirect pulumi.BoolOutput `pulumi:"cdnRedirect"`
 	// Client TLS certificate name.
-	ClientTlsCertificate   pulumi.StringPtrOutput                                `pulumi:"clientTlsCertificate"`
+	ClientTlsCertificate   pulumi.StringOutput                                   `pulumi:"clientTlsCertificate"`
 	ContentSynchronisation RemoteGradleRepositoryContentSynchronisationPtrOutput `pulumi:"contentSynchronisation"`
 	// Enable repository to be protected by the Curation service.
 	Curated pulumi.BoolOutput `pulumi:"curated"`
@@ -922,8 +922,8 @@ func (o RemoteGradleRepositoryOutput) CdnRedirect() pulumi.BoolOutput {
 }
 
 // Client TLS certificate name.
-func (o RemoteGradleRepositoryOutput) ClientTlsCertificate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RemoteGradleRepository) pulumi.StringPtrOutput { return v.ClientTlsCertificate }).(pulumi.StringPtrOutput)
+func (o RemoteGradleRepositoryOutput) ClientTlsCertificate() pulumi.StringOutput {
+	return o.ApplyT(func(v *RemoteGradleRepository) pulumi.StringOutput { return v.ClientTlsCertificate }).(pulumi.StringOutput)
 }
 
 func (o RemoteGradleRepositoryOutput) ContentSynchronisation() RemoteGradleRepositoryContentSynchronisationPtrOutput {

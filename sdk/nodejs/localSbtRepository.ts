@@ -63,6 +63,11 @@ export class LocalSbtRepository extends pulumi.CustomResource {
      */
     public readonly blackedOut!: pulumi.Output<boolean>;
     /**
+     * When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+     */
+    public readonly cdnRedirect!: pulumi.Output<boolean>;
+    /**
      * Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or
      * conflicts with the locally calculated checksum (bad checksum). Options are: "client-checksums", or
      * "server-generated-checksums". Default: "client-checksums"\n For more details, please refer to Checksum Policy -
@@ -162,6 +167,7 @@ export class LocalSbtRepository extends pulumi.CustomResource {
             const state = argsOrState as LocalSbtRepositoryState | undefined;
             resourceInputs["archiveBrowsingEnabled"] = state ? state.archiveBrowsingEnabled : undefined;
             resourceInputs["blackedOut"] = state ? state.blackedOut : undefined;
+            resourceInputs["cdnRedirect"] = state ? state.cdnRedirect : undefined;
             resourceInputs["checksumPolicyType"] = state ? state.checksumPolicyType : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["downloadDirect"] = state ? state.downloadDirect : undefined;
@@ -187,6 +193,7 @@ export class LocalSbtRepository extends pulumi.CustomResource {
             }
             resourceInputs["archiveBrowsingEnabled"] = args ? args.archiveBrowsingEnabled : undefined;
             resourceInputs["blackedOut"] = args ? args.blackedOut : undefined;
+            resourceInputs["cdnRedirect"] = args ? args.cdnRedirect : undefined;
             resourceInputs["checksumPolicyType"] = args ? args.checksumPolicyType : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["downloadDirect"] = args ? args.downloadDirect : undefined;
@@ -225,6 +232,11 @@ export interface LocalSbtRepositoryState {
      * When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
      */
     blackedOut?: pulumi.Input<boolean>;
+    /**
+     * When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+     */
+    cdnRedirect?: pulumi.Input<boolean>;
     /**
      * Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or
      * conflicts with the locally calculated checksum (bad checksum). Options are: "client-checksums", or
@@ -325,6 +337,11 @@ export interface LocalSbtRepositoryArgs {
      * When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
      */
     blackedOut?: pulumi.Input<boolean>;
+    /**
+     * When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+     */
+    cdnRedirect?: pulumi.Input<boolean>;
     /**
      * Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or
      * conflicts with the locally calculated checksum (bad checksum). Options are: "client-checksums", or

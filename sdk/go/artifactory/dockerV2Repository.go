@@ -63,6 +63,9 @@ type DockerV2Repository struct {
 	// When set, Artifactory will block the pushing of Docker images with manifest
 	// v2 schema 1 to this repository.
 	BlockPushingSchema1 pulumi.BoolOutput `pulumi:"blockPushingSchema1"`
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	CdnRedirect pulumi.BoolOutput `pulumi:"cdnRedirect"`
 	// Public description.
 	Description pulumi.StringOutput `pulumi:"description"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
@@ -145,6 +148,9 @@ type dockerV2RepositoryState struct {
 	// When set, Artifactory will block the pushing of Docker images with manifest
 	// v2 schema 1 to this repository.
 	BlockPushingSchema1 *bool `pulumi:"blockPushingSchema1"`
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	CdnRedirect *bool `pulumi:"cdnRedirect"`
 	// Public description.
 	Description *string `pulumi:"description"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
@@ -195,6 +201,9 @@ type DockerV2RepositoryState struct {
 	// When set, Artifactory will block the pushing of Docker images with manifest
 	// v2 schema 1 to this repository.
 	BlockPushingSchema1 pulumi.BoolPtrInput
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	CdnRedirect pulumi.BoolPtrInput
 	// Public description.
 	Description pulumi.StringPtrInput
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
@@ -247,6 +256,9 @@ type dockerV2RepositoryArgs struct {
 	// When set, Artifactory will block the pushing of Docker images with manifest
 	// v2 schema 1 to this repository.
 	BlockPushingSchema1 *bool `pulumi:"blockPushingSchema1"`
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	CdnRedirect *bool `pulumi:"cdnRedirect"`
 	// Public description.
 	Description *string `pulumi:"description"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
@@ -296,6 +308,9 @@ type DockerV2RepositoryArgs struct {
 	// When set, Artifactory will block the pushing of Docker images with manifest
 	// v2 schema 1 to this repository.
 	BlockPushingSchema1 pulumi.BoolPtrInput
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	CdnRedirect pulumi.BoolPtrInput
 	// Public description.
 	Description pulumi.StringPtrInput
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
@@ -442,6 +457,12 @@ func (o DockerV2RepositoryOutput) BlackedOut() pulumi.BoolOutput {
 // v2 schema 1 to this repository.
 func (o DockerV2RepositoryOutput) BlockPushingSchema1() pulumi.BoolOutput {
 	return o.ApplyT(func(v *DockerV2Repository) pulumi.BoolOutput { return v.BlockPushingSchema1 }).(pulumi.BoolOutput)
+}
+
+// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+func (o DockerV2RepositoryOutput) CdnRedirect() pulumi.BoolOutput {
+	return o.ApplyT(func(v *DockerV2Repository) pulumi.BoolOutput { return v.CdnRedirect }).(pulumi.BoolOutput)
 }
 
 // Public description.

@@ -79,7 +79,7 @@ type RemoteComposerRepository struct {
 	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
 	CdnRedirect pulumi.BoolOutput `pulumi:"cdnRedirect"`
 	// Client TLS certificate name.
-	ClientTlsCertificate pulumi.StringPtrOutput `pulumi:"clientTlsCertificate"`
+	ClientTlsCertificate pulumi.StringOutput `pulumi:"clientTlsCertificate"`
 	// Proxy remote Composer repository. Default value is `https://packagist.org`.
 	ComposerRegistryUrl    pulumi.StringOutput                                     `pulumi:"composerRegistryUrl"`
 	ContentSynchronisation RemoteComposerRepositoryContentSynchronisationPtrOutput `pulumi:"contentSynchronisation"`
@@ -858,8 +858,8 @@ func (o RemoteComposerRepositoryOutput) CdnRedirect() pulumi.BoolOutput {
 }
 
 // Client TLS certificate name.
-func (o RemoteComposerRepositoryOutput) ClientTlsCertificate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RemoteComposerRepository) pulumi.StringPtrOutput { return v.ClientTlsCertificate }).(pulumi.StringPtrOutput)
+func (o RemoteComposerRepositoryOutput) ClientTlsCertificate() pulumi.StringOutput {
+	return o.ApplyT(func(v *RemoteComposerRepository) pulumi.StringOutput { return v.ClientTlsCertificate }).(pulumi.StringOutput)
 }
 
 // Proxy remote Composer repository. Default value is `https://packagist.org`.

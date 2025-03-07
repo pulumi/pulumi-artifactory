@@ -105,6 +105,22 @@ public class LocalMavenRepository extends com.pulumi.resources.CustomResource {
         return this.blackedOut;
     }
     /**
+     * When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
+     * 
+     */
+    @Export(name="cdnRedirect", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> cdnRedirect;
+
+    /**
+     * @return When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
+     * 
+     */
+    public Output<Boolean> cdnRedirect() {
+        return this.cdnRedirect;
+    }
+    /**
      * Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are:
      * - `client-checksums`
      * - `server-generated-checksums`.

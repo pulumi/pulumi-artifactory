@@ -101,7 +101,7 @@ export class RemoteComposerRepository extends pulumi.CustomResource {
     /**
      * Client TLS certificate name.
      */
-    public readonly clientTlsCertificate!: pulumi.Output<string | undefined>;
+    public readonly clientTlsCertificate!: pulumi.Output<string>;
     /**
      * Proxy remote Composer repository. Default value is `https://packagist.org`.
      */

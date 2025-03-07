@@ -62,6 +62,13 @@ namespace Pulumi.Artifactory
         public Output<bool> BlackedOut { get; private set; } = null!;
 
         /// <summary>
+        /// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+        /// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        /// </summary>
+        [Output("cdnRedirect")]
+        public Output<bool> CdnRedirect { get; private set; } = null!;
+
+        /// <summary>
         /// Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are:
         /// - `client-checksums`
         /// - `server-generated-checksums`.
@@ -241,6 +248,13 @@ namespace Pulumi.Artifactory
         public Input<bool>? BlackedOut { get; set; }
 
         /// <summary>
+        /// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+        /// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        /// </summary>
+        [Input("cdnRedirect")]
+        public Input<bool>? CdnRedirect { get; set; }
+
+        /// <summary>
         /// Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are:
         /// - `client-checksums`
         /// - `server-generated-checksums`.
@@ -391,6 +405,13 @@ namespace Pulumi.Artifactory
         /// </summary>
         [Input("blackedOut")]
         public Input<bool>? BlackedOut { get; set; }
+
+        /// <summary>
+        /// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+        /// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        /// </summary>
+        [Input("cdnRedirect")]
+        public Input<bool>? CdnRedirect { get; set; }
 
         /// <summary>
         /// Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are:

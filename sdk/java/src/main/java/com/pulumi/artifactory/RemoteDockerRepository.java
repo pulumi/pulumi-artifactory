@@ -217,14 +217,14 @@ public class RemoteDockerRepository extends com.pulumi.resources.CustomResource 
      * 
      */
     @Export(name="clientTlsCertificate", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> clientTlsCertificate;
+    private Output<String> clientTlsCertificate;
 
     /**
      * @return Client TLS certificate name.
      * 
      */
-    public Output<Optional<String>> clientTlsCertificate() {
-        return Codegen.optional(this.clientTlsCertificate);
+    public Output<String> clientTlsCertificate() {
+        return this.clientTlsCertificate;
     }
     @Export(name="contentSynchronisation", refs={RemoteDockerRepositoryContentSynchronisation.class}, tree="[0]")
     private Output</* @Nullable */ RemoteDockerRepositoryContentSynchronisation> contentSynchronisation;
@@ -369,14 +369,14 @@ public class RemoteDockerRepository extends com.pulumi.resources.CustomResource 
      * 
      */
     @Export(name="externalDependenciesPatterns", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> externalDependenciesPatterns;
+    private Output</* @Nullable */ List<String>> externalDependenciesPatterns;
 
     /**
      * @return An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download remote modules from, when presented with &#39;go-import&#39; meta tags in the remote repository response. Default to `[&#34;**&#34;]`
      * 
      */
-    public Output<List<String>> externalDependenciesPatterns() {
-        return this.externalDependenciesPatterns;
+    public Output<Optional<List<String>>> externalDependenciesPatterns() {
+        return Codegen.optional(this.externalDependenciesPatterns);
     }
     /**
      * When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to

@@ -114,6 +114,9 @@ type LocalRpmRepository struct {
 	BlackedOut pulumi.BoolOutput `pulumi:"blackedOut"`
 	// Default: `false`.
 	CalculateYumMetadata pulumi.BoolOutput `pulumi:"calculateYumMetadata"`
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	CdnRedirect pulumi.BoolOutput `pulumi:"cdnRedirect"`
 	// Public description.
 	Description pulumi.StringOutput `pulumi:"description"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
@@ -132,7 +135,7 @@ type LocalRpmRepository struct {
 	// Internal description.
 	Notes pulumi.StringOutput `pulumi:"notes"`
 	// The primary GPG key to be used to sign packages.
-	PrimaryKeypairRef pulumi.StringPtrOutput `pulumi:"primaryKeypairRef"`
+	PrimaryKeypairRef pulumi.StringOutput `pulumi:"primaryKeypairRef"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution  pulumi.BoolOutput        `pulumi:"priorityResolution"`
 	ProjectEnvironments pulumi.StringArrayOutput `pulumi:"projectEnvironments"`
@@ -145,7 +148,7 @@ type LocalRpmRepository struct {
 	// corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
 	RepoLayoutRef pulumi.StringOutput `pulumi:"repoLayoutRef"`
 	// The secondary GPG key to be used to sign packages.
-	SecondaryKeypairRef pulumi.StringPtrOutput `pulumi:"secondaryKeypairRef"`
+	SecondaryKeypairRef pulumi.StringOutput `pulumi:"secondaryKeypairRef"`
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
 	XrayIndex pulumi.BoolOutput `pulumi:"xrayIndex"`
@@ -202,6 +205,9 @@ type localRpmRepositoryState struct {
 	BlackedOut *bool `pulumi:"blackedOut"`
 	// Default: `false`.
 	CalculateYumMetadata *bool `pulumi:"calculateYumMetadata"`
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	CdnRedirect *bool `pulumi:"cdnRedirect"`
 	// Public description.
 	Description *string `pulumi:"description"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
@@ -258,6 +264,9 @@ type LocalRpmRepositoryState struct {
 	BlackedOut pulumi.BoolPtrInput
 	// Default: `false`.
 	CalculateYumMetadata pulumi.BoolPtrInput
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	CdnRedirect pulumi.BoolPtrInput
 	// Public description.
 	Description pulumi.StringPtrInput
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
@@ -318,6 +327,9 @@ type localRpmRepositoryArgs struct {
 	BlackedOut *bool `pulumi:"blackedOut"`
 	// Default: `false`.
 	CalculateYumMetadata *bool `pulumi:"calculateYumMetadata"`
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	CdnRedirect *bool `pulumi:"cdnRedirect"`
 	// Public description.
 	Description *string `pulumi:"description"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
@@ -375,6 +387,9 @@ type LocalRpmRepositoryArgs struct {
 	BlackedOut pulumi.BoolPtrInput
 	// Default: `false`.
 	CalculateYumMetadata pulumi.BoolPtrInput
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	CdnRedirect pulumi.BoolPtrInput
 	// Public description.
 	Description pulumi.StringPtrInput
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
@@ -526,6 +541,12 @@ func (o LocalRpmRepositoryOutput) CalculateYumMetadata() pulumi.BoolOutput {
 	return o.ApplyT(func(v *LocalRpmRepository) pulumi.BoolOutput { return v.CalculateYumMetadata }).(pulumi.BoolOutput)
 }
 
+// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+func (o LocalRpmRepositoryOutput) CdnRedirect() pulumi.BoolOutput {
+	return o.ApplyT(func(v *LocalRpmRepository) pulumi.BoolOutput { return v.CdnRedirect }).(pulumi.BoolOutput)
+}
+
 // Public description.
 func (o LocalRpmRepositoryOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocalRpmRepository) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
@@ -565,8 +586,8 @@ func (o LocalRpmRepositoryOutput) Notes() pulumi.StringOutput {
 }
 
 // The primary GPG key to be used to sign packages.
-func (o LocalRpmRepositoryOutput) PrimaryKeypairRef() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LocalRpmRepository) pulumi.StringPtrOutput { return v.PrimaryKeypairRef }).(pulumi.StringPtrOutput)
+func (o LocalRpmRepositoryOutput) PrimaryKeypairRef() pulumi.StringOutput {
+	return o.ApplyT(func(v *LocalRpmRepository) pulumi.StringOutput { return v.PrimaryKeypairRef }).(pulumi.StringOutput)
 }
 
 // Setting repositories with priority will cause metadata to be merged only from repositories set with this field
@@ -596,8 +617,8 @@ func (o LocalRpmRepositoryOutput) RepoLayoutRef() pulumi.StringOutput {
 }
 
 // The secondary GPG key to be used to sign packages.
-func (o LocalRpmRepositoryOutput) SecondaryKeypairRef() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LocalRpmRepository) pulumi.StringPtrOutput { return v.SecondaryKeypairRef }).(pulumi.StringPtrOutput)
+func (o LocalRpmRepositoryOutput) SecondaryKeypairRef() pulumi.StringOutput {
+	return o.ApplyT(func(v *LocalRpmRepository) pulumi.StringOutput { return v.SecondaryKeypairRef }).(pulumi.StringOutput)
 }
 
 // Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via

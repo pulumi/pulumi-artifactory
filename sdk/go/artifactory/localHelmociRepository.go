@@ -60,6 +60,9 @@ type LocalHelmociRepository struct {
 	ArchiveBrowsingEnabled pulumi.BoolOutput `pulumi:"archiveBrowsingEnabled"`
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 	BlackedOut pulumi.BoolOutput `pulumi:"blackedOut"`
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	CdnRedirect pulumi.BoolOutput `pulumi:"cdnRedirect"`
 	// Public description.
 	Description pulumi.StringOutput `pulumi:"description"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
@@ -74,8 +77,7 @@ type LocalHelmociRepository struct {
 	// the identity key of the repo.
 	Key pulumi.StringOutput `pulumi:"key"`
 	// The maximum number of unique tags of a single OCI image to store in this
-	// repository. Once the number tags for an image exceeds this setting, older tags are removed.
-	// A value of 0 (default) indicates there is no limit.
+	// repository. Once the number tags for an image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit.
 	MaxUniqueTags pulumi.IntOutput `pulumi:"maxUniqueTags"`
 	// Internal description.
 	Notes pulumi.StringOutput `pulumi:"notes"`
@@ -136,6 +138,9 @@ type localHelmociRepositoryState struct {
 	ArchiveBrowsingEnabled *bool `pulumi:"archiveBrowsingEnabled"`
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 	BlackedOut *bool `pulumi:"blackedOut"`
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	CdnRedirect *bool `pulumi:"cdnRedirect"`
 	// Public description.
 	Description *string `pulumi:"description"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
@@ -150,8 +155,7 @@ type localHelmociRepositoryState struct {
 	// the identity key of the repo.
 	Key *string `pulumi:"key"`
 	// The maximum number of unique tags of a single OCI image to store in this
-	// repository. Once the number tags for an image exceeds this setting, older tags are removed.
-	// A value of 0 (default) indicates there is no limit.
+	// repository. Once the number tags for an image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit.
 	MaxUniqueTags *int `pulumi:"maxUniqueTags"`
 	// Internal description.
 	Notes *string `pulumi:"notes"`
@@ -180,6 +184,9 @@ type LocalHelmociRepositoryState struct {
 	ArchiveBrowsingEnabled pulumi.BoolPtrInput
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 	BlackedOut pulumi.BoolPtrInput
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	CdnRedirect pulumi.BoolPtrInput
 	// Public description.
 	Description pulumi.StringPtrInput
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
@@ -194,8 +201,7 @@ type LocalHelmociRepositoryState struct {
 	// the identity key of the repo.
 	Key pulumi.StringPtrInput
 	// The maximum number of unique tags of a single OCI image to store in this
-	// repository. Once the number tags for an image exceeds this setting, older tags are removed.
-	// A value of 0 (default) indicates there is no limit.
+	// repository. Once the number tags for an image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit.
 	MaxUniqueTags pulumi.IntPtrInput
 	// Internal description.
 	Notes pulumi.StringPtrInput
@@ -228,6 +234,9 @@ type localHelmociRepositoryArgs struct {
 	ArchiveBrowsingEnabled *bool `pulumi:"archiveBrowsingEnabled"`
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 	BlackedOut *bool `pulumi:"blackedOut"`
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	CdnRedirect *bool `pulumi:"cdnRedirect"`
 	// Public description.
 	Description *string `pulumi:"description"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
@@ -242,8 +251,7 @@ type localHelmociRepositoryArgs struct {
 	// the identity key of the repo.
 	Key string `pulumi:"key"`
 	// The maximum number of unique tags of a single OCI image to store in this
-	// repository. Once the number tags for an image exceeds this setting, older tags are removed.
-	// A value of 0 (default) indicates there is no limit.
+	// repository. Once the number tags for an image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit.
 	MaxUniqueTags *int `pulumi:"maxUniqueTags"`
 	// Internal description.
 	Notes *string `pulumi:"notes"`
@@ -273,6 +281,9 @@ type LocalHelmociRepositoryArgs struct {
 	ArchiveBrowsingEnabled pulumi.BoolPtrInput
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 	BlackedOut pulumi.BoolPtrInput
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	CdnRedirect pulumi.BoolPtrInput
 	// Public description.
 	Description pulumi.StringPtrInput
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
@@ -287,8 +298,7 @@ type LocalHelmociRepositoryArgs struct {
 	// the identity key of the repo.
 	Key pulumi.StringInput
 	// The maximum number of unique tags of a single OCI image to store in this
-	// repository. Once the number tags for an image exceeds this setting, older tags are removed.
-	// A value of 0 (default) indicates there is no limit.
+	// repository. Once the number tags for an image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit.
 	MaxUniqueTags pulumi.IntPtrInput
 	// Internal description.
 	Notes pulumi.StringPtrInput
@@ -409,6 +419,12 @@ func (o LocalHelmociRepositoryOutput) BlackedOut() pulumi.BoolOutput {
 	return o.ApplyT(func(v *LocalHelmociRepository) pulumi.BoolOutput { return v.BlackedOut }).(pulumi.BoolOutput)
 }
 
+// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+func (o LocalHelmociRepositoryOutput) CdnRedirect() pulumi.BoolOutput {
+	return o.ApplyT(func(v *LocalHelmociRepository) pulumi.BoolOutput { return v.CdnRedirect }).(pulumi.BoolOutput)
+}
+
 // Public description.
 func (o LocalHelmociRepositoryOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocalHelmociRepository) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
@@ -438,8 +454,7 @@ func (o LocalHelmociRepositoryOutput) Key() pulumi.StringOutput {
 }
 
 // The maximum number of unique tags of a single OCI image to store in this
-// repository. Once the number tags for an image exceeds this setting, older tags are removed.
-// A value of 0 (default) indicates there is no limit.
+// repository. Once the number tags for an image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit.
 func (o LocalHelmociRepositoryOutput) MaxUniqueTags() pulumi.IntOutput {
 	return o.ApplyT(func(v *LocalHelmociRepository) pulumi.IntOutput { return v.MaxUniqueTags }).(pulumi.IntOutput)
 }

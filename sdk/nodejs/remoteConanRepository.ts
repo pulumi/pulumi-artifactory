@@ -101,7 +101,7 @@ export class RemoteConanRepository extends pulumi.CustomResource {
     /**
      * Client TLS certificate name.
      */
-    public readonly clientTlsCertificate!: pulumi.Output<string | undefined>;
+    public readonly clientTlsCertificate!: pulumi.Output<string>;
     public readonly contentSynchronisation!: pulumi.Output<outputs.RemoteConanRepositoryContentSynchronisation | undefined>;
     /**
      * Enable repository to be protected by the Curation service.

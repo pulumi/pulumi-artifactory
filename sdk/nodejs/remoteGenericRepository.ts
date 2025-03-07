@@ -99,7 +99,7 @@ export class RemoteGenericRepository extends pulumi.CustomResource {
     /**
      * Client TLS certificate name.
      */
-    public readonly clientTlsCertificate!: pulumi.Output<string | undefined>;
+    public readonly clientTlsCertificate!: pulumi.Output<string>;
     public readonly contentSynchronisation!: pulumi.Output<outputs.RemoteGenericRepositoryContentSynchronisation | undefined>;
     /**
      * Public description.

@@ -46,6 +46,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var terraform_local_test_helm_repo = new LocalHelmRepository("terraform-local-test-helm-repo", LocalHelmRepositoryArgs.builder()
  *             .key("terraform-local-test-helm-repo")
+ *             .forceNonDuplicateChart(true)
+ *             .forceMetadataNameVersion(false)
  *             .build());
  * 
  *     }
@@ -99,7 +101,7 @@ public class LocalHelmRepository extends com.pulumi.resources.CustomResource {
     }
     /**
      * When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is `false`
+     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
      * 
      */
     @Export(name="cdnRedirect", refs={Boolean.class}, tree="[0]")
@@ -107,7 +109,7 @@ public class LocalHelmRepository extends com.pulumi.resources.CustomResource {
 
     /**
      * @return When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is `false`
+     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
      * 
      */
     public Output<Boolean> cdnRedirect() {
@@ -158,6 +160,34 @@ public class LocalHelmRepository extends com.pulumi.resources.CustomResource {
      */
     public Output<String> excludesPattern() {
         return this.excludesPattern;
+    }
+    /**
+     * Ensures that the chart name and version in the file name match the values in Chart.yaml and adhere to SemVer standards. Only available for 7.104.5 onward. Cannot be updated after it is set.
+     * 
+     */
+    @Export(name="forceMetadataNameVersion", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> forceMetadataNameVersion;
+
+    /**
+     * @return Ensures that the chart name and version in the file name match the values in Chart.yaml and adhere to SemVer standards. Only available for 7.104.5 onward. Cannot be updated after it is set.
+     * 
+     */
+    public Output<Boolean> forceMetadataNameVersion() {
+        return this.forceMetadataNameVersion;
+    }
+    /**
+     * Prevents the deployment of charts with the same name and version in different repository paths. Only available for 7.104.5 onward. Cannot be updated after it is set.
+     * 
+     */
+    @Export(name="forceNonDuplicateChart", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> forceNonDuplicateChart;
+
+    /**
+     * @return Prevents the deployment of charts with the same name and version in different repository paths. Only available for 7.104.5 onward. Cannot be updated after it is set.
+     * 
+     */
+    public Output<Boolean> forceNonDuplicateChart() {
+        return this.forceNonDuplicateChart;
     }
     /**
      * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When

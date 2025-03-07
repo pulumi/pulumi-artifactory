@@ -84,7 +84,7 @@ type RemoteMavenRepository struct {
 	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
 	CdnRedirect pulumi.BoolOutput `pulumi:"cdnRedirect"`
 	// Client TLS certificate name.
-	ClientTlsCertificate   pulumi.StringPtrOutput                               `pulumi:"clientTlsCertificate"`
+	ClientTlsCertificate   pulumi.StringOutput                                  `pulumi:"clientTlsCertificate"`
 	ContentSynchronisation RemoteMavenRepositoryContentSynchronisationPtrOutput `pulumi:"contentSynchronisation"`
 	// Enable repository to be protected by the Curation service.
 	Curated pulumi.BoolOutput `pulumi:"curated"`
@@ -923,8 +923,8 @@ func (o RemoteMavenRepositoryOutput) CdnRedirect() pulumi.BoolOutput {
 }
 
 // Client TLS certificate name.
-func (o RemoteMavenRepositoryOutput) ClientTlsCertificate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RemoteMavenRepository) pulumi.StringPtrOutput { return v.ClientTlsCertificate }).(pulumi.StringPtrOutput)
+func (o RemoteMavenRepositoryOutput) ClientTlsCertificate() pulumi.StringOutput {
+	return o.ApplyT(func(v *RemoteMavenRepository) pulumi.StringOutput { return v.ClientTlsCertificate }).(pulumi.StringOutput)
 }
 
 func (o RemoteMavenRepositoryOutput) ContentSynchronisation() RemoteMavenRepositoryContentSynchronisationPtrOutput {

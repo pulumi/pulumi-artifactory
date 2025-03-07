@@ -53,6 +53,23 @@ public final class LocalHelmociRepositoryState extends com.pulumi.resources.Reso
     }
 
     /**
+     * When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
+     * 
+     */
+    @Import(name="cdnRedirect")
+    private @Nullable Output<Boolean> cdnRedirect;
+
+    /**
+     * @return When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
+     * 
+     */
+    public Optional<Output<Boolean>> cdnRedirect() {
+        return Optional.ofNullable(this.cdnRedirect);
+    }
+
+    /**
      * Public description.
      * 
      */
@@ -135,8 +152,7 @@ public final class LocalHelmociRepositoryState extends com.pulumi.resources.Reso
 
     /**
      * The maximum number of unique tags of a single OCI image to store in this
-     * repository. Once the number tags for an image exceeds this setting, older tags are removed.
-     * A value of 0 (default) indicates there is no limit.
+     * repository. Once the number tags for an image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit.
      * 
      */
     @Import(name="maxUniqueTags")
@@ -144,8 +160,7 @@ public final class LocalHelmociRepositoryState extends com.pulumi.resources.Reso
 
     /**
      * @return The maximum number of unique tags of a single OCI image to store in this
-     * repository. Once the number tags for an image exceeds this setting, older tags are removed.
-     * A value of 0 (default) indicates there is no limit.
+     * repository. Once the number tags for an image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit.
      * 
      */
     public Optional<Output<Integer>> maxUniqueTags() {
@@ -275,6 +290,7 @@ public final class LocalHelmociRepositoryState extends com.pulumi.resources.Reso
     private LocalHelmociRepositoryState(LocalHelmociRepositoryState $) {
         this.archiveBrowsingEnabled = $.archiveBrowsingEnabled;
         this.blackedOut = $.blackedOut;
+        this.cdnRedirect = $.cdnRedirect;
         this.description = $.description;
         this.downloadDirect = $.downloadDirect;
         this.excludesPattern = $.excludesPattern;
@@ -353,6 +369,29 @@ public final class LocalHelmociRepositoryState extends com.pulumi.resources.Reso
          */
         public Builder blackedOut(Boolean blackedOut) {
             return blackedOut(Output.of(blackedOut));
+        }
+
+        /**
+         * @param cdnRedirect When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+         * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cdnRedirect(@Nullable Output<Boolean> cdnRedirect) {
+            $.cdnRedirect = cdnRedirect;
+            return this;
+        }
+
+        /**
+         * @param cdnRedirect When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+         * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cdnRedirect(Boolean cdnRedirect) {
+            return cdnRedirect(Output.of(cdnRedirect));
         }
 
         /**
@@ -468,8 +507,7 @@ public final class LocalHelmociRepositoryState extends com.pulumi.resources.Reso
 
         /**
          * @param maxUniqueTags The maximum number of unique tags of a single OCI image to store in this
-         * repository. Once the number tags for an image exceeds this setting, older tags are removed.
-         * A value of 0 (default) indicates there is no limit.
+         * repository. Once the number tags for an image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit.
          * 
          * @return builder
          * 
@@ -481,8 +519,7 @@ public final class LocalHelmociRepositoryState extends com.pulumi.resources.Reso
 
         /**
          * @param maxUniqueTags The maximum number of unique tags of a single OCI image to store in this
-         * repository. Once the number tags for an image exceeds this setting, older tags are removed.
-         * A value of 0 (default) indicates there is no limit.
+         * repository. Once the number tags for an image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit.
          * 
          * @return builder
          * 

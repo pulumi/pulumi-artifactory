@@ -196,14 +196,14 @@ public class RemotePypiRepository extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="clientTlsCertificate", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> clientTlsCertificate;
+    private Output<String> clientTlsCertificate;
 
     /**
      * @return Client TLS certificate name.
      * 
      */
-    public Output<Optional<String>> clientTlsCertificate() {
-        return Codegen.optional(this.clientTlsCertificate);
+    public Output<String> clientTlsCertificate() {
+        return this.clientTlsCertificate;
     }
     @Export(name="contentSynchronisation", refs={RemotePypiRepositoryContentSynchronisation.class}, tree="[0]")
     private Output</* @Nullable */ RemotePypiRepositoryContentSynchronisation> contentSynchronisation;

@@ -80,7 +80,7 @@ type RemoteNpmRepository struct {
 	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
 	CdnRedirect pulumi.BoolOutput `pulumi:"cdnRedirect"`
 	// Client TLS certificate name.
-	ClientTlsCertificate   pulumi.StringPtrOutput                             `pulumi:"clientTlsCertificate"`
+	ClientTlsCertificate   pulumi.StringOutput                                `pulumi:"clientTlsCertificate"`
 	ContentSynchronisation RemoteNpmRepositoryContentSynchronisationPtrOutput `pulumi:"contentSynchronisation"`
 	// Enable repository to be protected by the Curation service.
 	Curated pulumi.BoolOutput `pulumi:"curated"`
@@ -836,8 +836,8 @@ func (o RemoteNpmRepositoryOutput) CdnRedirect() pulumi.BoolOutput {
 }
 
 // Client TLS certificate name.
-func (o RemoteNpmRepositoryOutput) ClientTlsCertificate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RemoteNpmRepository) pulumi.StringPtrOutput { return v.ClientTlsCertificate }).(pulumi.StringPtrOutput)
+func (o RemoteNpmRepositoryOutput) ClientTlsCertificate() pulumi.StringOutput {
+	return o.ApplyT(func(v *RemoteNpmRepository) pulumi.StringOutput { return v.ClientTlsCertificate }).(pulumi.StringOutput)
 }
 
 func (o RemoteNpmRepositoryOutput) ContentSynchronisation() RemoteNpmRepositoryContentSynchronisationPtrOutput {

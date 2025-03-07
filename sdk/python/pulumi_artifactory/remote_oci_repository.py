@@ -2213,7 +2213,7 @@ class RemoteOciRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clientTlsCertificate")
-    def client_tls_certificate(self) -> pulumi.Output[Optional[str]]:
+    def client_tls_certificate(self) -> pulumi.Output[str]:
         """
         Client TLS certificate name.
         """
@@ -2293,7 +2293,7 @@ class RemoteOciRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="externalDependenciesPatterns")
-    def external_dependencies_patterns(self) -> pulumi.Output[Sequence[str]]:
+    def external_dependencies_patterns(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Optional include patterns to match external URLs. Ant-style path expressions are supported (*, **, ?). For example, specifying `**/github.com/**` will only allow downloading foreign layers from github.com host. By default, this is set to `[**]` in the UI, which means that foreign layers may be downloaded from any external hosts. Due to SDKv2 limitations, we can't set the default value for the list. This value `[**]` must be assigned to the attribute manually, if user don't specify any other non-default values. We don't want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns `[**]` on update if HCL doesn't have the attribute set or the list is empty.
         """

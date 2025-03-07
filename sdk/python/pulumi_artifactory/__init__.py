@@ -127,7 +127,6 @@ from .get_local_generic_repository import *
 from .get_local_gitlfs_repository import *
 from .get_local_go_repository import *
 from .get_local_gradle_repository import *
-from .get_local_helm_repository import *
 from .get_local_helmoci_repository import *
 from .get_local_huggingfaceml_repository import *
 from .get_local_ivy_repository import *

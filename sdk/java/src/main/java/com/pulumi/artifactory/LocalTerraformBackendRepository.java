@@ -97,7 +97,7 @@ public class LocalTerraformBackendRepository extends com.pulumi.resources.Custom
     }
     /**
      * When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is `false`
+     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
      * 
      */
     @Export(name="cdnRedirect", refs={Boolean.class}, tree="[0]")
@@ -105,7 +105,7 @@ public class LocalTerraformBackendRepository extends com.pulumi.resources.Custom
 
     /**
      * @return When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is `false`
+     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
      * 
      */
     public Output<Boolean> cdnRedirect() {

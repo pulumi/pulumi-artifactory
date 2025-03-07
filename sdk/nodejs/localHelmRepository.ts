@@ -13,7 +13,11 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const terraform_local_test_helm_repo = new artifactory.LocalHelmRepository("terraform-local-test-helm-repo", {key: "terraform-local-test-helm-repo"});
+ * const terraform_local_test_helm_repo = new artifactory.LocalHelmRepository("terraform-local-test-helm-repo", {
+ *     key: "terraform-local-test-helm-repo",
+ *     forceNonDuplicateChart: true,
+ *     forceMetadataNameVersion: false,
+ * });
  * ```
  *
  * ## Import
@@ -64,7 +68,7 @@ export class LocalHelmRepository extends pulumi.CustomResource {
     public readonly blackedOut!: pulumi.Output<boolean>;
     /**
      * When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is `false`
+     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
      */
     public readonly cdnRedirect!: pulumi.Output<boolean>;
     /**
@@ -81,6 +85,14 @@ export class LocalHelmRepository extends pulumi.CustomResource {
      * artifacts are excluded.
      */
     public readonly excludesPattern!: pulumi.Output<string>;
+    /**
+     * Ensures that the chart name and version in the file name match the values in Chart.yaml and adhere to SemVer standards. Only available for 7.104.5 onward. Cannot be updated after it is set.
+     */
+    public readonly forceMetadataNameVersion!: pulumi.Output<boolean>;
+    /**
+     * Prevents the deployment of charts with the same name and version in different repository paths. Only available for 7.104.5 onward. Cannot be updated after it is set.
+     */
+    public readonly forceNonDuplicateChart!: pulumi.Output<boolean>;
     /**
      * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When
      * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
@@ -138,6 +150,8 @@ export class LocalHelmRepository extends pulumi.CustomResource {
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["downloadDirect"] = state ? state.downloadDirect : undefined;
             resourceInputs["excludesPattern"] = state ? state.excludesPattern : undefined;
+            resourceInputs["forceMetadataNameVersion"] = state ? state.forceMetadataNameVersion : undefined;
+            resourceInputs["forceNonDuplicateChart"] = state ? state.forceNonDuplicateChart : undefined;
             resourceInputs["includesPattern"] = state ? state.includesPattern : undefined;
             resourceInputs["key"] = state ? state.key : undefined;
             resourceInputs["notes"] = state ? state.notes : undefined;
@@ -158,6 +172,8 @@ export class LocalHelmRepository extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["downloadDirect"] = args ? args.downloadDirect : undefined;
             resourceInputs["excludesPattern"] = args ? args.excludesPattern : undefined;
+            resourceInputs["forceMetadataNameVersion"] = args ? args.forceMetadataNameVersion : undefined;
+            resourceInputs["forceNonDuplicateChart"] = args ? args.forceNonDuplicateChart : undefined;
             resourceInputs["includesPattern"] = args ? args.includesPattern : undefined;
             resourceInputs["key"] = args ? args.key : undefined;
             resourceInputs["notes"] = args ? args.notes : undefined;
@@ -189,7 +205,7 @@ export interface LocalHelmRepositoryState {
     blackedOut?: pulumi.Input<boolean>;
     /**
      * When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is `false`
+     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
      */
     cdnRedirect?: pulumi.Input<boolean>;
     /**
@@ -206,6 +222,14 @@ export interface LocalHelmRepositoryState {
      * artifacts are excluded.
      */
     excludesPattern?: pulumi.Input<string>;
+    /**
+     * Ensures that the chart name and version in the file name match the values in Chart.yaml and adhere to SemVer standards. Only available for 7.104.5 onward. Cannot be updated after it is set.
+     */
+    forceMetadataNameVersion?: pulumi.Input<boolean>;
+    /**
+     * Prevents the deployment of charts with the same name and version in different repository paths. Only available for 7.104.5 onward. Cannot be updated after it is set.
+     */
+    forceNonDuplicateChart?: pulumi.Input<boolean>;
     /**
      * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When
      * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
@@ -261,7 +285,7 @@ export interface LocalHelmRepositoryArgs {
     blackedOut?: pulumi.Input<boolean>;
     /**
      * When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is `false`
+     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
      */
     cdnRedirect?: pulumi.Input<boolean>;
     /**
@@ -278,6 +302,14 @@ export interface LocalHelmRepositoryArgs {
      * artifacts are excluded.
      */
     excludesPattern?: pulumi.Input<string>;
+    /**
+     * Ensures that the chart name and version in the file name match the values in Chart.yaml and adhere to SemVer standards. Only available for 7.104.5 onward. Cannot be updated after it is set.
+     */
+    forceMetadataNameVersion?: pulumi.Input<boolean>;
+    /**
+     * Prevents the deployment of charts with the same name and version in different repository paths. Only available for 7.104.5 onward. Cannot be updated after it is set.
+     */
+    forceNonDuplicateChart?: pulumi.Input<boolean>;
     /**
      * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When
      * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).

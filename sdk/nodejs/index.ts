@@ -615,11 +615,6 @@ export const getLocalGradleRepository: typeof import("./getLocalGradleRepository
 export const getLocalGradleRepositoryOutput: typeof import("./getLocalGradleRepository").getLocalGradleRepositoryOutput = null as any;
 utilities.lazyLoad(exports, ["getLocalGradleRepository","getLocalGradleRepositoryOutput"], () => require("./getLocalGradleRepository"));
 
-export { GetLocalHelmRepositoryArgs, GetLocalHelmRepositoryResult, GetLocalHelmRepositoryOutputArgs } from "./getLocalHelmRepository";
-export const getLocalHelmRepository: typeof import("./getLocalHelmRepository").getLocalHelmRepository = null as any;
-export const getLocalHelmRepositoryOutput: typeof import("./getLocalHelmRepository").getLocalHelmRepositoryOutput = null as any;
-utilities.lazyLoad(exports, ["getLocalHelmRepository","getLocalHelmRepositoryOutput"], () => require("./getLocalHelmRepository"));
-
 export { GetLocalHelmociRepositoryArgs, GetLocalHelmociRepositoryResult, GetLocalHelmociRepositoryOutputArgs } from "./getLocalHelmociRepository";
 export const getLocalHelmociRepository: typeof import("./getLocalHelmociRepository").getLocalHelmociRepository = null as any;
 export const getLocalHelmociRepositoryOutput: typeof import("./getLocalHelmociRepository").getLocalHelmociRepositoryOutput = null as any;

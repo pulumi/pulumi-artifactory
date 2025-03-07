@@ -2172,7 +2172,7 @@ class RemoteGemsRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clientTlsCertificate")
-    def client_tls_certificate(self) -> pulumi.Output[Optional[str]]:
+    def client_tls_certificate(self) -> pulumi.Output[str]:
         """
         Client TLS certificate name.
         """

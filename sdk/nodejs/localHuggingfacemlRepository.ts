@@ -66,7 +66,7 @@ export class LocalHuggingfacemlRepository extends pulumi.CustomResource {
     public readonly blackedOut!: pulumi.Output<boolean>;
     /**
      * When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is `false`
+     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
      */
     public readonly cdnRedirect!: pulumi.Output<boolean>;
     /**
@@ -191,7 +191,7 @@ export interface LocalHuggingfacemlRepositoryState {
     blackedOut?: pulumi.Input<boolean>;
     /**
      * When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is `false`
+     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
      */
     cdnRedirect?: pulumi.Input<boolean>;
     /**
@@ -263,7 +263,7 @@ export interface LocalHuggingfacemlRepositoryArgs {
     blackedOut?: pulumi.Input<boolean>;
     /**
      * When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is `false`
+     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
      */
     cdnRedirect?: pulumi.Input<boolean>;
     /**

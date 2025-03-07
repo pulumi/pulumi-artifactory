@@ -60,6 +60,13 @@ namespace Pulumi.Artifactory
         public Output<bool> BlackedOut { get; private set; } = null!;
 
         /// <summary>
+        /// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+        /// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        /// </summary>
+        [Output("cdnRedirect")]
+        public Output<bool> CdnRedirect { get; private set; } = null!;
+
+        /// <summary>
         /// Public description.
         /// </summary>
         [Output("description")]
@@ -94,8 +101,7 @@ namespace Pulumi.Artifactory
 
         /// <summary>
         /// The maximum number of unique tags of a single OCI image to store in this 
-        /// repository. Once the number tags for an image exceeds this setting, older tags are removed.
-        /// A value of 0 (default) indicates there is no limit.
+        /// repository. Once the number tags for an image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit.
         /// </summary>
         [Output("maxUniqueTags")]
         public Output<int> MaxUniqueTags { get; private set; } = null!;
@@ -209,6 +215,13 @@ namespace Pulumi.Artifactory
         public Input<bool>? BlackedOut { get; set; }
 
         /// <summary>
+        /// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+        /// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        /// </summary>
+        [Input("cdnRedirect")]
+        public Input<bool>? CdnRedirect { get; set; }
+
+        /// <summary>
         /// Public description.
         /// </summary>
         [Input("description")]
@@ -243,8 +256,7 @@ namespace Pulumi.Artifactory
 
         /// <summary>
         /// The maximum number of unique tags of a single OCI image to store in this 
-        /// repository. Once the number tags for an image exceeds this setting, older tags are removed.
-        /// A value of 0 (default) indicates there is no limit.
+        /// repository. Once the number tags for an image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit.
         /// </summary>
         [Input("maxUniqueTags")]
         public Input<int>? MaxUniqueTags { get; set; }
@@ -331,6 +343,13 @@ namespace Pulumi.Artifactory
         public Input<bool>? BlackedOut { get; set; }
 
         /// <summary>
+        /// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+        /// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        /// </summary>
+        [Input("cdnRedirect")]
+        public Input<bool>? CdnRedirect { get; set; }
+
+        /// <summary>
         /// Public description.
         /// </summary>
         [Input("description")]
@@ -365,8 +384,7 @@ namespace Pulumi.Artifactory
 
         /// <summary>
         /// The maximum number of unique tags of a single OCI image to store in this 
-        /// repository. Once the number tags for an image exceeds this setting, older tags are removed.
-        /// A value of 0 (default) indicates there is no limit.
+        /// repository. Once the number tags for an image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit.
         /// </summary>
         [Input("maxUniqueTags")]
         public Input<int>? MaxUniqueTags { get; set; }

@@ -23,6 +23,7 @@ class LocalRpmRepositoryArgs:
                  archive_browsing_enabled: Optional[pulumi.Input[bool]] = None,
                  blacked_out: Optional[pulumi.Input[bool]] = None,
                  calculate_yum_metadata: Optional[pulumi.Input[bool]] = None,
+                 cdn_redirect: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  download_direct: Optional[pulumi.Input[bool]] = None,
                  enable_file_lists_indexing: Optional[pulumi.Input[bool]] = None,
@@ -47,6 +48,8 @@ class LocalRpmRepositoryArgs:
                security (e.g., cross-site scripting attacks).
         :param pulumi.Input[bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
         :param pulumi.Input[bool] calculate_yum_metadata: Default: `false`.
+        :param pulumi.Input[bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+               CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only.
@@ -82,6 +85,8 @@ class LocalRpmRepositoryArgs:
             pulumi.set(__self__, "blacked_out", blacked_out)
         if calculate_yum_metadata is not None:
             pulumi.set(__self__, "calculate_yum_metadata", calculate_yum_metadata)
+        if cdn_redirect is not None:
+            pulumi.set(__self__, "cdn_redirect", cdn_redirect)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if download_direct is not None:
@@ -164,6 +169,19 @@ class LocalRpmRepositoryArgs:
     @calculate_yum_metadata.setter
     def calculate_yum_metadata(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "calculate_yum_metadata", value)
+
+    @property
+    @pulumi.getter(name="cdnRedirect")
+    def cdn_redirect(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+        CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        """
+        return pulumi.get(self, "cdn_redirect")
+
+    @cdn_redirect.setter
+    def cdn_redirect(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "cdn_redirect", value)
 
     @property
     @pulumi.getter
@@ -373,6 +391,7 @@ class _LocalRpmRepositoryState:
                  archive_browsing_enabled: Optional[pulumi.Input[bool]] = None,
                  blacked_out: Optional[pulumi.Input[bool]] = None,
                  calculate_yum_metadata: Optional[pulumi.Input[bool]] = None,
+                 cdn_redirect: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  download_direct: Optional[pulumi.Input[bool]] = None,
                  enable_file_lists_indexing: Optional[pulumi.Input[bool]] = None,
@@ -397,6 +416,8 @@ class _LocalRpmRepositoryState:
                security (e.g., cross-site scripting attacks).
         :param pulumi.Input[bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
         :param pulumi.Input[bool] calculate_yum_metadata: Default: `false`.
+        :param pulumi.Input[bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+               CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only.
@@ -432,6 +453,8 @@ class _LocalRpmRepositoryState:
             pulumi.set(__self__, "blacked_out", blacked_out)
         if calculate_yum_metadata is not None:
             pulumi.set(__self__, "calculate_yum_metadata", calculate_yum_metadata)
+        if cdn_redirect is not None:
+            pulumi.set(__self__, "cdn_redirect", cdn_redirect)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if download_direct is not None:
@@ -504,6 +527,19 @@ class _LocalRpmRepositoryState:
     @calculate_yum_metadata.setter
     def calculate_yum_metadata(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "calculate_yum_metadata", value)
+
+    @property
+    @pulumi.getter(name="cdnRedirect")
+    def cdn_redirect(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+        CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        """
+        return pulumi.get(self, "cdn_redirect")
+
+    @cdn_redirect.setter
+    def cdn_redirect(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "cdn_redirect", value)
 
     @property
     @pulumi.getter
@@ -727,6 +763,7 @@ class LocalRpmRepository(pulumi.CustomResource):
                  archive_browsing_enabled: Optional[pulumi.Input[bool]] = None,
                  blacked_out: Optional[pulumi.Input[bool]] = None,
                  calculate_yum_metadata: Optional[pulumi.Input[bool]] = None,
+                 cdn_redirect: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  download_direct: Optional[pulumi.Input[bool]] = None,
                  enable_file_lists_indexing: Optional[pulumi.Input[bool]] = None,
@@ -796,6 +833,8 @@ class LocalRpmRepository(pulumi.CustomResource):
                security (e.g., cross-site scripting attacks).
         :param pulumi.Input[bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
         :param pulumi.Input[bool] calculate_yum_metadata: Default: `false`.
+        :param pulumi.Input[bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+               CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only.
@@ -893,6 +932,7 @@ class LocalRpmRepository(pulumi.CustomResource):
                  archive_browsing_enabled: Optional[pulumi.Input[bool]] = None,
                  blacked_out: Optional[pulumi.Input[bool]] = None,
                  calculate_yum_metadata: Optional[pulumi.Input[bool]] = None,
+                 cdn_redirect: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  download_direct: Optional[pulumi.Input[bool]] = None,
                  enable_file_lists_indexing: Optional[pulumi.Input[bool]] = None,
@@ -922,6 +962,7 @@ class LocalRpmRepository(pulumi.CustomResource):
             __props__.__dict__["archive_browsing_enabled"] = archive_browsing_enabled
             __props__.__dict__["blacked_out"] = blacked_out
             __props__.__dict__["calculate_yum_metadata"] = calculate_yum_metadata
+            __props__.__dict__["cdn_redirect"] = cdn_redirect
             __props__.__dict__["description"] = description
             __props__.__dict__["download_direct"] = download_direct
             __props__.__dict__["enable_file_lists_indexing"] = enable_file_lists_indexing
@@ -954,6 +995,7 @@ class LocalRpmRepository(pulumi.CustomResource):
             archive_browsing_enabled: Optional[pulumi.Input[bool]] = None,
             blacked_out: Optional[pulumi.Input[bool]] = None,
             calculate_yum_metadata: Optional[pulumi.Input[bool]] = None,
+            cdn_redirect: Optional[pulumi.Input[bool]] = None,
             description: Optional[pulumi.Input[str]] = None,
             download_direct: Optional[pulumi.Input[bool]] = None,
             enable_file_lists_indexing: Optional[pulumi.Input[bool]] = None,
@@ -983,6 +1025,8 @@ class LocalRpmRepository(pulumi.CustomResource):
                security (e.g., cross-site scripting attacks).
         :param pulumi.Input[bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
         :param pulumi.Input[bool] calculate_yum_metadata: Default: `false`.
+        :param pulumi.Input[bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+               CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only.
@@ -1019,6 +1063,7 @@ class LocalRpmRepository(pulumi.CustomResource):
         __props__.__dict__["archive_browsing_enabled"] = archive_browsing_enabled
         __props__.__dict__["blacked_out"] = blacked_out
         __props__.__dict__["calculate_yum_metadata"] = calculate_yum_metadata
+        __props__.__dict__["cdn_redirect"] = cdn_redirect
         __props__.__dict__["description"] = description
         __props__.__dict__["download_direct"] = download_direct
         __props__.__dict__["enable_file_lists_indexing"] = enable_file_lists_indexing
@@ -1063,6 +1108,15 @@ class LocalRpmRepository(pulumi.CustomResource):
         Default: `false`.
         """
         return pulumi.get(self, "calculate_yum_metadata")
+
+    @property
+    @pulumi.getter(name="cdnRedirect")
+    def cdn_redirect(self) -> pulumi.Output[bool]:
+        """
+        When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+        CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        """
+        return pulumi.get(self, "cdn_redirect")
 
     @property
     @pulumi.getter
@@ -1125,7 +1179,7 @@ class LocalRpmRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="primaryKeypairRef")
-    def primary_keypair_ref(self) -> pulumi.Output[Optional[str]]:
+    def primary_keypair_ref(self) -> pulumi.Output[str]:
         """
         The primary GPG key to be used to sign packages.
         """
@@ -1172,7 +1226,7 @@ class LocalRpmRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="secondaryKeypairRef")
-    def secondary_keypair_ref(self) -> pulumi.Output[Optional[str]]:
+    def secondary_keypair_ref(self) -> pulumi.Output[str]:
         """
         The secondary GPG key to be used to sign packages.
         """
