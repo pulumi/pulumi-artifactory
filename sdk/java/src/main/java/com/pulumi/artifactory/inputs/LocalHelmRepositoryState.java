@@ -53,7 +53,7 @@ public final class LocalHelmRepositoryState extends com.pulumi.resources.Resourc
 
     /**
      * When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is `false`
+     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
      * 
      */
     @Import(name="cdnRedirect")
@@ -61,7 +61,7 @@ public final class LocalHelmRepositoryState extends com.pulumi.resources.Resourc
 
     /**
      * @return When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is `false`
+     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
      * 
      */
     public Optional<Output<Boolean>> cdnRedirect() {
@@ -115,6 +115,36 @@ public final class LocalHelmRepositoryState extends com.pulumi.resources.Resourc
      */
     public Optional<Output<String>> excludesPattern() {
         return Optional.ofNullable(this.excludesPattern);
+    }
+
+    /**
+     * Ensures that the chart name and version in the file name match the values in Chart.yaml and adhere to SemVer standards. Only available for 7.104.5 onward. Cannot be updated after it is set.
+     * 
+     */
+    @Import(name="forceMetadataNameVersion")
+    private @Nullable Output<Boolean> forceMetadataNameVersion;
+
+    /**
+     * @return Ensures that the chart name and version in the file name match the values in Chart.yaml and adhere to SemVer standards. Only available for 7.104.5 onward. Cannot be updated after it is set.
+     * 
+     */
+    public Optional<Output<Boolean>> forceMetadataNameVersion() {
+        return Optional.ofNullable(this.forceMetadataNameVersion);
+    }
+
+    /**
+     * Prevents the deployment of charts with the same name and version in different repository paths. Only available for 7.104.5 onward. Cannot be updated after it is set.
+     * 
+     */
+    @Import(name="forceNonDuplicateChart")
+    private @Nullable Output<Boolean> forceNonDuplicateChart;
+
+    /**
+     * @return Prevents the deployment of charts with the same name and version in different repository paths. Only available for 7.104.5 onward. Cannot be updated after it is set.
+     * 
+     */
+    public Optional<Output<Boolean>> forceNonDuplicateChart() {
+        return Optional.ofNullable(this.forceNonDuplicateChart);
     }
 
     /**
@@ -261,6 +291,8 @@ public final class LocalHelmRepositoryState extends com.pulumi.resources.Resourc
         this.description = $.description;
         this.downloadDirect = $.downloadDirect;
         this.excludesPattern = $.excludesPattern;
+        this.forceMetadataNameVersion = $.forceMetadataNameVersion;
+        this.forceNonDuplicateChart = $.forceNonDuplicateChart;
         this.includesPattern = $.includesPattern;
         this.key = $.key;
         this.notes = $.notes;
@@ -338,7 +370,7 @@ public final class LocalHelmRepositoryState extends com.pulumi.resources.Resourc
 
         /**
          * @param cdnRedirect When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-         * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is `false`
+         * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
          * 
          * @return builder
          * 
@@ -350,7 +382,7 @@ public final class LocalHelmRepositoryState extends com.pulumi.resources.Resourc
 
         /**
          * @param cdnRedirect When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-         * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is `false`
+         * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
          * 
          * @return builder
          * 
@@ -424,6 +456,48 @@ public final class LocalHelmRepositoryState extends com.pulumi.resources.Resourc
          */
         public Builder excludesPattern(String excludesPattern) {
             return excludesPattern(Output.of(excludesPattern));
+        }
+
+        /**
+         * @param forceMetadataNameVersion Ensures that the chart name and version in the file name match the values in Chart.yaml and adhere to SemVer standards. Only available for 7.104.5 onward. Cannot be updated after it is set.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder forceMetadataNameVersion(@Nullable Output<Boolean> forceMetadataNameVersion) {
+            $.forceMetadataNameVersion = forceMetadataNameVersion;
+            return this;
+        }
+
+        /**
+         * @param forceMetadataNameVersion Ensures that the chart name and version in the file name match the values in Chart.yaml and adhere to SemVer standards. Only available for 7.104.5 onward. Cannot be updated after it is set.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder forceMetadataNameVersion(Boolean forceMetadataNameVersion) {
+            return forceMetadataNameVersion(Output.of(forceMetadataNameVersion));
+        }
+
+        /**
+         * @param forceNonDuplicateChart Prevents the deployment of charts with the same name and version in different repository paths. Only available for 7.104.5 onward. Cannot be updated after it is set.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder forceNonDuplicateChart(@Nullable Output<Boolean> forceNonDuplicateChart) {
+            $.forceNonDuplicateChart = forceNonDuplicateChart;
+            return this;
+        }
+
+        /**
+         * @param forceNonDuplicateChart Prevents the deployment of charts with the same name and version in different repository paths. Only available for 7.104.5 onward. Cannot be updated after it is set.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder forceNonDuplicateChart(Boolean forceNonDuplicateChart) {
+            return forceNonDuplicateChart(Output.of(forceNonDuplicateChart));
         }
 
         /**

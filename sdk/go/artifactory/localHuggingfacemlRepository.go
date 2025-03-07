@@ -59,7 +59,7 @@ type LocalHuggingfacemlRepository struct {
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 	BlackedOut pulumi.BoolOutput `pulumi:"blackedOut"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is `false`
+	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
 	CdnRedirect pulumi.BoolOutput `pulumi:"cdnRedirect"`
 	// Public description.
 	Description pulumi.StringOutput `pulumi:"description"`
@@ -132,7 +132,7 @@ type localHuggingfacemlRepositoryState struct {
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 	BlackedOut *bool `pulumi:"blackedOut"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is `false`
+	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
 	CdnRedirect *bool `pulumi:"cdnRedirect"`
 	// Public description.
 	Description *string `pulumi:"description"`
@@ -173,7 +173,7 @@ type LocalHuggingfacemlRepositoryState struct {
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 	BlackedOut pulumi.BoolPtrInput
 	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is `false`
+	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
 	CdnRedirect pulumi.BoolPtrInput
 	// Public description.
 	Description pulumi.StringPtrInput
@@ -218,7 +218,7 @@ type localHuggingfacemlRepositoryArgs struct {
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 	BlackedOut *bool `pulumi:"blackedOut"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is `false`
+	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
 	CdnRedirect *bool `pulumi:"cdnRedirect"`
 	// Public description.
 	Description *string `pulumi:"description"`
@@ -260,7 +260,7 @@ type LocalHuggingfacemlRepositoryArgs struct {
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 	BlackedOut pulumi.BoolPtrInput
 	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is `false`
+	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
 	CdnRedirect pulumi.BoolPtrInput
 	// Public description.
 	Description pulumi.StringPtrInput
@@ -393,7 +393,7 @@ func (o LocalHuggingfacemlRepositoryOutput) BlackedOut() pulumi.BoolOutput {
 }
 
 // When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is `false`
+// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
 func (o LocalHuggingfacemlRepositoryOutput) CdnRedirect() pulumi.BoolOutput {
 	return o.ApplyT(func(v *LocalHuggingfacemlRepository) pulumi.BoolOutput { return v.CdnRedirect }).(pulumi.BoolOutput)
 }

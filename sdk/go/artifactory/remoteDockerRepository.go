@@ -89,7 +89,7 @@ type RemoteDockerRepository struct {
 	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
 	CdnRedirect pulumi.BoolOutput `pulumi:"cdnRedirect"`
 	// Client TLS certificate name.
-	ClientTlsCertificate   pulumi.StringPtrOutput                                `pulumi:"clientTlsCertificate"`
+	ClientTlsCertificate   pulumi.StringOutput                                   `pulumi:"clientTlsCertificate"`
 	ContentSynchronisation RemoteDockerRepositoryContentSynchronisationPtrOutput `pulumi:"contentSynchronisation"`
 	// Enable repository to be protected by the Curation service.
 	Curated pulumi.BoolOutput `pulumi:"curated"`
@@ -911,8 +911,8 @@ func (o RemoteDockerRepositoryOutput) CdnRedirect() pulumi.BoolOutput {
 }
 
 // Client TLS certificate name.
-func (o RemoteDockerRepositoryOutput) ClientTlsCertificate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.StringPtrOutput { return v.ClientTlsCertificate }).(pulumi.StringPtrOutput)
+func (o RemoteDockerRepositoryOutput) ClientTlsCertificate() pulumi.StringOutput {
+	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.StringOutput { return v.ClientTlsCertificate }).(pulumi.StringOutput)
 }
 
 func (o RemoteDockerRepositoryOutput) ContentSynchronisation() RemoteDockerRepositoryContentSynchronisationPtrOutput {

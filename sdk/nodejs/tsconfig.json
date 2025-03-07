@@ -137,7 +137,6 @@
         "getLocalGitlfsRepository.ts",
         "getLocalGoRepository.ts",
         "getLocalGradleRepository.ts",
-        "getLocalHelmRepository.ts",
         "getLocalHelmociRepository.ts",
         "getLocalHuggingfacemlRepository.ts",
         "getLocalIvyRepository.ts",

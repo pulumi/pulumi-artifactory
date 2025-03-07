@@ -136,6 +136,22 @@ public class DebianRepository extends com.pulumi.resources.CustomResource {
         return this.blackedOut;
     }
     /**
+     * When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
+     * 
+     */
+    @Export(name="cdnRedirect", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> cdnRedirect;
+
+    /**
+     * @return When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
+     * 
+     */
+    public Output<Boolean> cdnRedirect() {
+        return this.cdnRedirect;
+    }
+    /**
      * When set, enable indexing with debug symbols (.ddeb).
      * 
      */
@@ -260,14 +276,14 @@ public class DebianRepository extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="primaryKeypairRef", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> primaryKeypairRef;
+    private Output<String> primaryKeypairRef;
 
     /**
      * @return The primary RSA key to be used to sign packages.
      * 
      */
-    public Output<Optional<String>> primaryKeypairRef() {
-        return Codegen.optional(this.primaryKeypairRef);
+    public Output<String> primaryKeypairRef() {
+        return this.primaryKeypairRef;
     }
     /**
      * Setting repositories with priority will cause metadata to be merged only from repositories set with this field
@@ -340,14 +356,14 @@ public class DebianRepository extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="secondaryKeypairRef", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> secondaryKeypairRef;
+    private Output<String> secondaryKeypairRef;
 
     /**
      * @return The secondary RSA key to be used to sign packages.
      * 
      */
-    public Output<Optional<String>> secondaryKeypairRef() {
-        return Codegen.optional(this.secondaryKeypairRef);
+    public Output<String> secondaryKeypairRef() {
+        return this.secondaryKeypairRef;
     }
     /**
      * When set, the repository will use the deprecated trivial layout.

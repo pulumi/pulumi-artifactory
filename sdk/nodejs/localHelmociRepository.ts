@@ -69,6 +69,11 @@ export class LocalHelmociRepository extends pulumi.CustomResource {
      */
     public readonly blackedOut!: pulumi.Output<boolean>;
     /**
+     * When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+     */
+    public readonly cdnRedirect!: pulumi.Output<boolean>;
+    /**
      * Public description.
      */
     public readonly description!: pulumi.Output<string>;
@@ -93,8 +98,7 @@ export class LocalHelmociRepository extends pulumi.CustomResource {
     public readonly key!: pulumi.Output<string>;
     /**
      * The maximum number of unique tags of a single OCI image to store in this 
-     * repository. Once the number tags for an image exceeds this setting, older tags are removed.
-     * A value of 0 (default) indicates there is no limit.
+     * repository. Once the number tags for an image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit.
      */
     public readonly maxUniqueTags!: pulumi.Output<number>;
     /**
@@ -145,6 +149,7 @@ export class LocalHelmociRepository extends pulumi.CustomResource {
             const state = argsOrState as LocalHelmociRepositoryState | undefined;
             resourceInputs["archiveBrowsingEnabled"] = state ? state.archiveBrowsingEnabled : undefined;
             resourceInputs["blackedOut"] = state ? state.blackedOut : undefined;
+            resourceInputs["cdnRedirect"] = state ? state.cdnRedirect : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["downloadDirect"] = state ? state.downloadDirect : undefined;
             resourceInputs["excludesPattern"] = state ? state.excludesPattern : undefined;
@@ -166,6 +171,7 @@ export class LocalHelmociRepository extends pulumi.CustomResource {
             }
             resourceInputs["archiveBrowsingEnabled"] = args ? args.archiveBrowsingEnabled : undefined;
             resourceInputs["blackedOut"] = args ? args.blackedOut : undefined;
+            resourceInputs["cdnRedirect"] = args ? args.cdnRedirect : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["downloadDirect"] = args ? args.downloadDirect : undefined;
             resourceInputs["excludesPattern"] = args ? args.excludesPattern : undefined;
@@ -201,6 +207,11 @@ export interface LocalHelmociRepositoryState {
      */
     blackedOut?: pulumi.Input<boolean>;
     /**
+     * When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+     */
+    cdnRedirect?: pulumi.Input<boolean>;
+    /**
      * Public description.
      */
     description?: pulumi.Input<string>;
@@ -225,8 +236,7 @@ export interface LocalHelmociRepositoryState {
     key?: pulumi.Input<string>;
     /**
      * The maximum number of unique tags of a single OCI image to store in this 
-     * repository. Once the number tags for an image exceeds this setting, older tags are removed.
-     * A value of 0 (default) indicates there is no limit.
+     * repository. Once the number tags for an image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit.
      */
     maxUniqueTags?: pulumi.Input<number>;
     /**
@@ -278,6 +288,11 @@ export interface LocalHelmociRepositoryArgs {
      */
     blackedOut?: pulumi.Input<boolean>;
     /**
+     * When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+     */
+    cdnRedirect?: pulumi.Input<boolean>;
+    /**
      * Public description.
      */
     description?: pulumi.Input<string>;
@@ -302,8 +317,7 @@ export interface LocalHelmociRepositoryArgs {
     key: pulumi.Input<string>;
     /**
      * The maximum number of unique tags of a single OCI image to store in this 
-     * repository. Once the number tags for an image exceeds this setting, older tags are removed.
-     * A value of 0 (default) indicates there is no limit.
+     * repository. Once the number tags for an image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit.
      */
     maxUniqueTags?: pulumi.Input<number>;
     /**

@@ -22,6 +22,7 @@ class DebianRepositoryArgs:
                  key: pulumi.Input[str],
                  archive_browsing_enabled: Optional[pulumi.Input[bool]] = None,
                  blacked_out: Optional[pulumi.Input[bool]] = None,
+                 cdn_redirect: Optional[pulumi.Input[bool]] = None,
                  ddeb_supported: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  download_direct: Optional[pulumi.Input[bool]] = None,
@@ -45,6 +46,8 @@ class DebianRepositoryArgs:
                therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
                security (e.g., cross-site scripting attacks).
         :param pulumi.Input[bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+        :param pulumi.Input[bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+               CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[bool] ddeb_supported: When set, enable indexing with debug symbols (.ddeb).
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
@@ -73,6 +76,8 @@ class DebianRepositoryArgs:
             pulumi.set(__self__, "archive_browsing_enabled", archive_browsing_enabled)
         if blacked_out is not None:
             pulumi.set(__self__, "blacked_out", blacked_out)
+        if cdn_redirect is not None:
+            pulumi.set(__self__, "cdn_redirect", cdn_redirect)
         if ddeb_supported is not None:
             pulumi.set(__self__, "ddeb_supported", ddeb_supported)
         if description is not None:
@@ -143,6 +148,19 @@ class DebianRepositoryArgs:
     @blacked_out.setter
     def blacked_out(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "blacked_out", value)
+
+    @property
+    @pulumi.getter(name="cdnRedirect")
+    def cdn_redirect(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+        CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        """
+        return pulumi.get(self, "cdn_redirect")
+
+    @cdn_redirect.setter
+    def cdn_redirect(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "cdn_redirect", value)
 
     @property
     @pulumi.getter(name="ddebSupported")
@@ -346,6 +364,7 @@ class _DebianRepositoryState:
     def __init__(__self__, *,
                  archive_browsing_enabled: Optional[pulumi.Input[bool]] = None,
                  blacked_out: Optional[pulumi.Input[bool]] = None,
+                 cdn_redirect: Optional[pulumi.Input[bool]] = None,
                  ddeb_supported: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  download_direct: Optional[pulumi.Input[bool]] = None,
@@ -369,6 +388,8 @@ class _DebianRepositoryState:
                therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
                security (e.g., cross-site scripting attacks).
         :param pulumi.Input[bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+        :param pulumi.Input[bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+               CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[bool] ddeb_supported: When set, enable indexing with debug symbols (.ddeb).
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
@@ -397,6 +418,8 @@ class _DebianRepositoryState:
             pulumi.set(__self__, "archive_browsing_enabled", archive_browsing_enabled)
         if blacked_out is not None:
             pulumi.set(__self__, "blacked_out", blacked_out)
+        if cdn_redirect is not None:
+            pulumi.set(__self__, "cdn_redirect", cdn_redirect)
         if ddeb_supported is not None:
             pulumi.set(__self__, "ddeb_supported", ddeb_supported)
         if description is not None:
@@ -457,6 +480,19 @@ class _DebianRepositoryState:
     @blacked_out.setter
     def blacked_out(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "blacked_out", value)
+
+    @property
+    @pulumi.getter(name="cdnRedirect")
+    def cdn_redirect(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+        CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        """
+        return pulumi.get(self, "cdn_redirect")
+
+    @cdn_redirect.setter
+    def cdn_redirect(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "cdn_redirect", value)
 
     @property
     @pulumi.getter(name="ddebSupported")
@@ -674,6 +710,7 @@ class DebianRepository(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  archive_browsing_enabled: Optional[pulumi.Input[bool]] = None,
                  blacked_out: Optional[pulumi.Input[bool]] = None,
+                 cdn_redirect: Optional[pulumi.Input[bool]] = None,
                  ddeb_supported: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  download_direct: Optional[pulumi.Input[bool]] = None,
@@ -744,6 +781,8 @@ class DebianRepository(pulumi.CustomResource):
                therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
                security (e.g., cross-site scripting attacks).
         :param pulumi.Input[bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+        :param pulumi.Input[bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+               CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[bool] ddeb_supported: When set, enable indexing with debug symbols (.ddeb).
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
@@ -837,6 +876,7 @@ class DebianRepository(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  archive_browsing_enabled: Optional[pulumi.Input[bool]] = None,
                  blacked_out: Optional[pulumi.Input[bool]] = None,
+                 cdn_redirect: Optional[pulumi.Input[bool]] = None,
                  ddeb_supported: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  download_direct: Optional[pulumi.Input[bool]] = None,
@@ -865,6 +905,7 @@ class DebianRepository(pulumi.CustomResource):
 
             __props__.__dict__["archive_browsing_enabled"] = archive_browsing_enabled
             __props__.__dict__["blacked_out"] = blacked_out
+            __props__.__dict__["cdn_redirect"] = cdn_redirect
             __props__.__dict__["ddeb_supported"] = ddeb_supported
             __props__.__dict__["description"] = description
             __props__.__dict__["download_direct"] = download_direct
@@ -896,6 +937,7 @@ class DebianRepository(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             archive_browsing_enabled: Optional[pulumi.Input[bool]] = None,
             blacked_out: Optional[pulumi.Input[bool]] = None,
+            cdn_redirect: Optional[pulumi.Input[bool]] = None,
             ddeb_supported: Optional[pulumi.Input[bool]] = None,
             description: Optional[pulumi.Input[str]] = None,
             download_direct: Optional[pulumi.Input[bool]] = None,
@@ -924,6 +966,8 @@ class DebianRepository(pulumi.CustomResource):
                therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
                security (e.g., cross-site scripting attacks).
         :param pulumi.Input[bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+        :param pulumi.Input[bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+               CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[bool] ddeb_supported: When set, enable indexing with debug symbols (.ddeb).
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
@@ -954,6 +998,7 @@ class DebianRepository(pulumi.CustomResource):
 
         __props__.__dict__["archive_browsing_enabled"] = archive_browsing_enabled
         __props__.__dict__["blacked_out"] = blacked_out
+        __props__.__dict__["cdn_redirect"] = cdn_redirect
         __props__.__dict__["ddeb_supported"] = ddeb_supported
         __props__.__dict__["description"] = description
         __props__.__dict__["download_direct"] = download_direct
@@ -990,6 +1035,15 @@ class DebianRepository(pulumi.CustomResource):
         When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
         """
         return pulumi.get(self, "blacked_out")
+
+    @property
+    @pulumi.getter(name="cdnRedirect")
+    def cdn_redirect(self) -> pulumi.Output[bool]:
+        """
+        When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+        CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        """
+        return pulumi.get(self, "cdn_redirect")
 
     @property
     @pulumi.getter(name="ddebSupported")
@@ -1061,7 +1115,7 @@ class DebianRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="primaryKeypairRef")
-    def primary_keypair_ref(self) -> pulumi.Output[Optional[str]]:
+    def primary_keypair_ref(self) -> pulumi.Output[str]:
         """
         The primary RSA key to be used to sign packages.
         """
@@ -1108,7 +1162,7 @@ class DebianRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="secondaryKeypairRef")
-    def secondary_keypair_ref(self) -> pulumi.Output[Optional[str]]:
+    def secondary_keypair_ref(self) -> pulumi.Output[str]:
         """
         The secondary RSA key to be used to sign packages.
         """

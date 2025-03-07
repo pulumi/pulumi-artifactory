@@ -101,6 +101,11 @@ export class DebianRepository extends pulumi.CustomResource {
      */
     public readonly blackedOut!: pulumi.Output<boolean>;
     /**
+     * When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+     */
+    public readonly cdnRedirect!: pulumi.Output<boolean>;
+    /**
      * When set, enable indexing with debug symbols (.ddeb).
      */
     public readonly ddebSupported!: pulumi.Output<boolean>;
@@ -139,7 +144,7 @@ export class DebianRepository extends pulumi.CustomResource {
     /**
      * The primary RSA key to be used to sign packages.
      */
-    public readonly primaryKeypairRef!: pulumi.Output<string | undefined>;
+    public readonly primaryKeypairRef!: pulumi.Output<string>;
     /**
      * Setting repositories with priority will cause metadata to be merged only from repositories set with this field
      */
@@ -162,7 +167,7 @@ export class DebianRepository extends pulumi.CustomResource {
     /**
      * The secondary RSA key to be used to sign packages.
      */
-    public readonly secondaryKeypairRef!: pulumi.Output<string | undefined>;
+    public readonly secondaryKeypairRef!: pulumi.Output<string>;
     /**
      * When set, the repository will use the deprecated trivial layout.
      */
@@ -188,6 +193,7 @@ export class DebianRepository extends pulumi.CustomResource {
             const state = argsOrState as DebianRepositoryState | undefined;
             resourceInputs["archiveBrowsingEnabled"] = state ? state.archiveBrowsingEnabled : undefined;
             resourceInputs["blackedOut"] = state ? state.blackedOut : undefined;
+            resourceInputs["cdnRedirect"] = state ? state.cdnRedirect : undefined;
             resourceInputs["ddebSupported"] = state ? state.ddebSupported : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["downloadDirect"] = state ? state.downloadDirect : undefined;
@@ -212,6 +218,7 @@ export class DebianRepository extends pulumi.CustomResource {
             }
             resourceInputs["archiveBrowsingEnabled"] = args ? args.archiveBrowsingEnabled : undefined;
             resourceInputs["blackedOut"] = args ? args.blackedOut : undefined;
+            resourceInputs["cdnRedirect"] = args ? args.cdnRedirect : undefined;
             resourceInputs["ddebSupported"] = args ? args.ddebSupported : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["downloadDirect"] = args ? args.downloadDirect : undefined;
@@ -249,6 +256,11 @@ export interface DebianRepositoryState {
      * When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
      */
     blackedOut?: pulumi.Input<boolean>;
+    /**
+     * When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+     */
+    cdnRedirect?: pulumi.Input<boolean>;
     /**
      * When set, enable indexing with debug symbols (.ddeb).
      */
@@ -337,6 +349,11 @@ export interface DebianRepositoryArgs {
      * When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
      */
     blackedOut?: pulumi.Input<boolean>;
+    /**
+     * When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+     */
+    cdnRedirect?: pulumi.Input<boolean>;
     /**
      * When set, enable indexing with debug symbols (.ddeb).
      */

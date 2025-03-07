@@ -2321,7 +2321,7 @@ class RemoteDockerRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clientTlsCertificate")
-    def client_tls_certificate(self) -> pulumi.Output[Optional[str]]:
+    def client_tls_certificate(self) -> pulumi.Output[str]:
         """
         Client TLS certificate name.
         """
@@ -2409,7 +2409,7 @@ class RemoteDockerRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="externalDependenciesPatterns")
-    def external_dependencies_patterns(self) -> pulumi.Output[Sequence[str]]:
+    def external_dependencies_patterns(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response. Default to `["**"]`
         """

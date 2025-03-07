@@ -106,6 +106,13 @@ namespace Pulumi.Artifactory
         public Output<bool> CalculateYumMetadata { get; private set; } = null!;
 
         /// <summary>
+        /// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+        /// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        /// </summary>
+        [Output("cdnRedirect")]
+        public Output<bool> CdnRedirect { get; private set; } = null!;
+
+        /// <summary>
         /// Public description.
         /// </summary>
         [Output("description")]
@@ -154,7 +161,7 @@ namespace Pulumi.Artifactory
         /// The primary GPG key to be used to sign packages.
         /// </summary>
         [Output("primaryKeypairRef")]
-        public Output<string?> PrimaryKeypairRef { get; private set; } = null!;
+        public Output<string> PrimaryKeypairRef { get; private set; } = null!;
 
         /// <summary>
         /// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
@@ -189,7 +196,7 @@ namespace Pulumi.Artifactory
         /// The secondary GPG key to be used to sign packages.
         /// </summary>
         [Output("secondaryKeypairRef")]
-        public Output<string?> SecondaryKeypairRef { get; private set; } = null!;
+        public Output<string> SecondaryKeypairRef { get; private set; } = null!;
 
         /// <summary>
         /// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
@@ -281,6 +288,13 @@ namespace Pulumi.Artifactory
         /// </summary>
         [Input("calculateYumMetadata")]
         public Input<bool>? CalculateYumMetadata { get; set; }
+
+        /// <summary>
+        /// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+        /// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        /// </summary>
+        [Input("cdnRedirect")]
+        public Input<bool>? CdnRedirect { get; set; }
 
         /// <summary>
         /// Public description.
@@ -431,6 +445,13 @@ namespace Pulumi.Artifactory
         /// </summary>
         [Input("calculateYumMetadata")]
         public Input<bool>? CalculateYumMetadata { get; set; }
+
+        /// <summary>
+        /// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+        /// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        /// </summary>
+        [Input("cdnRedirect")]
+        public Input<bool>? CdnRedirect { get; set; }
 
         /// <summary>
         /// Public description.

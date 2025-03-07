@@ -88,7 +88,7 @@ type RemoteCargoRepository struct {
 	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
 	CdnRedirect pulumi.BoolOutput `pulumi:"cdnRedirect"`
 	// Client TLS certificate name.
-	ClientTlsCertificate   pulumi.StringPtrOutput                               `pulumi:"clientTlsCertificate"`
+	ClientTlsCertificate   pulumi.StringOutput                                  `pulumi:"clientTlsCertificate"`
 	ContentSynchronisation RemoteCargoRepositoryContentSynchronisationPtrOutput `pulumi:"contentSynchronisation"`
 	// Public description.
 	Description pulumi.StringOutput `pulumi:"description"`
@@ -870,8 +870,8 @@ func (o RemoteCargoRepositoryOutput) CdnRedirect() pulumi.BoolOutput {
 }
 
 // Client TLS certificate name.
-func (o RemoteCargoRepositoryOutput) ClientTlsCertificate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RemoteCargoRepository) pulumi.StringPtrOutput { return v.ClientTlsCertificate }).(pulumi.StringPtrOutput)
+func (o RemoteCargoRepositoryOutput) ClientTlsCertificate() pulumi.StringOutput {
+	return o.ApplyT(func(v *RemoteCargoRepository) pulumi.StringOutput { return v.ClientTlsCertificate }).(pulumi.StringOutput)
 }
 
 func (o RemoteCargoRepositoryOutput) ContentSynchronisation() RemoteCargoRepositoryContentSynchronisationPtrOutput {

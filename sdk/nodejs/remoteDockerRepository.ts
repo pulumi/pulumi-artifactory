@@ -111,7 +111,7 @@ export class RemoteDockerRepository extends pulumi.CustomResource {
     /**
      * Client TLS certificate name.
      */
-    public readonly clientTlsCertificate!: pulumi.Output<string | undefined>;
+    public readonly clientTlsCertificate!: pulumi.Output<string>;
     public readonly contentSynchronisation!: pulumi.Output<outputs.RemoteDockerRepositoryContentSynchronisation | undefined>;
     /**
      * Enable repository to be protected by the Curation service.
@@ -155,7 +155,7 @@ export class RemoteDockerRepository extends pulumi.CustomResource {
     /**
      * An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response. Default to `["**"]`
      */
-    public readonly externalDependenciesPatterns!: pulumi.Output<string[]>;
+    public readonly externalDependenciesPatterns!: pulumi.Output<string[] | undefined>;
     /**
      * When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
      * communicate with this repository.

@@ -78,7 +78,7 @@ type RemotePuppetRepository struct {
 	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
 	CdnRedirect pulumi.BoolOutput `pulumi:"cdnRedirect"`
 	// Client TLS certificate name.
-	ClientTlsCertificate   pulumi.StringPtrOutput                                `pulumi:"clientTlsCertificate"`
+	ClientTlsCertificate   pulumi.StringOutput                                   `pulumi:"clientTlsCertificate"`
 	ContentSynchronisation RemotePuppetRepositoryContentSynchronisationPtrOutput `pulumi:"contentSynchronisation"`
 	// Public description.
 	Description pulumi.StringOutput `pulumi:"description"`
@@ -827,8 +827,8 @@ func (o RemotePuppetRepositoryOutput) CdnRedirect() pulumi.BoolOutput {
 }
 
 // Client TLS certificate name.
-func (o RemotePuppetRepositoryOutput) ClientTlsCertificate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RemotePuppetRepository) pulumi.StringPtrOutput { return v.ClientTlsCertificate }).(pulumi.StringPtrOutput)
+func (o RemotePuppetRepositoryOutput) ClientTlsCertificate() pulumi.StringOutput {
+	return o.ApplyT(func(v *RemotePuppetRepository) pulumi.StringOutput { return v.ClientTlsCertificate }).(pulumi.StringOutput)
 }
 
 func (o RemotePuppetRepositoryOutput) ContentSynchronisation() RemotePuppetRepositoryContentSynchronisationPtrOutput {

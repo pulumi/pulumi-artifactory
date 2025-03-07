@@ -80,6 +80,9 @@ type LocalAnsibleRepository struct {
 	ArchiveBrowsingEnabled pulumi.BoolOutput `pulumi:"archiveBrowsingEnabled"`
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 	BlackedOut pulumi.BoolOutput `pulumi:"blackedOut"`
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	CdnRedirect pulumi.BoolOutput `pulumi:"cdnRedirect"`
 	// Public description.
 	Description pulumi.StringOutput `pulumi:"description"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
@@ -96,7 +99,7 @@ type LocalAnsibleRepository struct {
 	// Internal description.
 	Notes pulumi.StringOutput `pulumi:"notes"`
 	// Primary keypair used to sign artifacts. Default value is empty.
-	PrimaryKeypairRef pulumi.StringPtrOutput `pulumi:"primaryKeypairRef"`
+	PrimaryKeypairRef pulumi.StringOutput `pulumi:"primaryKeypairRef"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution  pulumi.BoolOutput        `pulumi:"priorityResolution"`
 	ProjectEnvironments pulumi.StringArrayOutput `pulumi:"projectEnvironments"`
@@ -152,6 +155,9 @@ type localAnsibleRepositoryState struct {
 	ArchiveBrowsingEnabled *bool `pulumi:"archiveBrowsingEnabled"`
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 	BlackedOut *bool `pulumi:"blackedOut"`
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	CdnRedirect *bool `pulumi:"cdnRedirect"`
 	// Public description.
 	Description *string `pulumi:"description"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
@@ -192,6 +198,9 @@ type LocalAnsibleRepositoryState struct {
 	ArchiveBrowsingEnabled pulumi.BoolPtrInput
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 	BlackedOut pulumi.BoolPtrInput
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	CdnRedirect pulumi.BoolPtrInput
 	// Public description.
 	Description pulumi.StringPtrInput
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
@@ -236,6 +245,9 @@ type localAnsibleRepositoryArgs struct {
 	ArchiveBrowsingEnabled *bool `pulumi:"archiveBrowsingEnabled"`
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 	BlackedOut *bool `pulumi:"blackedOut"`
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	CdnRedirect *bool `pulumi:"cdnRedirect"`
 	// Public description.
 	Description *string `pulumi:"description"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
@@ -277,6 +289,9 @@ type LocalAnsibleRepositoryArgs struct {
 	ArchiveBrowsingEnabled pulumi.BoolPtrInput
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 	BlackedOut pulumi.BoolPtrInput
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	CdnRedirect pulumi.BoolPtrInput
 	// Public description.
 	Description pulumi.StringPtrInput
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
@@ -409,6 +424,12 @@ func (o LocalAnsibleRepositoryOutput) BlackedOut() pulumi.BoolOutput {
 	return o.ApplyT(func(v *LocalAnsibleRepository) pulumi.BoolOutput { return v.BlackedOut }).(pulumi.BoolOutput)
 }
 
+// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+func (o LocalAnsibleRepositoryOutput) CdnRedirect() pulumi.BoolOutput {
+	return o.ApplyT(func(v *LocalAnsibleRepository) pulumi.BoolOutput { return v.CdnRedirect }).(pulumi.BoolOutput)
+}
+
 // Public description.
 func (o LocalAnsibleRepositoryOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocalAnsibleRepository) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
@@ -443,8 +464,8 @@ func (o LocalAnsibleRepositoryOutput) Notes() pulumi.StringOutput {
 }
 
 // Primary keypair used to sign artifacts. Default value is empty.
-func (o LocalAnsibleRepositoryOutput) PrimaryKeypairRef() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LocalAnsibleRepository) pulumi.StringPtrOutput { return v.PrimaryKeypairRef }).(pulumi.StringPtrOutput)
+func (o LocalAnsibleRepositoryOutput) PrimaryKeypairRef() pulumi.StringOutput {
+	return o.ApplyT(func(v *LocalAnsibleRepository) pulumi.StringOutput { return v.PrimaryKeypairRef }).(pulumi.StringOutput)
 }
 
 // Setting repositories with priority will cause metadata to be merged only from repositories set with this field

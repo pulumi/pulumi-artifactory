@@ -84,7 +84,7 @@ type RemoteHelmociRepository struct {
 	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
 	CdnRedirect pulumi.BoolOutput `pulumi:"cdnRedirect"`
 	// Client TLS certificate name.
-	ClientTlsCertificate   pulumi.StringPtrOutput                                 `pulumi:"clientTlsCertificate"`
+	ClientTlsCertificate   pulumi.StringOutput                                    `pulumi:"clientTlsCertificate"`
 	ContentSynchronisation RemoteHelmociRepositoryContentSynchronisationPtrOutput `pulumi:"contentSynchronisation"`
 	// Public description.
 	Description pulumi.StringOutput `pulumi:"description"`
@@ -868,8 +868,8 @@ func (o RemoteHelmociRepositoryOutput) CdnRedirect() pulumi.BoolOutput {
 }
 
 // Client TLS certificate name.
-func (o RemoteHelmociRepositoryOutput) ClientTlsCertificate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RemoteHelmociRepository) pulumi.StringPtrOutput { return v.ClientTlsCertificate }).(pulumi.StringPtrOutput)
+func (o RemoteHelmociRepositoryOutput) ClientTlsCertificate() pulumi.StringOutput {
+	return o.ApplyT(func(v *RemoteHelmociRepository) pulumi.StringOutput { return v.ClientTlsCertificate }).(pulumi.StringOutput)
 }
 
 func (o RemoteHelmociRepositoryOutput) ContentSynchronisation() RemoteHelmociRepositoryContentSynchronisationPtrOutput {

@@ -101,7 +101,7 @@ namespace Pulumi.Artifactory
         /// Client TLS certificate name.
         /// </summary>
         [Output("clientTlsCertificate")]
-        public Output<string?> ClientTlsCertificate { get; private set; } = null!;
+        public Output<string> ClientTlsCertificate { get; private set; } = null!;
 
         [Output("contentSynchronisation")]
         public Output<Outputs.RemoteAnsibleRepositoryContentSynchronisation?> ContentSynchronisation { get; private set; } = null!;

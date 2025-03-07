@@ -198,14 +198,14 @@ public class RemoteOciRepository extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="clientTlsCertificate", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> clientTlsCertificate;
+    private Output<String> clientTlsCertificate;
 
     /**
      * @return Client TLS certificate name.
      * 
      */
-    public Output<Optional<String>> clientTlsCertificate() {
-        return Codegen.optional(this.clientTlsCertificate);
+    public Output<String> clientTlsCertificate() {
+        return this.clientTlsCertificate;
     }
     @Export(name="contentSynchronisation", refs={RemoteOciRepositoryContentSynchronisation.class}, tree="[0]")
     private Output</* @Nullable */ RemoteOciRepositoryContentSynchronisation> contentSynchronisation;
@@ -336,14 +336,14 @@ public class RemoteOciRepository extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="externalDependenciesPatterns", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> externalDependenciesPatterns;
+    private Output</* @Nullable */ List<String>> externalDependenciesPatterns;
 
     /**
      * @return Optional include patterns to match external URLs. Ant-style path expressions are supported (*, **, ?). For example, specifying `**&#47;github.com/**` will only allow downloading foreign layers from github.com host. By default, this is set to `[**]` in the UI, which means that foreign layers may be downloaded from any external hosts. Due to SDKv2 limitations, we can&#39;t set the default value for the list. This value `[**]` must be assigned to the attribute manually, if user don&#39;t specify any other non-default values. We don&#39;t want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns `[**]` on update if HCL doesn&#39;t have the attribute set or the list is empty.
      * 
      */
-    public Output<List<String>> externalDependenciesPatterns() {
-        return this.externalDependenciesPatterns;
+    public Output<Optional<List<String>>> externalDependenciesPatterns() {
+        return Codegen.optional(this.externalDependenciesPatterns);
     }
     /**
      * When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to

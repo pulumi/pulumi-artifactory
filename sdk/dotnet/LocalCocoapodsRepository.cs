@@ -57,7 +57,7 @@ namespace Pulumi.Artifactory
 
         /// <summary>
         /// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-        /// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is `false`
+        /// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         /// </summary>
         [Output("cdnRedirect")]
         public Output<bool> CdnRedirect { get; private set; } = null!;
@@ -199,7 +199,7 @@ namespace Pulumi.Artifactory
 
         /// <summary>
         /// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-        /// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is `false`
+        /// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         /// </summary>
         [Input("cdnRedirect")]
         public Input<bool>? CdnRedirect { get; set; }
@@ -314,7 +314,7 @@ namespace Pulumi.Artifactory
 
         /// <summary>
         /// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-        /// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is `false`
+        /// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         /// </summary>
         [Input("cdnRedirect")]
         public Input<bool>? CdnRedirect { get; set; }

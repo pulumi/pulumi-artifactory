@@ -54,7 +54,7 @@ public final class LocalComposerRepositoryArgs extends com.pulumi.resources.Reso
 
     /**
      * When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is `false`
+     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
      * 
      */
     @Import(name="cdnRedirect")
@@ -62,7 +62,7 @@ public final class LocalComposerRepositoryArgs extends com.pulumi.resources.Reso
 
     /**
      * @return When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is `false`
+     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
      * 
      */
     public Optional<Output<Boolean>> cdnRedirect() {
@@ -339,7 +339,7 @@ public final class LocalComposerRepositoryArgs extends com.pulumi.resources.Reso
 
         /**
          * @param cdnRedirect When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-         * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is `false`
+         * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
          * 
          * @return builder
          * 
@@ -351,7 +351,7 @@ public final class LocalComposerRepositoryArgs extends com.pulumi.resources.Reso
 
         /**
          * @param cdnRedirect When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-         * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is `false`
+         * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
          * 
          * @return builder
          * 

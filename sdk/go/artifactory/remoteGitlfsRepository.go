@@ -78,7 +78,7 @@ type RemoteGitlfsRepository struct {
 	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
 	CdnRedirect pulumi.BoolOutput `pulumi:"cdnRedirect"`
 	// Client TLS certificate name.
-	ClientTlsCertificate   pulumi.StringPtrOutput                                `pulumi:"clientTlsCertificate"`
+	ClientTlsCertificate   pulumi.StringOutput                                   `pulumi:"clientTlsCertificate"`
 	ContentSynchronisation RemoteGitlfsRepositoryContentSynchronisationPtrOutput `pulumi:"contentSynchronisation"`
 	// Public description.
 	Description pulumi.StringOutput `pulumi:"description"`
@@ -827,8 +827,8 @@ func (o RemoteGitlfsRepositoryOutput) CdnRedirect() pulumi.BoolOutput {
 }
 
 // Client TLS certificate name.
-func (o RemoteGitlfsRepositoryOutput) ClientTlsCertificate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RemoteGitlfsRepository) pulumi.StringPtrOutput { return v.ClientTlsCertificate }).(pulumi.StringPtrOutput)
+func (o RemoteGitlfsRepositoryOutput) ClientTlsCertificate() pulumi.StringOutput {
+	return o.ApplyT(func(v *RemoteGitlfsRepository) pulumi.StringOutput { return v.ClientTlsCertificate }).(pulumi.StringOutput)
 }
 
 func (o RemoteGitlfsRepositoryOutput) ContentSynchronisation() RemoteGitlfsRepositoryContentSynchronisationPtrOutput {

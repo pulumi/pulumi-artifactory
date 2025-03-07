@@ -79,7 +79,7 @@ type RemoteConanRepository struct {
 	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
 	CdnRedirect pulumi.BoolOutput `pulumi:"cdnRedirect"`
 	// Client TLS certificate name.
-	ClientTlsCertificate   pulumi.StringPtrOutput                               `pulumi:"clientTlsCertificate"`
+	ClientTlsCertificate   pulumi.StringOutput                                  `pulumi:"clientTlsCertificate"`
 	ContentSynchronisation RemoteConanRepositoryContentSynchronisationPtrOutput `pulumi:"contentSynchronisation"`
 	// Enable repository to be protected by the Curation service.
 	Curated pulumi.BoolOutput `pulumi:"curated"`
@@ -848,8 +848,8 @@ func (o RemoteConanRepositoryOutput) CdnRedirect() pulumi.BoolOutput {
 }
 
 // Client TLS certificate name.
-func (o RemoteConanRepositoryOutput) ClientTlsCertificate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RemoteConanRepository) pulumi.StringPtrOutput { return v.ClientTlsCertificate }).(pulumi.StringPtrOutput)
+func (o RemoteConanRepositoryOutput) ClientTlsCertificate() pulumi.StringOutput {
+	return o.ApplyT(func(v *RemoteConanRepository) pulumi.StringOutput { return v.ClientTlsCertificate }).(pulumi.StringOutput)
 }
 
 func (o RemoteConanRepositoryOutput) ContentSynchronisation() RemoteConanRepositoryContentSynchronisationPtrOutput {

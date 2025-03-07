@@ -25,6 +25,8 @@ namespace Pulumi.Artifactory
     ///     var terraform_local_test_helm_repo = new Artifactory.LocalHelmRepository("terraform-local-test-helm-repo", new()
     ///     {
     ///         Key = "terraform-local-test-helm-repo",
+    ///         ForceNonDuplicateChart = true,
+    ///         ForceMetadataNameVersion = false,
     ///     });
     /// 
     /// });
@@ -57,7 +59,7 @@ namespace Pulumi.Artifactory
 
         /// <summary>
         /// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-        /// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is `false`
+        /// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         /// </summary>
         [Output("cdnRedirect")]
         public Output<bool> CdnRedirect { get; private set; } = null!;
@@ -81,6 +83,18 @@ namespace Pulumi.Artifactory
         /// </summary>
         [Output("excludesPattern")]
         public Output<string> ExcludesPattern { get; private set; } = null!;
+
+        /// <summary>
+        /// Ensures that the chart name and version in the file name match the values in Chart.yaml and adhere to SemVer standards. Only available for 7.104.5 onward. Cannot be updated after it is set.
+        /// </summary>
+        [Output("forceMetadataNameVersion")]
+        public Output<bool> ForceMetadataNameVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// Prevents the deployment of charts with the same name and version in different repository paths. Only available for 7.104.5 onward. Cannot be updated after it is set.
+        /// </summary>
+        [Output("forceNonDuplicateChart")]
+        public Output<bool> ForceNonDuplicateChart { get; private set; } = null!;
 
         /// <summary>
         /// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
@@ -199,7 +213,7 @@ namespace Pulumi.Artifactory
 
         /// <summary>
         /// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-        /// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is `false`
+        /// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         /// </summary>
         [Input("cdnRedirect")]
         public Input<bool>? CdnRedirect { get; set; }
@@ -223,6 +237,18 @@ namespace Pulumi.Artifactory
         /// </summary>
         [Input("excludesPattern")]
         public Input<string>? ExcludesPattern { get; set; }
+
+        /// <summary>
+        /// Ensures that the chart name and version in the file name match the values in Chart.yaml and adhere to SemVer standards. Only available for 7.104.5 onward. Cannot be updated after it is set.
+        /// </summary>
+        [Input("forceMetadataNameVersion")]
+        public Input<bool>? ForceMetadataNameVersion { get; set; }
+
+        /// <summary>
+        /// Prevents the deployment of charts with the same name and version in different repository paths. Only available for 7.104.5 onward. Cannot be updated after it is set.
+        /// </summary>
+        [Input("forceNonDuplicateChart")]
+        public Input<bool>? ForceNonDuplicateChart { get; set; }
 
         /// <summary>
         /// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
@@ -314,7 +340,7 @@ namespace Pulumi.Artifactory
 
         /// <summary>
         /// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-        /// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is `false`
+        /// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         /// </summary>
         [Input("cdnRedirect")]
         public Input<bool>? CdnRedirect { get; set; }
@@ -338,6 +364,18 @@ namespace Pulumi.Artifactory
         /// </summary>
         [Input("excludesPattern")]
         public Input<string>? ExcludesPattern { get; set; }
+
+        /// <summary>
+        /// Ensures that the chart name and version in the file name match the values in Chart.yaml and adhere to SemVer standards. Only available for 7.104.5 onward. Cannot be updated after it is set.
+        /// </summary>
+        [Input("forceMetadataNameVersion")]
+        public Input<bool>? ForceMetadataNameVersion { get; set; }
+
+        /// <summary>
+        /// Prevents the deployment of charts with the same name and version in different repository paths. Only available for 7.104.5 onward. Cannot be updated after it is set.
+        /// </summary>
+        [Input("forceNonDuplicateChart")]
+        public Input<bool>? ForceNonDuplicateChart { get; set; }
 
         /// <summary>
         /// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When

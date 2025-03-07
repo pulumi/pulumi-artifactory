@@ -61,6 +61,11 @@ export class LocalTerraformProviderRepository extends pulumi.CustomResource {
      */
     public readonly blackedOut!: pulumi.Output<boolean>;
     /**
+     * When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+     */
+    public readonly cdnRedirect!: pulumi.Output<boolean>;
+    /**
      * Public description.
      */
     public readonly description!: pulumi.Output<string>;
@@ -127,6 +132,7 @@ export class LocalTerraformProviderRepository extends pulumi.CustomResource {
             const state = argsOrState as LocalTerraformProviderRepositoryState | undefined;
             resourceInputs["archiveBrowsingEnabled"] = state ? state.archiveBrowsingEnabled : undefined;
             resourceInputs["blackedOut"] = state ? state.blackedOut : undefined;
+            resourceInputs["cdnRedirect"] = state ? state.cdnRedirect : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["downloadDirect"] = state ? state.downloadDirect : undefined;
             resourceInputs["excludesPattern"] = state ? state.excludesPattern : undefined;
@@ -146,6 +152,7 @@ export class LocalTerraformProviderRepository extends pulumi.CustomResource {
             }
             resourceInputs["archiveBrowsingEnabled"] = args ? args.archiveBrowsingEnabled : undefined;
             resourceInputs["blackedOut"] = args ? args.blackedOut : undefined;
+            resourceInputs["cdnRedirect"] = args ? args.cdnRedirect : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["downloadDirect"] = args ? args.downloadDirect : undefined;
             resourceInputs["excludesPattern"] = args ? args.excludesPattern : undefined;
@@ -178,6 +185,11 @@ export interface LocalTerraformProviderRepositoryState {
      * When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
      */
     blackedOut?: pulumi.Input<boolean>;
+    /**
+     * When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+     */
+    cdnRedirect?: pulumi.Input<boolean>;
     /**
      * Public description.
      */
@@ -245,6 +257,11 @@ export interface LocalTerraformProviderRepositoryArgs {
      * When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
      */
     blackedOut?: pulumi.Input<boolean>;
+    /**
+     * When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+     */
+    cdnRedirect?: pulumi.Input<boolean>;
     /**
      * Public description.
      */

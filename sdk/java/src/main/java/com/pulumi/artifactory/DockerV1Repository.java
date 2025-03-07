@@ -111,6 +111,22 @@ public class DockerV1Repository extends com.pulumi.resources.CustomResource {
         return this.blockPushingSchema1;
     }
     /**
+     * When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
+     * 
+     */
+    @Export(name="cdnRedirect", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> cdnRedirect;
+
+    /**
+     * @return When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
+     * 
+     */
+    public Output<Boolean> cdnRedirect() {
+        return this.cdnRedirect;
+    }
+    /**
      * Public description.
      * 
      */

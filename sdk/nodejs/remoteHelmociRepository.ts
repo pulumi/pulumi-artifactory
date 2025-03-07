@@ -104,7 +104,7 @@ export class RemoteHelmociRepository extends pulumi.CustomResource {
     /**
      * Client TLS certificate name.
      */
-    public readonly clientTlsCertificate!: pulumi.Output<string | undefined>;
+    public readonly clientTlsCertificate!: pulumi.Output<string>;
     public readonly contentSynchronisation!: pulumi.Output<outputs.RemoteHelmociRepositoryContentSynchronisation | undefined>;
     /**
      * Public description.
@@ -144,7 +144,7 @@ export class RemoteHelmociRepository extends pulumi.CustomResource {
     /**
      * Optional include patterns to match external URLs. Ant-style path expressions are supported (*, **, ?). For example, specifying `**&#47;github.com/**` will only allow downloading foreign layers from github.com host. By default, this is set to `**` in the UI, which means that foreign layers may be downloaded from any external hosts. Due to SDKv2 limitations, we can't set the default value for the list. This value `**` must be assigned to the attribute manually, if user don't specify any other non-default values. We don't want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns `**` on update if HCL doesn't have the attribute set or the list is empty.
      */
-    public readonly externalDependenciesPatterns!: pulumi.Output<string[]>;
+    public readonly externalDependenciesPatterns!: pulumi.Output<string[] | undefined>;
     /**
      * When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
      * communicate with this repository.

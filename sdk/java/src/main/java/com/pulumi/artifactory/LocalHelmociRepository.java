@@ -103,6 +103,22 @@ public class LocalHelmociRepository extends com.pulumi.resources.CustomResource 
         return this.blackedOut;
     }
     /**
+     * When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
+     * 
+     */
+    @Export(name="cdnRedirect", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> cdnRedirect;
+
+    /**
+     * @return When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
+     * 
+     */
+    public Output<Boolean> cdnRedirect() {
+        return this.cdnRedirect;
+    }
+    /**
      * Public description.
      * 
      */
@@ -180,8 +196,7 @@ public class LocalHelmociRepository extends com.pulumi.resources.CustomResource 
     }
     /**
      * The maximum number of unique tags of a single OCI image to store in this
-     * repository. Once the number tags for an image exceeds this setting, older tags are removed.
-     * A value of 0 (default) indicates there is no limit.
+     * repository. Once the number tags for an image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit.
      * 
      */
     @Export(name="maxUniqueTags", refs={Integer.class}, tree="[0]")
@@ -189,8 +204,7 @@ public class LocalHelmociRepository extends com.pulumi.resources.CustomResource 
 
     /**
      * @return The maximum number of unique tags of a single OCI image to store in this
-     * repository. Once the number tags for an image exceeds this setting, older tags are removed.
-     * A value of 0 (default) indicates there is no limit.
+     * repository. Once the number tags for an image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit.
      * 
      */
     public Output<Integer> maxUniqueTags() {

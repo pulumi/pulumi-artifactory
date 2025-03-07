@@ -114,6 +114,9 @@ type DebianRepository struct {
 	ArchiveBrowsingEnabled pulumi.BoolOutput `pulumi:"archiveBrowsingEnabled"`
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 	BlackedOut pulumi.BoolOutput `pulumi:"blackedOut"`
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	CdnRedirect pulumi.BoolOutput `pulumi:"cdnRedirect"`
 	// When set, enable indexing with debug symbols (.ddeb).
 	DdebSupported pulumi.BoolOutput `pulumi:"ddebSupported"`
 	// Public description.
@@ -135,7 +138,7 @@ type DebianRepository struct {
 	// Internal description.
 	Notes pulumi.StringOutput `pulumi:"notes"`
 	// The primary RSA key to be used to sign packages.
-	PrimaryKeypairRef pulumi.StringPtrOutput `pulumi:"primaryKeypairRef"`
+	PrimaryKeypairRef pulumi.StringOutput `pulumi:"primaryKeypairRef"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution  pulumi.BoolOutput        `pulumi:"priorityResolution"`
 	ProjectEnvironments pulumi.StringArrayOutput `pulumi:"projectEnvironments"`
@@ -148,7 +151,7 @@ type DebianRepository struct {
 	// corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
 	RepoLayoutRef pulumi.StringOutput `pulumi:"repoLayoutRef"`
 	// The secondary RSA key to be used to sign packages.
-	SecondaryKeypairRef pulumi.StringPtrOutput `pulumi:"secondaryKeypairRef"`
+	SecondaryKeypairRef pulumi.StringOutput `pulumi:"secondaryKeypairRef"`
 	// When set, the repository will use the deprecated trivial layout.
 	TrivialLayout pulumi.BoolOutput `pulumi:"trivialLayout"`
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
@@ -195,6 +198,9 @@ type debianRepositoryState struct {
 	ArchiveBrowsingEnabled *bool `pulumi:"archiveBrowsingEnabled"`
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 	BlackedOut *bool `pulumi:"blackedOut"`
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	CdnRedirect *bool `pulumi:"cdnRedirect"`
 	// When set, enable indexing with debug symbols (.ddeb).
 	DdebSupported *bool `pulumi:"ddebSupported"`
 	// Public description.
@@ -244,6 +250,9 @@ type DebianRepositoryState struct {
 	ArchiveBrowsingEnabled pulumi.BoolPtrInput
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 	BlackedOut pulumi.BoolPtrInput
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	CdnRedirect pulumi.BoolPtrInput
 	// When set, enable indexing with debug symbols (.ddeb).
 	DdebSupported pulumi.BoolPtrInput
 	// Public description.
@@ -297,6 +306,9 @@ type debianRepositoryArgs struct {
 	ArchiveBrowsingEnabled *bool `pulumi:"archiveBrowsingEnabled"`
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 	BlackedOut *bool `pulumi:"blackedOut"`
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	CdnRedirect *bool `pulumi:"cdnRedirect"`
 	// When set, enable indexing with debug symbols (.ddeb).
 	DdebSupported *bool `pulumi:"ddebSupported"`
 	// Public description.
@@ -347,6 +359,9 @@ type DebianRepositoryArgs struct {
 	ArchiveBrowsingEnabled pulumi.BoolPtrInput
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 	BlackedOut pulumi.BoolPtrInput
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	CdnRedirect pulumi.BoolPtrInput
 	// When set, enable indexing with debug symbols (.ddeb).
 	DdebSupported pulumi.BoolPtrInput
 	// Public description.
@@ -488,6 +503,12 @@ func (o DebianRepositoryOutput) BlackedOut() pulumi.BoolOutput {
 	return o.ApplyT(func(v *DebianRepository) pulumi.BoolOutput { return v.BlackedOut }).(pulumi.BoolOutput)
 }
 
+// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+func (o DebianRepositoryOutput) CdnRedirect() pulumi.BoolOutput {
+	return o.ApplyT(func(v *DebianRepository) pulumi.BoolOutput { return v.CdnRedirect }).(pulumi.BoolOutput)
+}
+
 // When set, enable indexing with debug symbols (.ddeb).
 func (o DebianRepositoryOutput) DdebSupported() pulumi.BoolOutput {
 	return o.ApplyT(func(v *DebianRepository) pulumi.BoolOutput { return v.DdebSupported }).(pulumi.BoolOutput)
@@ -533,8 +554,8 @@ func (o DebianRepositoryOutput) Notes() pulumi.StringOutput {
 }
 
 // The primary RSA key to be used to sign packages.
-func (o DebianRepositoryOutput) PrimaryKeypairRef() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DebianRepository) pulumi.StringPtrOutput { return v.PrimaryKeypairRef }).(pulumi.StringPtrOutput)
+func (o DebianRepositoryOutput) PrimaryKeypairRef() pulumi.StringOutput {
+	return o.ApplyT(func(v *DebianRepository) pulumi.StringOutput { return v.PrimaryKeypairRef }).(pulumi.StringOutput)
 }
 
 // Setting repositories with priority will cause metadata to be merged only from repositories set with this field
@@ -564,8 +585,8 @@ func (o DebianRepositoryOutput) RepoLayoutRef() pulumi.StringOutput {
 }
 
 // The secondary RSA key to be used to sign packages.
-func (o DebianRepositoryOutput) SecondaryKeypairRef() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DebianRepository) pulumi.StringPtrOutput { return v.SecondaryKeypairRef }).(pulumi.StringPtrOutput)
+func (o DebianRepositoryOutput) SecondaryKeypairRef() pulumi.StringOutput {
+	return o.ApplyT(func(v *DebianRepository) pulumi.StringOutput { return v.SecondaryKeypairRef }).(pulumi.StringOutput)
 }
 
 // When set, the repository will use the deprecated trivial layout.

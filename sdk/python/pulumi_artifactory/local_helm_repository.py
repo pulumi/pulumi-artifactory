@@ -26,6 +26,8 @@ class LocalHelmRepositoryArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  download_direct: Optional[pulumi.Input[bool]] = None,
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
+                 force_metadata_name_version: Optional[pulumi.Input[bool]] = None,
+                 force_non_duplicate_chart: Optional[pulumi.Input[bool]] = None,
                  includes_pattern: Optional[pulumi.Input[str]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
                  priority_resolution: Optional[pulumi.Input[bool]] = None,
@@ -42,12 +44,14 @@ class LocalHelmRepositoryArgs:
                security (e.g., cross-site scripting attacks).
         :param pulumi.Input[bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
         :param pulumi.Input[bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-               CloudFront. Available in Enterprise+ and Edge licenses only. Default value is `false`
+               CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
                artifacts are excluded.
+        :param pulumi.Input[bool] force_metadata_name_version: Ensures that the chart name and version in the file name match the values in Chart.yaml and adhere to SemVer standards. Only available for 7.104.5 onward. Cannot be updated after it is set.
+        :param pulumi.Input[bool] force_non_duplicate_chart: Prevents the deployment of charts with the same name and version in different repository paths. Only available for 7.104.5 onward. Cannot be updated after it is set.
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
                used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         :param pulumi.Input[str] notes: Internal description.
@@ -73,6 +77,10 @@ class LocalHelmRepositoryArgs:
             pulumi.set(__self__, "download_direct", download_direct)
         if excludes_pattern is not None:
             pulumi.set(__self__, "excludes_pattern", excludes_pattern)
+        if force_metadata_name_version is not None:
+            pulumi.set(__self__, "force_metadata_name_version", force_metadata_name_version)
+        if force_non_duplicate_chart is not None:
+            pulumi.set(__self__, "force_non_duplicate_chart", force_non_duplicate_chart)
         if includes_pattern is not None:
             pulumi.set(__self__, "includes_pattern", includes_pattern)
         if notes is not None:
@@ -133,7 +141,7 @@ class LocalHelmRepositoryArgs:
     def cdn_redirect(self) -> Optional[pulumi.Input[bool]]:
         """
         When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-        CloudFront. Available in Enterprise+ and Edge licenses only. Default value is `false`
+        CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         """
         return pulumi.get(self, "cdn_redirect")
 
@@ -178,6 +186,30 @@ class LocalHelmRepositoryArgs:
     @excludes_pattern.setter
     def excludes_pattern(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "excludes_pattern", value)
+
+    @property
+    @pulumi.getter(name="forceMetadataNameVersion")
+    def force_metadata_name_version(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Ensures that the chart name and version in the file name match the values in Chart.yaml and adhere to SemVer standards. Only available for 7.104.5 onward. Cannot be updated after it is set.
+        """
+        return pulumi.get(self, "force_metadata_name_version")
+
+    @force_metadata_name_version.setter
+    def force_metadata_name_version(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "force_metadata_name_version", value)
+
+    @property
+    @pulumi.getter(name="forceNonDuplicateChart")
+    def force_non_duplicate_chart(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Prevents the deployment of charts with the same name and version in different repository paths. Only available for 7.104.5 onward. Cannot be updated after it is set.
+        """
+        return pulumi.get(self, "force_non_duplicate_chart")
+
+    @force_non_duplicate_chart.setter
+    def force_non_duplicate_chart(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "force_non_duplicate_chart", value)
 
     @property
     @pulumi.getter(name="includesPattern")
@@ -286,6 +318,8 @@ class _LocalHelmRepositoryState:
                  description: Optional[pulumi.Input[str]] = None,
                  download_direct: Optional[pulumi.Input[bool]] = None,
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
+                 force_metadata_name_version: Optional[pulumi.Input[bool]] = None,
+                 force_non_duplicate_chart: Optional[pulumi.Input[bool]] = None,
                  includes_pattern: Optional[pulumi.Input[str]] = None,
                  key: Optional[pulumi.Input[str]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
@@ -302,12 +336,14 @@ class _LocalHelmRepositoryState:
                security (e.g., cross-site scripting attacks).
         :param pulumi.Input[bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
         :param pulumi.Input[bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-               CloudFront. Available in Enterprise+ and Edge licenses only. Default value is `false`
+               CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
                artifacts are excluded.
+        :param pulumi.Input[bool] force_metadata_name_version: Ensures that the chart name and version in the file name match the values in Chart.yaml and adhere to SemVer standards. Only available for 7.104.5 onward. Cannot be updated after it is set.
+        :param pulumi.Input[bool] force_non_duplicate_chart: Prevents the deployment of charts with the same name and version in different repository paths. Only available for 7.104.5 onward. Cannot be updated after it is set.
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
                used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         :param pulumi.Input[str] key: the identity key of the repo.
@@ -333,6 +369,10 @@ class _LocalHelmRepositoryState:
             pulumi.set(__self__, "download_direct", download_direct)
         if excludes_pattern is not None:
             pulumi.set(__self__, "excludes_pattern", excludes_pattern)
+        if force_metadata_name_version is not None:
+            pulumi.set(__self__, "force_metadata_name_version", force_metadata_name_version)
+        if force_non_duplicate_chart is not None:
+            pulumi.set(__self__, "force_non_duplicate_chart", force_non_duplicate_chart)
         if includes_pattern is not None:
             pulumi.set(__self__, "includes_pattern", includes_pattern)
         if key is not None:
@@ -383,7 +423,7 @@ class _LocalHelmRepositoryState:
     def cdn_redirect(self) -> Optional[pulumi.Input[bool]]:
         """
         When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-        CloudFront. Available in Enterprise+ and Edge licenses only. Default value is `false`
+        CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         """
         return pulumi.get(self, "cdn_redirect")
 
@@ -428,6 +468,30 @@ class _LocalHelmRepositoryState:
     @excludes_pattern.setter
     def excludes_pattern(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "excludes_pattern", value)
+
+    @property
+    @pulumi.getter(name="forceMetadataNameVersion")
+    def force_metadata_name_version(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Ensures that the chart name and version in the file name match the values in Chart.yaml and adhere to SemVer standards. Only available for 7.104.5 onward. Cannot be updated after it is set.
+        """
+        return pulumi.get(self, "force_metadata_name_version")
+
+    @force_metadata_name_version.setter
+    def force_metadata_name_version(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "force_metadata_name_version", value)
+
+    @property
+    @pulumi.getter(name="forceNonDuplicateChart")
+    def force_non_duplicate_chart(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Prevents the deployment of charts with the same name and version in different repository paths. Only available for 7.104.5 onward. Cannot be updated after it is set.
+        """
+        return pulumi.get(self, "force_non_duplicate_chart")
+
+    @force_non_duplicate_chart.setter
+    def force_non_duplicate_chart(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "force_non_duplicate_chart", value)
 
     @property
     @pulumi.getter(name="includesPattern")
@@ -550,6 +614,8 @@ class LocalHelmRepository(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  download_direct: Optional[pulumi.Input[bool]] = None,
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
+                 force_metadata_name_version: Optional[pulumi.Input[bool]] = None,
+                 force_non_duplicate_chart: Optional[pulumi.Input[bool]] = None,
                  includes_pattern: Optional[pulumi.Input[str]] = None,
                  key: Optional[pulumi.Input[str]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
@@ -569,7 +635,10 @@ class LocalHelmRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_local_test_helm_repo = artifactory.LocalHelmRepository("terraform-local-test-helm-repo", key="terraform-local-test-helm-repo")
+        terraform_local_test_helm_repo = artifactory.LocalHelmRepository("terraform-local-test-helm-repo",
+            key="terraform-local-test-helm-repo",
+            force_non_duplicate_chart=True,
+            force_metadata_name_version=False)
         ```
 
         ## Import
@@ -587,12 +656,14 @@ class LocalHelmRepository(pulumi.CustomResource):
                security (e.g., cross-site scripting attacks).
         :param pulumi.Input[bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
         :param pulumi.Input[bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-               CloudFront. Available in Enterprise+ and Edge licenses only. Default value is `false`
+               CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
                artifacts are excluded.
+        :param pulumi.Input[bool] force_metadata_name_version: Ensures that the chart name and version in the file name match the values in Chart.yaml and adhere to SemVer standards. Only available for 7.104.5 onward. Cannot be updated after it is set.
+        :param pulumi.Input[bool] force_non_duplicate_chart: Prevents the deployment of charts with the same name and version in different repository paths. Only available for 7.104.5 onward. Cannot be updated after it is set.
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
                used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         :param pulumi.Input[str] key: the identity key of the repo.
@@ -621,7 +692,10 @@ class LocalHelmRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_local_test_helm_repo = artifactory.LocalHelmRepository("terraform-local-test-helm-repo", key="terraform-local-test-helm-repo")
+        terraform_local_test_helm_repo = artifactory.LocalHelmRepository("terraform-local-test-helm-repo",
+            key="terraform-local-test-helm-repo",
+            force_non_duplicate_chart=True,
+            force_metadata_name_version=False)
         ```
 
         ## Import
@@ -653,6 +727,8 @@ class LocalHelmRepository(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  download_direct: Optional[pulumi.Input[bool]] = None,
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
+                 force_metadata_name_version: Optional[pulumi.Input[bool]] = None,
+                 force_non_duplicate_chart: Optional[pulumi.Input[bool]] = None,
                  includes_pattern: Optional[pulumi.Input[str]] = None,
                  key: Optional[pulumi.Input[str]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
@@ -677,6 +753,8 @@ class LocalHelmRepository(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["download_direct"] = download_direct
             __props__.__dict__["excludes_pattern"] = excludes_pattern
+            __props__.__dict__["force_metadata_name_version"] = force_metadata_name_version
+            __props__.__dict__["force_non_duplicate_chart"] = force_non_duplicate_chart
             __props__.__dict__["includes_pattern"] = includes_pattern
             if key is None and not opts.urn:
                 raise TypeError("Missing required property 'key'")
@@ -704,6 +782,8 @@ class LocalHelmRepository(pulumi.CustomResource):
             description: Optional[pulumi.Input[str]] = None,
             download_direct: Optional[pulumi.Input[bool]] = None,
             excludes_pattern: Optional[pulumi.Input[str]] = None,
+            force_metadata_name_version: Optional[pulumi.Input[bool]] = None,
+            force_non_duplicate_chart: Optional[pulumi.Input[bool]] = None,
             includes_pattern: Optional[pulumi.Input[str]] = None,
             key: Optional[pulumi.Input[str]] = None,
             notes: Optional[pulumi.Input[str]] = None,
@@ -725,12 +805,14 @@ class LocalHelmRepository(pulumi.CustomResource):
                security (e.g., cross-site scripting attacks).
         :param pulumi.Input[bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
         :param pulumi.Input[bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-               CloudFront. Available in Enterprise+ and Edge licenses only. Default value is `false`
+               CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
                artifacts are excluded.
+        :param pulumi.Input[bool] force_metadata_name_version: Ensures that the chart name and version in the file name match the values in Chart.yaml and adhere to SemVer standards. Only available for 7.104.5 onward. Cannot be updated after it is set.
+        :param pulumi.Input[bool] force_non_duplicate_chart: Prevents the deployment of charts with the same name and version in different repository paths. Only available for 7.104.5 onward. Cannot be updated after it is set.
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
                used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         :param pulumi.Input[str] key: the identity key of the repo.
@@ -754,6 +836,8 @@ class LocalHelmRepository(pulumi.CustomResource):
         __props__.__dict__["description"] = description
         __props__.__dict__["download_direct"] = download_direct
         __props__.__dict__["excludes_pattern"] = excludes_pattern
+        __props__.__dict__["force_metadata_name_version"] = force_metadata_name_version
+        __props__.__dict__["force_non_duplicate_chart"] = force_non_duplicate_chart
         __props__.__dict__["includes_pattern"] = includes_pattern
         __props__.__dict__["key"] = key
         __props__.__dict__["notes"] = notes
@@ -788,7 +872,7 @@ class LocalHelmRepository(pulumi.CustomResource):
     def cdn_redirect(self) -> pulumi.Output[bool]:
         """
         When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-        CloudFront. Available in Enterprise+ and Edge licenses only. Default value is `false`
+        CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         """
         return pulumi.get(self, "cdn_redirect")
 
@@ -817,6 +901,22 @@ class LocalHelmRepository(pulumi.CustomResource):
         artifacts are excluded.
         """
         return pulumi.get(self, "excludes_pattern")
+
+    @property
+    @pulumi.getter(name="forceMetadataNameVersion")
+    def force_metadata_name_version(self) -> pulumi.Output[bool]:
+        """
+        Ensures that the chart name and version in the file name match the values in Chart.yaml and adhere to SemVer standards. Only available for 7.104.5 onward. Cannot be updated after it is set.
+        """
+        return pulumi.get(self, "force_metadata_name_version")
+
+    @property
+    @pulumi.getter(name="forceNonDuplicateChart")
+    def force_non_duplicate_chart(self) -> pulumi.Output[bool]:
+        """
+        Prevents the deployment of charts with the same name and version in different repository paths. Only available for 7.104.5 onward. Cannot be updated after it is set.
+        """
+        return pulumi.get(self, "force_non_duplicate_chart")
 
     @property
     @pulumi.getter(name="includesPattern")

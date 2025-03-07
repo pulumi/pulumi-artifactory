@@ -56,6 +56,9 @@ type LocalSbtRepository struct {
 	ArchiveBrowsingEnabled pulumi.BoolOutput `pulumi:"archiveBrowsingEnabled"`
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 	BlackedOut pulumi.BoolOutput `pulumi:"blackedOut"`
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	CdnRedirect pulumi.BoolOutput `pulumi:"cdnRedirect"`
 	// Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or
 	// conflicts with the locally calculated checksum (bad checksum). Options are: "client-checksums", or
 	// "server-generated-checksums". Default: "client-checksums"\n For more details, please refer to Checksum Policy -
@@ -147,6 +150,9 @@ type localSbtRepositoryState struct {
 	ArchiveBrowsingEnabled *bool `pulumi:"archiveBrowsingEnabled"`
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 	BlackedOut *bool `pulumi:"blackedOut"`
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	CdnRedirect *bool `pulumi:"cdnRedirect"`
 	// Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or
 	// conflicts with the locally calculated checksum (bad checksum). Options are: "client-checksums", or
 	// "server-generated-checksums". Default: "client-checksums"\n For more details, please refer to Checksum Policy -
@@ -206,6 +212,9 @@ type LocalSbtRepositoryState struct {
 	ArchiveBrowsingEnabled pulumi.BoolPtrInput
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 	BlackedOut pulumi.BoolPtrInput
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	CdnRedirect pulumi.BoolPtrInput
 	// Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or
 	// conflicts with the locally calculated checksum (bad checksum). Options are: "client-checksums", or
 	// "server-generated-checksums". Default: "client-checksums"\n For more details, please refer to Checksum Policy -
@@ -269,6 +278,9 @@ type localSbtRepositoryArgs struct {
 	ArchiveBrowsingEnabled *bool `pulumi:"archiveBrowsingEnabled"`
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 	BlackedOut *bool `pulumi:"blackedOut"`
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	CdnRedirect *bool `pulumi:"cdnRedirect"`
 	// Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or
 	// conflicts with the locally calculated checksum (bad checksum). Options are: "client-checksums", or
 	// "server-generated-checksums". Default: "client-checksums"\n For more details, please refer to Checksum Policy -
@@ -329,6 +341,9 @@ type LocalSbtRepositoryArgs struct {
 	ArchiveBrowsingEnabled pulumi.BoolPtrInput
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 	BlackedOut pulumi.BoolPtrInput
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	CdnRedirect pulumi.BoolPtrInput
 	// Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or
 	// conflicts with the locally calculated checksum (bad checksum). Options are: "client-checksums", or
 	// "server-generated-checksums". Default: "client-checksums"\n For more details, please refer to Checksum Policy -
@@ -478,6 +493,12 @@ func (o LocalSbtRepositoryOutput) ArchiveBrowsingEnabled() pulumi.BoolOutput {
 // When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 func (o LocalSbtRepositoryOutput) BlackedOut() pulumi.BoolOutput {
 	return o.ApplyT(func(v *LocalSbtRepository) pulumi.BoolOutput { return v.BlackedOut }).(pulumi.BoolOutput)
+}
+
+// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+func (o LocalSbtRepositoryOutput) CdnRedirect() pulumi.BoolOutput {
+	return o.ApplyT(func(v *LocalSbtRepository) pulumi.BoolOutput { return v.CdnRedirect }).(pulumi.BoolOutput)
 }
 
 // Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or
