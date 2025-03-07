@@ -31,6 +31,7 @@ import (
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	tks "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/tokens"
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
+	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/walk"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
 
@@ -123,32 +124,6 @@ func Provider() tfbridge.ProviderInfo {
 			"artifactory_release_bundle_v2_promotion": {ComputeID: computeIDField("name")},
 			"artifactory_item_properties":             {ComputeID: computeIDField("repoKey")},
 
-			// ComputeID mappings for v12.2.0 on webhooks
-			"artifactory_artifact_custom_webhook":                    {ComputeID: computeIDField("key")},
-			"artifactory_user_custom_webhook":                        {ComputeID: computeIDField("key")},
-			"artifactory_release_bundle_v2_promotion_custom_webhook": {ComputeID: computeIDField("key")},
-			"artifactory_artifact_webhook":                           {ComputeID: computeIDField("key")},
-			"artifactory_artifactory_release_bundle_custom_webhook":  {ComputeID: computeIDField("key")},
-			"artifactory_artifact_lifecycle_webhook":                 {ComputeID: computeIDField("key")},
-			"artifactory_release_bundle_v2_promotion_webhook":        {ComputeID: computeIDField("key")},
-			"artifactory_build_webhook":                              {ComputeID: computeIDField("key")},
-			"artifactory_docker_custom_webhook":                      {ComputeID: computeIDField("key")},
-			"artifactory_release_bundle_v2_custom_webhook":           {ComputeID: computeIDField("key")},
-			"artifactory_artifact_lifecycle_custom_webhook":          {ComputeID: computeIDField("key")},
-			"artifactory_distribution_custom_webhook":                {ComputeID: computeIDField("key")},
-			"artifactory_artifact_property_custom_webhook":           {ComputeID: computeIDField("key")},
-			"artifactory_artifact_property_webhook":                  {ComputeID: computeIDField("key")},
-			"artifactory_destination_webhook":                        {ComputeID: computeIDField("key")},
-			"artifactory_release_bundle_v2_webhook":                  {ComputeID: computeIDField("key")},
-			"artifactory_release_bundle_webhook":                     {ComputeID: computeIDField("key")},
-			"artifactory_destination_custom_webhook":                 {ComputeID: computeIDField("key")},
-			"artifactory_docker_webhook":                             {ComputeID: computeIDField("key")},
-			"artifactory_user_webhook":                               {ComputeID: computeIDField("key")},
-			"artifactory_build_custom_webhook":                       {ComputeID: computeIDField("key")},
-			"artifactory_artifactory_release_bundle_webhook":         {ComputeID: computeIDField("key")},
-			"artifactory_release_bundle_custom_webhook":              {ComputeID: computeIDField("key")},
-			"artifactory_distribution_webhook":                       {ComputeID: computeIDField("key")},
-
 			// Old Manual Mappings.
 			//
 			// We leave these as they are to avoid churn.
@@ -197,6 +172,8 @@ func Provider() tfbridge.ProviderInfo {
 		MetadataInfo: tfbridge.NewProviderMetadata(bridgeMetadata),
 	}
 
+	tfbridge.MustTraverseProperties(&prov, "ids", applyResourceIDs)
+
 	prov.MustComputeTokens(tks.SingleModule("artifactory_", mainMod, tks.MakeStandard(mainPkg)))
 
 	// The provider doesn't have docs for the following data sources, so we exclude them.
@@ -242,7 +219,9 @@ func Provider() tfbridge.ProviderInfo {
 
 	missingDocInfo := &tfbridge.DocInfo{AllowMissing: true}
 	for _, s := range docLessDataSources {
-		prov.DataSources[s].Docs = missingDocInfo
+		if _, ok := prov.DataSources[s]; ok {
+			prov.DataSources[s].Docs = missingDocInfo
+		}
 	}
 
 	prov.MustApplyAutoAliases()
@@ -284,3 +263,42 @@ var (
 		},
 	}
 )
+
+type computeIDFunc = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error)
+
+func delegateIDField(field resource.PropertyKey) computeIDFunc {
+	return tfbridge.DelegateIDField(field, "artifactory", "https://github.com/pulumi/pulumi-artifactory")
+}
+
+// applyResourceIDs (when passed to tfbridge.MustTraverseProperties) sets ComputeID as
+// appropriate.
+func applyResourceIDs(info tfbridge.PropertyVisitInfo) (tfbridge.PropertyVisitResult, error) {
+	path := info.SchemaPath()
+
+	// If the property is not on a resource at the top level, or if ComputeID is
+	// already set, do nothing.
+	res, ok := info.Root.(tfbridge.VisitResourceRoot)
+	if !ok || len(path) > 1 || (res.Info != nil && res.Info.ComputeID != nil) {
+		return tfbridge.PropertyVisitResult{HasEffect: false}, nil
+	}
+
+	// If the resource already has an ID property and it is likely to be present in
+	// the state, use that.
+	if id, ok := res.Schema.Schema().GetOk("id"); ok && id.Computed() && !id.Optional() {
+		return tfbridge.PropertyVisitResult{HasEffect: false}, nil
+	}
+
+	field := path[0].(walk.GetAttrStep).Name
+	setField := func() (tfbridge.PropertyVisitResult, error) {
+		res.Info.ComputeID = delegateIDField(resource.PropertyKey(
+			tfbridge.TerraformToPulumiNameV2(field,
+				info.EnclosingSchemaMap(), info.EnclosingSchemaInfoMap())))
+		return tfbridge.PropertyVisitResult{HasEffect: true}, nil
+	}
+
+	if field == "key" {
+		return setField()
+	}
+
+	return tfbridge.PropertyVisitResult{HasEffect: false}, nil
+}
