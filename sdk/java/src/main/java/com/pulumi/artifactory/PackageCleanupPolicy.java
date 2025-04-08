@@ -25,59 +25,6 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.artifactory.PackageCleanupPolicy;
- * import com.pulumi.artifactory.PackageCleanupPolicyArgs;
- * import com.pulumi.artifactory.inputs.PackageCleanupPolicySearchCriteriaArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var my_cleanup_policy = new PackageCleanupPolicy("my-cleanup-policy", PackageCleanupPolicyArgs.builder()
- *             .key("my-policy")
- *             .description("My package cleanup policy")
- *             .cronExpression("0 0 2 ? * MON-SAT *")
- *             .durationInMinutes(60)
- *             .enabled(true)
- *             .skipTrashcan(false)
- *             .projectKey("myprojkey")
- *             .searchCriteria(PackageCleanupPolicySearchCriteriaArgs.builder()
- *                 .package_types(                
- *                     "docker",
- *                     "gradle",
- *                     "maven")
- *                 .repos(                
- *                     "my-docker-local",
- *                     "my-maven-local")
- *                 .excluded_repos("gradle-global")
- *                 .include_all_projects(false)
- *                 .included_projects()
- *                 .included_packages("com/jfrog/**")
- *                 .excluded_packages("com/jfrog/latest/**")
- *                 .created_before_in_months(1)
- *                 .last_downloaded_before_in_months(6)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

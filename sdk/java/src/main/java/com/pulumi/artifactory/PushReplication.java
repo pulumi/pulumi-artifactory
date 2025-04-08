@@ -75,7 +75,7 @@ import javax.annotation.Nullable;
  *             .cronExp("0 0 * * * ?")
  *             .enableEventReplication(true)
  *             .replications(PushReplicationReplicationArgs.builder()
- *                 .url(providerTestDest.key().applyValue(key -> String.format("%s/%s", artifactoryUrl,key)))
+ *                 .url(providerTestDest.key().applyValue(_key -> String.format("%s/%s", artifactoryUrl,_key)))
  *                 .username("$var.artifactory_username")
  *                 .password("$var.artifactory_password")
  *                 .enabled(true)

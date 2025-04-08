@@ -8299,7 +8299,7 @@ public final class ArtifactoryFunctions {
      *         //
      *         final var myGroup = ArtifactoryFunctions.getGroup(GetGroupArgs.builder()
      *             .name("my_group")
-     *             .includeUsers(true)
+     *             .includeUsers("true")
      *             .build());
      * 
      *     }
@@ -8345,7 +8345,7 @@ public final class ArtifactoryFunctions {
      *         //
      *         final var myGroup = ArtifactoryFunctions.getGroup(GetGroupArgs.builder()
      *             .name("my_group")
-     *             .includeUsers(true)
+     *             .includeUsers("true")
      *             .build());
      * 
      *     }
@@ -8391,7 +8391,7 @@ public final class ArtifactoryFunctions {
      *         //
      *         final var myGroup = ArtifactoryFunctions.getGroup(GetGroupArgs.builder()
      *             .name("my_group")
-     *             .includeUsers(true)
+     *             .includeUsers("true")
      *             .build());
      * 
      *     }
@@ -8437,7 +8437,7 @@ public final class ArtifactoryFunctions {
      *         //
      *         final var myGroup = ArtifactoryFunctions.getGroup(GetGroupArgs.builder()
      *             .name("my_group")
-     *             .includeUsers(true)
+     *             .includeUsers("true")
      *             .build());
      * 
      *     }
@@ -8483,7 +8483,7 @@ public final class ArtifactoryFunctions {
      *         //
      *         final var myGroup = ArtifactoryFunctions.getGroup(GetGroupArgs.builder()
      *             .name("my_group")
-     *             .includeUsers(true)
+     *             .includeUsers("true")
      *             .build());
      * 
      *     }
