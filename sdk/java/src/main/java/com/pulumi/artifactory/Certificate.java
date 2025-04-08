@@ -30,6 +30,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.artifactory.Certificate;
  * import com.pulumi.artifactory.CertificateArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.FileArgs;
  * import com.pulumi.artifactory.RemoteMavenRepository;
  * import com.pulumi.artifactory.RemoteMavenRepositoryArgs;
  * import java.util.List;

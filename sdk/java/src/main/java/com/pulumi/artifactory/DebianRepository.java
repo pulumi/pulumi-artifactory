@@ -31,6 +31,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.artifactory.Keypair;
  * import com.pulumi.artifactory.KeypairArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.FileArgs;
  * import com.pulumi.artifactory.DebianRepository;
  * import com.pulumi.artifactory.DebianRepositoryArgs;
  * import com.pulumi.resources.CustomResourceOptions;
