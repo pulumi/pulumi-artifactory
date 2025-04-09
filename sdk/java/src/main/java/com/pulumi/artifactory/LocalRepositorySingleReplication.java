@@ -69,7 +69,7 @@ import javax.annotation.Nullable;
  *             .repoKey(providerTestSource.key())
  *             .cronExp("0 0 * * * ?")
  *             .enableEventReplication(true)
- *             .url(providerTestDest.key().applyValue(key -> String.format("%s/artifactory/%s", artifactoryUrl,key)))
+ *             .url(providerTestDest.key().applyValue(_key -> String.format("%s/artifactory/%s", artifactoryUrl,_key)))
  *             .username("$var.artifactory_username")
  *             .password("$var.artifactory_password")
  *             .enabled(true)
