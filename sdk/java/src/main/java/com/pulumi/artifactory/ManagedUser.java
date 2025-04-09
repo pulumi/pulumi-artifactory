@@ -21,49 +21,6 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.artifactory.ManagedUser;
- * import com.pulumi.artifactory.ManagedUserArgs;
- * import com.pulumi.artifactory.inputs.ManagedUserPasswordPolicyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App }{{@code
- *     public static void main(String[] args) }{{@code
- *         Pulumi.run(App::stack);
- *     }}{@code
- * 
- *     public static void stack(Context ctx) }{{@code
- *         var test_user = new ManagedUser("test-user", ManagedUserArgs.builder()
- *             .name("terraform")
- *             .password("my super secret password")
- *             .passwordPolicy(ManagedUserPasswordPolicyArgs.builder()
- *                 .uppercase(1)
- *                 .lowercase(1)
- *                 .special_char(1)
- *                 .digit(1)
- *                 .length(10)
- *                 .build())
- *             .email("test-user}{@literal @}{@code artifactory-terraform.com")
- *             .groups(            
- *                 "readers",
- *                 "logged-in-users")
- *             .build());
- * 
- *     }}{@code
- * }}{@code
- * }
- * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
