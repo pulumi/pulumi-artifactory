@@ -409,6 +409,9 @@ class _VirtualTerraformRepositoryState:
 
 
 class VirtualTerraformRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/virtualTerraformRepository:VirtualTerraformRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -447,6 +447,9 @@ class _SamlSettingsState:
 
 
 class SamlSettings(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/samlSettings:SamlSettings"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

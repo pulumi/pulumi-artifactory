@@ -682,6 +682,9 @@ class _FederatedOpkgRepositoryState:
 
 
 class FederatedOpkgRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/federatedOpkgRepository:FederatedOpkgRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

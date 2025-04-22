@@ -315,6 +315,9 @@ class _UnmanagedUserState:
 
 
 class UnmanagedUser(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/unmanagedUser:UnmanagedUser"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -480,6 +480,9 @@ class _LdapSettingV2State:
 
 
 class LdapSettingV2(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/ldapSettingV2:LdapSettingV2"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

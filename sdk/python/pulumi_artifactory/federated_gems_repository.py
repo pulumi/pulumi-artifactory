@@ -682,6 +682,9 @@ class _FederatedGemsRepositoryState:
 
 
 class FederatedGemsRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/federatedGemsRepository:FederatedGemsRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

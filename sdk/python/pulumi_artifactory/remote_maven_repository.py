@@ -1802,6 +1802,9 @@ class _RemoteMavenRepositoryState:
 
 
 class RemoteMavenRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/remoteMavenRepository:RemoteMavenRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

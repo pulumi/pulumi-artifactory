@@ -351,6 +351,9 @@ class _ProxyState:
 
 
 class Proxy(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/proxy:Proxy"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

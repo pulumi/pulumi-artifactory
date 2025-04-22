@@ -1514,6 +1514,9 @@ class _RemoteSwiftRepositoryState:
 
 
 class RemoteSwiftRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/remoteSwiftRepository:RemoteSwiftRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -1714,6 +1714,9 @@ class _RemoteDockerRepositoryState:
 
 
 class RemoteDockerRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/remoteDockerRepository:RemoteDockerRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

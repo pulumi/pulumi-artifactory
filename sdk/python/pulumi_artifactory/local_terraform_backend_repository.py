@@ -541,6 +541,9 @@ class _LocalTerraformBackendRepositoryState:
 
 
 class LocalTerraformBackendRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/localTerraformBackendRepository:LocalTerraformBackendRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

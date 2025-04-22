@@ -617,6 +617,9 @@ class _LocalNugetRepositoryState:
 
 
 class LocalNugetRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/localNugetRepository:LocalNugetRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

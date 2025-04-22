@@ -589,6 +589,9 @@ class _DockerV1RepositoryState:
 
 
 class DockerV1Repository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/dockerV1Repository:DockerV1Repository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

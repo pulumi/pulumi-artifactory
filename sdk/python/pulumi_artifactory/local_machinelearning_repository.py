@@ -517,6 +517,9 @@ class _LocalMachinelearningRepositoryState:
 
 
 class LocalMachinelearningRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/localMachinelearningRepository:LocalMachinelearningRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

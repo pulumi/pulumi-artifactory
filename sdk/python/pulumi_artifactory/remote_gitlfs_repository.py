@@ -1514,6 +1514,9 @@ class _RemoteGitlfsRepositoryState:
 
 
 class RemoteGitlfsRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/remoteGitlfsRepository:RemoteGitlfsRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

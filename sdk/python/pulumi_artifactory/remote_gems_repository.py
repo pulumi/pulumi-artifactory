@@ -1610,6 +1610,9 @@ class _RemoteGemsRepositoryState:
 
 
 class RemoteGemsRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/remoteGemsRepository:RemoteGemsRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

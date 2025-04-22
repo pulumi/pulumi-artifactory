@@ -718,6 +718,9 @@ class _FederatedAnsibleRepositoryState:
 
 
 class FederatedAnsibleRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/federatedAnsibleRepository:FederatedAnsibleRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -910,6 +910,9 @@ class _FederatedGradleRepositoryState:
 
 
 class FederatedGradleRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/federatedGradleRepository:FederatedGradleRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

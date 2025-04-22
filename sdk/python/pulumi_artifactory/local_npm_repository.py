@@ -541,6 +541,9 @@ class _LocalNpmRepositoryState:
 
 
 class LocalNpmRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/localNpmRepository:LocalNpmRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

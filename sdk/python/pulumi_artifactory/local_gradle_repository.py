@@ -765,6 +765,9 @@ class _LocalGradleRepositoryState:
 
 
 class LocalGradleRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/localGradleRepository:LocalGradleRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

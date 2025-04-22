@@ -473,6 +473,9 @@ class _VirtualHelmRepositoryState:
 
 
 class VirtualHelmRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/virtualHelmRepository:VirtualHelmRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -682,6 +682,9 @@ class _FederatedComposerRepositoryState:
 
 
 class FederatedComposerRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/federatedComposerRepository:FederatedComposerRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

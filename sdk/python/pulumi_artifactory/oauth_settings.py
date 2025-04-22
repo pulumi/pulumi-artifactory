@@ -163,6 +163,9 @@ class _OauthSettingsState:
 
 
 class OauthSettings(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/oauthSettings:OauthSettings"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

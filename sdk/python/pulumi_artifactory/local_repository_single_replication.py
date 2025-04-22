@@ -526,6 +526,9 @@ class _LocalRepositorySingleReplicationState:
 
 
 class LocalRepositorySingleReplication(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/localRepositorySingleReplication:LocalRepositorySingleReplication"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

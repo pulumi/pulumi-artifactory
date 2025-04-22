@@ -505,6 +505,9 @@ class _VirtualBowerRepositoryState:
 
 
 class VirtualBowerRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/virtualBowerRepository:VirtualBowerRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

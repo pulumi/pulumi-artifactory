@@ -164,6 +164,9 @@ class _PermissionTargetState:
 
 
 class PermissionTarget(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/permissionTarget:PermissionTarget"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

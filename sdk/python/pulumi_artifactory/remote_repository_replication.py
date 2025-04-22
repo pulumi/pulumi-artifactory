@@ -357,6 +357,9 @@ class _RemoteRepositoryReplicationState:
 
 
 class RemoteRepositoryReplication(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/remoteRepositoryReplication:RemoteRepositoryReplication"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

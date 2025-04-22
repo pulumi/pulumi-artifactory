@@ -160,6 +160,9 @@ class _ItemPropertiesState:
 
 
 class ItemProperties(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/itemProperties:ItemProperties"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

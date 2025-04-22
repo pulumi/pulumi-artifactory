@@ -750,6 +750,9 @@ class _FederatedNugetRepositoryState:
 
 
 class FederatedNugetRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/federatedNugetRepository:FederatedNugetRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

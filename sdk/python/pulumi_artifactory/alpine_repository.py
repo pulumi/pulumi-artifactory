@@ -577,6 +577,9 @@ class _AlpineRepositoryState:
 
 
 class AlpineRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/alpineRepository:AlpineRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -351,6 +351,9 @@ class _MailServerState:
 
 
 class MailServer(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/mailServer:MailServer"
+
     @overload
     def __init__(__self__,
                  resource_name: str,
