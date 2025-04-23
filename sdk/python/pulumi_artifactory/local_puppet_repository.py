@@ -541,6 +541,9 @@ class _LocalPuppetRepositoryState:
 
 
 class LocalPuppetRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/localPuppetRepository:LocalPuppetRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

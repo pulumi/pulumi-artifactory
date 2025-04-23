@@ -541,6 +541,9 @@ class _LocalHuggingfacemlRepositoryState:
 
 
 class LocalHuggingfacemlRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/localHuggingfacemlRepository:LocalHuggingfacemlRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

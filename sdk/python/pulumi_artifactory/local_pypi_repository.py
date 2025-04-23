@@ -541,6 +541,9 @@ class _LocalPypiRepositoryState:
 
 
 class LocalPypiRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/localPypiRepository:LocalPypiRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

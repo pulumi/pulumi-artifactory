@@ -1514,6 +1514,9 @@ class _RemoteCondaRepositoryState:
 
 
 class RemoteCondaRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/remoteCondaRepository:RemoteCondaRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

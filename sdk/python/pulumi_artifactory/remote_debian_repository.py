@@ -1514,6 +1514,9 @@ class _RemoteDebianRepositoryState:
 
 
 class RemoteDebianRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/remoteDebianRepository:RemoteDebianRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

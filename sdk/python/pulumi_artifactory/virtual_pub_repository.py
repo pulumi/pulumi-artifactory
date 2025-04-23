@@ -409,6 +409,9 @@ class _VirtualPubRepositoryState:
 
 
 class VirtualPubRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/virtualPubRepository:VirtualPubRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

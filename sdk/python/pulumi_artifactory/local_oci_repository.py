@@ -605,6 +605,9 @@ class _LocalOciRepositoryState:
 
 
 class LocalOciRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/localOciRepository:LocalOciRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

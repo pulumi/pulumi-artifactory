@@ -226,6 +226,9 @@ class _DestinationWebhookState:
 
 
 class DestinationWebhook(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/destinationWebhook:DestinationWebhook"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

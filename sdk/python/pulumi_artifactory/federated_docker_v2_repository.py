@@ -806,6 +806,9 @@ class _FederatedDockerV2RepositoryState:
 
 
 class FederatedDockerV2Repository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/federatedDockerV2Repository:FederatedDockerV2Repository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

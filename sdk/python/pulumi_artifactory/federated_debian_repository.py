@@ -810,6 +810,9 @@ class _FederatedDebianRepositoryState:
 
 
 class FederatedDebianRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/federatedDebianRepository:FederatedDebianRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

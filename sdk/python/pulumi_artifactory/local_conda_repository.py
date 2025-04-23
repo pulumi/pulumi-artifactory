@@ -541,6 +541,9 @@ class _LocalCondaRepositoryState:
 
 
 class LocalCondaRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/localCondaRepository:LocalCondaRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

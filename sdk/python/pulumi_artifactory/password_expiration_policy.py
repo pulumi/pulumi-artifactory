@@ -159,6 +159,9 @@ class _PasswordExpirationPolicyState:
 
 
 class PasswordExpirationPolicy(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/passwordExpirationPolicy:PasswordExpirationPolicy"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

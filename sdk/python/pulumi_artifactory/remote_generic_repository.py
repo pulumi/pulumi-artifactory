@@ -1578,6 +1578,9 @@ class _RemoteGenericRepositoryState:
 
 
 class RemoteGenericRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/remoteGenericRepository:RemoteGenericRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

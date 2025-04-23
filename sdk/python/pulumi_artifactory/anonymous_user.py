@@ -58,6 +58,9 @@ class _AnonymousUserState:
 
 
 class AnonymousUser(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/anonymousUser:AnonymousUser"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

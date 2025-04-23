@@ -441,6 +441,9 @@ class _VirtualCranRepositoryState:
 
 
 class VirtualCranRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/virtualCranRepository:VirtualCranRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -226,6 +226,9 @@ class _BuildCustomWebhookState:
 
 
 class BuildCustomWebhook(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/buildCustomWebhook:BuildCustomWebhook"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

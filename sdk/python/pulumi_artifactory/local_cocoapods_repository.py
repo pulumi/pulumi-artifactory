@@ -541,6 +541,9 @@ class _LocalCocoapodsRepositoryState:
 
 
 class LocalCocoapodsRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/localCocoapodsRepository:LocalCocoapodsRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

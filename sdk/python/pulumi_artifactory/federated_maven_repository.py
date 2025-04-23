@@ -910,6 +910,9 @@ class _FederatedMavenRepositoryState:
 
 
 class FederatedMavenRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/federatedMavenRepository:FederatedMavenRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

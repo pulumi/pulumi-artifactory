@@ -605,6 +605,9 @@ class _LocalHelmRepositoryState:
 
 
 class LocalHelmRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/localHelmRepository:LocalHelmRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

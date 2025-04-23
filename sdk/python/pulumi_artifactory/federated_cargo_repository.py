@@ -782,6 +782,9 @@ class _FederatedCargoRepositoryState:
 
 
 class FederatedCargoRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/federatedCargoRepository:FederatedCargoRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -541,6 +541,9 @@ class _LocalGoRepositoryState:
 
 
 class LocalGoRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/localGoRepository:LocalGoRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

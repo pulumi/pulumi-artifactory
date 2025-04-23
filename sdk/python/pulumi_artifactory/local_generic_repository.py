@@ -545,6 +545,9 @@ class _LocalGenericRepositoryState:
 
 
 class LocalGenericRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/localGenericRepository:LocalGenericRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

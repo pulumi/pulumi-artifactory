@@ -1578,6 +1578,9 @@ class _RemoteConanRepositoryState:
 
 
 class RemoteConanRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/remoteConanRepository:RemoteConanRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,
