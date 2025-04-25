@@ -409,6 +409,9 @@ class _VirtualGemsRepositoryState:
 
 
 class VirtualGemsRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/virtualGemsRepository:VirtualGemsRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

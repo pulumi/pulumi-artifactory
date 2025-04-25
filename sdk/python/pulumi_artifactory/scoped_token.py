@@ -614,6 +614,9 @@ class _ScopedTokenState:
 
 
 class ScopedToken(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/scopedToken:ScopedToken"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

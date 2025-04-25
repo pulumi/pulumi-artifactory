@@ -682,6 +682,9 @@ class _FederatedCocoapodsRepositoryState:
 
 
 class FederatedCocoapodsRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/federatedCocoapodsRepository:FederatedCocoapodsRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

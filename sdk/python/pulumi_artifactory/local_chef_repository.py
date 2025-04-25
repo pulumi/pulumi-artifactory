@@ -541,6 +541,9 @@ class _LocalChefRepositoryState:
 
 
 class LocalChefRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/localChefRepository:LocalChefRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

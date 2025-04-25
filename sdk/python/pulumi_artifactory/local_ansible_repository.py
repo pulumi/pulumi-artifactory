@@ -573,6 +573,9 @@ class _LocalAnsibleRepositoryState:
 
 
 class LocalAnsibleRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/localAnsibleRepository:LocalAnsibleRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

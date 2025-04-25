@@ -128,6 +128,9 @@ class _UserLockPolicyState:
 
 
 class UserLockPolicy(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/userLockPolicy:UserLockPolicy"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

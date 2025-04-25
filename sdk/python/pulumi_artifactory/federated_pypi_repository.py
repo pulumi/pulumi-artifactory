@@ -682,6 +682,9 @@ class _FederatedPypiRepositoryState:
 
 
 class FederatedPypiRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/federatedPypiRepository:FederatedPypiRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

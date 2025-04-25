@@ -541,6 +541,9 @@ class _LocalBowerRepositoryState:
 
 
 class LocalBowerRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/localBowerRepository:LocalBowerRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

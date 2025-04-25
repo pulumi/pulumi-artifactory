@@ -441,6 +441,9 @@ class _VirtualChefRepositoryState:
 
 
 class VirtualChefRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/virtualChefRepository:VirtualChefRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

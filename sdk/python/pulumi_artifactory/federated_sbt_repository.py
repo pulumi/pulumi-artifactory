@@ -910,6 +910,9 @@ class _FederatedSbtRepositoryState:
 
 
 class FederatedSbtRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/federatedSbtRepository:FederatedSbtRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

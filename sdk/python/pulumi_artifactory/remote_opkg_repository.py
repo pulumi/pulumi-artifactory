@@ -1514,6 +1514,9 @@ class _RemoteOpkgRepositoryState:
 
 
 class RemoteOpkgRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/remoteOpkgRepository:RemoteOpkgRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -477,6 +477,9 @@ class _GoRepositoryState:
 
 
 class GoRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/goRepository:GoRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -682,6 +682,9 @@ class _FederatedGitltfsRepositoryState:
 
 
 class FederatedGitltfsRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/federatedGitltfsRepository:FederatedGitltfsRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

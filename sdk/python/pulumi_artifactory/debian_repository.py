@@ -705,6 +705,9 @@ class _DebianRepositoryState:
 
 
 class DebianRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/debianRepository:DebianRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

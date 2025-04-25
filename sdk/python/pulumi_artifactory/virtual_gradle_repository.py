@@ -517,6 +517,9 @@ class _VirtualGradleRepositoryState:
 
 
 class VirtualGradleRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/virtualGradleRepository:VirtualGradleRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

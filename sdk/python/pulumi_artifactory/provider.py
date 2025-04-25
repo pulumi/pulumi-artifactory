@@ -120,6 +120,9 @@ By end of Q4 2024, API Keys will be deprecated all together and the option to us
 
 
 class Provider(pulumi.ProviderResource):
+
+    pulumi_type = "pulumi:providers:artifactory"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

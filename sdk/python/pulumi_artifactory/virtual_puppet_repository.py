@@ -409,6 +409,9 @@ class _VirtualPuppetRepositoryState:
 
 
 class VirtualPuppetRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/virtualPuppetRepository:VirtualPuppetRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

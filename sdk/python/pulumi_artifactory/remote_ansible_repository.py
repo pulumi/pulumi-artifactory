@@ -1515,6 +1515,9 @@ class _RemoteAnsibleRepositoryState:
 
 
 class RemoteAnsibleRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/remoteAnsibleRepository:RemoteAnsibleRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

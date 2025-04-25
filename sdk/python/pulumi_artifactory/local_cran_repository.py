@@ -541,6 +541,9 @@ class _LocalCranRepositoryState:
 
 
 class LocalCranRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/localCranRepository:LocalCranRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

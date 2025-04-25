@@ -322,6 +322,9 @@ class _ManagedUserState:
 
 
 class ManagedUser(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/managedUser:ManagedUser"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

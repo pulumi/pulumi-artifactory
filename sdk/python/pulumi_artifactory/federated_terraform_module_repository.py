@@ -682,6 +682,9 @@ class _FederatedTerraformModuleRepositoryState:
 
 
 class FederatedTerraformModuleRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/federatedTerraformModuleRepository:FederatedTerraformModuleRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

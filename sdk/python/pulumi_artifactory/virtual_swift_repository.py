@@ -409,6 +409,9 @@ class _VirtualSwiftRepositoryState:
 
 
 class VirtualSwiftRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/virtualSwiftRepository:VirtualSwiftRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,
