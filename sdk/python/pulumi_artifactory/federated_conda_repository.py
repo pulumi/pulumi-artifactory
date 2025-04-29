@@ -682,6 +682,9 @@ class _FederatedCondaRepositoryState:
 
 
 class FederatedCondaRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/federatedCondaRepository:FederatedCondaRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

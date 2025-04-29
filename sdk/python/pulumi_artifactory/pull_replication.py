@@ -485,6 +485,9 @@ class _PullReplicationState:
 
 
 class PullReplication(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/pullReplication:PullReplication"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

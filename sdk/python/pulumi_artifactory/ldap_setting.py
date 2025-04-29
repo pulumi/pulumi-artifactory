@@ -492,6 +492,9 @@ class _LdapSettingState:
 
 
 class LdapSetting(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/ldapSetting:LdapSetting"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

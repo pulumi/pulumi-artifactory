@@ -750,6 +750,9 @@ class _FederatedOciRepositoryState:
 
 
 class FederatedOciRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/federatedOciRepository:FederatedOciRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

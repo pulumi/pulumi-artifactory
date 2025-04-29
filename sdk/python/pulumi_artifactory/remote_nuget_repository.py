@@ -1714,6 +1714,9 @@ class _RemoteNugetRepositoryState:
 
 
 class RemoteNugetRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/remoteNugetRepository:RemoteNugetRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

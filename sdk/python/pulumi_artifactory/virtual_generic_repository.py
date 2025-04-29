@@ -409,6 +409,9 @@ class _VirtualGenericRepositoryState:
 
 
 class VirtualGenericRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/virtualGenericRepository:VirtualGenericRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

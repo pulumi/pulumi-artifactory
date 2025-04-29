@@ -1547,6 +1547,9 @@ class _RemoteHuggingfacemlRepositoryState:
 
 
 class RemoteHuggingfacemlRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/remoteHuggingfacemlRepository:RemoteHuggingfacemlRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

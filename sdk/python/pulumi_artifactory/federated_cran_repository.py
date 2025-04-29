@@ -682,6 +682,9 @@ class _FederatedCranRepositoryState:
 
 
 class FederatedCranRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/federatedCranRepository:FederatedCranRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

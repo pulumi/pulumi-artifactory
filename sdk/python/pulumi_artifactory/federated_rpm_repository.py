@@ -874,6 +874,9 @@ class _FederatedRpmRepositoryState:
 
 
 class FederatedRpmRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/federatedRpmRepository:FederatedRpmRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

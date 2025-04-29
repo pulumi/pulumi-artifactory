@@ -409,6 +409,9 @@ class _VirtualCocoapodsRepositoryState:
 
 
 class VirtualCocoapodsRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/virtualCocoapodsRepository:VirtualCocoapodsRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

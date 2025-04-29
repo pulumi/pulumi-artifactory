@@ -569,6 +569,9 @@ class _VirtualDebianRepositoryState:
 
 
 class VirtualDebianRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/virtualDebianRepository:VirtualDebianRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

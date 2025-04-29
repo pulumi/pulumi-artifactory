@@ -541,6 +541,9 @@ class _LocalVagrantRepositoryState:
 
 
 class LocalVagrantRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/localVagrantRepository:LocalVagrantRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

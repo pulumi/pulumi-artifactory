@@ -609,6 +609,9 @@ class _LocalCargoRepositoryState:
 
 
 class LocalCargoRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/localCargoRepository:LocalCargoRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

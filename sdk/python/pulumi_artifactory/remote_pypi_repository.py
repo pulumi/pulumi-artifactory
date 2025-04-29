@@ -1610,6 +1610,9 @@ class _RemotePypiRepositoryState:
 
 
 class RemotePypiRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/remotePypiRepository:RemotePypiRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

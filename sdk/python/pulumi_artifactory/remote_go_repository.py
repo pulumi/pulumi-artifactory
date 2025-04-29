@@ -1642,6 +1642,9 @@ class _RemoteGoRepositoryState:
 
 
 class RemoteGoRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/remoteGoRepository:RemoteGoRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

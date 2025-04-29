@@ -714,6 +714,9 @@ class _FederatedConanRepositoryState:
 
 
 class FederatedConanRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/federatedConanRepository:FederatedConanRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -758,6 +758,9 @@ class _FederatedHelmociRepositoryState:
 
 
 class FederatedHelmociRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/federatedHelmociRepository:FederatedHelmociRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

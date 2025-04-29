@@ -1638,6 +1638,9 @@ class _RemoteHelmociRepositoryState:
 
 
 class RemoteHelmociRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/remoteHelmociRepository:RemoteHelmociRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

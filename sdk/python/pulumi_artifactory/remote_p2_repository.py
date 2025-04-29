@@ -1514,6 +1514,9 @@ class _RemoteP2RepositoryState:
 
 
 class RemoteP2Repository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/remoteP2Repository:RemoteP2Repository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

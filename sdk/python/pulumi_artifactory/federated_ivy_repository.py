@@ -910,6 +910,9 @@ class _FederatedIvyRepositoryState:
 
 
 class FederatedIvyRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/federatedIvyRepository:FederatedIvyRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

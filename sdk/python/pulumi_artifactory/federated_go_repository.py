@@ -682,6 +682,9 @@ class _FederatedGoRepositoryState:
 
 
 class FederatedGoRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/federatedGoRepository:FederatedGoRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

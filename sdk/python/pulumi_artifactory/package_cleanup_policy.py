@@ -274,6 +274,9 @@ class _PackageCleanupPolicyState:
 
 
 class PackageCleanupPolicy(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/packageCleanupPolicy:PackageCleanupPolicy"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

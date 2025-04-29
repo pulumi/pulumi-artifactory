@@ -473,6 +473,9 @@ class _VirtualConanRepositoryState:
 
 
 class VirtualConanRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/virtualConanRepository:VirtualConanRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

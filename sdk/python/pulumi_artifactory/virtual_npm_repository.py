@@ -537,6 +537,9 @@ class _VirtualNpmRepositoryState:
 
 
 class VirtualNpmRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/virtualNpmRepository:VirtualNpmRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -287,6 +287,9 @@ class _ReleaseBundleV2PromotionState:
 
 
 class ReleaseBundleV2Promotion(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/releaseBundleV2Promotion:ReleaseBundleV2Promotion"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

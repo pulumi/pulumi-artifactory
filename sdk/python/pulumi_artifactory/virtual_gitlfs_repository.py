@@ -409,6 +409,9 @@ class _VirtualGitlfsRepositoryState:
 
 
 class VirtualGitlfsRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/virtualGitlfsRepository:VirtualGitlfsRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -226,6 +226,9 @@ class _DistributionWebhookState:
 
 
 class DistributionWebhook(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/distributionWebhook:DistributionWebhook"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

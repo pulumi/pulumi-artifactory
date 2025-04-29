@@ -437,6 +437,9 @@ class _VirtualOciRepositoryState:
 
 
 class VirtualOciRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/virtualOciRepository:VirtualOciRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

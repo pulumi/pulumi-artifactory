@@ -226,6 +226,9 @@ class _DockerCustomWebhookState:
 
 
 class DockerCustomWebhook(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/dockerCustomWebhook:DockerCustomWebhook"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

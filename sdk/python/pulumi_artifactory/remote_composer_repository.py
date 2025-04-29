@@ -1610,6 +1610,9 @@ class _RemoteComposerRepositoryState:
 
 
 class RemoteComposerRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/remoteComposerRepository:RemoteComposerRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,
