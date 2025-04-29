@@ -517,6 +517,9 @@ class _VirtualSbtRepositoryState:
 
 
 class VirtualSbtRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/virtualSbtRepository:VirtualSbtRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

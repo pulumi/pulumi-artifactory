@@ -132,6 +132,9 @@ class _PropertySetState:
 
 
 class PropertySet(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/propertySet:PropertySet"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

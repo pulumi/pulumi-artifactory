@@ -682,6 +682,9 @@ class _FederatedBowerRepositoryState:
 
 
 class FederatedBowerRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/federatedBowerRepository:FederatedBowerRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -1770,6 +1770,9 @@ class _RemoteSbtRepositoryState:
 
 
 class RemoteSbtRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/remoteSbtRepository:RemoteSbtRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

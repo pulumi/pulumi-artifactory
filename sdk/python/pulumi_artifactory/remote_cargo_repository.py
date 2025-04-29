@@ -1610,6 +1610,9 @@ class _RemoteCargoRepositoryState:
 
 
 class RemoteCargoRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/remoteCargoRepository:RemoteCargoRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -1614,6 +1614,9 @@ class _RemoteCocoapodsRepositoryState:
 
 
 class RemoteCocoapodsRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/remoteCocoapodsRepository:RemoteCocoapodsRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

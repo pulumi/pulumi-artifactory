@@ -1770,6 +1770,9 @@ class _RemoteIvyRepositoryState:
 
 
 class RemoteIvyRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/remoteIvyRepository:RemoteIvyRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

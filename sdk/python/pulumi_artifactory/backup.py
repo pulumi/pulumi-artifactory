@@ -344,6 +344,9 @@ class _BackupState:
 
 
 class Backup(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/backup:Backup"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

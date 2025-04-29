@@ -765,6 +765,9 @@ class _LocalMavenRepositoryState:
 
 
 class LocalMavenRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/localMavenRepository:LocalMavenRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

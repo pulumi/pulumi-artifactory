@@ -1514,6 +1514,9 @@ class _RemoteChefRepositoryState:
 
 
 class RemoteChefRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/remoteChefRepository:RemoteChefRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

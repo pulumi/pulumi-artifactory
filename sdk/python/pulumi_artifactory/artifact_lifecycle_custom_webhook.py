@@ -194,6 +194,9 @@ class _ArtifactLifecycleCustomWebhookState:
 
 
 class ArtifactLifecycleCustomWebhook(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/artifactLifecycleCustomWebhook:ArtifactLifecycleCustomWebhook"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

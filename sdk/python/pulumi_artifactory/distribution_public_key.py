@@ -184,6 +184,9 @@ class _DistributionPublicKeyState:
 
 
 class DistributionPublicKey(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/distributionPublicKey:DistributionPublicKey"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

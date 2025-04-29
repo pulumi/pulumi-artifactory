@@ -541,6 +541,9 @@ class _LocalOpkgRepositoryState:
 
 
 class LocalOpkgRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/localOpkgRepository:LocalOpkgRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -328,6 +328,9 @@ class _LdapGroupSettingState:
 
 
 class LdapGroupSetting(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/ldapGroupSetting:LdapGroupSetting"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

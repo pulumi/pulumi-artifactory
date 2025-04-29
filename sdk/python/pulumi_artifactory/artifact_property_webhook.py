@@ -226,6 +226,9 @@ class _ArtifactPropertyWebhookState:
 
 
 class ArtifactPropertyWebhook(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/artifactPropertyWebhook:ArtifactPropertyWebhook"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

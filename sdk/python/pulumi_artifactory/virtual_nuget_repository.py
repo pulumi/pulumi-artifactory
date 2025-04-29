@@ -441,6 +441,9 @@ class _VirtualNugetRepositoryState:
 
 
 class VirtualNugetRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/virtualNugetRepository:VirtualNugetRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

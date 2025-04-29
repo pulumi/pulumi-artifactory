@@ -441,6 +441,9 @@ class _VirtualCondaRepositoryState:
 
 
 class VirtualCondaRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/virtualCondaRepository:VirtualCondaRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

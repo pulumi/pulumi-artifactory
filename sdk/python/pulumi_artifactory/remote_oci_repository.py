@@ -1638,6 +1638,9 @@ class _RemoteOciRepositoryState:
 
 
 class RemoteOciRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/remoteOciRepository:RemoteOciRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -757,6 +757,9 @@ class _LocalRpmRepositoryState:
 
 
 class LocalRpmRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/localRpmRepository:LocalRpmRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

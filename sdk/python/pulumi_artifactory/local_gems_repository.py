@@ -541,6 +541,9 @@ class _LocalGemsRepositoryState:
 
 
 class LocalGemsRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/localGemsRepository:LocalGemsRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

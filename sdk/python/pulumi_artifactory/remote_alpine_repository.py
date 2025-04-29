@@ -1514,6 +1514,9 @@ class _RemoteAlpineRepositoryState:
 
 
 class RemoteAlpineRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/remoteAlpineRepository:RemoteAlpineRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

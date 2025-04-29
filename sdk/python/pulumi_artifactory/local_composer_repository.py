@@ -541,6 +541,9 @@ class _LocalComposerRepositoryState:
 
 
 class LocalComposerRepository(pulumi.CustomResource):
+
+    pulumi_type = "artifactory:index/localComposerRepository:LocalComposerRepository"
+
     @overload
     def __init__(__self__,
                  resource_name: str,
