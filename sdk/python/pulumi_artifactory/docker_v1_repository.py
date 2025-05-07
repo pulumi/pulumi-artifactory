@@ -588,10 +588,8 @@ class _DockerV1RepositoryState:
         pulumi.set(self, "xray_index", value)
 
 
+@pulumi.type_token("artifactory:index/dockerV1Repository:DockerV1Repository")
 class DockerV1Repository(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/dockerV1Repository:DockerV1Repository"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

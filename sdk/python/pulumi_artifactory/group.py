@@ -409,10 +409,8 @@ class _GroupState:
         pulumi.set(self, "watch_manager", value)
 
 
+@pulumi.type_token("artifactory:index/group:Group")
 class Group(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/group:Group"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

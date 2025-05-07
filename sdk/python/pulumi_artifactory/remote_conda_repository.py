@@ -1513,10 +1513,8 @@ class _RemoteCondaRepositoryState:
         pulumi.set(self, "xray_index", value)
 
 
+@pulumi.type_token("artifactory:index/remoteCondaRepository:RemoteCondaRepository")
 class RemoteCondaRepository(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/remoteCondaRepository:RemoteCondaRepository"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

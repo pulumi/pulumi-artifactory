@@ -193,10 +193,8 @@ class _ArtifactLifecycleWebhookState:
         pulumi.set(self, "key", value)
 
 
+@pulumi.type_token("artifactory:index/artifactLifecycleWebhook:ArtifactLifecycleWebhook")
 class ArtifactLifecycleWebhook(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/artifactLifecycleWebhook:ArtifactLifecycleWebhook"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

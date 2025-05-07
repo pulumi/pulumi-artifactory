@@ -208,10 +208,8 @@ class _CertificateState:
         pulumi.set(self, "valid_until", value)
 
 
+@pulumi.type_token("artifactory:index/certificate:Certificate")
 class Certificate(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/certificate:Certificate"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -704,10 +704,8 @@ class _DebianRepositoryState:
         pulumi.set(self, "xray_index", value)
 
 
+@pulumi.type_token("artifactory:index/debianRepository:DebianRepository")
 class DebianRepository(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/debianRepository:DebianRepository"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

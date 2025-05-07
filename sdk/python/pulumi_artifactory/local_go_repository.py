@@ -540,10 +540,8 @@ class _LocalGoRepositoryState:
         pulumi.set(self, "xray_index", value)
 
 
+@pulumi.type_token("artifactory:index/localGoRepository:LocalGoRepository")
 class LocalGoRepository(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/localGoRepository:LocalGoRepository"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

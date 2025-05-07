@@ -613,10 +613,8 @@ class _ScopedTokenState:
         pulumi.set(self, "username", value)
 
 
+@pulumi.type_token("artifactory:index/scopedToken:ScopedToken")
 class ScopedToken(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/scopedToken:ScopedToken"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

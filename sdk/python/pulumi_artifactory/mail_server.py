@@ -350,10 +350,8 @@ class _MailServerState:
         pulumi.set(self, "username", value)
 
 
+@pulumi.type_token("artifactory:index/mailServer:MailServer")
 class MailServer(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/mailServer:MailServer"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

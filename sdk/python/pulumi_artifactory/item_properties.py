@@ -159,10 +159,8 @@ class _ItemPropertiesState:
         pulumi.set(self, "repo_key", value)
 
 
+@pulumi.type_token("artifactory:index/itemProperties:ItemProperties")
 class ItemProperties(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/itemProperties:ItemProperties"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

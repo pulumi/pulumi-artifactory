@@ -873,10 +873,8 @@ class _FederatedRpmRepositoryState:
         pulumi.set(self, "yum_root_depth", value)
 
 
+@pulumi.type_token("artifactory:index/federatedRpmRepository:FederatedRpmRepository")
 class FederatedRpmRepository(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/federatedRpmRepository:FederatedRpmRepository"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

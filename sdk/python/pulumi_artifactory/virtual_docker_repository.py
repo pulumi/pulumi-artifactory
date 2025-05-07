@@ -440,10 +440,8 @@ class _VirtualDockerRepositoryState:
         pulumi.set(self, "resolve_docker_tags_by_timestamp", value)
 
 
+@pulumi.type_token("artifactory:index/virtualDockerRepository:VirtualDockerRepository")
 class VirtualDockerRepository(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/virtualDockerRepository:VirtualDockerRepository"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

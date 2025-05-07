@@ -343,10 +343,8 @@ class _BackupState:
         pulumi.set(self, "verify_disk_space", value)
 
 
+@pulumi.type_token("artifactory:index/backup:Backup")
 class Backup(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/backup:Backup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

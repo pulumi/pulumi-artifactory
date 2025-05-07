@@ -713,10 +713,8 @@ class _FederatedConanRepositoryState:
         pulumi.set(self, "xray_index", value)
 
 
+@pulumi.type_token("artifactory:index/federatedConanRepository:FederatedConanRepository")
 class FederatedConanRepository(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/federatedConanRepository:FederatedConanRepository"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

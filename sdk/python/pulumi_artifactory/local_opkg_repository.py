@@ -540,10 +540,8 @@ class _LocalOpkgRepositoryState:
         pulumi.set(self, "xray_index", value)
 
 
+@pulumi.type_token("artifactory:index/localOpkgRepository:LocalOpkgRepository")
 class LocalOpkgRepository(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/localOpkgRepository:LocalOpkgRepository"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

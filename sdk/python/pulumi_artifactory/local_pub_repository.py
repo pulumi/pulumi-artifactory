@@ -540,10 +540,8 @@ class _LocalPubRepositoryState:
         pulumi.set(self, "xray_index", value)
 
 
+@pulumi.type_token("artifactory:index/localPubRepository:LocalPubRepository")
 class LocalPubRepository(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/localPubRepository:LocalPubRepository"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

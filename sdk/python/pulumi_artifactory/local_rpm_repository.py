@@ -756,10 +756,8 @@ class _LocalRpmRepositoryState:
         pulumi.set(self, "yum_root_depth", value)
 
 
+@pulumi.type_token("artifactory:index/localRpmRepository:LocalRpmRepository")
 class LocalRpmRepository(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/localRpmRepository:LocalRpmRepository"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

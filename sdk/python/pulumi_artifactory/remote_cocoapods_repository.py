@@ -1613,10 +1613,8 @@ class _RemoteCocoapodsRepositoryState:
         pulumi.set(self, "xray_index", value)
 
 
+@pulumi.type_token("artifactory:index/remoteCocoapodsRepository:RemoteCocoapodsRepository")
 class RemoteCocoapodsRepository(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/remoteCocoapodsRepository:RemoteCocoapodsRepository"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -608,10 +608,8 @@ class _LocalHelmociRepositoryState:
         pulumi.set(self, "xray_index", value)
 
 
+@pulumi.type_token("artifactory:index/localHelmociRepository:LocalHelmociRepository")
 class LocalHelmociRepository(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/localHelmociRepository:LocalHelmociRepository"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

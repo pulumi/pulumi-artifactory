@@ -161,10 +161,8 @@ class _LocalRepositoryMultiReplicationState:
         pulumi.set(self, "repo_key", value)
 
 
+@pulumi.type_token("artifactory:index/localRepositoryMultiReplication:LocalRepositoryMultiReplication")
 class LocalRepositoryMultiReplication(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/localRepositoryMultiReplication:LocalRepositoryMultiReplication"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

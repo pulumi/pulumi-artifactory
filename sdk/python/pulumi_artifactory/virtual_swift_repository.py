@@ -408,10 +408,8 @@ class _VirtualSwiftRepositoryState:
         pulumi.set(self, "repositories", value)
 
 
+@pulumi.type_token("artifactory:index/virtualSwiftRepository:VirtualSwiftRepository")
 class VirtualSwiftRepository(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/virtualSwiftRepository:VirtualSwiftRepository"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

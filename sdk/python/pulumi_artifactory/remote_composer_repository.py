@@ -1609,10 +1609,8 @@ class _RemoteComposerRepositoryState:
         pulumi.set(self, "xray_index", value)
 
 
+@pulumi.type_token("artifactory:index/remoteComposerRepository:RemoteComposerRepository")
 class RemoteComposerRepository(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/remoteComposerRepository:RemoteComposerRepository"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

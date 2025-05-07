@@ -158,10 +158,8 @@ class _PasswordExpirationPolicyState:
         pulumi.set(self, "password_max_age", value)
 
 
+@pulumi.type_token("artifactory:index/passwordExpirationPolicy:PasswordExpirationPolicy")
 class PasswordExpirationPolicy(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/passwordExpirationPolicy:PasswordExpirationPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

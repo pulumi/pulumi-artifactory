@@ -1801,10 +1801,8 @@ class _RemoteMavenRepositoryState:
         pulumi.set(self, "xray_index", value)
 
 
+@pulumi.type_token("artifactory:index/remoteMavenRepository:RemoteMavenRepository")
 class RemoteMavenRepository(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/remoteMavenRepository:RemoteMavenRepository"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

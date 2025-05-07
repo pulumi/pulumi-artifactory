@@ -472,10 +472,8 @@ class _VirtualHelmRepositoryState:
         pulumi.set(self, "use_namespaces", value)
 
 
+@pulumi.type_token("artifactory:index/virtualHelmRepository:VirtualHelmRepository")
 class VirtualHelmRepository(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/virtualHelmRepository:VirtualHelmRepository"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

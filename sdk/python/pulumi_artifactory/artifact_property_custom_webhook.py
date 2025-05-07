@@ -225,10 +225,8 @@ class _ArtifactPropertyCustomWebhookState:
         pulumi.set(self, "key", value)
 
 
+@pulumi.type_token("artifactory:index/artifactPropertyCustomWebhook:ArtifactPropertyCustomWebhook")
 class ArtifactPropertyCustomWebhook(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/artifactPropertyCustomWebhook:ArtifactPropertyCustomWebhook"
-
     @overload
     def __init__(__self__,
                  resource_name: str,
