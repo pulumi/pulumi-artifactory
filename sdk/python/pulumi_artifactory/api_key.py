@@ -54,10 +54,8 @@ class _ApiKeyState:
         pulumi.set(self, "api_key", value)
 
 
+@pulumi.type_token("artifactory:index/apiKey:ApiKey")
 class ApiKey(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/apiKey:ApiKey"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -516,10 +516,8 @@ class _VirtualSbtRepositoryState:
         pulumi.set(self, "repositories", value)
 
 
+@pulumi.type_token("artifactory:index/virtualSbtRepository:VirtualSbtRepository")
 class VirtualSbtRepository(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/virtualSbtRepository:VirtualSbtRepository"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

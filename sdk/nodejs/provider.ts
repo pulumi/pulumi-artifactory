@@ -73,6 +73,15 @@ By end of Q4 2024, API Keys will be deprecated all together and the option to us
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(Provider.__pulumiType, name, resourceInputs, opts);
     }
+
+    /**
+     * This function returns a Terraform config object with terraform-namecased keys,to be used with the Terraform Module Provider.
+     */
+    terraformConfig(): pulumi.Output<Provider.TerraformConfigResult> {
+        return pulumi.runtime.call("pulumi:providers:artifactory/terraformConfig", {
+            "__self__": this,
+        }, this);
+    }
 }
 
 /**
@@ -104,4 +113,14 @@ By end of Q4 2024, API Keys will be deprecated all together and the option to us
      * Artifactory URL.
      */
     url?: pulumi.Input<string>;
+}
+
+export namespace Provider {
+    /**
+     * The results of the Provider.terraformConfig method.
+     */
+    export interface TerraformConfigResult {
+        readonly result: {[key: string]: any};
+    }
+
 }

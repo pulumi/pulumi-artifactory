@@ -356,10 +356,8 @@ class _RemoteRepositoryReplicationState:
         pulumi.set(self, "sync_properties", value)
 
 
+@pulumi.type_token("artifactory:index/remoteRepositoryReplication:RemoteRepositoryReplication")
 class RemoteRepositoryReplication(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/remoteRepositoryReplication:RemoteRepositoryReplication"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

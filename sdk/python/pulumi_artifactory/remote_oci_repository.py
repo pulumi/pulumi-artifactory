@@ -1637,10 +1637,8 @@ class _RemoteOciRepositoryState:
         pulumi.set(self, "xray_index", value)
 
 
+@pulumi.type_token("artifactory:index/remoteOciRepository:RemoteOciRepository")
 class RemoteOciRepository(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/remoteOciRepository:RemoteOciRepository"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

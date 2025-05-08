@@ -681,10 +681,8 @@ class _FederatedChefRepositoryState:
         pulumi.set(self, "xray_index", value)
 
 
+@pulumi.type_token("artifactory:index/federatedChefRepository:FederatedChefRepository")
 class FederatedChefRepository(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/federatedChefRepository:FederatedChefRepository"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

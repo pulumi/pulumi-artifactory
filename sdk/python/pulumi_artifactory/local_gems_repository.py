@@ -540,10 +540,8 @@ class _LocalGemsRepositoryState:
         pulumi.set(self, "xray_index", value)
 
 
+@pulumi.type_token("artifactory:index/localGemsRepository:LocalGemsRepository")
 class LocalGemsRepository(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/localGemsRepository:LocalGemsRepository"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

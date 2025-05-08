@@ -1561,10 +1561,8 @@ class _RemoteTerraformRepositoryState:
         pulumi.set(self, "xray_index", value)
 
 
+@pulumi.type_token("artifactory:index/remoteTerraformRepository:RemoteTerraformRepository")
 class RemoteTerraformRepository(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/remoteTerraformRepository:RemoteTerraformRepository"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

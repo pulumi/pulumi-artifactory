@@ -768,10 +768,8 @@ class _LocalIvyRepositoryState:
         pulumi.set(self, "xray_index", value)
 
 
+@pulumi.type_token("artifactory:index/localIvyRepository:LocalIvyRepository")
 class LocalIvyRepository(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/localIvyRepository:LocalIvyRepository"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

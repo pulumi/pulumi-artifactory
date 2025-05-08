@@ -408,10 +408,8 @@ class _VirtualComposerRepositoryState:
         pulumi.set(self, "repositories", value)
 
 
+@pulumi.type_token("artifactory:index/virtualComposerRepository:VirtualComposerRepository")
 class VirtualComposerRepository(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/virtualComposerRepository:VirtualComposerRepository"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

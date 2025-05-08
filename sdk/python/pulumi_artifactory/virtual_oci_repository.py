@@ -436,10 +436,8 @@ class _VirtualOciRepositoryState:
         pulumi.set(self, "resolve_oci_tags_by_timestamp", value)
 
 
+@pulumi.type_token("artifactory:index/virtualOciRepository:VirtualOciRepository")
 class VirtualOciRepository(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/virtualOciRepository:VirtualOciRepository"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -484,10 +484,8 @@ class _PullReplicationState:
         pulumi.set(self, "username", value)
 
 
+@pulumi.type_token("artifactory:index/pullReplication:PullReplication")
 class PullReplication(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/pullReplication:PullReplication"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

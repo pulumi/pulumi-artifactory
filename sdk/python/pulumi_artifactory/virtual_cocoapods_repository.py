@@ -408,10 +408,8 @@ class _VirtualCocoapodsRepositoryState:
         pulumi.set(self, "repositories", value)
 
 
+@pulumi.type_token("artifactory:index/virtualCocoapodsRepository:VirtualCocoapodsRepository")
 class VirtualCocoapodsRepository(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/virtualCocoapodsRepository:VirtualCocoapodsRepository"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -1801,10 +1801,8 @@ class _RemoteGradleRepositoryState:
         pulumi.set(self, "xray_index", value)
 
 
+@pulumi.type_token("artifactory:index/remoteGradleRepository:RemoteGradleRepository")
 class RemoteGradleRepository(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/remoteGradleRepository:RemoteGradleRepository"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -408,10 +408,8 @@ class _VirtualTerraformRepositoryState:
         pulumi.set(self, "repositories", value)
 
 
+@pulumi.type_token("artifactory:index/virtualTerraformRepository:VirtualTerraformRepository")
 class VirtualTerraformRepository(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/virtualTerraformRepository:VirtualTerraformRepository"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

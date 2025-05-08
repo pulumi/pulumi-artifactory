@@ -90,10 +90,8 @@ class _VaultConfigurationState:
         pulumi.set(self, "name", value)
 
 
+@pulumi.type_token("artifactory:index/vaultConfiguration:VaultConfiguration")
 class VaultConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/vaultConfiguration:VaultConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

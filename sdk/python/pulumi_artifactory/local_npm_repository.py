@@ -540,10 +540,8 @@ class _LocalNpmRepositoryState:
         pulumi.set(self, "xray_index", value)
 
 
+@pulumi.type_token("artifactory:index/localNpmRepository:LocalNpmRepository")
 class LocalNpmRepository(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/localNpmRepository:LocalNpmRepository"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

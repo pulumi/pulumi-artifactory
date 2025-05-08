@@ -681,10 +681,8 @@ class _FederatedHuggingfacemlRepositoryState:
         pulumi.set(self, "xray_index", value)
 
 
+@pulumi.type_token("artifactory:index/federatedHuggingfacemlRepository:FederatedHuggingfacemlRepository")
 class FederatedHuggingfacemlRepository(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/federatedHuggingfacemlRepository:FederatedHuggingfacemlRepository"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

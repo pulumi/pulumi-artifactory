@@ -764,10 +764,8 @@ class _LocalMavenRepositoryState:
         pulumi.set(self, "xray_index", value)
 
 
+@pulumi.type_token("artifactory:index/localMavenRepository:LocalMavenRepository")
 class LocalMavenRepository(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/localMavenRepository:LocalMavenRepository"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

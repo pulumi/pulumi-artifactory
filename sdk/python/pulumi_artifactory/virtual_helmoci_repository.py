@@ -436,10 +436,8 @@ class _VirtualHelmociRepositoryState:
         pulumi.set(self, "resolve_oci_tags_by_timestamp", value)
 
 
+@pulumi.type_token("artifactory:index/virtualHelmociRepository:VirtualHelmociRepository")
 class VirtualHelmociRepository(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/virtualHelmociRepository:VirtualHelmociRepository"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

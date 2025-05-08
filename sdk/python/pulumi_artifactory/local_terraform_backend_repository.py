@@ -540,10 +540,8 @@ class _LocalTerraformBackendRepositoryState:
         pulumi.set(self, "xray_index", value)
 
 
+@pulumi.type_token("artifactory:index/localTerraformBackendRepository:LocalTerraformBackendRepository")
 class LocalTerraformBackendRepository(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/localTerraformBackendRepository:LocalTerraformBackendRepository"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

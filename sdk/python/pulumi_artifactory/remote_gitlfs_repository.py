@@ -1513,10 +1513,8 @@ class _RemoteGitlfsRepositoryState:
         pulumi.set(self, "xray_index", value)
 
 
+@pulumi.type_token("artifactory:index/remoteGitlfsRepository:RemoteGitlfsRepository")
 class RemoteGitlfsRepository(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/remoteGitlfsRepository:RemoteGitlfsRepository"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

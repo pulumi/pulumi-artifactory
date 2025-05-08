@@ -472,10 +472,8 @@ class _VirtualConanRepositoryState:
         pulumi.set(self, "retrieval_cache_period_seconds", value)
 
 
+@pulumi.type_token("artifactory:index/virtualConanRepository:VirtualConanRepository")
 class VirtualConanRepository(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/virtualConanRepository:VirtualConanRepository"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

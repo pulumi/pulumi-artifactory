@@ -303,10 +303,8 @@ class _ArtifactState:
         pulumi.set(self, "uri", value)
 
 
+@pulumi.type_token("artifactory:index/artifact:Artifact")
 class Artifact(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/artifact:Artifact"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

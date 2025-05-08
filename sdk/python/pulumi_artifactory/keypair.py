@@ -228,10 +228,8 @@ class _KeypairState:
         pulumi.set(self, "public_key", value)
 
 
+@pulumi.type_token("artifactory:index/keypair:Keypair")
 class Keypair(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/keypair:Keypair"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

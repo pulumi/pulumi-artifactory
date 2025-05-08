@@ -440,10 +440,8 @@ class _VirtualCranRepositoryState:
         pulumi.set(self, "retrieval_cache_period_seconds", value)
 
 
+@pulumi.type_token("artifactory:index/virtualCranRepository:VirtualCranRepository")
 class VirtualCranRepository(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/virtualCranRepository:VirtualCranRepository"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

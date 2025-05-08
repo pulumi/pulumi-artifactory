@@ -109,10 +109,8 @@ class _GeneralSecurityState:
         pulumi.set(self, "encryption_policy", value)
 
 
+@pulumi.type_token("artifactory:index/generalSecurity:GeneralSecurity")
 class GeneralSecurity(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/generalSecurity:GeneralSecurity"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -681,10 +681,8 @@ class _FederatedSwiftRepositoryState:
         pulumi.set(self, "xray_index", value)
 
 
+@pulumi.type_token("artifactory:index/federatedSwiftRepository:FederatedSwiftRepository")
 class FederatedSwiftRepository(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/federatedSwiftRepository:FederatedSwiftRepository"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

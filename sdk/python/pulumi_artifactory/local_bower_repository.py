@@ -540,10 +540,8 @@ class _LocalBowerRepositoryState:
         pulumi.set(self, "xray_index", value)
 
 
+@pulumi.type_token("artifactory:index/localBowerRepository:LocalBowerRepository")
 class LocalBowerRepository(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/localBowerRepository:LocalBowerRepository"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

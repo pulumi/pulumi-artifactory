@@ -225,10 +225,8 @@ class _ReleaseBundleCustomWebhookState:
         pulumi.set(self, "key", value)
 
 
+@pulumi.type_token("artifactory:index/releaseBundleCustomWebhook:ReleaseBundleCustomWebhook")
 class ReleaseBundleCustomWebhook(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/releaseBundleCustomWebhook:ReleaseBundleCustomWebhook"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

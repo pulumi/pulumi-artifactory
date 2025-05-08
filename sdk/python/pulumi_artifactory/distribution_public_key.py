@@ -183,10 +183,8 @@ class _DistributionPublicKeyState:
         pulumi.set(self, "valid_until", value)
 
 
+@pulumi.type_token("artifactory:index/distributionPublicKey:DistributionPublicKey")
 class DistributionPublicKey(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/distributionPublicKey:DistributionPublicKey"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

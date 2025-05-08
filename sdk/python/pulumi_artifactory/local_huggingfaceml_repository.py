@@ -540,10 +540,8 @@ class _LocalHuggingfacemlRepositoryState:
         pulumi.set(self, "xray_index", value)
 
 
+@pulumi.type_token("artifactory:index/localHuggingfacemlRepository:LocalHuggingfacemlRepository")
 class LocalHuggingfacemlRepository(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/localHuggingfacemlRepository:LocalHuggingfacemlRepository"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -314,10 +314,8 @@ class _UnmanagedUserState:
         pulumi.set(self, "profile_updatable", value)
 
 
+@pulumi.type_token("artifactory:index/unmanagedUser:UnmanagedUser")
 class UnmanagedUser(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/unmanagedUser:UnmanagedUser"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

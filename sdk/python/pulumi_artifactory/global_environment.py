@@ -65,10 +65,8 @@ class _GlobalEnvironmentState:
         pulumi.set(self, "name", value)
 
 
+@pulumi.type_token("artifactory:index/globalEnvironment:GlobalEnvironment")
 class GlobalEnvironment(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/globalEnvironment:GlobalEnvironment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

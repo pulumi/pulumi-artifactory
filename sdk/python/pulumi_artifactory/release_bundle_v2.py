@@ -303,10 +303,8 @@ class _ReleaseBundleV2State:
         pulumi.set(self, "version", value)
 
 
+@pulumi.type_token("artifactory:index/releaseBundleV2:ReleaseBundleV2")
 class ReleaseBundleV2(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/releaseBundleV2:ReleaseBundleV2"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

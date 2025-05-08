@@ -525,10 +525,8 @@ class _LocalRepositorySingleReplicationState:
         pulumi.set(self, "username", value)
 
 
+@pulumi.type_token("artifactory:index/localRepositorySingleReplication:LocalRepositorySingleReplication")
 class LocalRepositorySingleReplication(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/localRepositorySingleReplication:LocalRepositorySingleReplication"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

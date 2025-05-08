@@ -516,10 +516,8 @@ class _LocalMachinelearningRepositoryState:
         pulumi.set(self, "xray_index", value)
 
 
+@pulumi.type_token("artifactory:index/localMachinelearningRepository:LocalMachinelearningRepository")
 class LocalMachinelearningRepository(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/localMachinelearningRepository:LocalMachinelearningRepository"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

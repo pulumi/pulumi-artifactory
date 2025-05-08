@@ -408,10 +408,8 @@ class _VirtualPuppetRepositoryState:
         pulumi.set(self, "repositories", value)
 
 
+@pulumi.type_token("artifactory:index/virtualPuppetRepository:VirtualPuppetRepository")
 class VirtualPuppetRepository(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/virtualPuppetRepository:VirtualPuppetRepository"
-
     @overload
     def __init__(__self__,
                  resource_name: str,
