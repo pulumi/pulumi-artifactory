@@ -568,10 +568,8 @@ class _VirtualDebianRepositoryState:
         pulumi.set(self, "secondary_keypair_ref", value)
 
 
+@pulumi.type_token("artifactory:index/virtualDebianRepository:VirtualDebianRepository")
 class VirtualDebianRepository(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/virtualDebianRepository:VirtualDebianRepository"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

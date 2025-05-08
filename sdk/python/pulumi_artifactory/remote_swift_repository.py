@@ -1513,10 +1513,8 @@ class _RemoteSwiftRepositoryState:
         pulumi.set(self, "xray_index", value)
 
 
+@pulumi.type_token("artifactory:index/remoteSwiftRepository:RemoteSwiftRepository")
 class RemoteSwiftRepository(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/remoteSwiftRepository:RemoteSwiftRepository"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

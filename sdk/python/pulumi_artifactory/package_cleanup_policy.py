@@ -273,10 +273,8 @@ class _PackageCleanupPolicyState:
         pulumi.set(self, "skip_trashcan", value)
 
 
+@pulumi.type_token("artifactory:index/packageCleanupPolicy:PackageCleanupPolicy")
 class PackageCleanupPolicy(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/packageCleanupPolicy:PackageCleanupPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

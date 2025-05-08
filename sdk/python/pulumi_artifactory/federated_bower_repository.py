@@ -681,10 +681,8 @@ class _FederatedBowerRepositoryState:
         pulumi.set(self, "xray_index", value)
 
 
+@pulumi.type_token("artifactory:index/federatedBowerRepository:FederatedBowerRepository")
 class FederatedBowerRepository(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/federatedBowerRepository:FederatedBowerRepository"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

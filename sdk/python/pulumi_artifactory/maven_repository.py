@@ -504,10 +504,8 @@ class _MavenRepositoryState:
         pulumi.set(self, "repositories", value)
 
 
+@pulumi.type_token("artifactory:index/mavenRepository:MavenRepository")
 class MavenRepository(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/mavenRepository:MavenRepository"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

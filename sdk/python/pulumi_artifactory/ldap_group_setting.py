@@ -327,10 +327,8 @@ class _LdapGroupSettingState:
         pulumi.set(self, "sub_tree", value)
 
 
+@pulumi.type_token("artifactory:index/ldapGroupSetting:LdapGroupSetting")
 class LdapGroupSetting(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/ldapGroupSetting:LdapGroupSetting"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

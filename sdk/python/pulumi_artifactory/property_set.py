@@ -131,10 +131,8 @@ class _PropertySetState:
         pulumi.set(self, "visible", value)
 
 
+@pulumi.type_token("artifactory:index/propertySet:PropertySet")
 class PropertySet(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/propertySet:PropertySet"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -681,10 +681,8 @@ class _FederatedHelmRepositoryState:
         pulumi.set(self, "xray_index", value)
 
 
+@pulumi.type_token("artifactory:index/federatedHelmRepository:FederatedHelmRepository")
 class FederatedHelmRepository(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/federatedHelmRepository:FederatedHelmRepository"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -286,10 +286,8 @@ class _ReleaseBundleV2PromotionState:
         pulumi.set(self, "version", value)
 
 
+@pulumi.type_token("artifactory:index/releaseBundleV2Promotion:ReleaseBundleV2Promotion")
 class ReleaseBundleV2Promotion(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/releaseBundleV2Promotion:ReleaseBundleV2Promotion"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

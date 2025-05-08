@@ -479,10 +479,8 @@ class _LdapSettingV2State:
         pulumi.set(self, "user_dn_pattern", value)
 
 
+@pulumi.type_token("artifactory:index/ldapSettingV2:LdapSettingV2")
 class LdapSettingV2(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/ldapSettingV2:LdapSettingV2"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

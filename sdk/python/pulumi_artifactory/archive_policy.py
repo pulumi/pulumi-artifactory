@@ -273,10 +273,8 @@ class _ArchivePolicyState:
         pulumi.set(self, "skip_trashcan", value)
 
 
+@pulumi.type_token("artifactory:index/archivePolicy:ArchivePolicy")
 class ArchivePolicy(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/archivePolicy:ArchivePolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

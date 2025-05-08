@@ -472,10 +472,8 @@ class _VirtualRpmRepositoryState:
         pulumi.set(self, "secondary_keypair_ref", value)
 
 
+@pulumi.type_token("artifactory:index/virtualRpmRepository:VirtualRpmRepository")
 class VirtualRpmRepository(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/virtualRpmRepository:VirtualRpmRepository"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

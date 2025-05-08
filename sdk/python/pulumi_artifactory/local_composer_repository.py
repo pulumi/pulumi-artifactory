@@ -540,10 +540,8 @@ class _LocalComposerRepositoryState:
         pulumi.set(self, "xray_index", value)
 
 
+@pulumi.type_token("artifactory:index/localComposerRepository:LocalComposerRepository")
 class LocalComposerRepository(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/localComposerRepository:LocalComposerRepository"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -681,10 +681,8 @@ class _FederatedGoRepositoryState:
         pulumi.set(self, "xray_index", value)
 
 
+@pulumi.type_token("artifactory:index/federatedGoRepository:FederatedGoRepository")
 class FederatedGoRepository(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/federatedGoRepository:FederatedGoRepository"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -1513,10 +1513,8 @@ class _RemotePubRepositoryState:
         pulumi.set(self, "xray_index", value)
 
 
+@pulumi.type_token("artifactory:index/remotePubRepository:RemotePubRepository")
 class RemotePubRepository(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/remotePubRepository:RemotePubRepository"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

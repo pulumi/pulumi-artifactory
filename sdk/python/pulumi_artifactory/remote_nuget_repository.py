@@ -1713,10 +1713,8 @@ class _RemoteNugetRepositoryState:
         pulumi.set(self, "xray_index", value)
 
 
+@pulumi.type_token("artifactory:index/remoteNugetRepository:RemoteNugetRepository")
 class RemoteNugetRepository(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/remoteNugetRepository:RemoteNugetRepository"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

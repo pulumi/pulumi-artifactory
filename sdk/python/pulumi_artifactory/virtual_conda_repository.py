@@ -440,10 +440,8 @@ class _VirtualCondaRepositoryState:
         pulumi.set(self, "retrieval_cache_period_seconds", value)
 
 
+@pulumi.type_token("artifactory:index/virtualCondaRepository:VirtualCondaRepository")
 class VirtualCondaRepository(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/virtualCondaRepository:VirtualCondaRepository"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

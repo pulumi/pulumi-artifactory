@@ -222,10 +222,8 @@ class _RepositoryLayoutState:
         pulumi.set(self, "name", value)
 
 
+@pulumi.type_token("artifactory:index/repositoryLayout:RepositoryLayout")
 class RepositoryLayout(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/repositoryLayout:RepositoryLayout"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

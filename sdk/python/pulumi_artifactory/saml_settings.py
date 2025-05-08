@@ -446,10 +446,8 @@ class _SamlSettingsState:
         pulumi.set(self, "verify_audience_restriction", value)
 
 
+@pulumi.type_token("artifactory:index/samlSettings:SamlSettings")
 class SamlSettings(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/samlSettings:SamlSettings"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

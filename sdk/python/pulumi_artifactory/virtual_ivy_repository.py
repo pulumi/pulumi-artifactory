@@ -516,10 +516,8 @@ class _VirtualIvyRepositoryState:
         pulumi.set(self, "repositories", value)
 
 
+@pulumi.type_token("artifactory:index/virtualIvyRepository:VirtualIvyRepository")
 class VirtualIvyRepository(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/virtualIvyRepository:VirtualIvyRepository"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

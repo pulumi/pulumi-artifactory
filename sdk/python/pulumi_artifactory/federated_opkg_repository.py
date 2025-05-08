@@ -681,10 +681,8 @@ class _FederatedOpkgRepositoryState:
         pulumi.set(self, "xray_index", value)
 
 
+@pulumi.type_token("artifactory:index/federatedOpkgRepository:FederatedOpkgRepository")
 class FederatedOpkgRepository(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/federatedOpkgRepository:FederatedOpkgRepository"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

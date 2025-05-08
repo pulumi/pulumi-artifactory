@@ -1513,10 +1513,8 @@ class _RemoteChefRepositoryState:
         pulumi.set(self, "xray_index", value)
 
 
+@pulumi.type_token("artifactory:index/remoteChefRepository:RemoteChefRepository")
 class RemoteChefRepository(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/remoteChefRepository:RemoteChefRepository"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

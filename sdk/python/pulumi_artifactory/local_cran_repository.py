@@ -540,10 +540,8 @@ class _LocalCranRepositoryState:
         pulumi.set(self, "xray_index", value)
 
 
+@pulumi.type_token("artifactory:index/localCranRepository:LocalCranRepository")
 class LocalCranRepository(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/localCranRepository:LocalCranRepository"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

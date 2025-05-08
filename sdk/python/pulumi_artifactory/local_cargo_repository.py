@@ -608,10 +608,8 @@ class _LocalCargoRepositoryState:
         pulumi.set(self, "xray_index", value)
 
 
+@pulumi.type_token("artifactory:index/localCargoRepository:LocalCargoRepository")
 class LocalCargoRepository(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/localCargoRepository:LocalCargoRepository"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

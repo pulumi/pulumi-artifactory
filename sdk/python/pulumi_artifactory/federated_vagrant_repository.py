@@ -681,10 +681,8 @@ class _FederatedVagrantRepositoryState:
         pulumi.set(self, "xray_index", value)
 
 
+@pulumi.type_token("artifactory:index/federatedVagrantRepository:FederatedVagrantRepository")
 class FederatedVagrantRepository(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/federatedVagrantRepository:FederatedVagrantRepository"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

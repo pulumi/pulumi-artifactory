@@ -805,10 +805,8 @@ class _FederatedDockerV2RepositoryState:
         pulumi.set(self, "xray_index", value)
 
 
+@pulumi.type_token("artifactory:index/federatedDockerV2Repository:FederatedDockerV2Repository")
 class FederatedDockerV2Repository(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/federatedDockerV2Repository:FederatedDockerV2Repository"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

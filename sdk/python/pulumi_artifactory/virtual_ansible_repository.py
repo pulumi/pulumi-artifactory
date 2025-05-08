@@ -440,10 +440,8 @@ class _VirtualAnsibleRepositoryState:
         pulumi.set(self, "retrieval_cache_period_seconds", value)
 
 
+@pulumi.type_token("artifactory:index/virtualAnsibleRepository:VirtualAnsibleRepository")
 class VirtualAnsibleRepository(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/virtualAnsibleRepository:VirtualAnsibleRepository"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

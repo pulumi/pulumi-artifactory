@@ -1514,10 +1514,8 @@ class _RemoteAnsibleRepositoryState:
         pulumi.set(self, "xray_index", value)
 
 
+@pulumi.type_token("artifactory:index/remoteAnsibleRepository:RemoteAnsibleRepository")
 class RemoteAnsibleRepository(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/remoteAnsibleRepository:RemoteAnsibleRepository"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

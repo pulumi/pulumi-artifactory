@@ -909,10 +909,8 @@ class _FederatedMavenRepositoryState:
         pulumi.set(self, "xray_index", value)
 
 
+@pulumi.type_token("artifactory:index/federatedMavenRepository:FederatedMavenRepository")
 class FederatedMavenRepository(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/federatedMavenRepository:FederatedMavenRepository"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

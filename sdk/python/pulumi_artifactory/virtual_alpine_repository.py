@@ -472,10 +472,8 @@ class _VirtualAlpineRepositoryState:
         pulumi.set(self, "retrieval_cache_period_seconds", value)
 
 
+@pulumi.type_token("artifactory:index/virtualAlpineRepository:VirtualAlpineRepository")
 class VirtualAlpineRepository(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/virtualAlpineRepository:VirtualAlpineRepository"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

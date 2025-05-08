@@ -681,10 +681,8 @@ class _FederatedTerraformModuleRepositoryState:
         pulumi.set(self, "xray_index", value)
 
 
+@pulumi.type_token("artifactory:index/federatedTerraformModuleRepository:FederatedTerraformModuleRepository")
 class FederatedTerraformModuleRepository(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/federatedTerraformModuleRepository:FederatedTerraformModuleRepository"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

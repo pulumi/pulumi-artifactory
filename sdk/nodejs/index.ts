@@ -1305,10 +1305,8 @@ export type PropertySet = import("./propertySet").PropertySet;
 export const PropertySet: typeof import("./propertySet").PropertySet = null as any;
 utilities.lazyLoad(exports, ["PropertySet"], () => require("./propertySet"));
 
-export { ProviderArgs } from "./provider";
-export type Provider = import("./provider").Provider;
-export const Provider: typeof import("./provider").Provider = null as any;
-utilities.lazyLoad(exports, ["Provider"], () => require("./provider"));
+export * from "./provider";
+import { Provider } from "./provider";
 
 export { ProxyArgs, ProxyState } from "./proxy";
 export type Proxy = import("./proxy").Proxy;

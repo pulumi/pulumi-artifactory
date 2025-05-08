@@ -408,10 +408,8 @@ class _VirtualGenericRepositoryState:
         pulumi.set(self, "repositories", value)
 
 
+@pulumi.type_token("artifactory:index/virtualGenericRepository:VirtualGenericRepository")
 class VirtualGenericRepository(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/virtualGenericRepository:VirtualGenericRepository"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

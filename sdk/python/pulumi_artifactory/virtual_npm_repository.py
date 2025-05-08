@@ -536,10 +536,8 @@ class _VirtualNpmRepositoryState:
         pulumi.set(self, "retrieval_cache_period_seconds", value)
 
 
+@pulumi.type_token("artifactory:index/virtualNpmRepository:VirtualNpmRepository")
 class VirtualNpmRepository(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/virtualNpmRepository:VirtualNpmRepository"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

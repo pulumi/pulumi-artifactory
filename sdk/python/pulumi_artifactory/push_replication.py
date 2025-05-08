@@ -153,10 +153,8 @@ class _PushReplicationState:
         pulumi.set(self, "repo_key", value)
 
 
+@pulumi.type_token("artifactory:index/pushReplication:PushReplication")
 class PushReplication(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/pushReplication:PushReplication"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

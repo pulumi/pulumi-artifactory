@@ -809,10 +809,8 @@ class _FederatedDebianRepositoryState:
         pulumi.set(self, "xray_index", value)
 
 
+@pulumi.type_token("artifactory:index/federatedDebianRepository:FederatedDebianRepository")
 class FederatedDebianRepository(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/federatedDebianRepository:FederatedDebianRepository"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

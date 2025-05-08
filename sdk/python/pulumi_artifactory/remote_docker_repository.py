@@ -1713,10 +1713,8 @@ class _RemoteDockerRepositoryState:
         pulumi.set(self, "xray_index", value)
 
 
+@pulumi.type_token("artifactory:index/remoteDockerRepository:RemoteDockerRepository")
 class RemoteDockerRepository(pulumi.CustomResource):
-
-    pulumi_type = "artifactory:index/remoteDockerRepository:RemoteDockerRepository"
-
     @overload
     def __init__(__self__,
                  resource_name: str,
