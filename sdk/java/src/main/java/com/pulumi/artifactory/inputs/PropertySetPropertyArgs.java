@@ -65,14 +65,14 @@ public final class PropertySetPropertyArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Properties in the property set.
+     * Properties in the property set. Predefined values is mandatory when closed_predefined_values or multiple_choice is set to &#39;true&#39;
      * 
      */
     @Import(name="predefinedValues")
     private @Nullable Output<List<PropertySetPropertyPredefinedValueArgs>> predefinedValues;
 
     /**
-     * @return Properties in the property set.
+     * @return Properties in the property set. Predefined values is mandatory when closed_predefined_values or multiple_choice is set to &#39;true&#39;
      * 
      */
     public Optional<Output<List<PropertySetPropertyPredefinedValueArgs>>> predefinedValues() {
@@ -170,7 +170,7 @@ public final class PropertySetPropertyArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param predefinedValues Properties in the property set.
+         * @param predefinedValues Properties in the property set. Predefined values is mandatory when closed_predefined_values or multiple_choice is set to &#39;true&#39;
          * 
          * @return builder
          * 
@@ -181,7 +181,7 @@ public final class PropertySetPropertyArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param predefinedValues Properties in the property set.
+         * @param predefinedValues Properties in the property set. Predefined values is mandatory when closed_predefined_values or multiple_choice is set to &#39;true&#39;
          * 
          * @return builder
          * 
@@ -191,7 +191,7 @@ public final class PropertySetPropertyArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param predefinedValues Properties in the property set.
+         * @param predefinedValues Properties in the property set. Predefined values is mandatory when closed_predefined_values or multiple_choice is set to &#39;true&#39;
          * 
          * @return builder
          * 

@@ -6290,7 +6290,7 @@ class PropertySetProperty(dict):
         :param builtins.str name: The name pf the property.
         :param builtins.bool closed_predefined_values: Disables `multiple_choice` if set to `false` at the same time with multiple_choice set to `true`. Default value is `false`
         :param builtins.bool multiple_choice: Defines if user can select multiple values. `closed_predefined_values` should be set to `true`. Default value is `false`.
-        :param Sequence['PropertySetPropertyPredefinedValueArgs'] predefined_values: Properties in the property set.
+        :param Sequence['PropertySetPropertyPredefinedValueArgs'] predefined_values: Properties in the property set. Predefined values is mandatory when closed_predefined_values or multiple_choice is set to 'true'
         """
         pulumi.set(__self__, "name", name)
         if closed_predefined_values is not None:
@@ -6328,7 +6328,7 @@ class PropertySetProperty(dict):
     @pulumi.getter(name="predefinedValues")
     def predefined_values(self) -> Optional[Sequence['outputs.PropertySetPropertyPredefinedValue']]:
         """
-        Properties in the property set.
+        Properties in the property set. Predefined values is mandatory when closed_predefined_values or multiple_choice is set to 'true'
         """
         return pulumi.get(self, "predefined_values")
 

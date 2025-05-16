@@ -26,7 +26,7 @@ namespace Pulumi.Artifactory.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties in the property set.
+        /// Properties in the property set. Predefined values is mandatory when closed_predefined_values or multiple_choice is set to 'true'
         /// </summary>
         public readonly ImmutableArray<Outputs.PropertySetPropertyPredefinedValue> PredefinedValues;
 

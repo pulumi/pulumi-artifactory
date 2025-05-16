@@ -188,6 +188,11 @@ class PropertySet(pulumi.CustomResource):
                     "closed_predefined_values": False,
                     "multiple_choice": False,
                 },
+                {
+                    "name": "set1property3",
+                    "closed_predefined_values": False,
+                    "multiple_choice": False,
+                },
             ])
         ```
 
@@ -255,6 +260,11 @@ class PropertySet(pulumi.CustomResource):
                             "default_value": False,
                         },
                     ],
+                    "closed_predefined_values": False,
+                    "multiple_choice": False,
+                },
+                {
+                    "name": "set1property3",
                     "closed_predefined_values": False,
                     "multiple_choice": False,
                 },

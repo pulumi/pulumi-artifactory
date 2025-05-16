@@ -12317,7 +12317,7 @@ type PropertySetProperty struct {
 	MultipleChoice *bool `pulumi:"multipleChoice"`
 	// The name pf the property.
 	Name string `pulumi:"name"`
-	// Properties in the property set.
+	// Properties in the property set. Predefined values is mandatory when closedPredefinedValues or multipleChoice is set to 'true'
 	PredefinedValues []PropertySetPropertyPredefinedValue `pulumi:"predefinedValues"`
 }
 
@@ -12339,7 +12339,7 @@ type PropertySetPropertyArgs struct {
 	MultipleChoice pulumi.BoolPtrInput `pulumi:"multipleChoice"`
 	// The name pf the property.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Properties in the property set.
+	// Properties in the property set. Predefined values is mandatory when closedPredefinedValues or multipleChoice is set to 'true'
 	PredefinedValues PropertySetPropertyPredefinedValueArrayInput `pulumi:"predefinedValues"`
 }
 
@@ -12409,7 +12409,7 @@ func (o PropertySetPropertyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PropertySetProperty) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Properties in the property set.
+// Properties in the property set. Predefined values is mandatory when closedPredefinedValues or multipleChoice is set to 'true'
 func (o PropertySetPropertyOutput) PredefinedValues() PropertySetPropertyPredefinedValueArrayOutput {
 	return o.ApplyT(func(v PropertySetProperty) []PropertySetPropertyPredefinedValue { return v.PredefinedValues }).(PropertySetPropertyPredefinedValueArrayOutput)
 }

@@ -31,7 +31,7 @@ public final class PropertySetProperty {
      */
     private String name;
     /**
-     * @return Properties in the property set.
+     * @return Properties in the property set. Predefined values is mandatory when closed_predefined_values or multiple_choice is set to &#39;true&#39;
      * 
      */
     private @Nullable List<PropertySetPropertyPredefinedValue> predefinedValues;
@@ -59,7 +59,7 @@ public final class PropertySetProperty {
         return this.name;
     }
     /**
-     * @return Properties in the property set.
+     * @return Properties in the property set. Predefined values is mandatory when closed_predefined_values or multiple_choice is set to &#39;true&#39;
      * 
      */
     public List<PropertySetPropertyPredefinedValue> predefinedValues() {

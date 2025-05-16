@@ -3029,7 +3029,7 @@ export interface PropertySetProperty {
      */
     name: string;
     /**
-     * Properties in the property set.
+     * Properties in the property set. Predefined values is mandatory when closedPredefinedValues or multipleChoice is set to 'true'
      */
     predefinedValues?: outputs.PropertySetPropertyPredefinedValue[];
 }

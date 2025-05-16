@@ -81,6 +81,11 @@ import javax.annotation.Nullable;
  *                             .build())
  *                     .closedPredefinedValues(false)
  *                     .multipleChoice(false)
+ *                     .build(),
+ *                 PropertySetPropertyArgs.builder()
+ *                     .name("set1property3")
+ *                     .closedPredefinedValues(false)
+ *                     .multipleChoice(false)
  *                     .build())
  *             .build());
  * 
