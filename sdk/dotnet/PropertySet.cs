@@ -70,6 +70,12 @@ namespace Pulumi.Artifactory
     ///                 ClosedPredefinedValues = false,
     ///                 MultipleChoice = false,
     ///             },
+    ///             new Artifactory.Inputs.PropertySetPropertyArgs
+    ///             {
+    ///                 Name = "set1property3",
+    ///                 ClosedPredefinedValues = false,
+    ///                 MultipleChoice = false,
+    ///             },
     ///         },
     ///     });
     /// 

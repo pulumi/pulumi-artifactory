@@ -65,6 +65,11 @@ import (
 //						ClosedPredefinedValues: pulumi.Bool(false),
 //						MultipleChoice:         pulumi.Bool(false),
 //					},
+//					&artifactory.PropertySetPropertyArgs{
+//						Name:                   pulumi.String("set1property3"),
+//						ClosedPredefinedValues: pulumi.Bool(false),
+//						MultipleChoice:         pulumi.Bool(false),
+//					},
 //				},
 //			})
 //			if err != nil {

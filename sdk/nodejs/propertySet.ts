@@ -53,6 +53,11 @@ import * as utilities from "./utilities";
  *             closedPredefinedValues: false,
  *             multipleChoice: false,
  *         },
+ *         {
+ *             name: "set1property3",
+ *             closedPredefinedValues: false,
+ *             multipleChoice: false,
+ *         },
  *     ],
  * });
  * ```

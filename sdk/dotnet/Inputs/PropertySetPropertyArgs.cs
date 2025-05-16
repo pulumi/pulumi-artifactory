@@ -34,7 +34,7 @@ namespace Pulumi.Artifactory.Inputs
         private InputList<Inputs.PropertySetPropertyPredefinedValueArgs>? _predefinedValues;
 
         /// <summary>
-        /// Properties in the property set.
+        /// Properties in the property set. Predefined values is mandatory when closed_predefined_values or multiple_choice is set to 'true'
         /// </summary>
         public InputList<Inputs.PropertySetPropertyPredefinedValueArgs> PredefinedValues
         {
