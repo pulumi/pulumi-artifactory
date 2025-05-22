@@ -4430,6 +4430,42 @@ export interface ReleaseBundleCustomWebhookHandler {
     url: pulumi.Input<string>;
 }
 
+export interface ReleaseBundleV2CleanupPolicySearchCriteria {
+    /**
+     * The cleanup policy will cleanup release bundles based on how long ago they were created. For example, if this parameter is 2 then release bundles created more than 2 months ago will be cleaned up as part of the policy.
+     */
+    createdBeforeInMonths?: pulumi.Input<number>;
+    /**
+     * A list of environments to exclude from the cleanup process. To exclude all, set to `**`. Example: `excludePromotedEnvironments = ["**"]`
+     */
+    excludePromotedEnvironments: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Set this value to `true` if you want the policy to run on all Artifactory projects. The default value is `false`.
+     */
+    includeAllProjects?: pulumi.Input<boolean>;
+    /**
+     * List of projects on which you want this policy to run. To include repositories that are not assigned to any project, enter the project key `default`.
+     *
+     * ~>This setting is relevant only on the global level, for Platform Admins.
+     */
+    includedProjects?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Specify the release bundles to include in the cleanup policy. The policy will only clean up the release bundles that match the specified criteria.
+     */
+    releaseBundles?: pulumi.Input<pulumi.Input<inputs.ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundle>[]>;
+}
+
+export interface ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundle {
+    /**
+     * The name of the release bundle. Set `**` to include all bundles. Example: `name = "**"`
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The project identifier associated with the release bundle. This key is obtained from the Project Settings screen. Leave the field blank to apply at a global level.
+     */
+    projectKey: pulumi.Input<string>;
+}
+
 export interface ReleaseBundleV2CustomWebhookCriteria {
     /**
      * Trigger on any release bundle.

@@ -265,6 +265,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ReleaseBundleCustomWebhook{}
 	case "artifactory:index/releaseBundleV2:ReleaseBundleV2":
 		r = &ReleaseBundleV2{}
+	case "artifactory:index/releaseBundleV2CleanupPolicy:ReleaseBundleV2CleanupPolicy":
+		r = &ReleaseBundleV2CleanupPolicy{}
 	case "artifactory:index/releaseBundleV2CustomWebhook:ReleaseBundleV2CustomWebhook":
 		r = &ReleaseBundleV2CustomWebhook{}
 	case "artifactory:index/releaseBundleV2Promotion:ReleaseBundleV2Promotion":
@@ -1064,6 +1066,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"artifactory",
 		"index/releaseBundleV2",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/releaseBundleV2CleanupPolicy",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

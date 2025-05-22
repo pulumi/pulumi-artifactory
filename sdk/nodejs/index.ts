@@ -1333,6 +1333,11 @@ export type ReleaseBundleV2 = import("./releaseBundleV2").ReleaseBundleV2;
 export const ReleaseBundleV2: typeof import("./releaseBundleV2").ReleaseBundleV2 = null as any;
 utilities.lazyLoad(exports, ["ReleaseBundleV2"], () => require("./releaseBundleV2"));
 
+export { ReleaseBundleV2CleanupPolicyArgs, ReleaseBundleV2CleanupPolicyState } from "./releaseBundleV2CleanupPolicy";
+export type ReleaseBundleV2CleanupPolicy = import("./releaseBundleV2CleanupPolicy").ReleaseBundleV2CleanupPolicy;
+export const ReleaseBundleV2CleanupPolicy: typeof import("./releaseBundleV2CleanupPolicy").ReleaseBundleV2CleanupPolicy = null as any;
+utilities.lazyLoad(exports, ["ReleaseBundleV2CleanupPolicy"], () => require("./releaseBundleV2CleanupPolicy"));
+
 export { ReleaseBundleV2CustomWebhookArgs, ReleaseBundleV2CustomWebhookState } from "./releaseBundleV2CustomWebhook";
 export type ReleaseBundleV2CustomWebhook = import("./releaseBundleV2CustomWebhook").ReleaseBundleV2CustomWebhook;
 export const ReleaseBundleV2CustomWebhook: typeof import("./releaseBundleV2CustomWebhook").ReleaseBundleV2CustomWebhook = null as any;
@@ -1991,6 +1996,8 @@ const _module = {
                 return new ReleaseBundleCustomWebhook(name, <any>undefined, { urn })
             case "artifactory:index/releaseBundleV2:ReleaseBundleV2":
                 return new ReleaseBundleV2(name, <any>undefined, { urn })
+            case "artifactory:index/releaseBundleV2CleanupPolicy:ReleaseBundleV2CleanupPolicy":
+                return new ReleaseBundleV2CleanupPolicy(name, <any>undefined, { urn })
             case "artifactory:index/releaseBundleV2CustomWebhook:ReleaseBundleV2CustomWebhook":
                 return new ReleaseBundleV2CustomWebhook(name, <any>undefined, { urn })
             case "artifactory:index/releaseBundleV2Promotion:ReleaseBundleV2Promotion":
@@ -2278,6 +2285,7 @@ pulumi.runtime.registerResourceModule("artifactory", "index/pullReplication", _m
 pulumi.runtime.registerResourceModule("artifactory", "index/pushReplication", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/releaseBundleCustomWebhook", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/releaseBundleV2", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/releaseBundleV2CleanupPolicy", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/releaseBundleV2CustomWebhook", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/releaseBundleV2Promotion", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/releaseBundleV2PromotionCustomWebhook", _module)

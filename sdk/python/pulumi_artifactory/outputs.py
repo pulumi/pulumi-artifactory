@@ -105,6 +105,8 @@ __all__ = [
     'PushReplicationReplication',
     'ReleaseBundleCustomWebhookCriteria',
     'ReleaseBundleCustomWebhookHandler',
+    'ReleaseBundleV2CleanupPolicySearchCriteria',
+    'ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundle',
     'ReleaseBundleV2CustomWebhookCriteria',
     'ReleaseBundleV2CustomWebhookHandler',
     'ReleaseBundleV2PromotionCustomWebhookCriteria',
@@ -6715,6 +6717,147 @@ class ReleaseBundleCustomWebhookHandler(dict):
         Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
         """
         return pulumi.get(self, "secrets")
+
+
+@pulumi.output_type
+class ReleaseBundleV2CleanupPolicySearchCriteria(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "excludePromotedEnvironments":
+            suggest = "exclude_promoted_environments"
+        elif key == "createdBeforeInMonths":
+            suggest = "created_before_in_months"
+        elif key == "includeAllProjects":
+            suggest = "include_all_projects"
+        elif key == "includedProjects":
+            suggest = "included_projects"
+        elif key == "releaseBundles":
+            suggest = "release_bundles"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReleaseBundleV2CleanupPolicySearchCriteria. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReleaseBundleV2CleanupPolicySearchCriteria.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReleaseBundleV2CleanupPolicySearchCriteria.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 exclude_promoted_environments: Sequence[builtins.str],
+                 created_before_in_months: Optional[builtins.int] = None,
+                 include_all_projects: Optional[builtins.bool] = None,
+                 included_projects: Optional[Sequence[builtins.str]] = None,
+                 release_bundles: Optional[Sequence['outputs.ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundle']] = None):
+        """
+        :param Sequence[builtins.str] exclude_promoted_environments: A list of environments to exclude from the cleanup process. To exclude all, set to `**`. Example: `exclude_promoted_environments = ["**"]`
+        :param builtins.int created_before_in_months: The cleanup policy will cleanup release bundles based on how long ago they were created. For example, if this parameter is 2 then release bundles created more than 2 months ago will be cleaned up as part of the policy.
+        :param builtins.bool include_all_projects: Set this value to `true` if you want the policy to run on all Artifactory projects. The default value is `false`.
+        :param Sequence[builtins.str] included_projects: List of projects on which you want this policy to run. To include repositories that are not assigned to any project, enter the project key `default`.
+               
+               ~>This setting is relevant only on the global level, for Platform Admins.
+        :param Sequence['ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleArgs'] release_bundles: Specify the release bundles to include in the cleanup policy. The policy will only clean up the release bundles that match the specified criteria.
+        """
+        pulumi.set(__self__, "exclude_promoted_environments", exclude_promoted_environments)
+        if created_before_in_months is not None:
+            pulumi.set(__self__, "created_before_in_months", created_before_in_months)
+        if include_all_projects is not None:
+            pulumi.set(__self__, "include_all_projects", include_all_projects)
+        if included_projects is not None:
+            pulumi.set(__self__, "included_projects", included_projects)
+        if release_bundles is not None:
+            pulumi.set(__self__, "release_bundles", release_bundles)
+
+    @property
+    @pulumi.getter(name="excludePromotedEnvironments")
+    def exclude_promoted_environments(self) -> Sequence[builtins.str]:
+        """
+        A list of environments to exclude from the cleanup process. To exclude all, set to `**`. Example: `exclude_promoted_environments = ["**"]`
+        """
+        return pulumi.get(self, "exclude_promoted_environments")
+
+    @property
+    @pulumi.getter(name="createdBeforeInMonths")
+    def created_before_in_months(self) -> Optional[builtins.int]:
+        """
+        The cleanup policy will cleanup release bundles based on how long ago they were created. For example, if this parameter is 2 then release bundles created more than 2 months ago will be cleaned up as part of the policy.
+        """
+        return pulumi.get(self, "created_before_in_months")
+
+    @property
+    @pulumi.getter(name="includeAllProjects")
+    def include_all_projects(self) -> Optional[builtins.bool]:
+        """
+        Set this value to `true` if you want the policy to run on all Artifactory projects. The default value is `false`.
+        """
+        return pulumi.get(self, "include_all_projects")
+
+    @property
+    @pulumi.getter(name="includedProjects")
+    def included_projects(self) -> Optional[Sequence[builtins.str]]:
+        """
+        List of projects on which you want this policy to run. To include repositories that are not assigned to any project, enter the project key `default`.
+
+        ~>This setting is relevant only on the global level, for Platform Admins.
+        """
+        return pulumi.get(self, "included_projects")
+
+    @property
+    @pulumi.getter(name="releaseBundles")
+    def release_bundles(self) -> Optional[Sequence['outputs.ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundle']]:
+        """
+        Specify the release bundles to include in the cleanup policy. The policy will only clean up the release bundles that match the specified criteria.
+        """
+        return pulumi.get(self, "release_bundles")
+
+
+@pulumi.output_type
+class ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundle(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "projectKey":
+            suggest = "project_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundle. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundle.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundle.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: builtins.str,
+                 project_key: builtins.str):
+        """
+        :param builtins.str name: The name of the release bundle. Set `**` to include all bundles. Example: `name = "**"`
+        :param builtins.str project_key: The project identifier associated with the release bundle. This key is obtained from the Project Settings screen. Leave the field blank to apply at a global level.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "project_key", project_key)
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        The name of the release bundle. Set `**` to include all bundles. Example: `name = "**"`
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="projectKey")
+    def project_key(self) -> builtins.str:
+        """
+        The project identifier associated with the release bundle. This key is obtained from the Project Settings screen. Leave the field blank to apply at a global level.
+        """
+        return pulumi.get(self, "project_key")
 
 
 @pulumi.output_type

@@ -13069,6 +13069,335 @@ func (o ReleaseBundleCustomWebhookHandlerArrayOutput) Index(i pulumi.IntInput) R
 	}).(ReleaseBundleCustomWebhookHandlerOutput)
 }
 
+type ReleaseBundleV2CleanupPolicySearchCriteria struct {
+	// The cleanup policy will cleanup release bundles based on how long ago they were created. For example, if this parameter is 2 then release bundles created more than 2 months ago will be cleaned up as part of the policy.
+	CreatedBeforeInMonths *int `pulumi:"createdBeforeInMonths"`
+	// A list of environments to exclude from the cleanup process. To exclude all, set to `**`. Example: `excludePromotedEnvironments = ["**"]`
+	ExcludePromotedEnvironments []string `pulumi:"excludePromotedEnvironments"`
+	// Set this value to `true` if you want the policy to run on all Artifactory projects. The default value is `false`.
+	IncludeAllProjects *bool `pulumi:"includeAllProjects"`
+	// List of projects on which you want this policy to run. To include repositories that are not assigned to any project, enter the project key `default`.
+	//
+	// ~>This setting is relevant only on the global level, for Platform Admins.
+	IncludedProjects []string `pulumi:"includedProjects"`
+	// Specify the release bundles to include in the cleanup policy. The policy will only clean up the release bundles that match the specified criteria.
+	ReleaseBundles []ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundle `pulumi:"releaseBundles"`
+}
+
+// ReleaseBundleV2CleanupPolicySearchCriteriaInput is an input type that accepts ReleaseBundleV2CleanupPolicySearchCriteriaArgs and ReleaseBundleV2CleanupPolicySearchCriteriaOutput values.
+// You can construct a concrete instance of `ReleaseBundleV2CleanupPolicySearchCriteriaInput` via:
+//
+//	ReleaseBundleV2CleanupPolicySearchCriteriaArgs{...}
+type ReleaseBundleV2CleanupPolicySearchCriteriaInput interface {
+	pulumi.Input
+
+	ToReleaseBundleV2CleanupPolicySearchCriteriaOutput() ReleaseBundleV2CleanupPolicySearchCriteriaOutput
+	ToReleaseBundleV2CleanupPolicySearchCriteriaOutputWithContext(context.Context) ReleaseBundleV2CleanupPolicySearchCriteriaOutput
+}
+
+type ReleaseBundleV2CleanupPolicySearchCriteriaArgs struct {
+	// The cleanup policy will cleanup release bundles based on how long ago they were created. For example, if this parameter is 2 then release bundles created more than 2 months ago will be cleaned up as part of the policy.
+	CreatedBeforeInMonths pulumi.IntPtrInput `pulumi:"createdBeforeInMonths"`
+	// A list of environments to exclude from the cleanup process. To exclude all, set to `**`. Example: `excludePromotedEnvironments = ["**"]`
+	ExcludePromotedEnvironments pulumi.StringArrayInput `pulumi:"excludePromotedEnvironments"`
+	// Set this value to `true` if you want the policy to run on all Artifactory projects. The default value is `false`.
+	IncludeAllProjects pulumi.BoolPtrInput `pulumi:"includeAllProjects"`
+	// List of projects on which you want this policy to run. To include repositories that are not assigned to any project, enter the project key `default`.
+	//
+	// ~>This setting is relevant only on the global level, for Platform Admins.
+	IncludedProjects pulumi.StringArrayInput `pulumi:"includedProjects"`
+	// Specify the release bundles to include in the cleanup policy. The policy will only clean up the release bundles that match the specified criteria.
+	ReleaseBundles ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleArrayInput `pulumi:"releaseBundles"`
+}
+
+func (ReleaseBundleV2CleanupPolicySearchCriteriaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReleaseBundleV2CleanupPolicySearchCriteria)(nil)).Elem()
+}
+
+func (i ReleaseBundleV2CleanupPolicySearchCriteriaArgs) ToReleaseBundleV2CleanupPolicySearchCriteriaOutput() ReleaseBundleV2CleanupPolicySearchCriteriaOutput {
+	return i.ToReleaseBundleV2CleanupPolicySearchCriteriaOutputWithContext(context.Background())
+}
+
+func (i ReleaseBundleV2CleanupPolicySearchCriteriaArgs) ToReleaseBundleV2CleanupPolicySearchCriteriaOutputWithContext(ctx context.Context) ReleaseBundleV2CleanupPolicySearchCriteriaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReleaseBundleV2CleanupPolicySearchCriteriaOutput)
+}
+
+func (i ReleaseBundleV2CleanupPolicySearchCriteriaArgs) ToReleaseBundleV2CleanupPolicySearchCriteriaPtrOutput() ReleaseBundleV2CleanupPolicySearchCriteriaPtrOutput {
+	return i.ToReleaseBundleV2CleanupPolicySearchCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (i ReleaseBundleV2CleanupPolicySearchCriteriaArgs) ToReleaseBundleV2CleanupPolicySearchCriteriaPtrOutputWithContext(ctx context.Context) ReleaseBundleV2CleanupPolicySearchCriteriaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReleaseBundleV2CleanupPolicySearchCriteriaOutput).ToReleaseBundleV2CleanupPolicySearchCriteriaPtrOutputWithContext(ctx)
+}
+
+// ReleaseBundleV2CleanupPolicySearchCriteriaPtrInput is an input type that accepts ReleaseBundleV2CleanupPolicySearchCriteriaArgs, ReleaseBundleV2CleanupPolicySearchCriteriaPtr and ReleaseBundleV2CleanupPolicySearchCriteriaPtrOutput values.
+// You can construct a concrete instance of `ReleaseBundleV2CleanupPolicySearchCriteriaPtrInput` via:
+//
+//	        ReleaseBundleV2CleanupPolicySearchCriteriaArgs{...}
+//
+//	or:
+//
+//	        nil
+type ReleaseBundleV2CleanupPolicySearchCriteriaPtrInput interface {
+	pulumi.Input
+
+	ToReleaseBundleV2CleanupPolicySearchCriteriaPtrOutput() ReleaseBundleV2CleanupPolicySearchCriteriaPtrOutput
+	ToReleaseBundleV2CleanupPolicySearchCriteriaPtrOutputWithContext(context.Context) ReleaseBundleV2CleanupPolicySearchCriteriaPtrOutput
+}
+
+type releaseBundleV2CleanupPolicySearchCriteriaPtrType ReleaseBundleV2CleanupPolicySearchCriteriaArgs
+
+func ReleaseBundleV2CleanupPolicySearchCriteriaPtr(v *ReleaseBundleV2CleanupPolicySearchCriteriaArgs) ReleaseBundleV2CleanupPolicySearchCriteriaPtrInput {
+	return (*releaseBundleV2CleanupPolicySearchCriteriaPtrType)(v)
+}
+
+func (*releaseBundleV2CleanupPolicySearchCriteriaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReleaseBundleV2CleanupPolicySearchCriteria)(nil)).Elem()
+}
+
+func (i *releaseBundleV2CleanupPolicySearchCriteriaPtrType) ToReleaseBundleV2CleanupPolicySearchCriteriaPtrOutput() ReleaseBundleV2CleanupPolicySearchCriteriaPtrOutput {
+	return i.ToReleaseBundleV2CleanupPolicySearchCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (i *releaseBundleV2CleanupPolicySearchCriteriaPtrType) ToReleaseBundleV2CleanupPolicySearchCriteriaPtrOutputWithContext(ctx context.Context) ReleaseBundleV2CleanupPolicySearchCriteriaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReleaseBundleV2CleanupPolicySearchCriteriaPtrOutput)
+}
+
+type ReleaseBundleV2CleanupPolicySearchCriteriaOutput struct{ *pulumi.OutputState }
+
+func (ReleaseBundleV2CleanupPolicySearchCriteriaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReleaseBundleV2CleanupPolicySearchCriteria)(nil)).Elem()
+}
+
+func (o ReleaseBundleV2CleanupPolicySearchCriteriaOutput) ToReleaseBundleV2CleanupPolicySearchCriteriaOutput() ReleaseBundleV2CleanupPolicySearchCriteriaOutput {
+	return o
+}
+
+func (o ReleaseBundleV2CleanupPolicySearchCriteriaOutput) ToReleaseBundleV2CleanupPolicySearchCriteriaOutputWithContext(ctx context.Context) ReleaseBundleV2CleanupPolicySearchCriteriaOutput {
+	return o
+}
+
+func (o ReleaseBundleV2CleanupPolicySearchCriteriaOutput) ToReleaseBundleV2CleanupPolicySearchCriteriaPtrOutput() ReleaseBundleV2CleanupPolicySearchCriteriaPtrOutput {
+	return o.ToReleaseBundleV2CleanupPolicySearchCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (o ReleaseBundleV2CleanupPolicySearchCriteriaOutput) ToReleaseBundleV2CleanupPolicySearchCriteriaPtrOutputWithContext(ctx context.Context) ReleaseBundleV2CleanupPolicySearchCriteriaPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReleaseBundleV2CleanupPolicySearchCriteria) *ReleaseBundleV2CleanupPolicySearchCriteria {
+		return &v
+	}).(ReleaseBundleV2CleanupPolicySearchCriteriaPtrOutput)
+}
+
+// The cleanup policy will cleanup release bundles based on how long ago they were created. For example, if this parameter is 2 then release bundles created more than 2 months ago will be cleaned up as part of the policy.
+func (o ReleaseBundleV2CleanupPolicySearchCriteriaOutput) CreatedBeforeInMonths() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ReleaseBundleV2CleanupPolicySearchCriteria) *int { return v.CreatedBeforeInMonths }).(pulumi.IntPtrOutput)
+}
+
+// A list of environments to exclude from the cleanup process. To exclude all, set to `**`. Example: `excludePromotedEnvironments = ["**"]`
+func (o ReleaseBundleV2CleanupPolicySearchCriteriaOutput) ExcludePromotedEnvironments() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ReleaseBundleV2CleanupPolicySearchCriteria) []string { return v.ExcludePromotedEnvironments }).(pulumi.StringArrayOutput)
+}
+
+// Set this value to `true` if you want the policy to run on all Artifactory projects. The default value is `false`.
+func (o ReleaseBundleV2CleanupPolicySearchCriteriaOutput) IncludeAllProjects() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ReleaseBundleV2CleanupPolicySearchCriteria) *bool { return v.IncludeAllProjects }).(pulumi.BoolPtrOutput)
+}
+
+// List of projects on which you want this policy to run. To include repositories that are not assigned to any project, enter the project key `default`.
+//
+// ~>This setting is relevant only on the global level, for Platform Admins.
+func (o ReleaseBundleV2CleanupPolicySearchCriteriaOutput) IncludedProjects() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ReleaseBundleV2CleanupPolicySearchCriteria) []string { return v.IncludedProjects }).(pulumi.StringArrayOutput)
+}
+
+// Specify the release bundles to include in the cleanup policy. The policy will only clean up the release bundles that match the specified criteria.
+func (o ReleaseBundleV2CleanupPolicySearchCriteriaOutput) ReleaseBundles() ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleArrayOutput {
+	return o.ApplyT(func(v ReleaseBundleV2CleanupPolicySearchCriteria) []ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundle {
+		return v.ReleaseBundles
+	}).(ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleArrayOutput)
+}
+
+type ReleaseBundleV2CleanupPolicySearchCriteriaPtrOutput struct{ *pulumi.OutputState }
+
+func (ReleaseBundleV2CleanupPolicySearchCriteriaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReleaseBundleV2CleanupPolicySearchCriteria)(nil)).Elem()
+}
+
+func (o ReleaseBundleV2CleanupPolicySearchCriteriaPtrOutput) ToReleaseBundleV2CleanupPolicySearchCriteriaPtrOutput() ReleaseBundleV2CleanupPolicySearchCriteriaPtrOutput {
+	return o
+}
+
+func (o ReleaseBundleV2CleanupPolicySearchCriteriaPtrOutput) ToReleaseBundleV2CleanupPolicySearchCriteriaPtrOutputWithContext(ctx context.Context) ReleaseBundleV2CleanupPolicySearchCriteriaPtrOutput {
+	return o
+}
+
+func (o ReleaseBundleV2CleanupPolicySearchCriteriaPtrOutput) Elem() ReleaseBundleV2CleanupPolicySearchCriteriaOutput {
+	return o.ApplyT(func(v *ReleaseBundleV2CleanupPolicySearchCriteria) ReleaseBundleV2CleanupPolicySearchCriteria {
+		if v != nil {
+			return *v
+		}
+		var ret ReleaseBundleV2CleanupPolicySearchCriteria
+		return ret
+	}).(ReleaseBundleV2CleanupPolicySearchCriteriaOutput)
+}
+
+// The cleanup policy will cleanup release bundles based on how long ago they were created. For example, if this parameter is 2 then release bundles created more than 2 months ago will be cleaned up as part of the policy.
+func (o ReleaseBundleV2CleanupPolicySearchCriteriaPtrOutput) CreatedBeforeInMonths() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ReleaseBundleV2CleanupPolicySearchCriteria) *int {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedBeforeInMonths
+	}).(pulumi.IntPtrOutput)
+}
+
+// A list of environments to exclude from the cleanup process. To exclude all, set to `**`. Example: `excludePromotedEnvironments = ["**"]`
+func (o ReleaseBundleV2CleanupPolicySearchCriteriaPtrOutput) ExcludePromotedEnvironments() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ReleaseBundleV2CleanupPolicySearchCriteria) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludePromotedEnvironments
+	}).(pulumi.StringArrayOutput)
+}
+
+// Set this value to `true` if you want the policy to run on all Artifactory projects. The default value is `false`.
+func (o ReleaseBundleV2CleanupPolicySearchCriteriaPtrOutput) IncludeAllProjects() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ReleaseBundleV2CleanupPolicySearchCriteria) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeAllProjects
+	}).(pulumi.BoolPtrOutput)
+}
+
+// List of projects on which you want this policy to run. To include repositories that are not assigned to any project, enter the project key `default`.
+//
+// ~>This setting is relevant only on the global level, for Platform Admins.
+func (o ReleaseBundleV2CleanupPolicySearchCriteriaPtrOutput) IncludedProjects() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ReleaseBundleV2CleanupPolicySearchCriteria) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IncludedProjects
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specify the release bundles to include in the cleanup policy. The policy will only clean up the release bundles that match the specified criteria.
+func (o ReleaseBundleV2CleanupPolicySearchCriteriaPtrOutput) ReleaseBundles() ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleArrayOutput {
+	return o.ApplyT(func(v *ReleaseBundleV2CleanupPolicySearchCriteria) []ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundle {
+		if v == nil {
+			return nil
+		}
+		return v.ReleaseBundles
+	}).(ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleArrayOutput)
+}
+
+type ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundle struct {
+	// The name of the release bundle. Set `**` to include all bundles. Example: `name = "**"`
+	Name string `pulumi:"name"`
+	// The project identifier associated with the release bundle. This key is obtained from the Project Settings screen. Leave the field blank to apply at a global level.
+	ProjectKey string `pulumi:"projectKey"`
+}
+
+// ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleInput is an input type that accepts ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleArgs and ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleOutput values.
+// You can construct a concrete instance of `ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleInput` via:
+//
+//	ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleArgs{...}
+type ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleInput interface {
+	pulumi.Input
+
+	ToReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleOutput() ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleOutput
+	ToReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleOutputWithContext(context.Context) ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleOutput
+}
+
+type ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleArgs struct {
+	// The name of the release bundle. Set `**` to include all bundles. Example: `name = "**"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// The project identifier associated with the release bundle. This key is obtained from the Project Settings screen. Leave the field blank to apply at a global level.
+	ProjectKey pulumi.StringInput `pulumi:"projectKey"`
+}
+
+func (ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundle)(nil)).Elem()
+}
+
+func (i ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleArgs) ToReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleOutput() ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleOutput {
+	return i.ToReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleOutputWithContext(context.Background())
+}
+
+func (i ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleArgs) ToReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleOutputWithContext(ctx context.Context) ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleOutput)
+}
+
+// ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleArrayInput is an input type that accepts ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleArray and ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleArrayOutput values.
+// You can construct a concrete instance of `ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleArrayInput` via:
+//
+//	ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleArray{ ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleArgs{...} }
+type ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleArrayInput interface {
+	pulumi.Input
+
+	ToReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleArrayOutput() ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleArrayOutput
+	ToReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleArrayOutputWithContext(context.Context) ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleArrayOutput
+}
+
+type ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleArray []ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleInput
+
+func (ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundle)(nil)).Elem()
+}
+
+func (i ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleArray) ToReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleArrayOutput() ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleArrayOutput {
+	return i.ToReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleArrayOutputWithContext(context.Background())
+}
+
+func (i ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleArray) ToReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleArrayOutputWithContext(ctx context.Context) ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleArrayOutput)
+}
+
+type ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleOutput struct{ *pulumi.OutputState }
+
+func (ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundle)(nil)).Elem()
+}
+
+func (o ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleOutput) ToReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleOutput() ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleOutput {
+	return o
+}
+
+func (o ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleOutput) ToReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleOutputWithContext(ctx context.Context) ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleOutput {
+	return o
+}
+
+// The name of the release bundle. Set `**` to include all bundles. Example: `name = "**"`
+func (o ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundle) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The project identifier associated with the release bundle. This key is obtained from the Project Settings screen. Leave the field blank to apply at a global level.
+func (o ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleOutput) ProjectKey() pulumi.StringOutput {
+	return o.ApplyT(func(v ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundle) string { return v.ProjectKey }).(pulumi.StringOutput)
+}
+
+type ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleArrayOutput struct{ *pulumi.OutputState }
+
+func (ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundle)(nil)).Elem()
+}
+
+func (o ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleArrayOutput) ToReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleArrayOutput() ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleArrayOutput {
+	return o
+}
+
+func (o ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleArrayOutput) ToReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleArrayOutputWithContext(ctx context.Context) ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleArrayOutput {
+	return o
+}
+
+func (o ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleArrayOutput) Index(i pulumi.IntInput) ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundle {
+		return vs[0].([]ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundle)[vs[1].(int)]
+	}).(ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleOutput)
+}
+
 type ReleaseBundleV2CustomWebhookCriteria struct {
 	// Trigger on any release bundle.
 	AnyReleaseBundle bool `pulumi:"anyReleaseBundle"`
@@ -36030,6 +36359,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ReleaseBundleCustomWebhookCriteriaPtrInput)(nil)).Elem(), ReleaseBundleCustomWebhookCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReleaseBundleCustomWebhookHandlerInput)(nil)).Elem(), ReleaseBundleCustomWebhookHandlerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReleaseBundleCustomWebhookHandlerArrayInput)(nil)).Elem(), ReleaseBundleCustomWebhookHandlerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReleaseBundleV2CleanupPolicySearchCriteriaInput)(nil)).Elem(), ReleaseBundleV2CleanupPolicySearchCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReleaseBundleV2CleanupPolicySearchCriteriaPtrInput)(nil)).Elem(), ReleaseBundleV2CleanupPolicySearchCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleInput)(nil)).Elem(), ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleArrayInput)(nil)).Elem(), ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReleaseBundleV2CustomWebhookCriteriaInput)(nil)).Elem(), ReleaseBundleV2CustomWebhookCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReleaseBundleV2CustomWebhookCriteriaPtrInput)(nil)).Elem(), ReleaseBundleV2CustomWebhookCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReleaseBundleV2CustomWebhookHandlerInput)(nil)).Elem(), ReleaseBundleV2CustomWebhookHandlerArgs{})
@@ -36485,6 +36818,10 @@ func init() {
 	pulumi.RegisterOutputType(ReleaseBundleCustomWebhookCriteriaPtrOutput{})
 	pulumi.RegisterOutputType(ReleaseBundleCustomWebhookHandlerOutput{})
 	pulumi.RegisterOutputType(ReleaseBundleCustomWebhookHandlerArrayOutput{})
+	pulumi.RegisterOutputType(ReleaseBundleV2CleanupPolicySearchCriteriaOutput{})
+	pulumi.RegisterOutputType(ReleaseBundleV2CleanupPolicySearchCriteriaPtrOutput{})
+	pulumi.RegisterOutputType(ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleOutput{})
+	pulumi.RegisterOutputType(ReleaseBundleV2CleanupPolicySearchCriteriaReleaseBundleArrayOutput{})
 	pulumi.RegisterOutputType(ReleaseBundleV2CustomWebhookCriteriaOutput{})
 	pulumi.RegisterOutputType(ReleaseBundleV2CustomWebhookCriteriaPtrOutput{})
 	pulumi.RegisterOutputType(ReleaseBundleV2CustomWebhookHandlerOutput{})
