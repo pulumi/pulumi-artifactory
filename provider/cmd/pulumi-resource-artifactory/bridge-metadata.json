@@ -1820,6 +1820,25 @@
                     }
                 }
             },
+            "artifactory_release_bundle_v2_cleanup_policy": {
+                "current": "artifactory:index/releaseBundleV2CleanupPolicy:ReleaseBundleV2CleanupPolicy",
+                "majorVersion": 8,
+                "fields": {
+                    "search_criteria": {
+                        "fields": {
+                            "exclude_promoted_environments": {
+                                "maxItemsOne": false
+                            },
+                            "included_projects": {
+                                "maxItemsOne": false
+                            },
+                            "release_bundles": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    }
+                }
+            },
             "artifactory_release_bundle_v2_custom_webhook": {
                 "current": "artifactory:index/releaseBundleV2CustomWebhook:ReleaseBundleV2CustomWebhook",
                 "majorVersion": 8,
@@ -5422,6 +5441,9 @@
             "artifactory_release_bundle_custom_webhook": [
                 "key"
             ],
+            "artifactory_release_bundle_v2_cleanup_policy": [
+                "key"
+            ],
             "artifactory_release_bundle_v2_custom_webhook": [
                 "key"
             ],
@@ -5767,6 +5789,7 @@
             "artifactory:index/pushReplication:PushReplication": 0,
             "artifactory:index/releaseBundleCustomWebhook:ReleaseBundleCustomWebhook": 1,
             "artifactory:index/releaseBundleV2:ReleaseBundleV2": 1,
+            "artifactory:index/releaseBundleV2CleanupPolicy:ReleaseBundleV2CleanupPolicy": 1,
             "artifactory:index/releaseBundleV2CustomWebhook:ReleaseBundleV2CustomWebhook": 1,
             "artifactory:index/releaseBundleV2Promotion:ReleaseBundleV2Promotion": 1,
             "artifactory:index/releaseBundleV2PromotionCustomWebhook:ReleaseBundleV2PromotionCustomWebhook": 1,

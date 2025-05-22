@@ -272,6 +272,7 @@ from .pull_replication import *
 from .push_replication import *
 from .release_bundle_custom_webhook import *
 from .release_bundle_v2 import *
+from .release_bundle_v2_cleanup_policy import *
 from .release_bundle_v2_custom_webhook import *
 from .release_bundle_v2_promotion import *
 from .release_bundle_v2_promotion_custom_webhook import *
@@ -1339,6 +1340,14 @@ _utilities.register(
   "fqn": "pulumi_artifactory",
   "classes": {
    "artifactory:index/releaseBundleV2:ReleaseBundleV2": "ReleaseBundleV2"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/releaseBundleV2CleanupPolicy",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/releaseBundleV2CleanupPolicy:ReleaseBundleV2CleanupPolicy": "ReleaseBundleV2CleanupPolicy"
   }
  },
  {
