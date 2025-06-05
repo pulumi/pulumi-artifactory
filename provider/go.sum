@@ -1811,8 +1811,6 @@ github.com/googleapis/gax-go/v2 v2.12.2 h1:mhN09QQW1jEWeMF74zGR81R30z4VJzjZsfkUh
 github.com/googleapis/gax-go/v2 v2.12.2/go.mod h1:61M8vcyyXR2kqKFxKrfA22jaA8JGF7Dc8App1U3H6jc=
 github.com/googleapis/go-type-adapters v1.0.0/go.mod h1:zHW75FOG2aur7gAO2B+MLby+cLsWGBF62rFAi7WjWO4=
 github.com/googleapis/google-cloud-go-testing v0.0.0-20200911160855-bcd43fbb19e8/go.mod h1:dvDLG8qkwmyD9a/MJJN3XJcT3xFxOKAvTZGvuZmac9g=
-github.com/gorhill/cronexpr v0.0.0-20180427100037-88b0669f7d75 h1:f0n1xnMSmBLzVfsMMvriDyA75NB/oBgILX2GcHXIQzY=
-github.com/gorhill/cronexpr v0.0.0-20180427100037-88b0669f7d75/go.mod h1:g2644b03hfBX9Ov0ZBDgXXens4rxSxmqFBbhvKv2yVA=
 github.com/gorilla/mux v1.8.0 h1:i40aqfkR1h2SlN9hojwV5ZA91wcXFOvkdNIeFDP5koI=
 github.com/gorilla/mux v1.8.0/go.mod h1:DVbg23sWSpFRCP0SfiEN6jmj59UnW/n46BH5rLB71So=
 github.com/grpc-ecosystem/grpc-gateway v1.16.0/go.mod h1:BDjrQk3hbvj6Nolgz8mAMFbcEtjT1g+wF4CSlocrBnw=
@@ -1946,10 +1944,10 @@ github.com/iwdgo/sigintwindows v0.2.2 h1:P6oWzpvV7MrEAmhUgs+zmarrWkyL77ycZz4v7+1
 github.com/iwdgo/sigintwindows v0.2.2/go.mod h1:70wPb8oz8OnxPvsj2QMUjgIVhb8hMu5TUgX8KfFl7QY=
 github.com/jbenet/go-context v0.0.0-20150711004518-d14ea06fba99 h1:BQSFePA1RWJOlocH6Fxy8MmwDt+yVQYULKfN0RoTN8A=
 github.com/jbenet/go-context v0.0.0-20150711004518-d14ea06fba99/go.mod h1:1lJo3i6rXxKeerYnT8Nvf0QmHCRC1n8sfWVwXF2Frvo=
-github.com/jfrog/terraform-provider-artifactory/v12 v12.9.4 h1:66LpcEN5OOIU8jEz3EjodEpDmEf9fSO5ykyPEWBCMoU=
-github.com/jfrog/terraform-provider-artifactory/v12 v12.9.4/go.mod h1:FtG1a4aYZ1PsjaVP9j7SRJY2tIEg7XEIjYGuQFpIo+4=
-github.com/jfrog/terraform-provider-shared v1.29.0 h1:cVv1/6GgGceo6CFYac+VfYYmnXfKBFTjaBePADE6ysU=
-github.com/jfrog/terraform-provider-shared v1.29.0/go.mod h1:0snzhXJR++SKRxpCtZnIFEIeP/Ud5zuF3Lm6OZncb4k=
+github.com/jfrog/terraform-provider-artifactory/v12 v12.9.5 h1:kvZe8IJyhNEXQpRG9O3iNynzPfDZ/24Vsole8X5wvek=
+github.com/jfrog/terraform-provider-artifactory/v12 v12.9.5/go.mod h1:LE0Gg7UJuP4geLe1VbKZ171tlUHz6zR4YuwbVN9tcAE=
+github.com/jfrog/terraform-provider-shared v1.30.0 h1:GUSWuB64P1d6iMitND7rGSraC69gQV5RJbP5Sq+oed0=
+github.com/jfrog/terraform-provider-shared v1.30.0/go.mod h1:b83OBWz8UINMb34aV2nENUN/T45A4cJ/HQwykCsGO+M=
 github.com/jhump/gopoet v0.0.0-20190322174617-17282ff210b3/go.mod h1:me9yfT6IJSlOL3FCfrg+L6yzUEZ+5jW6WHt4Sk+UPUI=
 github.com/jhump/gopoet v0.1.0/go.mod h1:me9yfT6IJSlOL3FCfrg+L6yzUEZ+5jW6WHt4Sk+UPUI=
 github.com/jhump/goprotoc v0.5.0/go.mod h1:VrbvcYrQOrTi3i0Vf+m+oqQWk9l72mjkJCYo7UvLHRQ=
@@ -2211,6 +2209,8 @@ github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20250530111747-935112552988 h1:
 github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20250530111747-935112552988/go.mod h1:QYmYnLfsosrxjCnGY1p9c7Zj6n9thnEE+7RObeYs3fA=
 github.com/remyoudompheng/bigfft v0.0.0-20200410134404-eec4a21b6bb0/go.mod h1:qqbHyh8v60DhA7CoWK5oRCqLrMHRGoxYCSS9EjAz6Eo=
 github.com/remyoudompheng/bigfft v0.0.0-20230129092748-24d4a6f8daec/go.mod h1:qqbHyh8v60DhA7CoWK5oRCqLrMHRGoxYCSS9EjAz6Eo=
+github.com/reugn/go-quartz v0.14.0 h1:KlIBAsOIw1JI8Rc7/f8VrrHBHOr+BiqrTiB35pRe84M=
+github.com/reugn/go-quartz v0.14.0/go.mod h1:00DVnBKq2Fxag/HlR9mGXjmHNlMFQ1n/LNM+Fn0jUaE=
 github.com/rhysd/go-fakeio v1.0.0 h1:+TjiKCOs32dONY7DaoVz/VPOdvRkPfBkEyUDIpM8FQY=
 github.com/rhysd/go-fakeio v1.0.0/go.mod h1:joYxF906trVwp2JLrE4jlN7A0z6wrz8O6o1UjarbFzE=
 github.com/rivo/uniseg v0.1.0/go.mod h1:J6wj4VEh+S6ZtnVlnTBMWIodfgj8LQOQFoIToxlJtxc=
