@@ -12,6 +12,7 @@ import (
 )
 
 func TestCreateUserDotnet(t *testing.T) {
+	t.Skipf("Skipping tests due to deactivated test instance")
 	test := getCSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir: filepath.Join(getCwd(t), "test-create-user", "csharp"),

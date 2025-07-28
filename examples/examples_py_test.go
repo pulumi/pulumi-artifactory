@@ -11,6 +11,7 @@ import (
 )
 
 func getPythonBaseOptions(t *testing.T) integration.ProgramTestOptions {
+	t.Skipf("Skipping tests due to deactivated test instance")
 	base := getBaseOptions()
 	basePython := base.With(integration.ProgramTestOptions{
 		Dependencies: []string{
