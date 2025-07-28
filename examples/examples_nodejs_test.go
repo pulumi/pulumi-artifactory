@@ -11,6 +11,7 @@ import (
 )
 
 func getJSBaseOptions(t *testing.T) integration.ProgramTestOptions {
+	t.Skipf("Skipping tests due to deactivated test instance")
 	base := getBaseOptions()
 	baseJS := base.With(integration.ProgramTestOptions{
 		Dependencies: []string{

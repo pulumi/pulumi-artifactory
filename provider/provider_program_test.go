@@ -29,6 +29,7 @@ func TestUpgradeCoverage(t *testing.T) {
 	providertest.ReportUpgradeCoverage(t)
 }
 func testProviderUpgrade(t *testing.T, dir string) {
+	t.Skipf("Skipping tests due to deactivated test instance")
 	if testing.Short() {
 		t.Skipf("Skipping in testing.Short() mode, assuming this is a CI run without credentials")
 	}
@@ -49,6 +50,7 @@ func testProviderUpgrade(t *testing.T, dir string) {
 }
 
 func testProgram(t *testing.T, dir string) {
+	t.Skipf("Skipping tests due to deactivated test instance")
 	if testing.Short() {
 		t.Skipf("Skipping in testing.Short() mode, assuming this is a CI run without credentials")
 	}
