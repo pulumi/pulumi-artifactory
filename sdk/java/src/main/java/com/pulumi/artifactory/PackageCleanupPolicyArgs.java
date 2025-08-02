@@ -20,14 +20,14 @@ public final class PackageCleanupPolicyArgs extends com.pulumi.resources.Resourc
     public static final PackageCleanupPolicyArgs Empty = new PackageCleanupPolicyArgs();
 
     /**
-     * The Cron expression that sets the schedule of policy execution. For example, `0 0 2 * * ?` executes the policy every day at 02:00 AM. The minimum recurrent time for policy execution is 6 hours.
+     * The cron expression that determines when the policy is run, However if left empty the policy will not run automatically and can only be triggered manually.
      * 
      */
     @Import(name="cronExpression")
     private @Nullable Output<String> cronExpression;
 
     /**
-     * @return The Cron expression that sets the schedule of policy execution. For example, `0 0 2 * * ?` executes the policy every day at 02:00 AM. The minimum recurrent time for policy execution is 6 hours.
+     * @return The cron expression that determines when the policy is run, However if left empty the policy will not run automatically and can only be triggered manually.
      * 
      */
     public Optional<Output<String>> cronExpression() {
@@ -42,14 +42,14 @@ public final class PackageCleanupPolicyArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Enable and select the maximum duration for policy execution. Note: using this setting can cause the policy to stop before completion.
+     * The maximum duration (in minutes) for policy execution, after which the policy will stop running even if not completed. While setting a maximum run duration for a policy is useful for adhering to a strict cleanup schedule, it can cause the policy to stop before completion.
      * 
      */
     @Import(name="durationInMinutes")
     private @Nullable Output<Integer> durationInMinutes;
 
     /**
-     * @return Enable and select the maximum duration for policy execution. Note: using this setting can cause the policy to stop before completion.
+     * @return The maximum duration (in minutes) for policy execution, after which the policy will stop running even if not completed. While setting a maximum run duration for a policy is useful for adhering to a strict cleanup schedule, it can cause the policy to stop before completion.
      * 
      */
     public Optional<Output<Integer>> durationInMinutes() {
@@ -57,14 +57,14 @@ public final class PackageCleanupPolicyArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Enables or disabled the package cleanup policy. This allows the user to run the policy manually. If a policy has a valid cron expression, then it will be scheduled for execution based on it. If a policy is disabled, its future executions will be unscheduled. Defaults to `true`
+     * A cleanup policy must be created inactive. But if used it must be set to `false`. If set to `true` when calling this API, the API call will fail and an error message is received. Defaults to `true`
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Enables or disabled the package cleanup policy. This allows the user to run the policy manually. If a policy has a valid cron expression, then it will be scheduled for execution based on it. If a policy is disabled, its future executions will be unscheduled. Defaults to `true`
+     * @return A cleanup policy must be created inactive. But if used it must be set to `false`. If set to `true` when calling this API, the API call will fail and an error message is received. Defaults to `true`
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -72,33 +72,18 @@ public final class PackageCleanupPolicyArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Policy key. It has to be unique. It should not be used for other policies and configuration entities like archive policies, key pairs, repo layouts, property sets, backups, proxies, reverse proxies etc. A minimum of three characters is required and can include letters, numbers, underscore and hyphen.
+     * An ID that is used to identify the cleanup policy. A minimum of three characters is required and can include letters, numbers, underscore and hyphen.
      * 
      */
     @Import(name="key", required=true)
     private Output<String> key;
 
     /**
-     * @return Policy key. It has to be unique. It should not be used for other policies and configuration entities like archive policies, key pairs, repo layouts, property sets, backups, proxies, reverse proxies etc. A minimum of three characters is required and can include letters, numbers, underscore and hyphen.
+     * @return An ID that is used to identify the cleanup policy. A minimum of three characters is required and can include letters, numbers, underscore and hyphen.
      * 
      */
     public Output<String> key() {
         return this.key;
-    }
-
-    /**
-     * This attribute is used only for project-level cleanup policies, it is not used for global-level policies.
-     * 
-     */
-    @Import(name="projectKey")
-    private @Nullable Output<String> projectKey;
-
-    /**
-     * @return This attribute is used only for project-level cleanup policies, it is not used for global-level policies.
-     * 
-     */
-    public Optional<Output<String>> projectKey() {
-        return Optional.ofNullable(this.projectKey);
     }
 
     @Import(name="searchCriteria", required=true)
@@ -109,14 +94,14 @@ public final class PackageCleanupPolicyArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Enabling this setting results in packages being permanently deleted from Artifactory after the cleanup policy is executed instead of going to the Trash Can repository. Defaults to `false`.
+     * A true value means that when this policy is executed, packages will be permanently deleted. false means that when the policy is executed packages will be deleted to the Trash Can. Defaults to `false`.
      * 
      */
     @Import(name="skipTrashcan")
     private @Nullable Output<Boolean> skipTrashcan;
 
     /**
-     * @return Enabling this setting results in packages being permanently deleted from Artifactory after the cleanup policy is executed instead of going to the Trash Can repository. Defaults to `false`.
+     * @return A true value means that when this policy is executed, packages will be permanently deleted. false means that when the policy is executed packages will be deleted to the Trash Can. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> skipTrashcan() {
@@ -131,7 +116,6 @@ public final class PackageCleanupPolicyArgs extends com.pulumi.resources.Resourc
         this.durationInMinutes = $.durationInMinutes;
         this.enabled = $.enabled;
         this.key = $.key;
-        this.projectKey = $.projectKey;
         this.searchCriteria = $.searchCriteria;
         this.skipTrashcan = $.skipTrashcan;
     }
@@ -155,7 +139,7 @@ public final class PackageCleanupPolicyArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param cronExpression The Cron expression that sets the schedule of policy execution. For example, `0 0 2 * * ?` executes the policy every day at 02:00 AM. The minimum recurrent time for policy execution is 6 hours.
+         * @param cronExpression The cron expression that determines when the policy is run, However if left empty the policy will not run automatically and can only be triggered manually.
          * 
          * @return builder
          * 
@@ -166,7 +150,7 @@ public final class PackageCleanupPolicyArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param cronExpression The Cron expression that sets the schedule of policy execution. For example, `0 0 2 * * ?` executes the policy every day at 02:00 AM. The minimum recurrent time for policy execution is 6 hours.
+         * @param cronExpression The cron expression that determines when the policy is run, However if left empty the policy will not run automatically and can only be triggered manually.
          * 
          * @return builder
          * 
@@ -185,7 +169,7 @@ public final class PackageCleanupPolicyArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param durationInMinutes Enable and select the maximum duration for policy execution. Note: using this setting can cause the policy to stop before completion.
+         * @param durationInMinutes The maximum duration (in minutes) for policy execution, after which the policy will stop running even if not completed. While setting a maximum run duration for a policy is useful for adhering to a strict cleanup schedule, it can cause the policy to stop before completion.
          * 
          * @return builder
          * 
@@ -196,7 +180,7 @@ public final class PackageCleanupPolicyArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param durationInMinutes Enable and select the maximum duration for policy execution. Note: using this setting can cause the policy to stop before completion.
+         * @param durationInMinutes The maximum duration (in minutes) for policy execution, after which the policy will stop running even if not completed. While setting a maximum run duration for a policy is useful for adhering to a strict cleanup schedule, it can cause the policy to stop before completion.
          * 
          * @return builder
          * 
@@ -206,7 +190,7 @@ public final class PackageCleanupPolicyArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param enabled Enables or disabled the package cleanup policy. This allows the user to run the policy manually. If a policy has a valid cron expression, then it will be scheduled for execution based on it. If a policy is disabled, its future executions will be unscheduled. Defaults to `true`
+         * @param enabled A cleanup policy must be created inactive. But if used it must be set to `false`. If set to `true` when calling this API, the API call will fail and an error message is received. Defaults to `true`
          * 
          * @return builder
          * 
@@ -217,7 +201,7 @@ public final class PackageCleanupPolicyArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param enabled Enables or disabled the package cleanup policy. This allows the user to run the policy manually. If a policy has a valid cron expression, then it will be scheduled for execution based on it. If a policy is disabled, its future executions will be unscheduled. Defaults to `true`
+         * @param enabled A cleanup policy must be created inactive. But if used it must be set to `false`. If set to `true` when calling this API, the API call will fail and an error message is received. Defaults to `true`
          * 
          * @return builder
          * 
@@ -227,7 +211,7 @@ public final class PackageCleanupPolicyArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param key Policy key. It has to be unique. It should not be used for other policies and configuration entities like archive policies, key pairs, repo layouts, property sets, backups, proxies, reverse proxies etc. A minimum of three characters is required and can include letters, numbers, underscore and hyphen.
+         * @param key An ID that is used to identify the cleanup policy. A minimum of three characters is required and can include letters, numbers, underscore and hyphen.
          * 
          * @return builder
          * 
@@ -238,34 +222,13 @@ public final class PackageCleanupPolicyArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param key Policy key. It has to be unique. It should not be used for other policies and configuration entities like archive policies, key pairs, repo layouts, property sets, backups, proxies, reverse proxies etc. A minimum of three characters is required and can include letters, numbers, underscore and hyphen.
+         * @param key An ID that is used to identify the cleanup policy. A minimum of three characters is required and can include letters, numbers, underscore and hyphen.
          * 
          * @return builder
          * 
          */
         public Builder key(String key) {
             return key(Output.of(key));
-        }
-
-        /**
-         * @param projectKey This attribute is used only for project-level cleanup policies, it is not used for global-level policies.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder projectKey(@Nullable Output<String> projectKey) {
-            $.projectKey = projectKey;
-            return this;
-        }
-
-        /**
-         * @param projectKey This attribute is used only for project-level cleanup policies, it is not used for global-level policies.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder projectKey(String projectKey) {
-            return projectKey(Output.of(projectKey));
         }
 
         public Builder searchCriteria(Output<PackageCleanupPolicySearchCriteriaArgs> searchCriteria) {
@@ -278,7 +241,7 @@ public final class PackageCleanupPolicyArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param skipTrashcan Enabling this setting results in packages being permanently deleted from Artifactory after the cleanup policy is executed instead of going to the Trash Can repository. Defaults to `false`.
+         * @param skipTrashcan A true value means that when this policy is executed, packages will be permanently deleted. false means that when the policy is executed packages will be deleted to the Trash Can. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -289,7 +252,7 @@ public final class PackageCleanupPolicyArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param skipTrashcan Enabling this setting results in packages being permanently deleted from Artifactory after the cleanup policy is executed instead of going to the Trash Can repository. Defaults to `false`.
+         * @param skipTrashcan A true value means that when this policy is executed, packages will be permanently deleted. false means that when the policy is executed packages will be deleted to the Trash Can. Defaults to `false`.
          * 
          * @return builder
          * 

@@ -49,6 +49,21 @@ public final class LocalRepositorySingleReplicationArgs extends com.pulumi.resou
     }
 
     /**
+     * When set to `true`, the `proxy` attribute will be ignored (from version 7.41.7). The default value is `false`.
+     * 
+     */
+    @Import(name="disableProxy")
+    private @Nullable Output<Boolean> disableProxy;
+
+    /**
+     * @return When set to `true`, the `proxy` attribute will be ignored (from version 7.41.7). The default value is `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> disableProxy() {
+        return Optional.ofNullable(this.disableProxy);
+    }
+
+    /**
      * When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
      * 
      */
@@ -248,6 +263,7 @@ public final class LocalRepositorySingleReplicationArgs extends com.pulumi.resou
     private LocalRepositorySingleReplicationArgs(LocalRepositorySingleReplicationArgs $) {
         this.checkBinaryExistenceInFilestore = $.checkBinaryExistenceInFilestore;
         this.cronExp = $.cronExp;
+        this.disableProxy = $.disableProxy;
         this.enableEventReplication = $.enableEventReplication;
         this.enabled = $.enabled;
         this.excludePathPrefixPattern = $.excludePathPrefixPattern;
@@ -321,6 +337,27 @@ public final class LocalRepositorySingleReplicationArgs extends com.pulumi.resou
          */
         public Builder cronExp(String cronExp) {
             return cronExp(Output.of(cronExp));
+        }
+
+        /**
+         * @param disableProxy When set to `true`, the `proxy` attribute will be ignored (from version 7.41.7). The default value is `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder disableProxy(@Nullable Output<Boolean> disableProxy) {
+            $.disableProxy = disableProxy;
+            return this;
+        }
+
+        /**
+         * @param disableProxy When set to `true`, the `proxy` attribute will be ignored (from version 7.41.7). The default value is `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder disableProxy(Boolean disableProxy) {
+            return disableProxy(Output.of(disableProxy));
         }
 
         /**
