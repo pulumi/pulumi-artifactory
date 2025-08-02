@@ -18,15 +18,6 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides an Artifactory Package Cleanup Policy resource. This resource enable system administrators to define and customize policies based on specific criteria for removing unused binaries from across their JFrog platform. See [Cleanup Policies](https://jfrog.com/help/r/jfrog-platform-administration-documentation/cleanup-policies) for more details.
- * 
- * ~&gt;Currently in beta and will be globally available in v7.98.x.
- * 
- * ## Example Usage
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  * ## Import
  * 
  * ```sh
@@ -41,14 +32,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="artifactory:index/packageCleanupPolicy:PackageCleanupPolicy")
 public class PackageCleanupPolicy extends com.pulumi.resources.CustomResource {
     /**
-     * The Cron expression that sets the schedule of policy execution. For example, `0 0 2 * * ?` executes the policy every day at 02:00 AM. The minimum recurrent time for policy execution is 6 hours.
+     * The cron expression that determines when the policy is run, However if left empty the policy will not run automatically and can only be triggered manually.
      * 
      */
     @Export(name="cronExpression", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> cronExpression;
 
     /**
-     * @return The Cron expression that sets the schedule of policy execution. For example, `0 0 2 * * ?` executes the policy every day at 02:00 AM. The minimum recurrent time for policy execution is 6 hours.
+     * @return The cron expression that determines when the policy is run, However if left empty the policy will not run automatically and can only be triggered manually.
      * 
      */
     public Output<Optional<String>> cronExpression() {
@@ -61,60 +52,46 @@ public class PackageCleanupPolicy extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * Enable and select the maximum duration for policy execution. Note: using this setting can cause the policy to stop before completion.
+     * The maximum duration (in minutes) for policy execution, after which the policy will stop running even if not completed. While setting a maximum run duration for a policy is useful for adhering to a strict cleanup schedule, it can cause the policy to stop before completion.
      * 
      */
     @Export(name="durationInMinutes", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> durationInMinutes;
 
     /**
-     * @return Enable and select the maximum duration for policy execution. Note: using this setting can cause the policy to stop before completion.
+     * @return The maximum duration (in minutes) for policy execution, after which the policy will stop running even if not completed. While setting a maximum run duration for a policy is useful for adhering to a strict cleanup schedule, it can cause the policy to stop before completion.
      * 
      */
     public Output<Optional<Integer>> durationInMinutes() {
         return Codegen.optional(this.durationInMinutes);
     }
     /**
-     * Enables or disabled the package cleanup policy. This allows the user to run the policy manually. If a policy has a valid cron expression, then it will be scheduled for execution based on it. If a policy is disabled, its future executions will be unscheduled. Defaults to `true`
+     * A cleanup policy must be created inactive. But if used it must be set to `false`. If set to `true` when calling this API, the API call will fail and an error message is received. Defaults to `true`
      * 
      */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enabled;
 
     /**
-     * @return Enables or disabled the package cleanup policy. This allows the user to run the policy manually. If a policy has a valid cron expression, then it will be scheduled for execution based on it. If a policy is disabled, its future executions will be unscheduled. Defaults to `true`
+     * @return A cleanup policy must be created inactive. But if used it must be set to `false`. If set to `true` when calling this API, the API call will fail and an error message is received. Defaults to `true`
      * 
      */
     public Output<Boolean> enabled() {
         return this.enabled;
     }
     /**
-     * Policy key. It has to be unique. It should not be used for other policies and configuration entities like archive policies, key pairs, repo layouts, property sets, backups, proxies, reverse proxies etc. A minimum of three characters is required and can include letters, numbers, underscore and hyphen.
+     * An ID that is used to identify the cleanup policy. A minimum of three characters is required and can include letters, numbers, underscore and hyphen.
      * 
      */
     @Export(name="key", refs={String.class}, tree="[0]")
     private Output<String> key;
 
     /**
-     * @return Policy key. It has to be unique. It should not be used for other policies and configuration entities like archive policies, key pairs, repo layouts, property sets, backups, proxies, reverse proxies etc. A minimum of three characters is required and can include letters, numbers, underscore and hyphen.
+     * @return An ID that is used to identify the cleanup policy. A minimum of three characters is required and can include letters, numbers, underscore and hyphen.
      * 
      */
     public Output<String> key() {
         return this.key;
-    }
-    /**
-     * This attribute is used only for project-level cleanup policies, it is not used for global-level policies.
-     * 
-     */
-    @Export(name="projectKey", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> projectKey;
-
-    /**
-     * @return This attribute is used only for project-level cleanup policies, it is not used for global-level policies.
-     * 
-     */
-    public Output<Optional<String>> projectKey() {
-        return Codegen.optional(this.projectKey);
     }
     @Export(name="searchCriteria", refs={PackageCleanupPolicySearchCriteria.class}, tree="[0]")
     private Output<PackageCleanupPolicySearchCriteria> searchCriteria;
@@ -123,14 +100,14 @@ public class PackageCleanupPolicy extends com.pulumi.resources.CustomResource {
         return this.searchCriteria;
     }
     /**
-     * Enabling this setting results in packages being permanently deleted from Artifactory after the cleanup policy is executed instead of going to the Trash Can repository. Defaults to `false`.
+     * A true value means that when this policy is executed, packages will be permanently deleted. false means that when the policy is executed packages will be deleted to the Trash Can. Defaults to `false`.
      * 
      */
     @Export(name="skipTrashcan", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> skipTrashcan;
 
     /**
-     * @return Enabling this setting results in packages being permanently deleted from Artifactory after the cleanup policy is executed instead of going to the Trash Can repository. Defaults to `false`.
+     * @return A true value means that when this policy is executed, packages will be permanently deleted. false means that when the policy is executed packages will be deleted to the Trash Can. Defaults to `false`.
      * 
      */
     public Output<Boolean> skipTrashcan() {

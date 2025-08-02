@@ -1574,6 +1574,11 @@
                             "excluded_packages": {
                                 "maxItemsOne": false
                             },
+                            "excluded_properties": {
+                                "elem": {
+                                    "maxItemsOne": false
+                                }
+                            },
                             "excluded_repos": {
                                 "maxItemsOne": false
                             },
@@ -1582,6 +1587,11 @@
                             },
                             "included_projects": {
                                 "maxItemsOne": false
+                            },
+                            "included_properties": {
+                                "elem": {
+                                    "maxItemsOne": false
+                                }
                             },
                             "package_types": {
                                 "maxItemsOne": false
