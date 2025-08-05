@@ -24,6 +24,7 @@ class LocalRepositorySingleReplicationArgs:
                  url: pulumi.Input[_builtins.str],
                  username: pulumi.Input[_builtins.str],
                  check_binary_existence_in_filestore: Optional[pulumi.Input[_builtins.bool]] = None,
+                 disable_proxy: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_event_replication: Optional[pulumi.Input[_builtins.bool]] = None,
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  exclude_path_prefix_pattern: Optional[pulumi.Input[_builtins.str]] = None,
@@ -41,6 +42,7 @@ class LocalRepositorySingleReplicationArgs:
         :param pulumi.Input[_builtins.str] url: The URL of the target local repository on a remote Artifactory server. Use the format `https://<artifactory_url>/artifactory/<repository_name>`.
         :param pulumi.Input[_builtins.str] username: Username on the remote Artifactory instance.
         :param pulumi.Input[_builtins.bool] check_binary_existence_in_filestore: Enabling the `check_binary_existence_in_filestore` flag requires an Enterprise Plus license. When true, enables distributed checksum storage. For more information, see [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
+        :param pulumi.Input[_builtins.bool] disable_proxy: When set to `true`, the `proxy` attribute will be ignored (from version 7.41.7). The default value is `false`.
         :param pulumi.Input[_builtins.bool] enable_event_replication: When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
         :param pulumi.Input[_builtins.bool] enabled: When set, enables replication of this repository to the target specified in `url` attribute. Default value is `true`.
         :param pulumi.Input[_builtins.str] exclude_path_prefix_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. By default, no artifacts are excluded.
@@ -58,6 +60,8 @@ class LocalRepositorySingleReplicationArgs:
         pulumi.set(__self__, "username", username)
         if check_binary_existence_in_filestore is not None:
             pulumi.set(__self__, "check_binary_existence_in_filestore", check_binary_existence_in_filestore)
+        if disable_proxy is not None:
+            pulumi.set(__self__, "disable_proxy", disable_proxy)
         if enable_event_replication is not None:
             pulumi.set(__self__, "enable_event_replication", enable_event_replication)
         if enabled is not None:
@@ -138,6 +142,18 @@ class LocalRepositorySingleReplicationArgs:
     @check_binary_existence_in_filestore.setter
     def check_binary_existence_in_filestore(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "check_binary_existence_in_filestore", value)
+
+    @_builtins.property
+    @pulumi.getter(name="disableProxy")
+    def disable_proxy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        When set to `true`, the `proxy` attribute will be ignored (from version 7.41.7). The default value is `false`.
+        """
+        return pulumi.get(self, "disable_proxy")
+
+    @disable_proxy.setter
+    def disable_proxy(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "disable_proxy", value)
 
     @_builtins.property
     @pulumi.getter(name="enableEventReplication")
@@ -265,6 +281,7 @@ class _LocalRepositorySingleReplicationState:
     def __init__(__self__, *,
                  check_binary_existence_in_filestore: Optional[pulumi.Input[_builtins.bool]] = None,
                  cron_exp: Optional[pulumi.Input[_builtins.str]] = None,
+                 disable_proxy: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_event_replication: Optional[pulumi.Input[_builtins.bool]] = None,
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  exclude_path_prefix_pattern: Optional[pulumi.Input[_builtins.str]] = None,
@@ -283,6 +300,7 @@ class _LocalRepositorySingleReplicationState:
         Input properties used for looking up and filtering LocalRepositorySingleReplication resources.
         :param pulumi.Input[_builtins.bool] check_binary_existence_in_filestore: Enabling the `check_binary_existence_in_filestore` flag requires an Enterprise Plus license. When true, enables distributed checksum storage. For more information, see [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
         :param pulumi.Input[_builtins.str] cron_exp: A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
+        :param pulumi.Input[_builtins.bool] disable_proxy: When set to `true`, the `proxy` attribute will be ignored (from version 7.41.7). The default value is `false`.
         :param pulumi.Input[_builtins.bool] enable_event_replication: When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
         :param pulumi.Input[_builtins.bool] enabled: When set, enables replication of this repository to the target specified in `url` attribute. Default value is `true`.
         :param pulumi.Input[_builtins.str] exclude_path_prefix_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. By default, no artifacts are excluded.
@@ -302,6 +320,8 @@ class _LocalRepositorySingleReplicationState:
             pulumi.set(__self__, "check_binary_existence_in_filestore", check_binary_existence_in_filestore)
         if cron_exp is not None:
             pulumi.set(__self__, "cron_exp", cron_exp)
+        if disable_proxy is not None:
+            pulumi.set(__self__, "disable_proxy", disable_proxy)
         if enable_event_replication is not None:
             pulumi.set(__self__, "enable_event_replication", enable_event_replication)
         if enabled is not None:
@@ -354,6 +374,18 @@ class _LocalRepositorySingleReplicationState:
     @cron_exp.setter
     def cron_exp(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "cron_exp", value)
+
+    @_builtins.property
+    @pulumi.getter(name="disableProxy")
+    def disable_proxy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        When set to `true`, the `proxy` attribute will be ignored (from version 7.41.7). The default value is `false`.
+        """
+        return pulumi.get(self, "disable_proxy")
+
+    @disable_proxy.setter
+    def disable_proxy(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "disable_proxy", value)
 
     @_builtins.property
     @pulumi.getter(name="enableEventReplication")
@@ -532,6 +564,7 @@ class LocalRepositorySingleReplication(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  check_binary_existence_in_filestore: Optional[pulumi.Input[_builtins.bool]] = None,
                  cron_exp: Optional[pulumi.Input[_builtins.str]] = None,
+                 disable_proxy: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_event_replication: Optional[pulumi.Input[_builtins.bool]] = None,
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  exclude_path_prefix_pattern: Optional[pulumi.Input[_builtins.str]] = None,
@@ -599,6 +632,7 @@ class LocalRepositorySingleReplication(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] check_binary_existence_in_filestore: Enabling the `check_binary_existence_in_filestore` flag requires an Enterprise Plus license. When true, enables distributed checksum storage. For more information, see [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
         :param pulumi.Input[_builtins.str] cron_exp: A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
+        :param pulumi.Input[_builtins.bool] disable_proxy: When set to `true`, the `proxy` attribute will be ignored (from version 7.41.7). The default value is `false`.
         :param pulumi.Input[_builtins.bool] enable_event_replication: When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
         :param pulumi.Input[_builtins.bool] enabled: When set, enables replication of this repository to the target specified in `url` attribute. Default value is `true`.
         :param pulumi.Input[_builtins.str] exclude_path_prefix_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. By default, no artifacts are excluded.
@@ -685,6 +719,7 @@ class LocalRepositorySingleReplication(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  check_binary_existence_in_filestore: Optional[pulumi.Input[_builtins.bool]] = None,
                  cron_exp: Optional[pulumi.Input[_builtins.str]] = None,
+                 disable_proxy: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_event_replication: Optional[pulumi.Input[_builtins.bool]] = None,
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  exclude_path_prefix_pattern: Optional[pulumi.Input[_builtins.str]] = None,
@@ -711,6 +746,7 @@ class LocalRepositorySingleReplication(pulumi.CustomResource):
             if cron_exp is None and not opts.urn:
                 raise TypeError("Missing required property 'cron_exp'")
             __props__.__dict__["cron_exp"] = cron_exp
+            __props__.__dict__["disable_proxy"] = disable_proxy
             __props__.__dict__["enable_event_replication"] = enable_event_replication
             __props__.__dict__["enabled"] = enabled
             __props__.__dict__["exclude_path_prefix_pattern"] = exclude_path_prefix_pattern
@@ -745,6 +781,7 @@ class LocalRepositorySingleReplication(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             check_binary_existence_in_filestore: Optional[pulumi.Input[_builtins.bool]] = None,
             cron_exp: Optional[pulumi.Input[_builtins.str]] = None,
+            disable_proxy: Optional[pulumi.Input[_builtins.bool]] = None,
             enable_event_replication: Optional[pulumi.Input[_builtins.bool]] = None,
             enabled: Optional[pulumi.Input[_builtins.bool]] = None,
             exclude_path_prefix_pattern: Optional[pulumi.Input[_builtins.str]] = None,
@@ -768,6 +805,7 @@ class LocalRepositorySingleReplication(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] check_binary_existence_in_filestore: Enabling the `check_binary_existence_in_filestore` flag requires an Enterprise Plus license. When true, enables distributed checksum storage. For more information, see [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
         :param pulumi.Input[_builtins.str] cron_exp: A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
+        :param pulumi.Input[_builtins.bool] disable_proxy: When set to `true`, the `proxy` attribute will be ignored (from version 7.41.7). The default value is `false`.
         :param pulumi.Input[_builtins.bool] enable_event_replication: When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
         :param pulumi.Input[_builtins.bool] enabled: When set, enables replication of this repository to the target specified in `url` attribute. Default value is `true`.
         :param pulumi.Input[_builtins.str] exclude_path_prefix_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. By default, no artifacts are excluded.
@@ -789,6 +827,7 @@ class LocalRepositorySingleReplication(pulumi.CustomResource):
 
         __props__.__dict__["check_binary_existence_in_filestore"] = check_binary_existence_in_filestore
         __props__.__dict__["cron_exp"] = cron_exp
+        __props__.__dict__["disable_proxy"] = disable_proxy
         __props__.__dict__["enable_event_replication"] = enable_event_replication
         __props__.__dict__["enabled"] = enabled
         __props__.__dict__["exclude_path_prefix_pattern"] = exclude_path_prefix_pattern
@@ -820,6 +859,14 @@ class LocalRepositorySingleReplication(pulumi.CustomResource):
         A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
         """
         return pulumi.get(self, "cron_exp")
+
+    @_builtins.property
+    @pulumi.getter(name="disableProxy")
+    def disable_proxy(self) -> pulumi.Output[_builtins.bool]:
+        """
+        When set to `true`, the `proxy` attribute will be ignored (from version 7.41.7). The default value is `false`.
+        """
+        return pulumi.get(self, "disable_proxy")
 
     @_builtins.property
     @pulumi.getter(name="enableEventReplication")

@@ -90,6 +90,12 @@ namespace Pulumi.Artifactory
         public Output<string> CronExp { get; private set; } = null!;
 
         /// <summary>
+        /// When set to `true`, the `proxy` attribute will be ignored (from version 7.41.7). The default value is `false`.
+        /// </summary>
+        [Output("disableProxy")]
+        public Output<bool> DisableProxy { get; private set; } = null!;
+
+        /// <summary>
         /// When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
         /// </summary>
         [Output("enableEventReplication")]
@@ -236,6 +242,12 @@ namespace Pulumi.Artifactory
         public Input<string> CronExp { get; set; } = null!;
 
         /// <summary>
+        /// When set to `true`, the `proxy` attribute will be ignored (from version 7.41.7). The default value is `false`.
+        /// </summary>
+        [Input("disableProxy")]
+        public Input<bool>? DisableProxy { get; set; }
+
+        /// <summary>
         /// When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
         /// </summary>
         [Input("enableEventReplication")]
@@ -342,6 +354,12 @@ namespace Pulumi.Artifactory
         /// </summary>
         [Input("cronExp")]
         public Input<string>? CronExp { get; set; }
+
+        /// <summary>
+        /// When set to `true`, the `proxy` attribute will be ignored (from version 7.41.7). The default value is `false`.
+        /// </summary>
+        [Input("disableProxy")]
+        public Input<bool>? DisableProxy { get; set; }
 
         /// <summary>
         /// When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
