@@ -128,6 +128,20 @@ public class LocalRepositorySingleReplication extends com.pulumi.resources.Custo
         return this.cronExp;
     }
     /**
+     * When set to `true`, the `proxy` attribute will be ignored (from version 7.41.7). The default value is `false`.
+     * 
+     */
+    @Export(name="disableProxy", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> disableProxy;
+
+    /**
+     * @return When set to `true`, the `proxy` attribute will be ignored (from version 7.41.7). The default value is `false`.
+     * 
+     */
+    public Output<Boolean> disableProxy() {
+        return this.disableProxy;
+    }
+    /**
      * When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
      * 
      */

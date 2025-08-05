@@ -10,10 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Artifactory
 {
     /// <summary>
-    /// Provides an Artifactory Package Cleanup Policy resource. This resource enable system administrators to define and customize policies based on specific criteria for removing unused binaries from across their JFrog platform. See [Cleanup Policies](https://jfrog.com/help/r/jfrog-platform-administration-documentation/cleanup-policies) for more details.
-    /// 
-    /// ~&gt;Currently in beta and will be globally available in v7.98.x.
-    /// 
     /// ## Import
     /// 
     /// ```sh
@@ -28,7 +24,7 @@ namespace Pulumi.Artifactory
     public partial class PackageCleanupPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Cron expression that sets the schedule of policy execution. For example, `0 0 2 * * ?` executes the policy every day at 02:00 AM. The minimum recurrent time for policy execution is 6 hours.
+        /// The cron expression that determines when the policy is run, However if left empty the policy will not run automatically and can only be triggered manually.
         /// </summary>
         [Output("cronExpression")]
         public Output<string?> CronExpression { get; private set; } = null!;
@@ -37,34 +33,28 @@ namespace Pulumi.Artifactory
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Enable and select the maximum duration for policy execution. Note: using this setting can cause the policy to stop before completion.
+        /// The maximum duration (in minutes) for policy execution, after which the policy will stop running even if not completed. While setting a maximum run duration for a policy is useful for adhering to a strict cleanup schedule, it can cause the policy to stop before completion.
         /// </summary>
         [Output("durationInMinutes")]
         public Output<int?> DurationInMinutes { get; private set; } = null!;
 
         /// <summary>
-        /// Enables or disabled the package cleanup policy. This allows the user to run the policy manually. If a policy has a valid cron expression, then it will be scheduled for execution based on it. If a policy is disabled, its future executions will be unscheduled. Defaults to `true`
+        /// A cleanup policy must be created inactive. But if used it must be set to `false`. If set to `true` when calling this API, the API call will fail and an error message is received. Defaults to `true`
         /// </summary>
         [Output("enabled")]
         public Output<bool> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// Policy key. It has to be unique. It should not be used for other policies and configuration entities like archive policies, key pairs, repo layouts, property sets, backups, proxies, reverse proxies etc. A minimum of three characters is required and can include letters, numbers, underscore and hyphen.
+        /// An ID that is used to identify the cleanup policy. A minimum of three characters is required and can include letters, numbers, underscore and hyphen.
         /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
-
-        /// <summary>
-        /// This attribute is used only for project-level cleanup policies, it is not used for global-level policies.
-        /// </summary>
-        [Output("projectKey")]
-        public Output<string?> ProjectKey { get; private set; } = null!;
 
         [Output("searchCriteria")]
         public Output<Outputs.PackageCleanupPolicySearchCriteria> SearchCriteria { get; private set; } = null!;
 
         /// <summary>
-        /// Enabling this setting results in packages being permanently deleted from Artifactory after the cleanup policy is executed instead of going to the Trash Can repository. Defaults to `false`.
+        /// A true value means that when this policy is executed, packages will be permanently deleted. false means that when the policy is executed packages will be deleted to the Trash Can. Defaults to `false`.
         /// </summary>
         [Output("skipTrashcan")]
         public Output<bool> SkipTrashcan { get; private set; } = null!;
@@ -116,7 +106,7 @@ namespace Pulumi.Artifactory
     public sealed class PackageCleanupPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Cron expression that sets the schedule of policy execution. For example, `0 0 2 * * ?` executes the policy every day at 02:00 AM. The minimum recurrent time for policy execution is 6 hours.
+        /// The cron expression that determines when the policy is run, However if left empty the policy will not run automatically and can only be triggered manually.
         /// </summary>
         [Input("cronExpression")]
         public Input<string>? CronExpression { get; set; }
@@ -125,34 +115,28 @@ namespace Pulumi.Artifactory
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Enable and select the maximum duration for policy execution. Note: using this setting can cause the policy to stop before completion.
+        /// The maximum duration (in minutes) for policy execution, after which the policy will stop running even if not completed. While setting a maximum run duration for a policy is useful for adhering to a strict cleanup schedule, it can cause the policy to stop before completion.
         /// </summary>
         [Input("durationInMinutes")]
         public Input<int>? DurationInMinutes { get; set; }
 
         /// <summary>
-        /// Enables or disabled the package cleanup policy. This allows the user to run the policy manually. If a policy has a valid cron expression, then it will be scheduled for execution based on it. If a policy is disabled, its future executions will be unscheduled. Defaults to `true`
+        /// A cleanup policy must be created inactive. But if used it must be set to `false`. If set to `true` when calling this API, the API call will fail and an error message is received. Defaults to `true`
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// Policy key. It has to be unique. It should not be used for other policies and configuration entities like archive policies, key pairs, repo layouts, property sets, backups, proxies, reverse proxies etc. A minimum of three characters is required and can include letters, numbers, underscore and hyphen.
+        /// An ID that is used to identify the cleanup policy. A minimum of three characters is required and can include letters, numbers, underscore and hyphen.
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
-
-        /// <summary>
-        /// This attribute is used only for project-level cleanup policies, it is not used for global-level policies.
-        /// </summary>
-        [Input("projectKey")]
-        public Input<string>? ProjectKey { get; set; }
 
         [Input("searchCriteria", required: true)]
         public Input<Inputs.PackageCleanupPolicySearchCriteriaArgs> SearchCriteria { get; set; } = null!;
 
         /// <summary>
-        /// Enabling this setting results in packages being permanently deleted from Artifactory after the cleanup policy is executed instead of going to the Trash Can repository. Defaults to `false`.
+        /// A true value means that when this policy is executed, packages will be permanently deleted. false means that when the policy is executed packages will be deleted to the Trash Can. Defaults to `false`.
         /// </summary>
         [Input("skipTrashcan")]
         public Input<bool>? SkipTrashcan { get; set; }
@@ -166,7 +150,7 @@ namespace Pulumi.Artifactory
     public sealed class PackageCleanupPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Cron expression that sets the schedule of policy execution. For example, `0 0 2 * * ?` executes the policy every day at 02:00 AM. The minimum recurrent time for policy execution is 6 hours.
+        /// The cron expression that determines when the policy is run, However if left empty the policy will not run automatically and can only be triggered manually.
         /// </summary>
         [Input("cronExpression")]
         public Input<string>? CronExpression { get; set; }
@@ -175,34 +159,28 @@ namespace Pulumi.Artifactory
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Enable and select the maximum duration for policy execution. Note: using this setting can cause the policy to stop before completion.
+        /// The maximum duration (in minutes) for policy execution, after which the policy will stop running even if not completed. While setting a maximum run duration for a policy is useful for adhering to a strict cleanup schedule, it can cause the policy to stop before completion.
         /// </summary>
         [Input("durationInMinutes")]
         public Input<int>? DurationInMinutes { get; set; }
 
         /// <summary>
-        /// Enables or disabled the package cleanup policy. This allows the user to run the policy manually. If a policy has a valid cron expression, then it will be scheduled for execution based on it. If a policy is disabled, its future executions will be unscheduled. Defaults to `true`
+        /// A cleanup policy must be created inactive. But if used it must be set to `false`. If set to `true` when calling this API, the API call will fail and an error message is received. Defaults to `true`
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// Policy key. It has to be unique. It should not be used for other policies and configuration entities like archive policies, key pairs, repo layouts, property sets, backups, proxies, reverse proxies etc. A minimum of three characters is required and can include letters, numbers, underscore and hyphen.
+        /// An ID that is used to identify the cleanup policy. A minimum of three characters is required and can include letters, numbers, underscore and hyphen.
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
-
-        /// <summary>
-        /// This attribute is used only for project-level cleanup policies, it is not used for global-level policies.
-        /// </summary>
-        [Input("projectKey")]
-        public Input<string>? ProjectKey { get; set; }
 
         [Input("searchCriteria")]
         public Input<Inputs.PackageCleanupPolicySearchCriteriaGetArgs>? SearchCriteria { get; set; }
 
         /// <summary>
-        /// Enabling this setting results in packages being permanently deleted from Artifactory after the cleanup policy is executed instead of going to the Trash Can repository. Defaults to `false`.
+        /// A true value means that when this policy is executed, packages will be permanently deleted. false means that when the policy is executed packages will be deleted to the Trash Can. Defaults to `false`.
         /// </summary>
         [Input("skipTrashcan")]
         public Input<bool>? SkipTrashcan { get; set; }

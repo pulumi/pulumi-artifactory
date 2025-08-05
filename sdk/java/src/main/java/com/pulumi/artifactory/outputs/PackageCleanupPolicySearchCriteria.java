@@ -9,6 +9,7 @@ import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -16,72 +17,128 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PackageCleanupPolicySearchCriteria {
     /**
-     * @return Remove packages based on when they were created. For example, remove packages that were created more than a year ago. The default value is to remove packages created more than 2 years ago.
+     * @return The cleanup policy will delete packages based on how long ago they were created. For example, if this parameter is 5 then packages created more than 5 days ago will be deleted as part of the policy.
+     * 
+     * ~&gt;JFrog recommends using the `created_before_in_days` condition to ensure that packages currently in use are not deleted.
      * 
      */
+    private @Nullable Integer createdBeforeInDays;
+    /**
+     * @return The cleanup policy will delete packages based on how long ago they were created. For example, if this parameter is 2 then packages created more than 2 months ago will be deleted as part of the policy.
+     * 
+     * ~&gt;JFrog recommends using the `created_before_in_months` condition to ensure that packages currently in use are not deleted.
+     * 
+     * @deprecated
+     * Use `created_before_in_days` instead of `created_before_in_months`. Renamed to `created_before_in_days` starting in version 7.111.2.
+     * 
+     */
+    @Deprecated /* Use `created_before_in_days` instead of `created_before_in_months`. Renamed to `created_before_in_days` starting in version 7.111.2. */
     private @Nullable Integer createdBeforeInMonths;
     /**
-     * @return Specify explicit package names that you want excluded from the policy. Only Name explicit names (and not patterns) are accepted.
+     * @return Specify explicit package names that you want excluded from the policy. Only explicit names (and not patterns) are accepted.
      * 
      */
     private @Nullable List<String> excludedPackages;
+    /**
+     * @return A key-value pair applied to the lead artifact of a package. Packages with this property will be excluded from deletion.
+     * 
+     */
+    private @Nullable Map<String,List<String>> excludedProperties;
     /**
      * @return Specify patterns for repository names or explicit repository names that you want excluded from the cleanup policy.
      * 
      */
     private @Nullable List<String> excludedRepos;
     /**
-     * @return Set this to `true` if you want the policy to run on all projects on the platform.
+     * @return Set this value to `true` if you want the policy to run on all Artifactory projects. The default value is `false`.
+     * 
+     *  ~&gt;This parameter is relevant only on the global level, for Platform Admins.
      * 
      */
     private @Nullable Boolean includeAllProjects;
     /**
-     * @return Specify a pattern for a package name or an explicit package name. It accept only single element which can be specific package or pattern, and for including all packages use `**`. Example: `included_packages = [&#34;**&#34;]`
+     * @return Specify a pattern for a package name or an explicit package name on which you want the cleanup policy to run. Only one pattern or explicit name can be entered. To include all packages, use `**`. Example: `included_packages = [&#34;**&#34;]`
      * 
      */
     private List<String> includedPackages;
     /**
-     * @return List of projects on which you want this policy to run. To include repositories that are not assigned to any project, enter the project key `default`.
+     * @return Enter the project keys for the projects on which you want the policy to run. To include repositories that are not assigned to any project, enter the project key `default`. Can be empty when `include_all_projects` is set to `true`.
      * 
      */
-    private @Nullable List<String> includedProjects;
+    private List<String> includedProjects;
     /**
-     * @return Select the number of latest versions to keep. The cleanup policy will remove all versions prior to the number you select here. The latest version is always excluded. Versions are determined by creation date.
+     * @return A key-value pair applied to the lead artifact of a package. Packages with this property will be deleted.
+     * 
+     */
+    private @Nullable Map<String,List<String>> includedProperties;
+    /**
+     * @return Set a value for the number of latest versions to keep. The cleanup policy will remove all versions prior to the number you select here. The latest version is always excluded.
      * 
      * ~&gt;Not all package types support this condition. For information on which package types support this condition, [learn more](https://jfrog.com/help/r/jfrog-platform-administration-documentation/retention-policies/package-types-coverage).
      * 
      */
     private @Nullable Integer keepLastNVersions;
     /**
-     * @return Removes packages based on when they were last downloaded. For example, removes packages that were not downloaded in the past year. The default value is to remove packages that were downloaded more than 2 years ago.
+     * @return The cleanup policy will delete packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 days ago will be deleted as part of the policy.
      * 
-     * ~&gt;If a package was never downloaded, the policy will remove it based only on the age-condition (`created_before_in_months`).
+     * ~&gt;JFrog recommends using the `last_downloaded_before_in_days` condition to ensure that packages currently in use are not deleted.
+     * 
+     */
+    private @Nullable Integer lastDownloadedBeforeInDays;
+    /**
+     * @return The cleanup policy will delete packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 months ago will be deleted as part of the policy.
      * 
      * ~&gt;JFrog recommends using the `last_downloaded_before_in_months` condition to ensure that packages currently in use are not deleted.
      * 
+     * @deprecated
+     * Use `last_downloaded_before_in_days` instead of `last_downloaded_before_in_months`. Renamed to `last_downloaded_before_in_days` starting in version 7.111.2.
+     * 
      */
+    @Deprecated /* Use `last_downloaded_before_in_days` instead of `last_downloaded_before_in_months`. Renamed to `last_downloaded_before_in_days` starting in version 7.111.2. */
     private @Nullable Integer lastDownloadedBeforeInMonths;
     private List<String> packageTypes;
     /**
-     * @return Specify patterns for repository names or explicit repository names. For including all repos use `**`. Example: `repos = [&#34;**&#34;]`
+     * @return Specify one or more patterns for the repository name(s) on which you want the cleanup policy to run. You can also specify explicit repository names. Specifying at least one pattern or explicit name is mandatory. Only packages in repositories that match the pattern or explicit name will be deleted. For including all repos use `**`. Example: `repos = [&#34;**&#34;]`
      * 
      */
     private List<String> repos;
 
     private PackageCleanupPolicySearchCriteria() {}
     /**
-     * @return Remove packages based on when they were created. For example, remove packages that were created more than a year ago. The default value is to remove packages created more than 2 years ago.
+     * @return The cleanup policy will delete packages based on how long ago they were created. For example, if this parameter is 5 then packages created more than 5 days ago will be deleted as part of the policy.
+     * 
+     * ~&gt;JFrog recommends using the `created_before_in_days` condition to ensure that packages currently in use are not deleted.
      * 
      */
+    public Optional<Integer> createdBeforeInDays() {
+        return Optional.ofNullable(this.createdBeforeInDays);
+    }
+    /**
+     * @return The cleanup policy will delete packages based on how long ago they were created. For example, if this parameter is 2 then packages created more than 2 months ago will be deleted as part of the policy.
+     * 
+     * ~&gt;JFrog recommends using the `created_before_in_months` condition to ensure that packages currently in use are not deleted.
+     * 
+     * @deprecated
+     * Use `created_before_in_days` instead of `created_before_in_months`. Renamed to `created_before_in_days` starting in version 7.111.2.
+     * 
+     */
+    @Deprecated /* Use `created_before_in_days` instead of `created_before_in_months`. Renamed to `created_before_in_days` starting in version 7.111.2. */
     public Optional<Integer> createdBeforeInMonths() {
         return Optional.ofNullable(this.createdBeforeInMonths);
     }
     /**
-     * @return Specify explicit package names that you want excluded from the policy. Only Name explicit names (and not patterns) are accepted.
+     * @return Specify explicit package names that you want excluded from the policy. Only explicit names (and not patterns) are accepted.
      * 
      */
     public List<String> excludedPackages() {
         return this.excludedPackages == null ? List.of() : this.excludedPackages;
+    }
+    /**
+     * @return A key-value pair applied to the lead artifact of a package. Packages with this property will be excluded from deletion.
+     * 
+     */
+    public Map<String,List<String>> excludedProperties() {
+        return this.excludedProperties == null ? Map.of() : this.excludedProperties;
     }
     /**
      * @return Specify patterns for repository names or explicit repository names that you want excluded from the cleanup policy.
@@ -91,28 +148,37 @@ public final class PackageCleanupPolicySearchCriteria {
         return this.excludedRepos == null ? List.of() : this.excludedRepos;
     }
     /**
-     * @return Set this to `true` if you want the policy to run on all projects on the platform.
+     * @return Set this value to `true` if you want the policy to run on all Artifactory projects. The default value is `false`.
+     * 
+     *  ~&gt;This parameter is relevant only on the global level, for Platform Admins.
      * 
      */
     public Optional<Boolean> includeAllProjects() {
         return Optional.ofNullable(this.includeAllProjects);
     }
     /**
-     * @return Specify a pattern for a package name or an explicit package name. It accept only single element which can be specific package or pattern, and for including all packages use `**`. Example: `included_packages = [&#34;**&#34;]`
+     * @return Specify a pattern for a package name or an explicit package name on which you want the cleanup policy to run. Only one pattern or explicit name can be entered. To include all packages, use `**`. Example: `included_packages = [&#34;**&#34;]`
      * 
      */
     public List<String> includedPackages() {
         return this.includedPackages;
     }
     /**
-     * @return List of projects on which you want this policy to run. To include repositories that are not assigned to any project, enter the project key `default`.
+     * @return Enter the project keys for the projects on which you want the policy to run. To include repositories that are not assigned to any project, enter the project key `default`. Can be empty when `include_all_projects` is set to `true`.
      * 
      */
     public List<String> includedProjects() {
-        return this.includedProjects == null ? List.of() : this.includedProjects;
+        return this.includedProjects;
     }
     /**
-     * @return Select the number of latest versions to keep. The cleanup policy will remove all versions prior to the number you select here. The latest version is always excluded. Versions are determined by creation date.
+     * @return A key-value pair applied to the lead artifact of a package. Packages with this property will be deleted.
+     * 
+     */
+    public Map<String,List<String>> includedProperties() {
+        return this.includedProperties == null ? Map.of() : this.includedProperties;
+    }
+    /**
+     * @return Set a value for the number of latest versions to keep. The cleanup policy will remove all versions prior to the number you select here. The latest version is always excluded.
      * 
      * ~&gt;Not all package types support this condition. For information on which package types support this condition, [learn more](https://jfrog.com/help/r/jfrog-platform-administration-documentation/retention-policies/package-types-coverage).
      * 
@@ -121,13 +187,24 @@ public final class PackageCleanupPolicySearchCriteria {
         return Optional.ofNullable(this.keepLastNVersions);
     }
     /**
-     * @return Removes packages based on when they were last downloaded. For example, removes packages that were not downloaded in the past year. The default value is to remove packages that were downloaded more than 2 years ago.
+     * @return The cleanup policy will delete packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 days ago will be deleted as part of the policy.
      * 
-     * ~&gt;If a package was never downloaded, the policy will remove it based only on the age-condition (`created_before_in_months`).
+     * ~&gt;JFrog recommends using the `last_downloaded_before_in_days` condition to ensure that packages currently in use are not deleted.
+     * 
+     */
+    public Optional<Integer> lastDownloadedBeforeInDays() {
+        return Optional.ofNullable(this.lastDownloadedBeforeInDays);
+    }
+    /**
+     * @return The cleanup policy will delete packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 months ago will be deleted as part of the policy.
      * 
      * ~&gt;JFrog recommends using the `last_downloaded_before_in_months` condition to ensure that packages currently in use are not deleted.
      * 
+     * @deprecated
+     * Use `last_downloaded_before_in_days` instead of `last_downloaded_before_in_months`. Renamed to `last_downloaded_before_in_days` starting in version 7.111.2.
+     * 
      */
+    @Deprecated /* Use `last_downloaded_before_in_days` instead of `last_downloaded_before_in_months`. Renamed to `last_downloaded_before_in_days` starting in version 7.111.2. */
     public Optional<Integer> lastDownloadedBeforeInMonths() {
         return Optional.ofNullable(this.lastDownloadedBeforeInMonths);
     }
@@ -135,7 +212,7 @@ public final class PackageCleanupPolicySearchCriteria {
         return this.packageTypes;
     }
     /**
-     * @return Specify patterns for repository names or explicit repository names. For including all repos use `**`. Example: `repos = [&#34;**&#34;]`
+     * @return Specify one or more patterns for the repository name(s) on which you want the cleanup policy to run. You can also specify explicit repository names. Specifying at least one pattern or explicit name is mandatory. Only packages in repositories that match the pattern or explicit name will be deleted. For including all repos use `**`. Example: `repos = [&#34;**&#34;]`
      * 
      */
     public List<String> repos() {
@@ -151,31 +228,45 @@ public final class PackageCleanupPolicySearchCriteria {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable Integer createdBeforeInDays;
         private @Nullable Integer createdBeforeInMonths;
         private @Nullable List<String> excludedPackages;
+        private @Nullable Map<String,List<String>> excludedProperties;
         private @Nullable List<String> excludedRepos;
         private @Nullable Boolean includeAllProjects;
         private List<String> includedPackages;
-        private @Nullable List<String> includedProjects;
+        private List<String> includedProjects;
+        private @Nullable Map<String,List<String>> includedProperties;
         private @Nullable Integer keepLastNVersions;
+        private @Nullable Integer lastDownloadedBeforeInDays;
         private @Nullable Integer lastDownloadedBeforeInMonths;
         private List<String> packageTypes;
         private List<String> repos;
         public Builder() {}
         public Builder(PackageCleanupPolicySearchCriteria defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.createdBeforeInDays = defaults.createdBeforeInDays;
     	      this.createdBeforeInMonths = defaults.createdBeforeInMonths;
     	      this.excludedPackages = defaults.excludedPackages;
+    	      this.excludedProperties = defaults.excludedProperties;
     	      this.excludedRepos = defaults.excludedRepos;
     	      this.includeAllProjects = defaults.includeAllProjects;
     	      this.includedPackages = defaults.includedPackages;
     	      this.includedProjects = defaults.includedProjects;
+    	      this.includedProperties = defaults.includedProperties;
     	      this.keepLastNVersions = defaults.keepLastNVersions;
+    	      this.lastDownloadedBeforeInDays = defaults.lastDownloadedBeforeInDays;
     	      this.lastDownloadedBeforeInMonths = defaults.lastDownloadedBeforeInMonths;
     	      this.packageTypes = defaults.packageTypes;
     	      this.repos = defaults.repos;
         }
 
+        @CustomType.Setter
+        public Builder createdBeforeInDays(@Nullable Integer createdBeforeInDays) {
+
+            this.createdBeforeInDays = createdBeforeInDays;
+            return this;
+        }
         @CustomType.Setter
         public Builder createdBeforeInMonths(@Nullable Integer createdBeforeInMonths) {
 
@@ -190,6 +281,12 @@ public final class PackageCleanupPolicySearchCriteria {
         }
         public Builder excludedPackages(String... excludedPackages) {
             return excludedPackages(List.of(excludedPackages));
+        }
+        @CustomType.Setter
+        public Builder excludedProperties(@Nullable Map<String,List<String>> excludedProperties) {
+
+            this.excludedProperties = excludedProperties;
+            return this;
         }
         @CustomType.Setter
         public Builder excludedRepos(@Nullable List<String> excludedRepos) {
@@ -218,8 +315,10 @@ public final class PackageCleanupPolicySearchCriteria {
             return includedPackages(List.of(includedPackages));
         }
         @CustomType.Setter
-        public Builder includedProjects(@Nullable List<String> includedProjects) {
-
+        public Builder includedProjects(List<String> includedProjects) {
+            if (includedProjects == null) {
+              throw new MissingRequiredPropertyException("PackageCleanupPolicySearchCriteria", "includedProjects");
+            }
             this.includedProjects = includedProjects;
             return this;
         }
@@ -227,9 +326,21 @@ public final class PackageCleanupPolicySearchCriteria {
             return includedProjects(List.of(includedProjects));
         }
         @CustomType.Setter
+        public Builder includedProperties(@Nullable Map<String,List<String>> includedProperties) {
+
+            this.includedProperties = includedProperties;
+            return this;
+        }
+        @CustomType.Setter
         public Builder keepLastNVersions(@Nullable Integer keepLastNVersions) {
 
             this.keepLastNVersions = keepLastNVersions;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder lastDownloadedBeforeInDays(@Nullable Integer lastDownloadedBeforeInDays) {
+
+            this.lastDownloadedBeforeInDays = lastDownloadedBeforeInDays;
             return this;
         }
         @CustomType.Setter
@@ -262,13 +373,17 @@ public final class PackageCleanupPolicySearchCriteria {
         }
         public PackageCleanupPolicySearchCriteria build() {
             final var _resultValue = new PackageCleanupPolicySearchCriteria();
+            _resultValue.createdBeforeInDays = createdBeforeInDays;
             _resultValue.createdBeforeInMonths = createdBeforeInMonths;
             _resultValue.excludedPackages = excludedPackages;
+            _resultValue.excludedProperties = excludedProperties;
             _resultValue.excludedRepos = excludedRepos;
             _resultValue.includeAllProjects = includeAllProjects;
             _resultValue.includedPackages = includedPackages;
             _resultValue.includedProjects = includedProjects;
+            _resultValue.includedProperties = includedProperties;
             _resultValue.keepLastNVersions = keepLastNVersions;
+            _resultValue.lastDownloadedBeforeInDays = lastDownloadedBeforeInDays;
             _resultValue.lastDownloadedBeforeInMonths = lastDownloadedBeforeInMonths;
             _resultValue.packageTypes = packageTypes;
             _resultValue.repos = repos;

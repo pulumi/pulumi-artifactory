@@ -97,6 +97,8 @@ type LocalRepositorySingleReplication struct {
 	CheckBinaryExistenceInFilestore pulumi.BoolOutput `pulumi:"checkBinaryExistenceInFilestore"`
 	// A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
 	CronExp pulumi.StringOutput `pulumi:"cronExp"`
+	// When set to `true`, the `proxy` attribute will be ignored (from version 7.41.7). The default value is `false`.
+	DisableProxy pulumi.BoolOutput `pulumi:"disableProxy"`
 	// When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
 	EnableEventReplication pulumi.BoolOutput `pulumi:"enableEventReplication"`
 	// When set, enables replication of this repository to the target specified in `url` attribute. Default value is `true`.
@@ -180,6 +182,8 @@ type localRepositorySingleReplicationState struct {
 	CheckBinaryExistenceInFilestore *bool `pulumi:"checkBinaryExistenceInFilestore"`
 	// A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
 	CronExp *string `pulumi:"cronExp"`
+	// When set to `true`, the `proxy` attribute will be ignored (from version 7.41.7). The default value is `false`.
+	DisableProxy *bool `pulumi:"disableProxy"`
 	// When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
 	EnableEventReplication *bool `pulumi:"enableEventReplication"`
 	// When set, enables replication of this repository to the target specified in `url` attribute. Default value is `true`.
@@ -215,6 +219,8 @@ type LocalRepositorySingleReplicationState struct {
 	CheckBinaryExistenceInFilestore pulumi.BoolPtrInput
 	// A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
 	CronExp pulumi.StringPtrInput
+	// When set to `true`, the `proxy` attribute will be ignored (from version 7.41.7). The default value is `false`.
+	DisableProxy pulumi.BoolPtrInput
 	// When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
 	EnableEventReplication pulumi.BoolPtrInput
 	// When set, enables replication of this repository to the target specified in `url` attribute. Default value is `true`.
@@ -254,6 +260,8 @@ type localRepositorySingleReplicationArgs struct {
 	CheckBinaryExistenceInFilestore *bool `pulumi:"checkBinaryExistenceInFilestore"`
 	// A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
 	CronExp string `pulumi:"cronExp"`
+	// When set to `true`, the `proxy` attribute will be ignored (from version 7.41.7). The default value is `false`.
+	DisableProxy *bool `pulumi:"disableProxy"`
 	// When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
 	EnableEventReplication *bool `pulumi:"enableEventReplication"`
 	// When set, enables replication of this repository to the target specified in `url` attribute. Default value is `true`.
@@ -288,6 +296,8 @@ type LocalRepositorySingleReplicationArgs struct {
 	CheckBinaryExistenceInFilestore pulumi.BoolPtrInput
 	// A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
 	CronExp pulumi.StringInput
+	// When set to `true`, the `proxy` attribute will be ignored (from version 7.41.7). The default value is `false`.
+	DisableProxy pulumi.BoolPtrInput
 	// When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
 	EnableEventReplication pulumi.BoolPtrInput
 	// When set, enables replication of this repository to the target specified in `url` attribute. Default value is `true`.
@@ -411,6 +421,11 @@ func (o LocalRepositorySingleReplicationOutput) CheckBinaryExistenceInFilestore(
 // A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
 func (o LocalRepositorySingleReplicationOutput) CronExp() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocalRepositorySingleReplication) pulumi.StringOutput { return v.CronExp }).(pulumi.StringOutput)
+}
+
+// When set to `true`, the `proxy` attribute will be ignored (from version 7.41.7). The default value is `false`.
+func (o LocalRepositorySingleReplicationOutput) DisableProxy() pulumi.BoolOutput {
+	return o.ApplyT(func(v *LocalRepositorySingleReplication) pulumi.BoolOutput { return v.DisableProxy }).(pulumi.BoolOutput)
 }
 
 // When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
