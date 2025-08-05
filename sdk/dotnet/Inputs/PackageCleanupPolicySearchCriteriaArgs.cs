@@ -13,7 +13,17 @@ namespace Pulumi.Artifactory.Inputs
     public sealed class PackageCleanupPolicySearchCriteriaArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Remove packages based on when they were created. For example, remove packages that were created more than a year ago. The default value is to remove packages created more than 2 years ago.
+        /// The cleanup policy will delete packages based on how long ago they were created. For example, if this parameter is 5 then packages created more than 5 days ago will be deleted as part of the policy.
+        /// 
+        /// ~&gt;JFrog recommends using the `created_before_in_days` condition to ensure that packages currently in use are not deleted.
+        /// </summary>
+        [Input("createdBeforeInDays")]
+        public Input<int>? CreatedBeforeInDays { get; set; }
+
+        /// <summary>
+        /// The cleanup policy will delete packages based on how long ago they were created. For example, if this parameter is 2 then packages created more than 2 months ago will be deleted as part of the policy.
+        /// 
+        /// ~&gt;JFrog recommends using the `created_before_in_months` condition to ensure that packages currently in use are not deleted.
         /// </summary>
         [Input("createdBeforeInMonths")]
         public Input<int>? CreatedBeforeInMonths { get; set; }
@@ -22,12 +32,24 @@ namespace Pulumi.Artifactory.Inputs
         private InputList<string>? _excludedPackages;
 
         /// <summary>
-        /// Specify explicit package names that you want excluded from the policy. Only Name explicit names (and not patterns) are accepted.
+        /// Specify explicit package names that you want excluded from the policy. Only explicit names (and not patterns) are accepted.
         /// </summary>
         public InputList<string> ExcludedPackages
         {
             get => _excludedPackages ?? (_excludedPackages = new InputList<string>());
             set => _excludedPackages = value;
+        }
+
+        [Input("excludedProperties")]
+        private InputMap<ImmutableArray<string>>? _excludedProperties;
+
+        /// <summary>
+        /// A key-value pair applied to the lead artifact of a package. Packages with this property will be excluded from deletion.
+        /// </summary>
+        public InputMap<ImmutableArray<string>> ExcludedProperties
+        {
+            get => _excludedProperties ?? (_excludedProperties = new InputMap<ImmutableArray<string>>());
+            set => _excludedProperties = value;
         }
 
         [Input("excludedRepos")]
@@ -43,7 +65,9 @@ namespace Pulumi.Artifactory.Inputs
         }
 
         /// <summary>
-        /// Set this to `true` if you want the policy to run on all projects on the platform.
+        /// Set this value to `true` if you want the policy to run on all Artifactory projects. The default value is `false`.
+        /// 
+        ///  ~&gt;This parameter is relevant only on the global level, for Platform Admins.
         /// </summary>
         [Input("includeAllProjects")]
         public Input<bool>? IncludeAllProjects { get; set; }
@@ -52,7 +76,7 @@ namespace Pulumi.Artifactory.Inputs
         private InputList<string>? _includedPackages;
 
         /// <summary>
-        /// Specify a pattern for a package name or an explicit package name. It accept only single element which can be specific package or pattern, and for including all packages use `**`. Example: `included_packages = ["**"]`
+        /// Specify a pattern for a package name or an explicit package name on which you want the cleanup policy to run. Only one pattern or explicit name can be entered. To include all packages, use `**`. Example: `included_packages = ["**"]`
         /// </summary>
         public InputList<string> IncludedPackages
         {
@@ -60,11 +84,11 @@ namespace Pulumi.Artifactory.Inputs
             set => _includedPackages = value;
         }
 
-        [Input("includedProjects")]
+        [Input("includedProjects", required: true)]
         private InputList<string>? _includedProjects;
 
         /// <summary>
-        /// List of projects on which you want this policy to run. To include repositories that are not assigned to any project, enter the project key `default`.
+        /// Enter the project keys for the projects on which you want the policy to run. To include repositories that are not assigned to any project, enter the project key `default`. Can be empty when `include_all_projects` is set to `true`.
         /// </summary>
         public InputList<string> IncludedProjects
         {
@@ -72,8 +96,20 @@ namespace Pulumi.Artifactory.Inputs
             set => _includedProjects = value;
         }
 
+        [Input("includedProperties")]
+        private InputMap<ImmutableArray<string>>? _includedProperties;
+
         /// <summary>
-        /// Select the number of latest versions to keep. The cleanup policy will remove all versions prior to the number you select here. The latest version is always excluded. Versions are determined by creation date.
+        /// A key-value pair applied to the lead artifact of a package. Packages with this property will be deleted.
+        /// </summary>
+        public InputMap<ImmutableArray<string>> IncludedProperties
+        {
+            get => _includedProperties ?? (_includedProperties = new InputMap<ImmutableArray<string>>());
+            set => _includedProperties = value;
+        }
+
+        /// <summary>
+        /// Set a value for the number of latest versions to keep. The cleanup policy will remove all versions prior to the number you select here. The latest version is always excluded.
         /// 
         /// ~&gt;Not all package types support this condition. For information on which package types support this condition, [learn more](https://jfrog.com/help/r/jfrog-platform-administration-documentation/retention-policies/package-types-coverage).
         /// </summary>
@@ -81,9 +117,15 @@ namespace Pulumi.Artifactory.Inputs
         public Input<int>? KeepLastNVersions { get; set; }
 
         /// <summary>
-        /// Removes packages based on when they were last downloaded. For example, removes packages that were not downloaded in the past year. The default value is to remove packages that were downloaded more than 2 years ago.
+        /// The cleanup policy will delete packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 days ago will be deleted as part of the policy.
         /// 
-        /// ~&gt;If a package was never downloaded, the policy will remove it based only on the age-condition (`created_before_in_months`).
+        /// ~&gt;JFrog recommends using the `last_downloaded_before_in_days` condition to ensure that packages currently in use are not deleted.
+        /// </summary>
+        [Input("lastDownloadedBeforeInDays")]
+        public Input<int>? LastDownloadedBeforeInDays { get; set; }
+
+        /// <summary>
+        /// The cleanup policy will delete packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 months ago will be deleted as part of the policy.
         /// 
         /// ~&gt;JFrog recommends using the `last_downloaded_before_in_months` condition to ensure that packages currently in use are not deleted.
         /// </summary>
@@ -102,7 +144,7 @@ namespace Pulumi.Artifactory.Inputs
         private InputList<string>? _repos;
 
         /// <summary>
-        /// Specify patterns for repository names or explicit repository names. For including all repos use `**`. Example: `repos = ["**"]`
+        /// Specify one or more patterns for the repository name(s) on which you want the cleanup policy to run. You can also specify explicit repository names. Specifying at least one pattern or explicit name is mandatory. Only packages in repositories that match the pattern or explicit name will be deleted. For including all repos use `**`. Example: `repos = ["**"]`
         /// </summary>
         public InputList<string> Repos
         {

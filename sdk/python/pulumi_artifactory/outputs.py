@@ -5652,20 +5652,28 @@ class PackageCleanupPolicySearchCriteria(dict):
         suggest = None
         if key == "includedPackages":
             suggest = "included_packages"
+        elif key == "includedProjects":
+            suggest = "included_projects"
         elif key == "packageTypes":
             suggest = "package_types"
+        elif key == "createdBeforeInDays":
+            suggest = "created_before_in_days"
         elif key == "createdBeforeInMonths":
             suggest = "created_before_in_months"
         elif key == "excludedPackages":
             suggest = "excluded_packages"
+        elif key == "excludedProperties":
+            suggest = "excluded_properties"
         elif key == "excludedRepos":
             suggest = "excluded_repos"
         elif key == "includeAllProjects":
             suggest = "include_all_projects"
-        elif key == "includedProjects":
-            suggest = "included_projects"
+        elif key == "includedProperties":
+            suggest = "included_properties"
         elif key == "keepLastNVersions":
             suggest = "keep_last_n_versions"
+        elif key == "lastDownloadedBeforeInDays":
+            suggest = "last_downloaded_before_in_days"
         elif key == "lastDownloadedBeforeInMonths":
             suggest = "last_downloaded_before_in_months"
 
@@ -5682,47 +5690,68 @@ class PackageCleanupPolicySearchCriteria(dict):
 
     def __init__(__self__, *,
                  included_packages: Sequence[builtins.str],
+                 included_projects: Sequence[builtins.str],
                  package_types: Sequence[builtins.str],
                  repos: Sequence[builtins.str],
+                 created_before_in_days: Optional[builtins.int] = None,
                  created_before_in_months: Optional[builtins.int] = None,
                  excluded_packages: Optional[Sequence[builtins.str]] = None,
+                 excluded_properties: Optional[Mapping[str, Sequence[builtins.str]]] = None,
                  excluded_repos: Optional[Sequence[builtins.str]] = None,
                  include_all_projects: Optional[builtins.bool] = None,
-                 included_projects: Optional[Sequence[builtins.str]] = None,
+                 included_properties: Optional[Mapping[str, Sequence[builtins.str]]] = None,
                  keep_last_n_versions: Optional[builtins.int] = None,
+                 last_downloaded_before_in_days: Optional[builtins.int] = None,
                  last_downloaded_before_in_months: Optional[builtins.int] = None):
         """
-        :param Sequence[builtins.str] included_packages: Specify a pattern for a package name or an explicit package name. It accept only single element which can be specific package or pattern, and for including all packages use `**`. Example: `included_packages = ["**"]`
-        :param Sequence[builtins.str] repos: Specify patterns for repository names or explicit repository names. For including all repos use `**`. Example: `repos = ["**"]`
-        :param builtins.int created_before_in_months: Remove packages based on when they were created. For example, remove packages that were created more than a year ago. The default value is to remove packages created more than 2 years ago.
-        :param Sequence[builtins.str] excluded_packages: Specify explicit package names that you want excluded from the policy. Only Name explicit names (and not patterns) are accepted.
+        :param Sequence[builtins.str] included_packages: Specify a pattern for a package name or an explicit package name on which you want the cleanup policy to run. Only one pattern or explicit name can be entered. To include all packages, use `**`. Example: `included_packages = ["**"]`
+        :param Sequence[builtins.str] included_projects: Enter the project keys for the projects on which you want the policy to run. To include repositories that are not assigned to any project, enter the project key `default`. Can be empty when `include_all_projects` is set to `true`.
+        :param Sequence[builtins.str] repos: Specify one or more patterns for the repository name(s) on which you want the cleanup policy to run. You can also specify explicit repository names. Specifying at least one pattern or explicit name is mandatory. Only packages in repositories that match the pattern or explicit name will be deleted. For including all repos use `**`. Example: `repos = ["**"]`
+        :param builtins.int created_before_in_days: The cleanup policy will delete packages based on how long ago they were created. For example, if this parameter is 5 then packages created more than 5 days ago will be deleted as part of the policy.
+               
+               ~>JFrog recommends using the `created_before_in_days` condition to ensure that packages currently in use are not deleted.
+        :param builtins.int created_before_in_months: The cleanup policy will delete packages based on how long ago they were created. For example, if this parameter is 2 then packages created more than 2 months ago will be deleted as part of the policy.
+               
+               ~>JFrog recommends using the `created_before_in_months` condition to ensure that packages currently in use are not deleted.
+        :param Sequence[builtins.str] excluded_packages: Specify explicit package names that you want excluded from the policy. Only explicit names (and not patterns) are accepted.
+        :param Mapping[str, Sequence[builtins.str]] excluded_properties: A key-value pair applied to the lead artifact of a package. Packages with this property will be excluded from deletion.
         :param Sequence[builtins.str] excluded_repos: Specify patterns for repository names or explicit repository names that you want excluded from the cleanup policy.
-        :param builtins.bool include_all_projects: Set this to `true` if you want the policy to run on all projects on the platform.
-        :param Sequence[builtins.str] included_projects: List of projects on which you want this policy to run. To include repositories that are not assigned to any project, enter the project key `default`.
-        :param builtins.int keep_last_n_versions: Select the number of latest versions to keep. The cleanup policy will remove all versions prior to the number you select here. The latest version is always excluded. Versions are determined by creation date.
+        :param builtins.bool include_all_projects: Set this value to `true` if you want the policy to run on all Artifactory projects. The default value is `false`.
+               
+                ~>This parameter is relevant only on the global level, for Platform Admins.
+        :param Mapping[str, Sequence[builtins.str]] included_properties: A key-value pair applied to the lead artifact of a package. Packages with this property will be deleted.
+        :param builtins.int keep_last_n_versions: Set a value for the number of latest versions to keep. The cleanup policy will remove all versions prior to the number you select here. The latest version is always excluded.
                
                ~>Not all package types support this condition. For information on which package types support this condition, [learn more](https://jfrog.com/help/r/jfrog-platform-administration-documentation/retention-policies/package-types-coverage).
-        :param builtins.int last_downloaded_before_in_months: Removes packages based on when they were last downloaded. For example, removes packages that were not downloaded in the past year. The default value is to remove packages that were downloaded more than 2 years ago.
+        :param builtins.int last_downloaded_before_in_days: The cleanup policy will delete packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 days ago will be deleted as part of the policy.
                
-               ~>If a package was never downloaded, the policy will remove it based only on the age-condition (`created_before_in_months`).
+               ~>JFrog recommends using the `last_downloaded_before_in_days` condition to ensure that packages currently in use are not deleted.
+        :param builtins.int last_downloaded_before_in_months: The cleanup policy will delete packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 months ago will be deleted as part of the policy.
                
                ~>JFrog recommends using the `last_downloaded_before_in_months` condition to ensure that packages currently in use are not deleted.
         """
         pulumi.set(__self__, "included_packages", included_packages)
+        pulumi.set(__self__, "included_projects", included_projects)
         pulumi.set(__self__, "package_types", package_types)
         pulumi.set(__self__, "repos", repos)
+        if created_before_in_days is not None:
+            pulumi.set(__self__, "created_before_in_days", created_before_in_days)
         if created_before_in_months is not None:
             pulumi.set(__self__, "created_before_in_months", created_before_in_months)
         if excluded_packages is not None:
             pulumi.set(__self__, "excluded_packages", excluded_packages)
+        if excluded_properties is not None:
+            pulumi.set(__self__, "excluded_properties", excluded_properties)
         if excluded_repos is not None:
             pulumi.set(__self__, "excluded_repos", excluded_repos)
         if include_all_projects is not None:
             pulumi.set(__self__, "include_all_projects", include_all_projects)
-        if included_projects is not None:
-            pulumi.set(__self__, "included_projects", included_projects)
+        if included_properties is not None:
+            pulumi.set(__self__, "included_properties", included_properties)
         if keep_last_n_versions is not None:
             pulumi.set(__self__, "keep_last_n_versions", keep_last_n_versions)
+        if last_downloaded_before_in_days is not None:
+            pulumi.set(__self__, "last_downloaded_before_in_days", last_downloaded_before_in_days)
         if last_downloaded_before_in_months is not None:
             pulumi.set(__self__, "last_downloaded_before_in_months", last_downloaded_before_in_months)
 
@@ -5730,9 +5759,17 @@ class PackageCleanupPolicySearchCriteria(dict):
     @pulumi.getter(name="includedPackages")
     def included_packages(self) -> Sequence[builtins.str]:
         """
-        Specify a pattern for a package name or an explicit package name. It accept only single element which can be specific package or pattern, and for including all packages use `**`. Example: `included_packages = ["**"]`
+        Specify a pattern for a package name or an explicit package name on which you want the cleanup policy to run. Only one pattern or explicit name can be entered. To include all packages, use `**`. Example: `included_packages = ["**"]`
         """
         return pulumi.get(self, "included_packages")
+
+    @property
+    @pulumi.getter(name="includedProjects")
+    def included_projects(self) -> Sequence[builtins.str]:
+        """
+        Enter the project keys for the projects on which you want the policy to run. To include repositories that are not assigned to any project, enter the project key `default`. Can be empty when `include_all_projects` is set to `true`.
+        """
+        return pulumi.get(self, "included_projects")
 
     @property
     @pulumi.getter(name="packageTypes")
@@ -5743,15 +5780,28 @@ class PackageCleanupPolicySearchCriteria(dict):
     @pulumi.getter
     def repos(self) -> Sequence[builtins.str]:
         """
-        Specify patterns for repository names or explicit repository names. For including all repos use `**`. Example: `repos = ["**"]`
+        Specify one or more patterns for the repository name(s) on which you want the cleanup policy to run. You can also specify explicit repository names. Specifying at least one pattern or explicit name is mandatory. Only packages in repositories that match the pattern or explicit name will be deleted. For including all repos use `**`. Example: `repos = ["**"]`
         """
         return pulumi.get(self, "repos")
 
     @property
+    @pulumi.getter(name="createdBeforeInDays")
+    def created_before_in_days(self) -> Optional[builtins.int]:
+        """
+        The cleanup policy will delete packages based on how long ago they were created. For example, if this parameter is 5 then packages created more than 5 days ago will be deleted as part of the policy.
+
+        ~>JFrog recommends using the `created_before_in_days` condition to ensure that packages currently in use are not deleted.
+        """
+        return pulumi.get(self, "created_before_in_days")
+
+    @property
     @pulumi.getter(name="createdBeforeInMonths")
+    @_utilities.deprecated("""Use `created_before_in_days` instead of `created_before_in_months`. Renamed to `created_before_in_days` starting in version 7.111.2.""")
     def created_before_in_months(self) -> Optional[builtins.int]:
         """
-        Remove packages based on when they were created. For example, remove packages that were created more than a year ago. The default value is to remove packages created more than 2 years ago.
+        The cleanup policy will delete packages based on how long ago they were created. For example, if this parameter is 2 then packages created more than 2 months ago will be deleted as part of the policy.
+
+        ~>JFrog recommends using the `created_before_in_months` condition to ensure that packages currently in use are not deleted.
         """
         return pulumi.get(self, "created_before_in_months")
 
@@ -5759,9 +5809,17 @@ class PackageCleanupPolicySearchCriteria(dict):
     @pulumi.getter(name="excludedPackages")
     def excluded_packages(self) -> Optional[Sequence[builtins.str]]:
         """
-        Specify explicit package names that you want excluded from the policy. Only Name explicit names (and not patterns) are accepted.
+        Specify explicit package names that you want excluded from the policy. Only explicit names (and not patterns) are accepted.
         """
         return pulumi.get(self, "excluded_packages")
+
+    @property
+    @pulumi.getter(name="excludedProperties")
+    def excluded_properties(self) -> Optional[Mapping[str, Sequence[builtins.str]]]:
+        """
+        A key-value pair applied to the lead artifact of a package. Packages with this property will be excluded from deletion.
+        """
+        return pulumi.get(self, "excluded_properties")
 
     @property
     @pulumi.getter(name="excludedRepos")
@@ -5775,35 +5833,46 @@ class PackageCleanupPolicySearchCriteria(dict):
     @pulumi.getter(name="includeAllProjects")
     def include_all_projects(self) -> Optional[builtins.bool]:
         """
-        Set this to `true` if you want the policy to run on all projects on the platform.
+        Set this value to `true` if you want the policy to run on all Artifactory projects. The default value is `false`.
+
+         ~>This parameter is relevant only on the global level, for Platform Admins.
         """
         return pulumi.get(self, "include_all_projects")
 
     @property
-    @pulumi.getter(name="includedProjects")
-    def included_projects(self) -> Optional[Sequence[builtins.str]]:
+    @pulumi.getter(name="includedProperties")
+    def included_properties(self) -> Optional[Mapping[str, Sequence[builtins.str]]]:
         """
-        List of projects on which you want this policy to run. To include repositories that are not assigned to any project, enter the project key `default`.
+        A key-value pair applied to the lead artifact of a package. Packages with this property will be deleted.
         """
-        return pulumi.get(self, "included_projects")
+        return pulumi.get(self, "included_properties")
 
     @property
     @pulumi.getter(name="keepLastNVersions")
     def keep_last_n_versions(self) -> Optional[builtins.int]:
         """
-        Select the number of latest versions to keep. The cleanup policy will remove all versions prior to the number you select here. The latest version is always excluded. Versions are determined by creation date.
+        Set a value for the number of latest versions to keep. The cleanup policy will remove all versions prior to the number you select here. The latest version is always excluded.
 
         ~>Not all package types support this condition. For information on which package types support this condition, [learn more](https://jfrog.com/help/r/jfrog-platform-administration-documentation/retention-policies/package-types-coverage).
         """
         return pulumi.get(self, "keep_last_n_versions")
 
     @property
+    @pulumi.getter(name="lastDownloadedBeforeInDays")
+    def last_downloaded_before_in_days(self) -> Optional[builtins.int]:
+        """
+        The cleanup policy will delete packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 days ago will be deleted as part of the policy.
+
+        ~>JFrog recommends using the `last_downloaded_before_in_days` condition to ensure that packages currently in use are not deleted.
+        """
+        return pulumi.get(self, "last_downloaded_before_in_days")
+
+    @property
     @pulumi.getter(name="lastDownloadedBeforeInMonths")
+    @_utilities.deprecated("""Use `last_downloaded_before_in_days` instead of `last_downloaded_before_in_months`. Renamed to `last_downloaded_before_in_days` starting in version 7.111.2.""")
     def last_downloaded_before_in_months(self) -> Optional[builtins.int]:
         """
-        Removes packages based on when they were last downloaded. For example, removes packages that were not downloaded in the past year. The default value is to remove packages that were downloaded more than 2 years ago.
-
-        ~>If a package was never downloaded, the policy will remove it based only on the age-condition (`created_before_in_months`).
+        The cleanup policy will delete packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 months ago will be deleted as part of the policy.
 
         ~>JFrog recommends using the `last_downloaded_before_in_months` condition to ensure that packages currently in use are not deleted.
         """

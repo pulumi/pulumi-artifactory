@@ -91,6 +91,10 @@ export class LocalRepositorySingleReplication extends pulumi.CustomResource {
      */
     public readonly cronExp!: pulumi.Output<string>;
     /**
+     * When set to `true`, the `proxy` attribute will be ignored (from version 7.41.7). The default value is `false`.
+     */
+    public readonly disableProxy!: pulumi.Output<boolean>;
+    /**
      * When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
      */
     public readonly enableEventReplication!: pulumi.Output<boolean>;
@@ -162,6 +166,7 @@ export class LocalRepositorySingleReplication extends pulumi.CustomResource {
             const state = argsOrState as LocalRepositorySingleReplicationState | undefined;
             resourceInputs["checkBinaryExistenceInFilestore"] = state ? state.checkBinaryExistenceInFilestore : undefined;
             resourceInputs["cronExp"] = state ? state.cronExp : undefined;
+            resourceInputs["disableProxy"] = state ? state.disableProxy : undefined;
             resourceInputs["enableEventReplication"] = state ? state.enableEventReplication : undefined;
             resourceInputs["enabled"] = state ? state.enabled : undefined;
             resourceInputs["excludePathPrefixPattern"] = state ? state.excludePathPrefixPattern : undefined;
@@ -192,6 +197,7 @@ export class LocalRepositorySingleReplication extends pulumi.CustomResource {
             }
             resourceInputs["checkBinaryExistenceInFilestore"] = args ? args.checkBinaryExistenceInFilestore : undefined;
             resourceInputs["cronExp"] = args ? args.cronExp : undefined;
+            resourceInputs["disableProxy"] = args ? args.disableProxy : undefined;
             resourceInputs["enableEventReplication"] = args ? args.enableEventReplication : undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
             resourceInputs["excludePathPrefixPattern"] = args ? args.excludePathPrefixPattern : undefined;
@@ -226,6 +232,10 @@ export interface LocalRepositorySingleReplicationState {
      * A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
      */
     cronExp?: pulumi.Input<string>;
+    /**
+     * When set to `true`, the `proxy` attribute will be ignored (from version 7.41.7). The default value is `false`.
+     */
+    disableProxy?: pulumi.Input<boolean>;
     /**
      * When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
      */
@@ -296,6 +306,10 @@ export interface LocalRepositorySingleReplicationArgs {
      * A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
      */
     cronExp: pulumi.Input<string>;
+    /**
+     * When set to `true`, the `proxy` attribute will be ignored (from version 7.41.7). The default value is `false`.
+     */
+    disableProxy?: pulumi.Input<boolean>;
     /**
      * When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
      */

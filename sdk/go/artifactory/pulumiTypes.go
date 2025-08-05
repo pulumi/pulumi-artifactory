@@ -10323,30 +10323,48 @@ func (o OauthSettingsOauthProviderArrayOutput) Index(i pulumi.IntInput) OauthSet
 }
 
 type PackageCleanupPolicySearchCriteria struct {
-	// Remove packages based on when they were created. For example, remove packages that were created more than a year ago. The default value is to remove packages created more than 2 years ago.
+	// The cleanup policy will delete packages based on how long ago they were created. For example, if this parameter is 5 then packages created more than 5 days ago will be deleted as part of the policy.
+	//
+	// ~>JFrog recommends using the `createdBeforeInDays` condition to ensure that packages currently in use are not deleted.
+	CreatedBeforeInDays *int `pulumi:"createdBeforeInDays"`
+	// The cleanup policy will delete packages based on how long ago they were created. For example, if this parameter is 2 then packages created more than 2 months ago will be deleted as part of the policy.
+	//
+	// ~>JFrog recommends using the `createdBeforeInMonths` condition to ensure that packages currently in use are not deleted.
+	//
+	// Deprecated: Use `createdBeforeInDays` instead of `createdBeforeInMonths`. Renamed to `createdBeforeInDays` starting in version 7.111.2.
 	CreatedBeforeInMonths *int `pulumi:"createdBeforeInMonths"`
-	// Specify explicit package names that you want excluded from the policy. Only Name explicit names (and not patterns) are accepted.
+	// Specify explicit package names that you want excluded from the policy. Only explicit names (and not patterns) are accepted.
 	ExcludedPackages []string `pulumi:"excludedPackages"`
+	// A key-value pair applied to the lead artifact of a package. Packages with this property will be excluded from deletion.
+	ExcludedProperties map[string][]string `pulumi:"excludedProperties"`
 	// Specify patterns for repository names or explicit repository names that you want excluded from the cleanup policy.
 	ExcludedRepos []string `pulumi:"excludedRepos"`
-	// Set this to `true` if you want the policy to run on all projects on the platform.
+	// Set this value to `true` if you want the policy to run on all Artifactory projects. The default value is `false`.
+	//
+	//  ~>This parameter is relevant only on the global level, for Platform Admins.
 	IncludeAllProjects *bool `pulumi:"includeAllProjects"`
-	// Specify a pattern for a package name or an explicit package name. It accept only single element which can be specific package or pattern, and for including all packages use `**`. Example: `includedPackages = ["**"]`
+	// Specify a pattern for a package name or an explicit package name on which you want the cleanup policy to run. Only one pattern or explicit name can be entered. To include all packages, use `**`. Example: `includedPackages = ["**"]`
 	IncludedPackages []string `pulumi:"includedPackages"`
-	// List of projects on which you want this policy to run. To include repositories that are not assigned to any project, enter the project key `default`.
+	// Enter the project keys for the projects on which you want the policy to run. To include repositories that are not assigned to any project, enter the project key `default`. Can be empty when `includeAllProjects` is set to `true`.
 	IncludedProjects []string `pulumi:"includedProjects"`
-	// Select the number of latest versions to keep. The cleanup policy will remove all versions prior to the number you select here. The latest version is always excluded. Versions are determined by creation date.
+	// A key-value pair applied to the lead artifact of a package. Packages with this property will be deleted.
+	IncludedProperties map[string][]string `pulumi:"includedProperties"`
+	// Set a value for the number of latest versions to keep. The cleanup policy will remove all versions prior to the number you select here. The latest version is always excluded.
 	//
 	// ~>Not all package types support this condition. For information on which package types support this condition, [learn more](https://jfrog.com/help/r/jfrog-platform-administration-documentation/retention-policies/package-types-coverage).
 	KeepLastNVersions *int `pulumi:"keepLastNVersions"`
-	// Removes packages based on when they were last downloaded. For example, removes packages that were not downloaded in the past year. The default value is to remove packages that were downloaded more than 2 years ago.
+	// The cleanup policy will delete packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 days ago will be deleted as part of the policy.
 	//
-	// ~>If a package was never downloaded, the policy will remove it based only on the age-condition (`createdBeforeInMonths`).
+	// ~>JFrog recommends using the `lastDownloadedBeforeInDays` condition to ensure that packages currently in use are not deleted.
+	LastDownloadedBeforeInDays *int `pulumi:"lastDownloadedBeforeInDays"`
+	// The cleanup policy will delete packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 months ago will be deleted as part of the policy.
 	//
 	// ~>JFrog recommends using the `lastDownloadedBeforeInMonths` condition to ensure that packages currently in use are not deleted.
+	//
+	// Deprecated: Use `lastDownloadedBeforeInDays` instead of `lastDownloadedBeforeInMonths`. Renamed to `lastDownloadedBeforeInDays` starting in version 7.111.2.
 	LastDownloadedBeforeInMonths *int     `pulumi:"lastDownloadedBeforeInMonths"`
 	PackageTypes                 []string `pulumi:"packageTypes"`
-	// Specify patterns for repository names or explicit repository names. For including all repos use `**`. Example: `repos = ["**"]`
+	// Specify one or more patterns for the repository name(s) on which you want the cleanup policy to run. You can also specify explicit repository names. Specifying at least one pattern or explicit name is mandatory. Only packages in repositories that match the pattern or explicit name will be deleted. For including all repos use `**`. Example: `repos = ["**"]`
 	Repos []string `pulumi:"repos"`
 }
 
@@ -10362,30 +10380,48 @@ type PackageCleanupPolicySearchCriteriaInput interface {
 }
 
 type PackageCleanupPolicySearchCriteriaArgs struct {
-	// Remove packages based on when they were created. For example, remove packages that were created more than a year ago. The default value is to remove packages created more than 2 years ago.
+	// The cleanup policy will delete packages based on how long ago they were created. For example, if this parameter is 5 then packages created more than 5 days ago will be deleted as part of the policy.
+	//
+	// ~>JFrog recommends using the `createdBeforeInDays` condition to ensure that packages currently in use are not deleted.
+	CreatedBeforeInDays pulumi.IntPtrInput `pulumi:"createdBeforeInDays"`
+	// The cleanup policy will delete packages based on how long ago they were created. For example, if this parameter is 2 then packages created more than 2 months ago will be deleted as part of the policy.
+	//
+	// ~>JFrog recommends using the `createdBeforeInMonths` condition to ensure that packages currently in use are not deleted.
+	//
+	// Deprecated: Use `createdBeforeInDays` instead of `createdBeforeInMonths`. Renamed to `createdBeforeInDays` starting in version 7.111.2.
 	CreatedBeforeInMonths pulumi.IntPtrInput `pulumi:"createdBeforeInMonths"`
-	// Specify explicit package names that you want excluded from the policy. Only Name explicit names (and not patterns) are accepted.
+	// Specify explicit package names that you want excluded from the policy. Only explicit names (and not patterns) are accepted.
 	ExcludedPackages pulumi.StringArrayInput `pulumi:"excludedPackages"`
+	// A key-value pair applied to the lead artifact of a package. Packages with this property will be excluded from deletion.
+	ExcludedProperties pulumi.StringArrayMapInput `pulumi:"excludedProperties"`
 	// Specify patterns for repository names or explicit repository names that you want excluded from the cleanup policy.
 	ExcludedRepos pulumi.StringArrayInput `pulumi:"excludedRepos"`
-	// Set this to `true` if you want the policy to run on all projects on the platform.
+	// Set this value to `true` if you want the policy to run on all Artifactory projects. The default value is `false`.
+	//
+	//  ~>This parameter is relevant only on the global level, for Platform Admins.
 	IncludeAllProjects pulumi.BoolPtrInput `pulumi:"includeAllProjects"`
-	// Specify a pattern for a package name or an explicit package name. It accept only single element which can be specific package or pattern, and for including all packages use `**`. Example: `includedPackages = ["**"]`
+	// Specify a pattern for a package name or an explicit package name on which you want the cleanup policy to run. Only one pattern or explicit name can be entered. To include all packages, use `**`. Example: `includedPackages = ["**"]`
 	IncludedPackages pulumi.StringArrayInput `pulumi:"includedPackages"`
-	// List of projects on which you want this policy to run. To include repositories that are not assigned to any project, enter the project key `default`.
+	// Enter the project keys for the projects on which you want the policy to run. To include repositories that are not assigned to any project, enter the project key `default`. Can be empty when `includeAllProjects` is set to `true`.
 	IncludedProjects pulumi.StringArrayInput `pulumi:"includedProjects"`
-	// Select the number of latest versions to keep. The cleanup policy will remove all versions prior to the number you select here. The latest version is always excluded. Versions are determined by creation date.
+	// A key-value pair applied to the lead artifact of a package. Packages with this property will be deleted.
+	IncludedProperties pulumi.StringArrayMapInput `pulumi:"includedProperties"`
+	// Set a value for the number of latest versions to keep. The cleanup policy will remove all versions prior to the number you select here. The latest version is always excluded.
 	//
 	// ~>Not all package types support this condition. For information on which package types support this condition, [learn more](https://jfrog.com/help/r/jfrog-platform-administration-documentation/retention-policies/package-types-coverage).
 	KeepLastNVersions pulumi.IntPtrInput `pulumi:"keepLastNVersions"`
-	// Removes packages based on when they were last downloaded. For example, removes packages that were not downloaded in the past year. The default value is to remove packages that were downloaded more than 2 years ago.
+	// The cleanup policy will delete packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 days ago will be deleted as part of the policy.
 	//
-	// ~>If a package was never downloaded, the policy will remove it based only on the age-condition (`createdBeforeInMonths`).
+	// ~>JFrog recommends using the `lastDownloadedBeforeInDays` condition to ensure that packages currently in use are not deleted.
+	LastDownloadedBeforeInDays pulumi.IntPtrInput `pulumi:"lastDownloadedBeforeInDays"`
+	// The cleanup policy will delete packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 months ago will be deleted as part of the policy.
 	//
 	// ~>JFrog recommends using the `lastDownloadedBeforeInMonths` condition to ensure that packages currently in use are not deleted.
+	//
+	// Deprecated: Use `lastDownloadedBeforeInDays` instead of `lastDownloadedBeforeInMonths`. Renamed to `lastDownloadedBeforeInDays` starting in version 7.111.2.
 	LastDownloadedBeforeInMonths pulumi.IntPtrInput      `pulumi:"lastDownloadedBeforeInMonths"`
 	PackageTypes                 pulumi.StringArrayInput `pulumi:"packageTypes"`
-	// Specify patterns for repository names or explicit repository names. For including all repos use `**`. Example: `repos = ["**"]`
+	// Specify one or more patterns for the repository name(s) on which you want the cleanup policy to run. You can also specify explicit repository names. Specifying at least one pattern or explicit name is mandatory. Only packages in repositories that match the pattern or explicit name will be deleted. For including all repos use `**`. Example: `repos = ["**"]`
 	Repos pulumi.StringArrayInput `pulumi:"repos"`
 }
 
@@ -10466,14 +10502,30 @@ func (o PackageCleanupPolicySearchCriteriaOutput) ToPackageCleanupPolicySearchCr
 	}).(PackageCleanupPolicySearchCriteriaPtrOutput)
 }
 
-// Remove packages based on when they were created. For example, remove packages that were created more than a year ago. The default value is to remove packages created more than 2 years ago.
+// The cleanup policy will delete packages based on how long ago they were created. For example, if this parameter is 5 then packages created more than 5 days ago will be deleted as part of the policy.
+//
+// ~>JFrog recommends using the `createdBeforeInDays` condition to ensure that packages currently in use are not deleted.
+func (o PackageCleanupPolicySearchCriteriaOutput) CreatedBeforeInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PackageCleanupPolicySearchCriteria) *int { return v.CreatedBeforeInDays }).(pulumi.IntPtrOutput)
+}
+
+// The cleanup policy will delete packages based on how long ago they were created. For example, if this parameter is 2 then packages created more than 2 months ago will be deleted as part of the policy.
+//
+// ~>JFrog recommends using the `createdBeforeInMonths` condition to ensure that packages currently in use are not deleted.
+//
+// Deprecated: Use `createdBeforeInDays` instead of `createdBeforeInMonths`. Renamed to `createdBeforeInDays` starting in version 7.111.2.
 func (o PackageCleanupPolicySearchCriteriaOutput) CreatedBeforeInMonths() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PackageCleanupPolicySearchCriteria) *int { return v.CreatedBeforeInMonths }).(pulumi.IntPtrOutput)
 }
 
-// Specify explicit package names that you want excluded from the policy. Only Name explicit names (and not patterns) are accepted.
+// Specify explicit package names that you want excluded from the policy. Only explicit names (and not patterns) are accepted.
 func (o PackageCleanupPolicySearchCriteriaOutput) ExcludedPackages() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PackageCleanupPolicySearchCriteria) []string { return v.ExcludedPackages }).(pulumi.StringArrayOutput)
+}
+
+// A key-value pair applied to the lead artifact of a package. Packages with this property will be excluded from deletion.
+func (o PackageCleanupPolicySearchCriteriaOutput) ExcludedProperties() pulumi.StringArrayMapOutput {
+	return o.ApplyT(func(v PackageCleanupPolicySearchCriteria) map[string][]string { return v.ExcludedProperties }).(pulumi.StringArrayMapOutput)
 }
 
 // Specify patterns for repository names or explicit repository names that you want excluded from the cleanup policy.
@@ -10481,33 +10533,47 @@ func (o PackageCleanupPolicySearchCriteriaOutput) ExcludedRepos() pulumi.StringA
 	return o.ApplyT(func(v PackageCleanupPolicySearchCriteria) []string { return v.ExcludedRepos }).(pulumi.StringArrayOutput)
 }
 
-// Set this to `true` if you want the policy to run on all projects on the platform.
+// Set this value to `true` if you want the policy to run on all Artifactory projects. The default value is `false`.
+//
+//	~>This parameter is relevant only on the global level, for Platform Admins.
 func (o PackageCleanupPolicySearchCriteriaOutput) IncludeAllProjects() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PackageCleanupPolicySearchCriteria) *bool { return v.IncludeAllProjects }).(pulumi.BoolPtrOutput)
 }
 
-// Specify a pattern for a package name or an explicit package name. It accept only single element which can be specific package or pattern, and for including all packages use `**`. Example: `includedPackages = ["**"]`
+// Specify a pattern for a package name or an explicit package name on which you want the cleanup policy to run. Only one pattern or explicit name can be entered. To include all packages, use `**`. Example: `includedPackages = ["**"]`
 func (o PackageCleanupPolicySearchCriteriaOutput) IncludedPackages() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PackageCleanupPolicySearchCriteria) []string { return v.IncludedPackages }).(pulumi.StringArrayOutput)
 }
 
-// List of projects on which you want this policy to run. To include repositories that are not assigned to any project, enter the project key `default`.
+// Enter the project keys for the projects on which you want the policy to run. To include repositories that are not assigned to any project, enter the project key `default`. Can be empty when `includeAllProjects` is set to `true`.
 func (o PackageCleanupPolicySearchCriteriaOutput) IncludedProjects() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PackageCleanupPolicySearchCriteria) []string { return v.IncludedProjects }).(pulumi.StringArrayOutput)
 }
 
-// Select the number of latest versions to keep. The cleanup policy will remove all versions prior to the number you select here. The latest version is always excluded. Versions are determined by creation date.
+// A key-value pair applied to the lead artifact of a package. Packages with this property will be deleted.
+func (o PackageCleanupPolicySearchCriteriaOutput) IncludedProperties() pulumi.StringArrayMapOutput {
+	return o.ApplyT(func(v PackageCleanupPolicySearchCriteria) map[string][]string { return v.IncludedProperties }).(pulumi.StringArrayMapOutput)
+}
+
+// Set a value for the number of latest versions to keep. The cleanup policy will remove all versions prior to the number you select here. The latest version is always excluded.
 //
 // ~>Not all package types support this condition. For information on which package types support this condition, [learn more](https://jfrog.com/help/r/jfrog-platform-administration-documentation/retention-policies/package-types-coverage).
 func (o PackageCleanupPolicySearchCriteriaOutput) KeepLastNVersions() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PackageCleanupPolicySearchCriteria) *int { return v.KeepLastNVersions }).(pulumi.IntPtrOutput)
 }
 
-// Removes packages based on when they were last downloaded. For example, removes packages that were not downloaded in the past year. The default value is to remove packages that were downloaded more than 2 years ago.
+// The cleanup policy will delete packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 days ago will be deleted as part of the policy.
 //
-// ~>If a package was never downloaded, the policy will remove it based only on the age-condition (`createdBeforeInMonths`).
+// ~>JFrog recommends using the `lastDownloadedBeforeInDays` condition to ensure that packages currently in use are not deleted.
+func (o PackageCleanupPolicySearchCriteriaOutput) LastDownloadedBeforeInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PackageCleanupPolicySearchCriteria) *int { return v.LastDownloadedBeforeInDays }).(pulumi.IntPtrOutput)
+}
+
+// The cleanup policy will delete packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 months ago will be deleted as part of the policy.
 //
 // ~>JFrog recommends using the `lastDownloadedBeforeInMonths` condition to ensure that packages currently in use are not deleted.
+//
+// Deprecated: Use `lastDownloadedBeforeInDays` instead of `lastDownloadedBeforeInMonths`. Renamed to `lastDownloadedBeforeInDays` starting in version 7.111.2.
 func (o PackageCleanupPolicySearchCriteriaOutput) LastDownloadedBeforeInMonths() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PackageCleanupPolicySearchCriteria) *int { return v.LastDownloadedBeforeInMonths }).(pulumi.IntPtrOutput)
 }
@@ -10516,7 +10582,7 @@ func (o PackageCleanupPolicySearchCriteriaOutput) PackageTypes() pulumi.StringAr
 	return o.ApplyT(func(v PackageCleanupPolicySearchCriteria) []string { return v.PackageTypes }).(pulumi.StringArrayOutput)
 }
 
-// Specify patterns for repository names or explicit repository names. For including all repos use `**`. Example: `repos = ["**"]`
+// Specify one or more patterns for the repository name(s) on which you want the cleanup policy to run. You can also specify explicit repository names. Specifying at least one pattern or explicit name is mandatory. Only packages in repositories that match the pattern or explicit name will be deleted. For including all repos use `**`. Example: `repos = ["**"]`
 func (o PackageCleanupPolicySearchCriteriaOutput) Repos() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PackageCleanupPolicySearchCriteria) []string { return v.Repos }).(pulumi.StringArrayOutput)
 }
@@ -10545,7 +10611,23 @@ func (o PackageCleanupPolicySearchCriteriaPtrOutput) Elem() PackageCleanupPolicy
 	}).(PackageCleanupPolicySearchCriteriaOutput)
 }
 
-// Remove packages based on when they were created. For example, remove packages that were created more than a year ago. The default value is to remove packages created more than 2 years ago.
+// The cleanup policy will delete packages based on how long ago they were created. For example, if this parameter is 5 then packages created more than 5 days ago will be deleted as part of the policy.
+//
+// ~>JFrog recommends using the `createdBeforeInDays` condition to ensure that packages currently in use are not deleted.
+func (o PackageCleanupPolicySearchCriteriaPtrOutput) CreatedBeforeInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PackageCleanupPolicySearchCriteria) *int {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedBeforeInDays
+	}).(pulumi.IntPtrOutput)
+}
+
+// The cleanup policy will delete packages based on how long ago they were created. For example, if this parameter is 2 then packages created more than 2 months ago will be deleted as part of the policy.
+//
+// ~>JFrog recommends using the `createdBeforeInMonths` condition to ensure that packages currently in use are not deleted.
+//
+// Deprecated: Use `createdBeforeInDays` instead of `createdBeforeInMonths`. Renamed to `createdBeforeInDays` starting in version 7.111.2.
 func (o PackageCleanupPolicySearchCriteriaPtrOutput) CreatedBeforeInMonths() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PackageCleanupPolicySearchCriteria) *int {
 		if v == nil {
@@ -10555,7 +10637,7 @@ func (o PackageCleanupPolicySearchCriteriaPtrOutput) CreatedBeforeInMonths() pul
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specify explicit package names that you want excluded from the policy. Only Name explicit names (and not patterns) are accepted.
+// Specify explicit package names that you want excluded from the policy. Only explicit names (and not patterns) are accepted.
 func (o PackageCleanupPolicySearchCriteriaPtrOutput) ExcludedPackages() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PackageCleanupPolicySearchCriteria) []string {
 		if v == nil {
@@ -10563,6 +10645,16 @@ func (o PackageCleanupPolicySearchCriteriaPtrOutput) ExcludedPackages() pulumi.S
 		}
 		return v.ExcludedPackages
 	}).(pulumi.StringArrayOutput)
+}
+
+// A key-value pair applied to the lead artifact of a package. Packages with this property will be excluded from deletion.
+func (o PackageCleanupPolicySearchCriteriaPtrOutput) ExcludedProperties() pulumi.StringArrayMapOutput {
+	return o.ApplyT(func(v *PackageCleanupPolicySearchCriteria) map[string][]string {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludedProperties
+	}).(pulumi.StringArrayMapOutput)
 }
 
 // Specify patterns for repository names or explicit repository names that you want excluded from the cleanup policy.
@@ -10575,7 +10667,9 @@ func (o PackageCleanupPolicySearchCriteriaPtrOutput) ExcludedRepos() pulumi.Stri
 	}).(pulumi.StringArrayOutput)
 }
 
-// Set this to `true` if you want the policy to run on all projects on the platform.
+// Set this value to `true` if you want the policy to run on all Artifactory projects. The default value is `false`.
+//
+//	~>This parameter is relevant only on the global level, for Platform Admins.
 func (o PackageCleanupPolicySearchCriteriaPtrOutput) IncludeAllProjects() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *PackageCleanupPolicySearchCriteria) *bool {
 		if v == nil {
@@ -10585,7 +10679,7 @@ func (o PackageCleanupPolicySearchCriteriaPtrOutput) IncludeAllProjects() pulumi
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specify a pattern for a package name or an explicit package name. It accept only single element which can be specific package or pattern, and for including all packages use `**`. Example: `includedPackages = ["**"]`
+// Specify a pattern for a package name or an explicit package name on which you want the cleanup policy to run. Only one pattern or explicit name can be entered. To include all packages, use `**`. Example: `includedPackages = ["**"]`
 func (o PackageCleanupPolicySearchCriteriaPtrOutput) IncludedPackages() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PackageCleanupPolicySearchCriteria) []string {
 		if v == nil {
@@ -10595,7 +10689,7 @@ func (o PackageCleanupPolicySearchCriteriaPtrOutput) IncludedPackages() pulumi.S
 	}).(pulumi.StringArrayOutput)
 }
 
-// List of projects on which you want this policy to run. To include repositories that are not assigned to any project, enter the project key `default`.
+// Enter the project keys for the projects on which you want the policy to run. To include repositories that are not assigned to any project, enter the project key `default`. Can be empty when `includeAllProjects` is set to `true`.
 func (o PackageCleanupPolicySearchCriteriaPtrOutput) IncludedProjects() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PackageCleanupPolicySearchCriteria) []string {
 		if v == nil {
@@ -10605,7 +10699,17 @@ func (o PackageCleanupPolicySearchCriteriaPtrOutput) IncludedProjects() pulumi.S
 	}).(pulumi.StringArrayOutput)
 }
 
-// Select the number of latest versions to keep. The cleanup policy will remove all versions prior to the number you select here. The latest version is always excluded. Versions are determined by creation date.
+// A key-value pair applied to the lead artifact of a package. Packages with this property will be deleted.
+func (o PackageCleanupPolicySearchCriteriaPtrOutput) IncludedProperties() pulumi.StringArrayMapOutput {
+	return o.ApplyT(func(v *PackageCleanupPolicySearchCriteria) map[string][]string {
+		if v == nil {
+			return nil
+		}
+		return v.IncludedProperties
+	}).(pulumi.StringArrayMapOutput)
+}
+
+// Set a value for the number of latest versions to keep. The cleanup policy will remove all versions prior to the number you select here. The latest version is always excluded.
 //
 // ~>Not all package types support this condition. For information on which package types support this condition, [learn more](https://jfrog.com/help/r/jfrog-platform-administration-documentation/retention-policies/package-types-coverage).
 func (o PackageCleanupPolicySearchCriteriaPtrOutput) KeepLastNVersions() pulumi.IntPtrOutput {
@@ -10617,11 +10721,23 @@ func (o PackageCleanupPolicySearchCriteriaPtrOutput) KeepLastNVersions() pulumi.
 	}).(pulumi.IntPtrOutput)
 }
 
-// Removes packages based on when they were last downloaded. For example, removes packages that were not downloaded in the past year. The default value is to remove packages that were downloaded more than 2 years ago.
+// The cleanup policy will delete packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 days ago will be deleted as part of the policy.
 //
-// ~>If a package was never downloaded, the policy will remove it based only on the age-condition (`createdBeforeInMonths`).
+// ~>JFrog recommends using the `lastDownloadedBeforeInDays` condition to ensure that packages currently in use are not deleted.
+func (o PackageCleanupPolicySearchCriteriaPtrOutput) LastDownloadedBeforeInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PackageCleanupPolicySearchCriteria) *int {
+		if v == nil {
+			return nil
+		}
+		return v.LastDownloadedBeforeInDays
+	}).(pulumi.IntPtrOutput)
+}
+
+// The cleanup policy will delete packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 months ago will be deleted as part of the policy.
 //
 // ~>JFrog recommends using the `lastDownloadedBeforeInMonths` condition to ensure that packages currently in use are not deleted.
+//
+// Deprecated: Use `lastDownloadedBeforeInDays` instead of `lastDownloadedBeforeInMonths`. Renamed to `lastDownloadedBeforeInDays` starting in version 7.111.2.
 func (o PackageCleanupPolicySearchCriteriaPtrOutput) LastDownloadedBeforeInMonths() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PackageCleanupPolicySearchCriteria) *int {
 		if v == nil {
@@ -10640,7 +10756,7 @@ func (o PackageCleanupPolicySearchCriteriaPtrOutput) PackageTypes() pulumi.Strin
 	}).(pulumi.StringArrayOutput)
 }
 
-// Specify patterns for repository names or explicit repository names. For including all repos use `**`. Example: `repos = ["**"]`
+// Specify one or more patterns for the repository name(s) on which you want the cleanup policy to run. You can also specify explicit repository names. Specifying at least one pattern or explicit name is mandatory. Only packages in repositories that match the pattern or explicit name will be deleted. For including all repos use `**`. Example: `repos = ["**"]`
 func (o PackageCleanupPolicySearchCriteriaPtrOutput) Repos() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PackageCleanupPolicySearchCriteria) []string {
 		if v == nil {
