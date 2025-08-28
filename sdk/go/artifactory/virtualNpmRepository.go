@@ -56,15 +56,13 @@ import (
 type VirtualNpmRepository struct {
 	pulumi.CustomResourceState
 
-	// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
-	// another Artifactory instance.
+	// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
 	ArtifactoryRequestsCanRetrieveRemoteArtifacts pulumi.BoolPtrOutput `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`
 	// Default repository to deploy artifacts.
 	DefaultDeploymentRepo pulumi.StringPtrOutput `pulumi:"defaultDeploymentRepo"`
 	// Public description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
-	// artifacts are excluded.
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrOutput `pulumi:"excludesPattern"`
 	// When set, external dependencies are rewritten. Default value is false.
 	ExternalDependenciesEnabled pulumi.BoolPtrOutput `pulumi:"externalDependenciesEnabled"`
@@ -72,8 +70,7 @@ type VirtualNpmRepository struct {
 	ExternalDependenciesPatterns pulumi.StringArrayOutput `pulumi:"externalDependenciesPatterns"`
 	// The remote repository aggregated by this virtual repository in which the external dependency will be cached.
 	ExternalDependenciesRemoteRepo pulumi.StringPtrOutput `pulumi:"externalDependenciesRemoteRepo"`
-	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
-	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 	IncludesPattern pulumi.StringPtrOutput `pulumi:"includesPattern"`
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
 	// contain spaces or special characters.
@@ -82,8 +79,7 @@ type VirtualNpmRepository struct {
 	Notes               pulumi.StringPtrOutput   `pulumi:"notes"`
 	PackageType         pulumi.StringOutput      `pulumi:"packageType"`
 	ProjectEnvironments pulumi.StringArrayOutput `pulumi:"projectEnvironments"`
-	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrOutput `pulumi:"projectKey"`
 	// Repository layout key for the virtual repository
 	RepoLayoutRef pulumi.StringPtrOutput `pulumi:"repoLayoutRef"`
@@ -126,15 +122,13 @@ func GetVirtualNpmRepository(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VirtualNpmRepository resources.
 type virtualNpmRepositoryState struct {
-	// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
-	// another Artifactory instance.
+	// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
 	ArtifactoryRequestsCanRetrieveRemoteArtifacts *bool `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`
 	// Default repository to deploy artifacts.
 	DefaultDeploymentRepo *string `pulumi:"defaultDeploymentRepo"`
 	// Public description.
 	Description *string `pulumi:"description"`
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
-	// artifacts are excluded.
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
 	// When set, external dependencies are rewritten. Default value is false.
 	ExternalDependenciesEnabled *bool `pulumi:"externalDependenciesEnabled"`
@@ -142,8 +136,7 @@ type virtualNpmRepositoryState struct {
 	ExternalDependenciesPatterns []string `pulumi:"externalDependenciesPatterns"`
 	// The remote repository aggregated by this virtual repository in which the external dependency will be cached.
 	ExternalDependenciesRemoteRepo *string `pulumi:"externalDependenciesRemoteRepo"`
-	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
-	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 	IncludesPattern *string `pulumi:"includesPattern"`
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
 	// contain spaces or special characters.
@@ -152,8 +145,7 @@ type virtualNpmRepositoryState struct {
 	Notes               *string  `pulumi:"notes"`
 	PackageType         *string  `pulumi:"packageType"`
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
-	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey *string `pulumi:"projectKey"`
 	// Repository layout key for the virtual repository
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
@@ -164,15 +156,13 @@ type virtualNpmRepositoryState struct {
 }
 
 type VirtualNpmRepositoryState struct {
-	// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
-	// another Artifactory instance.
+	// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
 	ArtifactoryRequestsCanRetrieveRemoteArtifacts pulumi.BoolPtrInput
 	// Default repository to deploy artifacts.
 	DefaultDeploymentRepo pulumi.StringPtrInput
 	// Public description.
 	Description pulumi.StringPtrInput
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
-	// artifacts are excluded.
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
 	// When set, external dependencies are rewritten. Default value is false.
 	ExternalDependenciesEnabled pulumi.BoolPtrInput
@@ -180,8 +170,7 @@ type VirtualNpmRepositoryState struct {
 	ExternalDependenciesPatterns pulumi.StringArrayInput
 	// The remote repository aggregated by this virtual repository in which the external dependency will be cached.
 	ExternalDependenciesRemoteRepo pulumi.StringPtrInput
-	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
-	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 	IncludesPattern pulumi.StringPtrInput
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
 	// contain spaces or special characters.
@@ -190,8 +179,7 @@ type VirtualNpmRepositoryState struct {
 	Notes               pulumi.StringPtrInput
 	PackageType         pulumi.StringPtrInput
 	ProjectEnvironments pulumi.StringArrayInput
-	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrInput
 	// Repository layout key for the virtual repository
 	RepoLayoutRef pulumi.StringPtrInput
@@ -206,15 +194,13 @@ func (VirtualNpmRepositoryState) ElementType() reflect.Type {
 }
 
 type virtualNpmRepositoryArgs struct {
-	// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
-	// another Artifactory instance.
+	// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
 	ArtifactoryRequestsCanRetrieveRemoteArtifacts *bool `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`
 	// Default repository to deploy artifacts.
 	DefaultDeploymentRepo *string `pulumi:"defaultDeploymentRepo"`
 	// Public description.
 	Description *string `pulumi:"description"`
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
-	// artifacts are excluded.
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
 	// When set, external dependencies are rewritten. Default value is false.
 	ExternalDependenciesEnabled *bool `pulumi:"externalDependenciesEnabled"`
@@ -222,8 +208,7 @@ type virtualNpmRepositoryArgs struct {
 	ExternalDependenciesPatterns []string `pulumi:"externalDependenciesPatterns"`
 	// The remote repository aggregated by this virtual repository in which the external dependency will be cached.
 	ExternalDependenciesRemoteRepo *string `pulumi:"externalDependenciesRemoteRepo"`
-	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
-	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 	IncludesPattern *string `pulumi:"includesPattern"`
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
 	// contain spaces or special characters.
@@ -231,8 +216,7 @@ type virtualNpmRepositoryArgs struct {
 	// Internal description.
 	Notes               *string  `pulumi:"notes"`
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
-	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey *string `pulumi:"projectKey"`
 	// Repository layout key for the virtual repository
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
@@ -244,15 +228,13 @@ type virtualNpmRepositoryArgs struct {
 
 // The set of arguments for constructing a VirtualNpmRepository resource.
 type VirtualNpmRepositoryArgs struct {
-	// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
-	// another Artifactory instance.
+	// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
 	ArtifactoryRequestsCanRetrieveRemoteArtifacts pulumi.BoolPtrInput
 	// Default repository to deploy artifacts.
 	DefaultDeploymentRepo pulumi.StringPtrInput
 	// Public description.
 	Description pulumi.StringPtrInput
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
-	// artifacts are excluded.
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
 	// When set, external dependencies are rewritten. Default value is false.
 	ExternalDependenciesEnabled pulumi.BoolPtrInput
@@ -260,8 +242,7 @@ type VirtualNpmRepositoryArgs struct {
 	ExternalDependenciesPatterns pulumi.StringArrayInput
 	// The remote repository aggregated by this virtual repository in which the external dependency will be cached.
 	ExternalDependenciesRemoteRepo pulumi.StringPtrInput
-	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
-	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 	IncludesPattern pulumi.StringPtrInput
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
 	// contain spaces or special characters.
@@ -269,8 +250,7 @@ type VirtualNpmRepositoryArgs struct {
 	// Internal description.
 	Notes               pulumi.StringPtrInput
 	ProjectEnvironments pulumi.StringArrayInput
-	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrInput
 	// Repository layout key for the virtual repository
 	RepoLayoutRef pulumi.StringPtrInput
@@ -367,8 +347,7 @@ func (o VirtualNpmRepositoryOutput) ToVirtualNpmRepositoryOutputWithContext(ctx 
 	return o
 }
 
-// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
-// another Artifactory instance.
+// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
 func (o VirtualNpmRepositoryOutput) ArtifactoryRequestsCanRetrieveRemoteArtifacts() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VirtualNpmRepository) pulumi.BoolPtrOutput {
 		return v.ArtifactoryRequestsCanRetrieveRemoteArtifacts
@@ -385,8 +364,7 @@ func (o VirtualNpmRepositoryOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNpmRepository) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
-// artifacts are excluded.
+// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
 func (o VirtualNpmRepositoryOutput) ExcludesPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNpmRepository) pulumi.StringPtrOutput { return v.ExcludesPattern }).(pulumi.StringPtrOutput)
 }
@@ -406,8 +384,7 @@ func (o VirtualNpmRepositoryOutput) ExternalDependenciesRemoteRepo() pulumi.Stri
 	return o.ApplyT(func(v *VirtualNpmRepository) pulumi.StringPtrOutput { return v.ExternalDependenciesRemoteRepo }).(pulumi.StringPtrOutput)
 }
 
-// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
-// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 func (o VirtualNpmRepositoryOutput) IncludesPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNpmRepository) pulumi.StringPtrOutput { return v.IncludesPattern }).(pulumi.StringPtrOutput)
 }
@@ -431,8 +408,7 @@ func (o VirtualNpmRepositoryOutput) ProjectEnvironments() pulumi.StringArrayOutp
 	return o.ApplyT(func(v *VirtualNpmRepository) pulumi.StringArrayOutput { return v.ProjectEnvironments }).(pulumi.StringArrayOutput)
 }
 
-// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 func (o VirtualNpmRepositoryOutput) ProjectKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNpmRepository) pulumi.StringPtrOutput { return v.ProjectKey }).(pulumi.StringPtrOutput)
 }

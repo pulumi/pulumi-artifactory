@@ -16,21 +16,17 @@ from .. import _utilities
 
 accessToken: Optional[str]
 """
-This is a access token that can be given to you by your admin under `User Management > Access Tokens`. If not set, the
-'api_key' attribute value will be used.
+This is a access token that can be given to you by your admin under `User Management > Access Tokens`. If not set, the 'api_key' attribute value will be used.
 """
 
 apiKey: Optional[str]
 """
-API key. If `access_token` attribute, `JFROG_ACCESS_TOKEN` or `ARTIFACTORY_ACCESS_TOKEN` environment variable is set,
-the provider will ignore this attribute.
+API key. If `access_token` attribute, `JFROG_ACCESS_TOKEN` or `ARTIFACTORY_ACCESS_TOKEN` environment variable is set, the provider will ignore this attribute.
 """
 
 oidcProviderName: Optional[str]
 """
-OIDC provider name. See [Configure an OIDC
-Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-an-oidc-integration) for
-more details.
+OIDC provider name. See [Configure an OIDC Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-an-oidc-integration) for more details.
 """
 
 tfcCredentialTagName: Optional[str]

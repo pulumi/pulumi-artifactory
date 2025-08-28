@@ -79,19 +79,19 @@ export class OauthSettings extends pulumi.CustomResource {
     /**
      * Allow persisted users to access their profile.  Default value is `false`.
      */
-    public readonly allowUserToAccessProfile!: pulumi.Output<boolean | undefined>;
+    declare public readonly allowUserToAccessProfile: pulumi.Output<boolean | undefined>;
     /**
      * Enable OAuth SSO.  Default value is `true`.
      */
-    public readonly enable!: pulumi.Output<boolean | undefined>;
+    declare public readonly enable: pulumi.Output<boolean | undefined>;
     /**
      * OAuth provider settings block. Multiple blocks can be defined, at least one is required.
      */
-    public readonly oauthProviders!: pulumi.Output<outputs.OauthSettingsOauthProvider[]>;
+    declare public readonly oauthProviders: pulumi.Output<outputs.OauthSettingsOauthProvider[]>;
     /**
      * Enable the creation of local Artifactory users.  Default value is `false`.
      */
-    public readonly persistUsers!: pulumi.Output<boolean | undefined>;
+    declare public readonly persistUsers: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a OauthSettings resource with the given unique name, arguments, and options.
@@ -106,19 +106,19 @@ export class OauthSettings extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OauthSettingsState | undefined;
-            resourceInputs["allowUserToAccessProfile"] = state ? state.allowUserToAccessProfile : undefined;
-            resourceInputs["enable"] = state ? state.enable : undefined;
-            resourceInputs["oauthProviders"] = state ? state.oauthProviders : undefined;
-            resourceInputs["persistUsers"] = state ? state.persistUsers : undefined;
+            resourceInputs["allowUserToAccessProfile"] = state?.allowUserToAccessProfile;
+            resourceInputs["enable"] = state?.enable;
+            resourceInputs["oauthProviders"] = state?.oauthProviders;
+            resourceInputs["persistUsers"] = state?.persistUsers;
         } else {
             const args = argsOrState as OauthSettingsArgs | undefined;
-            if ((!args || args.oauthProviders === undefined) && !opts.urn) {
+            if (args?.oauthProviders === undefined && !opts.urn) {
                 throw new Error("Missing required property 'oauthProviders'");
             }
-            resourceInputs["allowUserToAccessProfile"] = args ? args.allowUserToAccessProfile : undefined;
-            resourceInputs["enable"] = args ? args.enable : undefined;
-            resourceInputs["oauthProviders"] = args ? args.oauthProviders : undefined;
-            resourceInputs["persistUsers"] = args ? args.persistUsers : undefined;
+            resourceInputs["allowUserToAccessProfile"] = args?.allowUserToAccessProfile;
+            resourceInputs["enable"] = args?.enable;
+            resourceInputs["oauthProviders"] = args?.oauthProviders;
+            resourceInputs["persistUsers"] = args?.persistUsers;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(OauthSettings.__pulumiType, name, resourceInputs, opts);

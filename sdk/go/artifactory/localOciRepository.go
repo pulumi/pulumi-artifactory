@@ -52,25 +52,20 @@ import (
 type LocalOciRepository struct {
 	pulumi.CustomResourceState
 
-	// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
-	// therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
-	// security (e.g., cross-site scripting attacks).
+	// When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+	// This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
 	ArchiveBrowsingEnabled pulumi.BoolOutput `pulumi:"archiveBrowsingEnabled"`
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 	BlackedOut pulumi.BoolOutput `pulumi:"blackedOut"`
-	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
 	CdnRedirect pulumi.BoolOutput `pulumi:"cdnRedirect"`
 	// Public description.
 	Description pulumi.StringOutput `pulumi:"description"`
-	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
-	// storage provider. Available in Enterprise+ and Edge licenses only.
+	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect pulumi.BoolOutput `pulumi:"downloadDirect"`
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
-	// artifacts are excluded.
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
 	ExcludesPattern pulumi.StringOutput `pulumi:"excludesPattern"`
-	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
-	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 	IncludesPattern pulumi.StringOutput `pulumi:"includesPattern"`
 	// the identity key of the repo.
 	Key pulumi.StringOutput `pulumi:"key"`
@@ -81,18 +76,15 @@ type LocalOciRepository struct {
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution  pulumi.BoolOutput        `pulumi:"priorityResolution"`
 	ProjectEnvironments pulumi.StringArrayOutput `pulumi:"projectEnvironments"`
-	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringOutput `pulumi:"projectKey"`
 	// List of property set name
 	PropertySets pulumi.StringArrayOutput `pulumi:"propertySets"`
-	// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
-	// corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+	// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
 	RepoLayoutRef pulumi.StringOutput `pulumi:"repoLayoutRef"`
 	// If greater than 1, overwritten tags will be saved by their digest, up to the set up number.
 	TagRetention pulumi.IntOutput `pulumi:"tagRetention"`
-	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-	// Xray settings.
+	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
 	XrayIndex pulumi.BoolOutput `pulumi:"xrayIndex"`
 }
 
@@ -129,25 +121,20 @@ func GetLocalOciRepository(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LocalOciRepository resources.
 type localOciRepositoryState struct {
-	// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
-	// therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
-	// security (e.g., cross-site scripting attacks).
+	// When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+	// This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
 	ArchiveBrowsingEnabled *bool `pulumi:"archiveBrowsingEnabled"`
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 	BlackedOut *bool `pulumi:"blackedOut"`
-	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
 	CdnRedirect *bool `pulumi:"cdnRedirect"`
 	// Public description.
 	Description *string `pulumi:"description"`
-	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
-	// storage provider. Available in Enterprise+ and Edge licenses only.
+	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect *bool `pulumi:"downloadDirect"`
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
-	// artifacts are excluded.
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
-	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
-	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 	IncludesPattern *string `pulumi:"includesPattern"`
 	// the identity key of the repo.
 	Key *string `pulumi:"key"`
@@ -158,41 +145,33 @@ type localOciRepositoryState struct {
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution  *bool    `pulumi:"priorityResolution"`
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
-	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey *string `pulumi:"projectKey"`
 	// List of property set name
 	PropertySets []string `pulumi:"propertySets"`
-	// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
-	// corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+	// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
 	// If greater than 1, overwritten tags will be saved by their digest, up to the set up number.
 	TagRetention *int `pulumi:"tagRetention"`
-	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-	// Xray settings.
+	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
 	XrayIndex *bool `pulumi:"xrayIndex"`
 }
 
 type LocalOciRepositoryState struct {
-	// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
-	// therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
-	// security (e.g., cross-site scripting attacks).
+	// When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+	// This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
 	ArchiveBrowsingEnabled pulumi.BoolPtrInput
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 	BlackedOut pulumi.BoolPtrInput
-	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
 	CdnRedirect pulumi.BoolPtrInput
 	// Public description.
 	Description pulumi.StringPtrInput
-	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
-	// storage provider. Available in Enterprise+ and Edge licenses only.
+	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect pulumi.BoolPtrInput
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
-	// artifacts are excluded.
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
-	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
-	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 	IncludesPattern pulumi.StringPtrInput
 	// the identity key of the repo.
 	Key pulumi.StringPtrInput
@@ -203,18 +182,15 @@ type LocalOciRepositoryState struct {
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution  pulumi.BoolPtrInput
 	ProjectEnvironments pulumi.StringArrayInput
-	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrInput
 	// List of property set name
 	PropertySets pulumi.StringArrayInput
-	// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
-	// corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+	// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
 	RepoLayoutRef pulumi.StringPtrInput
 	// If greater than 1, overwritten tags will be saved by their digest, up to the set up number.
 	TagRetention pulumi.IntPtrInput
-	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-	// Xray settings.
+	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
 	XrayIndex pulumi.BoolPtrInput
 }
 
@@ -223,25 +199,20 @@ func (LocalOciRepositoryState) ElementType() reflect.Type {
 }
 
 type localOciRepositoryArgs struct {
-	// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
-	// therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
-	// security (e.g., cross-site scripting attacks).
+	// When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+	// This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
 	ArchiveBrowsingEnabled *bool `pulumi:"archiveBrowsingEnabled"`
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 	BlackedOut *bool `pulumi:"blackedOut"`
-	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
 	CdnRedirect *bool `pulumi:"cdnRedirect"`
 	// Public description.
 	Description *string `pulumi:"description"`
-	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
-	// storage provider. Available in Enterprise+ and Edge licenses only.
+	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect *bool `pulumi:"downloadDirect"`
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
-	// artifacts are excluded.
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
-	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
-	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 	IncludesPattern *string `pulumi:"includesPattern"`
 	// the identity key of the repo.
 	Key string `pulumi:"key"`
@@ -252,42 +223,34 @@ type localOciRepositoryArgs struct {
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution  *bool    `pulumi:"priorityResolution"`
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
-	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey *string `pulumi:"projectKey"`
 	// List of property set name
 	PropertySets []string `pulumi:"propertySets"`
-	// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
-	// corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+	// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
 	// If greater than 1, overwritten tags will be saved by their digest, up to the set up number.
 	TagRetention *int `pulumi:"tagRetention"`
-	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-	// Xray settings.
+	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
 	XrayIndex *bool `pulumi:"xrayIndex"`
 }
 
 // The set of arguments for constructing a LocalOciRepository resource.
 type LocalOciRepositoryArgs struct {
-	// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
-	// therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
-	// security (e.g., cross-site scripting attacks).
+	// When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+	// This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
 	ArchiveBrowsingEnabled pulumi.BoolPtrInput
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 	BlackedOut pulumi.BoolPtrInput
-	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
 	CdnRedirect pulumi.BoolPtrInput
 	// Public description.
 	Description pulumi.StringPtrInput
-	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
-	// storage provider. Available in Enterprise+ and Edge licenses only.
+	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect pulumi.BoolPtrInput
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
-	// artifacts are excluded.
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
-	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
-	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 	IncludesPattern pulumi.StringPtrInput
 	// the identity key of the repo.
 	Key pulumi.StringInput
@@ -298,18 +261,15 @@ type LocalOciRepositoryArgs struct {
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution  pulumi.BoolPtrInput
 	ProjectEnvironments pulumi.StringArrayInput
-	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrInput
 	// List of property set name
 	PropertySets pulumi.StringArrayInput
-	// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
-	// corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+	// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
 	RepoLayoutRef pulumi.StringPtrInput
 	// If greater than 1, overwritten tags will be saved by their digest, up to the set up number.
 	TagRetention pulumi.IntPtrInput
-	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-	// Xray settings.
+	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
 	XrayIndex pulumi.BoolPtrInput
 }
 
@@ -400,9 +360,8 @@ func (o LocalOciRepositoryOutput) ToLocalOciRepositoryOutputWithContext(ctx cont
 	return o
 }
 
-// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
-// therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
-// security (e.g., cross-site scripting attacks).
+// When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+// This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
 func (o LocalOciRepositoryOutput) ArchiveBrowsingEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *LocalOciRepository) pulumi.BoolOutput { return v.ArchiveBrowsingEnabled }).(pulumi.BoolOutput)
 }
@@ -412,8 +371,7 @@ func (o LocalOciRepositoryOutput) BlackedOut() pulumi.BoolOutput {
 	return o.ApplyT(func(v *LocalOciRepository) pulumi.BoolOutput { return v.BlackedOut }).(pulumi.BoolOutput)
 }
 
-// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+// When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
 func (o LocalOciRepositoryOutput) CdnRedirect() pulumi.BoolOutput {
 	return o.ApplyT(func(v *LocalOciRepository) pulumi.BoolOutput { return v.CdnRedirect }).(pulumi.BoolOutput)
 }
@@ -423,20 +381,17 @@ func (o LocalOciRepositoryOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocalOciRepository) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
-// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
-// storage provider. Available in Enterprise+ and Edge licenses only.
+// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
 func (o LocalOciRepositoryOutput) DownloadDirect() pulumi.BoolOutput {
 	return o.ApplyT(func(v *LocalOciRepository) pulumi.BoolOutput { return v.DownloadDirect }).(pulumi.BoolOutput)
 }
 
-// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
-// artifacts are excluded.
+// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
 func (o LocalOciRepositoryOutput) ExcludesPattern() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocalOciRepository) pulumi.StringOutput { return v.ExcludesPattern }).(pulumi.StringOutput)
 }
 
-// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
-// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 func (o LocalOciRepositoryOutput) IncludesPattern() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocalOciRepository) pulumi.StringOutput { return v.IncludesPattern }).(pulumi.StringOutput)
 }
@@ -465,8 +420,7 @@ func (o LocalOciRepositoryOutput) ProjectEnvironments() pulumi.StringArrayOutput
 	return o.ApplyT(func(v *LocalOciRepository) pulumi.StringArrayOutput { return v.ProjectEnvironments }).(pulumi.StringArrayOutput)
 }
 
-// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 func (o LocalOciRepositoryOutput) ProjectKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocalOciRepository) pulumi.StringOutput { return v.ProjectKey }).(pulumi.StringOutput)
 }
@@ -476,8 +430,7 @@ func (o LocalOciRepositoryOutput) PropertySets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LocalOciRepository) pulumi.StringArrayOutput { return v.PropertySets }).(pulumi.StringArrayOutput)
 }
 
-// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
-// corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
 func (o LocalOciRepositoryOutput) RepoLayoutRef() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocalOciRepository) pulumi.StringOutput { return v.RepoLayoutRef }).(pulumi.StringOutput)
 }
@@ -487,8 +440,7 @@ func (o LocalOciRepositoryOutput) TagRetention() pulumi.IntOutput {
 	return o.ApplyT(func(v *LocalOciRepository) pulumi.IntOutput { return v.TagRetention }).(pulumi.IntOutput)
 }
 
-// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-// Xray settings.
+// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
 func (o LocalOciRepositoryOutput) XrayIndex() pulumi.BoolOutput {
 	return o.ApplyT(func(v *LocalOciRepository) pulumi.BoolOutput { return v.XrayIndex }).(pulumi.BoolOutput)
 }

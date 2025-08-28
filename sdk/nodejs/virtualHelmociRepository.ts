@@ -63,55 +63,51 @@ export class VirtualHelmociRepository extends pulumi.CustomResource {
     }
 
     /**
-     * Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
-     * another Artifactory instance.
+     * Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
      */
-    public readonly artifactoryRequestsCanRetrieveRemoteArtifacts!: pulumi.Output<boolean | undefined>;
+    declare public readonly artifactoryRequestsCanRetrieveRemoteArtifacts: pulumi.Output<boolean | undefined>;
     /**
      * Default repository to deploy artifacts.
      */
-    public readonly defaultDeploymentRepo!: pulumi.Output<string | undefined>;
+    declare public readonly defaultDeploymentRepo: pulumi.Output<string | undefined>;
     /**
      * Public description.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no
-     * artifacts are excluded.
+     * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no artifacts are excluded.
      */
-    public readonly excludesPattern!: pulumi.Output<string | undefined>;
+    declare public readonly excludesPattern: pulumi.Output<string | undefined>;
     /**
-     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When
-     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
+     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
      */
-    public readonly includesPattern!: pulumi.Output<string | undefined>;
+    declare public readonly includesPattern: pulumi.Output<string | undefined>;
     /**
      * A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or special characters.
      */
-    public readonly key!: pulumi.Output<string>;
+    declare public readonly key: pulumi.Output<string>;
     /**
      * Internal description.
      */
-    public readonly notes!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly packageType!: pulumi.Output<string>;
-    public readonly projectEnvironments!: pulumi.Output<string[]>;
+    declare public readonly notes: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly packageType: pulumi.Output<string>;
+    declare public readonly projectEnvironments: pulumi.Output<string[]>;
     /**
-     * Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-     * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+     * Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      */
-    public readonly projectKey!: pulumi.Output<string | undefined>;
+    declare public readonly projectKey: pulumi.Output<string | undefined>;
     /**
      * Repository layout key for the virtual repository
      */
-    public readonly repoLayoutRef!: pulumi.Output<string | undefined>;
+    declare public readonly repoLayoutRef: pulumi.Output<string | undefined>;
     /**
      * The effective list of actual repositories included in this virtual repository.
      */
-    public readonly repositories!: pulumi.Output<string[] | undefined>;
+    declare public readonly repositories: pulumi.Output<string[] | undefined>;
     /**
      * When enabled, in cases where the same OCI tag exists in two or more of the aggregated repositories, Artifactory will return the tag that has the latest timestamp. Default values is `false`.
      */
-    public readonly resolveOciTagsByTimestamp!: pulumi.Output<boolean | undefined>;
+    declare public readonly resolveOciTagsByTimestamp: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a VirtualHelmociRepository resource with the given unique name, arguments, and options.
@@ -126,36 +122,36 @@ export class VirtualHelmociRepository extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VirtualHelmociRepositoryState | undefined;
-            resourceInputs["artifactoryRequestsCanRetrieveRemoteArtifacts"] = state ? state.artifactoryRequestsCanRetrieveRemoteArtifacts : undefined;
-            resourceInputs["defaultDeploymentRepo"] = state ? state.defaultDeploymentRepo : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["excludesPattern"] = state ? state.excludesPattern : undefined;
-            resourceInputs["includesPattern"] = state ? state.includesPattern : undefined;
-            resourceInputs["key"] = state ? state.key : undefined;
-            resourceInputs["notes"] = state ? state.notes : undefined;
-            resourceInputs["packageType"] = state ? state.packageType : undefined;
-            resourceInputs["projectEnvironments"] = state ? state.projectEnvironments : undefined;
-            resourceInputs["projectKey"] = state ? state.projectKey : undefined;
-            resourceInputs["repoLayoutRef"] = state ? state.repoLayoutRef : undefined;
-            resourceInputs["repositories"] = state ? state.repositories : undefined;
-            resourceInputs["resolveOciTagsByTimestamp"] = state ? state.resolveOciTagsByTimestamp : undefined;
+            resourceInputs["artifactoryRequestsCanRetrieveRemoteArtifacts"] = state?.artifactoryRequestsCanRetrieveRemoteArtifacts;
+            resourceInputs["defaultDeploymentRepo"] = state?.defaultDeploymentRepo;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["excludesPattern"] = state?.excludesPattern;
+            resourceInputs["includesPattern"] = state?.includesPattern;
+            resourceInputs["key"] = state?.key;
+            resourceInputs["notes"] = state?.notes;
+            resourceInputs["packageType"] = state?.packageType;
+            resourceInputs["projectEnvironments"] = state?.projectEnvironments;
+            resourceInputs["projectKey"] = state?.projectKey;
+            resourceInputs["repoLayoutRef"] = state?.repoLayoutRef;
+            resourceInputs["repositories"] = state?.repositories;
+            resourceInputs["resolveOciTagsByTimestamp"] = state?.resolveOciTagsByTimestamp;
         } else {
             const args = argsOrState as VirtualHelmociRepositoryArgs | undefined;
-            if ((!args || args.key === undefined) && !opts.urn) {
+            if (args?.key === undefined && !opts.urn) {
                 throw new Error("Missing required property 'key'");
             }
-            resourceInputs["artifactoryRequestsCanRetrieveRemoteArtifacts"] = args ? args.artifactoryRequestsCanRetrieveRemoteArtifacts : undefined;
-            resourceInputs["defaultDeploymentRepo"] = args ? args.defaultDeploymentRepo : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["excludesPattern"] = args ? args.excludesPattern : undefined;
-            resourceInputs["includesPattern"] = args ? args.includesPattern : undefined;
-            resourceInputs["key"] = args ? args.key : undefined;
-            resourceInputs["notes"] = args ? args.notes : undefined;
-            resourceInputs["projectEnvironments"] = args ? args.projectEnvironments : undefined;
-            resourceInputs["projectKey"] = args ? args.projectKey : undefined;
-            resourceInputs["repoLayoutRef"] = args ? args.repoLayoutRef : undefined;
-            resourceInputs["repositories"] = args ? args.repositories : undefined;
-            resourceInputs["resolveOciTagsByTimestamp"] = args ? args.resolveOciTagsByTimestamp : undefined;
+            resourceInputs["artifactoryRequestsCanRetrieveRemoteArtifacts"] = args?.artifactoryRequestsCanRetrieveRemoteArtifacts;
+            resourceInputs["defaultDeploymentRepo"] = args?.defaultDeploymentRepo;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["excludesPattern"] = args?.excludesPattern;
+            resourceInputs["includesPattern"] = args?.includesPattern;
+            resourceInputs["key"] = args?.key;
+            resourceInputs["notes"] = args?.notes;
+            resourceInputs["projectEnvironments"] = args?.projectEnvironments;
+            resourceInputs["projectKey"] = args?.projectKey;
+            resourceInputs["repoLayoutRef"] = args?.repoLayoutRef;
+            resourceInputs["repositories"] = args?.repositories;
+            resourceInputs["resolveOciTagsByTimestamp"] = args?.resolveOciTagsByTimestamp;
             resourceInputs["packageType"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -168,8 +164,7 @@ export class VirtualHelmociRepository extends pulumi.CustomResource {
  */
 export interface VirtualHelmociRepositoryState {
     /**
-     * Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
-     * another Artifactory instance.
+     * Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
      */
     artifactoryRequestsCanRetrieveRemoteArtifacts?: pulumi.Input<boolean>;
     /**
@@ -181,13 +176,11 @@ export interface VirtualHelmociRepositoryState {
      */
     description?: pulumi.Input<string>;
     /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no
-     * artifacts are excluded.
+     * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no artifacts are excluded.
      */
     excludesPattern?: pulumi.Input<string>;
     /**
-     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When
-     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
+     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
      */
     includesPattern?: pulumi.Input<string>;
     /**
@@ -201,8 +194,7 @@ export interface VirtualHelmociRepositoryState {
     packageType?: pulumi.Input<string>;
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-     * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+     * Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      */
     projectKey?: pulumi.Input<string>;
     /**
@@ -224,8 +216,7 @@ export interface VirtualHelmociRepositoryState {
  */
 export interface VirtualHelmociRepositoryArgs {
     /**
-     * Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
-     * another Artifactory instance.
+     * Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
      */
     artifactoryRequestsCanRetrieveRemoteArtifacts?: pulumi.Input<boolean>;
     /**
@@ -237,13 +228,11 @@ export interface VirtualHelmociRepositoryArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no
-     * artifacts are excluded.
+     * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no artifacts are excluded.
      */
     excludesPattern?: pulumi.Input<string>;
     /**
-     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When
-     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
+     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
      */
     includesPattern?: pulumi.Input<string>;
     /**
@@ -256,8 +245,7 @@ export interface VirtualHelmociRepositoryArgs {
     notes?: pulumi.Input<string>;
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-     * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+     * Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      */
     projectKey?: pulumi.Input<string>;
     /**

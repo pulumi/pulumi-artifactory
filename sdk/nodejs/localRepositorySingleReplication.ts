@@ -85,71 +85,71 @@ export class LocalRepositorySingleReplication extends pulumi.CustomResource {
     /**
      * Enabling the `checkBinaryExistenceInFilestore` flag requires an Enterprise Plus license. When true, enables distributed checksum storage. For more information, see [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
      */
-    public readonly checkBinaryExistenceInFilestore!: pulumi.Output<boolean>;
+    declare public readonly checkBinaryExistenceInFilestore: pulumi.Output<boolean>;
     /**
      * A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
      */
-    public readonly cronExp!: pulumi.Output<string>;
+    declare public readonly cronExp: pulumi.Output<string>;
     /**
      * When set to `true`, the `proxy` attribute will be ignored (from version 7.41.7). The default value is `false`.
      */
-    public readonly disableProxy!: pulumi.Output<boolean>;
+    declare public readonly disableProxy: pulumi.Output<boolean>;
     /**
      * When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
      */
-    public readonly enableEventReplication!: pulumi.Output<boolean>;
+    declare public readonly enableEventReplication: pulumi.Output<boolean>;
     /**
      * When set, enables replication of this repository to the target specified in `url` attribute. Default value is `true`.
      */
-    public readonly enabled!: pulumi.Output<boolean>;
+    declare public readonly enabled: pulumi.Output<boolean>;
     /**
      * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`. By default, no artifacts are excluded.
      */
-    public readonly excludePathPrefixPattern!: pulumi.Output<string>;
+    declare public readonly excludePathPrefixPattern: pulumi.Output<string>;
     /**
      * List of artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included `(**&#47;*)`.
      */
-    public readonly includePathPrefixPattern!: pulumi.Output<string>;
+    declare public readonly includePathPrefixPattern: pulumi.Output<string>;
     /**
      * Use either the HTTP authentication password or [identity token](https://www.jfrog.com/confluence/display/JFROG/User+Profile#UserProfile-IdentityTokenidentitytoken).
      */
-    public readonly password!: pulumi.Output<string | undefined>;
+    declare public readonly password: pulumi.Output<string | undefined>;
     /**
      * Proxy key from Artifactory Proxies settings. The proxy configuration will be used when communicating with the remote instance.
      */
-    public readonly proxy!: pulumi.Output<string>;
+    declare public readonly proxy: pulumi.Output<string>;
     /**
      * Replication ID, the value is unknown until the resource is created. Can't be set or updated.
      */
-    public /*out*/ readonly replicationKey!: pulumi.Output<string>;
+    declare public /*out*/ readonly replicationKey: pulumi.Output<string>;
     /**
      * Repository name.
      */
-    public readonly repoKey!: pulumi.Output<string>;
+    declare public readonly repoKey: pulumi.Output<string>;
     /**
      * The network timeout in milliseconds to use for remote operations. Default value is `15000`.
      */
-    public readonly socketTimeoutMillis!: pulumi.Output<number>;
+    declare public readonly socketTimeoutMillis: pulumi.Output<number>;
     /**
      * When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata). Note that enabling this option, will delete artifacts on the target that do not exist in the source repository. Default value is `false`.
      */
-    public readonly syncDeletes!: pulumi.Output<boolean>;
+    declare public readonly syncDeletes: pulumi.Output<boolean>;
     /**
      * When set, the task also synchronizes the properties of replicated artifacts. Default value is `true`.
      */
-    public readonly syncProperties!: pulumi.Output<boolean>;
+    declare public readonly syncProperties: pulumi.Output<boolean>;
     /**
      * When set, the task also synchronizes artifact download statistics. Set to avoid inadvertent cleanup at the target instance when setting up replication for disaster recovery. Default value is `false`
      */
-    public readonly syncStatistics!: pulumi.Output<boolean>;
+    declare public readonly syncStatistics: pulumi.Output<boolean>;
     /**
      * The URL of the target local repository on a remote Artifactory server. Use the format `https://<artifactory_url>/artifactory/<repository_name>`.
      */
-    public readonly url!: pulumi.Output<string>;
+    declare public readonly url: pulumi.Output<string>;
     /**
      * Username on the remote Artifactory instance.
      */
-    public readonly username!: pulumi.Output<string>;
+    declare public readonly username: pulumi.Output<string>;
 
     /**
      * Create a LocalRepositorySingleReplication resource with the given unique name, arguments, and options.
@@ -164,53 +164,53 @@ export class LocalRepositorySingleReplication extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LocalRepositorySingleReplicationState | undefined;
-            resourceInputs["checkBinaryExistenceInFilestore"] = state ? state.checkBinaryExistenceInFilestore : undefined;
-            resourceInputs["cronExp"] = state ? state.cronExp : undefined;
-            resourceInputs["disableProxy"] = state ? state.disableProxy : undefined;
-            resourceInputs["enableEventReplication"] = state ? state.enableEventReplication : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["excludePathPrefixPattern"] = state ? state.excludePathPrefixPattern : undefined;
-            resourceInputs["includePathPrefixPattern"] = state ? state.includePathPrefixPattern : undefined;
-            resourceInputs["password"] = state ? state.password : undefined;
-            resourceInputs["proxy"] = state ? state.proxy : undefined;
-            resourceInputs["replicationKey"] = state ? state.replicationKey : undefined;
-            resourceInputs["repoKey"] = state ? state.repoKey : undefined;
-            resourceInputs["socketTimeoutMillis"] = state ? state.socketTimeoutMillis : undefined;
-            resourceInputs["syncDeletes"] = state ? state.syncDeletes : undefined;
-            resourceInputs["syncProperties"] = state ? state.syncProperties : undefined;
-            resourceInputs["syncStatistics"] = state ? state.syncStatistics : undefined;
-            resourceInputs["url"] = state ? state.url : undefined;
-            resourceInputs["username"] = state ? state.username : undefined;
+            resourceInputs["checkBinaryExistenceInFilestore"] = state?.checkBinaryExistenceInFilestore;
+            resourceInputs["cronExp"] = state?.cronExp;
+            resourceInputs["disableProxy"] = state?.disableProxy;
+            resourceInputs["enableEventReplication"] = state?.enableEventReplication;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["excludePathPrefixPattern"] = state?.excludePathPrefixPattern;
+            resourceInputs["includePathPrefixPattern"] = state?.includePathPrefixPattern;
+            resourceInputs["password"] = state?.password;
+            resourceInputs["proxy"] = state?.proxy;
+            resourceInputs["replicationKey"] = state?.replicationKey;
+            resourceInputs["repoKey"] = state?.repoKey;
+            resourceInputs["socketTimeoutMillis"] = state?.socketTimeoutMillis;
+            resourceInputs["syncDeletes"] = state?.syncDeletes;
+            resourceInputs["syncProperties"] = state?.syncProperties;
+            resourceInputs["syncStatistics"] = state?.syncStatistics;
+            resourceInputs["url"] = state?.url;
+            resourceInputs["username"] = state?.username;
         } else {
             const args = argsOrState as LocalRepositorySingleReplicationArgs | undefined;
-            if ((!args || args.cronExp === undefined) && !opts.urn) {
+            if (args?.cronExp === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cronExp'");
             }
-            if ((!args || args.repoKey === undefined) && !opts.urn) {
+            if (args?.repoKey === undefined && !opts.urn) {
                 throw new Error("Missing required property 'repoKey'");
             }
-            if ((!args || args.url === undefined) && !opts.urn) {
+            if (args?.url === undefined && !opts.urn) {
                 throw new Error("Missing required property 'url'");
             }
-            if ((!args || args.username === undefined) && !opts.urn) {
+            if (args?.username === undefined && !opts.urn) {
                 throw new Error("Missing required property 'username'");
             }
-            resourceInputs["checkBinaryExistenceInFilestore"] = args ? args.checkBinaryExistenceInFilestore : undefined;
-            resourceInputs["cronExp"] = args ? args.cronExp : undefined;
-            resourceInputs["disableProxy"] = args ? args.disableProxy : undefined;
-            resourceInputs["enableEventReplication"] = args ? args.enableEventReplication : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["excludePathPrefixPattern"] = args ? args.excludePathPrefixPattern : undefined;
-            resourceInputs["includePathPrefixPattern"] = args ? args.includePathPrefixPattern : undefined;
+            resourceInputs["checkBinaryExistenceInFilestore"] = args?.checkBinaryExistenceInFilestore;
+            resourceInputs["cronExp"] = args?.cronExp;
+            resourceInputs["disableProxy"] = args?.disableProxy;
+            resourceInputs["enableEventReplication"] = args?.enableEventReplication;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["excludePathPrefixPattern"] = args?.excludePathPrefixPattern;
+            resourceInputs["includePathPrefixPattern"] = args?.includePathPrefixPattern;
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
-            resourceInputs["proxy"] = args ? args.proxy : undefined;
-            resourceInputs["repoKey"] = args ? args.repoKey : undefined;
-            resourceInputs["socketTimeoutMillis"] = args ? args.socketTimeoutMillis : undefined;
-            resourceInputs["syncDeletes"] = args ? args.syncDeletes : undefined;
-            resourceInputs["syncProperties"] = args ? args.syncProperties : undefined;
-            resourceInputs["syncStatistics"] = args ? args.syncStatistics : undefined;
-            resourceInputs["url"] = args ? args.url : undefined;
-            resourceInputs["username"] = args ? args.username : undefined;
+            resourceInputs["proxy"] = args?.proxy;
+            resourceInputs["repoKey"] = args?.repoKey;
+            resourceInputs["socketTimeoutMillis"] = args?.socketTimeoutMillis;
+            resourceInputs["syncDeletes"] = args?.syncDeletes;
+            resourceInputs["syncProperties"] = args?.syncProperties;
+            resourceInputs["syncStatistics"] = args?.syncStatistics;
+            resourceInputs["url"] = args?.url;
+            resourceInputs["username"] = args?.username;
             resourceInputs["replicationKey"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

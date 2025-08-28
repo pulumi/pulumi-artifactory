@@ -51,9 +51,8 @@ namespace Pulumi.Artifactory
         public Output<bool> AnonymousAccess { get; private set; } = null!;
 
         /// <summary>
-        /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
-        /// therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
-        /// security (e.g., cross-site scripting attacks).
+        /// When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+        /// This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
         /// </summary>
         [Output("archiveBrowsingEnabled")]
         public Output<bool> ArchiveBrowsingEnabled { get; private set; } = null!;
@@ -65,8 +64,7 @@ namespace Pulumi.Artifactory
         public Output<bool> BlackedOut { get; private set; } = null!;
 
         /// <summary>
-        /// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-        /// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        /// When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         /// </summary>
         [Output("cdnRedirect")]
         public Output<bool> CdnRedirect { get; private set; } = null!;
@@ -78,8 +76,7 @@ namespace Pulumi.Artifactory
         public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
-        /// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
-        /// storage provider. Available in Enterprise+ and Edge licenses only.
+        /// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
         /// </summary>
         [Output("downloadDirect")]
         public Output<bool> DownloadDirect { get; private set; } = null!;
@@ -91,15 +88,13 @@ namespace Pulumi.Artifactory
         public Output<bool> EnableSparseIndex { get; private set; } = null!;
 
         /// <summary>
-        /// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
-        /// artifacts are excluded.
+        /// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
         /// </summary>
         [Output("excludesPattern")]
         public Output<string> ExcludesPattern { get; private set; } = null!;
 
         /// <summary>
-        /// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
-        /// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        /// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         /// </summary>
         [Output("includesPattern")]
         public Output<string> IncludesPattern { get; private set; } = null!;
@@ -126,8 +121,7 @@ namespace Pulumi.Artifactory
         public Output<ImmutableArray<string>> ProjectEnvironments { get; private set; } = null!;
 
         /// <summary>
-        /// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-        /// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+        /// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         /// </summary>
         [Output("projectKey")]
         public Output<string> ProjectKey { get; private set; } = null!;
@@ -139,15 +133,13 @@ namespace Pulumi.Artifactory
         public Output<ImmutableArray<string>> PropertySets { get; private set; } = null!;
 
         /// <summary>
-        /// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
-        /// corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+        /// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
         /// </summary>
         [Output("repoLayoutRef")]
         public Output<string> RepoLayoutRef { get; private set; } = null!;
 
         /// <summary>
-        /// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-        /// Xray settings.
+        /// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
         /// </summary>
         [Output("xrayIndex")]
         public Output<bool> XrayIndex { get; private set; } = null!;
@@ -206,9 +198,8 @@ namespace Pulumi.Artifactory
         public Input<bool>? AnonymousAccess { get; set; }
 
         /// <summary>
-        /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
-        /// therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
-        /// security (e.g., cross-site scripting attacks).
+        /// When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+        /// This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
         /// </summary>
         [Input("archiveBrowsingEnabled")]
         public Input<bool>? ArchiveBrowsingEnabled { get; set; }
@@ -220,8 +211,7 @@ namespace Pulumi.Artifactory
         public Input<bool>? BlackedOut { get; set; }
 
         /// <summary>
-        /// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-        /// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        /// When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         /// </summary>
         [Input("cdnRedirect")]
         public Input<bool>? CdnRedirect { get; set; }
@@ -233,8 +223,7 @@ namespace Pulumi.Artifactory
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
-        /// storage provider. Available in Enterprise+ and Edge licenses only.
+        /// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
         /// </summary>
         [Input("downloadDirect")]
         public Input<bool>? DownloadDirect { get; set; }
@@ -246,15 +235,13 @@ namespace Pulumi.Artifactory
         public Input<bool>? EnableSparseIndex { get; set; }
 
         /// <summary>
-        /// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
-        /// artifacts are excluded.
+        /// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
         /// </summary>
         [Input("excludesPattern")]
         public Input<string>? ExcludesPattern { get; set; }
 
         /// <summary>
-        /// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
-        /// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        /// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         /// </summary>
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
@@ -286,8 +273,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-        /// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+        /// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         /// </summary>
         [Input("projectKey")]
         public Input<string>? ProjectKey { get; set; }
@@ -305,15 +291,13 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
-        /// corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+        /// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
         /// </summary>
         [Input("repoLayoutRef")]
         public Input<string>? RepoLayoutRef { get; set; }
 
         /// <summary>
-        /// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-        /// Xray settings.
+        /// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
         /// </summary>
         [Input("xrayIndex")]
         public Input<bool>? XrayIndex { get; set; }
@@ -334,9 +318,8 @@ namespace Pulumi.Artifactory
         public Input<bool>? AnonymousAccess { get; set; }
 
         /// <summary>
-        /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
-        /// therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
-        /// security (e.g., cross-site scripting attacks).
+        /// When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+        /// This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
         /// </summary>
         [Input("archiveBrowsingEnabled")]
         public Input<bool>? ArchiveBrowsingEnabled { get; set; }
@@ -348,8 +331,7 @@ namespace Pulumi.Artifactory
         public Input<bool>? BlackedOut { get; set; }
 
         /// <summary>
-        /// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-        /// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        /// When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         /// </summary>
         [Input("cdnRedirect")]
         public Input<bool>? CdnRedirect { get; set; }
@@ -361,8 +343,7 @@ namespace Pulumi.Artifactory
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
-        /// storage provider. Available in Enterprise+ and Edge licenses only.
+        /// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
         /// </summary>
         [Input("downloadDirect")]
         public Input<bool>? DownloadDirect { get; set; }
@@ -374,15 +355,13 @@ namespace Pulumi.Artifactory
         public Input<bool>? EnableSparseIndex { get; set; }
 
         /// <summary>
-        /// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
-        /// artifacts are excluded.
+        /// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
         /// </summary>
         [Input("excludesPattern")]
         public Input<string>? ExcludesPattern { get; set; }
 
         /// <summary>
-        /// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
-        /// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        /// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         /// </summary>
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
@@ -414,8 +393,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-        /// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+        /// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         /// </summary>
         [Input("projectKey")]
         public Input<string>? ProjectKey { get; set; }
@@ -433,15 +411,13 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
-        /// corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+        /// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
         /// </summary>
         [Input("repoLayoutRef")]
         public Input<string>? RepoLayoutRef { get; set; }
 
         /// <summary>
-        /// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-        /// Xray settings.
+        /// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
         /// </summary>
         [Input("xrayIndex")]
         public Input<bool>? XrayIndex { get; set; }

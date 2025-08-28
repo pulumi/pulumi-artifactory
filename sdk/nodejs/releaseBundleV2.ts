@@ -40,43 +40,43 @@ export class ReleaseBundleV2 extends pulumi.CustomResource {
     /**
      * Timestamp when the new version was created (ISO 8601 standard).
      */
-    public /*out*/ readonly created!: pulumi.Output<string>;
+    declare public /*out*/ readonly created: pulumi.Output<string>;
     /**
      * The user who created the Release Bundle.
      */
-    public /*out*/ readonly createdBy!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdBy: pulumi.Output<string>;
     /**
      * Key-pair name to use for signature creation
      */
-    public readonly keypairName!: pulumi.Output<string>;
+    declare public readonly keypairName: pulumi.Output<string>;
     /**
      * Name of Release Bundle
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Project key the Release Bundle belongs to
      */
-    public readonly projectKey!: pulumi.Output<string | undefined>;
+    declare public readonly projectKey: pulumi.Output<string | undefined>;
     /**
      * The unique identifier of the Artifactory instance where the Release Bundle was created.
      */
-    public /*out*/ readonly serviceId!: pulumi.Output<string>;
+    declare public /*out*/ readonly serviceId: pulumi.Output<string>;
     /**
      * Determines whether to skip the resolution of the Docker manifest, which adds the image layers to the Release Bundle. The default value is `false` (the manifest is resolved and image layers are included).
      */
-    public readonly skipDockerManifestResolution!: pulumi.Output<boolean>;
+    declare public readonly skipDockerManifestResolution: pulumi.Output<boolean>;
     /**
      * Defines specific repositories to include in the promotion. If this property is left undefined, all repositories (except those specifically excluded) are included in the promotion. Important: If one or more repositories are specifically included, all other repositories are excluded (regardless of what is defined in `excludedRepositoryKeys`).
      */
-    public readonly source!: pulumi.Output<outputs.ReleaseBundleV2Source>;
+    declare public readonly source: pulumi.Output<outputs.ReleaseBundleV2Source>;
     /**
      * Source type. Valid values: `aql`, `artifacts`, `builds`, `releaseBundles`
      */
-    public readonly sourceType!: pulumi.Output<string>;
+    declare public readonly sourceType: pulumi.Output<string>;
     /**
      * Version to promote
      */
-    public readonly version!: pulumi.Output<string>;
+    declare public readonly version: pulumi.Output<string>;
 
     /**
      * Create a ReleaseBundleV2 resource with the given unique name, arguments, and options.
@@ -91,37 +91,37 @@ export class ReleaseBundleV2 extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ReleaseBundleV2State | undefined;
-            resourceInputs["created"] = state ? state.created : undefined;
-            resourceInputs["createdBy"] = state ? state.createdBy : undefined;
-            resourceInputs["keypairName"] = state ? state.keypairName : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["projectKey"] = state ? state.projectKey : undefined;
-            resourceInputs["serviceId"] = state ? state.serviceId : undefined;
-            resourceInputs["skipDockerManifestResolution"] = state ? state.skipDockerManifestResolution : undefined;
-            resourceInputs["source"] = state ? state.source : undefined;
-            resourceInputs["sourceType"] = state ? state.sourceType : undefined;
-            resourceInputs["version"] = state ? state.version : undefined;
+            resourceInputs["created"] = state?.created;
+            resourceInputs["createdBy"] = state?.createdBy;
+            resourceInputs["keypairName"] = state?.keypairName;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["projectKey"] = state?.projectKey;
+            resourceInputs["serviceId"] = state?.serviceId;
+            resourceInputs["skipDockerManifestResolution"] = state?.skipDockerManifestResolution;
+            resourceInputs["source"] = state?.source;
+            resourceInputs["sourceType"] = state?.sourceType;
+            resourceInputs["version"] = state?.version;
         } else {
             const args = argsOrState as ReleaseBundleV2Args | undefined;
-            if ((!args || args.keypairName === undefined) && !opts.urn) {
+            if (args?.keypairName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'keypairName'");
             }
-            if ((!args || args.source === undefined) && !opts.urn) {
+            if (args?.source === undefined && !opts.urn) {
                 throw new Error("Missing required property 'source'");
             }
-            if ((!args || args.sourceType === undefined) && !opts.urn) {
+            if (args?.sourceType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceType'");
             }
-            if ((!args || args.version === undefined) && !opts.urn) {
+            if (args?.version === undefined && !opts.urn) {
                 throw new Error("Missing required property 'version'");
             }
-            resourceInputs["keypairName"] = args ? args.keypairName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["projectKey"] = args ? args.projectKey : undefined;
-            resourceInputs["skipDockerManifestResolution"] = args ? args.skipDockerManifestResolution : undefined;
-            resourceInputs["source"] = args ? args.source : undefined;
-            resourceInputs["sourceType"] = args ? args.sourceType : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["keypairName"] = args?.keypairName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["projectKey"] = args?.projectKey;
+            resourceInputs["skipDockerManifestResolution"] = args?.skipDockerManifestResolution;
+            resourceInputs["source"] = args?.source;
+            resourceInputs["sourceType"] = args?.sourceType;
+            resourceInputs["version"] = args?.version;
             resourceInputs["created"] = undefined /*out*/;
             resourceInputs["createdBy"] = undefined /*out*/;
             resourceInputs["serviceId"] = undefined /*out*/;

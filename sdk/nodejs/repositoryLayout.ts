@@ -64,27 +64,27 @@ export class RepositoryLayout extends pulumi.CustomResource {
     /**
      * Please refer to: [Path Patterns](https://www.jfrog.com/confluence/display/JFROG/Repository+Layouts#RepositoryLayouts-ModulesandPathPatternsusedbyRepositoryLayouts) in the Artifactory Wiki documentation.
      */
-    public readonly artifactPathPattern!: pulumi.Output<string>;
+    declare public readonly artifactPathPattern: pulumi.Output<string>;
     /**
      * Please refer to: [Descriptor Path Patterns](https://www.jfrog.com/confluence/display/JFROG/Repository+Layouts#RepositoryLayouts-DescriptorPathPatterns) in the Artifactory Wiki documentation.
      */
-    public readonly descriptorPathPattern!: pulumi.Output<string>;
+    declare public readonly descriptorPathPattern: pulumi.Output<string>;
     /**
      * When set, `descriptorPathPattern` will be used. Default to `false`.
      */
-    public readonly distinctiveDescriptorPathPattern!: pulumi.Output<boolean>;
+    declare public readonly distinctiveDescriptorPathPattern: pulumi.Output<boolean>;
     /**
      * A regular expression matching the integration revision string appearing in a file name as part of the artifact's path. For example, `SNAPSHOT|(?:(?:[0-9]{8}.[0-9]{6})-(?:[0-9]+))`, in Maven. Note! Take care not to introduce any regexp capturing groups within this expression. If not applicable use `.*`
      */
-    public readonly fileIntegrationRevisionRegexp!: pulumi.Output<string>;
+    declare public readonly fileIntegrationRevisionRegexp: pulumi.Output<string>;
     /**
      * A regular expression matching the integration revision string appearing in a folder name as part of the artifact's path. For example, `SNAPSHOT`, in Maven. Note! Take care not to introduce any regexp capturing groups within this expression. If not applicable use `.*`
      */
-    public readonly folderIntegrationRevisionRegexp!: pulumi.Output<string>;
+    declare public readonly folderIntegrationRevisionRegexp: pulumi.Output<string>;
     /**
      * Layout name
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
 
     /**
      * Create a RepositoryLayout resource with the given unique name, arguments, and options.
@@ -99,29 +99,29 @@ export class RepositoryLayout extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RepositoryLayoutState | undefined;
-            resourceInputs["artifactPathPattern"] = state ? state.artifactPathPattern : undefined;
-            resourceInputs["descriptorPathPattern"] = state ? state.descriptorPathPattern : undefined;
-            resourceInputs["distinctiveDescriptorPathPattern"] = state ? state.distinctiveDescriptorPathPattern : undefined;
-            resourceInputs["fileIntegrationRevisionRegexp"] = state ? state.fileIntegrationRevisionRegexp : undefined;
-            resourceInputs["folderIntegrationRevisionRegexp"] = state ? state.folderIntegrationRevisionRegexp : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["artifactPathPattern"] = state?.artifactPathPattern;
+            resourceInputs["descriptorPathPattern"] = state?.descriptorPathPattern;
+            resourceInputs["distinctiveDescriptorPathPattern"] = state?.distinctiveDescriptorPathPattern;
+            resourceInputs["fileIntegrationRevisionRegexp"] = state?.fileIntegrationRevisionRegexp;
+            resourceInputs["folderIntegrationRevisionRegexp"] = state?.folderIntegrationRevisionRegexp;
+            resourceInputs["name"] = state?.name;
         } else {
             const args = argsOrState as RepositoryLayoutArgs | undefined;
-            if ((!args || args.artifactPathPattern === undefined) && !opts.urn) {
+            if (args?.artifactPathPattern === undefined && !opts.urn) {
                 throw new Error("Missing required property 'artifactPathPattern'");
             }
-            if ((!args || args.fileIntegrationRevisionRegexp === undefined) && !opts.urn) {
+            if (args?.fileIntegrationRevisionRegexp === undefined && !opts.urn) {
                 throw new Error("Missing required property 'fileIntegrationRevisionRegexp'");
             }
-            if ((!args || args.folderIntegrationRevisionRegexp === undefined) && !opts.urn) {
+            if (args?.folderIntegrationRevisionRegexp === undefined && !opts.urn) {
                 throw new Error("Missing required property 'folderIntegrationRevisionRegexp'");
             }
-            resourceInputs["artifactPathPattern"] = args ? args.artifactPathPattern : undefined;
-            resourceInputs["descriptorPathPattern"] = args ? args.descriptorPathPattern : undefined;
-            resourceInputs["distinctiveDescriptorPathPattern"] = args ? args.distinctiveDescriptorPathPattern : undefined;
-            resourceInputs["fileIntegrationRevisionRegexp"] = args ? args.fileIntegrationRevisionRegexp : undefined;
-            resourceInputs["folderIntegrationRevisionRegexp"] = args ? args.folderIntegrationRevisionRegexp : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["artifactPathPattern"] = args?.artifactPathPattern;
+            resourceInputs["descriptorPathPattern"] = args?.descriptorPathPattern;
+            resourceInputs["distinctiveDescriptorPathPattern"] = args?.distinctiveDescriptorPathPattern;
+            resourceInputs["fileIntegrationRevisionRegexp"] = args?.fileIntegrationRevisionRegexp;
+            resourceInputs["folderIntegrationRevisionRegexp"] = args?.folderIntegrationRevisionRegexp;
+            resourceInputs["name"] = args?.name;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(RepositoryLayout.__pulumiType, name, resourceInputs, opts);

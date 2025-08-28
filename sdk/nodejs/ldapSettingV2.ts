@@ -75,59 +75,59 @@ export class LdapSettingV2 extends pulumi.CustomResource {
     /**
      * Auto created users will have access to their profile page and will be able to perform actions such as generating an API key. Default value is `false`.
      */
-    public readonly allowUserToAccessProfile!: pulumi.Output<boolean>;
+    declare public readonly allowUserToAccessProfile: pulumi.Output<boolean>;
     /**
      * When set, users are automatically created when using LDAP. Otherwise, users are transient and associated with auto-join groups defined in Artifactory. Default value is `true`.
      */
-    public readonly autoCreateUser!: pulumi.Output<boolean>;
+    declare public readonly autoCreateUser: pulumi.Output<boolean>;
     /**
      * An attribute that can be used to map a user's email address to a user created automatically in Artifactory. Default value is`mail`.
      */
-    public readonly emailAttribute!: pulumi.Output<string>;
+    declare public readonly emailAttribute: pulumi.Output<string>;
     /**
      * Flag to enable or disable the ldap setting. Default value is `true`.
      */
-    public readonly enabled!: pulumi.Output<boolean>;
+    declare public readonly enabled: pulumi.Output<boolean>;
     /**
      * Ldap setting name.
      */
-    public readonly key!: pulumi.Output<string>;
+    declare public readonly key: pulumi.Output<string>;
     /**
      * When this is set to `true`, an empty or missing usernames array will detach all users from the group.
      */
-    public readonly ldapPoisoningProtection!: pulumi.Output<boolean>;
+    declare public readonly ldapPoisoningProtection: pulumi.Output<boolean>;
     /**
      * Location of the LDAP server in the following format: `ldap://myldapserver/dc=sampledomain,dc=com`
      */
-    public readonly ldapUrl!: pulumi.Output<string>;
+    declare public readonly ldapUrl: pulumi.Output<string>;
     /**
      * The full DN of the user that binds to the LDAP server to perform user searches. Only used with `search` authentication.
      */
-    public readonly managerDn!: pulumi.Output<string>;
+    declare public readonly managerDn: pulumi.Output<string>;
     /**
      * The password of the user that binds to the LDAP server to perform the search. Only used with `search` authentication.
      */
-    public readonly managerPassword!: pulumi.Output<string>;
+    declare public readonly managerPassword: pulumi.Output<string>;
     /**
      * When set, supports paging results for the LDAP server. This feature requires that the LDAP server supports a PagedResultsControl configuration. Default value is `true`.
      */
-    public readonly pagingSupportEnabled!: pulumi.Output<boolean>;
+    declare public readonly pagingSupportEnabled: pulumi.Output<boolean>;
     /**
      * A context name to search in relative to the base DN of the LDAP URL. For example, 'ou=users' With the LDAP Group Add-on enabled, it is possible to enter multiple search base entries separated by a pipe ('|') character.
      */
-    public readonly searchBase!: pulumi.Output<string>;
+    declare public readonly searchBase: pulumi.Output<string>;
     /**
      * A filter expression used to search for the user DN used in LDAP authentication. This is an LDAP search filter (as defined in 'RFC 2254') with optional arguments. In this case, the username is the only argument, and is denoted by '{0}'. Possible examples are: (uid={0}) - This searches for a username match on the attribute. Authentication to LDAP is performed from the DN found if successful.
      */
-    public readonly searchFilter!: pulumi.Output<string>;
+    declare public readonly searchFilter: pulumi.Output<string>;
     /**
      * When set, enables deep search through the sub tree of the LDAP URL + search base. Default value is `true`.
      */
-    public readonly searchSubTree!: pulumi.Output<boolean>;
+    declare public readonly searchSubTree: pulumi.Output<boolean>;
     /**
      * A DN pattern that can be used to log users directly in to LDAP. This pattern is used to create a DN string for 'direct' user authentication where the pattern is relative to the base DN in the LDAP URL. The pattern argument {0} is replaced with the username. This only works if anonymous binding is allowed and a direct user DN can be used, which is not the default case for Active Directory (use User DN search filter instead). Example: uid={0},ou=People. Default value is blank/empty.
      */
-    public readonly userDnPattern!: pulumi.Output<string>;
+    declare public readonly userDnPattern: pulumi.Output<string>;
 
     /**
      * Create a LdapSettingV2 resource with the given unique name, arguments, and options.
@@ -142,42 +142,42 @@ export class LdapSettingV2 extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LdapSettingV2State | undefined;
-            resourceInputs["allowUserToAccessProfile"] = state ? state.allowUserToAccessProfile : undefined;
-            resourceInputs["autoCreateUser"] = state ? state.autoCreateUser : undefined;
-            resourceInputs["emailAttribute"] = state ? state.emailAttribute : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["key"] = state ? state.key : undefined;
-            resourceInputs["ldapPoisoningProtection"] = state ? state.ldapPoisoningProtection : undefined;
-            resourceInputs["ldapUrl"] = state ? state.ldapUrl : undefined;
-            resourceInputs["managerDn"] = state ? state.managerDn : undefined;
-            resourceInputs["managerPassword"] = state ? state.managerPassword : undefined;
-            resourceInputs["pagingSupportEnabled"] = state ? state.pagingSupportEnabled : undefined;
-            resourceInputs["searchBase"] = state ? state.searchBase : undefined;
-            resourceInputs["searchFilter"] = state ? state.searchFilter : undefined;
-            resourceInputs["searchSubTree"] = state ? state.searchSubTree : undefined;
-            resourceInputs["userDnPattern"] = state ? state.userDnPattern : undefined;
+            resourceInputs["allowUserToAccessProfile"] = state?.allowUserToAccessProfile;
+            resourceInputs["autoCreateUser"] = state?.autoCreateUser;
+            resourceInputs["emailAttribute"] = state?.emailAttribute;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["key"] = state?.key;
+            resourceInputs["ldapPoisoningProtection"] = state?.ldapPoisoningProtection;
+            resourceInputs["ldapUrl"] = state?.ldapUrl;
+            resourceInputs["managerDn"] = state?.managerDn;
+            resourceInputs["managerPassword"] = state?.managerPassword;
+            resourceInputs["pagingSupportEnabled"] = state?.pagingSupportEnabled;
+            resourceInputs["searchBase"] = state?.searchBase;
+            resourceInputs["searchFilter"] = state?.searchFilter;
+            resourceInputs["searchSubTree"] = state?.searchSubTree;
+            resourceInputs["userDnPattern"] = state?.userDnPattern;
         } else {
             const args = argsOrState as LdapSettingV2Args | undefined;
-            if ((!args || args.key === undefined) && !opts.urn) {
+            if (args?.key === undefined && !opts.urn) {
                 throw new Error("Missing required property 'key'");
             }
-            if ((!args || args.ldapUrl === undefined) && !opts.urn) {
+            if (args?.ldapUrl === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ldapUrl'");
             }
-            resourceInputs["allowUserToAccessProfile"] = args ? args.allowUserToAccessProfile : undefined;
-            resourceInputs["autoCreateUser"] = args ? args.autoCreateUser : undefined;
-            resourceInputs["emailAttribute"] = args ? args.emailAttribute : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["key"] = args ? args.key : undefined;
-            resourceInputs["ldapPoisoningProtection"] = args ? args.ldapPoisoningProtection : undefined;
-            resourceInputs["ldapUrl"] = args ? args.ldapUrl : undefined;
-            resourceInputs["managerDn"] = args ? args.managerDn : undefined;
+            resourceInputs["allowUserToAccessProfile"] = args?.allowUserToAccessProfile;
+            resourceInputs["autoCreateUser"] = args?.autoCreateUser;
+            resourceInputs["emailAttribute"] = args?.emailAttribute;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["key"] = args?.key;
+            resourceInputs["ldapPoisoningProtection"] = args?.ldapPoisoningProtection;
+            resourceInputs["ldapUrl"] = args?.ldapUrl;
+            resourceInputs["managerDn"] = args?.managerDn;
             resourceInputs["managerPassword"] = args?.managerPassword ? pulumi.secret(args.managerPassword) : undefined;
-            resourceInputs["pagingSupportEnabled"] = args ? args.pagingSupportEnabled : undefined;
-            resourceInputs["searchBase"] = args ? args.searchBase : undefined;
-            resourceInputs["searchFilter"] = args ? args.searchFilter : undefined;
-            resourceInputs["searchSubTree"] = args ? args.searchSubTree : undefined;
-            resourceInputs["userDnPattern"] = args ? args.userDnPattern : undefined;
+            resourceInputs["pagingSupportEnabled"] = args?.pagingSupportEnabled;
+            resourceInputs["searchBase"] = args?.searchBase;
+            resourceInputs["searchFilter"] = args?.searchFilter;
+            resourceInputs["searchSubTree"] = args?.searchSubTree;
+            resourceInputs["userDnPattern"] = args?.userDnPattern;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["managerPassword"] };

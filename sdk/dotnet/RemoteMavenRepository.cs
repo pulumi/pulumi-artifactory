@@ -50,54 +50,44 @@ namespace Pulumi.Artifactory
     public partial class RemoteMavenRepository : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any
-        /// other host.
+        /// 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any other host.
         /// </summary>
         [Output("allowAnyHostAuth")]
         public Output<bool> AllowAnyHostAuth { get; private set; } = null!;
 
         /// <summary>
-        /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
-        /// therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
-        /// security (e.g., cross-site scripting attacks).
+        /// When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+        /// This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
         /// </summary>
         [Output("archiveBrowsingEnabled")]
         public Output<bool> ArchiveBrowsingEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
-        /// an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
-        /// offline.
+        /// The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time, an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed offline.
         /// </summary>
         [Output("assumedOfflinePeriodSecs")]
         public Output<int> AssumedOfflinePeriodSecs { get; private set; } = null!;
 
         /// <summary>
-        /// (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact
-        /// resolution.
+        /// (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact resolution.
         /// </summary>
         [Output("blackedOut")]
         public Output<bool> BlackedOut { get; private set; } = null!;
 
         /// <summary>
-        /// If set, artifacts will fail to download if a mismatch is detected between requested and received mimetype, according to
-        /// the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes
-        /// to the override list 'mismatching_mime_types_override_list'.
+        /// If set, artifacts will fail to download if a mismatch is detected between requested and received mimetype, according to the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes to the override list 'mismatching_mime_types_override_list'.
         /// </summary>
         [Output("blockMismatchingMimeTypes")]
         public Output<bool> BlockMismatchingMimeTypes { get; private set; } = null!;
 
         /// <summary>
-        /// Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
-        /// HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
-        /// Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+        /// Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
         /// </summary>
         [Output("bypassHeadRequests")]
         public Output<bool> BypassHeadRequests { get; private set; } = null!;
 
         /// <summary>
-        /// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-        /// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        /// When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         /// </summary>
         [Output("cdnRedirect")]
         public Output<bool> CdnRedirect { get; private set; } = null!;
@@ -124,8 +114,7 @@ namespace Pulumi.Artifactory
         public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
-        /// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
-        /// for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
+        /// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
         /// </summary>
         [Output("disableProxy")]
         public Output<bool> DisableProxy { get; private set; } = null!;
@@ -137,8 +126,7 @@ namespace Pulumi.Artifactory
         public Output<bool> DisableUrlNormalization { get; private set; } = null!;
 
         /// <summary>
-        /// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
-        /// storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
+        /// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
         /// </summary>
         [Output("downloadDirect")]
         public Output<bool> DownloadDirect { get; private set; } = null!;
@@ -150,8 +138,7 @@ namespace Pulumi.Artifactory
         public Output<bool> EnableCookieManagement { get; private set; } = null!;
 
         /// <summary>
-        /// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
-        /// artifacts are excluded.
+        /// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
         /// </summary>
         [Output("excludesPattern")]
         public Output<string> ExcludesPattern { get; private set; } = null!;
@@ -181,15 +168,13 @@ namespace Pulumi.Artifactory
         public Output<bool> HandleSnapshots { get; private set; } = null!;
 
         /// <summary>
-        /// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
-        /// communicate with this repository.
+        /// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to communicate with this repository.
         /// </summary>
         [Output("hardFail")]
         public Output<bool> HardFail { get; private set; } = null!;
 
         /// <summary>
-        /// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
-        /// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        /// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         /// </summary>
         [Output("includesPattern")]
         public Output<string> IncludesPattern { get; private set; } = null!;
@@ -202,15 +187,13 @@ namespace Pulumi.Artifactory
         public Output<string> Key { get; private set; } = null!;
 
         /// <summary>
-        /// Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
-        /// the 'Retrieval Cache Period'. Default value is 'false'. This field exists in the API but not in the UI.
+        /// Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of the 'Retrieval Cache Period'. Default value is 'false'. This field exists in the API but not in the UI.
         /// </summary>
         [Output("listRemoteFolderItems")]
         public Output<bool> ListRemoteFolderItems { get; private set; } = null!;
 
         /// <summary>
-        /// The local address to be used when creating connections. Useful for specifying the interface to use on systems with
-        /// multiple network interfaces.
+        /// The local address to be used when creating connections. Useful for specifying the interface to use on systems with multiple network interfaces.
         /// </summary>
         [Output("localAddress")]
         public Output<string> LocalAddress { get; private set; } = null!;
@@ -222,22 +205,19 @@ namespace Pulumi.Artifactory
         public Output<int> MaxUniqueSnapshots { get; private set; } = null!;
 
         /// <summary>
-        /// Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
-        /// the remote before serving locally cached artifact or fail the request.
+        /// Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from the remote before serving locally cached artifact or fail the request.
         /// </summary>
         [Output("metadataRetrievalTimeoutSecs")]
         public Output<int> MetadataRetrievalTimeoutSecs { get; private set; } = null!;
 
         /// <summary>
-        /// The set of mime types that should override the block_mismatching_mime_types setting. Eg:
-        /// 'application/json,application/xml'. Default value is empty.
+        /// The set of mime types that should override the block_mismatching_mime_types setting. Eg: 'application/json,application/xml'. Default value is empty.
         /// </summary>
         [Output("mismatchingMimeTypesOverrideList")]
         public Output<string> MismatchingMimeTypesOverrideList { get; private set; } = null!;
 
         /// <summary>
-        /// Missed Retrieval Cache Period (Sec) in the UI. The number of seconds to cache artifact retrieval misses (artifact not
-        /// found). A value of 0 indicates no caching.
+        /// Missed Retrieval Cache Period (Sec) in the UI. The number of seconds to cache artifact retrieval misses (artifact not found). A value of 0 indicates no caching.
         /// </summary>
         [Output("missedCachePeriodSeconds")]
         public Output<int> MissedCachePeriodSeconds { get; private set; } = null!;
@@ -267,8 +247,7 @@ namespace Pulumi.Artifactory
         public Output<ImmutableArray<string>> ProjectEnvironments { get; private set; } = null!;
 
         /// <summary>
-        /// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-        /// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+        /// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         /// </summary>
         [Output("projectKey")]
         public Output<string> ProjectKey { get; private set; } = null!;
@@ -286,8 +265,7 @@ namespace Pulumi.Artifactory
         public Output<string> Proxy { get; private set; } = null!;
 
         /// <summary>
-        /// Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
-        /// `param1=val1&amp;param2=val2&amp;param3=val3`
+        /// Custom HTTP query parameters that will be automatically included in all remote resource requests. For example: `param1=val1&amp;param2=val2&amp;param3=val3`
         /// </summary>
         [Output("queryParams")]
         public Output<string> QueryParams { get; private set; } = null!;
@@ -305,23 +283,19 @@ namespace Pulumi.Artifactory
         public Output<string> RemoteRepoChecksumPolicyType { get; private set; } = null!;
 
         /// <summary>
-        /// Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an
-        /// empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be
-        /// ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
+        /// Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
         /// </summary>
         [Output("remoteRepoLayoutRef")]
         public Output<string> RemoteRepoLayoutRef { get; private set; } = null!;
 
         /// <summary>
-        /// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
-        /// corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+        /// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
         /// </summary>
         [Output("repoLayoutRef")]
         public Output<string> RepoLayoutRef { get; private set; } = null!;
 
         /// <summary>
-        /// Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files
-        /// before checking for newer versions on remote server. A value of 0 indicates no caching.
+        /// Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching.
         /// </summary>
         [Output("retrievalCachePeriodSeconds")]
         public Output<int> RetrievalCachePeriodSeconds { get; private set; } = null!;
@@ -330,17 +304,13 @@ namespace Pulumi.Artifactory
         public Output<bool> ShareConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network
-        /// operation is considered a retrieval failure.
+        /// Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network operation is considered a retrieval failure.
         /// </summary>
         [Output("socketTimeoutMillis")]
         public Output<int> SocketTimeoutMillis { get; private set; } = null!;
 
         /// <summary>
-        /// When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and
-        /// direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with
-        /// one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory
-        /// servers.
+        /// When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory servers.
         /// </summary>
         [Output("storeArtifactsLocally")]
         public Output<bool> StoreArtifactsLocally { get; private set; } = null!;
@@ -358,8 +328,7 @@ namespace Pulumi.Artifactory
         public Output<bool> SynchronizeProperties { get; private set; } = null!;
 
         /// <summary>
-        /// Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and
-        /// eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
+        /// Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
         /// </summary>
         [Output("unusedArtifactsCleanupPeriodHours")]
         public Output<int> UnusedArtifactsCleanupPeriodHours { get; private set; } = null!;
@@ -374,8 +343,7 @@ namespace Pulumi.Artifactory
         public Output<string> Username { get; private set; } = null!;
 
         /// <summary>
-        /// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-        /// Xray settings.
+        /// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
         /// </summary>
         [Output("xrayIndex")]
         public Output<bool> XrayIndex { get; private set; } = null!;
@@ -431,54 +399,44 @@ namespace Pulumi.Artifactory
     public sealed class RemoteMavenRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any
-        /// other host.
+        /// 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any other host.
         /// </summary>
         [Input("allowAnyHostAuth")]
         public Input<bool>? AllowAnyHostAuth { get; set; }
 
         /// <summary>
-        /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
-        /// therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
-        /// security (e.g., cross-site scripting attacks).
+        /// When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+        /// This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
         /// </summary>
         [Input("archiveBrowsingEnabled")]
         public Input<bool>? ArchiveBrowsingEnabled { get; set; }
 
         /// <summary>
-        /// The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
-        /// an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
-        /// offline.
+        /// The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time, an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed offline.
         /// </summary>
         [Input("assumedOfflinePeriodSecs")]
         public Input<int>? AssumedOfflinePeriodSecs { get; set; }
 
         /// <summary>
-        /// (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact
-        /// resolution.
+        /// (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact resolution.
         /// </summary>
         [Input("blackedOut")]
         public Input<bool>? BlackedOut { get; set; }
 
         /// <summary>
-        /// If set, artifacts will fail to download if a mismatch is detected between requested and received mimetype, according to
-        /// the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes
-        /// to the override list 'mismatching_mime_types_override_list'.
+        /// If set, artifacts will fail to download if a mismatch is detected between requested and received mimetype, according to the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes to the override list 'mismatching_mime_types_override_list'.
         /// </summary>
         [Input("blockMismatchingMimeTypes")]
         public Input<bool>? BlockMismatchingMimeTypes { get; set; }
 
         /// <summary>
-        /// Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
-        /// HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
-        /// Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+        /// Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
         /// </summary>
         [Input("bypassHeadRequests")]
         public Input<bool>? BypassHeadRequests { get; set; }
 
         /// <summary>
-        /// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-        /// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        /// When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         /// </summary>
         [Input("cdnRedirect")]
         public Input<bool>? CdnRedirect { get; set; }
@@ -505,8 +463,7 @@ namespace Pulumi.Artifactory
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
-        /// for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
+        /// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
         /// </summary>
         [Input("disableProxy")]
         public Input<bool>? DisableProxy { get; set; }
@@ -518,8 +475,7 @@ namespace Pulumi.Artifactory
         public Input<bool>? DisableUrlNormalization { get; set; }
 
         /// <summary>
-        /// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
-        /// storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
+        /// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
         /// </summary>
         [Input("downloadDirect")]
         public Input<bool>? DownloadDirect { get; set; }
@@ -531,8 +487,7 @@ namespace Pulumi.Artifactory
         public Input<bool>? EnableCookieManagement { get; set; }
 
         /// <summary>
-        /// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
-        /// artifacts are excluded.
+        /// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
         /// </summary>
         [Input("excludesPattern")]
         public Input<string>? ExcludesPattern { get; set; }
@@ -562,15 +517,13 @@ namespace Pulumi.Artifactory
         public Input<bool>? HandleSnapshots { get; set; }
 
         /// <summary>
-        /// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
-        /// communicate with this repository.
+        /// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to communicate with this repository.
         /// </summary>
         [Input("hardFail")]
         public Input<bool>? HardFail { get; set; }
 
         /// <summary>
-        /// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
-        /// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        /// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         /// </summary>
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
@@ -583,15 +536,13 @@ namespace Pulumi.Artifactory
         public Input<string> Key { get; set; } = null!;
 
         /// <summary>
-        /// Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
-        /// the 'Retrieval Cache Period'. Default value is 'false'. This field exists in the API but not in the UI.
+        /// Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of the 'Retrieval Cache Period'. Default value is 'false'. This field exists in the API but not in the UI.
         /// </summary>
         [Input("listRemoteFolderItems")]
         public Input<bool>? ListRemoteFolderItems { get; set; }
 
         /// <summary>
-        /// The local address to be used when creating connections. Useful for specifying the interface to use on systems with
-        /// multiple network interfaces.
+        /// The local address to be used when creating connections. Useful for specifying the interface to use on systems with multiple network interfaces.
         /// </summary>
         [Input("localAddress")]
         public Input<string>? LocalAddress { get; set; }
@@ -603,22 +554,19 @@ namespace Pulumi.Artifactory
         public Input<int>? MaxUniqueSnapshots { get; set; }
 
         /// <summary>
-        /// Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
-        /// the remote before serving locally cached artifact or fail the request.
+        /// Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from the remote before serving locally cached artifact or fail the request.
         /// </summary>
         [Input("metadataRetrievalTimeoutSecs")]
         public Input<int>? MetadataRetrievalTimeoutSecs { get; set; }
 
         /// <summary>
-        /// The set of mime types that should override the block_mismatching_mime_types setting. Eg:
-        /// 'application/json,application/xml'. Default value is empty.
+        /// The set of mime types that should override the block_mismatching_mime_types setting. Eg: 'application/json,application/xml'. Default value is empty.
         /// </summary>
         [Input("mismatchingMimeTypesOverrideList")]
         public Input<string>? MismatchingMimeTypesOverrideList { get; set; }
 
         /// <summary>
-        /// Missed Retrieval Cache Period (Sec) in the UI. The number of seconds to cache artifact retrieval misses (artifact not
-        /// found). A value of 0 indicates no caching.
+        /// Missed Retrieval Cache Period (Sec) in the UI. The number of seconds to cache artifact retrieval misses (artifact not found). A value of 0 indicates no caching.
         /// </summary>
         [Input("missedCachePeriodSeconds")]
         public Input<int>? MissedCachePeriodSeconds { get; set; }
@@ -662,8 +610,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-        /// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+        /// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         /// </summary>
         [Input("projectKey")]
         public Input<string>? ProjectKey { get; set; }
@@ -687,8 +634,7 @@ namespace Pulumi.Artifactory
         public Input<string>? Proxy { get; set; }
 
         /// <summary>
-        /// Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
-        /// `param1=val1&amp;param2=val2&amp;param3=val3`
+        /// Custom HTTP query parameters that will be automatically included in all remote resource requests. For example: `param1=val1&amp;param2=val2&amp;param3=val3`
         /// </summary>
         [Input("queryParams")]
         public Input<string>? QueryParams { get; set; }
@@ -706,23 +652,19 @@ namespace Pulumi.Artifactory
         public Input<string>? RemoteRepoChecksumPolicyType { get; set; }
 
         /// <summary>
-        /// Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an
-        /// empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be
-        /// ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
+        /// Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
         /// </summary>
         [Input("remoteRepoLayoutRef")]
         public Input<string>? RemoteRepoLayoutRef { get; set; }
 
         /// <summary>
-        /// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
-        /// corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+        /// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
         /// </summary>
         [Input("repoLayoutRef")]
         public Input<string>? RepoLayoutRef { get; set; }
 
         /// <summary>
-        /// Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files
-        /// before checking for newer versions on remote server. A value of 0 indicates no caching.
+        /// Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching.
         /// </summary>
         [Input("retrievalCachePeriodSeconds")]
         public Input<int>? RetrievalCachePeriodSeconds { get; set; }
@@ -731,17 +673,13 @@ namespace Pulumi.Artifactory
         public Input<bool>? ShareConfiguration { get; set; }
 
         /// <summary>
-        /// Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network
-        /// operation is considered a retrieval failure.
+        /// Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network operation is considered a retrieval failure.
         /// </summary>
         [Input("socketTimeoutMillis")]
         public Input<int>? SocketTimeoutMillis { get; set; }
 
         /// <summary>
-        /// When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and
-        /// direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with
-        /// one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory
-        /// servers.
+        /// When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory servers.
         /// </summary>
         [Input("storeArtifactsLocally")]
         public Input<bool>? StoreArtifactsLocally { get; set; }
@@ -759,8 +697,7 @@ namespace Pulumi.Artifactory
         public Input<bool>? SynchronizeProperties { get; set; }
 
         /// <summary>
-        /// Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and
-        /// eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
+        /// Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
         /// </summary>
         [Input("unusedArtifactsCleanupPeriodHours")]
         public Input<int>? UnusedArtifactsCleanupPeriodHours { get; set; }
@@ -775,8 +712,7 @@ namespace Pulumi.Artifactory
         public Input<string>? Username { get; set; }
 
         /// <summary>
-        /// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-        /// Xray settings.
+        /// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
         /// </summary>
         [Input("xrayIndex")]
         public Input<bool>? XrayIndex { get; set; }
@@ -790,54 +726,44 @@ namespace Pulumi.Artifactory
     public sealed class RemoteMavenRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any
-        /// other host.
+        /// 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any other host.
         /// </summary>
         [Input("allowAnyHostAuth")]
         public Input<bool>? AllowAnyHostAuth { get; set; }
 
         /// <summary>
-        /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
-        /// therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
-        /// security (e.g., cross-site scripting attacks).
+        /// When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+        /// This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
         /// </summary>
         [Input("archiveBrowsingEnabled")]
         public Input<bool>? ArchiveBrowsingEnabled { get; set; }
 
         /// <summary>
-        /// The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
-        /// an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
-        /// offline.
+        /// The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time, an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed offline.
         /// </summary>
         [Input("assumedOfflinePeriodSecs")]
         public Input<int>? AssumedOfflinePeriodSecs { get; set; }
 
         /// <summary>
-        /// (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact
-        /// resolution.
+        /// (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact resolution.
         /// </summary>
         [Input("blackedOut")]
         public Input<bool>? BlackedOut { get; set; }
 
         /// <summary>
-        /// If set, artifacts will fail to download if a mismatch is detected between requested and received mimetype, according to
-        /// the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes
-        /// to the override list 'mismatching_mime_types_override_list'.
+        /// If set, artifacts will fail to download if a mismatch is detected between requested and received mimetype, according to the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes to the override list 'mismatching_mime_types_override_list'.
         /// </summary>
         [Input("blockMismatchingMimeTypes")]
         public Input<bool>? BlockMismatchingMimeTypes { get; set; }
 
         /// <summary>
-        /// Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
-        /// HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
-        /// Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+        /// Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
         /// </summary>
         [Input("bypassHeadRequests")]
         public Input<bool>? BypassHeadRequests { get; set; }
 
         /// <summary>
-        /// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-        /// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        /// When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         /// </summary>
         [Input("cdnRedirect")]
         public Input<bool>? CdnRedirect { get; set; }
@@ -864,8 +790,7 @@ namespace Pulumi.Artifactory
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
-        /// for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
+        /// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
         /// </summary>
         [Input("disableProxy")]
         public Input<bool>? DisableProxy { get; set; }
@@ -877,8 +802,7 @@ namespace Pulumi.Artifactory
         public Input<bool>? DisableUrlNormalization { get; set; }
 
         /// <summary>
-        /// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
-        /// storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
+        /// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
         /// </summary>
         [Input("downloadDirect")]
         public Input<bool>? DownloadDirect { get; set; }
@@ -890,8 +814,7 @@ namespace Pulumi.Artifactory
         public Input<bool>? EnableCookieManagement { get; set; }
 
         /// <summary>
-        /// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
-        /// artifacts are excluded.
+        /// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
         /// </summary>
         [Input("excludesPattern")]
         public Input<string>? ExcludesPattern { get; set; }
@@ -921,15 +844,13 @@ namespace Pulumi.Artifactory
         public Input<bool>? HandleSnapshots { get; set; }
 
         /// <summary>
-        /// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
-        /// communicate with this repository.
+        /// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to communicate with this repository.
         /// </summary>
         [Input("hardFail")]
         public Input<bool>? HardFail { get; set; }
 
         /// <summary>
-        /// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
-        /// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        /// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         /// </summary>
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
@@ -942,15 +863,13 @@ namespace Pulumi.Artifactory
         public Input<string>? Key { get; set; }
 
         /// <summary>
-        /// Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
-        /// the 'Retrieval Cache Period'. Default value is 'false'. This field exists in the API but not in the UI.
+        /// Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of the 'Retrieval Cache Period'. Default value is 'false'. This field exists in the API but not in the UI.
         /// </summary>
         [Input("listRemoteFolderItems")]
         public Input<bool>? ListRemoteFolderItems { get; set; }
 
         /// <summary>
-        /// The local address to be used when creating connections. Useful for specifying the interface to use on systems with
-        /// multiple network interfaces.
+        /// The local address to be used when creating connections. Useful for specifying the interface to use on systems with multiple network interfaces.
         /// </summary>
         [Input("localAddress")]
         public Input<string>? LocalAddress { get; set; }
@@ -962,22 +881,19 @@ namespace Pulumi.Artifactory
         public Input<int>? MaxUniqueSnapshots { get; set; }
 
         /// <summary>
-        /// Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
-        /// the remote before serving locally cached artifact or fail the request.
+        /// Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from the remote before serving locally cached artifact or fail the request.
         /// </summary>
         [Input("metadataRetrievalTimeoutSecs")]
         public Input<int>? MetadataRetrievalTimeoutSecs { get; set; }
 
         /// <summary>
-        /// The set of mime types that should override the block_mismatching_mime_types setting. Eg:
-        /// 'application/json,application/xml'. Default value is empty.
+        /// The set of mime types that should override the block_mismatching_mime_types setting. Eg: 'application/json,application/xml'. Default value is empty.
         /// </summary>
         [Input("mismatchingMimeTypesOverrideList")]
         public Input<string>? MismatchingMimeTypesOverrideList { get; set; }
 
         /// <summary>
-        /// Missed Retrieval Cache Period (Sec) in the UI. The number of seconds to cache artifact retrieval misses (artifact not
-        /// found). A value of 0 indicates no caching.
+        /// Missed Retrieval Cache Period (Sec) in the UI. The number of seconds to cache artifact retrieval misses (artifact not found). A value of 0 indicates no caching.
         /// </summary>
         [Input("missedCachePeriodSeconds")]
         public Input<int>? MissedCachePeriodSeconds { get; set; }
@@ -1021,8 +937,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-        /// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+        /// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         /// </summary>
         [Input("projectKey")]
         public Input<string>? ProjectKey { get; set; }
@@ -1046,8 +961,7 @@ namespace Pulumi.Artifactory
         public Input<string>? Proxy { get; set; }
 
         /// <summary>
-        /// Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
-        /// `param1=val1&amp;param2=val2&amp;param3=val3`
+        /// Custom HTTP query parameters that will be automatically included in all remote resource requests. For example: `param1=val1&amp;param2=val2&amp;param3=val3`
         /// </summary>
         [Input("queryParams")]
         public Input<string>? QueryParams { get; set; }
@@ -1065,23 +979,19 @@ namespace Pulumi.Artifactory
         public Input<string>? RemoteRepoChecksumPolicyType { get; set; }
 
         /// <summary>
-        /// Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an
-        /// empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be
-        /// ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
+        /// Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
         /// </summary>
         [Input("remoteRepoLayoutRef")]
         public Input<string>? RemoteRepoLayoutRef { get; set; }
 
         /// <summary>
-        /// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
-        /// corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+        /// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
         /// </summary>
         [Input("repoLayoutRef")]
         public Input<string>? RepoLayoutRef { get; set; }
 
         /// <summary>
-        /// Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files
-        /// before checking for newer versions on remote server. A value of 0 indicates no caching.
+        /// Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching.
         /// </summary>
         [Input("retrievalCachePeriodSeconds")]
         public Input<int>? RetrievalCachePeriodSeconds { get; set; }
@@ -1090,17 +1000,13 @@ namespace Pulumi.Artifactory
         public Input<bool>? ShareConfiguration { get; set; }
 
         /// <summary>
-        /// Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network
-        /// operation is considered a retrieval failure.
+        /// Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network operation is considered a retrieval failure.
         /// </summary>
         [Input("socketTimeoutMillis")]
         public Input<int>? SocketTimeoutMillis { get; set; }
 
         /// <summary>
-        /// When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and
-        /// direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with
-        /// one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory
-        /// servers.
+        /// When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory servers.
         /// </summary>
         [Input("storeArtifactsLocally")]
         public Input<bool>? StoreArtifactsLocally { get; set; }
@@ -1118,8 +1024,7 @@ namespace Pulumi.Artifactory
         public Input<bool>? SynchronizeProperties { get; set; }
 
         /// <summary>
-        /// Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and
-        /// eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
+        /// Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
         /// </summary>
         [Input("unusedArtifactsCleanupPeriodHours")]
         public Input<int>? UnusedArtifactsCleanupPeriodHours { get; set; }
@@ -1134,8 +1039,7 @@ namespace Pulumi.Artifactory
         public Input<string>? Username { get; set; }
 
         /// <summary>
-        /// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-        /// Xray settings.
+        /// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
         /// </summary>
         [Input("xrayIndex")]
         public Input<bool>? XrayIndex { get; set; }

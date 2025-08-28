@@ -71,43 +71,43 @@ export class LdapGroupSettingV2 extends pulumi.CustomResource {
     /**
      * An attribute on the group entry which denoting the group description. Used when importing groups.
      */
-    public readonly descriptionAttribute!: pulumi.Output<string>;
+    declare public readonly descriptionAttribute: pulumi.Output<string>;
     /**
      * The LDAP setting key you want to use for group retrieval.
      */
-    public readonly enabledLdap!: pulumi.Output<string>;
+    declare public readonly enabledLdap: pulumi.Output<string>;
     /**
      * The LDAP filter used to search for group entries. Used for importing groups.
      */
-    public readonly filter!: pulumi.Output<string>;
+    declare public readonly filter: pulumi.Output<string>;
     /**
      * This attribute is used in very specific cases of LDAP group settings. Don't switch it to `false`, unless instructed by the JFrog support team. Default value is `false`.
      */
-    public readonly forceAttributeSearch!: pulumi.Output<boolean>;
+    declare public readonly forceAttributeSearch: pulumi.Output<boolean>;
     /**
      * A search base for group entry DNs, relative to the DN on the LDAP server’s URL (and not relative to the LDAP Setting’s “Search Base”). Used when importing groups.
      */
-    public readonly groupBaseDn!: pulumi.Output<string>;
+    declare public readonly groupBaseDn: pulumi.Output<string>;
     /**
      * A multi-value attribute on the group entry containing user DNs or IDs of the group members (e.g., uniqueMember, member).
      */
-    public readonly groupMemberAttribute!: pulumi.Output<string>;
+    declare public readonly groupMemberAttribute: pulumi.Output<string>;
     /**
      * Attribute on the group entry denoting the group name. Used when importing groups.
      */
-    public readonly groupNameAttribute!: pulumi.Output<string>;
+    declare public readonly groupNameAttribute: pulumi.Output<string>;
     /**
      * Ldap group setting name.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The JFrog Platform Deployment (JPD) supports three ways of mapping groups to LDAP schemas: STATIC: Group objects are aware of their members, however, the users are not aware of the groups they belong to. Each group object such as groupOfNames or groupOfUniqueNames holds its respective member attributes, typically member or uniqueMember, which is a user DN. DYNAMIC: User objects are aware of what groups they belong to, but the group objects are not aware of their members. Each user object contains a custom attribute, such as group, that holds the group DNs or group names of which the user is a member. HIERARCHICAL: The user's DN is indicative of the groups the user belongs to by using group names as part of user DN hierarchy. Each user DN contains a list of ou's or custom attributes that make up the group association. For example, `uid=user1,ou=developers,ou=uk,dc=jfrog,dc=org` indicates that `user1` belongs to two groups: `uk` and `developers`. Valid values are: `STATIC`, `DYNAMIC`, `HIERARCHICAL`, case sensitive, all caps.
      */
-    public readonly strategy!: pulumi.Output<string>;
+    declare public readonly strategy: pulumi.Output<string>;
     /**
      * When set, enables deep search through the sub-tree of the LDAP URL + Search Base. `true` by default. `subTree` can be set to true only with `STATIC` or `DYNAMIC` strategy.
      */
-    public readonly subTree!: pulumi.Output<boolean>;
+    declare public readonly subTree: pulumi.Output<boolean>;
 
     /**
      * Create a LdapGroupSettingV2 resource with the given unique name, arguments, and options.
@@ -122,43 +122,43 @@ export class LdapGroupSettingV2 extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LdapGroupSettingV2State | undefined;
-            resourceInputs["descriptionAttribute"] = state ? state.descriptionAttribute : undefined;
-            resourceInputs["enabledLdap"] = state ? state.enabledLdap : undefined;
-            resourceInputs["filter"] = state ? state.filter : undefined;
-            resourceInputs["forceAttributeSearch"] = state ? state.forceAttributeSearch : undefined;
-            resourceInputs["groupBaseDn"] = state ? state.groupBaseDn : undefined;
-            resourceInputs["groupMemberAttribute"] = state ? state.groupMemberAttribute : undefined;
-            resourceInputs["groupNameAttribute"] = state ? state.groupNameAttribute : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["strategy"] = state ? state.strategy : undefined;
-            resourceInputs["subTree"] = state ? state.subTree : undefined;
+            resourceInputs["descriptionAttribute"] = state?.descriptionAttribute;
+            resourceInputs["enabledLdap"] = state?.enabledLdap;
+            resourceInputs["filter"] = state?.filter;
+            resourceInputs["forceAttributeSearch"] = state?.forceAttributeSearch;
+            resourceInputs["groupBaseDn"] = state?.groupBaseDn;
+            resourceInputs["groupMemberAttribute"] = state?.groupMemberAttribute;
+            resourceInputs["groupNameAttribute"] = state?.groupNameAttribute;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["strategy"] = state?.strategy;
+            resourceInputs["subTree"] = state?.subTree;
         } else {
             const args = argsOrState as LdapGroupSettingV2Args | undefined;
-            if ((!args || args.descriptionAttribute === undefined) && !opts.urn) {
+            if (args?.descriptionAttribute === undefined && !opts.urn) {
                 throw new Error("Missing required property 'descriptionAttribute'");
             }
-            if ((!args || args.filter === undefined) && !opts.urn) {
+            if (args?.filter === undefined && !opts.urn) {
                 throw new Error("Missing required property 'filter'");
             }
-            if ((!args || args.groupMemberAttribute === undefined) && !opts.urn) {
+            if (args?.groupMemberAttribute === undefined && !opts.urn) {
                 throw new Error("Missing required property 'groupMemberAttribute'");
             }
-            if ((!args || args.groupNameAttribute === undefined) && !opts.urn) {
+            if (args?.groupNameAttribute === undefined && !opts.urn) {
                 throw new Error("Missing required property 'groupNameAttribute'");
             }
-            if ((!args || args.strategy === undefined) && !opts.urn) {
+            if (args?.strategy === undefined && !opts.urn) {
                 throw new Error("Missing required property 'strategy'");
             }
-            resourceInputs["descriptionAttribute"] = args ? args.descriptionAttribute : undefined;
-            resourceInputs["enabledLdap"] = args ? args.enabledLdap : undefined;
-            resourceInputs["filter"] = args ? args.filter : undefined;
-            resourceInputs["forceAttributeSearch"] = args ? args.forceAttributeSearch : undefined;
-            resourceInputs["groupBaseDn"] = args ? args.groupBaseDn : undefined;
-            resourceInputs["groupMemberAttribute"] = args ? args.groupMemberAttribute : undefined;
-            resourceInputs["groupNameAttribute"] = args ? args.groupNameAttribute : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["strategy"] = args ? args.strategy : undefined;
-            resourceInputs["subTree"] = args ? args.subTree : undefined;
+            resourceInputs["descriptionAttribute"] = args?.descriptionAttribute;
+            resourceInputs["enabledLdap"] = args?.enabledLdap;
+            resourceInputs["filter"] = args?.filter;
+            resourceInputs["forceAttributeSearch"] = args?.forceAttributeSearch;
+            resourceInputs["groupBaseDn"] = args?.groupBaseDn;
+            resourceInputs["groupMemberAttribute"] = args?.groupMemberAttribute;
+            resourceInputs["groupNameAttribute"] = args?.groupNameAttribute;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["strategy"] = args?.strategy;
+            resourceInputs["subTree"] = args?.subTree;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LdapGroupSettingV2.__pulumiType, name, resourceInputs, opts);

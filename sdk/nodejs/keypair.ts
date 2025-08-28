@@ -68,29 +68,29 @@ export class Keypair extends pulumi.CustomResource {
     /**
      * Will be used as a filename when retrieving the public key via REST API.
      */
-    public readonly alias!: pulumi.Output<string>;
+    declare public readonly alias: pulumi.Output<string>;
     /**
      * A unique identifier for the Key Pair record.
      */
-    public readonly pairName!: pulumi.Output<string>;
+    declare public readonly pairName: pulumi.Output<string>;
     /**
      * Key Pair type. Supported types - GPG and RSA.
      */
-    public readonly pairType!: pulumi.Output<string>;
+    declare public readonly pairType: pulumi.Output<string>;
     /**
      * Passphrase will be used to decrypt the private key. Validated server side.
      */
-    public readonly passphrase!: pulumi.Output<string | undefined>;
+    declare public readonly passphrase: pulumi.Output<string | undefined>;
     /**
      * Private key. PEM format will be validated. Must not include extranous spaces or tabs.
      */
-    public readonly privateKey!: pulumi.Output<string>;
+    declare public readonly privateKey: pulumi.Output<string>;
     /**
      * Public key. PEM format will be validated. Must not include extranous spaces or tabs.
      *
      * Artifactory REST API call 'Get Key Pair' doesn't return attributes `privateKey` and `passphrase`, but consumes these keys in the POST call.
      */
-    public readonly publicKey!: pulumi.Output<string>;
+    declare public readonly publicKey: pulumi.Output<string>;
 
     /**
      * Create a Keypair resource with the given unique name, arguments, and options.
@@ -105,35 +105,35 @@ export class Keypair extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as KeypairState | undefined;
-            resourceInputs["alias"] = state ? state.alias : undefined;
-            resourceInputs["pairName"] = state ? state.pairName : undefined;
-            resourceInputs["pairType"] = state ? state.pairType : undefined;
-            resourceInputs["passphrase"] = state ? state.passphrase : undefined;
-            resourceInputs["privateKey"] = state ? state.privateKey : undefined;
-            resourceInputs["publicKey"] = state ? state.publicKey : undefined;
+            resourceInputs["alias"] = state?.alias;
+            resourceInputs["pairName"] = state?.pairName;
+            resourceInputs["pairType"] = state?.pairType;
+            resourceInputs["passphrase"] = state?.passphrase;
+            resourceInputs["privateKey"] = state?.privateKey;
+            resourceInputs["publicKey"] = state?.publicKey;
         } else {
             const args = argsOrState as KeypairArgs | undefined;
-            if ((!args || args.alias === undefined) && !opts.urn) {
+            if (args?.alias === undefined && !opts.urn) {
                 throw new Error("Missing required property 'alias'");
             }
-            if ((!args || args.pairName === undefined) && !opts.urn) {
+            if (args?.pairName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'pairName'");
             }
-            if ((!args || args.pairType === undefined) && !opts.urn) {
+            if (args?.pairType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'pairType'");
             }
-            if ((!args || args.privateKey === undefined) && !opts.urn) {
+            if (args?.privateKey === undefined && !opts.urn) {
                 throw new Error("Missing required property 'privateKey'");
             }
-            if ((!args || args.publicKey === undefined) && !opts.urn) {
+            if (args?.publicKey === undefined && !opts.urn) {
                 throw new Error("Missing required property 'publicKey'");
             }
-            resourceInputs["alias"] = args ? args.alias : undefined;
-            resourceInputs["pairName"] = args ? args.pairName : undefined;
-            resourceInputs["pairType"] = args ? args.pairType : undefined;
+            resourceInputs["alias"] = args?.alias;
+            resourceInputs["pairName"] = args?.pairName;
+            resourceInputs["pairType"] = args?.pairType;
             resourceInputs["passphrase"] = args?.passphrase ? pulumi.secret(args.passphrase) : undefined;
             resourceInputs["privateKey"] = args?.privateKey ? pulumi.secret(args.privateKey) : undefined;
-            resourceInputs["publicKey"] = args ? args.publicKey : undefined;
+            resourceInputs["publicKey"] = args?.publicKey;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["passphrase", "privateKey"] };

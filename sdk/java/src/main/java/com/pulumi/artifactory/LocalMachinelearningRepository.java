@@ -96,16 +96,14 @@ public class LocalMachinelearningRepository extends com.pulumi.resources.CustomR
         return this.blackedOut;
     }
     /**
-     * When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
+     * When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
      * 
      */
     @Export(name="cdnRedirect", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> cdnRedirect;
 
     /**
-     * @return When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
+     * @return When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
      * 
      */
     public Output<Boolean> cdnRedirect() {
@@ -244,16 +242,14 @@ public class LocalMachinelearningRepository extends com.pulumi.resources.CustomR
         return Codegen.optional(this.propertySets);
     }
     /**
-     * Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
-     * corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+     * Sets the layout that the repository should use for storing and identifying modules. A recommended layout that corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
      * 
      */
     @Export(name="repoLayoutRef", refs={String.class}, tree="[0]")
     private Output<String> repoLayoutRef;
 
     /**
-     * @return Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
-     * corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+     * @return Sets the layout that the repository should use for storing and identifying modules. A recommended layout that corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
      * 
      */
     public Output<String> repoLayoutRef() {

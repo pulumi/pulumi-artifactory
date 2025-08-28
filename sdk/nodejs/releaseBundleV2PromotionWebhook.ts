@@ -72,27 +72,27 @@ export class ReleaseBundleV2PromotionWebhook extends pulumi.CustomResource {
     /**
      * Specifies where the webhook will be applied on which enviroments.
      */
-    public readonly criteria!: pulumi.Output<outputs.ReleaseBundleV2PromotionWebhookCriteria | undefined>;
+    declare public readonly criteria: pulumi.Output<outputs.ReleaseBundleV2PromotionWebhookCriteria | undefined>;
     /**
      * Webhook description. Max length 1000 characters.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Status of webhook. Default to `true`
      */
-    public readonly enabled!: pulumi.Output<boolean>;
+    declare public readonly enabled: pulumi.Output<boolean>;
     /**
      * List of event triggers for the Webhook. Allow values: `releaseBundleV2PromotionStarted`, `releaseBundleV2PromotionCompleted`, `releaseBundleV2PromotionFailed`
      */
-    public readonly eventTypes!: pulumi.Output<string[]>;
+    declare public readonly eventTypes: pulumi.Output<string[]>;
     /**
      * At least one is required.
      */
-    public readonly handlers!: pulumi.Output<outputs.ReleaseBundleV2PromotionWebhookHandler[] | undefined>;
+    declare public readonly handlers: pulumi.Output<outputs.ReleaseBundleV2PromotionWebhookHandler[] | undefined>;
     /**
      * The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
      */
-    public readonly key!: pulumi.Output<string>;
+    declare public readonly key: pulumi.Output<string>;
 
     /**
      * Create a ReleaseBundleV2PromotionWebhook resource with the given unique name, arguments, and options.
@@ -107,26 +107,26 @@ export class ReleaseBundleV2PromotionWebhook extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ReleaseBundleV2PromotionWebhookState | undefined;
-            resourceInputs["criteria"] = state ? state.criteria : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["eventTypes"] = state ? state.eventTypes : undefined;
-            resourceInputs["handlers"] = state ? state.handlers : undefined;
-            resourceInputs["key"] = state ? state.key : undefined;
+            resourceInputs["criteria"] = state?.criteria;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["eventTypes"] = state?.eventTypes;
+            resourceInputs["handlers"] = state?.handlers;
+            resourceInputs["key"] = state?.key;
         } else {
             const args = argsOrState as ReleaseBundleV2PromotionWebhookArgs | undefined;
-            if ((!args || args.eventTypes === undefined) && !opts.urn) {
+            if (args?.eventTypes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'eventTypes'");
             }
-            if ((!args || args.key === undefined) && !opts.urn) {
+            if (args?.key === undefined && !opts.urn) {
                 throw new Error("Missing required property 'key'");
             }
-            resourceInputs["criteria"] = args ? args.criteria : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["eventTypes"] = args ? args.eventTypes : undefined;
-            resourceInputs["handlers"] = args ? args.handlers : undefined;
-            resourceInputs["key"] = args ? args.key : undefined;
+            resourceInputs["criteria"] = args?.criteria;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["eventTypes"] = args?.eventTypes;
+            resourceInputs["handlers"] = args?.handlers;
+            resourceInputs["key"] = args?.key;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ReleaseBundleV2PromotionWebhook.__pulumiType, name, resourceInputs, opts);

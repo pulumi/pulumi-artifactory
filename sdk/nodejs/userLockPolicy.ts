@@ -57,15 +57,15 @@ export class UserLockPolicy extends pulumi.CustomResource {
     /**
      * Enable User Lock Policy. Lock user after exceeding max failed login attempts.
      */
-    public readonly enabled!: pulumi.Output<boolean>;
+    declare public readonly enabled: pulumi.Output<boolean>;
     /**
      * Max failed login attempts.
      */
-    public readonly loginAttempts!: pulumi.Output<number>;
+    declare public readonly loginAttempts: pulumi.Output<number>;
     /**
      * Name of the resource. Only used for importing.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
 
     /**
      * Create a UserLockPolicy resource with the given unique name, arguments, and options.
@@ -80,20 +80,20 @@ export class UserLockPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserLockPolicyState | undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["loginAttempts"] = state ? state.loginAttempts : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["loginAttempts"] = state?.loginAttempts;
+            resourceInputs["name"] = state?.name;
         } else {
             const args = argsOrState as UserLockPolicyArgs | undefined;
-            if ((!args || args.enabled === undefined) && !opts.urn) {
+            if (args?.enabled === undefined && !opts.urn) {
                 throw new Error("Missing required property 'enabled'");
             }
-            if ((!args || args.loginAttempts === undefined) && !opts.urn) {
+            if (args?.loginAttempts === undefined && !opts.urn) {
                 throw new Error("Missing required property 'loginAttempts'");
             }
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["loginAttempts"] = args ? args.loginAttempts : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["loginAttempts"] = args?.loginAttempts;
+            resourceInputs["name"] = args?.name;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(UserLockPolicy.__pulumiType, name, resourceInputs, opts);

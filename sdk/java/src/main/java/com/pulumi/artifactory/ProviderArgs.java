@@ -16,16 +16,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     public static final ProviderArgs Empty = new ProviderArgs();
 
     /**
-     * This is a access token that can be given to you by your admin under `User Management &gt; Access Tokens`. If not set, the
-     * &#39;api_key&#39; attribute value will be used.
+     * This is a access token that can be given to you by your admin under `User Management &gt; Access Tokens`. If not set, the &#39;api_key&#39; attribute value will be used.
      * 
      */
     @Import(name="accessToken")
     private @Nullable Output<String> accessToken;
 
     /**
-     * @return This is a access token that can be given to you by your admin under `User Management &gt; Access Tokens`. If not set, the
-     * &#39;api_key&#39; attribute value will be used.
+     * @return This is a access token that can be given to you by your admin under `User Management &gt; Access Tokens`. If not set, the &#39;api_key&#39; attribute value will be used.
      * 
      */
     public Optional<Output<String>> accessToken() {
@@ -33,8 +31,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * API key. If `access_token` attribute, `JFROG_ACCESS_TOKEN` or `ARTIFACTORY_ACCESS_TOKEN` environment variable is set,
-     * the provider will ignore this attribute.
+     * API key. If `access_token` attribute, `JFROG_ACCESS_TOKEN` or `ARTIFACTORY_ACCESS_TOKEN` environment variable is set, the provider will ignore this attribute.
      * 
      * @deprecated
      * An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
@@ -49,8 +46,7 @@ By end of Q4 2024, API Keys will be deprecated all together and the option to us
     private @Nullable Output<String> apiKey;
 
     /**
-     * @return API key. If `access_token` attribute, `JFROG_ACCESS_TOKEN` or `ARTIFACTORY_ACCESS_TOKEN` environment variable is set,
-     * the provider will ignore this attribute.
+     * @return API key. If `access_token` attribute, `JFROG_ACCESS_TOKEN` or `ARTIFACTORY_ACCESS_TOKEN` environment variable is set, the provider will ignore this attribute.
      * 
      * @deprecated
      * An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
@@ -66,18 +62,14 @@ By end of Q4 2024, API Keys will be deprecated all together and the option to us
     }
 
     /**
-     * OIDC provider name. See [Configure an OIDC
-     * Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-an-oidc-integration) for
-     * more details.
+     * OIDC provider name. See [Configure an OIDC Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-an-oidc-integration) for more details.
      * 
      */
     @Import(name="oidcProviderName")
     private @Nullable Output<String> oidcProviderName;
 
     /**
-     * @return OIDC provider name. See [Configure an OIDC
-     * Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-an-oidc-integration) for
-     * more details.
+     * @return OIDC provider name. See [Configure an OIDC Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-an-oidc-integration) for more details.
      * 
      */
     public Optional<Output<String>> oidcProviderName() {
@@ -135,8 +127,7 @@ By end of Q4 2024, API Keys will be deprecated all together and the option to us
         }
 
         /**
-         * @param accessToken This is a access token that can be given to you by your admin under `User Management &gt; Access Tokens`. If not set, the
-         * &#39;api_key&#39; attribute value will be used.
+         * @param accessToken This is a access token that can be given to you by your admin under `User Management &gt; Access Tokens`. If not set, the &#39;api_key&#39; attribute value will be used.
          * 
          * @return builder
          * 
@@ -147,8 +138,7 @@ By end of Q4 2024, API Keys will be deprecated all together and the option to us
         }
 
         /**
-         * @param accessToken This is a access token that can be given to you by your admin under `User Management &gt; Access Tokens`. If not set, the
-         * &#39;api_key&#39; attribute value will be used.
+         * @param accessToken This is a access token that can be given to you by your admin under `User Management &gt; Access Tokens`. If not set, the &#39;api_key&#39; attribute value will be used.
          * 
          * @return builder
          * 
@@ -158,8 +148,7 @@ By end of Q4 2024, API Keys will be deprecated all together and the option to us
         }
 
         /**
-         * @param apiKey API key. If `access_token` attribute, `JFROG_ACCESS_TOKEN` or `ARTIFACTORY_ACCESS_TOKEN` environment variable is set,
-         * the provider will ignore this attribute.
+         * @param apiKey API key. If `access_token` attribute, `JFROG_ACCESS_TOKEN` or `ARTIFACTORY_ACCESS_TOKEN` environment variable is set, the provider will ignore this attribute.
          * 
          * @return builder
          * 
@@ -178,8 +167,7 @@ By end of Q4 2024, API Keys will be deprecated all together and the option to us
         }
 
         /**
-         * @param apiKey API key. If `access_token` attribute, `JFROG_ACCESS_TOKEN` or `ARTIFACTORY_ACCESS_TOKEN` environment variable is set,
-         * the provider will ignore this attribute.
+         * @param apiKey API key. If `access_token` attribute, `JFROG_ACCESS_TOKEN` or `ARTIFACTORY_ACCESS_TOKEN` environment variable is set, the provider will ignore this attribute.
          * 
          * @return builder
          * 
@@ -197,9 +185,7 @@ By end of Q4 2024, API Keys will be deprecated all together and the option to us
         }
 
         /**
-         * @param oidcProviderName OIDC provider name. See [Configure an OIDC
-         * Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-an-oidc-integration) for
-         * more details.
+         * @param oidcProviderName OIDC provider name. See [Configure an OIDC Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-an-oidc-integration) for more details.
          * 
          * @return builder
          * 
@@ -210,9 +196,7 @@ By end of Q4 2024, API Keys will be deprecated all together and the option to us
         }
 
         /**
-         * @param oidcProviderName OIDC provider name. See [Configure an OIDC
-         * Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-an-oidc-integration) for
-         * more details.
+         * @param oidcProviderName OIDC provider name. See [Configure an OIDC Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-an-oidc-integration) for more details.
          * 
          * @return builder
          * 

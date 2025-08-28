@@ -38,29 +38,21 @@ class LocalConanRepositoryArgs:
         """
         The set of arguments for constructing a LocalConanRepository resource.
         :param pulumi.Input[_builtins.str] key: the identity key of the repo.
-        :param pulumi.Input[_builtins.bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
-               therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
-               security (e.g., cross-site scripting attacks).
+        :param pulumi.Input[_builtins.bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+               This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
         :param pulumi.Input[_builtins.bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
-        :param pulumi.Input[_builtins.bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-               CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        :param pulumi.Input[_builtins.bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[_builtins.str] description: Public description.
-        :param pulumi.Input[_builtins.bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
-               storage provider. Available in Enterprise+ and Edge licenses only.
-        :param pulumi.Input[_builtins.str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
-               artifacts are excluded.
+        :param pulumi.Input[_builtins.bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
+        :param pulumi.Input[_builtins.str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
         :param pulumi.Input[_builtins.bool] force_conan_authentication: Force basic authentication credentials in order to use this repository. Default value is `false`.
-        :param pulumi.Input[_builtins.str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
-               used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        :param pulumi.Input[_builtins.str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         :param pulumi.Input[_builtins.str] notes: Internal description.
         :param pulumi.Input[_builtins.bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
-        :param pulumi.Input[_builtins.str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-               assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+        :param pulumi.Input[_builtins.str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] property_sets: List of property set name
-        :param pulumi.Input[_builtins.str] repo_layout_ref: Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
-               corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
-        :param pulumi.Input[_builtins.bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-               Xray settings.
+        :param pulumi.Input[_builtins.str] repo_layout_ref: Sets the layout that the repository should use for storing and identifying modules. A recommended layout that corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+        :param pulumi.Input[_builtins.bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
         """
         pulumi.set(__self__, "key", key)
         if archive_browsing_enabled is not None:
@@ -110,9 +102,8 @@ class LocalConanRepositoryArgs:
     @pulumi.getter(name="archiveBrowsingEnabled")
     def archive_browsing_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
-        therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
-        security (e.g., cross-site scripting attacks).
+        When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+        This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
         """
         return pulumi.get(self, "archive_browsing_enabled")
 
@@ -136,8 +127,7 @@ class LocalConanRepositoryArgs:
     @pulumi.getter(name="cdnRedirect")
     def cdn_redirect(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-        CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         """
         return pulumi.get(self, "cdn_redirect")
 
@@ -161,8 +151,7 @@ class LocalConanRepositoryArgs:
     @pulumi.getter(name="downloadDirect")
     def download_direct(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
-        storage provider. Available in Enterprise+ and Edge licenses only.
+        When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
         """
         return pulumi.get(self, "download_direct")
 
@@ -174,8 +163,7 @@ class LocalConanRepositoryArgs:
     @pulumi.getter(name="excludesPattern")
     def excludes_pattern(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
-        artifacts are excluded.
+        List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
         """
         return pulumi.get(self, "excludes_pattern")
 
@@ -199,8 +187,7 @@ class LocalConanRepositoryArgs:
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
-        used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         """
         return pulumi.get(self, "includes_pattern")
 
@@ -245,8 +232,7 @@ class LocalConanRepositoryArgs:
     @pulumi.getter(name="projectKey")
     def project_key(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-        assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+        Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         """
         return pulumi.get(self, "project_key")
 
@@ -270,8 +256,7 @@ class LocalConanRepositoryArgs:
     @pulumi.getter(name="repoLayoutRef")
     def repo_layout_ref(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
-        corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+        Sets the layout that the repository should use for storing and identifying modules. A recommended layout that corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
         """
         return pulumi.get(self, "repo_layout_ref")
 
@@ -283,8 +268,7 @@ class LocalConanRepositoryArgs:
     @pulumi.getter(name="xrayIndex")
     def xray_index(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-        Xray settings.
+        Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
         """
         return pulumi.get(self, "xray_index")
 
@@ -314,30 +298,22 @@ class _LocalConanRepositoryState:
                  xray_index: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering LocalConanRepository resources.
-        :param pulumi.Input[_builtins.bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
-               therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
-               security (e.g., cross-site scripting attacks).
+        :param pulumi.Input[_builtins.bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+               This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
         :param pulumi.Input[_builtins.bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
-        :param pulumi.Input[_builtins.bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-               CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        :param pulumi.Input[_builtins.bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[_builtins.str] description: Public description.
-        :param pulumi.Input[_builtins.bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
-               storage provider. Available in Enterprise+ and Edge licenses only.
-        :param pulumi.Input[_builtins.str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
-               artifacts are excluded.
+        :param pulumi.Input[_builtins.bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
+        :param pulumi.Input[_builtins.str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
         :param pulumi.Input[_builtins.bool] force_conan_authentication: Force basic authentication credentials in order to use this repository. Default value is `false`.
-        :param pulumi.Input[_builtins.str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
-               used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        :param pulumi.Input[_builtins.str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         :param pulumi.Input[_builtins.str] key: the identity key of the repo.
         :param pulumi.Input[_builtins.str] notes: Internal description.
         :param pulumi.Input[_builtins.bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
-        :param pulumi.Input[_builtins.str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-               assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+        :param pulumi.Input[_builtins.str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] property_sets: List of property set name
-        :param pulumi.Input[_builtins.str] repo_layout_ref: Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
-               corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
-        :param pulumi.Input[_builtins.bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-               Xray settings.
+        :param pulumi.Input[_builtins.str] repo_layout_ref: Sets the layout that the repository should use for storing and identifying modules. A recommended layout that corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+        :param pulumi.Input[_builtins.bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
         """
         if archive_browsing_enabled is not None:
             pulumi.set(__self__, "archive_browsing_enabled", archive_browsing_enabled)
@@ -376,9 +352,8 @@ class _LocalConanRepositoryState:
     @pulumi.getter(name="archiveBrowsingEnabled")
     def archive_browsing_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
-        therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
-        security (e.g., cross-site scripting attacks).
+        When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+        This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
         """
         return pulumi.get(self, "archive_browsing_enabled")
 
@@ -402,8 +377,7 @@ class _LocalConanRepositoryState:
     @pulumi.getter(name="cdnRedirect")
     def cdn_redirect(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-        CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         """
         return pulumi.get(self, "cdn_redirect")
 
@@ -427,8 +401,7 @@ class _LocalConanRepositoryState:
     @pulumi.getter(name="downloadDirect")
     def download_direct(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
-        storage provider. Available in Enterprise+ and Edge licenses only.
+        When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
         """
         return pulumi.get(self, "download_direct")
 
@@ -440,8 +413,7 @@ class _LocalConanRepositoryState:
     @pulumi.getter(name="excludesPattern")
     def excludes_pattern(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
-        artifacts are excluded.
+        List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
         """
         return pulumi.get(self, "excludes_pattern")
 
@@ -465,8 +437,7 @@ class _LocalConanRepositoryState:
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
-        used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         """
         return pulumi.get(self, "includes_pattern")
 
@@ -523,8 +494,7 @@ class _LocalConanRepositoryState:
     @pulumi.getter(name="projectKey")
     def project_key(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-        assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+        Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         """
         return pulumi.get(self, "project_key")
 
@@ -548,8 +518,7 @@ class _LocalConanRepositoryState:
     @pulumi.getter(name="repoLayoutRef")
     def repo_layout_ref(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
-        corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+        Sets the layout that the repository should use for storing and identifying modules. A recommended layout that corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
         """
         return pulumi.get(self, "repo_layout_ref")
 
@@ -561,8 +530,7 @@ class _LocalConanRepositoryState:
     @pulumi.getter(name="xrayIndex")
     def xray_index(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-        Xray settings.
+        Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
         """
         return pulumi.get(self, "xray_index")
 
@@ -616,30 +584,22 @@ class LocalConanRepository(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
-               therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
-               security (e.g., cross-site scripting attacks).
+        :param pulumi.Input[_builtins.bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+               This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
         :param pulumi.Input[_builtins.bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
-        :param pulumi.Input[_builtins.bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-               CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        :param pulumi.Input[_builtins.bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[_builtins.str] description: Public description.
-        :param pulumi.Input[_builtins.bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
-               storage provider. Available in Enterprise+ and Edge licenses only.
-        :param pulumi.Input[_builtins.str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
-               artifacts are excluded.
+        :param pulumi.Input[_builtins.bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
+        :param pulumi.Input[_builtins.str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
         :param pulumi.Input[_builtins.bool] force_conan_authentication: Force basic authentication credentials in order to use this repository. Default value is `false`.
-        :param pulumi.Input[_builtins.str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
-               used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        :param pulumi.Input[_builtins.str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         :param pulumi.Input[_builtins.str] key: the identity key of the repo.
         :param pulumi.Input[_builtins.str] notes: Internal description.
         :param pulumi.Input[_builtins.bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
-        :param pulumi.Input[_builtins.str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-               assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+        :param pulumi.Input[_builtins.str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] property_sets: List of property set name
-        :param pulumi.Input[_builtins.str] repo_layout_ref: Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
-               corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
-        :param pulumi.Input[_builtins.bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-               Xray settings.
+        :param pulumi.Input[_builtins.str] repo_layout_ref: Sets the layout that the repository should use for storing and identifying modules. A recommended layout that corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+        :param pulumi.Input[_builtins.bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
         """
         ...
     @overload
@@ -758,30 +718,22 @@ class LocalConanRepository(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
-               therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
-               security (e.g., cross-site scripting attacks).
+        :param pulumi.Input[_builtins.bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+               This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
         :param pulumi.Input[_builtins.bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
-        :param pulumi.Input[_builtins.bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-               CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        :param pulumi.Input[_builtins.bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[_builtins.str] description: Public description.
-        :param pulumi.Input[_builtins.bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
-               storage provider. Available in Enterprise+ and Edge licenses only.
-        :param pulumi.Input[_builtins.str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
-               artifacts are excluded.
+        :param pulumi.Input[_builtins.bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
+        :param pulumi.Input[_builtins.str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
         :param pulumi.Input[_builtins.bool] force_conan_authentication: Force basic authentication credentials in order to use this repository. Default value is `false`.
-        :param pulumi.Input[_builtins.str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
-               used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        :param pulumi.Input[_builtins.str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         :param pulumi.Input[_builtins.str] key: the identity key of the repo.
         :param pulumi.Input[_builtins.str] notes: Internal description.
         :param pulumi.Input[_builtins.bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
-        :param pulumi.Input[_builtins.str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-               assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+        :param pulumi.Input[_builtins.str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] property_sets: List of property set name
-        :param pulumi.Input[_builtins.str] repo_layout_ref: Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
-               corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
-        :param pulumi.Input[_builtins.bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-               Xray settings.
+        :param pulumi.Input[_builtins.str] repo_layout_ref: Sets the layout that the repository should use for storing and identifying modules. A recommended layout that corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+        :param pulumi.Input[_builtins.bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -809,9 +761,8 @@ class LocalConanRepository(pulumi.CustomResource):
     @pulumi.getter(name="archiveBrowsingEnabled")
     def archive_browsing_enabled(self) -> pulumi.Output[_builtins.bool]:
         """
-        When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
-        therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
-        security (e.g., cross-site scripting attacks).
+        When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+        This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
         """
         return pulumi.get(self, "archive_browsing_enabled")
 
@@ -827,8 +778,7 @@ class LocalConanRepository(pulumi.CustomResource):
     @pulumi.getter(name="cdnRedirect")
     def cdn_redirect(self) -> pulumi.Output[_builtins.bool]:
         """
-        When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-        CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         """
         return pulumi.get(self, "cdn_redirect")
 
@@ -844,8 +794,7 @@ class LocalConanRepository(pulumi.CustomResource):
     @pulumi.getter(name="downloadDirect")
     def download_direct(self) -> pulumi.Output[_builtins.bool]:
         """
-        When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
-        storage provider. Available in Enterprise+ and Edge licenses only.
+        When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
         """
         return pulumi.get(self, "download_direct")
 
@@ -853,8 +802,7 @@ class LocalConanRepository(pulumi.CustomResource):
     @pulumi.getter(name="excludesPattern")
     def excludes_pattern(self) -> pulumi.Output[_builtins.str]:
         """
-        List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
-        artifacts are excluded.
+        List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
         """
         return pulumi.get(self, "excludes_pattern")
 
@@ -870,8 +818,7 @@ class LocalConanRepository(pulumi.CustomResource):
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> pulumi.Output[_builtins.str]:
         """
-        List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
-        used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         """
         return pulumi.get(self, "includes_pattern")
 
@@ -908,8 +855,7 @@ class LocalConanRepository(pulumi.CustomResource):
     @pulumi.getter(name="projectKey")
     def project_key(self) -> pulumi.Output[_builtins.str]:
         """
-        Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-        assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+        Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         """
         return pulumi.get(self, "project_key")
 
@@ -925,8 +871,7 @@ class LocalConanRepository(pulumi.CustomResource):
     @pulumi.getter(name="repoLayoutRef")
     def repo_layout_ref(self) -> pulumi.Output[_builtins.str]:
         """
-        Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
-        corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+        Sets the layout that the repository should use for storing and identifying modules. A recommended layout that corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
         """
         return pulumi.get(self, "repo_layout_ref")
 
@@ -934,8 +879,7 @@ class LocalConanRepository(pulumi.CustomResource):
     @pulumi.getter(name="xrayIndex")
     def xray_index(self) -> pulumi.Output[_builtins.bool]:
         """
-        Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-        Xray settings.
+        Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
         """
         return pulumi.get(self, "xray_index")
 

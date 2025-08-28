@@ -48,25 +48,25 @@ export class PackageCleanupPolicy extends pulumi.CustomResource {
     /**
      * The cron expression that determines when the policy is run, However if left empty the policy will not run automatically and can only be triggered manually.
      */
-    public readonly cronExpression!: pulumi.Output<string | undefined>;
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly cronExpression: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The maximum duration (in minutes) for policy execution, after which the policy will stop running even if not completed. While setting a maximum run duration for a policy is useful for adhering to a strict cleanup schedule, it can cause the policy to stop before completion.
      */
-    public readonly durationInMinutes!: pulumi.Output<number | undefined>;
+    declare public readonly durationInMinutes: pulumi.Output<number | undefined>;
     /**
      * A cleanup policy must be created inactive. But if used it must be set to `false`. If set to `true` when calling this API, the API call will fail and an error message is received. Defaults to `true`
      */
-    public readonly enabled!: pulumi.Output<boolean>;
+    declare public readonly enabled: pulumi.Output<boolean>;
     /**
      * An ID that is used to identify the cleanup policy. A minimum of three characters is required and can include letters, numbers, underscore and hyphen.
      */
-    public readonly key!: pulumi.Output<string>;
-    public readonly searchCriteria!: pulumi.Output<outputs.PackageCleanupPolicySearchCriteria>;
+    declare public readonly key: pulumi.Output<string>;
+    declare public readonly searchCriteria: pulumi.Output<outputs.PackageCleanupPolicySearchCriteria>;
     /**
      * A true value means that when this policy is executed, packages will be permanently deleted. false means that when the policy is executed packages will be deleted to the Trash Can. Defaults to `false`.
      */
-    public readonly skipTrashcan!: pulumi.Output<boolean>;
+    declare public readonly skipTrashcan: pulumi.Output<boolean>;
 
     /**
      * Create a PackageCleanupPolicy resource with the given unique name, arguments, and options.
@@ -81,28 +81,28 @@ export class PackageCleanupPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PackageCleanupPolicyState | undefined;
-            resourceInputs["cronExpression"] = state ? state.cronExpression : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["durationInMinutes"] = state ? state.durationInMinutes : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["key"] = state ? state.key : undefined;
-            resourceInputs["searchCriteria"] = state ? state.searchCriteria : undefined;
-            resourceInputs["skipTrashcan"] = state ? state.skipTrashcan : undefined;
+            resourceInputs["cronExpression"] = state?.cronExpression;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["durationInMinutes"] = state?.durationInMinutes;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["key"] = state?.key;
+            resourceInputs["searchCriteria"] = state?.searchCriteria;
+            resourceInputs["skipTrashcan"] = state?.skipTrashcan;
         } else {
             const args = argsOrState as PackageCleanupPolicyArgs | undefined;
-            if ((!args || args.key === undefined) && !opts.urn) {
+            if (args?.key === undefined && !opts.urn) {
                 throw new Error("Missing required property 'key'");
             }
-            if ((!args || args.searchCriteria === undefined) && !opts.urn) {
+            if (args?.searchCriteria === undefined && !opts.urn) {
                 throw new Error("Missing required property 'searchCriteria'");
             }
-            resourceInputs["cronExpression"] = args ? args.cronExpression : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["durationInMinutes"] = args ? args.durationInMinutes : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["key"] = args ? args.key : undefined;
-            resourceInputs["searchCriteria"] = args ? args.searchCriteria : undefined;
-            resourceInputs["skipTrashcan"] = args ? args.skipTrashcan : undefined;
+            resourceInputs["cronExpression"] = args?.cronExpression;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["durationInMinutes"] = args?.durationInMinutes;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["key"] = args?.key;
+            resourceInputs["searchCriteria"] = args?.searchCriteria;
+            resourceInputs["skipTrashcan"] = args?.skipTrashcan;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(PackageCleanupPolicy.__pulumiType, name, resourceInputs, opts);

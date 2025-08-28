@@ -49,7 +49,7 @@ export class AnonymousUser extends pulumi.CustomResource {
         return obj['__pulumiType'] === AnonymousUser.__pulumiType;
     }
 
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
 
     /**
      * Create a AnonymousUser resource with the given unique name, arguments, and options.
@@ -64,10 +64,10 @@ export class AnonymousUser extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AnonymousUserState | undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["name"] = state?.name;
         } else {
             const args = argsOrState as AnonymousUserArgs | undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["name"] = args?.name;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AnonymousUser.__pulumiType, name, resourceInputs, opts);

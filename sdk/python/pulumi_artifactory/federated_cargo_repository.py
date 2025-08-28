@@ -50,34 +50,24 @@ class FederatedCargoRepositoryArgs:
                `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
                Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
                to set up Federated repositories correctly.
-        :param pulumi.Input[_builtins.bool] anonymous_access: Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous
-               access to these resources (only), note that this will override the security anonymous access option. Default value is
-               'false'.
-        :param pulumi.Input[_builtins.bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
-               therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
-               security (e.g., cross-site scripting attacks).
+        :param pulumi.Input[_builtins.bool] anonymous_access: Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is 'false'.
+        :param pulumi.Input[_builtins.bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+               This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
         :param pulumi.Input[_builtins.bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
-        :param pulumi.Input[_builtins.bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-               CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        :param pulumi.Input[_builtins.bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[_builtins.str] description: Public description.
         :param pulumi.Input[_builtins.bool] disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
-        :param pulumi.Input[_builtins.bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
-               storage provider. Available in Enterprise+ and Edge licenses only.
-        :param pulumi.Input[_builtins.bool] enable_sparse_index: Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default
-               value is 'false'.
-        :param pulumi.Input[_builtins.str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
-               artifacts are excluded.
-        :param pulumi.Input[_builtins.str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
-               used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        :param pulumi.Input[_builtins.bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
+        :param pulumi.Input[_builtins.bool] enable_sparse_index: Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is 'false'.
+        :param pulumi.Input[_builtins.str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+        :param pulumi.Input[_builtins.str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         :param pulumi.Input[_builtins.str] notes: Internal description.
         :param pulumi.Input[_builtins.bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
-        :param pulumi.Input[_builtins.str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-               assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+        :param pulumi.Input[_builtins.str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] property_sets: List of property set name
         :param pulumi.Input[_builtins.str] proxy: Proxy key from Artifactory Proxies settings. Default is empty field. Can't be set if `disable_proxy = true`.
         :param pulumi.Input[_builtins.str] repo_layout_ref: Repository layout key for the federated repository
-        :param pulumi.Input[_builtins.bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-               Xray settings.
+        :param pulumi.Input[_builtins.bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "members", members)
@@ -153,9 +143,7 @@ class FederatedCargoRepositoryArgs:
     @pulumi.getter(name="anonymousAccess")
     def anonymous_access(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous
-        access to these resources (only), note that this will override the security anonymous access option. Default value is
-        'false'.
+        Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is 'false'.
         """
         return pulumi.get(self, "anonymous_access")
 
@@ -167,9 +155,8 @@ class FederatedCargoRepositoryArgs:
     @pulumi.getter(name="archiveBrowsingEnabled")
     def archive_browsing_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
-        therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
-        security (e.g., cross-site scripting attacks).
+        When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+        This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
         """
         return pulumi.get(self, "archive_browsing_enabled")
 
@@ -193,8 +180,7 @@ class FederatedCargoRepositoryArgs:
     @pulumi.getter(name="cdnRedirect")
     def cdn_redirect(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-        CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         """
         return pulumi.get(self, "cdn_redirect")
 
@@ -239,8 +225,7 @@ class FederatedCargoRepositoryArgs:
     @pulumi.getter(name="downloadDirect")
     def download_direct(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
-        storage provider. Available in Enterprise+ and Edge licenses only.
+        When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
         """
         return pulumi.get(self, "download_direct")
 
@@ -252,8 +237,7 @@ class FederatedCargoRepositoryArgs:
     @pulumi.getter(name="enableSparseIndex")
     def enable_sparse_index(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default
-        value is 'false'.
+        Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is 'false'.
         """
         return pulumi.get(self, "enable_sparse_index")
 
@@ -265,8 +249,7 @@ class FederatedCargoRepositoryArgs:
     @pulumi.getter(name="excludesPattern")
     def excludes_pattern(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
-        artifacts are excluded.
+        List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
         """
         return pulumi.get(self, "excludes_pattern")
 
@@ -278,8 +261,7 @@ class FederatedCargoRepositoryArgs:
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
-        used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         """
         return pulumi.get(self, "includes_pattern")
 
@@ -333,8 +315,7 @@ class FederatedCargoRepositoryArgs:
     @pulumi.getter(name="projectKey")
     def project_key(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-        assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+        Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         """
         return pulumi.get(self, "project_key")
 
@@ -382,8 +363,7 @@ class FederatedCargoRepositoryArgs:
     @pulumi.getter(name="xrayIndex")
     def xray_index(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-        Xray settings.
+        Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
         """
         return pulumi.get(self, "xray_index")
 
@@ -420,25 +400,17 @@ class _FederatedCargoRepositoryState:
                  xray_index: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering FederatedCargoRepository resources.
-        :param pulumi.Input[_builtins.bool] anonymous_access: Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous
-               access to these resources (only), note that this will override the security anonymous access option. Default value is
-               'false'.
-        :param pulumi.Input[_builtins.bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
-               therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
-               security (e.g., cross-site scripting attacks).
+        :param pulumi.Input[_builtins.bool] anonymous_access: Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is 'false'.
+        :param pulumi.Input[_builtins.bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+               This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
         :param pulumi.Input[_builtins.bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
-        :param pulumi.Input[_builtins.bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-               CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        :param pulumi.Input[_builtins.bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[_builtins.str] description: Public description.
         :param pulumi.Input[_builtins.bool] disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
-        :param pulumi.Input[_builtins.bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
-               storage provider. Available in Enterprise+ and Edge licenses only.
-        :param pulumi.Input[_builtins.bool] enable_sparse_index: Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default
-               value is 'false'.
-        :param pulumi.Input[_builtins.str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
-               artifacts are excluded.
-        :param pulumi.Input[_builtins.str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
-               used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        :param pulumi.Input[_builtins.bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
+        :param pulumi.Input[_builtins.bool] enable_sparse_index: Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is 'false'.
+        :param pulumi.Input[_builtins.str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+        :param pulumi.Input[_builtins.str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         :param pulumi.Input[_builtins.str] key: the identity key of the repo.
         :param pulumi.Input[Sequence[pulumi.Input['FederatedCargoRepositoryMemberArgs']]] members: The list of Federated members and must contain this repository URL (configured base URL
                `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
@@ -446,13 +418,11 @@ class _FederatedCargoRepositoryState:
                to set up Federated repositories correctly.
         :param pulumi.Input[_builtins.str] notes: Internal description.
         :param pulumi.Input[_builtins.bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
-        :param pulumi.Input[_builtins.str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-               assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+        :param pulumi.Input[_builtins.str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] property_sets: List of property set name
         :param pulumi.Input[_builtins.str] proxy: Proxy key from Artifactory Proxies settings. Default is empty field. Can't be set if `disable_proxy = true`.
         :param pulumi.Input[_builtins.str] repo_layout_ref: Repository layout key for the federated repository
-        :param pulumi.Input[_builtins.bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-               Xray settings.
+        :param pulumi.Input[_builtins.bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
         """
         if anonymous_access is not None:
             pulumi.set(__self__, "anonymous_access", anonymous_access)
@@ -505,9 +475,7 @@ class _FederatedCargoRepositoryState:
     @pulumi.getter(name="anonymousAccess")
     def anonymous_access(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous
-        access to these resources (only), note that this will override the security anonymous access option. Default value is
-        'false'.
+        Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is 'false'.
         """
         return pulumi.get(self, "anonymous_access")
 
@@ -519,9 +487,8 @@ class _FederatedCargoRepositoryState:
     @pulumi.getter(name="archiveBrowsingEnabled")
     def archive_browsing_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
-        therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
-        security (e.g., cross-site scripting attacks).
+        When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+        This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
         """
         return pulumi.get(self, "archive_browsing_enabled")
 
@@ -545,8 +512,7 @@ class _FederatedCargoRepositoryState:
     @pulumi.getter(name="cdnRedirect")
     def cdn_redirect(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-        CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         """
         return pulumi.get(self, "cdn_redirect")
 
@@ -591,8 +557,7 @@ class _FederatedCargoRepositoryState:
     @pulumi.getter(name="downloadDirect")
     def download_direct(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
-        storage provider. Available in Enterprise+ and Edge licenses only.
+        When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
         """
         return pulumi.get(self, "download_direct")
 
@@ -604,8 +569,7 @@ class _FederatedCargoRepositoryState:
     @pulumi.getter(name="enableSparseIndex")
     def enable_sparse_index(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default
-        value is 'false'.
+        Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is 'false'.
         """
         return pulumi.get(self, "enable_sparse_index")
 
@@ -617,8 +581,7 @@ class _FederatedCargoRepositoryState:
     @pulumi.getter(name="excludesPattern")
     def excludes_pattern(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
-        artifacts are excluded.
+        List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
         """
         return pulumi.get(self, "excludes_pattern")
 
@@ -630,8 +593,7 @@ class _FederatedCargoRepositoryState:
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
-        used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         """
         return pulumi.get(self, "includes_pattern")
 
@@ -721,8 +683,7 @@ class _FederatedCargoRepositoryState:
     @pulumi.getter(name="projectKey")
     def project_key(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-        assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+        Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         """
         return pulumi.get(self, "project_key")
 
@@ -770,8 +731,7 @@ class _FederatedCargoRepositoryState:
     @pulumi.getter(name="xrayIndex")
     def xray_index(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-        Xray settings.
+        Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
         """
         return pulumi.get(self, "xray_index")
 
@@ -842,25 +802,17 @@ class FederatedCargoRepository(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] anonymous_access: Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous
-               access to these resources (only), note that this will override the security anonymous access option. Default value is
-               'false'.
-        :param pulumi.Input[_builtins.bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
-               therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
-               security (e.g., cross-site scripting attacks).
+        :param pulumi.Input[_builtins.bool] anonymous_access: Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is 'false'.
+        :param pulumi.Input[_builtins.bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+               This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
         :param pulumi.Input[_builtins.bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
-        :param pulumi.Input[_builtins.bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-               CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        :param pulumi.Input[_builtins.bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[_builtins.str] description: Public description.
         :param pulumi.Input[_builtins.bool] disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
-        :param pulumi.Input[_builtins.bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
-               storage provider. Available in Enterprise+ and Edge licenses only.
-        :param pulumi.Input[_builtins.bool] enable_sparse_index: Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default
-               value is 'false'.
-        :param pulumi.Input[_builtins.str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
-               artifacts are excluded.
-        :param pulumi.Input[_builtins.str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
-               used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        :param pulumi.Input[_builtins.bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
+        :param pulumi.Input[_builtins.bool] enable_sparse_index: Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is 'false'.
+        :param pulumi.Input[_builtins.str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+        :param pulumi.Input[_builtins.str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         :param pulumi.Input[_builtins.str] key: the identity key of the repo.
         :param pulumi.Input[Sequence[pulumi.Input[Union['FederatedCargoRepositoryMemberArgs', 'FederatedCargoRepositoryMemberArgsDict']]]] members: The list of Federated members and must contain this repository URL (configured base URL
                `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
@@ -868,13 +820,11 @@ class FederatedCargoRepository(pulumi.CustomResource):
                to set up Federated repositories correctly.
         :param pulumi.Input[_builtins.str] notes: Internal description.
         :param pulumi.Input[_builtins.bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
-        :param pulumi.Input[_builtins.str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-               assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+        :param pulumi.Input[_builtins.str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] property_sets: List of property set name
         :param pulumi.Input[_builtins.str] proxy: Proxy key from Artifactory Proxies settings. Default is empty field. Can't be set if `disable_proxy = true`.
         :param pulumi.Input[_builtins.str] repo_layout_ref: Repository layout key for the federated repository
-        :param pulumi.Input[_builtins.bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-               Xray settings.
+        :param pulumi.Input[_builtins.bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
         """
         ...
     @overload
@@ -1026,25 +976,17 @@ class FederatedCargoRepository(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] anonymous_access: Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous
-               access to these resources (only), note that this will override the security anonymous access option. Default value is
-               'false'.
-        :param pulumi.Input[_builtins.bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
-               therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
-               security (e.g., cross-site scripting attacks).
+        :param pulumi.Input[_builtins.bool] anonymous_access: Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is 'false'.
+        :param pulumi.Input[_builtins.bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+               This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
         :param pulumi.Input[_builtins.bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
-        :param pulumi.Input[_builtins.bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-               CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        :param pulumi.Input[_builtins.bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[_builtins.str] description: Public description.
         :param pulumi.Input[_builtins.bool] disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
-        :param pulumi.Input[_builtins.bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
-               storage provider. Available in Enterprise+ and Edge licenses only.
-        :param pulumi.Input[_builtins.bool] enable_sparse_index: Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default
-               value is 'false'.
-        :param pulumi.Input[_builtins.str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
-               artifacts are excluded.
-        :param pulumi.Input[_builtins.str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
-               used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        :param pulumi.Input[_builtins.bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
+        :param pulumi.Input[_builtins.bool] enable_sparse_index: Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is 'false'.
+        :param pulumi.Input[_builtins.str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+        :param pulumi.Input[_builtins.str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         :param pulumi.Input[_builtins.str] key: the identity key of the repo.
         :param pulumi.Input[Sequence[pulumi.Input[Union['FederatedCargoRepositoryMemberArgs', 'FederatedCargoRepositoryMemberArgsDict']]]] members: The list of Federated members and must contain this repository URL (configured base URL
                `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
@@ -1052,13 +994,11 @@ class FederatedCargoRepository(pulumi.CustomResource):
                to set up Federated repositories correctly.
         :param pulumi.Input[_builtins.str] notes: Internal description.
         :param pulumi.Input[_builtins.bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
-        :param pulumi.Input[_builtins.str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-               assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+        :param pulumi.Input[_builtins.str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] property_sets: List of property set name
         :param pulumi.Input[_builtins.str] proxy: Proxy key from Artifactory Proxies settings. Default is empty field. Can't be set if `disable_proxy = true`.
         :param pulumi.Input[_builtins.str] repo_layout_ref: Repository layout key for the federated repository
-        :param pulumi.Input[_builtins.bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-               Xray settings.
+        :param pulumi.Input[_builtins.bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1093,9 +1033,7 @@ class FederatedCargoRepository(pulumi.CustomResource):
     @pulumi.getter(name="anonymousAccess")
     def anonymous_access(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous
-        access to these resources (only), note that this will override the security anonymous access option. Default value is
-        'false'.
+        Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is 'false'.
         """
         return pulumi.get(self, "anonymous_access")
 
@@ -1103,9 +1041,8 @@ class FederatedCargoRepository(pulumi.CustomResource):
     @pulumi.getter(name="archiveBrowsingEnabled")
     def archive_browsing_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
-        therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
-        security (e.g., cross-site scripting attacks).
+        When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+        This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
         """
         return pulumi.get(self, "archive_browsing_enabled")
 
@@ -1121,8 +1058,7 @@ class FederatedCargoRepository(pulumi.CustomResource):
     @pulumi.getter(name="cdnRedirect")
     def cdn_redirect(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-        CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         """
         return pulumi.get(self, "cdn_redirect")
 
@@ -1151,8 +1087,7 @@ class FederatedCargoRepository(pulumi.CustomResource):
     @pulumi.getter(name="downloadDirect")
     def download_direct(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
-        storage provider. Available in Enterprise+ and Edge licenses only.
+        When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
         """
         return pulumi.get(self, "download_direct")
 
@@ -1160,8 +1095,7 @@ class FederatedCargoRepository(pulumi.CustomResource):
     @pulumi.getter(name="enableSparseIndex")
     def enable_sparse_index(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default
-        value is 'false'.
+        Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is 'false'.
         """
         return pulumi.get(self, "enable_sparse_index")
 
@@ -1169,8 +1103,7 @@ class FederatedCargoRepository(pulumi.CustomResource):
     @pulumi.getter(name="excludesPattern")
     def excludes_pattern(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
-        artifacts are excluded.
+        List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
         """
         return pulumi.get(self, "excludes_pattern")
 
@@ -1178,8 +1111,7 @@ class FederatedCargoRepository(pulumi.CustomResource):
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
-        used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         """
         return pulumi.get(self, "includes_pattern")
 
@@ -1237,8 +1169,7 @@ class FederatedCargoRepository(pulumi.CustomResource):
     @pulumi.getter(name="projectKey")
     def project_key(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-        assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+        Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         """
         return pulumi.get(self, "project_key")
 
@@ -1270,8 +1201,7 @@ class FederatedCargoRepository(pulumi.CustomResource):
     @pulumi.getter(name="xrayIndex")
     def xray_index(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-        Xray settings.
+        Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
         """
         return pulumi.get(self, "xray_index")
 

@@ -34,8 +34,7 @@ namespace Pulumi.Artifactory
 
         private static readonly __Value<string?> _accessToken = new __Value<string?>(() => __config.Get("accessToken"));
         /// <summary>
-        /// This is a access token that can be given to you by your admin under `User Management &gt; Access Tokens`. If not set, the
-        /// 'api_key' attribute value will be used.
+        /// This is a access token that can be given to you by your admin under `User Management &gt; Access Tokens`. If not set, the 'api_key' attribute value will be used.
         /// </summary>
         public static string? AccessToken
         {
@@ -45,8 +44,7 @@ namespace Pulumi.Artifactory
 
         private static readonly __Value<string?> _apiKey = new __Value<string?>(() => __config.Get("apiKey"));
         /// <summary>
-        /// API key. If `access_token` attribute, `JFROG_ACCESS_TOKEN` or `ARTIFACTORY_ACCESS_TOKEN` environment variable is set,
-        /// the provider will ignore this attribute.
+        /// API key. If `access_token` attribute, `JFROG_ACCESS_TOKEN` or `ARTIFACTORY_ACCESS_TOKEN` environment variable is set, the provider will ignore this attribute.
         /// </summary>
         public static string? ApiKey
         {
@@ -56,9 +54,7 @@ namespace Pulumi.Artifactory
 
         private static readonly __Value<string?> _oidcProviderName = new __Value<string?>(() => __config.Get("oidcProviderName"));
         /// <summary>
-        /// OIDC provider name. See [Configure an OIDC
-        /// Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-an-oidc-integration) for
-        /// more details.
+        /// OIDC provider name. See [Configure an OIDC Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-an-oidc-integration) for more details.
         /// </summary>
         public static string? OidcProviderName
         {

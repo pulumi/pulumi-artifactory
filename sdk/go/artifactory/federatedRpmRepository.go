@@ -60,30 +60,25 @@ import (
 type FederatedRpmRepository struct {
 	pulumi.CustomResourceState
 
-	// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
-	// therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
-	// security (e.g., cross-site scripting attacks).
+	// When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+	// This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
 	ArchiveBrowsingEnabled pulumi.BoolPtrOutput `pulumi:"archiveBrowsingEnabled"`
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 	BlackedOut           pulumi.BoolPtrOutput `pulumi:"blackedOut"`
 	CalculateYumMetadata pulumi.BoolPtrOutput `pulumi:"calculateYumMetadata"`
-	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
 	CdnRedirect     pulumi.BoolPtrOutput `pulumi:"cdnRedirect"`
 	CleanupOnDelete pulumi.BoolPtrOutput `pulumi:"cleanupOnDelete"`
 	// Public description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
 	DisableProxy pulumi.BoolPtrOutput `pulumi:"disableProxy"`
-	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
-	// storage provider. Available in Enterprise+ and Edge licenses only.
+	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect          pulumi.BoolPtrOutput `pulumi:"downloadDirect"`
 	EnableFileListsIndexing pulumi.BoolPtrOutput `pulumi:"enableFileListsIndexing"`
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
-	// artifacts are excluded.
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrOutput `pulumi:"excludesPattern"`
-	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
-	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 	IncludesPattern pulumi.StringPtrOutput `pulumi:"includesPattern"`
 	// the identity key of the repo.
 	Key pulumi.StringOutput `pulumi:"key"`
@@ -100,8 +95,7 @@ type FederatedRpmRepository struct {
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution  pulumi.BoolPtrOutput     `pulumi:"priorityResolution"`
 	ProjectEnvironments pulumi.StringArrayOutput `pulumi:"projectEnvironments"`
-	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrOutput `pulumi:"projectKey"`
 	// List of property set name
 	PropertySets pulumi.StringArrayOutput `pulumi:"propertySets"`
@@ -111,16 +105,11 @@ type FederatedRpmRepository struct {
 	RepoLayoutRef pulumi.StringPtrOutput `pulumi:"repoLayoutRef"`
 	// Secondary keypair used to sign artifacts.
 	SecondaryKeypairRef pulumi.StringPtrOutput `pulumi:"secondaryKeypairRef"`
-	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-	// Xray settings.
+	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
 	XrayIndex pulumi.BoolPtrOutput `pulumi:"xrayIndex"`
-	// A comma separated list of XML file names containing RPM group component definitions. Artifactory includes the group
-	// definitions as part of the calculated RPM metadata, as well as automatically generating a gzipped version of the group
-	// files, if required.
+	// A comma separated list of XML file names containing RPM group component definitions. Artifactory includes the group definitions as part of the calculated RPM metadata, as well as automatically generating a gzipped version of the group files, if required.
 	YumGroupFileNames pulumi.StringPtrOutput `pulumi:"yumGroupFileNames"`
-	// The depth, relative to the repository's root folder, where RPM metadata is created. This is useful when your repository
-	// contains multiple RPM repositories under parallel hierarchies. For example, if your RPMs are stored under
-	// 'fedora/linux/$releasever/$basearch', specify a depth of 4.
+	// The depth, relative to the repository's root folder, where RPM metadata is created. This is useful when your repository contains multiple RPM repositories under parallel hierarchies. For example, if your RPMs are stored under 'fedora/linux/$releasever/$basearch', specify a depth of 4.
 	YumRootDepth pulumi.IntPtrOutput `pulumi:"yumRootDepth"`
 }
 
@@ -160,30 +149,25 @@ func GetFederatedRpmRepository(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FederatedRpmRepository resources.
 type federatedRpmRepositoryState struct {
-	// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
-	// therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
-	// security (e.g., cross-site scripting attacks).
+	// When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+	// This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
 	ArchiveBrowsingEnabled *bool `pulumi:"archiveBrowsingEnabled"`
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 	BlackedOut           *bool `pulumi:"blackedOut"`
 	CalculateYumMetadata *bool `pulumi:"calculateYumMetadata"`
-	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
 	CdnRedirect     *bool `pulumi:"cdnRedirect"`
 	CleanupOnDelete *bool `pulumi:"cleanupOnDelete"`
 	// Public description.
 	Description *string `pulumi:"description"`
 	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
 	DisableProxy *bool `pulumi:"disableProxy"`
-	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
-	// storage provider. Available in Enterprise+ and Edge licenses only.
+	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect          *bool `pulumi:"downloadDirect"`
 	EnableFileListsIndexing *bool `pulumi:"enableFileListsIndexing"`
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
-	// artifacts are excluded.
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
-	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
-	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 	IncludesPattern *string `pulumi:"includesPattern"`
 	// the identity key of the repo.
 	Key *string `pulumi:"key"`
@@ -200,8 +184,7 @@ type federatedRpmRepositoryState struct {
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution  *bool    `pulumi:"priorityResolution"`
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
-	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey *string `pulumi:"projectKey"`
 	// List of property set name
 	PropertySets []string `pulumi:"propertySets"`
@@ -211,44 +194,34 @@ type federatedRpmRepositoryState struct {
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
 	// Secondary keypair used to sign artifacts.
 	SecondaryKeypairRef *string `pulumi:"secondaryKeypairRef"`
-	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-	// Xray settings.
+	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
 	XrayIndex *bool `pulumi:"xrayIndex"`
-	// A comma separated list of XML file names containing RPM group component definitions. Artifactory includes the group
-	// definitions as part of the calculated RPM metadata, as well as automatically generating a gzipped version of the group
-	// files, if required.
+	// A comma separated list of XML file names containing RPM group component definitions. Artifactory includes the group definitions as part of the calculated RPM metadata, as well as automatically generating a gzipped version of the group files, if required.
 	YumGroupFileNames *string `pulumi:"yumGroupFileNames"`
-	// The depth, relative to the repository's root folder, where RPM metadata is created. This is useful when your repository
-	// contains multiple RPM repositories under parallel hierarchies. For example, if your RPMs are stored under
-	// 'fedora/linux/$releasever/$basearch', specify a depth of 4.
+	// The depth, relative to the repository's root folder, where RPM metadata is created. This is useful when your repository contains multiple RPM repositories under parallel hierarchies. For example, if your RPMs are stored under 'fedora/linux/$releasever/$basearch', specify a depth of 4.
 	YumRootDepth *int `pulumi:"yumRootDepth"`
 }
 
 type FederatedRpmRepositoryState struct {
-	// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
-	// therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
-	// security (e.g., cross-site scripting attacks).
+	// When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+	// This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
 	ArchiveBrowsingEnabled pulumi.BoolPtrInput
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 	BlackedOut           pulumi.BoolPtrInput
 	CalculateYumMetadata pulumi.BoolPtrInput
-	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
 	CdnRedirect     pulumi.BoolPtrInput
 	CleanupOnDelete pulumi.BoolPtrInput
 	// Public description.
 	Description pulumi.StringPtrInput
 	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
 	DisableProxy pulumi.BoolPtrInput
-	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
-	// storage provider. Available in Enterprise+ and Edge licenses only.
+	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect          pulumi.BoolPtrInput
 	EnableFileListsIndexing pulumi.BoolPtrInput
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
-	// artifacts are excluded.
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
-	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
-	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 	IncludesPattern pulumi.StringPtrInput
 	// the identity key of the repo.
 	Key pulumi.StringPtrInput
@@ -265,8 +238,7 @@ type FederatedRpmRepositoryState struct {
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution  pulumi.BoolPtrInput
 	ProjectEnvironments pulumi.StringArrayInput
-	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrInput
 	// List of property set name
 	PropertySets pulumi.StringArrayInput
@@ -276,16 +248,11 @@ type FederatedRpmRepositoryState struct {
 	RepoLayoutRef pulumi.StringPtrInput
 	// Secondary keypair used to sign artifacts.
 	SecondaryKeypairRef pulumi.StringPtrInput
-	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-	// Xray settings.
+	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
 	XrayIndex pulumi.BoolPtrInput
-	// A comma separated list of XML file names containing RPM group component definitions. Artifactory includes the group
-	// definitions as part of the calculated RPM metadata, as well as automatically generating a gzipped version of the group
-	// files, if required.
+	// A comma separated list of XML file names containing RPM group component definitions. Artifactory includes the group definitions as part of the calculated RPM metadata, as well as automatically generating a gzipped version of the group files, if required.
 	YumGroupFileNames pulumi.StringPtrInput
-	// The depth, relative to the repository's root folder, where RPM metadata is created. This is useful when your repository
-	// contains multiple RPM repositories under parallel hierarchies. For example, if your RPMs are stored under
-	// 'fedora/linux/$releasever/$basearch', specify a depth of 4.
+	// The depth, relative to the repository's root folder, where RPM metadata is created. This is useful when your repository contains multiple RPM repositories under parallel hierarchies. For example, if your RPMs are stored under 'fedora/linux/$releasever/$basearch', specify a depth of 4.
 	YumRootDepth pulumi.IntPtrInput
 }
 
@@ -294,30 +261,25 @@ func (FederatedRpmRepositoryState) ElementType() reflect.Type {
 }
 
 type federatedRpmRepositoryArgs struct {
-	// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
-	// therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
-	// security (e.g., cross-site scripting attacks).
+	// When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+	// This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
 	ArchiveBrowsingEnabled *bool `pulumi:"archiveBrowsingEnabled"`
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 	BlackedOut           *bool `pulumi:"blackedOut"`
 	CalculateYumMetadata *bool `pulumi:"calculateYumMetadata"`
-	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
 	CdnRedirect     *bool `pulumi:"cdnRedirect"`
 	CleanupOnDelete *bool `pulumi:"cleanupOnDelete"`
 	// Public description.
 	Description *string `pulumi:"description"`
 	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
 	DisableProxy *bool `pulumi:"disableProxy"`
-	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
-	// storage provider. Available in Enterprise+ and Edge licenses only.
+	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect          *bool `pulumi:"downloadDirect"`
 	EnableFileListsIndexing *bool `pulumi:"enableFileListsIndexing"`
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
-	// artifacts are excluded.
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
-	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
-	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 	IncludesPattern *string `pulumi:"includesPattern"`
 	// the identity key of the repo.
 	Key string `pulumi:"key"`
@@ -333,8 +295,7 @@ type federatedRpmRepositoryArgs struct {
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution  *bool    `pulumi:"priorityResolution"`
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
-	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey *string `pulumi:"projectKey"`
 	// List of property set name
 	PropertySets []string `pulumi:"propertySets"`
@@ -344,45 +305,35 @@ type federatedRpmRepositoryArgs struct {
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
 	// Secondary keypair used to sign artifacts.
 	SecondaryKeypairRef *string `pulumi:"secondaryKeypairRef"`
-	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-	// Xray settings.
+	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
 	XrayIndex *bool `pulumi:"xrayIndex"`
-	// A comma separated list of XML file names containing RPM group component definitions. Artifactory includes the group
-	// definitions as part of the calculated RPM metadata, as well as automatically generating a gzipped version of the group
-	// files, if required.
+	// A comma separated list of XML file names containing RPM group component definitions. Artifactory includes the group definitions as part of the calculated RPM metadata, as well as automatically generating a gzipped version of the group files, if required.
 	YumGroupFileNames *string `pulumi:"yumGroupFileNames"`
-	// The depth, relative to the repository's root folder, where RPM metadata is created. This is useful when your repository
-	// contains multiple RPM repositories under parallel hierarchies. For example, if your RPMs are stored under
-	// 'fedora/linux/$releasever/$basearch', specify a depth of 4.
+	// The depth, relative to the repository's root folder, where RPM metadata is created. This is useful when your repository contains multiple RPM repositories under parallel hierarchies. For example, if your RPMs are stored under 'fedora/linux/$releasever/$basearch', specify a depth of 4.
 	YumRootDepth *int `pulumi:"yumRootDepth"`
 }
 
 // The set of arguments for constructing a FederatedRpmRepository resource.
 type FederatedRpmRepositoryArgs struct {
-	// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
-	// therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
-	// security (e.g., cross-site scripting attacks).
+	// When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+	// This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
 	ArchiveBrowsingEnabled pulumi.BoolPtrInput
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 	BlackedOut           pulumi.BoolPtrInput
 	CalculateYumMetadata pulumi.BoolPtrInput
-	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
 	CdnRedirect     pulumi.BoolPtrInput
 	CleanupOnDelete pulumi.BoolPtrInput
 	// Public description.
 	Description pulumi.StringPtrInput
 	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
 	DisableProxy pulumi.BoolPtrInput
-	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
-	// storage provider. Available in Enterprise+ and Edge licenses only.
+	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect          pulumi.BoolPtrInput
 	EnableFileListsIndexing pulumi.BoolPtrInput
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
-	// artifacts are excluded.
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
-	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
-	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 	IncludesPattern pulumi.StringPtrInput
 	// the identity key of the repo.
 	Key pulumi.StringInput
@@ -398,8 +349,7 @@ type FederatedRpmRepositoryArgs struct {
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution  pulumi.BoolPtrInput
 	ProjectEnvironments pulumi.StringArrayInput
-	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrInput
 	// List of property set name
 	PropertySets pulumi.StringArrayInput
@@ -409,16 +359,11 @@ type FederatedRpmRepositoryArgs struct {
 	RepoLayoutRef pulumi.StringPtrInput
 	// Secondary keypair used to sign artifacts.
 	SecondaryKeypairRef pulumi.StringPtrInput
-	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-	// Xray settings.
+	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
 	XrayIndex pulumi.BoolPtrInput
-	// A comma separated list of XML file names containing RPM group component definitions. Artifactory includes the group
-	// definitions as part of the calculated RPM metadata, as well as automatically generating a gzipped version of the group
-	// files, if required.
+	// A comma separated list of XML file names containing RPM group component definitions. Artifactory includes the group definitions as part of the calculated RPM metadata, as well as automatically generating a gzipped version of the group files, if required.
 	YumGroupFileNames pulumi.StringPtrInput
-	// The depth, relative to the repository's root folder, where RPM metadata is created. This is useful when your repository
-	// contains multiple RPM repositories under parallel hierarchies. For example, if your RPMs are stored under
-	// 'fedora/linux/$releasever/$basearch', specify a depth of 4.
+	// The depth, relative to the repository's root folder, where RPM metadata is created. This is useful when your repository contains multiple RPM repositories under parallel hierarchies. For example, if your RPMs are stored under 'fedora/linux/$releasever/$basearch', specify a depth of 4.
 	YumRootDepth pulumi.IntPtrInput
 }
 
@@ -509,9 +454,8 @@ func (o FederatedRpmRepositoryOutput) ToFederatedRpmRepositoryOutputWithContext(
 	return o
 }
 
-// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
-// therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
-// security (e.g., cross-site scripting attacks).
+// When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+// This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
 func (o FederatedRpmRepositoryOutput) ArchiveBrowsingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FederatedRpmRepository) pulumi.BoolPtrOutput { return v.ArchiveBrowsingEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -525,8 +469,7 @@ func (o FederatedRpmRepositoryOutput) CalculateYumMetadata() pulumi.BoolPtrOutpu
 	return o.ApplyT(func(v *FederatedRpmRepository) pulumi.BoolPtrOutput { return v.CalculateYumMetadata }).(pulumi.BoolPtrOutput)
 }
 
-// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+// When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
 func (o FederatedRpmRepositoryOutput) CdnRedirect() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FederatedRpmRepository) pulumi.BoolPtrOutput { return v.CdnRedirect }).(pulumi.BoolPtrOutput)
 }
@@ -545,8 +488,7 @@ func (o FederatedRpmRepositoryOutput) DisableProxy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FederatedRpmRepository) pulumi.BoolPtrOutput { return v.DisableProxy }).(pulumi.BoolPtrOutput)
 }
 
-// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
-// storage provider. Available in Enterprise+ and Edge licenses only.
+// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
 func (o FederatedRpmRepositoryOutput) DownloadDirect() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FederatedRpmRepository) pulumi.BoolPtrOutput { return v.DownloadDirect }).(pulumi.BoolPtrOutput)
 }
@@ -555,14 +497,12 @@ func (o FederatedRpmRepositoryOutput) EnableFileListsIndexing() pulumi.BoolPtrOu
 	return o.ApplyT(func(v *FederatedRpmRepository) pulumi.BoolPtrOutput { return v.EnableFileListsIndexing }).(pulumi.BoolPtrOutput)
 }
 
-// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
-// artifacts are excluded.
+// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
 func (o FederatedRpmRepositoryOutput) ExcludesPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FederatedRpmRepository) pulumi.StringPtrOutput { return v.ExcludesPattern }).(pulumi.StringPtrOutput)
 }
 
-// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
-// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 func (o FederatedRpmRepositoryOutput) IncludesPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FederatedRpmRepository) pulumi.StringPtrOutput { return v.IncludesPattern }).(pulumi.StringPtrOutput)
 }
@@ -603,8 +543,7 @@ func (o FederatedRpmRepositoryOutput) ProjectEnvironments() pulumi.StringArrayOu
 	return o.ApplyT(func(v *FederatedRpmRepository) pulumi.StringArrayOutput { return v.ProjectEnvironments }).(pulumi.StringArrayOutput)
 }
 
-// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 func (o FederatedRpmRepositoryOutput) ProjectKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FederatedRpmRepository) pulumi.StringPtrOutput { return v.ProjectKey }).(pulumi.StringPtrOutput)
 }
@@ -629,22 +568,17 @@ func (o FederatedRpmRepositoryOutput) SecondaryKeypairRef() pulumi.StringPtrOutp
 	return o.ApplyT(func(v *FederatedRpmRepository) pulumi.StringPtrOutput { return v.SecondaryKeypairRef }).(pulumi.StringPtrOutput)
 }
 
-// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-// Xray settings.
+// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
 func (o FederatedRpmRepositoryOutput) XrayIndex() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FederatedRpmRepository) pulumi.BoolPtrOutput { return v.XrayIndex }).(pulumi.BoolPtrOutput)
 }
 
-// A comma separated list of XML file names containing RPM group component definitions. Artifactory includes the group
-// definitions as part of the calculated RPM metadata, as well as automatically generating a gzipped version of the group
-// files, if required.
+// A comma separated list of XML file names containing RPM group component definitions. Artifactory includes the group definitions as part of the calculated RPM metadata, as well as automatically generating a gzipped version of the group files, if required.
 func (o FederatedRpmRepositoryOutput) YumGroupFileNames() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FederatedRpmRepository) pulumi.StringPtrOutput { return v.YumGroupFileNames }).(pulumi.StringPtrOutput)
 }
 
-// The depth, relative to the repository's root folder, where RPM metadata is created. This is useful when your repository
-// contains multiple RPM repositories under parallel hierarchies. For example, if your RPMs are stored under
-// 'fedora/linux/$releasever/$basearch', specify a depth of 4.
+// The depth, relative to the repository's root folder, where RPM metadata is created. This is useful when your repository contains multiple RPM repositories under parallel hierarchies. For example, if your RPMs are stored under 'fedora/linux/$releasever/$basearch', specify a depth of 4.
 func (o FederatedRpmRepositoryOutput) YumRootDepth() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FederatedRpmRepository) pulumi.IntPtrOutput { return v.YumRootDepth }).(pulumi.IntPtrOutput)
 }

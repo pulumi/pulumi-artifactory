@@ -63,33 +63,33 @@ export class DistributionPublicKey extends pulumi.CustomResource {
     /**
      * Will be used as an identifier when uploading/retrieving the public key via REST API.
      */
-    public readonly alias!: pulumi.Output<string>;
+    declare public readonly alias: pulumi.Output<string>;
     /**
      * Returns the computed key fingerprint
      */
-    public /*out*/ readonly fingerprint!: pulumi.Output<string>;
+    declare public /*out*/ readonly fingerprint: pulumi.Output<string>;
     /**
      * Returns the name and eMail address of issuer
      */
-    public /*out*/ readonly issuedBy!: pulumi.Output<string>;
+    declare public /*out*/ readonly issuedBy: pulumi.Output<string>;
     /**
      * Returns the date/time when this GPG key was created
      */
-    public /*out*/ readonly issuedOn!: pulumi.Output<string>;
+    declare public /*out*/ readonly issuedOn: pulumi.Output<string>;
     /**
      * Returns the key id by which this key is referenced in Artifactory
      */
-    public /*out*/ readonly keyId!: pulumi.Output<string>;
+    declare public /*out*/ readonly keyId: pulumi.Output<string>;
     /**
      * The Public key to add as a trusted distribution GPG key.
      *
      * The following additional attributes are exported:
      */
-    public readonly publicKey!: pulumi.Output<string>;
+    declare public readonly publicKey: pulumi.Output<string>;
     /**
      * Returns the date/time when this GPG key expires.
      */
-    public /*out*/ readonly validUntil!: pulumi.Output<string>;
+    declare public /*out*/ readonly validUntil: pulumi.Output<string>;
 
     /**
      * Create a DistributionPublicKey resource with the given unique name, arguments, and options.
@@ -104,23 +104,23 @@ export class DistributionPublicKey extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DistributionPublicKeyState | undefined;
-            resourceInputs["alias"] = state ? state.alias : undefined;
-            resourceInputs["fingerprint"] = state ? state.fingerprint : undefined;
-            resourceInputs["issuedBy"] = state ? state.issuedBy : undefined;
-            resourceInputs["issuedOn"] = state ? state.issuedOn : undefined;
-            resourceInputs["keyId"] = state ? state.keyId : undefined;
-            resourceInputs["publicKey"] = state ? state.publicKey : undefined;
-            resourceInputs["validUntil"] = state ? state.validUntil : undefined;
+            resourceInputs["alias"] = state?.alias;
+            resourceInputs["fingerprint"] = state?.fingerprint;
+            resourceInputs["issuedBy"] = state?.issuedBy;
+            resourceInputs["issuedOn"] = state?.issuedOn;
+            resourceInputs["keyId"] = state?.keyId;
+            resourceInputs["publicKey"] = state?.publicKey;
+            resourceInputs["validUntil"] = state?.validUntil;
         } else {
             const args = argsOrState as DistributionPublicKeyArgs | undefined;
-            if ((!args || args.alias === undefined) && !opts.urn) {
+            if (args?.alias === undefined && !opts.urn) {
                 throw new Error("Missing required property 'alias'");
             }
-            if ((!args || args.publicKey === undefined) && !opts.urn) {
+            if (args?.publicKey === undefined && !opts.urn) {
                 throw new Error("Missing required property 'publicKey'");
             }
-            resourceInputs["alias"] = args ? args.alias : undefined;
-            resourceInputs["publicKey"] = args ? args.publicKey : undefined;
+            resourceInputs["alias"] = args?.alias;
+            resourceInputs["publicKey"] = args?.publicKey;
             resourceInputs["fingerprint"] = undefined /*out*/;
             resourceInputs["issuedBy"] = undefined /*out*/;
             resourceInputs["issuedOn"] = undefined /*out*/;

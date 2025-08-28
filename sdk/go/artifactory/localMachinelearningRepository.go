@@ -55,8 +55,7 @@ type LocalMachinelearningRepository struct {
 	ArchiveBrowsingEnabled pulumi.BoolOutput `pulumi:"archiveBrowsingEnabled"`
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 	BlackedOut pulumi.BoolOutput `pulumi:"blackedOut"`
-	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
 	CdnRedirect pulumi.BoolOutput `pulumi:"cdnRedirect"`
 	// Public description.
 	Description pulumi.StringOutput `pulumi:"description"`
@@ -77,8 +76,7 @@ type LocalMachinelearningRepository struct {
 	ProjectKey pulumi.StringOutput `pulumi:"projectKey"`
 	// List of property set name
 	PropertySets pulumi.StringArrayOutput `pulumi:"propertySets"`
-	// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
-	// corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+	// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
 	RepoLayoutRef pulumi.StringOutput `pulumi:"repoLayoutRef"`
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
 	XrayIndex pulumi.BoolOutput `pulumi:"xrayIndex"`
@@ -122,8 +120,7 @@ type localMachinelearningRepositoryState struct {
 	ArchiveBrowsingEnabled *bool `pulumi:"archiveBrowsingEnabled"`
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 	BlackedOut *bool `pulumi:"blackedOut"`
-	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
 	CdnRedirect *bool `pulumi:"cdnRedirect"`
 	// Public description.
 	Description *string `pulumi:"description"`
@@ -144,8 +141,7 @@ type localMachinelearningRepositoryState struct {
 	ProjectKey *string `pulumi:"projectKey"`
 	// List of property set name
 	PropertySets []string `pulumi:"propertySets"`
-	// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
-	// corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+	// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
 	XrayIndex *bool `pulumi:"xrayIndex"`
@@ -157,8 +153,7 @@ type LocalMachinelearningRepositoryState struct {
 	ArchiveBrowsingEnabled pulumi.BoolPtrInput
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 	BlackedOut pulumi.BoolPtrInput
-	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
 	CdnRedirect pulumi.BoolPtrInput
 	// Public description.
 	Description pulumi.StringPtrInput
@@ -179,8 +174,7 @@ type LocalMachinelearningRepositoryState struct {
 	ProjectKey pulumi.StringPtrInput
 	// List of property set name
 	PropertySets pulumi.StringArrayInput
-	// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
-	// corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+	// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
 	RepoLayoutRef pulumi.StringPtrInput
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
 	XrayIndex pulumi.BoolPtrInput
@@ -196,8 +190,7 @@ type localMachinelearningRepositoryArgs struct {
 	ArchiveBrowsingEnabled *bool `pulumi:"archiveBrowsingEnabled"`
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 	BlackedOut *bool `pulumi:"blackedOut"`
-	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
 	CdnRedirect *bool `pulumi:"cdnRedirect"`
 	// Public description.
 	Description *string `pulumi:"description"`
@@ -218,8 +211,7 @@ type localMachinelearningRepositoryArgs struct {
 	ProjectKey *string `pulumi:"projectKey"`
 	// List of property set name
 	PropertySets []string `pulumi:"propertySets"`
-	// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
-	// corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+	// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
 	XrayIndex *bool `pulumi:"xrayIndex"`
@@ -232,8 +224,7 @@ type LocalMachinelearningRepositoryArgs struct {
 	ArchiveBrowsingEnabled pulumi.BoolPtrInput
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 	BlackedOut pulumi.BoolPtrInput
-	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
 	CdnRedirect pulumi.BoolPtrInput
 	// Public description.
 	Description pulumi.StringPtrInput
@@ -254,8 +245,7 @@ type LocalMachinelearningRepositoryArgs struct {
 	ProjectKey pulumi.StringPtrInput
 	// List of property set name
 	PropertySets pulumi.StringArrayInput
-	// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
-	// corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+	// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
 	RepoLayoutRef pulumi.StringPtrInput
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
 	XrayIndex pulumi.BoolPtrInput
@@ -359,8 +349,7 @@ func (o LocalMachinelearningRepositoryOutput) BlackedOut() pulumi.BoolOutput {
 	return o.ApplyT(func(v *LocalMachinelearningRepository) pulumi.BoolOutput { return v.BlackedOut }).(pulumi.BoolOutput)
 }
 
-// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+// When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
 func (o LocalMachinelearningRepositoryOutput) CdnRedirect() pulumi.BoolOutput {
 	return o.ApplyT(func(v *LocalMachinelearningRepository) pulumi.BoolOutput { return v.CdnRedirect }).(pulumi.BoolOutput)
 }
@@ -414,8 +403,7 @@ func (o LocalMachinelearningRepositoryOutput) PropertySets() pulumi.StringArrayO
 	return o.ApplyT(func(v *LocalMachinelearningRepository) pulumi.StringArrayOutput { return v.PropertySets }).(pulumi.StringArrayOutput)
 }
 
-// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
-// corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
 func (o LocalMachinelearningRepositoryOutput) RepoLayoutRef() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocalMachinelearningRepository) pulumi.StringOutput { return v.RepoLayoutRef }).(pulumi.StringOutput)
 }

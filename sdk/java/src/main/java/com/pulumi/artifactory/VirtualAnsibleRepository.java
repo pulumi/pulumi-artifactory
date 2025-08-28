@@ -74,16 +74,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="artifactory:index/virtualAnsibleRepository:VirtualAnsibleRepository")
 public class VirtualAnsibleRepository extends com.pulumi.resources.CustomResource {
     /**
-     * Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
-     * another Artifactory instance.
+     * Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
      * 
      */
     @Export(name="artifactoryRequestsCanRetrieveRemoteArtifacts", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> artifactoryRequestsCanRetrieveRemoteArtifacts;
 
     /**
-     * @return Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
-     * another Artifactory instance.
+     * @return Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
      * 
      */
     public Output<Optional<Boolean>> artifactoryRequestsCanRetrieveRemoteArtifacts() {
@@ -118,32 +116,28 @@ public class VirtualAnsibleRepository extends com.pulumi.resources.CustomResourc
         return Codegen.optional(this.description);
     }
     /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no
-     * artifacts are excluded.
+     * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no artifacts are excluded.
      * 
      */
     @Export(name="excludesPattern", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> excludesPattern;
 
     /**
-     * @return List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no
-     * artifacts are excluded.
+     * @return List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no artifacts are excluded.
      * 
      */
     public Output<Optional<String>> excludesPattern() {
         return Codegen.optional(this.excludesPattern);
     }
     /**
-     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When
-     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
+     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
      * 
      */
     @Export(name="includesPattern", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> includesPattern;
 
     /**
-     * @return List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When
-     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
+     * @return List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
      * 
      */
     public Output<Optional<String>> includesPattern() {
@@ -192,16 +186,14 @@ public class VirtualAnsibleRepository extends com.pulumi.resources.CustomResourc
         return this.projectEnvironments;
     }
     /**
-     * Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-     * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+     * Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      * 
      */
     @Export(name="projectKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> projectKey;
 
     /**
-     * @return Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-     * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+     * @return Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      * 
      */
     public Output<Optional<String>> projectKey() {

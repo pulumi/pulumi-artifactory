@@ -19,16 +19,14 @@ public final class VirtualDockerRepositoryArgs extends com.pulumi.resources.Reso
     public static final VirtualDockerRepositoryArgs Empty = new VirtualDockerRepositoryArgs();
 
     /**
-     * Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
-     * another Artifactory instance.
+     * Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
      * 
      */
     @Import(name="artifactoryRequestsCanRetrieveRemoteArtifacts")
     private @Nullable Output<Boolean> artifactoryRequestsCanRetrieveRemoteArtifacts;
 
     /**
-     * @return Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
-     * another Artifactory instance.
+     * @return Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
      * 
      */
     public Optional<Output<Boolean>> artifactoryRequestsCanRetrieveRemoteArtifacts() {
@@ -66,16 +64,14 @@ public final class VirtualDockerRepositoryArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no
-     * artifacts are excluded.
+     * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no artifacts are excluded.
      * 
      */
     @Import(name="excludesPattern")
     private @Nullable Output<String> excludesPattern;
 
     /**
-     * @return List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no
-     * artifacts are excluded.
+     * @return List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no artifacts are excluded.
      * 
      */
     public Optional<Output<String>> excludesPattern() {
@@ -83,16 +79,14 @@ public final class VirtualDockerRepositoryArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When
-     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
+     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
      * 
      */
     @Import(name="includesPattern")
     private @Nullable Output<String> includesPattern;
 
     /**
-     * @return List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When
-     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
+     * @return List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
      * 
      */
     public Optional<Output<String>> includesPattern() {
@@ -139,16 +133,14 @@ public final class VirtualDockerRepositoryArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-     * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+     * Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      * 
      */
     @Import(name="projectKey")
     private @Nullable Output<String> projectKey;
 
     /**
-     * @return Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-     * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+     * @return Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      * 
      */
     public Optional<Output<String>> projectKey() {
@@ -236,8 +228,7 @@ public final class VirtualDockerRepositoryArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param artifactoryRequestsCanRetrieveRemoteArtifacts Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
-         * another Artifactory instance.
+         * @param artifactoryRequestsCanRetrieveRemoteArtifacts Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
          * 
          * @return builder
          * 
@@ -248,8 +239,7 @@ public final class VirtualDockerRepositoryArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param artifactoryRequestsCanRetrieveRemoteArtifacts Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
-         * another Artifactory instance.
+         * @param artifactoryRequestsCanRetrieveRemoteArtifacts Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
          * 
          * @return builder
          * 
@@ -301,8 +291,7 @@ public final class VirtualDockerRepositoryArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param excludesPattern List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no
-         * artifacts are excluded.
+         * @param excludesPattern List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no artifacts are excluded.
          * 
          * @return builder
          * 
@@ -313,8 +302,7 @@ public final class VirtualDockerRepositoryArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param excludesPattern List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no
-         * artifacts are excluded.
+         * @param excludesPattern List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no artifacts are excluded.
          * 
          * @return builder
          * 
@@ -324,8 +312,7 @@ public final class VirtualDockerRepositoryArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param includesPattern List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When
-         * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
+         * @param includesPattern List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
          * 
          * @return builder
          * 
@@ -336,8 +323,7 @@ public final class VirtualDockerRepositoryArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param includesPattern List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When
-         * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
+         * @param includesPattern List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
          * 
          * @return builder
          * 
@@ -404,8 +390,7 @@ public final class VirtualDockerRepositoryArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param projectKey Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-         * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+         * @param projectKey Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
          * 
          * @return builder
          * 
@@ -416,8 +401,7 @@ public final class VirtualDockerRepositoryArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param projectKey Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-         * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+         * @param projectKey Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
          * 
          * @return builder
          * 

@@ -76,55 +76,55 @@ export class SamlSettings extends pulumi.CustomResource {
     /**
      * Allow persisted users to access their profile.  Default value is `true`.
      */
-    public readonly allowUserToAccessProfile!: pulumi.Output<boolean | undefined>;
+    declare public readonly allowUserToAccessProfile: pulumi.Output<boolean | undefined>;
     /**
      * Auto redirect to login through the IdP when clicking on Artifactory's login link.  Default value is `false`.
      */
-    public readonly autoRedirect!: pulumi.Output<boolean | undefined>;
+    declare public readonly autoRedirect: pulumi.Output<boolean | undefined>;
     /**
      * SAML certificate that contains the public key for the IdP service provider.  Used by Artifactory to verify sign-in requests. Default value is ``.
      */
-    public readonly certificate!: pulumi.Output<string | undefined>;
+    declare public readonly certificate: pulumi.Output<string | undefined>;
     /**
      * Name of the attribute in the SAML response from the IdP that contains the user's email. Default value is ``.
      */
-    public readonly emailAttribute!: pulumi.Output<string | undefined>;
+    declare public readonly emailAttribute: pulumi.Output<string | undefined>;
     /**
      * Enable SAML SSO.  Default value is `true`.
      */
-    public readonly enable!: pulumi.Output<boolean | undefined>;
+    declare public readonly enable: pulumi.Output<boolean | undefined>;
     /**
      * Name of the attribute in the SAML response from the IdP that contains the user's group memberships. Default value is ``.
      */
-    public readonly groupAttribute!: pulumi.Output<string | undefined>;
+    declare public readonly groupAttribute: pulumi.Output<string | undefined>;
     /**
      * Service provider login url configured on the IdP.
      */
-    public readonly loginUrl!: pulumi.Output<string>;
+    declare public readonly loginUrl: pulumi.Output<string>;
     /**
      * Service provider logout url, or where to redirect after user logs out.
      */
-    public readonly logoutUrl!: pulumi.Output<string>;
+    declare public readonly logoutUrl: pulumi.Output<string>;
     /**
      * When automatic user creation is off, authenticated users are not automatically created inside Artifactory. Instead, for every request from an SSO user, the user is temporarily associated with default groups (if such groups are defined), and the permissions for these groups apply. Without auto-user creation, you must manually create the user inside Artifactory to manage user permissions not attached to their default groups. Default value is `false`.
      */
-    public readonly noAutoUserCreation!: pulumi.Output<boolean | undefined>;
+    declare public readonly noAutoUserCreation: pulumi.Output<boolean | undefined>;
     /**
      * The SAML service provider name. This should be a URI that is also known as the entityID, providerID, or entity identity.
      */
-    public readonly serviceProviderName!: pulumi.Output<string>;
+    declare public readonly serviceProviderName: pulumi.Output<string>;
     /**
      * Associate user with Artifactory groups based on the `groupAttribute` provided in the SAML response from the identity provider.  Default value is `false`.
      */
-    public readonly syncGroups!: pulumi.Output<boolean | undefined>;
+    declare public readonly syncGroups: pulumi.Output<boolean | undefined>;
     /**
      * When set, an X.509 public certificate will be created by Artifactory. Download this certificate and upload it to your IDP and choose your own encryption algorithm. This process will let you encrypt the assertion section in your SAML response. Default value is `false`.
      */
-    public readonly useEncryptedAssertion!: pulumi.Output<boolean | undefined>;
+    declare public readonly useEncryptedAssertion: pulumi.Output<boolean | undefined>;
     /**
      * Enable "audience", or who the SAML assertion is intended for.  Ensures that the correct service provider intended for Artifactory is used on the IdP.  Default value is `true`.
      */
-    public readonly verifyAudienceRestriction!: pulumi.Output<boolean | undefined>;
+    declare public readonly verifyAudienceRestriction: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a SamlSettings resource with the given unique name, arguments, and options.
@@ -139,43 +139,43 @@ export class SamlSettings extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SamlSettingsState | undefined;
-            resourceInputs["allowUserToAccessProfile"] = state ? state.allowUserToAccessProfile : undefined;
-            resourceInputs["autoRedirect"] = state ? state.autoRedirect : undefined;
-            resourceInputs["certificate"] = state ? state.certificate : undefined;
-            resourceInputs["emailAttribute"] = state ? state.emailAttribute : undefined;
-            resourceInputs["enable"] = state ? state.enable : undefined;
-            resourceInputs["groupAttribute"] = state ? state.groupAttribute : undefined;
-            resourceInputs["loginUrl"] = state ? state.loginUrl : undefined;
-            resourceInputs["logoutUrl"] = state ? state.logoutUrl : undefined;
-            resourceInputs["noAutoUserCreation"] = state ? state.noAutoUserCreation : undefined;
-            resourceInputs["serviceProviderName"] = state ? state.serviceProviderName : undefined;
-            resourceInputs["syncGroups"] = state ? state.syncGroups : undefined;
-            resourceInputs["useEncryptedAssertion"] = state ? state.useEncryptedAssertion : undefined;
-            resourceInputs["verifyAudienceRestriction"] = state ? state.verifyAudienceRestriction : undefined;
+            resourceInputs["allowUserToAccessProfile"] = state?.allowUserToAccessProfile;
+            resourceInputs["autoRedirect"] = state?.autoRedirect;
+            resourceInputs["certificate"] = state?.certificate;
+            resourceInputs["emailAttribute"] = state?.emailAttribute;
+            resourceInputs["enable"] = state?.enable;
+            resourceInputs["groupAttribute"] = state?.groupAttribute;
+            resourceInputs["loginUrl"] = state?.loginUrl;
+            resourceInputs["logoutUrl"] = state?.logoutUrl;
+            resourceInputs["noAutoUserCreation"] = state?.noAutoUserCreation;
+            resourceInputs["serviceProviderName"] = state?.serviceProviderName;
+            resourceInputs["syncGroups"] = state?.syncGroups;
+            resourceInputs["useEncryptedAssertion"] = state?.useEncryptedAssertion;
+            resourceInputs["verifyAudienceRestriction"] = state?.verifyAudienceRestriction;
         } else {
             const args = argsOrState as SamlSettingsArgs | undefined;
-            if ((!args || args.loginUrl === undefined) && !opts.urn) {
+            if (args?.loginUrl === undefined && !opts.urn) {
                 throw new Error("Missing required property 'loginUrl'");
             }
-            if ((!args || args.logoutUrl === undefined) && !opts.urn) {
+            if (args?.logoutUrl === undefined && !opts.urn) {
                 throw new Error("Missing required property 'logoutUrl'");
             }
-            if ((!args || args.serviceProviderName === undefined) && !opts.urn) {
+            if (args?.serviceProviderName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceProviderName'");
             }
-            resourceInputs["allowUserToAccessProfile"] = args ? args.allowUserToAccessProfile : undefined;
-            resourceInputs["autoRedirect"] = args ? args.autoRedirect : undefined;
-            resourceInputs["certificate"] = args ? args.certificate : undefined;
-            resourceInputs["emailAttribute"] = args ? args.emailAttribute : undefined;
-            resourceInputs["enable"] = args ? args.enable : undefined;
-            resourceInputs["groupAttribute"] = args ? args.groupAttribute : undefined;
-            resourceInputs["loginUrl"] = args ? args.loginUrl : undefined;
-            resourceInputs["logoutUrl"] = args ? args.logoutUrl : undefined;
-            resourceInputs["noAutoUserCreation"] = args ? args.noAutoUserCreation : undefined;
-            resourceInputs["serviceProviderName"] = args ? args.serviceProviderName : undefined;
-            resourceInputs["syncGroups"] = args ? args.syncGroups : undefined;
-            resourceInputs["useEncryptedAssertion"] = args ? args.useEncryptedAssertion : undefined;
-            resourceInputs["verifyAudienceRestriction"] = args ? args.verifyAudienceRestriction : undefined;
+            resourceInputs["allowUserToAccessProfile"] = args?.allowUserToAccessProfile;
+            resourceInputs["autoRedirect"] = args?.autoRedirect;
+            resourceInputs["certificate"] = args?.certificate;
+            resourceInputs["emailAttribute"] = args?.emailAttribute;
+            resourceInputs["enable"] = args?.enable;
+            resourceInputs["groupAttribute"] = args?.groupAttribute;
+            resourceInputs["loginUrl"] = args?.loginUrl;
+            resourceInputs["logoutUrl"] = args?.logoutUrl;
+            resourceInputs["noAutoUserCreation"] = args?.noAutoUserCreation;
+            resourceInputs["serviceProviderName"] = args?.serviceProviderName;
+            resourceInputs["syncGroups"] = args?.syncGroups;
+            resourceInputs["useEncryptedAssertion"] = args?.useEncryptedAssertion;
+            resourceInputs["verifyAudienceRestriction"] = args?.verifyAudienceRestriction;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SamlSettings.__pulumiType, name, resourceInputs, opts);
