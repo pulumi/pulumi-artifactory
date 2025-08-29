@@ -61,29 +61,24 @@ type FederatedDockerV1Repository struct {
 	pulumi.CustomResourceState
 
 	ApiVersion pulumi.StringOutput `pulumi:"apiVersion"`
-	// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
-	// therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
-	// security (e.g., cross-site scripting attacks).
+	// When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+	// This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
 	ArchiveBrowsingEnabled pulumi.BoolPtrOutput `pulumi:"archiveBrowsingEnabled"`
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 	BlackedOut          pulumi.BoolPtrOutput `pulumi:"blackedOut"`
 	BlockPushingSchema1 pulumi.BoolOutput    `pulumi:"blockPushingSchema1"`
-	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
 	CdnRedirect     pulumi.BoolPtrOutput `pulumi:"cdnRedirect"`
 	CleanupOnDelete pulumi.BoolPtrOutput `pulumi:"cleanupOnDelete"`
 	// Public description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
 	DisableProxy pulumi.BoolPtrOutput `pulumi:"disableProxy"`
-	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
-	// storage provider. Available in Enterprise+ and Edge licenses only.
+	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect pulumi.BoolPtrOutput `pulumi:"downloadDirect"`
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
-	// artifacts are excluded.
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrOutput `pulumi:"excludesPattern"`
-	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
-	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 	IncludesPattern pulumi.StringPtrOutput `pulumi:"includesPattern"`
 	// the identity key of the repo.
 	Key           pulumi.StringOutput `pulumi:"key"`
@@ -99,8 +94,7 @@ type FederatedDockerV1Repository struct {
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution  pulumi.BoolPtrOutput     `pulumi:"priorityResolution"`
 	ProjectEnvironments pulumi.StringArrayOutput `pulumi:"projectEnvironments"`
-	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrOutput `pulumi:"projectKey"`
 	// List of property set name
 	PropertySets pulumi.StringArrayOutput `pulumi:"propertySets"`
@@ -109,8 +103,7 @@ type FederatedDockerV1Repository struct {
 	// Repository layout key for the federated repository
 	RepoLayoutRef pulumi.StringPtrOutput `pulumi:"repoLayoutRef"`
 	TagRetention  pulumi.IntOutput       `pulumi:"tagRetention"`
-	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-	// Xray settings.
+	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
 	XrayIndex pulumi.BoolPtrOutput `pulumi:"xrayIndex"`
 }
 
@@ -151,29 +144,24 @@ func GetFederatedDockerV1Repository(ctx *pulumi.Context,
 // Input properties used for looking up and filtering FederatedDockerV1Repository resources.
 type federatedDockerV1RepositoryState struct {
 	ApiVersion *string `pulumi:"apiVersion"`
-	// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
-	// therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
-	// security (e.g., cross-site scripting attacks).
+	// When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+	// This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
 	ArchiveBrowsingEnabled *bool `pulumi:"archiveBrowsingEnabled"`
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 	BlackedOut          *bool `pulumi:"blackedOut"`
 	BlockPushingSchema1 *bool `pulumi:"blockPushingSchema1"`
-	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
 	CdnRedirect     *bool `pulumi:"cdnRedirect"`
 	CleanupOnDelete *bool `pulumi:"cleanupOnDelete"`
 	// Public description.
 	Description *string `pulumi:"description"`
 	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
 	DisableProxy *bool `pulumi:"disableProxy"`
-	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
-	// storage provider. Available in Enterprise+ and Edge licenses only.
+	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect *bool `pulumi:"downloadDirect"`
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
-	// artifacts are excluded.
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
-	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
-	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 	IncludesPattern *string `pulumi:"includesPattern"`
 	// the identity key of the repo.
 	Key           *string `pulumi:"key"`
@@ -189,8 +177,7 @@ type federatedDockerV1RepositoryState struct {
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution  *bool    `pulumi:"priorityResolution"`
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
-	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey *string `pulumi:"projectKey"`
 	// List of property set name
 	PropertySets []string `pulumi:"propertySets"`
@@ -199,36 +186,30 @@ type federatedDockerV1RepositoryState struct {
 	// Repository layout key for the federated repository
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
 	TagRetention  *int    `pulumi:"tagRetention"`
-	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-	// Xray settings.
+	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
 	XrayIndex *bool `pulumi:"xrayIndex"`
 }
 
 type FederatedDockerV1RepositoryState struct {
 	ApiVersion pulumi.StringPtrInput
-	// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
-	// therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
-	// security (e.g., cross-site scripting attacks).
+	// When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+	// This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
 	ArchiveBrowsingEnabled pulumi.BoolPtrInput
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 	BlackedOut          pulumi.BoolPtrInput
 	BlockPushingSchema1 pulumi.BoolPtrInput
-	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
 	CdnRedirect     pulumi.BoolPtrInput
 	CleanupOnDelete pulumi.BoolPtrInput
 	// Public description.
 	Description pulumi.StringPtrInput
 	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
 	DisableProxy pulumi.BoolPtrInput
-	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
-	// storage provider. Available in Enterprise+ and Edge licenses only.
+	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect pulumi.BoolPtrInput
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
-	// artifacts are excluded.
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
-	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
-	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 	IncludesPattern pulumi.StringPtrInput
 	// the identity key of the repo.
 	Key           pulumi.StringPtrInput
@@ -244,8 +225,7 @@ type FederatedDockerV1RepositoryState struct {
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution  pulumi.BoolPtrInput
 	ProjectEnvironments pulumi.StringArrayInput
-	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrInput
 	// List of property set name
 	PropertySets pulumi.StringArrayInput
@@ -254,8 +234,7 @@ type FederatedDockerV1RepositoryState struct {
 	// Repository layout key for the federated repository
 	RepoLayoutRef pulumi.StringPtrInput
 	TagRetention  pulumi.IntPtrInput
-	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-	// Xray settings.
+	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
 	XrayIndex pulumi.BoolPtrInput
 }
 
@@ -264,28 +243,23 @@ func (FederatedDockerV1RepositoryState) ElementType() reflect.Type {
 }
 
 type federatedDockerV1RepositoryArgs struct {
-	// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
-	// therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
-	// security (e.g., cross-site scripting attacks).
+	// When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+	// This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
 	ArchiveBrowsingEnabled *bool `pulumi:"archiveBrowsingEnabled"`
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 	BlackedOut *bool `pulumi:"blackedOut"`
-	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
 	CdnRedirect     *bool `pulumi:"cdnRedirect"`
 	CleanupOnDelete *bool `pulumi:"cleanupOnDelete"`
 	// Public description.
 	Description *string `pulumi:"description"`
 	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
 	DisableProxy *bool `pulumi:"disableProxy"`
-	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
-	// storage provider. Available in Enterprise+ and Edge licenses only.
+	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect *bool `pulumi:"downloadDirect"`
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
-	// artifacts are excluded.
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
-	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
-	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 	IncludesPattern *string `pulumi:"includesPattern"`
 	// the identity key of the repo.
 	Key           string `pulumi:"key"`
@@ -300,8 +274,7 @@ type federatedDockerV1RepositoryArgs struct {
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution  *bool    `pulumi:"priorityResolution"`
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
-	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey *string `pulumi:"projectKey"`
 	// List of property set name
 	PropertySets []string `pulumi:"propertySets"`
@@ -309,35 +282,29 @@ type federatedDockerV1RepositoryArgs struct {
 	Proxy *string `pulumi:"proxy"`
 	// Repository layout key for the federated repository
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
-	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-	// Xray settings.
+	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
 	XrayIndex *bool `pulumi:"xrayIndex"`
 }
 
 // The set of arguments for constructing a FederatedDockerV1Repository resource.
 type FederatedDockerV1RepositoryArgs struct {
-	// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
-	// therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
-	// security (e.g., cross-site scripting attacks).
+	// When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+	// This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
 	ArchiveBrowsingEnabled pulumi.BoolPtrInput
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 	BlackedOut pulumi.BoolPtrInput
-	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
 	CdnRedirect     pulumi.BoolPtrInput
 	CleanupOnDelete pulumi.BoolPtrInput
 	// Public description.
 	Description pulumi.StringPtrInput
 	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
 	DisableProxy pulumi.BoolPtrInput
-	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
-	// storage provider. Available in Enterprise+ and Edge licenses only.
+	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect pulumi.BoolPtrInput
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
-	// artifacts are excluded.
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
-	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
-	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 	IncludesPattern pulumi.StringPtrInput
 	// the identity key of the repo.
 	Key           pulumi.StringInput
@@ -352,8 +319,7 @@ type FederatedDockerV1RepositoryArgs struct {
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution  pulumi.BoolPtrInput
 	ProjectEnvironments pulumi.StringArrayInput
-	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrInput
 	// List of property set name
 	PropertySets pulumi.StringArrayInput
@@ -361,8 +327,7 @@ type FederatedDockerV1RepositoryArgs struct {
 	Proxy pulumi.StringPtrInput
 	// Repository layout key for the federated repository
 	RepoLayoutRef pulumi.StringPtrInput
-	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-	// Xray settings.
+	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
 	XrayIndex pulumi.BoolPtrInput
 }
 
@@ -457,9 +422,8 @@ func (o FederatedDockerV1RepositoryOutput) ApiVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *FederatedDockerV1Repository) pulumi.StringOutput { return v.ApiVersion }).(pulumi.StringOutput)
 }
 
-// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
-// therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
-// security (e.g., cross-site scripting attacks).
+// When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+// This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
 func (o FederatedDockerV1RepositoryOutput) ArchiveBrowsingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FederatedDockerV1Repository) pulumi.BoolPtrOutput { return v.ArchiveBrowsingEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -473,8 +437,7 @@ func (o FederatedDockerV1RepositoryOutput) BlockPushingSchema1() pulumi.BoolOutp
 	return o.ApplyT(func(v *FederatedDockerV1Repository) pulumi.BoolOutput { return v.BlockPushingSchema1 }).(pulumi.BoolOutput)
 }
 
-// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+// When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
 func (o FederatedDockerV1RepositoryOutput) CdnRedirect() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FederatedDockerV1Repository) pulumi.BoolPtrOutput { return v.CdnRedirect }).(pulumi.BoolPtrOutput)
 }
@@ -493,20 +456,17 @@ func (o FederatedDockerV1RepositoryOutput) DisableProxy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FederatedDockerV1Repository) pulumi.BoolPtrOutput { return v.DisableProxy }).(pulumi.BoolPtrOutput)
 }
 
-// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
-// storage provider. Available in Enterprise+ and Edge licenses only.
+// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
 func (o FederatedDockerV1RepositoryOutput) DownloadDirect() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FederatedDockerV1Repository) pulumi.BoolPtrOutput { return v.DownloadDirect }).(pulumi.BoolPtrOutput)
 }
 
-// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
-// artifacts are excluded.
+// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
 func (o FederatedDockerV1RepositoryOutput) ExcludesPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FederatedDockerV1Repository) pulumi.StringPtrOutput { return v.ExcludesPattern }).(pulumi.StringPtrOutput)
 }
 
-// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
-// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 func (o FederatedDockerV1RepositoryOutput) IncludesPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FederatedDockerV1Repository) pulumi.StringPtrOutput { return v.IncludesPattern }).(pulumi.StringPtrOutput)
 }
@@ -546,8 +506,7 @@ func (o FederatedDockerV1RepositoryOutput) ProjectEnvironments() pulumi.StringAr
 	return o.ApplyT(func(v *FederatedDockerV1Repository) pulumi.StringArrayOutput { return v.ProjectEnvironments }).(pulumi.StringArrayOutput)
 }
 
-// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 func (o FederatedDockerV1RepositoryOutput) ProjectKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FederatedDockerV1Repository) pulumi.StringPtrOutput { return v.ProjectKey }).(pulumi.StringPtrOutput)
 }
@@ -571,8 +530,7 @@ func (o FederatedDockerV1RepositoryOutput) TagRetention() pulumi.IntOutput {
 	return o.ApplyT(func(v *FederatedDockerV1Repository) pulumi.IntOutput { return v.TagRetention }).(pulumi.IntOutput)
 }
 
-// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-// Xray settings.
+// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
 func (o FederatedDockerV1RepositoryOutput) XrayIndex() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FederatedDockerV1Repository) pulumi.BoolPtrOutput { return v.XrayIndex }).(pulumi.BoolPtrOutput)
 }

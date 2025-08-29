@@ -53,7 +53,7 @@ export class GlobalEnvironment extends pulumi.CustomResource {
     /**
      * Name must start with a letter and contain letters, digits and `-` character. The maximum length is 32 characters
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
 
     /**
      * Create a GlobalEnvironment resource with the given unique name, arguments, and options.
@@ -68,10 +68,10 @@ export class GlobalEnvironment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GlobalEnvironmentState | undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["name"] = state?.name;
         } else {
             const args = argsOrState as GlobalEnvironmentArgs | undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["name"] = args?.name;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(GlobalEnvironment.__pulumiType, name, resourceInputs, opts);

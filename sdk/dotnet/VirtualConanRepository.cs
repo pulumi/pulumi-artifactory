@@ -49,8 +49,7 @@ namespace Pulumi.Artifactory
     public partial class VirtualConanRepository : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
-        /// another Artifactory instance.
+        /// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
         /// </summary>
         [Output("artifactoryRequestsCanRetrieveRemoteArtifacts")]
         public Output<bool?> ArtifactoryRequestsCanRetrieveRemoteArtifacts { get; private set; } = null!;
@@ -68,8 +67,7 @@ namespace Pulumi.Artifactory
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
-        /// artifacts are excluded.
+        /// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
         /// </summary>
         [Output("excludesPattern")]
         public Output<string?> ExcludesPattern { get; private set; } = null!;
@@ -81,8 +79,7 @@ namespace Pulumi.Artifactory
         public Output<bool?> ForceConanAuthentication { get; private set; } = null!;
 
         /// <summary>
-        /// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
-        /// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        /// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         /// </summary>
         [Output("includesPattern")]
         public Output<string?> IncludesPattern { get; private set; } = null!;
@@ -107,8 +104,7 @@ namespace Pulumi.Artifactory
         public Output<ImmutableArray<string>> ProjectEnvironments { get; private set; } = null!;
 
         /// <summary>
-        /// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-        /// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+        /// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         /// </summary>
         [Output("projectKey")]
         public Output<string?> ProjectKey { get; private set; } = null!;
@@ -178,8 +174,7 @@ namespace Pulumi.Artifactory
     public sealed class VirtualConanRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
-        /// another Artifactory instance.
+        /// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
         /// </summary>
         [Input("artifactoryRequestsCanRetrieveRemoteArtifacts")]
         public Input<bool>? ArtifactoryRequestsCanRetrieveRemoteArtifacts { get; set; }
@@ -197,8 +192,7 @@ namespace Pulumi.Artifactory
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
-        /// artifacts are excluded.
+        /// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
         /// </summary>
         [Input("excludesPattern")]
         public Input<string>? ExcludesPattern { get; set; }
@@ -210,8 +204,7 @@ namespace Pulumi.Artifactory
         public Input<bool>? ForceConanAuthentication { get; set; }
 
         /// <summary>
-        /// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
-        /// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        /// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         /// </summary>
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
@@ -238,8 +231,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-        /// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+        /// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         /// </summary>
         [Input("projectKey")]
         public Input<string>? ProjectKey { get; set; }
@@ -277,8 +269,7 @@ namespace Pulumi.Artifactory
     public sealed class VirtualConanRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
-        /// another Artifactory instance.
+        /// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
         /// </summary>
         [Input("artifactoryRequestsCanRetrieveRemoteArtifacts")]
         public Input<bool>? ArtifactoryRequestsCanRetrieveRemoteArtifacts { get; set; }
@@ -296,8 +287,7 @@ namespace Pulumi.Artifactory
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
-        /// artifacts are excluded.
+        /// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
         /// </summary>
         [Input("excludesPattern")]
         public Input<string>? ExcludesPattern { get; set; }
@@ -309,8 +299,7 @@ namespace Pulumi.Artifactory
         public Input<bool>? ForceConanAuthentication { get; set; }
 
         /// <summary>
-        /// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
-        /// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        /// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         /// </summary>
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
@@ -340,8 +329,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-        /// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+        /// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         /// </summary>
         [Input("projectKey")]
         public Input<string>? ProjectKey { get; set; }

@@ -72,36 +72,36 @@ export class UnmanagedUser extends pulumi.CustomResource {
     /**
      * (Optional, Default: false) When enabled, this user is an administrator with all the ensuing privileges.
      */
-    public readonly admin!: pulumi.Output<boolean>;
+    declare public readonly admin: pulumi.Output<boolean>;
     /**
      * (Optional, Default: true) When enabled, this user can only access the system through the REST API. This option cannot be set if the user has Admin privileges.
      */
-    public readonly disableUiAccess!: pulumi.Output<boolean>;
+    declare public readonly disableUiAccess: pulumi.Output<boolean>;
     /**
      * Email for user.
      */
-    public readonly email!: pulumi.Output<string>;
+    declare public readonly email: pulumi.Output<string>;
     /**
      * List of groups this user is a part of. **Notes:** If this attribute is not specified then user's group membership is set to empty. User will not be part of default "readers" group automatically.
      */
-    public readonly groups!: pulumi.Output<string[]>;
+    declare public readonly groups: pulumi.Output<string[]>;
     /**
      * (Optional, Default: false) When enabled, disables the fallback mechanism for using an internal password when external authentication (such as LDAP) is enabled.
      */
-    public readonly internalPasswordDisabled!: pulumi.Output<boolean>;
+    declare public readonly internalPasswordDisabled: pulumi.Output<boolean>;
     /**
      * Username for user. May contain lowercase letters, numbers and symbols: `.-_@` for self-hosted. For SaaS, `+` is also allowed.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters.
      */
-    public readonly password!: pulumi.Output<string>;
-    public readonly passwordPolicy!: pulumi.Output<outputs.UnmanagedUserPasswordPolicy | undefined>;
+    declare public readonly password: pulumi.Output<string>;
+    declare public readonly passwordPolicy: pulumi.Output<outputs.UnmanagedUserPasswordPolicy | undefined>;
     /**
      * (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an administrator can update the password). There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.
      */
-    public readonly profileUpdatable!: pulumi.Output<boolean>;
+    declare public readonly profileUpdatable: pulumi.Output<boolean>;
 
     /**
      * Create a UnmanagedUser resource with the given unique name, arguments, and options.
@@ -116,29 +116,29 @@ export class UnmanagedUser extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UnmanagedUserState | undefined;
-            resourceInputs["admin"] = state ? state.admin : undefined;
-            resourceInputs["disableUiAccess"] = state ? state.disableUiAccess : undefined;
-            resourceInputs["email"] = state ? state.email : undefined;
-            resourceInputs["groups"] = state ? state.groups : undefined;
-            resourceInputs["internalPasswordDisabled"] = state ? state.internalPasswordDisabled : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["password"] = state ? state.password : undefined;
-            resourceInputs["passwordPolicy"] = state ? state.passwordPolicy : undefined;
-            resourceInputs["profileUpdatable"] = state ? state.profileUpdatable : undefined;
+            resourceInputs["admin"] = state?.admin;
+            resourceInputs["disableUiAccess"] = state?.disableUiAccess;
+            resourceInputs["email"] = state?.email;
+            resourceInputs["groups"] = state?.groups;
+            resourceInputs["internalPasswordDisabled"] = state?.internalPasswordDisabled;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["password"] = state?.password;
+            resourceInputs["passwordPolicy"] = state?.passwordPolicy;
+            resourceInputs["profileUpdatable"] = state?.profileUpdatable;
         } else {
             const args = argsOrState as UnmanagedUserArgs | undefined;
-            if ((!args || args.email === undefined) && !opts.urn) {
+            if (args?.email === undefined && !opts.urn) {
                 throw new Error("Missing required property 'email'");
             }
-            resourceInputs["admin"] = args ? args.admin : undefined;
-            resourceInputs["disableUiAccess"] = args ? args.disableUiAccess : undefined;
-            resourceInputs["email"] = args ? args.email : undefined;
-            resourceInputs["groups"] = args ? args.groups : undefined;
-            resourceInputs["internalPasswordDisabled"] = args ? args.internalPasswordDisabled : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["admin"] = args?.admin;
+            resourceInputs["disableUiAccess"] = args?.disableUiAccess;
+            resourceInputs["email"] = args?.email;
+            resourceInputs["groups"] = args?.groups;
+            resourceInputs["internalPasswordDisabled"] = args?.internalPasswordDisabled;
+            resourceInputs["name"] = args?.name;
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
-            resourceInputs["passwordPolicy"] = args ? args.passwordPolicy : undefined;
-            resourceInputs["profileUpdatable"] = args ? args.profileUpdatable : undefined;
+            resourceInputs["passwordPolicy"] = args?.passwordPolicy;
+            resourceInputs["profileUpdatable"] = args?.profileUpdatable;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["password"] };

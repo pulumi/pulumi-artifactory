@@ -78,18 +78,16 @@ import javax.annotation.Nullable;
 @ResourceType(type="artifactory:index/federatedRpmRepository:FederatedRpmRepository")
 public class FederatedRpmRepository extends com.pulumi.resources.CustomResource {
     /**
-     * When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
-     * therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
-     * security (e.g., cross-site scripting attacks).
+     * When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+     * This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
      * 
      */
     @Export(name="archiveBrowsingEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> archiveBrowsingEnabled;
 
     /**
-     * @return When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
-     * therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
-     * security (e.g., cross-site scripting attacks).
+     * @return When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+     * This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
      * 
      */
     public Output<Optional<Boolean>> archiveBrowsingEnabled() {
@@ -116,16 +114,14 @@ public class FederatedRpmRepository extends com.pulumi.resources.CustomResource 
         return Codegen.optional(this.calculateYumMetadata);
     }
     /**
-     * When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
+     * When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
      * 
      */
     @Export(name="cdnRedirect", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> cdnRedirect;
 
     /**
-     * @return When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
+     * @return When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
      * 
      */
     public Output<Optional<Boolean>> cdnRedirect() {
@@ -166,16 +162,14 @@ public class FederatedRpmRepository extends com.pulumi.resources.CustomResource 
         return Codegen.optional(this.disableProxy);
     }
     /**
-     * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
-     * storage provider. Available in Enterprise+ and Edge licenses only.
+     * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
      * 
      */
     @Export(name="downloadDirect", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> downloadDirect;
 
     /**
-     * @return When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
-     * storage provider. Available in Enterprise+ and Edge licenses only.
+     * @return When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
      * 
      */
     public Output<Optional<Boolean>> downloadDirect() {
@@ -188,32 +182,28 @@ public class FederatedRpmRepository extends com.pulumi.resources.CustomResource 
         return Codegen.optional(this.enableFileListsIndexing);
     }
     /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no
-     * artifacts are excluded.
+     * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no artifacts are excluded.
      * 
      */
     @Export(name="excludesPattern", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> excludesPattern;
 
     /**
-     * @return List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no
-     * artifacts are excluded.
+     * @return List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no artifacts are excluded.
      * 
      */
     public Output<Optional<String>> excludesPattern() {
         return Codegen.optional(this.excludesPattern);
     }
     /**
-     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When
-     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
+     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
      * 
      */
     @Export(name="includesPattern", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> includesPattern;
 
     /**
-     * @return List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When
-     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
+     * @return List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
      * 
      */
     public Output<Optional<String>> includesPattern() {
@@ -308,16 +298,14 @@ public class FederatedRpmRepository extends com.pulumi.resources.CustomResource 
         return this.projectEnvironments;
     }
     /**
-     * Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-     * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+     * Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      * 
      */
     @Export(name="projectKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> projectKey;
 
     /**
-     * @return Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-     * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+     * @return Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      * 
      */
     public Output<Optional<String>> projectKey() {
@@ -380,52 +368,42 @@ public class FederatedRpmRepository extends com.pulumi.resources.CustomResource 
         return Codegen.optional(this.secondaryKeypairRef);
     }
     /**
-     * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-     * Xray settings.
+     * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
      * 
      */
     @Export(name="xrayIndex", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> xrayIndex;
 
     /**
-     * @return Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-     * Xray settings.
+     * @return Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
      * 
      */
     public Output<Optional<Boolean>> xrayIndex() {
         return Codegen.optional(this.xrayIndex);
     }
     /**
-     * A comma separated list of XML file names containing RPM group component definitions. Artifactory includes the group
-     * definitions as part of the calculated RPM metadata, as well as automatically generating a gzipped version of the group
-     * files, if required.
+     * A comma separated list of XML file names containing RPM group component definitions. Artifactory includes the group definitions as part of the calculated RPM metadata, as well as automatically generating a gzipped version of the group files, if required.
      * 
      */
     @Export(name="yumGroupFileNames", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> yumGroupFileNames;
 
     /**
-     * @return A comma separated list of XML file names containing RPM group component definitions. Artifactory includes the group
-     * definitions as part of the calculated RPM metadata, as well as automatically generating a gzipped version of the group
-     * files, if required.
+     * @return A comma separated list of XML file names containing RPM group component definitions. Artifactory includes the group definitions as part of the calculated RPM metadata, as well as automatically generating a gzipped version of the group files, if required.
      * 
      */
     public Output<Optional<String>> yumGroupFileNames() {
         return Codegen.optional(this.yumGroupFileNames);
     }
     /**
-     * The depth, relative to the repository&#39;s root folder, where RPM metadata is created. This is useful when your repository
-     * contains multiple RPM repositories under parallel hierarchies. For example, if your RPMs are stored under
-     * &#39;fedora/linux/$releasever/$basearch&#39;, specify a depth of 4.
+     * The depth, relative to the repository&#39;s root folder, where RPM metadata is created. This is useful when your repository contains multiple RPM repositories under parallel hierarchies. For example, if your RPMs are stored under &#39;fedora/linux/$releasever/$basearch&#39;, specify a depth of 4.
      * 
      */
     @Export(name="yumRootDepth", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> yumRootDepth;
 
     /**
-     * @return The depth, relative to the repository&#39;s root folder, where RPM metadata is created. This is useful when your repository
-     * contains multiple RPM repositories under parallel hierarchies. For example, if your RPMs are stored under
-     * &#39;fedora/linux/$releasever/$basearch&#39;, specify a depth of 4.
+     * @return The depth, relative to the repository&#39;s root folder, where RPM metadata is created. This is useful when your repository contains multiple RPM repositories under parallel hierarchies. For example, if your RPMs are stored under &#39;fedora/linux/$releasever/$basearch&#39;, specify a depth of 4.
      * 
      */
     public Output<Optional<Integer>> yumRootDepth() {

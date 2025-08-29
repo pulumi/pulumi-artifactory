@@ -64,231 +64,199 @@ export class RemoteIvyRepository extends pulumi.CustomResource {
     }
 
     /**
-     * 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any
-     * other host.
+     * 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any other host.
      */
-    public readonly allowAnyHostAuth!: pulumi.Output<boolean>;
+    declare public readonly allowAnyHostAuth: pulumi.Output<boolean>;
     /**
-     * When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
-     * therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
-     * security (e.g., cross-site scripting attacks).
+     * When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+     * This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
      */
-    public readonly archiveBrowsingEnabled!: pulumi.Output<boolean>;
+    declare public readonly archiveBrowsingEnabled: pulumi.Output<boolean>;
     /**
-     * The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
-     * an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
-     * offline.
+     * The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time, an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed offline.
      */
-    public readonly assumedOfflinePeriodSecs!: pulumi.Output<number>;
+    declare public readonly assumedOfflinePeriodSecs: pulumi.Output<number>;
     /**
-     * (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact
-     * resolution.
+     * (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact resolution.
      */
-    public readonly blackedOut!: pulumi.Output<boolean>;
+    declare public readonly blackedOut: pulumi.Output<boolean>;
     /**
-     * If set, artifacts will fail to download if a mismatch is detected between requested and received mimetype, according to
-     * the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes
-     * to the override list 'mismatching_mime_types_override_list'.
+     * If set, artifacts will fail to download if a mismatch is detected between requested and received mimetype, according to the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes to the override list 'mismatching_mime_types_override_list'.
      */
-    public readonly blockMismatchingMimeTypes!: pulumi.Output<boolean>;
+    declare public readonly blockMismatchingMimeTypes: pulumi.Output<boolean>;
     /**
-     * Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
-     * HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
-     * Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+     * Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
      */
-    public readonly bypassHeadRequests!: pulumi.Output<boolean>;
+    declare public readonly bypassHeadRequests: pulumi.Output<boolean>;
     /**
-     * When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+     * When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
      */
-    public readonly cdnRedirect!: pulumi.Output<boolean>;
+    declare public readonly cdnRedirect: pulumi.Output<boolean>;
     /**
      * Client TLS certificate name.
      */
-    public readonly clientTlsCertificate!: pulumi.Output<string>;
-    public readonly contentSynchronisation!: pulumi.Output<outputs.RemoteIvyRepositoryContentSynchronisation | undefined>;
+    declare public readonly clientTlsCertificate: pulumi.Output<string>;
+    declare public readonly contentSynchronisation: pulumi.Output<outputs.RemoteIvyRepositoryContentSynchronisation | undefined>;
     /**
      * Public description.
      */
-    public readonly description!: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string>;
     /**
-     * When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
-     * for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
+     * When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
      */
-    public readonly disableProxy!: pulumi.Output<boolean>;
+    declare public readonly disableProxy: pulumi.Output<boolean>;
     /**
      * Whether to disable URL normalization. Default is `false`.
      */
-    public readonly disableUrlNormalization!: pulumi.Output<boolean>;
+    declare public readonly disableUrlNormalization: pulumi.Output<boolean>;
     /**
-     * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
-     * storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
+     * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
      */
-    public readonly downloadDirect!: pulumi.Output<boolean>;
+    declare public readonly downloadDirect: pulumi.Output<boolean>;
     /**
      * Enables cookie management if the remote repository uses cookies to manage client state.
      */
-    public readonly enableCookieManagement!: pulumi.Output<boolean>;
+    declare public readonly enableCookieManagement: pulumi.Output<boolean>;
     /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no
-     * artifacts are excluded.
+     * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no artifacts are excluded.
      */
-    public readonly excludesPattern!: pulumi.Output<string>;
+    declare public readonly excludesPattern: pulumi.Output<string>;
     /**
      * When set, if a POM is requested, Artifactory attempts to fetch the corresponding jar in the background. This will accelerate first access time to the jar when it is subsequently requested.
      */
-    public readonly fetchJarsEagerly!: pulumi.Output<boolean>;
+    declare public readonly fetchJarsEagerly: pulumi.Output<boolean>;
     /**
      * When set, if a binaries jar is requested, Artifactory attempts to fetch the corresponding source jar in the background. This will accelerate first access time to the source jar when it is subsequently requested.
      */
-    public readonly fetchSourcesEagerly!: pulumi.Output<boolean>;
+    declare public readonly fetchSourcesEagerly: pulumi.Output<boolean>;
     /**
      * If set, Artifactory allows you to deploy release artifacts into this repository.
      */
-    public readonly handleReleases!: pulumi.Output<boolean>;
+    declare public readonly handleReleases: pulumi.Output<boolean>;
     /**
      * If set, Artifactory allows you to deploy snapshot artifacts into this repository.
      */
-    public readonly handleSnapshots!: pulumi.Output<boolean>;
+    declare public readonly handleSnapshots: pulumi.Output<boolean>;
     /**
-     * When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
-     * communicate with this repository.
+     * When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to communicate with this repository.
      */
-    public readonly hardFail!: pulumi.Output<boolean>;
+    declare public readonly hardFail: pulumi.Output<boolean>;
     /**
-     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When
-     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
+     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
      */
-    public readonly includesPattern!: pulumi.Output<string>;
+    declare public readonly includesPattern: pulumi.Output<string>;
     /**
      * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
      * contain spaces or special characters.
      */
-    public readonly key!: pulumi.Output<string>;
+    declare public readonly key: pulumi.Output<string>;
     /**
-     * Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
-     * the 'Retrieval Cache Period'. Default value is 'false'. This field exists in the API but not in the UI.
+     * Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of the 'Retrieval Cache Period'. Default value is 'false'. This field exists in the API but not in the UI.
      */
-    public readonly listRemoteFolderItems!: pulumi.Output<boolean>;
+    declare public readonly listRemoteFolderItems: pulumi.Output<boolean>;
     /**
-     * The local address to be used when creating connections. Useful for specifying the interface to use on systems with
-     * multiple network interfaces.
+     * The local address to be used when creating connections. Useful for specifying the interface to use on systems with multiple network interfaces.
      */
-    public readonly localAddress!: pulumi.Output<string>;
+    declare public readonly localAddress: pulumi.Output<string>;
     /**
      * The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
      */
-    public readonly maxUniqueSnapshots!: pulumi.Output<number>;
+    declare public readonly maxUniqueSnapshots: pulumi.Output<number>;
     /**
-     * Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
-     * the remote before serving locally cached artifact or fail the request.
+     * Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from the remote before serving locally cached artifact or fail the request.
      */
-    public readonly metadataRetrievalTimeoutSecs!: pulumi.Output<number>;
+    declare public readonly metadataRetrievalTimeoutSecs: pulumi.Output<number>;
     /**
-     * The set of mime types that should override the blockMismatchingMimeTypes setting. Eg:
-     * 'application/json,application/xml'. Default value is empty.
+     * The set of mime types that should override the blockMismatchingMimeTypes setting. Eg: 'application/json,application/xml'. Default value is empty.
      */
-    public readonly mismatchingMimeTypesOverrideList!: pulumi.Output<string>;
+    declare public readonly mismatchingMimeTypesOverrideList: pulumi.Output<string>;
     /**
-     * Missed Retrieval Cache Period (Sec) in the UI. The number of seconds to cache artifact retrieval misses (artifact not
-     * found). A value of 0 indicates no caching.
+     * Missed Retrieval Cache Period (Sec) in the UI. The number of seconds to cache artifact retrieval misses (artifact not found). A value of 0 indicates no caching.
      */
-    public readonly missedCachePeriodSeconds!: pulumi.Output<number>;
+    declare public readonly missedCachePeriodSeconds: pulumi.Output<number>;
     /**
      * Internal description.
      */
-    public readonly notes!: pulumi.Output<string>;
+    declare public readonly notes: pulumi.Output<string>;
     /**
      * If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
      */
-    public readonly offline!: pulumi.Output<boolean>;
-    public readonly password!: pulumi.Output<string | undefined>;
+    declare public readonly offline: pulumi.Output<boolean>;
+    declare public readonly password: pulumi.Output<string | undefined>;
     /**
      * Setting repositories with priority will cause metadata to be merged only from repositories set with this field
      */
-    public readonly priorityResolution!: pulumi.Output<boolean>;
-    public readonly projectEnvironments!: pulumi.Output<string[]>;
+    declare public readonly priorityResolution: pulumi.Output<boolean>;
+    declare public readonly projectEnvironments: pulumi.Output<string[]>;
     /**
-     * Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-     * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+     * Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      */
-    public readonly projectKey!: pulumi.Output<string>;
+    declare public readonly projectKey: pulumi.Output<string>;
     /**
      * List of property set name
      */
-    public readonly propertySets!: pulumi.Output<string[] | undefined>;
+    declare public readonly propertySets: pulumi.Output<string[] | undefined>;
     /**
      * Proxy key from Artifactory Proxies settings. Can't be set if `disableProxy = true`.
      */
-    public readonly proxy!: pulumi.Output<string>;
+    declare public readonly proxy: pulumi.Output<string>;
     /**
-     * Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
-     * `param1=val1&param2=val2&param3=val3`
+     * Custom HTTP query parameters that will be automatically included in all remote resource requests. For example: `param1=val1&param2=val2&param3=val3`
      */
-    public readonly queryParams!: pulumi.Output<string>;
+    declare public readonly queryParams: pulumi.Output<string>;
     /**
      * Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive portal".
      */
-    public readonly rejectInvalidJars!: pulumi.Output<boolean>;
+    declare public readonly rejectInvalidJars: pulumi.Output<boolean>;
     /**
      * Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
      */
-    public readonly remoteRepoChecksumPolicyType!: pulumi.Output<string>;
+    declare public readonly remoteRepoChecksumPolicyType: pulumi.Output<string>;
     /**
-     * Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an
-     * empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be
-     * ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
+     * Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
      */
-    public readonly remoteRepoLayoutRef!: pulumi.Output<string>;
+    declare public readonly remoteRepoLayoutRef: pulumi.Output<string>;
     /**
-     * Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
-     * corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+     * Sets the layout that the repository should use for storing and identifying modules. A recommended layout that corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
      */
-    public readonly repoLayoutRef!: pulumi.Output<string>;
+    declare public readonly repoLayoutRef: pulumi.Output<string>;
     /**
-     * Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files
-     * before checking for newer versions on remote server. A value of 0 indicates no caching.
+     * Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching.
      */
-    public readonly retrievalCachePeriodSeconds!: pulumi.Output<number>;
+    declare public readonly retrievalCachePeriodSeconds: pulumi.Output<number>;
     /**
      * @deprecated No longer supported
      */
-    public readonly shareConfiguration!: pulumi.Output<boolean>;
+    declare public readonly shareConfiguration: pulumi.Output<boolean>;
     /**
-     * Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network
-     * operation is considered a retrieval failure.
+     * Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network operation is considered a retrieval failure.
      */
-    public readonly socketTimeoutMillis!: pulumi.Output<number>;
+    declare public readonly socketTimeoutMillis: pulumi.Output<number>;
     /**
-     * When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and
-     * direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with
-     * one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory
-     * servers.
+     * When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory servers.
      */
-    public readonly storeArtifactsLocally!: pulumi.Output<boolean>;
+    declare public readonly storeArtifactsLocally: pulumi.Output<boolean>;
     /**
      * By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error. You can disable this behavior by setting this attribute to `true`.
      */
-    public readonly suppressPomConsistencyChecks!: pulumi.Output<boolean>;
+    declare public readonly suppressPomConsistencyChecks: pulumi.Output<boolean>;
     /**
      * When set, remote artifacts are fetched along with their properties.
      */
-    public readonly synchronizeProperties!: pulumi.Output<boolean>;
+    declare public readonly synchronizeProperties: pulumi.Output<boolean>;
     /**
-     * Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and
-     * eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
+     * Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
      */
-    public readonly unusedArtifactsCleanupPeriodHours!: pulumi.Output<number>;
+    declare public readonly unusedArtifactsCleanupPeriodHours: pulumi.Output<number>;
     /**
      * The remote repo URL.
      */
-    public readonly url!: pulumi.Output<string>;
-    public readonly username!: pulumi.Output<string>;
+    declare public readonly url: pulumi.Output<string>;
+    declare public readonly username: pulumi.Output<string>;
     /**
-     * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-     * Xray settings.
+     * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
      */
-    public readonly xrayIndex!: pulumi.Output<boolean>;
+    declare public readonly xrayIndex: pulumi.Output<boolean>;
 
     /**
      * Create a RemoteIvyRepository resource with the given unique name, arguments, and options.
@@ -303,116 +271,116 @@ export class RemoteIvyRepository extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RemoteIvyRepositoryState | undefined;
-            resourceInputs["allowAnyHostAuth"] = state ? state.allowAnyHostAuth : undefined;
-            resourceInputs["archiveBrowsingEnabled"] = state ? state.archiveBrowsingEnabled : undefined;
-            resourceInputs["assumedOfflinePeriodSecs"] = state ? state.assumedOfflinePeriodSecs : undefined;
-            resourceInputs["blackedOut"] = state ? state.blackedOut : undefined;
-            resourceInputs["blockMismatchingMimeTypes"] = state ? state.blockMismatchingMimeTypes : undefined;
-            resourceInputs["bypassHeadRequests"] = state ? state.bypassHeadRequests : undefined;
-            resourceInputs["cdnRedirect"] = state ? state.cdnRedirect : undefined;
-            resourceInputs["clientTlsCertificate"] = state ? state.clientTlsCertificate : undefined;
-            resourceInputs["contentSynchronisation"] = state ? state.contentSynchronisation : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["disableProxy"] = state ? state.disableProxy : undefined;
-            resourceInputs["disableUrlNormalization"] = state ? state.disableUrlNormalization : undefined;
-            resourceInputs["downloadDirect"] = state ? state.downloadDirect : undefined;
-            resourceInputs["enableCookieManagement"] = state ? state.enableCookieManagement : undefined;
-            resourceInputs["excludesPattern"] = state ? state.excludesPattern : undefined;
-            resourceInputs["fetchJarsEagerly"] = state ? state.fetchJarsEagerly : undefined;
-            resourceInputs["fetchSourcesEagerly"] = state ? state.fetchSourcesEagerly : undefined;
-            resourceInputs["handleReleases"] = state ? state.handleReleases : undefined;
-            resourceInputs["handleSnapshots"] = state ? state.handleSnapshots : undefined;
-            resourceInputs["hardFail"] = state ? state.hardFail : undefined;
-            resourceInputs["includesPattern"] = state ? state.includesPattern : undefined;
-            resourceInputs["key"] = state ? state.key : undefined;
-            resourceInputs["listRemoteFolderItems"] = state ? state.listRemoteFolderItems : undefined;
-            resourceInputs["localAddress"] = state ? state.localAddress : undefined;
-            resourceInputs["maxUniqueSnapshots"] = state ? state.maxUniqueSnapshots : undefined;
-            resourceInputs["metadataRetrievalTimeoutSecs"] = state ? state.metadataRetrievalTimeoutSecs : undefined;
-            resourceInputs["mismatchingMimeTypesOverrideList"] = state ? state.mismatchingMimeTypesOverrideList : undefined;
-            resourceInputs["missedCachePeriodSeconds"] = state ? state.missedCachePeriodSeconds : undefined;
-            resourceInputs["notes"] = state ? state.notes : undefined;
-            resourceInputs["offline"] = state ? state.offline : undefined;
-            resourceInputs["password"] = state ? state.password : undefined;
-            resourceInputs["priorityResolution"] = state ? state.priorityResolution : undefined;
-            resourceInputs["projectEnvironments"] = state ? state.projectEnvironments : undefined;
-            resourceInputs["projectKey"] = state ? state.projectKey : undefined;
-            resourceInputs["propertySets"] = state ? state.propertySets : undefined;
-            resourceInputs["proxy"] = state ? state.proxy : undefined;
-            resourceInputs["queryParams"] = state ? state.queryParams : undefined;
-            resourceInputs["rejectInvalidJars"] = state ? state.rejectInvalidJars : undefined;
-            resourceInputs["remoteRepoChecksumPolicyType"] = state ? state.remoteRepoChecksumPolicyType : undefined;
-            resourceInputs["remoteRepoLayoutRef"] = state ? state.remoteRepoLayoutRef : undefined;
-            resourceInputs["repoLayoutRef"] = state ? state.repoLayoutRef : undefined;
-            resourceInputs["retrievalCachePeriodSeconds"] = state ? state.retrievalCachePeriodSeconds : undefined;
-            resourceInputs["shareConfiguration"] = state ? state.shareConfiguration : undefined;
-            resourceInputs["socketTimeoutMillis"] = state ? state.socketTimeoutMillis : undefined;
-            resourceInputs["storeArtifactsLocally"] = state ? state.storeArtifactsLocally : undefined;
-            resourceInputs["suppressPomConsistencyChecks"] = state ? state.suppressPomConsistencyChecks : undefined;
-            resourceInputs["synchronizeProperties"] = state ? state.synchronizeProperties : undefined;
-            resourceInputs["unusedArtifactsCleanupPeriodHours"] = state ? state.unusedArtifactsCleanupPeriodHours : undefined;
-            resourceInputs["url"] = state ? state.url : undefined;
-            resourceInputs["username"] = state ? state.username : undefined;
-            resourceInputs["xrayIndex"] = state ? state.xrayIndex : undefined;
+            resourceInputs["allowAnyHostAuth"] = state?.allowAnyHostAuth;
+            resourceInputs["archiveBrowsingEnabled"] = state?.archiveBrowsingEnabled;
+            resourceInputs["assumedOfflinePeriodSecs"] = state?.assumedOfflinePeriodSecs;
+            resourceInputs["blackedOut"] = state?.blackedOut;
+            resourceInputs["blockMismatchingMimeTypes"] = state?.blockMismatchingMimeTypes;
+            resourceInputs["bypassHeadRequests"] = state?.bypassHeadRequests;
+            resourceInputs["cdnRedirect"] = state?.cdnRedirect;
+            resourceInputs["clientTlsCertificate"] = state?.clientTlsCertificate;
+            resourceInputs["contentSynchronisation"] = state?.contentSynchronisation;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["disableProxy"] = state?.disableProxy;
+            resourceInputs["disableUrlNormalization"] = state?.disableUrlNormalization;
+            resourceInputs["downloadDirect"] = state?.downloadDirect;
+            resourceInputs["enableCookieManagement"] = state?.enableCookieManagement;
+            resourceInputs["excludesPattern"] = state?.excludesPattern;
+            resourceInputs["fetchJarsEagerly"] = state?.fetchJarsEagerly;
+            resourceInputs["fetchSourcesEagerly"] = state?.fetchSourcesEagerly;
+            resourceInputs["handleReleases"] = state?.handleReleases;
+            resourceInputs["handleSnapshots"] = state?.handleSnapshots;
+            resourceInputs["hardFail"] = state?.hardFail;
+            resourceInputs["includesPattern"] = state?.includesPattern;
+            resourceInputs["key"] = state?.key;
+            resourceInputs["listRemoteFolderItems"] = state?.listRemoteFolderItems;
+            resourceInputs["localAddress"] = state?.localAddress;
+            resourceInputs["maxUniqueSnapshots"] = state?.maxUniqueSnapshots;
+            resourceInputs["metadataRetrievalTimeoutSecs"] = state?.metadataRetrievalTimeoutSecs;
+            resourceInputs["mismatchingMimeTypesOverrideList"] = state?.mismatchingMimeTypesOverrideList;
+            resourceInputs["missedCachePeriodSeconds"] = state?.missedCachePeriodSeconds;
+            resourceInputs["notes"] = state?.notes;
+            resourceInputs["offline"] = state?.offline;
+            resourceInputs["password"] = state?.password;
+            resourceInputs["priorityResolution"] = state?.priorityResolution;
+            resourceInputs["projectEnvironments"] = state?.projectEnvironments;
+            resourceInputs["projectKey"] = state?.projectKey;
+            resourceInputs["propertySets"] = state?.propertySets;
+            resourceInputs["proxy"] = state?.proxy;
+            resourceInputs["queryParams"] = state?.queryParams;
+            resourceInputs["rejectInvalidJars"] = state?.rejectInvalidJars;
+            resourceInputs["remoteRepoChecksumPolicyType"] = state?.remoteRepoChecksumPolicyType;
+            resourceInputs["remoteRepoLayoutRef"] = state?.remoteRepoLayoutRef;
+            resourceInputs["repoLayoutRef"] = state?.repoLayoutRef;
+            resourceInputs["retrievalCachePeriodSeconds"] = state?.retrievalCachePeriodSeconds;
+            resourceInputs["shareConfiguration"] = state?.shareConfiguration;
+            resourceInputs["socketTimeoutMillis"] = state?.socketTimeoutMillis;
+            resourceInputs["storeArtifactsLocally"] = state?.storeArtifactsLocally;
+            resourceInputs["suppressPomConsistencyChecks"] = state?.suppressPomConsistencyChecks;
+            resourceInputs["synchronizeProperties"] = state?.synchronizeProperties;
+            resourceInputs["unusedArtifactsCleanupPeriodHours"] = state?.unusedArtifactsCleanupPeriodHours;
+            resourceInputs["url"] = state?.url;
+            resourceInputs["username"] = state?.username;
+            resourceInputs["xrayIndex"] = state?.xrayIndex;
         } else {
             const args = argsOrState as RemoteIvyRepositoryArgs | undefined;
-            if ((!args || args.key === undefined) && !opts.urn) {
+            if (args?.key === undefined && !opts.urn) {
                 throw new Error("Missing required property 'key'");
             }
-            if ((!args || args.url === undefined) && !opts.urn) {
+            if (args?.url === undefined && !opts.urn) {
                 throw new Error("Missing required property 'url'");
             }
-            resourceInputs["allowAnyHostAuth"] = args ? args.allowAnyHostAuth : undefined;
-            resourceInputs["archiveBrowsingEnabled"] = args ? args.archiveBrowsingEnabled : undefined;
-            resourceInputs["assumedOfflinePeriodSecs"] = args ? args.assumedOfflinePeriodSecs : undefined;
-            resourceInputs["blackedOut"] = args ? args.blackedOut : undefined;
-            resourceInputs["blockMismatchingMimeTypes"] = args ? args.blockMismatchingMimeTypes : undefined;
-            resourceInputs["bypassHeadRequests"] = args ? args.bypassHeadRequests : undefined;
-            resourceInputs["cdnRedirect"] = args ? args.cdnRedirect : undefined;
-            resourceInputs["clientTlsCertificate"] = args ? args.clientTlsCertificate : undefined;
-            resourceInputs["contentSynchronisation"] = args ? args.contentSynchronisation : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["disableProxy"] = args ? args.disableProxy : undefined;
-            resourceInputs["disableUrlNormalization"] = args ? args.disableUrlNormalization : undefined;
-            resourceInputs["downloadDirect"] = args ? args.downloadDirect : undefined;
-            resourceInputs["enableCookieManagement"] = args ? args.enableCookieManagement : undefined;
-            resourceInputs["excludesPattern"] = args ? args.excludesPattern : undefined;
-            resourceInputs["fetchJarsEagerly"] = args ? args.fetchJarsEagerly : undefined;
-            resourceInputs["fetchSourcesEagerly"] = args ? args.fetchSourcesEagerly : undefined;
-            resourceInputs["handleReleases"] = args ? args.handleReleases : undefined;
-            resourceInputs["handleSnapshots"] = args ? args.handleSnapshots : undefined;
-            resourceInputs["hardFail"] = args ? args.hardFail : undefined;
-            resourceInputs["includesPattern"] = args ? args.includesPattern : undefined;
-            resourceInputs["key"] = args ? args.key : undefined;
-            resourceInputs["listRemoteFolderItems"] = args ? args.listRemoteFolderItems : undefined;
-            resourceInputs["localAddress"] = args ? args.localAddress : undefined;
-            resourceInputs["maxUniqueSnapshots"] = args ? args.maxUniqueSnapshots : undefined;
-            resourceInputs["metadataRetrievalTimeoutSecs"] = args ? args.metadataRetrievalTimeoutSecs : undefined;
-            resourceInputs["mismatchingMimeTypesOverrideList"] = args ? args.mismatchingMimeTypesOverrideList : undefined;
-            resourceInputs["missedCachePeriodSeconds"] = args ? args.missedCachePeriodSeconds : undefined;
-            resourceInputs["notes"] = args ? args.notes : undefined;
-            resourceInputs["offline"] = args ? args.offline : undefined;
+            resourceInputs["allowAnyHostAuth"] = args?.allowAnyHostAuth;
+            resourceInputs["archiveBrowsingEnabled"] = args?.archiveBrowsingEnabled;
+            resourceInputs["assumedOfflinePeriodSecs"] = args?.assumedOfflinePeriodSecs;
+            resourceInputs["blackedOut"] = args?.blackedOut;
+            resourceInputs["blockMismatchingMimeTypes"] = args?.blockMismatchingMimeTypes;
+            resourceInputs["bypassHeadRequests"] = args?.bypassHeadRequests;
+            resourceInputs["cdnRedirect"] = args?.cdnRedirect;
+            resourceInputs["clientTlsCertificate"] = args?.clientTlsCertificate;
+            resourceInputs["contentSynchronisation"] = args?.contentSynchronisation;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["disableProxy"] = args?.disableProxy;
+            resourceInputs["disableUrlNormalization"] = args?.disableUrlNormalization;
+            resourceInputs["downloadDirect"] = args?.downloadDirect;
+            resourceInputs["enableCookieManagement"] = args?.enableCookieManagement;
+            resourceInputs["excludesPattern"] = args?.excludesPattern;
+            resourceInputs["fetchJarsEagerly"] = args?.fetchJarsEagerly;
+            resourceInputs["fetchSourcesEagerly"] = args?.fetchSourcesEagerly;
+            resourceInputs["handleReleases"] = args?.handleReleases;
+            resourceInputs["handleSnapshots"] = args?.handleSnapshots;
+            resourceInputs["hardFail"] = args?.hardFail;
+            resourceInputs["includesPattern"] = args?.includesPattern;
+            resourceInputs["key"] = args?.key;
+            resourceInputs["listRemoteFolderItems"] = args?.listRemoteFolderItems;
+            resourceInputs["localAddress"] = args?.localAddress;
+            resourceInputs["maxUniqueSnapshots"] = args?.maxUniqueSnapshots;
+            resourceInputs["metadataRetrievalTimeoutSecs"] = args?.metadataRetrievalTimeoutSecs;
+            resourceInputs["mismatchingMimeTypesOverrideList"] = args?.mismatchingMimeTypesOverrideList;
+            resourceInputs["missedCachePeriodSeconds"] = args?.missedCachePeriodSeconds;
+            resourceInputs["notes"] = args?.notes;
+            resourceInputs["offline"] = args?.offline;
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
-            resourceInputs["priorityResolution"] = args ? args.priorityResolution : undefined;
-            resourceInputs["projectEnvironments"] = args ? args.projectEnvironments : undefined;
-            resourceInputs["projectKey"] = args ? args.projectKey : undefined;
-            resourceInputs["propertySets"] = args ? args.propertySets : undefined;
-            resourceInputs["proxy"] = args ? args.proxy : undefined;
-            resourceInputs["queryParams"] = args ? args.queryParams : undefined;
-            resourceInputs["rejectInvalidJars"] = args ? args.rejectInvalidJars : undefined;
-            resourceInputs["remoteRepoChecksumPolicyType"] = args ? args.remoteRepoChecksumPolicyType : undefined;
-            resourceInputs["remoteRepoLayoutRef"] = args ? args.remoteRepoLayoutRef : undefined;
-            resourceInputs["repoLayoutRef"] = args ? args.repoLayoutRef : undefined;
-            resourceInputs["retrievalCachePeriodSeconds"] = args ? args.retrievalCachePeriodSeconds : undefined;
-            resourceInputs["shareConfiguration"] = args ? args.shareConfiguration : undefined;
-            resourceInputs["socketTimeoutMillis"] = args ? args.socketTimeoutMillis : undefined;
-            resourceInputs["storeArtifactsLocally"] = args ? args.storeArtifactsLocally : undefined;
-            resourceInputs["suppressPomConsistencyChecks"] = args ? args.suppressPomConsistencyChecks : undefined;
-            resourceInputs["synchronizeProperties"] = args ? args.synchronizeProperties : undefined;
-            resourceInputs["unusedArtifactsCleanupPeriodHours"] = args ? args.unusedArtifactsCleanupPeriodHours : undefined;
-            resourceInputs["url"] = args ? args.url : undefined;
-            resourceInputs["username"] = args ? args.username : undefined;
-            resourceInputs["xrayIndex"] = args ? args.xrayIndex : undefined;
+            resourceInputs["priorityResolution"] = args?.priorityResolution;
+            resourceInputs["projectEnvironments"] = args?.projectEnvironments;
+            resourceInputs["projectKey"] = args?.projectKey;
+            resourceInputs["propertySets"] = args?.propertySets;
+            resourceInputs["proxy"] = args?.proxy;
+            resourceInputs["queryParams"] = args?.queryParams;
+            resourceInputs["rejectInvalidJars"] = args?.rejectInvalidJars;
+            resourceInputs["remoteRepoChecksumPolicyType"] = args?.remoteRepoChecksumPolicyType;
+            resourceInputs["remoteRepoLayoutRef"] = args?.remoteRepoLayoutRef;
+            resourceInputs["repoLayoutRef"] = args?.repoLayoutRef;
+            resourceInputs["retrievalCachePeriodSeconds"] = args?.retrievalCachePeriodSeconds;
+            resourceInputs["shareConfiguration"] = args?.shareConfiguration;
+            resourceInputs["socketTimeoutMillis"] = args?.socketTimeoutMillis;
+            resourceInputs["storeArtifactsLocally"] = args?.storeArtifactsLocally;
+            resourceInputs["suppressPomConsistencyChecks"] = args?.suppressPomConsistencyChecks;
+            resourceInputs["synchronizeProperties"] = args?.synchronizeProperties;
+            resourceInputs["unusedArtifactsCleanupPeriodHours"] = args?.unusedArtifactsCleanupPeriodHours;
+            resourceInputs["url"] = args?.url;
+            resourceInputs["username"] = args?.username;
+            resourceInputs["xrayIndex"] = args?.xrayIndex;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["password"] };
@@ -426,42 +394,32 @@ export class RemoteIvyRepository extends pulumi.CustomResource {
  */
 export interface RemoteIvyRepositoryState {
     /**
-     * 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any
-     * other host.
+     * 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any other host.
      */
     allowAnyHostAuth?: pulumi.Input<boolean>;
     /**
-     * When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
-     * therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
-     * security (e.g., cross-site scripting attacks).
+     * When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+     * This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
      */
     archiveBrowsingEnabled?: pulumi.Input<boolean>;
     /**
-     * The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
-     * an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
-     * offline.
+     * The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time, an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed offline.
      */
     assumedOfflinePeriodSecs?: pulumi.Input<number>;
     /**
-     * (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact
-     * resolution.
+     * (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact resolution.
      */
     blackedOut?: pulumi.Input<boolean>;
     /**
-     * If set, artifacts will fail to download if a mismatch is detected between requested and received mimetype, according to
-     * the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes
-     * to the override list 'mismatching_mime_types_override_list'.
+     * If set, artifacts will fail to download if a mismatch is detected between requested and received mimetype, according to the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes to the override list 'mismatching_mime_types_override_list'.
      */
     blockMismatchingMimeTypes?: pulumi.Input<boolean>;
     /**
-     * Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
-     * HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
-     * Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+     * Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
      */
     bypassHeadRequests?: pulumi.Input<boolean>;
     /**
-     * When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+     * When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
      */
     cdnRedirect?: pulumi.Input<boolean>;
     /**
@@ -474,8 +432,7 @@ export interface RemoteIvyRepositoryState {
      */
     description?: pulumi.Input<string>;
     /**
-     * When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
-     * for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
+     * When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
      */
     disableProxy?: pulumi.Input<boolean>;
     /**
@@ -483,8 +440,7 @@ export interface RemoteIvyRepositoryState {
      */
     disableUrlNormalization?: pulumi.Input<boolean>;
     /**
-     * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
-     * storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
+     * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
      */
     downloadDirect?: pulumi.Input<boolean>;
     /**
@@ -492,8 +448,7 @@ export interface RemoteIvyRepositoryState {
      */
     enableCookieManagement?: pulumi.Input<boolean>;
     /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no
-     * artifacts are excluded.
+     * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no artifacts are excluded.
      */
     excludesPattern?: pulumi.Input<string>;
     /**
@@ -513,13 +468,11 @@ export interface RemoteIvyRepositoryState {
      */
     handleSnapshots?: pulumi.Input<boolean>;
     /**
-     * When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
-     * communicate with this repository.
+     * When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to communicate with this repository.
      */
     hardFail?: pulumi.Input<boolean>;
     /**
-     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When
-     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
+     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
      */
     includesPattern?: pulumi.Input<string>;
     /**
@@ -528,13 +481,11 @@ export interface RemoteIvyRepositoryState {
      */
     key?: pulumi.Input<string>;
     /**
-     * Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
-     * the 'Retrieval Cache Period'. Default value is 'false'. This field exists in the API but not in the UI.
+     * Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of the 'Retrieval Cache Period'. Default value is 'false'. This field exists in the API but not in the UI.
      */
     listRemoteFolderItems?: pulumi.Input<boolean>;
     /**
-     * The local address to be used when creating connections. Useful for specifying the interface to use on systems with
-     * multiple network interfaces.
+     * The local address to be used when creating connections. Useful for specifying the interface to use on systems with multiple network interfaces.
      */
     localAddress?: pulumi.Input<string>;
     /**
@@ -542,18 +493,15 @@ export interface RemoteIvyRepositoryState {
      */
     maxUniqueSnapshots?: pulumi.Input<number>;
     /**
-     * Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
-     * the remote before serving locally cached artifact or fail the request.
+     * Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from the remote before serving locally cached artifact or fail the request.
      */
     metadataRetrievalTimeoutSecs?: pulumi.Input<number>;
     /**
-     * The set of mime types that should override the blockMismatchingMimeTypes setting. Eg:
-     * 'application/json,application/xml'. Default value is empty.
+     * The set of mime types that should override the blockMismatchingMimeTypes setting. Eg: 'application/json,application/xml'. Default value is empty.
      */
     mismatchingMimeTypesOverrideList?: pulumi.Input<string>;
     /**
-     * Missed Retrieval Cache Period (Sec) in the UI. The number of seconds to cache artifact retrieval misses (artifact not
-     * found). A value of 0 indicates no caching.
+     * Missed Retrieval Cache Period (Sec) in the UI. The number of seconds to cache artifact retrieval misses (artifact not found). A value of 0 indicates no caching.
      */
     missedCachePeriodSeconds?: pulumi.Input<number>;
     /**
@@ -571,8 +519,7 @@ export interface RemoteIvyRepositoryState {
     priorityResolution?: pulumi.Input<boolean>;
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-     * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+     * Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      */
     projectKey?: pulumi.Input<string>;
     /**
@@ -584,8 +531,7 @@ export interface RemoteIvyRepositoryState {
      */
     proxy?: pulumi.Input<string>;
     /**
-     * Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
-     * `param1=val1&param2=val2&param3=val3`
+     * Custom HTTP query parameters that will be automatically included in all remote resource requests. For example: `param1=val1&param2=val2&param3=val3`
      */
     queryParams?: pulumi.Input<string>;
     /**
@@ -597,19 +543,15 @@ export interface RemoteIvyRepositoryState {
      */
     remoteRepoChecksumPolicyType?: pulumi.Input<string>;
     /**
-     * Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an
-     * empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be
-     * ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
+     * Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
      */
     remoteRepoLayoutRef?: pulumi.Input<string>;
     /**
-     * Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
-     * corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+     * Sets the layout that the repository should use for storing and identifying modules. A recommended layout that corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
      */
     repoLayoutRef?: pulumi.Input<string>;
     /**
-     * Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files
-     * before checking for newer versions on remote server. A value of 0 indicates no caching.
+     * Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching.
      */
     retrievalCachePeriodSeconds?: pulumi.Input<number>;
     /**
@@ -617,15 +559,11 @@ export interface RemoteIvyRepositoryState {
      */
     shareConfiguration?: pulumi.Input<boolean>;
     /**
-     * Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network
-     * operation is considered a retrieval failure.
+     * Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network operation is considered a retrieval failure.
      */
     socketTimeoutMillis?: pulumi.Input<number>;
     /**
-     * When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and
-     * direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with
-     * one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory
-     * servers.
+     * When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory servers.
      */
     storeArtifactsLocally?: pulumi.Input<boolean>;
     /**
@@ -637,8 +575,7 @@ export interface RemoteIvyRepositoryState {
      */
     synchronizeProperties?: pulumi.Input<boolean>;
     /**
-     * Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and
-     * eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
+     * Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
      */
     unusedArtifactsCleanupPeriodHours?: pulumi.Input<number>;
     /**
@@ -647,8 +584,7 @@ export interface RemoteIvyRepositoryState {
     url?: pulumi.Input<string>;
     username?: pulumi.Input<string>;
     /**
-     * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-     * Xray settings.
+     * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
      */
     xrayIndex?: pulumi.Input<boolean>;
 }
@@ -658,42 +594,32 @@ export interface RemoteIvyRepositoryState {
  */
 export interface RemoteIvyRepositoryArgs {
     /**
-     * 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any
-     * other host.
+     * 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any other host.
      */
     allowAnyHostAuth?: pulumi.Input<boolean>;
     /**
-     * When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
-     * therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
-     * security (e.g., cross-site scripting attacks).
+     * When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+     * This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
      */
     archiveBrowsingEnabled?: pulumi.Input<boolean>;
     /**
-     * The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
-     * an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
-     * offline.
+     * The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time, an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed offline.
      */
     assumedOfflinePeriodSecs?: pulumi.Input<number>;
     /**
-     * (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact
-     * resolution.
+     * (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact resolution.
      */
     blackedOut?: pulumi.Input<boolean>;
     /**
-     * If set, artifacts will fail to download if a mismatch is detected between requested and received mimetype, according to
-     * the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes
-     * to the override list 'mismatching_mime_types_override_list'.
+     * If set, artifacts will fail to download if a mismatch is detected between requested and received mimetype, according to the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes to the override list 'mismatching_mime_types_override_list'.
      */
     blockMismatchingMimeTypes?: pulumi.Input<boolean>;
     /**
-     * Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
-     * HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
-     * Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+     * Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
      */
     bypassHeadRequests?: pulumi.Input<boolean>;
     /**
-     * When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+     * When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
      */
     cdnRedirect?: pulumi.Input<boolean>;
     /**
@@ -706,8 +632,7 @@ export interface RemoteIvyRepositoryArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
-     * for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
+     * When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
      */
     disableProxy?: pulumi.Input<boolean>;
     /**
@@ -715,8 +640,7 @@ export interface RemoteIvyRepositoryArgs {
      */
     disableUrlNormalization?: pulumi.Input<boolean>;
     /**
-     * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
-     * storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
+     * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
      */
     downloadDirect?: pulumi.Input<boolean>;
     /**
@@ -724,8 +648,7 @@ export interface RemoteIvyRepositoryArgs {
      */
     enableCookieManagement?: pulumi.Input<boolean>;
     /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no
-     * artifacts are excluded.
+     * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no artifacts are excluded.
      */
     excludesPattern?: pulumi.Input<string>;
     /**
@@ -745,13 +668,11 @@ export interface RemoteIvyRepositoryArgs {
      */
     handleSnapshots?: pulumi.Input<boolean>;
     /**
-     * When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
-     * communicate with this repository.
+     * When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to communicate with this repository.
      */
     hardFail?: pulumi.Input<boolean>;
     /**
-     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When
-     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
+     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
      */
     includesPattern?: pulumi.Input<string>;
     /**
@@ -760,13 +681,11 @@ export interface RemoteIvyRepositoryArgs {
      */
     key: pulumi.Input<string>;
     /**
-     * Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
-     * the 'Retrieval Cache Period'. Default value is 'false'. This field exists in the API but not in the UI.
+     * Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of the 'Retrieval Cache Period'. Default value is 'false'. This field exists in the API but not in the UI.
      */
     listRemoteFolderItems?: pulumi.Input<boolean>;
     /**
-     * The local address to be used when creating connections. Useful for specifying the interface to use on systems with
-     * multiple network interfaces.
+     * The local address to be used when creating connections. Useful for specifying the interface to use on systems with multiple network interfaces.
      */
     localAddress?: pulumi.Input<string>;
     /**
@@ -774,18 +693,15 @@ export interface RemoteIvyRepositoryArgs {
      */
     maxUniqueSnapshots?: pulumi.Input<number>;
     /**
-     * Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
-     * the remote before serving locally cached artifact or fail the request.
+     * Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from the remote before serving locally cached artifact or fail the request.
      */
     metadataRetrievalTimeoutSecs?: pulumi.Input<number>;
     /**
-     * The set of mime types that should override the blockMismatchingMimeTypes setting. Eg:
-     * 'application/json,application/xml'. Default value is empty.
+     * The set of mime types that should override the blockMismatchingMimeTypes setting. Eg: 'application/json,application/xml'. Default value is empty.
      */
     mismatchingMimeTypesOverrideList?: pulumi.Input<string>;
     /**
-     * Missed Retrieval Cache Period (Sec) in the UI. The number of seconds to cache artifact retrieval misses (artifact not
-     * found). A value of 0 indicates no caching.
+     * Missed Retrieval Cache Period (Sec) in the UI. The number of seconds to cache artifact retrieval misses (artifact not found). A value of 0 indicates no caching.
      */
     missedCachePeriodSeconds?: pulumi.Input<number>;
     /**
@@ -803,8 +719,7 @@ export interface RemoteIvyRepositoryArgs {
     priorityResolution?: pulumi.Input<boolean>;
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-     * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+     * Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      */
     projectKey?: pulumi.Input<string>;
     /**
@@ -816,8 +731,7 @@ export interface RemoteIvyRepositoryArgs {
      */
     proxy?: pulumi.Input<string>;
     /**
-     * Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
-     * `param1=val1&param2=val2&param3=val3`
+     * Custom HTTP query parameters that will be automatically included in all remote resource requests. For example: `param1=val1&param2=val2&param3=val3`
      */
     queryParams?: pulumi.Input<string>;
     /**
@@ -829,19 +743,15 @@ export interface RemoteIvyRepositoryArgs {
      */
     remoteRepoChecksumPolicyType?: pulumi.Input<string>;
     /**
-     * Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an
-     * empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be
-     * ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
+     * Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
      */
     remoteRepoLayoutRef?: pulumi.Input<string>;
     /**
-     * Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
-     * corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+     * Sets the layout that the repository should use for storing and identifying modules. A recommended layout that corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
      */
     repoLayoutRef?: pulumi.Input<string>;
     /**
-     * Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files
-     * before checking for newer versions on remote server. A value of 0 indicates no caching.
+     * Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching.
      */
     retrievalCachePeriodSeconds?: pulumi.Input<number>;
     /**
@@ -849,15 +759,11 @@ export interface RemoteIvyRepositoryArgs {
      */
     shareConfiguration?: pulumi.Input<boolean>;
     /**
-     * Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network
-     * operation is considered a retrieval failure.
+     * Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network operation is considered a retrieval failure.
      */
     socketTimeoutMillis?: pulumi.Input<number>;
     /**
-     * When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and
-     * direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with
-     * one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory
-     * servers.
+     * When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory servers.
      */
     storeArtifactsLocally?: pulumi.Input<boolean>;
     /**
@@ -869,8 +775,7 @@ export interface RemoteIvyRepositoryArgs {
      */
     synchronizeProperties?: pulumi.Input<boolean>;
     /**
-     * Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and
-     * eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
+     * Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
      */
     unusedArtifactsCleanupPeriodHours?: pulumi.Input<number>;
     /**
@@ -879,8 +784,7 @@ export interface RemoteIvyRepositoryArgs {
     url: pulumi.Input<string>;
     username?: pulumi.Input<string>;
     /**
-     * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-     * Xray settings.
+     * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
      */
     xrayIndex?: pulumi.Input<boolean>;
 }

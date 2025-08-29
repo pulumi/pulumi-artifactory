@@ -20,16 +20,14 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
     public static final RemoteGenericRepositoryState Empty = new RemoteGenericRepositoryState();
 
     /**
-     * &#39;Lenient Host Authentication&#39; in the UI. Allow credentials of this repository to be used on requests redirected to any
-     * other host.
+     * &#39;Lenient Host Authentication&#39; in the UI. Allow credentials of this repository to be used on requests redirected to any other host.
      * 
      */
     @Import(name="allowAnyHostAuth")
     private @Nullable Output<Boolean> allowAnyHostAuth;
 
     /**
-     * @return &#39;Lenient Host Authentication&#39; in the UI. Allow credentials of this repository to be used on requests redirected to any
-     * other host.
+     * @return &#39;Lenient Host Authentication&#39; in the UI. Allow credentials of this repository to be used on requests redirected to any other host.
      * 
      */
     public Optional<Output<Boolean>> allowAnyHostAuth() {
@@ -37,18 +35,16 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
     }
 
     /**
-     * When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
-     * therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
-     * security (e.g., cross-site scripting attacks).
+     * When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+     * This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
      * 
      */
     @Import(name="archiveBrowsingEnabled")
     private @Nullable Output<Boolean> archiveBrowsingEnabled;
 
     /**
-     * @return When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
-     * therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
-     * security (e.g., cross-site scripting attacks).
+     * @return When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+     * This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
      * 
      */
     public Optional<Output<Boolean>> archiveBrowsingEnabled() {
@@ -56,18 +52,14 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
     }
 
     /**
-     * The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
-     * an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
-     * offline.
+     * The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time, an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed offline.
      * 
      */
     @Import(name="assumedOfflinePeriodSecs")
     private @Nullable Output<Integer> assumedOfflinePeriodSecs;
 
     /**
-     * @return The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
-     * an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
-     * offline.
+     * @return The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time, an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed offline.
      * 
      */
     public Optional<Output<Integer>> assumedOfflinePeriodSecs() {
@@ -75,16 +67,14 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
     }
 
     /**
-     * (A.K.A &#39;Ignore Repository&#39; on the UI) When set, the repository or its local cache do not participate in artifact
-     * resolution.
+     * (A.K.A &#39;Ignore Repository&#39; on the UI) When set, the repository or its local cache do not participate in artifact resolution.
      * 
      */
     @Import(name="blackedOut")
     private @Nullable Output<Boolean> blackedOut;
 
     /**
-     * @return (A.K.A &#39;Ignore Repository&#39; on the UI) When set, the repository or its local cache do not participate in artifact
-     * resolution.
+     * @return (A.K.A &#39;Ignore Repository&#39; on the UI) When set, the repository or its local cache do not participate in artifact resolution.
      * 
      */
     public Optional<Output<Boolean>> blackedOut() {
@@ -92,18 +82,14 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
     }
 
     /**
-     * If set, artifacts will fail to download if a mismatch is detected between requested and received mimetype, according to
-     * the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes
-     * to the override list &#39;mismatching_mime_types_override_list&#39;.
+     * If set, artifacts will fail to download if a mismatch is detected between requested and received mimetype, according to the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes to the override list &#39;mismatching_mime_types_override_list&#39;.
      * 
      */
     @Import(name="blockMismatchingMimeTypes")
     private @Nullable Output<Boolean> blockMismatchingMimeTypes;
 
     /**
-     * @return If set, artifacts will fail to download if a mismatch is detected between requested and received mimetype, according to
-     * the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes
-     * to the override list &#39;mismatching_mime_types_override_list&#39;.
+     * @return If set, artifacts will fail to download if a mismatch is detected between requested and received mimetype, according to the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes to the override list &#39;mismatching_mime_types_override_list&#39;.
      * 
      */
     public Optional<Output<Boolean>> blockMismatchingMimeTypes() {
@@ -111,18 +97,14 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
     }
 
     /**
-     * Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
-     * HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
-     * Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+     * Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
      * 
      */
     @Import(name="bypassHeadRequests")
     private @Nullable Output<Boolean> bypassHeadRequests;
 
     /**
-     * @return Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
-     * HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
-     * Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+     * @return Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
      * 
      */
     public Optional<Output<Boolean>> bypassHeadRequests() {
@@ -130,16 +112,14 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
     }
 
     /**
-     * When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
+     * When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
      * 
      */
     @Import(name="cdnRedirect")
     private @Nullable Output<Boolean> cdnRedirect;
 
     /**
-     * @return When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
+     * @return When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
      * 
      */
     public Optional<Output<Boolean>> cdnRedirect() {
@@ -184,16 +164,14 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
     }
 
     /**
-     * When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
-     * for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
+     * When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
      * 
      */
     @Import(name="disableProxy")
     private @Nullable Output<Boolean> disableProxy;
 
     /**
-     * @return When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
-     * for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
+     * @return When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
      * 
      */
     public Optional<Output<Boolean>> disableProxy() {
@@ -216,16 +194,14 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
     }
 
     /**
-     * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
-     * storage provider. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;.
+     * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;.
      * 
      */
     @Import(name="downloadDirect")
     private @Nullable Output<Boolean> downloadDirect;
 
     /**
-     * @return When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
-     * storage provider. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;.
+     * @return When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;.
      * 
      */
     public Optional<Output<Boolean>> downloadDirect() {
@@ -248,16 +224,14 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
     }
 
     /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no
-     * artifacts are excluded.
+     * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no artifacts are excluded.
      * 
      */
     @Import(name="excludesPattern")
     private @Nullable Output<String> excludesPattern;
 
     /**
-     * @return List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no
-     * artifacts are excluded.
+     * @return List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no artifacts are excluded.
      * 
      */
     public Optional<Output<String>> excludesPattern() {
@@ -265,16 +239,14 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
     }
 
     /**
-     * When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
-     * communicate with this repository.
+     * When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to communicate with this repository.
      * 
      */
     @Import(name="hardFail")
     private @Nullable Output<Boolean> hardFail;
 
     /**
-     * @return When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
-     * communicate with this repository.
+     * @return When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to communicate with this repository.
      * 
      */
     public Optional<Output<Boolean>> hardFail() {
@@ -282,16 +254,14 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
     }
 
     /**
-     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When
-     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
+     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
      * 
      */
     @Import(name="includesPattern")
     private @Nullable Output<String> includesPattern;
 
     /**
-     * @return List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When
-     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
+     * @return List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
      * 
      */
     public Optional<Output<String>> includesPattern() {
@@ -316,16 +286,14 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
     }
 
     /**
-     * Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
-     * the &#39;Retrieval Cache Period&#39;. Default value is &#39;false&#39;. This field exists in the API but not in the UI.
+     * Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of the &#39;Retrieval Cache Period&#39;. Default value is &#39;false&#39;. This field exists in the API but not in the UI.
      * 
      */
     @Import(name="listRemoteFolderItems")
     private @Nullable Output<Boolean> listRemoteFolderItems;
 
     /**
-     * @return Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
-     * the &#39;Retrieval Cache Period&#39;. Default value is &#39;false&#39;. This field exists in the API but not in the UI.
+     * @return Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of the &#39;Retrieval Cache Period&#39;. Default value is &#39;false&#39;. This field exists in the API but not in the UI.
      * 
      */
     public Optional<Output<Boolean>> listRemoteFolderItems() {
@@ -333,16 +301,14 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
     }
 
     /**
-     * The local address to be used when creating connections. Useful for specifying the interface to use on systems with
-     * multiple network interfaces.
+     * The local address to be used when creating connections. Useful for specifying the interface to use on systems with multiple network interfaces.
      * 
      */
     @Import(name="localAddress")
     private @Nullable Output<String> localAddress;
 
     /**
-     * @return The local address to be used when creating connections. Useful for specifying the interface to use on systems with
-     * multiple network interfaces.
+     * @return The local address to be used when creating connections. Useful for specifying the interface to use on systems with multiple network interfaces.
      * 
      */
     public Optional<Output<String>> localAddress() {
@@ -350,16 +316,14 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
     }
 
     /**
-     * Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
-     * the remote before serving locally cached artifact or fail the request.
+     * Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from the remote before serving locally cached artifact or fail the request.
      * 
      */
     @Import(name="metadataRetrievalTimeoutSecs")
     private @Nullable Output<Integer> metadataRetrievalTimeoutSecs;
 
     /**
-     * @return Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
-     * the remote before serving locally cached artifact or fail the request.
+     * @return Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from the remote before serving locally cached artifact or fail the request.
      * 
      */
     public Optional<Output<Integer>> metadataRetrievalTimeoutSecs() {
@@ -367,16 +331,14 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
     }
 
     /**
-     * The set of mime types that should override the block_mismatching_mime_types setting. Eg:
-     * &#39;application/json,application/xml&#39;. Default value is empty.
+     * The set of mime types that should override the block_mismatching_mime_types setting. Eg: &#39;application/json,application/xml&#39;. Default value is empty.
      * 
      */
     @Import(name="mismatchingMimeTypesOverrideList")
     private @Nullable Output<String> mismatchingMimeTypesOverrideList;
 
     /**
-     * @return The set of mime types that should override the block_mismatching_mime_types setting. Eg:
-     * &#39;application/json,application/xml&#39;. Default value is empty.
+     * @return The set of mime types that should override the block_mismatching_mime_types setting. Eg: &#39;application/json,application/xml&#39;. Default value is empty.
      * 
      */
     public Optional<Output<String>> mismatchingMimeTypesOverrideList() {
@@ -384,16 +346,14 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
     }
 
     /**
-     * Missed Retrieval Cache Period (Sec) in the UI. The number of seconds to cache artifact retrieval misses (artifact not
-     * found). A value of 0 indicates no caching.
+     * Missed Retrieval Cache Period (Sec) in the UI. The number of seconds to cache artifact retrieval misses (artifact not found). A value of 0 indicates no caching.
      * 
      */
     @Import(name="missedCachePeriodSeconds")
     private @Nullable Output<Integer> missedCachePeriodSeconds;
 
     /**
-     * @return Missed Retrieval Cache Period (Sec) in the UI. The number of seconds to cache artifact retrieval misses (artifact not
-     * found). A value of 0 indicates no caching.
+     * @return Missed Retrieval Cache Period (Sec) in the UI. The number of seconds to cache artifact retrieval misses (artifact not found). A value of 0 indicates no caching.
      * 
      */
     public Optional<Output<Integer>> missedCachePeriodSeconds() {
@@ -460,16 +420,14 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
     }
 
     /**
-     * Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-     * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+     * Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      * 
      */
     @Import(name="projectKey")
     private @Nullable Output<String> projectKey;
 
     /**
-     * @return Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-     * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+     * @return Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      * 
      */
     public Optional<Output<String>> projectKey() {
@@ -522,16 +480,14 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
     }
 
     /**
-     * Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
-     * `param1=val1&amp;param2=val2&amp;param3=val3`
+     * Custom HTTP query parameters that will be automatically included in all remote resource requests. For example: `param1=val1&amp;param2=val2&amp;param3=val3`
      * 
      */
     @Import(name="queryParams")
     private @Nullable Output<String> queryParams;
 
     /**
-     * @return Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
-     * `param1=val1&amp;param2=val2&amp;param3=val3`
+     * @return Custom HTTP query parameters that will be automatically included in all remote resource requests. For example: `param1=val1&amp;param2=val2&amp;param3=val3`
      * 
      */
     public Optional<Output<String>> queryParams() {
@@ -539,18 +495,14 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
     }
 
     /**
-     * Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an
-     * empty string). Once it&#39;s set, it can&#39;t be removed by passing an empty string or removing the attribute, that will be
-     * ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
+     * Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an empty string). Once it&#39;s set, it can&#39;t be removed by passing an empty string or removing the attribute, that will be ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
      * 
      */
     @Import(name="remoteRepoLayoutRef")
     private @Nullable Output<String> remoteRepoLayoutRef;
 
     /**
-     * @return Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an
-     * empty string). Once it&#39;s set, it can&#39;t be removed by passing an empty string or removing the attribute, that will be
-     * ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
+     * @return Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an empty string). Once it&#39;s set, it can&#39;t be removed by passing an empty string or removing the attribute, that will be ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
      * 
      */
     public Optional<Output<String>> remoteRepoLayoutRef() {
@@ -558,16 +510,14 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
     }
 
     /**
-     * Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
-     * corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+     * Sets the layout that the repository should use for storing and identifying modules. A recommended layout that corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
      * 
      */
     @Import(name="repoLayoutRef")
     private @Nullable Output<String> repoLayoutRef;
 
     /**
-     * @return Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
-     * corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+     * @return Sets the layout that the repository should use for storing and identifying modules. A recommended layout that corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
      * 
      */
     public Optional<Output<String>> repoLayoutRef() {
@@ -575,16 +525,14 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
     }
 
     /**
-     * Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files
-     * before checking for newer versions on remote server. A value of 0 indicates no caching.
+     * Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching.
      * 
      */
     @Import(name="retrievalCachePeriodSeconds")
     private @Nullable Output<Integer> retrievalCachePeriodSeconds;
 
     /**
-     * @return Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files
-     * before checking for newer versions on remote server. A value of 0 indicates no caching.
+     * @return Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching.
      * 
      */
     public Optional<Output<Integer>> retrievalCachePeriodSeconds() {
@@ -626,16 +574,14 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
     }
 
     /**
-     * Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network
-     * operation is considered a retrieval failure.
+     * Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network operation is considered a retrieval failure.
      * 
      */
     @Import(name="socketTimeoutMillis")
     private @Nullable Output<Integer> socketTimeoutMillis;
 
     /**
-     * @return Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network
-     * operation is considered a retrieval failure.
+     * @return Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network operation is considered a retrieval failure.
      * 
      */
     public Optional<Output<Integer>> socketTimeoutMillis() {
@@ -643,20 +589,14 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
     }
 
     /**
-     * When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and
-     * direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with
-     * one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory
-     * servers.
+     * When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory servers.
      * 
      */
     @Import(name="storeArtifactsLocally")
     private @Nullable Output<Boolean> storeArtifactsLocally;
 
     /**
-     * @return When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and
-     * direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with
-     * one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory
-     * servers.
+     * @return When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory servers.
      * 
      */
     public Optional<Output<Boolean>> storeArtifactsLocally() {
@@ -679,16 +619,14 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
     }
 
     /**
-     * Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed &#39;unused&#39; and
-     * eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
+     * Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed &#39;unused&#39; and eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
      * 
      */
     @Import(name="unusedArtifactsCleanupPeriodHours")
     private @Nullable Output<Integer> unusedArtifactsCleanupPeriodHours;
 
     /**
-     * @return Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed &#39;unused&#39; and
-     * eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
+     * @return Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed &#39;unused&#39; and eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
      * 
      */
     public Optional<Output<Integer>> unusedArtifactsCleanupPeriodHours() {
@@ -718,16 +656,14 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
     }
 
     /**
-     * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-     * Xray settings.
+     * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
      * 
      */
     @Import(name="xrayIndex")
     private @Nullable Output<Boolean> xrayIndex;
 
     /**
-     * @return Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-     * Xray settings.
+     * @return Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
      * 
      */
     public Optional<Output<Boolean>> xrayIndex() {
@@ -803,8 +739,7 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param allowAnyHostAuth &#39;Lenient Host Authentication&#39; in the UI. Allow credentials of this repository to be used on requests redirected to any
-         * other host.
+         * @param allowAnyHostAuth &#39;Lenient Host Authentication&#39; in the UI. Allow credentials of this repository to be used on requests redirected to any other host.
          * 
          * @return builder
          * 
@@ -815,8 +750,7 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param allowAnyHostAuth &#39;Lenient Host Authentication&#39; in the UI. Allow credentials of this repository to be used on requests redirected to any
-         * other host.
+         * @param allowAnyHostAuth &#39;Lenient Host Authentication&#39; in the UI. Allow credentials of this repository to be used on requests redirected to any other host.
          * 
          * @return builder
          * 
@@ -826,9 +760,8 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param archiveBrowsingEnabled When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
-         * therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
-         * security (e.g., cross-site scripting attacks).
+         * @param archiveBrowsingEnabled When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+         * This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
          * 
          * @return builder
          * 
@@ -839,9 +772,8 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param archiveBrowsingEnabled When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
-         * therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
-         * security (e.g., cross-site scripting attacks).
+         * @param archiveBrowsingEnabled When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+         * This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
          * 
          * @return builder
          * 
@@ -851,9 +783,7 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param assumedOfflinePeriodSecs The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
-         * an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
-         * offline.
+         * @param assumedOfflinePeriodSecs The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time, an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed offline.
          * 
          * @return builder
          * 
@@ -864,9 +794,7 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param assumedOfflinePeriodSecs The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
-         * an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
-         * offline.
+         * @param assumedOfflinePeriodSecs The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time, an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed offline.
          * 
          * @return builder
          * 
@@ -876,8 +804,7 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param blackedOut (A.K.A &#39;Ignore Repository&#39; on the UI) When set, the repository or its local cache do not participate in artifact
-         * resolution.
+         * @param blackedOut (A.K.A &#39;Ignore Repository&#39; on the UI) When set, the repository or its local cache do not participate in artifact resolution.
          * 
          * @return builder
          * 
@@ -888,8 +815,7 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param blackedOut (A.K.A &#39;Ignore Repository&#39; on the UI) When set, the repository or its local cache do not participate in artifact
-         * resolution.
+         * @param blackedOut (A.K.A &#39;Ignore Repository&#39; on the UI) When set, the repository or its local cache do not participate in artifact resolution.
          * 
          * @return builder
          * 
@@ -899,9 +825,7 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param blockMismatchingMimeTypes If set, artifacts will fail to download if a mismatch is detected between requested and received mimetype, according to
-         * the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes
-         * to the override list &#39;mismatching_mime_types_override_list&#39;.
+         * @param blockMismatchingMimeTypes If set, artifacts will fail to download if a mismatch is detected between requested and received mimetype, according to the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes to the override list &#39;mismatching_mime_types_override_list&#39;.
          * 
          * @return builder
          * 
@@ -912,9 +836,7 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param blockMismatchingMimeTypes If set, artifacts will fail to download if a mismatch is detected between requested and received mimetype, according to
-         * the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes
-         * to the override list &#39;mismatching_mime_types_override_list&#39;.
+         * @param blockMismatchingMimeTypes If set, artifacts will fail to download if a mismatch is detected between requested and received mimetype, according to the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes to the override list &#39;mismatching_mime_types_override_list&#39;.
          * 
          * @return builder
          * 
@@ -924,9 +846,7 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param bypassHeadRequests Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
-         * HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
-         * Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+         * @param bypassHeadRequests Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
          * 
          * @return builder
          * 
@@ -937,9 +857,7 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param bypassHeadRequests Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
-         * HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
-         * Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+         * @param bypassHeadRequests Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
          * 
          * @return builder
          * 
@@ -949,8 +867,7 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param cdnRedirect When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-         * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
+         * @param cdnRedirect When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
          * 
          * @return builder
          * 
@@ -961,8 +878,7 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param cdnRedirect When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-         * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
+         * @param cdnRedirect When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
          * 
          * @return builder
          * 
@@ -1023,8 +939,7 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param disableProxy When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
-         * for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
+         * @param disableProxy When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
          * 
          * @return builder
          * 
@@ -1035,8 +950,7 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param disableProxy When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
-         * for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
+         * @param disableProxy When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
          * 
          * @return builder
          * 
@@ -1067,8 +981,7 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param downloadDirect When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
-         * storage provider. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;.
+         * @param downloadDirect When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;.
          * 
          * @return builder
          * 
@@ -1079,8 +992,7 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param downloadDirect When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
-         * storage provider. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;.
+         * @param downloadDirect When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;.
          * 
          * @return builder
          * 
@@ -1111,8 +1023,7 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param excludesPattern List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no
-         * artifacts are excluded.
+         * @param excludesPattern List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no artifacts are excluded.
          * 
          * @return builder
          * 
@@ -1123,8 +1034,7 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param excludesPattern List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no
-         * artifacts are excluded.
+         * @param excludesPattern List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no artifacts are excluded.
          * 
          * @return builder
          * 
@@ -1134,8 +1044,7 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param hardFail When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
-         * communicate with this repository.
+         * @param hardFail When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to communicate with this repository.
          * 
          * @return builder
          * 
@@ -1146,8 +1055,7 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param hardFail When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
-         * communicate with this repository.
+         * @param hardFail When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to communicate with this repository.
          * 
          * @return builder
          * 
@@ -1157,8 +1065,7 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param includesPattern List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When
-         * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
+         * @param includesPattern List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
          * 
          * @return builder
          * 
@@ -1169,8 +1076,7 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param includesPattern List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When
-         * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
+         * @param includesPattern List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
          * 
          * @return builder
          * 
@@ -1203,8 +1109,7 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param listRemoteFolderItems Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
-         * the &#39;Retrieval Cache Period&#39;. Default value is &#39;false&#39;. This field exists in the API but not in the UI.
+         * @param listRemoteFolderItems Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of the &#39;Retrieval Cache Period&#39;. Default value is &#39;false&#39;. This field exists in the API but not in the UI.
          * 
          * @return builder
          * 
@@ -1215,8 +1120,7 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param listRemoteFolderItems Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
-         * the &#39;Retrieval Cache Period&#39;. Default value is &#39;false&#39;. This field exists in the API but not in the UI.
+         * @param listRemoteFolderItems Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of the &#39;Retrieval Cache Period&#39;. Default value is &#39;false&#39;. This field exists in the API but not in the UI.
          * 
          * @return builder
          * 
@@ -1226,8 +1130,7 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param localAddress The local address to be used when creating connections. Useful for specifying the interface to use on systems with
-         * multiple network interfaces.
+         * @param localAddress The local address to be used when creating connections. Useful for specifying the interface to use on systems with multiple network interfaces.
          * 
          * @return builder
          * 
@@ -1238,8 +1141,7 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param localAddress The local address to be used when creating connections. Useful for specifying the interface to use on systems with
-         * multiple network interfaces.
+         * @param localAddress The local address to be used when creating connections. Useful for specifying the interface to use on systems with multiple network interfaces.
          * 
          * @return builder
          * 
@@ -1249,8 +1151,7 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param metadataRetrievalTimeoutSecs Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
-         * the remote before serving locally cached artifact or fail the request.
+         * @param metadataRetrievalTimeoutSecs Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from the remote before serving locally cached artifact or fail the request.
          * 
          * @return builder
          * 
@@ -1261,8 +1162,7 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param metadataRetrievalTimeoutSecs Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
-         * the remote before serving locally cached artifact or fail the request.
+         * @param metadataRetrievalTimeoutSecs Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from the remote before serving locally cached artifact or fail the request.
          * 
          * @return builder
          * 
@@ -1272,8 +1172,7 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param mismatchingMimeTypesOverrideList The set of mime types that should override the block_mismatching_mime_types setting. Eg:
-         * &#39;application/json,application/xml&#39;. Default value is empty.
+         * @param mismatchingMimeTypesOverrideList The set of mime types that should override the block_mismatching_mime_types setting. Eg: &#39;application/json,application/xml&#39;. Default value is empty.
          * 
          * @return builder
          * 
@@ -1284,8 +1183,7 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param mismatchingMimeTypesOverrideList The set of mime types that should override the block_mismatching_mime_types setting. Eg:
-         * &#39;application/json,application/xml&#39;. Default value is empty.
+         * @param mismatchingMimeTypesOverrideList The set of mime types that should override the block_mismatching_mime_types setting. Eg: &#39;application/json,application/xml&#39;. Default value is empty.
          * 
          * @return builder
          * 
@@ -1295,8 +1193,7 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param missedCachePeriodSeconds Missed Retrieval Cache Period (Sec) in the UI. The number of seconds to cache artifact retrieval misses (artifact not
-         * found). A value of 0 indicates no caching.
+         * @param missedCachePeriodSeconds Missed Retrieval Cache Period (Sec) in the UI. The number of seconds to cache artifact retrieval misses (artifact not found). A value of 0 indicates no caching.
          * 
          * @return builder
          * 
@@ -1307,8 +1204,7 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param missedCachePeriodSeconds Missed Retrieval Cache Period (Sec) in the UI. The number of seconds to cache artifact retrieval misses (artifact not
-         * found). A value of 0 indicates no caching.
+         * @param missedCachePeriodSeconds Missed Retrieval Cache Period (Sec) in the UI. The number of seconds to cache artifact retrieval misses (artifact not found). A value of 0 indicates no caching.
          * 
          * @return builder
          * 
@@ -1403,8 +1299,7 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param projectKey Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-         * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+         * @param projectKey Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
          * 
          * @return builder
          * 
@@ -1415,8 +1310,7 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param projectKey Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-         * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+         * @param projectKey Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
          * 
          * @return builder
          * 
@@ -1499,8 +1393,7 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param queryParams Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
-         * `param1=val1&amp;param2=val2&amp;param3=val3`
+         * @param queryParams Custom HTTP query parameters that will be automatically included in all remote resource requests. For example: `param1=val1&amp;param2=val2&amp;param3=val3`
          * 
          * @return builder
          * 
@@ -1511,8 +1404,7 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param queryParams Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
-         * `param1=val1&amp;param2=val2&amp;param3=val3`
+         * @param queryParams Custom HTTP query parameters that will be automatically included in all remote resource requests. For example: `param1=val1&amp;param2=val2&amp;param3=val3`
          * 
          * @return builder
          * 
@@ -1522,9 +1414,7 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param remoteRepoLayoutRef Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an
-         * empty string). Once it&#39;s set, it can&#39;t be removed by passing an empty string or removing the attribute, that will be
-         * ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
+         * @param remoteRepoLayoutRef Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an empty string). Once it&#39;s set, it can&#39;t be removed by passing an empty string or removing the attribute, that will be ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
          * 
          * @return builder
          * 
@@ -1535,9 +1425,7 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param remoteRepoLayoutRef Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an
-         * empty string). Once it&#39;s set, it can&#39;t be removed by passing an empty string or removing the attribute, that will be
-         * ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
+         * @param remoteRepoLayoutRef Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an empty string). Once it&#39;s set, it can&#39;t be removed by passing an empty string or removing the attribute, that will be ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
          * 
          * @return builder
          * 
@@ -1547,8 +1435,7 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param repoLayoutRef Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
-         * corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+         * @param repoLayoutRef Sets the layout that the repository should use for storing and identifying modules. A recommended layout that corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
          * 
          * @return builder
          * 
@@ -1559,8 +1446,7 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param repoLayoutRef Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
-         * corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+         * @param repoLayoutRef Sets the layout that the repository should use for storing and identifying modules. A recommended layout that corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
          * 
          * @return builder
          * 
@@ -1570,8 +1456,7 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param retrievalCachePeriodSeconds Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files
-         * before checking for newer versions on remote server. A value of 0 indicates no caching.
+         * @param retrievalCachePeriodSeconds Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching.
          * 
          * @return builder
          * 
@@ -1582,8 +1467,7 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param retrievalCachePeriodSeconds Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files
-         * before checking for newer versions on remote server. A value of 0 indicates no caching.
+         * @param retrievalCachePeriodSeconds Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching.
          * 
          * @return builder
          * 
@@ -1639,8 +1523,7 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param socketTimeoutMillis Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network
-         * operation is considered a retrieval failure.
+         * @param socketTimeoutMillis Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network operation is considered a retrieval failure.
          * 
          * @return builder
          * 
@@ -1651,8 +1534,7 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param socketTimeoutMillis Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network
-         * operation is considered a retrieval failure.
+         * @param socketTimeoutMillis Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network operation is considered a retrieval failure.
          * 
          * @return builder
          * 
@@ -1662,10 +1544,7 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param storeArtifactsLocally When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and
-         * direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with
-         * one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory
-         * servers.
+         * @param storeArtifactsLocally When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory servers.
          * 
          * @return builder
          * 
@@ -1676,10 +1555,7 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param storeArtifactsLocally When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and
-         * direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with
-         * one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory
-         * servers.
+         * @param storeArtifactsLocally When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory servers.
          * 
          * @return builder
          * 
@@ -1710,8 +1586,7 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param unusedArtifactsCleanupPeriodHours Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed &#39;unused&#39; and
-         * eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
+         * @param unusedArtifactsCleanupPeriodHours Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed &#39;unused&#39; and eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
          * 
          * @return builder
          * 
@@ -1722,8 +1597,7 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param unusedArtifactsCleanupPeriodHours Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed &#39;unused&#39; and
-         * eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
+         * @param unusedArtifactsCleanupPeriodHours Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed &#39;unused&#39; and eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
          * 
          * @return builder
          * 
@@ -1763,8 +1637,7 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param xrayIndex Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-         * Xray settings.
+         * @param xrayIndex Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
          * 
          * @return builder
          * 
@@ -1775,8 +1648,7 @@ public final class RemoteGenericRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param xrayIndex Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-         * Xray settings.
+         * @param xrayIndex Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
          * 
          * @return builder
          * 

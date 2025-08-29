@@ -58,19 +58,19 @@ export class PasswordExpirationPolicy extends pulumi.CustomResource {
     /**
      * Enable Password Expiration Policy. This only applies to internal user passwords.
      */
-    public readonly enabled!: pulumi.Output<boolean>;
+    declare public readonly enabled: pulumi.Output<boolean>;
     /**
      * Name of the resource. Only used for importing.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Send mail notification before password expiration. Users will receive an email notification X days before password will expire. Mail server must be enabled and configured correctly.
      */
-    public readonly notifyByEmail!: pulumi.Output<boolean>;
+    declare public readonly notifyByEmail: pulumi.Output<boolean>;
     /**
      * Password expires every N days. The time interval in which users will be obligated to change their password.
      */
-    public readonly passwordMaxAge!: pulumi.Output<number>;
+    declare public readonly passwordMaxAge: pulumi.Output<number>;
 
     /**
      * Create a PasswordExpirationPolicy resource with the given unique name, arguments, and options.
@@ -85,25 +85,25 @@ export class PasswordExpirationPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PasswordExpirationPolicyState | undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["notifyByEmail"] = state ? state.notifyByEmail : undefined;
-            resourceInputs["passwordMaxAge"] = state ? state.passwordMaxAge : undefined;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["notifyByEmail"] = state?.notifyByEmail;
+            resourceInputs["passwordMaxAge"] = state?.passwordMaxAge;
         } else {
             const args = argsOrState as PasswordExpirationPolicyArgs | undefined;
-            if ((!args || args.enabled === undefined) && !opts.urn) {
+            if (args?.enabled === undefined && !opts.urn) {
                 throw new Error("Missing required property 'enabled'");
             }
-            if ((!args || args.notifyByEmail === undefined) && !opts.urn) {
+            if (args?.notifyByEmail === undefined && !opts.urn) {
                 throw new Error("Missing required property 'notifyByEmail'");
             }
-            if ((!args || args.passwordMaxAge === undefined) && !opts.urn) {
+            if (args?.passwordMaxAge === undefined && !opts.urn) {
                 throw new Error("Missing required property 'passwordMaxAge'");
             }
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["notifyByEmail"] = args ? args.notifyByEmail : undefined;
-            resourceInputs["passwordMaxAge"] = args ? args.passwordMaxAge : undefined;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["notifyByEmail"] = args?.notifyByEmail;
+            resourceInputs["passwordMaxAge"] = args?.passwordMaxAge;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(PasswordExpirationPolicy.__pulumiType, name, resourceInputs, opts);

@@ -52,76 +52,68 @@ export class DockerV1Repository extends pulumi.CustomResource {
         return obj['__pulumiType'] === DockerV1Repository.__pulumiType;
     }
 
-    public /*out*/ readonly apiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly apiVersion: pulumi.Output<string>;
     /**
-     * When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
-     * therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
-     * security (e.g., cross-site scripting attacks).
+     * When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+     * This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
      */
-    public readonly archiveBrowsingEnabled!: pulumi.Output<boolean>;
+    declare public readonly archiveBrowsingEnabled: pulumi.Output<boolean>;
     /**
      * When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
      */
-    public readonly blackedOut!: pulumi.Output<boolean>;
-    public /*out*/ readonly blockPushingSchema1!: pulumi.Output<boolean>;
+    declare public readonly blackedOut: pulumi.Output<boolean>;
+    declare public /*out*/ readonly blockPushingSchema1: pulumi.Output<boolean>;
     /**
-     * When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+     * When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
      */
-    public readonly cdnRedirect!: pulumi.Output<boolean>;
+    declare public readonly cdnRedirect: pulumi.Output<boolean>;
     /**
      * Public description.
      */
-    public readonly description!: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string>;
     /**
-     * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
-     * storage provider. Available in Enterprise+ and Edge licenses only.
+     * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
      */
-    public readonly downloadDirect!: pulumi.Output<boolean>;
+    declare public readonly downloadDirect: pulumi.Output<boolean>;
     /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no
-     * artifacts are excluded.
+     * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no artifacts are excluded.
      */
-    public readonly excludesPattern!: pulumi.Output<string>;
+    declare public readonly excludesPattern: pulumi.Output<string>;
     /**
-     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When
-     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
+     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
      */
-    public readonly includesPattern!: pulumi.Output<string>;
+    declare public readonly includesPattern: pulumi.Output<string>;
     /**
      * the identity key of the repo.
      */
-    public readonly key!: pulumi.Output<string>;
-    public /*out*/ readonly maxUniqueTags!: pulumi.Output<number>;
+    declare public readonly key: pulumi.Output<string>;
+    declare public /*out*/ readonly maxUniqueTags: pulumi.Output<number>;
     /**
      * Internal description.
      */
-    public readonly notes!: pulumi.Output<string>;
+    declare public readonly notes: pulumi.Output<string>;
     /**
      * Setting repositories with priority will cause metadata to be merged only from repositories set with this field
      */
-    public readonly priorityResolution!: pulumi.Output<boolean>;
-    public readonly projectEnvironments!: pulumi.Output<string[]>;
+    declare public readonly priorityResolution: pulumi.Output<boolean>;
+    declare public readonly projectEnvironments: pulumi.Output<string[]>;
     /**
-     * Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-     * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+     * Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      */
-    public readonly projectKey!: pulumi.Output<string>;
+    declare public readonly projectKey: pulumi.Output<string>;
     /**
      * List of property set name
      */
-    public readonly propertySets!: pulumi.Output<string[] | undefined>;
+    declare public readonly propertySets: pulumi.Output<string[] | undefined>;
     /**
-     * Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
-     * corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+     * Sets the layout that the repository should use for storing and identifying modules. A recommended layout that corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
      */
-    public readonly repoLayoutRef!: pulumi.Output<string>;
-    public /*out*/ readonly tagRetention!: pulumi.Output<number>;
+    declare public readonly repoLayoutRef: pulumi.Output<string>;
+    declare public /*out*/ readonly tagRetention: pulumi.Output<number>;
     /**
-     * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-     * Xray settings.
+     * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
      */
-    public readonly xrayIndex!: pulumi.Output<boolean>;
+    declare public readonly xrayIndex: pulumi.Output<boolean>;
 
     /**
      * Create a DockerV1Repository resource with the given unique name, arguments, and options.
@@ -136,45 +128,45 @@ export class DockerV1Repository extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DockerV1RepositoryState | undefined;
-            resourceInputs["apiVersion"] = state ? state.apiVersion : undefined;
-            resourceInputs["archiveBrowsingEnabled"] = state ? state.archiveBrowsingEnabled : undefined;
-            resourceInputs["blackedOut"] = state ? state.blackedOut : undefined;
-            resourceInputs["blockPushingSchema1"] = state ? state.blockPushingSchema1 : undefined;
-            resourceInputs["cdnRedirect"] = state ? state.cdnRedirect : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["downloadDirect"] = state ? state.downloadDirect : undefined;
-            resourceInputs["excludesPattern"] = state ? state.excludesPattern : undefined;
-            resourceInputs["includesPattern"] = state ? state.includesPattern : undefined;
-            resourceInputs["key"] = state ? state.key : undefined;
-            resourceInputs["maxUniqueTags"] = state ? state.maxUniqueTags : undefined;
-            resourceInputs["notes"] = state ? state.notes : undefined;
-            resourceInputs["priorityResolution"] = state ? state.priorityResolution : undefined;
-            resourceInputs["projectEnvironments"] = state ? state.projectEnvironments : undefined;
-            resourceInputs["projectKey"] = state ? state.projectKey : undefined;
-            resourceInputs["propertySets"] = state ? state.propertySets : undefined;
-            resourceInputs["repoLayoutRef"] = state ? state.repoLayoutRef : undefined;
-            resourceInputs["tagRetention"] = state ? state.tagRetention : undefined;
-            resourceInputs["xrayIndex"] = state ? state.xrayIndex : undefined;
+            resourceInputs["apiVersion"] = state?.apiVersion;
+            resourceInputs["archiveBrowsingEnabled"] = state?.archiveBrowsingEnabled;
+            resourceInputs["blackedOut"] = state?.blackedOut;
+            resourceInputs["blockPushingSchema1"] = state?.blockPushingSchema1;
+            resourceInputs["cdnRedirect"] = state?.cdnRedirect;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["downloadDirect"] = state?.downloadDirect;
+            resourceInputs["excludesPattern"] = state?.excludesPattern;
+            resourceInputs["includesPattern"] = state?.includesPattern;
+            resourceInputs["key"] = state?.key;
+            resourceInputs["maxUniqueTags"] = state?.maxUniqueTags;
+            resourceInputs["notes"] = state?.notes;
+            resourceInputs["priorityResolution"] = state?.priorityResolution;
+            resourceInputs["projectEnvironments"] = state?.projectEnvironments;
+            resourceInputs["projectKey"] = state?.projectKey;
+            resourceInputs["propertySets"] = state?.propertySets;
+            resourceInputs["repoLayoutRef"] = state?.repoLayoutRef;
+            resourceInputs["tagRetention"] = state?.tagRetention;
+            resourceInputs["xrayIndex"] = state?.xrayIndex;
         } else {
             const args = argsOrState as DockerV1RepositoryArgs | undefined;
-            if ((!args || args.key === undefined) && !opts.urn) {
+            if (args?.key === undefined && !opts.urn) {
                 throw new Error("Missing required property 'key'");
             }
-            resourceInputs["archiveBrowsingEnabled"] = args ? args.archiveBrowsingEnabled : undefined;
-            resourceInputs["blackedOut"] = args ? args.blackedOut : undefined;
-            resourceInputs["cdnRedirect"] = args ? args.cdnRedirect : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["downloadDirect"] = args ? args.downloadDirect : undefined;
-            resourceInputs["excludesPattern"] = args ? args.excludesPattern : undefined;
-            resourceInputs["includesPattern"] = args ? args.includesPattern : undefined;
-            resourceInputs["key"] = args ? args.key : undefined;
-            resourceInputs["notes"] = args ? args.notes : undefined;
-            resourceInputs["priorityResolution"] = args ? args.priorityResolution : undefined;
-            resourceInputs["projectEnvironments"] = args ? args.projectEnvironments : undefined;
-            resourceInputs["projectKey"] = args ? args.projectKey : undefined;
-            resourceInputs["propertySets"] = args ? args.propertySets : undefined;
-            resourceInputs["repoLayoutRef"] = args ? args.repoLayoutRef : undefined;
-            resourceInputs["xrayIndex"] = args ? args.xrayIndex : undefined;
+            resourceInputs["archiveBrowsingEnabled"] = args?.archiveBrowsingEnabled;
+            resourceInputs["blackedOut"] = args?.blackedOut;
+            resourceInputs["cdnRedirect"] = args?.cdnRedirect;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["downloadDirect"] = args?.downloadDirect;
+            resourceInputs["excludesPattern"] = args?.excludesPattern;
+            resourceInputs["includesPattern"] = args?.includesPattern;
+            resourceInputs["key"] = args?.key;
+            resourceInputs["notes"] = args?.notes;
+            resourceInputs["priorityResolution"] = args?.priorityResolution;
+            resourceInputs["projectEnvironments"] = args?.projectEnvironments;
+            resourceInputs["projectKey"] = args?.projectKey;
+            resourceInputs["propertySets"] = args?.propertySets;
+            resourceInputs["repoLayoutRef"] = args?.repoLayoutRef;
+            resourceInputs["xrayIndex"] = args?.xrayIndex;
             resourceInputs["apiVersion"] = undefined /*out*/;
             resourceInputs["blockPushingSchema1"] = undefined /*out*/;
             resourceInputs["maxUniqueTags"] = undefined /*out*/;
@@ -191,9 +183,8 @@ export class DockerV1Repository extends pulumi.CustomResource {
 export interface DockerV1RepositoryState {
     apiVersion?: pulumi.Input<string>;
     /**
-     * When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
-     * therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
-     * security (e.g., cross-site scripting attacks).
+     * When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+     * This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
      */
     archiveBrowsingEnabled?: pulumi.Input<boolean>;
     /**
@@ -202,8 +193,7 @@ export interface DockerV1RepositoryState {
     blackedOut?: pulumi.Input<boolean>;
     blockPushingSchema1?: pulumi.Input<boolean>;
     /**
-     * When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+     * When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
      */
     cdnRedirect?: pulumi.Input<boolean>;
     /**
@@ -211,18 +201,15 @@ export interface DockerV1RepositoryState {
      */
     description?: pulumi.Input<string>;
     /**
-     * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
-     * storage provider. Available in Enterprise+ and Edge licenses only.
+     * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
      */
     downloadDirect?: pulumi.Input<boolean>;
     /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no
-     * artifacts are excluded.
+     * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no artifacts are excluded.
      */
     excludesPattern?: pulumi.Input<string>;
     /**
-     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When
-     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
+     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
      */
     includesPattern?: pulumi.Input<string>;
     /**
@@ -240,8 +227,7 @@ export interface DockerV1RepositoryState {
     priorityResolution?: pulumi.Input<boolean>;
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-     * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+     * Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      */
     projectKey?: pulumi.Input<string>;
     /**
@@ -249,14 +235,12 @@ export interface DockerV1RepositoryState {
      */
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
-     * corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+     * Sets the layout that the repository should use for storing and identifying modules. A recommended layout that corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
      */
     repoLayoutRef?: pulumi.Input<string>;
     tagRetention?: pulumi.Input<number>;
     /**
-     * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-     * Xray settings.
+     * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
      */
     xrayIndex?: pulumi.Input<boolean>;
 }
@@ -266,9 +250,8 @@ export interface DockerV1RepositoryState {
  */
 export interface DockerV1RepositoryArgs {
     /**
-     * When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
-     * therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
-     * security (e.g., cross-site scripting attacks).
+     * When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+     * This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
      */
     archiveBrowsingEnabled?: pulumi.Input<boolean>;
     /**
@@ -276,8 +259,7 @@ export interface DockerV1RepositoryArgs {
      */
     blackedOut?: pulumi.Input<boolean>;
     /**
-     * When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+     * When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
      */
     cdnRedirect?: pulumi.Input<boolean>;
     /**
@@ -285,18 +267,15 @@ export interface DockerV1RepositoryArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
-     * storage provider. Available in Enterprise+ and Edge licenses only.
+     * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
      */
     downloadDirect?: pulumi.Input<boolean>;
     /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no
-     * artifacts are excluded.
+     * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no artifacts are excluded.
      */
     excludesPattern?: pulumi.Input<string>;
     /**
-     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When
-     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
+     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
      */
     includesPattern?: pulumi.Input<string>;
     /**
@@ -313,8 +292,7 @@ export interface DockerV1RepositoryArgs {
     priorityResolution?: pulumi.Input<boolean>;
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-     * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+     * Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      */
     projectKey?: pulumi.Input<string>;
     /**
@@ -322,13 +300,11 @@ export interface DockerV1RepositoryArgs {
      */
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
-     * corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+     * Sets the layout that the repository should use for storing and identifying modules. A recommended layout that corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
      */
     repoLayoutRef?: pulumi.Input<string>;
     /**
-     * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-     * Xray settings.
+     * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
      */
     xrayIndex?: pulumi.Input<boolean>;
 }

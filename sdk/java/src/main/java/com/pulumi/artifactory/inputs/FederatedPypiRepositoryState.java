@@ -19,18 +19,16 @@ public final class FederatedPypiRepositoryState extends com.pulumi.resources.Res
     public static final FederatedPypiRepositoryState Empty = new FederatedPypiRepositoryState();
 
     /**
-     * When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
-     * therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
-     * security (e.g., cross-site scripting attacks).
+     * When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+     * This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
      * 
      */
     @Import(name="archiveBrowsingEnabled")
     private @Nullable Output<Boolean> archiveBrowsingEnabled;
 
     /**
-     * @return When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
-     * therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
-     * security (e.g., cross-site scripting attacks).
+     * @return When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+     * This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
      * 
      */
     public Optional<Output<Boolean>> archiveBrowsingEnabled() {
@@ -53,16 +51,14 @@ public final class FederatedPypiRepositoryState extends com.pulumi.resources.Res
     }
 
     /**
-     * When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
+     * When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
      * 
      */
     @Import(name="cdnRedirect")
     private @Nullable Output<Boolean> cdnRedirect;
 
     /**
-     * @return When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
+     * @return When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
      * 
      */
     public Optional<Output<Boolean>> cdnRedirect() {
@@ -107,16 +103,14 @@ public final class FederatedPypiRepositoryState extends com.pulumi.resources.Res
     }
 
     /**
-     * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
-     * storage provider. Available in Enterprise+ and Edge licenses only.
+     * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
      * 
      */
     @Import(name="downloadDirect")
     private @Nullable Output<Boolean> downloadDirect;
 
     /**
-     * @return When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
-     * storage provider. Available in Enterprise+ and Edge licenses only.
+     * @return When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
      * 
      */
     public Optional<Output<Boolean>> downloadDirect() {
@@ -124,16 +118,14 @@ public final class FederatedPypiRepositoryState extends com.pulumi.resources.Res
     }
 
     /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no
-     * artifacts are excluded.
+     * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no artifacts are excluded.
      * 
      */
     @Import(name="excludesPattern")
     private @Nullable Output<String> excludesPattern;
 
     /**
-     * @return List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no
-     * artifacts are excluded.
+     * @return List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no artifacts are excluded.
      * 
      */
     public Optional<Output<String>> excludesPattern() {
@@ -141,16 +133,14 @@ public final class FederatedPypiRepositoryState extends com.pulumi.resources.Res
     }
 
     /**
-     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When
-     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
+     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
      * 
      */
     @Import(name="includesPattern")
     private @Nullable Output<String> includesPattern;
 
     /**
-     * @return List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When
-     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
+     * @return List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
      * 
      */
     public Optional<Output<String>> includesPattern() {
@@ -238,16 +228,14 @@ public final class FederatedPypiRepositoryState extends com.pulumi.resources.Res
     }
 
     /**
-     * Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-     * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+     * Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      * 
      */
     @Import(name="projectKey")
     private @Nullable Output<String> projectKey;
 
     /**
-     * @return Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-     * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+     * @return Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      * 
      */
     public Optional<Output<String>> projectKey() {
@@ -300,16 +288,14 @@ public final class FederatedPypiRepositoryState extends com.pulumi.resources.Res
     }
 
     /**
-     * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-     * Xray settings.
+     * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
      * 
      */
     @Import(name="xrayIndex")
     private @Nullable Output<Boolean> xrayIndex;
 
     /**
-     * @return Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-     * Xray settings.
+     * @return Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
      * 
      */
     public Optional<Output<Boolean>> xrayIndex() {
@@ -360,9 +346,8 @@ public final class FederatedPypiRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param archiveBrowsingEnabled When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
-         * therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
-         * security (e.g., cross-site scripting attacks).
+         * @param archiveBrowsingEnabled When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+         * This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
          * 
          * @return builder
          * 
@@ -373,9 +358,8 @@ public final class FederatedPypiRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param archiveBrowsingEnabled When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
-         * therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
-         * security (e.g., cross-site scripting attacks).
+         * @param archiveBrowsingEnabled When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+         * This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
          * 
          * @return builder
          * 
@@ -406,8 +390,7 @@ public final class FederatedPypiRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param cdnRedirect When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-         * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
+         * @param cdnRedirect When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
          * 
          * @return builder
          * 
@@ -418,8 +401,7 @@ public final class FederatedPypiRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param cdnRedirect When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-         * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
+         * @param cdnRedirect When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
          * 
          * @return builder
          * 
@@ -480,8 +462,7 @@ public final class FederatedPypiRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param downloadDirect When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
-         * storage provider. Available in Enterprise+ and Edge licenses only.
+         * @param downloadDirect When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
          * 
          * @return builder
          * 
@@ -492,8 +473,7 @@ public final class FederatedPypiRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param downloadDirect When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
-         * storage provider. Available in Enterprise+ and Edge licenses only.
+         * @param downloadDirect When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
          * 
          * @return builder
          * 
@@ -503,8 +483,7 @@ public final class FederatedPypiRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param excludesPattern List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no
-         * artifacts are excluded.
+         * @param excludesPattern List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no artifacts are excluded.
          * 
          * @return builder
          * 
@@ -515,8 +494,7 @@ public final class FederatedPypiRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param excludesPattern List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no
-         * artifacts are excluded.
+         * @param excludesPattern List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no artifacts are excluded.
          * 
          * @return builder
          * 
@@ -526,8 +504,7 @@ public final class FederatedPypiRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param includesPattern List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When
-         * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
+         * @param includesPattern List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
          * 
          * @return builder
          * 
@@ -538,8 +515,7 @@ public final class FederatedPypiRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param includesPattern List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When
-         * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
+         * @param includesPattern List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
          * 
          * @return builder
          * 
@@ -674,8 +650,7 @@ public final class FederatedPypiRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param projectKey Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-         * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+         * @param projectKey Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
          * 
          * @return builder
          * 
@@ -686,8 +661,7 @@ public final class FederatedPypiRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param projectKey Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-         * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+         * @param projectKey Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
          * 
          * @return builder
          * 
@@ -770,8 +744,7 @@ public final class FederatedPypiRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param xrayIndex Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-         * Xray settings.
+         * @param xrayIndex Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
          * 
          * @return builder
          * 
@@ -782,8 +755,7 @@ public final class FederatedPypiRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param xrayIndex Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-         * Xray settings.
+         * @param xrayIndex Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
          * 
          * @return builder
          * 

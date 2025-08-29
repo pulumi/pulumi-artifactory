@@ -62,7 +62,7 @@ export class ApiKey extends pulumi.CustomResource {
      *
      * @deprecated Deprecated in favor of "artifactory.ScopedToken".
      */
-    public /*out*/ readonly apiKey!: pulumi.Output<string>;
+    declare public /*out*/ readonly apiKey: pulumi.Output<string>;
 
     /**
      * Create a ApiKey resource with the given unique name, arguments, and options.
@@ -77,7 +77,7 @@ export class ApiKey extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ApiKeyState | undefined;
-            resourceInputs["apiKey"] = state ? state.apiKey : undefined;
+            resourceInputs["apiKey"] = state?.apiKey;
         } else {
             const args = argsOrState as ApiKeyArgs | undefined;
             resourceInputs["apiKey"] = undefined /*out*/;

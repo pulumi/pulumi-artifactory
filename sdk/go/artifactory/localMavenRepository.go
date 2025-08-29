@@ -56,14 +56,12 @@ import (
 type LocalMavenRepository struct {
 	pulumi.CustomResourceState
 
-	// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
-	// therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
-	// security (e.g., cross-site scripting attacks).
+	// When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+	// This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
 	ArchiveBrowsingEnabled pulumi.BoolOutput `pulumi:"archiveBrowsingEnabled"`
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 	BlackedOut pulumi.BoolOutput `pulumi:"blackedOut"`
-	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
 	CdnRedirect pulumi.BoolOutput `pulumi:"cdnRedirect"`
 	// Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are:
 	// - `client-checksums`
@@ -72,18 +70,15 @@ type LocalMavenRepository struct {
 	ChecksumPolicyType pulumi.StringOutput `pulumi:"checksumPolicyType"`
 	// Public description.
 	Description pulumi.StringOutput `pulumi:"description"`
-	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
-	// storage provider. Available in Enterprise+ and Edge licenses only.
+	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect pulumi.BoolOutput `pulumi:"downloadDirect"`
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
-	// artifacts are excluded.
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
 	ExcludesPattern pulumi.StringOutput `pulumi:"excludesPattern"`
 	// If set, Artifactory allows you to deploy release artifacts into this repository. Default is `true`.
 	HandleReleases pulumi.BoolOutput `pulumi:"handleReleases"`
 	// If set, Artifactory allows you to deploy snapshot artifacts into this repository. Default is `true`.
 	HandleSnapshots pulumi.BoolOutput `pulumi:"handleSnapshots"`
-	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
-	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 	IncludesPattern pulumi.StringOutput `pulumi:"includesPattern"`
 	// the identity key of the repo.
 	Key pulumi.StringOutput `pulumi:"key"`
@@ -96,13 +91,11 @@ type LocalMavenRepository struct {
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution  pulumi.BoolOutput        `pulumi:"priorityResolution"`
 	ProjectEnvironments pulumi.StringArrayOutput `pulumi:"projectEnvironments"`
-	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringOutput `pulumi:"projectKey"`
 	// List of property set name
 	PropertySets pulumi.StringArrayOutput `pulumi:"propertySets"`
-	// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
-	// corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+	// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
 	RepoLayoutRef pulumi.StringOutput `pulumi:"repoLayoutRef"`
 	// Specifies the naming convention for Maven SNAPSHOT versions.
 	// The options are -
@@ -111,8 +104,7 @@ type LocalMavenRepository struct {
 	// If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error.
 	// You can disable this behavior by setting the Suppress POM Consistency Checks checkbox. False by default for Maven repository.
 	SuppressPomConsistencyChecks pulumi.BoolOutput `pulumi:"suppressPomConsistencyChecks"`
-	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-	// Xray settings.
+	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
 	XrayIndex pulumi.BoolOutput `pulumi:"xrayIndex"`
 }
 
@@ -149,14 +141,12 @@ func GetLocalMavenRepository(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LocalMavenRepository resources.
 type localMavenRepositoryState struct {
-	// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
-	// therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
-	// security (e.g., cross-site scripting attacks).
+	// When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+	// This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
 	ArchiveBrowsingEnabled *bool `pulumi:"archiveBrowsingEnabled"`
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 	BlackedOut *bool `pulumi:"blackedOut"`
-	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
 	CdnRedirect *bool `pulumi:"cdnRedirect"`
 	// Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are:
 	// - `client-checksums`
@@ -165,18 +155,15 @@ type localMavenRepositoryState struct {
 	ChecksumPolicyType *string `pulumi:"checksumPolicyType"`
 	// Public description.
 	Description *string `pulumi:"description"`
-	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
-	// storage provider. Available in Enterprise+ and Edge licenses only.
+	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect *bool `pulumi:"downloadDirect"`
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
-	// artifacts are excluded.
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
 	// If set, Artifactory allows you to deploy release artifacts into this repository. Default is `true`.
 	HandleReleases *bool `pulumi:"handleReleases"`
 	// If set, Artifactory allows you to deploy snapshot artifacts into this repository. Default is `true`.
 	HandleSnapshots *bool `pulumi:"handleSnapshots"`
-	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
-	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 	IncludesPattern *string `pulumi:"includesPattern"`
 	// the identity key of the repo.
 	Key *string `pulumi:"key"`
@@ -189,13 +176,11 @@ type localMavenRepositoryState struct {
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution  *bool    `pulumi:"priorityResolution"`
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
-	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey *string `pulumi:"projectKey"`
 	// List of property set name
 	PropertySets []string `pulumi:"propertySets"`
-	// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
-	// corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+	// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
 	// Specifies the naming convention for Maven SNAPSHOT versions.
 	// The options are -
@@ -204,20 +189,17 @@ type localMavenRepositoryState struct {
 	// If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error.
 	// You can disable this behavior by setting the Suppress POM Consistency Checks checkbox. False by default for Maven repository.
 	SuppressPomConsistencyChecks *bool `pulumi:"suppressPomConsistencyChecks"`
-	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-	// Xray settings.
+	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
 	XrayIndex *bool `pulumi:"xrayIndex"`
 }
 
 type LocalMavenRepositoryState struct {
-	// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
-	// therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
-	// security (e.g., cross-site scripting attacks).
+	// When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+	// This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
 	ArchiveBrowsingEnabled pulumi.BoolPtrInput
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 	BlackedOut pulumi.BoolPtrInput
-	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
 	CdnRedirect pulumi.BoolPtrInput
 	// Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are:
 	// - `client-checksums`
@@ -226,18 +208,15 @@ type LocalMavenRepositoryState struct {
 	ChecksumPolicyType pulumi.StringPtrInput
 	// Public description.
 	Description pulumi.StringPtrInput
-	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
-	// storage provider. Available in Enterprise+ and Edge licenses only.
+	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect pulumi.BoolPtrInput
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
-	// artifacts are excluded.
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
 	// If set, Artifactory allows you to deploy release artifacts into this repository. Default is `true`.
 	HandleReleases pulumi.BoolPtrInput
 	// If set, Artifactory allows you to deploy snapshot artifacts into this repository. Default is `true`.
 	HandleSnapshots pulumi.BoolPtrInput
-	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
-	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 	IncludesPattern pulumi.StringPtrInput
 	// the identity key of the repo.
 	Key pulumi.StringPtrInput
@@ -250,13 +229,11 @@ type LocalMavenRepositoryState struct {
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution  pulumi.BoolPtrInput
 	ProjectEnvironments pulumi.StringArrayInput
-	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrInput
 	// List of property set name
 	PropertySets pulumi.StringArrayInput
-	// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
-	// corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+	// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
 	RepoLayoutRef pulumi.StringPtrInput
 	// Specifies the naming convention for Maven SNAPSHOT versions.
 	// The options are -
@@ -265,8 +242,7 @@ type LocalMavenRepositoryState struct {
 	// If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error.
 	// You can disable this behavior by setting the Suppress POM Consistency Checks checkbox. False by default for Maven repository.
 	SuppressPomConsistencyChecks pulumi.BoolPtrInput
-	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-	// Xray settings.
+	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
 	XrayIndex pulumi.BoolPtrInput
 }
 
@@ -275,14 +251,12 @@ func (LocalMavenRepositoryState) ElementType() reflect.Type {
 }
 
 type localMavenRepositoryArgs struct {
-	// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
-	// therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
-	// security (e.g., cross-site scripting attacks).
+	// When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+	// This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
 	ArchiveBrowsingEnabled *bool `pulumi:"archiveBrowsingEnabled"`
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 	BlackedOut *bool `pulumi:"blackedOut"`
-	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
 	CdnRedirect *bool `pulumi:"cdnRedirect"`
 	// Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are:
 	// - `client-checksums`
@@ -291,18 +265,15 @@ type localMavenRepositoryArgs struct {
 	ChecksumPolicyType *string `pulumi:"checksumPolicyType"`
 	// Public description.
 	Description *string `pulumi:"description"`
-	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
-	// storage provider. Available in Enterprise+ and Edge licenses only.
+	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect *bool `pulumi:"downloadDirect"`
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
-	// artifacts are excluded.
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
 	// If set, Artifactory allows you to deploy release artifacts into this repository. Default is `true`.
 	HandleReleases *bool `pulumi:"handleReleases"`
 	// If set, Artifactory allows you to deploy snapshot artifacts into this repository. Default is `true`.
 	HandleSnapshots *bool `pulumi:"handleSnapshots"`
-	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
-	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 	IncludesPattern *string `pulumi:"includesPattern"`
 	// the identity key of the repo.
 	Key string `pulumi:"key"`
@@ -315,13 +286,11 @@ type localMavenRepositoryArgs struct {
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution  *bool    `pulumi:"priorityResolution"`
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
-	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey *string `pulumi:"projectKey"`
 	// List of property set name
 	PropertySets []string `pulumi:"propertySets"`
-	// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
-	// corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+	// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
 	// Specifies the naming convention for Maven SNAPSHOT versions.
 	// The options are -
@@ -330,21 +299,18 @@ type localMavenRepositoryArgs struct {
 	// If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error.
 	// You can disable this behavior by setting the Suppress POM Consistency Checks checkbox. False by default for Maven repository.
 	SuppressPomConsistencyChecks *bool `pulumi:"suppressPomConsistencyChecks"`
-	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-	// Xray settings.
+	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
 	XrayIndex *bool `pulumi:"xrayIndex"`
 }
 
 // The set of arguments for constructing a LocalMavenRepository resource.
 type LocalMavenRepositoryArgs struct {
-	// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
-	// therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
-	// security (e.g., cross-site scripting attacks).
+	// When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+	// This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
 	ArchiveBrowsingEnabled pulumi.BoolPtrInput
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 	BlackedOut pulumi.BoolPtrInput
-	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
 	CdnRedirect pulumi.BoolPtrInput
 	// Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are:
 	// - `client-checksums`
@@ -353,18 +319,15 @@ type LocalMavenRepositoryArgs struct {
 	ChecksumPolicyType pulumi.StringPtrInput
 	// Public description.
 	Description pulumi.StringPtrInput
-	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
-	// storage provider. Available in Enterprise+ and Edge licenses only.
+	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect pulumi.BoolPtrInput
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
-	// artifacts are excluded.
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
 	// If set, Artifactory allows you to deploy release artifacts into this repository. Default is `true`.
 	HandleReleases pulumi.BoolPtrInput
 	// If set, Artifactory allows you to deploy snapshot artifacts into this repository. Default is `true`.
 	HandleSnapshots pulumi.BoolPtrInput
-	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
-	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 	IncludesPattern pulumi.StringPtrInput
 	// the identity key of the repo.
 	Key pulumi.StringInput
@@ -377,13 +340,11 @@ type LocalMavenRepositoryArgs struct {
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution  pulumi.BoolPtrInput
 	ProjectEnvironments pulumi.StringArrayInput
-	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+	// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrInput
 	// List of property set name
 	PropertySets pulumi.StringArrayInput
-	// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
-	// corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+	// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
 	RepoLayoutRef pulumi.StringPtrInput
 	// Specifies the naming convention for Maven SNAPSHOT versions.
 	// The options are -
@@ -392,8 +353,7 @@ type LocalMavenRepositoryArgs struct {
 	// If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error.
 	// You can disable this behavior by setting the Suppress POM Consistency Checks checkbox. False by default for Maven repository.
 	SuppressPomConsistencyChecks pulumi.BoolPtrInput
-	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-	// Xray settings.
+	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
 	XrayIndex pulumi.BoolPtrInput
 }
 
@@ -484,9 +444,8 @@ func (o LocalMavenRepositoryOutput) ToLocalMavenRepositoryOutputWithContext(ctx 
 	return o
 }
 
-// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
-// therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
-// security (e.g., cross-site scripting attacks).
+// When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+// This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
 func (o LocalMavenRepositoryOutput) ArchiveBrowsingEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *LocalMavenRepository) pulumi.BoolOutput { return v.ArchiveBrowsingEnabled }).(pulumi.BoolOutput)
 }
@@ -496,8 +455,7 @@ func (o LocalMavenRepositoryOutput) BlackedOut() pulumi.BoolOutput {
 	return o.ApplyT(func(v *LocalMavenRepository) pulumi.BoolOutput { return v.BlackedOut }).(pulumi.BoolOutput)
 }
 
-// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+// When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
 func (o LocalMavenRepositoryOutput) CdnRedirect() pulumi.BoolOutput {
 	return o.ApplyT(func(v *LocalMavenRepository) pulumi.BoolOutput { return v.CdnRedirect }).(pulumi.BoolOutput)
 }
@@ -515,14 +473,12 @@ func (o LocalMavenRepositoryOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocalMavenRepository) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
-// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
-// storage provider. Available in Enterprise+ and Edge licenses only.
+// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
 func (o LocalMavenRepositoryOutput) DownloadDirect() pulumi.BoolOutput {
 	return o.ApplyT(func(v *LocalMavenRepository) pulumi.BoolOutput { return v.DownloadDirect }).(pulumi.BoolOutput)
 }
 
-// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
-// artifacts are excluded.
+// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
 func (o LocalMavenRepositoryOutput) ExcludesPattern() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocalMavenRepository) pulumi.StringOutput { return v.ExcludesPattern }).(pulumi.StringOutput)
 }
@@ -537,8 +493,7 @@ func (o LocalMavenRepositoryOutput) HandleSnapshots() pulumi.BoolOutput {
 	return o.ApplyT(func(v *LocalMavenRepository) pulumi.BoolOutput { return v.HandleSnapshots }).(pulumi.BoolOutput)
 }
 
-// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
-// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
 func (o LocalMavenRepositoryOutput) IncludesPattern() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocalMavenRepository) pulumi.StringOutput { return v.IncludesPattern }).(pulumi.StringOutput)
 }
@@ -569,8 +524,7 @@ func (o LocalMavenRepositoryOutput) ProjectEnvironments() pulumi.StringArrayOutp
 	return o.ApplyT(func(v *LocalMavenRepository) pulumi.StringArrayOutput { return v.ProjectEnvironments }).(pulumi.StringArrayOutput)
 }
 
-// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+// Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 func (o LocalMavenRepositoryOutput) ProjectKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocalMavenRepository) pulumi.StringOutput { return v.ProjectKey }).(pulumi.StringOutput)
 }
@@ -580,8 +534,7 @@ func (o LocalMavenRepositoryOutput) PropertySets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LocalMavenRepository) pulumi.StringArrayOutput { return v.PropertySets }).(pulumi.StringArrayOutput)
 }
 
-// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
-// corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
 func (o LocalMavenRepositoryOutput) RepoLayoutRef() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocalMavenRepository) pulumi.StringOutput { return v.RepoLayoutRef }).(pulumi.StringOutput)
 }
@@ -599,8 +552,7 @@ func (o LocalMavenRepositoryOutput) SuppressPomConsistencyChecks() pulumi.BoolOu
 	return o.ApplyT(func(v *LocalMavenRepository) pulumi.BoolOutput { return v.SuppressPomConsistencyChecks }).(pulumi.BoolOutput)
 }
 
-// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-// Xray settings.
+// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
 func (o LocalMavenRepositoryOutput) XrayIndex() pulumi.BoolOutput {
 	return o.ApplyT(func(v *LocalMavenRepository) pulumi.BoolOutput { return v.XrayIndex }).(pulumi.BoolOutput)
 }

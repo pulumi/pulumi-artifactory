@@ -101,15 +101,15 @@ export class PropertySet extends pulumi.CustomResource {
     /**
      * Property set name.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A list of properties that will be part of the property set.
      */
-    public readonly properties!: pulumi.Output<outputs.PropertySetProperty[] | undefined>;
+    declare public readonly properties: pulumi.Output<outputs.PropertySetProperty[] | undefined>;
     /**
      * Defines if the list visible and assignable to the repository or artifact. Default value is `true`.
      */
-    public readonly visible!: pulumi.Output<boolean>;
+    declare public readonly visible: pulumi.Output<boolean>;
 
     /**
      * Create a PropertySet resource with the given unique name, arguments, and options.
@@ -124,14 +124,14 @@ export class PropertySet extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PropertySetState | undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["properties"] = state ? state.properties : undefined;
-            resourceInputs["visible"] = state ? state.visible : undefined;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["properties"] = state?.properties;
+            resourceInputs["visible"] = state?.visible;
         } else {
             const args = argsOrState as PropertySetArgs | undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
-            resourceInputs["visible"] = args ? args.visible : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["properties"] = args?.properties;
+            resourceInputs["visible"] = args?.visible;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(PropertySet.__pulumiType, name, resourceInputs, opts);

@@ -94,19 +94,19 @@ export class LocalRepositoryMultiReplication extends pulumi.CustomResource {
     /**
      * A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
      */
-    public readonly cronExp!: pulumi.Output<string>;
+    declare public readonly cronExp: pulumi.Output<string>;
     /**
      * When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
      */
-    public readonly enableEventReplication!: pulumi.Output<boolean>;
+    declare public readonly enableEventReplication: pulumi.Output<boolean>;
     /**
      * List of replications minimum 1 element.
      */
-    public readonly replications!: pulumi.Output<outputs.LocalRepositoryMultiReplicationReplication[] | undefined>;
+    declare public readonly replications: pulumi.Output<outputs.LocalRepositoryMultiReplicationReplication[] | undefined>;
     /**
      * Repository name.
      */
-    public readonly repoKey!: pulumi.Output<string>;
+    declare public readonly repoKey: pulumi.Output<string>;
 
     /**
      * Create a LocalRepositoryMultiReplication resource with the given unique name, arguments, and options.
@@ -121,22 +121,22 @@ export class LocalRepositoryMultiReplication extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LocalRepositoryMultiReplicationState | undefined;
-            resourceInputs["cronExp"] = state ? state.cronExp : undefined;
-            resourceInputs["enableEventReplication"] = state ? state.enableEventReplication : undefined;
-            resourceInputs["replications"] = state ? state.replications : undefined;
-            resourceInputs["repoKey"] = state ? state.repoKey : undefined;
+            resourceInputs["cronExp"] = state?.cronExp;
+            resourceInputs["enableEventReplication"] = state?.enableEventReplication;
+            resourceInputs["replications"] = state?.replications;
+            resourceInputs["repoKey"] = state?.repoKey;
         } else {
             const args = argsOrState as LocalRepositoryMultiReplicationArgs | undefined;
-            if ((!args || args.cronExp === undefined) && !opts.urn) {
+            if (args?.cronExp === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cronExp'");
             }
-            if ((!args || args.repoKey === undefined) && !opts.urn) {
+            if (args?.repoKey === undefined && !opts.urn) {
                 throw new Error("Missing required property 'repoKey'");
             }
-            resourceInputs["cronExp"] = args ? args.cronExp : undefined;
-            resourceInputs["enableEventReplication"] = args ? args.enableEventReplication : undefined;
-            resourceInputs["replications"] = args ? args.replications : undefined;
-            resourceInputs["repoKey"] = args ? args.repoKey : undefined;
+            resourceInputs["cronExp"] = args?.cronExp;
+            resourceInputs["enableEventReplication"] = args?.enableEventReplication;
+            resourceInputs["replications"] = args?.replications;
+            resourceInputs["repoKey"] = args?.repoKey;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LocalRepositoryMultiReplication.__pulumiType, name, resourceInputs, opts);

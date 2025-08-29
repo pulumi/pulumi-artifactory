@@ -48,25 +48,25 @@ export class ReleaseBundleV2CleanupPolicy extends pulumi.CustomResource {
     /**
      * The cron expression determines when the policy is run. This parameter is not mandatory, however if left empty the policy will not run automatically and can only be triggered manually.
      */
-    public readonly cronExpression!: pulumi.Output<string | undefined>;
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly cronExpression: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The maximum duration (in minutes) for policy execution, after which the policy will stop running even if not completed. While setting a maximum run duration for a policy is useful for adhering to a strict archive V2 schedule, it can cause the policy to stop before completion.
      */
-    public readonly durationInMinutes!: pulumi.Output<number | undefined>;
+    declare public readonly durationInMinutes: pulumi.Output<number | undefined>;
     /**
      * Enables or disabled the release bundles v2 cleanup policy. This allows the user to run the policy manually. If a policy has a valid cron expression, then it will be scheduled for execution based on it. If a policy is disabled, its future executions will be unscheduled. Defaults to `true`
      */
-    public readonly enabled!: pulumi.Output<boolean>;
+    declare public readonly enabled: pulumi.Output<boolean>;
     /**
      * Needs to be set to releaseBundle.
      */
-    public readonly itemType!: pulumi.Output<string>;
+    declare public readonly itemType: pulumi.Output<string>;
     /**
      * An ID that is used to identify the cleanup policy. A minimum of three characters is required and can include letters, numbers, underscore and hyphen.
      */
-    public readonly key!: pulumi.Output<string>;
-    public readonly searchCriteria!: pulumi.Output<outputs.ReleaseBundleV2CleanupPolicySearchCriteria>;
+    declare public readonly key: pulumi.Output<string>;
+    declare public readonly searchCriteria: pulumi.Output<outputs.ReleaseBundleV2CleanupPolicySearchCriteria>;
 
     /**
      * Create a ReleaseBundleV2CleanupPolicy resource with the given unique name, arguments, and options.
@@ -81,28 +81,28 @@ export class ReleaseBundleV2CleanupPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ReleaseBundleV2CleanupPolicyState | undefined;
-            resourceInputs["cronExpression"] = state ? state.cronExpression : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["durationInMinutes"] = state ? state.durationInMinutes : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["itemType"] = state ? state.itemType : undefined;
-            resourceInputs["key"] = state ? state.key : undefined;
-            resourceInputs["searchCriteria"] = state ? state.searchCriteria : undefined;
+            resourceInputs["cronExpression"] = state?.cronExpression;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["durationInMinutes"] = state?.durationInMinutes;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["itemType"] = state?.itemType;
+            resourceInputs["key"] = state?.key;
+            resourceInputs["searchCriteria"] = state?.searchCriteria;
         } else {
             const args = argsOrState as ReleaseBundleV2CleanupPolicyArgs | undefined;
-            if ((!args || args.key === undefined) && !opts.urn) {
+            if (args?.key === undefined && !opts.urn) {
                 throw new Error("Missing required property 'key'");
             }
-            if ((!args || args.searchCriteria === undefined) && !opts.urn) {
+            if (args?.searchCriteria === undefined && !opts.urn) {
                 throw new Error("Missing required property 'searchCriteria'");
             }
-            resourceInputs["cronExpression"] = args ? args.cronExpression : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["durationInMinutes"] = args ? args.durationInMinutes : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["itemType"] = args ? args.itemType : undefined;
-            resourceInputs["key"] = args ? args.key : undefined;
-            resourceInputs["searchCriteria"] = args ? args.searchCriteria : undefined;
+            resourceInputs["cronExpression"] = args?.cronExpression;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["durationInMinutes"] = args?.durationInMinutes;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["itemType"] = args?.itemType;
+            resourceInputs["key"] = args?.key;
+            resourceInputs["searchCriteria"] = args?.searchCriteria;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ReleaseBundleV2CleanupPolicy.__pulumiType, name, resourceInputs, opts);

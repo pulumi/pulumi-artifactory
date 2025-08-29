@@ -49,32 +49,25 @@ class FederatedOciRepositoryArgs:
                `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
                Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
                to set up Federated repositories correctly.
-        :param pulumi.Input[_builtins.bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
-               therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
-               security (e.g., cross-site scripting attacks).
+        :param pulumi.Input[_builtins.bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+               This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
         :param pulumi.Input[_builtins.bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
-        :param pulumi.Input[_builtins.bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-               CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        :param pulumi.Input[_builtins.bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[_builtins.str] description: Public description.
         :param pulumi.Input[_builtins.bool] disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
-        :param pulumi.Input[_builtins.bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
-               storage provider. Available in Enterprise+ and Edge licenses only.
-        :param pulumi.Input[_builtins.str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
-               artifacts are excluded.
-        :param pulumi.Input[_builtins.str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
-               used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
-        :param pulumi.Input[_builtins.int] max_unique_tags: The maximum number of unique tags of a single OCI image to store in this repository. Once the number tags for an image
-               exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit.
+        :param pulumi.Input[_builtins.bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
+        :param pulumi.Input[_builtins.str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+        :param pulumi.Input[_builtins.str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        :param pulumi.Input[_builtins.int] max_unique_tags: The maximum number of unique tags of a single OCI image to store in this repository.
+               Once the number tags for an image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit.
         :param pulumi.Input[_builtins.str] notes: Internal description.
         :param pulumi.Input[_builtins.bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
-        :param pulumi.Input[_builtins.str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-               assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+        :param pulumi.Input[_builtins.str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] property_sets: List of property set name
         :param pulumi.Input[_builtins.str] proxy: Proxy key from Artifactory Proxies settings. Default is empty field. Can't be set if `disable_proxy = true`.
         :param pulumi.Input[_builtins.str] repo_layout_ref: Repository layout key for the federated repository
         :param pulumi.Input[_builtins.int] tag_retention: If greater than 1, overwritten tags will be saved by their digest, up to the set up number.
-        :param pulumi.Input[_builtins.bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-               Xray settings.
+        :param pulumi.Input[_builtins.bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "members", members)
@@ -148,9 +141,8 @@ class FederatedOciRepositoryArgs:
     @pulumi.getter(name="archiveBrowsingEnabled")
     def archive_browsing_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
-        therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
-        security (e.g., cross-site scripting attacks).
+        When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+        This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
         """
         return pulumi.get(self, "archive_browsing_enabled")
 
@@ -174,8 +166,7 @@ class FederatedOciRepositoryArgs:
     @pulumi.getter(name="cdnRedirect")
     def cdn_redirect(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-        CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         """
         return pulumi.get(self, "cdn_redirect")
 
@@ -220,8 +211,7 @@ class FederatedOciRepositoryArgs:
     @pulumi.getter(name="downloadDirect")
     def download_direct(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
-        storage provider. Available in Enterprise+ and Edge licenses only.
+        When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
         """
         return pulumi.get(self, "download_direct")
 
@@ -233,8 +223,7 @@ class FederatedOciRepositoryArgs:
     @pulumi.getter(name="excludesPattern")
     def excludes_pattern(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
-        artifacts are excluded.
+        List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
         """
         return pulumi.get(self, "excludes_pattern")
 
@@ -246,8 +235,7 @@ class FederatedOciRepositoryArgs:
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
-        used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         """
         return pulumi.get(self, "includes_pattern")
 
@@ -259,8 +247,8 @@ class FederatedOciRepositoryArgs:
     @pulumi.getter(name="maxUniqueTags")
     def max_unique_tags(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        The maximum number of unique tags of a single OCI image to store in this repository. Once the number tags for an image
-        exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit.
+        The maximum number of unique tags of a single OCI image to store in this repository.
+        Once the number tags for an image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit.
         """
         return pulumi.get(self, "max_unique_tags")
 
@@ -305,8 +293,7 @@ class FederatedOciRepositoryArgs:
     @pulumi.getter(name="projectKey")
     def project_key(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-        assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+        Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         """
         return pulumi.get(self, "project_key")
 
@@ -366,8 +353,7 @@ class FederatedOciRepositoryArgs:
     @pulumi.getter(name="xrayIndex")
     def xray_index(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-        Xray settings.
+        Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
         """
         return pulumi.get(self, "xray_index")
 
@@ -403,37 +389,30 @@ class _FederatedOciRepositoryState:
                  xray_index: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering FederatedOciRepository resources.
-        :param pulumi.Input[_builtins.bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
-               therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
-               security (e.g., cross-site scripting attacks).
+        :param pulumi.Input[_builtins.bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+               This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
         :param pulumi.Input[_builtins.bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
-        :param pulumi.Input[_builtins.bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-               CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        :param pulumi.Input[_builtins.bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[_builtins.str] description: Public description.
         :param pulumi.Input[_builtins.bool] disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
-        :param pulumi.Input[_builtins.bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
-               storage provider. Available in Enterprise+ and Edge licenses only.
-        :param pulumi.Input[_builtins.str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
-               artifacts are excluded.
-        :param pulumi.Input[_builtins.str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
-               used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        :param pulumi.Input[_builtins.bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
+        :param pulumi.Input[_builtins.str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+        :param pulumi.Input[_builtins.str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         :param pulumi.Input[_builtins.str] key: the identity key of the repo.
-        :param pulumi.Input[_builtins.int] max_unique_tags: The maximum number of unique tags of a single OCI image to store in this repository. Once the number tags for an image
-               exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit.
+        :param pulumi.Input[_builtins.int] max_unique_tags: The maximum number of unique tags of a single OCI image to store in this repository.
+               Once the number tags for an image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit.
         :param pulumi.Input[Sequence[pulumi.Input['FederatedOciRepositoryMemberArgs']]] members: The list of Federated members and must contain this repository URL (configured base URL
                `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
                Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
                to set up Federated repositories correctly.
         :param pulumi.Input[_builtins.str] notes: Internal description.
         :param pulumi.Input[_builtins.bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
-        :param pulumi.Input[_builtins.str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-               assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+        :param pulumi.Input[_builtins.str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] property_sets: List of property set name
         :param pulumi.Input[_builtins.str] proxy: Proxy key from Artifactory Proxies settings. Default is empty field. Can't be set if `disable_proxy = true`.
         :param pulumi.Input[_builtins.str] repo_layout_ref: Repository layout key for the federated repository
         :param pulumi.Input[_builtins.int] tag_retention: If greater than 1, overwritten tags will be saved by their digest, up to the set up number.
-        :param pulumi.Input[_builtins.bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-               Xray settings.
+        :param pulumi.Input[_builtins.bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
         """
         if archive_browsing_enabled is not None:
             pulumi.set(__self__, "archive_browsing_enabled", archive_browsing_enabled)
@@ -484,9 +463,8 @@ class _FederatedOciRepositoryState:
     @pulumi.getter(name="archiveBrowsingEnabled")
     def archive_browsing_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
-        therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
-        security (e.g., cross-site scripting attacks).
+        When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+        This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
         """
         return pulumi.get(self, "archive_browsing_enabled")
 
@@ -510,8 +488,7 @@ class _FederatedOciRepositoryState:
     @pulumi.getter(name="cdnRedirect")
     def cdn_redirect(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-        CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         """
         return pulumi.get(self, "cdn_redirect")
 
@@ -556,8 +533,7 @@ class _FederatedOciRepositoryState:
     @pulumi.getter(name="downloadDirect")
     def download_direct(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
-        storage provider. Available in Enterprise+ and Edge licenses only.
+        When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
         """
         return pulumi.get(self, "download_direct")
 
@@ -569,8 +545,7 @@ class _FederatedOciRepositoryState:
     @pulumi.getter(name="excludesPattern")
     def excludes_pattern(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
-        artifacts are excluded.
+        List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
         """
         return pulumi.get(self, "excludes_pattern")
 
@@ -582,8 +557,7 @@ class _FederatedOciRepositoryState:
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
-        used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         """
         return pulumi.get(self, "includes_pattern")
 
@@ -607,8 +581,8 @@ class _FederatedOciRepositoryState:
     @pulumi.getter(name="maxUniqueTags")
     def max_unique_tags(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        The maximum number of unique tags of a single OCI image to store in this repository. Once the number tags for an image
-        exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit.
+        The maximum number of unique tags of a single OCI image to store in this repository.
+        Once the number tags for an image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit.
         """
         return pulumi.get(self, "max_unique_tags")
 
@@ -677,8 +651,7 @@ class _FederatedOciRepositoryState:
     @pulumi.getter(name="projectKey")
     def project_key(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-        assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+        Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         """
         return pulumi.get(self, "project_key")
 
@@ -738,8 +711,7 @@ class _FederatedOciRepositoryState:
     @pulumi.getter(name="xrayIndex")
     def xray_index(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-        Xray settings.
+        Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
         """
         return pulumi.get(self, "xray_index")
 
@@ -809,37 +781,30 @@ class FederatedOciRepository(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
-               therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
-               security (e.g., cross-site scripting attacks).
+        :param pulumi.Input[_builtins.bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+               This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
         :param pulumi.Input[_builtins.bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
-        :param pulumi.Input[_builtins.bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-               CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        :param pulumi.Input[_builtins.bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[_builtins.str] description: Public description.
         :param pulumi.Input[_builtins.bool] disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
-        :param pulumi.Input[_builtins.bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
-               storage provider. Available in Enterprise+ and Edge licenses only.
-        :param pulumi.Input[_builtins.str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
-               artifacts are excluded.
-        :param pulumi.Input[_builtins.str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
-               used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        :param pulumi.Input[_builtins.bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
+        :param pulumi.Input[_builtins.str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+        :param pulumi.Input[_builtins.str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         :param pulumi.Input[_builtins.str] key: the identity key of the repo.
-        :param pulumi.Input[_builtins.int] max_unique_tags: The maximum number of unique tags of a single OCI image to store in this repository. Once the number tags for an image
-               exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit.
+        :param pulumi.Input[_builtins.int] max_unique_tags: The maximum number of unique tags of a single OCI image to store in this repository.
+               Once the number tags for an image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit.
         :param pulumi.Input[Sequence[pulumi.Input[Union['FederatedOciRepositoryMemberArgs', 'FederatedOciRepositoryMemberArgsDict']]]] members: The list of Federated members and must contain this repository URL (configured base URL
                `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
                Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
                to set up Federated repositories correctly.
         :param pulumi.Input[_builtins.str] notes: Internal description.
         :param pulumi.Input[_builtins.bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
-        :param pulumi.Input[_builtins.str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-               assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+        :param pulumi.Input[_builtins.str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] property_sets: List of property set name
         :param pulumi.Input[_builtins.str] proxy: Proxy key from Artifactory Proxies settings. Default is empty field. Can't be set if `disable_proxy = true`.
         :param pulumi.Input[_builtins.str] repo_layout_ref: Repository layout key for the federated repository
         :param pulumi.Input[_builtins.int] tag_retention: If greater than 1, overwritten tags will be saved by their digest, up to the set up number.
-        :param pulumi.Input[_builtins.bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-               Xray settings.
+        :param pulumi.Input[_builtins.bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
         """
         ...
     @overload
@@ -988,37 +953,30 @@ class FederatedOciRepository(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
-               therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
-               security (e.g., cross-site scripting attacks).
+        :param pulumi.Input[_builtins.bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+               This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
         :param pulumi.Input[_builtins.bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
-        :param pulumi.Input[_builtins.bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-               CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        :param pulumi.Input[_builtins.bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[_builtins.str] description: Public description.
         :param pulumi.Input[_builtins.bool] disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
-        :param pulumi.Input[_builtins.bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
-               storage provider. Available in Enterprise+ and Edge licenses only.
-        :param pulumi.Input[_builtins.str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
-               artifacts are excluded.
-        :param pulumi.Input[_builtins.str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
-               used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        :param pulumi.Input[_builtins.bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
+        :param pulumi.Input[_builtins.str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
+        :param pulumi.Input[_builtins.str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         :param pulumi.Input[_builtins.str] key: the identity key of the repo.
-        :param pulumi.Input[_builtins.int] max_unique_tags: The maximum number of unique tags of a single OCI image to store in this repository. Once the number tags for an image
-               exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit.
+        :param pulumi.Input[_builtins.int] max_unique_tags: The maximum number of unique tags of a single OCI image to store in this repository.
+               Once the number tags for an image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit.
         :param pulumi.Input[Sequence[pulumi.Input[Union['FederatedOciRepositoryMemberArgs', 'FederatedOciRepositoryMemberArgsDict']]]] members: The list of Federated members and must contain this repository URL (configured base URL
                `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
                Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
                to set up Federated repositories correctly.
         :param pulumi.Input[_builtins.str] notes: Internal description.
         :param pulumi.Input[_builtins.bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
-        :param pulumi.Input[_builtins.str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-               assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+        :param pulumi.Input[_builtins.str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] property_sets: List of property set name
         :param pulumi.Input[_builtins.str] proxy: Proxy key from Artifactory Proxies settings. Default is empty field. Can't be set if `disable_proxy = true`.
         :param pulumi.Input[_builtins.str] repo_layout_ref: Repository layout key for the federated repository
         :param pulumi.Input[_builtins.int] tag_retention: If greater than 1, overwritten tags will be saved by their digest, up to the set up number.
-        :param pulumi.Input[_builtins.bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-               Xray settings.
+        :param pulumi.Input[_builtins.bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1052,9 +1010,8 @@ class FederatedOciRepository(pulumi.CustomResource):
     @pulumi.getter(name="archiveBrowsingEnabled")
     def archive_browsing_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
-        therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
-        security (e.g., cross-site scripting attacks).
+        When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+        This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
         """
         return pulumi.get(self, "archive_browsing_enabled")
 
@@ -1070,8 +1027,7 @@ class FederatedOciRepository(pulumi.CustomResource):
     @pulumi.getter(name="cdnRedirect")
     def cdn_redirect(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-        CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         """
         return pulumi.get(self, "cdn_redirect")
 
@@ -1100,8 +1056,7 @@ class FederatedOciRepository(pulumi.CustomResource):
     @pulumi.getter(name="downloadDirect")
     def download_direct(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
-        storage provider. Available in Enterprise+ and Edge licenses only.
+        When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
         """
         return pulumi.get(self, "download_direct")
 
@@ -1109,8 +1064,7 @@ class FederatedOciRepository(pulumi.CustomResource):
     @pulumi.getter(name="excludesPattern")
     def excludes_pattern(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
-        artifacts are excluded.
+        List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
         """
         return pulumi.get(self, "excludes_pattern")
 
@@ -1118,8 +1072,7 @@ class FederatedOciRepository(pulumi.CustomResource):
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
-        used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         """
         return pulumi.get(self, "includes_pattern")
 
@@ -1135,8 +1088,8 @@ class FederatedOciRepository(pulumi.CustomResource):
     @pulumi.getter(name="maxUniqueTags")
     def max_unique_tags(self) -> pulumi.Output[Optional[_builtins.int]]:
         """
-        The maximum number of unique tags of a single OCI image to store in this repository. Once the number tags for an image
-        exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit.
+        The maximum number of unique tags of a single OCI image to store in this repository.
+        Once the number tags for an image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit.
         """
         return pulumi.get(self, "max_unique_tags")
 
@@ -1181,8 +1134,7 @@ class FederatedOciRepository(pulumi.CustomResource):
     @pulumi.getter(name="projectKey")
     def project_key(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-        assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+        Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         """
         return pulumi.get(self, "project_key")
 
@@ -1222,8 +1174,7 @@ class FederatedOciRepository(pulumi.CustomResource):
     @pulumi.getter(name="xrayIndex")
     def xray_index(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-        Xray settings.
+        Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
         """
         return pulumi.get(self, "xray_index")
 

@@ -24,24 +24,21 @@ import javax.annotation.Nullable;
 @ResourceType(type="pulumi:providers:artifactory")
 public class Provider extends com.pulumi.resources.ProviderResource {
     /**
-     * This is a access token that can be given to you by your admin under `User Management &gt; Access Tokens`. If not set, the
-     * &#39;api_key&#39; attribute value will be used.
+     * This is a access token that can be given to you by your admin under `User Management &gt; Access Tokens`. If not set, the &#39;api_key&#39; attribute value will be used.
      * 
      */
     @Export(name="accessToken", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> accessToken;
 
     /**
-     * @return This is a access token that can be given to you by your admin under `User Management &gt; Access Tokens`. If not set, the
-     * &#39;api_key&#39; attribute value will be used.
+     * @return This is a access token that can be given to you by your admin under `User Management &gt; Access Tokens`. If not set, the &#39;api_key&#39; attribute value will be used.
      * 
      */
     public Output<Optional<String>> accessToken() {
         return Codegen.optional(this.accessToken);
     }
     /**
-     * API key. If `access_token` attribute, `JFROG_ACCESS_TOKEN` or `ARTIFACTORY_ACCESS_TOKEN` environment variable is set,
-     * the provider will ignore this attribute.
+     * API key. If `access_token` attribute, `JFROG_ACCESS_TOKEN` or `ARTIFACTORY_ACCESS_TOKEN` environment variable is set, the provider will ignore this attribute.
      * 
      * @deprecated
      * An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
@@ -56,26 +53,21 @@ By end of Q4 2024, API Keys will be deprecated all together and the option to us
     private Output</* @Nullable */ String> apiKey;
 
     /**
-     * @return API key. If `access_token` attribute, `JFROG_ACCESS_TOKEN` or `ARTIFACTORY_ACCESS_TOKEN` environment variable is set,
-     * the provider will ignore this attribute.
+     * @return API key. If `access_token` attribute, `JFROG_ACCESS_TOKEN` or `ARTIFACTORY_ACCESS_TOKEN` environment variable is set, the provider will ignore this attribute.
      * 
      */
     public Output<Optional<String>> apiKey() {
         return Codegen.optional(this.apiKey);
     }
     /**
-     * OIDC provider name. See [Configure an OIDC
-     * Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-an-oidc-integration) for
-     * more details.
+     * OIDC provider name. See [Configure an OIDC Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-an-oidc-integration) for more details.
      * 
      */
     @Export(name="oidcProviderName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> oidcProviderName;
 
     /**
-     * @return OIDC provider name. See [Configure an OIDC
-     * Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-an-oidc-integration) for
-     * more details.
+     * @return OIDC provider name. See [Configure an OIDC Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-an-oidc-integration) for more details.
      * 
      */
     public Output<Optional<String>> oidcProviderName() {

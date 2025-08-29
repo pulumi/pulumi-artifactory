@@ -87,11 +87,11 @@ export class VaultConfiguration extends pulumi.CustomResource {
         return obj['__pulumiType'] === VaultConfiguration.__pulumiType;
     }
 
-    public readonly config!: pulumi.Output<outputs.VaultConfigurationConfig>;
+    declare public readonly config: pulumi.Output<outputs.VaultConfigurationConfig>;
     /**
      * Name of the Vault configuration
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
 
     /**
      * Create a VaultConfiguration resource with the given unique name, arguments, and options.
@@ -106,15 +106,15 @@ export class VaultConfiguration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VaultConfigurationState | undefined;
-            resourceInputs["config"] = state ? state.config : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["config"] = state?.config;
+            resourceInputs["name"] = state?.name;
         } else {
             const args = argsOrState as VaultConfigurationArgs | undefined;
-            if ((!args || args.config === undefined) && !opts.urn) {
+            if (args?.config === undefined && !opts.urn) {
                 throw new Error("Missing required property 'config'");
             }
-            resourceInputs["config"] = args ? args.config : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["config"] = args?.config;
+            resourceInputs["name"] = args?.name;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(VaultConfiguration.__pulumiType, name, resourceInputs, opts);

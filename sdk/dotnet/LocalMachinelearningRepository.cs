@@ -55,8 +55,7 @@ namespace Pulumi.Artifactory
         public Output<bool> BlackedOut { get; private set; } = null!;
 
         /// <summary>
-        /// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-        /// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        /// When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         /// </summary>
         [Output("cdnRedirect")]
         public Output<bool> CdnRedirect { get; private set; } = null!;
@@ -119,8 +118,7 @@ namespace Pulumi.Artifactory
         public Output<ImmutableArray<string>> PropertySets { get; private set; } = null!;
 
         /// <summary>
-        /// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
-        /// corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+        /// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
         /// </summary>
         [Output("repoLayoutRef")]
         public Output<string> RepoLayoutRef { get; private set; } = null!;
@@ -191,8 +189,7 @@ namespace Pulumi.Artifactory
         public Input<bool>? BlackedOut { get; set; }
 
         /// <summary>
-        /// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-        /// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        /// When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         /// </summary>
         [Input("cdnRedirect")]
         public Input<bool>? CdnRedirect { get; set; }
@@ -266,8 +263,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
-        /// corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+        /// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
         /// </summary>
         [Input("repoLayoutRef")]
         public Input<string>? RepoLayoutRef { get; set; }
@@ -300,8 +296,7 @@ namespace Pulumi.Artifactory
         public Input<bool>? BlackedOut { get; set; }
 
         /// <summary>
-        /// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-        /// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        /// When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         /// </summary>
         [Input("cdnRedirect")]
         public Input<bool>? CdnRedirect { get; set; }
@@ -375,8 +370,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
-        /// corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+        /// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
         /// </summary>
         [Input("repoLayoutRef")]
         public Input<string>? RepoLayoutRef { get; set; }

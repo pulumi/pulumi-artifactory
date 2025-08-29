@@ -72,40 +72,40 @@ export class Backup extends pulumi.CustomResource {
     /**
      * If set to true, backups will be created within a Zip archive (Slow and CPU intensive). Default value is `false`
      */
-    public readonly createArchive!: pulumi.Output<boolean>;
+    declare public readonly createArchive: pulumi.Output<boolean>;
     /**
      * A valid CRON expression that you can use to control backup frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. **Note:** please use 7 character format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year. Also, specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html) and in [Cronexp package readme](https://github.com/gorhill/cronexpr#other-details).
      */
-    public readonly cronExp!: pulumi.Output<string>;
+    declare public readonly cronExp: pulumi.Output<string>;
     /**
      * Flag to enable or disable the backup config. Default value is `true`.
      */
-    public readonly enabled!: pulumi.Output<boolean>;
+    declare public readonly enabled: pulumi.Output<boolean>;
     /**
      * When set to true, new repositories will not be automatically added to the backup. Default value is `false`.
      */
-    public readonly excludeNewRepositories!: pulumi.Output<boolean>;
+    declare public readonly excludeNewRepositories: pulumi.Output<boolean>;
     /**
      * List of excluded repositories from the backup.
      */
-    public readonly excludedRepositories!: pulumi.Output<string[] | undefined>;
+    declare public readonly excludedRepositories: pulumi.Output<string[] | undefined>;
     /**
      * When set to true, mission control will not be automatically added to the backup. Default value is `false`.
      */
-    public readonly exportMissionControl!: pulumi.Output<boolean>;
-    public readonly key!: pulumi.Output<string>;
+    declare public readonly exportMissionControl: pulumi.Output<boolean>;
+    declare public readonly key: pulumi.Output<string>;
     /**
      * The number of hours to keep a backup before Artifactory will clean it up to free up disk space. Applicable only to non-incremental backups. Default value is 168 hours i.e. 7 days.
      */
-    public readonly retentionPeriodHours!: pulumi.Output<number>;
+    declare public readonly retentionPeriodHours: pulumi.Output<number>;
     /**
      * If set to true, all Artifactory administrators will be notified by email if any problem is encountered during backup. Default value is `true`.
      */
-    public readonly sendMailOnError!: pulumi.Output<boolean>;
+    declare public readonly sendMailOnError: pulumi.Output<boolean>;
     /**
      * If set, Artifactory will verify that the backup target location has enough disk space available to hold the backed up data. If there is not enough space available, Artifactory will abort the backup and write a message in the log file. Applicable only to non-incremental backups. Default value is `false`.
      */
-    public readonly verifyDiskSpace!: pulumi.Output<boolean>;
+    declare public readonly verifyDiskSpace: pulumi.Output<boolean>;
 
     /**
      * Create a Backup resource with the given unique name, arguments, and options.
@@ -120,34 +120,34 @@ export class Backup extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BackupState | undefined;
-            resourceInputs["createArchive"] = state ? state.createArchive : undefined;
-            resourceInputs["cronExp"] = state ? state.cronExp : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["excludeNewRepositories"] = state ? state.excludeNewRepositories : undefined;
-            resourceInputs["excludedRepositories"] = state ? state.excludedRepositories : undefined;
-            resourceInputs["exportMissionControl"] = state ? state.exportMissionControl : undefined;
-            resourceInputs["key"] = state ? state.key : undefined;
-            resourceInputs["retentionPeriodHours"] = state ? state.retentionPeriodHours : undefined;
-            resourceInputs["sendMailOnError"] = state ? state.sendMailOnError : undefined;
-            resourceInputs["verifyDiskSpace"] = state ? state.verifyDiskSpace : undefined;
+            resourceInputs["createArchive"] = state?.createArchive;
+            resourceInputs["cronExp"] = state?.cronExp;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["excludeNewRepositories"] = state?.excludeNewRepositories;
+            resourceInputs["excludedRepositories"] = state?.excludedRepositories;
+            resourceInputs["exportMissionControl"] = state?.exportMissionControl;
+            resourceInputs["key"] = state?.key;
+            resourceInputs["retentionPeriodHours"] = state?.retentionPeriodHours;
+            resourceInputs["sendMailOnError"] = state?.sendMailOnError;
+            resourceInputs["verifyDiskSpace"] = state?.verifyDiskSpace;
         } else {
             const args = argsOrState as BackupArgs | undefined;
-            if ((!args || args.cronExp === undefined) && !opts.urn) {
+            if (args?.cronExp === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cronExp'");
             }
-            if ((!args || args.key === undefined) && !opts.urn) {
+            if (args?.key === undefined && !opts.urn) {
                 throw new Error("Missing required property 'key'");
             }
-            resourceInputs["createArchive"] = args ? args.createArchive : undefined;
-            resourceInputs["cronExp"] = args ? args.cronExp : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["excludeNewRepositories"] = args ? args.excludeNewRepositories : undefined;
-            resourceInputs["excludedRepositories"] = args ? args.excludedRepositories : undefined;
-            resourceInputs["exportMissionControl"] = args ? args.exportMissionControl : undefined;
-            resourceInputs["key"] = args ? args.key : undefined;
-            resourceInputs["retentionPeriodHours"] = args ? args.retentionPeriodHours : undefined;
-            resourceInputs["sendMailOnError"] = args ? args.sendMailOnError : undefined;
-            resourceInputs["verifyDiskSpace"] = args ? args.verifyDiskSpace : undefined;
+            resourceInputs["createArchive"] = args?.createArchive;
+            resourceInputs["cronExp"] = args?.cronExp;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["excludeNewRepositories"] = args?.excludeNewRepositories;
+            resourceInputs["excludedRepositories"] = args?.excludedRepositories;
+            resourceInputs["exportMissionControl"] = args?.exportMissionControl;
+            resourceInputs["key"] = args?.key;
+            resourceInputs["retentionPeriodHours"] = args?.retentionPeriodHours;
+            resourceInputs["sendMailOnError"] = args?.sendMailOnError;
+            resourceInputs["verifyDiskSpace"] = args?.verifyDiskSpace;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Backup.__pulumiType, name, resourceInputs, opts);

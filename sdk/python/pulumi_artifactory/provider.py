@@ -26,13 +26,9 @@ class ProviderArgs:
                  url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Provider resource.
-        :param pulumi.Input[_builtins.str] access_token: This is a access token that can be given to you by your admin under `User Management > Access Tokens`. If not set, the
-               'api_key' attribute value will be used.
-        :param pulumi.Input[_builtins.str] api_key: API key. If `access_token` attribute, `JFROG_ACCESS_TOKEN` or `ARTIFACTORY_ACCESS_TOKEN` environment variable is set,
-               the provider will ignore this attribute.
-        :param pulumi.Input[_builtins.str] oidc_provider_name: OIDC provider name. See [Configure an OIDC
-               Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-an-oidc-integration) for
-               more details.
+        :param pulumi.Input[_builtins.str] access_token: This is a access token that can be given to you by your admin under `User Management > Access Tokens`. If not set, the 'api_key' attribute value will be used.
+        :param pulumi.Input[_builtins.str] api_key: API key. If `access_token` attribute, `JFROG_ACCESS_TOKEN` or `ARTIFACTORY_ACCESS_TOKEN` environment variable is set, the provider will ignore this attribute.
+        :param pulumi.Input[_builtins.str] oidc_provider_name: OIDC provider name. See [Configure an OIDC Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-an-oidc-integration) for more details.
         :param pulumi.Input[_builtins.str] url: Artifactory URL.
         """
         if access_token is not None:
@@ -57,8 +53,7 @@ By end of Q4 2024, API Keys will be deprecated all together and the option to us
     @pulumi.getter(name="accessToken")
     def access_token(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        This is a access token that can be given to you by your admin under `User Management > Access Tokens`. If not set, the
-        'api_key' attribute value will be used.
+        This is a access token that can be given to you by your admin under `User Management > Access Tokens`. If not set, the 'api_key' attribute value will be used.
         """
         return pulumi.get(self, "access_token")
 
@@ -73,8 +68,7 @@ In a future version (scheduled for end of Q3, 2023), the option to disable the u
 By end of Q4 2024, API Keys will be deprecated all together and the option to use them will no longer be available. See [JFrog API deprecation process](https://jfrog.com/help/r/jfrog-platform-administration-documentation/jfrog-api-key-deprecation-process) for more details.""")
     def api_key(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        API key. If `access_token` attribute, `JFROG_ACCESS_TOKEN` or `ARTIFACTORY_ACCESS_TOKEN` environment variable is set,
-        the provider will ignore this attribute.
+        API key. If `access_token` attribute, `JFROG_ACCESS_TOKEN` or `ARTIFACTORY_ACCESS_TOKEN` environment variable is set, the provider will ignore this attribute.
         """
         return pulumi.get(self, "api_key")
 
@@ -86,9 +80,7 @@ By end of Q4 2024, API Keys will be deprecated all together and the option to us
     @pulumi.getter(name="oidcProviderName")
     def oidc_provider_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        OIDC provider name. See [Configure an OIDC
-        Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-an-oidc-integration) for
-        more details.
+        OIDC provider name. See [Configure an OIDC Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-an-oidc-integration) for more details.
         """
         return pulumi.get(self, "oidc_provider_name")
 
@@ -138,13 +130,9 @@ class Provider(pulumi.ProviderResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] access_token: This is a access token that can be given to you by your admin under `User Management > Access Tokens`. If not set, the
-               'api_key' attribute value will be used.
-        :param pulumi.Input[_builtins.str] api_key: API key. If `access_token` attribute, `JFROG_ACCESS_TOKEN` or `ARTIFACTORY_ACCESS_TOKEN` environment variable is set,
-               the provider will ignore this attribute.
-        :param pulumi.Input[_builtins.str] oidc_provider_name: OIDC provider name. See [Configure an OIDC
-               Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-an-oidc-integration) for
-               more details.
+        :param pulumi.Input[_builtins.str] access_token: This is a access token that can be given to you by your admin under `User Management > Access Tokens`. If not set, the 'api_key' attribute value will be used.
+        :param pulumi.Input[_builtins.str] api_key: API key. If `access_token` attribute, `JFROG_ACCESS_TOKEN` or `ARTIFACTORY_ACCESS_TOKEN` environment variable is set, the provider will ignore this attribute.
+        :param pulumi.Input[_builtins.str] oidc_provider_name: OIDC provider name. See [Configure an OIDC Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-an-oidc-integration) for more details.
         :param pulumi.Input[_builtins.str] url: Artifactory URL.
         """
         ...
@@ -205,8 +193,7 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter(name="accessToken")
     def access_token(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        This is a access token that can be given to you by your admin under `User Management > Access Tokens`. If not set, the
-        'api_key' attribute value will be used.
+        This is a access token that can be given to you by your admin under `User Management > Access Tokens`. If not set, the 'api_key' attribute value will be used.
         """
         return pulumi.get(self, "access_token")
 
@@ -217,8 +204,7 @@ In a future version (scheduled for end of Q3, 2023), the option to disable the u
 By end of Q4 2024, API Keys will be deprecated all together and the option to use them will no longer be available. See [JFrog API deprecation process](https://jfrog.com/help/r/jfrog-platform-administration-documentation/jfrog-api-key-deprecation-process) for more details.""")
     def api_key(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        API key. If `access_token` attribute, `JFROG_ACCESS_TOKEN` or `ARTIFACTORY_ACCESS_TOKEN` environment variable is set,
-        the provider will ignore this attribute.
+        API key. If `access_token` attribute, `JFROG_ACCESS_TOKEN` or `ARTIFACTORY_ACCESS_TOKEN` environment variable is set, the provider will ignore this attribute.
         """
         return pulumi.get(self, "api_key")
 
@@ -226,9 +212,7 @@ By end of Q4 2024, API Keys will be deprecated all together and the option to us
     @pulumi.getter(name="oidcProviderName")
     def oidc_provider_name(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        OIDC provider name. See [Configure an OIDC
-        Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-an-oidc-integration) for
-        more details.
+        OIDC provider name. See [Configure an OIDC Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-an-oidc-integration) for more details.
         """
         return pulumi.get(self, "oidc_provider_name")
 
