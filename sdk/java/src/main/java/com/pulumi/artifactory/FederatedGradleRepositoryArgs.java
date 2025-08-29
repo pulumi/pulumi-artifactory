@@ -21,18 +21,16 @@ public final class FederatedGradleRepositoryArgs extends com.pulumi.resources.Re
     public static final FederatedGradleRepositoryArgs Empty = new FederatedGradleRepositoryArgs();
 
     /**
-     * When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
-     * therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
-     * security (e.g., cross-site scripting attacks).
+     * When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+     * This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
      * 
      */
     @Import(name="archiveBrowsingEnabled")
     private @Nullable Output<Boolean> archiveBrowsingEnabled;
 
     /**
-     * @return When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
-     * therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
-     * security (e.g., cross-site scripting attacks).
+     * @return When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+     * This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
      * 
      */
     public Optional<Output<Boolean>> archiveBrowsingEnabled() {
@@ -55,16 +53,14 @@ public final class FederatedGradleRepositoryArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
+     * When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
      * 
      */
     @Import(name="cdnRedirect")
     private @Nullable Output<Boolean> cdnRedirect;
 
     /**
-     * @return When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
+     * @return When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
      * 
      */
     public Optional<Output<Boolean>> cdnRedirect() {
@@ -72,20 +68,14 @@ public final class FederatedGradleRepositoryArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or
-     * conflicts with the locally calculated checksum (bad checksum). Options are: &#34;client-checksums&#34;, or
-     * &#34;server-generated-checksums&#34;. Default: &#34;client-checksums&#34;\n For more details, please refer to Checksum Policy -
-     * https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
+     * Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or conflicts with the locally calculated checksum (bad checksum). Options are: &#34;client-checksums&#34;, or &#34;server-generated-checksums&#34;. Default: &#34;client-checksums&#34;\n For more details, please refer to Checksum Policy - https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
      * 
      */
     @Import(name="checksumPolicyType")
     private @Nullable Output<String> checksumPolicyType;
 
     /**
-     * @return Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or
-     * conflicts with the locally calculated checksum (bad checksum). Options are: &#34;client-checksums&#34;, or
-     * &#34;server-generated-checksums&#34;. Default: &#34;client-checksums&#34;\n For more details, please refer to Checksum Policy -
-     * https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
+     * @return Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or conflicts with the locally calculated checksum (bad checksum). Options are: &#34;client-checksums&#34;, or &#34;server-generated-checksums&#34;. Default: &#34;client-checksums&#34;\n For more details, please refer to Checksum Policy - https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
      * 
      */
     public Optional<Output<String>> checksumPolicyType() {
@@ -130,16 +120,14 @@ public final class FederatedGradleRepositoryArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
-     * storage provider. Available in Enterprise+ and Edge licenses only.
+     * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
      * 
      */
     @Import(name="downloadDirect")
     private @Nullable Output<Boolean> downloadDirect;
 
     /**
-     * @return When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
-     * storage provider. Available in Enterprise+ and Edge licenses only.
+     * @return When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
      * 
      */
     public Optional<Output<Boolean>> downloadDirect() {
@@ -147,16 +135,14 @@ public final class FederatedGradleRepositoryArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no
-     * artifacts are excluded.
+     * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no artifacts are excluded.
      * 
      */
     @Import(name="excludesPattern")
     private @Nullable Output<String> excludesPattern;
 
     /**
-     * @return List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no
-     * artifacts are excluded.
+     * @return List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no artifacts are excluded.
      * 
      */
     public Optional<Output<String>> excludesPattern() {
@@ -194,16 +180,14 @@ public final class FederatedGradleRepositoryArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When
-     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
+     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
      * 
      */
     @Import(name="includesPattern")
     private @Nullable Output<String> includesPattern;
 
     /**
-     * @return List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When
-     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
+     * @return List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
      * 
      */
     public Optional<Output<String>> includesPattern() {
@@ -226,16 +210,18 @@ public final class FederatedGradleRepositoryArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
-     * older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+     * The maximum number of unique snapshots of a single artifact to store.
+     * Once the number of snapshots exceeds this setting, older versions are removed.
+     * A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
      * 
      */
     @Import(name="maxUniqueSnapshots")
     private @Nullable Output<Integer> maxUniqueSnapshots;
 
     /**
-     * @return The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
-     * older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+     * @return The maximum number of unique snapshots of a single artifact to store.
+     * Once the number of snapshots exceeds this setting, older versions are removed.
+     * A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
      * 
      */
     public Optional<Output<Integer>> maxUniqueSnapshots() {
@@ -301,16 +287,14 @@ public final class FederatedGradleRepositoryArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-     * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+     * Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      * 
      */
     @Import(name="projectKey")
     private @Nullable Output<String> projectKey;
 
     /**
-     * @return Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-     * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+     * @return Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      * 
      */
     public Optional<Output<String>> projectKey() {
@@ -363,18 +347,22 @@ public final class FederatedGradleRepositoryArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Specifies the naming convention for Maven SNAPSHOT versions. The options are - unique: Version number is based on a
-     * time-stamp (default) non-unique: Version number uses a self-overriding naming pattern of
-     * artifactId-version-SNAPSHOT.type deployer: Respects the settings in the Maven client that is deploying the artifact.
+     * Specifies the naming convention for Maven SNAPSHOT versions.
+     * The options are -
+     * unique: Version number is based on a time-stamp (default)
+     * non-unique: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type
+     * deployer: Respects the settings in the Maven client that is deploying the artifact.
      * 
      */
     @Import(name="snapshotVersionBehavior")
     private @Nullable Output<String> snapshotVersionBehavior;
 
     /**
-     * @return Specifies the naming convention for Maven SNAPSHOT versions. The options are - unique: Version number is based on a
-     * time-stamp (default) non-unique: Version number uses a self-overriding naming pattern of
-     * artifactId-version-SNAPSHOT.type deployer: Respects the settings in the Maven client that is deploying the artifact.
+     * @return Specifies the naming convention for Maven SNAPSHOT versions.
+     * The options are -
+     * unique: Version number is based on a time-stamp (default)
+     * non-unique: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type
+     * deployer: Respects the settings in the Maven client that is deploying the artifact.
      * 
      */
     public Optional<Output<String>> snapshotVersionBehavior() {
@@ -382,20 +370,18 @@ public final class FederatedGradleRepositoryArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the
-     * groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the
-     * deployment with a &#34;409 Conflict&#34; error. You can disable this behavior by setting the Suppress POM Consistency Checks
-     * checkbox.
+     * By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path).
+     *   If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a &#34;409 Conflict&#34; error.
+     *   You can disable this behavior by setting the Suppress POM Consistency Checks checkbox.
      * 
      */
     @Import(name="suppressPomConsistencyChecks")
     private @Nullable Output<Boolean> suppressPomConsistencyChecks;
 
     /**
-     * @return By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the
-     * groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the
-     * deployment with a &#34;409 Conflict&#34; error. You can disable this behavior by setting the Suppress POM Consistency Checks
-     * checkbox.
+     * @return By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path).
+     *   If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a &#34;409 Conflict&#34; error.
+     *   You can disable this behavior by setting the Suppress POM Consistency Checks checkbox.
      * 
      */
     public Optional<Output<Boolean>> suppressPomConsistencyChecks() {
@@ -403,16 +389,14 @@ public final class FederatedGradleRepositoryArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-     * Xray settings.
+     * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
      * 
      */
     @Import(name="xrayIndex")
     private @Nullable Output<Boolean> xrayIndex;
 
     /**
-     * @return Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-     * Xray settings.
+     * @return Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
      * 
      */
     public Optional<Output<Boolean>> xrayIndex() {
@@ -468,9 +452,8 @@ public final class FederatedGradleRepositoryArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param archiveBrowsingEnabled When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
-         * therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
-         * security (e.g., cross-site scripting attacks).
+         * @param archiveBrowsingEnabled When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+         * This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
          * 
          * @return builder
          * 
@@ -481,9 +464,8 @@ public final class FederatedGradleRepositoryArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param archiveBrowsingEnabled When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
-         * therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
-         * security (e.g., cross-site scripting attacks).
+         * @param archiveBrowsingEnabled When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+         * This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
          * 
          * @return builder
          * 
@@ -514,8 +496,7 @@ public final class FederatedGradleRepositoryArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param cdnRedirect When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-         * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
+         * @param cdnRedirect When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
          * 
          * @return builder
          * 
@@ -526,8 +507,7 @@ public final class FederatedGradleRepositoryArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param cdnRedirect When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-         * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
+         * @param cdnRedirect When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
          * 
          * @return builder
          * 
@@ -537,10 +517,7 @@ public final class FederatedGradleRepositoryArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param checksumPolicyType Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or
-         * conflicts with the locally calculated checksum (bad checksum). Options are: &#34;client-checksums&#34;, or
-         * &#34;server-generated-checksums&#34;. Default: &#34;client-checksums&#34;\n For more details, please refer to Checksum Policy -
-         * https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
+         * @param checksumPolicyType Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or conflicts with the locally calculated checksum (bad checksum). Options are: &#34;client-checksums&#34;, or &#34;server-generated-checksums&#34;. Default: &#34;client-checksums&#34;\n For more details, please refer to Checksum Policy - https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
          * 
          * @return builder
          * 
@@ -551,10 +528,7 @@ public final class FederatedGradleRepositoryArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param checksumPolicyType Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or
-         * conflicts with the locally calculated checksum (bad checksum). Options are: &#34;client-checksums&#34;, or
-         * &#34;server-generated-checksums&#34;. Default: &#34;client-checksums&#34;\n For more details, please refer to Checksum Policy -
-         * https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
+         * @param checksumPolicyType Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or conflicts with the locally calculated checksum (bad checksum). Options are: &#34;client-checksums&#34;, or &#34;server-generated-checksums&#34;. Default: &#34;client-checksums&#34;\n For more details, please refer to Checksum Policy - https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
          * 
          * @return builder
          * 
@@ -615,8 +589,7 @@ public final class FederatedGradleRepositoryArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param downloadDirect When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
-         * storage provider. Available in Enterprise+ and Edge licenses only.
+         * @param downloadDirect When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
          * 
          * @return builder
          * 
@@ -627,8 +600,7 @@ public final class FederatedGradleRepositoryArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param downloadDirect When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
-         * storage provider. Available in Enterprise+ and Edge licenses only.
+         * @param downloadDirect When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
          * 
          * @return builder
          * 
@@ -638,8 +610,7 @@ public final class FederatedGradleRepositoryArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param excludesPattern List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no
-         * artifacts are excluded.
+         * @param excludesPattern List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no artifacts are excluded.
          * 
          * @return builder
          * 
@@ -650,8 +621,7 @@ public final class FederatedGradleRepositoryArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param excludesPattern List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no
-         * artifacts are excluded.
+         * @param excludesPattern List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no artifacts are excluded.
          * 
          * @return builder
          * 
@@ -703,8 +673,7 @@ public final class FederatedGradleRepositoryArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param includesPattern List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When
-         * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
+         * @param includesPattern List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
          * 
          * @return builder
          * 
@@ -715,8 +684,7 @@ public final class FederatedGradleRepositoryArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param includesPattern List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When
-         * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
+         * @param includesPattern List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
          * 
          * @return builder
          * 
@@ -747,8 +715,9 @@ public final class FederatedGradleRepositoryArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param maxUniqueSnapshots The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
-         * older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+         * @param maxUniqueSnapshots The maximum number of unique snapshots of a single artifact to store.
+         * Once the number of snapshots exceeds this setting, older versions are removed.
+         * A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
          * 
          * @return builder
          * 
@@ -759,8 +728,9 @@ public final class FederatedGradleRepositoryArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param maxUniqueSnapshots The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
-         * older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+         * @param maxUniqueSnapshots The maximum number of unique snapshots of a single artifact to store.
+         * Once the number of snapshots exceeds this setting, older versions are removed.
+         * A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
          * 
          * @return builder
          * 
@@ -865,8 +835,7 @@ public final class FederatedGradleRepositoryArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param projectKey Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-         * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+         * @param projectKey Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
          * 
          * @return builder
          * 
@@ -877,8 +846,7 @@ public final class FederatedGradleRepositoryArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param projectKey Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-         * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+         * @param projectKey Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
          * 
          * @return builder
          * 
@@ -961,9 +929,11 @@ public final class FederatedGradleRepositoryArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param snapshotVersionBehavior Specifies the naming convention for Maven SNAPSHOT versions. The options are - unique: Version number is based on a
-         * time-stamp (default) non-unique: Version number uses a self-overriding naming pattern of
-         * artifactId-version-SNAPSHOT.type deployer: Respects the settings in the Maven client that is deploying the artifact.
+         * @param snapshotVersionBehavior Specifies the naming convention for Maven SNAPSHOT versions.
+         * The options are -
+         * unique: Version number is based on a time-stamp (default)
+         * non-unique: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type
+         * deployer: Respects the settings in the Maven client that is deploying the artifact.
          * 
          * @return builder
          * 
@@ -974,9 +944,11 @@ public final class FederatedGradleRepositoryArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param snapshotVersionBehavior Specifies the naming convention for Maven SNAPSHOT versions. The options are - unique: Version number is based on a
-         * time-stamp (default) non-unique: Version number uses a self-overriding naming pattern of
-         * artifactId-version-SNAPSHOT.type deployer: Respects the settings in the Maven client that is deploying the artifact.
+         * @param snapshotVersionBehavior Specifies the naming convention for Maven SNAPSHOT versions.
+         * The options are -
+         * unique: Version number is based on a time-stamp (default)
+         * non-unique: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type
+         * deployer: Respects the settings in the Maven client that is deploying the artifact.
          * 
          * @return builder
          * 
@@ -986,10 +958,9 @@ public final class FederatedGradleRepositoryArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param suppressPomConsistencyChecks By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the
-         * groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the
-         * deployment with a &#34;409 Conflict&#34; error. You can disable this behavior by setting the Suppress POM Consistency Checks
-         * checkbox.
+         * @param suppressPomConsistencyChecks By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path).
+         *   If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a &#34;409 Conflict&#34; error.
+         *   You can disable this behavior by setting the Suppress POM Consistency Checks checkbox.
          * 
          * @return builder
          * 
@@ -1000,10 +971,9 @@ public final class FederatedGradleRepositoryArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param suppressPomConsistencyChecks By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the
-         * groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the
-         * deployment with a &#34;409 Conflict&#34; error. You can disable this behavior by setting the Suppress POM Consistency Checks
-         * checkbox.
+         * @param suppressPomConsistencyChecks By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path).
+         *   If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a &#34;409 Conflict&#34; error.
+         *   You can disable this behavior by setting the Suppress POM Consistency Checks checkbox.
          * 
          * @return builder
          * 
@@ -1013,8 +983,7 @@ public final class FederatedGradleRepositoryArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param xrayIndex Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-         * Xray settings.
+         * @param xrayIndex Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
          * 
          * @return builder
          * 
@@ -1025,8 +994,7 @@ public final class FederatedGradleRepositoryArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param xrayIndex Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-         * Xray settings.
+         * @param xrayIndex Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
          * 
          * @return builder
          * 

@@ -11,14 +11,12 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
-// This is a access token that can be given to you by your admin under `User Management > Access Tokens`. If not set, the
-// 'api_key' attribute value will be used.
+// This is a access token that can be given to you by your admin under `User Management > Access Tokens`. If not set, the 'api_key' attribute value will be used.
 func GetAccessToken(ctx *pulumi.Context) string {
 	return config.Get(ctx, "artifactory:accessToken")
 }
 
-// API key. If `accessToken` attribute, `JFROG_ACCESS_TOKEN` or `ARTIFACTORY_ACCESS_TOKEN` environment variable is set, the
-// provider will ignore this attribute.
+// API key. If `accessToken` attribute, `JFROG_ACCESS_TOKEN` or `ARTIFACTORY_ACCESS_TOKEN` environment variable is set, the provider will ignore this attribute.
 //
 // Deprecated: An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
 // In a future version (scheduled for end of Q3, 2023), the option to disable the usage/creation of API Keys will be available and set to disabled by default. Admins will be able to enable the usage/creation of API Keys.
@@ -27,9 +25,7 @@ func GetApiKey(ctx *pulumi.Context) string {
 	return config.Get(ctx, "artifactory:apiKey")
 }
 
-// OIDC provider name. See [Configure an OIDC
-// Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-an-oidc-integration) for
-// more details.
+// OIDC provider name. See [Configure an OIDC Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-an-oidc-integration) for more details.
 func GetOidcProviderName(ctx *pulumi.Context) string {
 	return config.Get(ctx, "artifactory:oidcProviderName")
 }

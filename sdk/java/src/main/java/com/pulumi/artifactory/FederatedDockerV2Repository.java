@@ -92,18 +92,16 @@ public class FederatedDockerV2Repository extends com.pulumi.resources.CustomReso
         return this.apiVersion;
     }
     /**
-     * When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
-     * therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
-     * security (e.g., cross-site scripting attacks).
+     * When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+     * This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
      * 
      */
     @Export(name="archiveBrowsingEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> archiveBrowsingEnabled;
 
     /**
-     * @return When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
-     * therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
-     * security (e.g., cross-site scripting attacks).
+     * @return When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+     * This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
      * 
      */
     public Output<Optional<Boolean>> archiveBrowsingEnabled() {
@@ -138,16 +136,14 @@ public class FederatedDockerV2Repository extends com.pulumi.resources.CustomReso
         return this.blockPushingSchema1;
     }
     /**
-     * When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
+     * When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
      * 
      */
     @Export(name="cdnRedirect", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> cdnRedirect;
 
     /**
-     * @return When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
+     * @return When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
      * 
      */
     public Output<Optional<Boolean>> cdnRedirect() {
@@ -188,48 +184,42 @@ public class FederatedDockerV2Repository extends com.pulumi.resources.CustomReso
         return Codegen.optional(this.disableProxy);
     }
     /**
-     * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
-     * storage provider. Available in Enterprise+ and Edge licenses only.
+     * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
      * 
      */
     @Export(name="downloadDirect", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> downloadDirect;
 
     /**
-     * @return When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
-     * storage provider. Available in Enterprise+ and Edge licenses only.
+     * @return When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
      * 
      */
     public Output<Optional<Boolean>> downloadDirect() {
         return Codegen.optional(this.downloadDirect);
     }
     /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no
-     * artifacts are excluded.
+     * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no artifacts are excluded.
      * 
      */
     @Export(name="excludesPattern", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> excludesPattern;
 
     /**
-     * @return List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no
-     * artifacts are excluded.
+     * @return List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no artifacts are excluded.
      * 
      */
     public Output<Optional<String>> excludesPattern() {
         return Codegen.optional(this.excludesPattern);
     }
     /**
-     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When
-     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
+     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
      * 
      */
     @Export(name="includesPattern", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> includesPattern;
 
     /**
-     * @return List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When
-     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
+     * @return List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
      * 
      */
     public Output<Optional<String>> includesPattern() {
@@ -250,18 +240,18 @@ public class FederatedDockerV2Repository extends com.pulumi.resources.CustomReso
         return this.key;
     }
     /**
-     * The maximum number of unique tags of a single Docker image to store in this repository. Once the number tags for an
-     * image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit. This only
-     * applies to manifest v2
+     * The maximum number of unique tags of a single Docker image to store in this repository.
+     * Once the number tags for an image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit.
+     * This only applies to manifest v2
      * 
      */
     @Export(name="maxUniqueTags", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> maxUniqueTags;
 
     /**
-     * @return The maximum number of unique tags of a single Docker image to store in this repository. Once the number tags for an
-     * image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit. This only
-     * applies to manifest v2
+     * @return The maximum number of unique tags of a single Docker image to store in this repository.
+     * Once the number tags for an image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit.
+     * This only applies to manifest v2
      * 
      */
     public Output<Optional<Integer>> maxUniqueTags() {
@@ -328,16 +318,14 @@ public class FederatedDockerV2Repository extends com.pulumi.resources.CustomReso
         return this.projectEnvironments;
     }
     /**
-     * Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-     * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+     * Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      * 
      */
     @Export(name="projectKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> projectKey;
 
     /**
-     * @return Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-     * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+     * @return Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      * 
      */
     public Output<Optional<String>> projectKey() {
@@ -386,32 +374,28 @@ public class FederatedDockerV2Repository extends com.pulumi.resources.CustomReso
         return Codegen.optional(this.repoLayoutRef);
     }
     /**
-     * If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to
-     * manifest V2
+     * If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to manifest V2
      * 
      */
     @Export(name="tagRetention", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> tagRetention;
 
     /**
-     * @return If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to
-     * manifest V2
+     * @return If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to manifest V2
      * 
      */
     public Output<Optional<Integer>> tagRetention() {
         return Codegen.optional(this.tagRetention);
     }
     /**
-     * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-     * Xray settings.
+     * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
      * 
      */
     @Export(name="xrayIndex", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> xrayIndex;
 
     /**
-     * @return Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-     * Xray settings.
+     * @return Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
      * 
      */
     public Output<Optional<Boolean>> xrayIndex() {

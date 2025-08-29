@@ -8,8 +8,7 @@ declare var exports: any;
 const __config = new pulumi.Config("artifactory");
 
 /**
- * This is a access token that can be given to you by your admin under `User Management > Access Tokens`. If not set, the
- * 'api_key' attribute value will be used.
+ * This is a access token that can be given to you by your admin under `User Management > Access Tokens`. If not set, the 'api_key' attribute value will be used.
  */
 export declare const accessToken: string | undefined;
 Object.defineProperty(exports, "accessToken", {
@@ -20,8 +19,7 @@ Object.defineProperty(exports, "accessToken", {
 });
 
 /**
- * API key. If `accessToken` attribute, `JFROG_ACCESS_TOKEN` or `ARTIFACTORY_ACCESS_TOKEN` environment variable is set, the
- * provider will ignore this attribute.
+ * API key. If `accessToken` attribute, `JFROG_ACCESS_TOKEN` or `ARTIFACTORY_ACCESS_TOKEN` environment variable is set, the provider will ignore this attribute.
  */
 export declare const apiKey: string | undefined;
 Object.defineProperty(exports, "apiKey", {
@@ -32,9 +30,7 @@ Object.defineProperty(exports, "apiKey", {
 });
 
 /**
- * OIDC provider name. See [Configure an OIDC
- * Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-an-oidc-integration) for
- * more details.
+ * OIDC provider name. See [Configure an OIDC Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-an-oidc-integration) for more details.
  */
 export declare const oidcProviderName: string | undefined;
 Object.defineProperty(exports, "oidcProviderName", {

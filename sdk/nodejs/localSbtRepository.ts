@@ -53,104 +53,87 @@ export class LocalSbtRepository extends pulumi.CustomResource {
     }
 
     /**
-     * When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
-     * therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
-     * security (e.g., cross-site scripting attacks).
+     * When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+     * This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
      */
-    public readonly archiveBrowsingEnabled!: pulumi.Output<boolean>;
+    declare public readonly archiveBrowsingEnabled: pulumi.Output<boolean>;
     /**
      * When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
      */
-    public readonly blackedOut!: pulumi.Output<boolean>;
+    declare public readonly blackedOut: pulumi.Output<boolean>;
     /**
-     * When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+     * When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
      */
-    public readonly cdnRedirect!: pulumi.Output<boolean>;
+    declare public readonly cdnRedirect: pulumi.Output<boolean>;
     /**
-     * Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or
-     * conflicts with the locally calculated checksum (bad checksum). Options are: "client-checksums", or
-     * "server-generated-checksums". Default: "client-checksums"\n For more details, please refer to Checksum Policy -
-     * https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
+     * Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or conflicts with the locally calculated checksum (bad checksum). Options are: "client-checksums", or "server-generated-checksums". Default: "client-checksums"\n For more details, please refer to Checksum Policy - https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
      */
-    public readonly checksumPolicyType!: pulumi.Output<string>;
+    declare public readonly checksumPolicyType: pulumi.Output<string>;
     /**
      * Public description.
      */
-    public readonly description!: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string>;
     /**
-     * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
-     * storage provider. Available in Enterprise+ and Edge licenses only.
+     * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
      */
-    public readonly downloadDirect!: pulumi.Output<boolean>;
+    declare public readonly downloadDirect: pulumi.Output<boolean>;
     /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no
-     * artifacts are excluded.
+     * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no artifacts are excluded.
      */
-    public readonly excludesPattern!: pulumi.Output<string>;
+    declare public readonly excludesPattern: pulumi.Output<string>;
     /**
      * If set, Artifactory allows you to deploy release artifacts into this repository.
      */
-    public readonly handleReleases!: pulumi.Output<boolean>;
+    declare public readonly handleReleases: pulumi.Output<boolean>;
     /**
      * If set, Artifactory allows you to deploy snapshot artifacts into this repository.
      */
-    public readonly handleSnapshots!: pulumi.Output<boolean>;
+    declare public readonly handleSnapshots: pulumi.Output<boolean>;
     /**
-     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When
-     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
+     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
      */
-    public readonly includesPattern!: pulumi.Output<string>;
+    declare public readonly includesPattern: pulumi.Output<string>;
     /**
      * the identity key of the repo.
      */
-    public readonly key!: pulumi.Output<string>;
+    declare public readonly key: pulumi.Output<string>;
     /**
-     * The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
-     * older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+     * The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
      */
-    public readonly maxUniqueSnapshots!: pulumi.Output<number>;
+    declare public readonly maxUniqueSnapshots: pulumi.Output<number>;
     /**
      * Internal description.
      */
-    public readonly notes!: pulumi.Output<string>;
+    declare public readonly notes: pulumi.Output<string>;
     /**
      * Setting repositories with priority will cause metadata to be merged only from repositories set with this field
      */
-    public readonly priorityResolution!: pulumi.Output<boolean>;
-    public readonly projectEnvironments!: pulumi.Output<string[]>;
+    declare public readonly priorityResolution: pulumi.Output<boolean>;
+    declare public readonly projectEnvironments: pulumi.Output<string[]>;
     /**
-     * Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-     * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+     * Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      */
-    public readonly projectKey!: pulumi.Output<string>;
+    declare public readonly projectKey: pulumi.Output<string>;
     /**
      * List of property set name
      */
-    public readonly propertySets!: pulumi.Output<string[] | undefined>;
+    declare public readonly propertySets: pulumi.Output<string[] | undefined>;
     /**
-     * Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
-     * corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+     * Sets the layout that the repository should use for storing and identifying modules. A recommended layout that corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
      */
-    public readonly repoLayoutRef!: pulumi.Output<string>;
+    declare public readonly repoLayoutRef: pulumi.Output<string>;
     /**
-     * Specifies the naming convention for Maven SNAPSHOT versions. The options are - `unique`: Version number is based on a
-     * time-stamp (default), `non-unique`: Version number uses a self-overriding naming pattern of
-     * artifactId-version-SNAPSHOT.type, `deployer`: Respects the settings in the Maven client that is deploying the artifact.
+     * Specifies the naming convention for Maven SNAPSHOT versions. The options are - `unique`: Version number is based on a time-stamp (default), `non-unique`: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type, `deployer`: Respects the settings in the Maven client that is deploying the artifact.
      */
-    public readonly snapshotVersionBehavior!: pulumi.Output<string>;
+    declare public readonly snapshotVersionBehavior: pulumi.Output<string>;
     /**
-     * By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the
-     * groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the
-     * deployment with a `409 Conflict` error. You can disable this behavior by setting the Suppress POM Consistency Checks
-     * checkbox.
+     * By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a `409 Conflict` error. You can disable this behavior by setting the Suppress POM Consistency Checks checkbox.
      */
-    public readonly suppressPomConsistencyChecks!: pulumi.Output<boolean>;
+    declare public readonly suppressPomConsistencyChecks: pulumi.Output<boolean>;
     /**
-     * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-     * Xray settings.
+     * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
      */
-    public readonly xrayIndex!: pulumi.Output<boolean>;
+    declare public readonly xrayIndex: pulumi.Output<boolean>;
 
     /**
      * Create a LocalSbtRepository resource with the given unique name, arguments, and options.
@@ -165,53 +148,53 @@ export class LocalSbtRepository extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LocalSbtRepositoryState | undefined;
-            resourceInputs["archiveBrowsingEnabled"] = state ? state.archiveBrowsingEnabled : undefined;
-            resourceInputs["blackedOut"] = state ? state.blackedOut : undefined;
-            resourceInputs["cdnRedirect"] = state ? state.cdnRedirect : undefined;
-            resourceInputs["checksumPolicyType"] = state ? state.checksumPolicyType : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["downloadDirect"] = state ? state.downloadDirect : undefined;
-            resourceInputs["excludesPattern"] = state ? state.excludesPattern : undefined;
-            resourceInputs["handleReleases"] = state ? state.handleReleases : undefined;
-            resourceInputs["handleSnapshots"] = state ? state.handleSnapshots : undefined;
-            resourceInputs["includesPattern"] = state ? state.includesPattern : undefined;
-            resourceInputs["key"] = state ? state.key : undefined;
-            resourceInputs["maxUniqueSnapshots"] = state ? state.maxUniqueSnapshots : undefined;
-            resourceInputs["notes"] = state ? state.notes : undefined;
-            resourceInputs["priorityResolution"] = state ? state.priorityResolution : undefined;
-            resourceInputs["projectEnvironments"] = state ? state.projectEnvironments : undefined;
-            resourceInputs["projectKey"] = state ? state.projectKey : undefined;
-            resourceInputs["propertySets"] = state ? state.propertySets : undefined;
-            resourceInputs["repoLayoutRef"] = state ? state.repoLayoutRef : undefined;
-            resourceInputs["snapshotVersionBehavior"] = state ? state.snapshotVersionBehavior : undefined;
-            resourceInputs["suppressPomConsistencyChecks"] = state ? state.suppressPomConsistencyChecks : undefined;
-            resourceInputs["xrayIndex"] = state ? state.xrayIndex : undefined;
+            resourceInputs["archiveBrowsingEnabled"] = state?.archiveBrowsingEnabled;
+            resourceInputs["blackedOut"] = state?.blackedOut;
+            resourceInputs["cdnRedirect"] = state?.cdnRedirect;
+            resourceInputs["checksumPolicyType"] = state?.checksumPolicyType;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["downloadDirect"] = state?.downloadDirect;
+            resourceInputs["excludesPattern"] = state?.excludesPattern;
+            resourceInputs["handleReleases"] = state?.handleReleases;
+            resourceInputs["handleSnapshots"] = state?.handleSnapshots;
+            resourceInputs["includesPattern"] = state?.includesPattern;
+            resourceInputs["key"] = state?.key;
+            resourceInputs["maxUniqueSnapshots"] = state?.maxUniqueSnapshots;
+            resourceInputs["notes"] = state?.notes;
+            resourceInputs["priorityResolution"] = state?.priorityResolution;
+            resourceInputs["projectEnvironments"] = state?.projectEnvironments;
+            resourceInputs["projectKey"] = state?.projectKey;
+            resourceInputs["propertySets"] = state?.propertySets;
+            resourceInputs["repoLayoutRef"] = state?.repoLayoutRef;
+            resourceInputs["snapshotVersionBehavior"] = state?.snapshotVersionBehavior;
+            resourceInputs["suppressPomConsistencyChecks"] = state?.suppressPomConsistencyChecks;
+            resourceInputs["xrayIndex"] = state?.xrayIndex;
         } else {
             const args = argsOrState as LocalSbtRepositoryArgs | undefined;
-            if ((!args || args.key === undefined) && !opts.urn) {
+            if (args?.key === undefined && !opts.urn) {
                 throw new Error("Missing required property 'key'");
             }
-            resourceInputs["archiveBrowsingEnabled"] = args ? args.archiveBrowsingEnabled : undefined;
-            resourceInputs["blackedOut"] = args ? args.blackedOut : undefined;
-            resourceInputs["cdnRedirect"] = args ? args.cdnRedirect : undefined;
-            resourceInputs["checksumPolicyType"] = args ? args.checksumPolicyType : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["downloadDirect"] = args ? args.downloadDirect : undefined;
-            resourceInputs["excludesPattern"] = args ? args.excludesPattern : undefined;
-            resourceInputs["handleReleases"] = args ? args.handleReleases : undefined;
-            resourceInputs["handleSnapshots"] = args ? args.handleSnapshots : undefined;
-            resourceInputs["includesPattern"] = args ? args.includesPattern : undefined;
-            resourceInputs["key"] = args ? args.key : undefined;
-            resourceInputs["maxUniqueSnapshots"] = args ? args.maxUniqueSnapshots : undefined;
-            resourceInputs["notes"] = args ? args.notes : undefined;
-            resourceInputs["priorityResolution"] = args ? args.priorityResolution : undefined;
-            resourceInputs["projectEnvironments"] = args ? args.projectEnvironments : undefined;
-            resourceInputs["projectKey"] = args ? args.projectKey : undefined;
-            resourceInputs["propertySets"] = args ? args.propertySets : undefined;
-            resourceInputs["repoLayoutRef"] = args ? args.repoLayoutRef : undefined;
-            resourceInputs["snapshotVersionBehavior"] = args ? args.snapshotVersionBehavior : undefined;
-            resourceInputs["suppressPomConsistencyChecks"] = args ? args.suppressPomConsistencyChecks : undefined;
-            resourceInputs["xrayIndex"] = args ? args.xrayIndex : undefined;
+            resourceInputs["archiveBrowsingEnabled"] = args?.archiveBrowsingEnabled;
+            resourceInputs["blackedOut"] = args?.blackedOut;
+            resourceInputs["cdnRedirect"] = args?.cdnRedirect;
+            resourceInputs["checksumPolicyType"] = args?.checksumPolicyType;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["downloadDirect"] = args?.downloadDirect;
+            resourceInputs["excludesPattern"] = args?.excludesPattern;
+            resourceInputs["handleReleases"] = args?.handleReleases;
+            resourceInputs["handleSnapshots"] = args?.handleSnapshots;
+            resourceInputs["includesPattern"] = args?.includesPattern;
+            resourceInputs["key"] = args?.key;
+            resourceInputs["maxUniqueSnapshots"] = args?.maxUniqueSnapshots;
+            resourceInputs["notes"] = args?.notes;
+            resourceInputs["priorityResolution"] = args?.priorityResolution;
+            resourceInputs["projectEnvironments"] = args?.projectEnvironments;
+            resourceInputs["projectKey"] = args?.projectKey;
+            resourceInputs["propertySets"] = args?.propertySets;
+            resourceInputs["repoLayoutRef"] = args?.repoLayoutRef;
+            resourceInputs["snapshotVersionBehavior"] = args?.snapshotVersionBehavior;
+            resourceInputs["suppressPomConsistencyChecks"] = args?.suppressPomConsistencyChecks;
+            resourceInputs["xrayIndex"] = args?.xrayIndex;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LocalSbtRepository.__pulumiType, name, resourceInputs, opts);
@@ -223,9 +206,8 @@ export class LocalSbtRepository extends pulumi.CustomResource {
  */
 export interface LocalSbtRepositoryState {
     /**
-     * When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
-     * therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
-     * security (e.g., cross-site scripting attacks).
+     * When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+     * This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
      */
     archiveBrowsingEnabled?: pulumi.Input<boolean>;
     /**
@@ -233,15 +215,11 @@ export interface LocalSbtRepositoryState {
      */
     blackedOut?: pulumi.Input<boolean>;
     /**
-     * When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+     * When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
      */
     cdnRedirect?: pulumi.Input<boolean>;
     /**
-     * Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or
-     * conflicts with the locally calculated checksum (bad checksum). Options are: "client-checksums", or
-     * "server-generated-checksums". Default: "client-checksums"\n For more details, please refer to Checksum Policy -
-     * https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
+     * Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or conflicts with the locally calculated checksum (bad checksum). Options are: "client-checksums", or "server-generated-checksums". Default: "client-checksums"\n For more details, please refer to Checksum Policy - https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
      */
     checksumPolicyType?: pulumi.Input<string>;
     /**
@@ -249,13 +227,11 @@ export interface LocalSbtRepositoryState {
      */
     description?: pulumi.Input<string>;
     /**
-     * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
-     * storage provider. Available in Enterprise+ and Edge licenses only.
+     * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
      */
     downloadDirect?: pulumi.Input<boolean>;
     /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no
-     * artifacts are excluded.
+     * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no artifacts are excluded.
      */
     excludesPattern?: pulumi.Input<string>;
     /**
@@ -267,8 +243,7 @@ export interface LocalSbtRepositoryState {
      */
     handleSnapshots?: pulumi.Input<boolean>;
     /**
-     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When
-     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
+     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
      */
     includesPattern?: pulumi.Input<string>;
     /**
@@ -276,8 +251,7 @@ export interface LocalSbtRepositoryState {
      */
     key?: pulumi.Input<string>;
     /**
-     * The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
-     * older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+     * The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
      */
     maxUniqueSnapshots?: pulumi.Input<number>;
     /**
@@ -290,8 +264,7 @@ export interface LocalSbtRepositoryState {
     priorityResolution?: pulumi.Input<boolean>;
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-     * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+     * Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      */
     projectKey?: pulumi.Input<string>;
     /**
@@ -299,26 +272,19 @@ export interface LocalSbtRepositoryState {
      */
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
-     * corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+     * Sets the layout that the repository should use for storing and identifying modules. A recommended layout that corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
      */
     repoLayoutRef?: pulumi.Input<string>;
     /**
-     * Specifies the naming convention for Maven SNAPSHOT versions. The options are - `unique`: Version number is based on a
-     * time-stamp (default), `non-unique`: Version number uses a self-overriding naming pattern of
-     * artifactId-version-SNAPSHOT.type, `deployer`: Respects the settings in the Maven client that is deploying the artifact.
+     * Specifies the naming convention for Maven SNAPSHOT versions. The options are - `unique`: Version number is based on a time-stamp (default), `non-unique`: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type, `deployer`: Respects the settings in the Maven client that is deploying the artifact.
      */
     snapshotVersionBehavior?: pulumi.Input<string>;
     /**
-     * By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the
-     * groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the
-     * deployment with a `409 Conflict` error. You can disable this behavior by setting the Suppress POM Consistency Checks
-     * checkbox.
+     * By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a `409 Conflict` error. You can disable this behavior by setting the Suppress POM Consistency Checks checkbox.
      */
     suppressPomConsistencyChecks?: pulumi.Input<boolean>;
     /**
-     * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-     * Xray settings.
+     * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
      */
     xrayIndex?: pulumi.Input<boolean>;
 }
@@ -328,9 +294,8 @@ export interface LocalSbtRepositoryState {
  */
 export interface LocalSbtRepositoryArgs {
     /**
-     * When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
-     * therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
-     * security (e.g., cross-site scripting attacks).
+     * When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+     * This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
      */
     archiveBrowsingEnabled?: pulumi.Input<boolean>;
     /**
@@ -338,15 +303,11 @@ export interface LocalSbtRepositoryArgs {
      */
     blackedOut?: pulumi.Input<boolean>;
     /**
-     * When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+     * When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
      */
     cdnRedirect?: pulumi.Input<boolean>;
     /**
-     * Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or
-     * conflicts with the locally calculated checksum (bad checksum). Options are: "client-checksums", or
-     * "server-generated-checksums". Default: "client-checksums"\n For more details, please refer to Checksum Policy -
-     * https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
+     * Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or conflicts with the locally calculated checksum (bad checksum). Options are: "client-checksums", or "server-generated-checksums". Default: "client-checksums"\n For more details, please refer to Checksum Policy - https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
      */
     checksumPolicyType?: pulumi.Input<string>;
     /**
@@ -354,13 +315,11 @@ export interface LocalSbtRepositoryArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
-     * storage provider. Available in Enterprise+ and Edge licenses only.
+     * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
      */
     downloadDirect?: pulumi.Input<boolean>;
     /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no
-     * artifacts are excluded.
+     * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`.By default no artifacts are excluded.
      */
     excludesPattern?: pulumi.Input<string>;
     /**
@@ -372,8 +331,7 @@ export interface LocalSbtRepositoryArgs {
      */
     handleSnapshots?: pulumi.Input<boolean>;
     /**
-     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When
-     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
+     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**&#47;*`).
      */
     includesPattern?: pulumi.Input<string>;
     /**
@@ -381,8 +339,7 @@ export interface LocalSbtRepositoryArgs {
      */
     key: pulumi.Input<string>;
     /**
-     * The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
-     * older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+     * The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
      */
     maxUniqueSnapshots?: pulumi.Input<number>;
     /**
@@ -395,8 +352,7 @@ export interface LocalSbtRepositoryArgs {
     priorityResolution?: pulumi.Input<boolean>;
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-     * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+     * Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      */
     projectKey?: pulumi.Input<string>;
     /**
@@ -404,26 +360,19 @@ export interface LocalSbtRepositoryArgs {
      */
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
-     * corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+     * Sets the layout that the repository should use for storing and identifying modules. A recommended layout that corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
      */
     repoLayoutRef?: pulumi.Input<string>;
     /**
-     * Specifies the naming convention for Maven SNAPSHOT versions. The options are - `unique`: Version number is based on a
-     * time-stamp (default), `non-unique`: Version number uses a self-overriding naming pattern of
-     * artifactId-version-SNAPSHOT.type, `deployer`: Respects the settings in the Maven client that is deploying the artifact.
+     * Specifies the naming convention for Maven SNAPSHOT versions. The options are - `unique`: Version number is based on a time-stamp (default), `non-unique`: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type, `deployer`: Respects the settings in the Maven client that is deploying the artifact.
      */
     snapshotVersionBehavior?: pulumi.Input<string>;
     /**
-     * By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the
-     * groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the
-     * deployment with a `409 Conflict` error. You can disable this behavior by setting the Suppress POM Consistency Checks
-     * checkbox.
+     * By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a `409 Conflict` error. You can disable this behavior by setting the Suppress POM Consistency Checks checkbox.
      */
     suppressPomConsistencyChecks?: pulumi.Input<boolean>;
     /**
-     * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-     * Xray settings.
+     * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
      */
     xrayIndex?: pulumi.Input<boolean>;
 }

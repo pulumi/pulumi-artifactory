@@ -53,39 +53,39 @@ export class ReleaseBundleV2Promotion extends pulumi.CustomResource {
     /**
      * Timestamp when the new version was created (ISO 8601 standard).
      */
-    public /*out*/ readonly created!: pulumi.Output<string>;
+    declare public /*out*/ readonly created: pulumi.Output<string>;
     /**
      * Timestamp when the new version was created (in milliseconds).
      */
-    public /*out*/ readonly createdMillis!: pulumi.Output<number>;
+    declare public /*out*/ readonly createdMillis: pulumi.Output<number>;
     /**
      * Target environment
      */
-    public readonly environment!: pulumi.Output<string>;
+    declare public readonly environment: pulumi.Output<string>;
     /**
      * Defines specific repositories to exclude from the promotion.
      */
-    public readonly excludedRepositoryKeys!: pulumi.Output<string[] | undefined>;
+    declare public readonly excludedRepositoryKeys: pulumi.Output<string[] | undefined>;
     /**
      * Defines specific repositories to include in the promotion. If this property is left undefined, all repositories (except those specifically excluded) are included in the promotion. Important: If one or more repositories are specifically included, all other repositories are excluded (regardless of what is defined in `excludedRepositoryKeys`).
      */
-    public readonly includedRepositoryKeys!: pulumi.Output<string[] | undefined>;
+    declare public readonly includedRepositoryKeys: pulumi.Output<string[] | undefined>;
     /**
      * Key-pair name to use for signature creation
      */
-    public readonly keypairName!: pulumi.Output<string>;
+    declare public readonly keypairName: pulumi.Output<string>;
     /**
      * Name of Release Bundle
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Project key the Release Bundle belongs to
      */
-    public readonly projectKey!: pulumi.Output<string | undefined>;
+    declare public readonly projectKey: pulumi.Output<string | undefined>;
     /**
      * Version to promote
      */
-    public readonly version!: pulumi.Output<string>;
+    declare public readonly version: pulumi.Output<string>;
 
     /**
      * Create a ReleaseBundleV2Promotion resource with the given unique name, arguments, and options.
@@ -100,33 +100,33 @@ export class ReleaseBundleV2Promotion extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ReleaseBundleV2PromotionState | undefined;
-            resourceInputs["created"] = state ? state.created : undefined;
-            resourceInputs["createdMillis"] = state ? state.createdMillis : undefined;
-            resourceInputs["environment"] = state ? state.environment : undefined;
-            resourceInputs["excludedRepositoryKeys"] = state ? state.excludedRepositoryKeys : undefined;
-            resourceInputs["includedRepositoryKeys"] = state ? state.includedRepositoryKeys : undefined;
-            resourceInputs["keypairName"] = state ? state.keypairName : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["projectKey"] = state ? state.projectKey : undefined;
-            resourceInputs["version"] = state ? state.version : undefined;
+            resourceInputs["created"] = state?.created;
+            resourceInputs["createdMillis"] = state?.createdMillis;
+            resourceInputs["environment"] = state?.environment;
+            resourceInputs["excludedRepositoryKeys"] = state?.excludedRepositoryKeys;
+            resourceInputs["includedRepositoryKeys"] = state?.includedRepositoryKeys;
+            resourceInputs["keypairName"] = state?.keypairName;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["projectKey"] = state?.projectKey;
+            resourceInputs["version"] = state?.version;
         } else {
             const args = argsOrState as ReleaseBundleV2PromotionArgs | undefined;
-            if ((!args || args.environment === undefined) && !opts.urn) {
+            if (args?.environment === undefined && !opts.urn) {
                 throw new Error("Missing required property 'environment'");
             }
-            if ((!args || args.keypairName === undefined) && !opts.urn) {
+            if (args?.keypairName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'keypairName'");
             }
-            if ((!args || args.version === undefined) && !opts.urn) {
+            if (args?.version === undefined && !opts.urn) {
                 throw new Error("Missing required property 'version'");
             }
-            resourceInputs["environment"] = args ? args.environment : undefined;
-            resourceInputs["excludedRepositoryKeys"] = args ? args.excludedRepositoryKeys : undefined;
-            resourceInputs["includedRepositoryKeys"] = args ? args.includedRepositoryKeys : undefined;
-            resourceInputs["keypairName"] = args ? args.keypairName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["projectKey"] = args ? args.projectKey : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["environment"] = args?.environment;
+            resourceInputs["excludedRepositoryKeys"] = args?.excludedRepositoryKeys;
+            resourceInputs["includedRepositoryKeys"] = args?.includedRepositoryKeys;
+            resourceInputs["keypairName"] = args?.keypairName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["projectKey"] = args?.projectKey;
+            resourceInputs["version"] = args?.version;
             resourceInputs["created"] = undefined /*out*/;
             resourceInputs["createdMillis"] = undefined /*out*/;
         }

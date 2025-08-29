@@ -64,35 +64,35 @@ export class Certificate extends pulumi.CustomResource {
     /**
      * Name of certificate.
      */
-    public readonly alias!: pulumi.Output<string>;
+    declare public readonly alias: pulumi.Output<string>;
     /**
      * PEM-encoded client certificate and private key. Cannot be set with `file` attribute simultaneously.
      */
-    public readonly content!: pulumi.Output<string | undefined>;
+    declare public readonly content: pulumi.Output<string | undefined>;
     /**
      * Path to the PEM file. Cannot be set with `content` attribute simultaneously.
      */
-    public readonly file!: pulumi.Output<string | undefined>;
+    declare public readonly file: pulumi.Output<string | undefined>;
     /**
      * SHA256 fingerprint of the certificate.
      */
-    public /*out*/ readonly fingerprint!: pulumi.Output<string>;
+    declare public /*out*/ readonly fingerprint: pulumi.Output<string>;
     /**
      * Name of the certificate authority that issued the certificate.
      */
-    public /*out*/ readonly issuedBy!: pulumi.Output<string>;
+    declare public /*out*/ readonly issuedBy: pulumi.Output<string>;
     /**
      * The time & date when the certificate is valid from.
      */
-    public /*out*/ readonly issuedOn!: pulumi.Output<string>;
+    declare public /*out*/ readonly issuedOn: pulumi.Output<string>;
     /**
      * Name of whom the certificate has been issued to.
      */
-    public /*out*/ readonly issuedTo!: pulumi.Output<string>;
+    declare public /*out*/ readonly issuedTo: pulumi.Output<string>;
     /**
      * The time & date when the certificate expires.
      */
-    public /*out*/ readonly validUntil!: pulumi.Output<string>;
+    declare public /*out*/ readonly validUntil: pulumi.Output<string>;
 
     /**
      * Create a Certificate resource with the given unique name, arguments, and options.
@@ -107,20 +107,20 @@ export class Certificate extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CertificateState | undefined;
-            resourceInputs["alias"] = state ? state.alias : undefined;
-            resourceInputs["content"] = state ? state.content : undefined;
-            resourceInputs["file"] = state ? state.file : undefined;
-            resourceInputs["fingerprint"] = state ? state.fingerprint : undefined;
-            resourceInputs["issuedBy"] = state ? state.issuedBy : undefined;
-            resourceInputs["issuedOn"] = state ? state.issuedOn : undefined;
-            resourceInputs["issuedTo"] = state ? state.issuedTo : undefined;
-            resourceInputs["validUntil"] = state ? state.validUntil : undefined;
+            resourceInputs["alias"] = state?.alias;
+            resourceInputs["content"] = state?.content;
+            resourceInputs["file"] = state?.file;
+            resourceInputs["fingerprint"] = state?.fingerprint;
+            resourceInputs["issuedBy"] = state?.issuedBy;
+            resourceInputs["issuedOn"] = state?.issuedOn;
+            resourceInputs["issuedTo"] = state?.issuedTo;
+            resourceInputs["validUntil"] = state?.validUntil;
         } else {
             const args = argsOrState as CertificateArgs | undefined;
-            if ((!args || args.alias === undefined) && !opts.urn) {
+            if (args?.alias === undefined && !opts.urn) {
                 throw new Error("Missing required property 'alias'");
             }
-            resourceInputs["alias"] = args ? args.alias : undefined;
+            resourceInputs["alias"] = args?.alias;
             resourceInputs["content"] = args?.content ? pulumi.secret(args.content) : undefined;
             resourceInputs["file"] = args?.file ? pulumi.secret(args.file) : undefined;
             resourceInputs["fingerprint"] = undefined /*out*/;

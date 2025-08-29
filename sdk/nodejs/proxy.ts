@@ -74,43 +74,43 @@ export class Proxy extends pulumi.CustomResource {
     /**
      * The name of the proxy host.
      */
-    public readonly host!: pulumi.Output<string>;
+    declare public readonly host: pulumi.Output<string>;
     /**
      * The unique ID of the proxy.
      */
-    public readonly key!: pulumi.Output<string>;
+    declare public readonly key: pulumi.Output<string>;
     /**
      * The proxy domain/realm name.
      */
-    public readonly ntDomain!: pulumi.Output<string>;
+    declare public readonly ntDomain: pulumi.Output<string>;
     /**
      * The computer name of the machine (the machine connecting to the NTLM proxy).
      */
-    public readonly ntHost!: pulumi.Output<string>;
+    declare public readonly ntHost: pulumi.Output<string>;
     /**
      * The proxy password when authentication credentials are required.
      */
-    public readonly password!: pulumi.Output<string | undefined>;
+    declare public readonly password: pulumi.Output<string | undefined>;
     /**
      * When set, this proxy will be the default proxy for new remote repositories and for internal HTTP requests issued by Artifactory. Will also be used as proxy for all other services in the platform (for example: Xray, Distribution, etc).
      */
-    public readonly platformDefault!: pulumi.Output<boolean>;
+    declare public readonly platformDefault: pulumi.Output<boolean>;
     /**
      * The proxy port number.
      */
-    public readonly port!: pulumi.Output<number>;
+    declare public readonly port: pulumi.Output<number>;
     /**
      * An optional list of host names to which this proxy may redirect requests. The credentials defined for the proxy are reused by requests redirected to all of these hosts.
      */
-    public readonly redirectToHosts!: pulumi.Output<string[] | undefined>;
+    declare public readonly redirectToHosts: pulumi.Output<string[] | undefined>;
     /**
      * An optional list of services names to which this proxy be the default of. The options are `jfrt`, `jfmc`, `jfxr`, `jfds`.
      */
-    public readonly services!: pulumi.Output<string[] | undefined>;
+    declare public readonly services: pulumi.Output<string[] | undefined>;
     /**
      * The proxy username when authentication credentials are required.
      */
-    public readonly username!: pulumi.Output<string>;
+    declare public readonly username: pulumi.Output<string>;
 
     /**
      * Create a Proxy resource with the given unique name, arguments, and options.
@@ -125,37 +125,37 @@ export class Proxy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProxyState | undefined;
-            resourceInputs["host"] = state ? state.host : undefined;
-            resourceInputs["key"] = state ? state.key : undefined;
-            resourceInputs["ntDomain"] = state ? state.ntDomain : undefined;
-            resourceInputs["ntHost"] = state ? state.ntHost : undefined;
-            resourceInputs["password"] = state ? state.password : undefined;
-            resourceInputs["platformDefault"] = state ? state.platformDefault : undefined;
-            resourceInputs["port"] = state ? state.port : undefined;
-            resourceInputs["redirectToHosts"] = state ? state.redirectToHosts : undefined;
-            resourceInputs["services"] = state ? state.services : undefined;
-            resourceInputs["username"] = state ? state.username : undefined;
+            resourceInputs["host"] = state?.host;
+            resourceInputs["key"] = state?.key;
+            resourceInputs["ntDomain"] = state?.ntDomain;
+            resourceInputs["ntHost"] = state?.ntHost;
+            resourceInputs["password"] = state?.password;
+            resourceInputs["platformDefault"] = state?.platformDefault;
+            resourceInputs["port"] = state?.port;
+            resourceInputs["redirectToHosts"] = state?.redirectToHosts;
+            resourceInputs["services"] = state?.services;
+            resourceInputs["username"] = state?.username;
         } else {
             const args = argsOrState as ProxyArgs | undefined;
-            if ((!args || args.host === undefined) && !opts.urn) {
+            if (args?.host === undefined && !opts.urn) {
                 throw new Error("Missing required property 'host'");
             }
-            if ((!args || args.key === undefined) && !opts.urn) {
+            if (args?.key === undefined && !opts.urn) {
                 throw new Error("Missing required property 'key'");
             }
-            if ((!args || args.port === undefined) && !opts.urn) {
+            if (args?.port === undefined && !opts.urn) {
                 throw new Error("Missing required property 'port'");
             }
-            resourceInputs["host"] = args ? args.host : undefined;
-            resourceInputs["key"] = args ? args.key : undefined;
-            resourceInputs["ntDomain"] = args ? args.ntDomain : undefined;
-            resourceInputs["ntHost"] = args ? args.ntHost : undefined;
+            resourceInputs["host"] = args?.host;
+            resourceInputs["key"] = args?.key;
+            resourceInputs["ntDomain"] = args?.ntDomain;
+            resourceInputs["ntHost"] = args?.ntHost;
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
-            resourceInputs["platformDefault"] = args ? args.platformDefault : undefined;
-            resourceInputs["port"] = args ? args.port : undefined;
-            resourceInputs["redirectToHosts"] = args ? args.redirectToHosts : undefined;
-            resourceInputs["services"] = args ? args.services : undefined;
-            resourceInputs["username"] = args ? args.username : undefined;
+            resourceInputs["platformDefault"] = args?.platformDefault;
+            resourceInputs["port"] = args?.port;
+            resourceInputs["redirectToHosts"] = args?.redirectToHosts;
+            resourceInputs["services"] = args?.services;
+            resourceInputs["username"] = args?.username;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["password"] };

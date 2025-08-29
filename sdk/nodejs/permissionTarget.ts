@@ -149,19 +149,19 @@ export class PermissionTarget extends pulumi.CustomResource {
     /**
      * As for repo but for artifactory-build-info permissions.
      */
-    public readonly build!: pulumi.Output<outputs.PermissionTargetBuild | undefined>;
+    declare public readonly build: pulumi.Output<outputs.PermissionTargetBuild | undefined>;
     /**
      * Name of permission.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * As for repo for for release-bundles permissions.
      */
-    public readonly releaseBundle!: pulumi.Output<outputs.PermissionTargetReleaseBundle | undefined>;
+    declare public readonly releaseBundle: pulumi.Output<outputs.PermissionTargetReleaseBundle | undefined>;
     /**
      * Repository permission configuration.
      */
-    public readonly repo!: pulumi.Output<outputs.PermissionTargetRepo | undefined>;
+    declare public readonly repo: pulumi.Output<outputs.PermissionTargetRepo | undefined>;
 
     /**
      * Create a PermissionTarget resource with the given unique name, arguments, and options.
@@ -176,16 +176,16 @@ export class PermissionTarget extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PermissionTargetState | undefined;
-            resourceInputs["build"] = state ? state.build : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["releaseBundle"] = state ? state.releaseBundle : undefined;
-            resourceInputs["repo"] = state ? state.repo : undefined;
+            resourceInputs["build"] = state?.build;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["releaseBundle"] = state?.releaseBundle;
+            resourceInputs["repo"] = state?.repo;
         } else {
             const args = argsOrState as PermissionTargetArgs | undefined;
-            resourceInputs["build"] = args ? args.build : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["releaseBundle"] = args ? args.releaseBundle : undefined;
-            resourceInputs["repo"] = args ? args.repo : undefined;
+            resourceInputs["build"] = args?.build;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["releaseBundle"] = args?.releaseBundle;
+            resourceInputs["repo"] = args?.repo;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(PermissionTarget.__pulumiType, name, resourceInputs, opts);

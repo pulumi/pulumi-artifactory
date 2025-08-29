@@ -79,19 +79,19 @@ export class ItemProperties extends pulumi.CustomResource {
     /**
      * Add this property to the selected folder and to all of artifacts and folders under this folder. Default to `false`
      */
-    public readonly isRecursive!: pulumi.Output<boolean>;
+    declare public readonly isRecursive: pulumi.Output<boolean>;
     /**
      * The relative path of the item (file/folder/repository). Leave unset for repository.
      */
-    public readonly itemPath!: pulumi.Output<string | undefined>;
+    declare public readonly itemPath: pulumi.Output<string | undefined>;
     /**
      * Map of key and list of values.
      */
-    public readonly properties!: pulumi.Output<{[key: string]: string[]}>;
+    declare public readonly properties: pulumi.Output<{[key: string]: string[]}>;
     /**
      * Respository key.
      */
-    public readonly repoKey!: pulumi.Output<string>;
+    declare public readonly repoKey: pulumi.Output<string>;
 
     /**
      * Create a ItemProperties resource with the given unique name, arguments, and options.
@@ -106,22 +106,22 @@ export class ItemProperties extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ItemPropertiesState | undefined;
-            resourceInputs["isRecursive"] = state ? state.isRecursive : undefined;
-            resourceInputs["itemPath"] = state ? state.itemPath : undefined;
-            resourceInputs["properties"] = state ? state.properties : undefined;
-            resourceInputs["repoKey"] = state ? state.repoKey : undefined;
+            resourceInputs["isRecursive"] = state?.isRecursive;
+            resourceInputs["itemPath"] = state?.itemPath;
+            resourceInputs["properties"] = state?.properties;
+            resourceInputs["repoKey"] = state?.repoKey;
         } else {
             const args = argsOrState as ItemPropertiesArgs | undefined;
-            if ((!args || args.properties === undefined) && !opts.urn) {
+            if (args?.properties === undefined && !opts.urn) {
                 throw new Error("Missing required property 'properties'");
             }
-            if ((!args || args.repoKey === undefined) && !opts.urn) {
+            if (args?.repoKey === undefined && !opts.urn) {
                 throw new Error("Missing required property 'repoKey'");
             }
-            resourceInputs["isRecursive"] = args ? args.isRecursive : undefined;
-            resourceInputs["itemPath"] = args ? args.itemPath : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
-            resourceInputs["repoKey"] = args ? args.repoKey : undefined;
+            resourceInputs["isRecursive"] = args?.isRecursive;
+            resourceInputs["itemPath"] = args?.itemPath;
+            resourceInputs["properties"] = args?.properties;
+            resourceInputs["repoKey"] = args?.repoKey;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ItemProperties.__pulumiType, name, resourceInputs, opts);

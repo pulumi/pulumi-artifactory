@@ -75,83 +75,51 @@ class RemoteDockerRepositoryArgs:
         :param pulumi.Input[_builtins.str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
                contain spaces or special characters.
         :param pulumi.Input[_builtins.str] url: The remote repo URL.
-        :param pulumi.Input[_builtins.bool] allow_any_host_auth: 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any
-               other host.
-        :param pulumi.Input[_builtins.bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
-               therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
-               security (e.g., cross-site scripting attacks).
-        :param pulumi.Input[_builtins.int] assumed_offline_period_secs: The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
-               an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
-               offline.
-        :param pulumi.Input[_builtins.bool] blacked_out: (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact
-               resolution.
-        :param pulumi.Input[_builtins.bool] block_mismatching_mime_types: If set, artifacts will fail to download if a mismatch is detected between requested and received mimetype, according to
-               the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes
-               to the override list 'mismatching_mime_types_override_list'.
+        :param pulumi.Input[_builtins.bool] allow_any_host_auth: 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any other host.
+        :param pulumi.Input[_builtins.bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+               This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
+        :param pulumi.Input[_builtins.int] assumed_offline_period_secs: The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time, an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed offline.
+        :param pulumi.Input[_builtins.bool] blacked_out: (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact resolution.
+        :param pulumi.Input[_builtins.bool] block_mismatching_mime_types: If set, artifacts will fail to download if a mismatch is detected between requested and received mimetype, according to the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes to the override list 'mismatching_mime_types_override_list'.
         :param pulumi.Input[_builtins.bool] block_pushing_schema1: When set, Artifactory will block the pulling of Docker images with manifest v2
                schema 1 from the remote repository (i.e. the upstream). It will be possible to pull images with manifest v2 schema 1
                that exist in the cache.
-        :param pulumi.Input[_builtins.bool] bypass_head_requests: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
-               HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
-               Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
-        :param pulumi.Input[_builtins.bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-               CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        :param pulumi.Input[_builtins.bool] bypass_head_requests: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+        :param pulumi.Input[_builtins.bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[_builtins.str] client_tls_certificate: Client TLS certificate name.
         :param pulumi.Input[_builtins.bool] curated: Enable repository to be protected by the Curation service.
         :param pulumi.Input[_builtins.str] description: Public description.
-        :param pulumi.Input[_builtins.bool] disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
-               for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
+        :param pulumi.Input[_builtins.bool] disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
         :param pulumi.Input[_builtins.bool] disable_url_normalization: Whether to disable URL normalization. Default is `false`.
-        :param pulumi.Input[_builtins.bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
-               storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
+        :param pulumi.Input[_builtins.bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
         :param pulumi.Input[_builtins.bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
         :param pulumi.Input[_builtins.bool] enable_token_authentication: Enable token (Bearer) based authentication.
-        :param pulumi.Input[_builtins.str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
-               artifacts are excluded.
+        :param pulumi.Input[_builtins.str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
         :param pulumi.Input[_builtins.bool] external_dependencies_enabled: Also known as 'Foreign Layers Caching' on the UI.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] external_dependencies_patterns: An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response. Default to `["**"]`
-        :param pulumi.Input[_builtins.bool] hard_fail: When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
-               communicate with this repository.
-        :param pulumi.Input[_builtins.str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
-               used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
-        :param pulumi.Input[_builtins.bool] list_remote_folder_items: Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
-               the 'Retrieval Cache Period'. Default value is 'false'. This field exists in the API but not in the UI.
-        :param pulumi.Input[_builtins.str] local_address: The local address to be used when creating connections. Useful for specifying the interface to use on systems with
-               multiple network interfaces.
-        :param pulumi.Input[_builtins.int] metadata_retrieval_timeout_secs: Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
-               the remote before serving locally cached artifact or fail the request.
-        :param pulumi.Input[_builtins.str] mismatching_mime_types_override_list: The set of mime types that should override the block_mismatching_mime_types setting. Eg:
-               'application/json,application/xml'. Default value is empty.
-        :param pulumi.Input[_builtins.int] missed_cache_period_seconds: Missed Retrieval Cache Period (Sec) in the UI. The number of seconds to cache artifact retrieval misses (artifact not
-               found). A value of 0 indicates no caching.
+        :param pulumi.Input[_builtins.bool] hard_fail: When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to communicate with this repository.
+        :param pulumi.Input[_builtins.str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        :param pulumi.Input[_builtins.bool] list_remote_folder_items: Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of the 'Retrieval Cache Period'. Default value is 'false'. This field exists in the API but not in the UI.
+        :param pulumi.Input[_builtins.str] local_address: The local address to be used when creating connections. Useful for specifying the interface to use on systems with multiple network interfaces.
+        :param pulumi.Input[_builtins.int] metadata_retrieval_timeout_secs: Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from the remote before serving locally cached artifact or fail the request.
+        :param pulumi.Input[_builtins.str] mismatching_mime_types_override_list: The set of mime types that should override the block_mismatching_mime_types setting. Eg: 'application/json,application/xml'. Default value is empty.
+        :param pulumi.Input[_builtins.int] missed_cache_period_seconds: Missed Retrieval Cache Period (Sec) in the UI. The number of seconds to cache artifact retrieval misses (artifact not found). A value of 0 indicates no caching.
         :param pulumi.Input[_builtins.str] notes: Internal description.
         :param pulumi.Input[_builtins.bool] offline: If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
         :param pulumi.Input[_builtins.bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[_builtins.str] project_id: Use this attribute to enter your GCR, GAR Project Id to limit the scope of this remote repo to a specific project in your third-party registry. When leaving this field blank or unset, remote repositories that support project id will default to their default project as you have set up in your account.
-        :param pulumi.Input[_builtins.str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-               assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+        :param pulumi.Input[_builtins.str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] property_sets: List of property set name
         :param pulumi.Input[_builtins.str] proxy: Proxy key from Artifactory Proxies settings. Can't be set if `disable_proxy = true`.
-        :param pulumi.Input[_builtins.str] query_params: Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
-               `param1=val1&param2=val2&param3=val3`
-        :param pulumi.Input[_builtins.str] remote_repo_layout_ref: Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an
-               empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be
-               ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
-        :param pulumi.Input[_builtins.str] repo_layout_ref: Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
-               corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
-        :param pulumi.Input[_builtins.int] retrieval_cache_period_seconds: Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files
-               before checking for newer versions on remote server. A value of 0 indicates no caching.
-        :param pulumi.Input[_builtins.int] socket_timeout_millis: Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network
-               operation is considered a retrieval failure.
-        :param pulumi.Input[_builtins.bool] store_artifacts_locally: When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and
-               direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with
-               one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory
-               servers.
+        :param pulumi.Input[_builtins.str] query_params: Custom HTTP query parameters that will be automatically included in all remote resource requests. For example: `param1=val1&param2=val2&param3=val3`
+        :param pulumi.Input[_builtins.str] remote_repo_layout_ref: Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
+        :param pulumi.Input[_builtins.str] repo_layout_ref: Sets the layout that the repository should use for storing and identifying modules. A recommended layout that corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+        :param pulumi.Input[_builtins.int] retrieval_cache_period_seconds: Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching.
+        :param pulumi.Input[_builtins.int] socket_timeout_millis: Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network operation is considered a retrieval failure.
+        :param pulumi.Input[_builtins.bool] store_artifacts_locally: When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory servers.
         :param pulumi.Input[_builtins.bool] synchronize_properties: When set, remote artifacts are fetched along with their properties.
-        :param pulumi.Input[_builtins.int] unused_artifacts_cleanup_period_hours: Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and
-               eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
-        :param pulumi.Input[_builtins.bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-               Xray settings.
+        :param pulumi.Input[_builtins.int] unused_artifacts_cleanup_period_hours: Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
+        :param pulumi.Input[_builtins.bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "url", url)
@@ -282,8 +250,7 @@ class RemoteDockerRepositoryArgs:
     @pulumi.getter(name="allowAnyHostAuth")
     def allow_any_host_auth(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any
-        other host.
+        'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any other host.
         """
         return pulumi.get(self, "allow_any_host_auth")
 
@@ -295,9 +262,8 @@ class RemoteDockerRepositoryArgs:
     @pulumi.getter(name="archiveBrowsingEnabled")
     def archive_browsing_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
-        therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
-        security (e.g., cross-site scripting attacks).
+        When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+        This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
         """
         return pulumi.get(self, "archive_browsing_enabled")
 
@@ -309,9 +275,7 @@ class RemoteDockerRepositoryArgs:
     @pulumi.getter(name="assumedOfflinePeriodSecs")
     def assumed_offline_period_secs(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
-        an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
-        offline.
+        The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time, an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed offline.
         """
         return pulumi.get(self, "assumed_offline_period_secs")
 
@@ -323,8 +287,7 @@ class RemoteDockerRepositoryArgs:
     @pulumi.getter(name="blackedOut")
     def blacked_out(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact
-        resolution.
+        (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact resolution.
         """
         return pulumi.get(self, "blacked_out")
 
@@ -336,9 +299,7 @@ class RemoteDockerRepositoryArgs:
     @pulumi.getter(name="blockMismatchingMimeTypes")
     def block_mismatching_mime_types(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        If set, artifacts will fail to download if a mismatch is detected between requested and received mimetype, according to
-        the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes
-        to the override list 'mismatching_mime_types_override_list'.
+        If set, artifacts will fail to download if a mismatch is detected between requested and received mimetype, according to the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes to the override list 'mismatching_mime_types_override_list'.
         """
         return pulumi.get(self, "block_mismatching_mime_types")
 
@@ -364,9 +325,7 @@ class RemoteDockerRepositoryArgs:
     @pulumi.getter(name="bypassHeadRequests")
     def bypass_head_requests(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
-        HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
-        Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+        Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
         """
         return pulumi.get(self, "bypass_head_requests")
 
@@ -378,8 +337,7 @@ class RemoteDockerRepositoryArgs:
     @pulumi.getter(name="cdnRedirect")
     def cdn_redirect(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-        CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         """
         return pulumi.get(self, "cdn_redirect")
 
@@ -436,8 +394,7 @@ class RemoteDockerRepositoryArgs:
     @pulumi.getter(name="disableProxy")
     def disable_proxy(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
-        for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
+        When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
         """
         return pulumi.get(self, "disable_proxy")
 
@@ -461,8 +418,7 @@ class RemoteDockerRepositoryArgs:
     @pulumi.getter(name="downloadDirect")
     def download_direct(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
-        storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
+        When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
         """
         return pulumi.get(self, "download_direct")
 
@@ -498,8 +454,7 @@ class RemoteDockerRepositoryArgs:
     @pulumi.getter(name="excludesPattern")
     def excludes_pattern(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
-        artifacts are excluded.
+        List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
         """
         return pulumi.get(self, "excludes_pattern")
 
@@ -535,8 +490,7 @@ class RemoteDockerRepositoryArgs:
     @pulumi.getter(name="hardFail")
     def hard_fail(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
-        communicate with this repository.
+        When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to communicate with this repository.
         """
         return pulumi.get(self, "hard_fail")
 
@@ -548,8 +502,7 @@ class RemoteDockerRepositoryArgs:
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
-        used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         """
         return pulumi.get(self, "includes_pattern")
 
@@ -561,8 +514,7 @@ class RemoteDockerRepositoryArgs:
     @pulumi.getter(name="listRemoteFolderItems")
     def list_remote_folder_items(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
-        the 'Retrieval Cache Period'. Default value is 'false'. This field exists in the API but not in the UI.
+        Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of the 'Retrieval Cache Period'. Default value is 'false'. This field exists in the API but not in the UI.
         """
         return pulumi.get(self, "list_remote_folder_items")
 
@@ -574,8 +526,7 @@ class RemoteDockerRepositoryArgs:
     @pulumi.getter(name="localAddress")
     def local_address(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The local address to be used when creating connections. Useful for specifying the interface to use on systems with
-        multiple network interfaces.
+        The local address to be used when creating connections. Useful for specifying the interface to use on systems with multiple network interfaces.
         """
         return pulumi.get(self, "local_address")
 
@@ -587,8 +538,7 @@ class RemoteDockerRepositoryArgs:
     @pulumi.getter(name="metadataRetrievalTimeoutSecs")
     def metadata_retrieval_timeout_secs(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
-        the remote before serving locally cached artifact or fail the request.
+        Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from the remote before serving locally cached artifact or fail the request.
         """
         return pulumi.get(self, "metadata_retrieval_timeout_secs")
 
@@ -600,8 +550,7 @@ class RemoteDockerRepositoryArgs:
     @pulumi.getter(name="mismatchingMimeTypesOverrideList")
     def mismatching_mime_types_override_list(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The set of mime types that should override the block_mismatching_mime_types setting. Eg:
-        'application/json,application/xml'. Default value is empty.
+        The set of mime types that should override the block_mismatching_mime_types setting. Eg: 'application/json,application/xml'. Default value is empty.
         """
         return pulumi.get(self, "mismatching_mime_types_override_list")
 
@@ -613,8 +562,7 @@ class RemoteDockerRepositoryArgs:
     @pulumi.getter(name="missedCachePeriodSeconds")
     def missed_cache_period_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        Missed Retrieval Cache Period (Sec) in the UI. The number of seconds to cache artifact retrieval misses (artifact not
-        found). A value of 0 indicates no caching.
+        Missed Retrieval Cache Period (Sec) in the UI. The number of seconds to cache artifact retrieval misses (artifact not found). A value of 0 indicates no caching.
         """
         return pulumi.get(self, "missed_cache_period_seconds")
 
@@ -692,8 +640,7 @@ class RemoteDockerRepositoryArgs:
     @pulumi.getter(name="projectKey")
     def project_key(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-        assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+        Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         """
         return pulumi.get(self, "project_key")
 
@@ -729,8 +676,7 @@ class RemoteDockerRepositoryArgs:
     @pulumi.getter(name="queryParams")
     def query_params(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
-        `param1=val1&param2=val2&param3=val3`
+        Custom HTTP query parameters that will be automatically included in all remote resource requests. For example: `param1=val1&param2=val2&param3=val3`
         """
         return pulumi.get(self, "query_params")
 
@@ -742,9 +688,7 @@ class RemoteDockerRepositoryArgs:
     @pulumi.getter(name="remoteRepoLayoutRef")
     def remote_repo_layout_ref(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an
-        empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be
-        ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
+        Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
         """
         return pulumi.get(self, "remote_repo_layout_ref")
 
@@ -756,8 +700,7 @@ class RemoteDockerRepositoryArgs:
     @pulumi.getter(name="repoLayoutRef")
     def repo_layout_ref(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
-        corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+        Sets the layout that the repository should use for storing and identifying modules. A recommended layout that corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
         """
         return pulumi.get(self, "repo_layout_ref")
 
@@ -769,8 +712,7 @@ class RemoteDockerRepositoryArgs:
     @pulumi.getter(name="retrievalCachePeriodSeconds")
     def retrieval_cache_period_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files
-        before checking for newer versions on remote server. A value of 0 indicates no caching.
+        Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching.
         """
         return pulumi.get(self, "retrieval_cache_period_seconds")
 
@@ -792,8 +734,7 @@ class RemoteDockerRepositoryArgs:
     @pulumi.getter(name="socketTimeoutMillis")
     def socket_timeout_millis(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network
-        operation is considered a retrieval failure.
+        Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network operation is considered a retrieval failure.
         """
         return pulumi.get(self, "socket_timeout_millis")
 
@@ -805,10 +746,7 @@ class RemoteDockerRepositoryArgs:
     @pulumi.getter(name="storeArtifactsLocally")
     def store_artifacts_locally(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and
-        direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with
-        one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory
-        servers.
+        When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory servers.
         """
         return pulumi.get(self, "store_artifacts_locally")
 
@@ -832,8 +770,7 @@ class RemoteDockerRepositoryArgs:
     @pulumi.getter(name="unusedArtifactsCleanupPeriodHours")
     def unused_artifacts_cleanup_period_hours(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and
-        eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
+        Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
         """
         return pulumi.get(self, "unused_artifacts_cleanup_period_hours")
 
@@ -854,8 +791,7 @@ class RemoteDockerRepositoryArgs:
     @pulumi.getter(name="xrayIndex")
     def xray_index(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-        Xray settings.
+        Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
         """
         return pulumi.get(self, "xray_index")
 
@@ -918,86 +854,54 @@ class _RemoteDockerRepositoryState:
                  xray_index: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering RemoteDockerRepository resources.
-        :param pulumi.Input[_builtins.bool] allow_any_host_auth: 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any
-               other host.
-        :param pulumi.Input[_builtins.bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
-               therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
-               security (e.g., cross-site scripting attacks).
-        :param pulumi.Input[_builtins.int] assumed_offline_period_secs: The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
-               an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
-               offline.
-        :param pulumi.Input[_builtins.bool] blacked_out: (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact
-               resolution.
-        :param pulumi.Input[_builtins.bool] block_mismatching_mime_types: If set, artifacts will fail to download if a mismatch is detected between requested and received mimetype, according to
-               the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes
-               to the override list 'mismatching_mime_types_override_list'.
+        :param pulumi.Input[_builtins.bool] allow_any_host_auth: 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any other host.
+        :param pulumi.Input[_builtins.bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+               This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
+        :param pulumi.Input[_builtins.int] assumed_offline_period_secs: The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time, an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed offline.
+        :param pulumi.Input[_builtins.bool] blacked_out: (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact resolution.
+        :param pulumi.Input[_builtins.bool] block_mismatching_mime_types: If set, artifacts will fail to download if a mismatch is detected between requested and received mimetype, according to the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes to the override list 'mismatching_mime_types_override_list'.
         :param pulumi.Input[_builtins.bool] block_pushing_schema1: When set, Artifactory will block the pulling of Docker images with manifest v2
                schema 1 from the remote repository (i.e. the upstream). It will be possible to pull images with manifest v2 schema 1
                that exist in the cache.
-        :param pulumi.Input[_builtins.bool] bypass_head_requests: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
-               HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
-               Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
-        :param pulumi.Input[_builtins.bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-               CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        :param pulumi.Input[_builtins.bool] bypass_head_requests: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+        :param pulumi.Input[_builtins.bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[_builtins.str] client_tls_certificate: Client TLS certificate name.
         :param pulumi.Input[_builtins.bool] curated: Enable repository to be protected by the Curation service.
         :param pulumi.Input[_builtins.str] description: Public description.
-        :param pulumi.Input[_builtins.bool] disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
-               for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
+        :param pulumi.Input[_builtins.bool] disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
         :param pulumi.Input[_builtins.bool] disable_url_normalization: Whether to disable URL normalization. Default is `false`.
-        :param pulumi.Input[_builtins.bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
-               storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
+        :param pulumi.Input[_builtins.bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
         :param pulumi.Input[_builtins.bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
         :param pulumi.Input[_builtins.bool] enable_token_authentication: Enable token (Bearer) based authentication.
-        :param pulumi.Input[_builtins.str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
-               artifacts are excluded.
+        :param pulumi.Input[_builtins.str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
         :param pulumi.Input[_builtins.bool] external_dependencies_enabled: Also known as 'Foreign Layers Caching' on the UI.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] external_dependencies_patterns: An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response. Default to `["**"]`
-        :param pulumi.Input[_builtins.bool] hard_fail: When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
-               communicate with this repository.
-        :param pulumi.Input[_builtins.str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
-               used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        :param pulumi.Input[_builtins.bool] hard_fail: When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to communicate with this repository.
+        :param pulumi.Input[_builtins.str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         :param pulumi.Input[_builtins.str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
                contain spaces or special characters.
-        :param pulumi.Input[_builtins.bool] list_remote_folder_items: Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
-               the 'Retrieval Cache Period'. Default value is 'false'. This field exists in the API but not in the UI.
-        :param pulumi.Input[_builtins.str] local_address: The local address to be used when creating connections. Useful for specifying the interface to use on systems with
-               multiple network interfaces.
-        :param pulumi.Input[_builtins.int] metadata_retrieval_timeout_secs: Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
-               the remote before serving locally cached artifact or fail the request.
-        :param pulumi.Input[_builtins.str] mismatching_mime_types_override_list: The set of mime types that should override the block_mismatching_mime_types setting. Eg:
-               'application/json,application/xml'. Default value is empty.
-        :param pulumi.Input[_builtins.int] missed_cache_period_seconds: Missed Retrieval Cache Period (Sec) in the UI. The number of seconds to cache artifact retrieval misses (artifact not
-               found). A value of 0 indicates no caching.
+        :param pulumi.Input[_builtins.bool] list_remote_folder_items: Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of the 'Retrieval Cache Period'. Default value is 'false'. This field exists in the API but not in the UI.
+        :param pulumi.Input[_builtins.str] local_address: The local address to be used when creating connections. Useful for specifying the interface to use on systems with multiple network interfaces.
+        :param pulumi.Input[_builtins.int] metadata_retrieval_timeout_secs: Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from the remote before serving locally cached artifact or fail the request.
+        :param pulumi.Input[_builtins.str] mismatching_mime_types_override_list: The set of mime types that should override the block_mismatching_mime_types setting. Eg: 'application/json,application/xml'. Default value is empty.
+        :param pulumi.Input[_builtins.int] missed_cache_period_seconds: Missed Retrieval Cache Period (Sec) in the UI. The number of seconds to cache artifact retrieval misses (artifact not found). A value of 0 indicates no caching.
         :param pulumi.Input[_builtins.str] notes: Internal description.
         :param pulumi.Input[_builtins.bool] offline: If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
         :param pulumi.Input[_builtins.bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[_builtins.str] project_id: Use this attribute to enter your GCR, GAR Project Id to limit the scope of this remote repo to a specific project in your third-party registry. When leaving this field blank or unset, remote repositories that support project id will default to their default project as you have set up in your account.
-        :param pulumi.Input[_builtins.str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-               assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+        :param pulumi.Input[_builtins.str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] property_sets: List of property set name
         :param pulumi.Input[_builtins.str] proxy: Proxy key from Artifactory Proxies settings. Can't be set if `disable_proxy = true`.
-        :param pulumi.Input[_builtins.str] query_params: Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
-               `param1=val1&param2=val2&param3=val3`
-        :param pulumi.Input[_builtins.str] remote_repo_layout_ref: Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an
-               empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be
-               ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
-        :param pulumi.Input[_builtins.str] repo_layout_ref: Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
-               corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
-        :param pulumi.Input[_builtins.int] retrieval_cache_period_seconds: Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files
-               before checking for newer versions on remote server. A value of 0 indicates no caching.
-        :param pulumi.Input[_builtins.int] socket_timeout_millis: Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network
-               operation is considered a retrieval failure.
-        :param pulumi.Input[_builtins.bool] store_artifacts_locally: When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and
-               direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with
-               one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory
-               servers.
+        :param pulumi.Input[_builtins.str] query_params: Custom HTTP query parameters that will be automatically included in all remote resource requests. For example: `param1=val1&param2=val2&param3=val3`
+        :param pulumi.Input[_builtins.str] remote_repo_layout_ref: Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
+        :param pulumi.Input[_builtins.str] repo_layout_ref: Sets the layout that the repository should use for storing and identifying modules. A recommended layout that corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+        :param pulumi.Input[_builtins.int] retrieval_cache_period_seconds: Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching.
+        :param pulumi.Input[_builtins.int] socket_timeout_millis: Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network operation is considered a retrieval failure.
+        :param pulumi.Input[_builtins.bool] store_artifacts_locally: When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory servers.
         :param pulumi.Input[_builtins.bool] synchronize_properties: When set, remote artifacts are fetched along with their properties.
-        :param pulumi.Input[_builtins.int] unused_artifacts_cleanup_period_hours: Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and
-               eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
+        :param pulumi.Input[_builtins.int] unused_artifacts_cleanup_period_hours: Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
         :param pulumi.Input[_builtins.str] url: The remote repo URL.
-        :param pulumi.Input[_builtins.bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-               Xray settings.
+        :param pulumi.Input[_builtins.bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
         """
         if allow_any_host_auth is not None:
             pulumi.set(__self__, "allow_any_host_auth", allow_any_host_auth)
@@ -1105,8 +1009,7 @@ class _RemoteDockerRepositoryState:
     @pulumi.getter(name="allowAnyHostAuth")
     def allow_any_host_auth(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any
-        other host.
+        'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any other host.
         """
         return pulumi.get(self, "allow_any_host_auth")
 
@@ -1118,9 +1021,8 @@ class _RemoteDockerRepositoryState:
     @pulumi.getter(name="archiveBrowsingEnabled")
     def archive_browsing_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
-        therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
-        security (e.g., cross-site scripting attacks).
+        When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+        This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
         """
         return pulumi.get(self, "archive_browsing_enabled")
 
@@ -1132,9 +1034,7 @@ class _RemoteDockerRepositoryState:
     @pulumi.getter(name="assumedOfflinePeriodSecs")
     def assumed_offline_period_secs(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
-        an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
-        offline.
+        The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time, an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed offline.
         """
         return pulumi.get(self, "assumed_offline_period_secs")
 
@@ -1146,8 +1046,7 @@ class _RemoteDockerRepositoryState:
     @pulumi.getter(name="blackedOut")
     def blacked_out(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact
-        resolution.
+        (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact resolution.
         """
         return pulumi.get(self, "blacked_out")
 
@@ -1159,9 +1058,7 @@ class _RemoteDockerRepositoryState:
     @pulumi.getter(name="blockMismatchingMimeTypes")
     def block_mismatching_mime_types(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        If set, artifacts will fail to download if a mismatch is detected between requested and received mimetype, according to
-        the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes
-        to the override list 'mismatching_mime_types_override_list'.
+        If set, artifacts will fail to download if a mismatch is detected between requested and received mimetype, according to the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes to the override list 'mismatching_mime_types_override_list'.
         """
         return pulumi.get(self, "block_mismatching_mime_types")
 
@@ -1187,9 +1084,7 @@ class _RemoteDockerRepositoryState:
     @pulumi.getter(name="bypassHeadRequests")
     def bypass_head_requests(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
-        HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
-        Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+        Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
         """
         return pulumi.get(self, "bypass_head_requests")
 
@@ -1201,8 +1096,7 @@ class _RemoteDockerRepositoryState:
     @pulumi.getter(name="cdnRedirect")
     def cdn_redirect(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-        CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         """
         return pulumi.get(self, "cdn_redirect")
 
@@ -1259,8 +1153,7 @@ class _RemoteDockerRepositoryState:
     @pulumi.getter(name="disableProxy")
     def disable_proxy(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
-        for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
+        When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
         """
         return pulumi.get(self, "disable_proxy")
 
@@ -1284,8 +1177,7 @@ class _RemoteDockerRepositoryState:
     @pulumi.getter(name="downloadDirect")
     def download_direct(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
-        storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
+        When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
         """
         return pulumi.get(self, "download_direct")
 
@@ -1321,8 +1213,7 @@ class _RemoteDockerRepositoryState:
     @pulumi.getter(name="excludesPattern")
     def excludes_pattern(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
-        artifacts are excluded.
+        List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
         """
         return pulumi.get(self, "excludes_pattern")
 
@@ -1358,8 +1249,7 @@ class _RemoteDockerRepositoryState:
     @pulumi.getter(name="hardFail")
     def hard_fail(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
-        communicate with this repository.
+        When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to communicate with this repository.
         """
         return pulumi.get(self, "hard_fail")
 
@@ -1371,8 +1261,7 @@ class _RemoteDockerRepositoryState:
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
-        used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         """
         return pulumi.get(self, "includes_pattern")
 
@@ -1397,8 +1286,7 @@ class _RemoteDockerRepositoryState:
     @pulumi.getter(name="listRemoteFolderItems")
     def list_remote_folder_items(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
-        the 'Retrieval Cache Period'. Default value is 'false'. This field exists in the API but not in the UI.
+        Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of the 'Retrieval Cache Period'. Default value is 'false'. This field exists in the API but not in the UI.
         """
         return pulumi.get(self, "list_remote_folder_items")
 
@@ -1410,8 +1298,7 @@ class _RemoteDockerRepositoryState:
     @pulumi.getter(name="localAddress")
     def local_address(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The local address to be used when creating connections. Useful for specifying the interface to use on systems with
-        multiple network interfaces.
+        The local address to be used when creating connections. Useful for specifying the interface to use on systems with multiple network interfaces.
         """
         return pulumi.get(self, "local_address")
 
@@ -1423,8 +1310,7 @@ class _RemoteDockerRepositoryState:
     @pulumi.getter(name="metadataRetrievalTimeoutSecs")
     def metadata_retrieval_timeout_secs(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
-        the remote before serving locally cached artifact or fail the request.
+        Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from the remote before serving locally cached artifact or fail the request.
         """
         return pulumi.get(self, "metadata_retrieval_timeout_secs")
 
@@ -1436,8 +1322,7 @@ class _RemoteDockerRepositoryState:
     @pulumi.getter(name="mismatchingMimeTypesOverrideList")
     def mismatching_mime_types_override_list(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The set of mime types that should override the block_mismatching_mime_types setting. Eg:
-        'application/json,application/xml'. Default value is empty.
+        The set of mime types that should override the block_mismatching_mime_types setting. Eg: 'application/json,application/xml'. Default value is empty.
         """
         return pulumi.get(self, "mismatching_mime_types_override_list")
 
@@ -1449,8 +1334,7 @@ class _RemoteDockerRepositoryState:
     @pulumi.getter(name="missedCachePeriodSeconds")
     def missed_cache_period_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        Missed Retrieval Cache Period (Sec) in the UI. The number of seconds to cache artifact retrieval misses (artifact not
-        found). A value of 0 indicates no caching.
+        Missed Retrieval Cache Period (Sec) in the UI. The number of seconds to cache artifact retrieval misses (artifact not found). A value of 0 indicates no caching.
         """
         return pulumi.get(self, "missed_cache_period_seconds")
 
@@ -1528,8 +1412,7 @@ class _RemoteDockerRepositoryState:
     @pulumi.getter(name="projectKey")
     def project_key(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-        assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+        Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         """
         return pulumi.get(self, "project_key")
 
@@ -1565,8 +1448,7 @@ class _RemoteDockerRepositoryState:
     @pulumi.getter(name="queryParams")
     def query_params(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
-        `param1=val1&param2=val2&param3=val3`
+        Custom HTTP query parameters that will be automatically included in all remote resource requests. For example: `param1=val1&param2=val2&param3=val3`
         """
         return pulumi.get(self, "query_params")
 
@@ -1578,9 +1460,7 @@ class _RemoteDockerRepositoryState:
     @pulumi.getter(name="remoteRepoLayoutRef")
     def remote_repo_layout_ref(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an
-        empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be
-        ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
+        Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
         """
         return pulumi.get(self, "remote_repo_layout_ref")
 
@@ -1592,8 +1472,7 @@ class _RemoteDockerRepositoryState:
     @pulumi.getter(name="repoLayoutRef")
     def repo_layout_ref(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
-        corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+        Sets the layout that the repository should use for storing and identifying modules. A recommended layout that corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
         """
         return pulumi.get(self, "repo_layout_ref")
 
@@ -1605,8 +1484,7 @@ class _RemoteDockerRepositoryState:
     @pulumi.getter(name="retrievalCachePeriodSeconds")
     def retrieval_cache_period_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files
-        before checking for newer versions on remote server. A value of 0 indicates no caching.
+        Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching.
         """
         return pulumi.get(self, "retrieval_cache_period_seconds")
 
@@ -1628,8 +1506,7 @@ class _RemoteDockerRepositoryState:
     @pulumi.getter(name="socketTimeoutMillis")
     def socket_timeout_millis(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network
-        operation is considered a retrieval failure.
+        Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network operation is considered a retrieval failure.
         """
         return pulumi.get(self, "socket_timeout_millis")
 
@@ -1641,10 +1518,7 @@ class _RemoteDockerRepositoryState:
     @pulumi.getter(name="storeArtifactsLocally")
     def store_artifacts_locally(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and
-        direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with
-        one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory
-        servers.
+        When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory servers.
         """
         return pulumi.get(self, "store_artifacts_locally")
 
@@ -1668,8 +1542,7 @@ class _RemoteDockerRepositoryState:
     @pulumi.getter(name="unusedArtifactsCleanupPeriodHours")
     def unused_artifacts_cleanup_period_hours(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and
-        eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
+        Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
         """
         return pulumi.get(self, "unused_artifacts_cleanup_period_hours")
 
@@ -1702,8 +1575,7 @@ class _RemoteDockerRepositoryState:
     @pulumi.getter(name="xrayIndex")
     def xray_index(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-        Xray settings.
+        Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
         """
         return pulumi.get(self, "xray_index")
 
@@ -1798,86 +1670,54 @@ class RemoteDockerRepository(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] allow_any_host_auth: 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any
-               other host.
-        :param pulumi.Input[_builtins.bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
-               therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
-               security (e.g., cross-site scripting attacks).
-        :param pulumi.Input[_builtins.int] assumed_offline_period_secs: The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
-               an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
-               offline.
-        :param pulumi.Input[_builtins.bool] blacked_out: (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact
-               resolution.
-        :param pulumi.Input[_builtins.bool] block_mismatching_mime_types: If set, artifacts will fail to download if a mismatch is detected between requested and received mimetype, according to
-               the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes
-               to the override list 'mismatching_mime_types_override_list'.
+        :param pulumi.Input[_builtins.bool] allow_any_host_auth: 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any other host.
+        :param pulumi.Input[_builtins.bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+               This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
+        :param pulumi.Input[_builtins.int] assumed_offline_period_secs: The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time, an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed offline.
+        :param pulumi.Input[_builtins.bool] blacked_out: (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact resolution.
+        :param pulumi.Input[_builtins.bool] block_mismatching_mime_types: If set, artifacts will fail to download if a mismatch is detected between requested and received mimetype, according to the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes to the override list 'mismatching_mime_types_override_list'.
         :param pulumi.Input[_builtins.bool] block_pushing_schema1: When set, Artifactory will block the pulling of Docker images with manifest v2
                schema 1 from the remote repository (i.e. the upstream). It will be possible to pull images with manifest v2 schema 1
                that exist in the cache.
-        :param pulumi.Input[_builtins.bool] bypass_head_requests: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
-               HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
-               Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
-        :param pulumi.Input[_builtins.bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-               CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        :param pulumi.Input[_builtins.bool] bypass_head_requests: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+        :param pulumi.Input[_builtins.bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[_builtins.str] client_tls_certificate: Client TLS certificate name.
         :param pulumi.Input[_builtins.bool] curated: Enable repository to be protected by the Curation service.
         :param pulumi.Input[_builtins.str] description: Public description.
-        :param pulumi.Input[_builtins.bool] disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
-               for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
+        :param pulumi.Input[_builtins.bool] disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
         :param pulumi.Input[_builtins.bool] disable_url_normalization: Whether to disable URL normalization. Default is `false`.
-        :param pulumi.Input[_builtins.bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
-               storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
+        :param pulumi.Input[_builtins.bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
         :param pulumi.Input[_builtins.bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
         :param pulumi.Input[_builtins.bool] enable_token_authentication: Enable token (Bearer) based authentication.
-        :param pulumi.Input[_builtins.str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
-               artifacts are excluded.
+        :param pulumi.Input[_builtins.str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
         :param pulumi.Input[_builtins.bool] external_dependencies_enabled: Also known as 'Foreign Layers Caching' on the UI.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] external_dependencies_patterns: An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response. Default to `["**"]`
-        :param pulumi.Input[_builtins.bool] hard_fail: When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
-               communicate with this repository.
-        :param pulumi.Input[_builtins.str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
-               used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        :param pulumi.Input[_builtins.bool] hard_fail: When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to communicate with this repository.
+        :param pulumi.Input[_builtins.str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         :param pulumi.Input[_builtins.str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
                contain spaces or special characters.
-        :param pulumi.Input[_builtins.bool] list_remote_folder_items: Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
-               the 'Retrieval Cache Period'. Default value is 'false'. This field exists in the API but not in the UI.
-        :param pulumi.Input[_builtins.str] local_address: The local address to be used when creating connections. Useful for specifying the interface to use on systems with
-               multiple network interfaces.
-        :param pulumi.Input[_builtins.int] metadata_retrieval_timeout_secs: Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
-               the remote before serving locally cached artifact or fail the request.
-        :param pulumi.Input[_builtins.str] mismatching_mime_types_override_list: The set of mime types that should override the block_mismatching_mime_types setting. Eg:
-               'application/json,application/xml'. Default value is empty.
-        :param pulumi.Input[_builtins.int] missed_cache_period_seconds: Missed Retrieval Cache Period (Sec) in the UI. The number of seconds to cache artifact retrieval misses (artifact not
-               found). A value of 0 indicates no caching.
+        :param pulumi.Input[_builtins.bool] list_remote_folder_items: Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of the 'Retrieval Cache Period'. Default value is 'false'. This field exists in the API but not in the UI.
+        :param pulumi.Input[_builtins.str] local_address: The local address to be used when creating connections. Useful for specifying the interface to use on systems with multiple network interfaces.
+        :param pulumi.Input[_builtins.int] metadata_retrieval_timeout_secs: Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from the remote before serving locally cached artifact or fail the request.
+        :param pulumi.Input[_builtins.str] mismatching_mime_types_override_list: The set of mime types that should override the block_mismatching_mime_types setting. Eg: 'application/json,application/xml'. Default value is empty.
+        :param pulumi.Input[_builtins.int] missed_cache_period_seconds: Missed Retrieval Cache Period (Sec) in the UI. The number of seconds to cache artifact retrieval misses (artifact not found). A value of 0 indicates no caching.
         :param pulumi.Input[_builtins.str] notes: Internal description.
         :param pulumi.Input[_builtins.bool] offline: If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
         :param pulumi.Input[_builtins.bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[_builtins.str] project_id: Use this attribute to enter your GCR, GAR Project Id to limit the scope of this remote repo to a specific project in your third-party registry. When leaving this field blank or unset, remote repositories that support project id will default to their default project as you have set up in your account.
-        :param pulumi.Input[_builtins.str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-               assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+        :param pulumi.Input[_builtins.str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] property_sets: List of property set name
         :param pulumi.Input[_builtins.str] proxy: Proxy key from Artifactory Proxies settings. Can't be set if `disable_proxy = true`.
-        :param pulumi.Input[_builtins.str] query_params: Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
-               `param1=val1&param2=val2&param3=val3`
-        :param pulumi.Input[_builtins.str] remote_repo_layout_ref: Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an
-               empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be
-               ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
-        :param pulumi.Input[_builtins.str] repo_layout_ref: Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
-               corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
-        :param pulumi.Input[_builtins.int] retrieval_cache_period_seconds: Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files
-               before checking for newer versions on remote server. A value of 0 indicates no caching.
-        :param pulumi.Input[_builtins.int] socket_timeout_millis: Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network
-               operation is considered a retrieval failure.
-        :param pulumi.Input[_builtins.bool] store_artifacts_locally: When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and
-               direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with
-               one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory
-               servers.
+        :param pulumi.Input[_builtins.str] query_params: Custom HTTP query parameters that will be automatically included in all remote resource requests. For example: `param1=val1&param2=val2&param3=val3`
+        :param pulumi.Input[_builtins.str] remote_repo_layout_ref: Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
+        :param pulumi.Input[_builtins.str] repo_layout_ref: Sets the layout that the repository should use for storing and identifying modules. A recommended layout that corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+        :param pulumi.Input[_builtins.int] retrieval_cache_period_seconds: Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching.
+        :param pulumi.Input[_builtins.int] socket_timeout_millis: Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network operation is considered a retrieval failure.
+        :param pulumi.Input[_builtins.bool] store_artifacts_locally: When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory servers.
         :param pulumi.Input[_builtins.bool] synchronize_properties: When set, remote artifacts are fetched along with their properties.
-        :param pulumi.Input[_builtins.int] unused_artifacts_cleanup_period_hours: Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and
-               eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
+        :param pulumi.Input[_builtins.int] unused_artifacts_cleanup_period_hours: Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
         :param pulumi.Input[_builtins.str] url: The remote repo URL.
-        :param pulumi.Input[_builtins.bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-               Xray settings.
+        :param pulumi.Input[_builtins.bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
         """
         ...
     @overload
@@ -2107,86 +1947,54 @@ class RemoteDockerRepository(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] allow_any_host_auth: 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any
-               other host.
-        :param pulumi.Input[_builtins.bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
-               therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
-               security (e.g., cross-site scripting attacks).
-        :param pulumi.Input[_builtins.int] assumed_offline_period_secs: The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
-               an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
-               offline.
-        :param pulumi.Input[_builtins.bool] blacked_out: (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact
-               resolution.
-        :param pulumi.Input[_builtins.bool] block_mismatching_mime_types: If set, artifacts will fail to download if a mismatch is detected between requested and received mimetype, according to
-               the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes
-               to the override list 'mismatching_mime_types_override_list'.
+        :param pulumi.Input[_builtins.bool] allow_any_host_auth: 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any other host.
+        :param pulumi.Input[_builtins.bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+               This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
+        :param pulumi.Input[_builtins.int] assumed_offline_period_secs: The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time, an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed offline.
+        :param pulumi.Input[_builtins.bool] blacked_out: (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact resolution.
+        :param pulumi.Input[_builtins.bool] block_mismatching_mime_types: If set, artifacts will fail to download if a mismatch is detected between requested and received mimetype, according to the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes to the override list 'mismatching_mime_types_override_list'.
         :param pulumi.Input[_builtins.bool] block_pushing_schema1: When set, Artifactory will block the pulling of Docker images with manifest v2
                schema 1 from the remote repository (i.e. the upstream). It will be possible to pull images with manifest v2 schema 1
                that exist in the cache.
-        :param pulumi.Input[_builtins.bool] bypass_head_requests: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
-               HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
-               Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
-        :param pulumi.Input[_builtins.bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-               CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        :param pulumi.Input[_builtins.bool] bypass_head_requests: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+        :param pulumi.Input[_builtins.bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[_builtins.str] client_tls_certificate: Client TLS certificate name.
         :param pulumi.Input[_builtins.bool] curated: Enable repository to be protected by the Curation service.
         :param pulumi.Input[_builtins.str] description: Public description.
-        :param pulumi.Input[_builtins.bool] disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
-               for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
+        :param pulumi.Input[_builtins.bool] disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
         :param pulumi.Input[_builtins.bool] disable_url_normalization: Whether to disable URL normalization. Default is `false`.
-        :param pulumi.Input[_builtins.bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
-               storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
+        :param pulumi.Input[_builtins.bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
         :param pulumi.Input[_builtins.bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
         :param pulumi.Input[_builtins.bool] enable_token_authentication: Enable token (Bearer) based authentication.
-        :param pulumi.Input[_builtins.str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
-               artifacts are excluded.
+        :param pulumi.Input[_builtins.str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
         :param pulumi.Input[_builtins.bool] external_dependencies_enabled: Also known as 'Foreign Layers Caching' on the UI.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] external_dependencies_patterns: An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response. Default to `["**"]`
-        :param pulumi.Input[_builtins.bool] hard_fail: When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
-               communicate with this repository.
-        :param pulumi.Input[_builtins.str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
-               used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        :param pulumi.Input[_builtins.bool] hard_fail: When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to communicate with this repository.
+        :param pulumi.Input[_builtins.str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         :param pulumi.Input[_builtins.str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
                contain spaces or special characters.
-        :param pulumi.Input[_builtins.bool] list_remote_folder_items: Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
-               the 'Retrieval Cache Period'. Default value is 'false'. This field exists in the API but not in the UI.
-        :param pulumi.Input[_builtins.str] local_address: The local address to be used when creating connections. Useful for specifying the interface to use on systems with
-               multiple network interfaces.
-        :param pulumi.Input[_builtins.int] metadata_retrieval_timeout_secs: Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
-               the remote before serving locally cached artifact or fail the request.
-        :param pulumi.Input[_builtins.str] mismatching_mime_types_override_list: The set of mime types that should override the block_mismatching_mime_types setting. Eg:
-               'application/json,application/xml'. Default value is empty.
-        :param pulumi.Input[_builtins.int] missed_cache_period_seconds: Missed Retrieval Cache Period (Sec) in the UI. The number of seconds to cache artifact retrieval misses (artifact not
-               found). A value of 0 indicates no caching.
+        :param pulumi.Input[_builtins.bool] list_remote_folder_items: Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of the 'Retrieval Cache Period'. Default value is 'false'. This field exists in the API but not in the UI.
+        :param pulumi.Input[_builtins.str] local_address: The local address to be used when creating connections. Useful for specifying the interface to use on systems with multiple network interfaces.
+        :param pulumi.Input[_builtins.int] metadata_retrieval_timeout_secs: Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from the remote before serving locally cached artifact or fail the request.
+        :param pulumi.Input[_builtins.str] mismatching_mime_types_override_list: The set of mime types that should override the block_mismatching_mime_types setting. Eg: 'application/json,application/xml'. Default value is empty.
+        :param pulumi.Input[_builtins.int] missed_cache_period_seconds: Missed Retrieval Cache Period (Sec) in the UI. The number of seconds to cache artifact retrieval misses (artifact not found). A value of 0 indicates no caching.
         :param pulumi.Input[_builtins.str] notes: Internal description.
         :param pulumi.Input[_builtins.bool] offline: If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
         :param pulumi.Input[_builtins.bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[_builtins.str] project_id: Use this attribute to enter your GCR, GAR Project Id to limit the scope of this remote repo to a specific project in your third-party registry. When leaving this field blank or unset, remote repositories that support project id will default to their default project as you have set up in your account.
-        :param pulumi.Input[_builtins.str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-               assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+        :param pulumi.Input[_builtins.str] project_key: Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] property_sets: List of property set name
         :param pulumi.Input[_builtins.str] proxy: Proxy key from Artifactory Proxies settings. Can't be set if `disable_proxy = true`.
-        :param pulumi.Input[_builtins.str] query_params: Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
-               `param1=val1&param2=val2&param3=val3`
-        :param pulumi.Input[_builtins.str] remote_repo_layout_ref: Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an
-               empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be
-               ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
-        :param pulumi.Input[_builtins.str] repo_layout_ref: Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
-               corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
-        :param pulumi.Input[_builtins.int] retrieval_cache_period_seconds: Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files
-               before checking for newer versions on remote server. A value of 0 indicates no caching.
-        :param pulumi.Input[_builtins.int] socket_timeout_millis: Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network
-               operation is considered a retrieval failure.
-        :param pulumi.Input[_builtins.bool] store_artifacts_locally: When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and
-               direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with
-               one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory
-               servers.
+        :param pulumi.Input[_builtins.str] query_params: Custom HTTP query parameters that will be automatically included in all remote resource requests. For example: `param1=val1&param2=val2&param3=val3`
+        :param pulumi.Input[_builtins.str] remote_repo_layout_ref: Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
+        :param pulumi.Input[_builtins.str] repo_layout_ref: Sets the layout that the repository should use for storing and identifying modules. A recommended layout that corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+        :param pulumi.Input[_builtins.int] retrieval_cache_period_seconds: Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching.
+        :param pulumi.Input[_builtins.int] socket_timeout_millis: Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network operation is considered a retrieval failure.
+        :param pulumi.Input[_builtins.bool] store_artifacts_locally: When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory servers.
         :param pulumi.Input[_builtins.bool] synchronize_properties: When set, remote artifacts are fetched along with their properties.
-        :param pulumi.Input[_builtins.int] unused_artifacts_cleanup_period_hours: Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and
-               eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
+        :param pulumi.Input[_builtins.int] unused_artifacts_cleanup_period_hours: Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
         :param pulumi.Input[_builtins.str] url: The remote repo URL.
-        :param pulumi.Input[_builtins.bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-               Xray settings.
+        :param pulumi.Input[_builtins.bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -2247,8 +2055,7 @@ class RemoteDockerRepository(pulumi.CustomResource):
     @pulumi.getter(name="allowAnyHostAuth")
     def allow_any_host_auth(self) -> pulumi.Output[_builtins.bool]:
         """
-        'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any
-        other host.
+        'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any other host.
         """
         return pulumi.get(self, "allow_any_host_auth")
 
@@ -2256,9 +2063,8 @@ class RemoteDockerRepository(pulumi.CustomResource):
     @pulumi.getter(name="archiveBrowsingEnabled")
     def archive_browsing_enabled(self) -> pulumi.Output[_builtins.bool]:
         """
-        When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
-        therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
-        security (e.g., cross-site scripting attacks).
+        When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+        This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
         """
         return pulumi.get(self, "archive_browsing_enabled")
 
@@ -2266,9 +2072,7 @@ class RemoteDockerRepository(pulumi.CustomResource):
     @pulumi.getter(name="assumedOfflinePeriodSecs")
     def assumed_offline_period_secs(self) -> pulumi.Output[_builtins.int]:
         """
-        The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
-        an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
-        offline.
+        The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time, an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed offline.
         """
         return pulumi.get(self, "assumed_offline_period_secs")
 
@@ -2276,8 +2080,7 @@ class RemoteDockerRepository(pulumi.CustomResource):
     @pulumi.getter(name="blackedOut")
     def blacked_out(self) -> pulumi.Output[_builtins.bool]:
         """
-        (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact
-        resolution.
+        (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact resolution.
         """
         return pulumi.get(self, "blacked_out")
 
@@ -2285,9 +2088,7 @@ class RemoteDockerRepository(pulumi.CustomResource):
     @pulumi.getter(name="blockMismatchingMimeTypes")
     def block_mismatching_mime_types(self) -> pulumi.Output[_builtins.bool]:
         """
-        If set, artifacts will fail to download if a mismatch is detected between requested and received mimetype, according to
-        the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes
-        to the override list 'mismatching_mime_types_override_list'.
+        If set, artifacts will fail to download if a mismatch is detected between requested and received mimetype, according to the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes to the override list 'mismatching_mime_types_override_list'.
         """
         return pulumi.get(self, "block_mismatching_mime_types")
 
@@ -2305,9 +2106,7 @@ class RemoteDockerRepository(pulumi.CustomResource):
     @pulumi.getter(name="bypassHeadRequests")
     def bypass_head_requests(self) -> pulumi.Output[_builtins.bool]:
         """
-        Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
-        HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
-        Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+        Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
         """
         return pulumi.get(self, "bypass_head_requests")
 
@@ -2315,8 +2114,7 @@ class RemoteDockerRepository(pulumi.CustomResource):
     @pulumi.getter(name="cdnRedirect")
     def cdn_redirect(self) -> pulumi.Output[_builtins.bool]:
         """
-        When set, download requests to this repository will redirect the client to download the artifact directly from AWS
-        CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         """
         return pulumi.get(self, "cdn_redirect")
 
@@ -2353,8 +2151,7 @@ class RemoteDockerRepository(pulumi.CustomResource):
     @pulumi.getter(name="disableProxy")
     def disable_proxy(self) -> pulumi.Output[_builtins.bool]:
         """
-        When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
-        for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
+        When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
         """
         return pulumi.get(self, "disable_proxy")
 
@@ -2370,8 +2167,7 @@ class RemoteDockerRepository(pulumi.CustomResource):
     @pulumi.getter(name="downloadDirect")
     def download_direct(self) -> pulumi.Output[_builtins.bool]:
         """
-        When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
-        storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
+        When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
         """
         return pulumi.get(self, "download_direct")
 
@@ -2395,8 +2191,7 @@ class RemoteDockerRepository(pulumi.CustomResource):
     @pulumi.getter(name="excludesPattern")
     def excludes_pattern(self) -> pulumi.Output[_builtins.str]:
         """
-        List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no
-        artifacts are excluded.
+        List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`.By default no artifacts are excluded.
         """
         return pulumi.get(self, "excludes_pattern")
 
@@ -2420,8 +2215,7 @@ class RemoteDockerRepository(pulumi.CustomResource):
     @pulumi.getter(name="hardFail")
     def hard_fail(self) -> pulumi.Output[_builtins.bool]:
         """
-        When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
-        communicate with this repository.
+        When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to communicate with this repository.
         """
         return pulumi.get(self, "hard_fail")
 
@@ -2429,8 +2223,7 @@ class RemoteDockerRepository(pulumi.CustomResource):
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> pulumi.Output[_builtins.str]:
         """
-        List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When
-        used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
+        List of comma-separated artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (`**/*`).
         """
         return pulumi.get(self, "includes_pattern")
 
@@ -2447,8 +2240,7 @@ class RemoteDockerRepository(pulumi.CustomResource):
     @pulumi.getter(name="listRemoteFolderItems")
     def list_remote_folder_items(self) -> pulumi.Output[_builtins.bool]:
         """
-        Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
-        the 'Retrieval Cache Period'. Default value is 'false'. This field exists in the API but not in the UI.
+        Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of the 'Retrieval Cache Period'. Default value is 'false'. This field exists in the API but not in the UI.
         """
         return pulumi.get(self, "list_remote_folder_items")
 
@@ -2456,8 +2248,7 @@ class RemoteDockerRepository(pulumi.CustomResource):
     @pulumi.getter(name="localAddress")
     def local_address(self) -> pulumi.Output[_builtins.str]:
         """
-        The local address to be used when creating connections. Useful for specifying the interface to use on systems with
-        multiple network interfaces.
+        The local address to be used when creating connections. Useful for specifying the interface to use on systems with multiple network interfaces.
         """
         return pulumi.get(self, "local_address")
 
@@ -2465,8 +2256,7 @@ class RemoteDockerRepository(pulumi.CustomResource):
     @pulumi.getter(name="metadataRetrievalTimeoutSecs")
     def metadata_retrieval_timeout_secs(self) -> pulumi.Output[_builtins.int]:
         """
-        Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
-        the remote before serving locally cached artifact or fail the request.
+        Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from the remote before serving locally cached artifact or fail the request.
         """
         return pulumi.get(self, "metadata_retrieval_timeout_secs")
 
@@ -2474,8 +2264,7 @@ class RemoteDockerRepository(pulumi.CustomResource):
     @pulumi.getter(name="mismatchingMimeTypesOverrideList")
     def mismatching_mime_types_override_list(self) -> pulumi.Output[_builtins.str]:
         """
-        The set of mime types that should override the block_mismatching_mime_types setting. Eg:
-        'application/json,application/xml'. Default value is empty.
+        The set of mime types that should override the block_mismatching_mime_types setting. Eg: 'application/json,application/xml'. Default value is empty.
         """
         return pulumi.get(self, "mismatching_mime_types_override_list")
 
@@ -2483,8 +2272,7 @@ class RemoteDockerRepository(pulumi.CustomResource):
     @pulumi.getter(name="missedCachePeriodSeconds")
     def missed_cache_period_seconds(self) -> pulumi.Output[_builtins.int]:
         """
-        Missed Retrieval Cache Period (Sec) in the UI. The number of seconds to cache artifact retrieval misses (artifact not
-        found). A value of 0 indicates no caching.
+        Missed Retrieval Cache Period (Sec) in the UI. The number of seconds to cache artifact retrieval misses (artifact not found). A value of 0 indicates no caching.
         """
         return pulumi.get(self, "missed_cache_period_seconds")
 
@@ -2534,8 +2322,7 @@ class RemoteDockerRepository(pulumi.CustomResource):
     @pulumi.getter(name="projectKey")
     def project_key(self) -> pulumi.Output[_builtins.str]:
         """
-        Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When
-        assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+        Project key for assigning this repository to. Must be 2 - 32 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         """
         return pulumi.get(self, "project_key")
 
@@ -2559,8 +2346,7 @@ class RemoteDockerRepository(pulumi.CustomResource):
     @pulumi.getter(name="queryParams")
     def query_params(self) -> pulumi.Output[_builtins.str]:
         """
-        Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
-        `param1=val1&param2=val2&param3=val3`
+        Custom HTTP query parameters that will be automatically included in all remote resource requests. For example: `param1=val1&param2=val2&param3=val3`
         """
         return pulumi.get(self, "query_params")
 
@@ -2568,9 +2354,7 @@ class RemoteDockerRepository(pulumi.CustomResource):
     @pulumi.getter(name="remoteRepoLayoutRef")
     def remote_repo_layout_ref(self) -> pulumi.Output[_builtins.str]:
         """
-        Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an
-        empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be
-        ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
+        Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
         """
         return pulumi.get(self, "remote_repo_layout_ref")
 
@@ -2578,8 +2362,7 @@ class RemoteDockerRepository(pulumi.CustomResource):
     @pulumi.getter(name="repoLayoutRef")
     def repo_layout_ref(self) -> pulumi.Output[_builtins.str]:
         """
-        Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
-        corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+        Sets the layout that the repository should use for storing and identifying modules. A recommended layout that corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
         """
         return pulumi.get(self, "repo_layout_ref")
 
@@ -2587,8 +2370,7 @@ class RemoteDockerRepository(pulumi.CustomResource):
     @pulumi.getter(name="retrievalCachePeriodSeconds")
     def retrieval_cache_period_seconds(self) -> pulumi.Output[_builtins.int]:
         """
-        Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files
-        before checking for newer versions on remote server. A value of 0 indicates no caching.
+        Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching.
         """
         return pulumi.get(self, "retrieval_cache_period_seconds")
 
@@ -2602,8 +2384,7 @@ class RemoteDockerRepository(pulumi.CustomResource):
     @pulumi.getter(name="socketTimeoutMillis")
     def socket_timeout_millis(self) -> pulumi.Output[_builtins.int]:
         """
-        Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network
-        operation is considered a retrieval failure.
+        Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network operation is considered a retrieval failure.
         """
         return pulumi.get(self, "socket_timeout_millis")
 
@@ -2611,10 +2392,7 @@ class RemoteDockerRepository(pulumi.CustomResource):
     @pulumi.getter(name="storeArtifactsLocally")
     def store_artifacts_locally(self) -> pulumi.Output[_builtins.bool]:
         """
-        When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and
-        direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with
-        one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory
-        servers.
+        When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory servers.
         """
         return pulumi.get(self, "store_artifacts_locally")
 
@@ -2630,8 +2408,7 @@ class RemoteDockerRepository(pulumi.CustomResource):
     @pulumi.getter(name="unusedArtifactsCleanupPeriodHours")
     def unused_artifacts_cleanup_period_hours(self) -> pulumi.Output[_builtins.int]:
         """
-        Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and
-        eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
+        Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
         """
         return pulumi.get(self, "unused_artifacts_cleanup_period_hours")
 
@@ -2652,8 +2429,7 @@ class RemoteDockerRepository(pulumi.CustomResource):
     @pulumi.getter(name="xrayIndex")
     def xray_index(self) -> pulumi.Output[_builtins.bool]:
         """
-        Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-        Xray settings.
+        Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
         """
         return pulumi.get(self, "xray_index")
 

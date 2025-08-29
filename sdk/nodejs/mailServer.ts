@@ -68,43 +68,43 @@ export class MailServer extends pulumi.CustomResource {
     /**
      * The Artifactory URL to to link to in all outgoing messages.
      */
-    public readonly artifactoryUrl!: pulumi.Output<string | undefined>;
+    declare public readonly artifactoryUrl: pulumi.Output<string | undefined>;
     /**
      * When set, mail notifications are enabled.
      */
-    public readonly enabled!: pulumi.Output<boolean>;
+    declare public readonly enabled: pulumi.Output<boolean>;
     /**
      * The 'from' address header to use in all outgoing messages.
      */
-    public readonly from!: pulumi.Output<string | undefined>;
+    declare public readonly from: pulumi.Output<string | undefined>;
     /**
      * The mail server IP address / DNS.
      */
-    public readonly host!: pulumi.Output<string>;
+    declare public readonly host: pulumi.Output<string>;
     /**
      * The password for authentication with the mail server.
      */
-    public readonly password!: pulumi.Output<string | undefined>;
+    declare public readonly password: pulumi.Output<string | undefined>;
     /**
      * The port number of the mail server.
      */
-    public readonly port!: pulumi.Output<number>;
+    declare public readonly port: pulumi.Output<number>;
     /**
      * A prefix to use for the subject of all outgoing mails.
      */
-    public readonly subjectPrefix!: pulumi.Output<string | undefined>;
+    declare public readonly subjectPrefix: pulumi.Output<string | undefined>;
     /**
      * When set to 'true', uses a secure connection to the mail server.
      */
-    public readonly useSsl!: pulumi.Output<boolean>;
+    declare public readonly useSsl: pulumi.Output<boolean>;
     /**
      * When set to 'true', uses Transport Layer Security when connecting to the mail server.
      */
-    public readonly useTls!: pulumi.Output<boolean>;
+    declare public readonly useTls: pulumi.Output<boolean>;
     /**
      * The username for authentication with the mail server.
      */
-    public readonly username!: pulumi.Output<string | undefined>;
+    declare public readonly username: pulumi.Output<string | undefined>;
 
     /**
      * Create a MailServer resource with the given unique name, arguments, and options.
@@ -119,37 +119,37 @@ export class MailServer extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MailServerState | undefined;
-            resourceInputs["artifactoryUrl"] = state ? state.artifactoryUrl : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["from"] = state ? state.from : undefined;
-            resourceInputs["host"] = state ? state.host : undefined;
-            resourceInputs["password"] = state ? state.password : undefined;
-            resourceInputs["port"] = state ? state.port : undefined;
-            resourceInputs["subjectPrefix"] = state ? state.subjectPrefix : undefined;
-            resourceInputs["useSsl"] = state ? state.useSsl : undefined;
-            resourceInputs["useTls"] = state ? state.useTls : undefined;
-            resourceInputs["username"] = state ? state.username : undefined;
+            resourceInputs["artifactoryUrl"] = state?.artifactoryUrl;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["from"] = state?.from;
+            resourceInputs["host"] = state?.host;
+            resourceInputs["password"] = state?.password;
+            resourceInputs["port"] = state?.port;
+            resourceInputs["subjectPrefix"] = state?.subjectPrefix;
+            resourceInputs["useSsl"] = state?.useSsl;
+            resourceInputs["useTls"] = state?.useTls;
+            resourceInputs["username"] = state?.username;
         } else {
             const args = argsOrState as MailServerArgs | undefined;
-            if ((!args || args.enabled === undefined) && !opts.urn) {
+            if (args?.enabled === undefined && !opts.urn) {
                 throw new Error("Missing required property 'enabled'");
             }
-            if ((!args || args.host === undefined) && !opts.urn) {
+            if (args?.host === undefined && !opts.urn) {
                 throw new Error("Missing required property 'host'");
             }
-            if ((!args || args.port === undefined) && !opts.urn) {
+            if (args?.port === undefined && !opts.urn) {
                 throw new Error("Missing required property 'port'");
             }
-            resourceInputs["artifactoryUrl"] = args ? args.artifactoryUrl : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["from"] = args ? args.from : undefined;
-            resourceInputs["host"] = args ? args.host : undefined;
-            resourceInputs["password"] = args ? args.password : undefined;
-            resourceInputs["port"] = args ? args.port : undefined;
-            resourceInputs["subjectPrefix"] = args ? args.subjectPrefix : undefined;
-            resourceInputs["useSsl"] = args ? args.useSsl : undefined;
-            resourceInputs["useTls"] = args ? args.useTls : undefined;
-            resourceInputs["username"] = args ? args.username : undefined;
+            resourceInputs["artifactoryUrl"] = args?.artifactoryUrl;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["from"] = args?.from;
+            resourceInputs["host"] = args?.host;
+            resourceInputs["password"] = args?.password;
+            resourceInputs["port"] = args?.port;
+            resourceInputs["subjectPrefix"] = args?.subjectPrefix;
+            resourceInputs["useSsl"] = args?.useSsl;
+            resourceInputs["useTls"] = args?.useTls;
+            resourceInputs["username"] = args?.username;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(MailServer.__pulumiType, name, resourceInputs, opts);

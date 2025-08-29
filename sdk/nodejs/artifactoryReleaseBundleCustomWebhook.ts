@@ -79,27 +79,27 @@ export class ArtifactoryReleaseBundleCustomWebhook extends pulumi.CustomResource
     /**
      * Specifies where the webhook will be applied on which repositories.
      */
-    public readonly criteria!: pulumi.Output<outputs.ArtifactoryReleaseBundleCustomWebhookCriteria | undefined>;
+    declare public readonly criteria: pulumi.Output<outputs.ArtifactoryReleaseBundleCustomWebhookCriteria | undefined>;
     /**
      * Webhook description. Max length 1000 characters.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Status of webhook. Default to `true`
      */
-    public readonly enabled!: pulumi.Output<boolean>;
+    declare public readonly enabled: pulumi.Output<boolean>;
     /**
      * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `received`, `deleteStarted`, `deleteCompleted`, `deleteFailed`
      */
-    public readonly eventTypes!: pulumi.Output<string[]>;
+    declare public readonly eventTypes: pulumi.Output<string[]>;
     /**
      * At least one is required.
      */
-    public readonly handlers!: pulumi.Output<outputs.ArtifactoryReleaseBundleCustomWebhookHandler[] | undefined>;
+    declare public readonly handlers: pulumi.Output<outputs.ArtifactoryReleaseBundleCustomWebhookHandler[] | undefined>;
     /**
      * The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
      */
-    public readonly key!: pulumi.Output<string>;
+    declare public readonly key: pulumi.Output<string>;
 
     /**
      * Create a ArtifactoryReleaseBundleCustomWebhook resource with the given unique name, arguments, and options.
@@ -114,26 +114,26 @@ export class ArtifactoryReleaseBundleCustomWebhook extends pulumi.CustomResource
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ArtifactoryReleaseBundleCustomWebhookState | undefined;
-            resourceInputs["criteria"] = state ? state.criteria : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["eventTypes"] = state ? state.eventTypes : undefined;
-            resourceInputs["handlers"] = state ? state.handlers : undefined;
-            resourceInputs["key"] = state ? state.key : undefined;
+            resourceInputs["criteria"] = state?.criteria;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["eventTypes"] = state?.eventTypes;
+            resourceInputs["handlers"] = state?.handlers;
+            resourceInputs["key"] = state?.key;
         } else {
             const args = argsOrState as ArtifactoryReleaseBundleCustomWebhookArgs | undefined;
-            if ((!args || args.eventTypes === undefined) && !opts.urn) {
+            if (args?.eventTypes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'eventTypes'");
             }
-            if ((!args || args.key === undefined) && !opts.urn) {
+            if (args?.key === undefined && !opts.urn) {
                 throw new Error("Missing required property 'key'");
             }
-            resourceInputs["criteria"] = args ? args.criteria : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["eventTypes"] = args ? args.eventTypes : undefined;
-            resourceInputs["handlers"] = args ? args.handlers : undefined;
-            resourceInputs["key"] = args ? args.key : undefined;
+            resourceInputs["criteria"] = args?.criteria;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["eventTypes"] = args?.eventTypes;
+            resourceInputs["handlers"] = args?.handlers;
+            resourceInputs["key"] = args?.key;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ArtifactoryReleaseBundleCustomWebhook.__pulumiType, name, resourceInputs, opts);

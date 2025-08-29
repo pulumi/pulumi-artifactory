@@ -56,55 +56,55 @@ export class Artifact extends pulumi.CustomResource {
     /**
      * MD5 checksum of the artifact.
      */
-    public /*out*/ readonly checksumMd5!: pulumi.Output<string>;
+    declare public /*out*/ readonly checksumMd5: pulumi.Output<string>;
     /**
      * SHA1 checksum of the artifact.
      */
-    public /*out*/ readonly checksumSha1!: pulumi.Output<string>;
+    declare public /*out*/ readonly checksumSha1: pulumi.Output<string>;
     /**
      * SHA256 checksum of the artifact.
      */
-    public /*out*/ readonly checksumSha256!: pulumi.Output<string>;
+    declare public /*out*/ readonly checksumSha256: pulumi.Output<string>;
     /**
      * Base64 content of the source file. Conflicts with `filePath`. Either one of these attribute must be set.
      */
-    public readonly contentBase64!: pulumi.Output<string | undefined>;
+    declare public readonly contentBase64: pulumi.Output<string | undefined>;
     /**
      * Timestamp when artifact is created.
      */
-    public /*out*/ readonly created!: pulumi.Output<string>;
+    declare public /*out*/ readonly created: pulumi.Output<string>;
     /**
      * User who deploys the artifact.
      */
-    public /*out*/ readonly createdBy!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdBy: pulumi.Output<string>;
     /**
      * Download URI of the artifact.
      */
-    public /*out*/ readonly downloadUri!: pulumi.Output<string>;
+    declare public /*out*/ readonly downloadUri: pulumi.Output<string>;
     /**
      * Path to the source file. Conflicts with `contentBase64`. Either one of these attribute must be set.
      */
-    public readonly filePath!: pulumi.Output<string | undefined>;
+    declare public readonly filePath: pulumi.Output<string | undefined>;
     /**
      * MIME type of the artifact.
      */
-    public /*out*/ readonly mimeType!: pulumi.Output<string>;
+    declare public /*out*/ readonly mimeType: pulumi.Output<string>;
     /**
      * The relative path in the target repository. Must begin with a '/'. You can add key-value matrix parameters to deploy the artifacts with properties. For more details, please refer to [Introducing Matrix Parameters](https://jfrog.com/help/r/jfrog-artifactory-documentation/using-properties-in-deployment-and-resolution).
      */
-    public readonly path!: pulumi.Output<string>;
+    declare public readonly path: pulumi.Output<string>;
     /**
      * Name of the respository.
      */
-    public readonly repository!: pulumi.Output<string>;
+    declare public readonly repository: pulumi.Output<string>;
     /**
      * Size of the artifact, in bytes.
      */
-    public /*out*/ readonly size!: pulumi.Output<number>;
+    declare public /*out*/ readonly size: pulumi.Output<number>;
     /**
      * URI of the artifact.
      */
-    public /*out*/ readonly uri!: pulumi.Output<string>;
+    declare public /*out*/ readonly uri: pulumi.Output<string>;
 
     /**
      * Create a Artifact resource with the given unique name, arguments, and options.
@@ -119,31 +119,31 @@ export class Artifact extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ArtifactState | undefined;
-            resourceInputs["checksumMd5"] = state ? state.checksumMd5 : undefined;
-            resourceInputs["checksumSha1"] = state ? state.checksumSha1 : undefined;
-            resourceInputs["checksumSha256"] = state ? state.checksumSha256 : undefined;
-            resourceInputs["contentBase64"] = state ? state.contentBase64 : undefined;
-            resourceInputs["created"] = state ? state.created : undefined;
-            resourceInputs["createdBy"] = state ? state.createdBy : undefined;
-            resourceInputs["downloadUri"] = state ? state.downloadUri : undefined;
-            resourceInputs["filePath"] = state ? state.filePath : undefined;
-            resourceInputs["mimeType"] = state ? state.mimeType : undefined;
-            resourceInputs["path"] = state ? state.path : undefined;
-            resourceInputs["repository"] = state ? state.repository : undefined;
-            resourceInputs["size"] = state ? state.size : undefined;
-            resourceInputs["uri"] = state ? state.uri : undefined;
+            resourceInputs["checksumMd5"] = state?.checksumMd5;
+            resourceInputs["checksumSha1"] = state?.checksumSha1;
+            resourceInputs["checksumSha256"] = state?.checksumSha256;
+            resourceInputs["contentBase64"] = state?.contentBase64;
+            resourceInputs["created"] = state?.created;
+            resourceInputs["createdBy"] = state?.createdBy;
+            resourceInputs["downloadUri"] = state?.downloadUri;
+            resourceInputs["filePath"] = state?.filePath;
+            resourceInputs["mimeType"] = state?.mimeType;
+            resourceInputs["path"] = state?.path;
+            resourceInputs["repository"] = state?.repository;
+            resourceInputs["size"] = state?.size;
+            resourceInputs["uri"] = state?.uri;
         } else {
             const args = argsOrState as ArtifactArgs | undefined;
-            if ((!args || args.path === undefined) && !opts.urn) {
+            if (args?.path === undefined && !opts.urn) {
                 throw new Error("Missing required property 'path'");
             }
-            if ((!args || args.repository === undefined) && !opts.urn) {
+            if (args?.repository === undefined && !opts.urn) {
                 throw new Error("Missing required property 'repository'");
             }
-            resourceInputs["contentBase64"] = args ? args.contentBase64 : undefined;
-            resourceInputs["filePath"] = args ? args.filePath : undefined;
-            resourceInputs["path"] = args ? args.path : undefined;
-            resourceInputs["repository"] = args ? args.repository : undefined;
+            resourceInputs["contentBase64"] = args?.contentBase64;
+            resourceInputs["filePath"] = args?.filePath;
+            resourceInputs["path"] = args?.path;
+            resourceInputs["repository"] = args?.repository;
             resourceInputs["checksumMd5"] = undefined /*out*/;
             resourceInputs["checksumSha1"] = undefined /*out*/;
             resourceInputs["checksumSha256"] = undefined /*out*/;

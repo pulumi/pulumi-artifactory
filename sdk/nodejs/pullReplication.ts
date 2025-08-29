@@ -72,58 +72,58 @@ export class PullReplication extends pulumi.CustomResource {
      * When true, enables distributed checksum storage. For more information, see
      * [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
      */
-    public readonly checkBinaryExistenceInFilestore!: pulumi.Output<boolean | undefined>;
+    declare public readonly checkBinaryExistenceInFilestore: pulumi.Output<boolean | undefined>;
     /**
      * A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
      */
-    public readonly cronExp!: pulumi.Output<string | undefined>;
+    declare public readonly cronExp: pulumi.Output<string | undefined>;
     /**
      * When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.
      */
-    public readonly enableEventReplication!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableEventReplication: pulumi.Output<boolean | undefined>;
     /**
      * When set, this replication will be enabled when saved.
      */
-    public readonly enabled!: pulumi.Output<boolean>;
+    declare public readonly enabled: pulumi.Output<boolean>;
     /**
      * Required for local repository, but not needed for remote repository.
      */
-    public readonly password!: pulumi.Output<string | undefined>;
+    declare public readonly password: pulumi.Output<string | undefined>;
     /**
      * Only artifacts that located in path that matches the subpath within the remote repository will be replicated.
      */
-    public readonly pathPrefix!: pulumi.Output<string | undefined>;
+    declare public readonly pathPrefix: pulumi.Output<string | undefined>;
     /**
      * Proxy key from Artifactory Proxies setting
      */
-    public readonly proxy!: pulumi.Output<string | undefined>;
+    declare public readonly proxy: pulumi.Output<string | undefined>;
     /**
      * Repository name.
      */
-    public readonly repoKey!: pulumi.Output<string>;
-    public readonly socketTimeoutMillis!: pulumi.Output<number>;
+    declare public readonly repoKey: pulumi.Output<string>;
+    declare public readonly socketTimeoutMillis: pulumi.Output<number>;
     /**
      * When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata).
      */
-    public readonly syncDeletes!: pulumi.Output<boolean>;
+    declare public readonly syncDeletes: pulumi.Output<boolean>;
     /**
      * When set, the task also synchronizes the properties of replicated artifacts.
      */
-    public readonly syncProperties!: pulumi.Output<boolean>;
+    declare public readonly syncProperties: pulumi.Output<boolean>;
     /**
      * When set, artifact download statistics will also be replicated. Set to avoid inadvertent cleanup at the target instance when setting up replication for disaster recovery.
      */
-    public readonly syncStatistics!: pulumi.Output<boolean>;
+    declare public readonly syncStatistics: pulumi.Output<boolean>;
     /**
      * The URL of the target local repository on a remote Artifactory server. For some package types, you need to prefix the repository key in the URL with api/<pkg>. 
      * For a list of package types where this is required, see the [note](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-anchorPREFIX).
      * Required for local repository, but not needed for remote repository.
      */
-    public readonly url!: pulumi.Output<string | undefined>;
+    declare public readonly url: pulumi.Output<string | undefined>;
     /**
      * Required for local repository, but not needed for remote repository.
      */
-    public readonly username!: pulumi.Output<string | undefined>;
+    declare public readonly username: pulumi.Output<string | undefined>;
 
     /**
      * Create a PullReplication resource with the given unique name, arguments, and options.
@@ -138,39 +138,39 @@ export class PullReplication extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PullReplicationState | undefined;
-            resourceInputs["checkBinaryExistenceInFilestore"] = state ? state.checkBinaryExistenceInFilestore : undefined;
-            resourceInputs["cronExp"] = state ? state.cronExp : undefined;
-            resourceInputs["enableEventReplication"] = state ? state.enableEventReplication : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["password"] = state ? state.password : undefined;
-            resourceInputs["pathPrefix"] = state ? state.pathPrefix : undefined;
-            resourceInputs["proxy"] = state ? state.proxy : undefined;
-            resourceInputs["repoKey"] = state ? state.repoKey : undefined;
-            resourceInputs["socketTimeoutMillis"] = state ? state.socketTimeoutMillis : undefined;
-            resourceInputs["syncDeletes"] = state ? state.syncDeletes : undefined;
-            resourceInputs["syncProperties"] = state ? state.syncProperties : undefined;
-            resourceInputs["syncStatistics"] = state ? state.syncStatistics : undefined;
-            resourceInputs["url"] = state ? state.url : undefined;
-            resourceInputs["username"] = state ? state.username : undefined;
+            resourceInputs["checkBinaryExistenceInFilestore"] = state?.checkBinaryExistenceInFilestore;
+            resourceInputs["cronExp"] = state?.cronExp;
+            resourceInputs["enableEventReplication"] = state?.enableEventReplication;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["password"] = state?.password;
+            resourceInputs["pathPrefix"] = state?.pathPrefix;
+            resourceInputs["proxy"] = state?.proxy;
+            resourceInputs["repoKey"] = state?.repoKey;
+            resourceInputs["socketTimeoutMillis"] = state?.socketTimeoutMillis;
+            resourceInputs["syncDeletes"] = state?.syncDeletes;
+            resourceInputs["syncProperties"] = state?.syncProperties;
+            resourceInputs["syncStatistics"] = state?.syncStatistics;
+            resourceInputs["url"] = state?.url;
+            resourceInputs["username"] = state?.username;
         } else {
             const args = argsOrState as PullReplicationArgs | undefined;
-            if ((!args || args.repoKey === undefined) && !opts.urn) {
+            if (args?.repoKey === undefined && !opts.urn) {
                 throw new Error("Missing required property 'repoKey'");
             }
-            resourceInputs["checkBinaryExistenceInFilestore"] = args ? args.checkBinaryExistenceInFilestore : undefined;
-            resourceInputs["cronExp"] = args ? args.cronExp : undefined;
-            resourceInputs["enableEventReplication"] = args ? args.enableEventReplication : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["checkBinaryExistenceInFilestore"] = args?.checkBinaryExistenceInFilestore;
+            resourceInputs["cronExp"] = args?.cronExp;
+            resourceInputs["enableEventReplication"] = args?.enableEventReplication;
+            resourceInputs["enabled"] = args?.enabled;
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
-            resourceInputs["pathPrefix"] = args ? args.pathPrefix : undefined;
-            resourceInputs["proxy"] = args ? args.proxy : undefined;
-            resourceInputs["repoKey"] = args ? args.repoKey : undefined;
-            resourceInputs["socketTimeoutMillis"] = args ? args.socketTimeoutMillis : undefined;
-            resourceInputs["syncDeletes"] = args ? args.syncDeletes : undefined;
-            resourceInputs["syncProperties"] = args ? args.syncProperties : undefined;
-            resourceInputs["syncStatistics"] = args ? args.syncStatistics : undefined;
-            resourceInputs["url"] = args ? args.url : undefined;
-            resourceInputs["username"] = args ? args.username : undefined;
+            resourceInputs["pathPrefix"] = args?.pathPrefix;
+            resourceInputs["proxy"] = args?.proxy;
+            resourceInputs["repoKey"] = args?.repoKey;
+            resourceInputs["socketTimeoutMillis"] = args?.socketTimeoutMillis;
+            resourceInputs["syncDeletes"] = args?.syncDeletes;
+            resourceInputs["syncProperties"] = args?.syncProperties;
+            resourceInputs["syncStatistics"] = args?.syncStatistics;
+            resourceInputs["url"] = args?.url;
+            resourceInputs["username"] = args?.username;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["password"] };

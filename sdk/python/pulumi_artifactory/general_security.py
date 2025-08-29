@@ -24,10 +24,7 @@ class GeneralSecurityArgs:
         """
         The set of arguments for constructing a GeneralSecurity resource.
         :param pulumi.Input[_builtins.bool] enable_anonymous_access: Enable anonymous access.  Default value is `false`.
-        :param pulumi.Input[_builtins.str] encryption_policy: Determines the password requirements from users identified to Artifactory from a remote client such as Maven. The
-               options are: (1) `SUPPORTED` (default): Users can authenticate using secure encrypted passwords or clear-text passwords.
-               (2) `REQUIRED`: Users must authenticate using secure encrypted passwords. Clear-text authentication fails. (3)
-               `UNSUPPORTED`: Only clear-text passwords can be used for authentication. Default value is `SUPPORTED`.
+        :param pulumi.Input[_builtins.str] encryption_policy: Determines the password requirements from users identified to Artifactory from a remote client such as Maven. The options are: (1) `SUPPORTED` (default): Users can authenticate using secure encrypted passwords or clear-text passwords. (2) `REQUIRED`: Users must authenticate using secure encrypted passwords. Clear-text authentication fails. (3) `UNSUPPORTED`: Only clear-text passwords can be used for authentication. Default value is `SUPPORTED`.
         """
         if enable_anonymous_access is not None:
             pulumi.set(__self__, "enable_anonymous_access", enable_anonymous_access)
@@ -50,10 +47,7 @@ class GeneralSecurityArgs:
     @pulumi.getter(name="encryptionPolicy")
     def encryption_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Determines the password requirements from users identified to Artifactory from a remote client such as Maven. The
-        options are: (1) `SUPPORTED` (default): Users can authenticate using secure encrypted passwords or clear-text passwords.
-        (2) `REQUIRED`: Users must authenticate using secure encrypted passwords. Clear-text authentication fails. (3)
-        `UNSUPPORTED`: Only clear-text passwords can be used for authentication. Default value is `SUPPORTED`.
+        Determines the password requirements from users identified to Artifactory from a remote client such as Maven. The options are: (1) `SUPPORTED` (default): Users can authenticate using secure encrypted passwords or clear-text passwords. (2) `REQUIRED`: Users must authenticate using secure encrypted passwords. Clear-text authentication fails. (3) `UNSUPPORTED`: Only clear-text passwords can be used for authentication. Default value is `SUPPORTED`.
         """
         return pulumi.get(self, "encryption_policy")
 
@@ -70,10 +64,7 @@ class _GeneralSecurityState:
         """
         Input properties used for looking up and filtering GeneralSecurity resources.
         :param pulumi.Input[_builtins.bool] enable_anonymous_access: Enable anonymous access.  Default value is `false`.
-        :param pulumi.Input[_builtins.str] encryption_policy: Determines the password requirements from users identified to Artifactory from a remote client such as Maven. The
-               options are: (1) `SUPPORTED` (default): Users can authenticate using secure encrypted passwords or clear-text passwords.
-               (2) `REQUIRED`: Users must authenticate using secure encrypted passwords. Clear-text authentication fails. (3)
-               `UNSUPPORTED`: Only clear-text passwords can be used for authentication. Default value is `SUPPORTED`.
+        :param pulumi.Input[_builtins.str] encryption_policy: Determines the password requirements from users identified to Artifactory from a remote client such as Maven. The options are: (1) `SUPPORTED` (default): Users can authenticate using secure encrypted passwords or clear-text passwords. (2) `REQUIRED`: Users must authenticate using secure encrypted passwords. Clear-text authentication fails. (3) `UNSUPPORTED`: Only clear-text passwords can be used for authentication. Default value is `SUPPORTED`.
         """
         if enable_anonymous_access is not None:
             pulumi.set(__self__, "enable_anonymous_access", enable_anonymous_access)
@@ -96,10 +87,7 @@ class _GeneralSecurityState:
     @pulumi.getter(name="encryptionPolicy")
     def encryption_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Determines the password requirements from users identified to Artifactory from a remote client such as Maven. The
-        options are: (1) `SUPPORTED` (default): Users can authenticate using secure encrypted passwords or clear-text passwords.
-        (2) `REQUIRED`: Users must authenticate using secure encrypted passwords. Clear-text authentication fails. (3)
-        `UNSUPPORTED`: Only clear-text passwords can be used for authentication. Default value is `SUPPORTED`.
+        Determines the password requirements from users identified to Artifactory from a remote client such as Maven. The options are: (1) `SUPPORTED` (default): Users can authenticate using secure encrypted passwords or clear-text passwords. (2) `REQUIRED`: Users must authenticate using secure encrypted passwords. Clear-text authentication fails. (3) `UNSUPPORTED`: Only clear-text passwords can be used for authentication. Default value is `SUPPORTED`.
         """
         return pulumi.get(self, "encryption_policy")
 
@@ -147,10 +135,7 @@ class GeneralSecurity(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] enable_anonymous_access: Enable anonymous access.  Default value is `false`.
-        :param pulumi.Input[_builtins.str] encryption_policy: Determines the password requirements from users identified to Artifactory from a remote client such as Maven. The
-               options are: (1) `SUPPORTED` (default): Users can authenticate using secure encrypted passwords or clear-text passwords.
-               (2) `REQUIRED`: Users must authenticate using secure encrypted passwords. Clear-text authentication fails. (3)
-               `UNSUPPORTED`: Only clear-text passwords can be used for authentication. Default value is `SUPPORTED`.
+        :param pulumi.Input[_builtins.str] encryption_policy: Determines the password requirements from users identified to Artifactory from a remote client such as Maven. The options are: (1) `SUPPORTED` (default): Users can authenticate using secure encrypted passwords or clear-text passwords. (2) `REQUIRED`: Users must authenticate using secure encrypted passwords. Clear-text authentication fails. (3) `UNSUPPORTED`: Only clear-text passwords can be used for authentication. Default value is `SUPPORTED`.
         """
         ...
     @overload
@@ -233,10 +218,7 @@ class GeneralSecurity(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] enable_anonymous_access: Enable anonymous access.  Default value is `false`.
-        :param pulumi.Input[_builtins.str] encryption_policy: Determines the password requirements from users identified to Artifactory from a remote client such as Maven. The
-               options are: (1) `SUPPORTED` (default): Users can authenticate using secure encrypted passwords or clear-text passwords.
-               (2) `REQUIRED`: Users must authenticate using secure encrypted passwords. Clear-text authentication fails. (3)
-               `UNSUPPORTED`: Only clear-text passwords can be used for authentication. Default value is `SUPPORTED`.
+        :param pulumi.Input[_builtins.str] encryption_policy: Determines the password requirements from users identified to Artifactory from a remote client such as Maven. The options are: (1) `SUPPORTED` (default): Users can authenticate using secure encrypted passwords or clear-text passwords. (2) `REQUIRED`: Users must authenticate using secure encrypted passwords. Clear-text authentication fails. (3) `UNSUPPORTED`: Only clear-text passwords can be used for authentication. Default value is `SUPPORTED`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -258,10 +240,7 @@ class GeneralSecurity(pulumi.CustomResource):
     @pulumi.getter(name="encryptionPolicy")
     def encryption_policy(self) -> pulumi.Output[_builtins.str]:
         """
-        Determines the password requirements from users identified to Artifactory from a remote client such as Maven. The
-        options are: (1) `SUPPORTED` (default): Users can authenticate using secure encrypted passwords or clear-text passwords.
-        (2) `REQUIRED`: Users must authenticate using secure encrypted passwords. Clear-text authentication fails. (3)
-        `UNSUPPORTED`: Only clear-text passwords can be used for authentication. Default value is `SUPPORTED`.
+        Determines the password requirements from users identified to Artifactory from a remote client such as Maven. The options are: (1) `SUPPORTED` (default): Users can authenticate using secure encrypted passwords or clear-text passwords. (2) `REQUIRED`: Users must authenticate using secure encrypted passwords. Clear-text authentication fails. (3) `UNSUPPORTED`: Only clear-text passwords can be used for authentication. Default value is `SUPPORTED`.
         """
         return pulumi.get(self, "encryption_policy")
 
