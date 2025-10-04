@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var my_remote_ansible = new Artifactory.RemoteAlpineRepository("my-remote-ansible", new()
+    ///     var my_remote_ansible = new Artifactory.RemoteAnsibleRepository("my-remote-ansible", new()
     ///     {
     ///         Key = "my-remote-ansible",
     ///         Url = "https://galaxy.ansible.com",

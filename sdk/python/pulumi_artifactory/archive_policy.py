@@ -288,10 +288,6 @@ class ArchivePolicy(pulumi.CustomResource):
                  skip_trashcan: Optional[pulumi.Input[_builtins.bool]] = None,
                  __props__=None):
         """
-        Provides an Artifactory Archive Policy resource. This resource enable system administrators to define and customize policies based on specific criteria for removing unused binaries from across their JFrog platform. See [Retention Policies](https://jfrog.com/help/r/jfrog-platform-administration-documentation/retention-policies) for more details.
-
-        ~>Currently in beta and not yet globally available. A full rollout is scheduled for Q1 2025.
-
         ## Import
 
         ```sh
@@ -318,10 +314,6 @@ class ArchivePolicy(pulumi.CustomResource):
                  args: ArchivePolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an Artifactory Archive Policy resource. This resource enable system administrators to define and customize policies based on specific criteria for removing unused binaries from across their JFrog platform. See [Retention Policies](https://jfrog.com/help/r/jfrog-platform-administration-documentation/retention-policies) for more details.
-
-        ~>Currently in beta and not yet globally available. A full rollout is scheduled for Q1 2025.
-
         ## Import
 
         ```sh
@@ -437,7 +429,7 @@ class ArchivePolicy(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="durationInMinutes")
-    def duration_in_minutes(self) -> pulumi.Output[Optional[_builtins.int]]:
+    def duration_in_minutes(self) -> pulumi.Output[_builtins.int]:
         """
         The maximum duration (in minutes) for policy execution, after which the policy will stop running even if not completed. While setting a maximum run duration for a policy is useful for adhering to a strict archive V2 schedule, it can cause the policy to stop before completion.
         """

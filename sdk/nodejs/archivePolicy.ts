@@ -7,10 +7,6 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * Provides an Artifactory Archive Policy resource. This resource enable system administrators to define and customize policies based on specific criteria for removing unused binaries from across their JFrog platform. See [Retention Policies](https://jfrog.com/help/r/jfrog-platform-administration-documentation/retention-policies) for more details.
- *
- * ~>Currently in beta and not yet globally available. A full rollout is scheduled for Q1 2025.
- *
  * ## Import
  *
  * ```sh
@@ -57,7 +53,7 @@ export class ArchivePolicy extends pulumi.CustomResource {
     /**
      * The maximum duration (in minutes) for policy execution, after which the policy will stop running even if not completed. While setting a maximum run duration for a policy is useful for adhering to a strict archive V2 schedule, it can cause the policy to stop before completion.
      */
-    declare public readonly durationInMinutes: pulumi.Output<number | undefined>;
+    declare public readonly durationInMinutes: pulumi.Output<number>;
     /**
      * Enables or disabled the package cleanup policy. This allows the user to run the policy manually. If a policy has a valid cron expression, then it will be scheduled for execution based on it. If a policy is disabled, its future executions will be unscheduled. Defaults to `true`
      */

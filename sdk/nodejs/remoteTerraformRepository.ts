@@ -7,20 +7,6 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const terraform_remote = new artifactory.RemoteTerraformRepository("terraform-remote", {
- *     key: "terraform-remote",
- *     url: "https://github.com/",
- *     terraformRegistryUrl: "https://registry.terraform.io",
- *     terraformProvidersUrl: "https://releases.hashicorp.com",
- * });
- * ```
- *
  * ## Import
  *
  * Remote repositories can be imported using their name, e.g.
@@ -78,9 +64,6 @@ export class RemoteTerraformRepository extends pulumi.CustomResource {
      * If set, artifacts will fail to download if a mismatch is detected between requested and received mimetype, according to the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes to the override list 'mismatching_mime_types_override_list'.
      */
     declare public readonly blockMismatchingMimeTypes: pulumi.Output<boolean>;
-    /**
-     * Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
-     */
     declare public readonly bypassHeadRequests: pulumi.Output<boolean>;
     /**
      * When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
@@ -366,9 +349,6 @@ export interface RemoteTerraformRepositoryState {
      * If set, artifacts will fail to download if a mismatch is detected between requested and received mimetype, according to the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes to the override list 'mismatching_mime_types_override_list'.
      */
     blockMismatchingMimeTypes?: pulumi.Input<boolean>;
-    /**
-     * Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
-     */
     bypassHeadRequests?: pulumi.Input<boolean>;
     /**
      * When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
@@ -536,9 +516,6 @@ export interface RemoteTerraformRepositoryArgs {
      * If set, artifacts will fail to download if a mismatch is detected between requested and received mimetype, according to the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes to the override list 'mismatching_mime_types_override_list'.
      */
     blockMismatchingMimeTypes?: pulumi.Input<boolean>;
-    /**
-     * Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
-     */
     bypassHeadRequests?: pulumi.Input<boolean>;
     /**
      * When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'

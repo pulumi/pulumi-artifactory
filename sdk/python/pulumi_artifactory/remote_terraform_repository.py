@@ -77,7 +77,6 @@ class RemoteTerraformRepositoryArgs:
         :param pulumi.Input[_builtins.int] assumed_offline_period_secs: The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time, an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed offline.
         :param pulumi.Input[_builtins.bool] blacked_out: (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact resolution.
         :param pulumi.Input[_builtins.bool] block_mismatching_mime_types: If set, artifacts will fail to download if a mismatch is detected between requested and received mimetype, according to the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes to the override list 'mismatching_mime_types_override_list'.
-        :param pulumi.Input[_builtins.bool] bypass_head_requests: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
         :param pulumi.Input[_builtins.bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[_builtins.str] client_tls_certificate: Client TLS certificate name.
         :param pulumi.Input[_builtins.str] description: Public description.
@@ -290,9 +289,6 @@ class RemoteTerraformRepositoryArgs:
     @_builtins.property
     @pulumi.getter(name="bypassHeadRequests")
     def bypass_head_requests(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
-        """
         return pulumi.get(self, "bypass_head_requests")
 
     @bypass_head_requests.setter
@@ -780,7 +776,6 @@ class _RemoteTerraformRepositoryState:
         :param pulumi.Input[_builtins.int] assumed_offline_period_secs: The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time, an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed offline.
         :param pulumi.Input[_builtins.bool] blacked_out: (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact resolution.
         :param pulumi.Input[_builtins.bool] block_mismatching_mime_types: If set, artifacts will fail to download if a mismatch is detected between requested and received mimetype, according to the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes to the override list 'mismatching_mime_types_override_list'.
-        :param pulumi.Input[_builtins.bool] bypass_head_requests: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
         :param pulumi.Input[_builtins.bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[_builtins.str] client_tls_certificate: Client TLS certificate name.
         :param pulumi.Input[_builtins.str] description: Public description.
@@ -973,9 +968,6 @@ class _RemoteTerraformRepositoryState:
     @_builtins.property
     @pulumi.getter(name="bypassHeadRequests")
     def bypass_head_requests(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
-        """
         return pulumi.get(self, "bypass_head_requests")
 
     @bypass_head_requests.setter
@@ -1485,19 +1477,6 @@ class RemoteTerraformRepository(pulumi.CustomResource):
                  xray_index: Optional[pulumi.Input[_builtins.bool]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_artifactory as artifactory
-
-        terraform_remote = artifactory.RemoteTerraformRepository("terraform-remote",
-            key="terraform-remote",
-            url="https://github.com/",
-            terraform_registry_url="https://registry.terraform.io",
-            terraform_providers_url="https://releases.hashicorp.com")
-        ```
-
         ## Import
 
         Remote repositories can be imported using their name, e.g.
@@ -1514,7 +1493,6 @@ class RemoteTerraformRepository(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] assumed_offline_period_secs: The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time, an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed offline.
         :param pulumi.Input[_builtins.bool] blacked_out: (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact resolution.
         :param pulumi.Input[_builtins.bool] block_mismatching_mime_types: If set, artifacts will fail to download if a mismatch is detected between requested and received mimetype, according to the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes to the override list 'mismatching_mime_types_override_list'.
-        :param pulumi.Input[_builtins.bool] bypass_head_requests: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
         :param pulumi.Input[_builtins.bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[_builtins.str] client_tls_certificate: Client TLS certificate name.
         :param pulumi.Input[_builtins.str] description: Public description.
@@ -1556,19 +1534,6 @@ class RemoteTerraformRepository(pulumi.CustomResource):
                  args: RemoteTerraformRepositoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_artifactory as artifactory
-
-        terraform_remote = artifactory.RemoteTerraformRepository("terraform-remote",
-            key="terraform-remote",
-            url="https://github.com/",
-            terraform_registry_url="https://registry.terraform.io",
-            terraform_providers_url="https://releases.hashicorp.com")
-        ```
-
         ## Import
 
         Remote repositories can be imported using their name, e.g.
@@ -1765,7 +1730,6 @@ class RemoteTerraformRepository(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] assumed_offline_period_secs: The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time, an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed offline.
         :param pulumi.Input[_builtins.bool] blacked_out: (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact resolution.
         :param pulumi.Input[_builtins.bool] block_mismatching_mime_types: If set, artifacts will fail to download if a mismatch is detected between requested and received mimetype, according to the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes to the override list 'mismatching_mime_types_override_list'.
-        :param pulumi.Input[_builtins.bool] bypass_head_requests: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
         :param pulumi.Input[_builtins.bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[_builtins.str] client_tls_certificate: Client TLS certificate name.
         :param pulumi.Input[_builtins.str] description: Public description.
@@ -1895,9 +1859,6 @@ class RemoteTerraformRepository(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="bypassHeadRequests")
     def bypass_head_requests(self) -> pulumi.Output[_builtins.bool]:
-        """
-        Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
-        """
         return pulumi.get(self, "bypass_head_requests")
 
     @_builtins.property

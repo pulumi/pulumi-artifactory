@@ -18,10 +18,6 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides an Artifactory Archive Policy resource. This resource enable system administrators to define and customize policies based on specific criteria for removing unused binaries from across their JFrog platform. See [Retention Policies](https://jfrog.com/help/r/jfrog-platform-administration-documentation/retention-policies) for more details.
- * 
- * ~&gt;Currently in beta and not yet globally available. A full rollout is scheduled for Q1 2025.
- * 
  * ## Import
  * 
  * ```sh
@@ -60,14 +56,14 @@ public class ArchivePolicy extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="durationInMinutes", refs={Integer.class}, tree="[0]")
-    private Output</* @Nullable */ Integer> durationInMinutes;
+    private Output<Integer> durationInMinutes;
 
     /**
      * @return The maximum duration (in minutes) for policy execution, after which the policy will stop running even if not completed. While setting a maximum run duration for a policy is useful for adhering to a strict archive V2 schedule, it can cause the policy to stop before completion.
      * 
      */
-    public Output<Optional<Integer>> durationInMinutes() {
-        return Codegen.optional(this.durationInMinutes);
+    public Output<Integer> durationInMinutes() {
+        return this.durationInMinutes;
     }
     /**
      * Enables or disabled the package cleanup policy. This allows the user to run the policy manually. If a policy has a valid cron expression, then it will be scheduled for execution based on it. If a policy is disabled, its future executions will be unscheduled. Defaults to `true`

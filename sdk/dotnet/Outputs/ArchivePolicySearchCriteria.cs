@@ -14,6 +14,12 @@ namespace Pulumi.Artifactory.Outputs
     public sealed class ArchivePolicySearchCriteria
     {
         /// <summary>
+        /// The archive policy will archive packages based on how long ago they were created. For example, if this parameter is 2 then packages created more than 2 days ago will be archived as part of the policy.
+        /// &gt; **Requires Artifactory 7.111.2 or later.**
+        /// ~&gt;JFrog recommends using the `created_before_in_days` condition to ensure that packages currently in use are not archived.
+        /// </summary>
+        public readonly int? CreatedBeforeInDays;
+        /// <summary>
         /// The archive policy will archive packages based on how long ago they were created. For example, if this parameter is 2 then packages created more than 2 months ago will be archived as part of the policy.
         /// </summary>
         public readonly int? CreatedBeforeInMonths;
@@ -22,11 +28,17 @@ namespace Pulumi.Artifactory.Outputs
         /// </summary>
         public readonly ImmutableArray<string> ExcludedPackages;
         /// <summary>
+        /// A key-value pair applied to the lead artifact of a package. Packages with this property will be excluded from archival.
+        /// </summary>
+        public readonly ImmutableDictionary<string, ImmutableArray<string>>? ExcludedProperties;
+        /// <summary>
         /// Specify patterns for repository names or explicit repository names that you want excluded from the archive policy.
         /// </summary>
         public readonly ImmutableArray<string> ExcludedRepos;
         /// <summary>
         /// Set this value to `true` if you want the policy to run on all Artifactory projects. The default value is `false`.
+        /// 
+        /// ~&gt;This attribute is relevant only on the global level, for Platform Admins.
         /// </summary>
         public readonly bool? IncludeAllProjects;
         /// <summary>
@@ -34,11 +46,14 @@ namespace Pulumi.Artifactory.Outputs
         /// </summary>
         public readonly ImmutableArray<string> IncludedPackages;
         /// <summary>
-        /// List of projects on which you want this policy to run. To include repositories that are not assigned to any project, enter the project key `default`.
-        /// 
+        /// List of projects on which you want this policy to run. To include repositories that are not assigned to any project, enter the project key `default`. Can be empty when `include_all_projects` is set to `true`.
         /// ~&gt;This setting is relevant only on the global level, for Platform Admins.
         /// </summary>
         public readonly ImmutableArray<string> IncludedProjects;
+        /// <summary>
+        /// A key-value pair applied to the lead artifact of a package. Packages with this property will be archived.
+        /// </summary>
+        public readonly ImmutableDictionary<string, ImmutableArray<string>>? IncludedProperties;
         /// <summary>
         /// Set a value for the number of latest versions to keep. The archive policy will remove all versions before the number you select here. The latest version is always excluded.
         /// 
@@ -48,9 +63,13 @@ namespace Pulumi.Artifactory.Outputs
         /// </summary>
         public readonly int? KeepLastNVersions;
         /// <summary>
+        /// The archive policy will archive packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 days ago will be archived as part of the policy.
+        /// &gt; **Requires Artifactory 7.111.2 or later.**
+        /// ~&gt;JFrog recommends using the `last_downloaded_before_in_days` condition to ensure that packages currently in use are not archived.
+        /// </summary>
+        public readonly int? LastDownloadedBeforeInDays;
+        /// <summary>
         /// The archive policy will archive packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 months ago will be archived as part of the policy.
-        /// 
-        /// ~&gt;JFrog recommends using the `last_downloaded_before_in_months` condition to ensure that packages currently in use are not archived.
         /// </summary>
         public readonly int? LastDownloadedBeforeInMonths;
         public readonly ImmutableArray<string> PackageTypes;
@@ -61,9 +80,13 @@ namespace Pulumi.Artifactory.Outputs
 
         [OutputConstructor]
         private ArchivePolicySearchCriteria(
+            int? createdBeforeInDays,
+
             int? createdBeforeInMonths,
 
             ImmutableArray<string> excludedPackages,
+
+            ImmutableDictionary<string, ImmutableArray<string>>? excludedProperties,
 
             ImmutableArray<string> excludedRepos,
 
@@ -73,7 +96,11 @@ namespace Pulumi.Artifactory.Outputs
 
             ImmutableArray<string> includedProjects,
 
+            ImmutableDictionary<string, ImmutableArray<string>>? includedProperties,
+
             int? keepLastNVersions,
+
+            int? lastDownloadedBeforeInDays,
 
             int? lastDownloadedBeforeInMonths,
 
@@ -81,13 +108,17 @@ namespace Pulumi.Artifactory.Outputs
 
             ImmutableArray<string> repos)
         {
+            CreatedBeforeInDays = createdBeforeInDays;
             CreatedBeforeInMonths = createdBeforeInMonths;
             ExcludedPackages = excludedPackages;
+            ExcludedProperties = excludedProperties;
             ExcludedRepos = excludedRepos;
             IncludeAllProjects = includeAllProjects;
             IncludedPackages = includedPackages;
             IncludedProjects = includedProjects;
+            IncludedProperties = includedProperties;
             KeepLastNVersions = keepLastNVersions;
+            LastDownloadedBeforeInDays = lastDownloadedBeforeInDays;
             LastDownloadedBeforeInMonths = lastDownloadedBeforeInMonths;
             PackageTypes = packageTypes;
             Repos = repos;

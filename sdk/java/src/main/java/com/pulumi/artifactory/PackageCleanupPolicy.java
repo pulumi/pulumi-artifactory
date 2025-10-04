@@ -56,14 +56,14 @@ public class PackageCleanupPolicy extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="durationInMinutes", refs={Integer.class}, tree="[0]")
-    private Output</* @Nullable */ Integer> durationInMinutes;
+    private Output<Integer> durationInMinutes;
 
     /**
      * @return The maximum duration (in minutes) for policy execution, after which the policy will stop running even if not completed. While setting a maximum run duration for a policy is useful for adhering to a strict cleanup schedule, it can cause the policy to stop before completion.
      * 
      */
-    public Output<Optional<Integer>> durationInMinutes() {
-        return Codegen.optional(this.durationInMinutes);
+    public Output<Integer> durationInMinutes() {
+        return this.durationInMinutes;
     }
     /**
      * A cleanup policy must be created inactive. But if used it must be set to `false`. If set to `true` when calling this API, the API call will fail and an error message is received. Defaults to `true`
@@ -92,6 +92,20 @@ public class PackageCleanupPolicy extends com.pulumi.resources.CustomResource {
      */
     public Output<String> key() {
         return this.key;
+    }
+    /**
+     * This attribute is used only for project-level cleanup policies, it is not used for global-level policies. When specified, the policy will be scoped to the specified project. Note: The policy `key` must start with this project key value as a prefix (e.g., if `project_key` is `&#34;myproj&#34;`, the `key` should be `&#34;myproj-policy-name&#34;`).
+     * 
+     */
+    @Export(name="projectKey", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> projectKey;
+
+    /**
+     * @return This attribute is used only for project-level cleanup policies, it is not used for global-level policies. When specified, the policy will be scoped to the specified project. Note: The policy `key` must start with this project key value as a prefix (e.g., if `project_key` is `&#34;myproj&#34;`, the `key` should be `&#34;myproj-policy-name&#34;`).
+     * 
+     */
+    public Output<Optional<String>> projectKey() {
+        return Codegen.optional(this.projectKey);
     }
     @Export(name="searchCriteria", refs={PackageCleanupPolicySearchCriteria.class}, tree="[0]")
     private Output<PackageCleanupPolicySearchCriteria> searchCriteria;

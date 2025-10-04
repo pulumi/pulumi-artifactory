@@ -14,29 +14,44 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type ArchivePolicySearchCriteria struct {
+	// The archive policy will archive packages based on how long ago they were created. For example, if this parameter is 2 then packages created more than 2 days ago will be archived as part of the policy.
+	// > **Requires Artifactory 7.111.2 or later.**
+	// ~>JFrog recommends using the `createdBeforeInDays` condition to ensure that packages currently in use are not archived.
+	CreatedBeforeInDays *int `pulumi:"createdBeforeInDays"`
 	// The archive policy will archive packages based on how long ago they were created. For example, if this parameter is 2 then packages created more than 2 months ago will be archived as part of the policy.
+	//
+	// Deprecated: Use `createdBeforeInDays` instead of `createdBeforeInMonths`. Renamed to `createdBeforeInDays` starting in version 7.111.2.
 	CreatedBeforeInMonths *int `pulumi:"createdBeforeInMonths"`
 	// Specify explicit package names that you want excluded from the policy. Only Name explicit names (and not patterns) are accepted.
 	ExcludedPackages []string `pulumi:"excludedPackages"`
+	// A key-value pair applied to the lead artifact of a package. Packages with this property will be excluded from archival.
+	ExcludedProperties map[string][]string `pulumi:"excludedProperties"`
 	// Specify patterns for repository names or explicit repository names that you want excluded from the archive policy.
 	ExcludedRepos []string `pulumi:"excludedRepos"`
 	// Set this value to `true` if you want the policy to run on all Artifactory projects. The default value is `false`.
+	//
+	// ~>This attribute is relevant only on the global level, for Platform Admins.
 	IncludeAllProjects *bool `pulumi:"includeAllProjects"`
 	// Specify a pattern for a package name or an explicit package name. It accept only single element which can be specific package or pattern, and for including all packages use `**`. Example: `includedPackages = ["**"]`
 	IncludedPackages []string `pulumi:"includedPackages"`
-	// List of projects on which you want this policy to run. To include repositories that are not assigned to any project, enter the project key `default`.
-	//
+	// List of projects on which you want this policy to run. To include repositories that are not assigned to any project, enter the project key `default`. Can be empty when `includeAllProjects` is set to `true`.
 	// ~>This setting is relevant only on the global level, for Platform Admins.
 	IncludedProjects []string `pulumi:"includedProjects"`
+	// A key-value pair applied to the lead artifact of a package. Packages with this property will be archived.
+	IncludedProperties map[string][]string `pulumi:"includedProperties"`
 	// Set a value for the number of latest versions to keep. The archive policy will remove all versions before the number you select here. The latest version is always excluded.
 	//
 	// ~>Versions are determined by creation date.
 	//
 	// ~>Not all package types support this condition. If you include a package type in your policy that is not compatible with this condition, a validation error (400) is returned. For information on which package types support this condition, see here.
 	KeepLastNVersions *int `pulumi:"keepLastNVersions"`
+	// The archive policy will archive packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 days ago will be archived as part of the policy.
+	// > **Requires Artifactory 7.111.2 or later.**
+	// ~>JFrog recommends using the `lastDownloadedBeforeInDays` condition to ensure that packages currently in use are not archived.
+	LastDownloadedBeforeInDays *int `pulumi:"lastDownloadedBeforeInDays"`
 	// The archive policy will archive packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 months ago will be archived as part of the policy.
 	//
-	// ~>JFrog recommends using the `lastDownloadedBeforeInMonths` condition to ensure that packages currently in use are not archived.
+	// Deprecated: Use `lastDownloadedBeforeInDays` instead of `lastDownloadedBeforeInMonths`. Renamed to `lastDownloadedBeforeInDays` starting in version 7.111.2.
 	LastDownloadedBeforeInMonths *int     `pulumi:"lastDownloadedBeforeInMonths"`
 	PackageTypes                 []string `pulumi:"packageTypes"`
 	// Specify one or more patterns for the repository name(s) on which you want the archive policy to run. You can also specify explicit repository names. Specifying at least one pattern or explicit name is required. Only packages in repositories that match the pattern or explicit name will be archived. For including all repos use `**`. Example: `repos = ["**"]`
@@ -55,29 +70,44 @@ type ArchivePolicySearchCriteriaInput interface {
 }
 
 type ArchivePolicySearchCriteriaArgs struct {
+	// The archive policy will archive packages based on how long ago they were created. For example, if this parameter is 2 then packages created more than 2 days ago will be archived as part of the policy.
+	// > **Requires Artifactory 7.111.2 or later.**
+	// ~>JFrog recommends using the `createdBeforeInDays` condition to ensure that packages currently in use are not archived.
+	CreatedBeforeInDays pulumi.IntPtrInput `pulumi:"createdBeforeInDays"`
 	// The archive policy will archive packages based on how long ago they were created. For example, if this parameter is 2 then packages created more than 2 months ago will be archived as part of the policy.
+	//
+	// Deprecated: Use `createdBeforeInDays` instead of `createdBeforeInMonths`. Renamed to `createdBeforeInDays` starting in version 7.111.2.
 	CreatedBeforeInMonths pulumi.IntPtrInput `pulumi:"createdBeforeInMonths"`
 	// Specify explicit package names that you want excluded from the policy. Only Name explicit names (and not patterns) are accepted.
 	ExcludedPackages pulumi.StringArrayInput `pulumi:"excludedPackages"`
+	// A key-value pair applied to the lead artifact of a package. Packages with this property will be excluded from archival.
+	ExcludedProperties pulumi.StringArrayMapInput `pulumi:"excludedProperties"`
 	// Specify patterns for repository names or explicit repository names that you want excluded from the archive policy.
 	ExcludedRepos pulumi.StringArrayInput `pulumi:"excludedRepos"`
 	// Set this value to `true` if you want the policy to run on all Artifactory projects. The default value is `false`.
+	//
+	// ~>This attribute is relevant only on the global level, for Platform Admins.
 	IncludeAllProjects pulumi.BoolPtrInput `pulumi:"includeAllProjects"`
 	// Specify a pattern for a package name or an explicit package name. It accept only single element which can be specific package or pattern, and for including all packages use `**`. Example: `includedPackages = ["**"]`
 	IncludedPackages pulumi.StringArrayInput `pulumi:"includedPackages"`
-	// List of projects on which you want this policy to run. To include repositories that are not assigned to any project, enter the project key `default`.
-	//
+	// List of projects on which you want this policy to run. To include repositories that are not assigned to any project, enter the project key `default`. Can be empty when `includeAllProjects` is set to `true`.
 	// ~>This setting is relevant only on the global level, for Platform Admins.
 	IncludedProjects pulumi.StringArrayInput `pulumi:"includedProjects"`
+	// A key-value pair applied to the lead artifact of a package. Packages with this property will be archived.
+	IncludedProperties pulumi.StringArrayMapInput `pulumi:"includedProperties"`
 	// Set a value for the number of latest versions to keep. The archive policy will remove all versions before the number you select here. The latest version is always excluded.
 	//
 	// ~>Versions are determined by creation date.
 	//
 	// ~>Not all package types support this condition. If you include a package type in your policy that is not compatible with this condition, a validation error (400) is returned. For information on which package types support this condition, see here.
 	KeepLastNVersions pulumi.IntPtrInput `pulumi:"keepLastNVersions"`
+	// The archive policy will archive packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 days ago will be archived as part of the policy.
+	// > **Requires Artifactory 7.111.2 or later.**
+	// ~>JFrog recommends using the `lastDownloadedBeforeInDays` condition to ensure that packages currently in use are not archived.
+	LastDownloadedBeforeInDays pulumi.IntPtrInput `pulumi:"lastDownloadedBeforeInDays"`
 	// The archive policy will archive packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 months ago will be archived as part of the policy.
 	//
-	// ~>JFrog recommends using the `lastDownloadedBeforeInMonths` condition to ensure that packages currently in use are not archived.
+	// Deprecated: Use `lastDownloadedBeforeInDays` instead of `lastDownloadedBeforeInMonths`. Renamed to `lastDownloadedBeforeInDays` starting in version 7.111.2.
 	LastDownloadedBeforeInMonths pulumi.IntPtrInput      `pulumi:"lastDownloadedBeforeInMonths"`
 	PackageTypes                 pulumi.StringArrayInput `pulumi:"packageTypes"`
 	// Specify one or more patterns for the repository name(s) on which you want the archive policy to run. You can also specify explicit repository names. Specifying at least one pattern or explicit name is required. Only packages in repositories that match the pattern or explicit name will be archived. For including all repos use `**`. Example: `repos = ["**"]`
@@ -161,7 +191,16 @@ func (o ArchivePolicySearchCriteriaOutput) ToArchivePolicySearchCriteriaPtrOutpu
 	}).(ArchivePolicySearchCriteriaPtrOutput)
 }
 
+// The archive policy will archive packages based on how long ago they were created. For example, if this parameter is 2 then packages created more than 2 days ago will be archived as part of the policy.
+// > **Requires Artifactory 7.111.2 or later.**
+// ~>JFrog recommends using the `createdBeforeInDays` condition to ensure that packages currently in use are not archived.
+func (o ArchivePolicySearchCriteriaOutput) CreatedBeforeInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ArchivePolicySearchCriteria) *int { return v.CreatedBeforeInDays }).(pulumi.IntPtrOutput)
+}
+
 // The archive policy will archive packages based on how long ago they were created. For example, if this parameter is 2 then packages created more than 2 months ago will be archived as part of the policy.
+//
+// Deprecated: Use `createdBeforeInDays` instead of `createdBeforeInMonths`. Renamed to `createdBeforeInDays` starting in version 7.111.2.
 func (o ArchivePolicySearchCriteriaOutput) CreatedBeforeInMonths() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ArchivePolicySearchCriteria) *int { return v.CreatedBeforeInMonths }).(pulumi.IntPtrOutput)
 }
@@ -171,12 +210,19 @@ func (o ArchivePolicySearchCriteriaOutput) ExcludedPackages() pulumi.StringArray
 	return o.ApplyT(func(v ArchivePolicySearchCriteria) []string { return v.ExcludedPackages }).(pulumi.StringArrayOutput)
 }
 
+// A key-value pair applied to the lead artifact of a package. Packages with this property will be excluded from archival.
+func (o ArchivePolicySearchCriteriaOutput) ExcludedProperties() pulumi.StringArrayMapOutput {
+	return o.ApplyT(func(v ArchivePolicySearchCriteria) map[string][]string { return v.ExcludedProperties }).(pulumi.StringArrayMapOutput)
+}
+
 // Specify patterns for repository names or explicit repository names that you want excluded from the archive policy.
 func (o ArchivePolicySearchCriteriaOutput) ExcludedRepos() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ArchivePolicySearchCriteria) []string { return v.ExcludedRepos }).(pulumi.StringArrayOutput)
 }
 
 // Set this value to `true` if you want the policy to run on all Artifactory projects. The default value is `false`.
+//
+// ~>This attribute is relevant only on the global level, for Platform Admins.
 func (o ArchivePolicySearchCriteriaOutput) IncludeAllProjects() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ArchivePolicySearchCriteria) *bool { return v.IncludeAllProjects }).(pulumi.BoolPtrOutput)
 }
@@ -186,11 +232,15 @@ func (o ArchivePolicySearchCriteriaOutput) IncludedPackages() pulumi.StringArray
 	return o.ApplyT(func(v ArchivePolicySearchCriteria) []string { return v.IncludedPackages }).(pulumi.StringArrayOutput)
 }
 
-// List of projects on which you want this policy to run. To include repositories that are not assigned to any project, enter the project key `default`.
-//
+// List of projects on which you want this policy to run. To include repositories that are not assigned to any project, enter the project key `default`. Can be empty when `includeAllProjects` is set to `true`.
 // ~>This setting is relevant only on the global level, for Platform Admins.
 func (o ArchivePolicySearchCriteriaOutput) IncludedProjects() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ArchivePolicySearchCriteria) []string { return v.IncludedProjects }).(pulumi.StringArrayOutput)
+}
+
+// A key-value pair applied to the lead artifact of a package. Packages with this property will be archived.
+func (o ArchivePolicySearchCriteriaOutput) IncludedProperties() pulumi.StringArrayMapOutput {
+	return o.ApplyT(func(v ArchivePolicySearchCriteria) map[string][]string { return v.IncludedProperties }).(pulumi.StringArrayMapOutput)
 }
 
 // Set a value for the number of latest versions to keep. The archive policy will remove all versions before the number you select here. The latest version is always excluded.
@@ -202,9 +252,16 @@ func (o ArchivePolicySearchCriteriaOutput) KeepLastNVersions() pulumi.IntPtrOutp
 	return o.ApplyT(func(v ArchivePolicySearchCriteria) *int { return v.KeepLastNVersions }).(pulumi.IntPtrOutput)
 }
 
+// The archive policy will archive packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 days ago will be archived as part of the policy.
+// > **Requires Artifactory 7.111.2 or later.**
+// ~>JFrog recommends using the `lastDownloadedBeforeInDays` condition to ensure that packages currently in use are not archived.
+func (o ArchivePolicySearchCriteriaOutput) LastDownloadedBeforeInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ArchivePolicySearchCriteria) *int { return v.LastDownloadedBeforeInDays }).(pulumi.IntPtrOutput)
+}
+
 // The archive policy will archive packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 months ago will be archived as part of the policy.
 //
-// ~>JFrog recommends using the `lastDownloadedBeforeInMonths` condition to ensure that packages currently in use are not archived.
+// Deprecated: Use `lastDownloadedBeforeInDays` instead of `lastDownloadedBeforeInMonths`. Renamed to `lastDownloadedBeforeInDays` starting in version 7.111.2.
 func (o ArchivePolicySearchCriteriaOutput) LastDownloadedBeforeInMonths() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ArchivePolicySearchCriteria) *int { return v.LastDownloadedBeforeInMonths }).(pulumi.IntPtrOutput)
 }
@@ -242,7 +299,21 @@ func (o ArchivePolicySearchCriteriaPtrOutput) Elem() ArchivePolicySearchCriteria
 	}).(ArchivePolicySearchCriteriaOutput)
 }
 
+// The archive policy will archive packages based on how long ago they were created. For example, if this parameter is 2 then packages created more than 2 days ago will be archived as part of the policy.
+// > **Requires Artifactory 7.111.2 or later.**
+// ~>JFrog recommends using the `createdBeforeInDays` condition to ensure that packages currently in use are not archived.
+func (o ArchivePolicySearchCriteriaPtrOutput) CreatedBeforeInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ArchivePolicySearchCriteria) *int {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedBeforeInDays
+	}).(pulumi.IntPtrOutput)
+}
+
 // The archive policy will archive packages based on how long ago they were created. For example, if this parameter is 2 then packages created more than 2 months ago will be archived as part of the policy.
+//
+// Deprecated: Use `createdBeforeInDays` instead of `createdBeforeInMonths`. Renamed to `createdBeforeInDays` starting in version 7.111.2.
 func (o ArchivePolicySearchCriteriaPtrOutput) CreatedBeforeInMonths() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ArchivePolicySearchCriteria) *int {
 		if v == nil {
@@ -262,6 +333,16 @@ func (o ArchivePolicySearchCriteriaPtrOutput) ExcludedPackages() pulumi.StringAr
 	}).(pulumi.StringArrayOutput)
 }
 
+// A key-value pair applied to the lead artifact of a package. Packages with this property will be excluded from archival.
+func (o ArchivePolicySearchCriteriaPtrOutput) ExcludedProperties() pulumi.StringArrayMapOutput {
+	return o.ApplyT(func(v *ArchivePolicySearchCriteria) map[string][]string {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludedProperties
+	}).(pulumi.StringArrayMapOutput)
+}
+
 // Specify patterns for repository names or explicit repository names that you want excluded from the archive policy.
 func (o ArchivePolicySearchCriteriaPtrOutput) ExcludedRepos() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ArchivePolicySearchCriteria) []string {
@@ -273,6 +354,8 @@ func (o ArchivePolicySearchCriteriaPtrOutput) ExcludedRepos() pulumi.StringArray
 }
 
 // Set this value to `true` if you want the policy to run on all Artifactory projects. The default value is `false`.
+//
+// ~>This attribute is relevant only on the global level, for Platform Admins.
 func (o ArchivePolicySearchCriteriaPtrOutput) IncludeAllProjects() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ArchivePolicySearchCriteria) *bool {
 		if v == nil {
@@ -292,8 +375,7 @@ func (o ArchivePolicySearchCriteriaPtrOutput) IncludedPackages() pulumi.StringAr
 	}).(pulumi.StringArrayOutput)
 }
 
-// List of projects on which you want this policy to run. To include repositories that are not assigned to any project, enter the project key `default`.
-//
+// List of projects on which you want this policy to run. To include repositories that are not assigned to any project, enter the project key `default`. Can be empty when `includeAllProjects` is set to `true`.
 // ~>This setting is relevant only on the global level, for Platform Admins.
 func (o ArchivePolicySearchCriteriaPtrOutput) IncludedProjects() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ArchivePolicySearchCriteria) []string {
@@ -302,6 +384,16 @@ func (o ArchivePolicySearchCriteriaPtrOutput) IncludedProjects() pulumi.StringAr
 		}
 		return v.IncludedProjects
 	}).(pulumi.StringArrayOutput)
+}
+
+// A key-value pair applied to the lead artifact of a package. Packages with this property will be archived.
+func (o ArchivePolicySearchCriteriaPtrOutput) IncludedProperties() pulumi.StringArrayMapOutput {
+	return o.ApplyT(func(v *ArchivePolicySearchCriteria) map[string][]string {
+		if v == nil {
+			return nil
+		}
+		return v.IncludedProperties
+	}).(pulumi.StringArrayMapOutput)
 }
 
 // Set a value for the number of latest versions to keep. The archive policy will remove all versions before the number you select here. The latest version is always excluded.
@@ -318,9 +410,21 @@ func (o ArchivePolicySearchCriteriaPtrOutput) KeepLastNVersions() pulumi.IntPtrO
 	}).(pulumi.IntPtrOutput)
 }
 
+// The archive policy will archive packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 days ago will be archived as part of the policy.
+// > **Requires Artifactory 7.111.2 or later.**
+// ~>JFrog recommends using the `lastDownloadedBeforeInDays` condition to ensure that packages currently in use are not archived.
+func (o ArchivePolicySearchCriteriaPtrOutput) LastDownloadedBeforeInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ArchivePolicySearchCriteria) *int {
+		if v == nil {
+			return nil
+		}
+		return v.LastDownloadedBeforeInDays
+	}).(pulumi.IntPtrOutput)
+}
+
 // The archive policy will archive packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 months ago will be archived as part of the policy.
 //
-// ~>JFrog recommends using the `lastDownloadedBeforeInMonths` condition to ensure that packages currently in use are not archived.
+// Deprecated: Use `lastDownloadedBeforeInDays` instead of `lastDownloadedBeforeInMonths`. Renamed to `lastDownloadedBeforeInDays` starting in version 7.111.2.
 func (o ArchivePolicySearchCriteriaPtrOutput) LastDownloadedBeforeInMonths() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ArchivePolicySearchCriteria) *int {
 		if v == nil {

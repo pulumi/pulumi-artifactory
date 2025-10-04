@@ -30,7 +30,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.NewRemoteAlpineRepository(ctx, "my-remote-ansible", &artifactory.RemoteAlpineRepositoryArgs{
+//			_, err := artifactory.NewRemoteAnsibleRepository(ctx, "my-remote-ansible", &artifactory.RemoteAnsibleRepositoryArgs{
 //				Key: pulumi.String("my-remote-ansible"),
 //				Url: pulumi.String("https://galaxy.ansible.com"),
 //			})

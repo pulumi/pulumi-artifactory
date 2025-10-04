@@ -1446,7 +1446,7 @@ class RemoteAnsibleRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        my_remote_ansible = artifactory.RemoteAlpineRepository("my-remote-ansible",
+        my_remote_ansible = artifactory.RemoteAnsibleRepository("my-remote-ansible",
             key="my-remote-ansible",
             url="https://galaxy.ansible.com")
         ```
@@ -1519,7 +1519,7 @@ class RemoteAnsibleRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        my_remote_ansible = artifactory.RemoteAlpineRepository("my-remote-ansible",
+        my_remote_ansible = artifactory.RemoteAnsibleRepository("my-remote-ansible",
             key="my-remote-ansible",
             url="https://galaxy.ansible.com")
         ```

@@ -12,10 +12,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an Artifactory Archive Policy resource. This resource enable system administrators to define and customize policies based on specific criteria for removing unused binaries from across their JFrog platform. See [Retention Policies](https://jfrog.com/help/r/jfrog-platform-administration-documentation/retention-policies) for more details.
-//
-// ~>Currently in beta and not yet globally available. A full rollout is scheduled for Q1 2025.
-//
 // ## Import
 //
 // ```sh
@@ -32,7 +28,7 @@ type ArchivePolicy struct {
 	CronExpression pulumi.StringPtrOutput `pulumi:"cronExpression"`
 	Description    pulumi.StringPtrOutput `pulumi:"description"`
 	// The maximum duration (in minutes) for policy execution, after which the policy will stop running even if not completed. While setting a maximum run duration for a policy is useful for adhering to a strict archive V2 schedule, it can cause the policy to stop before completion.
-	DurationInMinutes pulumi.IntPtrOutput `pulumi:"durationInMinutes"`
+	DurationInMinutes pulumi.IntOutput `pulumi:"durationInMinutes"`
 	// Enables or disabled the package cleanup policy. This allows the user to run the policy manually. If a policy has a valid cron expression, then it will be scheduled for execution based on it. If a policy is disabled, its future executions will be unscheduled. Defaults to `true`
 	Enabled pulumi.BoolOutput `pulumi:"enabled"`
 	// An ID that is used to identify the archive policy. A minimum of three characters is required and can include letters, numbers, underscore and hyphen.
@@ -249,8 +245,8 @@ func (o ArchivePolicyOutput) Description() pulumi.StringPtrOutput {
 }
 
 // The maximum duration (in minutes) for policy execution, after which the policy will stop running even if not completed. While setting a maximum run duration for a policy is useful for adhering to a strict archive V2 schedule, it can cause the policy to stop before completion.
-func (o ArchivePolicyOutput) DurationInMinutes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ArchivePolicy) pulumi.IntPtrOutput { return v.DurationInMinutes }).(pulumi.IntPtrOutput)
+func (o ArchivePolicyOutput) DurationInMinutes() pulumi.IntOutput {
+	return o.ApplyT(func(v *ArchivePolicy) pulumi.IntOutput { return v.DurationInMinutes }).(pulumi.IntOutput)
 }
 
 // Enables or disabled the package cleanup policy. This allows the user to run the policy manually. If a policy has a valid cron expression, then it will be scheduled for execution based on it. If a policy is disabled, its future executions will be unscheduled. Defaults to `true`

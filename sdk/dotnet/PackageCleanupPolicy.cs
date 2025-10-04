@@ -36,7 +36,7 @@ namespace Pulumi.Artifactory
         /// The maximum duration (in minutes) for policy execution, after which the policy will stop running even if not completed. While setting a maximum run duration for a policy is useful for adhering to a strict cleanup schedule, it can cause the policy to stop before completion.
         /// </summary>
         [Output("durationInMinutes")]
-        public Output<int?> DurationInMinutes { get; private set; } = null!;
+        public Output<int> DurationInMinutes { get; private set; } = null!;
 
         /// <summary>
         /// A cleanup policy must be created inactive. But if used it must be set to `false`. If set to `true` when calling this API, the API call will fail and an error message is received. Defaults to `true`
@@ -49,6 +49,12 @@ namespace Pulumi.Artifactory
         /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
+
+        /// <summary>
+        /// This attribute is used only for project-level cleanup policies, it is not used for global-level policies. When specified, the policy will be scoped to the specified project. Note: The policy `key` must start with this project key value as a prefix (e.g., if `project_key` is `"myproj"`, the `key` should be `"myproj-policy-name"`).
+        /// </summary>
+        [Output("projectKey")]
+        public Output<string?> ProjectKey { get; private set; } = null!;
 
         [Output("searchCriteria")]
         public Output<Outputs.PackageCleanupPolicySearchCriteria> SearchCriteria { get; private set; } = null!;
@@ -132,6 +138,12 @@ namespace Pulumi.Artifactory
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
+        /// <summary>
+        /// This attribute is used only for project-level cleanup policies, it is not used for global-level policies. When specified, the policy will be scoped to the specified project. Note: The policy `key` must start with this project key value as a prefix (e.g., if `project_key` is `"myproj"`, the `key` should be `"myproj-policy-name"`).
+        /// </summary>
+        [Input("projectKey")]
+        public Input<string>? ProjectKey { get; set; }
+
         [Input("searchCriteria", required: true)]
         public Input<Inputs.PackageCleanupPolicySearchCriteriaArgs> SearchCriteria { get; set; } = null!;
 
@@ -175,6 +187,12 @@ namespace Pulumi.Artifactory
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
+
+        /// <summary>
+        /// This attribute is used only for project-level cleanup policies, it is not used for global-level policies. When specified, the policy will be scoped to the specified project. Note: The policy `key` must start with this project key value as a prefix (e.g., if `project_key` is `"myproj"`, the `key` should be `"myproj-policy-name"`).
+        /// </summary>
+        [Input("projectKey")]
+        public Input<string>? ProjectKey { get; set; }
 
         [Input("searchCriteria")]
         public Input<Inputs.PackageCleanupPolicySearchCriteriaGetArgs>? SearchCriteria { get; set; }

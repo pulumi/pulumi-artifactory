@@ -32,8 +32,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.artifactory.RemoteAlpineRepository;
- * import com.pulumi.artifactory.RemoteAlpineRepositoryArgs;
+ * import com.pulumi.artifactory.RemoteAnsibleRepository;
+ * import com.pulumi.artifactory.RemoteAnsibleRepositoryArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var my_remote_ansible = new RemoteAlpineRepository("my-remote-ansible", RemoteAlpineRepositoryArgs.builder()
+ *         var my_remote_ansible = new RemoteAnsibleRepository("my-remote-ansible", RemoteAnsibleRepositoryArgs.builder()
  *             .key("my-remote-ansible")
  *             .url("https://galaxy.ansible.com")
  *             .build());

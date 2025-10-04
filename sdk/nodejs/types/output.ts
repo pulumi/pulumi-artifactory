@@ -7,7 +7,15 @@ import * as outputs from "../types/output";
 
 export interface ArchivePolicySearchCriteria {
     /**
+     * The archive policy will archive packages based on how long ago they were created. For example, if this parameter is 2 then packages created more than 2 days ago will be archived as part of the policy.
+     * > **Requires Artifactory 7.111.2 or later.**
+     * ~>JFrog recommends using the `createdBeforeInDays` condition to ensure that packages currently in use are not archived.
+     */
+    createdBeforeInDays: number;
+    /**
      * The archive policy will archive packages based on how long ago they were created. For example, if this parameter is 2 then packages created more than 2 months ago will be archived as part of the policy.
+     *
+     * @deprecated Use `createdBeforeInDays` instead of `createdBeforeInMonths`. Renamed to `createdBeforeInDays` starting in version 7.111.2.
      */
     createdBeforeInMonths: number;
     /**
@@ -15,11 +23,17 @@ export interface ArchivePolicySearchCriteria {
      */
     excludedPackages?: string[];
     /**
+     * A key-value pair applied to the lead artifact of a package. Packages with this property will be excluded from archival.
+     */
+    excludedProperties?: {[key: string]: string[]};
+    /**
      * Specify patterns for repository names or explicit repository names that you want excluded from the archive policy.
      */
     excludedRepos?: string[];
     /**
      * Set this value to `true` if you want the policy to run on all Artifactory projects. The default value is `false`.
+     *
+     * ~>This attribute is relevant only on the global level, for Platform Admins.
      */
     includeAllProjects?: boolean;
     /**
@@ -27,11 +41,14 @@ export interface ArchivePolicySearchCriteria {
      */
     includedPackages: string[];
     /**
-     * List of projects on which you want this policy to run. To include repositories that are not assigned to any project, enter the project key `default`.
-     *
+     * List of projects on which you want this policy to run. To include repositories that are not assigned to any project, enter the project key `default`. Can be empty when `includeAllProjects` is set to `true`.
      * ~>This setting is relevant only on the global level, for Platform Admins.
      */
-    includedProjects?: string[];
+    includedProjects: string[];
+    /**
+     * A key-value pair applied to the lead artifact of a package. Packages with this property will be archived.
+     */
+    includedProperties?: {[key: string]: string[]};
     /**
      * Set a value for the number of latest versions to keep. The archive policy will remove all versions before the number you select here. The latest version is always excluded.
      *
@@ -39,11 +56,17 @@ export interface ArchivePolicySearchCriteria {
      *
      * ~>Not all package types support this condition. If you include a package type in your policy that is not compatible with this condition, a validation error (400) is returned. For information on which package types support this condition, see here.
      */
-    keepLastNVersions?: number;
+    keepLastNVersions: number;
+    /**
+     * The archive policy will archive packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 days ago will be archived as part of the policy.
+     * > **Requires Artifactory 7.111.2 or later.**
+     * ~>JFrog recommends using the `lastDownloadedBeforeInDays` condition to ensure that packages currently in use are not archived.
+     */
+    lastDownloadedBeforeInDays: number;
     /**
      * The archive policy will archive packages based on how long ago they were downloaded. For example, if this parameter is 5 then packages downloaded more than 5 months ago will be archived as part of the policy.
      *
-     * ~>JFrog recommends using the `lastDownloadedBeforeInMonths` condition to ensure that packages currently in use are not archived.
+     * @deprecated Use `lastDownloadedBeforeInDays` instead of `lastDownloadedBeforeInMonths`. Renamed to `lastDownloadedBeforeInDays` starting in version 7.111.2.
      */
     lastDownloadedBeforeInMonths: number;
     packageTypes: string[];

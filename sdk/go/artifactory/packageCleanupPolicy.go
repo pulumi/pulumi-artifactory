@@ -28,11 +28,13 @@ type PackageCleanupPolicy struct {
 	CronExpression pulumi.StringPtrOutput `pulumi:"cronExpression"`
 	Description    pulumi.StringPtrOutput `pulumi:"description"`
 	// The maximum duration (in minutes) for policy execution, after which the policy will stop running even if not completed. While setting a maximum run duration for a policy is useful for adhering to a strict cleanup schedule, it can cause the policy to stop before completion.
-	DurationInMinutes pulumi.IntPtrOutput `pulumi:"durationInMinutes"`
+	DurationInMinutes pulumi.IntOutput `pulumi:"durationInMinutes"`
 	// A cleanup policy must be created inactive. But if used it must be set to `false`. If set to `true` when calling this API, the API call will fail and an error message is received. Defaults to `true`
 	Enabled pulumi.BoolOutput `pulumi:"enabled"`
 	// An ID that is used to identify the cleanup policy. A minimum of three characters is required and can include letters, numbers, underscore and hyphen.
-	Key            pulumi.StringOutput                      `pulumi:"key"`
+	Key pulumi.StringOutput `pulumi:"key"`
+	// This attribute is used only for project-level cleanup policies, it is not used for global-level policies. When specified, the policy will be scoped to the specified project. Note: The policy `key` must start with this project key value as a prefix (e.g., if `projectKey` is `"myproj"`, the `key` should be `"myproj-policy-name"`).
+	ProjectKey     pulumi.StringPtrOutput                   `pulumi:"projectKey"`
 	SearchCriteria PackageCleanupPolicySearchCriteriaOutput `pulumi:"searchCriteria"`
 	// A true value means that when this policy is executed, packages will be permanently deleted. false means that when the policy is executed packages will be deleted to the Trash Can. Defaults to `false`.
 	SkipTrashcan pulumi.BoolOutput `pulumi:"skipTrashcan"`
@@ -82,7 +84,9 @@ type packageCleanupPolicyState struct {
 	// A cleanup policy must be created inactive. But if used it must be set to `false`. If set to `true` when calling this API, the API call will fail and an error message is received. Defaults to `true`
 	Enabled *bool `pulumi:"enabled"`
 	// An ID that is used to identify the cleanup policy. A minimum of three characters is required and can include letters, numbers, underscore and hyphen.
-	Key            *string                             `pulumi:"key"`
+	Key *string `pulumi:"key"`
+	// This attribute is used only for project-level cleanup policies, it is not used for global-level policies. When specified, the policy will be scoped to the specified project. Note: The policy `key` must start with this project key value as a prefix (e.g., if `projectKey` is `"myproj"`, the `key` should be `"myproj-policy-name"`).
+	ProjectKey     *string                             `pulumi:"projectKey"`
 	SearchCriteria *PackageCleanupPolicySearchCriteria `pulumi:"searchCriteria"`
 	// A true value means that when this policy is executed, packages will be permanently deleted. false means that when the policy is executed packages will be deleted to the Trash Can. Defaults to `false`.
 	SkipTrashcan *bool `pulumi:"skipTrashcan"`
@@ -97,7 +101,9 @@ type PackageCleanupPolicyState struct {
 	// A cleanup policy must be created inactive. But if used it must be set to `false`. If set to `true` when calling this API, the API call will fail and an error message is received. Defaults to `true`
 	Enabled pulumi.BoolPtrInput
 	// An ID that is used to identify the cleanup policy. A minimum of three characters is required and can include letters, numbers, underscore and hyphen.
-	Key            pulumi.StringPtrInput
+	Key pulumi.StringPtrInput
+	// This attribute is used only for project-level cleanup policies, it is not used for global-level policies. When specified, the policy will be scoped to the specified project. Note: The policy `key` must start with this project key value as a prefix (e.g., if `projectKey` is `"myproj"`, the `key` should be `"myproj-policy-name"`).
+	ProjectKey     pulumi.StringPtrInput
 	SearchCriteria PackageCleanupPolicySearchCriteriaPtrInput
 	// A true value means that when this policy is executed, packages will be permanently deleted. false means that when the policy is executed packages will be deleted to the Trash Can. Defaults to `false`.
 	SkipTrashcan pulumi.BoolPtrInput
@@ -116,7 +122,9 @@ type packageCleanupPolicyArgs struct {
 	// A cleanup policy must be created inactive. But if used it must be set to `false`. If set to `true` when calling this API, the API call will fail and an error message is received. Defaults to `true`
 	Enabled *bool `pulumi:"enabled"`
 	// An ID that is used to identify the cleanup policy. A minimum of three characters is required and can include letters, numbers, underscore and hyphen.
-	Key            string                             `pulumi:"key"`
+	Key string `pulumi:"key"`
+	// This attribute is used only for project-level cleanup policies, it is not used for global-level policies. When specified, the policy will be scoped to the specified project. Note: The policy `key` must start with this project key value as a prefix (e.g., if `projectKey` is `"myproj"`, the `key` should be `"myproj-policy-name"`).
+	ProjectKey     *string                            `pulumi:"projectKey"`
 	SearchCriteria PackageCleanupPolicySearchCriteria `pulumi:"searchCriteria"`
 	// A true value means that when this policy is executed, packages will be permanently deleted. false means that when the policy is executed packages will be deleted to the Trash Can. Defaults to `false`.
 	SkipTrashcan *bool `pulumi:"skipTrashcan"`
@@ -132,7 +140,9 @@ type PackageCleanupPolicyArgs struct {
 	// A cleanup policy must be created inactive. But if used it must be set to `false`. If set to `true` when calling this API, the API call will fail and an error message is received. Defaults to `true`
 	Enabled pulumi.BoolPtrInput
 	// An ID that is used to identify the cleanup policy. A minimum of three characters is required and can include letters, numbers, underscore and hyphen.
-	Key            pulumi.StringInput
+	Key pulumi.StringInput
+	// This attribute is used only for project-level cleanup policies, it is not used for global-level policies. When specified, the policy will be scoped to the specified project. Note: The policy `key` must start with this project key value as a prefix (e.g., if `projectKey` is `"myproj"`, the `key` should be `"myproj-policy-name"`).
+	ProjectKey     pulumi.StringPtrInput
 	SearchCriteria PackageCleanupPolicySearchCriteriaInput
 	// A true value means that when this policy is executed, packages will be permanently deleted. false means that when the policy is executed packages will be deleted to the Trash Can. Defaults to `false`.
 	SkipTrashcan pulumi.BoolPtrInput
@@ -235,8 +245,8 @@ func (o PackageCleanupPolicyOutput) Description() pulumi.StringPtrOutput {
 }
 
 // The maximum duration (in minutes) for policy execution, after which the policy will stop running even if not completed. While setting a maximum run duration for a policy is useful for adhering to a strict cleanup schedule, it can cause the policy to stop before completion.
-func (o PackageCleanupPolicyOutput) DurationInMinutes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *PackageCleanupPolicy) pulumi.IntPtrOutput { return v.DurationInMinutes }).(pulumi.IntPtrOutput)
+func (o PackageCleanupPolicyOutput) DurationInMinutes() pulumi.IntOutput {
+	return o.ApplyT(func(v *PackageCleanupPolicy) pulumi.IntOutput { return v.DurationInMinutes }).(pulumi.IntOutput)
 }
 
 // A cleanup policy must be created inactive. But if used it must be set to `false`. If set to `true` when calling this API, the API call will fail and an error message is received. Defaults to `true`
@@ -247,6 +257,11 @@ func (o PackageCleanupPolicyOutput) Enabled() pulumi.BoolOutput {
 // An ID that is used to identify the cleanup policy. A minimum of three characters is required and can include letters, numbers, underscore and hyphen.
 func (o PackageCleanupPolicyOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *PackageCleanupPolicy) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
+}
+
+// This attribute is used only for project-level cleanup policies, it is not used for global-level policies. When specified, the policy will be scoped to the specified project. Note: The policy `key` must start with this project key value as a prefix (e.g., if `projectKey` is `"myproj"`, the `key` should be `"myproj-policy-name"`).
+func (o PackageCleanupPolicyOutput) ProjectKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PackageCleanupPolicy) pulumi.StringPtrOutput { return v.ProjectKey }).(pulumi.StringPtrOutput)
 }
 
 func (o PackageCleanupPolicyOutput) SearchCriteria() PackageCleanupPolicySearchCriteriaOutput {

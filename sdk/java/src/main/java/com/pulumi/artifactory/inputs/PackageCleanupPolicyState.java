@@ -85,6 +85,21 @@ public final class PackageCleanupPolicyState extends com.pulumi.resources.Resour
         return Optional.ofNullable(this.key);
     }
 
+    /**
+     * This attribute is used only for project-level cleanup policies, it is not used for global-level policies. When specified, the policy will be scoped to the specified project. Note: The policy `key` must start with this project key value as a prefix (e.g., if `project_key` is `&#34;myproj&#34;`, the `key` should be `&#34;myproj-policy-name&#34;`).
+     * 
+     */
+    @Import(name="projectKey")
+    private @Nullable Output<String> projectKey;
+
+    /**
+     * @return This attribute is used only for project-level cleanup policies, it is not used for global-level policies. When specified, the policy will be scoped to the specified project. Note: The policy `key` must start with this project key value as a prefix (e.g., if `project_key` is `&#34;myproj&#34;`, the `key` should be `&#34;myproj-policy-name&#34;`).
+     * 
+     */
+    public Optional<Output<String>> projectKey() {
+        return Optional.ofNullable(this.projectKey);
+    }
+
     @Import(name="searchCriteria")
     private @Nullable Output<PackageCleanupPolicySearchCriteriaArgs> searchCriteria;
 
@@ -115,6 +130,7 @@ public final class PackageCleanupPolicyState extends com.pulumi.resources.Resour
         this.durationInMinutes = $.durationInMinutes;
         this.enabled = $.enabled;
         this.key = $.key;
+        this.projectKey = $.projectKey;
         this.searchCriteria = $.searchCriteria;
         this.skipTrashcan = $.skipTrashcan;
     }
@@ -228,6 +244,27 @@ public final class PackageCleanupPolicyState extends com.pulumi.resources.Resour
          */
         public Builder key(String key) {
             return key(Output.of(key));
+        }
+
+        /**
+         * @param projectKey This attribute is used only for project-level cleanup policies, it is not used for global-level policies. When specified, the policy will be scoped to the specified project. Note: The policy `key` must start with this project key value as a prefix (e.g., if `project_key` is `&#34;myproj&#34;`, the `key` should be `&#34;myproj-policy-name&#34;`).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder projectKey(@Nullable Output<String> projectKey) {
+            $.projectKey = projectKey;
+            return this;
+        }
+
+        /**
+         * @param projectKey This attribute is used only for project-level cleanup policies, it is not used for global-level policies. When specified, the policy will be scoped to the specified project. Note: The policy `key` must start with this project key value as a prefix (e.g., if `project_key` is `&#34;myproj&#34;`, the `key` should be `&#34;myproj-policy-name&#34;`).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder projectKey(String projectKey) {
+            return projectKey(Output.of(projectKey));
         }
 
         public Builder searchCriteria(@Nullable Output<PackageCleanupPolicySearchCriteriaArgs> searchCriteria) {

@@ -33,7 +33,60 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			// Configure Artifactory general security settings
 //			_, err := artifactory.NewGeneralSecurity(ctx, "security", &artifactory.GeneralSecurityArgs{
+//				EnableAnonymousAccess: pulumi.Bool(false),
+//				EncryptionPolicy:      pulumi.String("REQUIRED"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v8/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Enable anonymous access with supported encryption
+//			_, err := artifactory.NewGeneralSecurity(ctx, "security", &artifactory.GeneralSecurityArgs{
 //				EnableAnonymousAccess: pulumi.Bool(true),
+//				EncryptionPolicy:      pulumi.String("SUPPORTED"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v8/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Disable encryption policy (clear-text only)
+//			_, err := artifactory.NewGeneralSecurity(ctx, "security", &artifactory.GeneralSecurityArgs{
+//				EnableAnonymousAccess: pulumi.Bool(false),
+//				EncryptionPolicy:      pulumi.String("UNSUPPORTED"),
 //			})
 //			if err != nil {
 //				return err
@@ -51,14 +104,18 @@ import (
 // ```sh
 // $ pulumi import artifactory:index/generalSecurity:GeneralSecurity security security
 // ```
-// ~>The `artifactory_general_security` resource uses endpoints that are undocumented and may not work with SaaS
-// environments, or may change without notice.
+// ~>The `artifactory_general_security` resource uses endpoints that are undocumented and may not work with SaaS environments, or may change without notice.
 type GeneralSecurity struct {
 	pulumi.CustomResourceState
 
-	// Enable anonymous access.  Default value is `false`.
+	// Enable anonymous access. Default value is `false`.
 	EnableAnonymousAccess pulumi.BoolOutput `pulumi:"enableAnonymousAccess"`
-	// Determines the password requirements from users identified to Artifactory from a remote client such as Maven. The options are: (1) `SUPPORTED` (default): Users can authenticate using secure encrypted passwords or clear-text passwords. (2) `REQUIRED`: Users must authenticate using secure encrypted passwords. Clear-text authentication fails. (3) `UNSUPPORTED`: Only clear-text passwords can be used for authentication. Default value is `SUPPORTED`.
+	// Determines the password requirements from users identified to Artifactory from a remote client such as Maven. The options are:
+	// - `SUPPORTED` (default): Users can authenticate using secure encrypted passwords or clear-text passwords.
+	// - `REQUIRED`: Users must authenticate using secure encrypted passwords. Clear-text authentication fails.
+	// - `UNSUPPORTED`: Only clear-text passwords can be used for authentication.
+	//
+	// Default value is `SUPPORTED`.
 	EncryptionPolicy pulumi.StringOutput `pulumi:"encryptionPolicy"`
 }
 
@@ -92,16 +149,26 @@ func GetGeneralSecurity(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering GeneralSecurity resources.
 type generalSecurityState struct {
-	// Enable anonymous access.  Default value is `false`.
+	// Enable anonymous access. Default value is `false`.
 	EnableAnonymousAccess *bool `pulumi:"enableAnonymousAccess"`
-	// Determines the password requirements from users identified to Artifactory from a remote client such as Maven. The options are: (1) `SUPPORTED` (default): Users can authenticate using secure encrypted passwords or clear-text passwords. (2) `REQUIRED`: Users must authenticate using secure encrypted passwords. Clear-text authentication fails. (3) `UNSUPPORTED`: Only clear-text passwords can be used for authentication. Default value is `SUPPORTED`.
+	// Determines the password requirements from users identified to Artifactory from a remote client such as Maven. The options are:
+	// - `SUPPORTED` (default): Users can authenticate using secure encrypted passwords or clear-text passwords.
+	// - `REQUIRED`: Users must authenticate using secure encrypted passwords. Clear-text authentication fails.
+	// - `UNSUPPORTED`: Only clear-text passwords can be used for authentication.
+	//
+	// Default value is `SUPPORTED`.
 	EncryptionPolicy *string `pulumi:"encryptionPolicy"`
 }
 
 type GeneralSecurityState struct {
-	// Enable anonymous access.  Default value is `false`.
+	// Enable anonymous access. Default value is `false`.
 	EnableAnonymousAccess pulumi.BoolPtrInput
-	// Determines the password requirements from users identified to Artifactory from a remote client such as Maven. The options are: (1) `SUPPORTED` (default): Users can authenticate using secure encrypted passwords or clear-text passwords. (2) `REQUIRED`: Users must authenticate using secure encrypted passwords. Clear-text authentication fails. (3) `UNSUPPORTED`: Only clear-text passwords can be used for authentication. Default value is `SUPPORTED`.
+	// Determines the password requirements from users identified to Artifactory from a remote client such as Maven. The options are:
+	// - `SUPPORTED` (default): Users can authenticate using secure encrypted passwords or clear-text passwords.
+	// - `REQUIRED`: Users must authenticate using secure encrypted passwords. Clear-text authentication fails.
+	// - `UNSUPPORTED`: Only clear-text passwords can be used for authentication.
+	//
+	// Default value is `SUPPORTED`.
 	EncryptionPolicy pulumi.StringPtrInput
 }
 
@@ -110,17 +177,27 @@ func (GeneralSecurityState) ElementType() reflect.Type {
 }
 
 type generalSecurityArgs struct {
-	// Enable anonymous access.  Default value is `false`.
+	// Enable anonymous access. Default value is `false`.
 	EnableAnonymousAccess *bool `pulumi:"enableAnonymousAccess"`
-	// Determines the password requirements from users identified to Artifactory from a remote client such as Maven. The options are: (1) `SUPPORTED` (default): Users can authenticate using secure encrypted passwords or clear-text passwords. (2) `REQUIRED`: Users must authenticate using secure encrypted passwords. Clear-text authentication fails. (3) `UNSUPPORTED`: Only clear-text passwords can be used for authentication. Default value is `SUPPORTED`.
+	// Determines the password requirements from users identified to Artifactory from a remote client such as Maven. The options are:
+	// - `SUPPORTED` (default): Users can authenticate using secure encrypted passwords or clear-text passwords.
+	// - `REQUIRED`: Users must authenticate using secure encrypted passwords. Clear-text authentication fails.
+	// - `UNSUPPORTED`: Only clear-text passwords can be used for authentication.
+	//
+	// Default value is `SUPPORTED`.
 	EncryptionPolicy *string `pulumi:"encryptionPolicy"`
 }
 
 // The set of arguments for constructing a GeneralSecurity resource.
 type GeneralSecurityArgs struct {
-	// Enable anonymous access.  Default value is `false`.
+	// Enable anonymous access. Default value is `false`.
 	EnableAnonymousAccess pulumi.BoolPtrInput
-	// Determines the password requirements from users identified to Artifactory from a remote client such as Maven. The options are: (1) `SUPPORTED` (default): Users can authenticate using secure encrypted passwords or clear-text passwords. (2) `REQUIRED`: Users must authenticate using secure encrypted passwords. Clear-text authentication fails. (3) `UNSUPPORTED`: Only clear-text passwords can be used for authentication. Default value is `SUPPORTED`.
+	// Determines the password requirements from users identified to Artifactory from a remote client such as Maven. The options are:
+	// - `SUPPORTED` (default): Users can authenticate using secure encrypted passwords or clear-text passwords.
+	// - `REQUIRED`: Users must authenticate using secure encrypted passwords. Clear-text authentication fails.
+	// - `UNSUPPORTED`: Only clear-text passwords can be used for authentication.
+	//
+	// Default value is `SUPPORTED`.
 	EncryptionPolicy pulumi.StringPtrInput
 }
 
@@ -211,12 +288,17 @@ func (o GeneralSecurityOutput) ToGeneralSecurityOutputWithContext(ctx context.Co
 	return o
 }
 
-// Enable anonymous access.  Default value is `false`.
+// Enable anonymous access. Default value is `false`.
 func (o GeneralSecurityOutput) EnableAnonymousAccess() pulumi.BoolOutput {
 	return o.ApplyT(func(v *GeneralSecurity) pulumi.BoolOutput { return v.EnableAnonymousAccess }).(pulumi.BoolOutput)
 }
 
-// Determines the password requirements from users identified to Artifactory from a remote client such as Maven. The options are: (1) `SUPPORTED` (default): Users can authenticate using secure encrypted passwords or clear-text passwords. (2) `REQUIRED`: Users must authenticate using secure encrypted passwords. Clear-text authentication fails. (3) `UNSUPPORTED`: Only clear-text passwords can be used for authentication. Default value is `SUPPORTED`.
+// Determines the password requirements from users identified to Artifactory from a remote client such as Maven. The options are:
+// - `SUPPORTED` (default): Users can authenticate using secure encrypted passwords or clear-text passwords.
+// - `REQUIRED`: Users must authenticate using secure encrypted passwords. Clear-text authentication fails.
+// - `UNSUPPORTED`: Only clear-text passwords can be used for authentication.
+//
+// Default value is `SUPPORTED`.
 func (o GeneralSecurityOutput) EncryptionPolicy() pulumi.StringOutput {
 	return o.ApplyT(func(v *GeneralSecurity) pulumi.StringOutput { return v.EncryptionPolicy }).(pulumi.StringOutput)
 }

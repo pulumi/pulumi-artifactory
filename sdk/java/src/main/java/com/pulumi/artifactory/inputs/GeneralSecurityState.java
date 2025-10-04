@@ -17,14 +17,14 @@ public final class GeneralSecurityState extends com.pulumi.resources.ResourceArg
     public static final GeneralSecurityState Empty = new GeneralSecurityState();
 
     /**
-     * Enable anonymous access.  Default value is `false`.
+     * Enable anonymous access. Default value is `false`.
      * 
      */
     @Import(name="enableAnonymousAccess")
     private @Nullable Output<Boolean> enableAnonymousAccess;
 
     /**
-     * @return Enable anonymous access.  Default value is `false`.
+     * @return Enable anonymous access. Default value is `false`.
      * 
      */
     public Optional<Output<Boolean>> enableAnonymousAccess() {
@@ -32,14 +32,24 @@ public final class GeneralSecurityState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Determines the password requirements from users identified to Artifactory from a remote client such as Maven. The options are: (1) `SUPPORTED` (default): Users can authenticate using secure encrypted passwords or clear-text passwords. (2) `REQUIRED`: Users must authenticate using secure encrypted passwords. Clear-text authentication fails. (3) `UNSUPPORTED`: Only clear-text passwords can be used for authentication. Default value is `SUPPORTED`.
+     * Determines the password requirements from users identified to Artifactory from a remote client such as Maven. The options are:
+     * - `SUPPORTED` (default): Users can authenticate using secure encrypted passwords or clear-text passwords.
+     * - `REQUIRED`: Users must authenticate using secure encrypted passwords. Clear-text authentication fails.
+     * - `UNSUPPORTED`: Only clear-text passwords can be used for authentication.
+     * 
+     * Default value is `SUPPORTED`.
      * 
      */
     @Import(name="encryptionPolicy")
     private @Nullable Output<String> encryptionPolicy;
 
     /**
-     * @return Determines the password requirements from users identified to Artifactory from a remote client such as Maven. The options are: (1) `SUPPORTED` (default): Users can authenticate using secure encrypted passwords or clear-text passwords. (2) `REQUIRED`: Users must authenticate using secure encrypted passwords. Clear-text authentication fails. (3) `UNSUPPORTED`: Only clear-text passwords can be used for authentication. Default value is `SUPPORTED`.
+     * @return Determines the password requirements from users identified to Artifactory from a remote client such as Maven. The options are:
+     * - `SUPPORTED` (default): Users can authenticate using secure encrypted passwords or clear-text passwords.
+     * - `REQUIRED`: Users must authenticate using secure encrypted passwords. Clear-text authentication fails.
+     * - `UNSUPPORTED`: Only clear-text passwords can be used for authentication.
+     * 
+     * Default value is `SUPPORTED`.
      * 
      */
     public Optional<Output<String>> encryptionPolicy() {
@@ -72,7 +82,7 @@ public final class GeneralSecurityState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param enableAnonymousAccess Enable anonymous access.  Default value is `false`.
+         * @param enableAnonymousAccess Enable anonymous access. Default value is `false`.
          * 
          * @return builder
          * 
@@ -83,7 +93,7 @@ public final class GeneralSecurityState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param enableAnonymousAccess Enable anonymous access.  Default value is `false`.
+         * @param enableAnonymousAccess Enable anonymous access. Default value is `false`.
          * 
          * @return builder
          * 
@@ -93,7 +103,12 @@ public final class GeneralSecurityState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param encryptionPolicy Determines the password requirements from users identified to Artifactory from a remote client such as Maven. The options are: (1) `SUPPORTED` (default): Users can authenticate using secure encrypted passwords or clear-text passwords. (2) `REQUIRED`: Users must authenticate using secure encrypted passwords. Clear-text authentication fails. (3) `UNSUPPORTED`: Only clear-text passwords can be used for authentication. Default value is `SUPPORTED`.
+         * @param encryptionPolicy Determines the password requirements from users identified to Artifactory from a remote client such as Maven. The options are:
+         * - `SUPPORTED` (default): Users can authenticate using secure encrypted passwords or clear-text passwords.
+         * - `REQUIRED`: Users must authenticate using secure encrypted passwords. Clear-text authentication fails.
+         * - `UNSUPPORTED`: Only clear-text passwords can be used for authentication.
+         * 
+         * Default value is `SUPPORTED`.
          * 
          * @return builder
          * 
@@ -104,7 +119,12 @@ public final class GeneralSecurityState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param encryptionPolicy Determines the password requirements from users identified to Artifactory from a remote client such as Maven. The options are: (1) `SUPPORTED` (default): Users can authenticate using secure encrypted passwords or clear-text passwords. (2) `REQUIRED`: Users must authenticate using secure encrypted passwords. Clear-text authentication fails. (3) `UNSUPPORTED`: Only clear-text passwords can be used for authentication. Default value is `SUPPORTED`.
+         * @param encryptionPolicy Determines the password requirements from users identified to Artifactory from a remote client such as Maven. The options are:
+         * - `SUPPORTED` (default): Users can authenticate using secure encrypted passwords or clear-text passwords.
+         * - `REQUIRED`: Users must authenticate using secure encrypted passwords. Clear-text authentication fails.
+         * - `UNSUPPORTED`: Only clear-text passwords can be used for authentication.
+         * 
+         * Default value is `SUPPORTED`.
          * 
          * @return builder
          * 
